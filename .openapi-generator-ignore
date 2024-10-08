@@ -1,0 +1,5 @@
+# OpenAPI Generator Ignore
+go.mod
+go.sum
+LICENSE
+
