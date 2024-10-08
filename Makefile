@@ -19,8 +19,8 @@ gen-go-sdk:
 	openapi-generator generate \
   -i ${OPEN_API_SPEC} \
   -g go \
-  -o ./pkg/registration \
-  --additional-properties packageName=registration,isGoSubmodule=true,withGoMod=false,disallowAdditionalPropertiesIfNotPresent=false,prependFormOrBodyParameters=true \
+  -o ./ \
+  --additional-properties packageName=${PACKAGE_NAME},packageVersion=${PACKAGE_VERSION},useTags=true \
   --git-user-id ${ORG_NAME} \
   --git-repo-id ${REPO_NAME}
 
