@@ -2,8 +2,8 @@ PACKAGE_NAME=omnistrategosdk
 PACKAGE_VERSION=0.0.1
 ORG_NAME=omnistrate
 REPO_NAME=omnistrate-sdk-go
-OPEN_API_SPEC=https://api.omnistrate.cloud/2022-09-01-00/openapi.yaml
-FLEET_OPEN_API_SPEC=https://api.omnistrate.cloud/2022-09-01-00/fleet/openapi.yaml
+OPEN_API_SPEC?=https://api.omnistrate.cloud/2022-09-01-00/openapi.yaml
+FLEET_OPEN_API_SPEC?=https://api.omnistrate.cloud/2022-09-01-00/fleet/openapi.yaml
 
 .PHONY: all
 all: clean gen-go-sdk gen-fleet-go-sdk tidy build
@@ -16,7 +16,6 @@ build:
 .PHONY: clean
 clean:
 	echo "Clean Go SDK"
-	rm -rf registration
 	rm -rf fleet
 	rm -rf v1
 
