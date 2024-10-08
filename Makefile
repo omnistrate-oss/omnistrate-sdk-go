@@ -18,6 +18,7 @@ clean:
 	echo "Clean Go SDK"
 	rm -rf registration
 	rm -rf fleet
+	rm -rf v1
 
 .PHONY: gen-go-sdk
 gen-go-sdk:
@@ -25,9 +26,9 @@ gen-go-sdk:
 	openapi-generator generate \
   -i ${OPEN_API_SPEC} \
   -g go \
-  -o registration \
+  -o v1 \
   -t templates/go \
-  --additional-properties packageName=registration,packageVersion=${PACKAGE_VERSION},withGoMod=false,isGoSubmodule=true,generateInterfaces=true \
+  --additional-properties packageName=v1,packageVersion=${PACKAGE_VERSION},withGoMod=false,isGoSubmodule=true,generateInterfaces=true \
   --git-user-id ${ORG_NAME} \
   --git-repo-id ${REPO_NAME}
 
