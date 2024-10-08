@@ -90,15 +90,6 @@ func (o *CustomerSigninRequestBody) GetEnvironmentTypeOk() (*string, bool) {
 	return o.EnvironmentType, true
 }
 
-// HasEnvironmentType returns a boolean if a field has been set.
-func (o *CustomerSigninRequestBody) HasEnvironmentType() bool {
-	if o != nil && !IsNil(o.EnvironmentType) {
-		return true
-	}
-
-	return false
-}
-
 // SetEnvironmentType gets a reference to the given string and assigns it to the EnvironmentType field.
 func (o *CustomerSigninRequestBody) SetEnvironmentType(v string) {
 	o.EnvironmentType = &v
@@ -122,15 +113,6 @@ func (o *CustomerSigninRequestBody) GetHashedPasswordOk() (*string, bool) {
 	return o.HashedPassword, true
 }
 
-// HasHashedPassword returns a boolean if a field has been set.
-func (o *CustomerSigninRequestBody) HasHashedPassword() bool {
-	if o != nil && !IsNil(o.HashedPassword) {
-		return true
-	}
-
-	return false
-}
-
 // SetHashedPassword gets a reference to the given string and assigns it to the HashedPassword field.
 func (o *CustomerSigninRequestBody) SetHashedPassword(v string) {
 	o.HashedPassword = &v
@@ -152,15 +134,6 @@ func (o *CustomerSigninRequestBody) GetPasswordOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Password, true
-}
-
-// HasPassword returns a boolean if a field has been set.
-func (o *CustomerSigninRequestBody) HasPassword() bool {
-	if o != nil && !IsNil(o.Password) {
-		return true
-	}
-
-	return false
 }
 
 // SetPassword gets a reference to the given string and assigns it to the Password field.

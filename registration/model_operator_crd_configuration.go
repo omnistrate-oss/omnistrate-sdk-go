@@ -71,15 +71,6 @@ func (o *OperatorCRDConfiguration) GetHelmChartDependenciesOk() ([]OperatorHelmC
 	return o.HelmChartDependencies, true
 }
 
-// HasHelmChartDependencies returns a boolean if a field has been set.
-func (o *OperatorCRDConfiguration) HasHelmChartDependencies() bool {
-	if o != nil && !IsNil(o.HelmChartDependencies) {
-		return true
-	}
-
-	return false
-}
-
 // SetHelmChartDependencies gets a reference to the given []OperatorHelmChartDependency and assigns it to the HelmChartDependencies field.
 func (o *OperatorCRDConfiguration) SetHelmChartDependencies(v []OperatorHelmChartDependency) {
 	o.HelmChartDependencies = v
@@ -101,15 +92,6 @@ func (o *OperatorCRDConfiguration) GetOutputParametersOk() (*map[string]string, 
 		return nil, false
 	}
 	return o.OutputParameters, true
-}
-
-// HasOutputParameters returns a boolean if a field has been set.
-func (o *OperatorCRDConfiguration) HasOutputParameters() bool {
-	if o != nil && !IsNil(o.OutputParameters) {
-		return true
-	}
-
-	return false
 }
 
 // SetOutputParameters gets a reference to the given map[string]string and assigns it to the OutputParameters field.
@@ -135,15 +117,6 @@ func (o *OperatorCRDConfiguration) GetReadinessConditionsOk() (map[string]interf
 	return o.ReadinessConditions, true
 }
 
-// HasReadinessConditions returns a boolean if a field has been set.
-func (o *OperatorCRDConfiguration) HasReadinessConditions() bool {
-	if o != nil && !IsNil(o.ReadinessConditions) {
-		return true
-	}
-
-	return false
-}
-
 // SetReadinessConditions gets a reference to the given map[string]interface{} and assigns it to the ReadinessConditions field.
 func (o *OperatorCRDConfiguration) SetReadinessConditions(v map[string]interface{}) {
 	o.ReadinessConditions = v
@@ -165,15 +138,6 @@ func (o *OperatorCRDConfiguration) GetSupplementalFilesOk() ([]string, bool) {
 		return nil, false
 	}
 	return o.SupplementalFiles, true
-}
-
-// HasSupplementalFiles returns a boolean if a field has been set.
-func (o *OperatorCRDConfiguration) HasSupplementalFiles() bool {
-	if o != nil && !IsNil(o.SupplementalFiles) {
-		return true
-	}
-
-	return false
 }
 
 // SetSupplementalFiles gets a reference to the given []string and assigns it to the SupplementalFiles field.

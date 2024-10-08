@@ -58,15 +58,6 @@ func (o *ResourceSpec) GetLimitsOk() (*ResourceSpecLimits, bool) {
 	return o.Limits, true
 }
 
-// HasLimits returns a boolean if a field has been set.
-func (o *ResourceSpec) HasLimits() bool {
-	if o != nil && !IsNil(o.Limits) {
-		return true
-	}
-
-	return false
-}
-
 // SetLimits gets a reference to the given ResourceSpecLimits and assigns it to the Limits field.
 func (o *ResourceSpec) SetLimits(v ResourceSpecLimits) {
 	o.Limits = &v
@@ -88,15 +79,6 @@ func (o *ResourceSpec) GetRequestsOk() (*ResourceSpecRequests, bool) {
 		return nil, false
 	}
 	return o.Requests, true
-}
-
-// HasRequests returns a boolean if a field has been set.
-func (o *ResourceSpec) HasRequests() bool {
-	if o != nil && !IsNil(o.Requests) {
-		return true
-	}
-
-	return false
 }
 
 // SetRequests gets a reference to the given ResourceSpecRequests and assigns it to the Requests field.

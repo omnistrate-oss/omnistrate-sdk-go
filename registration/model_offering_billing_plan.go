@@ -58,15 +58,6 @@ func (o *OfferingBillingPlan) GetMaxNumberofInstancesOk() (*int64, bool) {
 	return o.MaxNumberofInstances, true
 }
 
-// HasMaxNumberofInstances returns a boolean if a field has been set.
-func (o *OfferingBillingPlan) HasMaxNumberofInstances() bool {
-	if o != nil && !IsNil(o.MaxNumberofInstances) {
-		return true
-	}
-
-	return false
-}
-
 // SetMaxNumberofInstances gets a reference to the given int64 and assigns it to the MaxNumberofInstances field.
 func (o *OfferingBillingPlan) SetMaxNumberofInstances(v int64) {
 	o.MaxNumberofInstances = &v

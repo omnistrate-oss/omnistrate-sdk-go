@@ -74,15 +74,6 @@ func (o *BuildServiceFromServicePlanSpecRequestBody) GetDescriptionOk() (*string
 	return o.Description, true
 }
 
-// HasDescription returns a boolean if a field has been set.
-func (o *BuildServiceFromServicePlanSpecRequestBody) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
-		return true
-	}
-
-	return false
-}
-
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *BuildServiceFromServicePlanSpecRequestBody) SetDescription(v string) {
 	o.Description = &v
@@ -106,15 +97,6 @@ func (o *BuildServiceFromServicePlanSpecRequestBody) GetEnvironmentOk() (*string
 	return o.Environment, true
 }
 
-// HasEnvironment returns a boolean if a field has been set.
-func (o *BuildServiceFromServicePlanSpecRequestBody) HasEnvironment() bool {
-	if o != nil && !IsNil(o.Environment) {
-		return true
-	}
-
-	return false
-}
-
 // SetEnvironment gets a reference to the given string and assigns it to the Environment field.
 func (o *BuildServiceFromServicePlanSpecRequestBody) SetEnvironment(v string) {
 	o.Environment = &v
@@ -136,15 +118,6 @@ func (o *BuildServiceFromServicePlanSpecRequestBody) GetEnvironmentTypeOk() (*st
 		return nil, false
 	}
 	return o.EnvironmentType, true
-}
-
-// HasEnvironmentType returns a boolean if a field has been set.
-func (o *BuildServiceFromServicePlanSpecRequestBody) HasEnvironmentType() bool {
-	if o != nil && !IsNil(o.EnvironmentType) {
-		return true
-	}
-
-	return false
 }
 
 // SetEnvironmentType gets a reference to the given string and assigns it to the EnvironmentType field.
@@ -216,15 +189,6 @@ func (o *BuildServiceFromServicePlanSpecRequestBody) GetServiceLogoURLOk() (*str
 		return nil, false
 	}
 	return o.ServiceLogoURL, true
-}
-
-// HasServiceLogoURL returns a boolean if a field has been set.
-func (o *BuildServiceFromServicePlanSpecRequestBody) HasServiceLogoURL() bool {
-	if o != nil && !IsNil(o.ServiceLogoURL) {
-		return true
-	}
-
-	return false
 }
 
 // SetServiceLogoURL gets a reference to the given string and assigns it to the ServiceLogoURL field.

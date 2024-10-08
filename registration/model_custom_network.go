@@ -78,15 +78,6 @@ func (o *CustomNetwork) GetCidrOk() (*string, bool) {
 	return o.Cidr, true
 }
 
-// HasCidr returns a boolean if a field has been set.
-func (o *CustomNetwork) HasCidr() bool {
-	if o != nil && !IsNil(o.Cidr) {
-		return true
-	}
-
-	return false
-}
-
 // SetCidr gets a reference to the given string and assigns it to the Cidr field.
 func (o *CustomNetwork) SetCidr(v string) {
 	o.Cidr = &v
@@ -182,15 +173,6 @@ func (o *CustomNetwork) GetNameOk() (*string, bool) {
 	return o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *CustomNetwork) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
-}
-
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *CustomNetwork) SetName(v string) {
 	o.Name = &v
@@ -212,15 +194,6 @@ func (o *CustomNetwork) GetNetworkFeaturesConfigurationOk() (*NetworkFeaturesCon
 		return nil, false
 	}
 	return o.NetworkFeaturesConfiguration, true
-}
-
-// HasNetworkFeaturesConfiguration returns a boolean if a field has been set.
-func (o *CustomNetwork) HasNetworkFeaturesConfiguration() bool {
-	if o != nil && !IsNil(o.NetworkFeaturesConfiguration) {
-		return true
-	}
-
-	return false
 }
 
 // SetNetworkFeaturesConfiguration gets a reference to the given NetworkFeaturesConfiguration and assigns it to the NetworkFeaturesConfiguration field.

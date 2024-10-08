@@ -58,15 +58,6 @@ func (o *PrivateLinkConfiguration) GetAwsPrivateLinkConfigurationsOk() ([]AWSPri
 	return o.AwsPrivateLinkConfigurations, true
 }
 
-// HasAwsPrivateLinkConfigurations returns a boolean if a field has been set.
-func (o *PrivateLinkConfiguration) HasAwsPrivateLinkConfigurations() bool {
-	if o != nil && !IsNil(o.AwsPrivateLinkConfigurations) {
-		return true
-	}
-
-	return false
-}
-
 // SetAwsPrivateLinkConfigurations gets a reference to the given []AWSPrivateLinkConfiguration and assigns it to the AwsPrivateLinkConfigurations field.
 func (o *PrivateLinkConfiguration) SetAwsPrivateLinkConfigurations(v []AWSPrivateLinkConfiguration) {
 	o.AwsPrivateLinkConfigurations = v

@@ -95,15 +95,6 @@ func (o *DescribeServiceEnvironmentResult) GetAutoApproveSubscriptionOk() (*bool
 	return o.AutoApproveSubscription, true
 }
 
-// HasAutoApproveSubscription returns a boolean if a field has been set.
-func (o *DescribeServiceEnvironmentResult) HasAutoApproveSubscription() bool {
-	if o != nil && !IsNil(o.AutoApproveSubscription) {
-		return true
-	}
-
-	return false
-}
-
 // SetAutoApproveSubscription gets a reference to the given bool and assigns it to the AutoApproveSubscription field.
 func (o *DescribeServiceEnvironmentResult) SetAutoApproveSubscription(v bool) {
 	o.AutoApproveSubscription = &v
@@ -247,15 +238,6 @@ func (o *DescribeServiceEnvironmentResult) GetRoleTypeOk() (*string, bool) {
 	return o.RoleType, true
 }
 
-// HasRoleType returns a boolean if a field has been set.
-func (o *DescribeServiceEnvironmentResult) HasRoleType() bool {
-	if o != nil && !IsNil(o.RoleType) {
-		return true
-	}
-
-	return false
-}
-
 // SetRoleType gets a reference to the given string and assigns it to the RoleType field.
 func (o *DescribeServiceEnvironmentResult) SetRoleType(v string) {
 	o.RoleType = &v
@@ -277,15 +259,6 @@ func (o *DescribeServiceEnvironmentResult) GetSaasPortalStatusOk() (*string, boo
 		return nil, false
 	}
 	return o.SaasPortalStatus, true
-}
-
-// HasSaasPortalStatus returns a boolean if a field has been set.
-func (o *DescribeServiceEnvironmentResult) HasSaasPortalStatus() bool {
-	if o != nil && !IsNil(o.SaasPortalStatus) {
-		return true
-	}
-
-	return false
 }
 
 // SetSaasPortalStatus gets a reference to the given string and assigns it to the SaasPortalStatus field.
@@ -311,15 +284,6 @@ func (o *DescribeServiceEnvironmentResult) GetSaasPortalUrlOk() (*string, bool) 
 	return o.SaasPortalUrl, true
 }
 
-// HasSaasPortalUrl returns a boolean if a field has been set.
-func (o *DescribeServiceEnvironmentResult) HasSaasPortalUrl() bool {
-	if o != nil && !IsNil(o.SaasPortalUrl) {
-		return true
-	}
-
-	return false
-}
-
 // SetSaasPortalUrl gets a reference to the given string and assigns it to the SaasPortalUrl field.
 func (o *DescribeServiceEnvironmentResult) SetSaasPortalUrl(v string) {
 	o.SaasPortalUrl = &v
@@ -341,15 +305,6 @@ func (o *DescribeServiceEnvironmentResult) GetServiceAuthPublicKeyOk() (*string,
 		return nil, false
 	}
 	return o.ServiceAuthPublicKey, true
-}
-
-// HasServiceAuthPublicKey returns a boolean if a field has been set.
-func (o *DescribeServiceEnvironmentResult) HasServiceAuthPublicKey() bool {
-	if o != nil && !IsNil(o.ServiceAuthPublicKey) {
-		return true
-	}
-
-	return false
 }
 
 // SetServiceAuthPublicKey gets a reference to the given string and assigns it to the ServiceAuthPublicKey field.
@@ -397,15 +352,6 @@ func (o *DescribeServiceEnvironmentResult) GetSourceEnvironmentIdOk() (*string, 
 		return nil, false
 	}
 	return o.SourceEnvironmentId, true
-}
-
-// HasSourceEnvironmentId returns a boolean if a field has been set.
-func (o *DescribeServiceEnvironmentResult) HasSourceEnvironmentId() bool {
-	if o != nil && !IsNil(o.SourceEnvironmentId) {
-		return true
-	}
-
-	return false
 }
 
 // SetSourceEnvironmentId gets a reference to the given string and assigns it to the SourceEnvironmentId field.

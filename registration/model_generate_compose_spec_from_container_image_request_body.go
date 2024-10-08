@@ -72,15 +72,6 @@ func (o *GenerateComposeSpecFromContainerImageRequestBody) GetEnvironmentVariabl
 	return o.EnvironmentVariables, true
 }
 
-// HasEnvironmentVariables returns a boolean if a field has been set.
-func (o *GenerateComposeSpecFromContainerImageRequestBody) HasEnvironmentVariables() bool {
-	if o != nil && !IsNil(o.EnvironmentVariables) {
-		return true
-	}
-
-	return false
-}
-
 // SetEnvironmentVariables gets a reference to the given []EnvironmentVariable and assigns it to the EnvironmentVariables field.
 func (o *GenerateComposeSpecFromContainerImageRequestBody) SetEnvironmentVariables(v []EnvironmentVariable) {
 	o.EnvironmentVariables = v
@@ -152,15 +143,6 @@ func (o *GenerateComposeSpecFromContainerImageRequestBody) GetPasswordOk() (*str
 	return o.Password, true
 }
 
-// HasPassword returns a boolean if a field has been set.
-func (o *GenerateComposeSpecFromContainerImageRequestBody) HasPassword() bool {
-	if o != nil && !IsNil(o.Password) {
-		return true
-	}
-
-	return false
-}
-
 // SetPassword gets a reference to the given string and assigns it to the Password field.
 func (o *GenerateComposeSpecFromContainerImageRequestBody) SetPassword(v string) {
 	o.Password = &v
@@ -182,15 +164,6 @@ func (o *GenerateComposeSpecFromContainerImageRequestBody) GetUsernameOk() (*str
 		return nil, false
 	}
 	return o.Username, true
-}
-
-// HasUsername returns a boolean if a field has been set.
-func (o *GenerateComposeSpecFromContainerImageRequestBody) HasUsername() bool {
-	if o != nil && !IsNil(o.Username) {
-		return true
-	}
-
-	return false
 }
 
 // SetUsername gets a reference to the given string and assigns it to the Username field.

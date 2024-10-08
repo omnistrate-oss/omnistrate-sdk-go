@@ -58,15 +58,6 @@ func (o *ProxyEndpoint) GetOpenPortsOk() ([]string, bool) {
 	return o.OpenPorts, true
 }
 
-// HasOpenPorts returns a boolean if a field has been set.
-func (o *ProxyEndpoint) HasOpenPorts() bool {
-	if o != nil && !IsNil(o.OpenPorts) {
-		return true
-	}
-
-	return false
-}
-
 // SetOpenPorts gets a reference to the given []string and assigns it to the OpenPorts field.
 func (o *ProxyEndpoint) SetOpenPorts(v []string) {
 	o.OpenPorts = v
@@ -88,15 +79,6 @@ func (o *ProxyEndpoint) GetProxyEndpointOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ProxyEndpoint, true
-}
-
-// HasProxyEndpoint returns a boolean if a field has been set.
-func (o *ProxyEndpoint) HasProxyEndpoint() bool {
-	if o != nil && !IsNil(o.ProxyEndpoint) {
-		return true
-	}
-
-	return false
 }
 
 // SetProxyEndpoint gets a reference to the given string and assigns it to the ProxyEndpoint field.

@@ -143,15 +143,6 @@ func (o *BuildServiceFromServicePlanSpecResult) GetUndefinedResourcesOk() (*map[
 	return o.UndefinedResources, true
 }
 
-// HasUndefinedResources returns a boolean if a field has been set.
-func (o *BuildServiceFromServicePlanSpecResult) HasUndefinedResources() bool {
-	if o != nil && !IsNil(o.UndefinedResources) {
-		return true
-	}
-
-	return false
-}
-
 // SetUndefinedResources gets a reference to the given map[string]string and assigns it to the UndefinedResources field.
 func (o *BuildServiceFromServicePlanSpecResult) SetUndefinedResources(v map[string]string) {
 	o.UndefinedResources = &v

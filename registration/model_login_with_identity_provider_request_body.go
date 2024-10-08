@@ -74,15 +74,6 @@ func (o *LoginWithIdentityProviderRequestBody) GetAuthorizationCodeOk() (*string
 	return o.AuthorizationCode, true
 }
 
-// HasAuthorizationCode returns a boolean if a field has been set.
-func (o *LoginWithIdentityProviderRequestBody) HasAuthorizationCode() bool {
-	if o != nil && !IsNil(o.AuthorizationCode) {
-		return true
-	}
-
-	return false
-}
-
 // SetAuthorizationCode gets a reference to the given string and assigns it to the AuthorizationCode field.
 func (o *LoginWithIdentityProviderRequestBody) SetAuthorizationCode(v string) {
 	o.AuthorizationCode = &v
@@ -104,15 +95,6 @@ func (o *LoginWithIdentityProviderRequestBody) GetCompanyDescriptionOk() (*strin
 		return nil, false
 	}
 	return o.CompanyDescription, true
-}
-
-// HasCompanyDescription returns a boolean if a field has been set.
-func (o *LoginWithIdentityProviderRequestBody) HasCompanyDescription() bool {
-	if o != nil && !IsNil(o.CompanyDescription) {
-		return true
-	}
-
-	return false
 }
 
 // SetCompanyDescription gets a reference to the given string and assigns it to the CompanyDescription field.
@@ -138,15 +120,6 @@ func (o *LoginWithIdentityProviderRequestBody) GetCompanyUrlOk() (*string, bool)
 	return o.CompanyUrl, true
 }
 
-// HasCompanyUrl returns a boolean if a field has been set.
-func (o *LoginWithIdentityProviderRequestBody) HasCompanyUrl() bool {
-	if o != nil && !IsNil(o.CompanyUrl) {
-		return true
-	}
-
-	return false
-}
-
 // SetCompanyUrl gets a reference to the given string and assigns it to the CompanyUrl field.
 func (o *LoginWithIdentityProviderRequestBody) SetCompanyUrl(v string) {
 	o.CompanyUrl = &v
@@ -168,15 +141,6 @@ func (o *LoginWithIdentityProviderRequestBody) GetDeviceCodeOk() (*string, bool)
 		return nil, false
 	}
 	return o.DeviceCode, true
-}
-
-// HasDeviceCode returns a boolean if a field has been set.
-func (o *LoginWithIdentityProviderRequestBody) HasDeviceCode() bool {
-	if o != nil && !IsNil(o.DeviceCode) {
-		return true
-	}
-
-	return false
 }
 
 // SetDeviceCode gets a reference to the given string and assigns it to the DeviceCode field.
@@ -226,15 +190,6 @@ func (o *LoginWithIdentityProviderRequestBody) GetInvitedEmailOk() (*string, boo
 	return o.InvitedEmail, true
 }
 
-// HasInvitedEmail returns a boolean if a field has been set.
-func (o *LoginWithIdentityProviderRequestBody) HasInvitedEmail() bool {
-	if o != nil && !IsNil(o.InvitedEmail) {
-		return true
-	}
-
-	return false
-}
-
 // SetInvitedEmail gets a reference to the given string and assigns it to the InvitedEmail field.
 func (o *LoginWithIdentityProviderRequestBody) SetInvitedEmail(v string) {
 	o.InvitedEmail = &v
@@ -258,15 +213,6 @@ func (o *LoginWithIdentityProviderRequestBody) GetLegalCompanyNameOk() (*string,
 	return o.LegalCompanyName, true
 }
 
-// HasLegalCompanyName returns a boolean if a field has been set.
-func (o *LoginWithIdentityProviderRequestBody) HasLegalCompanyName() bool {
-	if o != nil && !IsNil(o.LegalCompanyName) {
-		return true
-	}
-
-	return false
-}
-
 // SetLegalCompanyName gets a reference to the given string and assigns it to the LegalCompanyName field.
 func (o *LoginWithIdentityProviderRequestBody) SetLegalCompanyName(v string) {
 	o.LegalCompanyName = &v
@@ -288,15 +234,6 @@ func (o *LoginWithIdentityProviderRequestBody) GetRedirectUriOk() (*string, bool
 		return nil, false
 	}
 	return o.RedirectUri, true
-}
-
-// HasRedirectUri returns a boolean if a field has been set.
-func (o *LoginWithIdentityProviderRequestBody) HasRedirectUri() bool {
-	if o != nil && !IsNil(o.RedirectUri) {
-		return true
-	}
-
-	return false
 }
 
 // SetRedirectUri gets a reference to the given string and assigns it to the RedirectUri field.

@@ -125,15 +125,6 @@ func (o *DescribeStorageConfigResult) GetInfraConfigIDsOk() ([]string, bool) {
 	return o.InfraConfigIDs, true
 }
 
-// HasInfraConfigIDs returns a boolean if a field has been set.
-func (o *DescribeStorageConfigResult) HasInfraConfigIDs() bool {
-	if o != nil && !IsNil(o.InfraConfigIDs) {
-		return true
-	}
-
-	return false
-}
-
 // SetInfraConfigIDs gets a reference to the given []string and assigns it to the InfraConfigIDs field.
 func (o *DescribeStorageConfigResult) SetInfraConfigIDs(v []string) {
 	o.InfraConfigIDs = v

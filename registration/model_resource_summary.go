@@ -126,15 +126,6 @@ func (o *ResourceSummary) GetImageConfigIdOk() (*string, bool) {
 	return o.ImageConfigId, true
 }
 
-// HasImageConfigId returns a boolean if a field has been set.
-func (o *ResourceSummary) HasImageConfigId() bool {
-	if o != nil && !IsNil(o.ImageConfigId) {
-		return true
-	}
-
-	return false
-}
-
 // SetImageConfigId gets a reference to the given string and assigns it to the ImageConfigId field.
 func (o *ResourceSummary) SetImageConfigId(v string) {
 	o.ImageConfigId = &v
@@ -156,15 +147,6 @@ func (o *ResourceSummary) GetInfraConfigIdOk() (*string, bool) {
 		return nil, false
 	}
 	return o.InfraConfigId, true
-}
-
-// HasInfraConfigId returns a boolean if a field has been set.
-func (o *ResourceSummary) HasInfraConfigId() bool {
-	if o != nil && !IsNil(o.InfraConfigId) {
-		return true
-	}
-
-	return false
 }
 
 // SetInfraConfigId gets a reference to the given string and assigns it to the InfraConfigId field.
@@ -212,15 +194,6 @@ func (o *ResourceSummary) GetManagedResourceTypeOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ManagedResourceType, true
-}
-
-// HasManagedResourceType returns a boolean if a field has been set.
-func (o *ResourceSummary) HasManagedResourceType() bool {
-	if o != nil && !IsNil(o.ManagedResourceType) {
-		return true
-	}
-
-	return false
 }
 
 // SetManagedResourceType gets a reference to the given string and assigns it to the ManagedResourceType field.

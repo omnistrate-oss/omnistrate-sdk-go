@@ -167,15 +167,6 @@ func (o *ServiceOffering) GetAwsRegionsOk() ([]string, bool) {
 	return o.AwsRegions, true
 }
 
-// HasAwsRegions returns a boolean if a field has been set.
-func (o *ServiceOffering) HasAwsRegions() bool {
-	if o != nil && !IsNil(o.AwsRegions) {
-		return true
-	}
-
-	return false
-}
-
 // SetAwsRegions gets a reference to the given []string and assigns it to the AwsRegions field.
 func (o *ServiceOffering) SetAwsRegions(v []string) {
 	o.AwsRegions = v
@@ -197,15 +188,6 @@ func (o *ServiceOffering) GetBillingPlansOk() ([]OfferingBillingPlan, bool) {
 		return nil, false
 	}
 	return o.BillingPlans, true
-}
-
-// HasBillingPlans returns a boolean if a field has been set.
-func (o *ServiceOffering) HasBillingPlans() bool {
-	if o != nil && !IsNil(o.BillingPlans) {
-		return true
-	}
-
-	return false
 }
 
 // SetBillingPlans gets a reference to the given []OfferingBillingPlan and assigns it to the BillingPlans field.
@@ -231,15 +213,6 @@ func (o *ServiceOffering) GetCloudProvidersOk() ([]string, bool) {
 	return o.CloudProviders, true
 }
 
-// HasCloudProviders returns a boolean if a field has been set.
-func (o *ServiceOffering) HasCloudProviders() bool {
-	if o != nil && !IsNil(o.CloudProviders) {
-		return true
-	}
-
-	return false
-}
-
 // SetCloudProviders gets a reference to the given []string and assigns it to the CloudProviders field.
 func (o *ServiceOffering) SetCloudProviders(v []string) {
 	o.CloudProviders = v
@@ -263,15 +236,6 @@ func (o *ServiceOffering) GetGcpRegionsOk() ([]string, bool) {
 	return o.GcpRegions, true
 }
 
-// HasGcpRegions returns a boolean if a field has been set.
-func (o *ServiceOffering) HasGcpRegions() bool {
-	if o != nil && !IsNil(o.GcpRegions) {
-		return true
-	}
-
-	return false
-}
-
 // SetGcpRegions gets a reference to the given []string and assigns it to the GcpRegions field.
 func (o *ServiceOffering) SetGcpRegions(v []string) {
 	o.GcpRegions = v
@@ -293,15 +257,6 @@ func (o *ServiceOffering) GetProductTierDescriptionOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ProductTierDescription, true
-}
-
-// HasProductTierDescription returns a boolean if a field has been set.
-func (o *ServiceOffering) HasProductTierDescription() bool {
-	if o != nil && !IsNil(o.ProductTierDescription) {
-		return true
-	}
-
-	return false
 }
 
 // SetProductTierDescription gets a reference to the given string and assigns it to the ProductTierDescription field.
@@ -397,15 +352,6 @@ func (o *ServiceOffering) GetProductTierPlanDescriptionOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ProductTierPlanDescription, true
-}
-
-// HasProductTierPlanDescription returns a boolean if a field has been set.
-func (o *ServiceOffering) HasProductTierPlanDescription() bool {
-	if o != nil && !IsNil(o.ProductTierPlanDescription) {
-		return true
-	}
-
-	return false
 }
 
 // SetProductTierPlanDescription gets a reference to the given string and assigns it to the ProductTierPlanDescription field.
@@ -767,15 +713,6 @@ func (o *ServiceOffering) GetServiceModelFeaturesOk() ([]ServiceModelFeatureDeta
 		return nil, false
 	}
 	return o.ServiceModelFeatures, true
-}
-
-// HasServiceModelFeatures returns a boolean if a field has been set.
-func (o *ServiceOffering) HasServiceModelFeatures() bool {
-	if o != nil && !IsNil(o.ServiceModelFeatures) {
-		return true
-	}
-
-	return false
 }
 
 // SetServiceModelFeatures gets a reference to the given []ServiceModelFeatureDetail and assigns it to the ServiceModelFeatures field.

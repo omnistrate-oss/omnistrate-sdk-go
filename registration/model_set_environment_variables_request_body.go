@@ -58,15 +58,6 @@ func (o *SetEnvironmentVariablesRequestBody) GetEnvironmentVariablesOk() ([]Envi
 	return o.EnvironmentVariables, true
 }
 
-// HasEnvironmentVariables returns a boolean if a field has been set.
-func (o *SetEnvironmentVariablesRequestBody) HasEnvironmentVariables() bool {
-	if o != nil && !IsNil(o.EnvironmentVariables) {
-		return true
-	}
-
-	return false
-}
-
 // SetEnvironmentVariables gets a reference to the given []EnvironmentVariable and assigns it to the EnvironmentVariables field.
 func (o *SetEnvironmentVariablesRequestBody) SetEnvironmentVariables(v []EnvironmentVariable) {
 	o.EnvironmentVariables = v

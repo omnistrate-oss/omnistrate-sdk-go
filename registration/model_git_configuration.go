@@ -70,15 +70,6 @@ func (o *GitConfiguration) GetAccessTokenOk() (*string, bool) {
 	return o.AccessToken, true
 }
 
-// HasAccessToken returns a boolean if a field has been set.
-func (o *GitConfiguration) HasAccessToken() bool {
-	if o != nil && !IsNil(o.AccessToken) {
-		return true
-	}
-
-	return false
-}
-
 // SetAccessToken gets a reference to the given string and assigns it to the AccessToken field.
 func (o *GitConfiguration) SetAccessToken(v string) {
 	o.AccessToken = &v
@@ -148,15 +139,6 @@ func (o *GitConfiguration) GetUserNameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.UserName, true
-}
-
-// HasUserName returns a boolean if a field has been set.
-func (o *GitConfiguration) HasUserName() bool {
-	if o != nil && !IsNil(o.UserName) {
-		return true
-	}
-
-	return false
 }
 
 // SetUserName gets a reference to the given string and assigns it to the UserName field.

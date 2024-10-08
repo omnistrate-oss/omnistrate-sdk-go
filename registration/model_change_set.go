@@ -98,15 +98,6 @@ func (o *ChangeSet) GetImageConfigChangesOk() (*ImageConfigChangeSummary, bool) 
 	return o.ImageConfigChanges, true
 }
 
-// HasImageConfigChanges returns a boolean if a field has been set.
-func (o *ChangeSet) HasImageConfigChanges() bool {
-	if o != nil && !IsNil(o.ImageConfigChanges) {
-		return true
-	}
-
-	return false
-}
-
 // SetImageConfigChanges gets a reference to the given ImageConfigChangeSummary and assigns it to the ImageConfigChanges field.
 func (o *ChangeSet) SetImageConfigChanges(v ImageConfigChangeSummary) {
 	o.ImageConfigChanges = &v
@@ -128,15 +119,6 @@ func (o *ChangeSet) GetInfraConfigChangesOk() (*InfraConfigChangeSummary, bool) 
 		return nil, false
 	}
 	return o.InfraConfigChanges, true
-}
-
-// HasInfraConfigChanges returns a boolean if a field has been set.
-func (o *ChangeSet) HasInfraConfigChanges() bool {
-	if o != nil && !IsNil(o.InfraConfigChanges) {
-		return true
-	}
-
-	return false
 }
 
 // SetInfraConfigChanges gets a reference to the given InfraConfigChangeSummary and assigns it to the InfraConfigChanges field.
@@ -186,15 +168,6 @@ func (o *ChangeSet) GetProductTierFeatureChangesOk() (*string, bool) {
 	return o.ProductTierFeatureChanges, true
 }
 
-// HasProductTierFeatureChanges returns a boolean if a field has been set.
-func (o *ChangeSet) HasProductTierFeatureChanges() bool {
-	if o != nil && !IsNil(o.ProductTierFeatureChanges) {
-		return true
-	}
-
-	return false
-}
-
 // SetProductTierFeatureChanges gets a reference to the given string and assigns it to the ProductTierFeatureChanges field.
 func (o *ChangeSet) SetProductTierFeatureChanges(v string) {
 	o.ProductTierFeatureChanges = &v
@@ -218,15 +191,6 @@ func (o *ChangeSet) GetResourceChangesOk() (*string, bool) {
 	return o.ResourceChanges, true
 }
 
-// HasResourceChanges returns a boolean if a field has been set.
-func (o *ChangeSet) HasResourceChanges() bool {
-	if o != nil && !IsNil(o.ResourceChanges) {
-		return true
-	}
-
-	return false
-}
-
 // SetResourceChanges gets a reference to the given string and assigns it to the ResourceChanges field.
 func (o *ChangeSet) SetResourceChanges(v string) {
 	o.ResourceChanges = &v
@@ -248,15 +212,6 @@ func (o *ChangeSet) GetResourceNameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ResourceName, true
-}
-
-// HasResourceName returns a boolean if a field has been set.
-func (o *ChangeSet) HasResourceName() bool {
-	if o != nil && !IsNil(o.ResourceName) {
-		return true
-	}
-
-	return false
 }
 
 // SetResourceName gets a reference to the given string and assigns it to the ResourceName field.

@@ -82,15 +82,6 @@ func (o *UpdateResourceRequestBody) GetAdditionalSecurityContextOk() (*Additiona
 	return o.AdditionalSecurityContext, true
 }
 
-// HasAdditionalSecurityContext returns a boolean if a field has been set.
-func (o *UpdateResourceRequestBody) HasAdditionalSecurityContext() bool {
-	if o != nil && !IsNil(o.AdditionalSecurityContext) {
-		return true
-	}
-
-	return false
-}
-
 // SetAdditionalSecurityContext gets a reference to the given AdditionalSecurityContext and assigns it to the AdditionalSecurityContext field.
 func (o *UpdateResourceRequestBody) SetAdditionalSecurityContext(v AdditionalSecurityContext) {
 	o.AdditionalSecurityContext = &v
@@ -112,15 +103,6 @@ func (o *UpdateResourceRequestBody) GetBackupConfigurationOk() (*BackupConfigura
 		return nil, false
 	}
 	return o.BackupConfiguration, true
-}
-
-// HasBackupConfiguration returns a boolean if a field has been set.
-func (o *UpdateResourceRequestBody) HasBackupConfiguration() bool {
-	if o != nil && !IsNil(o.BackupConfiguration) {
-		return true
-	}
-
-	return false
 }
 
 // SetBackupConfiguration gets a reference to the given BackupConfiguration and assigns it to the BackupConfiguration field.
@@ -146,15 +128,6 @@ func (o *UpdateResourceRequestBody) GetCustomLabelsOk() (*map[string]string, boo
 	return o.CustomLabels, true
 }
 
-// HasCustomLabels returns a boolean if a field has been set.
-func (o *UpdateResourceRequestBody) HasCustomLabels() bool {
-	if o != nil && !IsNil(o.CustomLabels) {
-		return true
-	}
-
-	return false
-}
-
 // SetCustomLabels gets a reference to the given map[string]string and assigns it to the CustomLabels field.
 func (o *UpdateResourceRequestBody) SetCustomLabels(v map[string]string) {
 	o.CustomLabels = &v
@@ -176,15 +149,6 @@ func (o *UpdateResourceRequestBody) GetCustomSysCTLsOk() (*map[string]string, bo
 		return nil, false
 	}
 	return o.CustomSysCTLs, true
-}
-
-// HasCustomSysCTLs returns a boolean if a field has been set.
-func (o *UpdateResourceRequestBody) HasCustomSysCTLs() bool {
-	if o != nil && !IsNil(o.CustomSysCTLs) {
-		return true
-	}
-
-	return false
 }
 
 // SetCustomSysCTLs gets a reference to the given map[string]string and assigns it to the CustomSysCTLs field.
@@ -210,15 +174,6 @@ func (o *UpdateResourceRequestBody) GetCustomULimitsOk() ([]CustomULimits, bool)
 	return o.CustomULimits, true
 }
 
-// HasCustomULimits returns a boolean if a field has been set.
-func (o *UpdateResourceRequestBody) HasCustomULimits() bool {
-	if o != nil && !IsNil(o.CustomULimits) {
-		return true
-	}
-
-	return false
-}
-
 // SetCustomULimits gets a reference to the given []CustomULimits and assigns it to the CustomULimits field.
 func (o *UpdateResourceRequestBody) SetCustomULimits(v []CustomULimits) {
 	o.CustomULimits = v
@@ -240,15 +195,6 @@ func (o *UpdateResourceRequestBody) GetDependenciesOk() ([]ResourceDependency, b
 		return nil, false
 	}
 	return o.Dependencies, true
-}
-
-// HasDependencies returns a boolean if a field has been set.
-func (o *UpdateResourceRequestBody) HasDependencies() bool {
-	if o != nil && !IsNil(o.Dependencies) {
-		return true
-	}
-
-	return false
 }
 
 // SetDependencies gets a reference to the given []ResourceDependency and assigns it to the Dependencies field.
@@ -274,15 +220,6 @@ func (o *UpdateResourceRequestBody) GetDescriptionOk() (*string, bool) {
 	return o.Description, true
 }
 
-// HasDescription returns a boolean if a field has been set.
-func (o *UpdateResourceRequestBody) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
-		return true
-	}
-
-	return false
-}
-
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *UpdateResourceRequestBody) SetDescription(v string) {
 	o.Description = &v
@@ -304,15 +241,6 @@ func (o *UpdateResourceRequestBody) GetEnvironmentVariablesOk() ([]EnvironmentVa
 		return nil, false
 	}
 	return o.EnvironmentVariables, true
-}
-
-// HasEnvironmentVariables returns a boolean if a field has been set.
-func (o *UpdateResourceRequestBody) HasEnvironmentVariables() bool {
-	if o != nil && !IsNil(o.EnvironmentVariables) {
-		return true
-	}
-
-	return false
 }
 
 // SetEnvironmentVariables gets a reference to the given []EnvironmentVariable and assigns it to the EnvironmentVariables field.
@@ -338,15 +266,6 @@ func (o *UpdateResourceRequestBody) GetHelmChartConfigurationOk() (*HelmChartCon
 	return o.HelmChartConfiguration, true
 }
 
-// HasHelmChartConfiguration returns a boolean if a field has been set.
-func (o *UpdateResourceRequestBody) HasHelmChartConfiguration() bool {
-	if o != nil && !IsNil(o.HelmChartConfiguration) {
-		return true
-	}
-
-	return false
-}
-
 // SetHelmChartConfiguration gets a reference to the given HelmChartConfiguration and assigns it to the HelmChartConfiguration field.
 func (o *UpdateResourceRequestBody) SetHelmChartConfiguration(v HelmChartConfiguration) {
 	o.HelmChartConfiguration = &v
@@ -368,15 +287,6 @@ func (o *UpdateResourceRequestBody) GetImageConfigIdOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ImageConfigId, true
-}
-
-// HasImageConfigId returns a boolean if a field has been set.
-func (o *UpdateResourceRequestBody) HasImageConfigId() bool {
-	if o != nil && !IsNil(o.ImageConfigId) {
-		return true
-	}
-
-	return false
 }
 
 // SetImageConfigId gets a reference to the given string and assigns it to the ImageConfigId field.
@@ -402,15 +312,6 @@ func (o *UpdateResourceRequestBody) GetInfraConfigIdOk() (*string, bool) {
 	return o.InfraConfigId, true
 }
 
-// HasInfraConfigId returns a boolean if a field has been set.
-func (o *UpdateResourceRequestBody) HasInfraConfigId() bool {
-	if o != nil && !IsNil(o.InfraConfigId) {
-		return true
-	}
-
-	return false
-}
-
 // SetInfraConfigId gets a reference to the given string and assigns it to the InfraConfigId field.
 func (o *UpdateResourceRequestBody) SetInfraConfigId(v string) {
 	o.InfraConfigId = &v
@@ -432,15 +333,6 @@ func (o *UpdateResourceRequestBody) GetKustomizeConfigurationOk() (*KustomizeCon
 		return nil, false
 	}
 	return o.KustomizeConfiguration, true
-}
-
-// HasKustomizeConfiguration returns a boolean if a field has been set.
-func (o *UpdateResourceRequestBody) HasKustomizeConfiguration() bool {
-	if o != nil && !IsNil(o.KustomizeConfiguration) {
-		return true
-	}
-
-	return false
 }
 
 // SetKustomizeConfiguration gets a reference to the given KustomizeConfiguration and assigns it to the KustomizeConfiguration field.
@@ -466,15 +358,6 @@ func (o *UpdateResourceRequestBody) GetL4LoadBalancerConfigurationOk() (*L4LoadB
 	return o.L4LoadBalancerConfiguration, true
 }
 
-// HasL4LoadBalancerConfiguration returns a boolean if a field has been set.
-func (o *UpdateResourceRequestBody) HasL4LoadBalancerConfiguration() bool {
-	if o != nil && !IsNil(o.L4LoadBalancerConfiguration) {
-		return true
-	}
-
-	return false
-}
-
 // SetL4LoadBalancerConfiguration gets a reference to the given L4LoadBalancerConfiguration and assigns it to the L4LoadBalancerConfiguration field.
 func (o *UpdateResourceRequestBody) SetL4LoadBalancerConfiguration(v L4LoadBalancerConfiguration) {
 	o.L4LoadBalancerConfiguration = &v
@@ -496,15 +379,6 @@ func (o *UpdateResourceRequestBody) GetL7LoadBalancerConfigurationOk() (*L7LoadB
 		return nil, false
 	}
 	return o.L7LoadBalancerConfiguration, true
-}
-
-// HasL7LoadBalancerConfiguration returns a boolean if a field has been set.
-func (o *UpdateResourceRequestBody) HasL7LoadBalancerConfiguration() bool {
-	if o != nil && !IsNil(o.L7LoadBalancerConfiguration) {
-		return true
-	}
-
-	return false
 }
 
 // SetL7LoadBalancerConfiguration gets a reference to the given L7LoadBalancerConfiguration and assigns it to the L7LoadBalancerConfiguration field.
@@ -530,15 +404,6 @@ func (o *UpdateResourceRequestBody) GetNameOk() (*string, bool) {
 	return o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *UpdateResourceRequestBody) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
-}
-
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *UpdateResourceRequestBody) SetName(v string) {
 	o.Name = &v
@@ -562,15 +427,6 @@ func (o *UpdateResourceRequestBody) GetOperatorCRDConfigurationOk() (*OperatorCR
 	return o.OperatorCRDConfiguration, true
 }
 
-// HasOperatorCRDConfiguration returns a boolean if a field has been set.
-func (o *UpdateResourceRequestBody) HasOperatorCRDConfiguration() bool {
-	if o != nil && !IsNil(o.OperatorCRDConfiguration) {
-		return true
-	}
-
-	return false
-}
-
 // SetOperatorCRDConfiguration gets a reference to the given OperatorCRDConfiguration and assigns it to the OperatorCRDConfiguration field.
 func (o *UpdateResourceRequestBody) SetOperatorCRDConfiguration(v OperatorCRDConfiguration) {
 	o.OperatorCRDConfiguration = &v
@@ -592,15 +448,6 @@ func (o *UpdateResourceRequestBody) GetTerraformConfigurationsOk() (*map[string]
 		return nil, false
 	}
 	return o.TerraformConfigurations, true
-}
-
-// HasTerraformConfigurations returns a boolean if a field has been set.
-func (o *UpdateResourceRequestBody) HasTerraformConfigurations() bool {
-	if o != nil && !IsNil(o.TerraformConfigurations) {
-		return true
-	}
-
-	return false
 }
 
 // SetTerraformConfigurations gets a reference to the given map[string]TerraformConfiguration and assigns it to the TerraformConfigurations field.

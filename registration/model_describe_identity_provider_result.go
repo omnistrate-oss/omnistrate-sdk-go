@@ -98,15 +98,6 @@ func (o *DescribeIdentityProviderResult) GetClientSecretOk() (*string, bool) {
 	return o.ClientSecret, true
 }
 
-// HasClientSecret returns a boolean if a field has been set.
-func (o *DescribeIdentityProviderResult) HasClientSecret() bool {
-	if o != nil && !IsNil(o.ClientSecret) {
-		return true
-	}
-
-	return false
-}
-
 // SetClientSecret gets a reference to the given string and assigns it to the ClientSecret field.
 func (o *DescribeIdentityProviderResult) SetClientSecret(v string) {
 	o.ClientSecret = &v

@@ -147,15 +147,6 @@ func (o *ResourceNetworkTopologyResult) GetClusterPortsOk() ([]int64, bool) {
 	return o.ClusterPorts, true
 }
 
-// HasClusterPorts returns a boolean if a field has been set.
-func (o *ResourceNetworkTopologyResult) HasClusterPorts() bool {
-	if o != nil && !IsNil(o.ClusterPorts) {
-		return true
-	}
-
-	return false
-}
-
 // SetClusterPorts gets a reference to the given []int64 and assigns it to the ClusterPorts field.
 func (o *ResourceNetworkTopologyResult) SetClusterPorts(v []int64) {
 	o.ClusterPorts = v
@@ -177,15 +168,6 @@ func (o *ResourceNetworkTopologyResult) GetCustomDNSEndpointOk() (*CustomDNSEndp
 		return nil, false
 	}
 	return o.CustomDNSEndpoint, true
-}
-
-// HasCustomDNSEndpoint returns a boolean if a field has been set.
-func (o *ResourceNetworkTopologyResult) HasCustomDNSEndpoint() bool {
-	if o != nil && !IsNil(o.CustomDNSEndpoint) {
-		return true
-	}
-
-	return false
 }
 
 // SetCustomDNSEndpoint gets a reference to the given CustomDNSEndpoint and assigns it to the CustomDNSEndpoint field.
@@ -283,15 +265,6 @@ func (o *ResourceNetworkTopologyResult) GetNodesOk() ([]NodeNetworkTopologyResul
 	return o.Nodes, true
 }
 
-// HasNodes returns a boolean if a field has been set.
-func (o *ResourceNetworkTopologyResult) HasNodes() bool {
-	if o != nil && !IsNil(o.Nodes) {
-		return true
-	}
-
-	return false
-}
-
 // SetNodes gets a reference to the given []NodeNetworkTopologyResult and assigns it to the Nodes field.
 func (o *ResourceNetworkTopologyResult) SetNodes(v []NodeNetworkTopologyResult) {
 	o.Nodes = v
@@ -313,15 +286,6 @@ func (o *ResourceNetworkTopologyResult) GetPrivateNetworkCIDROk() (*string, bool
 		return nil, false
 	}
 	return o.PrivateNetworkCIDR, true
-}
-
-// HasPrivateNetworkCIDR returns a boolean if a field has been set.
-func (o *ResourceNetworkTopologyResult) HasPrivateNetworkCIDR() bool {
-	if o != nil && !IsNil(o.PrivateNetworkCIDR) {
-		return true
-	}
-
-	return false
 }
 
 // SetPrivateNetworkCIDR gets a reference to the given string and assigns it to the PrivateNetworkCIDR field.
@@ -347,15 +311,6 @@ func (o *ResourceNetworkTopologyResult) GetPrivateNetworkIDOk() (*string, bool) 
 	return o.PrivateNetworkID, true
 }
 
-// HasPrivateNetworkID returns a boolean if a field has been set.
-func (o *ResourceNetworkTopologyResult) HasPrivateNetworkID() bool {
-	if o != nil && !IsNil(o.PrivateNetworkID) {
-		return true
-	}
-
-	return false
-}
-
 // SetPrivateNetworkID gets a reference to the given string and assigns it to the PrivateNetworkID field.
 func (o *ResourceNetworkTopologyResult) SetPrivateNetworkID(v string) {
 	o.PrivateNetworkID = &v
@@ -377,15 +332,6 @@ func (o *ResourceNetworkTopologyResult) GetProxyEndpointOk() (*ProxyEndpoint, bo
 		return nil, false
 	}
 	return o.ProxyEndpoint, true
-}
-
-// HasProxyEndpoint returns a boolean if a field has been set.
-func (o *ResourceNetworkTopologyResult) HasProxyEndpoint() bool {
-	if o != nil && !IsNil(o.ProxyEndpoint) {
-		return true
-	}
-
-	return false
 }
 
 // SetProxyEndpoint gets a reference to the given ProxyEndpoint and assigns it to the ProxyEndpoint field.
@@ -435,15 +381,6 @@ func (o *ResourceNetworkTopologyResult) GetRecentDeploymentFailureOk() (*RecentD
 	return o.RecentDeploymentFailure, true
 }
 
-// HasRecentDeploymentFailure returns a boolean if a field has been set.
-func (o *ResourceNetworkTopologyResult) HasRecentDeploymentFailure() bool {
-	if o != nil && !IsNil(o.RecentDeploymentFailure) {
-		return true
-	}
-
-	return false
-}
-
 // SetRecentDeploymentFailure gets a reference to the given RecentDeploymentFailureStatus and assigns it to the RecentDeploymentFailure field.
 func (o *ResourceNetworkTopologyResult) SetRecentDeploymentFailure(v RecentDeploymentFailureStatus) {
 	o.RecentDeploymentFailure = &v
@@ -466,15 +403,6 @@ func (o *ResourceNetworkTopologyResult) GetResourceInstanceMetadataOk() (*interf
 		return nil, false
 	}
 	return &o.ResourceInstanceMetadata, true
-}
-
-// HasResourceInstanceMetadata returns a boolean if a field has been set.
-func (o *ResourceNetworkTopologyResult) HasResourceInstanceMetadata() bool {
-	if o != nil && !IsNil(o.ResourceInstanceMetadata) {
-		return true
-	}
-
-	return false
 }
 
 // SetResourceInstanceMetadata gets a reference to the given interface{} and assigns it to the ResourceInstanceMetadata field.
@@ -546,15 +474,6 @@ func (o *ResourceNetworkTopologyResult) GetResourceTypeOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ResourceType, true
-}
-
-// HasResourceType returns a boolean if a field has been set.
-func (o *ResourceNetworkTopologyResult) HasResourceType() bool {
-	if o != nil && !IsNil(o.ResourceType) {
-		return true
-	}
-
-	return false
 }
 
 // SetResourceType gets a reference to the given string and assigns it to the ResourceType field.

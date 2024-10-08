@@ -155,15 +155,6 @@ func (o *HelmPackage) GetChartTypeOk() (*string, bool) {
 	return o.ChartType, true
 }
 
-// HasChartType returns a boolean if a field has been set.
-func (o *HelmPackage) HasChartType() bool {
-	if o != nil && !IsNil(o.ChartType) {
-		return true
-	}
-
-	return false
-}
-
 // SetChartType gets a reference to the given string and assigns it to the ChartType field.
 func (o *HelmPackage) SetChartType(v string) {
 	o.ChartType = &v
@@ -185,15 +176,6 @@ func (o *HelmPackage) GetChartValuesOk() (map[string]interface{}, bool) {
 		return map[string]interface{}{}, false
 	}
 	return o.ChartValues, true
-}
-
-// HasChartValues returns a boolean if a field has been set.
-func (o *HelmPackage) HasChartValues() bool {
-	if o != nil && !IsNil(o.ChartValues) {
-		return true
-	}
-
-	return false
 }
 
 // SetChartValues gets a reference to the given map[string]interface{} and assigns it to the ChartValues field.

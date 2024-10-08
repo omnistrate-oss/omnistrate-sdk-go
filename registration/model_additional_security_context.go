@@ -62,15 +62,6 @@ func (o *AdditionalSecurityContext) GetAddCapabilitiesOk() ([]string, bool) {
 	return o.AddCapabilities, true
 }
 
-// HasAddCapabilities returns a boolean if a field has been set.
-func (o *AdditionalSecurityContext) HasAddCapabilities() bool {
-	if o != nil && !IsNil(o.AddCapabilities) {
-		return true
-	}
-
-	return false
-}
-
 // SetAddCapabilities gets a reference to the given []string and assigns it to the AddCapabilities field.
 func (o *AdditionalSecurityContext) SetAddCapabilities(v []string) {
 	o.AddCapabilities = v
@@ -94,15 +85,6 @@ func (o *AdditionalSecurityContext) GetDropCapabilitiesOk() ([]string, bool) {
 	return o.DropCapabilities, true
 }
 
-// HasDropCapabilities returns a boolean if a field has been set.
-func (o *AdditionalSecurityContext) HasDropCapabilities() bool {
-	if o != nil && !IsNil(o.DropCapabilities) {
-		return true
-	}
-
-	return false
-}
-
 // SetDropCapabilities gets a reference to the given []string and assigns it to the DropCapabilities field.
 func (o *AdditionalSecurityContext) SetDropCapabilities(v []string) {
 	o.DropCapabilities = v
@@ -124,15 +106,6 @@ func (o *AdditionalSecurityContext) GetSupplementalGroupIDsOk() ([]int64, bool) 
 		return nil, false
 	}
 	return o.SupplementalGroupIDs, true
-}
-
-// HasSupplementalGroupIDs returns a boolean if a field has been set.
-func (o *AdditionalSecurityContext) HasSupplementalGroupIDs() bool {
-	if o != nil && !IsNil(o.SupplementalGroupIDs) {
-		return true
-	}
-
-	return false
 }
 
 // SetSupplementalGroupIDs gets a reference to the given []int64 and assigns it to the SupplementalGroupIDs field.

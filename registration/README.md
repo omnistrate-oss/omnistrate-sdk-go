@@ -22,7 +22,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```go
-import registration "github.com/omnistrate/omnistrate-sdk-go"
+import registration "github.com/omnistrate/omnistrate-sdk-go/registration"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:

@@ -62,15 +62,6 @@ func (o *UpdateSaaSPortalCustomDomainRequestBody) GetCustomDomainOk() (*string, 
 	return o.CustomDomain, true
 }
 
-// HasCustomDomain returns a boolean if a field has been set.
-func (o *UpdateSaaSPortalCustomDomainRequestBody) HasCustomDomain() bool {
-	if o != nil && !IsNil(o.CustomDomain) {
-		return true
-	}
-
-	return false
-}
-
 // SetCustomDomain gets a reference to the given string and assigns it to the CustomDomain field.
 func (o *UpdateSaaSPortalCustomDomainRequestBody) SetCustomDomain(v string) {
 	o.CustomDomain = &v
@@ -94,15 +85,6 @@ func (o *UpdateSaaSPortalCustomDomainRequestBody) GetDescriptionOk() (*string, b
 	return o.Description, true
 }
 
-// HasDescription returns a boolean if a field has been set.
-func (o *UpdateSaaSPortalCustomDomainRequestBody) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
-		return true
-	}
-
-	return false
-}
-
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *UpdateSaaSPortalCustomDomainRequestBody) SetDescription(v string) {
 	o.Description = &v
@@ -124,15 +106,6 @@ func (o *UpdateSaaSPortalCustomDomainRequestBody) GetNameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Name, true
-}
-
-// HasName returns a boolean if a field has been set.
-func (o *UpdateSaaSPortalCustomDomainRequestBody) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.

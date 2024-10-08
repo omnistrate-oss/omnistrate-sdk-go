@@ -86,15 +86,6 @@ func (o *DescribeComputeConfigResult) GetAutoscalingPolicyOk() (*AutoscalingPoli
 	return o.AutoscalingPolicy, true
 }
 
-// HasAutoscalingPolicy returns a boolean if a field has been set.
-func (o *DescribeComputeConfigResult) HasAutoscalingPolicy() bool {
-	if o != nil && !IsNil(o.AutoscalingPolicy) {
-		return true
-	}
-
-	return false
-}
-
 // SetAutoscalingPolicy gets a reference to the given AutoscalingPolicy and assigns it to the AutoscalingPolicy field.
 func (o *DescribeComputeConfigResult) SetAutoscalingPolicy(v AutoscalingPolicy) {
 	o.AutoscalingPolicy = &v
@@ -116,15 +107,6 @@ func (o *DescribeComputeConfigResult) GetCpuArchitectureOk() (*string, bool) {
 		return nil, false
 	}
 	return o.CpuArchitecture, true
-}
-
-// HasCpuArchitecture returns a boolean if a field has been set.
-func (o *DescribeComputeConfigResult) HasCpuArchitecture() bool {
-	if o != nil && !IsNil(o.CpuArchitecture) {
-		return true
-	}
-
-	return false
 }
 
 // SetCpuArchitecture gets a reference to the given string and assigns it to the CpuArchitecture field.
@@ -198,15 +180,6 @@ func (o *DescribeComputeConfigResult) GetInfraConfigIDsOk() ([]string, bool) {
 	return o.InfraConfigIDs, true
 }
 
-// HasInfraConfigIDs returns a boolean if a field has been set.
-func (o *DescribeComputeConfigResult) HasInfraConfigIDs() bool {
-	if o != nil && !IsNil(o.InfraConfigIDs) {
-		return true
-	}
-
-	return false
-}
-
 // SetInfraConfigIDs gets a reference to the given []string and assigns it to the InfraConfigIDs field.
 func (o *DescribeComputeConfigResult) SetInfraConfigIDs(v []string) {
 	o.InfraConfigIDs = v
@@ -228,15 +201,6 @@ func (o *DescribeComputeConfigResult) GetInstanceTypesOk() (*map[string][]string
 		return nil, false
 	}
 	return o.InstanceTypes, true
-}
-
-// HasInstanceTypes returns a boolean if a field has been set.
-func (o *DescribeComputeConfigResult) HasInstanceTypes() bool {
-	if o != nil && !IsNil(o.InstanceTypes) {
-		return true
-	}
-
-	return false
 }
 
 // SetInstanceTypes gets a reference to the given map[string][]string and assigns it to the InstanceTypes field.
@@ -310,15 +274,6 @@ func (o *DescribeComputeConfigResult) GetResourcesOk() (*ResourceSpec, bool) {
 	return o.Resources, true
 }
 
-// HasResources returns a boolean if a field has been set.
-func (o *DescribeComputeConfigResult) HasResources() bool {
-	if o != nil && !IsNil(o.Resources) {
-		return true
-	}
-
-	return false
-}
-
 // SetResources gets a reference to the given ResourceSpec and assigns it to the Resources field.
 func (o *DescribeComputeConfigResult) SetResources(v ResourceSpec) {
 	o.Resources = &v
@@ -340,15 +295,6 @@ func (o *DescribeComputeConfigResult) GetRootVolumeSizeGiOk() (*int64, bool) {
 		return nil, false
 	}
 	return o.RootVolumeSizeGi, true
-}
-
-// HasRootVolumeSizeGi returns a boolean if a field has been set.
-func (o *DescribeComputeConfigResult) HasRootVolumeSizeGi() bool {
-	if o != nil && !IsNil(o.RootVolumeSizeGi) {
-		return true
-	}
-
-	return false
 }
 
 // SetRootVolumeSizeGi gets a reference to the given int64 and assigns it to the RootVolumeSizeGi field.
@@ -396,15 +342,6 @@ func (o *DescribeComputeConfigResult) GetWarmPoolConfigurationOk() (*WarmPoolCon
 		return nil, false
 	}
 	return o.WarmPoolConfiguration, true
-}
-
-// HasWarmPoolConfiguration returns a boolean if a field has been set.
-func (o *DescribeComputeConfigResult) HasWarmPoolConfiguration() bool {
-	if o != nil && !IsNil(o.WarmPoolConfiguration) {
-		return true
-	}
-
-	return false
 }
 
 // SetWarmPoolConfiguration gets a reference to the given WarmPoolConfiguration and assigns it to the WarmPoolConfiguration field.

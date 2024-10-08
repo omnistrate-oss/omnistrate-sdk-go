@@ -99,15 +99,6 @@ func (o *CustomerLoginWithIdentityProviderRequestBody) GetCompanyDescriptionOk()
 	return o.CompanyDescription, true
 }
 
-// HasCompanyDescription returns a boolean if a field has been set.
-func (o *CustomerLoginWithIdentityProviderRequestBody) HasCompanyDescription() bool {
-	if o != nil && !IsNil(o.CompanyDescription) {
-		return true
-	}
-
-	return false
-}
-
 // SetCompanyDescription gets a reference to the given string and assigns it to the CompanyDescription field.
 func (o *CustomerLoginWithIdentityProviderRequestBody) SetCompanyDescription(v string) {
 	o.CompanyDescription = &v
@@ -131,15 +122,6 @@ func (o *CustomerLoginWithIdentityProviderRequestBody) GetCompanyUrlOk() (*strin
 	return o.CompanyUrl, true
 }
 
-// HasCompanyUrl returns a boolean if a field has been set.
-func (o *CustomerLoginWithIdentityProviderRequestBody) HasCompanyUrl() bool {
-	if o != nil && !IsNil(o.CompanyUrl) {
-		return true
-	}
-
-	return false
-}
-
 // SetCompanyUrl gets a reference to the given string and assigns it to the CompanyUrl field.
 func (o *CustomerLoginWithIdentityProviderRequestBody) SetCompanyUrl(v string) {
 	o.CompanyUrl = &v
@@ -161,15 +143,6 @@ func (o *CustomerLoginWithIdentityProviderRequestBody) GetEnvironmentTypeOk() (*
 		return nil, false
 	}
 	return o.EnvironmentType, true
-}
-
-// HasEnvironmentType returns a boolean if a field has been set.
-func (o *CustomerLoginWithIdentityProviderRequestBody) HasEnvironmentType() bool {
-	if o != nil && !IsNil(o.EnvironmentType) {
-		return true
-	}
-
-	return false
 }
 
 // SetEnvironmentType gets a reference to the given string and assigns it to the EnvironmentType field.
@@ -219,15 +192,6 @@ func (o *CustomerLoginWithIdentityProviderRequestBody) GetInvitedEmailOk() (*str
 	return o.InvitedEmail, true
 }
 
-// HasInvitedEmail returns a boolean if a field has been set.
-func (o *CustomerLoginWithIdentityProviderRequestBody) HasInvitedEmail() bool {
-	if o != nil && !IsNil(o.InvitedEmail) {
-		return true
-	}
-
-	return false
-}
-
 // SetInvitedEmail gets a reference to the given string and assigns it to the InvitedEmail field.
 func (o *CustomerLoginWithIdentityProviderRequestBody) SetInvitedEmail(v string) {
 	o.InvitedEmail = &v
@@ -251,15 +215,6 @@ func (o *CustomerLoginWithIdentityProviderRequestBody) GetLegalCompanyNameOk() (
 	return o.LegalCompanyName, true
 }
 
-// HasLegalCompanyName returns a boolean if a field has been set.
-func (o *CustomerLoginWithIdentityProviderRequestBody) HasLegalCompanyName() bool {
-	if o != nil && !IsNil(o.LegalCompanyName) {
-		return true
-	}
-
-	return false
-}
-
 // SetLegalCompanyName gets a reference to the given string and assigns it to the LegalCompanyName field.
 func (o *CustomerLoginWithIdentityProviderRequestBody) SetLegalCompanyName(v string) {
 	o.LegalCompanyName = &v
@@ -281,15 +236,6 @@ func (o *CustomerLoginWithIdentityProviderRequestBody) GetRedirectUriOk() (*stri
 		return nil, false
 	}
 	return o.RedirectUri, true
-}
-
-// HasRedirectUri returns a boolean if a field has been set.
-func (o *CustomerLoginWithIdentityProviderRequestBody) HasRedirectUri() bool {
-	if o != nil && !IsNil(o.RedirectUri) {
-		return true
-	}
-
-	return false
 }
 
 // SetRedirectUri gets a reference to the given string and assigns it to the RedirectUri field.

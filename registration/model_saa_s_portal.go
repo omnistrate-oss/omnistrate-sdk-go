@@ -78,15 +78,6 @@ func (o *SaaSPortal) GetCustomDomainOk() (*string, bool) {
 	return o.CustomDomain, true
 }
 
-// HasCustomDomain returns a boolean if a field has been set.
-func (o *SaaSPortal) HasCustomDomain() bool {
-	if o != nil && !IsNil(o.CustomDomain) {
-		return true
-	}
-
-	return false
-}
-
 // SetCustomDomain gets a reference to the given string and assigns it to the CustomDomain field.
 func (o *SaaSPortal) SetCustomDomain(v string) {
 	o.CustomDomain = &v
@@ -108,15 +99,6 @@ func (o *SaaSPortal) GetCustomDomainStatusOk() (*string, bool) {
 		return nil, false
 	}
 	return o.CustomDomainStatus, true
-}
-
-// HasCustomDomainStatus returns a boolean if a field has been set.
-func (o *SaaSPortal) HasCustomDomainStatus() bool {
-	if o != nil && !IsNil(o.CustomDomainStatus) {
-		return true
-	}
-
-	return false
 }
 
 // SetCustomDomainStatus gets a reference to the given string and assigns it to the CustomDomainStatus field.
@@ -142,15 +124,6 @@ func (o *SaaSPortal) GetDetailedNetworkTopologyOk() (*map[string]ResourceNetwork
 	return o.DetailedNetworkTopology, true
 }
 
-// HasDetailedNetworkTopology returns a boolean if a field has been set.
-func (o *SaaSPortal) HasDetailedNetworkTopology() bool {
-	if o != nil && !IsNil(o.DetailedNetworkTopology) {
-		return true
-	}
-
-	return false
-}
-
 // SetDetailedNetworkTopology gets a reference to the given map[string]ResourceNetworkTopologyResult and assigns it to the DetailedNetworkTopology field.
 func (o *SaaSPortal) SetDetailedNetworkTopology(v map[string]ResourceNetworkTopologyResult) {
 	o.DetailedNetworkTopology = &v
@@ -174,15 +147,6 @@ func (o *SaaSPortal) GetEmailConfigOk() (*SaaSPortalEmailConfig, bool) {
 	return o.EmailConfig, true
 }
 
-// HasEmailConfig returns a boolean if a field has been set.
-func (o *SaaSPortal) HasEmailConfig() bool {
-	if o != nil && !IsNil(o.EmailConfig) {
-		return true
-	}
-
-	return false
-}
-
 // SetEmailConfig gets a reference to the given SaaSPortalEmailConfig and assigns it to the EmailConfig field.
 func (o *SaaSPortal) SetEmailConfig(v SaaSPortalEmailConfig) {
 	o.EmailConfig = &v
@@ -204,15 +168,6 @@ func (o *SaaSPortal) GetEndpointOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Endpoint, true
-}
-
-// HasEndpoint returns a boolean if a field has been set.
-func (o *SaaSPortal) HasEndpoint() bool {
-	if o != nil && !IsNil(o.Endpoint) {
-		return true
-	}
-
-	return false
 }
 
 // SetEndpoint gets a reference to the given string and assigns it to the Endpoint field.
@@ -262,15 +217,6 @@ func (o *SaaSPortal) GetGoogleAnalyticsTagIDOk() (*string, bool) {
 	return o.GoogleAnalyticsTagID, true
 }
 
-// HasGoogleAnalyticsTagID returns a boolean if a field has been set.
-func (o *SaaSPortal) HasGoogleAnalyticsTagID() bool {
-	if o != nil && !IsNil(o.GoogleAnalyticsTagID) {
-		return true
-	}
-
-	return false
-}
-
 // SetGoogleAnalyticsTagID gets a reference to the given string and assigns it to the GoogleAnalyticsTagID field.
 func (o *SaaSPortal) SetGoogleAnalyticsTagID(v string) {
 	o.GoogleAnalyticsTagID = &v
@@ -292,15 +238,6 @@ func (o *SaaSPortal) GetImageConfigOk() (*SaaSPortalImageConfig, bool) {
 		return nil, false
 	}
 	return o.ImageConfig, true
-}
-
-// HasImageConfig returns a boolean if a field has been set.
-func (o *SaaSPortal) HasImageConfig() bool {
-	if o != nil && !IsNil(o.ImageConfig) {
-		return true
-	}
-
-	return false
 }
 
 // SetImageConfig gets a reference to the given SaaSPortalImageConfig and assigns it to the ImageConfig field.

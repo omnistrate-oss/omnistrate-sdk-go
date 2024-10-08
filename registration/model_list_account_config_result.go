@@ -61,15 +61,6 @@ func (o *ListAccountConfigResult) GetAccountConfigsOk() ([]DescribeAccountConfig
 	return o.AccountConfigs, true
 }
 
-// HasAccountConfigs returns a boolean if a field has been set.
-func (o *ListAccountConfigResult) HasAccountConfigs() bool {
-	if o != nil && !IsNil(o.AccountConfigs) {
-		return true
-	}
-
-	return false
-}
-
 // SetAccountConfigs gets a reference to the given []DescribeAccountConfigResult and assigns it to the AccountConfigs field.
 func (o *ListAccountConfigResult) SetAccountConfigs(v []DescribeAccountConfigResult) {
 	o.AccountConfigs = v
@@ -93,15 +84,6 @@ func (o *ListAccountConfigResult) GetIdsOk() ([]string, bool) {
 	return o.Ids, true
 }
 
-// HasIds returns a boolean if a field has been set.
-func (o *ListAccountConfigResult) HasIds() bool {
-	if o != nil && !IsNil(o.Ids) {
-		return true
-	}
-
-	return false
-}
-
 // SetIds gets a reference to the given []string and assigns it to the Ids field.
 func (o *ListAccountConfigResult) SetIds(v []string) {
 	o.Ids = v
@@ -123,15 +105,6 @@ func (o *ListAccountConfigResult) GetNextPageTokenOk() (*string, bool) {
 		return nil, false
 	}
 	return o.NextPageToken, true
-}
-
-// HasNextPageToken returns a boolean if a field has been set.
-func (o *ListAccountConfigResult) HasNextPageToken() bool {
-	if o != nil && !IsNil(o.NextPageToken) {
-		return true
-	}
-
-	return false
 }
 
 // SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.

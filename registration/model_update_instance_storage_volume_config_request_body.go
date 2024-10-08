@@ -62,15 +62,6 @@ func (o *UpdateInstanceStorageVolumeConfigRequestBody) GetInstanceStorageIopsOk(
 	return o.InstanceStorageIops, true
 }
 
-// HasInstanceStorageIops returns a boolean if a field has been set.
-func (o *UpdateInstanceStorageVolumeConfigRequestBody) HasInstanceStorageIops() bool {
-	if o != nil && !IsNil(o.InstanceStorageIops) {
-		return true
-	}
-
-	return false
-}
-
 // SetInstanceStorageIops gets a reference to the given string and assigns it to the InstanceStorageIops field.
 func (o *UpdateInstanceStorageVolumeConfigRequestBody) SetInstanceStorageIops(v string) {
 	o.InstanceStorageIops = &v
@@ -94,15 +85,6 @@ func (o *UpdateInstanceStorageVolumeConfigRequestBody) GetInstanceStorageThrough
 	return o.InstanceStorageThroughputMiBps, true
 }
 
-// HasInstanceStorageThroughputMiBps returns a boolean if a field has been set.
-func (o *UpdateInstanceStorageVolumeConfigRequestBody) HasInstanceStorageThroughputMiBps() bool {
-	if o != nil && !IsNil(o.InstanceStorageThroughputMiBps) {
-		return true
-	}
-
-	return false
-}
-
 // SetInstanceStorageThroughputMiBps gets a reference to the given string and assigns it to the InstanceStorageThroughputMiBps field.
 func (o *UpdateInstanceStorageVolumeConfigRequestBody) SetInstanceStorageThroughputMiBps(v string) {
 	o.InstanceStorageThroughputMiBps = &v
@@ -124,15 +106,6 @@ func (o *UpdateInstanceStorageVolumeConfigRequestBody) GetInstanceStorageTypeOk(
 		return nil, false
 	}
 	return o.InstanceStorageType, true
-}
-
-// HasInstanceStorageType returns a boolean if a field has been set.
-func (o *UpdateInstanceStorageVolumeConfigRequestBody) HasInstanceStorageType() bool {
-	if o != nil && !IsNil(o.InstanceStorageType) {
-		return true
-	}
-
-	return false
 }
 
 // SetInstanceStorageType gets a reference to the given string and assigns it to the InstanceStorageType field.

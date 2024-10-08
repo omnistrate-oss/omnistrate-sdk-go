@@ -91,15 +91,6 @@ func (o *ListOutputParametersResult) GetNextPageTokenOk() (*string, bool) {
 	return o.NextPageToken, true
 }
 
-// HasNextPageToken returns a boolean if a field has been set.
-func (o *ListOutputParametersResult) HasNextPageToken() bool {
-	if o != nil && !IsNil(o.NextPageToken) {
-		return true
-	}
-
-	return false
-}
-
 // SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.
 func (o *ListOutputParametersResult) SetNextPageToken(v string) {
 	o.NextPageToken = &v
@@ -121,15 +112,6 @@ func (o *ListOutputParametersResult) GetOutputParametersOk() ([]DescribeOutputPa
 		return nil, false
 	}
 	return o.OutputParameters, true
-}
-
-// HasOutputParameters returns a boolean if a field has been set.
-func (o *ListOutputParametersResult) HasOutputParameters() bool {
-	if o != nil && !IsNil(o.OutputParameters) {
-		return true
-	}
-
-	return false
 }
 
 // SetOutputParameters gets a reference to the given []DescribeOutputParameterResult and assigns it to the OutputParameters field.

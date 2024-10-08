@@ -89,15 +89,6 @@ func (o *DisableProductTierFeatureRequestBody) GetScopeOk() (*string, bool) {
 	return o.Scope, true
 }
 
-// HasScope returns a boolean if a field has been set.
-func (o *DisableProductTierFeatureRequestBody) HasScope() bool {
-	if o != nil && !IsNil(o.Scope) {
-		return true
-	}
-
-	return false
-}
-
 // SetScope gets a reference to the given string and assigns it to the Scope field.
 func (o *DisableProductTierFeatureRequestBody) SetScope(v string) {
 	o.Scope = &v

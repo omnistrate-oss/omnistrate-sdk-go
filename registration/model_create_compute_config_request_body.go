@@ -75,15 +75,6 @@ func (o *CreateComputeConfigRequestBody) GetAutoscalingPolicyOk() (*AutoscalingP
 	return o.AutoscalingPolicy, true
 }
 
-// HasAutoscalingPolicy returns a boolean if a field has been set.
-func (o *CreateComputeConfigRequestBody) HasAutoscalingPolicy() bool {
-	if o != nil && !IsNil(o.AutoscalingPolicy) {
-		return true
-	}
-
-	return false
-}
-
 // SetAutoscalingPolicy gets a reference to the given AutoscalingPolicy and assigns it to the AutoscalingPolicy field.
 func (o *CreateComputeConfigRequestBody) SetAutoscalingPolicy(v AutoscalingPolicy) {
 	o.AutoscalingPolicy = &v
@@ -105,15 +96,6 @@ func (o *CreateComputeConfigRequestBody) GetCpuArchitectureOk() (*string, bool) 
 		return nil, false
 	}
 	return o.CpuArchitecture, true
-}
-
-// HasCpuArchitecture returns a boolean if a field has been set.
-func (o *CreateComputeConfigRequestBody) HasCpuArchitecture() bool {
-	if o != nil && !IsNil(o.CpuArchitecture) {
-		return true
-	}
-
-	return false
 }
 
 // SetCpuArchitecture gets a reference to the given string and assigns it to the CpuArchitecture field.
@@ -187,15 +169,6 @@ func (o *CreateComputeConfigRequestBody) GetReplicaCountOk() (*string, bool) {
 	return o.ReplicaCount, true
 }
 
-// HasReplicaCount returns a boolean if a field has been set.
-func (o *CreateComputeConfigRequestBody) HasReplicaCount() bool {
-	if o != nil && !IsNil(o.ReplicaCount) {
-		return true
-	}
-
-	return false
-}
-
 // SetReplicaCount gets a reference to the given string and assigns it to the ReplicaCount field.
 func (o *CreateComputeConfigRequestBody) SetReplicaCount(v string) {
 	o.ReplicaCount = &v
@@ -217,15 +190,6 @@ func (o *CreateComputeConfigRequestBody) GetResourcesOk() (*ResourceSpec, bool) 
 		return nil, false
 	}
 	return o.Resources, true
-}
-
-// HasResources returns a boolean if a field has been set.
-func (o *CreateComputeConfigRequestBody) HasResources() bool {
-	if o != nil && !IsNil(o.Resources) {
-		return true
-	}
-
-	return false
 }
 
 // SetResources gets a reference to the given ResourceSpec and assigns it to the Resources field.
@@ -251,15 +215,6 @@ func (o *CreateComputeConfigRequestBody) GetRootVolumeSizeGiOk() (*int64, bool) 
 	return o.RootVolumeSizeGi, true
 }
 
-// HasRootVolumeSizeGi returns a boolean if a field has been set.
-func (o *CreateComputeConfigRequestBody) HasRootVolumeSizeGi() bool {
-	if o != nil && !IsNil(o.RootVolumeSizeGi) {
-		return true
-	}
-
-	return false
-}
-
 // SetRootVolumeSizeGi gets a reference to the given int64 and assigns it to the RootVolumeSizeGi field.
 func (o *CreateComputeConfigRequestBody) SetRootVolumeSizeGi(v int64) {
 	o.RootVolumeSizeGi = &v
@@ -281,15 +236,6 @@ func (o *CreateComputeConfigRequestBody) GetWarmPoolConfigurationOk() (*WarmPool
 		return nil, false
 	}
 	return o.WarmPoolConfiguration, true
-}
-
-// HasWarmPoolConfiguration returns a boolean if a field has been set.
-func (o *CreateComputeConfigRequestBody) HasWarmPoolConfiguration() bool {
-	if o != nil && !IsNil(o.WarmPoolConfiguration) {
-		return true
-	}
-
-	return false
 }
 
 // SetWarmPoolConfiguration gets a reference to the given WarmPoolConfiguration and assigns it to the WarmPoolConfiguration field.

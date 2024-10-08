@@ -64,15 +64,6 @@ func (o *Limits) GetMaxOk() (*string, bool) {
 	return o.Max, true
 }
 
-// HasMax returns a boolean if a field has been set.
-func (o *Limits) HasMax() bool {
-	if o != nil && !IsNil(o.Max) {
-		return true
-	}
-
-	return false
-}
-
 // SetMax gets a reference to the given string and assigns it to the Max field.
 func (o *Limits) SetMax(v string) {
 	o.Max = &v
@@ -94,15 +85,6 @@ func (o *Limits) GetMaxLengthOk() (*string, bool) {
 		return nil, false
 	}
 	return o.MaxLength, true
-}
-
-// HasMaxLength returns a boolean if a field has been set.
-func (o *Limits) HasMaxLength() bool {
-	if o != nil && !IsNil(o.MaxLength) {
-		return true
-	}
-
-	return false
 }
 
 // SetMaxLength gets a reference to the given string and assigns it to the MaxLength field.
@@ -128,15 +110,6 @@ func (o *Limits) GetMinOk() (*string, bool) {
 	return o.Min, true
 }
 
-// HasMin returns a boolean if a field has been set.
-func (o *Limits) HasMin() bool {
-	if o != nil && !IsNil(o.Min) {
-		return true
-	}
-
-	return false
-}
-
 // SetMin gets a reference to the given string and assigns it to the Min field.
 func (o *Limits) SetMin(v string) {
 	o.Min = &v
@@ -158,15 +131,6 @@ func (o *Limits) GetMinLengthOk() (*string, bool) {
 		return nil, false
 	}
 	return o.MinLength, true
-}
-
-// HasMinLength returns a boolean if a field has been set.
-func (o *Limits) HasMinLength() bool {
-	if o != nil && !IsNil(o.MinLength) {
-		return true
-	}
-
-	return false
 }
 
 // SetMinLength gets a reference to the given string and assigns it to the MinLength field.

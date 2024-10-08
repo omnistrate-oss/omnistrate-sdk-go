@@ -62,15 +62,6 @@ func (o *UpdateFileMetadataRequestBody) GetDescriptionOk() (*string, bool) {
 	return o.Description, true
 }
 
-// HasDescription returns a boolean if a field has been set.
-func (o *UpdateFileMetadataRequestBody) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
-		return true
-	}
-
-	return false
-}
-
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *UpdateFileMetadataRequestBody) SetDescription(v string) {
 	o.Description = &v
@@ -94,15 +85,6 @@ func (o *UpdateFileMetadataRequestBody) GetMountPathOk() (*string, bool) {
 	return o.MountPath, true
 }
 
-// HasMountPath returns a boolean if a field has been set.
-func (o *UpdateFileMetadataRequestBody) HasMountPath() bool {
-	if o != nil && !IsNil(o.MountPath) {
-		return true
-	}
-
-	return false
-}
-
 // SetMountPath gets a reference to the given string and assigns it to the MountPath field.
 func (o *UpdateFileMetadataRequestBody) SetMountPath(v string) {
 	o.MountPath = &v
@@ -124,15 +106,6 @@ func (o *UpdateFileMetadataRequestBody) GetNameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Name, true
-}
-
-// HasName returns a boolean if a field has been set.
-func (o *UpdateFileMetadataRequestBody) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.

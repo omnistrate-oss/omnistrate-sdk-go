@@ -67,15 +67,6 @@ func (o *UpdateImageConfigRequestBody) GetCustomImageCommandsAndArgsOk() (*Custo
 	return o.CustomImageCommandsAndArgs, true
 }
 
-// HasCustomImageCommandsAndArgs returns a boolean if a field has been set.
-func (o *UpdateImageConfigRequestBody) HasCustomImageCommandsAndArgs() bool {
-	if o != nil && !IsNil(o.CustomImageCommandsAndArgs) {
-		return true
-	}
-
-	return false
-}
-
 // SetCustomImageCommandsAndArgs gets a reference to the given CustomImageCommandsAndArgs and assigns it to the CustomImageCommandsAndArgs field.
 func (o *UpdateImageConfigRequestBody) SetCustomImageCommandsAndArgs(v CustomImageCommandsAndArgs) {
 	o.CustomImageCommandsAndArgs = &v
@@ -97,15 +88,6 @@ func (o *UpdateImageConfigRequestBody) GetDescriptionOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Description, true
-}
-
-// HasDescription returns a boolean if a field has been set.
-func (o *UpdateImageConfigRequestBody) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
-		return true
-	}
-
-	return false
 }
 
 // SetDescription gets a reference to the given string and assigns it to the Description field.
@@ -131,15 +113,6 @@ func (o *UpdateImageConfigRequestBody) GetImageNameOk() (*string, bool) {
 	return o.ImageName, true
 }
 
-// HasImageName returns a boolean if a field has been set.
-func (o *UpdateImageConfigRequestBody) HasImageName() bool {
-	if o != nil && !IsNil(o.ImageName) {
-		return true
-	}
-
-	return false
-}
-
 // SetImageName gets a reference to the given string and assigns it to the ImageName field.
 func (o *UpdateImageConfigRequestBody) SetImageName(v string) {
 	o.ImageName = &v
@@ -161,15 +134,6 @@ func (o *UpdateImageConfigRequestBody) GetImageRegistryIdOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ImageRegistryId, true
-}
-
-// HasImageRegistryId returns a boolean if a field has been set.
-func (o *UpdateImageConfigRequestBody) HasImageRegistryId() bool {
-	if o != nil && !IsNil(o.ImageRegistryId) {
-		return true
-	}
-
-	return false
 }
 
 // SetImageRegistryId gets a reference to the given string and assigns it to the ImageRegistryId field.
@@ -195,15 +159,6 @@ func (o *UpdateImageConfigRequestBody) GetImageSignaturePublicKeyPEMOk() (*strin
 	return o.ImageSignaturePublicKeyPEM, true
 }
 
-// HasImageSignaturePublicKeyPEM returns a boolean if a field has been set.
-func (o *UpdateImageConfigRequestBody) HasImageSignaturePublicKeyPEM() bool {
-	if o != nil && !IsNil(o.ImageSignaturePublicKeyPEM) {
-		return true
-	}
-
-	return false
-}
-
 // SetImageSignaturePublicKeyPEM gets a reference to the given string and assigns it to the ImageSignaturePublicKeyPEM field.
 func (o *UpdateImageConfigRequestBody) SetImageSignaturePublicKeyPEM(v string) {
 	o.ImageSignaturePublicKeyPEM = &v
@@ -225,15 +180,6 @@ func (o *UpdateImageConfigRequestBody) GetImageTagOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ImageTag, true
-}
-
-// HasImageTag returns a boolean if a field has been set.
-func (o *UpdateImageConfigRequestBody) HasImageTag() bool {
-	if o != nil && !IsNil(o.ImageTag) {
-		return true
-	}
-
-	return false
 }
 
 // SetImageTag gets a reference to the given string and assigns it to the ImageTag field.

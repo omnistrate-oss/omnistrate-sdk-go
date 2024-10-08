@@ -146,15 +146,6 @@ func (o *DescribeUserBillingDetailsResult) GetPaymentInfoPortalURLOk() (*string,
 	return o.PaymentInfoPortalURL, true
 }
 
-// HasPaymentInfoPortalURL returns a boolean if a field has been set.
-func (o *DescribeUserBillingDetailsResult) HasPaymentInfoPortalURL() bool {
-	if o != nil && !IsNil(o.PaymentInfoPortalURL) {
-		return true
-	}
-
-	return false
-}
-
 // SetPaymentInfoPortalURL gets a reference to the given string and assigns it to the PaymentInfoPortalURL field.
 func (o *DescribeUserBillingDetailsResult) SetPaymentInfoPortalURL(v string) {
 	o.PaymentInfoPortalURL = &v

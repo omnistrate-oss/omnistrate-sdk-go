@@ -58,15 +58,6 @@ func (o *EnvironmentHealthReport) GetModelsOk() (*map[string]VUnitHealthReport, 
 	return o.Models, true
 }
 
-// HasModels returns a boolean if a field has been set.
-func (o *EnvironmentHealthReport) HasModels() bool {
-	if o != nil && !IsNil(o.Models) {
-		return true
-	}
-
-	return false
-}
-
 // SetModels gets a reference to the given map[string]VUnitHealthReport and assigns it to the Models field.
 func (o *EnvironmentHealthReport) SetModels(v map[string]VUnitHealthReport) {
 	o.Models = &v

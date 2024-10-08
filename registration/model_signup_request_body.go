@@ -73,15 +73,6 @@ func (o *SignupRequestBody) GetCompanyDescriptionOk() (*string, bool) {
 	return o.CompanyDescription, true
 }
 
-// HasCompanyDescription returns a boolean if a field has been set.
-func (o *SignupRequestBody) HasCompanyDescription() bool {
-	if o != nil && !IsNil(o.CompanyDescription) {
-		return true
-	}
-
-	return false
-}
-
 // SetCompanyDescription gets a reference to the given string and assigns it to the CompanyDescription field.
 func (o *SignupRequestBody) SetCompanyDescription(v string) {
 	o.CompanyDescription = &v
@@ -103,15 +94,6 @@ func (o *SignupRequestBody) GetCompanyUrlOk() (*string, bool) {
 		return nil, false
 	}
 	return o.CompanyUrl, true
-}
-
-// HasCompanyUrl returns a boolean if a field has been set.
-func (o *SignupRequestBody) HasCompanyUrl() bool {
-	if o != nil && !IsNil(o.CompanyUrl) {
-		return true
-	}
-
-	return false
 }
 
 // SetCompanyUrl gets a reference to the given string and assigns it to the CompanyUrl field.
@@ -159,15 +141,6 @@ func (o *SignupRequestBody) GetLegalCompanyNameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.LegalCompanyName, true
-}
-
-// HasLegalCompanyName returns a boolean if a field has been set.
-func (o *SignupRequestBody) HasLegalCompanyName() bool {
-	if o != nil && !IsNil(o.LegalCompanyName) {
-		return true
-	}
-
-	return false
 }
 
 // SetLegalCompanyName gets a reference to the given string and assigns it to the LegalCompanyName field.

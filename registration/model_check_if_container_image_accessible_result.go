@@ -65,15 +65,6 @@ func (o *CheckIfContainerImageAccessibleResult) GetErrorMsgOk() (*string, bool) 
 	return o.ErrorMsg, true
 }
 
-// HasErrorMsg returns a boolean if a field has been set.
-func (o *CheckIfContainerImageAccessibleResult) HasErrorMsg() bool {
-	if o != nil && !IsNil(o.ErrorMsg) {
-		return true
-	}
-
-	return false
-}
-
 // SetErrorMsg gets a reference to the given string and assigns it to the ErrorMsg field.
 func (o *CheckIfContainerImageAccessibleResult) SetErrorMsg(v string) {
 	o.ErrorMsg = &v

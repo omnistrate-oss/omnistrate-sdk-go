@@ -75,15 +75,6 @@ func (o *CreateCustomNetworkRequestBody) GetCidrOk() (*string, bool) {
 	return o.Cidr, true
 }
 
-// HasCidr returns a boolean if a field has been set.
-func (o *CreateCustomNetworkRequestBody) HasCidr() bool {
-	if o != nil && !IsNil(o.Cidr) {
-		return true
-	}
-
-	return false
-}
-
 // SetCidr gets a reference to the given string and assigns it to the Cidr field.
 func (o *CreateCustomNetworkRequestBody) SetCidr(v string) {
 	o.Cidr = &v
@@ -155,15 +146,6 @@ func (o *CreateCustomNetworkRequestBody) GetNameOk() (*string, bool) {
 	return o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *CreateCustomNetworkRequestBody) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
-}
-
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *CreateCustomNetworkRequestBody) SetName(v string) {
 	o.Name = &v
@@ -185,15 +167,6 @@ func (o *CreateCustomNetworkRequestBody) GetNetworkFeaturesConfigurationOk() (*N
 		return nil, false
 	}
 	return o.NetworkFeaturesConfiguration, true
-}
-
-// HasNetworkFeaturesConfiguration returns a boolean if a field has been set.
-func (o *CreateCustomNetworkRequestBody) HasNetworkFeaturesConfiguration() bool {
-	if o != nil && !IsNil(o.NetworkFeaturesConfiguration) {
-		return true
-	}
-
-	return false
 }
 
 // SetNetworkFeaturesConfiguration gets a reference to the given NetworkFeaturesConfiguration and assigns it to the NetworkFeaturesConfiguration field.

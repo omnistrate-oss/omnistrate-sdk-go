@@ -106,15 +106,6 @@ func (o *DescribeProductTierResult) GetApiGroupsOk() (*map[string]string, bool) 
 	return o.ApiGroups, true
 }
 
-// HasApiGroups returns a boolean if a field has been set.
-func (o *DescribeProductTierResult) HasApiGroups() bool {
-	if o != nil && !IsNil(o.ApiGroups) {
-		return true
-	}
-
-	return false
-}
-
 // SetApiGroups gets a reference to the given map[string]string and assigns it to the ApiGroups field.
 func (o *DescribeProductTierResult) SetApiGroups(v map[string]string) {
 	o.ApiGroups = &v
@@ -136,15 +127,6 @@ func (o *DescribeProductTierResult) GetAwsRegionsOk() ([]string, bool) {
 		return nil, false
 	}
 	return o.AwsRegions, true
-}
-
-// HasAwsRegions returns a boolean if a field has been set.
-func (o *DescribeProductTierResult) HasAwsRegions() bool {
-	if o != nil && !IsNil(o.AwsRegions) {
-		return true
-	}
-
-	return false
 }
 
 // SetAwsRegions gets a reference to the given []string and assigns it to the AwsRegions field.
@@ -218,15 +200,6 @@ func (o *DescribeProductTierResult) GetEnabledFeaturesOk() ([]ProductTierFeature
 	return o.EnabledFeatures, true
 }
 
-// HasEnabledFeatures returns a boolean if a field has been set.
-func (o *DescribeProductTierResult) HasEnabledFeatures() bool {
-	if o != nil && !IsNil(o.EnabledFeatures) {
-		return true
-	}
-
-	return false
-}
-
 // SetEnabledFeatures gets a reference to the given []ProductTierFeatureDetail and assigns it to the EnabledFeatures field.
 func (o *DescribeProductTierResult) SetEnabledFeatures(v []ProductTierFeatureDetail) {
 	o.EnabledFeatures = v
@@ -250,15 +223,6 @@ func (o *DescribeProductTierResult) GetFeaturesOk() (*map[string]bool, bool) {
 	return o.Features, true
 }
 
-// HasFeatures returns a boolean if a field has been set.
-func (o *DescribeProductTierResult) HasFeatures() bool {
-	if o != nil && !IsNil(o.Features) {
-		return true
-	}
-
-	return false
-}
-
 // SetFeatures gets a reference to the given map[string]bool and assigns it to the Features field.
 func (o *DescribeProductTierResult) SetFeatures(v map[string]bool) {
 	o.Features = &v
@@ -280,15 +244,6 @@ func (o *DescribeProductTierResult) GetGcpRegionsOk() ([]string, bool) {
 		return nil, false
 	}
 	return o.GcpRegions, true
-}
-
-// HasGcpRegions returns a boolean if a field has been set.
-func (o *DescribeProductTierResult) HasGcpRegions() bool {
-	if o != nil && !IsNil(o.GcpRegions) {
-		return true
-	}
-
-	return false
 }
 
 // SetGcpRegions gets a reference to the given []string and assigns it to the GcpRegions field.

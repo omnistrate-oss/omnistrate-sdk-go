@@ -68,15 +68,6 @@ func (o *WarmPoolConfiguration) GetMinimumNodesInPoolOk() (*int64, bool) {
 	return o.MinimumNodesInPool, true
 }
 
-// HasMinimumNodesInPool returns a boolean if a field has been set.
-func (o *WarmPoolConfiguration) HasMinimumNodesInPool() bool {
-	if o != nil && !IsNil(o.MinimumNodesInPool) {
-		return true
-	}
-
-	return false
-}
-
 // SetMinimumNodesInPool gets a reference to the given int64 and assigns it to the MinimumNodesInPool field.
 func (o *WarmPoolConfiguration) SetMinimumNodesInPool(v int64) {
 	o.MinimumNodesInPool = &v
@@ -98,15 +89,6 @@ func (o *WarmPoolConfiguration) GetMinimumPercentageNodesInPoolOk() (*int64, boo
 		return nil, false
 	}
 	return o.MinimumPercentageNodesInPool, true
-}
-
-// HasMinimumPercentageNodesInPool returns a boolean if a field has been set.
-func (o *WarmPoolConfiguration) HasMinimumPercentageNodesInPool() bool {
-	if o != nil && !IsNil(o.MinimumPercentageNodesInPool) {
-		return true
-	}
-
-	return false
 }
 
 // SetMinimumPercentageNodesInPool gets a reference to the given int64 and assigns it to the MinimumPercentageNodesInPool field.

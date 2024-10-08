@@ -62,15 +62,6 @@ func (o *UpdateDeploymentConfigRequestBody) GetDescriptionOk() (*string, bool) {
 	return o.Description, true
 }
 
-// HasDescription returns a boolean if a field has been set.
-func (o *UpdateDeploymentConfigRequestBody) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
-		return true
-	}
-
-	return false
-}
-
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *UpdateDeploymentConfigRequestBody) SetDescription(v string) {
 	o.Description = &v
@@ -92,15 +83,6 @@ func (o *UpdateDeploymentConfigRequestBody) GetInfraRollConfigurationOk() (*Infr
 		return nil, false
 	}
 	return o.InfraRollConfiguration, true
-}
-
-// HasInfraRollConfiguration returns a boolean if a field has been set.
-func (o *UpdateDeploymentConfigRequestBody) HasInfraRollConfiguration() bool {
-	if o != nil && !IsNil(o.InfraRollConfiguration) {
-		return true
-	}
-
-	return false
 }
 
 // SetInfraRollConfiguration gets a reference to the given InfraRollConfiguration and assigns it to the InfraRollConfiguration field.
@@ -126,15 +108,6 @@ func (o *UpdateDeploymentConfigRequestBody) GetNameOk() (*string, bool) {
 	return o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *UpdateDeploymentConfigRequestBody) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
-}
-
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *UpdateDeploymentConfigRequestBody) SetName(v string) {
 	o.Name = &v
@@ -156,15 +129,6 @@ func (o *UpdateDeploymentConfigRequestBody) GetRolloutPriorityListOk() ([]string
 		return nil, false
 	}
 	return o.RolloutPriorityList, true
-}
-
-// HasRolloutPriorityList returns a boolean if a field has been set.
-func (o *UpdateDeploymentConfigRequestBody) HasRolloutPriorityList() bool {
-	if o != nil && !IsNil(o.RolloutPriorityList) {
-		return true
-	}
-
-	return false
 }
 
 // SetRolloutPriorityList gets a reference to the given []string and assigns it to the RolloutPriorityList field.

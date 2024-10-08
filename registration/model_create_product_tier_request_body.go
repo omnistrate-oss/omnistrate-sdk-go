@@ -87,15 +87,6 @@ func (o *CreateProductTierRequestBody) GetAwsRegionsOk() ([]string, bool) {
 	return o.AwsRegions, true
 }
 
-// HasAwsRegions returns a boolean if a field has been set.
-func (o *CreateProductTierRequestBody) HasAwsRegions() bool {
-	if o != nil && !IsNil(o.AwsRegions) {
-		return true
-	}
-
-	return false
-}
-
 // SetAwsRegions gets a reference to the given []string and assigns it to the AwsRegions field.
 func (o *CreateProductTierRequestBody) SetAwsRegions(v []string) {
 	o.AwsRegions = v
@@ -143,15 +134,6 @@ func (o *CreateProductTierRequestBody) GetDocumentationOk() (*string, bool) {
 	return o.Documentation, true
 }
 
-// HasDocumentation returns a boolean if a field has been set.
-func (o *CreateProductTierRequestBody) HasDocumentation() bool {
-	if o != nil && !IsNil(o.Documentation) {
-		return true
-	}
-
-	return false
-}
-
 // SetDocumentation gets a reference to the given string and assigns it to the Documentation field.
 func (o *CreateProductTierRequestBody) SetDocumentation(v string) {
 	o.Documentation = &v
@@ -175,15 +157,6 @@ func (o *CreateProductTierRequestBody) GetGcpRegionsOk() ([]string, bool) {
 	return o.GcpRegions, true
 }
 
-// HasGcpRegions returns a boolean if a field has been set.
-func (o *CreateProductTierRequestBody) HasGcpRegions() bool {
-	if o != nil && !IsNil(o.GcpRegions) {
-		return true
-	}
-
-	return false
-}
-
 // SetGcpRegions gets a reference to the given []string and assigns it to the GcpRegions field.
 func (o *CreateProductTierRequestBody) SetGcpRegions(v []string) {
 	o.GcpRegions = v
@@ -205,15 +178,6 @@ func (o *CreateProductTierRequestBody) GetIsDisabledOk() (*bool, bool) {
 		return nil, false
 	}
 	return o.IsDisabled, true
-}
-
-// HasIsDisabled returns a boolean if a field has been set.
-func (o *CreateProductTierRequestBody) HasIsDisabled() bool {
-	if o != nil && !IsNil(o.IsDisabled) {
-		return true
-	}
-
-	return false
 }
 
 // SetIsDisabled gets a reference to the given bool and assigns it to the IsDisabled field.
@@ -288,15 +252,6 @@ func (o *CreateProductTierRequestBody) GetPricingOk() (*interface{}, bool) {
 	return &o.Pricing, true
 }
 
-// HasPricing returns a boolean if a field has been set.
-func (o *CreateProductTierRequestBody) HasPricing() bool {
-	if o != nil && !IsNil(o.Pricing) {
-		return true
-	}
-
-	return false
-}
-
 // SetPricing gets a reference to the given interface{} and assigns it to the Pricing field.
 func (o *CreateProductTierRequestBody) SetPricing(v interface{}) {
 	o.Pricing = v
@@ -342,15 +297,6 @@ func (o *CreateProductTierRequestBody) GetSupportOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Support, true
-}
-
-// HasSupport returns a boolean if a field has been set.
-func (o *CreateProductTierRequestBody) HasSupport() bool {
-	if o != nil && !IsNil(o.Support) {
-		return true
-	}
-
-	return false
 }
 
 // SetSupport gets a reference to the given string and assigns it to the Support field.

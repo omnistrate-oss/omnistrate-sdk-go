@@ -6,12 +6,18 @@ OPEN_API_SPEC=https://api.omnistrate.cloud/2022-09-01-00/openapi.yaml
 FLEET_OPEN_API_SPEC=https://api.omnistrate.cloud/2022-09-01-00/fleet/openapi.yaml
 
 .PHONY: all
-all: gen-go-sdk tidy build
+all: clean gen-go-sdk gen-fleet-go-sdk tidy build
 
 .PHONY: build
 build:
 	echo "Build Go SDK"
-	go build -o omnistrate-sdk-go
+	go build ./...
+
+.PHONY: clean
+clean:
+	echo "Clean Go SDK"
+	rm -rf registration
+	rm -rf fleet
 
 .PHONY: gen-go-sdk
 gen-go-sdk:
@@ -20,20 +26,21 @@ gen-go-sdk:
   -i ${OPEN_API_SPEC} \
   -g go \
   -o registration \
-  --additional-properties packageName=registration,withGoMod=false,packageVersion=${PACKAGE_VERSION},useTags=true \
+  -t templates/go \
+  --additional-properties packageName=registration,withGoMod=false,isGoSubmodule=true,packageVersion=${PACKAGE_VERSION} \
   --git-user-id ${ORG_NAME} \
   --git-repo-id ${REPO_NAME}
 
-# .PHONY: gen-fleet-go-sdk
-# gen-fleet-go-sdk:
-# 	echo "Generate Fleet Go SDK"
-# 	openapi-generator generate \
-#   -i ${FLEET_OPEN_API_SPEC} \
-#   -g go \
-#   -o ./pkg/fleet/
-#   --additional-properties packageName=${PACKAGE_NAME},packageVersion=${PACKAGE_VERSION},useTags=true \
-#   --git-user-id ${ORG_NAME} \
-#   --git-repo-id ${REPO_NAME} \
+.PHONY: gen-fleet-go-sdk
+gen-fleet-go-sdk:
+	echo "Generate Fleet Go SDK"
+	openapi-generator generate \
+  -i ${FLEET_OPEN_API_SPEC} \
+  -g go \
+  -o fleet
+  --additional-properties packageName=fleet,withGoMod=false,isGoSubmodule=true,packageVersion=${PACKAGE_VERSION} \
+  --git-user-id ${ORG_NAME} \
+  --git-repo-id ${REPO_NAME} \
 
 .PHONY: validate
 validate:
@@ -50,3 +57,8 @@ tidy:
 download:
 	echo "Download dependency modules"
 	go mod download
+
+.PHONY: go-template
+go-template:
+	echo "Generate meta template"
+	openapi-generator meta -l go

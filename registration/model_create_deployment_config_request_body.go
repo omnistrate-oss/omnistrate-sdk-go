@@ -92,15 +92,6 @@ func (o *CreateDeploymentConfigRequestBody) GetInfraRollConfigurationOk() (*Infr
 	return o.InfraRollConfiguration, true
 }
 
-// HasInfraRollConfiguration returns a boolean if a field has been set.
-func (o *CreateDeploymentConfigRequestBody) HasInfraRollConfiguration() bool {
-	if o != nil && !IsNil(o.InfraRollConfiguration) {
-		return true
-	}
-
-	return false
-}
-
 // SetInfraRollConfiguration gets a reference to the given InfraRollConfiguration and assigns it to the InfraRollConfiguration field.
 func (o *CreateDeploymentConfigRequestBody) SetInfraRollConfiguration(v InfraRollConfiguration) {
 	o.InfraRollConfiguration = &v
@@ -146,15 +137,6 @@ func (o *CreateDeploymentConfigRequestBody) GetRolloutPriorityListOk() ([]string
 		return nil, false
 	}
 	return o.RolloutPriorityList, true
-}
-
-// HasRolloutPriorityList returns a boolean if a field has been set.
-func (o *CreateDeploymentConfigRequestBody) HasRolloutPriorityList() bool {
-	if o != nil && !IsNil(o.RolloutPriorityList) {
-		return true
-	}
-
-	return false
 }
 
 // SetRolloutPriorityList gets a reference to the given []string and assigns it to the RolloutPriorityList field.

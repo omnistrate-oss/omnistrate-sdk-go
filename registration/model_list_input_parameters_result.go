@@ -91,15 +91,6 @@ func (o *ListInputParametersResult) GetInputParametersOk() ([]DescribeInputParam
 	return o.InputParameters, true
 }
 
-// HasInputParameters returns a boolean if a field has been set.
-func (o *ListInputParametersResult) HasInputParameters() bool {
-	if o != nil && !IsNil(o.InputParameters) {
-		return true
-	}
-
-	return false
-}
-
 // SetInputParameters gets a reference to the given []DescribeInputParameterResult and assigns it to the InputParameters field.
 func (o *ListInputParametersResult) SetInputParameters(v []DescribeInputParameterResult) {
 	o.InputParameters = v
@@ -121,15 +112,6 @@ func (o *ListInputParametersResult) GetNextPageTokenOk() (*string, bool) {
 		return nil, false
 	}
 	return o.NextPageToken, true
-}
-
-// HasNextPageToken returns a boolean if a field has been set.
-func (o *ListInputParametersResult) HasNextPageToken() bool {
-	if o != nil && !IsNil(o.NextPageToken) {
-		return true
-	}
-
-	return false
 }
 
 // SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.

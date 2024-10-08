@@ -87,15 +87,6 @@ func (o *DescribeEventResult) GetEventSourceOk() (*string, bool) {
 	return o.EventSource, true
 }
 
-// HasEventSource returns a boolean if a field has been set.
-func (o *DescribeEventResult) HasEventSource() bool {
-	if o != nil && !IsNil(o.EventSource) {
-		return true
-	}
-
-	return false
-}
-
 // SetEventSource gets a reference to the given string and assigns it to the EventSource field.
 func (o *DescribeEventResult) SetEventSource(v string) {
 	o.EventSource = &v
@@ -167,15 +158,6 @@ func (o *DescribeEventResult) GetOrgIdOk() (*string, bool) {
 	return o.OrgId, true
 }
 
-// HasOrgId returns a boolean if a field has been set.
-func (o *DescribeEventResult) HasOrgId() bool {
-	if o != nil && !IsNil(o.OrgId) {
-		return true
-	}
-
-	return false
-}
-
 // SetOrgId gets a reference to the given string and assigns it to the OrgId field.
 func (o *DescribeEventResult) SetOrgId(v string) {
 	o.OrgId = &v
@@ -197,15 +179,6 @@ func (o *DescribeEventResult) GetOrgNameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.OrgName, true
-}
-
-// HasOrgName returns a boolean if a field has been set.
-func (o *DescribeEventResult) HasOrgName() bool {
-	if o != nil && !IsNil(o.OrgName) {
-		return true
-	}
-
-	return false
 }
 
 // SetOrgName gets a reference to the given string and assigns it to the OrgName field.
@@ -303,15 +276,6 @@ func (o *DescribeEventResult) GetUserIdOk() (*string, bool) {
 	return o.UserId, true
 }
 
-// HasUserId returns a boolean if a field has been set.
-func (o *DescribeEventResult) HasUserId() bool {
-	if o != nil && !IsNil(o.UserId) {
-		return true
-	}
-
-	return false
-}
-
 // SetUserId gets a reference to the given string and assigns it to the UserId field.
 func (o *DescribeEventResult) SetUserId(v string) {
 	o.UserId = &v
@@ -335,15 +299,6 @@ func (o *DescribeEventResult) GetUserNameOk() (*string, bool) {
 	return o.UserName, true
 }
 
-// HasUserName returns a boolean if a field has been set.
-func (o *DescribeEventResult) HasUserName() bool {
-	if o != nil && !IsNil(o.UserName) {
-		return true
-	}
-
-	return false
-}
-
 // SetUserName gets a reference to the given string and assigns it to the UserName field.
 func (o *DescribeEventResult) SetUserName(v string) {
 	o.UserName = &v
@@ -365,15 +320,6 @@ func (o *DescribeEventResult) GetWorkflowFailuresOk() ([]WorkflowFailure, bool) 
 		return nil, false
 	}
 	return o.WorkflowFailures, true
-}
-
-// HasWorkflowFailures returns a boolean if a field has been set.
-func (o *DescribeEventResult) HasWorkflowFailures() bool {
-	if o != nil && !IsNil(o.WorkflowFailures) {
-		return true
-	}
-
-	return false
 }
 
 // SetWorkflowFailures gets a reference to the given []WorkflowFailure and assigns it to the WorkflowFailures field.

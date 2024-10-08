@@ -59,15 +59,6 @@ func (o *UpdateResourceInstanceRequestBody) GetRequestParamsOk() (*interface{}, 
 	return &o.RequestParams, true
 }
 
-// HasRequestParams returns a boolean if a field has been set.
-func (o *UpdateResourceInstanceRequestBody) HasRequestParams() bool {
-	if o != nil && !IsNil(o.RequestParams) {
-		return true
-	}
-
-	return false
-}
-
 // SetRequestParams gets a reference to the given interface{} and assigns it to the RequestParams field.
 func (o *UpdateResourceInstanceRequestBody) SetRequestParams(v interface{}) {
 	o.RequestParams = v

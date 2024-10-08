@@ -57,15 +57,6 @@ func (o *PrivateNetworkingConfiguration) GetPrivateLinkConfigurationOk() (*Priva
 	return o.PrivateLinkConfiguration, true
 }
 
-// HasPrivateLinkConfiguration returns a boolean if a field has been set.
-func (o *PrivateNetworkingConfiguration) HasPrivateLinkConfiguration() bool {
-	if o != nil && !IsNil(o.PrivateLinkConfiguration) {
-		return true
-	}
-
-	return false
-}
-
 // SetPrivateLinkConfiguration gets a reference to the given PrivateLinkConfiguration and assigns it to the PrivateLinkConfiguration field.
 func (o *PrivateNetworkingConfiguration) SetPrivateLinkConfiguration(v PrivateLinkConfiguration) {
 	o.PrivateLinkConfiguration = &v

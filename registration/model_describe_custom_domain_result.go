@@ -198,15 +198,6 @@ func (o *DescribeCustomDomainResult) GetStatusOk() (*string, bool) {
 	return o.Status, true
 }
 
-// HasStatus returns a boolean if a field has been set.
-func (o *DescribeCustomDomainResult) HasStatus() bool {
-	if o != nil && !IsNil(o.Status) {
-		return true
-	}
-
-	return false
-}
-
 // SetStatus gets a reference to the given string and assigns it to the Status field.
 func (o *DescribeCustomDomainResult) SetStatus(v string) {
 	o.Status = &v
@@ -228,15 +219,6 @@ func (o *DescribeCustomDomainResult) GetStatusMessageOk() (*string, bool) {
 		return nil, false
 	}
 	return o.StatusMessage, true
-}
-
-// HasStatusMessage returns a boolean if a field has been set.
-func (o *DescribeCustomDomainResult) HasStatusMessage() bool {
-	if o != nil && !IsNil(o.StatusMessage) {
-		return true
-	}
-
-	return false
 }
 
 // SetStatusMessage gets a reference to the given string and assigns it to the StatusMessage field.

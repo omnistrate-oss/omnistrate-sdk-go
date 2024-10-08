@@ -65,15 +65,6 @@ func (o *FailoverResourceInstanceRequestBody) GetFailedReplicaActionOk() (*strin
 	return o.FailedReplicaAction, true
 }
 
-// HasFailedReplicaAction returns a boolean if a field has been set.
-func (o *FailoverResourceInstanceRequestBody) HasFailedReplicaAction() bool {
-	if o != nil && !IsNil(o.FailedReplicaAction) {
-		return true
-	}
-
-	return false
-}
-
 // SetFailedReplicaAction gets a reference to the given string and assigns it to the FailedReplicaAction field.
 func (o *FailoverResourceInstanceRequestBody) SetFailedReplicaAction(v string) {
 	o.FailedReplicaAction = &v

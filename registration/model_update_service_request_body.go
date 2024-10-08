@@ -62,15 +62,6 @@ func (o *UpdateServiceRequestBody) GetDescriptionOk() (*string, bool) {
 	return o.Description, true
 }
 
-// HasDescription returns a boolean if a field has been set.
-func (o *UpdateServiceRequestBody) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
-		return true
-	}
-
-	return false
-}
-
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *UpdateServiceRequestBody) SetDescription(v string) {
 	o.Description = &v
@@ -94,15 +85,6 @@ func (o *UpdateServiceRequestBody) GetNameOk() (*string, bool) {
 	return o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *UpdateServiceRequestBody) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
-}
-
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *UpdateServiceRequestBody) SetName(v string) {
 	o.Name = &v
@@ -124,15 +106,6 @@ func (o *UpdateServiceRequestBody) GetServiceLogoURLOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ServiceLogoURL, true
-}
-
-// HasServiceLogoURL returns a boolean if a field has been set.
-func (o *UpdateServiceRequestBody) HasServiceLogoURL() bool {
-	if o != nil && !IsNil(o.ServiceLogoURL) {
-		return true
-	}
-
-	return false
 }
 
 // SetServiceLogoURL gets a reference to the given string and assigns it to the ServiceLogoURL field.

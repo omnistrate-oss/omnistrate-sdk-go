@@ -120,15 +120,6 @@ func (o *DescribeResourceResult) GetActionHooksOk() ([]RegisterActionHookRequest
 	return o.ActionHooks, true
 }
 
-// HasActionHooks returns a boolean if a field has been set.
-func (o *DescribeResourceResult) HasActionHooks() bool {
-	if o != nil && !IsNil(o.ActionHooks) {
-		return true
-	}
-
-	return false
-}
-
 // SetActionHooks gets a reference to the given []RegisterActionHookRequestBody and assigns it to the ActionHooks field.
 func (o *DescribeResourceResult) SetActionHooks(v []RegisterActionHookRequestBody) {
 	o.ActionHooks = v
@@ -150,15 +141,6 @@ func (o *DescribeResourceResult) GetAdditionalSecurityContextOk() (*AdditionalSe
 		return nil, false
 	}
 	return o.AdditionalSecurityContext, true
-}
-
-// HasAdditionalSecurityContext returns a boolean if a field has been set.
-func (o *DescribeResourceResult) HasAdditionalSecurityContext() bool {
-	if o != nil && !IsNil(o.AdditionalSecurityContext) {
-		return true
-	}
-
-	return false
 }
 
 // SetAdditionalSecurityContext gets a reference to the given AdditionalSecurityContext and assigns it to the AdditionalSecurityContext field.
@@ -184,15 +166,6 @@ func (o *DescribeResourceResult) GetBackupConfigurationOk() (*BackupConfiguratio
 	return o.BackupConfiguration, true
 }
 
-// HasBackupConfiguration returns a boolean if a field has been set.
-func (o *DescribeResourceResult) HasBackupConfiguration() bool {
-	if o != nil && !IsNil(o.BackupConfiguration) {
-		return true
-	}
-
-	return false
-}
-
 // SetBackupConfiguration gets a reference to the given BackupConfiguration and assigns it to the BackupConfiguration field.
 func (o *DescribeResourceResult) SetBackupConfiguration(v BackupConfiguration) {
 	o.BackupConfiguration = &v
@@ -214,15 +187,6 @@ func (o *DescribeResourceResult) GetCapabilitiesOk() ([]ResourceCapability, bool
 		return nil, false
 	}
 	return o.Capabilities, true
-}
-
-// HasCapabilities returns a boolean if a field has been set.
-func (o *DescribeResourceResult) HasCapabilities() bool {
-	if o != nil && !IsNil(o.Capabilities) {
-		return true
-	}
-
-	return false
 }
 
 // SetCapabilities gets a reference to the given []ResourceCapability and assigns it to the Capabilities field.
@@ -248,15 +212,6 @@ func (o *DescribeResourceResult) GetCustomLabelsOk() (*map[string]string, bool) 
 	return o.CustomLabels, true
 }
 
-// HasCustomLabels returns a boolean if a field has been set.
-func (o *DescribeResourceResult) HasCustomLabels() bool {
-	if o != nil && !IsNil(o.CustomLabels) {
-		return true
-	}
-
-	return false
-}
-
 // SetCustomLabels gets a reference to the given map[string]string and assigns it to the CustomLabels field.
 func (o *DescribeResourceResult) SetCustomLabels(v map[string]string) {
 	o.CustomLabels = &v
@@ -278,15 +233,6 @@ func (o *DescribeResourceResult) GetCustomSysCTLsOk() (*map[string]string, bool)
 		return nil, false
 	}
 	return o.CustomSysCTLs, true
-}
-
-// HasCustomSysCTLs returns a boolean if a field has been set.
-func (o *DescribeResourceResult) HasCustomSysCTLs() bool {
-	if o != nil && !IsNil(o.CustomSysCTLs) {
-		return true
-	}
-
-	return false
 }
 
 // SetCustomSysCTLs gets a reference to the given map[string]string and assigns it to the CustomSysCTLs field.
@@ -312,15 +258,6 @@ func (o *DescribeResourceResult) GetCustomULimitsOk() ([]CustomULimits, bool) {
 	return o.CustomULimits, true
 }
 
-// HasCustomULimits returns a boolean if a field has been set.
-func (o *DescribeResourceResult) HasCustomULimits() bool {
-	if o != nil && !IsNil(o.CustomULimits) {
-		return true
-	}
-
-	return false
-}
-
 // SetCustomULimits gets a reference to the given []CustomULimits and assigns it to the CustomULimits field.
 func (o *DescribeResourceResult) SetCustomULimits(v []CustomULimits) {
 	o.CustomULimits = v
@@ -342,15 +279,6 @@ func (o *DescribeResourceResult) GetDependenciesOk() ([]ResourceDependency, bool
 		return nil, false
 	}
 	return o.Dependencies, true
-}
-
-// HasDependencies returns a boolean if a field has been set.
-func (o *DescribeResourceResult) HasDependencies() bool {
-	if o != nil && !IsNil(o.Dependencies) {
-		return true
-	}
-
-	return false
 }
 
 // SetDependencies gets a reference to the given []ResourceDependency and assigns it to the Dependencies field.
@@ -400,15 +328,6 @@ func (o *DescribeResourceResult) GetEnvironmentVariablesOk() ([]EnvironmentVaria
 	return o.EnvironmentVariables, true
 }
 
-// HasEnvironmentVariables returns a boolean if a field has been set.
-func (o *DescribeResourceResult) HasEnvironmentVariables() bool {
-	if o != nil && !IsNil(o.EnvironmentVariables) {
-		return true
-	}
-
-	return false
-}
-
 // SetEnvironmentVariables gets a reference to the given []EnvironmentVariable and assigns it to the EnvironmentVariables field.
 func (o *DescribeResourceResult) SetEnvironmentVariables(v []EnvironmentVariable) {
 	o.EnvironmentVariables = v
@@ -432,15 +351,6 @@ func (o *DescribeResourceResult) GetFileSystemConfigurationOk() (*FileSystemConf
 	return o.FileSystemConfiguration, true
 }
 
-// HasFileSystemConfiguration returns a boolean if a field has been set.
-func (o *DescribeResourceResult) HasFileSystemConfiguration() bool {
-	if o != nil && !IsNil(o.FileSystemConfiguration) {
-		return true
-	}
-
-	return false
-}
-
 // SetFileSystemConfiguration gets a reference to the given FileSystemConfiguration and assigns it to the FileSystemConfiguration field.
 func (o *DescribeResourceResult) SetFileSystemConfiguration(v FileSystemConfiguration) {
 	o.FileSystemConfiguration = &v
@@ -462,15 +372,6 @@ func (o *DescribeResourceResult) GetHelmChartConfigurationOk() (*HelmChartConfig
 		return nil, false
 	}
 	return o.HelmChartConfiguration, true
-}
-
-// HasHelmChartConfiguration returns a boolean if a field has been set.
-func (o *DescribeResourceResult) HasHelmChartConfiguration() bool {
-	if o != nil && !IsNil(o.HelmChartConfiguration) {
-		return true
-	}
-
-	return false
 }
 
 // SetHelmChartConfiguration gets a reference to the given HelmChartConfiguration and assigns it to the HelmChartConfiguration field.
@@ -520,15 +421,6 @@ func (o *DescribeResourceResult) GetImageConfigIdOk() (*string, bool) {
 	return o.ImageConfigId, true
 }
 
-// HasImageConfigId returns a boolean if a field has been set.
-func (o *DescribeResourceResult) HasImageConfigId() bool {
-	if o != nil && !IsNil(o.ImageConfigId) {
-		return true
-	}
-
-	return false
-}
-
 // SetImageConfigId gets a reference to the given string and assigns it to the ImageConfigId field.
 func (o *DescribeResourceResult) SetImageConfigId(v string) {
 	o.ImageConfigId = &v
@@ -550,15 +442,6 @@ func (o *DescribeResourceResult) GetInfraConfigIdOk() (*string, bool) {
 		return nil, false
 	}
 	return o.InfraConfigId, true
-}
-
-// HasInfraConfigId returns a boolean if a field has been set.
-func (o *DescribeResourceResult) HasInfraConfigId() bool {
-	if o != nil && !IsNil(o.InfraConfigId) {
-		return true
-	}
-
-	return false
 }
 
 // SetInfraConfigId gets a reference to the given string and assigns it to the InfraConfigId field.
@@ -656,15 +539,6 @@ func (o *DescribeResourceResult) GetKustomizeConfigurationOk() (*KustomizeConfig
 	return o.KustomizeConfiguration, true
 }
 
-// HasKustomizeConfiguration returns a boolean if a field has been set.
-func (o *DescribeResourceResult) HasKustomizeConfiguration() bool {
-	if o != nil && !IsNil(o.KustomizeConfiguration) {
-		return true
-	}
-
-	return false
-}
-
 // SetKustomizeConfiguration gets a reference to the given KustomizeConfiguration and assigns it to the KustomizeConfiguration field.
 func (o *DescribeResourceResult) SetKustomizeConfiguration(v KustomizeConfiguration) {
 	o.KustomizeConfiguration = &v
@@ -688,15 +562,6 @@ func (o *DescribeResourceResult) GetL4LoadBalancerConfigurationOk() (*L4LoadBala
 	return o.L4LoadBalancerConfiguration, true
 }
 
-// HasL4LoadBalancerConfiguration returns a boolean if a field has been set.
-func (o *DescribeResourceResult) HasL4LoadBalancerConfiguration() bool {
-	if o != nil && !IsNil(o.L4LoadBalancerConfiguration) {
-		return true
-	}
-
-	return false
-}
-
 // SetL4LoadBalancerConfiguration gets a reference to the given L4LoadBalancerConfiguration and assigns it to the L4LoadBalancerConfiguration field.
 func (o *DescribeResourceResult) SetL4LoadBalancerConfiguration(v L4LoadBalancerConfiguration) {
 	o.L4LoadBalancerConfiguration = &v
@@ -718,15 +583,6 @@ func (o *DescribeResourceResult) GetL7LoadBalancerConfigurationOk() (*L7LoadBala
 		return nil, false
 	}
 	return o.L7LoadBalancerConfiguration, true
-}
-
-// HasL7LoadBalancerConfiguration returns a boolean if a field has been set.
-func (o *DescribeResourceResult) HasL7LoadBalancerConfiguration() bool {
-	if o != nil && !IsNil(o.L7LoadBalancerConfiguration) {
-		return true
-	}
-
-	return false
 }
 
 // SetL7LoadBalancerConfiguration gets a reference to the given L7LoadBalancerConfiguration and assigns it to the L7LoadBalancerConfiguration field.
@@ -776,15 +632,6 @@ func (o *DescribeResourceResult) GetOperatorCRDConfigurationOk() (*OperatorCRDCo
 	return o.OperatorCRDConfiguration, true
 }
 
-// HasOperatorCRDConfiguration returns a boolean if a field has been set.
-func (o *DescribeResourceResult) HasOperatorCRDConfiguration() bool {
-	if o != nil && !IsNil(o.OperatorCRDConfiguration) {
-		return true
-	}
-
-	return false
-}
-
 // SetOperatorCRDConfiguration gets a reference to the given OperatorCRDConfiguration and assigns it to the OperatorCRDConfiguration field.
 func (o *DescribeResourceResult) SetOperatorCRDConfiguration(v OperatorCRDConfiguration) {
 	o.OperatorCRDConfiguration = &v
@@ -830,15 +677,6 @@ func (o *DescribeResourceResult) GetProxyTypeOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ProxyType, true
-}
-
-// HasProxyType returns a boolean if a field has been set.
-func (o *DescribeResourceResult) HasProxyType() bool {
-	if o != nil && !IsNil(o.ProxyType) {
-		return true
-	}
-
-	return false
 }
 
 // SetProxyType gets a reference to the given string and assigns it to the ProxyType field.
@@ -910,15 +748,6 @@ func (o *DescribeResourceResult) GetTerraformConfigurationsOk() (*map[string]Ter
 		return nil, false
 	}
 	return o.TerraformConfigurations, true
-}
-
-// HasTerraformConfigurations returns a boolean if a field has been set.
-func (o *DescribeResourceResult) HasTerraformConfigurations() bool {
-	if o != nil && !IsNil(o.TerraformConfigurations) {
-		return true
-	}
-
-	return false
 }
 
 // SetTerraformConfigurations gets a reference to the given map[string]TerraformConfiguration and assigns it to the TerraformConfigurations field.

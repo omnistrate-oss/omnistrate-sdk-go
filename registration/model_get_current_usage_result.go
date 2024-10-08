@@ -64,15 +64,6 @@ func (o *GetCurrentUsageResult) GetEndTimeOk() (*string, bool) {
 	return o.EndTime, true
 }
 
-// HasEndTime returns a boolean if a field has been set.
-func (o *GetCurrentUsageResult) HasEndTime() bool {
-	if o != nil && !IsNil(o.EndTime) {
-		return true
-	}
-
-	return false
-}
-
 // SetEndTime gets a reference to the given string and assigns it to the EndTime field.
 func (o *GetCurrentUsageResult) SetEndTime(v string) {
 	o.EndTime = &v
@@ -94,15 +85,6 @@ func (o *GetCurrentUsageResult) GetPlanNameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.PlanName, true
-}
-
-// HasPlanName returns a boolean if a field has been set.
-func (o *GetCurrentUsageResult) HasPlanName() bool {
-	if o != nil && !IsNil(o.PlanName) {
-		return true
-	}
-
-	return false
 }
 
 // SetPlanName gets a reference to the given string and assigns it to the PlanName field.
@@ -128,15 +110,6 @@ func (o *GetCurrentUsageResult) GetStartTimeOk() (*string, bool) {
 	return o.StartTime, true
 }
 
-// HasStartTime returns a boolean if a field has been set.
-func (o *GetCurrentUsageResult) HasStartTime() bool {
-	if o != nil && !IsNil(o.StartTime) {
-		return true
-	}
-
-	return false
-}
-
 // SetStartTime gets a reference to the given string and assigns it to the StartTime field.
 func (o *GetCurrentUsageResult) SetStartTime(v string) {
 	o.StartTime = &v
@@ -158,15 +131,6 @@ func (o *GetCurrentUsageResult) GetUsageOk() ([]UsagePerDimension, bool) {
 		return nil, false
 	}
 	return o.Usage, true
-}
-
-// HasUsage returns a boolean if a field has been set.
-func (o *GetCurrentUsageResult) HasUsage() bool {
-	if o != nil && !IsNil(o.Usage) {
-		return true
-	}
-
-	return false
 }
 
 // SetUsage gets a reference to the given []UsagePerDimension and assigns it to the Usage field.

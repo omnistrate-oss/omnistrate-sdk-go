@@ -58,15 +58,6 @@ func (o *VUnitHealthReport) GetVunitsOk() (*map[string]string, bool) {
 	return o.Vunits, true
 }
 
-// HasVunits returns a boolean if a field has been set.
-func (o *VUnitHealthReport) HasVunits() bool {
-	if o != nil && !IsNil(o.Vunits) {
-		return true
-	}
-
-	return false
-}
-
 // SetVunits gets a reference to the given map[string]string and assigns it to the Vunits field.
 func (o *VUnitHealthReport) SetVunits(v map[string]string) {
 	o.Vunits = &v

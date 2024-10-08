@@ -172,15 +172,6 @@ func (o *DescribeImageRegistryResult) GetPasswordOk() (*string, bool) {
 	return o.Password, true
 }
 
-// HasPassword returns a boolean if a field has been set.
-func (o *DescribeImageRegistryResult) HasPassword() bool {
-	if o != nil && !IsNil(o.Password) {
-		return true
-	}
-
-	return false
-}
-
 // SetPassword gets a reference to the given string and assigns it to the Password field.
 func (o *DescribeImageRegistryResult) SetPassword(v string) {
 	o.Password = &v
@@ -202,15 +193,6 @@ func (o *DescribeImageRegistryResult) GetUsernameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Username, true
-}
-
-// HasUsername returns a boolean if a field has been set.
-func (o *DescribeImageRegistryResult) HasUsername() bool {
-	if o != nil && !IsNil(o.Username) {
-		return true
-	}
-
-	return false
 }
 
 // SetUsername gets a reference to the given string and assigns it to the Username field.

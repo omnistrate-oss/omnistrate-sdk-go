@@ -60,15 +60,6 @@ func (o *UpdateIdentityProviderRequestBody) GetClientIdOk() (*string, bool) {
 	return o.ClientId, true
 }
 
-// HasClientId returns a boolean if a field has been set.
-func (o *UpdateIdentityProviderRequestBody) HasClientId() bool {
-	if o != nil && !IsNil(o.ClientId) {
-		return true
-	}
-
-	return false
-}
-
 // SetClientId gets a reference to the given string and assigns it to the ClientId field.
 func (o *UpdateIdentityProviderRequestBody) SetClientId(v string) {
 	o.ClientId = &v
@@ -90,15 +81,6 @@ func (o *UpdateIdentityProviderRequestBody) GetClientSecretOk() (*string, bool) 
 		return nil, false
 	}
 	return o.ClientSecret, true
-}
-
-// HasClientSecret returns a boolean if a field has been set.
-func (o *UpdateIdentityProviderRequestBody) HasClientSecret() bool {
-	if o != nil && !IsNil(o.ClientSecret) {
-		return true
-	}
-
-	return false
 }
 
 // SetClientSecret gets a reference to the given string and assigns it to the ClientSecret field.

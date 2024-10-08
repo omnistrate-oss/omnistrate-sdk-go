@@ -82,15 +82,6 @@ func (o *DescribeInfraConfigResult) GetComputeConfigIdOk() (*string, bool) {
 	return o.ComputeConfigId, true
 }
 
-// HasComputeConfigId returns a boolean if a field has been set.
-func (o *DescribeInfraConfigResult) HasComputeConfigId() bool {
-	if o != nil && !IsNil(o.ComputeConfigId) {
-		return true
-	}
-
-	return false
-}
-
 // SetComputeConfigId gets a reference to the given string and assigns it to the ComputeConfigId field.
 func (o *DescribeInfraConfigResult) SetComputeConfigId(v string) {
 	o.ComputeConfigId = &v
@@ -112,15 +103,6 @@ func (o *DescribeInfraConfigResult) GetCustomTagOk() (*EnvironmentVariable, bool
 		return nil, false
 	}
 	return o.CustomTag, true
-}
-
-// HasCustomTag returns a boolean if a field has been set.
-func (o *DescribeInfraConfigResult) HasCustomTag() bool {
-	if o != nil && !IsNil(o.CustomTag) {
-		return true
-	}
-
-	return false
 }
 
 // SetCustomTag gets a reference to the given EnvironmentVariable and assigns it to the CustomTag field.
@@ -218,15 +200,6 @@ func (o *DescribeInfraConfigResult) GetNetworkConfigIdOk() (*string, bool) {
 	return o.NetworkConfigId, true
 }
 
-// HasNetworkConfigId returns a boolean if a field has been set.
-func (o *DescribeInfraConfigResult) HasNetworkConfigId() bool {
-	if o != nil && !IsNil(o.NetworkConfigId) {
-		return true
-	}
-
-	return false
-}
-
 // SetNetworkConfigId gets a reference to the given string and assigns it to the NetworkConfigId field.
 func (o *DescribeInfraConfigResult) SetNetworkConfigId(v string) {
 	o.NetworkConfigId = &v
@@ -296,15 +269,6 @@ func (o *DescribeInfraConfigResult) GetStorageConfigIdOk() (*string, bool) {
 		return nil, false
 	}
 	return o.StorageConfigId, true
-}
-
-// HasStorageConfigId returns a boolean if a field has been set.
-func (o *DescribeInfraConfigResult) HasStorageConfigId() bool {
-	if o != nil && !IsNil(o.StorageConfigId) {
-		return true
-	}
-
-	return false
 }
 
 // SetStorageConfigId gets a reference to the given string and assigns it to the StorageConfigId field.

@@ -114,15 +114,6 @@ func (o *TierVersionSet) GetAutoApproveSubscriptionOk() (*bool, bool) {
 	return o.AutoApproveSubscription, true
 }
 
-// HasAutoApproveSubscription returns a boolean if a field has been set.
-func (o *TierVersionSet) HasAutoApproveSubscription() bool {
-	if o != nil && !IsNil(o.AutoApproveSubscription) {
-		return true
-	}
-
-	return false
-}
-
 // SetAutoApproveSubscription gets a reference to the given bool and assigns it to the AutoApproveSubscription field.
 func (o *TierVersionSet) SetAutoApproveSubscription(v bool) {
 	o.AutoApproveSubscription = &v
@@ -194,15 +185,6 @@ func (o *TierVersionSet) GetCreatedByOk() (*string, bool) {
 	return o.CreatedBy, true
 }
 
-// HasCreatedBy returns a boolean if a field has been set.
-func (o *TierVersionSet) HasCreatedBy() bool {
-	if o != nil && !IsNil(o.CreatedBy) {
-		return true
-	}
-
-	return false
-}
-
 // SetCreatedBy gets a reference to the given string and assigns it to the CreatedBy field.
 func (o *TierVersionSet) SetCreatedBy(v string) {
 	o.CreatedBy = &v
@@ -224,15 +206,6 @@ func (o *TierVersionSet) GetDescriptionOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Description, true
-}
-
-// HasDescription returns a boolean if a field has been set.
-func (o *TierVersionSet) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
-		return true
-	}
-
-	return false
 }
 
 // SetDescription gets a reference to the given string and assigns it to the Description field.
@@ -306,15 +279,6 @@ func (o *TierVersionSet) GetInstanceCountOk() (*int64, bool) {
 	return o.InstanceCount, true
 }
 
-// HasInstanceCount returns a boolean if a field has been set.
-func (o *TierVersionSet) HasInstanceCount() bool {
-	if o != nil && !IsNil(o.InstanceCount) {
-		return true
-	}
-
-	return false
-}
-
 // SetInstanceCount gets a reference to the given int64 and assigns it to the InstanceCount field.
 func (o *TierVersionSet) SetInstanceCount(v int64) {
 	o.InstanceCount = &v
@@ -336,15 +300,6 @@ func (o *TierVersionSet) GetLatestUpgradePathIdOk() (*string, bool) {
 		return nil, false
 	}
 	return o.LatestUpgradePathId, true
-}
-
-// HasLatestUpgradePathId returns a boolean if a field has been set.
-func (o *TierVersionSet) HasLatestUpgradePathId() bool {
-	if o != nil && !IsNil(o.LatestUpgradePathId) {
-		return true
-	}
-
-	return false
 }
 
 // SetLatestUpgradePathId gets a reference to the given string and assigns it to the LatestUpgradePathId field.
@@ -370,15 +325,6 @@ func (o *TierVersionSet) GetNameOk() (*string, bool) {
 	return o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *TierVersionSet) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
-}
-
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *TierVersionSet) SetName(v string) {
 	o.Name = &v
@@ -400,15 +346,6 @@ func (o *TierVersionSet) GetParentVersionOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ParentVersion, true
-}
-
-// HasParentVersion returns a boolean if a field has been set.
-func (o *TierVersionSet) HasParentVersion() bool {
-	if o != nil && !IsNil(o.ParentVersion) {
-		return true
-	}
-
-	return false
 }
 
 // SetParentVersion gets a reference to the given string and assigns it to the ParentVersion field.
@@ -482,15 +419,6 @@ func (o *TierVersionSet) GetReleasedByOk() (*string, bool) {
 	return o.ReleasedBy, true
 }
 
-// HasReleasedBy returns a boolean if a field has been set.
-func (o *TierVersionSet) HasReleasedBy() bool {
-	if o != nil && !IsNil(o.ReleasedBy) {
-		return true
-	}
-
-	return false
-}
-
 // SetReleasedBy gets a reference to the given string and assigns it to the ReleasedBy field.
 func (o *TierVersionSet) SetReleasedBy(v string) {
 	o.ReleasedBy = &v
@@ -512,15 +440,6 @@ func (o *TierVersionSet) GetResourcesOk() ([]ResourceSummary, bool) {
 		return nil, false
 	}
 	return o.Resources, true
-}
-
-// HasResources returns a boolean if a field has been set.
-func (o *TierVersionSet) HasResources() bool {
-	if o != nil && !IsNil(o.Resources) {
-		return true
-	}
-
-	return false
 }
 
 // SetResources gets a reference to the given []ResourceSummary and assigns it to the Resources field.

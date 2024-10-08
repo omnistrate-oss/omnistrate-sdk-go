@@ -70,15 +70,6 @@ func (o *UpdateServiceEnvironmentRequestBody) GetAutoApproveSubscriptionOk() (*b
 	return o.AutoApproveSubscription, true
 }
 
-// HasAutoApproveSubscription returns a boolean if a field has been set.
-func (o *UpdateServiceEnvironmentRequestBody) HasAutoApproveSubscription() bool {
-	if o != nil && !IsNil(o.AutoApproveSubscription) {
-		return true
-	}
-
-	return false
-}
-
 // SetAutoApproveSubscription gets a reference to the given bool and assigns it to the AutoApproveSubscription field.
 func (o *UpdateServiceEnvironmentRequestBody) SetAutoApproveSubscription(v bool) {
 	o.AutoApproveSubscription = &v
@@ -100,15 +91,6 @@ func (o *UpdateServiceEnvironmentRequestBody) GetDeploymentConfigIdOk() (*string
 		return nil, false
 	}
 	return o.DeploymentConfigId, true
-}
-
-// HasDeploymentConfigId returns a boolean if a field has been set.
-func (o *UpdateServiceEnvironmentRequestBody) HasDeploymentConfigId() bool {
-	if o != nil && !IsNil(o.DeploymentConfigId) {
-		return true
-	}
-
-	return false
 }
 
 // SetDeploymentConfigId gets a reference to the given string and assigns it to the DeploymentConfigId field.
@@ -134,15 +116,6 @@ func (o *UpdateServiceEnvironmentRequestBody) GetDescriptionOk() (*string, bool)
 	return o.Description, true
 }
 
-// HasDescription returns a boolean if a field has been set.
-func (o *UpdateServiceEnvironmentRequestBody) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
-		return true
-	}
-
-	return false
-}
-
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *UpdateServiceEnvironmentRequestBody) SetDescription(v string) {
 	o.Description = &v
@@ -164,15 +137,6 @@ func (o *UpdateServiceEnvironmentRequestBody) GetNameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Name, true
-}
-
-// HasName returns a boolean if a field has been set.
-func (o *UpdateServiceEnvironmentRequestBody) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.
@@ -198,15 +162,6 @@ func (o *UpdateServiceEnvironmentRequestBody) GetServiceAuthPublicKeyOk() (*stri
 	return o.ServiceAuthPublicKey, true
 }
 
-// HasServiceAuthPublicKey returns a boolean if a field has been set.
-func (o *UpdateServiceEnvironmentRequestBody) HasServiceAuthPublicKey() bool {
-	if o != nil && !IsNil(o.ServiceAuthPublicKey) {
-		return true
-	}
-
-	return false
-}
-
 // SetServiceAuthPublicKey gets a reference to the given string and assigns it to the ServiceAuthPublicKey field.
 func (o *UpdateServiceEnvironmentRequestBody) SetServiceAuthPublicKey(v string) {
 	o.ServiceAuthPublicKey = &v
@@ -230,15 +185,6 @@ func (o *UpdateServiceEnvironmentRequestBody) GetSourceEnvironmentIdOk() (*strin
 	return o.SourceEnvironmentId, true
 }
 
-// HasSourceEnvironmentId returns a boolean if a field has been set.
-func (o *UpdateServiceEnvironmentRequestBody) HasSourceEnvironmentId() bool {
-	if o != nil && !IsNil(o.SourceEnvironmentId) {
-		return true
-	}
-
-	return false
-}
-
 // SetSourceEnvironmentId gets a reference to the given string and assigns it to the SourceEnvironmentId field.
 func (o *UpdateServiceEnvironmentRequestBody) SetSourceEnvironmentId(v string) {
 	o.SourceEnvironmentId = &v
@@ -260,15 +206,6 @@ func (o *UpdateServiceEnvironmentRequestBody) GetVisibilityOk() (*string, bool) 
 		return nil, false
 	}
 	return o.Visibility, true
-}
-
-// HasVisibility returns a boolean if a field has been set.
-func (o *UpdateServiceEnvironmentRequestBody) HasVisibility() bool {
-	if o != nil && !IsNil(o.Visibility) {
-		return true
-	}
-
-	return false
 }
 
 // SetVisibility gets a reference to the given string and assigns it to the Visibility field.

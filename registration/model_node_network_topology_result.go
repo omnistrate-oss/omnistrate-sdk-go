@@ -201,15 +201,6 @@ func (o *NodeNetworkTopologyResult) GetPortsOk() ([]int64, bool) {
 	return o.Ports, true
 }
 
-// HasPorts returns a boolean if a field has been set.
-func (o *NodeNetworkTopologyResult) HasPorts() bool {
-	if o != nil && !IsNil(o.Ports) {
-		return true
-	}
-
-	return false
-}
-
 // SetPorts gets a reference to the given []int64 and assigns it to the Ports field.
 func (o *NodeNetworkTopologyResult) SetPorts(v []int64) {
 	o.Ports = v
@@ -255,15 +246,6 @@ func (o *NodeNetworkTopologyResult) GetStorageSizeOk() (*int64, bool) {
 		return nil, false
 	}
 	return o.StorageSize, true
-}
-
-// HasStorageSize returns a boolean if a field has been set.
-func (o *NodeNetworkTopologyResult) HasStorageSize() bool {
-	if o != nil && !IsNil(o.StorageSize) {
-		return true
-	}
-
-	return false
 }
 
 // SetStorageSize gets a reference to the given int64 and assigns it to the StorageSize field.

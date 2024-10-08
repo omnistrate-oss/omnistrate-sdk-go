@@ -60,15 +60,6 @@ func (o *UsagePerDimension) GetDimensionOk() (*string, bool) {
 	return o.Dimension, true
 }
 
-// HasDimension returns a boolean if a field has been set.
-func (o *UsagePerDimension) HasDimension() bool {
-	if o != nil && !IsNil(o.Dimension) {
-		return true
-	}
-
-	return false
-}
-
 // SetDimension gets a reference to the given string and assigns it to the Dimension field.
 func (o *UsagePerDimension) SetDimension(v string) {
 	o.Dimension = &v
@@ -90,15 +81,6 @@ func (o *UsagePerDimension) GetTotalOk() (*float64, bool) {
 		return nil, false
 	}
 	return o.Total, true
-}
-
-// HasTotal returns a boolean if a field has been set.
-func (o *UsagePerDimension) HasTotal() bool {
-	if o != nil && !IsNil(o.Total) {
-		return true
-	}
-
-	return false
 }
 
 // SetTotal gets a reference to the given float64 and assigns it to the Total field.

@@ -67,15 +67,6 @@ func (o *ListEventResult) GetEventsOk() ([]DescribeEventResult, bool) {
 	return o.Events, true
 }
 
-// HasEvents returns a boolean if a field has been set.
-func (o *ListEventResult) HasEvents() bool {
-	if o != nil && !IsNil(o.Events) {
-		return true
-	}
-
-	return false
-}
-
 // SetEvents gets a reference to the given []DescribeEventResult and assigns it to the Events field.
 func (o *ListEventResult) SetEvents(v []DescribeEventResult) {
 	o.Events = v
@@ -121,15 +112,6 @@ func (o *ListEventResult) GetNextPageTokenOk() (*string, bool) {
 		return nil, false
 	}
 	return o.NextPageToken, true
-}
-
-// HasNextPageToken returns a boolean if a field has been set.
-func (o *ListEventResult) HasNextPageToken() bool {
-	if o != nil && !IsNil(o.NextPageToken) {
-		return true
-	}
-
-	return false
 }
 
 // SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.

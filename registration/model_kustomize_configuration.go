@@ -66,15 +66,6 @@ func (o *KustomizeConfiguration) GetGitConfigurationOk() (*GitConfiguration, boo
 	return o.GitConfiguration, true
 }
 
-// HasGitConfiguration returns a boolean if a field has been set.
-func (o *KustomizeConfiguration) HasGitConfiguration() bool {
-	if o != nil && !IsNil(o.GitConfiguration) {
-		return true
-	}
-
-	return false
-}
-
 // SetGitConfiguration gets a reference to the given GitConfiguration and assigns it to the GitConfiguration field.
 func (o *KustomizeConfiguration) SetGitConfiguration(v GitConfiguration) {
 	o.GitConfiguration = &v
@@ -96,15 +87,6 @@ func (o *KustomizeConfiguration) GetHelmChartDependenciesOk() ([]OperatorHelmCha
 		return nil, false
 	}
 	return o.HelmChartDependencies, true
-}
-
-// HasHelmChartDependencies returns a boolean if a field has been set.
-func (o *KustomizeConfiguration) HasHelmChartDependencies() bool {
-	if o != nil && !IsNil(o.HelmChartDependencies) {
-		return true
-	}
-
-	return false
 }
 
 // SetHelmChartDependencies gets a reference to the given []OperatorHelmChartDependency and assigns it to the HelmChartDependencies field.

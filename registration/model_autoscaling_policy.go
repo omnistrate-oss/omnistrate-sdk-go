@@ -91,15 +91,6 @@ func (o *AutoscalingPolicy) GetIdleMinutesBeforeScalingDownOk() (*int64, bool) {
 	return o.IdleMinutesBeforeScalingDown, true
 }
 
-// HasIdleMinutesBeforeScalingDown returns a boolean if a field has been set.
-func (o *AutoscalingPolicy) HasIdleMinutesBeforeScalingDown() bool {
-	if o != nil && !IsNil(o.IdleMinutesBeforeScalingDown) {
-		return true
-	}
-
-	return false
-}
-
 // SetIdleMinutesBeforeScalingDown gets a reference to the given int64 and assigns it to the IdleMinutesBeforeScalingDown field.
 func (o *AutoscalingPolicy) SetIdleMinutesBeforeScalingDown(v int64) {
 	o.IdleMinutesBeforeScalingDown = &v
@@ -121,15 +112,6 @@ func (o *AutoscalingPolicy) GetIdleThresholdOk() (*int64, bool) {
 		return nil, false
 	}
 	return o.IdleThreshold, true
-}
-
-// HasIdleThreshold returns a boolean if a field has been set.
-func (o *AutoscalingPolicy) HasIdleThreshold() bool {
-	if o != nil && !IsNil(o.IdleThreshold) {
-		return true
-	}
-
-	return false
 }
 
 // SetIdleThreshold gets a reference to the given int64 and assigns it to the IdleThreshold field.
@@ -203,15 +185,6 @@ func (o *AutoscalingPolicy) GetOverUtilizedMinutesBeforeScalingUpOk() (*int64, b
 	return o.OverUtilizedMinutesBeforeScalingUp, true
 }
 
-// HasOverUtilizedMinutesBeforeScalingUp returns a boolean if a field has been set.
-func (o *AutoscalingPolicy) HasOverUtilizedMinutesBeforeScalingUp() bool {
-	if o != nil && !IsNil(o.OverUtilizedMinutesBeforeScalingUp) {
-		return true
-	}
-
-	return false
-}
-
 // SetOverUtilizedMinutesBeforeScalingUp gets a reference to the given int64 and assigns it to the OverUtilizedMinutesBeforeScalingUp field.
 func (o *AutoscalingPolicy) SetOverUtilizedMinutesBeforeScalingUp(v int64) {
 	o.OverUtilizedMinutesBeforeScalingUp = &v
@@ -235,15 +208,6 @@ func (o *AutoscalingPolicy) GetOverUtilizedThresholdOk() (*int64, bool) {
 	return o.OverUtilizedThreshold, true
 }
 
-// HasOverUtilizedThreshold returns a boolean if a field has been set.
-func (o *AutoscalingPolicy) HasOverUtilizedThreshold() bool {
-	if o != nil && !IsNil(o.OverUtilizedThreshold) {
-		return true
-	}
-
-	return false
-}
-
 // SetOverUtilizedThreshold gets a reference to the given int64 and assigns it to the OverUtilizedThreshold field.
 func (o *AutoscalingPolicy) SetOverUtilizedThreshold(v int64) {
 	o.OverUtilizedThreshold = &v
@@ -265,15 +229,6 @@ func (o *AutoscalingPolicy) GetScalingMetricOk() (*AutoScalingMetricSpec, bool) 
 		return nil, false
 	}
 	return o.ScalingMetric, true
-}
-
-// HasScalingMetric returns a boolean if a field has been set.
-func (o *AutoscalingPolicy) HasScalingMetric() bool {
-	if o != nil && !IsNil(o.ScalingMetric) {
-		return true
-	}
-
-	return false
 }
 
 // SetScalingMetric gets a reference to the given AutoScalingMetricSpec and assigns it to the ScalingMetric field.

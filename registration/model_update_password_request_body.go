@@ -64,15 +64,6 @@ func (o *UpdatePasswordRequestBody) GetCurrentPasswordOk() (*string, bool) {
 	return o.CurrentPassword, true
 }
 
-// HasCurrentPassword returns a boolean if a field has been set.
-func (o *UpdatePasswordRequestBody) HasCurrentPassword() bool {
-	if o != nil && !IsNil(o.CurrentPassword) {
-		return true
-	}
-
-	return false
-}
-
 // SetCurrentPassword gets a reference to the given string and assigns it to the CurrentPassword field.
 func (o *UpdatePasswordRequestBody) SetCurrentPassword(v string) {
 	o.CurrentPassword = &v
@@ -94,15 +85,6 @@ func (o *UpdatePasswordRequestBody) GetCurrentPasswordHashOk() (*string, bool) {
 		return nil, false
 	}
 	return o.CurrentPasswordHash, true
-}
-
-// HasCurrentPasswordHash returns a boolean if a field has been set.
-func (o *UpdatePasswordRequestBody) HasCurrentPasswordHash() bool {
-	if o != nil && !IsNil(o.CurrentPasswordHash) {
-		return true
-	}
-
-	return false
 }
 
 // SetCurrentPasswordHash gets a reference to the given string and assigns it to the CurrentPasswordHash field.

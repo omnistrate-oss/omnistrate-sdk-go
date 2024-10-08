@@ -89,15 +89,6 @@ func (o *AddCustomDNSToResourceInstanceRequestBody) GetTargetPortOk() (*int64, b
 	return o.TargetPort, true
 }
 
-// HasTargetPort returns a boolean if a field has been set.
-func (o *AddCustomDNSToResourceInstanceRequestBody) HasTargetPort() bool {
-	if o != nil && !IsNil(o.TargetPort) {
-		return true
-	}
-
-	return false
-}
-
 // SetTargetPort gets a reference to the given int64 and assigns it to the TargetPort field.
 func (o *AddCustomDNSToResourceInstanceRequestBody) SetTargetPort(v int64) {
 	o.TargetPort = &v

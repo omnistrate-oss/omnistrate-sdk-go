@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/omnistrate/omnistrate-sdk-go"
+	openapiclient "github.com/omnistrate/omnistrate-sdk-go/registration"
 )
 
 func Test_registration_StorageConfigApiAPIService(t *testing.T) {

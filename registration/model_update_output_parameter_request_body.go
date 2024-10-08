@@ -65,15 +65,6 @@ func (o *UpdateOutputParameterRequestBody) GetDescriptionOk() (*string, bool) {
 	return o.Description, true
 }
 
-// HasDescription returns a boolean if a field has been set.
-func (o *UpdateOutputParameterRequestBody) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
-		return true
-	}
-
-	return false
-}
-
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *UpdateOutputParameterRequestBody) SetDescription(v string) {
 	o.Description = &v
@@ -95,15 +86,6 @@ func (o *UpdateOutputParameterRequestBody) GetNameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Name, true
-}
-
-// HasName returns a boolean if a field has been set.
-func (o *UpdateOutputParameterRequestBody) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.
@@ -129,15 +111,6 @@ func (o *UpdateOutputParameterRequestBody) GetValueOk() (*string, bool) {
 	return o.Value, true
 }
 
-// HasValue returns a boolean if a field has been set.
-func (o *UpdateOutputParameterRequestBody) HasValue() bool {
-	if o != nil && !IsNil(o.Value) {
-		return true
-	}
-
-	return false
-}
-
 // SetValue gets a reference to the given string and assigns it to the Value field.
 func (o *UpdateOutputParameterRequestBody) SetValue(v string) {
 	o.Value = &v
@@ -161,15 +134,6 @@ func (o *UpdateOutputParameterRequestBody) GetValueRefOk() (*string, bool) {
 	return o.ValueRef, true
 }
 
-// HasValueRef returns a boolean if a field has been set.
-func (o *UpdateOutputParameterRequestBody) HasValueRef() bool {
-	if o != nil && !IsNil(o.ValueRef) {
-		return true
-	}
-
-	return false
-}
-
 // SetValueRef gets a reference to the given string and assigns it to the ValueRef field.
 func (o *UpdateOutputParameterRequestBody) SetValueRef(v string) {
 	o.ValueRef = &v
@@ -191,15 +155,6 @@ func (o *UpdateOutputParameterRequestBody) GetValueTypeOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ValueType, true
-}
-
-// HasValueType returns a boolean if a field has been set.
-func (o *UpdateOutputParameterRequestBody) HasValueType() bool {
-	if o != nil && !IsNil(o.ValueType) {
-		return true
-	}
-
-	return false
 }
 
 // SetValueType gets a reference to the given string and assigns it to the ValueType field.

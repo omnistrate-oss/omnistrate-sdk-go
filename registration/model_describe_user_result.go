@@ -108,15 +108,6 @@ func (o *DescribeUserResult) GetAddressOk() (*Address, bool) {
 	return o.Address, true
 }
 
-// HasAddress returns a boolean if a field has been set.
-func (o *DescribeUserResult) HasAddress() bool {
-	if o != nil && !IsNil(o.Address) {
-		return true
-	}
-
-	return false
-}
-
 // SetAddress gets a reference to the given Address and assigns it to the Address field.
 func (o *DescribeUserResult) SetAddress(v Address) {
 	o.Address = &v
@@ -474,15 +465,6 @@ func (o *DescribeUserResult) GetPlanNameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.PlanName, true
-}
-
-// HasPlanName returns a boolean if a field has been set.
-func (o *DescribeUserResult) HasPlanName() bool {
-	if o != nil && !IsNil(o.PlanName) {
-		return true
-	}
-
-	return false
 }
 
 // SetPlanName gets a reference to the given string and assigns it to the PlanName field.

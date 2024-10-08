@@ -116,15 +116,6 @@ func (o *CreateServiceRequestBody) GetServiceLogoURLOk() (*string, bool) {
 	return o.ServiceLogoURL, true
 }
 
-// HasServiceLogoURL returns a boolean if a field has been set.
-func (o *CreateServiceRequestBody) HasServiceLogoURL() bool {
-	if o != nil && !IsNil(o.ServiceLogoURL) {
-		return true
-	}
-
-	return false
-}
-
 // SetServiceLogoURL gets a reference to the given string and assigns it to the ServiceLogoURL field.
 func (o *CreateServiceRequestBody) SetServiceLogoURL(v string) {
 	o.ServiceLogoURL = &v

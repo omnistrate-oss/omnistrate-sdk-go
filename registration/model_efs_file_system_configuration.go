@@ -92,15 +92,6 @@ func (o *EFSFileSystemConfiguration) GetProvisionedThroughputInMibpsOk() (*float
 	return o.ProvisionedThroughputInMibps, true
 }
 
-// HasProvisionedThroughputInMibps returns a boolean if a field has been set.
-func (o *EFSFileSystemConfiguration) HasProvisionedThroughputInMibps() bool {
-	if o != nil && !IsNil(o.ProvisionedThroughputInMibps) {
-		return true
-	}
-
-	return false
-}
-
 // SetProvisionedThroughputInMibps gets a reference to the given float64 and assigns it to the ProvisionedThroughputInMibps field.
 func (o *EFSFileSystemConfiguration) SetProvisionedThroughputInMibps(v float64) {
 	o.ProvisionedThroughputInMibps = &v

@@ -66,15 +66,6 @@ func (o *UpdateImageRegistryRequestBody) GetDescriptionOk() (*string, bool) {
 	return o.Description, true
 }
 
-// HasDescription returns a boolean if a field has been set.
-func (o *UpdateImageRegistryRequestBody) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
-		return true
-	}
-
-	return false
-}
-
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *UpdateImageRegistryRequestBody) SetDescription(v string) {
 	o.Description = &v
@@ -96,15 +87,6 @@ func (o *UpdateImageRegistryRequestBody) GetHostOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Host, true
-}
-
-// HasHost returns a boolean if a field has been set.
-func (o *UpdateImageRegistryRequestBody) HasHost() bool {
-	if o != nil && !IsNil(o.Host) {
-		return true
-	}
-
-	return false
 }
 
 // SetHost gets a reference to the given string and assigns it to the Host field.
@@ -130,15 +112,6 @@ func (o *UpdateImageRegistryRequestBody) GetNameOk() (*string, bool) {
 	return o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *UpdateImageRegistryRequestBody) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
-}
-
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *UpdateImageRegistryRequestBody) SetName(v string) {
 	o.Name = &v
@@ -162,15 +135,6 @@ func (o *UpdateImageRegistryRequestBody) GetPasswordOk() (*string, bool) {
 	return o.Password, true
 }
 
-// HasPassword returns a boolean if a field has been set.
-func (o *UpdateImageRegistryRequestBody) HasPassword() bool {
-	if o != nil && !IsNil(o.Password) {
-		return true
-	}
-
-	return false
-}
-
 // SetPassword gets a reference to the given string and assigns it to the Password field.
 func (o *UpdateImageRegistryRequestBody) SetPassword(v string) {
 	o.Password = &v
@@ -192,15 +156,6 @@ func (o *UpdateImageRegistryRequestBody) GetUsernameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Username, true
-}
-
-// HasUsername returns a boolean if a field has been set.
-func (o *UpdateImageRegistryRequestBody) HasUsername() bool {
-	if o != nil && !IsNil(o.Username) {
-		return true
-	}
-
-	return false
 }
 
 // SetUsername gets a reference to the given string and assigns it to the Username field.

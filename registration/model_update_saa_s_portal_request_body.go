@@ -62,15 +62,6 @@ func (o *UpdateSaaSPortalRequestBody) GetCustomDomainOk() (*string, bool) {
 	return o.CustomDomain, true
 }
 
-// HasCustomDomain returns a boolean if a field has been set.
-func (o *UpdateSaaSPortalRequestBody) HasCustomDomain() bool {
-	if o != nil && !IsNil(o.CustomDomain) {
-		return true
-	}
-
-	return false
-}
-
 // SetCustomDomain gets a reference to the given string and assigns it to the CustomDomain field.
 func (o *UpdateSaaSPortalRequestBody) SetCustomDomain(v string) {
 	o.CustomDomain = &v
@@ -92,15 +83,6 @@ func (o *UpdateSaaSPortalRequestBody) GetEmailConfigOk() (*SaaSPortalEmailConfig
 		return nil, false
 	}
 	return o.EmailConfig, true
-}
-
-// HasEmailConfig returns a boolean if a field has been set.
-func (o *UpdateSaaSPortalRequestBody) HasEmailConfig() bool {
-	if o != nil && !IsNil(o.EmailConfig) {
-		return true
-	}
-
-	return false
 }
 
 // SetEmailConfig gets a reference to the given SaaSPortalEmailConfig and assigns it to the EmailConfig field.
@@ -126,15 +108,6 @@ func (o *UpdateSaaSPortalRequestBody) GetGoogleAnalyticsTagIDOk() (*string, bool
 	return o.GoogleAnalyticsTagID, true
 }
 
-// HasGoogleAnalyticsTagID returns a boolean if a field has been set.
-func (o *UpdateSaaSPortalRequestBody) HasGoogleAnalyticsTagID() bool {
-	if o != nil && !IsNil(o.GoogleAnalyticsTagID) {
-		return true
-	}
-
-	return false
-}
-
 // SetGoogleAnalyticsTagID gets a reference to the given string and assigns it to the GoogleAnalyticsTagID field.
 func (o *UpdateSaaSPortalRequestBody) SetGoogleAnalyticsTagID(v string) {
 	o.GoogleAnalyticsTagID = &v
@@ -156,15 +129,6 @@ func (o *UpdateSaaSPortalRequestBody) GetImageConfigOk() (*SaaSPortalImageConfig
 		return nil, false
 	}
 	return o.ImageConfig, true
-}
-
-// HasImageConfig returns a boolean if a field has been set.
-func (o *UpdateSaaSPortalRequestBody) HasImageConfig() bool {
-	if o != nil && !IsNil(o.ImageConfig) {
-		return true
-	}
-
-	return false
 }
 
 // SetImageConfig gets a reference to the given SaaSPortalImageConfig and assigns it to the ImageConfig field.

@@ -89,15 +89,6 @@ func (o *EnableResourceCapabilityRequestBody) GetConfigurationOk() (map[string]i
 	return o.Configuration, true
 }
 
-// HasConfiguration returns a boolean if a field has been set.
-func (o *EnableResourceCapabilityRequestBody) HasConfiguration() bool {
-	if o != nil && !IsNil(o.Configuration) {
-		return true
-	}
-
-	return false
-}
-
 // SetConfiguration gets a reference to the given map[string]interface{} and assigns it to the Configuration field.
 func (o *EnableResourceCapabilityRequestBody) SetConfiguration(v map[string]interface{}) {
 	o.Configuration = v

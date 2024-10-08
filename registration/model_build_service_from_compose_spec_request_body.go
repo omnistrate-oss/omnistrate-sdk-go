@@ -84,15 +84,6 @@ func (o *BuildServiceFromComposeSpecRequestBody) GetConfigsOk() (*map[string]str
 	return o.Configs, true
 }
 
-// HasConfigs returns a boolean if a field has been set.
-func (o *BuildServiceFromComposeSpecRequestBody) HasConfigs() bool {
-	if o != nil && !IsNil(o.Configs) {
-		return true
-	}
-
-	return false
-}
-
 // SetConfigs gets a reference to the given map[string]string and assigns it to the Configs field.
 func (o *BuildServiceFromComposeSpecRequestBody) SetConfigs(v map[string]string) {
 	o.Configs = &v
@@ -114,15 +105,6 @@ func (o *BuildServiceFromComposeSpecRequestBody) GetDescriptionOk() (*string, bo
 		return nil, false
 	}
 	return o.Description, true
-}
-
-// HasDescription returns a boolean if a field has been set.
-func (o *BuildServiceFromComposeSpecRequestBody) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
-		return true
-	}
-
-	return false
 }
 
 // SetDescription gets a reference to the given string and assigns it to the Description field.
@@ -148,15 +130,6 @@ func (o *BuildServiceFromComposeSpecRequestBody) GetEnvironmentOk() (*string, bo
 	return o.Environment, true
 }
 
-// HasEnvironment returns a boolean if a field has been set.
-func (o *BuildServiceFromComposeSpecRequestBody) HasEnvironment() bool {
-	if o != nil && !IsNil(o.Environment) {
-		return true
-	}
-
-	return false
-}
-
 // SetEnvironment gets a reference to the given string and assigns it to the Environment field.
 func (o *BuildServiceFromComposeSpecRequestBody) SetEnvironment(v string) {
 	o.Environment = &v
@@ -178,15 +151,6 @@ func (o *BuildServiceFromComposeSpecRequestBody) GetEnvironmentTypeOk() (*string
 		return nil, false
 	}
 	return o.EnvironmentType, true
-}
-
-// HasEnvironmentType returns a boolean if a field has been set.
-func (o *BuildServiceFromComposeSpecRequestBody) HasEnvironmentType() bool {
-	if o != nil && !IsNil(o.EnvironmentType) {
-		return true
-	}
-
-	return false
 }
 
 // SetEnvironmentType gets a reference to the given string and assigns it to the EnvironmentType field.
@@ -260,15 +224,6 @@ func (o *BuildServiceFromComposeSpecRequestBody) GetReleaseOk() (*bool, bool) {
 	return o.Release, true
 }
 
-// HasRelease returns a boolean if a field has been set.
-func (o *BuildServiceFromComposeSpecRequestBody) HasRelease() bool {
-	if o != nil && !IsNil(o.Release) {
-		return true
-	}
-
-	return false
-}
-
 // SetRelease gets a reference to the given bool and assigns it to the Release field.
 func (o *BuildServiceFromComposeSpecRequestBody) SetRelease(v bool) {
 	o.Release = &v
@@ -290,15 +245,6 @@ func (o *BuildServiceFromComposeSpecRequestBody) GetReleaseAsPreferredOk() (*boo
 		return nil, false
 	}
 	return o.ReleaseAsPreferred, true
-}
-
-// HasReleaseAsPreferred returns a boolean if a field has been set.
-func (o *BuildServiceFromComposeSpecRequestBody) HasReleaseAsPreferred() bool {
-	if o != nil && !IsNil(o.ReleaseAsPreferred) {
-		return true
-	}
-
-	return false
 }
 
 // SetReleaseAsPreferred gets a reference to the given bool and assigns it to the ReleaseAsPreferred field.
@@ -324,15 +270,6 @@ func (o *BuildServiceFromComposeSpecRequestBody) GetReleaseVersionNameOk() (*str
 	return o.ReleaseVersionName, true
 }
 
-// HasReleaseVersionName returns a boolean if a field has been set.
-func (o *BuildServiceFromComposeSpecRequestBody) HasReleaseVersionName() bool {
-	if o != nil && !IsNil(o.ReleaseVersionName) {
-		return true
-	}
-
-	return false
-}
-
 // SetReleaseVersionName gets a reference to the given string and assigns it to the ReleaseVersionName field.
 func (o *BuildServiceFromComposeSpecRequestBody) SetReleaseVersionName(v string) {
 	o.ReleaseVersionName = &v
@@ -356,15 +293,6 @@ func (o *BuildServiceFromComposeSpecRequestBody) GetSecretsOk() (*map[string]str
 	return o.Secrets, true
 }
 
-// HasSecrets returns a boolean if a field has been set.
-func (o *BuildServiceFromComposeSpecRequestBody) HasSecrets() bool {
-	if o != nil && !IsNil(o.Secrets) {
-		return true
-	}
-
-	return false
-}
-
 // SetSecrets gets a reference to the given map[string]string and assigns it to the Secrets field.
 func (o *BuildServiceFromComposeSpecRequestBody) SetSecrets(v map[string]string) {
 	o.Secrets = &v
@@ -386,15 +314,6 @@ func (o *BuildServiceFromComposeSpecRequestBody) GetServiceLogoURLOk() (*string,
 		return nil, false
 	}
 	return o.ServiceLogoURL, true
-}
-
-// HasServiceLogoURL returns a boolean if a field has been set.
-func (o *BuildServiceFromComposeSpecRequestBody) HasServiceLogoURL() bool {
-	if o != nil && !IsNil(o.ServiceLogoURL) {
-		return true
-	}
-
-	return false
 }
 
 // SetServiceLogoURL gets a reference to the given string and assigns it to the ServiceLogoURL field.

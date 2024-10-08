@@ -91,15 +91,6 @@ func (o *ListResourcesResult) GetNextPageTokenOk() (*string, bool) {
 	return o.NextPageToken, true
 }
 
-// HasNextPageToken returns a boolean if a field has been set.
-func (o *ListResourcesResult) HasNextPageToken() bool {
-	if o != nil && !IsNil(o.NextPageToken) {
-		return true
-	}
-
-	return false
-}
-
 // SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.
 func (o *ListResourcesResult) SetNextPageToken(v string) {
 	o.NextPageToken = &v
@@ -121,15 +112,6 @@ func (o *ListResourcesResult) GetResourcesOk() ([]DescribeResourceResult, bool) 
 		return nil, false
 	}
 	return o.Resources, true
-}
-
-// HasResources returns a boolean if a field has been set.
-func (o *ListResourcesResult) HasResources() bool {
-	if o != nil && !IsNil(o.Resources) {
-		return true
-	}
-
-	return false
 }
 
 // SetResources gets a reference to the given []DescribeResourceResult and assigns it to the Resources field.

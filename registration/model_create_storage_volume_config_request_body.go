@@ -80,15 +80,6 @@ func (o *CreateStorageVolumeConfigRequestBody) GetClusterStorageTypeOk() (*strin
 	return o.ClusterStorageType, true
 }
 
-// HasClusterStorageType returns a boolean if a field has been set.
-func (o *CreateStorageVolumeConfigRequestBody) HasClusterStorageType() bool {
-	if o != nil && !IsNil(o.ClusterStorageType) {
-		return true
-	}
-
-	return false
-}
-
 // SetClusterStorageType gets a reference to the given string and assigns it to the ClusterStorageType field.
 func (o *CreateStorageVolumeConfigRequestBody) SetClusterStorageType(v string) {
 	o.ClusterStorageType = &v
@@ -136,15 +127,6 @@ func (o *CreateStorageVolumeConfigRequestBody) GetDisableBackupOk() (*bool, bool
 	return o.DisableBackup, true
 }
 
-// HasDisableBackup returns a boolean if a field has been set.
-func (o *CreateStorageVolumeConfigRequestBody) HasDisableBackup() bool {
-	if o != nil && !IsNil(o.DisableBackup) {
-		return true
-	}
-
-	return false
-}
-
 // SetDisableBackup gets a reference to the given bool and assigns it to the DisableBackup field.
 func (o *CreateStorageVolumeConfigRequestBody) SetDisableBackup(v bool) {
 	o.DisableBackup = &v
@@ -166,15 +148,6 @@ func (o *CreateStorageVolumeConfigRequestBody) GetInstanceStorageIopsOk() (*stri
 		return nil, false
 	}
 	return o.InstanceStorageIops, true
-}
-
-// HasInstanceStorageIops returns a boolean if a field has been set.
-func (o *CreateStorageVolumeConfigRequestBody) HasInstanceStorageIops() bool {
-	if o != nil && !IsNil(o.InstanceStorageIops) {
-		return true
-	}
-
-	return false
 }
 
 // SetInstanceStorageIops gets a reference to the given string and assigns it to the InstanceStorageIops field.
@@ -200,15 +173,6 @@ func (o *CreateStorageVolumeConfigRequestBody) GetInstanceStorageSizeGiOk() (*st
 	return o.InstanceStorageSizeGi, true
 }
 
-// HasInstanceStorageSizeGi returns a boolean if a field has been set.
-func (o *CreateStorageVolumeConfigRequestBody) HasInstanceStorageSizeGi() bool {
-	if o != nil && !IsNil(o.InstanceStorageSizeGi) {
-		return true
-	}
-
-	return false
-}
-
 // SetInstanceStorageSizeGi gets a reference to the given string and assigns it to the InstanceStorageSizeGi field.
 func (o *CreateStorageVolumeConfigRequestBody) SetInstanceStorageSizeGi(v string) {
 	o.InstanceStorageSizeGi = &v
@@ -232,15 +196,6 @@ func (o *CreateStorageVolumeConfigRequestBody) GetInstanceStorageThroughputMiBps
 	return o.InstanceStorageThroughputMiBps, true
 }
 
-// HasInstanceStorageThroughputMiBps returns a boolean if a field has been set.
-func (o *CreateStorageVolumeConfigRequestBody) HasInstanceStorageThroughputMiBps() bool {
-	if o != nil && !IsNil(o.InstanceStorageThroughputMiBps) {
-		return true
-	}
-
-	return false
-}
-
 // SetInstanceStorageThroughputMiBps gets a reference to the given string and assigns it to the InstanceStorageThroughputMiBps field.
 func (o *CreateStorageVolumeConfigRequestBody) SetInstanceStorageThroughputMiBps(v string) {
 	o.InstanceStorageThroughputMiBps = &v
@@ -262,15 +217,6 @@ func (o *CreateStorageVolumeConfigRequestBody) GetInstanceStorageTypeOk() (*stri
 		return nil, false
 	}
 	return o.InstanceStorageType, true
-}
-
-// HasInstanceStorageType returns a boolean if a field has been set.
-func (o *CreateStorageVolumeConfigRequestBody) HasInstanceStorageType() bool {
-	if o != nil && !IsNil(o.InstanceStorageType) {
-		return true
-	}
-
-	return false
 }
 
 // SetInstanceStorageType gets a reference to the given string and assigns it to the InstanceStorageType field.
@@ -318,15 +264,6 @@ func (o *CreateStorageVolumeConfigRequestBody) GetStorageResourceIDOk() (*string
 		return nil, false
 	}
 	return o.StorageResourceID, true
-}
-
-// HasStorageResourceID returns a boolean if a field has been set.
-func (o *CreateStorageVolumeConfigRequestBody) HasStorageResourceID() bool {
-	if o != nil && !IsNil(o.StorageResourceID) {
-		return true
-	}
-
-	return false
 }
 
 // SetStorageResourceID gets a reference to the given string and assigns it to the StorageResourceID field.

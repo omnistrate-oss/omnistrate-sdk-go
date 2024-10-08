@@ -68,15 +68,6 @@ func (o *ReleaseServiceAPIRequestBody) GetIsPreferredOk() (*bool, bool) {
 	return o.IsPreferred, true
 }
 
-// HasIsPreferred returns a boolean if a field has been set.
-func (o *ReleaseServiceAPIRequestBody) HasIsPreferred() bool {
-	if o != nil && !IsNil(o.IsPreferred) {
-		return true
-	}
-
-	return false
-}
-
 // SetIsPreferred gets a reference to the given bool and assigns it to the IsPreferred field.
 func (o *ReleaseServiceAPIRequestBody) SetIsPreferred(v bool) {
 	o.IsPreferred = &v
@@ -98,15 +89,6 @@ func (o *ReleaseServiceAPIRequestBody) GetProductTierIdOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ProductTierId, true
-}
-
-// HasProductTierId returns a boolean if a field has been set.
-func (o *ReleaseServiceAPIRequestBody) HasProductTierId() bool {
-	if o != nil && !IsNil(o.ProductTierId) {
-		return true
-	}
-
-	return false
 }
 
 // SetProductTierId gets a reference to the given string and assigns it to the ProductTierId field.
@@ -132,15 +114,6 @@ func (o *ReleaseServiceAPIRequestBody) GetVersionSetNameOk() (*string, bool) {
 	return o.VersionSetName, true
 }
 
-// HasVersionSetName returns a boolean if a field has been set.
-func (o *ReleaseServiceAPIRequestBody) HasVersionSetName() bool {
-	if o != nil && !IsNil(o.VersionSetName) {
-		return true
-	}
-
-	return false
-}
-
 // SetVersionSetName gets a reference to the given string and assigns it to the VersionSetName field.
 func (o *ReleaseServiceAPIRequestBody) SetVersionSetName(v string) {
 	o.VersionSetName = &v
@@ -162,15 +135,6 @@ func (o *ReleaseServiceAPIRequestBody) GetVersionSetTypeOk() (*string, bool) {
 		return nil, false
 	}
 	return o.VersionSetType, true
-}
-
-// HasVersionSetType returns a boolean if a field has been set.
-func (o *ReleaseServiceAPIRequestBody) HasVersionSetType() bool {
-	if o != nil && !IsNil(o.VersionSetType) {
-		return true
-	}
-
-	return false
 }
 
 // SetVersionSetType gets a reference to the given string and assigns it to the VersionSetType field.

@@ -68,15 +68,6 @@ func (o *CreateResourceInstanceRequestBody) GetCloudProviderOk() (*string, bool)
 	return o.CloudProvider, true
 }
 
-// HasCloudProvider returns a boolean if a field has been set.
-func (o *CreateResourceInstanceRequestBody) HasCloudProvider() bool {
-	if o != nil && !IsNil(o.CloudProvider) {
-		return true
-	}
-
-	return false
-}
-
 // SetCloudProvider gets a reference to the given string and assigns it to the CloudProvider field.
 func (o *CreateResourceInstanceRequestBody) SetCloudProvider(v string) {
 	o.CloudProvider = &v
@@ -98,15 +89,6 @@ func (o *CreateResourceInstanceRequestBody) GetCustomNetworkIdOk() (*string, boo
 		return nil, false
 	}
 	return o.CustomNetworkId, true
-}
-
-// HasCustomNetworkId returns a boolean if a field has been set.
-func (o *CreateResourceInstanceRequestBody) HasCustomNetworkId() bool {
-	if o != nil && !IsNil(o.CustomNetworkId) {
-		return true
-	}
-
-	return false
 }
 
 // SetCustomNetworkId gets a reference to the given string and assigns it to the CustomNetworkId field.
@@ -132,15 +114,6 @@ func (o *CreateResourceInstanceRequestBody) GetExternalBillingIdOk() (*string, b
 	return o.ExternalBillingId, true
 }
 
-// HasExternalBillingId returns a boolean if a field has been set.
-func (o *CreateResourceInstanceRequestBody) HasExternalBillingId() bool {
-	if o != nil && !IsNil(o.ExternalBillingId) {
-		return true
-	}
-
-	return false
-}
-
 // SetExternalBillingId gets a reference to the given string and assigns it to the ExternalBillingId field.
 func (o *CreateResourceInstanceRequestBody) SetExternalBillingId(v string) {
 	o.ExternalBillingId = &v
@@ -162,15 +135,6 @@ func (o *CreateResourceInstanceRequestBody) GetNetworkTypeOk() (*string, bool) {
 		return nil, false
 	}
 	return o.NetworkType, true
-}
-
-// HasNetworkType returns a boolean if a field has been set.
-func (o *CreateResourceInstanceRequestBody) HasNetworkType() bool {
-	if o != nil && !IsNil(o.NetworkType) {
-		return true
-	}
-
-	return false
 }
 
 // SetNetworkType gets a reference to the given string and assigns it to the NetworkType field.
@@ -196,15 +160,6 @@ func (o *CreateResourceInstanceRequestBody) GetRegionOk() (*string, bool) {
 	return o.Region, true
 }
 
-// HasRegion returns a boolean if a field has been set.
-func (o *CreateResourceInstanceRequestBody) HasRegion() bool {
-	if o != nil && !IsNil(o.Region) {
-		return true
-	}
-
-	return false
-}
-
 // SetRegion gets a reference to the given string and assigns it to the Region field.
 func (o *CreateResourceInstanceRequestBody) SetRegion(v string) {
 	o.Region = &v
@@ -227,15 +182,6 @@ func (o *CreateResourceInstanceRequestBody) GetRequestParamsOk() (*interface{}, 
 		return nil, false
 	}
 	return &o.RequestParams, true
-}
-
-// HasRequestParams returns a boolean if a field has been set.
-func (o *CreateResourceInstanceRequestBody) HasRequestParams() bool {
-	if o != nil && !IsNil(o.RequestParams) {
-		return true
-	}
-
-	return false
 }
 
 // SetRequestParams gets a reference to the given interface{} and assigns it to the RequestParams field.

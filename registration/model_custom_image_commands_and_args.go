@@ -60,15 +60,6 @@ func (o *CustomImageCommandsAndArgs) GetArgsOk() ([]string, bool) {
 	return o.Args, true
 }
 
-// HasArgs returns a boolean if a field has been set.
-func (o *CustomImageCommandsAndArgs) HasArgs() bool {
-	if o != nil && !IsNil(o.Args) {
-		return true
-	}
-
-	return false
-}
-
 // SetArgs gets a reference to the given []string and assigns it to the Args field.
 func (o *CustomImageCommandsAndArgs) SetArgs(v []string) {
 	o.Args = v
@@ -90,15 +81,6 @@ func (o *CustomImageCommandsAndArgs) GetCommandsOk() ([]string, bool) {
 		return nil, false
 	}
 	return o.Commands, true
-}
-
-// HasCommands returns a boolean if a field has been set.
-func (o *CustomImageCommandsAndArgs) HasCommands() bool {
-	if o != nil && !IsNil(o.Commands) {
-		return true
-	}
-
-	return false
 }
 
 // SetCommands gets a reference to the given []string and assigns it to the Commands field.

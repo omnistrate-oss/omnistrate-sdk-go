@@ -80,15 +80,6 @@ func (o *CreateImageConfigRequestBody) GetCustomImageCommandsAndArgsOk() (*Custo
 	return o.CustomImageCommandsAndArgs, true
 }
 
-// HasCustomImageCommandsAndArgs returns a boolean if a field has been set.
-func (o *CreateImageConfigRequestBody) HasCustomImageCommandsAndArgs() bool {
-	if o != nil && !IsNil(o.CustomImageCommandsAndArgs) {
-		return true
-	}
-
-	return false
-}
-
 // SetCustomImageCommandsAndArgs gets a reference to the given CustomImageCommandsAndArgs and assigns it to the CustomImageCommandsAndArgs field.
 func (o *CreateImageConfigRequestBody) SetCustomImageCommandsAndArgs(v CustomImageCommandsAndArgs) {
 	o.CustomImageCommandsAndArgs = &v
@@ -160,15 +151,6 @@ func (o *CreateImageConfigRequestBody) GetImageRegistryIdOk() (*string, bool) {
 	return o.ImageRegistryId, true
 }
 
-// HasImageRegistryId returns a boolean if a field has been set.
-func (o *CreateImageConfigRequestBody) HasImageRegistryId() bool {
-	if o != nil && !IsNil(o.ImageRegistryId) {
-		return true
-	}
-
-	return false
-}
-
 // SetImageRegistryId gets a reference to the given string and assigns it to the ImageRegistryId field.
 func (o *CreateImageConfigRequestBody) SetImageRegistryId(v string) {
 	o.ImageRegistryId = &v
@@ -192,15 +174,6 @@ func (o *CreateImageConfigRequestBody) GetImageSignaturePublicKeyPEMOk() (*strin
 	return o.ImageSignaturePublicKeyPEM, true
 }
 
-// HasImageSignaturePublicKeyPEM returns a boolean if a field has been set.
-func (o *CreateImageConfigRequestBody) HasImageSignaturePublicKeyPEM() bool {
-	if o != nil && !IsNil(o.ImageSignaturePublicKeyPEM) {
-		return true
-	}
-
-	return false
-}
-
 // SetImageSignaturePublicKeyPEM gets a reference to the given string and assigns it to the ImageSignaturePublicKeyPEM field.
 func (o *CreateImageConfigRequestBody) SetImageSignaturePublicKeyPEM(v string) {
 	o.ImageSignaturePublicKeyPEM = &v
@@ -222,15 +195,6 @@ func (o *CreateImageConfigRequestBody) GetImageTagOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ImageTag, true
-}
-
-// HasImageTag returns a boolean if a field has been set.
-func (o *CreateImageConfigRequestBody) HasImageTag() bool {
-	if o != nil && !IsNil(o.ImageTag) {
-		return true
-	}
-
-	return false
 }
 
 // SetImageTag gets a reference to the given string and assigns it to the ImageTag field.

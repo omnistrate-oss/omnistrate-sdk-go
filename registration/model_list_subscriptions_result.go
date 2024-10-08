@@ -91,15 +91,6 @@ func (o *ListSubscriptionsResult) GetNextPageTokenOk() (*string, bool) {
 	return o.NextPageToken, true
 }
 
-// HasNextPageToken returns a boolean if a field has been set.
-func (o *ListSubscriptionsResult) HasNextPageToken() bool {
-	if o != nil && !IsNil(o.NextPageToken) {
-		return true
-	}
-
-	return false
-}
-
 // SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.
 func (o *ListSubscriptionsResult) SetNextPageToken(v string) {
 	o.NextPageToken = &v
@@ -121,15 +112,6 @@ func (o *ListSubscriptionsResult) GetSubscriptionsOk() ([]DescribeSubscriptionRe
 		return nil, false
 	}
 	return o.Subscriptions, true
-}
-
-// HasSubscriptions returns a boolean if a field has been set.
-func (o *ListSubscriptionsResult) HasSubscriptions() bool {
-	if o != nil && !IsNil(o.Subscriptions) {
-		return true
-	}
-
-	return false
 }
 
 // SetSubscriptions gets a reference to the given []DescribeSubscriptionResult and assigns it to the Subscriptions field.

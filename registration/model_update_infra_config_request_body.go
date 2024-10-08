@@ -67,15 +67,6 @@ func (o *UpdateInfraConfigRequestBody) GetComputeConfigIdOk() (*string, bool) {
 	return o.ComputeConfigId, true
 }
 
-// HasComputeConfigId returns a boolean if a field has been set.
-func (o *UpdateInfraConfigRequestBody) HasComputeConfigId() bool {
-	if o != nil && !IsNil(o.ComputeConfigId) {
-		return true
-	}
-
-	return false
-}
-
 // SetComputeConfigId gets a reference to the given string and assigns it to the ComputeConfigId field.
 func (o *UpdateInfraConfigRequestBody) SetComputeConfigId(v string) {
 	o.ComputeConfigId = &v
@@ -97,15 +88,6 @@ func (o *UpdateInfraConfigRequestBody) GetCustomTagOk() (*EnvironmentVariable, b
 		return nil, false
 	}
 	return o.CustomTag, true
-}
-
-// HasCustomTag returns a boolean if a field has been set.
-func (o *UpdateInfraConfigRequestBody) HasCustomTag() bool {
-	if o != nil && !IsNil(o.CustomTag) {
-		return true
-	}
-
-	return false
 }
 
 // SetCustomTag gets a reference to the given EnvironmentVariable and assigns it to the CustomTag field.
@@ -131,15 +113,6 @@ func (o *UpdateInfraConfigRequestBody) GetDescriptionOk() (*string, bool) {
 	return o.Description, true
 }
 
-// HasDescription returns a boolean if a field has been set.
-func (o *UpdateInfraConfigRequestBody) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
-		return true
-	}
-
-	return false
-}
-
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *UpdateInfraConfigRequestBody) SetDescription(v string) {
 	o.Description = &v
@@ -161,15 +134,6 @@ func (o *UpdateInfraConfigRequestBody) GetNameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Name, true
-}
-
-// HasName returns a boolean if a field has been set.
-func (o *UpdateInfraConfigRequestBody) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.
@@ -195,15 +159,6 @@ func (o *UpdateInfraConfigRequestBody) GetNetworkConfigIdOk() (*string, bool) {
 	return o.NetworkConfigId, true
 }
 
-// HasNetworkConfigId returns a boolean if a field has been set.
-func (o *UpdateInfraConfigRequestBody) HasNetworkConfigId() bool {
-	if o != nil && !IsNil(o.NetworkConfigId) {
-		return true
-	}
-
-	return false
-}
-
 // SetNetworkConfigId gets a reference to the given string and assigns it to the NetworkConfigId field.
 func (o *UpdateInfraConfigRequestBody) SetNetworkConfigId(v string) {
 	o.NetworkConfigId = &v
@@ -225,15 +180,6 @@ func (o *UpdateInfraConfigRequestBody) GetStorageConfigIdOk() (*string, bool) {
 		return nil, false
 	}
 	return o.StorageConfigId, true
-}
-
-// HasStorageConfigId returns a boolean if a field has been set.
-func (o *UpdateInfraConfigRequestBody) HasStorageConfigId() bool {
-	if o != nil && !IsNil(o.StorageConfigId) {
-		return true
-	}
-
-	return false
 }
 
 // SetStorageConfigId gets a reference to the given string and assigns it to the StorageConfigId field.

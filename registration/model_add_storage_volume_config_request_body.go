@@ -58,15 +58,6 @@ func (o *AddStorageVolumeConfigRequestBody) GetMountPathOk() (*string, bool) {
 	return o.MountPath, true
 }
 
-// HasMountPath returns a boolean if a field has been set.
-func (o *AddStorageVolumeConfigRequestBody) HasMountPath() bool {
-	if o != nil && !IsNil(o.MountPath) {
-		return true
-	}
-
-	return false
-}
-
 // SetMountPath gets a reference to the given string and assigns it to the MountPath field.
 func (o *AddStorageVolumeConfigRequestBody) SetMountPath(v string) {
 	o.MountPath = &v

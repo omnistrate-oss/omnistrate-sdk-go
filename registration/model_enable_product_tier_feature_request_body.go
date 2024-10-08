@@ -67,15 +67,6 @@ func (o *EnableProductTierFeatureRequestBody) GetConfigurationOk() (map[string]i
 	return o.Configuration, true
 }
 
-// HasConfiguration returns a boolean if a field has been set.
-func (o *EnableProductTierFeatureRequestBody) HasConfiguration() bool {
-	if o != nil && !IsNil(o.Configuration) {
-		return true
-	}
-
-	return false
-}
-
 // SetConfiguration gets a reference to the given map[string]interface{} and assigns it to the Configuration field.
 func (o *EnableProductTierFeatureRequestBody) SetConfiguration(v map[string]interface{}) {
 	o.Configuration = v
@@ -121,15 +112,6 @@ func (o *EnableProductTierFeatureRequestBody) GetScopeOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Scope, true
-}
-
-// HasScope returns a boolean if a field has been set.
-func (o *EnableProductTierFeatureRequestBody) HasScope() bool {
-	if o != nil && !IsNil(o.Scope) {
-		return true
-	}
-
-	return false
 }
 
 // SetScope gets a reference to the given string and assigns it to the Scope field.

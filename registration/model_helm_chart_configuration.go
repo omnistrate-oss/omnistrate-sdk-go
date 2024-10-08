@@ -146,15 +146,6 @@ func (o *HelmChartConfiguration) GetChartValuesOk() (map[string]interface{}, boo
 	return o.ChartValues, true
 }
 
-// HasChartValues returns a boolean if a field has been set.
-func (o *HelmChartConfiguration) HasChartValues() bool {
-	if o != nil && !IsNil(o.ChartValues) {
-		return true
-	}
-
-	return false
-}
-
 // SetChartValues gets a reference to the given map[string]interface{} and assigns it to the ChartValues field.
 func (o *HelmChartConfiguration) SetChartValues(v map[string]interface{}) {
 	o.ChartValues = v

@@ -83,15 +83,6 @@ func (o *DescribePlanResult) GetModifiedAtOk() (*string, bool) {
 	return o.ModifiedAt, true
 }
 
-// HasModifiedAt returns a boolean if a field has been set.
-func (o *DescribePlanResult) HasModifiedAt() bool {
-	if o != nil && !IsNil(o.ModifiedAt) {
-		return true
-	}
-
-	return false
-}
-
 // SetModifiedAt gets a reference to the given string and assigns it to the ModifiedAt field.
 func (o *DescribePlanResult) SetModifiedAt(v string) {
 	o.ModifiedAt = &v
@@ -113,15 +104,6 @@ func (o *DescribePlanResult) GetNextChargeDateOk() (*string, bool) {
 		return nil, false
 	}
 	return o.NextChargeDate, true
-}
-
-// HasNextChargeDate returns a boolean if a field has been set.
-func (o *DescribePlanResult) HasNextChargeDate() bool {
-	if o != nil && !IsNil(o.NextChargeDate) {
-		return true
-	}
-
-	return false
 }
 
 // SetNextChargeDate gets a reference to the given string and assigns it to the NextChargeDate field.
@@ -147,15 +129,6 @@ func (o *DescribePlanResult) GetPaymentConfiguredOk() (*bool, bool) {
 	return o.PaymentConfigured, true
 }
 
-// HasPaymentConfigured returns a boolean if a field has been set.
-func (o *DescribePlanResult) HasPaymentConfigured() bool {
-	if o != nil && !IsNil(o.PaymentConfigured) {
-		return true
-	}
-
-	return false
-}
-
 // SetPaymentConfigured gets a reference to the given bool and assigns it to the PaymentConfigured field.
 func (o *DescribePlanResult) SetPaymentConfigured(v bool) {
 	o.PaymentConfigured = &v
@@ -177,15 +150,6 @@ func (o *DescribePlanResult) GetPaymentInfoPortalURLOk() (*string, bool) {
 		return nil, false
 	}
 	return o.PaymentInfoPortalURL, true
-}
-
-// HasPaymentInfoPortalURL returns a boolean if a field has been set.
-func (o *DescribePlanResult) HasPaymentInfoPortalURL() bool {
-	if o != nil && !IsNil(o.PaymentInfoPortalURL) {
-		return true
-	}
-
-	return false
 }
 
 // SetPaymentInfoPortalURL gets a reference to the given string and assigns it to the PaymentInfoPortalURL field.
@@ -211,15 +175,6 @@ func (o *DescribePlanResult) GetPlanCoreHourCostOk() (*float64, bool) {
 	return o.PlanCoreHourCost, true
 }
 
-// HasPlanCoreHourCost returns a boolean if a field has been set.
-func (o *DescribePlanResult) HasPlanCoreHourCost() bool {
-	if o != nil && !IsNil(o.PlanCoreHourCost) {
-		return true
-	}
-
-	return false
-}
-
 // SetPlanCoreHourCost gets a reference to the given float64 and assigns it to the PlanCoreHourCost field.
 func (o *DescribePlanResult) SetPlanCoreHourCost(v float64) {
 	o.PlanCoreHourCost = &v
@@ -241,15 +196,6 @@ func (o *DescribePlanResult) GetPlanDescriptionOk() (*string, bool) {
 		return nil, false
 	}
 	return o.PlanDescription, true
-}
-
-// HasPlanDescription returns a boolean if a field has been set.
-func (o *DescribePlanResult) HasPlanDescription() bool {
-	if o != nil && !IsNil(o.PlanDescription) {
-		return true
-	}
-
-	return false
 }
 
 // SetPlanDescription gets a reference to the given string and assigns it to the PlanDescription field.
@@ -275,15 +221,6 @@ func (o *DescribePlanResult) GetPlanFrequencyOk() (*string, bool) {
 	return o.PlanFrequency, true
 }
 
-// HasPlanFrequency returns a boolean if a field has been set.
-func (o *DescribePlanResult) HasPlanFrequency() bool {
-	if o != nil && !IsNil(o.PlanFrequency) {
-		return true
-	}
-
-	return false
-}
-
 // SetPlanFrequency gets a reference to the given string and assigns it to the PlanFrequency field.
 func (o *DescribePlanResult) SetPlanFrequency(v string) {
 	o.PlanFrequency = &v
@@ -305,15 +242,6 @@ func (o *DescribePlanResult) GetPlanMonthlyCostOk() (*float64, bool) {
 		return nil, false
 	}
 	return o.PlanMonthlyCost, true
-}
-
-// HasPlanMonthlyCost returns a boolean if a field has been set.
-func (o *DescribePlanResult) HasPlanMonthlyCost() bool {
-	if o != nil && !IsNil(o.PlanMonthlyCost) {
-		return true
-	}
-
-	return false
 }
 
 // SetPlanMonthlyCost gets a reference to the given float64 and assigns it to the PlanMonthlyCost field.
@@ -363,15 +291,6 @@ func (o *DescribePlanResult) GetRemainingCreditsOk() (*string, bool) {
 	return o.RemainingCredits, true
 }
 
-// HasRemainingCredits returns a boolean if a field has been set.
-func (o *DescribePlanResult) HasRemainingCredits() bool {
-	if o != nil && !IsNil(o.RemainingCredits) {
-		return true
-	}
-
-	return false
-}
-
 // SetRemainingCredits gets a reference to the given string and assigns it to the RemainingCredits field.
 func (o *DescribePlanResult) SetRemainingCredits(v string) {
 	o.RemainingCredits = &v
@@ -393,15 +312,6 @@ func (o *DescribePlanResult) GetStartDateOk() (*string, bool) {
 		return nil, false
 	}
 	return o.StartDate, true
-}
-
-// HasStartDate returns a boolean if a field has been set.
-func (o *DescribePlanResult) HasStartDate() bool {
-	if o != nil && !IsNil(o.StartDate) {
-		return true
-	}
-
-	return false
 }
 
 // SetStartDate gets a reference to the given string and assigns it to the StartDate field.

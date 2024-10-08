@@ -75,15 +75,6 @@ func (o *CopyServiceModelRequestBody) GetAccountConfigIdsOk() ([]string, bool) {
 	return o.AccountConfigIds, true
 }
 
-// HasAccountConfigIds returns a boolean if a field has been set.
-func (o *CopyServiceModelRequestBody) HasAccountConfigIds() bool {
-	if o != nil && !IsNil(o.AccountConfigIds) {
-		return true
-	}
-
-	return false
-}
-
 // SetAccountConfigIds gets a reference to the given []string and assigns it to the AccountConfigIds field.
 func (o *CopyServiceModelRequestBody) SetAccountConfigIds(v []string) {
 	o.AccountConfigIds = v
@@ -129,15 +120,6 @@ func (o *CopyServiceModelRequestBody) GetFeaturesOk() ([]ServiceModelFeatureDeta
 		return nil, false
 	}
 	return o.Features, true
-}
-
-// HasFeatures returns a boolean if a field has been set.
-func (o *CopyServiceModelRequestBody) HasFeatures() bool {
-	if o != nil && !IsNil(o.Features) {
-		return true
-	}
-
-	return false
 }
 
 // SetFeatures gets a reference to the given []ServiceModelFeatureDetail and assigns it to the Features field.
@@ -209,15 +191,6 @@ func (o *CopyServiceModelRequestBody) GetTargetTierTypeOk() (*string, bool) {
 		return nil, false
 	}
 	return o.TargetTierType, true
-}
-
-// HasTargetTierType returns a boolean if a field has been set.
-func (o *CopyServiceModelRequestBody) HasTargetTierType() bool {
-	if o != nil && !IsNil(o.TargetTierType) {
-		return true
-	}
-
-	return false
 }
 
 // SetTargetTierType gets a reference to the given string and assigns it to the TargetTierType field.

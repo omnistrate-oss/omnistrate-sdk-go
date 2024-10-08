@@ -62,15 +62,6 @@ func (o *ReportHealthResult) GetHealthOk() (*string, bool) {
 	return o.Health, true
 }
 
-// HasHealth returns a boolean if a field has been set.
-func (o *ReportHealthResult) HasHealth() bool {
-	if o != nil && !IsNil(o.Health) {
-		return true
-	}
-
-	return false
-}
-
 // SetHealth gets a reference to the given string and assigns it to the Health field.
 func (o *ReportHealthResult) SetHealth(v string) {
 	o.Health = &v
@@ -94,15 +85,6 @@ func (o *ReportHealthResult) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *ReportHealthResult) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
 // SetId gets a reference to the given string and assigns it to the Id field.
 func (o *ReportHealthResult) SetId(v string) {
 	o.Id = &v
@@ -124,15 +106,6 @@ func (o *ReportHealthResult) GetReportOk() (*map[string]EnvironmentHealthReport,
 		return nil, false
 	}
 	return o.Report, true
-}
-
-// HasReport returns a boolean if a field has been set.
-func (o *ReportHealthResult) HasReport() bool {
-	if o != nil && !IsNil(o.Report) {
-		return true
-	}
-
-	return false
 }
 
 // SetReport gets a reference to the given map[string]EnvironmentHealthReport and assigns it to the Report field.

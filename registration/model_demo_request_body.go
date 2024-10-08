@@ -139,15 +139,6 @@ func (o *DemoRequestBody) GetPhoneOk() (*string, bool) {
 	return o.Phone, true
 }
 
-// HasPhone returns a boolean if a field has been set.
-func (o *DemoRequestBody) HasPhone() bool {
-	if o != nil && !IsNil(o.Phone) {
-		return true
-	}
-
-	return false
-}
-
 // SetPhone gets a reference to the given string and assigns it to the Phone field.
 func (o *DemoRequestBody) SetPhone(v string) {
 	o.Phone = &v

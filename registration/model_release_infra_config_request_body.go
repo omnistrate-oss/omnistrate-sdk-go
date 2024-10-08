@@ -58,15 +58,6 @@ func (o *ReleaseInfraConfigRequestBody) GetProductTierIdOk() (*string, bool) {
 	return o.ProductTierId, true
 }
 
-// HasProductTierId returns a boolean if a field has been set.
-func (o *ReleaseInfraConfigRequestBody) HasProductTierId() bool {
-	if o != nil && !IsNil(o.ProductTierId) {
-		return true
-	}
-
-	return false
-}
-
 // SetProductTierId gets a reference to the given string and assigns it to the ProductTierId field.
 func (o *ReleaseInfraConfigRequestBody) SetProductTierId(v string) {
 	o.ProductTierId = &v

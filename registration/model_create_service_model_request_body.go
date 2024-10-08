@@ -76,15 +76,6 @@ func (o *CreateServiceModelRequestBody) GetAccountConfigIdsOk() ([]string, bool)
 	return o.AccountConfigIds, true
 }
 
-// HasAccountConfigIds returns a boolean if a field has been set.
-func (o *CreateServiceModelRequestBody) HasAccountConfigIds() bool {
-	if o != nil && !IsNil(o.AccountConfigIds) {
-		return true
-	}
-
-	return false
-}
-
 // SetAccountConfigIds gets a reference to the given []string and assigns it to the AccountConfigIds field.
 func (o *CreateServiceModelRequestBody) SetAccountConfigIds(v []string) {
 	o.AccountConfigIds = v
@@ -130,15 +121,6 @@ func (o *CreateServiceModelRequestBody) GetFeaturesOk() ([]ServiceModelFeatureDe
 		return nil, false
 	}
 	return o.Features, true
-}
-
-// HasFeatures returns a boolean if a field has been set.
-func (o *CreateServiceModelRequestBody) HasFeatures() bool {
-	if o != nil && !IsNil(o.Features) {
-		return true
-	}
-
-	return false
 }
 
 // SetFeatures gets a reference to the given []ServiceModelFeatureDetail and assigns it to the Features field.

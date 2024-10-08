@@ -58,15 +58,6 @@ func (o *NetworkFeaturesConfiguration) GetIsPrivateLinkEnabledOk() (*bool, bool)
 	return o.IsPrivateLinkEnabled, true
 }
 
-// HasIsPrivateLinkEnabled returns a boolean if a field has been set.
-func (o *NetworkFeaturesConfiguration) HasIsPrivateLinkEnabled() bool {
-	if o != nil && !IsNil(o.IsPrivateLinkEnabled) {
-		return true
-	}
-
-	return false
-}
-
 // SetIsPrivateLinkEnabled gets a reference to the given bool and assigns it to the IsPrivateLinkEnabled field.
 func (o *NetworkFeaturesConfiguration) SetIsPrivateLinkEnabled(v bool) {
 	o.IsPrivateLinkEnabled = &v

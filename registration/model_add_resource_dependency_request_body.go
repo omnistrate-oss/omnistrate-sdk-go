@@ -58,15 +58,6 @@ func (o *AddResourceDependencyRequestBody) GetParameterMapOk() (*map[string]stri
 	return o.ParameterMap, true
 }
 
-// HasParameterMap returns a boolean if a field has been set.
-func (o *AddResourceDependencyRequestBody) HasParameterMap() bool {
-	if o != nil && !IsNil(o.ParameterMap) {
-		return true
-	}
-
-	return false
-}
-
 // SetParameterMap gets a reference to the given map[string]string and assigns it to the ParameterMap field.
 func (o *AddResourceDependencyRequestBody) SetParameterMap(v map[string]string) {
 	o.ParameterMap = &v

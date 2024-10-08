@@ -68,15 +68,6 @@ func (o *DescribeNetworkResult) GetCidrOk() (*string, bool) {
 	return o.Cidr, true
 }
 
-// HasCidr returns a boolean if a field has been set.
-func (o *DescribeNetworkResult) HasCidr() bool {
-	if o != nil && !IsNil(o.Cidr) {
-		return true
-	}
-
-	return false
-}
-
 // SetCidr gets a reference to the given string and assigns it to the Cidr field.
 func (o *DescribeNetworkResult) SetCidr(v string) {
 	o.Cidr = &v
@@ -98,15 +89,6 @@ func (o *DescribeNetworkResult) GetIdOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Id, true
-}
-
-// HasId returns a boolean if a field has been set.
-func (o *DescribeNetworkResult) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
 }
 
 // SetId gets a reference to the given string and assigns it to the Id field.
@@ -132,15 +114,6 @@ func (o *DescribeNetworkResult) GetNetworkConfigIdOk() (*string, bool) {
 	return o.NetworkConfigId, true
 }
 
-// HasNetworkConfigId returns a boolean if a field has been set.
-func (o *DescribeNetworkResult) HasNetworkConfigId() bool {
-	if o != nil && !IsNil(o.NetworkConfigId) {
-		return true
-	}
-
-	return false
-}
-
 // SetNetworkConfigId gets a reference to the given string and assigns it to the NetworkConfigId field.
 func (o *DescribeNetworkResult) SetNetworkConfigId(v string) {
 	o.NetworkConfigId = &v
@@ -162,15 +135,6 @@ func (o *DescribeNetworkResult) GetServiceIdOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ServiceId, true
-}
-
-// HasServiceId returns a boolean if a field has been set.
-func (o *DescribeNetworkResult) HasServiceId() bool {
-	if o != nil && !IsNil(o.ServiceId) {
-		return true
-	}
-
-	return false
 }
 
 // SetServiceId gets a reference to the given string and assigns it to the ServiceId field.
@@ -196,15 +160,6 @@ func (o *DescribeNetworkResult) GetTypeOk() (*string, bool) {
 	return o.Type, true
 }
 
-// HasType returns a boolean if a field has been set.
-func (o *DescribeNetworkResult) HasType() bool {
-	if o != nil && !IsNil(o.Type) {
-		return true
-	}
-
-	return false
-}
-
 // SetType gets a reference to the given string and assigns it to the Type field.
 func (o *DescribeNetworkResult) SetType(v string) {
 	o.Type = &v
@@ -226,15 +181,6 @@ func (o *DescribeNetworkResult) GetVunitIdOk() (*string, bool) {
 		return nil, false
 	}
 	return o.VunitId, true
-}
-
-// HasVunitId returns a boolean if a field has been set.
-func (o *DescribeNetworkResult) HasVunitId() bool {
-	if o != nil && !IsNil(o.VunitId) {
-		return true
-	}
-
-	return false
 }
 
 // SetVunitId gets a reference to the given string and assigns it to the VunitId field.

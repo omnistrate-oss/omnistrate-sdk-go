@@ -66,15 +66,6 @@ func (o *CustomDNSEndpoint) GetARecordTargetOk() (*string, bool) {
 	return o.ARecordTarget, true
 }
 
-// HasARecordTarget returns a boolean if a field has been set.
-func (o *CustomDNSEndpoint) HasARecordTarget() bool {
-	if o != nil && !IsNil(o.ARecordTarget) {
-		return true
-	}
-
-	return false
-}
-
 // SetARecordTarget gets a reference to the given string and assigns it to the ARecordTarget field.
 func (o *CustomDNSEndpoint) SetARecordTarget(v string) {
 	o.ARecordTarget = &v
@@ -98,15 +89,6 @@ func (o *CustomDNSEndpoint) GetCnameTargetOk() (*string, bool) {
 	return o.CnameTarget, true
 }
 
-// HasCnameTarget returns a boolean if a field has been set.
-func (o *CustomDNSEndpoint) HasCnameTarget() bool {
-	if o != nil && !IsNil(o.CnameTarget) {
-		return true
-	}
-
-	return false
-}
-
 // SetCnameTarget gets a reference to the given string and assigns it to the CnameTarget field.
 func (o *CustomDNSEndpoint) SetCnameTarget(v string) {
 	o.CnameTarget = &v
@@ -128,15 +110,6 @@ func (o *CustomDNSEndpoint) GetDnsNameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.DnsName, true
-}
-
-// HasDnsName returns a boolean if a field has been set.
-func (o *CustomDNSEndpoint) HasDnsName() bool {
-	if o != nil && !IsNil(o.DnsName) {
-		return true
-	}
-
-	return false
 }
 
 // SetDnsName gets a reference to the given string and assigns it to the DnsName field.
@@ -184,15 +157,6 @@ func (o *CustomDNSEndpoint) GetStatusOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Status, true
-}
-
-// HasStatus returns a boolean if a field has been set.
-func (o *CustomDNSEndpoint) HasStatus() bool {
-	if o != nil && !IsNil(o.Status) {
-		return true
-	}
-
-	return false
 }
 
 // SetStatus gets a reference to the given string and assigns it to the Status field.

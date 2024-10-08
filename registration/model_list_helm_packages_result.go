@@ -58,15 +58,6 @@ func (o *ListHelmPackagesResult) GetHelmPackagesOk() ([]HelmPackage, bool) {
 	return o.HelmPackages, true
 }
 
-// HasHelmPackages returns a boolean if a field has been set.
-func (o *ListHelmPackagesResult) HasHelmPackages() bool {
-	if o != nil && !IsNil(o.HelmPackages) {
-		return true
-	}
-
-	return false
-}
-
 // SetHelmPackages gets a reference to the given []HelmPackage and assigns it to the HelmPackages field.
 func (o *ListHelmPackagesResult) SetHelmPackages(v []HelmPackage) {
 	o.HelmPackages = v

@@ -164,15 +164,6 @@ func (o *DescribeNetworkConfigResult) GetInfraConfigIDsOk() ([]string, bool) {
 	return o.InfraConfigIDs, true
 }
 
-// HasInfraConfigIDs returns a boolean if a field has been set.
-func (o *DescribeNetworkConfigResult) HasInfraConfigIDs() bool {
-	if o != nil && !IsNil(o.InfraConfigIDs) {
-		return true
-	}
-
-	return false
-}
-
 // SetInfraConfigIDs gets a reference to the given []string and assigns it to the InfraConfigIDs field.
 func (o *DescribeNetworkConfigResult) SetInfraConfigIDs(v []string) {
 	o.InfraConfigIDs = v
@@ -268,15 +259,6 @@ func (o *DescribeNetworkConfigResult) GetPrivateNetworkingConfigurationOk() (*Pr
 	return o.PrivateNetworkingConfiguration, true
 }
 
-// HasPrivateNetworkingConfiguration returns a boolean if a field has been set.
-func (o *DescribeNetworkConfigResult) HasPrivateNetworkingConfiguration() bool {
-	if o != nil && !IsNil(o.PrivateNetworkingConfiguration) {
-		return true
-	}
-
-	return false
-}
-
 // SetPrivateNetworkingConfiguration gets a reference to the given PrivateNetworkingConfiguration and assigns it to the PrivateNetworkingConfiguration field.
 func (o *DescribeNetworkConfigResult) SetPrivateNetworkingConfiguration(v PrivateNetworkingConfiguration) {
 	o.PrivateNetworkingConfiguration = &v
@@ -298,15 +280,6 @@ func (o *DescribeNetworkConfigResult) GetPublicNetworkingConfigurationOk() (*Pub
 		return nil, false
 	}
 	return o.PublicNetworkingConfiguration, true
-}
-
-// HasPublicNetworkingConfiguration returns a boolean if a field has been set.
-func (o *DescribeNetworkConfigResult) HasPublicNetworkingConfiguration() bool {
-	if o != nil && !IsNil(o.PublicNetworkingConfiguration) {
-		return true
-	}
-
-	return false
 }
 
 // SetPublicNetworkingConfiguration gets a reference to the given PublicNetworkingConfiguration and assigns it to the PublicNetworkingConfiguration field.
@@ -378,15 +351,6 @@ func (o *DescribeNetworkConfigResult) GetTlsTerminationPortOk() (*int64, bool) {
 		return nil, false
 	}
 	return o.TlsTerminationPort, true
-}
-
-// HasTlsTerminationPort returns a boolean if a field has been set.
-func (o *DescribeNetworkConfigResult) HasTlsTerminationPort() bool {
-	if o != nil && !IsNil(o.TlsTerminationPort) {
-		return true
-	}
-
-	return false
 }
 
 // SetTlsTerminationPort gets a reference to the given int64 and assigns it to the TlsTerminationPort field.

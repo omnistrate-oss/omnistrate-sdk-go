@@ -146,15 +146,6 @@ func (o *SaaSPortalEmailConfig) GetSmtpPortOk() (*int64, bool) {
 	return o.SmtpPort, true
 }
 
-// HasSmtpPort returns a boolean if a field has been set.
-func (o *SaaSPortalEmailConfig) HasSmtpPort() bool {
-	if o != nil && !IsNil(o.SmtpPort) {
-		return true
-	}
-
-	return false
-}
-
 // SetSmtpPort gets a reference to the given int64 and assigns it to the SmtpPort field.
 func (o *SaaSPortalEmailConfig) SetSmtpPort(v int64) {
 	o.SmtpPort = &v

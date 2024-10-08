@@ -62,15 +62,6 @@ func (o *ImageConfigChangeSummary) GetChangeStateOk() (*string, bool) {
 	return o.ChangeState, true
 }
 
-// HasChangeState returns a boolean if a field has been set.
-func (o *ImageConfigChangeSummary) HasChangeState() bool {
-	if o != nil && !IsNil(o.ChangeState) {
-		return true
-	}
-
-	return false
-}
-
 // SetChangeState gets a reference to the given string and assigns it to the ChangeState field.
 func (o *ImageConfigChangeSummary) SetChangeState(v string) {
 	o.ChangeState = &v
@@ -94,15 +85,6 @@ func (o *ImageConfigChangeSummary) GetImageConfigIdOk() (*string, bool) {
 	return o.ImageConfigId, true
 }
 
-// HasImageConfigId returns a boolean if a field has been set.
-func (o *ImageConfigChangeSummary) HasImageConfigId() bool {
-	if o != nil && !IsNil(o.ImageConfigId) {
-		return true
-	}
-
-	return false
-}
-
 // SetImageConfigId gets a reference to the given string and assigns it to the ImageConfigId field.
 func (o *ImageConfigChangeSummary) SetImageConfigId(v string) {
 	o.ImageConfigId = &v
@@ -124,15 +106,6 @@ func (o *ImageConfigChangeSummary) GetImageNameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ImageName, true
-}
-
-// HasImageName returns a boolean if a field has been set.
-func (o *ImageConfigChangeSummary) HasImageName() bool {
-	if o != nil && !IsNil(o.ImageName) {
-		return true
-	}
-
-	return false
 }
 
 // SetImageName gets a reference to the given string and assigns it to the ImageName field.

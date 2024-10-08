@@ -60,15 +60,6 @@ func (o *PublicNetworkingConfiguration) GetEnableClusterLoadBalancerOk() (*bool,
 	return o.EnableClusterLoadBalancer, true
 }
 
-// HasEnableClusterLoadBalancer returns a boolean if a field has been set.
-func (o *PublicNetworkingConfiguration) HasEnableClusterLoadBalancer() bool {
-	if o != nil && !IsNil(o.EnableClusterLoadBalancer) {
-		return true
-	}
-
-	return false
-}
-
 // SetEnableClusterLoadBalancer gets a reference to the given bool and assigns it to the EnableClusterLoadBalancer field.
 func (o *PublicNetworkingConfiguration) SetEnableClusterLoadBalancer(v bool) {
 	o.EnableClusterLoadBalancer = &v
@@ -90,15 +81,6 @@ func (o *PublicNetworkingConfiguration) GetEnableNodeLoadBalancerOk() (*bool, bo
 		return nil, false
 	}
 	return o.EnableNodeLoadBalancer, true
-}
-
-// HasEnableNodeLoadBalancer returns a boolean if a field has been set.
-func (o *PublicNetworkingConfiguration) HasEnableNodeLoadBalancer() bool {
-	if o != nil && !IsNil(o.EnableNodeLoadBalancer) {
-		return true
-	}
-
-	return false
 }
 
 // SetEnableNodeLoadBalancer gets a reference to the given bool and assigns it to the EnableNodeLoadBalancer field.

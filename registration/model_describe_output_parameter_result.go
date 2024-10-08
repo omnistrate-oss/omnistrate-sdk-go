@@ -227,15 +227,6 @@ func (o *DescribeOutputParameterResult) GetValueOk() (*string, bool) {
 	return o.Value, true
 }
 
-// HasValue returns a boolean if a field has been set.
-func (o *DescribeOutputParameterResult) HasValue() bool {
-	if o != nil && !IsNil(o.Value) {
-		return true
-	}
-
-	return false
-}
-
 // SetValue gets a reference to the given string and assigns it to the Value field.
 func (o *DescribeOutputParameterResult) SetValue(v string) {
 	o.Value = &v
@@ -259,15 +250,6 @@ func (o *DescribeOutputParameterResult) GetValueRefOk() (*string, bool) {
 	return o.ValueRef, true
 }
 
-// HasValueRef returns a boolean if a field has been set.
-func (o *DescribeOutputParameterResult) HasValueRef() bool {
-	if o != nil && !IsNil(o.ValueRef) {
-		return true
-	}
-
-	return false
-}
-
 // SetValueRef gets a reference to the given string and assigns it to the ValueRef field.
 func (o *DescribeOutputParameterResult) SetValueRef(v string) {
 	o.ValueRef = &v
@@ -289,15 +271,6 @@ func (o *DescribeOutputParameterResult) GetValueTypeOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ValueType, true
-}
-
-// HasValueType returns a boolean if a field has been set.
-func (o *DescribeOutputParameterResult) HasValueType() bool {
-	if o != nil && !IsNil(o.ValueType) {
-		return true
-	}
-
-	return false
 }
 
 // SetValueType gets a reference to the given string and assigns it to the ValueType field.

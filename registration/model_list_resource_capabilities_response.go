@@ -58,15 +58,6 @@ func (o *ListResourceCapabilitiesResponse) GetCapabilitiesOk() ([]ResourceCapabi
 	return o.Capabilities, true
 }
 
-// HasCapabilities returns a boolean if a field has been set.
-func (o *ListResourceCapabilitiesResponse) HasCapabilities() bool {
-	if o != nil && !IsNil(o.Capabilities) {
-		return true
-	}
-
-	return false
-}
-
 // SetCapabilities gets a reference to the given []ResourceCapability and assigns it to the Capabilities field.
 func (o *ListResourceCapabilitiesResponse) SetCapabilities(v []ResourceCapability) {
 	o.Capabilities = v

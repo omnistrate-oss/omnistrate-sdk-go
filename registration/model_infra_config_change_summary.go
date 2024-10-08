@@ -62,15 +62,6 @@ func (o *InfraConfigChangeSummary) GetChangeStateOk() (*string, bool) {
 	return o.ChangeState, true
 }
 
-// HasChangeState returns a boolean if a field has been set.
-func (o *InfraConfigChangeSummary) HasChangeState() bool {
-	if o != nil && !IsNil(o.ChangeState) {
-		return true
-	}
-
-	return false
-}
-
 // SetChangeState gets a reference to the given string and assigns it to the ChangeState field.
 func (o *InfraConfigChangeSummary) SetChangeState(v string) {
 	o.ChangeState = &v
@@ -94,15 +85,6 @@ func (o *InfraConfigChangeSummary) GetInfraConfigIdOk() (*string, bool) {
 	return o.InfraConfigId, true
 }
 
-// HasInfraConfigId returns a boolean if a field has been set.
-func (o *InfraConfigChangeSummary) HasInfraConfigId() bool {
-	if o != nil && !IsNil(o.InfraConfigId) {
-		return true
-	}
-
-	return false
-}
-
 // SetInfraConfigId gets a reference to the given string and assigns it to the InfraConfigId field.
 func (o *InfraConfigChangeSummary) SetInfraConfigId(v string) {
 	o.InfraConfigId = &v
@@ -124,15 +106,6 @@ func (o *InfraConfigChangeSummary) GetNameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Name, true
-}
-
-// HasName returns a boolean if a field has been set.
-func (o *InfraConfigChangeSummary) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.

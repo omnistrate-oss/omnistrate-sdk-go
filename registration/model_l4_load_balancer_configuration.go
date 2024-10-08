@@ -58,15 +58,6 @@ func (o *L4LoadBalancerConfiguration) GetIngressPortConfigurationOk() ([]Backend
 	return o.IngressPortConfiguration, true
 }
 
-// HasIngressPortConfiguration returns a boolean if a field has been set.
-func (o *L4LoadBalancerConfiguration) HasIngressPortConfiguration() bool {
-	if o != nil && !IsNil(o.IngressPortConfiguration) {
-		return true
-	}
-
-	return false
-}
-
 // SetIngressPortConfiguration gets a reference to the given []BackendPortConfiguration and assigns it to the IngressPortConfiguration field.
 func (o *L4LoadBalancerConfiguration) SetIngressPortConfiguration(v []BackendPortConfiguration) {
 	o.IngressPortConfiguration = v

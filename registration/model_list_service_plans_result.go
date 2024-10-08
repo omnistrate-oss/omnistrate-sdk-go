@@ -65,15 +65,6 @@ func (o *ListServicePlansResult) GetNextPageTokenOk() (*string, bool) {
 	return o.NextPageToken, true
 }
 
-// HasNextPageToken returns a boolean if a field has been set.
-func (o *ListServicePlansResult) HasNextPageToken() bool {
-	if o != nil && !IsNil(o.NextPageToken) {
-		return true
-	}
-
-	return false
-}
-
 // SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.
 func (o *ListServicePlansResult) SetNextPageToken(v string) {
 	o.NextPageToken = &v

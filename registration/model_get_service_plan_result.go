@@ -165,15 +165,6 @@ func (o *GetServicePlanResult) GetAccountConfigIdsOk() ([]string, bool) {
 	return o.AccountConfigIds, true
 }
 
-// HasAccountConfigIds returns a boolean if a field has been set.
-func (o *GetServicePlanResult) HasAccountConfigIds() bool {
-	if o != nil && !IsNil(o.AccountConfigIds) {
-		return true
-	}
-
-	return false
-}
-
 // SetAccountConfigIds gets a reference to the given []string and assigns it to the AccountConfigIds field.
 func (o *GetServicePlanResult) SetAccountConfigIds(v []string) {
 	o.AccountConfigIds = v
@@ -195,15 +186,6 @@ func (o *GetServicePlanResult) GetActiveAccountConfigIdsOk() (*map[string]string
 		return nil, false
 	}
 	return o.ActiveAccountConfigIds, true
-}
-
-// HasActiveAccountConfigIds returns a boolean if a field has been set.
-func (o *GetServicePlanResult) HasActiveAccountConfigIds() bool {
-	if o != nil && !IsNil(o.ActiveAccountConfigIds) {
-		return true
-	}
-
-	return false
 }
 
 // SetActiveAccountConfigIds gets a reference to the given map[string]string and assigns it to the ActiveAccountConfigIds field.
@@ -253,15 +235,6 @@ func (o *GetServicePlanResult) GetAwsRegionsOk() ([]string, bool) {
 	return o.AwsRegions, true
 }
 
-// HasAwsRegions returns a boolean if a field has been set.
-func (o *GetServicePlanResult) HasAwsRegions() bool {
-	if o != nil && !IsNil(o.AwsRegions) {
-		return true
-	}
-
-	return false
-}
-
 // SetAwsRegions gets a reference to the given []string and assigns it to the AwsRegions field.
 func (o *GetServicePlanResult) SetAwsRegions(v []string) {
 	o.AwsRegions = v
@@ -307,15 +280,6 @@ func (o *GetServicePlanResult) GetGcpRegionsOk() ([]string, bool) {
 		return nil, false
 	}
 	return o.GcpRegions, true
-}
-
-// HasGcpRegions returns a boolean if a field has been set.
-func (o *GetServicePlanResult) HasGcpRegions() bool {
-	if o != nil && !IsNil(o.GcpRegions) {
-		return true
-	}
-
-	return false
 }
 
 // SetGcpRegions gets a reference to the given []string and assigns it to the GcpRegions field.
@@ -483,15 +447,6 @@ func (o *GetServicePlanResult) GetProductTierFeaturesOk() (*map[string]bool, boo
 		return nil, false
 	}
 	return o.ProductTierFeatures, true
-}
-
-// HasProductTierFeatures returns a boolean if a field has been set.
-func (o *GetServicePlanResult) HasProductTierFeatures() bool {
-	if o != nil && !IsNil(o.ProductTierFeatures) {
-		return true
-	}
-
-	return false
 }
 
 // SetProductTierFeatures gets a reference to the given map[string]bool and assigns it to the ProductTierFeatures field.
@@ -757,15 +712,6 @@ func (o *GetServicePlanResult) GetServiceModelFeaturesOk() ([]ServiceModelFeatur
 		return nil, false
 	}
 	return o.ServiceModelFeatures, true
-}
-
-// HasServiceModelFeatures returns a boolean if a field has been set.
-func (o *GetServicePlanResult) HasServiceModelFeatures() bool {
-	if o != nil && !IsNil(o.ServiceModelFeatures) {
-		return true
-	}
-
-	return false
 }
 
 // SetServiceModelFeatures gets a reference to the given []ServiceModelFeatureDetail and assigns it to the ServiceModelFeatures field.

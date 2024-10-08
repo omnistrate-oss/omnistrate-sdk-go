@@ -103,15 +103,6 @@ func (o *Address) GetAddressLine2Ok() (*string, bool) {
 	return o.AddressLine2, true
 }
 
-// HasAddressLine2 returns a boolean if a field has been set.
-func (o *Address) HasAddressLine2() bool {
-	if o != nil && !IsNil(o.AddressLine2) {
-		return true
-	}
-
-	return false
-}
-
 // SetAddressLine2 gets a reference to the given string and assigns it to the AddressLine2 field.
 func (o *Address) SetAddressLine2(v string) {
 	o.AddressLine2 = &v
@@ -133,15 +124,6 @@ func (o *Address) GetAddressLine3Ok() (*string, bool) {
 		return nil, false
 	}
 	return o.AddressLine3, true
-}
-
-// HasAddressLine3 returns a boolean if a field has been set.
-func (o *Address) HasAddressLine3() bool {
-	if o != nil && !IsNil(o.AddressLine3) {
-		return true
-	}
-
-	return false
 }
 
 // SetAddressLine3 gets a reference to the given string and assigns it to the AddressLine3 field.

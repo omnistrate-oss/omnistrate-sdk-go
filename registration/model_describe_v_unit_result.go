@@ -100,15 +100,6 @@ func (o *DescribeVUnitResult) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *DescribeVUnitResult) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
 // SetId gets a reference to the given string and assigns it to the Id field.
 func (o *DescribeVUnitResult) SetId(v string) {
 	o.Id = &v
@@ -178,15 +169,6 @@ func (o *DescribeVUnitResult) GetServiceIdOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ServiceId, true
-}
-
-// HasServiceId returns a boolean if a field has been set.
-func (o *DescribeVUnitResult) HasServiceId() bool {
-	if o != nil && !IsNil(o.ServiceId) {
-		return true
-	}
-
-	return false
 }
 
 // SetServiceId gets a reference to the given string and assigns it to the ServiceId field.

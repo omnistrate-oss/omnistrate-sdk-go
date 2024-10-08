@@ -31,7 +31,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/omnistrate/omnistrate-sdk-go"
+	openapiclient "github.com/omnistrate/omnistrate-sdk-go/registration"
 )
 
 func main() {
@@ -101,7 +101,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/omnistrate/omnistrate-sdk-go"
+	openapiclient "github.com/omnistrate/omnistrate-sdk-go/registration"
 )
 
 func main() {
@@ -170,7 +170,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/omnistrate/omnistrate-sdk-go"
+	openapiclient "github.com/omnistrate/omnistrate-sdk-go/registration"
 )
 
 func main() {
@@ -239,7 +239,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/omnistrate/omnistrate-sdk-go"
+	openapiclient "github.com/omnistrate/omnistrate-sdk-go/registration"
 )
 
 func main() {
@@ -312,7 +312,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/omnistrate/omnistrate-sdk-go"
+	openapiclient "github.com/omnistrate/omnistrate-sdk-go/registration"
 )
 
 func main() {
@@ -383,7 +383,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/omnistrate/omnistrate-sdk-go"
+	openapiclient "github.com/omnistrate/omnistrate-sdk-go/registration"
 )
 
 func main() {
@@ -454,7 +454,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/omnistrate/omnistrate-sdk-go"
+	openapiclient "github.com/omnistrate/omnistrate-sdk-go/registration"
 )
 
 func main() {
@@ -525,7 +525,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/omnistrate/omnistrate-sdk-go"
+	openapiclient "github.com/omnistrate/omnistrate-sdk-go/registration"
 )
 
 func main() {
@@ -596,7 +596,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/omnistrate/omnistrate-sdk-go"
+	openapiclient "github.com/omnistrate/omnistrate-sdk-go/registration"
 )
 
 func main() {

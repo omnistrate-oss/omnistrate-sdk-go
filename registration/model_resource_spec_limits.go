@@ -60,15 +60,6 @@ func (o *ResourceSpecLimits) GetCpuOk() (*string, bool) {
 	return o.Cpu, true
 }
 
-// HasCpu returns a boolean if a field has been set.
-func (o *ResourceSpecLimits) HasCpu() bool {
-	if o != nil && !IsNil(o.Cpu) {
-		return true
-	}
-
-	return false
-}
-
 // SetCpu gets a reference to the given string and assigns it to the Cpu field.
 func (o *ResourceSpecLimits) SetCpu(v string) {
 	o.Cpu = &v
@@ -90,15 +81,6 @@ func (o *ResourceSpecLimits) GetMemoryOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Memory, true
-}
-
-// HasMemory returns a boolean if a field has been set.
-func (o *ResourceSpecLimits) HasMemory() bool {
-	if o != nil && !IsNil(o.Memory) {
-		return true
-	}
-
-	return false
 }
 
 // SetMemory gets a reference to the given string and assigns it to the Memory field.

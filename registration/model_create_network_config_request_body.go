@@ -133,15 +133,6 @@ func (o *CreateNetworkConfigRequestBody) GetInternalOk() (*bool, bool) {
 	return o.Internal, true
 }
 
-// HasInternal returns a boolean if a field has been set.
-func (o *CreateNetworkConfigRequestBody) HasInternal() bool {
-	if o != nil && !IsNil(o.Internal) {
-		return true
-	}
-
-	return false
-}
-
 // SetInternal gets a reference to the given bool and assigns it to the Internal field.
 func (o *CreateNetworkConfigRequestBody) SetInternal(v bool) {
 	o.Internal = &v
@@ -189,15 +180,6 @@ func (o *CreateNetworkConfigRequestBody) GetOpenPortsOk() ([]int64, bool) {
 	return o.OpenPorts, true
 }
 
-// HasOpenPorts returns a boolean if a field has been set.
-func (o *CreateNetworkConfigRequestBody) HasOpenPorts() bool {
-	if o != nil && !IsNil(o.OpenPorts) {
-		return true
-	}
-
-	return false
-}
-
 // SetOpenPorts gets a reference to the given []int64 and assigns it to the OpenPorts field.
 func (o *CreateNetworkConfigRequestBody) SetOpenPorts(v []int64) {
 	o.OpenPorts = v
@@ -219,15 +201,6 @@ func (o *CreateNetworkConfigRequestBody) GetPrivateNetworkingConfigurationOk() (
 		return nil, false
 	}
 	return o.PrivateNetworkingConfiguration, true
-}
-
-// HasPrivateNetworkingConfiguration returns a boolean if a field has been set.
-func (o *CreateNetworkConfigRequestBody) HasPrivateNetworkingConfiguration() bool {
-	if o != nil && !IsNil(o.PrivateNetworkingConfiguration) {
-		return true
-	}
-
-	return false
 }
 
 // SetPrivateNetworkingConfiguration gets a reference to the given PrivateNetworkingConfiguration and assigns it to the PrivateNetworkingConfiguration field.
@@ -253,15 +226,6 @@ func (o *CreateNetworkConfigRequestBody) GetPublicNetworkingConfigurationOk() (*
 	return o.PublicNetworkingConfiguration, true
 }
 
-// HasPublicNetworkingConfiguration returns a boolean if a field has been set.
-func (o *CreateNetworkConfigRequestBody) HasPublicNetworkingConfiguration() bool {
-	if o != nil && !IsNil(o.PublicNetworkingConfiguration) {
-		return true
-	}
-
-	return false
-}
-
 // SetPublicNetworkingConfiguration gets a reference to the given PublicNetworkingConfiguration and assigns it to the PublicNetworkingConfiguration field.
 func (o *CreateNetworkConfigRequestBody) SetPublicNetworkingConfiguration(v PublicNetworkingConfiguration) {
 	o.PublicNetworkingConfiguration = &v
@@ -283,15 +247,6 @@ func (o *CreateNetworkConfigRequestBody) GetStableEgressIPOk() (*bool, bool) {
 		return nil, false
 	}
 	return o.StableEgressIP, true
-}
-
-// HasStableEgressIP returns a boolean if a field has been set.
-func (o *CreateNetworkConfigRequestBody) HasStableEgressIP() bool {
-	if o != nil && !IsNil(o.StableEgressIP) {
-		return true
-	}
-
-	return false
 }
 
 // SetStableEgressIP gets a reference to the given bool and assigns it to the StableEgressIP field.
@@ -317,15 +272,6 @@ func (o *CreateNetworkConfigRequestBody) GetTlsTerminationPortOk() (*int64, bool
 	return o.TlsTerminationPort, true
 }
 
-// HasTlsTerminationPort returns a boolean if a field has been set.
-func (o *CreateNetworkConfigRequestBody) HasTlsTerminationPort() bool {
-	if o != nil && !IsNil(o.TlsTerminationPort) {
-		return true
-	}
-
-	return false
-}
-
 // SetTlsTerminationPort gets a reference to the given int64 and assigns it to the TlsTerminationPort field.
 func (o *CreateNetworkConfigRequestBody) SetTlsTerminationPort(v int64) {
 	o.TlsTerminationPort = &v
@@ -347,15 +293,6 @@ func (o *CreateNetworkConfigRequestBody) GetZoneConfigurationOk() (*string, bool
 		return nil, false
 	}
 	return o.ZoneConfiguration, true
-}
-
-// HasZoneConfiguration returns a boolean if a field has been set.
-func (o *CreateNetworkConfigRequestBody) HasZoneConfiguration() bool {
-	if o != nil && !IsNil(o.ZoneConfiguration) {
-		return true
-	}
-
-	return false
 }
 
 // SetZoneConfiguration gets a reference to the given string and assigns it to the ZoneConfiguration field.

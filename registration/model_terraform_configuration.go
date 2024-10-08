@@ -64,15 +64,6 @@ func (o *TerraformConfiguration) GetGitConfigurationOk() (*GitConfiguration, boo
 	return o.GitConfiguration, true
 }
 
-// HasGitConfiguration returns a boolean if a field has been set.
-func (o *TerraformConfiguration) HasGitConfiguration() bool {
-	if o != nil && !IsNil(o.GitConfiguration) {
-		return true
-	}
-
-	return false
-}
-
 // SetGitConfiguration gets a reference to the given GitConfiguration and assigns it to the GitConfiguration field.
 func (o *TerraformConfiguration) SetGitConfiguration(v GitConfiguration) {
 	o.GitConfiguration = &v

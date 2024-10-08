@@ -73,15 +73,6 @@ func (o *Invoice) GetCurrencyOk() (*string, bool) {
 	return o.Currency, true
 }
 
-// HasCurrency returns a boolean if a field has been set.
-func (o *Invoice) HasCurrency() bool {
-	if o != nil && !IsNil(o.Currency) {
-		return true
-	}
-
-	return false
-}
-
 // SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *Invoice) SetCurrency(v string) {
 	o.Currency = &v
@@ -103,15 +94,6 @@ func (o *Invoice) GetInvoiceDateOk() (*string, bool) {
 		return nil, false
 	}
 	return o.InvoiceDate, true
-}
-
-// HasInvoiceDate returns a boolean if a field has been set.
-func (o *Invoice) HasInvoiceDate() bool {
-	if o != nil && !IsNil(o.InvoiceDate) {
-		return true
-	}
-
-	return false
 }
 
 // SetInvoiceDate gets a reference to the given string and assigns it to the InvoiceDate field.
@@ -137,15 +119,6 @@ func (o *Invoice) GetInvoiceIdOk() (*string, bool) {
 	return o.InvoiceId, true
 }
 
-// HasInvoiceId returns a boolean if a field has been set.
-func (o *Invoice) HasInvoiceId() bool {
-	if o != nil && !IsNil(o.InvoiceId) {
-		return true
-	}
-
-	return false
-}
-
 // SetInvoiceId gets a reference to the given string and assigns it to the InvoiceId field.
 func (o *Invoice) SetInvoiceId(v string) {
 	o.InvoiceId = &v
@@ -167,15 +140,6 @@ func (o *Invoice) GetInvoicePaymentTermOk() (*string, bool) {
 		return nil, false
 	}
 	return o.InvoicePaymentTerm, true
-}
-
-// HasInvoicePaymentTerm returns a boolean if a field has been set.
-func (o *Invoice) HasInvoicePaymentTerm() bool {
-	if o != nil && !IsNil(o.InvoicePaymentTerm) {
-		return true
-	}
-
-	return false
 }
 
 // SetInvoicePaymentTerm gets a reference to the given string and assigns it to the InvoicePaymentTerm field.
@@ -201,15 +165,6 @@ func (o *Invoice) GetInvoiceStatusOk() (*string, bool) {
 	return o.InvoiceStatus, true
 }
 
-// HasInvoiceStatus returns a boolean if a field has been set.
-func (o *Invoice) HasInvoiceStatus() bool {
-	if o != nil && !IsNil(o.InvoiceStatus) {
-		return true
-	}
-
-	return false
-}
-
 // SetInvoiceStatus gets a reference to the given string and assigns it to the InvoiceStatus field.
 func (o *Invoice) SetInvoiceStatus(v string) {
 	o.InvoiceStatus = &v
@@ -231,15 +186,6 @@ func (o *Invoice) GetInvoiceUrlOk() (*string, bool) {
 		return nil, false
 	}
 	return o.InvoiceUrl, true
-}
-
-// HasInvoiceUrl returns a boolean if a field has been set.
-func (o *Invoice) HasInvoiceUrl() bool {
-	if o != nil && !IsNil(o.InvoiceUrl) {
-		return true
-	}
-
-	return false
 }
 
 // SetInvoiceUrl gets a reference to the given string and assigns it to the InvoiceUrl field.
@@ -265,15 +211,6 @@ func (o *Invoice) GetTaxAmountOk() (*float64, bool) {
 	return o.TaxAmount, true
 }
 
-// HasTaxAmount returns a boolean if a field has been set.
-func (o *Invoice) HasTaxAmount() bool {
-	if o != nil && !IsNil(o.TaxAmount) {
-		return true
-	}
-
-	return false
-}
-
 // SetTaxAmount gets a reference to the given float64 and assigns it to the TaxAmount field.
 func (o *Invoice) SetTaxAmount(v float64) {
 	o.TaxAmount = &v
@@ -297,15 +234,6 @@ func (o *Invoice) GetTotalAmountOk() (*float64, bool) {
 	return o.TotalAmount, true
 }
 
-// HasTotalAmount returns a boolean if a field has been set.
-func (o *Invoice) HasTotalAmount() bool {
-	if o != nil && !IsNil(o.TotalAmount) {
-		return true
-	}
-
-	return false
-}
-
 // SetTotalAmount gets a reference to the given float64 and assigns it to the TotalAmount field.
 func (o *Invoice) SetTotalAmount(v float64) {
 	o.TotalAmount = &v
@@ -327,15 +255,6 @@ func (o *Invoice) GetTotalAmountWithoutTaxOk() (*float64, bool) {
 		return nil, false
 	}
 	return o.TotalAmountWithoutTax, true
-}
-
-// HasTotalAmountWithoutTax returns a boolean if a field has been set.
-func (o *Invoice) HasTotalAmountWithoutTax() bool {
-	if o != nil && !IsNil(o.TotalAmountWithoutTax) {
-		return true
-	}
-
-	return false
 }
 
 // SetTotalAmountWithoutTax gets a reference to the given float64 and assigns it to the TotalAmountWithoutTax field.

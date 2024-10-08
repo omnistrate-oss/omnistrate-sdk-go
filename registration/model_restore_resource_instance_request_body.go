@@ -65,15 +65,6 @@ func (o *RestoreResourceInstanceRequestBody) GetNetworkTypeOk() (*string, bool) 
 	return o.NetworkType, true
 }
 
-// HasNetworkType returns a boolean if a field has been set.
-func (o *RestoreResourceInstanceRequestBody) HasNetworkType() bool {
-	if o != nil && !IsNil(o.NetworkType) {
-		return true
-	}
-
-	return false
-}
-
 // SetNetworkType gets a reference to the given string and assigns it to the NetworkType field.
 func (o *RestoreResourceInstanceRequestBody) SetNetworkType(v string) {
 	o.NetworkType = &v

@@ -88,15 +88,6 @@ func (o *SigninRequestBody) GetHashedPasswordOk() (*string, bool) {
 	return o.HashedPassword, true
 }
 
-// HasHashedPassword returns a boolean if a field has been set.
-func (o *SigninRequestBody) HasHashedPassword() bool {
-	if o != nil && !IsNil(o.HashedPassword) {
-		return true
-	}
-
-	return false
-}
-
 // SetHashedPassword gets a reference to the given string and assigns it to the HashedPassword field.
 func (o *SigninRequestBody) SetHashedPassword(v string) {
 	o.HashedPassword = &v
@@ -118,15 +109,6 @@ func (o *SigninRequestBody) GetPasswordOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Password, true
-}
-
-// HasPassword returns a boolean if a field has been set.
-func (o *SigninRequestBody) HasPassword() bool {
-	if o != nil && !IsNil(o.Password) {
-		return true
-	}
-
-	return false
 }
 
 // SetPassword gets a reference to the given string and assigns it to the Password field.

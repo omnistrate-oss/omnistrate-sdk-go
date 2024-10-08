@@ -88,15 +88,6 @@ func (o *DescribeStorageVolumeConfigResult) GetCloudProviderNameOk() (*string, b
 	return o.CloudProviderName, true
 }
 
-// HasCloudProviderName returns a boolean if a field has been set.
-func (o *DescribeStorageVolumeConfigResult) HasCloudProviderName() bool {
-	if o != nil && !IsNil(o.CloudProviderName) {
-		return true
-	}
-
-	return false
-}
-
 // SetCloudProviderName gets a reference to the given string and assigns it to the CloudProviderName field.
 func (o *DescribeStorageVolumeConfigResult) SetCloudProviderName(v string) {
 	o.CloudProviderName = &v
@@ -118,15 +109,6 @@ func (o *DescribeStorageVolumeConfigResult) GetClusterStorageTypeOk() (*string, 
 		return nil, false
 	}
 	return o.ClusterStorageType, true
-}
-
-// HasClusterStorageType returns a boolean if a field has been set.
-func (o *DescribeStorageVolumeConfigResult) HasClusterStorageType() bool {
-	if o != nil && !IsNil(o.ClusterStorageType) {
-		return true
-	}
-
-	return false
 }
 
 // SetClusterStorageType gets a reference to the given string and assigns it to the ClusterStorageType field.
@@ -176,15 +158,6 @@ func (o *DescribeStorageVolumeConfigResult) GetDisableBackupOk() (*bool, bool) {
 	return o.DisableBackup, true
 }
 
-// HasDisableBackup returns a boolean if a field has been set.
-func (o *DescribeStorageVolumeConfigResult) HasDisableBackup() bool {
-	if o != nil && !IsNil(o.DisableBackup) {
-		return true
-	}
-
-	return false
-}
-
 // SetDisableBackup gets a reference to the given bool and assigns it to the DisableBackup field.
 func (o *DescribeStorageVolumeConfigResult) SetDisableBackup(v bool) {
 	o.DisableBackup = &v
@@ -232,15 +205,6 @@ func (o *DescribeStorageVolumeConfigResult) GetInstanceStorageIopsOk() (*string,
 	return o.InstanceStorageIops, true
 }
 
-// HasInstanceStorageIops returns a boolean if a field has been set.
-func (o *DescribeStorageVolumeConfigResult) HasInstanceStorageIops() bool {
-	if o != nil && !IsNil(o.InstanceStorageIops) {
-		return true
-	}
-
-	return false
-}
-
 // SetInstanceStorageIops gets a reference to the given string and assigns it to the InstanceStorageIops field.
 func (o *DescribeStorageVolumeConfigResult) SetInstanceStorageIops(v string) {
 	o.InstanceStorageIops = &v
@@ -262,15 +226,6 @@ func (o *DescribeStorageVolumeConfigResult) GetInstanceStorageSizeGiOk() (*strin
 		return nil, false
 	}
 	return o.InstanceStorageSizeGi, true
-}
-
-// HasInstanceStorageSizeGi returns a boolean if a field has been set.
-func (o *DescribeStorageVolumeConfigResult) HasInstanceStorageSizeGi() bool {
-	if o != nil && !IsNil(o.InstanceStorageSizeGi) {
-		return true
-	}
-
-	return false
 }
 
 // SetInstanceStorageSizeGi gets a reference to the given string and assigns it to the InstanceStorageSizeGi field.
@@ -296,15 +251,6 @@ func (o *DescribeStorageVolumeConfigResult) GetInstanceStorageThroughputMiBpsOk(
 	return o.InstanceStorageThroughputMiBps, true
 }
 
-// HasInstanceStorageThroughputMiBps returns a boolean if a field has been set.
-func (o *DescribeStorageVolumeConfigResult) HasInstanceStorageThroughputMiBps() bool {
-	if o != nil && !IsNil(o.InstanceStorageThroughputMiBps) {
-		return true
-	}
-
-	return false
-}
-
 // SetInstanceStorageThroughputMiBps gets a reference to the given string and assigns it to the InstanceStorageThroughputMiBps field.
 func (o *DescribeStorageVolumeConfigResult) SetInstanceStorageThroughputMiBps(v string) {
 	o.InstanceStorageThroughputMiBps = &v
@@ -326,15 +272,6 @@ func (o *DescribeStorageVolumeConfigResult) GetInstanceStorageTypeOk() (*string,
 		return nil, false
 	}
 	return o.InstanceStorageType, true
-}
-
-// HasInstanceStorageType returns a boolean if a field has been set.
-func (o *DescribeStorageVolumeConfigResult) HasInstanceStorageType() bool {
-	if o != nil && !IsNil(o.InstanceStorageType) {
-		return true
-	}
-
-	return false
 }
 
 // SetInstanceStorageType gets a reference to the given string and assigns it to the InstanceStorageType field.
@@ -406,15 +343,6 @@ func (o *DescribeStorageVolumeConfigResult) GetStorageResourceIDOk() (*string, b
 		return nil, false
 	}
 	return o.StorageResourceID, true
-}
-
-// HasStorageResourceID returns a boolean if a field has been set.
-func (o *DescribeStorageVolumeConfigResult) HasStorageResourceID() bool {
-	if o != nil && !IsNil(o.StorageResourceID) {
-		return true
-	}
-
-	return false
 }
 
 // SetStorageResourceID gets a reference to the given string and assigns it to the StorageResourceID field.

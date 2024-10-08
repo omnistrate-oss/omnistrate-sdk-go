@@ -73,15 +73,6 @@ func (o *UpdateInputParameterRequestBody) GetDefaultValueOk() (*string, bool) {
 	return o.DefaultValue, true
 }
 
-// HasDefaultValue returns a boolean if a field has been set.
-func (o *UpdateInputParameterRequestBody) HasDefaultValue() bool {
-	if o != nil && !IsNil(o.DefaultValue) {
-		return true
-	}
-
-	return false
-}
-
 // SetDefaultValue gets a reference to the given string and assigns it to the DefaultValue field.
 func (o *UpdateInputParameterRequestBody) SetDefaultValue(v string) {
 	o.DefaultValue = &v
@@ -103,15 +94,6 @@ func (o *UpdateInputParameterRequestBody) GetDescriptionOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Description, true
-}
-
-// HasDescription returns a boolean if a field has been set.
-func (o *UpdateInputParameterRequestBody) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
-		return true
-	}
-
-	return false
 }
 
 // SetDescription gets a reference to the given string and assigns it to the Description field.
@@ -137,15 +119,6 @@ func (o *UpdateInputParameterRequestBody) GetHasOptionsOk() (*bool, bool) {
 	return o.HasOptions, true
 }
 
-// HasHasOptions returns a boolean if a field has been set.
-func (o *UpdateInputParameterRequestBody) HasHasOptions() bool {
-	if o != nil && !IsNil(o.HasOptions) {
-		return true
-	}
-
-	return false
-}
-
 // SetHasOptions gets a reference to the given bool and assigns it to the HasOptions field.
 func (o *UpdateInputParameterRequestBody) SetHasOptions(v bool) {
 	o.HasOptions = &v
@@ -167,15 +140,6 @@ func (o *UpdateInputParameterRequestBody) GetLabeledOptionsOk() (*map[string]str
 		return nil, false
 	}
 	return o.LabeledOptions, true
-}
-
-// HasLabeledOptions returns a boolean if a field has been set.
-func (o *UpdateInputParameterRequestBody) HasLabeledOptions() bool {
-	if o != nil && !IsNil(o.LabeledOptions) {
-		return true
-	}
-
-	return false
 }
 
 // SetLabeledOptions gets a reference to the given map[string]string and assigns it to the LabeledOptions field.
@@ -201,15 +165,6 @@ func (o *UpdateInputParameterRequestBody) GetLimitsOk() (*Limits, bool) {
 	return o.Limits, true
 }
 
-// HasLimits returns a boolean if a field has been set.
-func (o *UpdateInputParameterRequestBody) HasLimits() bool {
-	if o != nil && !IsNil(o.Limits) {
-		return true
-	}
-
-	return false
-}
-
 // SetLimits gets a reference to the given Limits and assigns it to the Limits field.
 func (o *UpdateInputParameterRequestBody) SetLimits(v Limits) {
 	o.Limits = &v
@@ -231,15 +186,6 @@ func (o *UpdateInputParameterRequestBody) GetModifiableOk() (*bool, bool) {
 		return nil, false
 	}
 	return o.Modifiable, true
-}
-
-// HasModifiable returns a boolean if a field has been set.
-func (o *UpdateInputParameterRequestBody) HasModifiable() bool {
-	if o != nil && !IsNil(o.Modifiable) {
-		return true
-	}
-
-	return false
 }
 
 // SetModifiable gets a reference to the given bool and assigns it to the Modifiable field.
@@ -265,15 +211,6 @@ func (o *UpdateInputParameterRequestBody) GetNameOk() (*string, bool) {
 	return o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *UpdateInputParameterRequestBody) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
-}
-
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *UpdateInputParameterRequestBody) SetName(v string) {
 	o.Name = &v
@@ -297,15 +234,6 @@ func (o *UpdateInputParameterRequestBody) GetOptionsOk() ([]string, bool) {
 	return o.Options, true
 }
 
-// HasOptions returns a boolean if a field has been set.
-func (o *UpdateInputParameterRequestBody) HasOptions() bool {
-	if o != nil && !IsNil(o.Options) {
-		return true
-	}
-
-	return false
-}
-
 // SetOptions gets a reference to the given []string and assigns it to the Options field.
 func (o *UpdateInputParameterRequestBody) SetOptions(v []string) {
 	o.Options = v
@@ -327,15 +255,6 @@ func (o *UpdateInputParameterRequestBody) GetRequiredOk() (*bool, bool) {
 		return nil, false
 	}
 	return o.Required, true
-}
-
-// HasRequired returns a boolean if a field has been set.
-func (o *UpdateInputParameterRequestBody) HasRequired() bool {
-	if o != nil && !IsNil(o.Required) {
-		return true
-	}
-
-	return false
 }
 
 // SetRequired gets a reference to the given bool and assigns it to the Required field.

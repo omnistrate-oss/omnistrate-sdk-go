@@ -138,15 +138,6 @@ func (o *DescribeAccountConfigByAWSAccountIDResult) GetAwsCloudFormationNoLBTemp
 	return o.AwsCloudFormationNoLBTemplateURL, true
 }
 
-// HasAwsCloudFormationNoLBTemplateURL returns a boolean if a field has been set.
-func (o *DescribeAccountConfigByAWSAccountIDResult) HasAwsCloudFormationNoLBTemplateURL() bool {
-	if o != nil && !IsNil(o.AwsCloudFormationNoLBTemplateURL) {
-		return true
-	}
-
-	return false
-}
-
 // SetAwsCloudFormationNoLBTemplateURL gets a reference to the given string and assigns it to the AwsCloudFormationNoLBTemplateURL field.
 func (o *DescribeAccountConfigByAWSAccountIDResult) SetAwsCloudFormationNoLBTemplateURL(v string) {
 	o.AwsCloudFormationNoLBTemplateURL = &v
@@ -170,15 +161,6 @@ func (o *DescribeAccountConfigByAWSAccountIDResult) GetAwsCloudFormationTemplate
 	return o.AwsCloudFormationTemplateURL, true
 }
 
-// HasAwsCloudFormationTemplateURL returns a boolean if a field has been set.
-func (o *DescribeAccountConfigByAWSAccountIDResult) HasAwsCloudFormationTemplateURL() bool {
-	if o != nil && !IsNil(o.AwsCloudFormationTemplateURL) {
-		return true
-	}
-
-	return false
-}
-
 // SetAwsCloudFormationTemplateURL gets a reference to the given string and assigns it to the AwsCloudFormationTemplateURL field.
 func (o *DescribeAccountConfigByAWSAccountIDResult) SetAwsCloudFormationTemplateURL(v string) {
 	o.AwsCloudFormationTemplateURL = &v
@@ -200,15 +182,6 @@ func (o *DescribeAccountConfigByAWSAccountIDResult) GetByoaInstanceIDsOk() ([]st
 		return nil, false
 	}
 	return o.ByoaInstanceIDs, true
-}
-
-// HasByoaInstanceIDs returns a boolean if a field has been set.
-func (o *DescribeAccountConfigByAWSAccountIDResult) HasByoaInstanceIDs() bool {
-	if o != nil && !IsNil(o.ByoaInstanceIDs) {
-		return true
-	}
-
-	return false
 }
 
 // SetByoaInstanceIDs gets a reference to the given []string and assigns it to the ByoaInstanceIDs field.

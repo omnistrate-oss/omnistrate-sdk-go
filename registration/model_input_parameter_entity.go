@@ -114,15 +114,6 @@ func (o *InputParameterEntity) GetDefaultValueOk() (*string, bool) {
 	return o.DefaultValue, true
 }
 
-// HasDefaultValue returns a boolean if a field has been set.
-func (o *InputParameterEntity) HasDefaultValue() bool {
-	if o != nil && !IsNil(o.DefaultValue) {
-		return true
-	}
-
-	return false
-}
-
 // SetDefaultValue gets a reference to the given string and assigns it to the DefaultValue field.
 func (o *InputParameterEntity) SetDefaultValue(v string) {
 	o.DefaultValue = &v
@@ -144,15 +135,6 @@ func (o *InputParameterEntity) GetDependentResourceIDOk() (*string, bool) {
 		return nil, false
 	}
 	return o.DependentResourceID, true
-}
-
-// HasDependentResourceID returns a boolean if a field has been set.
-func (o *InputParameterEntity) HasDependentResourceID() bool {
-	if o != nil && !IsNil(o.DependentResourceID) {
-		return true
-	}
-
-	return false
 }
 
 // SetDependentResourceID gets a reference to the given string and assigns it to the DependentResourceID field.
@@ -296,15 +278,6 @@ func (o *InputParameterEntity) GetOptionsOk() ([]string, bool) {
 		return nil, false
 	}
 	return o.Options, true
-}
-
-// HasOptions returns a boolean if a field has been set.
-func (o *InputParameterEntity) HasOptions() bool {
-	if o != nil && !IsNil(o.Options) {
-		return true
-	}
-
-	return false
 }
 
 // SetOptions gets a reference to the given []string and assigns it to the Options field.

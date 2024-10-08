@@ -61,15 +61,6 @@ func (o *ListCustomDomainResult) GetCustomDomainsOk() ([]DescribeCustomDomainRes
 	return o.CustomDomains, true
 }
 
-// HasCustomDomains returns a boolean if a field has been set.
-func (o *ListCustomDomainResult) HasCustomDomains() bool {
-	if o != nil && !IsNil(o.CustomDomains) {
-		return true
-	}
-
-	return false
-}
-
 // SetCustomDomains gets a reference to the given []DescribeCustomDomainResult and assigns it to the CustomDomains field.
 func (o *ListCustomDomainResult) SetCustomDomains(v []DescribeCustomDomainResult) {
 	o.CustomDomains = v
@@ -93,15 +84,6 @@ func (o *ListCustomDomainResult) GetIdsOk() ([]string, bool) {
 	return o.Ids, true
 }
 
-// HasIds returns a boolean if a field has been set.
-func (o *ListCustomDomainResult) HasIds() bool {
-	if o != nil && !IsNil(o.Ids) {
-		return true
-	}
-
-	return false
-}
-
 // SetIds gets a reference to the given []string and assigns it to the Ids field.
 func (o *ListCustomDomainResult) SetIds(v []string) {
 	o.Ids = v
@@ -123,15 +105,6 @@ func (o *ListCustomDomainResult) GetNextPageTokenOk() (*string, bool) {
 		return nil, false
 	}
 	return o.NextPageToken, true
-}
-
-// HasNextPageToken returns a boolean if a field has been set.
-func (o *ListCustomDomainResult) HasNextPageToken() bool {
-	if o != nil && !IsNil(o.NextPageToken) {
-		return true
-	}
-
-	return false
 }
 
 // SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.

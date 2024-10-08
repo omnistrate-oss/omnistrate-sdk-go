@@ -83,15 +83,6 @@ func (o *CopyProductTierRequestBody) GetAwsRegionsOk() ([]string, bool) {
 	return o.AwsRegions, true
 }
 
-// HasAwsRegions returns a boolean if a field has been set.
-func (o *CopyProductTierRequestBody) HasAwsRegions() bool {
-	if o != nil && !IsNil(o.AwsRegions) {
-		return true
-	}
-
-	return false
-}
-
 // SetAwsRegions gets a reference to the given []string and assigns it to the AwsRegions field.
 func (o *CopyProductTierRequestBody) SetAwsRegions(v []string) {
 	o.AwsRegions = v
@@ -139,15 +130,6 @@ func (o *CopyProductTierRequestBody) GetDocumentationOk() (*string, bool) {
 	return o.Documentation, true
 }
 
-// HasDocumentation returns a boolean if a field has been set.
-func (o *CopyProductTierRequestBody) HasDocumentation() bool {
-	if o != nil && !IsNil(o.Documentation) {
-		return true
-	}
-
-	return false
-}
-
 // SetDocumentation gets a reference to the given string and assigns it to the Documentation field.
 func (o *CopyProductTierRequestBody) SetDocumentation(v string) {
 	o.Documentation = &v
@@ -169,15 +151,6 @@ func (o *CopyProductTierRequestBody) GetGcpRegionsOk() ([]string, bool) {
 		return nil, false
 	}
 	return o.GcpRegions, true
-}
-
-// HasGcpRegions returns a boolean if a field has been set.
-func (o *CopyProductTierRequestBody) HasGcpRegions() bool {
-	if o != nil && !IsNil(o.GcpRegions) {
-		return true
-	}
-
-	return false
 }
 
 // SetGcpRegions gets a reference to the given []string and assigns it to the GcpRegions field.
@@ -227,15 +200,6 @@ func (o *CopyProductTierRequestBody) GetPlanDescriptionOk() (*string, bool) {
 	return o.PlanDescription, true
 }
 
-// HasPlanDescription returns a boolean if a field has been set.
-func (o *CopyProductTierRequestBody) HasPlanDescription() bool {
-	if o != nil && !IsNil(o.PlanDescription) {
-		return true
-	}
-
-	return false
-}
-
 // SetPlanDescription gets a reference to the given string and assigns it to the PlanDescription field.
 func (o *CopyProductTierRequestBody) SetPlanDescription(v string) {
 	o.PlanDescription = &v
@@ -258,15 +222,6 @@ func (o *CopyProductTierRequestBody) GetPricingOk() (*interface{}, bool) {
 		return nil, false
 	}
 	return &o.Pricing, true
-}
-
-// HasPricing returns a boolean if a field has been set.
-func (o *CopyProductTierRequestBody) HasPricing() bool {
-	if o != nil && !IsNil(o.Pricing) {
-		return true
-	}
-
-	return false
 }
 
 // SetPricing gets a reference to the given interface{} and assigns it to the Pricing field.
@@ -316,15 +271,6 @@ func (o *CopyProductTierRequestBody) GetSupportOk() (*string, bool) {
 	return o.Support, true
 }
 
-// HasSupport returns a boolean if a field has been set.
-func (o *CopyProductTierRequestBody) HasSupport() bool {
-	if o != nil && !IsNil(o.Support) {
-		return true
-	}
-
-	return false
-}
-
 // SetSupport gets a reference to the given string and assigns it to the Support field.
 func (o *CopyProductTierRequestBody) SetSupport(v string) {
 	o.Support = &v
@@ -346,15 +292,6 @@ func (o *CopyProductTierRequestBody) GetTargetTierTypeOk() (*string, bool) {
 		return nil, false
 	}
 	return o.TargetTierType, true
-}
-
-// HasTargetTierType returns a boolean if a field has been set.
-func (o *CopyProductTierRequestBody) HasTargetTierType() bool {
-	if o != nil && !IsNil(o.TargetTierType) {
-		return true
-	}
-
-	return false
 }
 
 // SetTargetTierType gets a reference to the given string and assigns it to the TargetTierType field.

@@ -69,15 +69,6 @@ func (o *ListDependentResourcesResult) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *ListDependentResourcesResult) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
 // SetId gets a reference to the given string and assigns it to the Id field.
 func (o *ListDependentResourcesResult) SetId(v string) {
 	o.Id = &v
@@ -125,15 +116,6 @@ func (o *ListDependentResourcesResult) GetNextPageTokenOk() (*string, bool) {
 	return o.NextPageToken, true
 }
 
-// HasNextPageToken returns a boolean if a field has been set.
-func (o *ListDependentResourcesResult) HasNextPageToken() bool {
-	if o != nil && !IsNil(o.NextPageToken) {
-		return true
-	}
-
-	return false
-}
-
 // SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.
 func (o *ListDependentResourcesResult) SetNextPageToken(v string) {
 	o.NextPageToken = &v
@@ -155,15 +137,6 @@ func (o *ListDependentResourcesResult) GetServiceIdOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ServiceId, true
-}
-
-// HasServiceId returns a boolean if a field has been set.
-func (o *ListDependentResourcesResult) HasServiceId() bool {
-	if o != nil && !IsNil(o.ServiceId) {
-		return true
-	}
-
-	return false
 }
 
 // SetServiceId gets a reference to the given string and assigns it to the ServiceId field.

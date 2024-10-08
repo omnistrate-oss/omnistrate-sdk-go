@@ -86,15 +86,6 @@ func (o *DescribeImageConfigResult) GetCustomImageCommandsAndArgsOk() (*CustomIm
 	return o.CustomImageCommandsAndArgs, true
 }
 
-// HasCustomImageCommandsAndArgs returns a boolean if a field has been set.
-func (o *DescribeImageConfigResult) HasCustomImageCommandsAndArgs() bool {
-	if o != nil && !IsNil(o.CustomImageCommandsAndArgs) {
-		return true
-	}
-
-	return false
-}
-
 // SetCustomImageCommandsAndArgs gets a reference to the given CustomImageCommandsAndArgs and assigns it to the CustomImageCommandsAndArgs field.
 func (o *DescribeImageConfigResult) SetCustomImageCommandsAndArgs(v CustomImageCommandsAndArgs) {
 	o.CustomImageCommandsAndArgs = &v
@@ -212,15 +203,6 @@ func (o *DescribeImageConfigResult) GetImageSignaturePublicKeyPEMOk() (*string, 
 		return nil, false
 	}
 	return o.ImageSignaturePublicKeyPEM, true
-}
-
-// HasImageSignaturePublicKeyPEM returns a boolean if a field has been set.
-func (o *DescribeImageConfigResult) HasImageSignaturePublicKeyPEM() bool {
-	if o != nil && !IsNil(o.ImageSignaturePublicKeyPEM) {
-		return true
-	}
-
-	return false
 }
 
 // SetImageSignaturePublicKeyPEM gets a reference to the given string and assigns it to the ImageSignaturePublicKeyPEM field.

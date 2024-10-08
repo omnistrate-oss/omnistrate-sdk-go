@@ -58,15 +58,6 @@ func (o *L7LoadBalancerConfiguration) GetPathsOk() ([]LoadBalancerPathConfigurat
 	return o.Paths, true
 }
 
-// HasPaths returns a boolean if a field has been set.
-func (o *L7LoadBalancerConfiguration) HasPaths() bool {
-	if o != nil && !IsNil(o.Paths) {
-		return true
-	}
-
-	return false
-}
-
 // SetPaths gets a reference to the given []LoadBalancerPathConfiguration and assigns it to the Paths field.
 func (o *L7LoadBalancerConfiguration) SetPaths(v []LoadBalancerPathConfiguration) {
 	o.Paths = v

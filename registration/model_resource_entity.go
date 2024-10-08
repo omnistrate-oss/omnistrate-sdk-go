@@ -81,15 +81,6 @@ func (o *ResourceEntity) GetIsAutoscalingEnabledOk() (*bool, bool) {
 	return o.IsAutoscalingEnabled, true
 }
 
-// HasIsAutoscalingEnabled returns a boolean if a field has been set.
-func (o *ResourceEntity) HasIsAutoscalingEnabled() bool {
-	if o != nil && !IsNil(o.IsAutoscalingEnabled) {
-		return true
-	}
-
-	return false
-}
-
 // SetIsAutoscalingEnabled gets a reference to the given bool and assigns it to the IsAutoscalingEnabled field.
 func (o *ResourceEntity) SetIsAutoscalingEnabled(v bool) {
 	o.IsAutoscalingEnabled = &v
@@ -207,15 +198,6 @@ func (o *ResourceEntity) GetResourceTypeOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ResourceType, true
-}
-
-// HasResourceType returns a boolean if a field has been set.
-func (o *ResourceEntity) HasResourceType() bool {
-	if o != nil && !IsNil(o.ResourceType) {
-		return true
-	}
-
-	return false
 }
 
 // SetResourceType gets a reference to the given string and assigns it to the ResourceType field.

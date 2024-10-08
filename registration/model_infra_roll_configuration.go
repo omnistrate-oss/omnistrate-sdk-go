@@ -70,15 +70,6 @@ func (o *InfraRollConfiguration) GetInfraRolloutStrategyOk() (*string, bool) {
 	return o.InfraRolloutStrategy, true
 }
 
-// HasInfraRolloutStrategy returns a boolean if a field has been set.
-func (o *InfraRollConfiguration) HasInfraRolloutStrategy() bool {
-	if o != nil && !IsNil(o.InfraRolloutStrategy) {
-		return true
-	}
-
-	return false
-}
-
 // SetInfraRolloutStrategy gets a reference to the given string and assigns it to the InfraRolloutStrategy field.
 func (o *InfraRollConfiguration) SetInfraRolloutStrategy(v string) {
 	o.InfraRolloutStrategy = &v
@@ -102,15 +93,6 @@ func (o *InfraRollConfiguration) GetMaximumNumberOfResourceInstancesPerBatchOk()
 	return o.MaximumNumberOfResourceInstancesPerBatch, true
 }
 
-// HasMaximumNumberOfResourceInstancesPerBatch returns a boolean if a field has been set.
-func (o *InfraRollConfiguration) HasMaximumNumberOfResourceInstancesPerBatch() bool {
-	if o != nil && !IsNil(o.MaximumNumberOfResourceInstancesPerBatch) {
-		return true
-	}
-
-	return false
-}
-
 // SetMaximumNumberOfResourceInstancesPerBatch gets a reference to the given int64 and assigns it to the MaximumNumberOfResourceInstancesPerBatch field.
 func (o *InfraRollConfiguration) SetMaximumNumberOfResourceInstancesPerBatch(v int64) {
 	o.MaximumNumberOfResourceInstancesPerBatch = &v
@@ -132,15 +114,6 @@ func (o *InfraRollConfiguration) GetMaximumUnavailableReplicasOk() (*int64, bool
 		return nil, false
 	}
 	return o.MaximumUnavailableReplicas, true
-}
-
-// HasMaximumUnavailableReplicas returns a boolean if a field has been set.
-func (o *InfraRollConfiguration) HasMaximumUnavailableReplicas() bool {
-	if o != nil && !IsNil(o.MaximumUnavailableReplicas) {
-		return true
-	}
-
-	return false
 }
 
 // SetMaximumUnavailableReplicas gets a reference to the given int64 and assigns it to the MaximumUnavailableReplicas field.

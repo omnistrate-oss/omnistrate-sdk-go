@@ -60,15 +60,6 @@ func (o *ListVUnitsResult) GetIdsOk() (*map[string][]string, bool) {
 	return o.Ids, true
 }
 
-// HasIds returns a boolean if a field has been set.
-func (o *ListVUnitsResult) HasIds() bool {
-	if o != nil && !IsNil(o.Ids) {
-		return true
-	}
-
-	return false
-}
-
 // SetIds gets a reference to the given map[string][]string and assigns it to the Ids field.
 func (o *ListVUnitsResult) SetIds(v map[string][]string) {
 	o.Ids = &v
@@ -90,15 +81,6 @@ func (o *ListVUnitsResult) GetNextPageTokenOk() (*string, bool) {
 		return nil, false
 	}
 	return o.NextPageToken, true
-}
-
-// HasNextPageToken returns a boolean if a field has been set.
-func (o *ListVUnitsResult) HasNextPageToken() bool {
-	if o != nil && !IsNil(o.NextPageToken) {
-		return true
-	}
-
-	return false
 }
 
 // SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.

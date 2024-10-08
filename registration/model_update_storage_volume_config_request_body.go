@@ -62,15 +62,6 @@ func (o *UpdateStorageVolumeConfigRequestBody) GetDescriptionOk() (*string, bool
 	return o.Description, true
 }
 
-// HasDescription returns a boolean if a field has been set.
-func (o *UpdateStorageVolumeConfigRequestBody) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
-		return true
-	}
-
-	return false
-}
-
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *UpdateStorageVolumeConfigRequestBody) SetDescription(v string) {
 	o.Description = &v
@@ -94,15 +85,6 @@ func (o *UpdateStorageVolumeConfigRequestBody) GetDisableBackupOk() (*bool, bool
 	return o.DisableBackup, true
 }
 
-// HasDisableBackup returns a boolean if a field has been set.
-func (o *UpdateStorageVolumeConfigRequestBody) HasDisableBackup() bool {
-	if o != nil && !IsNil(o.DisableBackup) {
-		return true
-	}
-
-	return false
-}
-
 // SetDisableBackup gets a reference to the given bool and assigns it to the DisableBackup field.
 func (o *UpdateStorageVolumeConfigRequestBody) SetDisableBackup(v bool) {
 	o.DisableBackup = &v
@@ -124,15 +106,6 @@ func (o *UpdateStorageVolumeConfigRequestBody) GetNameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Name, true
-}
-
-// HasName returns a boolean if a field has been set.
-func (o *UpdateStorageVolumeConfigRequestBody) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.

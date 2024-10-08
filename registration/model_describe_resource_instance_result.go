@@ -131,15 +131,6 @@ func (o *DescribeResourceInstanceResult) GetAwsAccountIDOk() (*string, bool) {
 	return o.AwsAccountID, true
 }
 
-// HasAwsAccountID returns a boolean if a field has been set.
-func (o *DescribeResourceInstanceResult) HasAwsAccountID() bool {
-	if o != nil && !IsNil(o.AwsAccountID) {
-		return true
-	}
-
-	return false
-}
-
 // SetAwsAccountID gets a reference to the given string and assigns it to the AwsAccountID field.
 func (o *DescribeResourceInstanceResult) SetAwsAccountID(v string) {
 	o.AwsAccountID = &v
@@ -163,15 +154,6 @@ func (o *DescribeResourceInstanceResult) GetBackupStatusOk() (*BackupStatus, boo
 	return o.BackupStatus, true
 }
 
-// HasBackupStatus returns a boolean if a field has been set.
-func (o *DescribeResourceInstanceResult) HasBackupStatus() bool {
-	if o != nil && !IsNil(o.BackupStatus) {
-		return true
-	}
-
-	return false
-}
-
 // SetBackupStatus gets a reference to the given BackupStatus and assigns it to the BackupStatus field.
 func (o *DescribeResourceInstanceResult) SetBackupStatus(v BackupStatus) {
 	o.BackupStatus = &v
@@ -193,15 +175,6 @@ func (o *DescribeResourceInstanceResult) GetCloudProviderOk() (*string, bool) {
 		return nil, false
 	}
 	return o.CloudProvider, true
-}
-
-// HasCloudProvider returns a boolean if a field has been set.
-func (o *DescribeResourceInstanceResult) HasCloudProvider() bool {
-	if o != nil && !IsNil(o.CloudProvider) {
-		return true
-	}
-
-	return false
 }
 
 // SetCloudProvider gets a reference to the given string and assigns it to the CloudProvider field.
@@ -299,15 +272,6 @@ func (o *DescribeResourceInstanceResult) GetCustomNetworkDetailOk() (*CustomNetw
 	return o.CustomNetworkDetail, true
 }
 
-// HasCustomNetworkDetail returns a boolean if a field has been set.
-func (o *DescribeResourceInstanceResult) HasCustomNetworkDetail() bool {
-	if o != nil && !IsNil(o.CustomNetworkDetail) {
-		return true
-	}
-
-	return false
-}
-
 // SetCustomNetworkDetail gets a reference to the given CustomNetworkResourceDetail and assigns it to the CustomNetworkDetail field.
 func (o *DescribeResourceInstanceResult) SetCustomNetworkDetail(v CustomNetworkResourceDetail) {
 	o.CustomNetworkDetail = &v
@@ -329,15 +293,6 @@ func (o *DescribeResourceInstanceResult) GetDetailedNetworkTopologyOk() (*map[st
 		return nil, false
 	}
 	return o.DetailedNetworkTopology, true
-}
-
-// HasDetailedNetworkTopology returns a boolean if a field has been set.
-func (o *DescribeResourceInstanceResult) HasDetailedNetworkTopology() bool {
-	if o != nil && !IsNil(o.DetailedNetworkTopology) {
-		return true
-	}
-
-	return false
 }
 
 // SetDetailedNetworkTopology gets a reference to the given map[string]ResourceNetworkTopologyResult and assigns it to the DetailedNetworkTopology field.
@@ -363,15 +318,6 @@ func (o *DescribeResourceInstanceResult) GetExternalPayerIdOk() (*string, bool) 
 	return o.ExternalPayerId, true
 }
 
-// HasExternalPayerId returns a boolean if a field has been set.
-func (o *DescribeResourceInstanceResult) HasExternalPayerId() bool {
-	if o != nil && !IsNil(o.ExternalPayerId) {
-		return true
-	}
-
-	return false
-}
-
 // SetExternalPayerId gets a reference to the given string and assigns it to the ExternalPayerId field.
 func (o *DescribeResourceInstanceResult) SetExternalPayerId(v string) {
 	o.ExternalPayerId = &v
@@ -395,15 +341,6 @@ func (o *DescribeResourceInstanceResult) GetGcpProjectIDOk() (*string, bool) {
 	return o.GcpProjectID, true
 }
 
-// HasGcpProjectID returns a boolean if a field has been set.
-func (o *DescribeResourceInstanceResult) HasGcpProjectID() bool {
-	if o != nil && !IsNil(o.GcpProjectID) {
-		return true
-	}
-
-	return false
-}
-
 // SetGcpProjectID gets a reference to the given string and assigns it to the GcpProjectID field.
 func (o *DescribeResourceInstanceResult) SetGcpProjectID(v string) {
 	o.GcpProjectID = &v
@@ -425,15 +362,6 @@ func (o *DescribeResourceInstanceResult) GetHighAvailabilityOk() (*bool, bool) {
 		return nil, false
 	}
 	return o.HighAvailability, true
-}
-
-// HasHighAvailability returns a boolean if a field has been set.
-func (o *DescribeResourceInstanceResult) HasHighAvailability() bool {
-	if o != nil && !IsNil(o.HighAvailability) {
-		return true
-	}
-
-	return false
 }
 
 // SetHighAvailability gets a reference to the given bool and assigns it to the HighAvailability field.
@@ -507,15 +435,6 @@ func (o *DescribeResourceInstanceResult) GetNetworkTypeOk() (*string, bool) {
 	return o.NetworkType, true
 }
 
-// HasNetworkType returns a boolean if a field has been set.
-func (o *DescribeResourceInstanceResult) HasNetworkType() bool {
-	if o != nil && !IsNil(o.NetworkType) {
-		return true
-	}
-
-	return false
-}
-
 // SetNetworkType gets a reference to the given string and assigns it to the NetworkType field.
 func (o *DescribeResourceInstanceResult) SetNetworkType(v string) {
 	o.NetworkType = &v
@@ -561,15 +480,6 @@ func (o *DescribeResourceInstanceResult) GetRegionOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Region, true
-}
-
-// HasRegion returns a boolean if a field has been set.
-func (o *DescribeResourceInstanceResult) HasRegion() bool {
-	if o != nil && !IsNil(o.Region) {
-		return true
-	}
-
-	return false
 }
 
 // SetRegion gets a reference to the given string and assigns it to the Region field.
@@ -643,15 +553,6 @@ func (o *DescribeResourceInstanceResult) GetSubscriptionIdOk() (*string, bool) {
 		return nil, false
 	}
 	return o.SubscriptionId, true
-}
-
-// HasSubscriptionId returns a boolean if a field has been set.
-func (o *DescribeResourceInstanceResult) HasSubscriptionId() bool {
-	if o != nil && !IsNil(o.SubscriptionId) {
-		return true
-	}
-
-	return false
 }
 
 // SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.

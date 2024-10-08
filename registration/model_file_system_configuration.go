@@ -57,15 +57,6 @@ func (o *FileSystemConfiguration) GetEFSFileSystemConfigurationOk() (*EFSFileSys
 	return o.EFSFileSystemConfiguration, true
 }
 
-// HasEFSFileSystemConfiguration returns a boolean if a field has been set.
-func (o *FileSystemConfiguration) HasEFSFileSystemConfiguration() bool {
-	if o != nil && !IsNil(o.EFSFileSystemConfiguration) {
-		return true
-	}
-
-	return false
-}
-
 // SetEFSFileSystemConfiguration gets a reference to the given EFSFileSystemConfiguration and assigns it to the EFSFileSystemConfiguration field.
 func (o *FileSystemConfiguration) SetEFSFileSystemConfiguration(v EFSFileSystemConfiguration) {
 	o.EFSFileSystemConfiguration = &v

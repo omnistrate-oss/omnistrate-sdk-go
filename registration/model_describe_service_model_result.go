@@ -89,15 +89,6 @@ func (o *DescribeServiceModelResult) GetAccountConfigIdsOk() ([]string, bool) {
 	return o.AccountConfigIds, true
 }
 
-// HasAccountConfigIds returns a boolean if a field has been set.
-func (o *DescribeServiceModelResult) HasAccountConfigIds() bool {
-	if o != nil && !IsNil(o.AccountConfigIds) {
-		return true
-	}
-
-	return false
-}
-
 // SetAccountConfigIds gets a reference to the given []string and assigns it to the AccountConfigIds field.
 func (o *DescribeServiceModelResult) SetAccountConfigIds(v []string) {
 	o.AccountConfigIds = v
@@ -119,15 +110,6 @@ func (o *DescribeServiceModelResult) GetActiveAccountConfigIdsOk() (*map[string]
 		return nil, false
 	}
 	return o.ActiveAccountConfigIds, true
-}
-
-// HasActiveAccountConfigIds returns a boolean if a field has been set.
-func (o *DescribeServiceModelResult) HasActiveAccountConfigIds() bool {
-	if o != nil && !IsNil(o.ActiveAccountConfigIds) {
-		return true
-	}
-
-	return false
 }
 
 // SetActiveAccountConfigIds gets a reference to the given map[string]string and assigns it to the ActiveAccountConfigIds field.
@@ -175,15 +157,6 @@ func (o *DescribeServiceModelResult) GetFeaturesOk() ([]ServiceModelFeatureDetai
 		return nil, false
 	}
 	return o.Features, true
-}
-
-// HasFeatures returns a boolean if a field has been set.
-func (o *DescribeServiceModelResult) HasFeatures() bool {
-	if o != nil && !IsNil(o.Features) {
-		return true
-	}
-
-	return false
 }
 
 // SetFeatures gets a reference to the given []ServiceModelFeatureDetail and assigns it to the Features field.
@@ -303,15 +276,6 @@ func (o *DescribeServiceModelResult) GetProductTiersOk() ([]string, bool) {
 		return nil, false
 	}
 	return o.ProductTiers, true
-}
-
-// HasProductTiers returns a boolean if a field has been set.
-func (o *DescribeServiceModelResult) HasProductTiers() bool {
-	if o != nil && !IsNil(o.ProductTiers) {
-		return true
-	}
-
-	return false
 }
 
 // SetProductTiers gets a reference to the given []string and assigns it to the ProductTiers field.

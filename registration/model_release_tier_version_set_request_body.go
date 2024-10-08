@@ -60,15 +60,6 @@ func (o *ReleaseTierVersionSetRequestBody) GetIsPreferredOk() (*bool, bool) {
 	return o.IsPreferred, true
 }
 
-// HasIsPreferred returns a boolean if a field has been set.
-func (o *ReleaseTierVersionSetRequestBody) HasIsPreferred() bool {
-	if o != nil && !IsNil(o.IsPreferred) {
-		return true
-	}
-
-	return false
-}
-
 // SetIsPreferred gets a reference to the given bool and assigns it to the IsPreferred field.
 func (o *ReleaseTierVersionSetRequestBody) SetIsPreferred(v bool) {
 	o.IsPreferred = &v
@@ -90,15 +81,6 @@ func (o *ReleaseTierVersionSetRequestBody) GetNameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Name, true
-}
-
-// HasName returns a boolean if a field has been set.
-func (o *ReleaseTierVersionSetRequestBody) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.

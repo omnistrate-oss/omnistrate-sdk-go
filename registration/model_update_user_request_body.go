@@ -75,15 +75,6 @@ func (o *UpdateUserRequestBody) GetAddressOk() (*Address, bool) {
 	return o.Address, true
 }
 
-// HasAddress returns a boolean if a field has been set.
-func (o *UpdateUserRequestBody) HasAddress() bool {
-	if o != nil && !IsNil(o.Address) {
-		return true
-	}
-
-	return false
-}
-
 // SetAddress gets a reference to the given Address and assigns it to the Address field.
 func (o *UpdateUserRequestBody) SetAddress(v Address) {
 	o.Address = &v
@@ -105,15 +96,6 @@ func (o *UpdateUserRequestBody) GetNameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Name, true
-}
-
-// HasName returns a boolean if a field has been set.
-func (o *UpdateUserRequestBody) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.
@@ -139,15 +121,6 @@ func (o *UpdateUserRequestBody) GetOrgDescriptionOk() (*string, bool) {
 	return o.OrgDescription, true
 }
 
-// HasOrgDescription returns a boolean if a field has been set.
-func (o *UpdateUserRequestBody) HasOrgDescription() bool {
-	if o != nil && !IsNil(o.OrgDescription) {
-		return true
-	}
-
-	return false
-}
-
 // SetOrgDescription gets a reference to the given string and assigns it to the OrgDescription field.
 func (o *UpdateUserRequestBody) SetOrgDescription(v string) {
 	o.OrgDescription = &v
@@ -169,15 +142,6 @@ func (o *UpdateUserRequestBody) GetOrgFavIconURLOk() (*string, bool) {
 		return nil, false
 	}
 	return o.OrgFavIconURL, true
-}
-
-// HasOrgFavIconURL returns a boolean if a field has been set.
-func (o *UpdateUserRequestBody) HasOrgFavIconURL() bool {
-	if o != nil && !IsNil(o.OrgFavIconURL) {
-		return true
-	}
-
-	return false
 }
 
 // SetOrgFavIconURL gets a reference to the given string and assigns it to the OrgFavIconURL field.
@@ -203,15 +167,6 @@ func (o *UpdateUserRequestBody) GetOrgLogoURLOk() (*string, bool) {
 	return o.OrgLogoURL, true
 }
 
-// HasOrgLogoURL returns a boolean if a field has been set.
-func (o *UpdateUserRequestBody) HasOrgLogoURL() bool {
-	if o != nil && !IsNil(o.OrgLogoURL) {
-		return true
-	}
-
-	return false
-}
-
 // SetOrgLogoURL gets a reference to the given string and assigns it to the OrgLogoURL field.
 func (o *UpdateUserRequestBody) SetOrgLogoURL(v string) {
 	o.OrgLogoURL = &v
@@ -233,15 +188,6 @@ func (o *UpdateUserRequestBody) GetOrgNameOk() (*string, bool) {
 		return nil, false
 	}
 	return o.OrgName, true
-}
-
-// HasOrgName returns a boolean if a field has been set.
-func (o *UpdateUserRequestBody) HasOrgName() bool {
-	if o != nil && !IsNil(o.OrgName) {
-		return true
-	}
-
-	return false
 }
 
 // SetOrgName gets a reference to the given string and assigns it to the OrgName field.
@@ -267,15 +213,6 @@ func (o *UpdateUserRequestBody) GetOrgPrivacyPolicyOk() (*string, bool) {
 	return o.OrgPrivacyPolicy, true
 }
 
-// HasOrgPrivacyPolicy returns a boolean if a field has been set.
-func (o *UpdateUserRequestBody) HasOrgPrivacyPolicy() bool {
-	if o != nil && !IsNil(o.OrgPrivacyPolicy) {
-		return true
-	}
-
-	return false
-}
-
 // SetOrgPrivacyPolicy gets a reference to the given string and assigns it to the OrgPrivacyPolicy field.
 func (o *UpdateUserRequestBody) SetOrgPrivacyPolicy(v string) {
 	o.OrgPrivacyPolicy = &v
@@ -297,15 +234,6 @@ func (o *UpdateUserRequestBody) GetOrgSupportEmailOk() (*string, bool) {
 		return nil, false
 	}
 	return o.OrgSupportEmail, true
-}
-
-// HasOrgSupportEmail returns a boolean if a field has been set.
-func (o *UpdateUserRequestBody) HasOrgSupportEmail() bool {
-	if o != nil && !IsNil(o.OrgSupportEmail) {
-		return true
-	}
-
-	return false
 }
 
 // SetOrgSupportEmail gets a reference to the given string and assigns it to the OrgSupportEmail field.
@@ -331,15 +259,6 @@ func (o *UpdateUserRequestBody) GetOrgTermsOfUseOk() (*string, bool) {
 	return o.OrgTermsOfUse, true
 }
 
-// HasOrgTermsOfUse returns a boolean if a field has been set.
-func (o *UpdateUserRequestBody) HasOrgTermsOfUse() bool {
-	if o != nil && !IsNil(o.OrgTermsOfUse) {
-		return true
-	}
-
-	return false
-}
-
 // SetOrgTermsOfUse gets a reference to the given string and assigns it to the OrgTermsOfUse field.
 func (o *UpdateUserRequestBody) SetOrgTermsOfUse(v string) {
 	o.OrgTermsOfUse = &v
@@ -361,15 +280,6 @@ func (o *UpdateUserRequestBody) GetOrgURLOk() (*string, bool) {
 		return nil, false
 	}
 	return o.OrgURL, true
-}
-
-// HasOrgURL returns a boolean if a field has been set.
-func (o *UpdateUserRequestBody) HasOrgURL() bool {
-	if o != nil && !IsNil(o.OrgURL) {
-		return true
-	}
-
-	return false
 }
 
 // SetOrgURL gets a reference to the given string and assigns it to the OrgURL field.

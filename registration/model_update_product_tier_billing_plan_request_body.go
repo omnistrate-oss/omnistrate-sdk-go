@@ -64,15 +64,6 @@ func (o *UpdateProductTierBillingPlanRequestBody) GetAllowCreatesWhenPaymentNotC
 	return o.AllowCreatesWhenPaymentNotConfigured, true
 }
 
-// HasAllowCreatesWhenPaymentNotConfigured returns a boolean if a field has been set.
-func (o *UpdateProductTierBillingPlanRequestBody) HasAllowCreatesWhenPaymentNotConfigured() bool {
-	if o != nil && !IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
-		return true
-	}
-
-	return false
-}
-
 // SetAllowCreatesWhenPaymentNotConfigured gets a reference to the given bool and assigns it to the AllowCreatesWhenPaymentNotConfigured field.
 func (o *UpdateProductTierBillingPlanRequestBody) SetAllowCreatesWhenPaymentNotConfigured(v bool) {
 	o.AllowCreatesWhenPaymentNotConfigured = &v
@@ -94,15 +85,6 @@ func (o *UpdateProductTierBillingPlanRequestBody) GetMaxNumberofInstancesOk() (*
 		return nil, false
 	}
 	return o.MaxNumberofInstances, true
-}
-
-// HasMaxNumberofInstances returns a boolean if a field has been set.
-func (o *UpdateProductTierBillingPlanRequestBody) HasMaxNumberofInstances() bool {
-	if o != nil && !IsNil(o.MaxNumberofInstances) {
-		return true
-	}
-
-	return false
 }
 
 // SetMaxNumberofInstances gets a reference to the given int64 and assigns it to the MaxNumberofInstances field.
@@ -128,15 +110,6 @@ func (o *UpdateProductTierBillingPlanRequestBody) GetPlanNameOk() (*string, bool
 	return o.PlanName, true
 }
 
-// HasPlanName returns a boolean if a field has been set.
-func (o *UpdateProductTierBillingPlanRequestBody) HasPlanName() bool {
-	if o != nil && !IsNil(o.PlanName) {
-		return true
-	}
-
-	return false
-}
-
 // SetPlanName gets a reference to the given string and assigns it to the PlanName field.
 func (o *UpdateProductTierBillingPlanRequestBody) SetPlanName(v string) {
 	o.PlanName = &v
@@ -159,15 +132,6 @@ func (o *UpdateProductTierBillingPlanRequestBody) GetPricingOk() (*interface{}, 
 		return nil, false
 	}
 	return &o.Pricing, true
-}
-
-// HasPricing returns a boolean if a field has been set.
-func (o *UpdateProductTierBillingPlanRequestBody) HasPricing() bool {
-	if o != nil && !IsNil(o.Pricing) {
-		return true
-	}
-
-	return false
 }
 
 // SetPricing gets a reference to the given interface{} and assigns it to the Pricing field.

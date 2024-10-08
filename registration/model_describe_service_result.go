@@ -208,15 +208,6 @@ func (o *DescribeServiceResult) GetRoleTypeOk() (*string, bool) {
 	return o.RoleType, true
 }
 
-// HasRoleType returns a boolean if a field has been set.
-func (o *DescribeServiceResult) HasRoleType() bool {
-	if o != nil && !IsNil(o.RoleType) {
-		return true
-	}
-
-	return false
-}
-
 // SetRoleType gets a reference to the given string and assigns it to the RoleType field.
 func (o *DescribeServiceResult) SetRoleType(v string) {
 	o.RoleType = &v
@@ -262,15 +253,6 @@ func (o *DescribeServiceResult) GetServiceLogoURLOk() (*string, bool) {
 		return nil, false
 	}
 	return o.ServiceLogoURL, true
-}
-
-// HasServiceLogoURL returns a boolean if a field has been set.
-func (o *DescribeServiceResult) HasServiceLogoURL() bool {
-	if o != nil && !IsNil(o.ServiceLogoURL) {
-		return true
-	}
-
-	return false
 }
 
 // SetServiceLogoURL gets a reference to the given string and assigns it to the ServiceLogoURL field.

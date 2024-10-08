@@ -58,15 +58,6 @@ func (o *ListInvoicesResult) GetInvoicesOk() ([]Invoice, bool) {
 	return o.Invoices, true
 }
 
-// HasInvoices returns a boolean if a field has been set.
-func (o *ListInvoicesResult) HasInvoices() bool {
-	if o != nil && !IsNil(o.Invoices) {
-		return true
-	}
-
-	return false
-}
-
 // SetInvoices gets a reference to the given []Invoice and assigns it to the Invoices field.
 func (o *ListInvoicesResult) SetInvoices(v []Invoice) {
 	o.Invoices = v

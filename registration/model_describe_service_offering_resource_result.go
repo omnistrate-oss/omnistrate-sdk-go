@@ -58,15 +58,6 @@ func (o *DescribeServiceOfferingResourceResult) GetApisOk() ([]APIEntity, bool) 
 	return o.Apis, true
 }
 
-// HasApis returns a boolean if a field has been set.
-func (o *DescribeServiceOfferingResourceResult) HasApis() bool {
-	if o != nil && !IsNil(o.Apis) {
-		return true
-	}
-
-	return false
-}
-
 // SetApis gets a reference to the given []APIEntity and assigns it to the Apis field.
 func (o *DescribeServiceOfferingResourceResult) SetApis(v []APIEntity) {
 	o.Apis = v

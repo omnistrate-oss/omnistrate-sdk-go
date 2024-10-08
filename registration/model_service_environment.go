@@ -131,15 +131,6 @@ func (o *ServiceEnvironment) GetPromoteStatusOk() (*string, bool) {
 	return o.PromoteStatus, true
 }
 
-// HasPromoteStatus returns a boolean if a field has been set.
-func (o *ServiceEnvironment) HasPromoteStatus() bool {
-	if o != nil && !IsNil(o.PromoteStatus) {
-		return true
-	}
-
-	return false
-}
-
 // SetPromoteStatus gets a reference to the given string and assigns it to the PromoteStatus field.
 func (o *ServiceEnvironment) SetPromoteStatus(v string) {
 	o.PromoteStatus = &v
@@ -163,15 +154,6 @@ func (o *ServiceEnvironment) GetSaasPortalStatusOk() (*string, bool) {
 	return o.SaasPortalStatus, true
 }
 
-// HasSaasPortalStatus returns a boolean if a field has been set.
-func (o *ServiceEnvironment) HasSaasPortalStatus() bool {
-	if o != nil && !IsNil(o.SaasPortalStatus) {
-		return true
-	}
-
-	return false
-}
-
 // SetSaasPortalStatus gets a reference to the given string and assigns it to the SaasPortalStatus field.
 func (o *ServiceEnvironment) SetSaasPortalStatus(v string) {
 	o.SaasPortalStatus = &v
@@ -193,15 +175,6 @@ func (o *ServiceEnvironment) GetSaasPortalUrlOk() (*string, bool) {
 		return nil, false
 	}
 	return o.SaasPortalUrl, true
-}
-
-// HasSaasPortalUrl returns a boolean if a field has been set.
-func (o *ServiceEnvironment) HasSaasPortalUrl() bool {
-	if o != nil && !IsNil(o.SaasPortalUrl) {
-		return true
-	}
-
-	return false
 }
 
 // SetSaasPortalUrl gets a reference to the given string and assigns it to the SaasPortalUrl field.
@@ -251,15 +224,6 @@ func (o *ServiceEnvironment) GetSourceEnvironmentIDOk() (*string, bool) {
 	return o.SourceEnvironmentID, true
 }
 
-// HasSourceEnvironmentID returns a boolean if a field has been set.
-func (o *ServiceEnvironment) HasSourceEnvironmentID() bool {
-	if o != nil && !IsNil(o.SourceEnvironmentID) {
-		return true
-	}
-
-	return false
-}
-
 // SetSourceEnvironmentID gets a reference to the given string and assigns it to the SourceEnvironmentID field.
 func (o *ServiceEnvironment) SetSourceEnvironmentID(v string) {
 	o.SourceEnvironmentID = &v
@@ -283,15 +247,6 @@ func (o *ServiceEnvironment) GetSourceEnvironmentNameOk() (*string, bool) {
 	return o.SourceEnvironmentName, true
 }
 
-// HasSourceEnvironmentName returns a boolean if a field has been set.
-func (o *ServiceEnvironment) HasSourceEnvironmentName() bool {
-	if o != nil && !IsNil(o.SourceEnvironmentName) {
-		return true
-	}
-
-	return false
-}
-
 // SetSourceEnvironmentName gets a reference to the given string and assigns it to the SourceEnvironmentName field.
 func (o *ServiceEnvironment) SetSourceEnvironmentName(v string) {
 	o.SourceEnvironmentName = &v
@@ -313,15 +268,6 @@ func (o *ServiceEnvironment) GetTypeOk() (*string, bool) {
 		return nil, false
 	}
 	return o.Type, true
-}
-
-// HasType returns a boolean if a field has been set.
-func (o *ServiceEnvironment) HasType() bool {
-	if o != nil && !IsNil(o.Type) {
-		return true
-	}
-
-	return false
 }
 
 // SetType gets a reference to the given string and assigns it to the Type field.
