@@ -20,12 +20,76 @@ import (
 )
 
 
+type ImageRegistryApiAPI interface {
+
+	/*
+	ImageRegistryApiCreateImageRegistry CreateImageRegistry image-registry-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiImageRegistryApiCreateImageRegistryRequest
+	*/
+	ImageRegistryApiCreateImageRegistry(ctx context.Context) ApiImageRegistryApiCreateImageRegistryRequest
+
+	// ImageRegistryApiCreateImageRegistryExecute executes the request
+	//  @return string
+	ImageRegistryApiCreateImageRegistryExecute(r ApiImageRegistryApiCreateImageRegistryRequest) (string, *http.Response, error)
+
+	/*
+	ImageRegistryApiDeleteImageRegistry DeleteImageRegistry image-registry-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the Image Registry
+	@return ApiImageRegistryApiDeleteImageRegistryRequest
+	*/
+	ImageRegistryApiDeleteImageRegistry(ctx context.Context, id string) ApiImageRegistryApiDeleteImageRegistryRequest
+
+	// ImageRegistryApiDeleteImageRegistryExecute executes the request
+	ImageRegistryApiDeleteImageRegistryExecute(r ApiImageRegistryApiDeleteImageRegistryRequest) (*http.Response, error)
+
+	/*
+	ImageRegistryApiDescribeImageRegistry DescribeImageRegistry image-registry-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the Image Registry
+	@return ApiImageRegistryApiDescribeImageRegistryRequest
+	*/
+	ImageRegistryApiDescribeImageRegistry(ctx context.Context, id string) ApiImageRegistryApiDescribeImageRegistryRequest
+
+	// ImageRegistryApiDescribeImageRegistryExecute executes the request
+	//  @return DescribeImageRegistryResult
+	ImageRegistryApiDescribeImageRegistryExecute(r ApiImageRegistryApiDescribeImageRegistryRequest) (*DescribeImageRegistryResult, *http.Response, error)
+
+	/*
+	ImageRegistryApiListImageRegistry ListImageRegistry image-registry-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiImageRegistryApiListImageRegistryRequest
+	*/
+	ImageRegistryApiListImageRegistry(ctx context.Context) ApiImageRegistryApiListImageRegistryRequest
+
+	// ImageRegistryApiListImageRegistryExecute executes the request
+	//  @return ListServiceEnvironmentsResult
+	ImageRegistryApiListImageRegistryExecute(r ApiImageRegistryApiListImageRegistryRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+
+	/*
+	ImageRegistryApiUpdateImageRegistry UpdateImageRegistry image-registry-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the Image Registry
+	@return ApiImageRegistryApiUpdateImageRegistryRequest
+	*/
+	ImageRegistryApiUpdateImageRegistry(ctx context.Context, id string) ApiImageRegistryApiUpdateImageRegistryRequest
+
+	// ImageRegistryApiUpdateImageRegistryExecute executes the request
+	ImageRegistryApiUpdateImageRegistryExecute(r ApiImageRegistryApiUpdateImageRegistryRequest) (*http.Response, error)
+}
+
 // ImageRegistryApiAPIService ImageRegistryApiAPI service
 type ImageRegistryApiAPIService service
 
 type ApiImageRegistryApiCreateImageRegistryRequest struct {
 	ctx context.Context
-	ApiService *ImageRegistryApiAPIService
+	ApiService ImageRegistryApiAPI
 	createImageRegistryRequestBody *CreateImageRegistryRequestBody
 }
 
@@ -176,7 +240,7 @@ func (a *ImageRegistryApiAPIService) ImageRegistryApiCreateImageRegistryExecute(
 
 type ApiImageRegistryApiDeleteImageRegistryRequest struct {
 	ctx context.Context
-	ApiService *ImageRegistryApiAPIService
+	ApiService ImageRegistryApiAPI
 	id string
 }
 
@@ -309,7 +373,7 @@ func (a *ImageRegistryApiAPIService) ImageRegistryApiDeleteImageRegistryExecute(
 
 type ApiImageRegistryApiDescribeImageRegistryRequest struct {
 	ctx context.Context
-	ApiService *ImageRegistryApiAPIService
+	ApiService ImageRegistryApiAPI
 	id string
 }
 
@@ -475,7 +539,7 @@ func (a *ImageRegistryApiAPIService) ImageRegistryApiDescribeImageRegistryExecut
 
 type ApiImageRegistryApiListImageRegistryRequest struct {
 	ctx context.Context
-	ApiService *ImageRegistryApiAPIService
+	ApiService ImageRegistryApiAPI
 }
 
 func (r ApiImageRegistryApiListImageRegistryRequest) Execute() (*ListServiceEnvironmentsResult, *http.Response, error) {
@@ -637,7 +701,7 @@ func (a *ImageRegistryApiAPIService) ImageRegistryApiListImageRegistryExecute(r 
 
 type ApiImageRegistryApiUpdateImageRegistryRequest struct {
 	ctx context.Context
-	ApiService *ImageRegistryApiAPIService
+	ApiService ImageRegistryApiAPI
 	id string
 	updateImageRegistryRequestBody *UpdateImageRegistryRequestBody
 }

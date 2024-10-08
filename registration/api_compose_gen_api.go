@@ -19,12 +19,39 @@ import (
 )
 
 
+type ComposeGenApiAPI interface {
+
+	/*
+	ComposeGenApiCheckIfContainerImageAccessible CheckIfContainerImageAccessible compose-gen-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiComposeGenApiCheckIfContainerImageAccessibleRequest
+	*/
+	ComposeGenApiCheckIfContainerImageAccessible(ctx context.Context) ApiComposeGenApiCheckIfContainerImageAccessibleRequest
+
+	// ComposeGenApiCheckIfContainerImageAccessibleExecute executes the request
+	//  @return CheckIfContainerImageAccessibleResult
+	ComposeGenApiCheckIfContainerImageAccessibleExecute(r ApiComposeGenApiCheckIfContainerImageAccessibleRequest) (*CheckIfContainerImageAccessibleResult, *http.Response, error)
+
+	/*
+	ComposeGenApiGenerateComposeSpecFromContainerImage GenerateComposeSpecFromContainerImage compose-gen-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiComposeGenApiGenerateComposeSpecFromContainerImageRequest
+	*/
+	ComposeGenApiGenerateComposeSpecFromContainerImage(ctx context.Context) ApiComposeGenApiGenerateComposeSpecFromContainerImageRequest
+
+	// ComposeGenApiGenerateComposeSpecFromContainerImageExecute executes the request
+	//  @return GenerateComposeSpecFromContainerImageResult
+	ComposeGenApiGenerateComposeSpecFromContainerImageExecute(r ApiComposeGenApiGenerateComposeSpecFromContainerImageRequest) (*GenerateComposeSpecFromContainerImageResult, *http.Response, error)
+}
+
 // ComposeGenApiAPIService ComposeGenApiAPI service
 type ComposeGenApiAPIService service
 
 type ApiComposeGenApiCheckIfContainerImageAccessibleRequest struct {
 	ctx context.Context
-	ApiService *ComposeGenApiAPIService
+	ApiService ComposeGenApiAPI
 	imageRegistry *string
 	image *string
 	username *string
@@ -228,7 +255,7 @@ func (a *ComposeGenApiAPIService) ComposeGenApiCheckIfContainerImageAccessibleEx
 
 type ApiComposeGenApiGenerateComposeSpecFromContainerImageRequest struct {
 	ctx context.Context
-	ApiService *ComposeGenApiAPIService
+	ApiService ComposeGenApiAPI
 	generateComposeSpecFromContainerImageRequestBody *GenerateComposeSpecFromContainerImageRequestBody
 }
 

@@ -20,12 +20,82 @@ import (
 )
 
 
+type OutputParameterApiAPI interface {
+
+	/*
+	OutputParameterApiCreateOutputParameter CreateOutputParameter output-parameter-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service that this output parameter belongs to
+	@return ApiOutputParameterApiCreateOutputParameterRequest
+	*/
+	OutputParameterApiCreateOutputParameter(ctx context.Context, serviceId string) ApiOutputParameterApiCreateOutputParameterRequest
+
+	// OutputParameterApiCreateOutputParameterExecute executes the request
+	//  @return string
+	OutputParameterApiCreateOutputParameterExecute(r ApiOutputParameterApiCreateOutputParameterRequest) (string, *http.Response, error)
+
+	/*
+	OutputParameterApiDeleteOutputParameter DeleteOutputParameter output-parameter-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service that this output parameter belongs to
+	@param id The ID of the output parameter
+	@return ApiOutputParameterApiDeleteOutputParameterRequest
+	*/
+	OutputParameterApiDeleteOutputParameter(ctx context.Context, serviceId string, id string) ApiOutputParameterApiDeleteOutputParameterRequest
+
+	// OutputParameterApiDeleteOutputParameterExecute executes the request
+	OutputParameterApiDeleteOutputParameterExecute(r ApiOutputParameterApiDeleteOutputParameterRequest) (*http.Response, error)
+
+	/*
+	OutputParameterApiDescribeOutputParameter DescribeOutputParameter output-parameter-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service that this output parameter belongs to
+	@param id The ID of the output parameter
+	@return ApiOutputParameterApiDescribeOutputParameterRequest
+	*/
+	OutputParameterApiDescribeOutputParameter(ctx context.Context, serviceId string, id string) ApiOutputParameterApiDescribeOutputParameterRequest
+
+	// OutputParameterApiDescribeOutputParameterExecute executes the request
+	//  @return DescribeOutputParameterResult
+	OutputParameterApiDescribeOutputParameterExecute(r ApiOutputParameterApiDescribeOutputParameterRequest) (*DescribeOutputParameterResult, *http.Response, error)
+
+	/*
+	OutputParameterApiListOutputParameter ListOutputParameter output-parameter-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service that this output parameter belongs to
+	@param resourceId The ID of the resource that this output parameter belongs to
+	@return ApiOutputParameterApiListOutputParameterRequest
+	*/
+	OutputParameterApiListOutputParameter(ctx context.Context, serviceId string, resourceId string) ApiOutputParameterApiListOutputParameterRequest
+
+	// OutputParameterApiListOutputParameterExecute executes the request
+	//  @return ListOutputParametersResult
+	OutputParameterApiListOutputParameterExecute(r ApiOutputParameterApiListOutputParameterRequest) (*ListOutputParametersResult, *http.Response, error)
+
+	/*
+	OutputParameterApiUpdateOutputParameter UpdateOutputParameter output-parameter-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service that this output parameter belongs to
+	@param id The ID of the output parameter
+	@return ApiOutputParameterApiUpdateOutputParameterRequest
+	*/
+	OutputParameterApiUpdateOutputParameter(ctx context.Context, serviceId string, id string) ApiOutputParameterApiUpdateOutputParameterRequest
+
+	// OutputParameterApiUpdateOutputParameterExecute executes the request
+	OutputParameterApiUpdateOutputParameterExecute(r ApiOutputParameterApiUpdateOutputParameterRequest) (*http.Response, error)
+}
+
 // OutputParameterApiAPIService OutputParameterApiAPI service
 type OutputParameterApiAPIService service
 
 type ApiOutputParameterApiCreateOutputParameterRequest struct {
 	ctx context.Context
-	ApiService *OutputParameterApiAPIService
+	ApiService OutputParameterApiAPI
 	serviceId string
 	createOutputParameterRequestBody *CreateOutputParameterRequestBody
 }
@@ -202,7 +272,7 @@ func (a *OutputParameterApiAPIService) OutputParameterApiCreateOutputParameterEx
 
 type ApiOutputParameterApiDeleteOutputParameterRequest struct {
 	ctx context.Context
-	ApiService *OutputParameterApiAPIService
+	ApiService OutputParameterApiAPI
 	serviceId string
 	id string
 }
@@ -361,7 +431,7 @@ func (a *OutputParameterApiAPIService) OutputParameterApiDeleteOutputParameterEx
 
 type ApiOutputParameterApiDescribeOutputParameterRequest struct {
 	ctx context.Context
-	ApiService *OutputParameterApiAPIService
+	ApiService OutputParameterApiAPI
 	serviceId string
 	id string
 	productTierVersion *string
@@ -551,7 +621,7 @@ func (a *OutputParameterApiAPIService) OutputParameterApiDescribeOutputParameter
 
 type ApiOutputParameterApiListOutputParameterRequest struct {
 	ctx context.Context
-	ApiService *OutputParameterApiAPIService
+	ApiService OutputParameterApiAPI
 	serviceId string
 	resourceId string
 	productTierVersion *string
@@ -741,7 +811,7 @@ func (a *OutputParameterApiAPIService) OutputParameterApiListOutputParameterExec
 
 type ApiOutputParameterApiUpdateOutputParameterRequest struct {
 	ctx context.Context
-	ApiService *OutputParameterApiAPIService
+	ApiService OutputParameterApiAPI
 	serviceId string
 	id string
 	updateOutputParameterRequestBody *UpdateOutputParameterRequestBody

@@ -20,12 +20,299 @@ import (
 )
 
 
+type ResourceInstanceApiAPI interface {
+
+	/*
+	ResourceInstanceApiAddCapacityToResourceInstance AddCapacityToResourceInstance resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiAddCapacityToResourceInstanceRequest
+	*/
+	ResourceInstanceApiAddCapacityToResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiAddCapacityToResourceInstanceRequest
+
+	// ResourceInstanceApiAddCapacityToResourceInstanceExecute executes the request
+	ResourceInstanceApiAddCapacityToResourceInstanceExecute(r ApiResourceInstanceApiAddCapacityToResourceInstanceRequest) (*http.Response, error)
+
+	/*
+	ResourceInstanceApiAddCustomDNSToResourceInstance AddCustomDNSToResourceInstance resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest
+	*/
+	ResourceInstanceApiAddCustomDNSToResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest
+
+	// ResourceInstanceApiAddCustomDNSToResourceInstanceExecute executes the request
+	ResourceInstanceApiAddCustomDNSToResourceInstanceExecute(r ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest) (*http.Response, error)
+
+	/*
+	ResourceInstanceApiCreateResourceInstance CreateResourceInstance resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@return ApiResourceInstanceApiCreateResourceInstanceRequest
+	*/
+	ResourceInstanceApiCreateResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string) ApiResourceInstanceApiCreateResourceInstanceRequest
+
+	// ResourceInstanceApiCreateResourceInstanceExecute executes the request
+	//  @return CreateResourceInstanceResponseBody
+	ResourceInstanceApiCreateResourceInstanceExecute(r ApiResourceInstanceApiCreateResourceInstanceRequest) (*CreateResourceInstanceResponseBody, *http.Response, error)
+
+	/*
+	ResourceInstanceApiDeleteResourceInstance DeleteResourceInstance resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiDeleteResourceInstanceRequest
+	*/
+	ResourceInstanceApiDeleteResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiDeleteResourceInstanceRequest
+
+	// ResourceInstanceApiDeleteResourceInstanceExecute executes the request
+	ResourceInstanceApiDeleteResourceInstanceExecute(r ApiResourceInstanceApiDeleteResourceInstanceRequest) (*http.Response, error)
+
+	/*
+	ResourceInstanceApiDescribeResourceInstance DescribeResourceInstance resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiDescribeResourceInstanceRequest
+	*/
+	ResourceInstanceApiDescribeResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiDescribeResourceInstanceRequest
+
+	// ResourceInstanceApiDescribeResourceInstanceExecute executes the request
+	//  @return DescribeResourceInstanceResult
+	ResourceInstanceApiDescribeResourceInstanceExecute(r ApiResourceInstanceApiDescribeResourceInstanceRequest) (*DescribeResourceInstanceResult, *http.Response, error)
+
+	/*
+	ResourceInstanceApiFailoverResourceInstance FailoverResourceInstance resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiFailoverResourceInstanceRequest
+	*/
+	ResourceInstanceApiFailoverResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiFailoverResourceInstanceRequest
+
+	// ResourceInstanceApiFailoverResourceInstanceExecute executes the request
+	ResourceInstanceApiFailoverResourceInstanceExecute(r ApiResourceInstanceApiFailoverResourceInstanceRequest) (*http.Response, error)
+
+	/*
+	ResourceInstanceApiListResourceInstances ListResourceInstances resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service key
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@return ApiResourceInstanceApiListResourceInstancesRequest
+	*/
+	ResourceInstanceApiListResourceInstances(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string) ApiResourceInstanceApiListResourceInstancesRequest
+
+	// ResourceInstanceApiListResourceInstancesExecute executes the request
+	//  @return ListServiceEnvironmentsResult
+	ResourceInstanceApiListResourceInstancesExecute(r ApiResourceInstanceApiListResourceInstancesRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+
+	/*
+	ResourceInstanceApiRemoveCapacityFromResourceInstance RemoveCapacityFromResourceInstance resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest
+	*/
+	ResourceInstanceApiRemoveCapacityFromResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest
+
+	// ResourceInstanceApiRemoveCapacityFromResourceInstanceExecute executes the request
+	ResourceInstanceApiRemoveCapacityFromResourceInstanceExecute(r ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest) (*http.Response, error)
+
+	/*
+	ResourceInstanceApiRemoveCustomDNSFromResourceInstance RemoveCustomDNSFromResourceInstance resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiRemoveCustomDNSFromResourceInstanceRequest
+	*/
+	ResourceInstanceApiRemoveCustomDNSFromResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiRemoveCustomDNSFromResourceInstanceRequest
+
+	// ResourceInstanceApiRemoveCustomDNSFromResourceInstanceExecute executes the request
+	ResourceInstanceApiRemoveCustomDNSFromResourceInstanceExecute(r ApiResourceInstanceApiRemoveCustomDNSFromResourceInstanceRequest) (*http.Response, error)
+
+	/*
+	ResourceInstanceApiResourceInstanceProvisionerSetupKit ResourceInstanceProvisionerSetupKit resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@return ApiResourceInstanceApiResourceInstanceProvisionerSetupKitRequest
+	*/
+	ResourceInstanceApiResourceInstanceProvisionerSetupKit(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string) ApiResourceInstanceApiResourceInstanceProvisionerSetupKitRequest
+
+	// ResourceInstanceApiResourceInstanceProvisionerSetupKitExecute executes the request
+	ResourceInstanceApiResourceInstanceProvisionerSetupKitExecute(r ApiResourceInstanceApiResourceInstanceProvisionerSetupKitRequest) (*http.Response, error)
+
+	/*
+	ResourceInstanceApiRestartResourceInstance RestartResourceInstance resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiRestartResourceInstanceRequest
+	*/
+	ResourceInstanceApiRestartResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiRestartResourceInstanceRequest
+
+	// ResourceInstanceApiRestartResourceInstanceExecute executes the request
+	ResourceInstanceApiRestartResourceInstanceExecute(r ApiResourceInstanceApiRestartResourceInstanceRequest) (*http.Response, error)
+
+	/*
+	ResourceInstanceApiRestoreResourceInstance RestoreResourceInstance resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiRestoreResourceInstanceRequest
+	*/
+	ResourceInstanceApiRestoreResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiRestoreResourceInstanceRequest
+
+	// ResourceInstanceApiRestoreResourceInstanceExecute executes the request
+	//  @return CreateResourceInstanceResponseBody
+	ResourceInstanceApiRestoreResourceInstanceExecute(r ApiResourceInstanceApiRestoreResourceInstanceRequest) (*CreateResourceInstanceResponseBody, *http.Response, error)
+
+	/*
+	ResourceInstanceApiStartResourceInstance StartResourceInstance resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiStartResourceInstanceRequest
+	*/
+	ResourceInstanceApiStartResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiStartResourceInstanceRequest
+
+	// ResourceInstanceApiStartResourceInstanceExecute executes the request
+	ResourceInstanceApiStartResourceInstanceExecute(r ApiResourceInstanceApiStartResourceInstanceRequest) (*http.Response, error)
+
+	/*
+	ResourceInstanceApiStopResourceInstance StopResourceInstance resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiStopResourceInstanceRequest
+	*/
+	ResourceInstanceApiStopResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiStopResourceInstanceRequest
+
+	// ResourceInstanceApiStopResourceInstanceExecute executes the request
+	ResourceInstanceApiStopResourceInstanceExecute(r ApiResourceInstanceApiStopResourceInstanceRequest) (*http.Response, error)
+
+	/*
+	ResourceInstanceApiUpdateResourceInstance UpdateResourceInstance resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiUpdateResourceInstanceRequest
+	*/
+	ResourceInstanceApiUpdateResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiUpdateResourceInstanceRequest
+
+	// ResourceInstanceApiUpdateResourceInstanceExecute executes the request
+	ResourceInstanceApiUpdateResourceInstanceExecute(r ApiResourceInstanceApiUpdateResourceInstanceRequest) (*http.Response, error)
+}
+
 // ResourceInstanceApiAPIService ResourceInstanceApiAPI service
 type ResourceInstanceApiAPIService service
 
 type ApiResourceInstanceApiAddCapacityToResourceInstanceRequest struct {
 	ctx context.Context
-	ApiService *ResourceInstanceApiAPIService
+	ApiService ResourceInstanceApiAPI
 	serviceProviderId string
 	serviceKey string
 	serviceAPIVersion string
@@ -229,7 +516,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCapacityToResource
 
 type ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest struct {
 	ctx context.Context
-	ApiService *ResourceInstanceApiAPIService
+	ApiService ResourceInstanceApiAPI
 	serviceProviderId string
 	serviceKey string
 	serviceAPIVersion string
@@ -433,7 +720,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCustomDNSToResourc
 
 type ApiResourceInstanceApiCreateResourceInstanceRequest struct {
 	ctx context.Context
-	ApiService *ResourceInstanceApiAPIService
+	ApiService ResourceInstanceApiAPI
 	serviceProviderId string
 	serviceKey string
 	serviceAPIVersion string
@@ -644,7 +931,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiCreateResourceInstanc
 
 type ApiResourceInstanceApiDeleteResourceInstanceRequest struct {
 	ctx context.Context
-	ApiService *ResourceInstanceApiAPIService
+	ApiService ResourceInstanceApiAPI
 	serviceProviderId string
 	serviceKey string
 	serviceAPIVersion string
@@ -837,7 +1124,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDeleteResourceInstanc
 
 type ApiResourceInstanceApiDescribeResourceInstanceRequest struct {
 	ctx context.Context
-	ApiService *ResourceInstanceApiAPIService
+	ApiService ResourceInstanceApiAPI
 	serviceProviderId string
 	serviceKey string
 	serviceAPIVersion string
@@ -1041,7 +1328,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDescribeResourceInsta
 
 type ApiResourceInstanceApiFailoverResourceInstanceRequest struct {
 	ctx context.Context
-	ApiService *ResourceInstanceApiAPIService
+	ApiService ResourceInstanceApiAPI
 	serviceProviderId string
 	serviceKey string
 	serviceAPIVersion string
@@ -1245,7 +1532,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiFailoverResourceInsta
 
 type ApiResourceInstanceApiListResourceInstancesRequest struct {
 	ctx context.Context
-	ApiService *ResourceInstanceApiAPIService
+	ApiService ResourceInstanceApiAPI
 	serviceProviderId string
 	serviceKey string
 	serviceAPIVersion string
@@ -1445,7 +1732,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstances
 
 type ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest struct {
 	ctx context.Context
-	ApiService *ResourceInstanceApiAPIService
+	ApiService ResourceInstanceApiAPI
 	serviceProviderId string
 	serviceKey string
 	serviceAPIVersion string
@@ -1649,7 +1936,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCapacityFromRes
 
 type ApiResourceInstanceApiRemoveCustomDNSFromResourceInstanceRequest struct {
 	ctx context.Context
-	ApiService *ResourceInstanceApiAPIService
+	ApiService ResourceInstanceApiAPI
 	serviceProviderId string
 	serviceKey string
 	serviceAPIVersion string
@@ -1842,7 +2129,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCustomDNSFromRe
 
 type ApiResourceInstanceApiResourceInstanceProvisionerSetupKitRequest struct {
 	ctx context.Context
-	ApiService *ResourceInstanceApiAPIService
+	ApiService ResourceInstanceApiAPI
 	serviceProviderId string
 	serviceKey string
 	serviceAPIVersion string
@@ -2023,7 +2310,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiResourceInstanceProvi
 
 type ApiResourceInstanceApiRestartResourceInstanceRequest struct {
 	ctx context.Context
-	ApiService *ResourceInstanceApiAPIService
+	ApiService ResourceInstanceApiAPI
 	serviceProviderId string
 	serviceKey string
 	serviceAPIVersion string
@@ -2216,7 +2503,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestartResourceInstan
 
 type ApiResourceInstanceApiRestoreResourceInstanceRequest struct {
 	ctx context.Context
-	ApiService *ResourceInstanceApiAPIService
+	ApiService ResourceInstanceApiAPI
 	serviceProviderId string
 	serviceKey string
 	serviceAPIVersion string
@@ -2431,7 +2718,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 
 type ApiResourceInstanceApiStartResourceInstanceRequest struct {
 	ctx context.Context
-	ApiService *ResourceInstanceApiAPIService
+	ApiService ResourceInstanceApiAPI
 	serviceProviderId string
 	serviceKey string
 	serviceAPIVersion string
@@ -2624,7 +2911,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStartResourceInstance
 
 type ApiResourceInstanceApiStopResourceInstanceRequest struct {
 	ctx context.Context
-	ApiService *ResourceInstanceApiAPIService
+	ApiService ResourceInstanceApiAPI
 	serviceProviderId string
 	serviceKey string
 	serviceAPIVersion string
@@ -2817,7 +3104,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStopResourceInstanceE
 
 type ApiResourceInstanceApiUpdateResourceInstanceRequest struct {
 	ctx context.Context
-	ApiService *ResourceInstanceApiAPIService
+	ApiService ResourceInstanceApiAPI
 	serviceProviderId string
 	serviceKey string
 	serviceAPIVersion string

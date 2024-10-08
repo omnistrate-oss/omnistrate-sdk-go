@@ -20,12 +20,119 @@ import (
 )
 
 
+type TierVersionSetApiAPI interface {
+
+	/*
+	TierVersionSetApiCreateTierVersionSet CreateTierVersionSet tier-version-set-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId ID of the Service
+	@param productTierId The product tier ID that this version set belongs to.
+	@return ApiTierVersionSetApiCreateTierVersionSetRequest
+	*/
+	TierVersionSetApiCreateTierVersionSet(ctx context.Context, serviceId string, productTierId string) ApiTierVersionSetApiCreateTierVersionSetRequest
+
+	// TierVersionSetApiCreateTierVersionSetExecute executes the request
+	//  @return CreateTierVersionSetResult
+	TierVersionSetApiCreateTierVersionSetExecute(r ApiTierVersionSetApiCreateTierVersionSetRequest) (*CreateTierVersionSetResult, *http.Response, error)
+
+	/*
+	TierVersionSetApiDeprecateTierVersionSet DeprecateTierVersionSet tier-version-set-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId ID of the Service
+	@param productTierId The product tier ID that this version set belongs to.
+	@param version The version number for the specific version set.
+	@return ApiTierVersionSetApiDeprecateTierVersionSetRequest
+	*/
+	TierVersionSetApiDeprecateTierVersionSet(ctx context.Context, serviceId string, productTierId string, version string) ApiTierVersionSetApiDeprecateTierVersionSetRequest
+
+	// TierVersionSetApiDeprecateTierVersionSetExecute executes the request
+	//  @return TierVersionSet
+	TierVersionSetApiDeprecateTierVersionSetExecute(r ApiTierVersionSetApiDeprecateTierVersionSetRequest) (*TierVersionSet, *http.Response, error)
+
+	/*
+	TierVersionSetApiDescribeTierVersionSet DescribeTierVersionSet tier-version-set-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId ID of the Service
+	@param productTierId The product tier ID that this version set belongs to.
+	@param version The version number for the specific version set.
+	@return ApiTierVersionSetApiDescribeTierVersionSetRequest
+	*/
+	TierVersionSetApiDescribeTierVersionSet(ctx context.Context, serviceId string, productTierId string, version string) ApiTierVersionSetApiDescribeTierVersionSetRequest
+
+	// TierVersionSetApiDescribeTierVersionSetExecute executes the request
+	//  @return TierVersionSet
+	TierVersionSetApiDescribeTierVersionSetExecute(r ApiTierVersionSetApiDescribeTierVersionSetRequest) (*TierVersionSet, *http.Response, error)
+
+	/*
+	TierVersionSetApiDiffTierVersionSets DiffTierVersionSets tier-version-set-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId ID of the Service
+	@param productTierId The product tier ID that this version set belongs to.
+	@param version The version number for the version set.
+	@param anotherVersion The target version to compare against.
+	@return ApiTierVersionSetApiDiffTierVersionSetsRequest
+	*/
+	TierVersionSetApiDiffTierVersionSets(ctx context.Context, serviceId string, productTierId string, version string, anotherVersion string) ApiTierVersionSetApiDiffTierVersionSetsRequest
+
+	// TierVersionSetApiDiffTierVersionSetsExecute executes the request
+	//  @return DiffTierVersionSetsResult
+	TierVersionSetApiDiffTierVersionSetsExecute(r ApiTierVersionSetApiDiffTierVersionSetsRequest) (*DiffTierVersionSetsResult, *http.Response, error)
+
+	/*
+	TierVersionSetApiListTierVersionSets ListTierVersionSets tier-version-set-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId ID of the Service
+	@param productTierId The product tier ID that this version set belongs to.
+	@return ApiTierVersionSetApiListTierVersionSetsRequest
+	*/
+	TierVersionSetApiListTierVersionSets(ctx context.Context, serviceId string, productTierId string) ApiTierVersionSetApiListTierVersionSetsRequest
+
+	// TierVersionSetApiListTierVersionSetsExecute executes the request
+	//  @return ListTierVersionSetsResult
+	TierVersionSetApiListTierVersionSetsExecute(r ApiTierVersionSetApiListTierVersionSetsRequest) (*ListTierVersionSetsResult, *http.Response, error)
+
+	/*
+	TierVersionSetApiPromoteTierVersionSet PromoteTierVersionSet tier-version-set-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId ID of the Service
+	@param productTierId The product tier ID that this version set belongs to.
+	@param version The version number for the specific version set.
+	@return ApiTierVersionSetApiPromoteTierVersionSetRequest
+	*/
+	TierVersionSetApiPromoteTierVersionSet(ctx context.Context, serviceId string, productTierId string, version string) ApiTierVersionSetApiPromoteTierVersionSetRequest
+
+	// TierVersionSetApiPromoteTierVersionSetExecute executes the request
+	//  @return TierVersionSet
+	TierVersionSetApiPromoteTierVersionSetExecute(r ApiTierVersionSetApiPromoteTierVersionSetRequest) (*TierVersionSet, *http.Response, error)
+
+	/*
+	TierVersionSetApiReleaseTierVersionSet ReleaseTierVersionSet tier-version-set-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId ID of the Service
+	@param productTierId The product tier ID that this version set belongs to.
+	@param version The version number for the specific version set.
+	@return ApiTierVersionSetApiReleaseTierVersionSetRequest
+	*/
+	TierVersionSetApiReleaseTierVersionSet(ctx context.Context, serviceId string, productTierId string, version string) ApiTierVersionSetApiReleaseTierVersionSetRequest
+
+	// TierVersionSetApiReleaseTierVersionSetExecute executes the request
+	//  @return TierVersionSet
+	TierVersionSetApiReleaseTierVersionSetExecute(r ApiTierVersionSetApiReleaseTierVersionSetRequest) (*TierVersionSet, *http.Response, error)
+}
+
 // TierVersionSetApiAPIService TierVersionSetApiAPI service
 type TierVersionSetApiAPIService service
 
 type ApiTierVersionSetApiCreateTierVersionSetRequest struct {
 	ctx context.Context
-	ApiService *TierVersionSetApiAPIService
+	ApiService TierVersionSetApiAPI
 	serviceId string
 	productTierId string
 	createTierVersionSetRequestBody *CreateTierVersionSetRequestBody
@@ -206,7 +313,7 @@ func (a *TierVersionSetApiAPIService) TierVersionSetApiCreateTierVersionSetExecu
 
 type ApiTierVersionSetApiDeprecateTierVersionSetRequest struct {
 	ctx context.Context
-	ApiService *TierVersionSetApiAPIService
+	ApiService TierVersionSetApiAPI
 	serviceId string
 	productTierId string
 	version string
@@ -380,7 +487,7 @@ func (a *TierVersionSetApiAPIService) TierVersionSetApiDeprecateTierVersionSetEx
 
 type ApiTierVersionSetApiDescribeTierVersionSetRequest struct {
 	ctx context.Context
-	ApiService *TierVersionSetApiAPIService
+	ApiService TierVersionSetApiAPI
 	serviceId string
 	productTierId string
 	version string
@@ -554,7 +661,7 @@ func (a *TierVersionSetApiAPIService) TierVersionSetApiDescribeTierVersionSetExe
 
 type ApiTierVersionSetApiDiffTierVersionSetsRequest struct {
 	ctx context.Context
-	ApiService *TierVersionSetApiAPIService
+	ApiService TierVersionSetApiAPI
 	serviceId string
 	productTierId string
 	version string
@@ -732,7 +839,7 @@ func (a *TierVersionSetApiAPIService) TierVersionSetApiDiffTierVersionSetsExecut
 
 type ApiTierVersionSetApiListTierVersionSetsRequest struct {
 	ctx context.Context
-	ApiService *TierVersionSetApiAPIService
+	ApiService TierVersionSetApiAPI
 	serviceId string
 	productTierId string
 	latestMajorVersionOnly *bool
@@ -922,7 +1029,7 @@ func (a *TierVersionSetApiAPIService) TierVersionSetApiListTierVersionSetsExecut
 
 type ApiTierVersionSetApiPromoteTierVersionSetRequest struct {
 	ctx context.Context
-	ApiService *TierVersionSetApiAPIService
+	ApiService TierVersionSetApiAPI
 	serviceId string
 	productTierId string
 	version string
@@ -1096,7 +1203,7 @@ func (a *TierVersionSetApiAPIService) TierVersionSetApiPromoteTierVersionSetExec
 
 type ApiTierVersionSetApiReleaseTierVersionSetRequest struct {
 	ctx context.Context
-	ApiService *TierVersionSetApiAPIService
+	ApiService TierVersionSetApiAPI
 	serviceId string
 	productTierId string
 	version string

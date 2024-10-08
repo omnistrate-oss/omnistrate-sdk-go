@@ -19,12 +19,39 @@ import (
 )
 
 
+type SigninApiAPI interface {
+
+	/*
+	SigninApiLoginWithIdentityProvider LoginWithIdentityProvider signin-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSigninApiLoginWithIdentityProviderRequest
+	*/
+	SigninApiLoginWithIdentityProvider(ctx context.Context) ApiSigninApiLoginWithIdentityProviderRequest
+
+	// SigninApiLoginWithIdentityProviderExecute executes the request
+	//  @return SigninResult
+	SigninApiLoginWithIdentityProviderExecute(r ApiSigninApiLoginWithIdentityProviderRequest) (*SigninResult, *http.Response, error)
+
+	/*
+	SigninApiSignin Signin signin-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSigninApiSigninRequest
+	*/
+	SigninApiSignin(ctx context.Context) ApiSigninApiSigninRequest
+
+	// SigninApiSigninExecute executes the request
+	//  @return SigninResult
+	SigninApiSigninExecute(r ApiSigninApiSigninRequest) (*SigninResult, *http.Response, error)
+}
+
 // SigninApiAPIService SigninApiAPI service
 type SigninApiAPIService service
 
 type ApiSigninApiLoginWithIdentityProviderRequest struct {
 	ctx context.Context
-	ApiService *SigninApiAPIService
+	ApiService SigninApiAPI
 	loginWithIdentityProviderRequestBody *LoginWithIdentityProviderRequestBody
 }
 
@@ -197,7 +224,7 @@ func (a *SigninApiAPIService) SigninApiLoginWithIdentityProviderExecute(r ApiSig
 
 type ApiSigninApiSigninRequest struct {
 	ctx context.Context
-	ApiService *SigninApiAPIService
+	ApiService SigninApiAPI
 	signinRequestBody *SigninRequestBody
 }
 

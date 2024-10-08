@@ -19,12 +19,38 @@ import (
 )
 
 
+type PlanApiAPI interface {
+
+	/*
+	PlanApiChangePlan ChangePlan plan-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPlanApiChangePlanRequest
+	*/
+	PlanApiChangePlan(ctx context.Context) ApiPlanApiChangePlanRequest
+
+	// PlanApiChangePlanExecute executes the request
+	PlanApiChangePlanExecute(r ApiPlanApiChangePlanRequest) (*http.Response, error)
+
+	/*
+	PlanApiDescribePlan DescribePlan plan-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPlanApiDescribePlanRequest
+	*/
+	PlanApiDescribePlan(ctx context.Context) ApiPlanApiDescribePlanRequest
+
+	// PlanApiDescribePlanExecute executes the request
+	//  @return DescribePlanResult
+	PlanApiDescribePlanExecute(r ApiPlanApiDescribePlanRequest) (*DescribePlanResult, *http.Response, error)
+}
+
 // PlanApiAPIService PlanApiAPI service
 type PlanApiAPIService service
 
 type ApiPlanApiChangePlanRequest struct {
 	ctx context.Context
-	ApiService *PlanApiAPIService
+	ApiService PlanApiAPI
 	changePlanRequestBody *ChangePlanRequestBody
 }
 
@@ -186,7 +212,7 @@ func (a *PlanApiAPIService) PlanApiChangePlanExecute(r ApiPlanApiChangePlanReque
 
 type ApiPlanApiDescribePlanRequest struct {
 	ctx context.Context
-	ApiService *PlanApiAPIService
+	ApiService PlanApiAPI
 }
 
 func (r ApiPlanApiDescribePlanRequest) Execute() (*DescribePlanResult, *http.Response, error) {

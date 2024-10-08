@@ -20,12 +20,107 @@ import (
 )
 
 
+type StorageVolumeConfigApiAPI interface {
+
+	/*
+	StorageVolumeConfigApiCreateStorageVolumeConfig CreateStorageVolumeConfig storage-volume-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@return ApiStorageVolumeConfigApiCreateStorageVolumeConfigRequest
+	*/
+	StorageVolumeConfigApiCreateStorageVolumeConfig(ctx context.Context, serviceId string) ApiStorageVolumeConfigApiCreateStorageVolumeConfigRequest
+
+	// StorageVolumeConfigApiCreateStorageVolumeConfigExecute executes the request
+	//  @return string
+	StorageVolumeConfigApiCreateStorageVolumeConfigExecute(r ApiStorageVolumeConfigApiCreateStorageVolumeConfigRequest) (string, *http.Response, error)
+
+	/*
+	StorageVolumeConfigApiDeleteStorageVolumeConfig DeleteStorageVolumeConfig storage-volume-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id The storage volume config ID
+	@return ApiStorageVolumeConfigApiDeleteStorageVolumeConfigRequest
+	*/
+	StorageVolumeConfigApiDeleteStorageVolumeConfig(ctx context.Context, serviceId string, id string) ApiStorageVolumeConfigApiDeleteStorageVolumeConfigRequest
+
+	// StorageVolumeConfigApiDeleteStorageVolumeConfigExecute executes the request
+	StorageVolumeConfigApiDeleteStorageVolumeConfigExecute(r ApiStorageVolumeConfigApiDeleteStorageVolumeConfigRequest) (*http.Response, error)
+
+	/*
+	StorageVolumeConfigApiDescribeStorageVolumeConfig DescribeStorageVolumeConfig storage-volume-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id The storage volume config ID
+	@return ApiStorageVolumeConfigApiDescribeStorageVolumeConfigRequest
+	*/
+	StorageVolumeConfigApiDescribeStorageVolumeConfig(ctx context.Context, serviceId string, id string) ApiStorageVolumeConfigApiDescribeStorageVolumeConfigRequest
+
+	// StorageVolumeConfigApiDescribeStorageVolumeConfigExecute executes the request
+	//  @return DescribeStorageVolumeConfigResult
+	StorageVolumeConfigApiDescribeStorageVolumeConfigExecute(r ApiStorageVolumeConfigApiDescribeStorageVolumeConfigRequest) (*DescribeStorageVolumeConfigResult, *http.Response, error)
+
+	/*
+	StorageVolumeConfigApiListStorageVolumeConfig ListStorageVolumeConfig storage-volume-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service to list storage volume configs for
+	@return ApiStorageVolumeConfigApiListStorageVolumeConfigRequest
+	*/
+	StorageVolumeConfigApiListStorageVolumeConfig(ctx context.Context, serviceId string) ApiStorageVolumeConfigApiListStorageVolumeConfigRequest
+
+	// StorageVolumeConfigApiListStorageVolumeConfigExecute executes the request
+	//  @return ListServiceEnvironmentsResult
+	StorageVolumeConfigApiListStorageVolumeConfigExecute(r ApiStorageVolumeConfigApiListStorageVolumeConfigRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+
+	/*
+	StorageVolumeConfigApiUpdateInstanceStorageVolumeConfig UpdateInstanceStorageVolumeConfig storage-volume-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id The storage volume config ID
+	@return ApiStorageVolumeConfigApiUpdateInstanceStorageVolumeConfigRequest
+	*/
+	StorageVolumeConfigApiUpdateInstanceStorageVolumeConfig(ctx context.Context, serviceId string, id string) ApiStorageVolumeConfigApiUpdateInstanceStorageVolumeConfigRequest
+
+	// StorageVolumeConfigApiUpdateInstanceStorageVolumeConfigExecute executes the request
+	StorageVolumeConfigApiUpdateInstanceStorageVolumeConfigExecute(r ApiStorageVolumeConfigApiUpdateInstanceStorageVolumeConfigRequest) (*http.Response, error)
+
+	/*
+	StorageVolumeConfigApiUpdateStorageVolumeConfig UpdateStorageVolumeConfig storage-volume-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id The storage volume config ID
+	@return ApiStorageVolumeConfigApiUpdateStorageVolumeConfigRequest
+	*/
+	StorageVolumeConfigApiUpdateStorageVolumeConfig(ctx context.Context, serviceId string, id string) ApiStorageVolumeConfigApiUpdateStorageVolumeConfigRequest
+
+	// StorageVolumeConfigApiUpdateStorageVolumeConfigExecute executes the request
+	StorageVolumeConfigApiUpdateStorageVolumeConfigExecute(r ApiStorageVolumeConfigApiUpdateStorageVolumeConfigRequest) (*http.Response, error)
+
+	/*
+	StorageVolumeConfigApiUpdateStorageVolumeSizeConfig UpdateStorageVolumeSizeConfig storage-volume-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id The storage volume config ID
+	@return ApiStorageVolumeConfigApiUpdateStorageVolumeSizeConfigRequest
+	*/
+	StorageVolumeConfigApiUpdateStorageVolumeSizeConfig(ctx context.Context, serviceId string, id string) ApiStorageVolumeConfigApiUpdateStorageVolumeSizeConfigRequest
+
+	// StorageVolumeConfigApiUpdateStorageVolumeSizeConfigExecute executes the request
+	StorageVolumeConfigApiUpdateStorageVolumeSizeConfigExecute(r ApiStorageVolumeConfigApiUpdateStorageVolumeSizeConfigRequest) (*http.Response, error)
+}
+
 // StorageVolumeConfigApiAPIService StorageVolumeConfigApiAPI service
 type StorageVolumeConfigApiAPIService service
 
 type ApiStorageVolumeConfigApiCreateStorageVolumeConfigRequest struct {
 	ctx context.Context
-	ApiService *StorageVolumeConfigApiAPIService
+	ApiService StorageVolumeConfigApiAPI
 	serviceId string
 	createStorageVolumeConfigRequestBody *CreateStorageVolumeConfigRequestBody
 }
@@ -202,7 +297,7 @@ func (a *StorageVolumeConfigApiAPIService) StorageVolumeConfigApiCreateStorageVo
 
 type ApiStorageVolumeConfigApiDeleteStorageVolumeConfigRequest struct {
 	ctx context.Context
-	ApiService *StorageVolumeConfigApiAPIService
+	ApiService StorageVolumeConfigApiAPI
 	serviceId string
 	id string
 }
@@ -361,7 +456,7 @@ func (a *StorageVolumeConfigApiAPIService) StorageVolumeConfigApiDeleteStorageVo
 
 type ApiStorageVolumeConfigApiDescribeStorageVolumeConfigRequest struct {
 	ctx context.Context
-	ApiService *StorageVolumeConfigApiAPIService
+	ApiService StorageVolumeConfigApiAPI
 	serviceId string
 	id string
 	productTierVersion *string
@@ -551,7 +646,7 @@ func (a *StorageVolumeConfigApiAPIService) StorageVolumeConfigApiDescribeStorage
 
 type ApiStorageVolumeConfigApiListStorageVolumeConfigRequest struct {
 	ctx context.Context
-	ApiService *StorageVolumeConfigApiAPIService
+	ApiService StorageVolumeConfigApiAPI
 	serviceId string
 	managed *bool
 }
@@ -727,7 +822,7 @@ func (a *StorageVolumeConfigApiAPIService) StorageVolumeConfigApiListStorageVolu
 
 type ApiStorageVolumeConfigApiUpdateInstanceStorageVolumeConfigRequest struct {
 	ctx context.Context
-	ApiService *StorageVolumeConfigApiAPIService
+	ApiService StorageVolumeConfigApiAPI
 	serviceId string
 	id string
 	updateInstanceStorageVolumeConfigRequestBody *UpdateInstanceStorageVolumeConfigRequestBody
@@ -897,7 +992,7 @@ func (a *StorageVolumeConfigApiAPIService) StorageVolumeConfigApiUpdateInstanceS
 
 type ApiStorageVolumeConfigApiUpdateStorageVolumeConfigRequest struct {
 	ctx context.Context
-	ApiService *StorageVolumeConfigApiAPIService
+	ApiService StorageVolumeConfigApiAPI
 	serviceId string
 	id string
 	updateStorageVolumeConfigRequestBody *UpdateStorageVolumeConfigRequestBody
@@ -1067,7 +1162,7 @@ func (a *StorageVolumeConfigApiAPIService) StorageVolumeConfigApiUpdateStorageVo
 
 type ApiStorageVolumeConfigApiUpdateStorageVolumeSizeConfigRequest struct {
 	ctx context.Context
-	ApiService *StorageVolumeConfigApiAPIService
+	ApiService StorageVolumeConfigApiAPI
 	serviceId string
 	id string
 	updateStorageVolumeSizeConfigRequestBody *UpdateStorageVolumeSizeConfigRequestBody

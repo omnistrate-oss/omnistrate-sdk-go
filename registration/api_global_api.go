@@ -19,12 +19,71 @@ import (
 )
 
 
+type GlobalApiAPI interface {
+
+	/*
+	GlobalApiConsumptionServiceHealth consumptionServiceHealth global-api
+
+	Consumption service health check endpoint
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGlobalApiConsumptionServiceHealthRequest
+	*/
+	GlobalApiConsumptionServiceHealth(ctx context.Context) ApiGlobalApiConsumptionServiceHealthRequest
+
+	// GlobalApiConsumptionServiceHealthExecute executes the request
+	//  @return OmnistrateServiceHealthResult
+	GlobalApiConsumptionServiceHealthExecute(r ApiGlobalApiConsumptionServiceHealthRequest) (*OmnistrateServiceHealthResult, *http.Response, error)
+
+	/*
+	GlobalApiConsumptionServiceVersion consumptionServiceVersion global-api
+
+	Consumption service version endpoint
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGlobalApiConsumptionServiceVersionRequest
+	*/
+	GlobalApiConsumptionServiceVersion(ctx context.Context) ApiGlobalApiConsumptionServiceVersionRequest
+
+	// GlobalApiConsumptionServiceVersionExecute executes the request
+	//  @return OmnistrateServiceVersionResult
+	GlobalApiConsumptionServiceVersionExecute(r ApiGlobalApiConsumptionServiceVersionRequest) (*OmnistrateServiceVersionResult, *http.Response, error)
+
+	/*
+	GlobalApiRegistrationServiceHealth registrationServiceHealth global-api
+
+	Registration service health check endpoint
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGlobalApiRegistrationServiceHealthRequest
+	*/
+	GlobalApiRegistrationServiceHealth(ctx context.Context) ApiGlobalApiRegistrationServiceHealthRequest
+
+	// GlobalApiRegistrationServiceHealthExecute executes the request
+	//  @return OmnistrateServiceHealthResult
+	GlobalApiRegistrationServiceHealthExecute(r ApiGlobalApiRegistrationServiceHealthRequest) (*OmnistrateServiceHealthResult, *http.Response, error)
+
+	/*
+	GlobalApiRegistrationServiceVersion registrationServiceVersion global-api
+
+	Registration service version endpoint
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGlobalApiRegistrationServiceVersionRequest
+	*/
+	GlobalApiRegistrationServiceVersion(ctx context.Context) ApiGlobalApiRegistrationServiceVersionRequest
+
+	// GlobalApiRegistrationServiceVersionExecute executes the request
+	//  @return OmnistrateServiceVersionResult
+	GlobalApiRegistrationServiceVersionExecute(r ApiGlobalApiRegistrationServiceVersionRequest) (*OmnistrateServiceVersionResult, *http.Response, error)
+}
+
 // GlobalApiAPIService GlobalApiAPI service
 type GlobalApiAPIService service
 
 type ApiGlobalApiConsumptionServiceHealthRequest struct {
 	ctx context.Context
-	ApiService *GlobalApiAPIService
+	ApiService GlobalApiAPI
 }
 
 func (r ApiGlobalApiConsumptionServiceHealthRequest) Execute() (*OmnistrateServiceHealthResult, *http.Response, error) {
@@ -123,7 +182,7 @@ func (a *GlobalApiAPIService) GlobalApiConsumptionServiceHealthExecute(r ApiGlob
 
 type ApiGlobalApiConsumptionServiceVersionRequest struct {
 	ctx context.Context
-	ApiService *GlobalApiAPIService
+	ApiService GlobalApiAPI
 }
 
 func (r ApiGlobalApiConsumptionServiceVersionRequest) Execute() (*OmnistrateServiceVersionResult, *http.Response, error) {
@@ -222,7 +281,7 @@ func (a *GlobalApiAPIService) GlobalApiConsumptionServiceVersionExecute(r ApiGlo
 
 type ApiGlobalApiRegistrationServiceHealthRequest struct {
 	ctx context.Context
-	ApiService *GlobalApiAPIService
+	ApiService GlobalApiAPI
 }
 
 func (r ApiGlobalApiRegistrationServiceHealthRequest) Execute() (*OmnistrateServiceHealthResult, *http.Response, error) {
@@ -321,7 +380,7 @@ func (a *GlobalApiAPIService) GlobalApiRegistrationServiceHealthExecute(r ApiGlo
 
 type ApiGlobalApiRegistrationServiceVersionRequest struct {
 	ctx context.Context
-	ApiService *GlobalApiAPIService
+	ApiService GlobalApiAPI
 }
 
 func (r ApiGlobalApiRegistrationServiceVersionRequest) Execute() (*OmnistrateServiceVersionResult, *http.Response, error) {

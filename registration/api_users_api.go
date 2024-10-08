@@ -20,12 +20,163 @@ import (
 )
 
 
+type UsersApiAPI interface {
+
+	/*
+	UsersApiCustomerInviteUser CustomerInviteUser users-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUsersApiCustomerInviteUserRequest
+	*/
+	UsersApiCustomerInviteUser(ctx context.Context) ApiUsersApiCustomerInviteUserRequest
+
+	// UsersApiCustomerInviteUserExecute executes the request
+	UsersApiCustomerInviteUserExecute(r ApiUsersApiCustomerInviteUserRequest) (*http.Response, error)
+
+	/*
+	UsersApiCustomerLoginWithIdentityProvider CustomerLoginWithIdentityProvider users-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUsersApiCustomerLoginWithIdentityProviderRequest
+	*/
+	UsersApiCustomerLoginWithIdentityProvider(ctx context.Context) ApiUsersApiCustomerLoginWithIdentityProviderRequest
+
+	// UsersApiCustomerLoginWithIdentityProviderExecute executes the request
+	//  @return SigninResult
+	UsersApiCustomerLoginWithIdentityProviderExecute(r ApiUsersApiCustomerLoginWithIdentityProviderRequest) (*SigninResult, *http.Response, error)
+
+	/*
+	UsersApiCustomerResetPassword CustomerResetPassword users-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUsersApiCustomerResetPasswordRequest
+	*/
+	UsersApiCustomerResetPassword(ctx context.Context) ApiUsersApiCustomerResetPasswordRequest
+
+	// UsersApiCustomerResetPasswordExecute executes the request
+	UsersApiCustomerResetPasswordExecute(r ApiUsersApiCustomerResetPasswordRequest) (*http.Response, error)
+
+	/*
+	UsersApiCustomerSignin CustomerSignin users-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUsersApiCustomerSigninRequest
+	*/
+	UsersApiCustomerSignin(ctx context.Context) ApiUsersApiCustomerSigninRequest
+
+	// UsersApiCustomerSigninExecute executes the request
+	//  @return SigninResult
+	UsersApiCustomerSigninExecute(r ApiUsersApiCustomerSigninRequest) (*SigninResult, *http.Response, error)
+
+	/*
+	UsersApiCustomerSignup CustomerSignup users-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUsersApiCustomerSignupRequest
+	*/
+	UsersApiCustomerSignup(ctx context.Context) ApiUsersApiCustomerSignupRequest
+
+	// UsersApiCustomerSignupExecute executes the request
+	UsersApiCustomerSignupExecute(r ApiUsersApiCustomerSignupRequest) (*http.Response, error)
+
+	/*
+	UsersApiDeleteUser DeleteUser users-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUsersApiDeleteUserRequest
+	*/
+	UsersApiDeleteUser(ctx context.Context) ApiUsersApiDeleteUserRequest
+
+	// UsersApiDeleteUserExecute executes the request
+	UsersApiDeleteUserExecute(r ApiUsersApiDeleteUserRequest) (*http.Response, error)
+
+	/*
+	UsersApiDescribeUser DescribeUser users-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUsersApiDescribeUserRequest
+	*/
+	UsersApiDescribeUser(ctx context.Context) ApiUsersApiDescribeUserRequest
+
+	// UsersApiDescribeUserExecute executes the request
+	//  @return DescribeUserResult
+	UsersApiDescribeUserExecute(r ApiUsersApiDescribeUserRequest) (*DescribeUserResult, *http.Response, error)
+
+	/*
+	UsersApiDescribeUsersByOrg DescribeUsersByOrg users-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUsersApiDescribeUsersByOrgRequest
+	*/
+	UsersApiDescribeUsersByOrg(ctx context.Context) ApiUsersApiDescribeUsersByOrgRequest
+
+	// UsersApiDescribeUsersByOrgExecute executes the request
+	//  @return DescribeUsersByOrgResult
+	UsersApiDescribeUsersByOrgExecute(r ApiUsersApiDescribeUsersByOrgRequest) (*DescribeUsersByOrgResult, *http.Response, error)
+
+	/*
+	UsersApiInviteUser InviteUser users-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUsersApiInviteUserRequest
+	*/
+	UsersApiInviteUser(ctx context.Context) ApiUsersApiInviteUserRequest
+
+	// UsersApiInviteUserExecute executes the request
+	UsersApiInviteUserExecute(r ApiUsersApiInviteUserRequest) (*http.Response, error)
+
+	/*
+	UsersApiLogout Logout users-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUsersApiLogoutRequest
+	*/
+	UsersApiLogout(ctx context.Context) ApiUsersApiLogoutRequest
+
+	// UsersApiLogoutExecute executes the request
+	UsersApiLogoutExecute(r ApiUsersApiLogoutRequest) (*http.Response, error)
+
+	/*
+	UsersApiRevokeUserRole RevokeUserRole users-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUsersApiRevokeUserRoleRequest
+	*/
+	UsersApiRevokeUserRole(ctx context.Context) ApiUsersApiRevokeUserRoleRequest
+
+	// UsersApiRevokeUserRoleExecute executes the request
+	UsersApiRevokeUserRoleExecute(r ApiUsersApiRevokeUserRoleRequest) (*http.Response, error)
+
+	/*
+	UsersApiUpdatePassword UpdatePassword users-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUsersApiUpdatePasswordRequest
+	*/
+	UsersApiUpdatePassword(ctx context.Context) ApiUsersApiUpdatePasswordRequest
+
+	// UsersApiUpdatePasswordExecute executes the request
+	UsersApiUpdatePasswordExecute(r ApiUsersApiUpdatePasswordRequest) (*http.Response, error)
+
+	/*
+	UsersApiUpdateUser UpdateUser users-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The User ID
+	@return ApiUsersApiUpdateUserRequest
+	*/
+	UsersApiUpdateUser(ctx context.Context, id string) ApiUsersApiUpdateUserRequest
+
+	// UsersApiUpdateUserExecute executes the request
+	UsersApiUpdateUserExecute(r ApiUsersApiUpdateUserRequest) (*http.Response, error)
+}
+
 // UsersApiAPIService UsersApiAPI service
 type UsersApiAPIService service
 
 type ApiUsersApiCustomerInviteUserRequest struct {
 	ctx context.Context
-	ApiService *UsersApiAPIService
+	ApiService UsersApiAPI
 	resetPasswordRequestBody *ResetPasswordRequestBody
 }
 
@@ -187,7 +338,7 @@ func (a *UsersApiAPIService) UsersApiCustomerInviteUserExecute(r ApiUsersApiCust
 
 type ApiUsersApiCustomerLoginWithIdentityProviderRequest struct {
 	ctx context.Context
-	ApiService *UsersApiAPIService
+	ApiService UsersApiAPI
 	customerLoginWithIdentityProviderRequestBody *CustomerLoginWithIdentityProviderRequestBody
 }
 
@@ -360,7 +511,7 @@ func (a *UsersApiAPIService) UsersApiCustomerLoginWithIdentityProviderExecute(r 
 
 type ApiUsersApiCustomerResetPasswordRequest struct {
 	ctx context.Context
-	ApiService *UsersApiAPIService
+	ApiService UsersApiAPI
 	resetPasswordRequestBody *ResetPasswordRequestBody
 }
 
@@ -522,7 +673,7 @@ func (a *UsersApiAPIService) UsersApiCustomerResetPasswordExecute(r ApiUsersApiC
 
 type ApiUsersApiCustomerSigninRequest struct {
 	ctx context.Context
-	ApiService *UsersApiAPIService
+	ApiService UsersApiAPI
 	customerSigninRequestBody *CustomerSigninRequestBody
 }
 
@@ -695,7 +846,7 @@ func (a *UsersApiAPIService) UsersApiCustomerSigninExecute(r ApiUsersApiCustomer
 
 type ApiUsersApiCustomerSignupRequest struct {
 	ctx context.Context
-	ApiService *UsersApiAPIService
+	ApiService UsersApiAPI
 	signupRequestBody *SignupRequestBody
 }
 
@@ -857,7 +1008,7 @@ func (a *UsersApiAPIService) UsersApiCustomerSignupExecute(r ApiUsersApiCustomer
 
 type ApiUsersApiDeleteUserRequest struct {
 	ctx context.Context
-	ApiService *UsersApiAPIService
+	ApiService UsersApiAPI
 }
 
 func (r ApiUsersApiDeleteUserRequest) Execute() (*http.Response, error) {
@@ -1008,7 +1159,7 @@ func (a *UsersApiAPIService) UsersApiDeleteUserExecute(r ApiUsersApiDeleteUserRe
 
 type ApiUsersApiDescribeUserRequest struct {
 	ctx context.Context
-	ApiService *UsersApiAPIService
+	ApiService UsersApiAPI
 }
 
 func (r ApiUsersApiDescribeUserRequest) Execute() (*DescribeUserResult, *http.Response, error) {
@@ -1170,7 +1321,7 @@ func (a *UsersApiAPIService) UsersApiDescribeUserExecute(r ApiUsersApiDescribeUs
 
 type ApiUsersApiDescribeUsersByOrgRequest struct {
 	ctx context.Context
-	ApiService *UsersApiAPIService
+	ApiService UsersApiAPI
 }
 
 func (r ApiUsersApiDescribeUsersByOrgRequest) Execute() (*DescribeUsersByOrgResult, *http.Response, error) {
@@ -1321,7 +1472,7 @@ func (a *UsersApiAPIService) UsersApiDescribeUsersByOrgExecute(r ApiUsersApiDesc
 
 type ApiUsersApiInviteUserRequest struct {
 	ctx context.Context
-	ApiService *UsersApiAPIService
+	ApiService UsersApiAPI
 	inviteUserRequestBody *InviteUserRequestBody
 }
 
@@ -1483,7 +1634,7 @@ func (a *UsersApiAPIService) UsersApiInviteUserExecute(r ApiUsersApiInviteUserRe
 
 type ApiUsersApiLogoutRequest struct {
 	ctx context.Context
-	ApiService *UsersApiAPIService
+	ApiService UsersApiAPI
 }
 
 func (r ApiUsersApiLogoutRequest) Execute() (*http.Response, error) {
@@ -1634,7 +1785,7 @@ func (a *UsersApiAPIService) UsersApiLogoutExecute(r ApiUsersApiLogoutRequest) (
 
 type ApiUsersApiRevokeUserRoleRequest struct {
 	ctx context.Context
-	ApiService *UsersApiAPIService
+	ApiService UsersApiAPI
 	inviteUserRequestBody *InviteUserRequestBody
 }
 
@@ -1796,7 +1947,7 @@ func (a *UsersApiAPIService) UsersApiRevokeUserRoleExecute(r ApiUsersApiRevokeUs
 
 type ApiUsersApiUpdatePasswordRequest struct {
 	ctx context.Context
-	ApiService *UsersApiAPIService
+	ApiService UsersApiAPI
 	updatePasswordRequestBody *UpdatePasswordRequestBody
 }
 
@@ -1958,7 +2109,7 @@ func (a *UsersApiAPIService) UsersApiUpdatePasswordExecute(r ApiUsersApiUpdatePa
 
 type ApiUsersApiUpdateUserRequest struct {
 	ctx context.Context
-	ApiService *UsersApiAPIService
+	ApiService UsersApiAPI
 	id string
 	updateUserRequestBody *UpdateUserRequestBody
 }

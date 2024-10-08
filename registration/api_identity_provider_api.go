@@ -20,12 +20,89 @@ import (
 )
 
 
+type IdentityProviderApiAPI interface {
+
+	/*
+	IdentityProviderApiCreateIdentityProvider CreateIdentityProvider identity-provider-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIdentityProviderApiCreateIdentityProviderRequest
+	*/
+	IdentityProviderApiCreateIdentityProvider(ctx context.Context) ApiIdentityProviderApiCreateIdentityProviderRequest
+
+	// IdentityProviderApiCreateIdentityProviderExecute executes the request
+	//  @return string
+	IdentityProviderApiCreateIdentityProviderExecute(r ApiIdentityProviderApiCreateIdentityProviderRequest) (string, *http.Response, error)
+
+	/*
+	IdentityProviderApiDeleteIdentityProvider DeleteIdentityProvider identity-provider-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Identity Provider ID
+	@return ApiIdentityProviderApiDeleteIdentityProviderRequest
+	*/
+	IdentityProviderApiDeleteIdentityProvider(ctx context.Context, id string) ApiIdentityProviderApiDeleteIdentityProviderRequest
+
+	// IdentityProviderApiDeleteIdentityProviderExecute executes the request
+	IdentityProviderApiDeleteIdentityProviderExecute(r ApiIdentityProviderApiDeleteIdentityProviderRequest) (*http.Response, error)
+
+	/*
+	IdentityProviderApiDescribeIdentityProvider DescribeIdentityProvider identity-provider-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Identity Provider ID
+	@return ApiIdentityProviderApiDescribeIdentityProviderRequest
+	*/
+	IdentityProviderApiDescribeIdentityProvider(ctx context.Context, id string) ApiIdentityProviderApiDescribeIdentityProviderRequest
+
+	// IdentityProviderApiDescribeIdentityProviderExecute executes the request
+	//  @return DescribeIdentityProviderResult
+	IdentityProviderApiDescribeIdentityProviderExecute(r ApiIdentityProviderApiDescribeIdentityProviderRequest) (*DescribeIdentityProviderResult, *http.Response, error)
+
+	/*
+	IdentityProviderApiListIdentityProviders ListIdentityProviders identity-provider-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIdentityProviderApiListIdentityProvidersRequest
+	*/
+	IdentityProviderApiListIdentityProviders(ctx context.Context) ApiIdentityProviderApiListIdentityProvidersRequest
+
+	// IdentityProviderApiListIdentityProvidersExecute executes the request
+	//  @return ListIdentityProvidersResult
+	IdentityProviderApiListIdentityProvidersExecute(r ApiIdentityProviderApiListIdentityProvidersRequest) (*ListIdentityProvidersResult, *http.Response, error)
+
+	/*
+	IdentityProviderApiUpdateIdentityProvider UpdateIdentityProvider identity-provider-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Identity Provider ID
+	@return ApiIdentityProviderApiUpdateIdentityProviderRequest
+	*/
+	IdentityProviderApiUpdateIdentityProvider(ctx context.Context, id string) ApiIdentityProviderApiUpdateIdentityProviderRequest
+
+	// IdentityProviderApiUpdateIdentityProviderExecute executes the request
+	IdentityProviderApiUpdateIdentityProviderExecute(r ApiIdentityProviderApiUpdateIdentityProviderRequest) (*http.Response, error)
+
+	/*
+	IdentityProviderApiVerifyIdentityProvider VerifyIdentityProvider identity-provider-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The Identity Provider ID
+	@return ApiIdentityProviderApiVerifyIdentityProviderRequest
+	*/
+	IdentityProviderApiVerifyIdentityProvider(ctx context.Context, id string) ApiIdentityProviderApiVerifyIdentityProviderRequest
+
+	// IdentityProviderApiVerifyIdentityProviderExecute executes the request
+	//  @return DescribeIdentityProviderResult
+	IdentityProviderApiVerifyIdentityProviderExecute(r ApiIdentityProviderApiVerifyIdentityProviderRequest) (*DescribeIdentityProviderResult, *http.Response, error)
+}
+
 // IdentityProviderApiAPIService IdentityProviderApiAPI service
 type IdentityProviderApiAPIService service
 
 type ApiIdentityProviderApiCreateIdentityProviderRequest struct {
 	ctx context.Context
-	ApiService *IdentityProviderApiAPIService
+	ApiService IdentityProviderApiAPI
 	createIdentityProviderRequestBody *CreateIdentityProviderRequestBody
 }
 
@@ -198,7 +275,7 @@ func (a *IdentityProviderApiAPIService) IdentityProviderApiCreateIdentityProvide
 
 type ApiIdentityProviderApiDeleteIdentityProviderRequest struct {
 	ctx context.Context
-	ApiService *IdentityProviderApiAPIService
+	ApiService IdentityProviderApiAPI
 	id string
 }
 
@@ -342,7 +419,7 @@ func (a *IdentityProviderApiAPIService) IdentityProviderApiDeleteIdentityProvide
 
 type ApiIdentityProviderApiDescribeIdentityProviderRequest struct {
 	ctx context.Context
-	ApiService *IdentityProviderApiAPIService
+	ApiService IdentityProviderApiAPI
 	id string
 }
 
@@ -497,7 +574,7 @@ func (a *IdentityProviderApiAPIService) IdentityProviderApiDescribeIdentityProvi
 
 type ApiIdentityProviderApiListIdentityProvidersRequest struct {
 	ctx context.Context
-	ApiService *IdentityProviderApiAPIService
+	ApiService IdentityProviderApiAPI
 }
 
 func (r ApiIdentityProviderApiListIdentityProvidersRequest) Execute() (*ListIdentityProvidersResult, *http.Response, error) {
@@ -648,7 +725,7 @@ func (a *IdentityProviderApiAPIService) IdentityProviderApiListIdentityProviders
 
 type ApiIdentityProviderApiUpdateIdentityProviderRequest struct {
 	ctx context.Context
-	ApiService *IdentityProviderApiAPIService
+	ApiService IdentityProviderApiAPI
 	id string
 	updateIdentityProviderRequestBody *UpdateIdentityProviderRequestBody
 }
@@ -803,7 +880,7 @@ func (a *IdentityProviderApiAPIService) IdentityProviderApiUpdateIdentityProvide
 
 type ApiIdentityProviderApiVerifyIdentityProviderRequest struct {
 	ctx context.Context
-	ApiService *IdentityProviderApiAPIService
+	ApiService IdentityProviderApiAPI
 	id string
 }
 

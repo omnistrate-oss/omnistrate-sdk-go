@@ -20,12 +20,176 @@ import (
 )
 
 
+type ServiceModelApiAPI interface {
+
+	/*
+	ServiceModelApiAddAccountConfigToServiceModel AddAccountConfigToServiceModel service-model-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this model belongs to
+	@param id The service model ID
+	@return ApiServiceModelApiAddAccountConfigToServiceModelRequest
+	*/
+	ServiceModelApiAddAccountConfigToServiceModel(ctx context.Context, serviceId string, id string) ApiServiceModelApiAddAccountConfigToServiceModelRequest
+
+	// ServiceModelApiAddAccountConfigToServiceModelExecute executes the request
+	ServiceModelApiAddAccountConfigToServiceModelExecute(r ApiServiceModelApiAddAccountConfigToServiceModelRequest) (*http.Response, error)
+
+	/*
+	ServiceModelApiCopyServiceModel CopyServiceModel service-model-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this model belongs to
+	@param sourceId The source service model ID
+	@return ApiServiceModelApiCopyServiceModelRequest
+	*/
+	ServiceModelApiCopyServiceModel(ctx context.Context, serviceId string, sourceId string) ApiServiceModelApiCopyServiceModelRequest
+
+	// ServiceModelApiCopyServiceModelExecute executes the request
+	//  @return string
+	ServiceModelApiCopyServiceModelExecute(r ApiServiceModelApiCopyServiceModelRequest) (string, *http.Response, error)
+
+	/*
+	ServiceModelApiCreateServiceModel CreateServiceModel service-model-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service this model is for
+	@return ApiServiceModelApiCreateServiceModelRequest
+	*/
+	ServiceModelApiCreateServiceModel(ctx context.Context, serviceId string) ApiServiceModelApiCreateServiceModelRequest
+
+	// ServiceModelApiCreateServiceModelExecute executes the request
+	//  @return string
+	ServiceModelApiCreateServiceModelExecute(r ApiServiceModelApiCreateServiceModelRequest) (string, *http.Response, error)
+
+	/*
+	ServiceModelApiDeleteServiceModel DeleteServiceModel service-model-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this model belongs to
+	@param id The service model ID
+	@return ApiServiceModelApiDeleteServiceModelRequest
+	*/
+	ServiceModelApiDeleteServiceModel(ctx context.Context, serviceId string, id string) ApiServiceModelApiDeleteServiceModelRequest
+
+	// ServiceModelApiDeleteServiceModelExecute executes the request
+	ServiceModelApiDeleteServiceModelExecute(r ApiServiceModelApiDeleteServiceModelRequest) (*http.Response, error)
+
+	/*
+	ServiceModelApiDescribeServiceModel DescribeServiceModel service-model-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this model belongs to
+	@param id The service model ID
+	@return ApiServiceModelApiDescribeServiceModelRequest
+	*/
+	ServiceModelApiDescribeServiceModel(ctx context.Context, serviceId string, id string) ApiServiceModelApiDescribeServiceModelRequest
+
+	// ServiceModelApiDescribeServiceModelExecute executes the request
+	//  @return DescribeServiceModelResult
+	ServiceModelApiDescribeServiceModelExecute(r ApiServiceModelApiDescribeServiceModelRequest) (*DescribeServiceModelResult, *http.Response, error)
+
+	/*
+	ServiceModelApiDisableServiceModelFeature DisableServiceModelFeature service-model-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this model belongs to
+	@param id The service model ID
+	@return ApiServiceModelApiDisableServiceModelFeatureRequest
+	*/
+	ServiceModelApiDisableServiceModelFeature(ctx context.Context, serviceId string, id string) ApiServiceModelApiDisableServiceModelFeatureRequest
+
+	// ServiceModelApiDisableServiceModelFeatureExecute executes the request
+	ServiceModelApiDisableServiceModelFeatureExecute(r ApiServiceModelApiDisableServiceModelFeatureRequest) (*http.Response, error)
+
+	/*
+	ServiceModelApiEnableServiceModelFeature EnableServiceModelFeature service-model-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this model belongs to
+	@param id The service model ID
+	@return ApiServiceModelApiEnableServiceModelFeatureRequest
+	*/
+	ServiceModelApiEnableServiceModelFeature(ctx context.Context, serviceId string, id string) ApiServiceModelApiEnableServiceModelFeatureRequest
+
+	// ServiceModelApiEnableServiceModelFeatureExecute executes the request
+	ServiceModelApiEnableServiceModelFeatureExecute(r ApiServiceModelApiEnableServiceModelFeatureRequest) (*http.Response, error)
+
+	/*
+	ServiceModelApiListServiceModel ListServiceModel service-model-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param serviceApiId The service API ID
+	@return ApiServiceModelApiListServiceModelRequest
+	*/
+	ServiceModelApiListServiceModel(ctx context.Context, serviceId string, serviceApiId string) ApiServiceModelApiListServiceModelRequest
+
+	// ServiceModelApiListServiceModelExecute executes the request
+	//  @return ListServiceEnvironmentsResult
+	ServiceModelApiListServiceModelExecute(r ApiServiceModelApiListServiceModelRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+
+	/*
+	ServiceModelApiReleaseServiceModelStatus ReleaseServiceModelStatus service-model-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this model belongs to
+	@param id The service model ID
+	@return ApiServiceModelApiReleaseServiceModelStatusRequest
+	*/
+	ServiceModelApiReleaseServiceModelStatus(ctx context.Context, serviceId string, id string) ApiServiceModelApiReleaseServiceModelStatusRequest
+
+	// ServiceModelApiReleaseServiceModelStatusExecute executes the request
+	//  @return OmnistrateServiceHealthResult
+	ServiceModelApiReleaseServiceModelStatusExecute(r ApiServiceModelApiReleaseServiceModelStatusRequest) (*OmnistrateServiceHealthResult, *http.Response, error)
+
+	/*
+	ServiceModelApiRemoveAccountConfigFromServiceModel RemoveAccountConfigFromServiceModel service-model-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this model belongs to
+	@param id The service model ID
+	@return ApiServiceModelApiRemoveAccountConfigFromServiceModelRequest
+	*/
+	ServiceModelApiRemoveAccountConfigFromServiceModel(ctx context.Context, serviceId string, id string) ApiServiceModelApiRemoveAccountConfigFromServiceModelRequest
+
+	// ServiceModelApiRemoveAccountConfigFromServiceModelExecute executes the request
+	ServiceModelApiRemoveAccountConfigFromServiceModelExecute(r ApiServiceModelApiRemoveAccountConfigFromServiceModelRequest) (*http.Response, error)
+
+	/*
+	ServiceModelApiSetActiveAccountConfig SetActiveAccountConfig service-model-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this model belongs to
+	@param id The service model ID
+	@param accountConfigId The infrastructure account configuration ID
+	@return ApiServiceModelApiSetActiveAccountConfigRequest
+	*/
+	ServiceModelApiSetActiveAccountConfig(ctx context.Context, serviceId string, id string, accountConfigId string) ApiServiceModelApiSetActiveAccountConfigRequest
+
+	// ServiceModelApiSetActiveAccountConfigExecute executes the request
+	ServiceModelApiSetActiveAccountConfigExecute(r ApiServiceModelApiSetActiveAccountConfigRequest) (*http.Response, error)
+
+	/*
+	ServiceModelApiUpdateServiceModel UpdateServiceModel service-model-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this model belongs to
+	@param id The service model ID
+	@return ApiServiceModelApiUpdateServiceModelRequest
+	*/
+	ServiceModelApiUpdateServiceModel(ctx context.Context, serviceId string, id string) ApiServiceModelApiUpdateServiceModelRequest
+
+	// ServiceModelApiUpdateServiceModelExecute executes the request
+	ServiceModelApiUpdateServiceModelExecute(r ApiServiceModelApiUpdateServiceModelRequest) (*http.Response, error)
+}
+
 // ServiceModelApiAPIService ServiceModelApiAPI service
 type ServiceModelApiAPIService service
 
 type ApiServiceModelApiAddAccountConfigToServiceModelRequest struct {
 	ctx context.Context
-	ApiService *ServiceModelApiAPIService
+	ApiService ServiceModelApiAPI
 	serviceId string
 	id string
 	addAccountConfigToServiceModelRequestBody *AddAccountConfigToServiceModelRequestBody
@@ -195,7 +359,7 @@ func (a *ServiceModelApiAPIService) ServiceModelApiAddAccountConfigToServiceMode
 
 type ApiServiceModelApiCopyServiceModelRequest struct {
 	ctx context.Context
-	ApiService *ServiceModelApiAPIService
+	ApiService ServiceModelApiAPI
 	serviceId string
 	sourceId string
 	copyServiceModelRequestBody *CopyServiceModelRequestBody
@@ -376,7 +540,7 @@ func (a *ServiceModelApiAPIService) ServiceModelApiCopyServiceModelExecute(r Api
 
 type ApiServiceModelApiCreateServiceModelRequest struct {
 	ctx context.Context
-	ApiService *ServiceModelApiAPIService
+	ApiService ServiceModelApiAPI
 	serviceId string
 	createServiceModelRequestBody *CreateServiceModelRequestBody
 }
@@ -553,7 +717,7 @@ func (a *ServiceModelApiAPIService) ServiceModelApiCreateServiceModelExecute(r A
 
 type ApiServiceModelApiDeleteServiceModelRequest struct {
 	ctx context.Context
-	ApiService *ServiceModelApiAPIService
+	ApiService ServiceModelApiAPI
 	serviceId string
 	id string
 }
@@ -712,7 +876,7 @@ func (a *ServiceModelApiAPIService) ServiceModelApiDeleteServiceModelExecute(r A
 
 type ApiServiceModelApiDescribeServiceModelRequest struct {
 	ctx context.Context
-	ApiService *ServiceModelApiAPIService
+	ApiService ServiceModelApiAPI
 	serviceId string
 	id string
 }
@@ -882,7 +1046,7 @@ func (a *ServiceModelApiAPIService) ServiceModelApiDescribeServiceModelExecute(r
 
 type ApiServiceModelApiDisableServiceModelFeatureRequest struct {
 	ctx context.Context
-	ApiService *ServiceModelApiAPIService
+	ApiService ServiceModelApiAPI
 	serviceId string
 	id string
 	disableServiceModelFeatureRequestBody *DisableServiceModelFeatureRequestBody
@@ -1052,7 +1216,7 @@ func (a *ServiceModelApiAPIService) ServiceModelApiDisableServiceModelFeatureExe
 
 type ApiServiceModelApiEnableServiceModelFeatureRequest struct {
 	ctx context.Context
-	ApiService *ServiceModelApiAPIService
+	ApiService ServiceModelApiAPI
 	serviceId string
 	id string
 	serviceModelFeatureDetail *ServiceModelFeatureDetail
@@ -1222,7 +1386,7 @@ func (a *ServiceModelApiAPIService) ServiceModelApiEnableServiceModelFeatureExec
 
 type ApiServiceModelApiListServiceModelRequest struct {
 	ctx context.Context
-	ApiService *ServiceModelApiAPIService
+	ApiService ServiceModelApiAPI
 	serviceId string
 	serviceApiId string
 }
@@ -1392,7 +1556,7 @@ func (a *ServiceModelApiAPIService) ServiceModelApiListServiceModelExecute(r Api
 
 type ApiServiceModelApiReleaseServiceModelStatusRequest struct {
 	ctx context.Context
-	ApiService *ServiceModelApiAPIService
+	ApiService ServiceModelApiAPI
 	serviceId string
 	id string
 }
@@ -1562,7 +1726,7 @@ func (a *ServiceModelApiAPIService) ServiceModelApiReleaseServiceModelStatusExec
 
 type ApiServiceModelApiRemoveAccountConfigFromServiceModelRequest struct {
 	ctx context.Context
-	ApiService *ServiceModelApiAPIService
+	ApiService ServiceModelApiAPI
 	serviceId string
 	id string
 	addAccountConfigToServiceModelRequestBody *AddAccountConfigToServiceModelRequestBody
@@ -1732,7 +1896,7 @@ func (a *ServiceModelApiAPIService) ServiceModelApiRemoveAccountConfigFromServic
 
 type ApiServiceModelApiSetActiveAccountConfigRequest struct {
 	ctx context.Context
-	ApiService *ServiceModelApiAPIService
+	ApiService ServiceModelApiAPI
 	serviceId string
 	id string
 	accountConfigId string
@@ -1895,7 +2059,7 @@ func (a *ServiceModelApiAPIService) ServiceModelApiSetActiveAccountConfigExecute
 
 type ApiServiceModelApiUpdateServiceModelRequest struct {
 	ctx context.Context
-	ApiService *ServiceModelApiAPIService
+	ApiService ServiceModelApiAPI
 	serviceId string
 	id string
 	updateServiceModelRequestBody *UpdateServiceModelRequestBody

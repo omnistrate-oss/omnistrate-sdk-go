@@ -20,12 +20,55 @@ import (
 )
 
 
+type ServiceOfferingApiAPI interface {
+
+	/*
+	ServiceOfferingApiDescribeServiceOffering DescribeServiceOffering service-offering-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@return ApiServiceOfferingApiDescribeServiceOfferingRequest
+	*/
+	ServiceOfferingApiDescribeServiceOffering(ctx context.Context, serviceId string) ApiServiceOfferingApiDescribeServiceOfferingRequest
+
+	// ServiceOfferingApiDescribeServiceOfferingExecute executes the request
+	//  @return DescribeServiceOfferingResult
+	ServiceOfferingApiDescribeServiceOfferingExecute(r ApiServiceOfferingApiDescribeServiceOfferingRequest) (*DescribeServiceOfferingResult, *http.Response, error)
+
+	/*
+	ServiceOfferingApiDescribeServiceOfferingResource DescribeServiceOfferingResource service-offering-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param resourceId The resource ID
+	@param instanceId The instance ID
+	@return ApiServiceOfferingApiDescribeServiceOfferingResourceRequest
+	*/
+	ServiceOfferingApiDescribeServiceOfferingResource(ctx context.Context, serviceId string, resourceId string, instanceId string) ApiServiceOfferingApiDescribeServiceOfferingResourceRequest
+
+	// ServiceOfferingApiDescribeServiceOfferingResourceExecute executes the request
+	//  @return DescribeServiceOfferingResourceResult
+	ServiceOfferingApiDescribeServiceOfferingResourceExecute(r ApiServiceOfferingApiDescribeServiceOfferingResourceRequest) (*DescribeServiceOfferingResourceResult, *http.Response, error)
+
+	/*
+	ServiceOfferingApiListServiceOffering ListServiceOffering service-offering-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiServiceOfferingApiListServiceOfferingRequest
+	*/
+	ServiceOfferingApiListServiceOffering(ctx context.Context) ApiServiceOfferingApiListServiceOfferingRequest
+
+	// ServiceOfferingApiListServiceOfferingExecute executes the request
+	//  @return ListServiceOfferingsResult
+	ServiceOfferingApiListServiceOfferingExecute(r ApiServiceOfferingApiListServiceOfferingRequest) (*ListServiceOfferingsResult, *http.Response, error)
+}
+
 // ServiceOfferingApiAPIService ServiceOfferingApiAPI service
 type ServiceOfferingApiAPIService service
 
 type ApiServiceOfferingApiDescribeServiceOfferingRequest struct {
 	ctx context.Context
-	ApiService *ServiceOfferingApiAPIService
+	ApiService ServiceOfferingApiAPI
 	serviceId string
 	visibility *string
 	environmentType *string
@@ -211,7 +254,7 @@ func (a *ServiceOfferingApiAPIService) ServiceOfferingApiDescribeServiceOffering
 
 type ApiServiceOfferingApiDescribeServiceOfferingResourceRequest struct {
 	ctx context.Context
-	ApiService *ServiceOfferingApiAPIService
+	ApiService ServiceOfferingApiAPI
 	serviceId string
 	resourceId string
 	instanceId string
@@ -385,7 +428,7 @@ func (a *ServiceOfferingApiAPIService) ServiceOfferingApiDescribeServiceOffering
 
 type ApiServiceOfferingApiListServiceOfferingRequest struct {
 	ctx context.Context
-	ApiService *ServiceOfferingApiAPIService
+	ApiService ServiceOfferingApiAPI
 	orgId *string
 	visibility *string
 	environmentType *string

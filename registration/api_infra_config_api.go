@@ -20,12 +20,175 @@ import (
 )
 
 
+type InfraConfigApiAPI interface {
+
+	/*
+	InfraConfigApiCreateInfraConfig CreateInfraConfig infra-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@return ApiInfraConfigApiCreateInfraConfigRequest
+	*/
+	InfraConfigApiCreateInfraConfig(ctx context.Context, serviceId string) ApiInfraConfigApiCreateInfraConfigRequest
+
+	// InfraConfigApiCreateInfraConfigExecute executes the request
+	//  @return string
+	InfraConfigApiCreateInfraConfigExecute(r ApiInfraConfigApiCreateInfraConfigRequest) (string, *http.Response, error)
+
+	/*
+	InfraConfigApiDeleteInfraConfig DeleteInfraConfig infra-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id Infra Config ID to operate on
+	@return ApiInfraConfigApiDeleteInfraConfigRequest
+	*/
+	InfraConfigApiDeleteInfraConfig(ctx context.Context, serviceId string, id string) ApiInfraConfigApiDeleteInfraConfigRequest
+
+	// InfraConfigApiDeleteInfraConfigExecute executes the request
+	InfraConfigApiDeleteInfraConfigExecute(r ApiInfraConfigApiDeleteInfraConfigRequest) (*http.Response, error)
+
+	/*
+	InfraConfigApiDescribeInfraConfig DescribeInfraConfig infra-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id Infra Config ID to operate on
+	@return ApiInfraConfigApiDescribeInfraConfigRequest
+	*/
+	InfraConfigApiDescribeInfraConfig(ctx context.Context, serviceId string, id string) ApiInfraConfigApiDescribeInfraConfigRequest
+
+	// InfraConfigApiDescribeInfraConfigExecute executes the request
+	//  @return DescribeInfraConfigResult
+	InfraConfigApiDescribeInfraConfigExecute(r ApiInfraConfigApiDescribeInfraConfigRequest) (*DescribeInfraConfigResult, *http.Response, error)
+
+	/*
+	InfraConfigApiDetachComputeConfig DetachComputeConfig infra-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id Infra Config ID to operate on
+	@return ApiInfraConfigApiDetachComputeConfigRequest
+	*/
+	InfraConfigApiDetachComputeConfig(ctx context.Context, serviceId string, id string) ApiInfraConfigApiDetachComputeConfigRequest
+
+	// InfraConfigApiDetachComputeConfigExecute executes the request
+	InfraConfigApiDetachComputeConfigExecute(r ApiInfraConfigApiDetachComputeConfigRequest) (*http.Response, error)
+
+	/*
+	InfraConfigApiDetachNetworkConfig DetachNetworkConfig infra-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id Infra Config ID to operate on
+	@return ApiInfraConfigApiDetachNetworkConfigRequest
+	*/
+	InfraConfigApiDetachNetworkConfig(ctx context.Context, serviceId string, id string) ApiInfraConfigApiDetachNetworkConfigRequest
+
+	// InfraConfigApiDetachNetworkConfigExecute executes the request
+	InfraConfigApiDetachNetworkConfigExecute(r ApiInfraConfigApiDetachNetworkConfigRequest) (*http.Response, error)
+
+	/*
+	InfraConfigApiDetachStorageConfig DetachStorageConfig infra-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id Infra Config ID to operate on
+	@return ApiInfraConfigApiDetachStorageConfigRequest
+	*/
+	InfraConfigApiDetachStorageConfig(ctx context.Context, serviceId string, id string) ApiInfraConfigApiDetachStorageConfigRequest
+
+	// InfraConfigApiDetachStorageConfigExecute executes the request
+	InfraConfigApiDetachStorageConfigExecute(r ApiInfraConfigApiDetachStorageConfigRequest) (*http.Response, error)
+
+	/*
+	InfraConfigApiListAssociatedResources ListAssociatedResources infra-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id Infra Config ID to operate on
+	@return ApiInfraConfigApiListAssociatedResourcesRequest
+	*/
+	InfraConfigApiListAssociatedResources(ctx context.Context, serviceId string, id string) ApiInfraConfigApiListAssociatedResourcesRequest
+
+	// InfraConfigApiListAssociatedResourcesExecute executes the request
+	//  @return ListAssociatedResourcesResult
+	InfraConfigApiListAssociatedResourcesExecute(r ApiInfraConfigApiListAssociatedResourcesRequest) (*ListAssociatedResourcesResult, *http.Response, error)
+
+	/*
+	InfraConfigApiListInfraConfig ListInfraConfig infra-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param serviceEnvironmentId The service environment ID
+	@return ApiInfraConfigApiListInfraConfigRequest
+	*/
+	InfraConfigApiListInfraConfig(ctx context.Context, serviceId string, serviceEnvironmentId string) ApiInfraConfigApiListInfraConfigRequest
+
+	// InfraConfigApiListInfraConfigExecute executes the request
+	//  @return ListServiceEnvironmentsResult
+	InfraConfigApiListInfraConfigExecute(r ApiInfraConfigApiListInfraConfigRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+
+	/*
+	InfraConfigApiReleaseInfraConfig ReleaseInfraConfig infra-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id Infra Config ID to operate on
+	@return ApiInfraConfigApiReleaseInfraConfigRequest
+	*/
+	InfraConfigApiReleaseInfraConfig(ctx context.Context, serviceId string, id string) ApiInfraConfigApiReleaseInfraConfigRequest
+
+	// InfraConfigApiReleaseInfraConfigExecute executes the request
+	InfraConfigApiReleaseInfraConfigExecute(r ApiInfraConfigApiReleaseInfraConfigRequest) (*http.Response, error)
+
+	/*
+	InfraConfigApiRolloutFleetInfra RolloutFleetInfra infra-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id Infra Config ID to operate on
+	@return ApiInfraConfigApiRolloutFleetInfraRequest
+	*/
+	InfraConfigApiRolloutFleetInfra(ctx context.Context, serviceId string, id string) ApiInfraConfigApiRolloutFleetInfraRequest
+
+	// InfraConfigApiRolloutFleetInfraExecute executes the request
+	InfraConfigApiRolloutFleetInfraExecute(r ApiInfraConfigApiRolloutFleetInfraRequest) (*http.Response, error)
+
+	/*
+	InfraConfigApiRolloutFleetInfraStatus RolloutFleetInfraStatus infra-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id Infra Config ID to operate on
+	@return ApiInfraConfigApiRolloutFleetInfraStatusRequest
+	*/
+	InfraConfigApiRolloutFleetInfraStatus(ctx context.Context, serviceId string, id string) ApiInfraConfigApiRolloutFleetInfraStatusRequest
+
+	// InfraConfigApiRolloutFleetInfraStatusExecute executes the request
+	//  @return OmnistrateServiceHealthResult
+	InfraConfigApiRolloutFleetInfraStatusExecute(r ApiInfraConfigApiRolloutFleetInfraStatusRequest) (*OmnistrateServiceHealthResult, *http.Response, error)
+
+	/*
+	InfraConfigApiUpdateInfraConfig UpdateInfraConfig infra-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id Infra Config ID to operate on
+	@return ApiInfraConfigApiUpdateInfraConfigRequest
+	*/
+	InfraConfigApiUpdateInfraConfig(ctx context.Context, serviceId string, id string) ApiInfraConfigApiUpdateInfraConfigRequest
+
+	// InfraConfigApiUpdateInfraConfigExecute executes the request
+	InfraConfigApiUpdateInfraConfigExecute(r ApiInfraConfigApiUpdateInfraConfigRequest) (*http.Response, error)
+}
+
 // InfraConfigApiAPIService InfraConfigApiAPI service
 type InfraConfigApiAPIService service
 
 type ApiInfraConfigApiCreateInfraConfigRequest struct {
 	ctx context.Context
-	ApiService *InfraConfigApiAPIService
+	ApiService InfraConfigApiAPI
 	serviceId string
 	createInfraConfigRequestBody *CreateInfraConfigRequestBody
 }
@@ -202,7 +365,7 @@ func (a *InfraConfigApiAPIService) InfraConfigApiCreateInfraConfigExecute(r ApiI
 
 type ApiInfraConfigApiDeleteInfraConfigRequest struct {
 	ctx context.Context
-	ApiService *InfraConfigApiAPIService
+	ApiService InfraConfigApiAPI
 	serviceId string
 	id string
 }
@@ -361,7 +524,7 @@ func (a *InfraConfigApiAPIService) InfraConfigApiDeleteInfraConfigExecute(r ApiI
 
 type ApiInfraConfigApiDescribeInfraConfigRequest struct {
 	ctx context.Context
-	ApiService *InfraConfigApiAPIService
+	ApiService InfraConfigApiAPI
 	serviceId string
 	id string
 	productTierVersion *string
@@ -551,7 +714,7 @@ func (a *InfraConfigApiAPIService) InfraConfigApiDescribeInfraConfigExecute(r Ap
 
 type ApiInfraConfigApiDetachComputeConfigRequest struct {
 	ctx context.Context
-	ApiService *InfraConfigApiAPIService
+	ApiService InfraConfigApiAPI
 	serviceId string
 	id string
 }
@@ -710,7 +873,7 @@ func (a *InfraConfigApiAPIService) InfraConfigApiDetachComputeConfigExecute(r Ap
 
 type ApiInfraConfigApiDetachNetworkConfigRequest struct {
 	ctx context.Context
-	ApiService *InfraConfigApiAPIService
+	ApiService InfraConfigApiAPI
 	serviceId string
 	id string
 }
@@ -869,7 +1032,7 @@ func (a *InfraConfigApiAPIService) InfraConfigApiDetachNetworkConfigExecute(r Ap
 
 type ApiInfraConfigApiDetachStorageConfigRequest struct {
 	ctx context.Context
-	ApiService *InfraConfigApiAPIService
+	ApiService InfraConfigApiAPI
 	serviceId string
 	id string
 }
@@ -1028,7 +1191,7 @@ func (a *InfraConfigApiAPIService) InfraConfigApiDetachStorageConfigExecute(r Ap
 
 type ApiInfraConfigApiListAssociatedResourcesRequest struct {
 	ctx context.Context
-	ApiService *InfraConfigApiAPIService
+	ApiService InfraConfigApiAPI
 	serviceId string
 	id string
 }
@@ -1198,7 +1361,7 @@ func (a *InfraConfigApiAPIService) InfraConfigApiListAssociatedResourcesExecute(
 
 type ApiInfraConfigApiListInfraConfigRequest struct {
 	ctx context.Context
-	ApiService *InfraConfigApiAPIService
+	ApiService InfraConfigApiAPI
 	serviceId string
 	serviceEnvironmentId string
 	managed *bool
@@ -1378,7 +1541,7 @@ func (a *InfraConfigApiAPIService) InfraConfigApiListInfraConfigExecute(r ApiInf
 
 type ApiInfraConfigApiReleaseInfraConfigRequest struct {
 	ctx context.Context
-	ApiService *InfraConfigApiAPIService
+	ApiService InfraConfigApiAPI
 	serviceId string
 	id string
 	releaseInfraConfigRequestBody *ReleaseInfraConfigRequestBody
@@ -1548,7 +1711,7 @@ func (a *InfraConfigApiAPIService) InfraConfigApiReleaseInfraConfigExecute(r Api
 
 type ApiInfraConfigApiRolloutFleetInfraRequest struct {
 	ctx context.Context
-	ApiService *InfraConfigApiAPIService
+	ApiService InfraConfigApiAPI
 	serviceId string
 	id string
 }
@@ -1707,7 +1870,7 @@ func (a *InfraConfigApiAPIService) InfraConfigApiRolloutFleetInfraExecute(r ApiI
 
 type ApiInfraConfigApiRolloutFleetInfraStatusRequest struct {
 	ctx context.Context
-	ApiService *InfraConfigApiAPIService
+	ApiService InfraConfigApiAPI
 	serviceId string
 	id string
 }
@@ -1877,7 +2040,7 @@ func (a *InfraConfigApiAPIService) InfraConfigApiRolloutFleetInfraStatusExecute(
 
 type ApiInfraConfigApiUpdateInfraConfigRequest struct {
 	ctx context.Context
-	ApiService *InfraConfigApiAPIService
+	ApiService InfraConfigApiAPI
 	serviceId string
 	id string
 	updateInfraConfigRequestBody *UpdateInfraConfigRequestBody

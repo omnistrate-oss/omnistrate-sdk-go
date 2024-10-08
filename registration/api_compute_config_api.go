@@ -20,12 +20,121 @@ import (
 )
 
 
+type ComputeConfigApiAPI interface {
+
+	/*
+	ComputeConfigApiAddComputeInstanceType AddComputeInstanceType compute-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id ID of the compute config
+	@return ApiComputeConfigApiAddComputeInstanceTypeRequest
+	*/
+	ComputeConfigApiAddComputeInstanceType(ctx context.Context, serviceId string, id string) ApiComputeConfigApiAddComputeInstanceTypeRequest
+
+	// ComputeConfigApiAddComputeInstanceTypeExecute executes the request
+	ComputeConfigApiAddComputeInstanceTypeExecute(r ApiComputeConfigApiAddComputeInstanceTypeRequest) (*http.Response, error)
+
+	/*
+	ComputeConfigApiCreateComputeConfig CreateComputeConfig compute-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@return ApiComputeConfigApiCreateComputeConfigRequest
+	*/
+	ComputeConfigApiCreateComputeConfig(ctx context.Context, serviceId string) ApiComputeConfigApiCreateComputeConfigRequest
+
+	// ComputeConfigApiCreateComputeConfigExecute executes the request
+	//  @return string
+	ComputeConfigApiCreateComputeConfigExecute(r ApiComputeConfigApiCreateComputeConfigRequest) (string, *http.Response, error)
+
+	/*
+	ComputeConfigApiDeleteComputeConfig DeleteComputeConfig compute-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id ID of the compute config
+	@return ApiComputeConfigApiDeleteComputeConfigRequest
+	*/
+	ComputeConfigApiDeleteComputeConfig(ctx context.Context, serviceId string, id string) ApiComputeConfigApiDeleteComputeConfigRequest
+
+	// ComputeConfigApiDeleteComputeConfigExecute executes the request
+	ComputeConfigApiDeleteComputeConfigExecute(r ApiComputeConfigApiDeleteComputeConfigRequest) (*http.Response, error)
+
+	/*
+	ComputeConfigApiDescribeComputeConfig DescribeComputeConfig compute-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id ID of the compute config
+	@return ApiComputeConfigApiDescribeComputeConfigRequest
+	*/
+	ComputeConfigApiDescribeComputeConfig(ctx context.Context, serviceId string, id string) ApiComputeConfigApiDescribeComputeConfigRequest
+
+	// ComputeConfigApiDescribeComputeConfigExecute executes the request
+	//  @return DescribeComputeConfigResult
+	ComputeConfigApiDescribeComputeConfigExecute(r ApiComputeConfigApiDescribeComputeConfigRequest) (*DescribeComputeConfigResult, *http.Response, error)
+
+	/*
+	ComputeConfigApiListComputeConfig ListComputeConfig compute-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@return ApiComputeConfigApiListComputeConfigRequest
+	*/
+	ComputeConfigApiListComputeConfig(ctx context.Context, serviceId string) ApiComputeConfigApiListComputeConfigRequest
+
+	// ComputeConfigApiListComputeConfigExecute executes the request
+	//  @return ListServiceEnvironmentsResult
+	ComputeConfigApiListComputeConfigExecute(r ApiComputeConfigApiListComputeConfigRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+
+	/*
+	ComputeConfigApiListComputeInstanceTypes ListComputeInstanceTypes compute-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param cloudProviderName The cloud provider for this compute instance type config
+	@return ApiComputeConfigApiListComputeInstanceTypesRequest
+	*/
+	ComputeConfigApiListComputeInstanceTypes(ctx context.Context, serviceId string, cloudProviderName string) ApiComputeConfigApiListComputeInstanceTypesRequest
+
+	// ComputeConfigApiListComputeInstanceTypesExecute executes the request
+	//  @return ListComputeInstanceTypesResult
+	ComputeConfigApiListComputeInstanceTypesExecute(r ApiComputeConfigApiListComputeInstanceTypesRequest) (*ListComputeInstanceTypesResult, *http.Response, error)
+
+	/*
+	ComputeConfigApiRemoveComputeInstanceType RemoveComputeInstanceType compute-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id ID of the compute config
+	@return ApiComputeConfigApiRemoveComputeInstanceTypeRequest
+	*/
+	ComputeConfigApiRemoveComputeInstanceType(ctx context.Context, serviceId string, id string) ApiComputeConfigApiRemoveComputeInstanceTypeRequest
+
+	// ComputeConfigApiRemoveComputeInstanceTypeExecute executes the request
+	ComputeConfigApiRemoveComputeInstanceTypeExecute(r ApiComputeConfigApiRemoveComputeInstanceTypeRequest) (*http.Response, error)
+
+	/*
+	ComputeConfigApiUpdateComputeConfig UpdateComputeConfig compute-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id ID of the compute config
+	@return ApiComputeConfigApiUpdateComputeConfigRequest
+	*/
+	ComputeConfigApiUpdateComputeConfig(ctx context.Context, serviceId string, id string) ApiComputeConfigApiUpdateComputeConfigRequest
+
+	// ComputeConfigApiUpdateComputeConfigExecute executes the request
+	ComputeConfigApiUpdateComputeConfigExecute(r ApiComputeConfigApiUpdateComputeConfigRequest) (*http.Response, error)
+}
+
 // ComputeConfigApiAPIService ComputeConfigApiAPI service
 type ComputeConfigApiAPIService service
 
 type ApiComputeConfigApiAddComputeInstanceTypeRequest struct {
 	ctx context.Context
-	ApiService *ComputeConfigApiAPIService
+	ApiService ComputeConfigApiAPI
 	serviceId string
 	id string
 	addComputeInstanceTypeRequestBody *AddComputeInstanceTypeRequestBody
@@ -195,7 +304,7 @@ func (a *ComputeConfigApiAPIService) ComputeConfigApiAddComputeInstanceTypeExecu
 
 type ApiComputeConfigApiCreateComputeConfigRequest struct {
 	ctx context.Context
-	ApiService *ComputeConfigApiAPIService
+	ApiService ComputeConfigApiAPI
 	serviceId string
 	createComputeConfigRequestBody *CreateComputeConfigRequestBody
 }
@@ -372,7 +481,7 @@ func (a *ComputeConfigApiAPIService) ComputeConfigApiCreateComputeConfigExecute(
 
 type ApiComputeConfigApiDeleteComputeConfigRequest struct {
 	ctx context.Context
-	ApiService *ComputeConfigApiAPIService
+	ApiService ComputeConfigApiAPI
 	serviceId string
 	id string
 }
@@ -531,7 +640,7 @@ func (a *ComputeConfigApiAPIService) ComputeConfigApiDeleteComputeConfigExecute(
 
 type ApiComputeConfigApiDescribeComputeConfigRequest struct {
 	ctx context.Context
-	ApiService *ComputeConfigApiAPIService
+	ApiService ComputeConfigApiAPI
 	serviceId string
 	id string
 	productTierVersion *string
@@ -721,7 +830,7 @@ func (a *ComputeConfigApiAPIService) ComputeConfigApiDescribeComputeConfigExecut
 
 type ApiComputeConfigApiListComputeConfigRequest struct {
 	ctx context.Context
-	ApiService *ComputeConfigApiAPIService
+	ApiService ComputeConfigApiAPI
 	serviceId string
 	managed *bool
 }
@@ -897,7 +1006,7 @@ func (a *ComputeConfigApiAPIService) ComputeConfigApiListComputeConfigExecute(r 
 
 type ApiComputeConfigApiListComputeInstanceTypesRequest struct {
 	ctx context.Context
-	ApiService *ComputeConfigApiAPIService
+	ApiService ComputeConfigApiAPI
 	serviceId string
 	cloudProviderName string
 }
@@ -1067,7 +1176,7 @@ func (a *ComputeConfigApiAPIService) ComputeConfigApiListComputeInstanceTypesExe
 
 type ApiComputeConfigApiRemoveComputeInstanceTypeRequest struct {
 	ctx context.Context
-	ApiService *ComputeConfigApiAPIService
+	ApiService ComputeConfigApiAPI
 	serviceId string
 	id string
 	addComputeInstanceTypeRequestBody *AddComputeInstanceTypeRequestBody
@@ -1237,7 +1346,7 @@ func (a *ComputeConfigApiAPIService) ComputeConfigApiRemoveComputeInstanceTypeEx
 
 type ApiComputeConfigApiUpdateComputeConfigRequest struct {
 	ctx context.Context
-	ApiService *ComputeConfigApiAPIService
+	ApiService ComputeConfigApiAPI
 	serviceId string
 	id string
 	updateComputeConfigRequestBody *UpdateComputeConfigRequestBody

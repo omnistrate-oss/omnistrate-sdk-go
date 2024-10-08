@@ -20,12 +20,64 @@ import (
 )
 
 
+type SubscriptionRequestApiAPI interface {
+
+	/*
+	SubscriptionRequestApiCancelSubscriptionRequest CancelSubscriptionRequest subscription-request-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The subscription ID
+	@return ApiSubscriptionRequestApiCancelSubscriptionRequestRequest
+	*/
+	SubscriptionRequestApiCancelSubscriptionRequest(ctx context.Context, id string) ApiSubscriptionRequestApiCancelSubscriptionRequestRequest
+
+	// SubscriptionRequestApiCancelSubscriptionRequestExecute executes the request
+	SubscriptionRequestApiCancelSubscriptionRequestExecute(r ApiSubscriptionRequestApiCancelSubscriptionRequestRequest) (*http.Response, error)
+
+	/*
+	SubscriptionRequestApiCreateSubscriptionRequest CreateSubscriptionRequest subscription-request-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSubscriptionRequestApiCreateSubscriptionRequestRequest
+	*/
+	SubscriptionRequestApiCreateSubscriptionRequest(ctx context.Context) ApiSubscriptionRequestApiCreateSubscriptionRequestRequest
+
+	// SubscriptionRequestApiCreateSubscriptionRequestExecute executes the request
+	//  @return string
+	SubscriptionRequestApiCreateSubscriptionRequestExecute(r ApiSubscriptionRequestApiCreateSubscriptionRequestRequest) (string, *http.Response, error)
+
+	/*
+	SubscriptionRequestApiDescribeSubscriptionRequest DescribeSubscriptionRequest subscription-request-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The subscription ID
+	@return ApiSubscriptionRequestApiDescribeSubscriptionRequestRequest
+	*/
+	SubscriptionRequestApiDescribeSubscriptionRequest(ctx context.Context, id string) ApiSubscriptionRequestApiDescribeSubscriptionRequestRequest
+
+	// SubscriptionRequestApiDescribeSubscriptionRequestExecute executes the request
+	//  @return DescribeSubscriptionRequestResult
+	SubscriptionRequestApiDescribeSubscriptionRequestExecute(r ApiSubscriptionRequestApiDescribeSubscriptionRequestRequest) (*DescribeSubscriptionRequestResult, *http.Response, error)
+
+	/*
+	SubscriptionRequestApiListSubscriptionRequests ListSubscriptionRequests subscription-request-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSubscriptionRequestApiListSubscriptionRequestsRequest
+	*/
+	SubscriptionRequestApiListSubscriptionRequests(ctx context.Context) ApiSubscriptionRequestApiListSubscriptionRequestsRequest
+
+	// SubscriptionRequestApiListSubscriptionRequestsExecute executes the request
+	//  @return ListSubscriptionRequestsResult
+	SubscriptionRequestApiListSubscriptionRequestsExecute(r ApiSubscriptionRequestApiListSubscriptionRequestsRequest) (*ListSubscriptionRequestsResult, *http.Response, error)
+}
+
 // SubscriptionRequestApiAPIService SubscriptionRequestApiAPI service
 type SubscriptionRequestApiAPIService service
 
 type ApiSubscriptionRequestApiCancelSubscriptionRequestRequest struct {
 	ctx context.Context
-	ApiService *SubscriptionRequestApiAPIService
+	ApiService SubscriptionRequestApiAPI
 	id string
 }
 
@@ -180,7 +232,7 @@ func (a *SubscriptionRequestApiAPIService) SubscriptionRequestApiCancelSubscript
 
 type ApiSubscriptionRequestApiCreateSubscriptionRequestRequest struct {
 	ctx context.Context
-	ApiService *SubscriptionRequestApiAPIService
+	ApiService SubscriptionRequestApiAPI
 	createSubscriptionRequestBody *CreateSubscriptionRequestBody
 }
 
@@ -353,7 +405,7 @@ func (a *SubscriptionRequestApiAPIService) SubscriptionRequestApiCreateSubscript
 
 type ApiSubscriptionRequestApiDescribeSubscriptionRequestRequest struct {
 	ctx context.Context
-	ApiService *SubscriptionRequestApiAPIService
+	ApiService SubscriptionRequestApiAPI
 	id string
 }
 
@@ -519,7 +571,7 @@ func (a *SubscriptionRequestApiAPIService) SubscriptionRequestApiDescribeSubscri
 
 type ApiSubscriptionRequestApiListSubscriptionRequestsRequest struct {
 	ctx context.Context
-	ApiService *SubscriptionRequestApiAPIService
+	ApiService SubscriptionRequestApiAPI
 	status *string
 }
 

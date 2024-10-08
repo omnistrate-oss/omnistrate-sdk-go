@@ -19,12 +19,26 @@ import (
 )
 
 
+type ContactusApiAPI interface {
+
+	/*
+	ContactusApiContactus Contactus contactus-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiContactusApiContactusRequest
+	*/
+	ContactusApiContactus(ctx context.Context) ApiContactusApiContactusRequest
+
+	// ContactusApiContactusExecute executes the request
+	ContactusApiContactusExecute(r ApiContactusApiContactusRequest) (*http.Response, error)
+}
+
 // ContactusApiAPIService ContactusApiAPI service
 type ContactusApiAPIService service
 
 type ApiContactusApiContactusRequest struct {
 	ctx context.Context
-	ApiService *ContactusApiAPIService
+	ApiService ContactusApiAPI
 	contactusRequestBody *ContactusRequestBody
 }
 

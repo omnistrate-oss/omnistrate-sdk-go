@@ -20,12 +20,194 @@ import (
 )
 
 
+type ProductTierApiAPI interface {
+
+	/*
+	ProductTierApiCopyProductTier CopyProductTier product-tier-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId Service ID
+	@param sourceId The source product tier ID
+	@return ApiProductTierApiCopyProductTierRequest
+	*/
+	ProductTierApiCopyProductTier(ctx context.Context, serviceId string, sourceId string) ApiProductTierApiCopyProductTierRequest
+
+	// ProductTierApiCopyProductTierExecute executes the request
+	//  @return string
+	ProductTierApiCopyProductTierExecute(r ApiProductTierApiCopyProductTierRequest) (string, *http.Response, error)
+
+	/*
+	ProductTierApiCreateProductTier CreateProductTier product-tier-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId Service ID
+	@return ApiProductTierApiCreateProductTierRequest
+	*/
+	ProductTierApiCreateProductTier(ctx context.Context, serviceId string) ApiProductTierApiCreateProductTierRequest
+
+	// ProductTierApiCreateProductTierExecute executes the request
+	//  @return string
+	ProductTierApiCreateProductTierExecute(r ApiProductTierApiCreateProductTierRequest) (string, *http.Response, error)
+
+	/*
+	ProductTierApiCreateProductTierBillingPlan CreateProductTierBillingPlan product-tier-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId Service ID
+	@param id Product tier ID
+	@return ApiProductTierApiCreateProductTierBillingPlanRequest
+	*/
+	ProductTierApiCreateProductTierBillingPlan(ctx context.Context, serviceId string, id string) ApiProductTierApiCreateProductTierBillingPlanRequest
+
+	// ProductTierApiCreateProductTierBillingPlanExecute executes the request
+	//  @return BillingPlan
+	ProductTierApiCreateProductTierBillingPlanExecute(r ApiProductTierApiCreateProductTierBillingPlanRequest) (*BillingPlan, *http.Response, error)
+
+	/*
+	ProductTierApiDeleteProductTier DeleteProductTier product-tier-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId Service ID
+	@param id Product tier ID
+	@return ApiProductTierApiDeleteProductTierRequest
+	*/
+	ProductTierApiDeleteProductTier(ctx context.Context, serviceId string, id string) ApiProductTierApiDeleteProductTierRequest
+
+	// ProductTierApiDeleteProductTierExecute executes the request
+	ProductTierApiDeleteProductTierExecute(r ApiProductTierApiDeleteProductTierRequest) (*http.Response, error)
+
+	/*
+	ProductTierApiDeleteProductTierBillingPlan DeleteProductTierBillingPlan product-tier-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId Service ID
+	@param productTierId Product tier ID
+	@param id Product tier billing plan ID
+	@return ApiProductTierApiDeleteProductTierBillingPlanRequest
+	*/
+	ProductTierApiDeleteProductTierBillingPlan(ctx context.Context, serviceId string, productTierId string, id string) ApiProductTierApiDeleteProductTierBillingPlanRequest
+
+	// ProductTierApiDeleteProductTierBillingPlanExecute executes the request
+	ProductTierApiDeleteProductTierBillingPlanExecute(r ApiProductTierApiDeleteProductTierBillingPlanRequest) (*http.Response, error)
+
+	/*
+	ProductTierApiDescribeProductTier DescribeProductTier product-tier-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId Service ID
+	@param id Product tier ID
+	@return ApiProductTierApiDescribeProductTierRequest
+	*/
+	ProductTierApiDescribeProductTier(ctx context.Context, serviceId string, id string) ApiProductTierApiDescribeProductTierRequest
+
+	// ProductTierApiDescribeProductTierExecute executes the request
+	//  @return DescribeProductTierResult
+	ProductTierApiDescribeProductTierExecute(r ApiProductTierApiDescribeProductTierRequest) (*DescribeProductTierResult, *http.Response, error)
+
+	/*
+	ProductTierApiDescribeProductTierBillingPlan DescribeProductTierBillingPlan product-tier-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId Service ID
+	@param productTierId Product tier ID
+	@param id Product tier billing plan ID
+	@return ApiProductTierApiDescribeProductTierBillingPlanRequest
+	*/
+	ProductTierApiDescribeProductTierBillingPlan(ctx context.Context, serviceId string, productTierId string, id string) ApiProductTierApiDescribeProductTierBillingPlanRequest
+
+	// ProductTierApiDescribeProductTierBillingPlanExecute executes the request
+	//  @return BillingPlan
+	ProductTierApiDescribeProductTierBillingPlanExecute(r ApiProductTierApiDescribeProductTierBillingPlanRequest) (*BillingPlan, *http.Response, error)
+
+	/*
+	ProductTierApiDisableProductTierFeature DisableProductTierFeature product-tier-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId Service ID
+	@param id Product tier ID
+	@return ApiProductTierApiDisableProductTierFeatureRequest
+	*/
+	ProductTierApiDisableProductTierFeature(ctx context.Context, serviceId string, id string) ApiProductTierApiDisableProductTierFeatureRequest
+
+	// ProductTierApiDisableProductTierFeatureExecute executes the request
+	ProductTierApiDisableProductTierFeatureExecute(r ApiProductTierApiDisableProductTierFeatureRequest) (*http.Response, error)
+
+	/*
+	ProductTierApiEnableProductTierFeature EnableProductTierFeature product-tier-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId Service ID
+	@param id Product tier ID
+	@return ApiProductTierApiEnableProductTierFeatureRequest
+	*/
+	ProductTierApiEnableProductTierFeature(ctx context.Context, serviceId string, id string) ApiProductTierApiEnableProductTierFeatureRequest
+
+	// ProductTierApiEnableProductTierFeatureExecute executes the request
+	ProductTierApiEnableProductTierFeatureExecute(r ApiProductTierApiEnableProductTierFeatureRequest) (*http.Response, error)
+
+	/*
+	ProductTierApiListProductTier ListProductTier product-tier-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId Service ID
+	@param serviceModelId Service model ID
+	@return ApiProductTierApiListProductTierRequest
+	*/
+	ProductTierApiListProductTier(ctx context.Context, serviceId string, serviceModelId string) ApiProductTierApiListProductTierRequest
+
+	// ProductTierApiListProductTierExecute executes the request
+	//  @return ListServiceEnvironmentsResult
+	ProductTierApiListProductTierExecute(r ApiProductTierApiListProductTierRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+
+	/*
+	ProductTierApiListProductTierBillingPlan ListProductTierBillingPlan product-tier-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId Service ID
+	@param id Product tier ID
+	@return ApiProductTierApiListProductTierBillingPlanRequest
+	*/
+	ProductTierApiListProductTierBillingPlan(ctx context.Context, serviceId string, id string) ApiProductTierApiListProductTierBillingPlanRequest
+
+	// ProductTierApiListProductTierBillingPlanExecute executes the request
+	//  @return ListProductTierBillingPlanResult
+	ProductTierApiListProductTierBillingPlanExecute(r ApiProductTierApiListProductTierBillingPlanRequest) (*ListProductTierBillingPlanResult, *http.Response, error)
+
+	/*
+	ProductTierApiUpdateProductTier UpdateProductTier product-tier-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId Service ID
+	@param id Product tier ID
+	@return ApiProductTierApiUpdateProductTierRequest
+	*/
+	ProductTierApiUpdateProductTier(ctx context.Context, serviceId string, id string) ApiProductTierApiUpdateProductTierRequest
+
+	// ProductTierApiUpdateProductTierExecute executes the request
+	ProductTierApiUpdateProductTierExecute(r ApiProductTierApiUpdateProductTierRequest) (*http.Response, error)
+
+	/*
+	ProductTierApiUpdateProductTierBillingPlan UpdateProductTierBillingPlan product-tier-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId Service ID
+	@param productTierId Product tier ID
+	@param id Product tier billing plan ID
+	@return ApiProductTierApiUpdateProductTierBillingPlanRequest
+	*/
+	ProductTierApiUpdateProductTierBillingPlan(ctx context.Context, serviceId string, productTierId string, id string) ApiProductTierApiUpdateProductTierBillingPlanRequest
+
+	// ProductTierApiUpdateProductTierBillingPlanExecute executes the request
+	//  @return BillingPlan
+	ProductTierApiUpdateProductTierBillingPlanExecute(r ApiProductTierApiUpdateProductTierBillingPlanRequest) (*BillingPlan, *http.Response, error)
+}
+
 // ProductTierApiAPIService ProductTierApiAPI service
 type ProductTierApiAPIService service
 
 type ApiProductTierApiCopyProductTierRequest struct {
 	ctx context.Context
-	ApiService *ProductTierApiAPIService
+	ApiService ProductTierApiAPI
 	serviceId string
 	sourceId string
 	copyProductTierRequestBody *CopyProductTierRequestBody
@@ -206,7 +388,7 @@ func (a *ProductTierApiAPIService) ProductTierApiCopyProductTierExecute(r ApiPro
 
 type ApiProductTierApiCreateProductTierRequest struct {
 	ctx context.Context
-	ApiService *ProductTierApiAPIService
+	ApiService ProductTierApiAPI
 	serviceId string
 	createProductTierRequestBody *CreateProductTierRequestBody
 }
@@ -383,7 +565,7 @@ func (a *ProductTierApiAPIService) ProductTierApiCreateProductTierExecute(r ApiP
 
 type ApiProductTierApiCreateProductTierBillingPlanRequest struct {
 	ctx context.Context
-	ApiService *ProductTierApiAPIService
+	ApiService ProductTierApiAPI
 	serviceId string
 	id string
 	createProductTierBillingPlanRequestBody *CreateProductTierBillingPlanRequestBody
@@ -564,7 +746,7 @@ func (a *ProductTierApiAPIService) ProductTierApiCreateProductTierBillingPlanExe
 
 type ApiProductTierApiDeleteProductTierRequest struct {
 	ctx context.Context
-	ApiService *ProductTierApiAPIService
+	ApiService ProductTierApiAPI
 	serviceId string
 	id string
 }
@@ -723,7 +905,7 @@ func (a *ProductTierApiAPIService) ProductTierApiDeleteProductTierExecute(r ApiP
 
 type ApiProductTierApiDeleteProductTierBillingPlanRequest struct {
 	ctx context.Context
-	ApiService *ProductTierApiAPIService
+	ApiService ProductTierApiAPI
 	serviceId string
 	productTierId string
 	id string
@@ -886,7 +1068,7 @@ func (a *ProductTierApiAPIService) ProductTierApiDeleteProductTierBillingPlanExe
 
 type ApiProductTierApiDescribeProductTierRequest struct {
 	ctx context.Context
-	ApiService *ProductTierApiAPIService
+	ApiService ProductTierApiAPI
 	serviceId string
 	id string
 	version *string
@@ -1066,7 +1248,7 @@ func (a *ProductTierApiAPIService) ProductTierApiDescribeProductTierExecute(r Ap
 
 type ApiProductTierApiDescribeProductTierBillingPlanRequest struct {
 	ctx context.Context
-	ApiService *ProductTierApiAPIService
+	ApiService ProductTierApiAPI
 	serviceId string
 	productTierId string
 	id string
@@ -1240,7 +1422,7 @@ func (a *ProductTierApiAPIService) ProductTierApiDescribeProductTierBillingPlanE
 
 type ApiProductTierApiDisableProductTierFeatureRequest struct {
 	ctx context.Context
-	ApiService *ProductTierApiAPIService
+	ApiService ProductTierApiAPI
 	serviceId string
 	id string
 	disableProductTierFeatureRequestBody *DisableProductTierFeatureRequestBody
@@ -1410,7 +1592,7 @@ func (a *ProductTierApiAPIService) ProductTierApiDisableProductTierFeatureExecut
 
 type ApiProductTierApiEnableProductTierFeatureRequest struct {
 	ctx context.Context
-	ApiService *ProductTierApiAPIService
+	ApiService ProductTierApiAPI
 	serviceId string
 	id string
 	enableProductTierFeatureRequestBody *EnableProductTierFeatureRequestBody
@@ -1580,7 +1762,7 @@ func (a *ProductTierApiAPIService) ProductTierApiEnableProductTierFeatureExecute
 
 type ApiProductTierApiListProductTierRequest struct {
 	ctx context.Context
-	ApiService *ProductTierApiAPIService
+	ApiService ProductTierApiAPI
 	serviceId string
 	serviceModelId string
 }
@@ -1750,7 +1932,7 @@ func (a *ProductTierApiAPIService) ProductTierApiListProductTierExecute(r ApiPro
 
 type ApiProductTierApiListProductTierBillingPlanRequest struct {
 	ctx context.Context
-	ApiService *ProductTierApiAPIService
+	ApiService ProductTierApiAPI
 	serviceId string
 	id string
 }
@@ -1920,7 +2102,7 @@ func (a *ProductTierApiAPIService) ProductTierApiListProductTierBillingPlanExecu
 
 type ApiProductTierApiUpdateProductTierRequest struct {
 	ctx context.Context
-	ApiService *ProductTierApiAPIService
+	ApiService ProductTierApiAPI
 	serviceId string
 	id string
 	updateProductTierRequestBody *UpdateProductTierRequestBody
@@ -2090,7 +2272,7 @@ func (a *ProductTierApiAPIService) ProductTierApiUpdateProductTierExecute(r ApiP
 
 type ApiProductTierApiUpdateProductTierBillingPlanRequest struct {
 	ctx context.Context
-	ApiService *ProductTierApiAPIService
+	ApiService ProductTierApiAPI
 	serviceId string
 	productTierId string
 	id string

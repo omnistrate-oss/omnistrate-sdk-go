@@ -21,12 +21,368 @@ import (
 )
 
 
+type ResourceApiAPI interface {
+
+	/*
+	ResourceApiAddFile AddFile resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@return ApiResourceApiAddFileRequest
+	*/
+	ResourceApiAddFile(ctx context.Context, serviceId string, id string) ApiResourceApiAddFileRequest
+
+	// ResourceApiAddFileExecute executes the request
+	//  @return string
+	ResourceApiAddFileExecute(r ApiResourceApiAddFileRequest) (string, *http.Response, error)
+
+	/*
+	ResourceApiAddResourceDependency AddResourceDependency resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@param resourceDependencyId The ID of the resource to be added as a dependency
+	@return ApiResourceApiAddResourceDependencyRequest
+	*/
+	ResourceApiAddResourceDependency(ctx context.Context, serviceId string, id string, resourceDependencyId string) ApiResourceApiAddResourceDependencyRequest
+
+	// ResourceApiAddResourceDependencyExecute executes the request
+	ResourceApiAddResourceDependencyExecute(r ApiResourceApiAddResourceDependencyRequest) (*http.Response, error)
+
+	/*
+	ResourceApiCreateResource CreateResource resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@return ApiResourceApiCreateResourceRequest
+	*/
+	ResourceApiCreateResource(ctx context.Context, serviceId string) ApiResourceApiCreateResourceRequest
+
+	// ResourceApiCreateResourceExecute executes the request
+	//  @return string
+	ResourceApiCreateResourceExecute(r ApiResourceApiCreateResourceRequest) (string, *http.Response, error)
+
+	/*
+	ResourceApiDeleteResource DeleteResource resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@return ApiResourceApiDeleteResourceRequest
+	*/
+	ResourceApiDeleteResource(ctx context.Context, serviceId string, id string) ApiResourceApiDeleteResourceRequest
+
+	// ResourceApiDeleteResourceExecute executes the request
+	ResourceApiDeleteResourceExecute(r ApiResourceApiDeleteResourceRequest) (*http.Response, error)
+
+	/*
+	ResourceApiDeprecateResource DeprecateResource resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@return ApiResourceApiDeprecateResourceRequest
+	*/
+	ResourceApiDeprecateResource(ctx context.Context, serviceId string, id string) ApiResourceApiDeprecateResourceRequest
+
+	// ResourceApiDeprecateResourceExecute executes the request
+	ResourceApiDeprecateResourceExecute(r ApiResourceApiDeprecateResourceRequest) (*http.Response, error)
+
+	/*
+	ResourceApiDeregisterActionHook DeregisterActionHook resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service to which the hook belongs
+	@param id The ID of the resource to which the hook belongs
+	@return ApiResourceApiDeregisterActionHookRequest
+	*/
+	ResourceApiDeregisterActionHook(ctx context.Context, serviceId string, id string) ApiResourceApiDeregisterActionHookRequest
+
+	// ResourceApiDeregisterActionHookExecute executes the request
+	ResourceApiDeregisterActionHookExecute(r ApiResourceApiDeregisterActionHookRequest) (*http.Response, error)
+
+	/*
+	ResourceApiDeregisterResourceMetricsConfig DeregisterResourceMetricsConfig resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@return ApiResourceApiDeregisterResourceMetricsConfigRequest
+	*/
+	ResourceApiDeregisterResourceMetricsConfig(ctx context.Context, serviceId string, id string) ApiResourceApiDeregisterResourceMetricsConfigRequest
+
+	// ResourceApiDeregisterResourceMetricsConfigExecute executes the request
+	ResourceApiDeregisterResourceMetricsConfigExecute(r ApiResourceApiDeregisterResourceMetricsConfigRequest) (*http.Response, error)
+
+	/*
+	ResourceApiDescribeResource DescribeResource resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@return ApiResourceApiDescribeResourceRequest
+	*/
+	ResourceApiDescribeResource(ctx context.Context, serviceId string, id string) ApiResourceApiDescribeResourceRequest
+
+	// ResourceApiDescribeResourceExecute executes the request
+	//  @return DescribeResourceResult
+	ResourceApiDescribeResourceExecute(r ApiResourceApiDescribeResourceRequest) (*DescribeResourceResult, *http.Response, error)
+
+	/*
+	ResourceApiDescribeResourceMetricsConfig DescribeResourceMetricsConfig resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@return ApiResourceApiDescribeResourceMetricsConfigRequest
+	*/
+	ResourceApiDescribeResourceMetricsConfig(ctx context.Context, serviceId string, id string) ApiResourceApiDescribeResourceMetricsConfigRequest
+
+	// ResourceApiDescribeResourceMetricsConfigExecute executes the request
+	//  @return Describeresourcemetricsconfigresult
+	ResourceApiDescribeResourceMetricsConfigExecute(r ApiResourceApiDescribeResourceMetricsConfigRequest) (*Describeresourcemetricsconfigresult, *http.Response, error)
+
+	/*
+	ResourceApiDisableResourceCapability DisableResourceCapability resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@return ApiResourceApiDisableResourceCapabilityRequest
+	*/
+	ResourceApiDisableResourceCapability(ctx context.Context, serviceId string, id string) ApiResourceApiDisableResourceCapabilityRequest
+
+	// ResourceApiDisableResourceCapabilityExecute executes the request
+	ResourceApiDisableResourceCapabilityExecute(r ApiResourceApiDisableResourceCapabilityRequest) (*http.Response, error)
+
+	/*
+	ResourceApiEnableResourceCapability EnableResourceCapability resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@return ApiResourceApiEnableResourceCapabilityRequest
+	*/
+	ResourceApiEnableResourceCapability(ctx context.Context, serviceId string, id string) ApiResourceApiEnableResourceCapabilityRequest
+
+	// ResourceApiEnableResourceCapabilityExecute executes the request
+	ResourceApiEnableResourceCapabilityExecute(r ApiResourceApiEnableResourceCapabilityRequest) (*http.Response, error)
+
+	/*
+	ResourceApiGetFile GetFile resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@param fileId The ID of the file
+	@return ApiResourceApiGetFileRequest
+	*/
+	ResourceApiGetFile(ctx context.Context, serviceId string, id string, fileId string) ApiResourceApiGetFileRequest
+
+	// ResourceApiGetFileExecute executes the request
+	//  @return *os.File
+	ResourceApiGetFileExecute(r ApiResourceApiGetFileRequest) (*os.File, *http.Response, error)
+
+	/*
+	ResourceApiListActionHooks ListActionHooks resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service to which the hook belongs
+	@param id The ID of the resource to which the hook belongs
+	@return ApiResourceApiListActionHooksRequest
+	*/
+	ResourceApiListActionHooks(ctx context.Context, serviceId string, id string) ApiResourceApiListActionHooksRequest
+
+	// ResourceApiListActionHooksExecute executes the request
+	//  @return ListActionHooksResult
+	ResourceApiListActionHooksExecute(r ApiResourceApiListActionHooksRequest) (*ListActionHooksResult, *http.Response, error)
+
+	/*
+	ResourceApiListDependentResource ListDependentResource resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@return ApiResourceApiListDependentResourceRequest
+	*/
+	ResourceApiListDependentResource(ctx context.Context, serviceId string, id string) ApiResourceApiListDependentResourceRequest
+
+	// ResourceApiListDependentResourceExecute executes the request
+	//  @return ListDependentResourcesResult
+	ResourceApiListDependentResourceExecute(r ApiResourceApiListDependentResourceRequest) (*ListDependentResourcesResult, *http.Response, error)
+
+	/*
+	ResourceApiListFiles ListFiles resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@return ApiResourceApiListFilesRequest
+	*/
+	ResourceApiListFiles(ctx context.Context, serviceId string, id string) ApiResourceApiListFilesRequest
+
+	// ResourceApiListFilesExecute executes the request
+	//  @return ListFilesResult
+	ResourceApiListFilesExecute(r ApiResourceApiListFilesRequest) (*ListFilesResult, *http.Response, error)
+
+	/*
+	ResourceApiListResourceCapabilities ListResourceCapabilities resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@return ApiResourceApiListResourceCapabilitiesRequest
+	*/
+	ResourceApiListResourceCapabilities(ctx context.Context, serviceId string, id string) ApiResourceApiListResourceCapabilitiesRequest
+
+	// ResourceApiListResourceCapabilitiesExecute executes the request
+	//  @return ListResourceCapabilitiesResponse
+	ResourceApiListResourceCapabilitiesExecute(r ApiResourceApiListResourceCapabilitiesRequest) (*ListResourceCapabilitiesResponse, *http.Response, error)
+
+	/*
+	ResourceApiListResources ListResources resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service to list resources for
+	@param productTierId The product tier ID
+	@return ApiResourceApiListResourcesRequest
+	*/
+	ResourceApiListResources(ctx context.Context, serviceId string, productTierId string) ApiResourceApiListResourcesRequest
+
+	// ResourceApiListResourcesExecute executes the request
+	//  @return ListResourcesResult
+	ResourceApiListResourcesExecute(r ApiResourceApiListResourcesRequest) (*ListResourcesResult, *http.Response, error)
+
+	/*
+	ResourceApiRegisterActionHook RegisterActionHook resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service to which the hook belongs
+	@param id The ID of the resource to which the hook belongs
+	@return ApiResourceApiRegisterActionHookRequest
+	*/
+	ResourceApiRegisterActionHook(ctx context.Context, serviceId string, id string) ApiResourceApiRegisterActionHookRequest
+
+	// ResourceApiRegisterActionHookExecute executes the request
+	ResourceApiRegisterActionHookExecute(r ApiResourceApiRegisterActionHookRequest) (*http.Response, error)
+
+	/*
+	ResourceApiRegisterResourceMetricsConfig RegisterResourceMetricsConfig resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@return ApiResourceApiRegisterResourceMetricsConfigRequest
+	*/
+	ResourceApiRegisterResourceMetricsConfig(ctx context.Context, serviceId string, id string) ApiResourceApiRegisterResourceMetricsConfigRequest
+
+	// ResourceApiRegisterResourceMetricsConfigExecute executes the request
+	ResourceApiRegisterResourceMetricsConfigExecute(r ApiResourceApiRegisterResourceMetricsConfigRequest) (*http.Response, error)
+
+	/*
+	ResourceApiRemoveFile RemoveFile resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@param fileId The ID of the file
+	@return ApiResourceApiRemoveFileRequest
+	*/
+	ResourceApiRemoveFile(ctx context.Context, serviceId string, id string, fileId string) ApiResourceApiRemoveFileRequest
+
+	// ResourceApiRemoveFileExecute executes the request
+	ResourceApiRemoveFileExecute(r ApiResourceApiRemoveFileRequest) (*http.Response, error)
+
+	/*
+	ResourceApiRemoveResourceDependency RemoveResourceDependency resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@param resourceDependencyId The ID of the resource dependency to remove
+	@return ApiResourceApiRemoveResourceDependencyRequest
+	*/
+	ResourceApiRemoveResourceDependency(ctx context.Context, serviceId string, id string, resourceDependencyId string) ApiResourceApiRemoveResourceDependencyRequest
+
+	// ResourceApiRemoveResourceDependencyExecute executes the request
+	ResourceApiRemoveResourceDependencyExecute(r ApiResourceApiRemoveResourceDependencyRequest) (*http.Response, error)
+
+	/*
+	ResourceApiSetEnvironmentVariables SetEnvironmentVariables resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@return ApiResourceApiSetEnvironmentVariablesRequest
+	*/
+	ResourceApiSetEnvironmentVariables(ctx context.Context, serviceId string, id string) ApiResourceApiSetEnvironmentVariablesRequest
+
+	// ResourceApiSetEnvironmentVariablesExecute executes the request
+	ResourceApiSetEnvironmentVariablesExecute(r ApiResourceApiSetEnvironmentVariablesRequest) (*http.Response, error)
+
+	/*
+	ResourceApiUnsetEnvironmentVariables UnsetEnvironmentVariables resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@return ApiResourceApiUnsetEnvironmentVariablesRequest
+	*/
+	ResourceApiUnsetEnvironmentVariables(ctx context.Context, serviceId string, id string) ApiResourceApiUnsetEnvironmentVariablesRequest
+
+	// ResourceApiUnsetEnvironmentVariablesExecute executes the request
+	ResourceApiUnsetEnvironmentVariablesExecute(r ApiResourceApiUnsetEnvironmentVariablesRequest) (*http.Response, error)
+
+	/*
+	ResourceApiUpdateFileContent UpdateFileContent resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@param fileId The ID of the file
+	@return ApiResourceApiUpdateFileContentRequest
+	*/
+	ResourceApiUpdateFileContent(ctx context.Context, serviceId string, id string, fileId string) ApiResourceApiUpdateFileContentRequest
+
+	// ResourceApiUpdateFileContentExecute executes the request
+	ResourceApiUpdateFileContentExecute(r ApiResourceApiUpdateFileContentRequest) (*http.Response, error)
+
+	/*
+	ResourceApiUpdateFileMetadata UpdateFileMetadata resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@param fileId The ID of the file
+	@return ApiResourceApiUpdateFileMetadataRequest
+	*/
+	ResourceApiUpdateFileMetadata(ctx context.Context, serviceId string, id string, fileId string) ApiResourceApiUpdateFileMetadataRequest
+
+	// ResourceApiUpdateFileMetadataExecute executes the request
+	ResourceApiUpdateFileMetadataExecute(r ApiResourceApiUpdateFileMetadataRequest) (*http.Response, error)
+
+	/*
+	ResourceApiUpdateResource UpdateResource resource-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The ID of the resource
+	@return ApiResourceApiUpdateResourceRequest
+	*/
+	ResourceApiUpdateResource(ctx context.Context, serviceId string, id string) ApiResourceApiUpdateResourceRequest
+
+	// ResourceApiUpdateResourceExecute executes the request
+	ResourceApiUpdateResourceExecute(r ApiResourceApiUpdateResourceRequest) (*http.Response, error)
+}
+
 // ResourceApiAPIService ResourceApiAPI service
 type ResourceApiAPIService service
 
 type ApiResourceApiAddFileRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 	name *string
@@ -228,7 +584,7 @@ func (a *ResourceApiAPIService) ResourceApiAddFileExecute(r ApiResourceApiAddFil
 
 type ApiResourceApiAddResourceDependencyRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 	resourceDependencyId string
@@ -402,7 +758,7 @@ func (a *ResourceApiAPIService) ResourceApiAddResourceDependencyExecute(r ApiRes
 
 type ApiResourceApiCreateResourceRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	createResourceRequestBody *CreateResourceRequestBody
 }
@@ -579,7 +935,7 @@ func (a *ResourceApiAPIService) ResourceApiCreateResourceExecute(r ApiResourceAp
 
 type ApiResourceApiDeleteResourceRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 }
@@ -738,7 +1094,7 @@ func (a *ResourceApiAPIService) ResourceApiDeleteResourceExecute(r ApiResourceAp
 
 type ApiResourceApiDeprecateResourceRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 }
@@ -897,7 +1253,7 @@ func (a *ResourceApiAPIService) ResourceApiDeprecateResourceExecute(r ApiResourc
 
 type ApiResourceApiDeregisterActionHookRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 	deregisterActionHookRequestBody *DeregisterActionHookRequestBody
@@ -1067,7 +1423,7 @@ func (a *ResourceApiAPIService) ResourceApiDeregisterActionHookExecute(r ApiReso
 
 type ApiResourceApiDeregisterResourceMetricsConfigRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 }
@@ -1226,7 +1582,7 @@ func (a *ResourceApiAPIService) ResourceApiDeregisterResourceMetricsConfigExecut
 
 type ApiResourceApiDescribeResourceRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 	productTierVersion *string
@@ -1416,7 +1772,7 @@ func (a *ResourceApiAPIService) ResourceApiDescribeResourceExecute(r ApiResource
 
 type ApiResourceApiDescribeResourceMetricsConfigRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 	productTierVersion *string
@@ -1606,7 +1962,7 @@ func (a *ResourceApiAPIService) ResourceApiDescribeResourceMetricsConfigExecute(
 
 type ApiResourceApiDisableResourceCapabilityRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 	disableResourceCapabilityRequestBody *DisableResourceCapabilityRequestBody
@@ -1776,7 +2132,7 @@ func (a *ResourceApiAPIService) ResourceApiDisableResourceCapabilityExecute(r Ap
 
 type ApiResourceApiEnableResourceCapabilityRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 	enableResourceCapabilityRequestBody *EnableResourceCapabilityRequestBody
@@ -1946,7 +2302,7 @@ func (a *ResourceApiAPIService) ResourceApiEnableResourceCapabilityExecute(r Api
 
 type ApiResourceApiGetFileRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 	fileId string
@@ -2140,7 +2496,7 @@ func (a *ResourceApiAPIService) ResourceApiGetFileExecute(r ApiResourceApiGetFil
 
 type ApiResourceApiListActionHooksRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 }
@@ -2310,7 +2666,7 @@ func (a *ResourceApiAPIService) ResourceApiListActionHooksExecute(r ApiResourceA
 
 type ApiResourceApiListDependentResourceRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 }
@@ -2480,7 +2836,7 @@ func (a *ResourceApiAPIService) ResourceApiListDependentResourceExecute(r ApiRes
 
 type ApiResourceApiListFilesRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 	productTierId *string
@@ -2670,7 +3026,7 @@ func (a *ResourceApiAPIService) ResourceApiListFilesExecute(r ApiResourceApiList
 
 type ApiResourceApiListResourceCapabilitiesRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 	productTierVersion *string
@@ -2860,7 +3216,7 @@ func (a *ResourceApiAPIService) ResourceApiListResourceCapabilitiesExecute(r Api
 
 type ApiResourceApiListResourcesRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	productTierId string
 	managed *bool
@@ -3050,7 +3406,7 @@ func (a *ResourceApiAPIService) ResourceApiListResourcesExecute(r ApiResourceApi
 
 type ApiResourceApiRegisterActionHookRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 	registerActionHookRequestBody *RegisterActionHookRequestBody
@@ -3220,7 +3576,7 @@ func (a *ResourceApiAPIService) ResourceApiRegisterActionHookExecute(r ApiResour
 
 type ApiResourceApiRegisterResourceMetricsConfigRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 	registerResourceMetricsConfigRequestBody *RegisterResourceMetricsConfigRequestBody
@@ -3390,7 +3746,7 @@ func (a *ResourceApiAPIService) ResourceApiRegisterResourceMetricsConfigExecute(
 
 type ApiResourceApiRemoveFileRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 	fileId string
@@ -3553,7 +3909,7 @@ func (a *ResourceApiAPIService) ResourceApiRemoveFileExecute(r ApiResourceApiRem
 
 type ApiResourceApiRemoveResourceDependencyRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 	resourceDependencyId string
@@ -3716,7 +4072,7 @@ func (a *ResourceApiAPIService) ResourceApiRemoveResourceDependencyExecute(r Api
 
 type ApiResourceApiSetEnvironmentVariablesRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 	setEnvironmentVariablesRequestBody *SetEnvironmentVariablesRequestBody
@@ -3886,7 +4242,7 @@ func (a *ResourceApiAPIService) ResourceApiSetEnvironmentVariablesExecute(r ApiR
 
 type ApiResourceApiUnsetEnvironmentVariablesRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 	setEnvironmentVariablesRequestBody *SetEnvironmentVariablesRequestBody
@@ -4056,7 +4412,7 @@ func (a *ResourceApiAPIService) ResourceApiUnsetEnvironmentVariablesExecute(r Ap
 
 type ApiResourceApiUpdateFileContentRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 	fileId string
@@ -4196,7 +4552,7 @@ func (a *ResourceApiAPIService) ResourceApiUpdateFileContentExecute(r ApiResourc
 
 type ApiResourceApiUpdateFileMetadataRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 	fileId string
@@ -4337,7 +4693,7 @@ func (a *ResourceApiAPIService) ResourceApiUpdateFileMetadataExecute(r ApiResour
 
 type ApiResourceApiUpdateResourceRequest struct {
 	ctx context.Context
-	ApiService *ResourceApiAPIService
+	ApiService ResourceApiAPI
 	serviceId string
 	id string
 	updateResourceRequestBody *UpdateResourceRequestBody

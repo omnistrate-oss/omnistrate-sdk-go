@@ -20,12 +20,76 @@ import (
 )
 
 
+type DeploymentConfigApiAPI interface {
+
+	/*
+	DeploymentConfigApiCreateDeploymentConfig CreateDeploymentConfig deployment-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeploymentConfigApiCreateDeploymentConfigRequest
+	*/
+	DeploymentConfigApiCreateDeploymentConfig(ctx context.Context) ApiDeploymentConfigApiCreateDeploymentConfigRequest
+
+	// DeploymentConfigApiCreateDeploymentConfigExecute executes the request
+	//  @return string
+	DeploymentConfigApiCreateDeploymentConfigExecute(r ApiDeploymentConfigApiCreateDeploymentConfigRequest) (string, *http.Response, error)
+
+	/*
+	DeploymentConfigApiDeleteDeploymentConfig DeleteDeploymentConfig deployment-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The deployment configuration ID
+	@return ApiDeploymentConfigApiDeleteDeploymentConfigRequest
+	*/
+	DeploymentConfigApiDeleteDeploymentConfig(ctx context.Context, id string) ApiDeploymentConfigApiDeleteDeploymentConfigRequest
+
+	// DeploymentConfigApiDeleteDeploymentConfigExecute executes the request
+	DeploymentConfigApiDeleteDeploymentConfigExecute(r ApiDeploymentConfigApiDeleteDeploymentConfigRequest) (*http.Response, error)
+
+	/*
+	DeploymentConfigApiDescribeDeploymentConfig DescribeDeploymentConfig deployment-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The deployment configuration ID
+	@return ApiDeploymentConfigApiDescribeDeploymentConfigRequest
+	*/
+	DeploymentConfigApiDescribeDeploymentConfig(ctx context.Context, id string) ApiDeploymentConfigApiDescribeDeploymentConfigRequest
+
+	// DeploymentConfigApiDescribeDeploymentConfigExecute executes the request
+	//  @return DescribeDeploymentConfigResult
+	DeploymentConfigApiDescribeDeploymentConfigExecute(r ApiDeploymentConfigApiDescribeDeploymentConfigRequest) (*DescribeDeploymentConfigResult, *http.Response, error)
+
+	/*
+	DeploymentConfigApiListDeploymentConfigs ListDeploymentConfigs deployment-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeploymentConfigApiListDeploymentConfigsRequest
+	*/
+	DeploymentConfigApiListDeploymentConfigs(ctx context.Context) ApiDeploymentConfigApiListDeploymentConfigsRequest
+
+	// DeploymentConfigApiListDeploymentConfigsExecute executes the request
+	//  @return ListServiceEnvironmentsResult
+	DeploymentConfigApiListDeploymentConfigsExecute(r ApiDeploymentConfigApiListDeploymentConfigsRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+
+	/*
+	DeploymentConfigApiUpdateDeploymentConfig UpdateDeploymentConfig deployment-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The deployment configuration ID
+	@return ApiDeploymentConfigApiUpdateDeploymentConfigRequest
+	*/
+	DeploymentConfigApiUpdateDeploymentConfig(ctx context.Context, id string) ApiDeploymentConfigApiUpdateDeploymentConfigRequest
+
+	// DeploymentConfigApiUpdateDeploymentConfigExecute executes the request
+	DeploymentConfigApiUpdateDeploymentConfigExecute(r ApiDeploymentConfigApiUpdateDeploymentConfigRequest) (*http.Response, error)
+}
+
 // DeploymentConfigApiAPIService DeploymentConfigApiAPI service
 type DeploymentConfigApiAPIService service
 
 type ApiDeploymentConfigApiCreateDeploymentConfigRequest struct {
 	ctx context.Context
-	ApiService *DeploymentConfigApiAPIService
+	ApiService DeploymentConfigApiAPI
 	createDeploymentConfigRequestBody *CreateDeploymentConfigRequestBody
 }
 
@@ -198,7 +262,7 @@ func (a *DeploymentConfigApiAPIService) DeploymentConfigApiCreateDeploymentConfi
 
 type ApiDeploymentConfigApiDeleteDeploymentConfigRequest struct {
 	ctx context.Context
-	ApiService *DeploymentConfigApiAPIService
+	ApiService DeploymentConfigApiAPI
 	id string
 }
 
@@ -353,7 +417,7 @@ func (a *DeploymentConfigApiAPIService) DeploymentConfigApiDeleteDeploymentConfi
 
 type ApiDeploymentConfigApiDescribeDeploymentConfigRequest struct {
 	ctx context.Context
-	ApiService *DeploymentConfigApiAPIService
+	ApiService DeploymentConfigApiAPI
 	id string
 }
 
@@ -519,7 +583,7 @@ func (a *DeploymentConfigApiAPIService) DeploymentConfigApiDescribeDeploymentCon
 
 type ApiDeploymentConfigApiListDeploymentConfigsRequest struct {
 	ctx context.Context
-	ApiService *DeploymentConfigApiAPIService
+	ApiService DeploymentConfigApiAPI
 }
 
 func (r ApiDeploymentConfigApiListDeploymentConfigsRequest) Execute() (*ListServiceEnvironmentsResult, *http.Response, error) {
@@ -681,7 +745,7 @@ func (a *DeploymentConfigApiAPIService) DeploymentConfigApiListDeploymentConfigs
 
 type ApiDeploymentConfigApiUpdateDeploymentConfigRequest struct {
 	ctx context.Context
-	ApiService *DeploymentConfigApiAPIService
+	ApiService DeploymentConfigApiAPI
 	id string
 	updateDeploymentConfigRequestBody *UpdateDeploymentConfigRequestBody
 }

@@ -20,12 +20,125 @@ import (
 )
 
 
+type ServiceApiAPI interface {
+
+	/*
+	ServiceApiBuildServiceFromComposeSpec BuildServiceFromComposeSpec service-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiServiceApiBuildServiceFromComposeSpecRequest
+	*/
+	ServiceApiBuildServiceFromComposeSpec(ctx context.Context) ApiServiceApiBuildServiceFromComposeSpecRequest
+
+	// ServiceApiBuildServiceFromComposeSpecExecute executes the request
+	//  @return BuildServiceFromServicePlanSpecResult
+	ServiceApiBuildServiceFromComposeSpecExecute(r ApiServiceApiBuildServiceFromComposeSpecRequest) (*BuildServiceFromServicePlanSpecResult, *http.Response, error)
+
+	/*
+	ServiceApiBuildServiceFromServicePlanSpec BuildServiceFromServicePlanSpec service-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiServiceApiBuildServiceFromServicePlanSpecRequest
+	*/
+	ServiceApiBuildServiceFromServicePlanSpec(ctx context.Context) ApiServiceApiBuildServiceFromServicePlanSpecRequest
+
+	// ServiceApiBuildServiceFromServicePlanSpecExecute executes the request
+	//  @return BuildServiceFromServicePlanSpecResult
+	ServiceApiBuildServiceFromServicePlanSpecExecute(r ApiServiceApiBuildServiceFromServicePlanSpecRequest) (*BuildServiceFromServicePlanSpecResult, *http.Response, error)
+
+	/*
+	ServiceApiCreateService CreateService service-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiServiceApiCreateServiceRequest
+	*/
+	ServiceApiCreateService(ctx context.Context) ApiServiceApiCreateServiceRequest
+
+	// ServiceApiCreateServiceExecute executes the request
+	//  @return string
+	ServiceApiCreateServiceExecute(r ApiServiceApiCreateServiceRequest) (string, *http.Response, error)
+
+	/*
+	ServiceApiCreateServiceFromComposeSpec CreateServiceFromComposeSpec service-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiServiceApiCreateServiceFromComposeSpecRequest
+	*/
+	ServiceApiCreateServiceFromComposeSpec(ctx context.Context) ApiServiceApiCreateServiceFromComposeSpecRequest
+
+	// ServiceApiCreateServiceFromComposeSpecExecute executes the request
+	//  @return string
+	ServiceApiCreateServiceFromComposeSpecExecute(r ApiServiceApiCreateServiceFromComposeSpecRequest) (string, *http.Response, error)
+
+	/*
+	ServiceApiDeleteService DeleteService service-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The service ID to operate on
+	@return ApiServiceApiDeleteServiceRequest
+	*/
+	ServiceApiDeleteService(ctx context.Context, id string) ApiServiceApiDeleteServiceRequest
+
+	// ServiceApiDeleteServiceExecute executes the request
+	ServiceApiDeleteServiceExecute(r ApiServiceApiDeleteServiceRequest) (*http.Response, error)
+
+	/*
+	ServiceApiDescribeService DescribeService service-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The service ID to operate on
+	@return ApiServiceApiDescribeServiceRequest
+	*/
+	ServiceApiDescribeService(ctx context.Context, id string) ApiServiceApiDescribeServiceRequest
+
+	// ServiceApiDescribeServiceExecute executes the request
+	//  @return DescribeServiceResult
+	ServiceApiDescribeServiceExecute(r ApiServiceApiDescribeServiceRequest) (*DescribeServiceResult, *http.Response, error)
+
+	/*
+	ServiceApiListService ListService service-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiServiceApiListServiceRequest
+	*/
+	ServiceApiListService(ctx context.Context) ApiServiceApiListServiceRequest
+
+	// ServiceApiListServiceExecute executes the request
+	//  @return ListServiceResult
+	ServiceApiListServiceExecute(r ApiServiceApiListServiceRequest) (*ListServiceResult, *http.Response, error)
+
+	/*
+	ServiceApiServiceHealth ServiceHealth service-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the service
+	@return ApiServiceApiServiceHealthRequest
+	*/
+	ServiceApiServiceHealth(ctx context.Context, id string) ApiServiceApiServiceHealthRequest
+
+	// ServiceApiServiceHealthExecute executes the request
+	//  @return ReportHealthResult
+	ServiceApiServiceHealthExecute(r ApiServiceApiServiceHealthRequest) (*ReportHealthResult, *http.Response, error)
+
+	/*
+	ServiceApiUpdateService UpdateService service-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The service ID to operate on
+	@return ApiServiceApiUpdateServiceRequest
+	*/
+	ServiceApiUpdateService(ctx context.Context, id string) ApiServiceApiUpdateServiceRequest
+
+	// ServiceApiUpdateServiceExecute executes the request
+	ServiceApiUpdateServiceExecute(r ApiServiceApiUpdateServiceRequest) (*http.Response, error)
+}
+
 // ServiceApiAPIService ServiceApiAPI service
 type ServiceApiAPIService service
 
 type ApiServiceApiBuildServiceFromComposeSpecRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiAPIService
+	ApiService ServiceApiAPI
 	buildServiceFromComposeSpecRequestBody *BuildServiceFromComposeSpecRequestBody
 }
 
@@ -198,7 +311,7 @@ func (a *ServiceApiAPIService) ServiceApiBuildServiceFromComposeSpecExecute(r Ap
 
 type ApiServiceApiBuildServiceFromServicePlanSpecRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiAPIService
+	ApiService ServiceApiAPI
 	buildServiceFromServicePlanSpecRequestBody *BuildServiceFromServicePlanSpecRequestBody
 }
 
@@ -371,7 +484,7 @@ func (a *ServiceApiAPIService) ServiceApiBuildServiceFromServicePlanSpecExecute(
 
 type ApiServiceApiCreateServiceRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiAPIService
+	ApiService ServiceApiAPI
 	createServiceRequestBody *CreateServiceRequestBody
 }
 
@@ -544,7 +657,7 @@ func (a *ServiceApiAPIService) ServiceApiCreateServiceExecute(r ApiServiceApiCre
 
 type ApiServiceApiCreateServiceFromComposeSpecRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiAPIService
+	ApiService ServiceApiAPI
 	createServiceFromComposeSpecRequestBody *CreateServiceFromComposeSpecRequestBody
 }
 
@@ -717,7 +830,7 @@ func (a *ServiceApiAPIService) ServiceApiCreateServiceFromComposeSpecExecute(r A
 
 type ApiServiceApiDeleteServiceRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiAPIService
+	ApiService ServiceApiAPI
 	id string
 }
 
@@ -872,7 +985,7 @@ func (a *ServiceApiAPIService) ServiceApiDeleteServiceExecute(r ApiServiceApiDel
 
 type ApiServiceApiDescribeServiceRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiAPIService
+	ApiService ServiceApiAPI
 	id string
 }
 
@@ -1038,7 +1151,7 @@ func (a *ServiceApiAPIService) ServiceApiDescribeServiceExecute(r ApiServiceApiD
 
 type ApiServiceApiListServiceRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiAPIService
+	ApiService ServiceApiAPI
 }
 
 func (r ApiServiceApiListServiceRequest) Execute() (*ListServiceResult, *http.Response, error) {
@@ -1200,7 +1313,7 @@ func (a *ServiceApiAPIService) ServiceApiListServiceExecute(r ApiServiceApiListS
 
 type ApiServiceApiServiceHealthRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiAPIService
+	ApiService ServiceApiAPI
 	id string
 }
 
@@ -1366,7 +1479,7 @@ func (a *ServiceApiAPIService) ServiceApiServiceHealthExecute(r ApiServiceApiSer
 
 type ApiServiceApiUpdateServiceRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiAPIService
+	ApiService ServiceApiAPI
 	id string
 	updateServiceRequestBody *UpdateServiceRequestBody
 }

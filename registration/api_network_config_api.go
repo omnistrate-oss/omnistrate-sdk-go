@@ -20,12 +20,81 @@ import (
 )
 
 
+type NetworkConfigApiAPI interface {
+
+	/*
+	NetworkConfigApiCreateNetworkConfig CreateNetworkConfig network-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service
+	@return ApiNetworkConfigApiCreateNetworkConfigRequest
+	*/
+	NetworkConfigApiCreateNetworkConfig(ctx context.Context, serviceId string) ApiNetworkConfigApiCreateNetworkConfigRequest
+
+	// NetworkConfigApiCreateNetworkConfigExecute executes the request
+	//  @return string
+	NetworkConfigApiCreateNetworkConfigExecute(r ApiNetworkConfigApiCreateNetworkConfigRequest) (string, *http.Response, error)
+
+	/*
+	NetworkConfigApiDeleteNetworkConfig DeleteNetworkConfig network-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service
+	@param id The ID of the network config
+	@return ApiNetworkConfigApiDeleteNetworkConfigRequest
+	*/
+	NetworkConfigApiDeleteNetworkConfig(ctx context.Context, serviceId string, id string) ApiNetworkConfigApiDeleteNetworkConfigRequest
+
+	// NetworkConfigApiDeleteNetworkConfigExecute executes the request
+	NetworkConfigApiDeleteNetworkConfigExecute(r ApiNetworkConfigApiDeleteNetworkConfigRequest) (*http.Response, error)
+
+	/*
+	NetworkConfigApiDescribeNetworkConfig DescribeNetworkConfig network-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service
+	@param id The ID of the network config
+	@return ApiNetworkConfigApiDescribeNetworkConfigRequest
+	*/
+	NetworkConfigApiDescribeNetworkConfig(ctx context.Context, serviceId string, id string) ApiNetworkConfigApiDescribeNetworkConfigRequest
+
+	// NetworkConfigApiDescribeNetworkConfigExecute executes the request
+	//  @return DescribeNetworkConfigResult
+	NetworkConfigApiDescribeNetworkConfigExecute(r ApiNetworkConfigApiDescribeNetworkConfigRequest) (*DescribeNetworkConfigResult, *http.Response, error)
+
+	/*
+	NetworkConfigApiListNetworkConfig ListNetworkConfig network-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID to list network configs for
+	@return ApiNetworkConfigApiListNetworkConfigRequest
+	*/
+	NetworkConfigApiListNetworkConfig(ctx context.Context, serviceId string) ApiNetworkConfigApiListNetworkConfigRequest
+
+	// NetworkConfigApiListNetworkConfigExecute executes the request
+	//  @return ListServiceEnvironmentsResult
+	NetworkConfigApiListNetworkConfigExecute(r ApiNetworkConfigApiListNetworkConfigRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+
+	/*
+	NetworkConfigApiUpdateNetworkConfig UpdateNetworkConfig network-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service
+	@param id The ID of the network config
+	@return ApiNetworkConfigApiUpdateNetworkConfigRequest
+	*/
+	NetworkConfigApiUpdateNetworkConfig(ctx context.Context, serviceId string, id string) ApiNetworkConfigApiUpdateNetworkConfigRequest
+
+	// NetworkConfigApiUpdateNetworkConfigExecute executes the request
+	NetworkConfigApiUpdateNetworkConfigExecute(r ApiNetworkConfigApiUpdateNetworkConfigRequest) (*http.Response, error)
+}
+
 // NetworkConfigApiAPIService NetworkConfigApiAPI service
 type NetworkConfigApiAPIService service
 
 type ApiNetworkConfigApiCreateNetworkConfigRequest struct {
 	ctx context.Context
-	ApiService *NetworkConfigApiAPIService
+	ApiService NetworkConfigApiAPI
 	serviceId string
 	createNetworkConfigRequestBody *CreateNetworkConfigRequestBody
 }
@@ -202,7 +271,7 @@ func (a *NetworkConfigApiAPIService) NetworkConfigApiCreateNetworkConfigExecute(
 
 type ApiNetworkConfigApiDeleteNetworkConfigRequest struct {
 	ctx context.Context
-	ApiService *NetworkConfigApiAPIService
+	ApiService NetworkConfigApiAPI
 	serviceId string
 	id string
 }
@@ -361,7 +430,7 @@ func (a *NetworkConfigApiAPIService) NetworkConfigApiDeleteNetworkConfigExecute(
 
 type ApiNetworkConfigApiDescribeNetworkConfigRequest struct {
 	ctx context.Context
-	ApiService *NetworkConfigApiAPIService
+	ApiService NetworkConfigApiAPI
 	serviceId string
 	id string
 	productTierVersion *string
@@ -551,7 +620,7 @@ func (a *NetworkConfigApiAPIService) NetworkConfigApiDescribeNetworkConfigExecut
 
 type ApiNetworkConfigApiListNetworkConfigRequest struct {
 	ctx context.Context
-	ApiService *NetworkConfigApiAPIService
+	ApiService NetworkConfigApiAPI
 	serviceId string
 	managed *bool
 }
@@ -727,7 +796,7 @@ func (a *NetworkConfigApiAPIService) NetworkConfigApiListNetworkConfigExecute(r 
 
 type ApiNetworkConfigApiUpdateNetworkConfigRequest struct {
 	ctx context.Context
-	ApiService *NetworkConfigApiAPIService
+	ApiService NetworkConfigApiAPI
 	serviceId string
 	id string
 	updateNetworkConfigRequestBody *UpdateNetworkConfigRequestBody

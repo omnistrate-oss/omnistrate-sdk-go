@@ -20,12 +20,129 @@ import (
 )
 
 
+type AccountConfigApiAPI interface {
+
+	/*
+	AccountConfigApiAccountConfigIdentityID AccountConfigIdentityID account-config-api
+
+	Returns the identity id of the account config to be used in the trust policy of the account
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAccountConfigApiAccountConfigIdentityIDRequest
+	*/
+	AccountConfigApiAccountConfigIdentityID(ctx context.Context) ApiAccountConfigApiAccountConfigIdentityIDRequest
+
+	// AccountConfigApiAccountConfigIdentityIDExecute executes the request
+	//  @return AccountConfigIdentityIDResult
+	AccountConfigApiAccountConfigIdentityIDExecute(r ApiAccountConfigApiAccountConfigIdentityIDRequest) (*AccountConfigIdentityIDResult, *http.Response, error)
+
+	/*
+	AccountConfigApiCreateAccountConfig CreateAccountConfig account-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAccountConfigApiCreateAccountConfigRequest
+	*/
+	AccountConfigApiCreateAccountConfig(ctx context.Context) ApiAccountConfigApiCreateAccountConfigRequest
+
+	// AccountConfigApiCreateAccountConfigExecute executes the request
+	//  @return string
+	AccountConfigApiCreateAccountConfigExecute(r ApiAccountConfigApiCreateAccountConfigRequest) (string, *http.Response, error)
+
+	/*
+	AccountConfigApiDeleteAccountConfig DeleteAccountConfig account-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id Account Config ID to operate on
+	@return ApiAccountConfigApiDeleteAccountConfigRequest
+	*/
+	AccountConfigApiDeleteAccountConfig(ctx context.Context, id string) ApiAccountConfigApiDeleteAccountConfigRequest
+
+	// AccountConfigApiDeleteAccountConfigExecute executes the request
+	AccountConfigApiDeleteAccountConfigExecute(r ApiAccountConfigApiDeleteAccountConfigRequest) (*http.Response, error)
+
+	/*
+	AccountConfigApiDescribeAccountConfig DescribeAccountConfig account-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id Account Config ID to operate on
+	@return ApiAccountConfigApiDescribeAccountConfigRequest
+	*/
+	AccountConfigApiDescribeAccountConfig(ctx context.Context, id string) ApiAccountConfigApiDescribeAccountConfigRequest
+
+	// AccountConfigApiDescribeAccountConfigExecute executes the request
+	//  @return DescribeAccountConfigResult
+	AccountConfigApiDescribeAccountConfigExecute(r ApiAccountConfigApiDescribeAccountConfigRequest) (*DescribeAccountConfigResult, *http.Response, error)
+
+	/*
+	AccountConfigApiDescribeAccountConfigByAWSAccountID DescribeAccountConfigByAWSAccountID account-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param awsAccountID The AWS account ID
+	@return ApiAccountConfigApiDescribeAccountConfigByAWSAccountIDRequest
+	*/
+	AccountConfigApiDescribeAccountConfigByAWSAccountID(ctx context.Context, awsAccountID string) ApiAccountConfigApiDescribeAccountConfigByAWSAccountIDRequest
+
+	// AccountConfigApiDescribeAccountConfigByAWSAccountIDExecute executes the request
+	//  @return DescribeAccountConfigByAWSAccountIDResult
+	AccountConfigApiDescribeAccountConfigByAWSAccountIDExecute(r ApiAccountConfigApiDescribeAccountConfigByAWSAccountIDRequest) (*DescribeAccountConfigByAWSAccountIDResult, *http.Response, error)
+
+	/*
+	AccountConfigApiDescribeAccountConfigByGCPProjectID DescribeAccountConfigByGCPProjectID account-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param gcpProjectID The GCP project ID
+	@return ApiAccountConfigApiDescribeAccountConfigByGCPProjectIDRequest
+	*/
+	AccountConfigApiDescribeAccountConfigByGCPProjectID(ctx context.Context, gcpProjectID string) ApiAccountConfigApiDescribeAccountConfigByGCPProjectIDRequest
+
+	// AccountConfigApiDescribeAccountConfigByGCPProjectIDExecute executes the request
+	//  @return DescribeAccountConfigByGCPProjectIDResult
+	AccountConfigApiDescribeAccountConfigByGCPProjectIDExecute(r ApiAccountConfigApiDescribeAccountConfigByGCPProjectIDRequest) (*DescribeAccountConfigByGCPProjectIDResult, *http.Response, error)
+
+	/*
+	AccountConfigApiListAccountConfig ListAccountConfig account-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param cloudProviderName Cloud Provider name to filter on
+	@return ApiAccountConfigApiListAccountConfigRequest
+	*/
+	AccountConfigApiListAccountConfig(ctx context.Context, cloudProviderName string) ApiAccountConfigApiListAccountConfigRequest
+
+	// AccountConfigApiListAccountConfigExecute executes the request
+	//  @return ListAccountConfigResult
+	AccountConfigApiListAccountConfigExecute(r ApiAccountConfigApiListAccountConfigRequest) (*ListAccountConfigResult, *http.Response, error)
+
+	/*
+	AccountConfigApiListBYOAConfig ListBYOAConfig account-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAccountConfigApiListBYOAConfigRequest
+	*/
+	AccountConfigApiListBYOAConfig(ctx context.Context) ApiAccountConfigApiListBYOAConfigRequest
+
+	// AccountConfigApiListBYOAConfigExecute executes the request
+	//  @return ListAccountConfigResult
+	AccountConfigApiListBYOAConfigExecute(r ApiAccountConfigApiListBYOAConfigRequest) (*ListAccountConfigResult, *http.Response, error)
+
+	/*
+	AccountConfigApiVerifyAccountConfig VerifyAccountConfig account-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id Account Config ID to operate on
+	@return ApiAccountConfigApiVerifyAccountConfigRequest
+	*/
+	AccountConfigApiVerifyAccountConfig(ctx context.Context, id string) ApiAccountConfigApiVerifyAccountConfigRequest
+
+	// AccountConfigApiVerifyAccountConfigExecute executes the request
+	AccountConfigApiVerifyAccountConfigExecute(r ApiAccountConfigApiVerifyAccountConfigRequest) (*http.Response, error)
+}
+
 // AccountConfigApiAPIService AccountConfigApiAPI service
 type AccountConfigApiAPIService service
 
 type ApiAccountConfigApiAccountConfigIdentityIDRequest struct {
 	ctx context.Context
-	ApiService *AccountConfigApiAPIService
+	ApiService AccountConfigApiAPI
 }
 
 func (r ApiAccountConfigApiAccountConfigIdentityIDRequest) Execute() (*AccountConfigIdentityIDResult, *http.Response, error) {
@@ -145,7 +262,7 @@ func (a *AccountConfigApiAPIService) AccountConfigApiAccountConfigIdentityIDExec
 
 type ApiAccountConfigApiCreateAccountConfigRequest struct {
 	ctx context.Context
-	ApiService *AccountConfigApiAPIService
+	ApiService AccountConfigApiAPI
 	createAccountConfigRequestBody *CreateAccountConfigRequestBody
 }
 
@@ -296,7 +413,7 @@ func (a *AccountConfigApiAPIService) AccountConfigApiCreateAccountConfigExecute(
 
 type ApiAccountConfigApiDeleteAccountConfigRequest struct {
 	ctx context.Context
-	ApiService *AccountConfigApiAPIService
+	ApiService AccountConfigApiAPI
 	id string
 }
 
@@ -429,7 +546,7 @@ func (a *AccountConfigApiAPIService) AccountConfigApiDeleteAccountConfigExecute(
 
 type ApiAccountConfigApiDescribeAccountConfigRequest struct {
 	ctx context.Context
-	ApiService *AccountConfigApiAPIService
+	ApiService AccountConfigApiAPI
 	id string
 }
 
@@ -595,7 +712,7 @@ func (a *AccountConfigApiAPIService) AccountConfigApiDescribeAccountConfigExecut
 
 type ApiAccountConfigApiDescribeAccountConfigByAWSAccountIDRequest struct {
 	ctx context.Context
-	ApiService *AccountConfigApiAPIService
+	ApiService AccountConfigApiAPI
 	awsAccountID string
 }
 
@@ -761,7 +878,7 @@ func (a *AccountConfigApiAPIService) AccountConfigApiDescribeAccountConfigByAWSA
 
 type ApiAccountConfigApiDescribeAccountConfigByGCPProjectIDRequest struct {
 	ctx context.Context
-	ApiService *AccountConfigApiAPIService
+	ApiService AccountConfigApiAPI
 	gcpProjectID string
 }
 
@@ -927,7 +1044,7 @@ func (a *AccountConfigApiAPIService) AccountConfigApiDescribeAccountConfigByGCPP
 
 type ApiAccountConfigApiListAccountConfigRequest struct {
 	ctx context.Context
-	ApiService *AccountConfigApiAPIService
+	ApiService AccountConfigApiAPI
 	cloudProviderName string
 }
 
@@ -1093,7 +1210,7 @@ func (a *AccountConfigApiAPIService) AccountConfigApiListAccountConfigExecute(r 
 
 type ApiAccountConfigApiListBYOAConfigRequest struct {
 	ctx context.Context
-	ApiService *AccountConfigApiAPIService
+	ApiService AccountConfigApiAPI
 	listBYOAConfigRequestBody *ListBYOAConfigRequestBody
 }
 
@@ -1266,7 +1383,7 @@ func (a *AccountConfigApiAPIService) AccountConfigApiListBYOAConfigExecute(r Api
 
 type ApiAccountConfigApiVerifyAccountConfigRequest struct {
 	ctx context.Context
-	ApiService *AccountConfigApiAPIService
+	ApiService AccountConfigApiAPI
 	id string
 }
 

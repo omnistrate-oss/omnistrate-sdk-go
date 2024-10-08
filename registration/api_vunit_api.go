@@ -20,12 +20,57 @@ import (
 )
 
 
+type VunitApiAPI interface {
+
+	/*
+	VunitApiDescribeNetwork DescribeNetwork vunit-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId Service ID context
+	@param id Network to operate on
+	@return ApiVunitApiDescribeNetworkRequest
+	*/
+	VunitApiDescribeNetwork(ctx context.Context, serviceId string, id string) ApiVunitApiDescribeNetworkRequest
+
+	// VunitApiDescribeNetworkExecute executes the request
+	//  @return DescribeNetworkResult
+	VunitApiDescribeNetworkExecute(r ApiVunitApiDescribeNetworkRequest) (*DescribeNetworkResult, *http.Response, error)
+
+	/*
+	VunitApiDescribeVUnit DescribeVUnit vunit-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId Service ID for the VUnit
+	@param id VUnit to operate on
+	@return ApiVunitApiDescribeVUnitRequest
+	*/
+	VunitApiDescribeVUnit(ctx context.Context, serviceId string, id string) ApiVunitApiDescribeVUnitRequest
+
+	// VunitApiDescribeVUnitExecute executes the request
+	//  @return DescribeVUnitResult
+	VunitApiDescribeVUnitExecute(r ApiVunitApiDescribeVUnitRequest) (*DescribeVUnitResult, *http.Response, error)
+
+	/*
+	VunitApiListVUnits ListVUnits vunit-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId Service ID for the VUnit
+	@param serviceModelId Service Model ID for the VUnit
+	@return ApiVunitApiListVUnitsRequest
+	*/
+	VunitApiListVUnits(ctx context.Context, serviceId string, serviceModelId string) ApiVunitApiListVUnitsRequest
+
+	// VunitApiListVUnitsExecute executes the request
+	//  @return ListVUnitsResult
+	VunitApiListVUnitsExecute(r ApiVunitApiListVUnitsRequest) (*ListVUnitsResult, *http.Response, error)
+}
+
 // VunitApiAPIService VunitApiAPI service
 type VunitApiAPIService service
 
 type ApiVunitApiDescribeNetworkRequest struct {
 	ctx context.Context
-	ApiService *VunitApiAPIService
+	ApiService VunitApiAPI
 	serviceId string
 	id string
 }
@@ -195,7 +240,7 @@ func (a *VunitApiAPIService) VunitApiDescribeNetworkExecute(r ApiVunitApiDescrib
 
 type ApiVunitApiDescribeVUnitRequest struct {
 	ctx context.Context
-	ApiService *VunitApiAPIService
+	ApiService VunitApiAPI
 	serviceId string
 	id string
 }
@@ -365,7 +410,7 @@ func (a *VunitApiAPIService) VunitApiDescribeVUnitExecute(r ApiVunitApiDescribeV
 
 type ApiVunitApiListVUnitsRequest struct {
 	ctx context.Context
-	ApiService *VunitApiAPIService
+	ApiService VunitApiAPI
 	serviceId string
 	serviceModelId string
 	listVUnitsRequestBody *ListVUnitsRequestBody

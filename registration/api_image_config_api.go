@@ -20,12 +20,122 @@ import (
 )
 
 
+type ImageConfigApiAPI interface {
+
+	/*
+	ImageConfigApiCreateImageConfig CreateImageConfig image-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID to use for the infra
+	@return ApiImageConfigApiCreateImageConfigRequest
+	*/
+	ImageConfigApiCreateImageConfig(ctx context.Context, serviceId string) ApiImageConfigApiCreateImageConfigRequest
+
+	// ImageConfigApiCreateImageConfigExecute executes the request
+	//  @return string
+	ImageConfigApiCreateImageConfigExecute(r ApiImageConfigApiCreateImageConfigRequest) (string, *http.Response, error)
+
+	/*
+	ImageConfigApiDeleteImageConfig DeleteImageConfig image-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id The image configuration ID
+	@return ApiImageConfigApiDeleteImageConfigRequest
+	*/
+	ImageConfigApiDeleteImageConfig(ctx context.Context, serviceId string, id string) ApiImageConfigApiDeleteImageConfigRequest
+
+	// ImageConfigApiDeleteImageConfigExecute executes the request
+	ImageConfigApiDeleteImageConfigExecute(r ApiImageConfigApiDeleteImageConfigRequest) (*http.Response, error)
+
+	/*
+	ImageConfigApiDescribeImageConfig DescribeImageConfig image-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id The image configuration ID
+	@return ApiImageConfigApiDescribeImageConfigRequest
+	*/
+	ImageConfigApiDescribeImageConfig(ctx context.Context, serviceId string, id string) ApiImageConfigApiDescribeImageConfigRequest
+
+	// ImageConfigApiDescribeImageConfigExecute executes the request
+	//  @return DescribeImageConfigResult
+	ImageConfigApiDescribeImageConfigExecute(r ApiImageConfigApiDescribeImageConfigRequest) (*DescribeImageConfigResult, *http.Response, error)
+
+	/*
+	ImageConfigApiListImageConfigs ListImageConfigs image-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID to use for the infra
+	@param serviceEnvironmentId The service environment ID
+	@return ApiImageConfigApiListImageConfigsRequest
+	*/
+	ImageConfigApiListImageConfigs(ctx context.Context, serviceId string, serviceEnvironmentId string) ApiImageConfigApiListImageConfigsRequest
+
+	// ImageConfigApiListImageConfigsExecute executes the request
+	//  @return ListServiceEnvironmentsResult
+	ImageConfigApiListImageConfigsExecute(r ApiImageConfigApiListImageConfigsRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+
+	/*
+	ImageConfigApiReleaseImageConfig ReleaseImageConfig image-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id The image configuration ID
+	@return ApiImageConfigApiReleaseImageConfigRequest
+	*/
+	ImageConfigApiReleaseImageConfig(ctx context.Context, serviceId string, id string) ApiImageConfigApiReleaseImageConfigRequest
+
+	// ImageConfigApiReleaseImageConfigExecute executes the request
+	ImageConfigApiReleaseImageConfigExecute(r ApiImageConfigApiReleaseImageConfigRequest) (*http.Response, error)
+
+	/*
+	ImageConfigApiRolloutFleetImageConfig RolloutFleetImageConfig image-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id The image configuration ID
+	@return ApiImageConfigApiRolloutFleetImageConfigRequest
+	*/
+	ImageConfigApiRolloutFleetImageConfig(ctx context.Context, serviceId string, id string) ApiImageConfigApiRolloutFleetImageConfigRequest
+
+	// ImageConfigApiRolloutFleetImageConfigExecute executes the request
+	ImageConfigApiRolloutFleetImageConfigExecute(r ApiImageConfigApiRolloutFleetImageConfigRequest) (*http.Response, error)
+
+	/*
+	ImageConfigApiRolloutFleetImageStatus RolloutFleetImageStatus image-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id The image configuration ID
+	@return ApiImageConfigApiRolloutFleetImageStatusRequest
+	*/
+	ImageConfigApiRolloutFleetImageStatus(ctx context.Context, serviceId string, id string) ApiImageConfigApiRolloutFleetImageStatusRequest
+
+	// ImageConfigApiRolloutFleetImageStatusExecute executes the request
+	//  @return OmnistrateServiceHealthResult
+	ImageConfigApiRolloutFleetImageStatusExecute(r ApiImageConfigApiRolloutFleetImageStatusRequest) (*OmnistrateServiceHealthResult, *http.Response, error)
+
+	/*
+	ImageConfigApiUpdateImageConfig UpdateImageConfig image-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id The image configuration ID
+	@return ApiImageConfigApiUpdateImageConfigRequest
+	*/
+	ImageConfigApiUpdateImageConfig(ctx context.Context, serviceId string, id string) ApiImageConfigApiUpdateImageConfigRequest
+
+	// ImageConfigApiUpdateImageConfigExecute executes the request
+	ImageConfigApiUpdateImageConfigExecute(r ApiImageConfigApiUpdateImageConfigRequest) (*http.Response, error)
+}
+
 // ImageConfigApiAPIService ImageConfigApiAPI service
 type ImageConfigApiAPIService service
 
 type ApiImageConfigApiCreateImageConfigRequest struct {
 	ctx context.Context
-	ApiService *ImageConfigApiAPIService
+	ApiService ImageConfigApiAPI
 	serviceId string
 	createImageConfigRequestBody *CreateImageConfigRequestBody
 }
@@ -202,7 +312,7 @@ func (a *ImageConfigApiAPIService) ImageConfigApiCreateImageConfigExecute(r ApiI
 
 type ApiImageConfigApiDeleteImageConfigRequest struct {
 	ctx context.Context
-	ApiService *ImageConfigApiAPIService
+	ApiService ImageConfigApiAPI
 	serviceId string
 	id string
 }
@@ -361,7 +471,7 @@ func (a *ImageConfigApiAPIService) ImageConfigApiDeleteImageConfigExecute(r ApiI
 
 type ApiImageConfigApiDescribeImageConfigRequest struct {
 	ctx context.Context
-	ApiService *ImageConfigApiAPIService
+	ApiService ImageConfigApiAPI
 	serviceId string
 	id string
 	productTierVersion *string
@@ -551,7 +661,7 @@ func (a *ImageConfigApiAPIService) ImageConfigApiDescribeImageConfigExecute(r Ap
 
 type ApiImageConfigApiListImageConfigsRequest struct {
 	ctx context.Context
-	ApiService *ImageConfigApiAPIService
+	ApiService ImageConfigApiAPI
 	serviceId string
 	serviceEnvironmentId string
 }
@@ -721,7 +831,7 @@ func (a *ImageConfigApiAPIService) ImageConfigApiListImageConfigsExecute(r ApiIm
 
 type ApiImageConfigApiReleaseImageConfigRequest struct {
 	ctx context.Context
-	ApiService *ImageConfigApiAPIService
+	ApiService ImageConfigApiAPI
 	serviceId string
 	id string
 	releaseInfraConfigRequestBody *ReleaseInfraConfigRequestBody
@@ -891,7 +1001,7 @@ func (a *ImageConfigApiAPIService) ImageConfigApiReleaseImageConfigExecute(r Api
 
 type ApiImageConfigApiRolloutFleetImageConfigRequest struct {
 	ctx context.Context
-	ApiService *ImageConfigApiAPIService
+	ApiService ImageConfigApiAPI
 	serviceId string
 	id string
 }
@@ -1050,7 +1160,7 @@ func (a *ImageConfigApiAPIService) ImageConfigApiRolloutFleetImageConfigExecute(
 
 type ApiImageConfigApiRolloutFleetImageStatusRequest struct {
 	ctx context.Context
-	ApiService *ImageConfigApiAPIService
+	ApiService ImageConfigApiAPI
 	serviceId string
 	id string
 }
@@ -1220,7 +1330,7 @@ func (a *ImageConfigApiAPIService) ImageConfigApiRolloutFleetImageStatusExecute(
 
 type ApiImageConfigApiUpdateImageConfigRequest struct {
 	ctx context.Context
-	ApiService *ImageConfigApiAPIService
+	ApiService ImageConfigApiAPI
 	serviceId string
 	id string
 	updateImageConfigRequestBody *UpdateImageConfigRequestBody

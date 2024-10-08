@@ -49,95 +49,95 @@ type APIClient struct {
 
 	// API Services
 
-	AccountConfigApiAPI *AccountConfigApiAPIService
+	AccountConfigApiAPI AccountConfigApiAPI
 
-	AvailabilityZoneApiAPI *AvailabilityZoneApiAPIService
+	AvailabilityZoneApiAPI AvailabilityZoneApiAPI
 
-	CloudProviderApiAPI *CloudProviderApiAPIService
+	CloudProviderApiAPI CloudProviderApiAPI
 
-	ComposeGenApiAPI *ComposeGenApiAPIService
+	ComposeGenApiAPI ComposeGenApiAPI
 
-	ComputeConfigApiAPI *ComputeConfigApiAPIService
+	ComputeConfigApiAPI ComputeConfigApiAPI
 
-	ConsumptionUserApiAPI *ConsumptionUserApiAPIService
+	ConsumptionUserApiAPI ConsumptionUserApiAPI
 
-	ContactusApiAPI *ContactusApiAPIService
+	ContactusApiAPI ContactusApiAPI
 
-	CustomDomainApiAPI *CustomDomainApiAPIService
+	CustomDomainApiAPI CustomDomainApiAPI
 
-	CustomNetworkApiAPI *CustomNetworkApiAPIService
+	CustomNetworkApiAPI CustomNetworkApiAPI
 
-	DemoApiAPI *DemoApiAPIService
+	DemoApiAPI DemoApiAPI
 
-	DeploymentConfigApiAPI *DeploymentConfigApiAPIService
+	DeploymentConfigApiAPI DeploymentConfigApiAPI
 
-	EventApiAPI *EventApiAPIService
+	EventApiAPI EventApiAPI
 
-	GlobalApiAPI *GlobalApiAPIService
+	GlobalApiAPI GlobalApiAPI
 
-	HelmPackageApiAPI *HelmPackageApiAPIService
+	HelmPackageApiAPI HelmPackageApiAPI
 
-	IdentityProviderApiAPI *IdentityProviderApiAPIService
+	IdentityProviderApiAPI IdentityProviderApiAPI
 
-	ImageConfigApiAPI *ImageConfigApiAPIService
+	ImageConfigApiAPI ImageConfigApiAPI
 
-	ImageRegistryApiAPI *ImageRegistryApiAPIService
+	ImageRegistryApiAPI ImageRegistryApiAPI
 
-	InfraConfigApiAPI *InfraConfigApiAPIService
+	InfraConfigApiAPI InfraConfigApiAPI
 
-	InputParameterApiAPI *InputParameterApiAPIService
+	InputParameterApiAPI InputParameterApiAPI
 
-	InvoiceApiAPI *InvoiceApiAPIService
+	InvoiceApiAPI InvoiceApiAPI
 
-	LimitApiAPI *LimitApiAPIService
+	LimitApiAPI LimitApiAPI
 
-	NetworkConfigApiAPI *NetworkConfigApiAPIService
+	NetworkConfigApiAPI NetworkConfigApiAPI
 
-	OutputParameterApiAPI *OutputParameterApiAPIService
+	OutputParameterApiAPI OutputParameterApiAPI
 
-	PlanApiAPI *PlanApiAPIService
+	PlanApiAPI PlanApiAPI
 
-	ProductTierApiAPI *ProductTierApiAPIService
+	ProductTierApiAPI ProductTierApiAPI
 
-	RegionApiAPI *RegionApiAPIService
+	RegionApiAPI RegionApiAPI
 
-	ResourceApiAPI *ResourceApiAPIService
+	ResourceApiAPI ResourceApiAPI
 
-	ResourceInstanceApiAPI *ResourceInstanceApiAPIService
+	ResourceInstanceApiAPI ResourceInstanceApiAPI
 
-	SaasPortalApiAPI *SaasPortalApiAPIService
+	SaasPortalApiAPI SaasPortalApiAPI
 
-	ServiceApiAPI *ServiceApiAPIService
+	ServiceApiAPI ServiceApiAPI
 
-	ServiceApiApiAPI *ServiceApiApiAPIService
+	ServiceApiApiAPI ServiceApiApiAPI
 
-	ServiceEnvironmentApiAPI *ServiceEnvironmentApiAPIService
+	ServiceEnvironmentApiAPI ServiceEnvironmentApiAPI
 
-	ServiceModelApiAPI *ServiceModelApiAPIService
+	ServiceModelApiAPI ServiceModelApiAPI
 
-	ServiceOfferingApiAPI *ServiceOfferingApiAPIService
+	ServiceOfferingApiAPI ServiceOfferingApiAPI
 
-	ServicePlanApiAPI *ServicePlanApiAPIService
+	ServicePlanApiAPI ServicePlanApiAPI
 
-	SigninApiAPI *SigninApiAPIService
+	SigninApiAPI SigninApiAPI
 
-	SignupApiAPI *SignupApiAPIService
+	SignupApiAPI SignupApiAPI
 
-	StorageConfigApiAPI *StorageConfigApiAPIService
+	StorageConfigApiAPI StorageConfigApiAPI
 
-	StorageVolumeConfigApiAPI *StorageVolumeConfigApiAPIService
+	StorageVolumeConfigApiAPI StorageVolumeConfigApiAPI
 
-	SubscriptionApiAPI *SubscriptionApiAPIService
+	SubscriptionApiAPI SubscriptionApiAPI
 
-	SubscriptionRequestApiAPI *SubscriptionRequestApiAPIService
+	SubscriptionRequestApiAPI SubscriptionRequestApiAPI
 
-	TierVersionSetApiAPI *TierVersionSetApiAPIService
+	TierVersionSetApiAPI TierVersionSetApiAPI
 
-	UsageApiAPI *UsageApiAPIService
+	UsageApiAPI UsageApiAPI
 
-	UsersApiAPI *UsersApiAPIService
+	UsersApiAPI UsersApiAPI
 
-	VunitApiAPI *VunitApiAPIService
+	VunitApiAPI VunitApiAPI
 }
 
 type service struct {

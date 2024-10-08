@@ -20,12 +20,55 @@ import (
 )
 
 
+type RegionApiAPI interface {
+
+	/*
+	RegionApiDescribeRegion DescribeRegion region-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the Region
+	@return ApiRegionApiDescribeRegionRequest
+	*/
+	RegionApiDescribeRegion(ctx context.Context, id string) ApiRegionApiDescribeRegionRequest
+
+	// RegionApiDescribeRegionExecute executes the request
+	//  @return DescribeRegionResult
+	RegionApiDescribeRegionExecute(r ApiRegionApiDescribeRegionRequest) (*DescribeRegionResult, *http.Response, error)
+
+	/*
+	RegionApiGetRegionByCode GetRegionByCode region-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param code Cloud-provider native region code
+	@param cloudProviderName The cloud provider for this compute instance type config
+	@return ApiRegionApiGetRegionByCodeRequest
+	*/
+	RegionApiGetRegionByCode(ctx context.Context, code string, cloudProviderName string) ApiRegionApiGetRegionByCodeRequest
+
+	// RegionApiGetRegionByCodeExecute executes the request
+	//  @return string
+	RegionApiGetRegionByCodeExecute(r ApiRegionApiGetRegionByCodeRequest) (string, *http.Response, error)
+
+	/*
+	RegionApiListRegion ListRegion region-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param cloudProviderName The cloud provider for this compute instance type config
+	@return ApiRegionApiListRegionRequest
+	*/
+	RegionApiListRegion(ctx context.Context, cloudProviderName string) ApiRegionApiListRegionRequest
+
+	// RegionApiListRegionExecute executes the request
+	//  @return ListServiceEnvironmentsResult
+	RegionApiListRegionExecute(r ApiRegionApiListRegionRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+}
+
 // RegionApiAPIService RegionApiAPI service
 type RegionApiAPIService service
 
 type ApiRegionApiDescribeRegionRequest struct {
 	ctx context.Context
-	ApiService *RegionApiAPIService
+	ApiService RegionApiAPI
 	id string
 }
 
@@ -191,7 +234,7 @@ func (a *RegionApiAPIService) RegionApiDescribeRegionExecute(r ApiRegionApiDescr
 
 type ApiRegionApiGetRegionByCodeRequest struct {
 	ctx context.Context
-	ApiService *RegionApiAPIService
+	ApiService RegionApiAPI
 	code string
 	cloudProviderName string
 }
@@ -364,7 +407,7 @@ func (a *RegionApiAPIService) RegionApiGetRegionByCodeExecute(r ApiRegionApiGetR
 
 type ApiRegionApiListRegionRequest struct {
 	ctx context.Context
-	ApiService *RegionApiAPIService
+	ApiService RegionApiAPI
 	cloudProviderName string
 	serviceId *string
 	serviceModelId *string

@@ -20,12 +20,108 @@ import (
 )
 
 
+type ServiceEnvironmentApiAPI interface {
+
+	/*
+	ServiceEnvironmentApiCreateServiceEnvironment CreateServiceEnvironment service-environment-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service this environment belongs to
+	@return ApiServiceEnvironmentApiCreateServiceEnvironmentRequest
+	*/
+	ServiceEnvironmentApiCreateServiceEnvironment(ctx context.Context, serviceId string) ApiServiceEnvironmentApiCreateServiceEnvironmentRequest
+
+	// ServiceEnvironmentApiCreateServiceEnvironmentExecute executes the request
+	//  @return string
+	ServiceEnvironmentApiCreateServiceEnvironmentExecute(r ApiServiceEnvironmentApiCreateServiceEnvironmentRequest) (string, *http.Response, error)
+
+	/*
+	ServiceEnvironmentApiDeleteServiceEnvironment DeleteServiceEnvironment service-environment-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service this environment belongs to
+	@param id The ID of the service environment
+	@return ApiServiceEnvironmentApiDeleteServiceEnvironmentRequest
+	*/
+	ServiceEnvironmentApiDeleteServiceEnvironment(ctx context.Context, serviceId string, id string) ApiServiceEnvironmentApiDeleteServiceEnvironmentRequest
+
+	// ServiceEnvironmentApiDeleteServiceEnvironmentExecute executes the request
+	ServiceEnvironmentApiDeleteServiceEnvironmentExecute(r ApiServiceEnvironmentApiDeleteServiceEnvironmentRequest) (*http.Response, error)
+
+	/*
+	ServiceEnvironmentApiDescribeServiceEnvironment DescribeServiceEnvironment service-environment-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service this environment belongs to
+	@param id The ID of the service environment
+	@return ApiServiceEnvironmentApiDescribeServiceEnvironmentRequest
+	*/
+	ServiceEnvironmentApiDescribeServiceEnvironment(ctx context.Context, serviceId string, id string) ApiServiceEnvironmentApiDescribeServiceEnvironmentRequest
+
+	// ServiceEnvironmentApiDescribeServiceEnvironmentExecute executes the request
+	//  @return DescribeServiceEnvironmentResult
+	ServiceEnvironmentApiDescribeServiceEnvironmentExecute(r ApiServiceEnvironmentApiDescribeServiceEnvironmentRequest) (*DescribeServiceEnvironmentResult, *http.Response, error)
+
+	/*
+	ServiceEnvironmentApiListServiceEnvironment ListServiceEnvironment service-environment-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service this environment belongs to
+	@return ApiServiceEnvironmentApiListServiceEnvironmentRequest
+	*/
+	ServiceEnvironmentApiListServiceEnvironment(ctx context.Context, serviceId string) ApiServiceEnvironmentApiListServiceEnvironmentRequest
+
+	// ServiceEnvironmentApiListServiceEnvironmentExecute executes the request
+	//  @return ListServiceEnvironmentsResult
+	ServiceEnvironmentApiListServiceEnvironmentExecute(r ApiServiceEnvironmentApiListServiceEnvironmentRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+
+	/*
+	ServiceEnvironmentApiPromoteServiceEnvironment PromoteServiceEnvironment service-environment-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service this environment belongs to
+	@param id The ID of the service environment
+	@return ApiServiceEnvironmentApiPromoteServiceEnvironmentRequest
+	*/
+	ServiceEnvironmentApiPromoteServiceEnvironment(ctx context.Context, serviceId string, id string) ApiServiceEnvironmentApiPromoteServiceEnvironmentRequest
+
+	// ServiceEnvironmentApiPromoteServiceEnvironmentExecute executes the request
+	ServiceEnvironmentApiPromoteServiceEnvironmentExecute(r ApiServiceEnvironmentApiPromoteServiceEnvironmentRequest) (*http.Response, error)
+
+	/*
+	ServiceEnvironmentApiPromoteServiceEnvironmentStatus PromoteServiceEnvironmentStatus service-environment-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service this environment belongs to
+	@param id The ID of the service environment
+	@return ApiServiceEnvironmentApiPromoteServiceEnvironmentStatusRequest
+	*/
+	ServiceEnvironmentApiPromoteServiceEnvironmentStatus(ctx context.Context, serviceId string, id string) ApiServiceEnvironmentApiPromoteServiceEnvironmentStatusRequest
+
+	// ServiceEnvironmentApiPromoteServiceEnvironmentStatusExecute executes the request
+	//  @return []EnvironmentPromotionStatus
+	ServiceEnvironmentApiPromoteServiceEnvironmentStatusExecute(r ApiServiceEnvironmentApiPromoteServiceEnvironmentStatusRequest) ([]EnvironmentPromotionStatus, *http.Response, error)
+
+	/*
+	ServiceEnvironmentApiUpdateServiceEnvironment UpdateServiceEnvironment service-environment-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service this environment belongs to
+	@param id The ID of the service environment
+	@return ApiServiceEnvironmentApiUpdateServiceEnvironmentRequest
+	*/
+	ServiceEnvironmentApiUpdateServiceEnvironment(ctx context.Context, serviceId string, id string) ApiServiceEnvironmentApiUpdateServiceEnvironmentRequest
+
+	// ServiceEnvironmentApiUpdateServiceEnvironmentExecute executes the request
+	ServiceEnvironmentApiUpdateServiceEnvironmentExecute(r ApiServiceEnvironmentApiUpdateServiceEnvironmentRequest) (*http.Response, error)
+}
+
 // ServiceEnvironmentApiAPIService ServiceEnvironmentApiAPI service
 type ServiceEnvironmentApiAPIService service
 
 type ApiServiceEnvironmentApiCreateServiceEnvironmentRequest struct {
 	ctx context.Context
-	ApiService *ServiceEnvironmentApiAPIService
+	ApiService ServiceEnvironmentApiAPI
 	serviceId string
 	createServiceEnvironmentRequestBody *CreateServiceEnvironmentRequestBody
 }
@@ -202,7 +298,7 @@ func (a *ServiceEnvironmentApiAPIService) ServiceEnvironmentApiCreateServiceEnvi
 
 type ApiServiceEnvironmentApiDeleteServiceEnvironmentRequest struct {
 	ctx context.Context
-	ApiService *ServiceEnvironmentApiAPIService
+	ApiService ServiceEnvironmentApiAPI
 	serviceId string
 	id string
 }
@@ -361,7 +457,7 @@ func (a *ServiceEnvironmentApiAPIService) ServiceEnvironmentApiDeleteServiceEnvi
 
 type ApiServiceEnvironmentApiDescribeServiceEnvironmentRequest struct {
 	ctx context.Context
-	ApiService *ServiceEnvironmentApiAPIService
+	ApiService ServiceEnvironmentApiAPI
 	serviceId string
 	id string
 }
@@ -531,7 +627,7 @@ func (a *ServiceEnvironmentApiAPIService) ServiceEnvironmentApiDescribeServiceEn
 
 type ApiServiceEnvironmentApiListServiceEnvironmentRequest struct {
 	ctx context.Context
-	ApiService *ServiceEnvironmentApiAPIService
+	ApiService ServiceEnvironmentApiAPI
 	serviceId string
 }
 
@@ -697,7 +793,7 @@ func (a *ServiceEnvironmentApiAPIService) ServiceEnvironmentApiListServiceEnviro
 
 type ApiServiceEnvironmentApiPromoteServiceEnvironmentRequest struct {
 	ctx context.Context
-	ApiService *ServiceEnvironmentApiAPIService
+	ApiService ServiceEnvironmentApiAPI
 	serviceId string
 	id string
 }
@@ -856,7 +952,7 @@ func (a *ServiceEnvironmentApiAPIService) ServiceEnvironmentApiPromoteServiceEnv
 
 type ApiServiceEnvironmentApiPromoteServiceEnvironmentStatusRequest struct {
 	ctx context.Context
-	ApiService *ServiceEnvironmentApiAPIService
+	ApiService ServiceEnvironmentApiAPI
 	serviceId string
 	id string
 }
@@ -1026,7 +1122,7 @@ func (a *ServiceEnvironmentApiAPIService) ServiceEnvironmentApiPromoteServiceEnv
 
 type ApiServiceEnvironmentApiUpdateServiceEnvironmentRequest struct {
 	ctx context.Context
-	ApiService *ServiceEnvironmentApiAPIService
+	ApiService ServiceEnvironmentApiAPI
 	serviceId string
 	id string
 	updateServiceEnvironmentRequestBody *UpdateServiceEnvironmentRequestBody

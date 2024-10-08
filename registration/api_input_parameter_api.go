@@ -20,12 +20,82 @@ import (
 )
 
 
+type InputParameterApiAPI interface {
+
+	/*
+	InputParameterApiCreateInputParameter CreateInputParameter input-parameter-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service that this output parameter belongs to
+	@return ApiInputParameterApiCreateInputParameterRequest
+	*/
+	InputParameterApiCreateInputParameter(ctx context.Context, serviceId string) ApiInputParameterApiCreateInputParameterRequest
+
+	// InputParameterApiCreateInputParameterExecute executes the request
+	//  @return string
+	InputParameterApiCreateInputParameterExecute(r ApiInputParameterApiCreateInputParameterRequest) (string, *http.Response, error)
+
+	/*
+	InputParameterApiDeleteInputParameter DeleteInputParameter input-parameter-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service that this output parameter belongs to
+	@param id ID of the input parameter
+	@return ApiInputParameterApiDeleteInputParameterRequest
+	*/
+	InputParameterApiDeleteInputParameter(ctx context.Context, serviceId string, id string) ApiInputParameterApiDeleteInputParameterRequest
+
+	// InputParameterApiDeleteInputParameterExecute executes the request
+	InputParameterApiDeleteInputParameterExecute(r ApiInputParameterApiDeleteInputParameterRequest) (*http.Response, error)
+
+	/*
+	InputParameterApiDescribeInputParameter DescribeInputParameter input-parameter-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service that this output parameter belongs to
+	@param id ID of the input parameter
+	@return ApiInputParameterApiDescribeInputParameterRequest
+	*/
+	InputParameterApiDescribeInputParameter(ctx context.Context, serviceId string, id string) ApiInputParameterApiDescribeInputParameterRequest
+
+	// InputParameterApiDescribeInputParameterExecute executes the request
+	//  @return DescribeInputParameterResult
+	InputParameterApiDescribeInputParameterExecute(r ApiInputParameterApiDescribeInputParameterRequest) (*DescribeInputParameterResult, *http.Response, error)
+
+	/*
+	InputParameterApiListInputParameter ListInputParameter input-parameter-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service that this output parameter belongs to
+	@param resourceId The ID of the resource that this input parameter belongs to
+	@return ApiInputParameterApiListInputParameterRequest
+	*/
+	InputParameterApiListInputParameter(ctx context.Context, serviceId string, resourceId string) ApiInputParameterApiListInputParameterRequest
+
+	// InputParameterApiListInputParameterExecute executes the request
+	//  @return ListInputParametersResult
+	InputParameterApiListInputParameterExecute(r ApiInputParameterApiListInputParameterRequest) (*ListInputParametersResult, *http.Response, error)
+
+	/*
+	InputParameterApiUpdateInputParameter UpdateInputParameter input-parameter-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The ID of the service that this output parameter belongs to
+	@param id ID of the input parameter
+	@return ApiInputParameterApiUpdateInputParameterRequest
+	*/
+	InputParameterApiUpdateInputParameter(ctx context.Context, serviceId string, id string) ApiInputParameterApiUpdateInputParameterRequest
+
+	// InputParameterApiUpdateInputParameterExecute executes the request
+	InputParameterApiUpdateInputParameterExecute(r ApiInputParameterApiUpdateInputParameterRequest) (*http.Response, error)
+}
+
 // InputParameterApiAPIService InputParameterApiAPI service
 type InputParameterApiAPIService service
 
 type ApiInputParameterApiCreateInputParameterRequest struct {
 	ctx context.Context
-	ApiService *InputParameterApiAPIService
+	ApiService InputParameterApiAPI
 	serviceId string
 	createInputParameterRequestBody *CreateInputParameterRequestBody
 }
@@ -202,7 +272,7 @@ func (a *InputParameterApiAPIService) InputParameterApiCreateInputParameterExecu
 
 type ApiInputParameterApiDeleteInputParameterRequest struct {
 	ctx context.Context
-	ApiService *InputParameterApiAPIService
+	ApiService InputParameterApiAPI
 	serviceId string
 	id string
 }
@@ -361,7 +431,7 @@ func (a *InputParameterApiAPIService) InputParameterApiDeleteInputParameterExecu
 
 type ApiInputParameterApiDescribeInputParameterRequest struct {
 	ctx context.Context
-	ApiService *InputParameterApiAPIService
+	ApiService InputParameterApiAPI
 	serviceId string
 	id string
 	productTierVersion *string
@@ -551,7 +621,7 @@ func (a *InputParameterApiAPIService) InputParameterApiDescribeInputParameterExe
 
 type ApiInputParameterApiListInputParameterRequest struct {
 	ctx context.Context
-	ApiService *InputParameterApiAPIService
+	ApiService InputParameterApiAPI
 	serviceId string
 	resourceId string
 	productTierVersion *string
@@ -741,7 +811,7 @@ func (a *InputParameterApiAPIService) InputParameterApiListInputParameterExecute
 
 type ApiInputParameterApiUpdateInputParameterRequest struct {
 	ctx context.Context
-	ApiService *InputParameterApiAPIService
+	ApiService InputParameterApiAPI
 	serviceId string
 	id string
 	updateInputParameterRequestBody *UpdateInputParameterRequestBody

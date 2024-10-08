@@ -20,12 +20,67 @@ import (
 )
 
 
+type LimitApiAPI interface {
+
+	/*
+	LimitApiDeleteLimit DeleteLimit limit-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param family Limit family
+	@param key Unique key to identify the limit
+	@return ApiLimitApiDeleteLimitRequest
+	*/
+	LimitApiDeleteLimit(ctx context.Context, family string, key string) ApiLimitApiDeleteLimitRequest
+
+	// LimitApiDeleteLimitExecute executes the request
+	LimitApiDeleteLimitExecute(r ApiLimitApiDeleteLimitRequest) (*http.Response, error)
+
+	/*
+	LimitApiDescribeLimit DescribeLimit limit-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param family Limit family
+	@param key Unique key to identify the limit
+	@return ApiLimitApiDescribeLimitRequest
+	*/
+	LimitApiDescribeLimit(ctx context.Context, family string, key string) ApiLimitApiDescribeLimitRequest
+
+	// LimitApiDescribeLimitExecute executes the request
+	//  @return DescribeLimitResult
+	LimitApiDescribeLimitExecute(r ApiLimitApiDescribeLimitRequest) (*DescribeLimitResult, *http.Response, error)
+
+	/*
+	LimitApiListLimit ListLimit limit-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiLimitApiListLimitRequest
+	*/
+	LimitApiListLimit(ctx context.Context) ApiLimitApiListLimitRequest
+
+	// LimitApiListLimitExecute executes the request
+	//  @return ListLimitResult
+	LimitApiListLimitExecute(r ApiLimitApiListLimitRequest) (*ListLimitResult, *http.Response, error)
+
+	/*
+	LimitApiUpdateLimit UpdateLimit limit-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param family Limit family
+	@param key Unique key to identify the limit
+	@return ApiLimitApiUpdateLimitRequest
+	*/
+	LimitApiUpdateLimit(ctx context.Context, family string, key string) ApiLimitApiUpdateLimitRequest
+
+	// LimitApiUpdateLimitExecute executes the request
+	LimitApiUpdateLimitExecute(r ApiLimitApiUpdateLimitRequest) (*http.Response, error)
+}
+
 // LimitApiAPIService LimitApiAPI service
 type LimitApiAPIService service
 
 type ApiLimitApiDeleteLimitRequest struct {
 	ctx context.Context
-	ApiService *LimitApiAPIService
+	ApiService LimitApiAPI
 	family string
 	key string
 }
@@ -184,7 +239,7 @@ func (a *LimitApiAPIService) LimitApiDeleteLimitExecute(r ApiLimitApiDeleteLimit
 
 type ApiLimitApiDescribeLimitRequest struct {
 	ctx context.Context
-	ApiService *LimitApiAPIService
+	ApiService LimitApiAPI
 	family string
 	key string
 }
@@ -354,7 +409,7 @@ func (a *LimitApiAPIService) LimitApiDescribeLimitExecute(r ApiLimitApiDescribeL
 
 type ApiLimitApiListLimitRequest struct {
 	ctx context.Context
-	ApiService *LimitApiAPIService
+	ApiService LimitApiAPI
 	listLimitRequestBody *ListLimitRequestBody
 }
 
@@ -527,7 +582,7 @@ func (a *LimitApiAPIService) LimitApiListLimitExecute(r ApiLimitApiListLimitRequ
 
 type ApiLimitApiUpdateLimitRequest struct {
 	ctx context.Context
-	ApiService *LimitApiAPIService
+	ApiService LimitApiAPI
 	family string
 	key string
 	updateLimitRequestBody *UpdateLimitRequestBody

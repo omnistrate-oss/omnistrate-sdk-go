@@ -20,12 +20,86 @@ import (
 )
 
 
+type SaasPortalApiAPI interface {
+
+	/*
+	SaasPortalApiCreateSaaSPortalCustomDomain CreateSaaSPortalCustomDomain saas-portal-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSaasPortalApiCreateSaaSPortalCustomDomainRequest
+	*/
+	SaasPortalApiCreateSaaSPortalCustomDomain(ctx context.Context) ApiSaasPortalApiCreateSaaSPortalCustomDomainRequest
+
+	// SaasPortalApiCreateSaaSPortalCustomDomainExecute executes the request
+	SaasPortalApiCreateSaaSPortalCustomDomainExecute(r ApiSaasPortalApiCreateSaaSPortalCustomDomainRequest) (*http.Response, error)
+
+	/*
+	SaasPortalApiDeleteSaaSPortalCustomDomain DeleteSaaSPortalCustomDomain saas-portal-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param environmentType The environment type for the custom domain
+	@return ApiSaasPortalApiDeleteSaaSPortalCustomDomainRequest
+	*/
+	SaasPortalApiDeleteSaaSPortalCustomDomain(ctx context.Context, environmentType string) ApiSaasPortalApiDeleteSaaSPortalCustomDomainRequest
+
+	// SaasPortalApiDeleteSaaSPortalCustomDomainExecute executes the request
+	SaasPortalApiDeleteSaaSPortalCustomDomainExecute(r ApiSaasPortalApiDeleteSaaSPortalCustomDomainRequest) (*http.Response, error)
+
+	/*
+	SaasPortalApiListSaaSPortalCustomDomains ListSaaSPortalCustomDomains saas-portal-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSaasPortalApiListSaaSPortalCustomDomainsRequest
+	*/
+	SaasPortalApiListSaaSPortalCustomDomains(ctx context.Context) ApiSaasPortalApiListSaaSPortalCustomDomainsRequest
+
+	// SaasPortalApiListSaaSPortalCustomDomainsExecute executes the request
+	//  @return ListSaaSPortalCustomDomainsResult
+	SaasPortalApiListSaaSPortalCustomDomainsExecute(r ApiSaasPortalApiListSaaSPortalCustomDomainsRequest) (*ListSaaSPortalCustomDomainsResult, *http.Response, error)
+
+	/*
+	SaasPortalApiListSaaSPortals ListSaaSPortals saas-portal-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSaasPortalApiListSaaSPortalsRequest
+	*/
+	SaasPortalApiListSaaSPortals(ctx context.Context) ApiSaasPortalApiListSaaSPortalsRequest
+
+	// SaasPortalApiListSaaSPortalsExecute executes the request
+	//  @return ListSaaSPortalsResult
+	SaasPortalApiListSaaSPortalsExecute(r ApiSaasPortalApiListSaaSPortalsRequest) (*ListSaaSPortalsResult, *http.Response, error)
+
+	/*
+	SaasPortalApiUpdateSaaSPortal UpdateSaaSPortal saas-portal-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param environmentType The environment type for the saas portal custom domain to update
+	@return ApiSaasPortalApiUpdateSaaSPortalRequest
+	*/
+	SaasPortalApiUpdateSaaSPortal(ctx context.Context, environmentType string) ApiSaasPortalApiUpdateSaaSPortalRequest
+
+	// SaasPortalApiUpdateSaaSPortalExecute executes the request
+	SaasPortalApiUpdateSaaSPortalExecute(r ApiSaasPortalApiUpdateSaaSPortalRequest) (*http.Response, error)
+
+	/*
+	SaasPortalApiUpdateSaaSPortalCustomDomain UpdateSaaSPortalCustomDomain saas-portal-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param environmentType The environment type for the saas portal custom domain to update
+	@return ApiSaasPortalApiUpdateSaaSPortalCustomDomainRequest
+	*/
+	SaasPortalApiUpdateSaaSPortalCustomDomain(ctx context.Context, environmentType string) ApiSaasPortalApiUpdateSaaSPortalCustomDomainRequest
+
+	// SaasPortalApiUpdateSaaSPortalCustomDomainExecute executes the request
+	SaasPortalApiUpdateSaaSPortalCustomDomainExecute(r ApiSaasPortalApiUpdateSaaSPortalCustomDomainRequest) (*http.Response, error)
+}
+
 // SaasPortalApiAPIService SaasPortalApiAPI service
 type SaasPortalApiAPIService service
 
 type ApiSaasPortalApiCreateSaaSPortalCustomDomainRequest struct {
 	ctx context.Context
-	ApiService *SaasPortalApiAPIService
+	ApiService SaasPortalApiAPI
 	createSaaSPortalCustomDomainRequestBody *CreateSaaSPortalCustomDomainRequestBody
 }
 
@@ -187,7 +261,7 @@ func (a *SaasPortalApiAPIService) SaasPortalApiCreateSaaSPortalCustomDomainExecu
 
 type ApiSaasPortalApiDeleteSaaSPortalCustomDomainRequest struct {
 	ctx context.Context
-	ApiService *SaasPortalApiAPIService
+	ApiService SaasPortalApiAPI
 	environmentType string
 }
 
@@ -342,7 +416,7 @@ func (a *SaasPortalApiAPIService) SaasPortalApiDeleteSaaSPortalCustomDomainExecu
 
 type ApiSaasPortalApiListSaaSPortalCustomDomainsRequest struct {
 	ctx context.Context
-	ApiService *SaasPortalApiAPIService
+	ApiService SaasPortalApiAPI
 }
 
 func (r ApiSaasPortalApiListSaaSPortalCustomDomainsRequest) Execute() (*ListSaaSPortalCustomDomainsResult, *http.Response, error) {
@@ -493,7 +567,7 @@ func (a *SaasPortalApiAPIService) SaasPortalApiListSaaSPortalCustomDomainsExecut
 
 type ApiSaasPortalApiListSaaSPortalsRequest struct {
 	ctx context.Context
-	ApiService *SaasPortalApiAPIService
+	ApiService SaasPortalApiAPI
 }
 
 func (r ApiSaasPortalApiListSaaSPortalsRequest) Execute() (*ListSaaSPortalsResult, *http.Response, error) {
@@ -644,7 +718,7 @@ func (a *SaasPortalApiAPIService) SaasPortalApiListSaaSPortalsExecute(r ApiSaasP
 
 type ApiSaasPortalApiUpdateSaaSPortalRequest struct {
 	ctx context.Context
-	ApiService *SaasPortalApiAPIService
+	ApiService SaasPortalApiAPI
 	environmentType string
 	updateSaaSPortalRequestBody *UpdateSaaSPortalRequestBody
 }
@@ -810,7 +884,7 @@ func (a *SaasPortalApiAPIService) SaasPortalApiUpdateSaaSPortalExecute(r ApiSaas
 
 type ApiSaasPortalApiUpdateSaaSPortalCustomDomainRequest struct {
 	ctx context.Context
-	ApiService *SaasPortalApiAPIService
+	ApiService SaasPortalApiAPI
 	environmentType string
 	updateSaaSPortalCustomDomainRequestBody *UpdateSaaSPortalCustomDomainRequestBody
 }

@@ -19,12 +19,27 @@ import (
 )
 
 
+type InvoiceApiAPI interface {
+
+	/*
+	InvoiceApiListInvoices ListInvoices invoice-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiInvoiceApiListInvoicesRequest
+	*/
+	InvoiceApiListInvoices(ctx context.Context) ApiInvoiceApiListInvoicesRequest
+
+	// InvoiceApiListInvoicesExecute executes the request
+	//  @return ListInvoicesResult
+	InvoiceApiListInvoicesExecute(r ApiInvoiceApiListInvoicesRequest) (*ListInvoicesResult, *http.Response, error)
+}
+
 // InvoiceApiAPIService InvoiceApiAPI service
 type InvoiceApiAPIService service
 
 type ApiInvoiceApiListInvoicesRequest struct {
 	ctx context.Context
-	ApiService *InvoiceApiAPIService
+	ApiService InvoiceApiAPI
 }
 
 func (r ApiInvoiceApiListInvoicesRequest) Execute() (*ListInvoicesResult, *http.Response, error) {

@@ -20,12 +20,77 @@ import (
 )
 
 
+type ConsumptionUserApiAPI interface {
+
+	/*
+	ConsumptionUserApiDescribeUserBillingDetails DescribeUserBillingDetails consumption-user-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiConsumptionUserApiDescribeUserBillingDetailsRequest
+	*/
+	ConsumptionUserApiDescribeUserBillingDetails(ctx context.Context, id string) ApiConsumptionUserApiDescribeUserBillingDetailsRequest
+
+	// ConsumptionUserApiDescribeUserBillingDetailsExecute executes the request
+	//  @return DescribeUserBillingDetailsResult
+	ConsumptionUserApiDescribeUserBillingDetailsExecute(r ApiConsumptionUserApiDescribeUserBillingDetailsRequest) (*DescribeUserBillingDetailsResult, *http.Response, error)
+
+	/*
+	ConsumptionUserApiDescribeUsersBySubscription DescribeUsersBySubscription consumption-user-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param subscriptionId The subscription ID
+	@return ApiConsumptionUserApiDescribeUsersBySubscriptionRequest
+	*/
+	ConsumptionUserApiDescribeUsersBySubscription(ctx context.Context, subscriptionId string) ApiConsumptionUserApiDescribeUsersBySubscriptionRequest
+
+	// ConsumptionUserApiDescribeUsersBySubscriptionExecute executes the request
+	//  @return DescribeUsersBySubscriptionResult
+	ConsumptionUserApiDescribeUsersBySubscriptionExecute(r ApiConsumptionUserApiDescribeUsersBySubscriptionRequest) (*DescribeUsersBySubscriptionResult, *http.Response, error)
+
+	/*
+	ConsumptionUserApiInviteUser InviteUser consumption-user-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param subscriptionId The subscription ID
+	@return ApiConsumptionUserApiInviteUserRequest
+	*/
+	ConsumptionUserApiInviteUser(ctx context.Context, subscriptionId string) ApiConsumptionUserApiInviteUserRequest
+
+	// ConsumptionUserApiInviteUserExecute executes the request
+	ConsumptionUserApiInviteUserExecute(r ApiConsumptionUserApiInviteUserRequest) (*http.Response, error)
+
+	/*
+	ConsumptionUserApiRevokeUserRole RevokeUserRole consumption-user-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param subscriptionId The subscription ID
+	@return ApiConsumptionUserApiRevokeUserRoleRequest
+	*/
+	ConsumptionUserApiRevokeUserRole(ctx context.Context, subscriptionId string) ApiConsumptionUserApiRevokeUserRoleRequest
+
+	// ConsumptionUserApiRevokeUserRoleExecute executes the request
+	ConsumptionUserApiRevokeUserRoleExecute(r ApiConsumptionUserApiRevokeUserRoleRequest) (*http.Response, error)
+
+	/*
+	ConsumptionUserApiSignin Signin consumption-user-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiConsumptionUserApiSigninRequest
+	*/
+	ConsumptionUserApiSignin(ctx context.Context) ApiConsumptionUserApiSigninRequest
+
+	// ConsumptionUserApiSigninExecute executes the request
+	//  @return ConsumptionServiceAuthResult
+	ConsumptionUserApiSigninExecute(r ApiConsumptionUserApiSigninRequest) (*ConsumptionServiceAuthResult, *http.Response, error)
+}
+
 // ConsumptionUserApiAPIService ConsumptionUserApiAPI service
 type ConsumptionUserApiAPIService service
 
 type ApiConsumptionUserApiDescribeUserBillingDetailsRequest struct {
 	ctx context.Context
-	ApiService *ConsumptionUserApiAPIService
+	ApiService ConsumptionUserApiAPI
 	id string
 }
 
@@ -180,7 +245,7 @@ func (a *ConsumptionUserApiAPIService) ConsumptionUserApiDescribeUserBillingDeta
 
 type ApiConsumptionUserApiDescribeUsersBySubscriptionRequest struct {
 	ctx context.Context
-	ApiService *ConsumptionUserApiAPIService
+	ApiService ConsumptionUserApiAPI
 	subscriptionId string
 }
 
@@ -335,7 +400,7 @@ func (a *ConsumptionUserApiAPIService) ConsumptionUserApiDescribeUsersBySubscrip
 
 type ApiConsumptionUserApiInviteUserRequest struct {
 	ctx context.Context
-	ApiService *ConsumptionUserApiAPIService
+	ApiService ConsumptionUserApiAPI
 	subscriptionId string
 	inviteUserRequestBody *InviteUserRequestBody
 }
@@ -501,7 +566,7 @@ func (a *ConsumptionUserApiAPIService) ConsumptionUserApiInviteUserExecute(r Api
 
 type ApiConsumptionUserApiRevokeUserRoleRequest struct {
 	ctx context.Context
-	ApiService *ConsumptionUserApiAPIService
+	ApiService ConsumptionUserApiAPI
 	subscriptionId string
 	inviteUserRequestBody *InviteUserRequestBody
 }
@@ -667,7 +732,7 @@ func (a *ConsumptionUserApiAPIService) ConsumptionUserApiRevokeUserRoleExecute(r
 
 type ApiConsumptionUserApiSigninRequest struct {
 	ctx context.Context
-	ApiService *ConsumptionUserApiAPIService
+	ApiService ConsumptionUserApiAPI
 }
 
 func (r ApiConsumptionUserApiSigninRequest) Execute() (*ConsumptionServiceAuthResult, *http.Response, error) {

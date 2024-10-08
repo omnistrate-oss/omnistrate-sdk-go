@@ -20,12 +20,71 @@ import (
 )
 
 
+type SignupApiAPI interface {
+
+	/*
+	SignupApiChangePassword ChangePassword signup-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSignupApiChangePasswordRequest
+	*/
+	SignupApiChangePassword(ctx context.Context) ApiSignupApiChangePasswordRequest
+
+	// SignupApiChangePasswordExecute executes the request
+	SignupApiChangePasswordExecute(r ApiSignupApiChangePasswordRequest) (*http.Response, error)
+
+	/*
+	SignupApiRegenerateToken RegenerateToken signup-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiSignupApiRegenerateTokenRequest
+	*/
+	SignupApiRegenerateToken(ctx context.Context, id string) ApiSignupApiRegenerateTokenRequest
+
+	// SignupApiRegenerateTokenExecute executes the request
+	SignupApiRegenerateTokenExecute(r ApiSignupApiRegenerateTokenRequest) (*http.Response, error)
+
+	/*
+	SignupApiResetPassword ResetPassword signup-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSignupApiResetPasswordRequest
+	*/
+	SignupApiResetPassword(ctx context.Context) ApiSignupApiResetPasswordRequest
+
+	// SignupApiResetPasswordExecute executes the request
+	SignupApiResetPasswordExecute(r ApiSignupApiResetPasswordRequest) (*http.Response, error)
+
+	/*
+	SignupApiSignup Signup signup-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSignupApiSignupRequest
+	*/
+	SignupApiSignup(ctx context.Context) ApiSignupApiSignupRequest
+
+	// SignupApiSignupExecute executes the request
+	SignupApiSignupExecute(r ApiSignupApiSignupRequest) (*http.Response, error)
+
+	/*
+	SignupApiValidateToken ValidateToken signup-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSignupApiValidateTokenRequest
+	*/
+	SignupApiValidateToken(ctx context.Context) ApiSignupApiValidateTokenRequest
+
+	// SignupApiValidateTokenExecute executes the request
+	SignupApiValidateTokenExecute(r ApiSignupApiValidateTokenRequest) (*http.Response, error)
+}
+
 // SignupApiAPIService SignupApiAPI service
 type SignupApiAPIService service
 
 type ApiSignupApiChangePasswordRequest struct {
 	ctx context.Context
-	ApiService *SignupApiAPIService
+	ApiService SignupApiAPI
 	changePasswordRequestBody *ChangePasswordRequestBody
 }
 
@@ -187,7 +246,7 @@ func (a *SignupApiAPIService) SignupApiChangePasswordExecute(r ApiSignupApiChang
 
 type ApiSignupApiRegenerateTokenRequest struct {
 	ctx context.Context
-	ApiService *SignupApiAPIService
+	ApiService SignupApiAPI
 	id string
 }
 
@@ -312,7 +371,7 @@ func (a *SignupApiAPIService) SignupApiRegenerateTokenExecute(r ApiSignupApiRege
 
 type ApiSignupApiResetPasswordRequest struct {
 	ctx context.Context
-	ApiService *SignupApiAPIService
+	ApiService SignupApiAPI
 	resetPasswordRequestBody *ResetPasswordRequestBody
 }
 
@@ -474,7 +533,7 @@ func (a *SignupApiAPIService) SignupApiResetPasswordExecute(r ApiSignupApiResetP
 
 type ApiSignupApiSignupRequest struct {
 	ctx context.Context
-	ApiService *SignupApiAPIService
+	ApiService SignupApiAPI
 	signupRequestBody *SignupRequestBody
 }
 
@@ -636,7 +695,7 @@ func (a *SignupApiAPIService) SignupApiSignupExecute(r ApiSignupApiSignupRequest
 
 type ApiSignupApiValidateTokenRequest struct {
 	ctx context.Context
-	ApiService *SignupApiAPIService
+	ApiService SignupApiAPI
 	validateTokenRequestBody *ValidateTokenRequestBody
 }
 

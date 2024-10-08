@@ -19,12 +19,26 @@ import (
 )
 
 
+type DemoApiAPI interface {
+
+	/*
+	DemoApiDemo Demo demo-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDemoApiDemoRequest
+	*/
+	DemoApiDemo(ctx context.Context) ApiDemoApiDemoRequest
+
+	// DemoApiDemoExecute executes the request
+	DemoApiDemoExecute(r ApiDemoApiDemoRequest) (*http.Response, error)
+}
+
 // DemoApiAPIService DemoApiAPI service
 type DemoApiAPIService service
 
 type ApiDemoApiDemoRequest struct {
 	ctx context.Context
-	ApiService *DemoApiAPIService
+	ApiService DemoApiAPI
 	demoRequestBody *DemoRequestBody
 }
 

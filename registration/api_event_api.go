@@ -20,12 +20,59 @@ import (
 )
 
 
+type EventApiAPI interface {
+
+	/*
+	EventApiDescribeEvent DescribeEvent event-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the event
+	@return ApiEventApiDescribeEventRequest
+	*/
+	EventApiDescribeEvent(ctx context.Context, id string) ApiEventApiDescribeEventRequest
+
+	// EventApiDescribeEventExecute executes the request
+	//  @return DescribeEventResult
+	EventApiDescribeEventExecute(r ApiEventApiDescribeEventRequest) (*DescribeEventResult, *http.Response, error)
+
+	/*
+	EventApiListAllEvent ListAllEvent event-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@return ApiEventApiListAllEventRequest
+	*/
+	EventApiListAllEvent(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string) ApiEventApiListAllEventRequest
+
+	// EventApiListAllEventExecute executes the request
+	//  @return ListEventResult
+	EventApiListAllEventExecute(r ApiEventApiListAllEventRequest) (*ListEventResult, *http.Response, error)
+
+	/*
+	EventApiListEvent ListEvent event-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId The ID of the resource instance
+	@return ApiEventApiListEventRequest
+	*/
+	EventApiListEvent(ctx context.Context, instanceId string) ApiEventApiListEventRequest
+
+	// EventApiListEventExecute executes the request
+	//  @return ListEventResult
+	EventApiListEventExecute(r ApiEventApiListEventRequest) (*ListEventResult, *http.Response, error)
+}
+
 // EventApiAPIService EventApiAPI service
 type EventApiAPIService service
 
 type ApiEventApiDescribeEventRequest struct {
 	ctx context.Context
-	ApiService *EventApiAPIService
+	ApiService EventApiAPI
 	id string
 	subscriptionId *string
 }
@@ -201,7 +248,7 @@ func (a *EventApiAPIService) EventApiDescribeEventExecute(r ApiEventApiDescribeE
 
 type ApiEventApiListAllEventRequest struct {
 	ctx context.Context
-	ApiService *EventApiAPIService
+	ApiService EventApiAPI
 	serviceProviderId string
 	serviceKey string
 	serviceAPIVersion string
@@ -397,7 +444,7 @@ func (a *EventApiAPIService) EventApiListAllEventExecute(r ApiEventApiListAllEve
 
 type ApiEventApiListEventRequest struct {
 	ctx context.Context
-	ApiService *EventApiAPIService
+	ApiService EventApiAPI
 	instanceId string
 	subscriptionId *string
 }

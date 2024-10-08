@@ -20,12 +20,65 @@ import (
 )
 
 
+type HelmPackageApiAPI interface {
+
+	/*
+	HelmPackageApiDeleteHelmPackage DeleteHelmPackage helm-package-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param chartName The chart name of the Helm package to delete
+	@param chartVersion The chart version of the Helm package to delete
+	@return ApiHelmPackageApiDeleteHelmPackageRequest
+	*/
+	HelmPackageApiDeleteHelmPackage(ctx context.Context, chartName string, chartVersion string) ApiHelmPackageApiDeleteHelmPackageRequest
+
+	// HelmPackageApiDeleteHelmPackageExecute executes the request
+	HelmPackageApiDeleteHelmPackageExecute(r ApiHelmPackageApiDeleteHelmPackageRequest) (*http.Response, error)
+
+	/*
+	HelmPackageApiDescribeHelmPackage DescribeHelmPackage helm-package-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param chartName The chart name of the Helm package to describe
+	@param chartVersion The chart version of the Helm package to describe
+	@return ApiHelmPackageApiDescribeHelmPackageRequest
+	*/
+	HelmPackageApiDescribeHelmPackage(ctx context.Context, chartName string, chartVersion string) ApiHelmPackageApiDescribeHelmPackageRequest
+
+	// HelmPackageApiDescribeHelmPackageExecute executes the request
+	//  @return HelmPackage
+	HelmPackageApiDescribeHelmPackageExecute(r ApiHelmPackageApiDescribeHelmPackageRequest) (*HelmPackage, *http.Response, error)
+
+	/*
+	HelmPackageApiListHelmPackages ListHelmPackages helm-package-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiHelmPackageApiListHelmPackagesRequest
+	*/
+	HelmPackageApiListHelmPackages(ctx context.Context) ApiHelmPackageApiListHelmPackagesRequest
+
+	// HelmPackageApiListHelmPackagesExecute executes the request
+	//  @return ListHelmPackagesResult
+	HelmPackageApiListHelmPackagesExecute(r ApiHelmPackageApiListHelmPackagesRequest) (*ListHelmPackagesResult, *http.Response, error)
+
+	/*
+	HelmPackageApiSaveHelmPackage SaveHelmPackage helm-package-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiHelmPackageApiSaveHelmPackageRequest
+	*/
+	HelmPackageApiSaveHelmPackage(ctx context.Context) ApiHelmPackageApiSaveHelmPackageRequest
+
+	// HelmPackageApiSaveHelmPackageExecute executes the request
+	HelmPackageApiSaveHelmPackageExecute(r ApiHelmPackageApiSaveHelmPackageRequest) (*http.Response, error)
+}
+
 // HelmPackageApiAPIService HelmPackageApiAPI service
 type HelmPackageApiAPIService service
 
 type ApiHelmPackageApiDeleteHelmPackageRequest struct {
 	ctx context.Context
-	ApiService *HelmPackageApiAPIService
+	ApiService HelmPackageApiAPI
 	chartName string
 	chartVersion string
 }
@@ -140,7 +193,7 @@ func (a *HelmPackageApiAPIService) HelmPackageApiDeleteHelmPackageExecute(r ApiH
 
 type ApiHelmPackageApiDescribeHelmPackageRequest struct {
 	ctx context.Context
-	ApiService *HelmPackageApiAPIService
+	ApiService HelmPackageApiAPI
 	chartName string
 	chartVersion string
 }
@@ -266,7 +319,7 @@ func (a *HelmPackageApiAPIService) HelmPackageApiDescribeHelmPackageExecute(r Ap
 
 type ApiHelmPackageApiListHelmPackagesRequest struct {
 	ctx context.Context
-	ApiService *HelmPackageApiAPIService
+	ApiService HelmPackageApiAPI
 	chartName *string
 }
 
@@ -394,7 +447,7 @@ func (a *HelmPackageApiAPIService) HelmPackageApiListHelmPackagesExecute(r ApiHe
 
 type ApiHelmPackageApiSaveHelmPackageRequest struct {
 	ctx context.Context
-	ApiService *HelmPackageApiAPIService
+	ApiService HelmPackageApiAPI
 	saveHelmPackageRequestBody *SaveHelmPackageRequestBody
 }
 

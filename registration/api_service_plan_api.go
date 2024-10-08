@@ -20,12 +20,43 @@ import (
 )
 
 
+type ServicePlanApiAPI interface {
+
+	/*
+	ServicePlanApiGetServicePlan GetServicePlan service-plan-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId Service ID
+	@param productTierId Product tier ID
+	@return ApiServicePlanApiGetServicePlanRequest
+	*/
+	ServicePlanApiGetServicePlan(ctx context.Context, serviceId string, productTierId string) ApiServicePlanApiGetServicePlanRequest
+
+	// ServicePlanApiGetServicePlanExecute executes the request
+	//  @return GetServicePlanResult
+	ServicePlanApiGetServicePlanExecute(r ApiServicePlanApiGetServicePlanRequest) (*GetServicePlanResult, *http.Response, error)
+
+	/*
+	ServicePlanApiListServicePlans ListServicePlans service-plan-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId Service ID
+	@param serviceEnvironmentId Service environment ID
+	@return ApiServicePlanApiListServicePlansRequest
+	*/
+	ServicePlanApiListServicePlans(ctx context.Context, serviceId string, serviceEnvironmentId string) ApiServicePlanApiListServicePlansRequest
+
+	// ServicePlanApiListServicePlansExecute executes the request
+	//  @return ListServicePlansResult
+	ServicePlanApiListServicePlansExecute(r ApiServicePlanApiListServicePlansRequest) (*ListServicePlansResult, *http.Response, error)
+}
+
 // ServicePlanApiAPIService ServicePlanApiAPI service
 type ServicePlanApiAPIService service
 
 type ApiServicePlanApiGetServicePlanRequest struct {
 	ctx context.Context
-	ApiService *ServicePlanApiAPIService
+	ApiService ServicePlanApiAPI
 	serviceId string
 	productTierId string
 }
@@ -195,7 +226,7 @@ func (a *ServicePlanApiAPIService) ServicePlanApiGetServicePlanExecute(r ApiServ
 
 type ApiServicePlanApiListServicePlansRequest struct {
 	ctx context.Context
-	ApiService *ServicePlanApiAPIService
+	ApiService ServicePlanApiAPI
 	serviceId string
 	serviceEnvironmentId string
 }

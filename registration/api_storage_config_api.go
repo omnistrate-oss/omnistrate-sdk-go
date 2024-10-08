@@ -20,12 +20,109 @@ import (
 )
 
 
+type StorageConfigApiAPI interface {
+
+	/*
+	StorageConfigApiAddStorageVolumeConfig AddStorageVolumeConfig storage-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id The storage config ID
+	@param storageVolumeConfigId The storage volume config ID
+	@return ApiStorageConfigApiAddStorageVolumeConfigRequest
+	*/
+	StorageConfigApiAddStorageVolumeConfig(ctx context.Context, serviceId string, id string, storageVolumeConfigId string) ApiStorageConfigApiAddStorageVolumeConfigRequest
+
+	// StorageConfigApiAddStorageVolumeConfigExecute executes the request
+	StorageConfigApiAddStorageVolumeConfigExecute(r ApiStorageConfigApiAddStorageVolumeConfigRequest) (*http.Response, error)
+
+	/*
+	StorageConfigApiCreateStorageConfig CreateStorageConfig storage-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service to which this storage config belongs
+	@return ApiStorageConfigApiCreateStorageConfigRequest
+	*/
+	StorageConfigApiCreateStorageConfig(ctx context.Context, serviceId string) ApiStorageConfigApiCreateStorageConfigRequest
+
+	// StorageConfigApiCreateStorageConfigExecute executes the request
+	//  @return string
+	StorageConfigApiCreateStorageConfigExecute(r ApiStorageConfigApiCreateStorageConfigRequest) (string, *http.Response, error)
+
+	/*
+	StorageConfigApiDeleteStorageConfig DeleteStorageConfig storage-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id The storage config ID
+	@return ApiStorageConfigApiDeleteStorageConfigRequest
+	*/
+	StorageConfigApiDeleteStorageConfig(ctx context.Context, serviceId string, id string) ApiStorageConfigApiDeleteStorageConfigRequest
+
+	// StorageConfigApiDeleteStorageConfigExecute executes the request
+	StorageConfigApiDeleteStorageConfigExecute(r ApiStorageConfigApiDeleteStorageConfigRequest) (*http.Response, error)
+
+	/*
+	StorageConfigApiDescribeStorageConfig DescribeStorageConfig storage-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id The storage config ID
+	@return ApiStorageConfigApiDescribeStorageConfigRequest
+	*/
+	StorageConfigApiDescribeStorageConfig(ctx context.Context, serviceId string, id string) ApiStorageConfigApiDescribeStorageConfigRequest
+
+	// StorageConfigApiDescribeStorageConfigExecute executes the request
+	//  @return DescribeStorageConfigResult
+	StorageConfigApiDescribeStorageConfigExecute(r ApiStorageConfigApiDescribeStorageConfigRequest) (*DescribeStorageConfigResult, *http.Response, error)
+
+	/*
+	StorageConfigApiListStorageConfig ListStorageConfig storage-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service id to filter by
+	@return ApiStorageConfigApiListStorageConfigRequest
+	*/
+	StorageConfigApiListStorageConfig(ctx context.Context, serviceId string) ApiStorageConfigApiListStorageConfigRequest
+
+	// StorageConfigApiListStorageConfigExecute executes the request
+	//  @return ListServiceEnvironmentsResult
+	StorageConfigApiListStorageConfigExecute(r ApiStorageConfigApiListStorageConfigRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+
+	/*
+	StorageConfigApiRemoveStorageVolumeConfig RemoveStorageVolumeConfig storage-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id The storage config ID
+	@param storageVolumeConfigId The storage volume config ID
+	@return ApiStorageConfigApiRemoveStorageVolumeConfigRequest
+	*/
+	StorageConfigApiRemoveStorageVolumeConfig(ctx context.Context, serviceId string, id string, storageVolumeConfigId string) ApiStorageConfigApiRemoveStorageVolumeConfigRequest
+
+	// StorageConfigApiRemoveStorageVolumeConfigExecute executes the request
+	StorageConfigApiRemoveStorageVolumeConfigExecute(r ApiStorageConfigApiRemoveStorageVolumeConfigRequest) (*http.Response, error)
+
+	/*
+	StorageConfigApiUpdateStorageConfig UpdateStorageConfig storage-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param id The storage config ID
+	@return ApiStorageConfigApiUpdateStorageConfigRequest
+	*/
+	StorageConfigApiUpdateStorageConfig(ctx context.Context, serviceId string, id string) ApiStorageConfigApiUpdateStorageConfigRequest
+
+	// StorageConfigApiUpdateStorageConfigExecute executes the request
+	StorageConfigApiUpdateStorageConfigExecute(r ApiStorageConfigApiUpdateStorageConfigRequest) (*http.Response, error)
+}
+
 // StorageConfigApiAPIService StorageConfigApiAPI service
 type StorageConfigApiAPIService service
 
 type ApiStorageConfigApiAddStorageVolumeConfigRequest struct {
 	ctx context.Context
-	ApiService *StorageConfigApiAPIService
+	ApiService StorageConfigApiAPI
 	serviceId string
 	id string
 	storageVolumeConfigId string
@@ -199,7 +296,7 @@ func (a *StorageConfigApiAPIService) StorageConfigApiAddStorageVolumeConfigExecu
 
 type ApiStorageConfigApiCreateStorageConfigRequest struct {
 	ctx context.Context
-	ApiService *StorageConfigApiAPIService
+	ApiService StorageConfigApiAPI
 	serviceId string
 	createStorageConfigRequestBody *CreateStorageConfigRequestBody
 }
@@ -376,7 +473,7 @@ func (a *StorageConfigApiAPIService) StorageConfigApiCreateStorageConfigExecute(
 
 type ApiStorageConfigApiDeleteStorageConfigRequest struct {
 	ctx context.Context
-	ApiService *StorageConfigApiAPIService
+	ApiService StorageConfigApiAPI
 	serviceId string
 	id string
 }
@@ -535,7 +632,7 @@ func (a *StorageConfigApiAPIService) StorageConfigApiDeleteStorageConfigExecute(
 
 type ApiStorageConfigApiDescribeStorageConfigRequest struct {
 	ctx context.Context
-	ApiService *StorageConfigApiAPIService
+	ApiService StorageConfigApiAPI
 	serviceId string
 	id string
 	productTierVersion *string
@@ -725,7 +822,7 @@ func (a *StorageConfigApiAPIService) StorageConfigApiDescribeStorageConfigExecut
 
 type ApiStorageConfigApiListStorageConfigRequest struct {
 	ctx context.Context
-	ApiService *StorageConfigApiAPIService
+	ApiService StorageConfigApiAPI
 	serviceId string
 	managed *bool
 }
@@ -901,7 +998,7 @@ func (a *StorageConfigApiAPIService) StorageConfigApiListStorageConfigExecute(r 
 
 type ApiStorageConfigApiRemoveStorageVolumeConfigRequest struct {
 	ctx context.Context
-	ApiService *StorageConfigApiAPIService
+	ApiService StorageConfigApiAPI
 	serviceId string
 	id string
 	storageVolumeConfigId string
@@ -1075,7 +1172,7 @@ func (a *StorageConfigApiAPIService) StorageConfigApiRemoveStorageVolumeConfigEx
 
 type ApiStorageConfigApiUpdateStorageConfigRequest struct {
 	ctx context.Context
-	ApiService *StorageConfigApiAPIService
+	ApiService StorageConfigApiAPI
 	serviceId string
 	id string
 	updateServiceModelRequestBody *UpdateServiceModelRequestBody

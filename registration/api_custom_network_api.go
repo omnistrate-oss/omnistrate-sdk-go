@@ -20,12 +20,64 @@ import (
 )
 
 
+type CustomNetworkApiAPI interface {
+
+	/*
+	CustomNetworkApiCreateCustomNetwork CreateCustomNetwork custom-network-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCustomNetworkApiCreateCustomNetworkRequest
+	*/
+	CustomNetworkApiCreateCustomNetwork(ctx context.Context) ApiCustomNetworkApiCreateCustomNetworkRequest
+
+	// CustomNetworkApiCreateCustomNetworkExecute executes the request
+	//  @return CustomNetwork
+	CustomNetworkApiCreateCustomNetworkExecute(r ApiCustomNetworkApiCreateCustomNetworkRequest) (*CustomNetwork, *http.Response, error)
+
+	/*
+	CustomNetworkApiDeleteCustomNetwork DeleteCustomNetwork custom-network-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of a custom network
+	@return ApiCustomNetworkApiDeleteCustomNetworkRequest
+	*/
+	CustomNetworkApiDeleteCustomNetwork(ctx context.Context, id string) ApiCustomNetworkApiDeleteCustomNetworkRequest
+
+	// CustomNetworkApiDeleteCustomNetworkExecute executes the request
+	CustomNetworkApiDeleteCustomNetworkExecute(r ApiCustomNetworkApiDeleteCustomNetworkRequest) (*http.Response, error)
+
+	/*
+	CustomNetworkApiDescribeCustomNetwork DescribeCustomNetwork custom-network-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of a custom network
+	@return ApiCustomNetworkApiDescribeCustomNetworkRequest
+	*/
+	CustomNetworkApiDescribeCustomNetwork(ctx context.Context, id string) ApiCustomNetworkApiDescribeCustomNetworkRequest
+
+	// CustomNetworkApiDescribeCustomNetworkExecute executes the request
+	//  @return CustomNetwork
+	CustomNetworkApiDescribeCustomNetworkExecute(r ApiCustomNetworkApiDescribeCustomNetworkRequest) (*CustomNetwork, *http.Response, error)
+
+	/*
+	CustomNetworkApiListCustomNetworks ListCustomNetworks custom-network-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCustomNetworkApiListCustomNetworksRequest
+	*/
+	CustomNetworkApiListCustomNetworks(ctx context.Context) ApiCustomNetworkApiListCustomNetworksRequest
+
+	// CustomNetworkApiListCustomNetworksExecute executes the request
+	//  @return ListCustomNetworksResult
+	CustomNetworkApiListCustomNetworksExecute(r ApiCustomNetworkApiListCustomNetworksRequest) (*ListCustomNetworksResult, *http.Response, error)
+}
+
 // CustomNetworkApiAPIService CustomNetworkApiAPI service
 type CustomNetworkApiAPIService service
 
 type ApiCustomNetworkApiCreateCustomNetworkRequest struct {
 	ctx context.Context
-	ApiService *CustomNetworkApiAPIService
+	ApiService CustomNetworkApiAPI
 	createCustomNetworkRequestBody *CreateCustomNetworkRequestBody
 }
 
@@ -154,7 +206,7 @@ func (a *CustomNetworkApiAPIService) CustomNetworkApiCreateCustomNetworkExecute(
 
 type ApiCustomNetworkApiDeleteCustomNetworkRequest struct {
 	ctx context.Context
-	ApiService *CustomNetworkApiAPIService
+	ApiService CustomNetworkApiAPI
 	id string
 }
 
@@ -265,7 +317,7 @@ func (a *CustomNetworkApiAPIService) CustomNetworkApiDeleteCustomNetworkExecute(
 
 type ApiCustomNetworkApiDescribeCustomNetworkRequest struct {
 	ctx context.Context
-	ApiService *CustomNetworkApiAPIService
+	ApiService CustomNetworkApiAPI
 	id string
 }
 
@@ -387,7 +439,7 @@ func (a *CustomNetworkApiAPIService) CustomNetworkApiDescribeCustomNetworkExecut
 
 type ApiCustomNetworkApiListCustomNetworksRequest struct {
 	ctx context.Context
-	ApiService *CustomNetworkApiAPIService
+	ApiService CustomNetworkApiAPI
 	cloudProviderName *string
 	cloudProviderRegion *string
 }

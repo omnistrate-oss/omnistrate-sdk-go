@@ -20,12 +20,135 @@ import (
 )
 
 
+type ServiceApiApiAPI interface {
+
+	/*
+	ServiceApiApiCreateServiceAPI CreateServiceAPI service-api-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@return ApiServiceApiApiCreateServiceAPIRequest
+	*/
+	ServiceApiApiCreateServiceAPI(ctx context.Context, serviceId string) ApiServiceApiApiCreateServiceAPIRequest
+
+	// ServiceApiApiCreateServiceAPIExecute executes the request
+	//  @return string
+	ServiceApiApiCreateServiceAPIExecute(r ApiServiceApiApiCreateServiceAPIRequest) (string, *http.Response, error)
+
+	/*
+	ServiceApiApiDeleteServiceAPI DeleteServiceAPI service-api-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The service API ID
+	@return ApiServiceApiApiDeleteServiceAPIRequest
+	*/
+	ServiceApiApiDeleteServiceAPI(ctx context.Context, serviceId string, id string) ApiServiceApiApiDeleteServiceAPIRequest
+
+	// ServiceApiApiDeleteServiceAPIExecute executes the request
+	ServiceApiApiDeleteServiceAPIExecute(r ApiServiceApiApiDeleteServiceAPIRequest) (*http.Response, error)
+
+	/*
+	ServiceApiApiDeprecateServiceAPI DeprecateServiceAPI service-api-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The service API ID
+	@return ApiServiceApiApiDeprecateServiceAPIRequest
+	*/
+	ServiceApiApiDeprecateServiceAPI(ctx context.Context, serviceId string, id string) ApiServiceApiApiDeprecateServiceAPIRequest
+
+	// ServiceApiApiDeprecateServiceAPIExecute executes the request
+	ServiceApiApiDeprecateServiceAPIExecute(r ApiServiceApiApiDeprecateServiceAPIRequest) (*http.Response, error)
+
+	/*
+	ServiceApiApiDescribePendingChanges DescribePendingChanges service-api-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The service API ID
+	@return ApiServiceApiApiDescribePendingChangesRequest
+	*/
+	ServiceApiApiDescribePendingChanges(ctx context.Context, serviceId string, id string) ApiServiceApiApiDescribePendingChangesRequest
+
+	// ServiceApiApiDescribePendingChangesExecute executes the request
+	//  @return DescribePendingChangesResult
+	ServiceApiApiDescribePendingChangesExecute(r ApiServiceApiApiDescribePendingChangesRequest) (*DescribePendingChangesResult, *http.Response, error)
+
+	/*
+	ServiceApiApiDescribeServiceAPI DescribeServiceAPI service-api-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The service API ID
+	@return ApiServiceApiApiDescribeServiceAPIRequest
+	*/
+	ServiceApiApiDescribeServiceAPI(ctx context.Context, serviceId string, id string) ApiServiceApiApiDescribeServiceAPIRequest
+
+	// ServiceApiApiDescribeServiceAPIExecute executes the request
+	//  @return DescribeServiceAPIResult
+	ServiceApiApiDescribeServiceAPIExecute(r ApiServiceApiApiDescribeServiceAPIRequest) (*DescribeServiceAPIResult, *http.Response, error)
+
+	/*
+	ServiceApiApiDiscardPendingChanges DiscardPendingChanges service-api-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The service API ID
+	@return ApiServiceApiApiDiscardPendingChangesRequest
+	*/
+	ServiceApiApiDiscardPendingChanges(ctx context.Context, serviceId string, id string) ApiServiceApiApiDiscardPendingChangesRequest
+
+	// ServiceApiApiDiscardPendingChangesExecute executes the request
+	ServiceApiApiDiscardPendingChangesExecute(r ApiServiceApiApiDiscardPendingChangesRequest) (*http.Response, error)
+
+	/*
+	ServiceApiApiListServiceAPI ListServiceAPI service-api-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param serviceEnvironmentId The service environment ID
+	@return ApiServiceApiApiListServiceAPIRequest
+	*/
+	ServiceApiApiListServiceAPI(ctx context.Context, serviceId string, serviceEnvironmentId string) ApiServiceApiApiListServiceAPIRequest
+
+	// ServiceApiApiListServiceAPIExecute executes the request
+	//  @return ListServiceEnvironmentsResult
+	ServiceApiApiListServiceAPIExecute(r ApiServiceApiApiListServiceAPIRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+
+	/*
+	ServiceApiApiReleaseServiceAPI ReleaseServiceAPI service-api-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The service API ID
+	@return ApiServiceApiApiReleaseServiceAPIRequest
+	*/
+	ServiceApiApiReleaseServiceAPI(ctx context.Context, serviceId string, id string) ApiServiceApiApiReleaseServiceAPIRequest
+
+	// ServiceApiApiReleaseServiceAPIExecute executes the request
+	ServiceApiApiReleaseServiceAPIExecute(r ApiServiceApiApiReleaseServiceAPIRequest) (*http.Response, error)
+
+	/*
+	ServiceApiApiUpdateServiceAPI UpdateServiceAPI service-api-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID that this API bundle belongs to
+	@param id The service API ID
+	@return ApiServiceApiApiUpdateServiceAPIRequest
+	*/
+	ServiceApiApiUpdateServiceAPI(ctx context.Context, serviceId string, id string) ApiServiceApiApiUpdateServiceAPIRequest
+
+	// ServiceApiApiUpdateServiceAPIExecute executes the request
+	ServiceApiApiUpdateServiceAPIExecute(r ApiServiceApiApiUpdateServiceAPIRequest) (*http.Response, error)
+}
+
 // ServiceApiApiAPIService ServiceApiApiAPI service
 type ServiceApiApiAPIService service
 
 type ApiServiceApiApiCreateServiceAPIRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiApiAPIService
+	ApiService ServiceApiApiAPI
 	serviceId string
 	createServiceAPIRequestBody *CreateServiceAPIRequestBody
 }
@@ -202,7 +325,7 @@ func (a *ServiceApiApiAPIService) ServiceApiApiCreateServiceAPIExecute(r ApiServ
 
 type ApiServiceApiApiDeleteServiceAPIRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiApiAPIService
+	ApiService ServiceApiApiAPI
 	serviceId string
 	id string
 }
@@ -361,7 +484,7 @@ func (a *ServiceApiApiAPIService) ServiceApiApiDeleteServiceAPIExecute(r ApiServ
 
 type ApiServiceApiApiDeprecateServiceAPIRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiApiAPIService
+	ApiService ServiceApiApiAPI
 	serviceId string
 	id string
 }
@@ -520,7 +643,7 @@ func (a *ServiceApiApiAPIService) ServiceApiApiDeprecateServiceAPIExecute(r ApiS
 
 type ApiServiceApiApiDescribePendingChangesRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiApiAPIService
+	ApiService ServiceApiApiAPI
 	serviceId string
 	id string
 	productTierId *string
@@ -700,7 +823,7 @@ func (a *ServiceApiApiAPIService) ServiceApiApiDescribePendingChangesExecute(r A
 
 type ApiServiceApiApiDescribeServiceAPIRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiApiAPIService
+	ApiService ServiceApiApiAPI
 	serviceId string
 	id string
 }
@@ -870,7 +993,7 @@ func (a *ServiceApiApiAPIService) ServiceApiApiDescribeServiceAPIExecute(r ApiSe
 
 type ApiServiceApiApiDiscardPendingChangesRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiApiAPIService
+	ApiService ServiceApiApiAPI
 	serviceId string
 	id string
 	productTierId *string
@@ -1039,7 +1162,7 @@ func (a *ServiceApiApiAPIService) ServiceApiApiDiscardPendingChangesExecute(r Ap
 
 type ApiServiceApiApiListServiceAPIRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiApiAPIService
+	ApiService ServiceApiApiAPI
 	serviceId string
 	serviceEnvironmentId string
 }
@@ -1209,7 +1332,7 @@ func (a *ServiceApiApiAPIService) ServiceApiApiListServiceAPIExecute(r ApiServic
 
 type ApiServiceApiApiReleaseServiceAPIRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiApiAPIService
+	ApiService ServiceApiApiAPI
 	serviceId string
 	id string
 	releaseServiceAPIRequestBody *ReleaseServiceAPIRequestBody
@@ -1379,7 +1502,7 @@ func (a *ServiceApiApiAPIService) ServiceApiApiReleaseServiceAPIExecute(r ApiSer
 
 type ApiServiceApiApiUpdateServiceAPIRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiApiAPIService
+	ApiService ServiceApiApiAPI
 	serviceId string
 	id string
 	updateServiceAPIRequestBody *UpdateServiceAPIRequestBody

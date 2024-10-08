@@ -20,12 +20,69 @@ import (
 )
 
 
+type AvailabilityZoneApiAPI interface {
+
+	/*
+	AvailabilityZoneApiDescribeAvailabilityZone DescribeAvailabilityZone availability-zone-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiAvailabilityZoneApiDescribeAvailabilityZoneRequest
+	*/
+	AvailabilityZoneApiDescribeAvailabilityZone(ctx context.Context, id string) ApiAvailabilityZoneApiDescribeAvailabilityZoneRequest
+
+	// AvailabilityZoneApiDescribeAvailabilityZoneExecute executes the request
+	//  @return DescribeAvailabilityZoneResult
+	AvailabilityZoneApiDescribeAvailabilityZoneExecute(r ApiAvailabilityZoneApiDescribeAvailabilityZoneRequest) (*DescribeAvailabilityZoneResult, *http.Response, error)
+
+	/*
+	AvailabilityZoneApiGetAvailabilityZoneByCode GetAvailabilityZoneByCode availability-zone-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param code Cloud-provider native availability zone code
+	@param cloudProviderName The cloud provider for this compute instance type config
+	@return ApiAvailabilityZoneApiGetAvailabilityZoneByCodeRequest
+	*/
+	AvailabilityZoneApiGetAvailabilityZoneByCode(ctx context.Context, code string, cloudProviderName string) ApiAvailabilityZoneApiGetAvailabilityZoneByCodeRequest
+
+	// AvailabilityZoneApiGetAvailabilityZoneByCodeExecute executes the request
+	//  @return string
+	AvailabilityZoneApiGetAvailabilityZoneByCodeExecute(r ApiAvailabilityZoneApiGetAvailabilityZoneByCodeRequest) (string, *http.Response, error)
+
+	/*
+	AvailabilityZoneApiListAvailabilityZone ListAvailabilityZone availability-zone-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param cloudProviderName The cloud provider for this compute instance type config
+	@return ApiAvailabilityZoneApiListAvailabilityZoneRequest
+	*/
+	AvailabilityZoneApiListAvailabilityZone(ctx context.Context, cloudProviderName string) ApiAvailabilityZoneApiListAvailabilityZoneRequest
+
+	// AvailabilityZoneApiListAvailabilityZoneExecute executes the request
+	//  @return ListServiceEnvironmentsResult
+	AvailabilityZoneApiListAvailabilityZoneExecute(r ApiAvailabilityZoneApiListAvailabilityZoneRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+
+	/*
+	AvailabilityZoneApiListAvailabilityZonesByRegionCode ListAvailabilityZonesByRegionCode availability-zone-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param regionCode
+	@param cloudProviderName The cloud provider for this compute instance type config
+	@return ApiAvailabilityZoneApiListAvailabilityZonesByRegionCodeRequest
+	*/
+	AvailabilityZoneApiListAvailabilityZonesByRegionCode(ctx context.Context, regionCode string, cloudProviderName string) ApiAvailabilityZoneApiListAvailabilityZonesByRegionCodeRequest
+
+	// AvailabilityZoneApiListAvailabilityZonesByRegionCodeExecute executes the request
+	//  @return ListServiceEnvironmentsResult
+	AvailabilityZoneApiListAvailabilityZonesByRegionCodeExecute(r ApiAvailabilityZoneApiListAvailabilityZonesByRegionCodeRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+}
+
 // AvailabilityZoneApiAPIService AvailabilityZoneApiAPI service
 type AvailabilityZoneApiAPIService service
 
 type ApiAvailabilityZoneApiDescribeAvailabilityZoneRequest struct {
 	ctx context.Context
-	ApiService *AvailabilityZoneApiAPIService
+	ApiService AvailabilityZoneApiAPI
 	id string
 }
 
@@ -191,7 +248,7 @@ func (a *AvailabilityZoneApiAPIService) AvailabilityZoneApiDescribeAvailabilityZ
 
 type ApiAvailabilityZoneApiGetAvailabilityZoneByCodeRequest struct {
 	ctx context.Context
-	ApiService *AvailabilityZoneApiAPIService
+	ApiService AvailabilityZoneApiAPI
 	code string
 	cloudProviderName string
 }
@@ -361,7 +418,7 @@ func (a *AvailabilityZoneApiAPIService) AvailabilityZoneApiGetAvailabilityZoneBy
 
 type ApiAvailabilityZoneApiListAvailabilityZoneRequest struct {
 	ctx context.Context
-	ApiService *AvailabilityZoneApiAPIService
+	ApiService AvailabilityZoneApiAPI
 	cloudProviderName string
 }
 
@@ -527,7 +584,7 @@ func (a *AvailabilityZoneApiAPIService) AvailabilityZoneApiListAvailabilityZoneE
 
 type ApiAvailabilityZoneApiListAvailabilityZonesByRegionCodeRequest struct {
 	ctx context.Context
-	ApiService *AvailabilityZoneApiAPIService
+	ApiService AvailabilityZoneApiAPI
 	regionCode string
 	cloudProviderName string
 }

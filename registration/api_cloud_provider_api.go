@@ -20,12 +20,53 @@ import (
 )
 
 
+type CloudProviderApiAPI interface {
+
+	/*
+	CloudProviderApiDescribeCloudProvider DescribeCloudProvider cloud-provider-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the CloudProvider
+	@return ApiCloudProviderApiDescribeCloudProviderRequest
+	*/
+	CloudProviderApiDescribeCloudProvider(ctx context.Context, id string) ApiCloudProviderApiDescribeCloudProviderRequest
+
+	// CloudProviderApiDescribeCloudProviderExecute executes the request
+	//  @return DescribeCloudProviderResult
+	CloudProviderApiDescribeCloudProviderExecute(r ApiCloudProviderApiDescribeCloudProviderRequest) (*DescribeCloudProviderResult, *http.Response, error)
+
+	/*
+	CloudProviderApiGetCloudProviderByName GetCloudProviderByName cloud-provider-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param name Name of the CloudProvider
+	@return ApiCloudProviderApiGetCloudProviderByNameRequest
+	*/
+	CloudProviderApiGetCloudProviderByName(ctx context.Context, name string) ApiCloudProviderApiGetCloudProviderByNameRequest
+
+	// CloudProviderApiGetCloudProviderByNameExecute executes the request
+	//  @return string
+	CloudProviderApiGetCloudProviderByNameExecute(r ApiCloudProviderApiGetCloudProviderByNameRequest) (string, *http.Response, error)
+
+	/*
+	CloudProviderApiListCloudProvider ListCloudProvider cloud-provider-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCloudProviderApiListCloudProviderRequest
+	*/
+	CloudProviderApiListCloudProvider(ctx context.Context) ApiCloudProviderApiListCloudProviderRequest
+
+	// CloudProviderApiListCloudProviderExecute executes the request
+	//  @return ListServiceEnvironmentsResult
+	CloudProviderApiListCloudProviderExecute(r ApiCloudProviderApiListCloudProviderRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+}
+
 // CloudProviderApiAPIService CloudProviderApiAPI service
 type CloudProviderApiAPIService service
 
 type ApiCloudProviderApiDescribeCloudProviderRequest struct {
 	ctx context.Context
-	ApiService *CloudProviderApiAPIService
+	ApiService CloudProviderApiAPI
 	id string
 }
 
@@ -191,7 +232,7 @@ func (a *CloudProviderApiAPIService) CloudProviderApiDescribeCloudProviderExecut
 
 type ApiCloudProviderApiGetCloudProviderByNameRequest struct {
 	ctx context.Context
-	ApiService *CloudProviderApiAPIService
+	ApiService CloudProviderApiAPI
 	name string
 }
 
@@ -360,7 +401,7 @@ func (a *CloudProviderApiAPIService) CloudProviderApiGetCloudProviderByNameExecu
 
 type ApiCloudProviderApiListCloudProviderRequest struct {
 	ctx context.Context
-	ApiService *CloudProviderApiAPIService
+	ApiService CloudProviderApiAPI
 	serviceId *string
 	serviceModelId *string
 	productTierId *string

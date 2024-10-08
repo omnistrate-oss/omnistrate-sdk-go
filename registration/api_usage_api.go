@@ -19,12 +19,27 @@ import (
 )
 
 
+type UsageApiAPI interface {
+
+	/*
+	UsageApiGetCurrentPlanUsage GetCurrentPlanUsage usage-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUsageApiGetCurrentPlanUsageRequest
+	*/
+	UsageApiGetCurrentPlanUsage(ctx context.Context) ApiUsageApiGetCurrentPlanUsageRequest
+
+	// UsageApiGetCurrentPlanUsageExecute executes the request
+	//  @return GetCurrentUsageResult
+	UsageApiGetCurrentPlanUsageExecute(r ApiUsageApiGetCurrentPlanUsageRequest) (*GetCurrentUsageResult, *http.Response, error)
+}
+
 // UsageApiAPIService UsageApiAPI service
 type UsageApiAPIService service
 
 type ApiUsageApiGetCurrentPlanUsageRequest struct {
 	ctx context.Context
-	ApiService *UsageApiAPIService
+	ApiService UsageApiAPI
 }
 
 func (r ApiUsageApiGetCurrentPlanUsageRequest) Execute() (*GetCurrentUsageResult, *http.Response, error) {

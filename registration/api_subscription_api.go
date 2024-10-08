@@ -20,12 +20,64 @@ import (
 )
 
 
+type SubscriptionApiAPI interface {
+
+	/*
+	SubscriptionApiCreateSubscription CreateSubscription subscription-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSubscriptionApiCreateSubscriptionRequest
+	*/
+	SubscriptionApiCreateSubscription(ctx context.Context) ApiSubscriptionApiCreateSubscriptionRequest
+
+	// SubscriptionApiCreateSubscriptionExecute executes the request
+	//  @return string
+	SubscriptionApiCreateSubscriptionExecute(r ApiSubscriptionApiCreateSubscriptionRequest) (string, *http.Response, error)
+
+	/*
+	SubscriptionApiDeleteSubscription DeleteSubscription subscription-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The subscription ID
+	@return ApiSubscriptionApiDeleteSubscriptionRequest
+	*/
+	SubscriptionApiDeleteSubscription(ctx context.Context, id string) ApiSubscriptionApiDeleteSubscriptionRequest
+
+	// SubscriptionApiDeleteSubscriptionExecute executes the request
+	SubscriptionApiDeleteSubscriptionExecute(r ApiSubscriptionApiDeleteSubscriptionRequest) (*http.Response, error)
+
+	/*
+	SubscriptionApiDescribeSubscription DescribeSubscription subscription-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The subscription ID
+	@return ApiSubscriptionApiDescribeSubscriptionRequest
+	*/
+	SubscriptionApiDescribeSubscription(ctx context.Context, id string) ApiSubscriptionApiDescribeSubscriptionRequest
+
+	// SubscriptionApiDescribeSubscriptionExecute executes the request
+	//  @return DescribeSubscriptionResult
+	SubscriptionApiDescribeSubscriptionExecute(r ApiSubscriptionApiDescribeSubscriptionRequest) (*DescribeSubscriptionResult, *http.Response, error)
+
+	/*
+	SubscriptionApiListSubscriptions ListSubscriptions subscription-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSubscriptionApiListSubscriptionsRequest
+	*/
+	SubscriptionApiListSubscriptions(ctx context.Context) ApiSubscriptionApiListSubscriptionsRequest
+
+	// SubscriptionApiListSubscriptionsExecute executes the request
+	//  @return ListSubscriptionsResult
+	SubscriptionApiListSubscriptionsExecute(r ApiSubscriptionApiListSubscriptionsRequest) (*ListSubscriptionsResult, *http.Response, error)
+}
+
 // SubscriptionApiAPIService SubscriptionApiAPI service
 type SubscriptionApiAPIService service
 
 type ApiSubscriptionApiCreateSubscriptionRequest struct {
 	ctx context.Context
-	ApiService *SubscriptionApiAPIService
+	ApiService SubscriptionApiAPI
 	createSubscriptionRequestBody *CreateSubscriptionRequestBody
 }
 
@@ -198,7 +250,7 @@ func (a *SubscriptionApiAPIService) SubscriptionApiCreateSubscriptionExecute(r A
 
 type ApiSubscriptionApiDeleteSubscriptionRequest struct {
 	ctx context.Context
-	ApiService *SubscriptionApiAPIService
+	ApiService SubscriptionApiAPI
 	id string
 }
 
@@ -353,7 +405,7 @@ func (a *SubscriptionApiAPIService) SubscriptionApiDeleteSubscriptionExecute(r A
 
 type ApiSubscriptionApiDescribeSubscriptionRequest struct {
 	ctx context.Context
-	ApiService *SubscriptionApiAPIService
+	ApiService SubscriptionApiAPI
 	id string
 }
 
@@ -519,7 +571,7 @@ func (a *SubscriptionApiAPIService) SubscriptionApiDescribeSubscriptionExecute(r
 
 type ApiSubscriptionApiListSubscriptionsRequest struct {
 	ctx context.Context
-	ApiService *SubscriptionApiAPIService
+	ApiService SubscriptionApiAPI
 	serviceId *string
 }
 

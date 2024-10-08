@@ -20,12 +20,90 @@ import (
 )
 
 
+type CustomDomainApiAPI interface {
+
+	/*
+	CustomDomainApiCreateCustomDomain CreateCustomDomain custom-domain-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCustomDomainApiCreateCustomDomainRequest
+	*/
+	CustomDomainApiCreateCustomDomain(ctx context.Context) ApiCustomDomainApiCreateCustomDomainRequest
+
+	// CustomDomainApiCreateCustomDomainExecute executes the request
+	//  @return string
+	CustomDomainApiCreateCustomDomainExecute(r ApiCustomDomainApiCreateCustomDomainRequest) (string, *http.Response, error)
+
+	/*
+	CustomDomainApiCustomDomainIdentityID CustomDomainIdentityID custom-domain-api
+
+	Returns the identity id of the Custom Domain to be used in the trust policy of the account
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCustomDomainApiCustomDomainIdentityIDRequest
+	*/
+	CustomDomainApiCustomDomainIdentityID(ctx context.Context) ApiCustomDomainApiCustomDomainIdentityIDRequest
+
+	// CustomDomainApiCustomDomainIdentityIDExecute executes the request
+	//  @return AccountConfigIdentityIDResult
+	CustomDomainApiCustomDomainIdentityIDExecute(r ApiCustomDomainApiCustomDomainIdentityIDRequest) (*AccountConfigIdentityIDResult, *http.Response, error)
+
+	/*
+	CustomDomainApiDeleteCustomDomain DeleteCustomDomain custom-domain-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id custom domain ID to operate on
+	@return ApiCustomDomainApiDeleteCustomDomainRequest
+	*/
+	CustomDomainApiDeleteCustomDomain(ctx context.Context, id string) ApiCustomDomainApiDeleteCustomDomainRequest
+
+	// CustomDomainApiDeleteCustomDomainExecute executes the request
+	CustomDomainApiDeleteCustomDomainExecute(r ApiCustomDomainApiDeleteCustomDomainRequest) (*http.Response, error)
+
+	/*
+	CustomDomainApiDescribeCustomDomain DescribeCustomDomain custom-domain-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id custom domain ID to operate on
+	@return ApiCustomDomainApiDescribeCustomDomainRequest
+	*/
+	CustomDomainApiDescribeCustomDomain(ctx context.Context, id string) ApiCustomDomainApiDescribeCustomDomainRequest
+
+	// CustomDomainApiDescribeCustomDomainExecute executes the request
+	//  @return DescribeCustomDomainResult
+	CustomDomainApiDescribeCustomDomainExecute(r ApiCustomDomainApiDescribeCustomDomainRequest) (*DescribeCustomDomainResult, *http.Response, error)
+
+	/*
+	CustomDomainApiListCustomDomain ListCustomDomain custom-domain-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCustomDomainApiListCustomDomainRequest
+	*/
+	CustomDomainApiListCustomDomain(ctx context.Context) ApiCustomDomainApiListCustomDomainRequest
+
+	// CustomDomainApiListCustomDomainExecute executes the request
+	//  @return ListCustomDomainResult
+	CustomDomainApiListCustomDomainExecute(r ApiCustomDomainApiListCustomDomainRequest) (*ListCustomDomainResult, *http.Response, error)
+
+	/*
+	CustomDomainApiVerifyCustomDomain VerifyCustomDomain custom-domain-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id custom domain ID to operate on
+	@return ApiCustomDomainApiVerifyCustomDomainRequest
+	*/
+	CustomDomainApiVerifyCustomDomain(ctx context.Context, id string) ApiCustomDomainApiVerifyCustomDomainRequest
+
+	// CustomDomainApiVerifyCustomDomainExecute executes the request
+	CustomDomainApiVerifyCustomDomainExecute(r ApiCustomDomainApiVerifyCustomDomainRequest) (*http.Response, error)
+}
+
 // CustomDomainApiAPIService CustomDomainApiAPI service
 type CustomDomainApiAPIService service
 
 type ApiCustomDomainApiCreateCustomDomainRequest struct {
 	ctx context.Context
-	ApiService *CustomDomainApiAPIService
+	ApiService CustomDomainApiAPI
 	createCustomDomainRequestBody *CreateCustomDomainRequestBody
 }
 
@@ -176,7 +254,7 @@ func (a *CustomDomainApiAPIService) CustomDomainApiCreateCustomDomainExecute(r A
 
 type ApiCustomDomainApiCustomDomainIdentityIDRequest struct {
 	ctx context.Context
-	ApiService *CustomDomainApiAPIService
+	ApiService CustomDomainApiAPI
 }
 
 func (r ApiCustomDomainApiCustomDomainIdentityIDRequest) Execute() (*AccountConfigIdentityIDResult, *http.Response, error) {
@@ -296,7 +374,7 @@ func (a *CustomDomainApiAPIService) CustomDomainApiCustomDomainIdentityIDExecute
 
 type ApiCustomDomainApiDeleteCustomDomainRequest struct {
 	ctx context.Context
-	ApiService *CustomDomainApiAPIService
+	ApiService CustomDomainApiAPI
 	id string
 }
 
@@ -429,7 +507,7 @@ func (a *CustomDomainApiAPIService) CustomDomainApiDeleteCustomDomainExecute(r A
 
 type ApiCustomDomainApiDescribeCustomDomainRequest struct {
 	ctx context.Context
-	ApiService *CustomDomainApiAPIService
+	ApiService CustomDomainApiAPI
 	id string
 }
 
@@ -595,7 +673,7 @@ func (a *CustomDomainApiAPIService) CustomDomainApiDescribeCustomDomainExecute(r
 
 type ApiCustomDomainApiListCustomDomainRequest struct {
 	ctx context.Context
-	ApiService *CustomDomainApiAPIService
+	ApiService CustomDomainApiAPI
 }
 
 func (r ApiCustomDomainApiListCustomDomainRequest) Execute() (*ListCustomDomainResult, *http.Response, error) {
@@ -757,7 +835,7 @@ func (a *CustomDomainApiAPIService) CustomDomainApiListCustomDomainExecute(r Api
 
 type ApiCustomDomainApiVerifyCustomDomainRequest struct {
 	ctx context.Context
-	ApiService *CustomDomainApiAPIService
+	ApiService CustomDomainApiAPI
 	id string
 }
 
