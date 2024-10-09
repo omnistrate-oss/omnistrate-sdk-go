@@ -37,10 +37,10 @@ gen-fleet-go-sdk:
 	openapi-generator generate \
   -i ${FLEET_OPEN_API_SPEC} \
   -g go \
-  -o fleet
+  -o fleet \
   --additional-properties packageName=fleet,packageVersion=${PACKAGE_VERSION},withGoMod=false,isGoSubmodule=true,generateInterfaces=true \
   --git-user-id ${ORG_NAME} \
-  --git-repo-id ${REPO_NAME} \
+  --git-repo-id ${REPO_NAME}
 
 .PHONY: validate
 validate:

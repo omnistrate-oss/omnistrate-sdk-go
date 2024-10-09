@@ -169,8 +169,6 @@ docs/WorkflowEvent.md
 docs/WorkflowFailure.md
 docs/WorkflowSearchRecord.md
 git_push.sh
-go.mod
-go.sum
 model_access_side_user.go
 model_add_capacity_to_resource_instance_request_body.go
 model_add_custom_dnsto_resource_instance_request_body.go
