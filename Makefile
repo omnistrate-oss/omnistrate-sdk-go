@@ -11,7 +11,7 @@ all: clean gen-go-sdk gen-fleet-go-sdk tidy build
 .PHONY: build
 build:
 	echo "Build Go SDK"
-	go build ./...
+	go build -v ./...
 
 .PHONY: clean
 clean:
