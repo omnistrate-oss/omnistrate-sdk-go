@@ -1,6 +1,5 @@
 # Go API client for Omnistrate
 
-
 ## Overview
 
 [omnistrate-sdk-go](https://github.com/omnistrate/omnistrate-sdk-go) is an API client to interact with Omnistrate APIs from Go applications and services
@@ -16,7 +15,7 @@ Each submodule has its own detailed documentation and examples
 ## Contributing
 
 Want to contribute? Awesome! You can find information about contributing to this
-project in the [CONTRIBUTING.md](/CONTRIBUTING.md)
+project in the [CONTRIBUTING](/CONTRIBUTING.md) page
 
 ## About Omnistrate
 
