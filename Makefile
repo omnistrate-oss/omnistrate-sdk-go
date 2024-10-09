@@ -1,5 +1,4 @@
 PACKAGE_NAME=omnistrategosdk
-PACKAGE_VERSION=0.0.1
 ORG_NAME=omnistrate
 REPO_NAME=omnistrate-sdk-go
 OPEN_API_SPEC?=https://api.omnistrate.cloud/2022-09-01-00/openapi.yaml
@@ -27,7 +26,7 @@ gen-go-sdk:
   -g go \
   -o v1 \
   -t templates/go \
-  --additional-properties packageName=v1,packageVersion=${PACKAGE_VERSION},withGoMod=false,isGoSubmodule=true,generateInterfaces=true \
+  --additional-properties packageName=v1,withGoMod=false,isGoSubmodule=true,generateInterfaces=true \
   --git-user-id ${ORG_NAME} \
   --git-repo-id ${REPO_NAME}
 
@@ -38,7 +37,7 @@ gen-fleet-go-sdk:
   -i ${FLEET_OPEN_API_SPEC} \
   -g go \
   -o fleet \
-  --additional-properties packageName=fleet,packageVersion=${PACKAGE_VERSION},withGoMod=false,isGoSubmodule=true,generateInterfaces=true \
+  --additional-properties packageName=fleet,withGoMod=false,isGoSubmodule=true,generateInterfaces=true \
   --git-user-id ${ORG_NAME} \
   --git-repo-id ${REPO_NAME}
 
