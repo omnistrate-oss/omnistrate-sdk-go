@@ -21,7 +21,10 @@ var _ MappedNullable = &ListNotificationChannelsResult{}
 type ListNotificationChannelsResult struct {
 	// List of notification channels
 	Channels []Channel `json:"channels,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ListNotificationChannelsResult ListNotificationChannelsResult
 
 // NewListNotificationChannelsResult instantiates a new ListNotificationChannelsResult object
 // This constructor will assign default values to properties that have it defined,
@@ -85,7 +88,33 @@ func (o ListNotificationChannelsResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.Channels) {
 		toSerialize["channels"] = o.Channels
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ListNotificationChannelsResult) UnmarshalJSON(data []byte) (err error) {
+	varListNotificationChannelsResult := _ListNotificationChannelsResult{}
+
+	err = json.Unmarshal(data, &varListNotificationChannelsResult)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ListNotificationChannelsResult(varListNotificationChannelsResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "channels")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableListNotificationChannelsResult struct {

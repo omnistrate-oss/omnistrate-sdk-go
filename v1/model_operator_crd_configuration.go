@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -31,6 +30,7 @@ type OperatorCRDConfiguration struct {
 	SupplementalFiles []string `json:"supplementalFiles,omitempty"`
 	// The template of the CRD to apply on every deployment
 	Template string `json:"template"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OperatorCRDConfiguration OperatorCRDConfiguration
@@ -192,6 +192,11 @@ func (o OperatorCRDConfiguration) ToMap() (map[string]interface{}, error) {
 		toSerialize["supplementalFiles"] = o.SupplementalFiles
 	}
 	toSerialize["template"] = o.Template
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -219,15 +224,24 @@ func (o *OperatorCRDConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	varOperatorCRDConfiguration := _OperatorCRDConfiguration{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOperatorCRDConfiguration)
+	err = json.Unmarshal(data, &varOperatorCRDConfiguration)
 
 	if err != nil {
 		return err
 	}
 
 	*o = OperatorCRDConfiguration(varOperatorCRDConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "helmChartDependencies")
+		delete(additionalProperties, "outputParameters")
+		delete(additionalProperties, "readinessConditions")
+		delete(additionalProperties, "supplementalFiles")
+		delete(additionalProperties, "template")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

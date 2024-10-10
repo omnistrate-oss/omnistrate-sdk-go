@@ -31,7 +31,10 @@ type ResourceVersionSummary struct {
 	ResourceName *string `json:"resourceName,omitempty"`
 	// The version of the resource deployed for the instance.
 	Version *string `json:"version,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ResourceVersionSummary ResourceVersionSummary
 
 // NewResourceVersionSummary instantiates a new ResourceVersionSummary object
 // This constructor will assign default values to properties that have it defined,
@@ -270,7 +273,38 @@ func (o ResourceVersionSummary) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Version) {
 		toSerialize["version"] = o.Version
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ResourceVersionSummary) UnmarshalJSON(data []byte) (err error) {
+	varResourceVersionSummary := _ResourceVersionSummary{}
+
+	err = json.Unmarshal(data, &varResourceVersionSummary)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ResourceVersionSummary(varResourceVersionSummary)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "capabilities")
+		delete(additionalProperties, "externalResource")
+		delete(additionalProperties, "latestVersion")
+		delete(additionalProperties, "resourceId")
+		delete(additionalProperties, "resourceName")
+		delete(additionalProperties, "version")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableResourceVersionSummary struct {

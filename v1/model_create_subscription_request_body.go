@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type CreateSubscriptionRequestBody struct {
 	ProductTierId string `json:"productTierId"`
 	// The service ID
 	ServiceId string `json:"serviceId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateSubscriptionRequestBody CreateSubscriptionRequestBody
@@ -108,6 +108,11 @@ func (o CreateSubscriptionRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["productTierId"] = o.ProductTierId
 	toSerialize["serviceId"] = o.ServiceId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *CreateSubscriptionRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varCreateSubscriptionRequestBody := _CreateSubscriptionRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateSubscriptionRequestBody)
+	err = json.Unmarshal(data, &varCreateSubscriptionRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateSubscriptionRequestBody(varCreateSubscriptionRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "serviceId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

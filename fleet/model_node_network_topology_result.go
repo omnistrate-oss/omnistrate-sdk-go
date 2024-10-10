@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -36,6 +35,7 @@ type NodeNetworkTopologyResult struct {
 	Status string `json:"status"`
 	// The storage size of the node in GiB
 	StorageSize *int64 `json:"storageSize,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _NodeNetworkTopologyResult NodeNetworkTopologyResult
@@ -293,6 +293,11 @@ func (o NodeNetworkTopologyResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.StorageSize) {
 		toSerialize["storageSize"] = o.StorageSize
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -325,15 +330,27 @@ func (o *NodeNetworkTopologyResult) UnmarshalJSON(data []byte) (err error) {
 
 	varNodeNetworkTopologyResult := _NodeNetworkTopologyResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varNodeNetworkTopologyResult)
+	err = json.Unmarshal(data, &varNodeNetworkTopologyResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = NodeNetworkTopologyResult(varNodeNetworkTopologyResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "availabilityZone")
+		delete(additionalProperties, "detailedHealth")
+		delete(additionalProperties, "endpoint")
+		delete(additionalProperties, "healthStatus")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "ports")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "storageSize")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

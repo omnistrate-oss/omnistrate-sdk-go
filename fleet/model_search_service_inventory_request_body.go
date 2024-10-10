@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &SearchServiceInventoryRequestBody{}
 type SearchServiceInventoryRequestBody struct {
 	// The search query.
 	Query string `json:"query"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _SearchServiceInventoryRequestBody SearchServiceInventoryRequestBody
@@ -80,6 +80,11 @@ func (o SearchServiceInventoryRequestBody) MarshalJSON() ([]byte, error) {
 func (o SearchServiceInventoryRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["query"] = o.Query
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *SearchServiceInventoryRequestBody) UnmarshalJSON(data []byte) (err erro
 
 	varSearchServiceInventoryRequestBody := _SearchServiceInventoryRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSearchServiceInventoryRequestBody)
+	err = json.Unmarshal(data, &varSearchServiceInventoryRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = SearchServiceInventoryRequestBody(varSearchServiceInventoryRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "query")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

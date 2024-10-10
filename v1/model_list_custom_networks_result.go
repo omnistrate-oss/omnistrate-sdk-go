@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ListCustomNetworksResult{}
 type ListCustomNetworksResult struct {
 	// List of custom networks
 	CustomNetworks []CustomNetwork `json:"customNetworks"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListCustomNetworksResult ListCustomNetworksResult
@@ -80,6 +80,11 @@ func (o ListCustomNetworksResult) MarshalJSON() ([]byte, error) {
 func (o ListCustomNetworksResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["customNetworks"] = o.CustomNetworks
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *ListCustomNetworksResult) UnmarshalJSON(data []byte) (err error) {
 
 	varListCustomNetworksResult := _ListCustomNetworksResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListCustomNetworksResult)
+	err = json.Unmarshal(data, &varListCustomNetworksResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListCustomNetworksResult(varListCustomNetworksResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "customNetworks")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

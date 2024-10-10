@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -29,6 +28,7 @@ type InstanceHealthSummary struct {
 	ResourcesHealth map[string]ResourceHealthSummary `json:"resourcesHealth"`
 	// The status of the instance
 	Status string `json:"status"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _InstanceHealthSummary InstanceHealthSummary
@@ -164,6 +164,11 @@ func (o InstanceHealthSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize["lifeCycleStatus"] = o.LifeCycleStatus
 	toSerialize["resourcesHealth"] = o.ResourcesHealth
 	toSerialize["status"] = o.Status
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -194,15 +199,23 @@ func (o *InstanceHealthSummary) UnmarshalJSON(data []byte) (err error) {
 
 	varInstanceHealthSummary := _InstanceHealthSummary{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varInstanceHealthSummary)
+	err = json.Unmarshal(data, &varInstanceHealthSummary)
 
 	if err != nil {
 		return err
 	}
 
 	*o = InstanceHealthSummary(varInstanceHealthSummary)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "instanceID")
+		delete(additionalProperties, "lifeCycleStatus")
+		delete(additionalProperties, "resourcesHealth")
+		delete(additionalProperties, "status")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

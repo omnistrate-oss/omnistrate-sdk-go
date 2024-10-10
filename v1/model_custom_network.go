@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -32,6 +31,7 @@ type CustomNetwork struct {
 	// User friendly network name to help distinguish networks with same CIDRs
 	Name *string `json:"name,omitempty"`
 	NetworkFeaturesConfiguration *NetworkFeaturesConfiguration `json:"networkFeaturesConfiguration,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CustomNetwork CustomNetwork
@@ -223,6 +223,11 @@ func (o CustomNetwork) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.NetworkFeaturesConfiguration) {
 		toSerialize["networkFeaturesConfiguration"] = o.NetworkFeaturesConfiguration
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -252,15 +257,25 @@ func (o *CustomNetwork) UnmarshalJSON(data []byte) (err error) {
 
 	varCustomNetwork := _CustomNetwork{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCustomNetwork)
+	err = json.Unmarshal(data, &varCustomNetwork)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CustomNetwork(varCustomNetwork)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cidr")
+		delete(additionalProperties, "cloudProviderName")
+		delete(additionalProperties, "cloudProviderRegion")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "networkFeaturesConfiguration")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

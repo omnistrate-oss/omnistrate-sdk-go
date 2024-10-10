@@ -20,7 +20,10 @@ var _ MappedNullable = &PrivateNetworkingConfiguration{}
 // PrivateNetworkingConfiguration The private networking configuration for the network config
 type PrivateNetworkingConfiguration struct {
 	PrivateLinkConfiguration *PrivateLinkConfiguration `json:"privateLinkConfiguration,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _PrivateNetworkingConfiguration PrivateNetworkingConfiguration
 
 // NewPrivateNetworkingConfiguration instantiates a new PrivateNetworkingConfiguration object
 // This constructor will assign default values to properties that have it defined,
@@ -75,7 +78,33 @@ func (o PrivateNetworkingConfiguration) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.PrivateLinkConfiguration) {
 		toSerialize["privateLinkConfiguration"] = o.PrivateLinkConfiguration
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *PrivateNetworkingConfiguration) UnmarshalJSON(data []byte) (err error) {
+	varPrivateNetworkingConfiguration := _PrivateNetworkingConfiguration{}
+
+	err = json.Unmarshal(data, &varPrivateNetworkingConfiguration)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PrivateNetworkingConfiguration(varPrivateNetworkingConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "privateLinkConfiguration")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullablePrivateNetworkingConfiguration struct {

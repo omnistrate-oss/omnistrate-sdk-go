@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -31,6 +30,7 @@ type GenerateComposeSpecFromContainerImageRequestBody struct {
 	Password *string `json:"password,omitempty"`
 	// Username to access the image registry
 	Username *string `json:"username,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _GenerateComposeSpecFromContainerImageRequestBody GenerateComposeSpecFromContainerImageRequestBody
@@ -192,6 +192,11 @@ func (o GenerateComposeSpecFromContainerImageRequestBody) ToMap() (map[string]in
 	if !IsNil(o.Username) {
 		toSerialize["username"] = o.Username
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -220,15 +225,24 @@ func (o *GenerateComposeSpecFromContainerImageRequestBody) UnmarshalJSON(data []
 
 	varGenerateComposeSpecFromContainerImageRequestBody := _GenerateComposeSpecFromContainerImageRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGenerateComposeSpecFromContainerImageRequestBody)
+	err = json.Unmarshal(data, &varGenerateComposeSpecFromContainerImageRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = GenerateComposeSpecFromContainerImageRequestBody(varGenerateComposeSpecFromContainerImageRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "environmentVariables")
+		delete(additionalProperties, "image")
+		delete(additionalProperties, "imageRegistry")
+		delete(additionalProperties, "password")
+		delete(additionalProperties, "username")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &DescribeResourceInstanceSnapshotFromTimeRequestBody{}
 type DescribeResourceInstanceSnapshotFromTimeRequestBody struct {
 	// The target restore time
 	TargetRestoreTime string `json:"targetRestoreTime"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeResourceInstanceSnapshotFromTimeRequestBody DescribeResourceInstanceSnapshotFromTimeRequestBody
@@ -80,6 +80,11 @@ func (o DescribeResourceInstanceSnapshotFromTimeRequestBody) MarshalJSON() ([]by
 func (o DescribeResourceInstanceSnapshotFromTimeRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["targetRestoreTime"] = o.TargetRestoreTime
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *DescribeResourceInstanceSnapshotFromTimeRequestBody) UnmarshalJSON(data
 
 	varDescribeResourceInstanceSnapshotFromTimeRequestBody := _DescribeResourceInstanceSnapshotFromTimeRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeResourceInstanceSnapshotFromTimeRequestBody)
+	err = json.Unmarshal(data, &varDescribeResourceInstanceSnapshotFromTimeRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeResourceInstanceSnapshotFromTimeRequestBody(varDescribeResourceInstanceSnapshotFromTimeRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "targetRestoreTime")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

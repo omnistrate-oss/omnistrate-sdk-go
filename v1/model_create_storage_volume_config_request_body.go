@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -39,6 +38,7 @@ type CreateStorageVolumeConfigRequestBody struct {
 	Name string `json:"name"`
 	// The storage resource ID
 	StorageResourceID *string `json:"storageResourceID,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateStorageVolumeConfigRequestBody CreateStorageVolumeConfigRequestBody
@@ -304,6 +304,11 @@ func (o CreateStorageVolumeConfigRequestBody) ToMap() (map[string]interface{}, e
 	if !IsNil(o.StorageResourceID) {
 		toSerialize["storageResourceID"] = o.StorageResourceID
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -332,15 +337,28 @@ func (o *CreateStorageVolumeConfigRequestBody) UnmarshalJSON(data []byte) (err e
 
 	varCreateStorageVolumeConfigRequestBody := _CreateStorageVolumeConfigRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateStorageVolumeConfigRequestBody)
+	err = json.Unmarshal(data, &varCreateStorageVolumeConfigRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateStorageVolumeConfigRequestBody(varCreateStorageVolumeConfigRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "clusterStorageType")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "disableBackup")
+		delete(additionalProperties, "instanceStorageIops")
+		delete(additionalProperties, "instanceStorageSizeGi")
+		delete(additionalProperties, "instanceStorageThroughputMiBps")
+		delete(additionalProperties, "instanceStorageType")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "storageResourceID")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

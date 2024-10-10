@@ -23,7 +23,10 @@ type ResourceSpecLimits struct {
 	Cpu *string `json:"cpu,omitempty"`
 	// The maximum amount of memory that the container can use
 	Memory *string `json:"memory,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ResourceSpecLimits ResourceSpecLimits
 
 // NewResourceSpecLimits instantiates a new ResourceSpecLimits object
 // This constructor will assign default values to properties that have it defined,
@@ -104,7 +107,34 @@ func (o ResourceSpecLimits) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Memory) {
 		toSerialize["memory"] = o.Memory
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ResourceSpecLimits) UnmarshalJSON(data []byte) (err error) {
+	varResourceSpecLimits := _ResourceSpecLimits{}
+
+	err = json.Unmarshal(data, &varResourceSpecLimits)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ResourceSpecLimits(varResourceSpecLimits)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cpu")
+		delete(additionalProperties, "memory")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableResourceSpecLimits struct {

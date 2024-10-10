@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -39,6 +38,7 @@ type ServiceHealthSummary struct {
 	TotalInstances int64 `json:"totalInstances"`
 	// The number of unhealthy instances in the region
 	UnhealthyInstances int64 `json:"unhealthyInstances"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ServiceHealthSummary ServiceHealthSummary
@@ -304,6 +304,11 @@ func (o ServiceHealthSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize["status"] = o.Status
 	toSerialize["totalInstances"] = o.TotalInstances
 	toSerialize["unhealthyInstances"] = o.UnhealthyInstances
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -339,15 +344,28 @@ func (o *ServiceHealthSummary) UnmarshalJSON(data []byte) (err error) {
 
 	varServiceHealthSummary := _ServiceHealthSummary{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varServiceHealthSummary)
+	err = json.Unmarshal(data, &varServiceHealthSummary)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ServiceHealthSummary(varServiceHealthSummary)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cloudProviderHealthSummary")
+		delete(additionalProperties, "deployingInstances")
+		delete(additionalProperties, "healthyInstances")
+		delete(additionalProperties, "message")
+		delete(additionalProperties, "serviceEnvironmentID")
+		delete(additionalProperties, "serviceID")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "totalInstances")
+		delete(additionalProperties, "unhealthyInstances")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

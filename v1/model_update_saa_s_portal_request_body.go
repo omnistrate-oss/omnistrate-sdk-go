@@ -25,7 +25,10 @@ type UpdateSaaSPortalRequestBody struct {
 	// The Google Analytics tag ID for the SaaS portal
 	GoogleAnalyticsTagID *string `json:"googleAnalyticsTagID,omitempty"`
 	ImageConfig *SaaSPortalImageConfig `json:"imageConfig,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateSaaSPortalRequestBody UpdateSaaSPortalRequestBody
 
 // NewUpdateSaaSPortalRequestBody instantiates a new UpdateSaaSPortalRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -158,7 +161,36 @@ func (o UpdateSaaSPortalRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ImageConfig) {
 		toSerialize["imageConfig"] = o.ImageConfig
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateSaaSPortalRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateSaaSPortalRequestBody := _UpdateSaaSPortalRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateSaaSPortalRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateSaaSPortalRequestBody(varUpdateSaaSPortalRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "customDomain")
+		delete(additionalProperties, "emailConfig")
+		delete(additionalProperties, "googleAnalyticsTagID")
+		delete(additionalProperties, "imageConfig")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateSaaSPortalRequestBody struct {

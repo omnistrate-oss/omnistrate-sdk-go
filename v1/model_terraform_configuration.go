@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -24,6 +23,7 @@ type TerraformConfiguration struct {
 	GitConfiguration *GitConfiguration `json:"gitConfiguration,omitempty"`
 	// The path to the terraform files directory
 	TerraformPath string `json:"terraformPath"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _TerraformConfiguration TerraformConfiguration
@@ -107,6 +107,11 @@ func (o TerraformConfiguration) ToMap() (map[string]interface{}, error) {
 		toSerialize["gitConfiguration"] = o.GitConfiguration
 	}
 	toSerialize["terraformPath"] = o.TerraformPath
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -134,15 +139,21 @@ func (o *TerraformConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	varTerraformConfiguration := _TerraformConfiguration{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTerraformConfiguration)
+	err = json.Unmarshal(data, &varTerraformConfiguration)
 
 	if err != nil {
 		return err
 	}
 
 	*o = TerraformConfiguration(varTerraformConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "gitConfiguration")
+		delete(additionalProperties, "terraformPath")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

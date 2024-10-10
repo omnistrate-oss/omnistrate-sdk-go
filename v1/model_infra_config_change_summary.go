@@ -25,7 +25,10 @@ type InfraConfigChangeSummary struct {
 	InfraConfigId *string `json:"infraConfigId,omitempty"`
 	// The name of the infra config
 	Name *string `json:"name,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _InfraConfigChangeSummary InfraConfigChangeSummary
 
 // NewInfraConfigChangeSummary instantiates a new InfraConfigChangeSummary object
 // This constructor will assign default values to properties that have it defined,
@@ -132,7 +135,35 @@ func (o InfraConfigChangeSummary) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *InfraConfigChangeSummary) UnmarshalJSON(data []byte) (err error) {
+	varInfraConfigChangeSummary := _InfraConfigChangeSummary{}
+
+	err = json.Unmarshal(data, &varInfraConfigChangeSummary)
+
+	if err != nil {
+		return err
+	}
+
+	*o = InfraConfigChangeSummary(varInfraConfigChangeSummary)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "changeState")
+		delete(additionalProperties, "infraConfigId")
+		delete(additionalProperties, "name")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableInfraConfigChangeSummary struct {

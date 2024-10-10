@@ -23,7 +23,10 @@ type ListResourcesRequestBody struct {
 	NextPageToken *string `json:"nextPageToken,omitempty"`
 	// The number of resources to return per page.
 	PageSize *int64 `json:"pageSize,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ListResourcesRequestBody ListResourcesRequestBody
 
 // NewListResourcesRequestBody instantiates a new ListResourcesRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -122,7 +125,34 @@ func (o ListResourcesRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PageSize) {
 		toSerialize["pageSize"] = o.PageSize
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ListResourcesRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varListResourcesRequestBody := _ListResourcesRequestBody{}
+
+	err = json.Unmarshal(data, &varListResourcesRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ListResourcesRequestBody(varListResourcesRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "nextPageToken")
+		delete(additionalProperties, "pageSize")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableListResourcesRequestBody struct {

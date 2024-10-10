@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -63,6 +62,7 @@ type TierVersionSet struct {
 	UpdatedAt string `json:"updatedAt"`
 	// The version number for the specific version set.
 	Version string `json:"version"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _TierVersionSet TierVersionSet
@@ -640,6 +640,11 @@ func (o TierVersionSet) ToMap() (map[string]interface{}, error) {
 	toSerialize["type"] = o.Type
 	toSerialize["updatedAt"] = o.UpdatedAt
 	toSerialize["version"] = o.Version
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -678,15 +683,40 @@ func (o *TierVersionSet) UnmarshalJSON(data []byte) (err error) {
 
 	varTierVersionSet := _TierVersionSet{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTierVersionSet)
+	err = json.Unmarshal(data, &varTierVersionSet)
 
 	if err != nil {
 		return err
 	}
 
 	*o = TierVersionSet(varTierVersionSet)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "autoApproveSubscription")
+		delete(additionalProperties, "baseVersion")
+		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "createdBy")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "enabledFeatures")
+		delete(additionalProperties, "features")
+		delete(additionalProperties, "instanceCount")
+		delete(additionalProperties, "latestUpgradePathId")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "parentVersion")
+		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "releasedAt")
+		delete(additionalProperties, "releasedBy")
+		delete(additionalProperties, "resources")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "serviceModelId")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "type")
+		delete(additionalProperties, "updatedAt")
+		delete(additionalProperties, "version")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

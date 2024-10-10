@@ -21,7 +21,10 @@ var _ MappedNullable = &UpdateResourceInstanceRequestBody{}
 type UpdateResourceInstanceRequestBody struct {
 	// The request parameters
 	RequestParams interface{} `json:"requestParams,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateResourceInstanceRequestBody UpdateResourceInstanceRequestBody
 
 // NewUpdateResourceInstanceRequestBody instantiates a new UpdateResourceInstanceRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -77,7 +80,33 @@ func (o UpdateResourceInstanceRequestBody) ToMap() (map[string]interface{}, erro
 	if o.RequestParams != nil {
 		toSerialize["requestParams"] = o.RequestParams
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateResourceInstanceRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateResourceInstanceRequestBody := _UpdateResourceInstanceRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateResourceInstanceRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateResourceInstanceRequestBody(varUpdateResourceInstanceRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "requestParams")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateResourceInstanceRequestBody struct {

@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type FleetFeature struct {
 	FeatureConfig *map[string]string `json:"featureConfig,omitempty"`
 	// The status of the feature.
 	Status string `json:"status"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _FleetFeature FleetFeature
@@ -145,6 +145,11 @@ func (o FleetFeature) ToMap() (map[string]interface{}, error) {
 		toSerialize["featureConfig"] = o.FeatureConfig
 	}
 	toSerialize["status"] = o.Status
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -173,15 +178,22 @@ func (o *FleetFeature) UnmarshalJSON(data []byte) (err error) {
 
 	varFleetFeature := _FleetFeature{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFleetFeature)
+	err = json.Unmarshal(data, &varFleetFeature)
 
 	if err != nil {
 		return err
 	}
 
 	*o = FleetFeature(varFleetFeature)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "feature")
+		delete(additionalProperties, "featureConfig")
+		delete(additionalProperties, "status")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

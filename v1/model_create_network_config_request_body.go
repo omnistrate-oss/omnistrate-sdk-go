@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -39,6 +38,7 @@ type CreateNetworkConfigRequestBody struct {
 	TlsTerminationPort *int64 `json:"tlsTerminationPort,omitempty"`
 	// The preferred type of zonal availability for this resource and the specific zone(s) to deploy in
 	ZoneConfiguration *string `json:"zoneConfiguration,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateNetworkConfigRequestBody CreateNetworkConfigRequestBody
@@ -334,6 +334,11 @@ func (o CreateNetworkConfigRequestBody) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.ZoneConfiguration) {
 		toSerialize["zoneConfiguration"] = o.ZoneConfiguration
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -363,15 +368,29 @@ func (o *CreateNetworkConfigRequestBody) UnmarshalJSON(data []byte) (err error) 
 
 	varCreateNetworkConfigRequestBody := _CreateNetworkConfigRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateNetworkConfigRequestBody)
+	err = json.Unmarshal(data, &varCreateNetworkConfigRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateNetworkConfigRequestBody(varCreateNetworkConfigRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "endpointPerReplica")
+		delete(additionalProperties, "internal")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "openPorts")
+		delete(additionalProperties, "privateNetworkingConfiguration")
+		delete(additionalProperties, "publicNetworkingConfiguration")
+		delete(additionalProperties, "stableEgressIP")
+		delete(additionalProperties, "tlsTerminationPort")
+		delete(additionalProperties, "zoneConfiguration")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

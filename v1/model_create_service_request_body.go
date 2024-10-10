@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type CreateServiceRequestBody struct {
 	Name string `json:"name"`
 	// The logo for the service
 	ServiceLogoURL *string `json:"serviceLogoURL,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateServiceRequestBody CreateServiceRequestBody
@@ -136,6 +136,11 @@ func (o CreateServiceRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ServiceLogoURL) {
 		toSerialize["serviceLogoURL"] = o.ServiceLogoURL
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -164,15 +169,22 @@ func (o *CreateServiceRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varCreateServiceRequestBody := _CreateServiceRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateServiceRequestBody)
+	err = json.Unmarshal(data, &varCreateServiceRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateServiceRequestBody(varCreateServiceRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "serviceLogoURL")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

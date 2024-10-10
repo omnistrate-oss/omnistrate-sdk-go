@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -45,6 +44,7 @@ type DescribeStorageVolumeConfigResult struct {
 	ServiceId string `json:"serviceId"`
 	// The storage resource ID
 	StorageResourceID *string `json:"storageResourceID,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeStorageVolumeConfigResult DescribeStorageVolumeConfigResult
@@ -388,6 +388,11 @@ func (o DescribeStorageVolumeConfigResult) ToMap() (map[string]interface{}, erro
 	if !IsNil(o.StorageResourceID) {
 		toSerialize["storageResourceID"] = o.StorageResourceID
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -418,15 +423,31 @@ func (o *DescribeStorageVolumeConfigResult) UnmarshalJSON(data []byte) (err erro
 
 	varDescribeStorageVolumeConfigResult := _DescribeStorageVolumeConfigResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeStorageVolumeConfigResult)
+	err = json.Unmarshal(data, &varDescribeStorageVolumeConfigResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeStorageVolumeConfigResult(varDescribeStorageVolumeConfigResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cloudProviderName")
+		delete(additionalProperties, "clusterStorageType")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "disableBackup")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "instanceStorageIops")
+		delete(additionalProperties, "instanceStorageSizeGi")
+		delete(additionalProperties, "instanceStorageThroughputMiBps")
+		delete(additionalProperties, "instanceStorageType")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "storageResourceID")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

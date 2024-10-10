@@ -21,7 +21,10 @@ var _ MappedNullable = &VUnitHealthReport{}
 type VUnitHealthReport struct {
 	// The health of each vunit under this service environment
 	Vunits *map[string]string `json:"vunits,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _VUnitHealthReport VUnitHealthReport
 
 // NewVUnitHealthReport instantiates a new VUnitHealthReport object
 // This constructor will assign default values to properties that have it defined,
@@ -76,7 +79,33 @@ func (o VUnitHealthReport) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Vunits) {
 		toSerialize["vunits"] = o.Vunits
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *VUnitHealthReport) UnmarshalJSON(data []byte) (err error) {
+	varVUnitHealthReport := _VUnitHealthReport{}
+
+	err = json.Unmarshal(data, &varVUnitHealthReport)
+
+	if err != nil {
+		return err
+	}
+
+	*o = VUnitHealthReport(varVUnitHealthReport)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "vunits")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableVUnitHealthReport struct {

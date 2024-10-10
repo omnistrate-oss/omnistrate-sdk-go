@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type EventsPerWorkflowStep struct {
 	Events []WorkflowEvent `json:"events"`
 	// Name of the workflow step
 	StepName string `json:"stepName"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _EventsPerWorkflowStep EventsPerWorkflowStep
@@ -108,6 +108,11 @@ func (o EventsPerWorkflowStep) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["events"] = o.Events
 	toSerialize["stepName"] = o.StepName
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *EventsPerWorkflowStep) UnmarshalJSON(data []byte) (err error) {
 
 	varEventsPerWorkflowStep := _EventsPerWorkflowStep{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEventsPerWorkflowStep)
+	err = json.Unmarshal(data, &varEventsPerWorkflowStep)
 
 	if err != nil {
 		return err
 	}
 
 	*o = EventsPerWorkflowStep(varEventsPerWorkflowStep)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "events")
+		delete(additionalProperties, "stepName")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

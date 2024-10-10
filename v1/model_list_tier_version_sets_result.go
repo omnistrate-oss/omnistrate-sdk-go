@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type ListTierVersionSetsResult struct {
 	NextPageToken *string `json:"nextPageToken,omitempty"`
 	// List of product-tier version sets.
 	TierVersionSets []TierVersionSet `json:"tierVersionSets"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListTierVersionSetsResult ListTierVersionSetsResult
@@ -108,6 +108,11 @@ func (o ListTierVersionSetsResult) ToMap() (map[string]interface{}, error) {
 		toSerialize["nextPageToken"] = o.NextPageToken
 	}
 	toSerialize["tierVersionSets"] = o.TierVersionSets
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -135,15 +140,21 @@ func (o *ListTierVersionSetsResult) UnmarshalJSON(data []byte) (err error) {
 
 	varListTierVersionSetsResult := _ListTierVersionSetsResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListTierVersionSetsResult)
+	err = json.Unmarshal(data, &varListTierVersionSetsResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListTierVersionSetsResult(varListTierVersionSetsResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "nextPageToken")
+		delete(additionalProperties, "tierVersionSets")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

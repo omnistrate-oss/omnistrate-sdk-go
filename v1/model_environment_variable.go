@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type EnvironmentVariable struct {
 	Key string `json:"key"`
 	// The value of the environment variable
 	Value string `json:"value"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _EnvironmentVariable EnvironmentVariable
@@ -108,6 +108,11 @@ func (o EnvironmentVariable) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["key"] = o.Key
 	toSerialize["value"] = o.Value
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *EnvironmentVariable) UnmarshalJSON(data []byte) (err error) {
 
 	varEnvironmentVariable := _EnvironmentVariable{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEnvironmentVariable)
+	err = json.Unmarshal(data, &varEnvironmentVariable)
 
 	if err != nil {
 		return err
 	}
 
 	*o = EnvironmentVariable(varEnvironmentVariable)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "key")
+		delete(additionalProperties, "value")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

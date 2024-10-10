@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ServiceModelFeatureDetail{}
 type ServiceModelFeatureDetail struct {
 	Configuration map[string]interface{} `json:"configuration"`
 	Feature string `json:"feature"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ServiceModelFeatureDetail ServiceModelFeatureDetail
@@ -106,6 +106,11 @@ func (o ServiceModelFeatureDetail) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["configuration"] = o.Configuration
 	toSerialize["feature"] = o.Feature
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -134,15 +139,21 @@ func (o *ServiceModelFeatureDetail) UnmarshalJSON(data []byte) (err error) {
 
 	varServiceModelFeatureDetail := _ServiceModelFeatureDetail{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varServiceModelFeatureDetail)
+	err = json.Unmarshal(data, &varServiceModelFeatureDetail)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ServiceModelFeatureDetail(varServiceModelFeatureDetail)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "configuration")
+		delete(additionalProperties, "feature")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

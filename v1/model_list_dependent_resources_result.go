@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -29,6 +28,7 @@ type ListDependentResourcesResult struct {
 	NextPageToken *string `json:"nextPageToken,omitempty"`
 	// The service ID that this API bundle belongs to
 	ServiceId *string `json:"serviceId,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListDependentResourcesResult ListDependentResourcesResult
@@ -164,6 +164,11 @@ func (o ListDependentResourcesResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ServiceId) {
 		toSerialize["serviceId"] = o.ServiceId
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -191,15 +196,23 @@ func (o *ListDependentResourcesResult) UnmarshalJSON(data []byte) (err error) {
 
 	varListDependentResourcesResult := _ListDependentResourcesResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListDependentResourcesResult)
+	err = json.Unmarshal(data, &varListDependentResourcesResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListDependentResourcesResult(varListDependentResourcesResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "ids")
+		delete(additionalProperties, "nextPageToken")
+		delete(additionalProperties, "serviceId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

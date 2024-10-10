@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type FleetListEventsResult struct {
 	Ids []string `json:"ids"`
 	// The next token to use for pagination
 	NextPageToken *string `json:"nextPageToken,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _FleetListEventsResult FleetListEventsResult
@@ -145,6 +145,11 @@ func (o FleetListEventsResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.NextPageToken) {
 		toSerialize["nextPageToken"] = o.NextPageToken
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -173,15 +178,22 @@ func (o *FleetListEventsResult) UnmarshalJSON(data []byte) (err error) {
 
 	varFleetListEventsResult := _FleetListEventsResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFleetListEventsResult)
+	err = json.Unmarshal(data, &varFleetListEventsResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = FleetListEventsResult(varFleetListEventsResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "events")
+		delete(additionalProperties, "ids")
+		delete(additionalProperties, "nextPageToken")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

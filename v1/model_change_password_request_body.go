@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -24,6 +23,7 @@ type ChangePasswordRequestBody struct {
 	Email string `json:"email"`
 	Password string `json:"password"`
 	Token string `json:"token"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ChangePasswordRequestBody ChangePasswordRequestBody
@@ -133,6 +133,11 @@ func (o ChangePasswordRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize["email"] = o.Email
 	toSerialize["password"] = o.Password
 	toSerialize["token"] = o.Token
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -162,15 +167,22 @@ func (o *ChangePasswordRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varChangePasswordRequestBody := _ChangePasswordRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varChangePasswordRequestBody)
+	err = json.Unmarshal(data, &varChangePasswordRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ChangePasswordRequestBody(varChangePasswordRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "password")
+		delete(additionalProperties, "token")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

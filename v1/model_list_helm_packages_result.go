@@ -21,7 +21,10 @@ var _ MappedNullable = &ListHelmPackagesResult{}
 type ListHelmPackagesResult struct {
 	// List of Helm packages
 	HelmPackages []HelmPackage `json:"helmPackages,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ListHelmPackagesResult ListHelmPackagesResult
 
 // NewListHelmPackagesResult instantiates a new ListHelmPackagesResult object
 // This constructor will assign default values to properties that have it defined,
@@ -76,7 +79,33 @@ func (o ListHelmPackagesResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.HelmPackages) {
 		toSerialize["helmPackages"] = o.HelmPackages
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ListHelmPackagesResult) UnmarshalJSON(data []byte) (err error) {
+	varListHelmPackagesResult := _ListHelmPackagesResult{}
+
+	err = json.Unmarshal(data, &varListHelmPackagesResult)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ListHelmPackagesResult(varListHelmPackagesResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "helmPackages")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableListHelmPackagesResult struct {

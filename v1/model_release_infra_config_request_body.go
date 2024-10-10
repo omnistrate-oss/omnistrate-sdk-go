@@ -21,7 +21,10 @@ var _ MappedNullable = &ReleaseInfraConfigRequestBody{}
 type ReleaseInfraConfigRequestBody struct {
 	// The product tier ID
 	ProductTierId *string `json:"productTierId,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ReleaseInfraConfigRequestBody ReleaseInfraConfigRequestBody
 
 // NewReleaseInfraConfigRequestBody instantiates a new ReleaseInfraConfigRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -76,7 +79,33 @@ func (o ReleaseInfraConfigRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ProductTierId) {
 		toSerialize["productTierId"] = o.ProductTierId
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ReleaseInfraConfigRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varReleaseInfraConfigRequestBody := _ReleaseInfraConfigRequestBody{}
+
+	err = json.Unmarshal(data, &varReleaseInfraConfigRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ReleaseInfraConfigRequestBody(varReleaseInfraConfigRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "productTierId")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableReleaseInfraConfigRequestBody struct {

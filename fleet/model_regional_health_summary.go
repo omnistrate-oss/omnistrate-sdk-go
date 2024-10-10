@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -37,6 +36,7 @@ type RegionalHealthSummary struct {
 	TotalInstances int64 `json:"totalInstances"`
 	// The number of unhealthy instances in the region
 	UnhealthyInstances int64 `json:"unhealthyInstances"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _RegionalHealthSummary RegionalHealthSummary
@@ -276,6 +276,11 @@ func (o RegionalHealthSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize["status"] = o.Status
 	toSerialize["totalInstances"] = o.TotalInstances
 	toSerialize["unhealthyInstances"] = o.UnhealthyInstances
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -310,15 +315,27 @@ func (o *RegionalHealthSummary) UnmarshalJSON(data []byte) (err error) {
 
 	varRegionalHealthSummary := _RegionalHealthSummary{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varRegionalHealthSummary)
+	err = json.Unmarshal(data, &varRegionalHealthSummary)
 
 	if err != nil {
 		return err
 	}
 
 	*o = RegionalHealthSummary(varRegionalHealthSummary)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "deployingInstances")
+		delete(additionalProperties, "deploymentCellHealthSummary")
+		delete(additionalProperties, "healthyInstances")
+		delete(additionalProperties, "message")
+		delete(additionalProperties, "region")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "totalInstances")
+		delete(additionalProperties, "unhealthyInstances")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

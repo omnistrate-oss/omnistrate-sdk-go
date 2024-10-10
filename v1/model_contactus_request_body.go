@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type ContactusRequestBody struct {
 	Email string `json:"email"`
 	Message string `json:"message"`
 	Name string `json:"name"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ContactusRequestBody ContactusRequestBody
@@ -160,6 +160,11 @@ func (o ContactusRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize["email"] = o.Email
 	toSerialize["message"] = o.Message
 	toSerialize["name"] = o.Name
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -190,15 +195,23 @@ func (o *ContactusRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varContactusRequestBody := _ContactusRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varContactusRequestBody)
+	err = json.Unmarshal(data, &varContactusRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ContactusRequestBody(varContactusRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "company")
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "message")
+		delete(additionalProperties, "name")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

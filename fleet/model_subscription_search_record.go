@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -47,6 +46,7 @@ type SubscriptionSearchRecord struct {
 	ServicePlanName string `json:"servicePlanName"`
 	// The subscription status.
 	Status string `json:"status"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _SubscriptionSearchRecord SubscriptionSearchRecord
@@ -425,6 +425,11 @@ func (o SubscriptionSearchRecord) ToMap() (map[string]interface{}, error) {
 	toSerialize["serviceName"] = o.ServiceName
 	toSerialize["servicePlanName"] = o.ServicePlanName
 	toSerialize["status"] = o.Status
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -463,15 +468,32 @@ func (o *SubscriptionSearchRecord) UnmarshalJSON(data []byte) (err error) {
 
 	varSubscriptionSearchRecord := _SubscriptionSearchRecord{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSubscriptionSearchRecord)
+	err = json.Unmarshal(data, &varSubscriptionSearchRecord)
 
 	if err != nil {
 		return err
 	}
 
 	*o = SubscriptionSearchRecord(varSubscriptionSearchRecord)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "orgID")
+		delete(additionalProperties, "productTierID")
+		delete(additionalProperties, "rootUserEmail")
+		delete(additionalProperties, "rootUserID")
+		delete(additionalProperties, "rootUserName")
+		delete(additionalProperties, "serviceEnvironmentID")
+		delete(additionalProperties, "serviceEnvironmentName")
+		delete(additionalProperties, "serviceEnvironmentType")
+		delete(additionalProperties, "serviceID")
+		delete(additionalProperties, "serviceName")
+		delete(additionalProperties, "servicePlanName")
+		delete(additionalProperties, "status")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

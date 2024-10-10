@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ListSaaSPortalsResult{}
 type ListSaaSPortalsResult struct {
 	// The list of saas portals
 	SaasPortals []SaaSPortal `json:"saasPortals"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListSaaSPortalsResult ListSaaSPortalsResult
@@ -80,6 +80,11 @@ func (o ListSaaSPortalsResult) MarshalJSON() ([]byte, error) {
 func (o ListSaaSPortalsResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["saasPortals"] = o.SaasPortals
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *ListSaaSPortalsResult) UnmarshalJSON(data []byte) (err error) {
 
 	varListSaaSPortalsResult := _ListSaaSPortalsResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListSaaSPortalsResult)
+	err = json.Unmarshal(data, &varListSaaSPortalsResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListSaaSPortalsResult(varListSaaSPortalsResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "saasPortals")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

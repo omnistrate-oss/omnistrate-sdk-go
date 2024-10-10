@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -81,6 +80,7 @@ type ServiceOffering struct {
 	ServiceModelType string `json:"serviceModelType"`
 	// The service model URL key
 	ServiceModelURLKey string `json:"serviceModelURLKey"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ServiceOffering ServiceOffering
@@ -959,6 +959,11 @@ func (o ServiceOffering) ToMap() (map[string]interface{}, error) {
 	toSerialize["serviceModelStatus"] = o.ServiceModelStatus
 	toSerialize["serviceModelType"] = o.ServiceModelType
 	toSerialize["serviceModelURLKey"] = o.ServiceModelURLKey
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -1008,15 +1013,49 @@ func (o *ServiceOffering) UnmarshalJSON(data []byte) (err error) {
 
 	varServiceOffering := _ServiceOffering{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varServiceOffering)
+	err = json.Unmarshal(data, &varServiceOffering)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ServiceOffering(varServiceOffering)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "AutoApproveSubscription")
+		delete(additionalProperties, "awsRegions")
+		delete(additionalProperties, "billingPlans")
+		delete(additionalProperties, "cloudProviders")
+		delete(additionalProperties, "gcpRegions")
+		delete(additionalProperties, "productTierDescription")
+		delete(additionalProperties, "productTierDocumentation")
+		delete(additionalProperties, "productTierID")
+		delete(additionalProperties, "productTierName")
+		delete(additionalProperties, "productTierPlanDescription")
+		delete(additionalProperties, "productTierPricing")
+		delete(additionalProperties, "productTierSupport")
+		delete(additionalProperties, "productTierType")
+		delete(additionalProperties, "productTierURLKey")
+		delete(additionalProperties, "productTierVersion")
+		delete(additionalProperties, "resourceParameters")
+		delete(additionalProperties, "serviceAPIID")
+		delete(additionalProperties, "serviceAPIVersion")
+		delete(additionalProperties, "serviceEnvironmentID")
+		delete(additionalProperties, "serviceEnvironmentName")
+		delete(additionalProperties, "serviceEnvironmentType")
+		delete(additionalProperties, "serviceEnvironmentURLKey")
+		delete(additionalProperties, "serviceEnvironmentVisibility")
+		delete(additionalProperties, "serviceLogoURL")
+		delete(additionalProperties, "serviceModelFeatures")
+		delete(additionalProperties, "serviceModelID")
+		delete(additionalProperties, "serviceModelName")
+		delete(additionalProperties, "serviceModelStatus")
+		delete(additionalProperties, "serviceModelType")
+		delete(additionalProperties, "serviceModelURLKey")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

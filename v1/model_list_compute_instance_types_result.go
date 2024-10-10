@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type ListComputeInstanceTypesResult struct {
 	NextPageToken *string `json:"nextPageToken,omitempty"`
 	// The list of compute instance type IDs
 	Types []string `json:"types"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListComputeInstanceTypesResult ListComputeInstanceTypesResult
@@ -108,6 +108,11 @@ func (o ListComputeInstanceTypesResult) ToMap() (map[string]interface{}, error) 
 		toSerialize["nextPageToken"] = o.NextPageToken
 	}
 	toSerialize["types"] = o.Types
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -135,15 +140,21 @@ func (o *ListComputeInstanceTypesResult) UnmarshalJSON(data []byte) (err error) 
 
 	varListComputeInstanceTypesResult := _ListComputeInstanceTypesResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListComputeInstanceTypesResult)
+	err = json.Unmarshal(data, &varListComputeInstanceTypesResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListComputeInstanceTypesResult(varListComputeInstanceTypesResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "nextPageToken")
+		delete(additionalProperties, "types")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

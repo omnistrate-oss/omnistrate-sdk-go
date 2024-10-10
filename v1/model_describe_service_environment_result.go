@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -48,6 +47,7 @@ type DescribeServiceEnvironmentResult struct {
 	Type string `json:"type"`
 	// This parameter is used to configure the visibility of the service control-plane APIs
 	Visibility string `json:"visibility"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeServiceEnvironmentResult DescribeServiceEnvironmentResult
@@ -443,6 +443,11 @@ func (o DescribeServiceEnvironmentResult) ToMap() (map[string]interface{}, error
 	}
 	toSerialize["type"] = o.Type
 	toSerialize["visibility"] = o.Visibility
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -477,15 +482,33 @@ func (o *DescribeServiceEnvironmentResult) UnmarshalJSON(data []byte) (err error
 
 	varDescribeServiceEnvironmentResult := _DescribeServiceEnvironmentResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeServiceEnvironmentResult)
+	err = json.Unmarshal(data, &varDescribeServiceEnvironmentResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeServiceEnvironmentResult(varDescribeServiceEnvironmentResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "autoApproveSubscription")
+		delete(additionalProperties, "deploymentConfigId")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "key")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "roleType")
+		delete(additionalProperties, "saasPortalStatus")
+		delete(additionalProperties, "saasPortalUrl")
+		delete(additionalProperties, "serviceAuthPublicKey")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "sourceEnvironmentId")
+		delete(additionalProperties, "type")
+		delete(additionalProperties, "visibility")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

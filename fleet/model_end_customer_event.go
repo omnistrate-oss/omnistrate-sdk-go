@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -43,6 +42,7 @@ type EndCustomerEvent struct {
 	UserID *string `json:"userID,omitempty"`
 	// Name of the user associated with the event.
 	UserName *string `json:"userName,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _EndCustomerEvent EndCustomerEvent
@@ -387,6 +387,11 @@ func (o EndCustomerEvent) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.UserName) {
 		toSerialize["userName"] = o.UserName
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -421,15 +426,30 @@ func (o *EndCustomerEvent) UnmarshalJSON(data []byte) (err error) {
 
 	varEndCustomerEvent := _EndCustomerEvent{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEndCustomerEvent)
+	err = json.Unmarshal(data, &varEndCustomerEvent)
 
 	if err != nil {
 		return err
 	}
 
 	*o = EndCustomerEvent(varEndCustomerEvent)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "eventID")
+		delete(additionalProperties, "eventPayload")
+		delete(additionalProperties, "eventType")
+		delete(additionalProperties, "orgID")
+		delete(additionalProperties, "orgName")
+		delete(additionalProperties, "orgURL")
+		delete(additionalProperties, "priority")
+		delete(additionalProperties, "time")
+		delete(additionalProperties, "userEmail")
+		delete(additionalProperties, "userID")
+		delete(additionalProperties, "userName")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

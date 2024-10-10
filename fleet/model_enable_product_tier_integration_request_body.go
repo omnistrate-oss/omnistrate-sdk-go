@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type EnableProductTierIntegrationRequestBody struct {
 	IntegrationProviderName string `json:"integrationProviderName"`
 	// Type of the product tier integration.
 	IntegrationType string `json:"integrationType"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _EnableProductTierIntegrationRequestBody EnableProductTierIntegrationRequestBody
@@ -145,6 +145,11 @@ func (o EnableProductTierIntegrationRequestBody) ToMap() (map[string]interface{}
 	}
 	toSerialize["integrationProviderName"] = o.IntegrationProviderName
 	toSerialize["integrationType"] = o.IntegrationType
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -173,15 +178,22 @@ func (o *EnableProductTierIntegrationRequestBody) UnmarshalJSON(data []byte) (er
 
 	varEnableProductTierIntegrationRequestBody := _EnableProductTierIntegrationRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEnableProductTierIntegrationRequestBody)
+	err = json.Unmarshal(data, &varEnableProductTierIntegrationRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = EnableProductTierIntegrationRequestBody(varEnableProductTierIntegrationRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "configuration")
+		delete(additionalProperties, "integrationProviderName")
+		delete(additionalProperties, "integrationType")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

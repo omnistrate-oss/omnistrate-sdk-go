@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type ListVUnitsRequestBody struct {
 	CloudProvider string `json:"cloudProvider"`
 	// Region code specific to the cloud-provider
 	Region string `json:"region"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListVUnitsRequestBody ListVUnitsRequestBody
@@ -108,6 +108,11 @@ func (o ListVUnitsRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["cloudProvider"] = o.CloudProvider
 	toSerialize["region"] = o.Region
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *ListVUnitsRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varListVUnitsRequestBody := _ListVUnitsRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListVUnitsRequestBody)
+	err = json.Unmarshal(data, &varListVUnitsRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListVUnitsRequestBody(varListVUnitsRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cloudProvider")
+		delete(additionalProperties, "region")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

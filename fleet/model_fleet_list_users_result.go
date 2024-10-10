@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -29,6 +28,7 @@ type FleetListUsersResult struct {
 	ServiceId *string `json:"serviceId,omitempty"`
 	// List of active users using the service.
 	Users []User `json:"users"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _FleetListUsersResult FleetListUsersResult
@@ -191,6 +191,11 @@ func (o FleetListUsersResult) ToMap() (map[string]interface{}, error) {
 		toSerialize["serviceId"] = o.ServiceId
 	}
 	toSerialize["users"] = o.Users
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -218,15 +223,23 @@ func (o *FleetListUsersResult) UnmarshalJSON(data []byte) (err error) {
 
 	varFleetListUsersResult := _FleetListUsersResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFleetListUsersResult)
+	err = json.Unmarshal(data, &varFleetListUsersResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = FleetListUsersResult(varFleetListUsersResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "nextPageToken")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "users")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

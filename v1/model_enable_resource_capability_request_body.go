@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type EnableResourceCapabilityRequestBody struct {
 	Capability string `json:"capability"`
 	// The configuration parameters of a capability of a resource
 	Configuration map[string]interface{} `json:"configuration,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _EnableResourceCapabilityRequestBody EnableResourceCapabilityRequestBody
@@ -108,6 +108,11 @@ func (o EnableResourceCapabilityRequestBody) ToMap() (map[string]interface{}, er
 	if !IsNil(o.Configuration) {
 		toSerialize["configuration"] = o.Configuration
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -135,15 +140,21 @@ func (o *EnableResourceCapabilityRequestBody) UnmarshalJSON(data []byte) (err er
 
 	varEnableResourceCapabilityRequestBody := _EnableResourceCapabilityRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEnableResourceCapabilityRequestBody)
+	err = json.Unmarshal(data, &varEnableResourceCapabilityRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = EnableResourceCapabilityRequestBody(varEnableResourceCapabilityRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "capability")
+		delete(additionalProperties, "configuration")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -63,6 +62,7 @@ type SearchRecord struct {
 	UserID *string `json:"userID,omitempty"`
 	// The version of this record.
 	Version *string `json:"version,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _SearchRecord SearchRecord
@@ -820,6 +820,11 @@ func (o SearchRecord) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Version) {
 		toSerialize["version"] = o.Version
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -847,15 +852,40 @@ func (o *SearchRecord) UnmarshalJSON(data []byte) (err error) {
 
 	varSearchRecord := _SearchRecord{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSearchRecord)
+	err = json.Unmarshal(data, &varSearchRecord)
 
 	if err != nil {
 		return err
 	}
 
 	*o = SearchRecord(varSearchRecord)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cloudProvider")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "environmentKey")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "orgId")
+		delete(additionalProperties, "orgName")
+		delete(additionalProperties, "regionCode")
+		delete(additionalProperties, "resourceId")
+		delete(additionalProperties, "resourceName")
+		delete(additionalProperties, "serviceEnvironmentName")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "serviceName")
+		delete(additionalProperties, "servicePlanName")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "statusDescription")
+		delete(additionalProperties, "targetResourceName")
+		delete(additionalProperties, "userEmail")
+		delete(additionalProperties, "userID")
+		delete(additionalProperties, "version")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

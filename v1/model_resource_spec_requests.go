@@ -23,7 +23,10 @@ type ResourceSpecRequests struct {
 	Cpu *string `json:"cpu,omitempty"`
 	// The amount of memory that Kubernetes will guarantee for the container
 	Memory *string `json:"memory,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ResourceSpecRequests ResourceSpecRequests
 
 // NewResourceSpecRequests instantiates a new ResourceSpecRequests object
 // This constructor will assign default values to properties that have it defined,
@@ -104,7 +107,34 @@ func (o ResourceSpecRequests) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Memory) {
 		toSerialize["memory"] = o.Memory
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ResourceSpecRequests) UnmarshalJSON(data []byte) (err error) {
+	varResourceSpecRequests := _ResourceSpecRequests{}
+
+	err = json.Unmarshal(data, &varResourceSpecRequests)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ResourceSpecRequests(varResourceSpecRequests)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cpu")
+		delete(additionalProperties, "memory")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableResourceSpecRequests struct {

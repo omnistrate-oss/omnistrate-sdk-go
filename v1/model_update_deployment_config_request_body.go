@@ -25,7 +25,10 @@ type UpdateDeploymentConfigRequestBody struct {
 	// Name of the deployment config
 	Name *string `json:"name,omitempty"`
 	RolloutPriorityList []string `json:"rolloutPriorityList,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateDeploymentConfigRequestBody UpdateDeploymentConfigRequestBody
 
 // NewUpdateDeploymentConfigRequestBody instantiates a new UpdateDeploymentConfigRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -158,7 +161,36 @@ func (o UpdateDeploymentConfigRequestBody) ToMap() (map[string]interface{}, erro
 	if !IsNil(o.RolloutPriorityList) {
 		toSerialize["rolloutPriorityList"] = o.RolloutPriorityList
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateDeploymentConfigRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateDeploymentConfigRequestBody := _UpdateDeploymentConfigRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateDeploymentConfigRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateDeploymentConfigRequestBody(varUpdateDeploymentConfigRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "infraRollConfiguration")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "rolloutPriorityList")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateDeploymentConfigRequestBody struct {

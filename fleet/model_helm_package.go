@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -31,6 +30,7 @@ type HelmPackage struct {
 	RepoURL string `json:"repoURL"`
 	// Custom values for the helm package
 	Values map[string]interface{} `json:"values,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _HelmPackage HelmPackage
@@ -201,6 +201,11 @@ func (o HelmPackage) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Values) {
 		toSerialize["values"] = o.Values
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -231,15 +236,24 @@ func (o *HelmPackage) UnmarshalJSON(data []byte) (err error) {
 
 	varHelmPackage := _HelmPackage{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varHelmPackage)
+	err = json.Unmarshal(data, &varHelmPackage)
 
 	if err != nil {
 		return err
 	}
 
 	*o = HelmPackage(varHelmPackage)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "chartName")
+		delete(additionalProperties, "chartVersion")
+		delete(additionalProperties, "namespace")
+		delete(additionalProperties, "repoURL")
+		delete(additionalProperties, "values")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

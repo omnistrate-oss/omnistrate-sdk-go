@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -34,6 +33,7 @@ type CustomerLoginWithIdentityProviderRequestBody struct {
 	LegalCompanyName *string `json:"legalCompanyName,omitempty"`
 	// The redirect URI used to get the authorization code
 	RedirectUri *string `json:"redirectUri,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CustomerLoginWithIdentityProviderRequestBody CustomerLoginWithIdentityProviderRequestBody
@@ -273,6 +273,11 @@ func (o CustomerLoginWithIdentityProviderRequestBody) ToMap() (map[string]interf
 	if !IsNil(o.RedirectUri) {
 		toSerialize["redirectUri"] = o.RedirectUri
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -301,15 +306,27 @@ func (o *CustomerLoginWithIdentityProviderRequestBody) UnmarshalJSON(data []byte
 
 	varCustomerLoginWithIdentityProviderRequestBody := _CustomerLoginWithIdentityProviderRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCustomerLoginWithIdentityProviderRequestBody)
+	err = json.Unmarshal(data, &varCustomerLoginWithIdentityProviderRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CustomerLoginWithIdentityProviderRequestBody(varCustomerLoginWithIdentityProviderRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "authorizationCode")
+		delete(additionalProperties, "companyDescription")
+		delete(additionalProperties, "companyUrl")
+		delete(additionalProperties, "environmentType")
+		delete(additionalProperties, "identityProviderName")
+		delete(additionalProperties, "invitedEmail")
+		delete(additionalProperties, "legalCompanyName")
+		delete(additionalProperties, "redirectUri")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

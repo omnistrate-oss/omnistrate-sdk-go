@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &UpdateStorageVolumeSizeConfigRequestBody{}
 type UpdateStorageVolumeSizeConfigRequestBody struct {
 	// The storage size (in Gi) provisioned for the configured instance storage type
 	InstanceStorageSizeGi string `json:"instanceStorageSizeGi"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _UpdateStorageVolumeSizeConfigRequestBody UpdateStorageVolumeSizeConfigRequestBody
@@ -80,6 +80,11 @@ func (o UpdateStorageVolumeSizeConfigRequestBody) MarshalJSON() ([]byte, error) 
 func (o UpdateStorageVolumeSizeConfigRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["instanceStorageSizeGi"] = o.InstanceStorageSizeGi
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *UpdateStorageVolumeSizeConfigRequestBody) UnmarshalJSON(data []byte) (e
 
 	varUpdateStorageVolumeSizeConfigRequestBody := _UpdateStorageVolumeSizeConfigRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varUpdateStorageVolumeSizeConfigRequestBody)
+	err = json.Unmarshal(data, &varUpdateStorageVolumeSizeConfigRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = UpdateStorageVolumeSizeConfigRequestBody(varUpdateStorageVolumeSizeConfigRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "instanceStorageSizeGi")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

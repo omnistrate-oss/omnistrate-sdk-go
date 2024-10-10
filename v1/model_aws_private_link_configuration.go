@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type AWSPrivateLinkConfiguration struct {
 	Port int64 `json:"port"`
 	// The target group name
 	TargetGroupName string `json:"targetGroupName"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _AWSPrivateLinkConfiguration AWSPrivateLinkConfiguration
@@ -108,6 +108,11 @@ func (o AWSPrivateLinkConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["port"] = o.Port
 	toSerialize["targetGroupName"] = o.TargetGroupName
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *AWSPrivateLinkConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	varAWSPrivateLinkConfiguration := _AWSPrivateLinkConfiguration{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAWSPrivateLinkConfiguration)
+	err = json.Unmarshal(data, &varAWSPrivateLinkConfiguration)
 
 	if err != nil {
 		return err
 	}
 
 	*o = AWSPrivateLinkConfiguration(varAWSPrivateLinkConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "port")
+		delete(additionalProperties, "targetGroupName")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

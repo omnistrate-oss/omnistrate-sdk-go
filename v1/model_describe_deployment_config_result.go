@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -29,6 +28,7 @@ type DescribeDeploymentConfigResult struct {
 	// Name of the deployment config
 	Name string `json:"name"`
 	RolloutPriorityList []string `json:"rolloutPriorityList"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeDeploymentConfigResult DescribeDeploymentConfigResult
@@ -190,6 +190,11 @@ func (o DescribeDeploymentConfigResult) ToMap() (map[string]interface{}, error) 
 	toSerialize["infraRollConfiguration"] = o.InfraRollConfiguration
 	toSerialize["name"] = o.Name
 	toSerialize["rolloutPriorityList"] = o.RolloutPriorityList
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -221,15 +226,24 @@ func (o *DescribeDeploymentConfigResult) UnmarshalJSON(data []byte) (err error) 
 
 	varDescribeDeploymentConfigResult := _DescribeDeploymentConfigResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeDeploymentConfigResult)
+	err = json.Unmarshal(data, &varDescribeDeploymentConfigResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeDeploymentConfigResult(varDescribeDeploymentConfigResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "infraRollConfiguration")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "rolloutPriorityList")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

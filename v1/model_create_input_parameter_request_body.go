@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -47,6 +46,7 @@ type CreateInputParameterRequestBody struct {
 	// The ID of the resource that this input parameter belongs to
 	ResourceId string `json:"resourceId"`
 	Type string `json:"type"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateInputParameterRequestBody CreateInputParameterRequestBody
@@ -450,6 +450,11 @@ func (o CreateInputParameterRequestBody) ToMap() (map[string]interface{}, error)
 	toSerialize["required"] = o.Required
 	toSerialize["resourceId"] = o.ResourceId
 	toSerialize["type"] = o.Type
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -483,15 +488,33 @@ func (o *CreateInputParameterRequestBody) UnmarshalJSON(data []byte) (err error)
 
 	varCreateInputParameterRequestBody := _CreateInputParameterRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateInputParameterRequestBody)
+	err = json.Unmarshal(data, &varCreateInputParameterRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateInputParameterRequestBody(varCreateInputParameterRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "defaultValue")
+		delete(additionalProperties, "dependentResourceId")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "hasOptions")
+		delete(additionalProperties, "isList")
+		delete(additionalProperties, "key")
+		delete(additionalProperties, "labeledOptions")
+		delete(additionalProperties, "limits")
+		delete(additionalProperties, "modifiable")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "options")
+		delete(additionalProperties, "required")
+		delete(additionalProperties, "resourceId")
+		delete(additionalProperties, "type")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

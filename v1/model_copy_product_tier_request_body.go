@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -41,6 +40,7 @@ type CopyProductTierRequestBody struct {
 	Support *string `json:"support,omitempty"`
 	// Tier type
 	TargetTierType *string `json:"targetTierType,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CopyProductTierRequestBody CopyProductTierRequestBody
@@ -333,6 +333,11 @@ func (o CopyProductTierRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TargetTierType) {
 		toSerialize["targetTierType"] = o.TargetTierType
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -362,15 +367,29 @@ func (o *CopyProductTierRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varCopyProductTierRequestBody := _CopyProductTierRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCopyProductTierRequestBody)
+	err = json.Unmarshal(data, &varCopyProductTierRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CopyProductTierRequestBody(varCopyProductTierRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "awsRegions")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "documentation")
+		delete(additionalProperties, "gcpRegions")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "planDescription")
+		delete(additionalProperties, "pricing")
+		delete(additionalProperties, "serviceModelId")
+		delete(additionalProperties, "support")
+		delete(additionalProperties, "targetTierType")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

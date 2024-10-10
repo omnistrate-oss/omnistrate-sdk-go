@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type FleetListHostClustersResult struct {
 	Ids []string `json:"ids"`
 	// The next token to use when listing host clusters
 	NextPageToken *string `json:"nextPageToken,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _FleetListHostClustersResult FleetListHostClustersResult
@@ -145,6 +145,11 @@ func (o FleetListHostClustersResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.NextPageToken) {
 		toSerialize["nextPageToken"] = o.NextPageToken
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -173,15 +178,22 @@ func (o *FleetListHostClustersResult) UnmarshalJSON(data []byte) (err error) {
 
 	varFleetListHostClustersResult := _FleetListHostClustersResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFleetListHostClustersResult)
+	err = json.Unmarshal(data, &varFleetListHostClustersResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = FleetListHostClustersResult(varFleetListHostClustersResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "hostClusters")
+		delete(additionalProperties, "ids")
+		delete(additionalProperties, "nextPageToken")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

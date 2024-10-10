@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type ListInputParametersResult struct {
 	InputParameters []DescribeInputParameterResult `json:"inputParameters,omitempty"`
 	// Token to retrieve the next page of results
 	NextPageToken *string `json:"nextPageToken,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListInputParametersResult ListInputParametersResult
@@ -136,6 +136,11 @@ func (o ListInputParametersResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.NextPageToken) {
 		toSerialize["nextPageToken"] = o.NextPageToken
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -163,15 +168,22 @@ func (o *ListInputParametersResult) UnmarshalJSON(data []byte) (err error) {
 
 	varListInputParametersResult := _ListInputParametersResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListInputParametersResult)
+	err = json.Unmarshal(data, &varListInputParametersResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListInputParametersResult(varListInputParametersResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "ids")
+		delete(additionalProperties, "inputParameters")
+		delete(additionalProperties, "nextPageToken")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

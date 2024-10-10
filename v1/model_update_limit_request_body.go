@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type UpdateLimitRequestBody struct {
 	Name *string `json:"name,omitempty"`
 	// Value of the limit being enforced
 	Value int64 `json:"value"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _UpdateLimitRequestBody UpdateLimitRequestBody
@@ -136,6 +136,11 @@ func (o UpdateLimitRequestBody) ToMap() (map[string]interface{}, error) {
 		toSerialize["name"] = o.Name
 	}
 	toSerialize["value"] = o.Value
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -163,15 +168,22 @@ func (o *UpdateLimitRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varUpdateLimitRequestBody := _UpdateLimitRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varUpdateLimitRequestBody)
+	err = json.Unmarshal(data, &varUpdateLimitRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = UpdateLimitRequestBody(varUpdateLimitRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "value")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

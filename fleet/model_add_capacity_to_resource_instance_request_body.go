@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type AddCapacityToResourceInstanceRequestBody struct {
 	CapacityToBeAdded int64 `json:"capacityToBeAdded"`
 	// The resource ID.
 	ResourceId string `json:"resourceId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _AddCapacityToResourceInstanceRequestBody AddCapacityToResourceInstanceRequestBody
@@ -108,6 +108,11 @@ func (o AddCapacityToResourceInstanceRequestBody) ToMap() (map[string]interface{
 	toSerialize := map[string]interface{}{}
 	toSerialize["capacityToBeAdded"] = o.CapacityToBeAdded
 	toSerialize["resourceId"] = o.ResourceId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *AddCapacityToResourceInstanceRequestBody) UnmarshalJSON(data []byte) (e
 
 	varAddCapacityToResourceInstanceRequestBody := _AddCapacityToResourceInstanceRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAddCapacityToResourceInstanceRequestBody)
+	err = json.Unmarshal(data, &varAddCapacityToResourceInstanceRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = AddCapacityToResourceInstanceRequestBody(varAddCapacityToResourceInstanceRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "capacityToBeAdded")
+		delete(additionalProperties, "resourceId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

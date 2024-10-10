@@ -27,7 +27,10 @@ type GetCurrentUsageResult struct {
 	StartTime *string `json:"startTime,omitempty"`
 	// Usage for the current plan
 	Usage []UsagePerDimension `json:"usage,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _GetCurrentUsageResult GetCurrentUsageResult
 
 // NewGetCurrentUsageResult instantiates a new GetCurrentUsageResult object
 // This constructor will assign default values to properties that have it defined,
@@ -160,7 +163,36 @@ func (o GetCurrentUsageResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Usage) {
 		toSerialize["usage"] = o.Usage
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *GetCurrentUsageResult) UnmarshalJSON(data []byte) (err error) {
+	varGetCurrentUsageResult := _GetCurrentUsageResult{}
+
+	err = json.Unmarshal(data, &varGetCurrentUsageResult)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GetCurrentUsageResult(varGetCurrentUsageResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "endTime")
+		delete(additionalProperties, "planName")
+		delete(additionalProperties, "startTime")
+		delete(additionalProperties, "usage")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableGetCurrentUsageResult struct {

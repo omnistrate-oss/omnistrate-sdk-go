@@ -21,7 +21,10 @@ var _ MappedNullable = &PrivateLinkConfiguration{}
 type PrivateLinkConfiguration struct {
 	// The list of private link configurations
 	AwsPrivateLinkConfigurations []AWSPrivateLinkConfiguration `json:"awsPrivateLinkConfigurations,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _PrivateLinkConfiguration PrivateLinkConfiguration
 
 // NewPrivateLinkConfiguration instantiates a new PrivateLinkConfiguration object
 // This constructor will assign default values to properties that have it defined,
@@ -76,7 +79,33 @@ func (o PrivateLinkConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AwsPrivateLinkConfigurations) {
 		toSerialize["awsPrivateLinkConfigurations"] = o.AwsPrivateLinkConfigurations
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *PrivateLinkConfiguration) UnmarshalJSON(data []byte) (err error) {
+	varPrivateLinkConfiguration := _PrivateLinkConfiguration{}
+
+	err = json.Unmarshal(data, &varPrivateLinkConfiguration)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PrivateLinkConfiguration(varPrivateLinkConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "awsPrivateLinkConfigurations")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullablePrivateLinkConfiguration struct {

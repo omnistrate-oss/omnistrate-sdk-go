@@ -30,7 +30,10 @@ type UpdateImageConfigRequestBody struct {
 	ImageSignaturePublicKeyPEM *string `json:"imageSignaturePublicKeyPEM,omitempty"`
 	// Tag representing the software image version that is currently preferred
 	ImageTag *string `json:"imageTag,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateImageConfigRequestBody UpdateImageConfigRequestBody
 
 // NewUpdateImageConfigRequestBody instantiates a new UpdateImageConfigRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -215,7 +218,38 @@ func (o UpdateImageConfigRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ImageTag) {
 		toSerialize["imageTag"] = o.ImageTag
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateImageConfigRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateImageConfigRequestBody := _UpdateImageConfigRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateImageConfigRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateImageConfigRequestBody(varUpdateImageConfigRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "customImageCommandsAndArgs")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "imageName")
+		delete(additionalProperties, "imageRegistryId")
+		delete(additionalProperties, "imageSignaturePublicKeyPEM")
+		delete(additionalProperties, "imageTag")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateImageConfigRequestBody struct {

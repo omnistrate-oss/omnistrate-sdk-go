@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -29,6 +28,7 @@ type CreateTierVersionSetRequestBody struct {
 	ParentVersion *string `json:"parentVersion,omitempty"`
 	// The version-set type of the product-tier.
 	Type string `json:"type"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateTierVersionSetRequestBody CreateTierVersionSetRequestBody
@@ -164,6 +164,11 @@ func (o CreateTierVersionSetRequestBody) ToMap() (map[string]interface{}, error)
 		toSerialize["parentVersion"] = o.ParentVersion
 	}
 	toSerialize["type"] = o.Type
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -191,15 +196,23 @@ func (o *CreateTierVersionSetRequestBody) UnmarshalJSON(data []byte) (err error)
 
 	varCreateTierVersionSetRequestBody := _CreateTierVersionSetRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateTierVersionSetRequestBody)
+	err = json.Unmarshal(data, &varCreateTierVersionSetRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateTierVersionSetRequestBody(varCreateTierVersionSetRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "parentVersion")
+		delete(additionalProperties, "type")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

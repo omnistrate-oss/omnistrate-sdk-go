@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -35,6 +34,7 @@ type BillingPlan struct {
 	ProductTierId string `json:"productTierId"`
 	// Service ID
 	ServiceId string `json:"serviceId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _BillingPlan BillingPlan
@@ -252,6 +252,11 @@ func (o BillingPlan) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["productTierId"] = o.ProductTierId
 	toSerialize["serviceId"] = o.ServiceId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -285,15 +290,26 @@ func (o *BillingPlan) UnmarshalJSON(data []byte) (err error) {
 
 	varBillingPlan := _BillingPlan{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varBillingPlan)
+	err = json.Unmarshal(data, &varBillingPlan)
 
 	if err != nil {
 		return err
 	}
 
 	*o = BillingPlan(varBillingPlan)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "allowCreatesWhenPaymentNotConfigured")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "maxNumberofInstances")
+		delete(additionalProperties, "planName")
+		delete(additionalProperties, "pricing")
+		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "serviceId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

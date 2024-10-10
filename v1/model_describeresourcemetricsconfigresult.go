@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type Describeresourcemetricsconfigresult struct {
 	MetricEndpoint string `json:"metricEndpoint"`
 	// The service ID that this API bundle belongs to
 	ServiceId string `json:"serviceId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _Describeresourcemetricsconfigresult Describeresourcemetricsconfigresult
@@ -136,6 +136,11 @@ func (o Describeresourcemetricsconfigresult) ToMap() (map[string]interface{}, er
 	toSerialize["id"] = o.Id
 	toSerialize["metricEndpoint"] = o.MetricEndpoint
 	toSerialize["serviceId"] = o.ServiceId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -165,15 +170,22 @@ func (o *Describeresourcemetricsconfigresult) UnmarshalJSON(data []byte) (err er
 
 	varDescriberesourcemetricsconfigresult := _Describeresourcemetricsconfigresult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescriberesourcemetricsconfigresult)
+	err = json.Unmarshal(data, &varDescriberesourcemetricsconfigresult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = Describeresourcemetricsconfigresult(varDescriberesourcemetricsconfigresult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "metricEndpoint")
+		delete(additionalProperties, "serviceId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

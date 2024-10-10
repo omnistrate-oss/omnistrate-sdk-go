@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -35,6 +34,7 @@ type Address struct {
 	State string `json:"state"`
 	// Zip code
 	Zip string `json:"zip"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _Address Address
@@ -248,6 +248,11 @@ func (o Address) ToMap() (map[string]interface{}, error) {
 	toSerialize["country"] = o.Country
 	toSerialize["state"] = o.State
 	toSerialize["zip"] = o.Zip
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -279,15 +284,26 @@ func (o *Address) UnmarshalJSON(data []byte) (err error) {
 
 	varAddress := _Address{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAddress)
+	err = json.Unmarshal(data, &varAddress)
 
 	if err != nil {
 		return err
 	}
 
 	*o = Address(varAddress)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "addressLine1")
+		delete(additionalProperties, "addressLine2")
+		delete(additionalProperties, "addressLine3")
+		delete(additionalProperties, "city")
+		delete(additionalProperties, "country")
+		delete(additionalProperties, "state")
+		delete(additionalProperties, "zip")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

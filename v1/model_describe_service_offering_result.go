@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -41,6 +40,7 @@ type DescribeServiceOfferingResult struct {
 	ServiceProviderName string `json:"serviceProviderName"`
 	// The service URL key
 	ServiceURLKey string `json:"serviceURLKey"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeServiceOfferingResult DescribeServiceOfferingResult
@@ -334,6 +334,11 @@ func (o DescribeServiceOfferingResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["serviceProviderId"] = o.ServiceProviderId
 	toSerialize["serviceProviderName"] = o.ServiceProviderName
 	toSerialize["serviceURLKey"] = o.ServiceURLKey
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -370,15 +375,29 @@ func (o *DescribeServiceOfferingResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribeServiceOfferingResult := _DescribeServiceOfferingResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeServiceOfferingResult)
+	err = json.Unmarshal(data, &varDescribeServiceOfferingResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeServiceOfferingResult(varDescribeServiceOfferingResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "isDeprecated")
+		delete(additionalProperties, "offerings")
+		delete(additionalProperties, "serviceDescription")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "serviceName")
+		delete(additionalProperties, "serviceOrgId")
+		delete(additionalProperties, "serviceProviderId")
+		delete(additionalProperties, "serviceProviderName")
+		delete(additionalProperties, "serviceURLKey")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

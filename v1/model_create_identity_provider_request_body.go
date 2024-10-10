@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type CreateIdentityProviderRequestBody struct {
 	ClientSecret string `json:"clientSecret"`
 	// The name of the Identity Provider
 	IdentityProviderName string `json:"identityProviderName"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateIdentityProviderRequestBody CreateIdentityProviderRequestBody
@@ -136,6 +136,11 @@ func (o CreateIdentityProviderRequestBody) ToMap() (map[string]interface{}, erro
 	toSerialize["clientId"] = o.ClientId
 	toSerialize["clientSecret"] = o.ClientSecret
 	toSerialize["identityProviderName"] = o.IdentityProviderName
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -165,15 +170,22 @@ func (o *CreateIdentityProviderRequestBody) UnmarshalJSON(data []byte) (err erro
 
 	varCreateIdentityProviderRequestBody := _CreateIdentityProviderRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateIdentityProviderRequestBody)
+	err = json.Unmarshal(data, &varCreateIdentityProviderRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateIdentityProviderRequestBody(varCreateIdentityProviderRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "clientId")
+		delete(additionalProperties, "clientSecret")
+		delete(additionalProperties, "identityProviderName")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

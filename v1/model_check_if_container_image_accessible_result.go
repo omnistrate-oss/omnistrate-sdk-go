@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type CheckIfContainerImageAccessibleResult struct {
 	ErrorMsg *string `json:"errorMsg,omitempty"`
 	// Indicates if the image is accessible
 	ImageAccessible bool `json:"imageAccessible"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CheckIfContainerImageAccessibleResult CheckIfContainerImageAccessibleResult
@@ -108,6 +108,11 @@ func (o CheckIfContainerImageAccessibleResult) ToMap() (map[string]interface{}, 
 		toSerialize["errorMsg"] = o.ErrorMsg
 	}
 	toSerialize["imageAccessible"] = o.ImageAccessible
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -135,15 +140,21 @@ func (o *CheckIfContainerImageAccessibleResult) UnmarshalJSON(data []byte) (err 
 
 	varCheckIfContainerImageAccessibleResult := _CheckIfContainerImageAccessibleResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCheckIfContainerImageAccessibleResult)
+	err = json.Unmarshal(data, &varCheckIfContainerImageAccessibleResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CheckIfContainerImageAccessibleResult(varCheckIfContainerImageAccessibleResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "errorMsg")
+		delete(additionalProperties, "imageAccessible")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

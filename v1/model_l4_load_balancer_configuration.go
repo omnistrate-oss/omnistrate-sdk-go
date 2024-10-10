@@ -21,7 +21,10 @@ var _ MappedNullable = &L4LoadBalancerConfiguration{}
 type L4LoadBalancerConfiguration struct {
 	// The ingress port configuration to configure on the load balancer
 	IngressPortConfiguration []BackendPortConfiguration `json:"ingressPortConfiguration,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _L4LoadBalancerConfiguration L4LoadBalancerConfiguration
 
 // NewL4LoadBalancerConfiguration instantiates a new L4LoadBalancerConfiguration object
 // This constructor will assign default values to properties that have it defined,
@@ -76,7 +79,33 @@ func (o L4LoadBalancerConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IngressPortConfiguration) {
 		toSerialize["ingressPortConfiguration"] = o.IngressPortConfiguration
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *L4LoadBalancerConfiguration) UnmarshalJSON(data []byte) (err error) {
+	varL4LoadBalancerConfiguration := _L4LoadBalancerConfiguration{}
+
+	err = json.Unmarshal(data, &varL4LoadBalancerConfiguration)
+
+	if err != nil {
+		return err
+	}
+
+	*o = L4LoadBalancerConfiguration(varL4LoadBalancerConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "ingressPortConfiguration")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableL4LoadBalancerConfiguration struct {

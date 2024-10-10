@@ -36,7 +36,10 @@ type UpdateInputParameterRequestBody struct {
 	Options []string `json:"options,omitempty"`
 	// Enforces the input parameter as a required parameter
 	Required *bool `json:"required,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateInputParameterRequestBody UpdateInputParameterRequestBody
 
 // NewUpdateInputParameterRequestBody instantiates a new UpdateInputParameterRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -299,7 +302,41 @@ func (o UpdateInputParameterRequestBody) ToMap() (map[string]interface{}, error)
 	if !IsNil(o.Required) {
 		toSerialize["required"] = o.Required
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateInputParameterRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateInputParameterRequestBody := _UpdateInputParameterRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateInputParameterRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateInputParameterRequestBody(varUpdateInputParameterRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "defaultValue")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "hasOptions")
+		delete(additionalProperties, "labeledOptions")
+		delete(additionalProperties, "limits")
+		delete(additionalProperties, "modifiable")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "options")
+		delete(additionalProperties, "required")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateInputParameterRequestBody struct {

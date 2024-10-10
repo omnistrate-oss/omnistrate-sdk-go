@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -28,6 +27,7 @@ type SubscriptionUsers struct {
 	RoleType string `json:"roleType"`
 	// The User ID
 	UserId string `json:"userId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _SubscriptionUsers SubscriptionUsers
@@ -163,6 +163,11 @@ func (o SubscriptionUsers) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["roleType"] = o.RoleType
 	toSerialize["userId"] = o.UserId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -193,15 +198,23 @@ func (o *SubscriptionUsers) UnmarshalJSON(data []byte) (err error) {
 
 	varSubscriptionUsers := _SubscriptionUsers{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSubscriptionUsers)
+	err = json.Unmarshal(data, &varSubscriptionUsers)
 
 	if err != nil {
 		return err
 	}
 
 	*o = SubscriptionUsers(varSubscriptionUsers)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "roleType")
+		delete(additionalProperties, "userId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

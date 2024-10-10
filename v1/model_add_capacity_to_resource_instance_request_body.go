@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &AddCapacityToResourceInstanceRequestBody{}
 type AddCapacityToResourceInstanceRequestBody struct {
 	// Number of replicas to be added
 	CapacityToBeAdded int64 `json:"capacityToBeAdded"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _AddCapacityToResourceInstanceRequestBody AddCapacityToResourceInstanceRequestBody
@@ -80,6 +80,11 @@ func (o AddCapacityToResourceInstanceRequestBody) MarshalJSON() ([]byte, error) 
 func (o AddCapacityToResourceInstanceRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["capacityToBeAdded"] = o.CapacityToBeAdded
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *AddCapacityToResourceInstanceRequestBody) UnmarshalJSON(data []byte) (e
 
 	varAddCapacityToResourceInstanceRequestBody := _AddCapacityToResourceInstanceRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAddCapacityToResourceInstanceRequestBody)
+	err = json.Unmarshal(data, &varAddCapacityToResourceInstanceRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = AddCapacityToResourceInstanceRequestBody(varAddCapacityToResourceInstanceRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "capacityToBeAdded")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

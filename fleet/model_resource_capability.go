@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type ResourceCapability struct {
 	Capability string `json:"capability"`
 	// The configuration parameters of a capability of a resource
 	Configuration map[string]interface{} `json:"configuration"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ResourceCapability ResourceCapability
@@ -108,6 +108,11 @@ func (o ResourceCapability) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["capability"] = o.Capability
 	toSerialize["configuration"] = o.Configuration
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *ResourceCapability) UnmarshalJSON(data []byte) (err error) {
 
 	varResourceCapability := _ResourceCapability{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varResourceCapability)
+	err = json.Unmarshal(data, &varResourceCapability)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ResourceCapability(varResourceCapability)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "capability")
+		delete(additionalProperties, "configuration")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type RecentDeploymentFailureStatus struct {
 	FailedAt string `json:"failedAt"`
 	// The reason for the deployment failure
 	FailureReason string `json:"failureReason"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _RecentDeploymentFailureStatus RecentDeploymentFailureStatus
@@ -108,6 +108,11 @@ func (o RecentDeploymentFailureStatus) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["failedAt"] = o.FailedAt
 	toSerialize["failureReason"] = o.FailureReason
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *RecentDeploymentFailureStatus) UnmarshalJSON(data []byte) (err error) {
 
 	varRecentDeploymentFailureStatus := _RecentDeploymentFailureStatus{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varRecentDeploymentFailureStatus)
+	err = json.Unmarshal(data, &varRecentDeploymentFailureStatus)
 
 	if err != nil {
 		return err
 	}
 
 	*o = RecentDeploymentFailureStatus(varRecentDeploymentFailureStatus)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "failedAt")
+		delete(additionalProperties, "failureReason")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

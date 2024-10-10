@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type EnvironmentPromotionStatus struct {
 	Status string `json:"status"`
 	// The ID of the target environment
 	TargetEnvironmentID string `json:"targetEnvironmentID"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _EnvironmentPromotionStatus EnvironmentPromotionStatus
@@ -108,6 +108,11 @@ func (o EnvironmentPromotionStatus) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["status"] = o.Status
 	toSerialize["targetEnvironmentID"] = o.TargetEnvironmentID
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *EnvironmentPromotionStatus) UnmarshalJSON(data []byte) (err error) {
 
 	varEnvironmentPromotionStatus := _EnvironmentPromotionStatus{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEnvironmentPromotionStatus)
+	err = json.Unmarshal(data, &varEnvironmentPromotionStatus)
 
 	if err != nil {
 		return err
 	}
 
 	*o = EnvironmentPromotionStatus(varEnvironmentPromotionStatus)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "targetEnvironmentID")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &SlackConfiguration{}
 type SlackConfiguration struct {
 	// URL to send notifications to
 	WebhookUrl string `json:"webhookUrl"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _SlackConfiguration SlackConfiguration
@@ -80,6 +80,11 @@ func (o SlackConfiguration) MarshalJSON() ([]byte, error) {
 func (o SlackConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["webhookUrl"] = o.WebhookUrl
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *SlackConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	varSlackConfiguration := _SlackConfiguration{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSlackConfiguration)
+	err = json.Unmarshal(data, &varSlackConfiguration)
 
 	if err != nil {
 		return err
 	}
 
 	*o = SlackConfiguration(varSlackConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "webhookUrl")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

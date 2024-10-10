@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -31,6 +30,7 @@ type DescribeUserBillingDetailsResult struct {
 	PaymentInfoPortalURL *string `json:"paymentInfoPortalURL,omitempty"`
 	// The User ID
 	UserId string `json:"userId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeUserBillingDetailsResult DescribeUserBillingDetailsResult
@@ -192,6 +192,11 @@ func (o DescribeUserBillingDetailsResult) ToMap() (map[string]interface{}, error
 		toSerialize["paymentInfoPortalURL"] = o.PaymentInfoPortalURL
 	}
 	toSerialize["userId"] = o.UserId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -222,15 +227,24 @@ func (o *DescribeUserBillingDetailsResult) UnmarshalJSON(data []byte) (err error
 
 	varDescribeUserBillingDetailsResult := _DescribeUserBillingDetailsResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeUserBillingDetailsResult)
+	err = json.Unmarshal(data, &varDescribeUserBillingDetailsResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeUserBillingDetailsResult(varDescribeUserBillingDetailsResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "billingEmbedURL")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "paymentConfigured")
+		delete(additionalProperties, "paymentInfoPortalURL")
+		delete(additionalProperties, "userId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

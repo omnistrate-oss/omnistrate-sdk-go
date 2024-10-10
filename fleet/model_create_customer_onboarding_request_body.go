@@ -21,7 +21,10 @@ var _ MappedNullable = &CreateCustomerOnboardingRequestBody{}
 type CreateCustomerOnboardingRequestBody struct {
 	// DEPRECATED: Name will be generated automatically.
 	Name *string `json:"name,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _CreateCustomerOnboardingRequestBody CreateCustomerOnboardingRequestBody
 
 // NewCreateCustomerOnboardingRequestBody instantiates a new CreateCustomerOnboardingRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -85,7 +88,33 @@ func (o CreateCustomerOnboardingRequestBody) ToMap() (map[string]interface{}, er
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *CreateCustomerOnboardingRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varCreateCustomerOnboardingRequestBody := _CreateCustomerOnboardingRequestBody{}
+
+	err = json.Unmarshal(data, &varCreateCustomerOnboardingRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CreateCustomerOnboardingRequestBody(varCreateCustomerOnboardingRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "name")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableCreateCustomerOnboardingRequestBody struct {

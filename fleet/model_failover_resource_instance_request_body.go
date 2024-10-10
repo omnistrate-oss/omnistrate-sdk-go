@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type FailoverResourceInstanceRequestBody struct {
 	FailedReplicaAction *string `json:"failedReplicaAction,omitempty"`
 	// The failed replica ID
 	FailedReplicaID string `json:"failedReplicaID"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _FailoverResourceInstanceRequestBody FailoverResourceInstanceRequestBody
@@ -117,6 +117,11 @@ func (o FailoverResourceInstanceRequestBody) ToMap() (map[string]interface{}, er
 		toSerialize["failedReplicaAction"] = o.FailedReplicaAction
 	}
 	toSerialize["failedReplicaID"] = o.FailedReplicaID
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -144,15 +149,21 @@ func (o *FailoverResourceInstanceRequestBody) UnmarshalJSON(data []byte) (err er
 
 	varFailoverResourceInstanceRequestBody := _FailoverResourceInstanceRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFailoverResourceInstanceRequestBody)
+	err = json.Unmarshal(data, &varFailoverResourceInstanceRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = FailoverResourceInstanceRequestBody(varFailoverResourceInstanceRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "failedReplicaAction")
+		delete(additionalProperties, "failedReplicaID")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -39,6 +38,7 @@ type FleetDescribeHostClusterResult struct {
 	Status string `json:"status"`
 	// The type of the host cluster
 	Type string `json:"type"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _FleetDescribeHostClusterResult FleetDescribeHostClusterResult
@@ -331,6 +331,11 @@ func (o FleetDescribeHostClusterResult) ToMap() (map[string]interface{}, error) 
 	toSerialize["region"] = o.Region
 	toSerialize["status"] = o.Status
 	toSerialize["type"] = o.Type
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -363,15 +368,28 @@ func (o *FleetDescribeHostClusterResult) UnmarshalJSON(data []byte) (err error) 
 
 	varFleetDescribeHostClusterResult := _FleetDescribeHostClusterResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFleetDescribeHostClusterResult)
+	err = json.Unmarshal(data, &varFleetDescribeHostClusterResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = FleetDescribeHostClusterResult(varFleetDescribeHostClusterResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "awsAccountID")
+		delete(additionalProperties, "cloudProvider")
+		delete(additionalProperties, "dashboardEndpoint")
+		delete(additionalProperties, "gcpProjectID")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "instanceID")
+		delete(additionalProperties, "region")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "type")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

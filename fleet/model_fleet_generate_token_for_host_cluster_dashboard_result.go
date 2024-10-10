@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type FleetGenerateTokenForHostClusterDashboardResult struct {
 	ExpirationTimestamp string `json:"expirationTimestamp"`
 	// The token to access the dashboard
 	Token string `json:"token"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _FleetGenerateTokenForHostClusterDashboardResult FleetGenerateTokenForHostClusterDashboardResult
@@ -108,6 +108,11 @@ func (o FleetGenerateTokenForHostClusterDashboardResult) ToMap() (map[string]int
 	toSerialize := map[string]interface{}{}
 	toSerialize["expirationTimestamp"] = o.ExpirationTimestamp
 	toSerialize["token"] = o.Token
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *FleetGenerateTokenForHostClusterDashboardResult) UnmarshalJSON(data []b
 
 	varFleetGenerateTokenForHostClusterDashboardResult := _FleetGenerateTokenForHostClusterDashboardResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFleetGenerateTokenForHostClusterDashboardResult)
+	err = json.Unmarshal(data, &varFleetGenerateTokenForHostClusterDashboardResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = FleetGenerateTokenForHostClusterDashboardResult(varFleetGenerateTokenForHostClusterDashboardResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "expirationTimestamp")
+		delete(additionalProperties, "token")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

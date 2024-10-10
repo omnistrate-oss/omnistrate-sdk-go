@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -34,6 +33,7 @@ type AutoscalingPolicy struct {
 	// Metric value beyond threshold will be considered to be overUtilized
 	OverUtilizedThreshold *int64 `json:"overUtilizedThreshold,omitempty"`
 	ScalingMetric *AutoScalingMetricSpec `json:"scalingMetric,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _AutoscalingPolicy AutoscalingPolicy
@@ -263,6 +263,11 @@ func (o AutoscalingPolicy) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ScalingMetric) {
 		toSerialize["scalingMetric"] = o.ScalingMetric
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -291,15 +296,26 @@ func (o *AutoscalingPolicy) UnmarshalJSON(data []byte) (err error) {
 
 	varAutoscalingPolicy := _AutoscalingPolicy{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAutoscalingPolicy)
+	err = json.Unmarshal(data, &varAutoscalingPolicy)
 
 	if err != nil {
 		return err
 	}
 
 	*o = AutoscalingPolicy(varAutoscalingPolicy)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "idleMinutesBeforeScalingDown")
+		delete(additionalProperties, "idleThreshold")
+		delete(additionalProperties, "maxReplicas")
+		delete(additionalProperties, "minReplicas")
+		delete(additionalProperties, "overUtilizedMinutesBeforeScalingUp")
+		delete(additionalProperties, "overUtilizedThreshold")
+		delete(additionalProperties, "scalingMetric")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

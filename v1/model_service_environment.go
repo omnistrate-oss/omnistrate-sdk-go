@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -40,6 +39,7 @@ type ServiceEnvironment struct {
 	Type *string `json:"type,omitempty"`
 	// Visibility of the service environment
 	Visibility string `json:"visibility"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ServiceEnvironment ServiceEnvironment
@@ -331,6 +331,11 @@ func (o ServiceEnvironment) ToMap() (map[string]interface{}, error) {
 		toSerialize["type"] = o.Type
 	}
 	toSerialize["visibility"] = o.Visibility
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -361,15 +366,29 @@ func (o *ServiceEnvironment) UnmarshalJSON(data []byte) (err error) {
 
 	varServiceEnvironment := _ServiceEnvironment{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varServiceEnvironment)
+	err = json.Unmarshal(data, &varServiceEnvironment)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ServiceEnvironment(varServiceEnvironment)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "promoteStatus")
+		delete(additionalProperties, "saasPortalStatus")
+		delete(additionalProperties, "saasPortalUrl")
+		delete(additionalProperties, "servicePlans")
+		delete(additionalProperties, "sourceEnvironmentID")
+		delete(additionalProperties, "sourceEnvironmentName")
+		delete(additionalProperties, "type")
+		delete(additionalProperties, "visibility")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

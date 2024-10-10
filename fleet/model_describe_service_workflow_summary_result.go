@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -31,6 +30,7 @@ type DescribeServiceWorkflowSummaryResult struct {
 	EnvironmentId string `json:"environmentId"`
 	// The service ID this workflow belongs to.
 	ServiceId string `json:"serviceId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeServiceWorkflowSummaryResult DescribeServiceWorkflowSummaryResult
@@ -219,6 +219,11 @@ func (o DescribeServiceWorkflowSummaryResult) ToMap() (map[string]interface{}, e
 	}
 	toSerialize["environmentId"] = o.EnvironmentId
 	toSerialize["serviceId"] = o.ServiceId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -247,15 +252,24 @@ func (o *DescribeServiceWorkflowSummaryResult) UnmarshalJSON(data []byte) (err e
 
 	varDescribeServiceWorkflowSummaryResult := _DescribeServiceWorkflowSummaryResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeServiceWorkflowSummaryResult)
+	err = json.Unmarshal(data, &varDescribeServiceWorkflowSummaryResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeServiceWorkflowSummaryResult(varDescribeServiceWorkflowSummaryResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "ActiveWorkflowCount")
+		delete(additionalProperties, "CompletedWorkflowCount")
+		delete(additionalProperties, "FailedWorkflowCount")
+		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "serviceId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

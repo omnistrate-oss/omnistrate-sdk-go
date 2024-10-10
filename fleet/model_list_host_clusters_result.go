@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -24,6 +23,7 @@ type ListHostClustersResult struct {
 	HostClusters []HostCluster `json:"hostClusters"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListHostClustersResult ListHostClustersResult
@@ -107,6 +107,11 @@ func (o ListHostClustersResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["hostClusters"] = o.HostClusters
 	toSerialize["token"] = o.Token
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -135,15 +140,21 @@ func (o *ListHostClustersResult) UnmarshalJSON(data []byte) (err error) {
 
 	varListHostClustersResult := _ListHostClustersResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListHostClustersResult)
+	err = json.Unmarshal(data, &varListHostClustersResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListHostClustersResult(varListHostClustersResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "hostClusters")
+		delete(additionalProperties, "token")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

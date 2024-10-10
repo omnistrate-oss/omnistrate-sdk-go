@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type ListAssociatedResourcesResult struct {
 	ResourceIds []string `json:"resourceIds"`
 	// The service ID
 	ServiceId string `json:"serviceId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListAssociatedResourcesResult ListAssociatedResourcesResult
@@ -136,6 +136,11 @@ func (o ListAssociatedResourcesResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["resourceIds"] = o.ResourceIds
 	toSerialize["serviceId"] = o.ServiceId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -165,15 +170,22 @@ func (o *ListAssociatedResourcesResult) UnmarshalJSON(data []byte) (err error) {
 
 	varListAssociatedResourcesResult := _ListAssociatedResourcesResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListAssociatedResourcesResult)
+	err = json.Unmarshal(data, &varListAssociatedResourcesResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListAssociatedResourcesResult(varListAssociatedResourcesResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "resourceIds")
+		delete(additionalProperties, "serviceId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

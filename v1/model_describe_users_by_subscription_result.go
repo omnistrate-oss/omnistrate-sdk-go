@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type DescribeUsersBySubscriptionResult struct {
 	Id string `json:"Id"`
 	// The users associated with the corresponding subscription
 	SubscriptionUsers []SubscriptionUsers `json:"subscriptionUsers"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeUsersBySubscriptionResult DescribeUsersBySubscriptionResult
@@ -108,6 +108,11 @@ func (o DescribeUsersBySubscriptionResult) ToMap() (map[string]interface{}, erro
 	toSerialize := map[string]interface{}{}
 	toSerialize["Id"] = o.Id
 	toSerialize["subscriptionUsers"] = o.SubscriptionUsers
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *DescribeUsersBySubscriptionResult) UnmarshalJSON(data []byte) (err erro
 
 	varDescribeUsersBySubscriptionResult := _DescribeUsersBySubscriptionResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeUsersBySubscriptionResult)
+	err = json.Unmarshal(data, &varDescribeUsersBySubscriptionResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeUsersBySubscriptionResult(varDescribeUsersBySubscriptionResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "Id")
+		delete(additionalProperties, "subscriptionUsers")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

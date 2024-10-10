@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -49,6 +48,7 @@ type FleetDescribeEventResult struct {
 	WorkflowFailures []WorkflowFailure `json:"workflowFailures,omitempty"`
 	// The workflow ID
 	WorkflowId *string `json:"workflowId,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _FleetDescribeEventResult FleetDescribeEventResult
@@ -507,6 +507,11 @@ func (o FleetDescribeEventResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.WorkflowId) {
 		toSerialize["workflowId"] = o.WorkflowId
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -540,15 +545,33 @@ func (o *FleetDescribeEventResult) UnmarshalJSON(data []byte) (err error) {
 
 	varFleetDescribeEventResult := _FleetDescribeEventResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFleetDescribeEventResult)
+	err = json.Unmarshal(data, &varFleetDescribeEventResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = FleetDescribeEventResult(varFleetDescribeEventResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "eventSource")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "instanceId")
+		delete(additionalProperties, "message")
+		delete(additionalProperties, "orgId")
+		delete(additionalProperties, "orgName")
+		delete(additionalProperties, "resourceName")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "time")
+		delete(additionalProperties, "userId")
+		delete(additionalProperties, "userName")
+		delete(additionalProperties, "workflowFailures")
+		delete(additionalProperties, "workflowId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

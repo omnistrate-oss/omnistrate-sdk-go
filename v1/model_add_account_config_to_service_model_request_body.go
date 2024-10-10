@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &AddAccountConfigToServiceModelRequestBody{}
 type AddAccountConfigToServiceModelRequestBody struct {
 	// The infrastructure account configuration ID
 	AccountConfigId string `json:"accountConfigId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _AddAccountConfigToServiceModelRequestBody AddAccountConfigToServiceModelRequestBody
@@ -80,6 +80,11 @@ func (o AddAccountConfigToServiceModelRequestBody) MarshalJSON() ([]byte, error)
 func (o AddAccountConfigToServiceModelRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["accountConfigId"] = o.AccountConfigId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *AddAccountConfigToServiceModelRequestBody) UnmarshalJSON(data []byte) (
 
 	varAddAccountConfigToServiceModelRequestBody := _AddAccountConfigToServiceModelRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAddAccountConfigToServiceModelRequestBody)
+	err = json.Unmarshal(data, &varAddAccountConfigToServiceModelRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = AddAccountConfigToServiceModelRequestBody(varAddAccountConfigToServiceModelRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "accountConfigId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }
