@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -34,6 +33,7 @@ type HostCluster struct {
 	Status string `json:"status"`
 	// Type of the host cluster
 	Type string `json:"type"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _HostCluster HostCluster
@@ -335,6 +335,11 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["status"] = o.Status
 	toSerialize["type"] = o.Type
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -366,15 +371,28 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 
 	varHostCluster := _HostCluster{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varHostCluster)
+	err = json.Unmarshal(data, &varHostCluster)
 
 	if err != nil {
 		return err
 	}
 
 	*o = HostCluster(varHostCluster)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "accountConfigId")
+		delete(additionalProperties, "customNetworkDetail")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "helmPackages")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "kubernetesDashboardEndpoint")
+		delete(additionalProperties, "regionId")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "type")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -35,6 +34,7 @@ type ResourceSummary struct {
 	ManagedResourceType *string `json:"managedResourceType,omitempty"`
 	// The name of the resource
 	Name string `json:"name"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ResourceSummary ResourceSummary
@@ -248,6 +248,11 @@ func (o ResourceSummary) ToMap() (map[string]interface{}, error) {
 		toSerialize["managedResourceType"] = o.ManagedResourceType
 	}
 	toSerialize["name"] = o.Name
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -278,15 +283,26 @@ func (o *ResourceSummary) UnmarshalJSON(data []byte) (err error) {
 
 	varResourceSummary := _ResourceSummary{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varResourceSummary)
+	err = json.Unmarshal(data, &varResourceSummary)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ResourceSummary(varResourceSummary)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "imageConfigId")
+		delete(additionalProperties, "infraConfigId")
+		delete(additionalProperties, "isExternal")
+		delete(additionalProperties, "managedResourceType")
+		delete(additionalProperties, "name")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -27,7 +27,10 @@ type UpdateProductTierBillingPlanRequestBody struct {
 	PlanName *string `json:"planName,omitempty"`
 	// Pricing in dollars.
 	Pricing interface{} `json:"pricing,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateProductTierBillingPlanRequestBody UpdateProductTierBillingPlanRequestBody
 
 // NewUpdateProductTierBillingPlanRequestBody instantiates a new UpdateProductTierBillingPlanRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -161,7 +164,36 @@ func (o UpdateProductTierBillingPlanRequestBody) ToMap() (map[string]interface{}
 	if o.Pricing != nil {
 		toSerialize["pricing"] = o.Pricing
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateProductTierBillingPlanRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateProductTierBillingPlanRequestBody := _UpdateProductTierBillingPlanRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateProductTierBillingPlanRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateProductTierBillingPlanRequestBody(varUpdateProductTierBillingPlanRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "allowCreatesWhenPaymentNotConfigured")
+		delete(additionalProperties, "maxNumberofInstances")
+		delete(additionalProperties, "planName")
+		delete(additionalProperties, "pricing")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateProductTierBillingPlanRequestBody struct {

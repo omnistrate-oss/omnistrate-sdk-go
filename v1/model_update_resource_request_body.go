@@ -45,7 +45,10 @@ type UpdateResourceRequestBody struct {
 	OperatorCRDConfiguration *OperatorCRDConfiguration `json:"operatorCRDConfiguration,omitempty"`
 	// The Terraform configurations for various cloud providers
 	TerraformConfigurations *map[string]TerraformConfiguration `json:"terraformConfigurations,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateResourceRequestBody UpdateResourceRequestBody
 
 // NewUpdateResourceRequestBody instantiates a new UpdateResourceRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -516,7 +519,49 @@ func (o UpdateResourceRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TerraformConfigurations) {
 		toSerialize["terraformConfigurations"] = o.TerraformConfigurations
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateResourceRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateResourceRequestBody := _UpdateResourceRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateResourceRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateResourceRequestBody(varUpdateResourceRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "additionalSecurityContext")
+		delete(additionalProperties, "backupConfiguration")
+		delete(additionalProperties, "customLabels")
+		delete(additionalProperties, "customSysCTLs")
+		delete(additionalProperties, "customULimits")
+		delete(additionalProperties, "dependencies")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "environmentVariables")
+		delete(additionalProperties, "helmChartConfiguration")
+		delete(additionalProperties, "imageConfigId")
+		delete(additionalProperties, "infraConfigId")
+		delete(additionalProperties, "kustomizeConfiguration")
+		delete(additionalProperties, "l4LoadBalancerConfiguration")
+		delete(additionalProperties, "l7LoadBalancerConfiguration")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "operatorCRDConfiguration")
+		delete(additionalProperties, "terraformConfigurations")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateResourceRequestBody struct {

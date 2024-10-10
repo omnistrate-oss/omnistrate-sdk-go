@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -39,6 +38,7 @@ type UpgradePathSearchRecord struct {
 	ServiceName string `json:"serviceName"`
 	// The upgrade path status.
 	Status string `json:"status"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _UpgradePathSearchRecord UpgradePathSearchRecord
@@ -313,6 +313,11 @@ func (o UpgradePathSearchRecord) ToMap() (map[string]interface{}, error) {
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["serviceName"] = o.ServiceName
 	toSerialize["status"] = o.Status
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -347,15 +352,28 @@ func (o *UpgradePathSearchRecord) UnmarshalJSON(data []byte) (err error) {
 
 	varUpgradePathSearchRecord := _UpgradePathSearchRecord{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varUpgradePathSearchRecord)
+	err = json.Unmarshal(data, &varUpgradePathSearchRecord)
 
 	if err != nil {
 		return err
 	}
 
 	*o = UpgradePathSearchRecord(varUpgradePathSearchRecord)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "productTierID")
+		delete(additionalProperties, "productTierName")
+		delete(additionalProperties, "serviceEnvironmentId")
+		delete(additionalProperties, "serviceEnvironmentName")
+		delete(additionalProperties, "serviceEnvironmentType")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "serviceName")
+		delete(additionalProperties, "status")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -22,7 +22,10 @@ type UpdateCustomerOnboardingRequestBody struct {
 	// The ID of the service associated with this onboarding.
 	ServiceId *string `json:"serviceId,omitempty"`
 	Stage *OnboardingStage `json:"stage,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateCustomerOnboardingRequestBody UpdateCustomerOnboardingRequestBody
 
 // NewUpdateCustomerOnboardingRequestBody instantiates a new UpdateCustomerOnboardingRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -121,7 +124,34 @@ func (o UpdateCustomerOnboardingRequestBody) ToMap() (map[string]interface{}, er
 	if !IsNil(o.Stage) {
 		toSerialize["stage"] = o.Stage
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateCustomerOnboardingRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateCustomerOnboardingRequestBody := _UpdateCustomerOnboardingRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateCustomerOnboardingRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateCustomerOnboardingRequestBody(varUpdateCustomerOnboardingRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "stage")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateCustomerOnboardingRequestBody struct {

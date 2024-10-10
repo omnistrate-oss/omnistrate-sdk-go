@@ -23,7 +23,10 @@ type UpdateIdentityProviderRequestBody struct {
 	ClientId *string `json:"clientId,omitempty"`
 	// The Client Secret of the Identity Provider
 	ClientSecret *string `json:"clientSecret,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateIdentityProviderRequestBody UpdateIdentityProviderRequestBody
 
 // NewUpdateIdentityProviderRequestBody instantiates a new UpdateIdentityProviderRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -104,7 +107,34 @@ func (o UpdateIdentityProviderRequestBody) ToMap() (map[string]interface{}, erro
 	if !IsNil(o.ClientSecret) {
 		toSerialize["clientSecret"] = o.ClientSecret
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateIdentityProviderRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateIdentityProviderRequestBody := _UpdateIdentityProviderRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateIdentityProviderRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateIdentityProviderRequestBody(varUpdateIdentityProviderRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "clientId")
+		delete(additionalProperties, "clientSecret")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateIdentityProviderRequestBody struct {

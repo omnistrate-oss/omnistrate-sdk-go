@@ -21,7 +21,10 @@ var _ MappedNullable = &ServiceProviderEventSummary{}
 type ServiceProviderEventSummary struct {
 	// The number of outstanding events by type
 	EventsSummary *map[string]int64 `json:"eventsSummary,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ServiceProviderEventSummary ServiceProviderEventSummary
 
 // NewServiceProviderEventSummary instantiates a new ServiceProviderEventSummary object
 // This constructor will assign default values to properties that have it defined,
@@ -85,7 +88,33 @@ func (o ServiceProviderEventSummary) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EventsSummary) {
 		toSerialize["eventsSummary"] = o.EventsSummary
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ServiceProviderEventSummary) UnmarshalJSON(data []byte) (err error) {
+	varServiceProviderEventSummary := _ServiceProviderEventSummary{}
+
+	err = json.Unmarshal(data, &varServiceProviderEventSummary)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ServiceProviderEventSummary(varServiceProviderEventSummary)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "eventsSummary")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableServiceProviderEventSummary struct {

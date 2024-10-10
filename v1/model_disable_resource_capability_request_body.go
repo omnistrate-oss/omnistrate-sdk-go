@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &DisableResourceCapabilityRequestBody{}
 type DisableResourceCapabilityRequestBody struct {
 	// The capability to disable
 	Capability string `json:"capability"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DisableResourceCapabilityRequestBody DisableResourceCapabilityRequestBody
@@ -80,6 +80,11 @@ func (o DisableResourceCapabilityRequestBody) MarshalJSON() ([]byte, error) {
 func (o DisableResourceCapabilityRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["capability"] = o.Capability
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *DisableResourceCapabilityRequestBody) UnmarshalJSON(data []byte) (err e
 
 	varDisableResourceCapabilityRequestBody := _DisableResourceCapabilityRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDisableResourceCapabilityRequestBody)
+	err = json.Unmarshal(data, &varDisableResourceCapabilityRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DisableResourceCapabilityRequestBody(varDisableResourceCapabilityRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "capability")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

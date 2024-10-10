@@ -21,7 +21,10 @@ var _ MappedNullable = &OfferingBillingPlan{}
 type OfferingBillingPlan struct {
 	// Maximum number of instances
 	MaxNumberofInstances *int64 `json:"maxNumberofInstances,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _OfferingBillingPlan OfferingBillingPlan
 
 // NewOfferingBillingPlan instantiates a new OfferingBillingPlan object
 // This constructor will assign default values to properties that have it defined,
@@ -85,7 +88,33 @@ func (o OfferingBillingPlan) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.MaxNumberofInstances) {
 		toSerialize["maxNumberofInstances"] = o.MaxNumberofInstances
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *OfferingBillingPlan) UnmarshalJSON(data []byte) (err error) {
+	varOfferingBillingPlan := _OfferingBillingPlan{}
+
+	err = json.Unmarshal(data, &varOfferingBillingPlan)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OfferingBillingPlan(varOfferingBillingPlan)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "maxNumberofInstances")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableOfferingBillingPlan struct {

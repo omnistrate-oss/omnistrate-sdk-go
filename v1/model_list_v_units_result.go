@@ -23,7 +23,10 @@ type ListVUnitsResult struct {
 	Ids *map[string][]string `json:"ids,omitempty"`
 	// Next page token
 	NextPageToken *string `json:"nextPageToken,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ListVUnitsResult ListVUnitsResult
 
 // NewListVUnitsResult instantiates a new ListVUnitsResult object
 // This constructor will assign default values to properties that have it defined,
@@ -104,7 +107,34 @@ func (o ListVUnitsResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.NextPageToken) {
 		toSerialize["nextPageToken"] = o.NextPageToken
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ListVUnitsResult) UnmarshalJSON(data []byte) (err error) {
+	varListVUnitsResult := _ListVUnitsResult{}
+
+	err = json.Unmarshal(data, &varListVUnitsResult)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ListVUnitsResult(varListVUnitsResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "ids")
+		delete(additionalProperties, "nextPageToken")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableListVUnitsResult struct {

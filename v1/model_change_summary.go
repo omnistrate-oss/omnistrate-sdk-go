@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type ChangeSummary struct {
 	Changes []Change `json:"changes"`
 	// The product tier feature changes for the resource.
 	Status string `json:"status"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ChangeSummary ChangeSummary
@@ -108,6 +108,11 @@ func (o ChangeSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["changes"] = o.Changes
 	toSerialize["status"] = o.Status
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *ChangeSummary) UnmarshalJSON(data []byte) (err error) {
 
 	varChangeSummary := _ChangeSummary{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varChangeSummary)
+	err = json.Unmarshal(data, &varChangeSummary)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ChangeSummary(varChangeSummary)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "changes")
+		delete(additionalProperties, "status")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

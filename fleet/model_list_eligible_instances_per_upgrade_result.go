@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -29,6 +28,7 @@ type ListEligibleInstancesPerUpgradeResult struct {
 	ServiceId string `json:"serviceId"`
 	// The upgrade path ID
 	UpgradePathId string `json:"upgradePathId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListEligibleInstancesPerUpgradeResult ListEligibleInstancesPerUpgradeResult
@@ -164,6 +164,11 @@ func (o ListEligibleInstancesPerUpgradeResult) ToMap() (map[string]interface{}, 
 	toSerialize["productTierId"] = o.ProductTierId
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["upgradePathId"] = o.UpgradePathId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -194,15 +199,23 @@ func (o *ListEligibleInstancesPerUpgradeResult) UnmarshalJSON(data []byte) (err 
 
 	varListEligibleInstancesPerUpgradeResult := _ListEligibleInstancesPerUpgradeResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListEligibleInstancesPerUpgradeResult)
+	err = json.Unmarshal(data, &varListEligibleInstancesPerUpgradeResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListEligibleInstancesPerUpgradeResult(varListEligibleInstancesPerUpgradeResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "instances")
+		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "upgradePathId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

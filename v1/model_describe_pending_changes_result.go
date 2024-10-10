@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type DescribePendingChangesResult struct {
 	ResourceChangeSets map[string]ChangeSet `json:"resourceChangeSets"`
 	// The service ID that this API bundle belongs to
 	ServiceId string `json:"serviceId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribePendingChangesResult DescribePendingChangesResult
@@ -136,6 +136,11 @@ func (o DescribePendingChangesResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["resourceChangeSets"] = o.ResourceChangeSets
 	toSerialize["serviceId"] = o.ServiceId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -165,15 +170,22 @@ func (o *DescribePendingChangesResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribePendingChangesResult := _DescribePendingChangesResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribePendingChangesResult)
+	err = json.Unmarshal(data, &varDescribePendingChangesResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribePendingChangesResult(varDescribePendingChangesResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "resourceChangeSets")
+		delete(additionalProperties, "serviceId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

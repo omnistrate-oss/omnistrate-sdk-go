@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -54,6 +53,7 @@ type DescribeUserResult struct {
 	PlanName *string `json:"planName,omitempty"`
 	// The role type of the user
 	RoleType string `json:"roleType"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeUserResult DescribeUserResult
@@ -527,6 +527,11 @@ func (o DescribeUserResult) ToMap() (map[string]interface{}, error) {
 		toSerialize["planName"] = o.PlanName
 	}
 	toSerialize["roleType"] = o.RoleType
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -568,15 +573,36 @@ func (o *DescribeUserResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribeUserResult := _DescribeUserResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeUserResult)
+	err = json.Unmarshal(data, &varDescribeUserResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeUserResult(varDescribeUserResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "address")
+		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "lastModifiedAt")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "orgDescription")
+		delete(additionalProperties, "orgFavIconURL")
+		delete(additionalProperties, "orgId")
+		delete(additionalProperties, "orgLogoURL")
+		delete(additionalProperties, "orgName")
+		delete(additionalProperties, "orgPrivacyPolicy")
+		delete(additionalProperties, "orgSupportEmail")
+		delete(additionalProperties, "orgTermsOfUse")
+		delete(additionalProperties, "orgURL")
+		delete(additionalProperties, "planName")
+		delete(additionalProperties, "roleType")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

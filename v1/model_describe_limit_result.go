@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -33,6 +32,7 @@ type DescribeLimitResult struct {
 	Name string `json:"name"`
 	// Value of the limit being enforced
 	Value int64 `json:"value"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeLimitResult DescribeLimitResult
@@ -220,6 +220,11 @@ func (o DescribeLimitResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["modifiable"] = o.Modifiable
 	toSerialize["name"] = o.Name
 	toSerialize["value"] = o.Value
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -252,15 +257,25 @@ func (o *DescribeLimitResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribeLimitResult := _DescribeLimitResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeLimitResult)
+	err = json.Unmarshal(data, &varDescribeLimitResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeLimitResult(varDescribeLimitResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "family")
+		delete(additionalProperties, "key")
+		delete(additionalProperties, "modifiable")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "value")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

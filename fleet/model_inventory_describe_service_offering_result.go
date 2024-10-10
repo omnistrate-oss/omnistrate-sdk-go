@@ -20,7 +20,10 @@ var _ MappedNullable = &InventoryDescribeServiceOfferingResult{}
 // InventoryDescribeServiceOfferingResult struct for InventoryDescribeServiceOfferingResult
 type InventoryDescribeServiceOfferingResult struct {
 	ConsumptionDescribeServiceOfferingResult *DescribeServiceOfferingResult `json:"ConsumptionDescribeServiceOfferingResult,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _InventoryDescribeServiceOfferingResult InventoryDescribeServiceOfferingResult
 
 // NewInventoryDescribeServiceOfferingResult instantiates a new InventoryDescribeServiceOfferingResult object
 // This constructor will assign default values to properties that have it defined,
@@ -84,7 +87,33 @@ func (o InventoryDescribeServiceOfferingResult) ToMap() (map[string]interface{},
 	if !IsNil(o.ConsumptionDescribeServiceOfferingResult) {
 		toSerialize["ConsumptionDescribeServiceOfferingResult"] = o.ConsumptionDescribeServiceOfferingResult
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *InventoryDescribeServiceOfferingResult) UnmarshalJSON(data []byte) (err error) {
+	varInventoryDescribeServiceOfferingResult := _InventoryDescribeServiceOfferingResult{}
+
+	err = json.Unmarshal(data, &varInventoryDescribeServiceOfferingResult)
+
+	if err != nil {
+		return err
+	}
+
+	*o = InventoryDescribeServiceOfferingResult(varInventoryDescribeServiceOfferingResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "ConsumptionDescribeServiceOfferingResult")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableInventoryDescribeServiceOfferingResult struct {

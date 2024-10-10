@@ -25,7 +25,10 @@ type UpdateInstanceStorageVolumeConfigRequestBody struct {
 	InstanceStorageThroughputMiBps *string `json:"instanceStorageThroughputMiBps,omitempty"`
 	// The type of the storage for a compute instance
 	InstanceStorageType *string `json:"instanceStorageType,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateInstanceStorageVolumeConfigRequestBody UpdateInstanceStorageVolumeConfigRequestBody
 
 // NewUpdateInstanceStorageVolumeConfigRequestBody instantiates a new UpdateInstanceStorageVolumeConfigRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -132,7 +135,35 @@ func (o UpdateInstanceStorageVolumeConfigRequestBody) ToMap() (map[string]interf
 	if !IsNil(o.InstanceStorageType) {
 		toSerialize["instanceStorageType"] = o.InstanceStorageType
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateInstanceStorageVolumeConfigRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateInstanceStorageVolumeConfigRequestBody := _UpdateInstanceStorageVolumeConfigRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateInstanceStorageVolumeConfigRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateInstanceStorageVolumeConfigRequestBody(varUpdateInstanceStorageVolumeConfigRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "instanceStorageIops")
+		delete(additionalProperties, "instanceStorageThroughputMiBps")
+		delete(additionalProperties, "instanceStorageType")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateInstanceStorageVolumeConfigRequestBody struct {

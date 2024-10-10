@@ -21,7 +21,10 @@ var _ MappedNullable = &ListInvoicesResult{}
 type ListInvoicesResult struct {
 	// List of Invoices
 	Invoices []Invoice `json:"invoices,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ListInvoicesResult ListInvoicesResult
 
 // NewListInvoicesResult instantiates a new ListInvoicesResult object
 // This constructor will assign default values to properties that have it defined,
@@ -76,7 +79,33 @@ func (o ListInvoicesResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Invoices) {
 		toSerialize["invoices"] = o.Invoices
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ListInvoicesResult) UnmarshalJSON(data []byte) (err error) {
+	varListInvoicesResult := _ListInvoicesResult{}
+
+	err = json.Unmarshal(data, &varListInvoicesResult)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ListInvoicesResult(varListInvoicesResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "invoices")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableListInvoicesResult struct {

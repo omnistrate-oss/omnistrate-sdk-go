@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -26,6 +25,7 @@ type KustomizeConfiguration struct {
 	HelmChartDependencies []OperatorHelmChartDependency `json:"helmChartDependencies,omitempty"`
 	// The path to the kustomize directory
 	KustomizePath string `json:"kustomizePath"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _KustomizeConfiguration KustomizeConfiguration
@@ -135,6 +135,11 @@ func (o KustomizeConfiguration) ToMap() (map[string]interface{}, error) {
 		toSerialize["helmChartDependencies"] = o.HelmChartDependencies
 	}
 	toSerialize["kustomizePath"] = o.KustomizePath
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -162,15 +167,22 @@ func (o *KustomizeConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	varKustomizeConfiguration := _KustomizeConfiguration{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varKustomizeConfiguration)
+	err = json.Unmarshal(data, &varKustomizeConfiguration)
 
 	if err != nil {
 		return err
 	}
 
 	*o = KustomizeConfiguration(varKustomizeConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "gitConfiguration")
+		delete(additionalProperties, "helmChartDependencies")
+		delete(additionalProperties, "kustomizePath")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

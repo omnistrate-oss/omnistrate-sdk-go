@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type ServiceSearchRecord struct {
 	Id string `json:"id"`
 	// The service name.
 	Name string `json:"name"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ServiceSearchRecord ServiceSearchRecord
@@ -136,6 +136,11 @@ func (o ServiceSearchRecord) ToMap() (map[string]interface{}, error) {
 	toSerialize["description"] = o.Description
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -165,15 +170,22 @@ func (o *ServiceSearchRecord) UnmarshalJSON(data []byte) (err error) {
 
 	varServiceSearchRecord := _ServiceSearchRecord{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varServiceSearchRecord)
+	err = json.Unmarshal(data, &varServiceSearchRecord)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ServiceSearchRecord(varServiceSearchRecord)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "name")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

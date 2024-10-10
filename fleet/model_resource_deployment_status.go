@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -39,6 +38,7 @@ type ResourceDeploymentStatus struct {
 	Status string `json:"status"`
 	// The status of the resource storage deployment.
 	StorageDeploymentStatus string `json:"storageDeploymentStatus"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ResourceDeploymentStatus ResourceDeploymentStatus
@@ -304,6 +304,11 @@ func (o ResourceDeploymentStatus) ToMap() (map[string]interface{}, error) {
 	toSerialize["resourceName"] = o.ResourceName
 	toSerialize["status"] = o.Status
 	toSerialize["storageDeploymentStatus"] = o.StorageDeploymentStatus
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -339,15 +344,28 @@ func (o *ResourceDeploymentStatus) UnmarshalJSON(data []byte) (err error) {
 
 	varResourceDeploymentStatus := _ResourceDeploymentStatus{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varResourceDeploymentStatus)
+	err = json.Unmarshal(data, &varResourceDeploymentStatus)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ResourceDeploymentStatus(varResourceDeploymentStatus)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "actionHookDeploymentStatus")
+		delete(additionalProperties, "computeDeploymentStatus")
+		delete(additionalProperties, "configurationStatus")
+		delete(additionalProperties, "infraDeploymentStatus")
+		delete(additionalProperties, "monitoringStatus")
+		delete(additionalProperties, "networkDeploymentStatus")
+		delete(additionalProperties, "resourceName")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "storageDeploymentStatus")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

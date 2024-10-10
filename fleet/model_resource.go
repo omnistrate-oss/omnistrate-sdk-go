@@ -41,7 +41,10 @@ type Resource struct {
 	Version *string `json:"version,omitempty"`
 	// The version history of the resource.
 	VersionHistory []string `json:"versionHistory,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _Resource Resource
 
 // NewResource instantiates a new Resource object
 // This constructor will assign default values to properties that have it defined,
@@ -455,7 +458,43 @@ func (o Resource) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.VersionHistory) {
 		toSerialize["versionHistory"] = o.VersionHistory
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *Resource) UnmarshalJSON(data []byte) (err error) {
+	varResource := _Resource{}
+
+	err = json.Unmarshal(data, &varResource)
+
+	if err != nil {
+		return err
+	}
+
+	*o = Resource(varResource)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "instanceCount")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "perVersionInstanceCount")
+		delete(additionalProperties, "productTierType")
+		delete(additionalProperties, "proxyType")
+		delete(additionalProperties, "resourceId")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "serviceModelType")
+		delete(additionalProperties, "version")
+		delete(additionalProperties, "versionHistory")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableResource struct {

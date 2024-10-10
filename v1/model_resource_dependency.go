@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type ResourceDependency struct {
 	ParameterMap *map[string]string `json:"parameterMap,omitempty"`
 	// The ID of the resource
 	ResourceId string `json:"resourceId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ResourceDependency ResourceDependency
@@ -108,6 +108,11 @@ func (o ResourceDependency) ToMap() (map[string]interface{}, error) {
 		toSerialize["parameterMap"] = o.ParameterMap
 	}
 	toSerialize["resourceId"] = o.ResourceId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -135,15 +140,21 @@ func (o *ResourceDependency) UnmarshalJSON(data []byte) (err error) {
 
 	varResourceDependency := _ResourceDependency{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varResourceDependency)
+	err = json.Unmarshal(data, &varResourceDependency)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ResourceDependency(varResourceDependency)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "parameterMap")
+		delete(additionalProperties, "resourceId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

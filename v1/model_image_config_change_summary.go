@@ -25,7 +25,10 @@ type ImageConfigChangeSummary struct {
 	ImageConfigId *string `json:"imageConfigId,omitempty"`
 	// Name of the container image
 	ImageName *string `json:"imageName,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ImageConfigChangeSummary ImageConfigChangeSummary
 
 // NewImageConfigChangeSummary instantiates a new ImageConfigChangeSummary object
 // This constructor will assign default values to properties that have it defined,
@@ -132,7 +135,35 @@ func (o ImageConfigChangeSummary) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ImageName) {
 		toSerialize["imageName"] = o.ImageName
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ImageConfigChangeSummary) UnmarshalJSON(data []byte) (err error) {
+	varImageConfigChangeSummary := _ImageConfigChangeSummary{}
+
+	err = json.Unmarshal(data, &varImageConfigChangeSummary)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ImageConfigChangeSummary(varImageConfigChangeSummary)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "changeState")
+		delete(additionalProperties, "imageConfigId")
+		delete(additionalProperties, "imageName")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableImageConfigChangeSummary struct {

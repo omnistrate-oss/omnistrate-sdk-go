@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -22,6 +21,7 @@ var _ MappedNullable = &AccountConfigIdentityIDResult{}
 // AccountConfigIdentityIDResult struct for AccountConfigIdentityIDResult
 type AccountConfigIdentityIDResult struct {
 	Id string `json:"id"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _AccountConfigIdentityIDResult AccountConfigIdentityIDResult
@@ -79,6 +79,11 @@ func (o AccountConfigIdentityIDResult) MarshalJSON() ([]byte, error) {
 func (o AccountConfigIdentityIDResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -106,15 +111,20 @@ func (o *AccountConfigIdentityIDResult) UnmarshalJSON(data []byte) (err error) {
 
 	varAccountConfigIdentityIDResult := _AccountConfigIdentityIDResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAccountConfigIdentityIDResult)
+	err = json.Unmarshal(data, &varAccountConfigIdentityIDResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = AccountConfigIdentityIDResult(varAccountConfigIdentityIDResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "id")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -49,6 +48,7 @@ type InstanceUpgrade struct {
 	UpgradeStartTime *string `json:"upgradeStartTime,omitempty"`
 	// The workflow ID of the instance upgrade.
 	WorkflowID string `json:"workflowID"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _InstanceUpgrade InstanceUpgrade
@@ -480,6 +480,11 @@ func (o InstanceUpgrade) ToMap() (map[string]interface{}, error) {
 		toSerialize["upgradeStartTime"] = o.UpgradeStartTime
 	}
 	toSerialize["workflowID"] = o.WorkflowID
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -516,15 +521,33 @@ func (o *InstanceUpgrade) UnmarshalJSON(data []byte) (err error) {
 
 	varInstanceUpgrade := _InstanceUpgrade{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varInstanceUpgrade)
+	err = json.Unmarshal(data, &varInstanceUpgrade)
 
 	if err != nil {
 		return err
 	}
 
 	*o = InstanceUpgrade(varInstanceUpgrade)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cloudProviderName")
+		delete(additionalProperties, "cloudProviderRegion")
+		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "healthStatus")
+		delete(additionalProperties, "instanceId")
+		delete(additionalProperties, "lifecycleStatus")
+		delete(additionalProperties, "managedResourceType")
+		delete(additionalProperties, "orgName")
+		delete(additionalProperties, "resourceName")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "updatedAt")
+		delete(additionalProperties, "upgradeEndTime")
+		delete(additionalProperties, "upgradeStartTime")
+		delete(additionalProperties, "workflowID")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

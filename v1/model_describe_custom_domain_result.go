@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -34,6 +33,7 @@ type DescribeCustomDomainResult struct {
 	Status *string `json:"status,omitempty"`
 	// The status message of the custom domain
 	StatusMessage *string `json:"statusMessage,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeCustomDomainResult DescribeCustomDomainResult
@@ -247,6 +247,11 @@ func (o DescribeCustomDomainResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.StatusMessage) {
 		toSerialize["statusMessage"] = o.StatusMessage
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -278,15 +283,26 @@ func (o *DescribeCustomDomainResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribeCustomDomainResult := _DescribeCustomDomainResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeCustomDomainResult)
+	err = json.Unmarshal(data, &varDescribeCustomDomainResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeCustomDomainResult(varDescribeCustomDomainResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "customDomain")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "route53Configuration")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "statusMessage")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

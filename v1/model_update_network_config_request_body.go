@@ -37,7 +37,10 @@ type UpdateNetworkConfigRequestBody struct {
 	TlsTerminationPort *int64 `json:"tlsTerminationPort,omitempty"`
 	// The preferred type of zonal availability for this resource and the specific zone(s) to deploy in
 	ZoneConfiguration *string `json:"zoneConfiguration,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateNetworkConfigRequestBody UpdateNetworkConfigRequestBody
 
 // NewUpdateNetworkConfigRequestBody instantiates a new UpdateNetworkConfigRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -326,7 +329,42 @@ func (o UpdateNetworkConfigRequestBody) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.ZoneConfiguration) {
 		toSerialize["zoneConfiguration"] = o.ZoneConfiguration
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateNetworkConfigRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateNetworkConfigRequestBody := _UpdateNetworkConfigRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateNetworkConfigRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateNetworkConfigRequestBody(varUpdateNetworkConfigRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "endpointPerReplica")
+		delete(additionalProperties, "internal")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "openPorts")
+		delete(additionalProperties, "privateNetworkingConfiguration")
+		delete(additionalProperties, "publicNetworkingConfiguration")
+		delete(additionalProperties, "stableEgressIP")
+		delete(additionalProperties, "tlsTerminationPort")
+		delete(additionalProperties, "zoneConfiguration")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateNetworkConfigRequestBody struct {

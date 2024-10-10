@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type OnboardingStage struct {
 	Name string `json:"name"`
 	// The status of the stage.
 	Status *string `json:"status,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OnboardingStage OnboardingStage
@@ -117,6 +117,11 @@ func (o OnboardingStage) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -144,15 +149,21 @@ func (o *OnboardingStage) UnmarshalJSON(data []byte) (err error) {
 
 	varOnboardingStage := _OnboardingStage{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOnboardingStage)
+	err = json.Unmarshal(data, &varOnboardingStage)
 
 	if err != nil {
 		return err
 	}
 
 	*o = OnboardingStage(varOnboardingStage)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "status")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

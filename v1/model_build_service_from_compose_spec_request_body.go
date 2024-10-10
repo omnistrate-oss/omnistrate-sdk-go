@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -43,6 +42,7 @@ type BuildServiceFromComposeSpecRequestBody struct {
 	Secrets *map[string]string `json:"secrets,omitempty"`
 	// The logo for the service
 	ServiceLogoURL *string `json:"serviceLogoURL,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _BuildServiceFromComposeSpecRequestBody BuildServiceFromComposeSpecRequestBody
@@ -360,6 +360,11 @@ func (o BuildServiceFromComposeSpecRequestBody) ToMap() (map[string]interface{},
 	if !IsNil(o.ServiceLogoURL) {
 		toSerialize["serviceLogoURL"] = o.ServiceLogoURL
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -388,15 +393,30 @@ func (o *BuildServiceFromComposeSpecRequestBody) UnmarshalJSON(data []byte) (err
 
 	varBuildServiceFromComposeSpecRequestBody := _BuildServiceFromComposeSpecRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varBuildServiceFromComposeSpecRequestBody)
+	err = json.Unmarshal(data, &varBuildServiceFromComposeSpecRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = BuildServiceFromComposeSpecRequestBody(varBuildServiceFromComposeSpecRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "configs")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "environment")
+		delete(additionalProperties, "environmentType")
+		delete(additionalProperties, "fileContent")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "release")
+		delete(additionalProperties, "releaseAsPreferred")
+		delete(additionalProperties, "releaseVersionName")
+		delete(additionalProperties, "secrets")
+		delete(additionalProperties, "serviceLogoURL")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

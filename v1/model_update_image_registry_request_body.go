@@ -29,7 +29,10 @@ type UpdateImageRegistryRequestBody struct {
 	Password *string `json:"password,omitempty"`
 	// The username to use when authenticating to the Image Registry
 	Username *string `json:"username,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateImageRegistryRequestBody UpdateImageRegistryRequestBody
 
 // NewUpdateImageRegistryRequestBody instantiates a new UpdateImageRegistryRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -188,7 +191,37 @@ func (o UpdateImageRegistryRequestBody) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.Username) {
 		toSerialize["username"] = o.Username
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateImageRegistryRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateImageRegistryRequestBody := _UpdateImageRegistryRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateImageRegistryRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateImageRegistryRequestBody(varUpdateImageRegistryRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "host")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "password")
+		delete(additionalProperties, "username")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateImageRegistryRequestBody struct {

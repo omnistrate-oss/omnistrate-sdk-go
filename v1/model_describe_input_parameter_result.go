@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -51,6 +50,7 @@ type DescribeInputParameterResult struct {
 	// The ID of the service that this output parameter belongs to
 	ServiceId string `json:"serviceId"`
 	Type string `json:"type"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeInputParameterResult DescribeInputParameterResult
@@ -504,6 +504,11 @@ func (o DescribeInputParameterResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["resourceId"] = o.ResourceId
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["type"] = o.Type
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -540,15 +545,35 @@ func (o *DescribeInputParameterResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribeInputParameterResult := _DescribeInputParameterResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeInputParameterResult)
+	err = json.Unmarshal(data, &varDescribeInputParameterResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeInputParameterResult(varDescribeInputParameterResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "defaultValue")
+		delete(additionalProperties, "dependentResourceId")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "hasOptions")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "isList")
+		delete(additionalProperties, "key")
+		delete(additionalProperties, "labeledOptions")
+		delete(additionalProperties, "limits")
+		delete(additionalProperties, "modifiable")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "options")
+		delete(additionalProperties, "required")
+		delete(additionalProperties, "resourceId")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "type")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

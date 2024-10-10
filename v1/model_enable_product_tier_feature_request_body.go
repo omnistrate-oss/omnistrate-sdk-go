@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type EnableProductTierFeatureRequestBody struct {
 	Feature string `json:"feature"`
 	// Feature scope
 	Scope *string `json:"scope,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _EnableProductTierFeatureRequestBody EnableProductTierFeatureRequestBody
@@ -136,6 +136,11 @@ func (o EnableProductTierFeatureRequestBody) ToMap() (map[string]interface{}, er
 	if !IsNil(o.Scope) {
 		toSerialize["scope"] = o.Scope
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -163,15 +168,22 @@ func (o *EnableProductTierFeatureRequestBody) UnmarshalJSON(data []byte) (err er
 
 	varEnableProductTierFeatureRequestBody := _EnableProductTierFeatureRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEnableProductTierFeatureRequestBody)
+	err = json.Unmarshal(data, &varEnableProductTierFeatureRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = EnableProductTierFeatureRequestBody(varEnableProductTierFeatureRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "configuration")
+		delete(additionalProperties, "feature")
+		delete(additionalProperties, "scope")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

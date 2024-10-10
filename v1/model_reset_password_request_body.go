@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -22,6 +21,7 @@ var _ MappedNullable = &ResetPasswordRequestBody{}
 // ResetPasswordRequestBody struct for ResetPasswordRequestBody
 type ResetPasswordRequestBody struct {
 	Email string `json:"email"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ResetPasswordRequestBody ResetPasswordRequestBody
@@ -79,6 +79,11 @@ func (o ResetPasswordRequestBody) MarshalJSON() ([]byte, error) {
 func (o ResetPasswordRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["email"] = o.Email
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -106,15 +111,20 @@ func (o *ResetPasswordRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varResetPasswordRequestBody := _ResetPasswordRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varResetPasswordRequestBody)
+	err = json.Unmarshal(data, &varResetPasswordRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ResetPasswordRequestBody(varResetPasswordRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "email")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

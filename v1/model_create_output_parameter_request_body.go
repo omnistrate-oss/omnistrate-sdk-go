@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -34,6 +33,7 @@ type CreateOutputParameterRequestBody struct {
 	// Reference to another variable that will be used to set the value of the output variable being exported
 	ValueRef *string `json:"valueRef,omitempty"`
 	ValueType *string `json:"valueType,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateOutputParameterRequestBody CreateOutputParameterRequestBody
@@ -247,6 +247,11 @@ func (o CreateOutputParameterRequestBody) ToMap() (map[string]interface{}, error
 	if !IsNil(o.ValueType) {
 		toSerialize["valueType"] = o.ValueType
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -277,15 +282,26 @@ func (o *CreateOutputParameterRequestBody) UnmarshalJSON(data []byte) (err error
 
 	varCreateOutputParameterRequestBody := _CreateOutputParameterRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateOutputParameterRequestBody)
+	err = json.Unmarshal(data, &varCreateOutputParameterRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateOutputParameterRequestBody(varCreateOutputParameterRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "key")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "resourceId")
+		delete(additionalProperties, "value")
+		delete(additionalProperties, "valueRef")
+		delete(additionalProperties, "valueType")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

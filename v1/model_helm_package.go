@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -35,6 +34,7 @@ type HelmPackage struct {
 	ChartVersion string `json:"chartVersion"`
 	// The namespace where the Helm package should be installed
 	Namespace string `json:"namespace"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _HelmPackage HelmPackage
@@ -252,6 +252,11 @@ func (o HelmPackage) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["chartVersion"] = o.ChartVersion
 	toSerialize["namespace"] = o.Namespace
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -283,15 +288,26 @@ func (o *HelmPackage) UnmarshalJSON(data []byte) (err error) {
 
 	varHelmPackage := _HelmPackage{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varHelmPackage)
+	err = json.Unmarshal(data, &varHelmPackage)
 
 	if err != nil {
 		return err
 	}
 
 	*o = HelmPackage(varHelmPackage)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "chartName")
+		delete(additionalProperties, "chartRepoName")
+		delete(additionalProperties, "chartRepoUrl")
+		delete(additionalProperties, "chartType")
+		delete(additionalProperties, "chartValues")
+		delete(additionalProperties, "chartVersion")
+		delete(additionalProperties, "namespace")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

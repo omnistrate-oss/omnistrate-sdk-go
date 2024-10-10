@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -35,6 +34,7 @@ type CustomerOnboarding struct {
 	Stages []OnboardingStage `json:"stages"`
 	// The user ID.
 	UserId string `json:"userId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CustomerOnboarding CustomerOnboarding
@@ -266,6 +266,11 @@ func (o CustomerOnboarding) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["stages"] = o.Stages
 	toSerialize["userId"] = o.UserId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -297,15 +302,26 @@ func (o *CustomerOnboarding) UnmarshalJSON(data []byte) (err error) {
 
 	varCustomerOnboarding := _CustomerOnboarding{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCustomerOnboarding)
+	err = json.Unmarshal(data, &varCustomerOnboarding)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CustomerOnboarding(varCustomerOnboarding)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "isCompleted")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "orgId")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "stages")
+		delete(additionalProperties, "userId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

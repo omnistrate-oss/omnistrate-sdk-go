@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type ListServicePlansResult struct {
 	NextPageToken *string `json:"nextPageToken,omitempty"`
 	// List of service plans
 	ServicePlans []GetServicePlanResult `json:"servicePlans"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListServicePlansResult ListServicePlansResult
@@ -108,6 +108,11 @@ func (o ListServicePlansResult) ToMap() (map[string]interface{}, error) {
 		toSerialize["nextPageToken"] = o.NextPageToken
 	}
 	toSerialize["servicePlans"] = o.ServicePlans
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -135,15 +140,21 @@ func (o *ListServicePlansResult) UnmarshalJSON(data []byte) (err error) {
 
 	varListServicePlansResult := _ListServicePlansResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListServicePlansResult)
+	err = json.Unmarshal(data, &varListServicePlansResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListServicePlansResult(varListServicePlansResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "nextPageToken")
+		delete(additionalProperties, "servicePlans")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

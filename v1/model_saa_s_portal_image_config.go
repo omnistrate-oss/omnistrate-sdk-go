@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type SaaSPortalImageConfig struct {
 	ImageRegistry string `json:"imageRegistry"`
 	// The image tag for the SaaS portal
 	ImageTag string `json:"imageTag"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _SaaSPortalImageConfig SaaSPortalImageConfig
@@ -136,6 +136,11 @@ func (o SaaSPortalImageConfig) ToMap() (map[string]interface{}, error) {
 	toSerialize["imageName"] = o.ImageName
 	toSerialize["imageRegistry"] = o.ImageRegistry
 	toSerialize["imageTag"] = o.ImageTag
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -165,15 +170,22 @@ func (o *SaaSPortalImageConfig) UnmarshalJSON(data []byte) (err error) {
 
 	varSaaSPortalImageConfig := _SaaSPortalImageConfig{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSaaSPortalImageConfig)
+	err = json.Unmarshal(data, &varSaaSPortalImageConfig)
 
 	if err != nil {
 		return err
 	}
 
 	*o = SaaSPortalImageConfig(varSaaSPortalImageConfig)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "imageName")
+		delete(additionalProperties, "imageRegistry")
+		delete(additionalProperties, "imageTag")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

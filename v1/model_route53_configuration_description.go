@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type Route53ConfigurationDescription struct {
 	AwsAccountID string `json:"awsAccountID"`
 	// The URL to the CloudFormation template
 	AwsCloudFormationTemplateURL string `json:"awsCloudFormationTemplateURL"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _Route53ConfigurationDescription Route53ConfigurationDescription
@@ -108,6 +108,11 @@ func (o Route53ConfigurationDescription) ToMap() (map[string]interface{}, error)
 	toSerialize := map[string]interface{}{}
 	toSerialize["awsAccountID"] = o.AwsAccountID
 	toSerialize["awsCloudFormationTemplateURL"] = o.AwsCloudFormationTemplateURL
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *Route53ConfigurationDescription) UnmarshalJSON(data []byte) (err error)
 
 	varRoute53ConfigurationDescription := _Route53ConfigurationDescription{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varRoute53ConfigurationDescription)
+	err = json.Unmarshal(data, &varRoute53ConfigurationDescription)
 
 	if err != nil {
 		return err
 	}
 
 	*o = Route53ConfigurationDescription(varRoute53ConfigurationDescription)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "awsAccountID")
+		delete(additionalProperties, "awsCloudFormationTemplateURL")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

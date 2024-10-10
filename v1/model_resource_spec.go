@@ -21,7 +21,10 @@ var _ MappedNullable = &ResourceSpec{}
 type ResourceSpec struct {
 	Limits *ResourceSpecLimits `json:"limits,omitempty"`
 	Requests *ResourceSpecRequests `json:"requests,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ResourceSpec ResourceSpec
 
 // NewResourceSpec instantiates a new ResourceSpec object
 // This constructor will assign default values to properties that have it defined,
@@ -102,7 +105,34 @@ func (o ResourceSpec) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Requests) {
 		toSerialize["requests"] = o.Requests
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ResourceSpec) UnmarshalJSON(data []byte) (err error) {
+	varResourceSpec := _ResourceSpec{}
+
+	err = json.Unmarshal(data, &varResourceSpec)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ResourceSpec(varResourceSpec)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "limits")
+		delete(additionalProperties, "requests")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableResourceSpec struct {

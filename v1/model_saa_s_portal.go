@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -37,6 +36,7 @@ type SaaSPortal struct {
 	ImageConfig *SaaSPortalImageConfig `json:"imageConfig,omitempty"`
 	// The status of the SaaS portal for this environment type
 	Status string `json:"status"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _SaaSPortal SaaSPortal
@@ -302,6 +302,11 @@ func (o SaaSPortal) ToMap() (map[string]interface{}, error) {
 		toSerialize["imageConfig"] = o.ImageConfig
 	}
 	toSerialize["status"] = o.Status
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -330,15 +335,28 @@ func (o *SaaSPortal) UnmarshalJSON(data []byte) (err error) {
 
 	varSaaSPortal := _SaaSPortal{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSaaSPortal)
+	err = json.Unmarshal(data, &varSaaSPortal)
 
 	if err != nil {
 		return err
 	}
 
 	*o = SaaSPortal(varSaaSPortal)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "customDomain")
+		delete(additionalProperties, "customDomainStatus")
+		delete(additionalProperties, "detailedNetworkTopology")
+		delete(additionalProperties, "emailConfig")
+		delete(additionalProperties, "endpoint")
+		delete(additionalProperties, "environmentType")
+		delete(additionalProperties, "googleAnalyticsTagID")
+		delete(additionalProperties, "imageConfig")
+		delete(additionalProperties, "status")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

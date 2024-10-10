@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type RegisterActionHookRequestBody struct {
 	Scope string `json:"scope"`
 	// The type of hook to execute
 	Type string `json:"type"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _RegisterActionHookRequestBody RegisterActionHookRequestBody
@@ -136,6 +136,11 @@ func (o RegisterActionHookRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize["commandTemplate"] = o.CommandTemplate
 	toSerialize["scope"] = o.Scope
 	toSerialize["type"] = o.Type
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -165,15 +170,22 @@ func (o *RegisterActionHookRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varRegisterActionHookRequestBody := _RegisterActionHookRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varRegisterActionHookRequestBody)
+	err = json.Unmarshal(data, &varRegisterActionHookRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = RegisterActionHookRequestBody(varRegisterActionHookRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "commandTemplate")
+		delete(additionalProperties, "scope")
+		delete(additionalProperties, "type")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

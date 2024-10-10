@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -36,6 +35,7 @@ type CreateServiceEnvironmentRequestBody struct {
 	Type *string `json:"type,omitempty"`
 	// This parameter is used to configure the visibility of the service control-plane APIs
 	Visibility *string `json:"visibility,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateServiceEnvironmentRequestBody CreateServiceEnvironmentRequestBody
@@ -275,6 +275,11 @@ func (o CreateServiceEnvironmentRequestBody) ToMap() (map[string]interface{}, er
 	if !IsNil(o.Visibility) {
 		toSerialize["visibility"] = o.Visibility
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -304,15 +309,27 @@ func (o *CreateServiceEnvironmentRequestBody) UnmarshalJSON(data []byte) (err er
 
 	varCreateServiceEnvironmentRequestBody := _CreateServiceEnvironmentRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateServiceEnvironmentRequestBody)
+	err = json.Unmarshal(data, &varCreateServiceEnvironmentRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateServiceEnvironmentRequestBody(varCreateServiceEnvironmentRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "autoApproveSubscription")
+		delete(additionalProperties, "deploymentConfigId")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "serviceAuthPublicKey")
+		delete(additionalProperties, "sourceEnvironmentId")
+		delete(additionalProperties, "type")
+		delete(additionalProperties, "visibility")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

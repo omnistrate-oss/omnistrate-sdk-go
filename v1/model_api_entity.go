@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type APIEntity struct {
 	OutputParameters []OutputParameterEntity `json:"outputParameters"`
 	// The API verb
 	Verb string `json:"verb"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _APIEntity APIEntity
@@ -136,6 +136,11 @@ func (o APIEntity) ToMap() (map[string]interface{}, error) {
 	toSerialize["inputParameters"] = o.InputParameters
 	toSerialize["outputParameters"] = o.OutputParameters
 	toSerialize["verb"] = o.Verb
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -165,15 +170,22 @@ func (o *APIEntity) UnmarshalJSON(data []byte) (err error) {
 
 	varAPIEntity := _APIEntity{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAPIEntity)
+	err = json.Unmarshal(data, &varAPIEntity)
 
 	if err != nil {
 		return err
 	}
 
 	*o = APIEntity(varAPIEntity)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "inputParameters")
+		delete(additionalProperties, "outputParameters")
+		delete(additionalProperties, "verb")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

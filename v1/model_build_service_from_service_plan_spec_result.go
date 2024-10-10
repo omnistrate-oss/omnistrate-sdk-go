@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -29,6 +28,7 @@ type BuildServiceFromServicePlanSpecResult struct {
 	ServiceID string `json:"serviceID"`
 	// Resources that appear in the service plan but were not defined in the spec. These resources were not processed during the build.
 	UndefinedResources *map[string]string `json:"undefinedResources,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _BuildServiceFromServicePlanSpecResult BuildServiceFromServicePlanSpecResult
@@ -164,6 +164,11 @@ func (o BuildServiceFromServicePlanSpecResult) ToMap() (map[string]interface{}, 
 	if !IsNil(o.UndefinedResources) {
 		toSerialize["undefinedResources"] = o.UndefinedResources
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -193,15 +198,23 @@ func (o *BuildServiceFromServicePlanSpecResult) UnmarshalJSON(data []byte) (err 
 
 	varBuildServiceFromServicePlanSpecResult := _BuildServiceFromServicePlanSpecResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varBuildServiceFromServicePlanSpecResult)
+	err = json.Unmarshal(data, &varBuildServiceFromServicePlanSpecResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = BuildServiceFromServicePlanSpecResult(varBuildServiceFromServicePlanSpecResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "productTierID")
+		delete(additionalProperties, "serviceEnvironmentID")
+		delete(additionalProperties, "serviceID")
+		delete(additionalProperties, "undefinedResources")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

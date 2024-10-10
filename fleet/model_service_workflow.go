@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -51,6 +50,7 @@ type ServiceWorkflow struct {
 	StartTime string `json:"startTime"`
 	// The status of the workflow execution.
 	Status string `json:"status"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ServiceWorkflow ServiceWorkflow
@@ -553,6 +553,11 @@ func (o ServiceWorkflow) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["startTime"] = o.StartTime
 	toSerialize["status"] = o.Status
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -585,15 +590,34 @@ func (o *ServiceWorkflow) UnmarshalJSON(data []byte) (err error) {
 
 	varServiceWorkflow := _ServiceWorkflow{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varServiceWorkflow)
+	err = json.Unmarshal(data, &varServiceWorkflow)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ServiceWorkflow(varServiceWorkflow)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "ResourceCount")
+		delete(additionalProperties, "UpdatedBy")
+		delete(additionalProperties, "UpdatedReason")
+		delete(additionalProperties, "WorkflowType")
+		delete(additionalProperties, "awsAccountID")
+		delete(additionalProperties, "cloudProvider")
+		delete(additionalProperties, "endTime")
+		delete(additionalProperties, "gcpProjectID")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "orgName")
+		delete(additionalProperties, "parentId")
+		delete(additionalProperties, "planType")
+		delete(additionalProperties, "servicePlanName")
+		delete(additionalProperties, "startTime")
+		delete(additionalProperties, "status")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

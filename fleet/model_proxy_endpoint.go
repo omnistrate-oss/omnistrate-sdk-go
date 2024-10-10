@@ -21,7 +21,10 @@ var _ MappedNullable = &ProxyEndpoint{}
 type ProxyEndpoint struct {
 	OpenPorts []string `json:"openPorts,omitempty"`
 	ProxyEndpoint *string `json:"proxyEndpoint,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProxyEndpoint ProxyEndpoint
 
 // NewProxyEndpoint instantiates a new ProxyEndpoint object
 // This constructor will assign default values to properties that have it defined,
@@ -120,7 +123,34 @@ func (o ProxyEndpoint) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ProxyEndpoint) {
 		toSerialize["proxyEndpoint"] = o.ProxyEndpoint
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ProxyEndpoint) UnmarshalJSON(data []byte) (err error) {
+	varProxyEndpoint := _ProxyEndpoint{}
+
+	err = json.Unmarshal(data, &varProxyEndpoint)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProxyEndpoint(varProxyEndpoint)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "openPorts")
+		delete(additionalProperties, "proxyEndpoint")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableProxyEndpoint struct {

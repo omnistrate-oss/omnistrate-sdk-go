@@ -24,7 +24,10 @@ type ListAccountConfigResult struct {
 	Ids []string `json:"ids,omitempty"`
 	// Token to use for the next page
 	NextPageToken *string `json:"nextPageToken,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ListAccountConfigResult ListAccountConfigResult
 
 // NewListAccountConfigResult instantiates a new ListAccountConfigResult object
 // This constructor will assign default values to properties that have it defined,
@@ -131,7 +134,35 @@ func (o ListAccountConfigResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.NextPageToken) {
 		toSerialize["nextPageToken"] = o.NextPageToken
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ListAccountConfigResult) UnmarshalJSON(data []byte) (err error) {
+	varListAccountConfigResult := _ListAccountConfigResult{}
+
+	err = json.Unmarshal(data, &varListAccountConfigResult)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ListAccountConfigResult(varListAccountConfigResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "accountConfigs")
+		delete(additionalProperties, "ids")
+		delete(additionalProperties, "nextPageToken")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableListAccountConfigResult struct {

@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -33,6 +32,7 @@ type BuildServiceFromServicePlanSpecRequestBody struct {
 	Name string `json:"name"`
 	// The logo for the service
 	ServiceLogoURL *string `json:"serviceLogoURL,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _BuildServiceFromServicePlanSpecRequestBody BuildServiceFromServicePlanSpecRequestBody
@@ -220,6 +220,11 @@ func (o BuildServiceFromServicePlanSpecRequestBody) ToMap() (map[string]interfac
 	if !IsNil(o.ServiceLogoURL) {
 		toSerialize["serviceLogoURL"] = o.ServiceLogoURL
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -248,15 +253,25 @@ func (o *BuildServiceFromServicePlanSpecRequestBody) UnmarshalJSON(data []byte) 
 
 	varBuildServiceFromServicePlanSpecRequestBody := _BuildServiceFromServicePlanSpecRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varBuildServiceFromServicePlanSpecRequestBody)
+	err = json.Unmarshal(data, &varBuildServiceFromServicePlanSpecRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = BuildServiceFromServicePlanSpecRequestBody(varBuildServiceFromServicePlanSpecRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "environment")
+		delete(additionalProperties, "environmentType")
+		delete(additionalProperties, "fileContent")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "serviceLogoURL")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

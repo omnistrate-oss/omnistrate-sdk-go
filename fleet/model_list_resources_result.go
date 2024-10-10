@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -29,6 +28,7 @@ type ListResourcesResult struct {
 	Resources []Resource `json:"resources"`
 	// The service ID this workflow belongs to.
 	ServiceId string `json:"serviceId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListResourcesResult ListResourcesResult
@@ -173,6 +173,11 @@ func (o ListResourcesResult) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["resources"] = o.Resources
 	toSerialize["serviceId"] = o.ServiceId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -202,15 +207,23 @@ func (o *ListResourcesResult) UnmarshalJSON(data []byte) (err error) {
 
 	varListResourcesResult := _ListResourcesResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListResourcesResult)
+	err = json.Unmarshal(data, &varListResourcesResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListResourcesResult(varListResourcesResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "nextPageToken")
+		delete(additionalProperties, "resources")
+		delete(additionalProperties, "serviceId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

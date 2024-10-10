@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -26,6 +25,7 @@ type HelmPackageInstallations struct {
 	HostClusterID string `json:"hostClusterID"`
 	// The status of the Helm package installation
 	Status string `json:"status"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _HelmPackageInstallations HelmPackageInstallations
@@ -135,6 +135,11 @@ func (o HelmPackageInstallations) ToMap() (map[string]interface{}, error) {
 	toSerialize["helmPackage"] = o.HelmPackage
 	toSerialize["hostClusterID"] = o.HostClusterID
 	toSerialize["status"] = o.Status
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -164,15 +169,22 @@ func (o *HelmPackageInstallations) UnmarshalJSON(data []byte) (err error) {
 
 	varHelmPackageInstallations := _HelmPackageInstallations{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varHelmPackageInstallations)
+	err = json.Unmarshal(data, &varHelmPackageInstallations)
 
 	if err != nil {
 		return err
 	}
 
 	*o = HelmPackageInstallations(varHelmPackageInstallations)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "helmPackage")
+		delete(additionalProperties, "hostClusterID")
+		delete(additionalProperties, "status")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

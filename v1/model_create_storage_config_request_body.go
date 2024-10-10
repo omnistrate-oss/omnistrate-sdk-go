@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type CreateStorageConfigRequestBody struct {
 	Description string `json:"description"`
 	// Name of the storage config
 	Name string `json:"name"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateStorageConfigRequestBody CreateStorageConfigRequestBody
@@ -108,6 +108,11 @@ func (o CreateStorageConfigRequestBody) ToMap() (map[string]interface{}, error) 
 	toSerialize := map[string]interface{}{}
 	toSerialize["description"] = o.Description
 	toSerialize["name"] = o.Name
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *CreateStorageConfigRequestBody) UnmarshalJSON(data []byte) (err error) 
 
 	varCreateStorageConfigRequestBody := _CreateStorageConfigRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateStorageConfigRequestBody)
+	err = json.Unmarshal(data, &varCreateStorageConfigRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateStorageConfigRequestBody(varCreateStorageConfigRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "name")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

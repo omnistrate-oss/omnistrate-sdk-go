@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &SigninResult{}
 type SigninResult struct {
 	// The jwt token
 	JwtToken string `json:"jwtToken"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _SigninResult SigninResult
@@ -80,6 +80,11 @@ func (o SigninResult) MarshalJSON() ([]byte, error) {
 func (o SigninResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["jwtToken"] = o.JwtToken
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *SigninResult) UnmarshalJSON(data []byte) (err error) {
 
 	varSigninResult := _SigninResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSigninResult)
+	err = json.Unmarshal(data, &varSigninResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = SigninResult(varSigninResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "jwtToken")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

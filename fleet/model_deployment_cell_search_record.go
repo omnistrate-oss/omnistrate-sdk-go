@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -39,6 +38,7 @@ type DeploymentCellSearchRecord struct {
 	ServiceID string `json:"serviceID"`
 	// The service name of the deployment cell.
 	ServiceName string `json:"serviceName"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DeploymentCellSearchRecord DeploymentCellSearchRecord
@@ -313,6 +313,11 @@ func (o DeploymentCellSearchRecord) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["serviceID"] = o.ServiceID
 	toSerialize["serviceName"] = o.ServiceName
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -347,15 +352,28 @@ func (o *DeploymentCellSearchRecord) UnmarshalJSON(data []byte) (err error) {
 
 	varDeploymentCellSearchRecord := _DeploymentCellSearchRecord{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDeploymentCellSearchRecord)
+	err = json.Unmarshal(data, &varDeploymentCellSearchRecord)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DeploymentCellSearchRecord(varDeploymentCellSearchRecord)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cloudProvider")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "regionCode")
+		delete(additionalProperties, "serviceEnvironmentID")
+		delete(additionalProperties, "serviceEnvironmentName")
+		delete(additionalProperties, "serviceEnvironmentType")
+		delete(additionalProperties, "serviceID")
+		delete(additionalProperties, "serviceName")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

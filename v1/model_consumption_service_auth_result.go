@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ConsumptionServiceAuthResult{}
 type ConsumptionServiceAuthResult struct {
 	// JWT token used to perform authorization
 	Token string `json:"token"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ConsumptionServiceAuthResult ConsumptionServiceAuthResult
@@ -80,6 +80,11 @@ func (o ConsumptionServiceAuthResult) MarshalJSON() ([]byte, error) {
 func (o ConsumptionServiceAuthResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["token"] = o.Token
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *ConsumptionServiceAuthResult) UnmarshalJSON(data []byte) (err error) {
 
 	varConsumptionServiceAuthResult := _ConsumptionServiceAuthResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varConsumptionServiceAuthResult)
+	err = json.Unmarshal(data, &varConsumptionServiceAuthResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ConsumptionServiceAuthResult(varConsumptionServiceAuthResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "token")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

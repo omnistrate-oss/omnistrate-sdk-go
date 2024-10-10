@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -35,6 +34,7 @@ type DescribeServiceAPIResult struct {
 	ServiceId string `json:"serviceId"`
 	// The name of the service
 	ServiceName string `json:"serviceName"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeServiceAPIResult DescribeServiceAPIResult
@@ -248,6 +248,11 @@ func (o DescribeServiceAPIResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["serviceEnvironmentId"] = o.ServiceEnvironmentId
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["serviceName"] = o.ServiceName
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -281,15 +286,26 @@ func (o *DescribeServiceAPIResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribeServiceAPIResult := _DescribeServiceAPIResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeServiceAPIResult)
+	err = json.Unmarshal(data, &varDescribeServiceAPIResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeServiceAPIResult(varDescribeServiceAPIResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "apiVersion")
+		delete(additionalProperties, "deploymentConfigId")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "serviceEnvironmentId")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "serviceName")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

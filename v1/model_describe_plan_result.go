@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -43,6 +42,7 @@ type DescribePlanResult struct {
 	RemainingCredits *string `json:"remainingCredits,omitempty"`
 	// The date that the plan starts
 	StartDate *string `json:"startDate,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribePlanResult DescribePlanResult
@@ -360,6 +360,11 @@ func (o DescribePlanResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.StartDate) {
 		toSerialize["startDate"] = o.StartDate
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -387,15 +392,30 @@ func (o *DescribePlanResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribePlanResult := _DescribePlanResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribePlanResult)
+	err = json.Unmarshal(data, &varDescribePlanResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribePlanResult(varDescribePlanResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "modifiedAt")
+		delete(additionalProperties, "nextChargeDate")
+		delete(additionalProperties, "paymentConfigured")
+		delete(additionalProperties, "paymentInfoPortalURL")
+		delete(additionalProperties, "planCoreHourCost")
+		delete(additionalProperties, "planDescription")
+		delete(additionalProperties, "planFrequency")
+		delete(additionalProperties, "planMonthlyCost")
+		delete(additionalProperties, "planName")
+		delete(additionalProperties, "remainingCredits")
+		delete(additionalProperties, "startDate")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

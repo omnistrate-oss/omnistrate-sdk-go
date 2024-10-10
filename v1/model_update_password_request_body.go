@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -24,6 +23,7 @@ type UpdatePasswordRequestBody struct {
 	CurrentPassword *string `json:"currentPassword,omitempty"`
 	CurrentPasswordHash *string `json:"currentPasswordHash,omitempty"`
 	Password string `json:"password"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _UpdatePasswordRequestBody UpdatePasswordRequestBody
@@ -133,6 +133,11 @@ func (o UpdatePasswordRequestBody) ToMap() (map[string]interface{}, error) {
 		toSerialize["currentPasswordHash"] = o.CurrentPasswordHash
 	}
 	toSerialize["password"] = o.Password
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -160,15 +165,22 @@ func (o *UpdatePasswordRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varUpdatePasswordRequestBody := _UpdatePasswordRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varUpdatePasswordRequestBody)
+	err = json.Unmarshal(data, &varUpdatePasswordRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = UpdatePasswordRequestBody(varUpdatePasswordRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "currentPassword")
+		delete(additionalProperties, "currentPasswordHash")
+		delete(additionalProperties, "password")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

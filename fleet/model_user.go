@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -57,6 +56,7 @@ type User struct {
 	UserName string `json:"userName"`
 	// The user subscription role.
 	UserSubscriptionRole *string `json:"userSubscriptionRole,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _User User
@@ -619,6 +619,11 @@ func (o User) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.UserSubscriptionRole) {
 		toSerialize["userSubscriptionRole"] = o.UserSubscriptionRole
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -656,15 +661,37 @@ func (o *User) UnmarshalJSON(data []byte) (err error) {
 
 	varUser := _User{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varUser)
+	err = json.Unmarshal(data, &varUser)
 
 	if err != nil {
 		return err
 	}
 
 	*o = User(varUser)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "enabled")
+		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "instanceCount")
+		delete(additionalProperties, "lastModifiedAt")
+		delete(additionalProperties, "lastModifiedByUserID")
+		delete(additionalProperties, "lastModifiedByUserName")
+		delete(additionalProperties, "orgId")
+		delete(additionalProperties, "orgName")
+		delete(additionalProperties, "orgUrl")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "subscriptionCount")
+		delete(additionalProperties, "token")
+		delete(additionalProperties, "userId")
+		delete(additionalProperties, "userName")
+		delete(additionalProperties, "userSubscriptionRole")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

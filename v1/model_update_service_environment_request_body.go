@@ -33,7 +33,10 @@ type UpdateServiceEnvironmentRequestBody struct {
 	SourceEnvironmentId *string `json:"sourceEnvironmentId,omitempty"`
 	// This parameter is used to configure the visibility of the service control-plane APIs
 	Visibility *string `json:"visibility,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateServiceEnvironmentRequestBody UpdateServiceEnvironmentRequestBody
 
 // NewUpdateServiceEnvironmentRequestBody instantiates a new UpdateServiceEnvironmentRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -244,7 +247,39 @@ func (o UpdateServiceEnvironmentRequestBody) ToMap() (map[string]interface{}, er
 	if !IsNil(o.Visibility) {
 		toSerialize["visibility"] = o.Visibility
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateServiceEnvironmentRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateServiceEnvironmentRequestBody := _UpdateServiceEnvironmentRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateServiceEnvironmentRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateServiceEnvironmentRequestBody(varUpdateServiceEnvironmentRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "autoApproveSubscription")
+		delete(additionalProperties, "deploymentConfigId")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "serviceAuthPublicKey")
+		delete(additionalProperties, "sourceEnvironmentId")
+		delete(additionalProperties, "visibility")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateServiceEnvironmentRequestBody struct {

@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &Route53Configuration{}
 type Route53Configuration struct {
 	// The AWS account hosting the the hosted zone for the domain
 	AwsAccountID string `json:"awsAccountID"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _Route53Configuration Route53Configuration
@@ -80,6 +80,11 @@ func (o Route53Configuration) MarshalJSON() ([]byte, error) {
 func (o Route53Configuration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["awsAccountID"] = o.AwsAccountID
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *Route53Configuration) UnmarshalJSON(data []byte) (err error) {
 
 	varRoute53Configuration := _Route53Configuration{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varRoute53Configuration)
+	err = json.Unmarshal(data, &varRoute53Configuration)
 
 	if err != nil {
 		return err
 	}
 
 	*o = Route53Configuration(varRoute53Configuration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "awsAccountID")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

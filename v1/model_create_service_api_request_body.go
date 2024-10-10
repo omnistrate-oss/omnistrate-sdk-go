@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type CreateServiceAPIRequestBody struct {
 	Description string `json:"description"`
 	// The service environment ID
 	ServiceEnvironmentId string `json:"serviceEnvironmentId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateServiceAPIRequestBody CreateServiceAPIRequestBody
@@ -108,6 +108,11 @@ func (o CreateServiceAPIRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["description"] = o.Description
 	toSerialize["serviceEnvironmentId"] = o.ServiceEnvironmentId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *CreateServiceAPIRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varCreateServiceAPIRequestBody := _CreateServiceAPIRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateServiceAPIRequestBody)
+	err = json.Unmarshal(data, &varCreateServiceAPIRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateServiceAPIRequestBody(varCreateServiceAPIRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "serviceEnvironmentId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -53,6 +52,7 @@ type ProxyInstanceSearchRecord struct {
 	StatusDescription string `json:"statusDescription"`
 	// The name of the target resource of the proxy instance.
 	TargetResourceName string `json:"targetResourceName"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ProxyInstanceSearchRecord ProxyInstanceSearchRecord
@@ -527,6 +527,11 @@ func (o ProxyInstanceSearchRecord) ToMap() (map[string]interface{}, error) {
 	toSerialize["status"] = o.Status
 	toSerialize["statusDescription"] = o.StatusDescription
 	toSerialize["targetResourceName"] = o.TargetResourceName
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -566,15 +571,35 @@ func (o *ProxyInstanceSearchRecord) UnmarshalJSON(data []byte) (err error) {
 
 	varProxyInstanceSearchRecord := _ProxyInstanceSearchRecord{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varProxyInstanceSearchRecord)
+	err = json.Unmarshal(data, &varProxyInstanceSearchRecord)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ProxyInstanceSearchRecord(varProxyInstanceSearchRecord)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cloudProvider")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "managed")
+		delete(additionalProperties, "managedResourceType")
+		delete(additionalProperties, "portsRegistrationStatus")
+		delete(additionalProperties, "proxyType")
+		delete(additionalProperties, "regionCode")
+		delete(additionalProperties, "serviceEnvironmentId")
+		delete(additionalProperties, "serviceEnvironmentName")
+		delete(additionalProperties, "serviceEnvironmentType")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "serviceName")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "statusDescription")
+		delete(additionalProperties, "targetResourceName")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

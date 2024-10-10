@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -35,6 +34,7 @@ type DeploymentCellHealthSummary struct {
 	TotalInstances int64 `json:"totalInstances"`
 	// The number of unhealthy instances in the cell
 	UnhealthyInstances int64 `json:"unhealthyInstances"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DeploymentCellHealthSummary DeploymentCellHealthSummary
@@ -248,6 +248,11 @@ func (o DeploymentCellHealthSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize["status"] = o.Status
 	toSerialize["totalInstances"] = o.TotalInstances
 	toSerialize["unhealthyInstances"] = o.UnhealthyInstances
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -281,15 +286,26 @@ func (o *DeploymentCellHealthSummary) UnmarshalJSON(data []byte) (err error) {
 
 	varDeploymentCellHealthSummary := _DeploymentCellHealthSummary{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDeploymentCellHealthSummary)
+	err = json.Unmarshal(data, &varDeploymentCellHealthSummary)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DeploymentCellHealthSummary(varDeploymentCellHealthSummary)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "deployingInstances")
+		delete(additionalProperties, "healthyInstances")
+		delete(additionalProperties, "hostClusterID")
+		delete(additionalProperties, "message")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "totalInstances")
+		delete(additionalProperties, "unhealthyInstances")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

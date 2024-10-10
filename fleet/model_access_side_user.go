@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -51,6 +50,7 @@ type AccessSideUser struct {
 	UserId string `json:"userId"`
 	// The user name.
 	UserName string `json:"userName"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _AccessSideUser AccessSideUser
@@ -508,6 +508,11 @@ func (o AccessSideUser) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["userId"] = o.UserId
 	toSerialize["userName"] = o.UserName
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -545,15 +550,34 @@ func (o *AccessSideUser) UnmarshalJSON(data []byte) (err error) {
 
 	varAccessSideUser := _AccessSideUser{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAccessSideUser)
+	err = json.Unmarshal(data, &varAccessSideUser)
 
 	if err != nil {
 		return err
 	}
 
 	*o = AccessSideUser(varAccessSideUser)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "enabled")
+		delete(additionalProperties, "instanceCount")
+		delete(additionalProperties, "lastModifiedAt")
+		delete(additionalProperties, "lastModifiedByUserID")
+		delete(additionalProperties, "lastModifiedByUserName")
+		delete(additionalProperties, "orgId")
+		delete(additionalProperties, "orgName")
+		delete(additionalProperties, "orgUrl")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "subscriptionCount")
+		delete(additionalProperties, "token")
+		delete(additionalProperties, "userId")
+		delete(additionalProperties, "userName")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

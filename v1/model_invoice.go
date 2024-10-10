@@ -36,7 +36,10 @@ type Invoice struct {
 	TotalAmount *float64 `json:"totalAmount,omitempty"`
 	// Amount of Invoice without tax
 	TotalAmountWithoutTax *float64 `json:"totalAmountWithoutTax,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _Invoice Invoice
 
 // NewInvoice instantiates a new Invoice object
 // This constructor will assign default values to properties that have it defined,
@@ -299,7 +302,41 @@ func (o Invoice) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TotalAmountWithoutTax) {
 		toSerialize["totalAmountWithoutTax"] = o.TotalAmountWithoutTax
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *Invoice) UnmarshalJSON(data []byte) (err error) {
+	varInvoice := _Invoice{}
+
+	err = json.Unmarshal(data, &varInvoice)
+
+	if err != nil {
+		return err
+	}
+
+	*o = Invoice(varInvoice)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "currency")
+		delete(additionalProperties, "invoiceDate")
+		delete(additionalProperties, "invoiceId")
+		delete(additionalProperties, "invoicePaymentTerm")
+		delete(additionalProperties, "invoiceStatus")
+		delete(additionalProperties, "invoiceUrl")
+		delete(additionalProperties, "taxAmount")
+		delete(additionalProperties, "totalAmount")
+		delete(additionalProperties, "totalAmountWithoutTax")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableInvoice struct {

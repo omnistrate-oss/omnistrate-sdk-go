@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &GenerateComposeSpecFromContainerImageResult{}
 type GenerateComposeSpecFromContainerImageResult struct {
 	// Base64 encoded Compose Spec YAML in docker compose format
 	FileContent string `json:"fileContent"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _GenerateComposeSpecFromContainerImageResult GenerateComposeSpecFromContainerImageResult
@@ -80,6 +80,11 @@ func (o GenerateComposeSpecFromContainerImageResult) MarshalJSON() ([]byte, erro
 func (o GenerateComposeSpecFromContainerImageResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["fileContent"] = o.FileContent
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *GenerateComposeSpecFromContainerImageResult) UnmarshalJSON(data []byte)
 
 	varGenerateComposeSpecFromContainerImageResult := _GenerateComposeSpecFromContainerImageResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGenerateComposeSpecFromContainerImageResult)
+	err = json.Unmarshal(data, &varGenerateComposeSpecFromContainerImageResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = GenerateComposeSpecFromContainerImageResult(varGenerateComposeSpecFromContainerImageResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "fileContent")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

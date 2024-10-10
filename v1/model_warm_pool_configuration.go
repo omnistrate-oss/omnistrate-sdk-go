@@ -23,7 +23,10 @@ type WarmPoolConfiguration struct {
 	MinimumNodesInPool *int64 `json:"minimumNodesInPool,omitempty"`
 	// Minimum percentage of compute nodes in pool
 	MinimumPercentageNodesInPool *int64 `json:"minimumPercentageNodesInPool,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _WarmPoolConfiguration WarmPoolConfiguration
 
 // NewWarmPoolConfiguration instantiates a new WarmPoolConfiguration object
 // This constructor will assign default values to properties that have it defined,
@@ -112,7 +115,34 @@ func (o WarmPoolConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.MinimumPercentageNodesInPool) {
 		toSerialize["minimumPercentageNodesInPool"] = o.MinimumPercentageNodesInPool
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *WarmPoolConfiguration) UnmarshalJSON(data []byte) (err error) {
+	varWarmPoolConfiguration := _WarmPoolConfiguration{}
+
+	err = json.Unmarshal(data, &varWarmPoolConfiguration)
+
+	if err != nil {
+		return err
+	}
+
+	*o = WarmPoolConfiguration(varWarmPoolConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "minimumNodesInPool")
+		delete(additionalProperties, "minimumPercentageNodesInPool")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableWarmPoolConfiguration struct {

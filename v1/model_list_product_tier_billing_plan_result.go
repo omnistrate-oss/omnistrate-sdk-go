@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ListProductTierBillingPlanResult{}
 type ListProductTierBillingPlanResult struct {
 	// List of product tier billing plans
 	BillingPlans []BillingPlan `json:"billingPlans"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListProductTierBillingPlanResult ListProductTierBillingPlanResult
@@ -80,6 +80,11 @@ func (o ListProductTierBillingPlanResult) MarshalJSON() ([]byte, error) {
 func (o ListProductTierBillingPlanResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["billingPlans"] = o.BillingPlans
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *ListProductTierBillingPlanResult) UnmarshalJSON(data []byte) (err error
 
 	varListProductTierBillingPlanResult := _ListProductTierBillingPlanResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListProductTierBillingPlanResult)
+	err = json.Unmarshal(data, &varListProductTierBillingPlanResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListProductTierBillingPlanResult(varListProductTierBillingPlanResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "billingPlans")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

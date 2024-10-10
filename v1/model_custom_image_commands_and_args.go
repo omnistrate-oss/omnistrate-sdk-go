@@ -23,7 +23,10 @@ type CustomImageCommandsAndArgs struct {
 	Args []string `json:"args,omitempty"`
 	// Commands to run in the container
 	Commands []string `json:"commands,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _CustomImageCommandsAndArgs CustomImageCommandsAndArgs
 
 // NewCustomImageCommandsAndArgs instantiates a new CustomImageCommandsAndArgs object
 // This constructor will assign default values to properties that have it defined,
@@ -104,7 +107,34 @@ func (o CustomImageCommandsAndArgs) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Commands) {
 		toSerialize["commands"] = o.Commands
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *CustomImageCommandsAndArgs) UnmarshalJSON(data []byte) (err error) {
+	varCustomImageCommandsAndArgs := _CustomImageCommandsAndArgs{}
+
+	err = json.Unmarshal(data, &varCustomImageCommandsAndArgs)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CustomImageCommandsAndArgs(varCustomImageCommandsAndArgs)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "args")
+		delete(additionalProperties, "commands")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableCustomImageCommandsAndArgs struct {

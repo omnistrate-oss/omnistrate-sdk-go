@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ListFilesResult{}
 type ListFilesResult struct {
 	// List of files
 	Files []FileMetadata `json:"files"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListFilesResult ListFilesResult
@@ -80,6 +80,11 @@ func (o ListFilesResult) MarshalJSON() ([]byte, error) {
 func (o ListFilesResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["files"] = o.Files
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *ListFilesResult) UnmarshalJSON(data []byte) (err error) {
 
 	varListFilesResult := _ListFilesResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListFilesResult)
+	err = json.Unmarshal(data, &varListFilesResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListFilesResult(varListFilesResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "files")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

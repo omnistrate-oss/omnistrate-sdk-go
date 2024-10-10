@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -53,6 +52,7 @@ type DescribeSubscriptionResult struct {
 	Status string `json:"status"`
 	// The name of the subscription owner user
 	SubscriptionOwnerName string `json:"subscriptionOwnerName"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeSubscriptionResult DescribeSubscriptionResult
@@ -500,6 +500,11 @@ func (o DescribeSubscriptionResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["serviceOrgName"] = o.ServiceOrgName
 	toSerialize["status"] = o.Status
 	toSerialize["subscriptionOwnerName"] = o.SubscriptionOwnerName
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -542,15 +547,35 @@ func (o *DescribeSubscriptionResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribeSubscriptionResult := _DescribeSubscriptionResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeSubscriptionResult)
+	err = json.Unmarshal(data, &varDescribeSubscriptionResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeSubscriptionResult(varDescribeSubscriptionResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "accountConfigIdentityId")
+		delete(additionalProperties, "cloudProviderNames")
+		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "defaultSubscription")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "productTierName")
+		delete(additionalProperties, "roleType")
+		delete(additionalProperties, "rootUserId")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "serviceLogoURL")
+		delete(additionalProperties, "serviceName")
+		delete(additionalProperties, "serviceOrgId")
+		delete(additionalProperties, "serviceOrgName")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "subscriptionOwnerName")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

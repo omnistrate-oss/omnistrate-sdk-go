@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -26,6 +25,7 @@ type CustomerSigninRequestBody struct {
 	EnvironmentType *string `json:"environmentType,omitempty"`
 	HashedPassword *string `json:"hashedPassword,omitempty"`
 	Password *string `json:"password,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CustomerSigninRequestBody CustomerSigninRequestBody
@@ -161,6 +161,11 @@ func (o CustomerSigninRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Password) {
 		toSerialize["password"] = o.Password
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -188,15 +193,23 @@ func (o *CustomerSigninRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varCustomerSigninRequestBody := _CustomerSigninRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCustomerSigninRequestBody)
+	err = json.Unmarshal(data, &varCustomerSigninRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CustomerSigninRequestBody(varCustomerSigninRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "environmentType")
+		delete(additionalProperties, "hashedPassword")
+		delete(additionalProperties, "password")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

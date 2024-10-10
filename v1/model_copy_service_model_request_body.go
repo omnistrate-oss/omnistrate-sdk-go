@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -33,6 +32,7 @@ type CopyServiceModelRequestBody struct {
 	TargetServiceModelType string `json:"targetServiceModelType"`
 	// Target product tier type
 	TargetTierType *string `json:"targetTierType,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CopyServiceModelRequestBody CopyServiceModelRequestBody
@@ -220,6 +220,11 @@ func (o CopyServiceModelRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TargetTierType) {
 		toSerialize["targetTierType"] = o.TargetTierType
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -249,15 +254,25 @@ func (o *CopyServiceModelRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varCopyServiceModelRequestBody := _CopyServiceModelRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCopyServiceModelRequestBody)
+	err = json.Unmarshal(data, &varCopyServiceModelRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CopyServiceModelRequestBody(varCopyServiceModelRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "accountConfigIds")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "features")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "targetServiceModelType")
+		delete(additionalProperties, "targetTierType")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

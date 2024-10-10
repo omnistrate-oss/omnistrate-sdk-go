@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -42,6 +41,7 @@ type DescribeComputeConfigResult struct {
 	// The service ID
 	ServiceId string `json:"serviceId"`
 	WarmPoolConfiguration *WarmPoolConfiguration `json:"warmPoolConfiguration,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeComputeConfigResult DescribeComputeConfigResult
@@ -385,6 +385,11 @@ func (o DescribeComputeConfigResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.WarmPoolConfiguration) {
 		toSerialize["warmPoolConfiguration"] = o.WarmPoolConfiguration
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -416,15 +421,31 @@ func (o *DescribeComputeConfigResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribeComputeConfigResult := _DescribeComputeConfigResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeComputeConfigResult)
+	err = json.Unmarshal(data, &varDescribeComputeConfigResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeComputeConfigResult(varDescribeComputeConfigResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "autoscalingPolicy")
+		delete(additionalProperties, "cpuArchitecture")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "infraConfigIDs")
+		delete(additionalProperties, "instanceTypes")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "replicaCount")
+		delete(additionalProperties, "resources")
+		delete(additionalProperties, "rootVolumeSizeGi")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "warmPoolConfiguration")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

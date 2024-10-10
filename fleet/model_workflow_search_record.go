@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -39,6 +38,7 @@ type WorkflowSearchRecord struct {
 	Status string `json:"status"`
 	// The workflow type.
 	Type string `json:"type"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _WorkflowSearchRecord WorkflowSearchRecord
@@ -313,6 +313,11 @@ func (o WorkflowSearchRecord) ToMap() (map[string]interface{}, error) {
 	toSerialize["serviceName"] = o.ServiceName
 	toSerialize["status"] = o.Status
 	toSerialize["type"] = o.Type
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -347,15 +352,28 @@ func (o *WorkflowSearchRecord) UnmarshalJSON(data []byte) (err error) {
 
 	varWorkflowSearchRecord := _WorkflowSearchRecord{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varWorkflowSearchRecord)
+	err = json.Unmarshal(data, &varWorkflowSearchRecord)
 
 	if err != nil {
 		return err
 	}
 
 	*o = WorkflowSearchRecord(varWorkflowSearchRecord)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "resourceName")
+		delete(additionalProperties, "serviceEnvironmentId")
+		delete(additionalProperties, "serviceEnvironmentName")
+		delete(additionalProperties, "serviceEnvironmentType")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "serviceName")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "type")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -49,6 +48,7 @@ type ServicePlanSearchRecord struct {
 	VersionName *string `json:"versionName,omitempty"`
 	// The Product Tier version set status of the service plan.
 	VersionSetStatus string `json:"versionSetStatus"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ServicePlanSearchRecord ServicePlanSearchRecord
@@ -471,6 +471,11 @@ func (o ServicePlanSearchRecord) ToMap() (map[string]interface{}, error) {
 		toSerialize["versionName"] = o.VersionName
 	}
 	toSerialize["versionSetStatus"] = o.VersionSetStatus
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -508,15 +513,33 @@ func (o *ServicePlanSearchRecord) UnmarshalJSON(data []byte) (err error) {
 
 	varServicePlanSearchRecord := _ServicePlanSearchRecord{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varServicePlanSearchRecord)
+	err = json.Unmarshal(data, &varServicePlanSearchRecord)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ServicePlanSearchRecord(varServicePlanSearchRecord)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "deploymentType")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "releasedAt")
+		delete(additionalProperties, "serviceEnvironmentId")
+		delete(additionalProperties, "serviceEnvironmentName")
+		delete(additionalProperties, "serviceEnvironmentType")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "serviceName")
+		delete(additionalProperties, "tenancyType")
+		delete(additionalProperties, "version")
+		delete(additionalProperties, "versionName")
+		delete(additionalProperties, "versionSetStatus")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

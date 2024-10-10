@@ -30,7 +30,10 @@ type UpdateInfraConfigRequestBody struct {
 	NetworkConfigId *string `json:"networkConfigId,omitempty"`
 	// The storage config ID per compute node
 	StorageConfigId *string `json:"storageConfigId,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateInfraConfigRequestBody UpdateInfraConfigRequestBody
 
 // NewUpdateInfraConfigRequestBody instantiates a new UpdateInfraConfigRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -215,7 +218,38 @@ func (o UpdateInfraConfigRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.StorageConfigId) {
 		toSerialize["storageConfigId"] = o.StorageConfigId
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateInfraConfigRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateInfraConfigRequestBody := _UpdateInfraConfigRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateInfraConfigRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateInfraConfigRequestBody(varUpdateInfraConfigRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "computeConfigId")
+		delete(additionalProperties, "customTag")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "networkConfigId")
+		delete(additionalProperties, "storageConfigId")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateInfraConfigRequestBody struct {

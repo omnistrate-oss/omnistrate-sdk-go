@@ -27,7 +27,10 @@ type Limits struct {
 	Min *string `json:"min,omitempty"`
 	// Minimum length of a string parameter
 	MinLength *string `json:"minLength,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _Limits Limits
 
 // NewLimits instantiates a new Limits object
 // This constructor will assign default values to properties that have it defined,
@@ -160,7 +163,36 @@ func (o Limits) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.MinLength) {
 		toSerialize["minLength"] = o.MinLength
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *Limits) UnmarshalJSON(data []byte) (err error) {
+	varLimits := _Limits{}
+
+	err = json.Unmarshal(data, &varLimits)
+
+	if err != nil {
+		return err
+	}
+
+	*o = Limits(varLimits)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "max")
+		delete(additionalProperties, "maxLength")
+		delete(additionalProperties, "min")
+		delete(additionalProperties, "minLength")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableLimits struct {

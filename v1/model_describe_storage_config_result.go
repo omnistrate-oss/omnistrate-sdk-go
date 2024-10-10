@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -33,6 +32,7 @@ type DescribeStorageConfigResult struct {
 	ServiceId string `json:"serviceId"`
 	// The storage volume config IDs and the corresponding mount path
 	Volumes map[string][]string `json:"volumes"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeStorageConfigResult DescribeStorageConfigResult
@@ -220,6 +220,11 @@ func (o DescribeStorageConfigResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["volumes"] = o.Volumes
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -251,15 +256,25 @@ func (o *DescribeStorageConfigResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribeStorageConfigResult := _DescribeStorageConfigResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeStorageConfigResult)
+	err = json.Unmarshal(data, &varDescribeStorageConfigResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeStorageConfigResult(varDescribeStorageConfigResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "infraConfigIDs")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "volumes")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

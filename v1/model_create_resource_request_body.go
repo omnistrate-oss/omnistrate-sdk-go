@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -60,6 +59,7 @@ type CreateResourceRequestBody struct {
 	ResourceType *string `json:"resourceType,omitempty"`
 	// The Terraform configurations for various cloud providers
 	TerraformConfigurations *map[string]TerraformConfiguration `json:"terraformConfigurations,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateResourceRequestBody CreateResourceRequestBody
@@ -727,6 +727,11 @@ func (o CreateResourceRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TerraformConfigurations) {
 		toSerialize["terraformConfigurations"] = o.TerraformConfigurations
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -756,15 +761,43 @@ func (o *CreateResourceRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varCreateResourceRequestBody := _CreateResourceRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateResourceRequestBody)
+	err = json.Unmarshal(data, &varCreateResourceRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateResourceRequestBody(varCreateResourceRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "additionalSecurityContext")
+		delete(additionalProperties, "backupConfiguration")
+		delete(additionalProperties, "customLabels")
+		delete(additionalProperties, "customSysCTLs")
+		delete(additionalProperties, "customULimits")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "environmentVariables")
+		delete(additionalProperties, "fileSystemConfiguration")
+		delete(additionalProperties, "helmChartConfiguration")
+		delete(additionalProperties, "imageConfigId")
+		delete(additionalProperties, "infraConfigId")
+		delete(additionalProperties, "internal")
+		delete(additionalProperties, "isProxy")
+		delete(additionalProperties, "key")
+		delete(additionalProperties, "kustomizeConfiguration")
+		delete(additionalProperties, "l4LoadBalancerConfiguration")
+		delete(additionalProperties, "l7LoadBalancerConfiguration")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "operatorCRDConfiguration")
+		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "proxyType")
+		delete(additionalProperties, "resourceDependencies")
+		delete(additionalProperties, "resourceType")
+		delete(additionalProperties, "terraformConfigurations")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type LoadBalancerPathConfiguration struct {
 	Path string `json:"path"`
 	// The port to forward traffic to
 	Port int64 `json:"port"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _LoadBalancerPathConfiguration LoadBalancerPathConfiguration
@@ -136,6 +136,11 @@ func (o LoadBalancerPathConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize["associatedResourceID"] = o.AssociatedResourceID
 	toSerialize["path"] = o.Path
 	toSerialize["port"] = o.Port
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -165,15 +170,22 @@ func (o *LoadBalancerPathConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	varLoadBalancerPathConfiguration := _LoadBalancerPathConfiguration{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varLoadBalancerPathConfiguration)
+	err = json.Unmarshal(data, &varLoadBalancerPathConfiguration)
 
 	if err != nil {
 		return err
 	}
 
 	*o = LoadBalancerPathConfiguration(varLoadBalancerPathConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "associatedResourceID")
+		delete(additionalProperties, "path")
+		delete(additionalProperties, "port")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -52,6 +51,7 @@ type ResourceNetworkTopologyResult struct {
 	ResourceName string `json:"resourceName"`
 	// The type of the resource
 	ResourceType *string `json:"resourceType,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ResourceNetworkTopologyResult ResourceNetworkTopologyResult
@@ -526,6 +526,11 @@ func (o ResourceNetworkTopologyResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ResourceType) {
 		toSerialize["resourceType"] = o.ResourceType
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -560,15 +565,36 @@ func (o *ResourceNetworkTopologyResult) UnmarshalJSON(data []byte) (err error) {
 
 	varResourceNetworkTopologyResult := _ResourceNetworkTopologyResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varResourceNetworkTopologyResult)
+	err = json.Unmarshal(data, &varResourceNetworkTopologyResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ResourceNetworkTopologyResult(varResourceNetworkTopologyResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "allowedIPRanges")
+		delete(additionalProperties, "clusterEndpoint")
+		delete(additionalProperties, "clusterPorts")
+		delete(additionalProperties, "customDNSEndpoint")
+		delete(additionalProperties, "hasCompute")
+		delete(additionalProperties, "main")
+		delete(additionalProperties, "networkingType")
+		delete(additionalProperties, "nodes")
+		delete(additionalProperties, "privateNetworkCIDR")
+		delete(additionalProperties, "privateNetworkID")
+		delete(additionalProperties, "proxyEndpoint")
+		delete(additionalProperties, "publiclyAccessible")
+		delete(additionalProperties, "recentDeploymentFailure")
+		delete(additionalProperties, "resourceInstanceMetadata")
+		delete(additionalProperties, "resourceKey")
+		delete(additionalProperties, "resourceName")
+		delete(additionalProperties, "resourceType")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

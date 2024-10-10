@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -33,6 +32,7 @@ type OutputParameterEntity struct {
 	Key string `json:"key"`
 	// The parameter type
 	Type string `json:"type"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OutputParameterEntity OutputParameterEntity
@@ -220,6 +220,11 @@ func (o OutputParameterEntity) ToMap() (map[string]interface{}, error) {
 	toSerialize["isList"] = o.IsList
 	toSerialize["key"] = o.Key
 	toSerialize["type"] = o.Type
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -252,15 +257,25 @@ func (o *OutputParameterEntity) UnmarshalJSON(data []byte) (err error) {
 
 	varOutputParameterEntity := _OutputParameterEntity{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOutputParameterEntity)
+	err = json.Unmarshal(data, &varOutputParameterEntity)
 
 	if err != nil {
 		return err
 	}
 
 	*o = OutputParameterEntity(varOutputParameterEntity)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "custom")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "displayName")
+		delete(additionalProperties, "isList")
+		delete(additionalProperties, "key")
+		delete(additionalProperties, "type")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

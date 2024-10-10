@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -29,6 +28,7 @@ type GitConfiguration struct {
 	RepositoryUrl string `json:"repositoryUrl"`
 	// The name of github user
 	UserName *string `json:"userName,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _GitConfiguration GitConfiguration
@@ -164,6 +164,11 @@ func (o GitConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.UserName) {
 		toSerialize["userName"] = o.UserName
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -192,15 +197,23 @@ func (o *GitConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	varGitConfiguration := _GitConfiguration{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGitConfiguration)
+	err = json.Unmarshal(data, &varGitConfiguration)
 
 	if err != nil {
 		return err
 	}
 
 	*o = GitConfiguration(varGitConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "accessToken")
+		delete(additionalProperties, "referenceName")
+		delete(additionalProperties, "repositoryUrl")
+		delete(additionalProperties, "userName")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

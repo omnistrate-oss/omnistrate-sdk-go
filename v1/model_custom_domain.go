@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -33,6 +32,7 @@ type CustomDomain struct {
 	Name string `json:"name"`
 	// The custom domain status
 	Status string `json:"status"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CustomDomain CustomDomain
@@ -220,6 +220,11 @@ func (o CustomDomain) ToMap() (map[string]interface{}, error) {
 	toSerialize["environmentType"] = o.EnvironmentType
 	toSerialize["name"] = o.Name
 	toSerialize["status"] = o.Status
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -252,15 +257,25 @@ func (o *CustomDomain) UnmarshalJSON(data []byte) (err error) {
 
 	varCustomDomain := _CustomDomain{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCustomDomain)
+	err = json.Unmarshal(data, &varCustomDomain)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CustomDomain(varCustomDomain)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "clusterEndpoint")
+		delete(additionalProperties, "customDomain")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "environmentType")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "status")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -29,6 +28,7 @@ type EventsPerResource struct {
 	ResourceName string `json:"resourceName"`
 	// Per step workflow events for the resource
 	WorkflowSteps []EventsPerWorkflowStep `json:"workflowSteps,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _EventsPerResource EventsPerResource
@@ -173,6 +173,11 @@ func (o EventsPerResource) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.WorkflowSteps) {
 		toSerialize["workflowSteps"] = o.WorkflowSteps
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -202,15 +207,23 @@ func (o *EventsPerResource) UnmarshalJSON(data []byte) (err error) {
 
 	varEventsPerResource := _EventsPerResource{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEventsPerResource)
+	err = json.Unmarshal(data, &varEventsPerResource)
 
 	if err != nil {
 		return err
 	}
 
 	*o = EventsPerResource(varEventsPerResource)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "resourceId")
+		delete(additionalProperties, "resourceKey")
+		delete(additionalProperties, "resourceName")
+		delete(additionalProperties, "workflowSteps")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -51,6 +50,7 @@ type FleetDescribeSubscriptionResult struct {
 	UpdatedByUserId string `json:"updatedByUserId"`
 	// The name of the user that last updated the subscription
 	UpdatedByUserName string `json:"updatedByUserName"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _FleetDescribeSubscriptionResult FleetDescribeSubscriptionResult
@@ -481,6 +481,11 @@ func (o FleetDescribeSubscriptionResult) ToMap() (map[string]interface{}, error)
 	toSerialize["updatedAt"] = o.UpdatedAt
 	toSerialize["updatedByUserId"] = o.UpdatedByUserId
 	toSerialize["updatedByUserName"] = o.UpdatedByUserName
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -521,15 +526,34 @@ func (o *FleetDescribeSubscriptionResult) UnmarshalJSON(data []byte) (err error)
 
 	varFleetDescribeSubscriptionResult := _FleetDescribeSubscriptionResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFleetDescribeSubscriptionResult)
+	err = json.Unmarshal(data, &varFleetDescribeSubscriptionResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = FleetDescribeSubscriptionResult(varFleetDescribeSubscriptionResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "instanceCount")
+		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "productTierName")
+		delete(additionalProperties, "rootUserEmail")
+		delete(additionalProperties, "rootUserId")
+		delete(additionalProperties, "rootUserName")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "serviceLogoURL")
+		delete(additionalProperties, "serviceName")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "updatedAt")
+		delete(additionalProperties, "updatedByUserId")
+		delete(additionalProperties, "updatedByUserName")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

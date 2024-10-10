@@ -26,7 +26,7 @@ gen-go-sdk:
   -g go \
   -o v1 \
   -t templates/go \
-  --additional-properties packageName=v1,withGoMod=false,isGoSubmodule=true,generateInterfaces=true \
+  --additional-properties packageName=v1,withGoMod=false,isGoSubmodule=true,generateInterfaces=true,disallowAdditionalPropertiesIfNotPresent=false,structPrefix=false \
   --git-user-id ${ORG_NAME} \
   --git-repo-id ${REPO_NAME}
 
@@ -37,7 +37,7 @@ gen-fleet-go-sdk:
   -i ${FLEET_OPEN_API_SPEC} \
   -g go \
   -o fleet \
-  --additional-properties packageName=fleet,withGoMod=false,isGoSubmodule=true,generateInterfaces=true \
+  --additional-properties packageName=fleet,withGoMod=false,isGoSubmodule=true,generateInterfaces=true,disallowAdditionalPropertiesIfNotPresent=false,structPrefix=false \
   --git-user-id ${ORG_NAME} \
   --git-repo-id ${REPO_NAME}
 

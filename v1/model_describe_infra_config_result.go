@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -38,6 +37,7 @@ type DescribeInfraConfigResult struct {
 	ServiceId string `json:"serviceId"`
 	// The storage config ID
 	StorageConfigId *string `json:"storageConfigId,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeInfraConfigResult DescribeInfraConfigResult
@@ -303,6 +303,11 @@ func (o DescribeInfraConfigResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.StorageConfigId) {
 		toSerialize["storageConfigId"] = o.StorageConfigId
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -334,15 +339,28 @@ func (o *DescribeInfraConfigResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribeInfraConfigResult := _DescribeInfraConfigResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeInfraConfigResult)
+	err = json.Unmarshal(data, &varDescribeInfraConfigResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeInfraConfigResult(varDescribeInfraConfigResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "computeConfigId")
+		delete(additionalProperties, "customTag")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "networkConfigId")
+		delete(additionalProperties, "serviceEnvironmentId")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "storageConfigId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

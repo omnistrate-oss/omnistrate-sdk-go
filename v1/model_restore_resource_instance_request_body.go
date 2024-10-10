@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type RestoreResourceInstanceRequestBody struct {
 	NetworkType *string `json:"network_type,omitempty"`
 	// The target restore time
 	TargetRestoreTime string `json:"targetRestoreTime"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _RestoreResourceInstanceRequestBody RestoreResourceInstanceRequestBody
@@ -108,6 +108,11 @@ func (o RestoreResourceInstanceRequestBody) ToMap() (map[string]interface{}, err
 		toSerialize["network_type"] = o.NetworkType
 	}
 	toSerialize["targetRestoreTime"] = o.TargetRestoreTime
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -135,15 +140,21 @@ func (o *RestoreResourceInstanceRequestBody) UnmarshalJSON(data []byte) (err err
 
 	varRestoreResourceInstanceRequestBody := _RestoreResourceInstanceRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varRestoreResourceInstanceRequestBody)
+	err = json.Unmarshal(data, &varRestoreResourceInstanceRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = RestoreResourceInstanceRequestBody(varRestoreResourceInstanceRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "network_type")
+		delete(additionalProperties, "targetRestoreTime")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

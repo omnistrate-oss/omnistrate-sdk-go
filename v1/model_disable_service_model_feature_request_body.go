@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -22,6 +21,7 @@ var _ MappedNullable = &DisableServiceModelFeatureRequestBody{}
 // DisableServiceModelFeatureRequestBody struct for DisableServiceModelFeatureRequestBody
 type DisableServiceModelFeatureRequestBody struct {
 	Feature string `json:"feature"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DisableServiceModelFeatureRequestBody DisableServiceModelFeatureRequestBody
@@ -79,6 +79,11 @@ func (o DisableServiceModelFeatureRequestBody) MarshalJSON() ([]byte, error) {
 func (o DisableServiceModelFeatureRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["feature"] = o.Feature
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -106,15 +111,20 @@ func (o *DisableServiceModelFeatureRequestBody) UnmarshalJSON(data []byte) (err 
 
 	varDisableServiceModelFeatureRequestBody := _DisableServiceModelFeatureRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDisableServiceModelFeatureRequestBody)
+	err = json.Unmarshal(data, &varDisableServiceModelFeatureRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DisableServiceModelFeatureRequestBody(varDisableServiceModelFeatureRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "feature")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

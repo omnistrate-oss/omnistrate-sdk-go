@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ListEndCustomerEventsResult{}
 type ListEndCustomerEventsResult struct {
 	// List of events
 	Events []EndCustomerEvent `json:"events"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListEndCustomerEventsResult ListEndCustomerEventsResult
@@ -80,6 +80,11 @@ func (o ListEndCustomerEventsResult) MarshalJSON() ([]byte, error) {
 func (o ListEndCustomerEventsResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["events"] = o.Events
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *ListEndCustomerEventsResult) UnmarshalJSON(data []byte) (err error) {
 
 	varListEndCustomerEventsResult := _ListEndCustomerEventsResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListEndCustomerEventsResult)
+	err = json.Unmarshal(data, &varListEndCustomerEventsResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListEndCustomerEventsResult(varListEndCustomerEventsResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "events")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

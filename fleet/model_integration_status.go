@@ -29,7 +29,10 @@ type IntegrationStatus struct {
 	Message *string `json:"message,omitempty"`
 	// Scope of the feature/integration
 	Scope *string `json:"scope,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _IntegrationStatus IntegrationStatus
 
 // NewIntegrationStatus instantiates a new IntegrationStatus object
 // This constructor will assign default values to properties that have it defined,
@@ -233,7 +236,37 @@ func (o IntegrationStatus) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Scope) {
 		toSerialize["scope"] = o.Scope
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *IntegrationStatus) UnmarshalJSON(data []byte) (err error) {
+	varIntegrationStatus := _IntegrationStatus{}
+
+	err = json.Unmarshal(data, &varIntegrationStatus)
+
+	if err != nil {
+		return err
+	}
+
+	*o = IntegrationStatus(varIntegrationStatus)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "Url")
+		delete(additionalProperties, "healthStatus")
+		delete(additionalProperties, "integrationType")
+		delete(additionalProperties, "message")
+		delete(additionalProperties, "scope")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableIntegrationStatus struct {

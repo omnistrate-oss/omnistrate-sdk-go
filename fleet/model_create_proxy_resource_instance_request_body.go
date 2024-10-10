@@ -25,7 +25,10 @@ type CreateProxyResourceInstanceRequestBody struct {
 	Region *string `json:"region,omitempty"`
 	// The request parameters
 	RequestParams interface{} `json:"requestParams,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _CreateProxyResourceInstanceRequestBody CreateProxyResourceInstanceRequestBody
 
 // NewCreateProxyResourceInstanceRequestBody instantiates a new CreateProxyResourceInstanceRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -160,7 +163,35 @@ func (o CreateProxyResourceInstanceRequestBody) ToMap() (map[string]interface{},
 	if o.RequestParams != nil {
 		toSerialize["requestParams"] = o.RequestParams
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *CreateProxyResourceInstanceRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varCreateProxyResourceInstanceRequestBody := _CreateProxyResourceInstanceRequestBody{}
+
+	err = json.Unmarshal(data, &varCreateProxyResourceInstanceRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CreateProxyResourceInstanceRequestBody(varCreateProxyResourceInstanceRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cloud_provider")
+		delete(additionalProperties, "region")
+		delete(additionalProperties, "requestParams")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableCreateProxyResourceInstanceRequestBody struct {

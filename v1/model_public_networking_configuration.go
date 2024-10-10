@@ -23,7 +23,10 @@ type PublicNetworkingConfiguration struct {
 	EnableClusterLoadBalancer *bool `json:"enableClusterLoadBalancer,omitempty"`
 	// Create an external node load balancer per node rather than exposing the node ip directly
 	EnableNodeLoadBalancer *bool `json:"enableNodeLoadBalancer,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _PublicNetworkingConfiguration PublicNetworkingConfiguration
 
 // NewPublicNetworkingConfiguration instantiates a new PublicNetworkingConfiguration object
 // This constructor will assign default values to properties that have it defined,
@@ -104,7 +107,34 @@ func (o PublicNetworkingConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EnableNodeLoadBalancer) {
 		toSerialize["enableNodeLoadBalancer"] = o.EnableNodeLoadBalancer
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *PublicNetworkingConfiguration) UnmarshalJSON(data []byte) (err error) {
+	varPublicNetworkingConfiguration := _PublicNetworkingConfiguration{}
+
+	err = json.Unmarshal(data, &varPublicNetworkingConfiguration)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PublicNetworkingConfiguration(varPublicNetworkingConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "enableClusterLoadBalancer")
+		delete(additionalProperties, "enableNodeLoadBalancer")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullablePublicNetworkingConfiguration struct {

@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &PagerDutyConfiguration{}
 type PagerDutyConfiguration struct {
 	// PagerDuty API integration key
 	IntegrationKey string `json:"integrationKey"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _PagerDutyConfiguration PagerDutyConfiguration
@@ -80,6 +80,11 @@ func (o PagerDutyConfiguration) MarshalJSON() ([]byte, error) {
 func (o PagerDutyConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["integrationKey"] = o.IntegrationKey
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *PagerDutyConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	varPagerDutyConfiguration := _PagerDutyConfiguration{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPagerDutyConfiguration)
+	err = json.Unmarshal(data, &varPagerDutyConfiguration)
 
 	if err != nil {
 		return err
 	}
 
 	*o = PagerDutyConfiguration(varPagerDutyConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "integrationKey")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

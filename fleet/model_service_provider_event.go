@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -45,6 +44,7 @@ type ServiceProviderEvent struct {
 	ServiceID *string `json:"serviceID,omitempty"`
 	// The event time
 	Time string `json:"time"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ServiceProviderEvent ServiceProviderEvent
@@ -415,6 +415,11 @@ func (o ServiceProviderEvent) ToMap() (map[string]interface{}, error) {
 		toSerialize["serviceID"] = o.ServiceID
 	}
 	toSerialize["time"] = o.Time
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -450,15 +455,31 @@ func (o *ServiceProviderEvent) UnmarshalJSON(data []byte) (err error) {
 
 	varServiceProviderEvent := _ServiceProviderEvent{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varServiceProviderEvent)
+	err = json.Unmarshal(data, &varServiceProviderEvent)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ServiceProviderEvent(varServiceProviderEvent)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "alertType")
+		delete(additionalProperties, "eventCategory")
+		delete(additionalProperties, "eventID")
+		delete(additionalProperties, "eventPayload")
+		delete(additionalProperties, "eventType")
+		delete(additionalProperties, "expiryTime")
+		delete(additionalProperties, "instanceID")
+		delete(additionalProperties, "priority")
+		delete(additionalProperties, "scope")
+		delete(additionalProperties, "serviceEnvironmentID")
+		delete(additionalProperties, "serviceID")
+		delete(additionalProperties, "time")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

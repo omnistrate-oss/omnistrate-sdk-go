@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -22,6 +21,7 @@ var _ MappedNullable = &SaveHelmPackageRequestBody{}
 // SaveHelmPackageRequestBody struct for SaveHelmPackageRequestBody
 type SaveHelmPackageRequestBody struct {
 	HelmPackage HelmPackage `json:"helmPackage"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _SaveHelmPackageRequestBody SaveHelmPackageRequestBody
@@ -79,6 +79,11 @@ func (o SaveHelmPackageRequestBody) MarshalJSON() ([]byte, error) {
 func (o SaveHelmPackageRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["helmPackage"] = o.HelmPackage
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -106,15 +111,20 @@ func (o *SaveHelmPackageRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varSaveHelmPackageRequestBody := _SaveHelmPackageRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSaveHelmPackageRequestBody)
+	err = json.Unmarshal(data, &varSaveHelmPackageRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = SaveHelmPackageRequestBody(varSaveHelmPackageRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "helmPackage")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

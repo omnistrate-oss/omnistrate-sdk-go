@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ListHelmPackagesResult{}
 type ListHelmPackagesResult struct {
 	// List of Helm packages
 	HelmPackages []HelmPackage `json:"helmPackages"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListHelmPackagesResult ListHelmPackagesResult
@@ -80,6 +80,11 @@ func (o ListHelmPackagesResult) MarshalJSON() ([]byte, error) {
 func (o ListHelmPackagesResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["helmPackages"] = o.HelmPackages
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *ListHelmPackagesResult) UnmarshalJSON(data []byte) (err error) {
 
 	varListHelmPackagesResult := _ListHelmPackagesResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListHelmPackagesResult)
+	err = json.Unmarshal(data, &varListHelmPackagesResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListHelmPackagesResult(varListHelmPackagesResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "helmPackages")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

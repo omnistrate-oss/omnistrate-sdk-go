@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -63,6 +62,7 @@ type ResourceInstanceSearchRecord struct {
 	StatusDescription string `json:"statusDescription"`
 	// The subscription ID of the instance.
 	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ResourceInstanceSearchRecord ResourceInstanceSearchRecord
@@ -721,6 +721,11 @@ func (o ResourceInstanceSearchRecord) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.SubscriptionId) {
 		toSerialize["subscriptionId"] = o.SubscriptionId
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -759,15 +764,40 @@ func (o *ResourceInstanceSearchRecord) UnmarshalJSON(data []byte) (err error) {
 
 	varResourceInstanceSearchRecord := _ResourceInstanceSearchRecord{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varResourceInstanceSearchRecord)
+	err = json.Unmarshal(data, &varResourceInstanceSearchRecord)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ResourceInstanceSearchRecord(varResourceInstanceSearchRecord)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cloudProvider")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "managed")
+		delete(additionalProperties, "managedResourceType")
+		delete(additionalProperties, "portsRegistrationStatus")
+		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "productTierName")
+		delete(additionalProperties, "productTierVersion")
+		delete(additionalProperties, "proxyType")
+		delete(additionalProperties, "regionCode")
+		delete(additionalProperties, "resourceId")
+		delete(additionalProperties, "resourceName")
+		delete(additionalProperties, "serviceEnvironmentId")
+		delete(additionalProperties, "serviceEnvironmentName")
+		delete(additionalProperties, "serviceEnvironmentType")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "serviceName")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "statusDescription")
+		delete(additionalProperties, "subscriptionId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

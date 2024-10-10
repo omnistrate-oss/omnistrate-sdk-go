@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type Change struct {
 	ChangeType string `json:"changeType"`
 	// The name of the setting/component that changed
 	Name string `json:"name"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _Change Change
@@ -136,6 +136,11 @@ func (o Change) ToMap() (map[string]interface{}, error) {
 	toSerialize["attributes"] = o.Attributes
 	toSerialize["changeType"] = o.ChangeType
 	toSerialize["name"] = o.Name
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -165,15 +170,22 @@ func (o *Change) UnmarshalJSON(data []byte) (err error) {
 
 	varChange := _Change{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varChange)
+	err = json.Unmarshal(data, &varChange)
 
 	if err != nil {
 		return err
 	}
 
 	*o = Change(varChange)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "attributes")
+		delete(additionalProperties, "changeType")
+		delete(additionalProperties, "name")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

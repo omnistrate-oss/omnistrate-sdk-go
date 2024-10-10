@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -24,6 +23,7 @@ type ListServiceProviderEventsResult struct {
 	// List of events
 	Events []ServiceProviderEvent `json:"events"`
 	EventsSummary ServiceProviderEventSummary `json:"eventsSummary"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListServiceProviderEventsResult ListServiceProviderEventsResult
@@ -107,6 +107,11 @@ func (o ListServiceProviderEventsResult) ToMap() (map[string]interface{}, error)
 	toSerialize := map[string]interface{}{}
 	toSerialize["events"] = o.Events
 	toSerialize["eventsSummary"] = o.EventsSummary
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -135,15 +140,21 @@ func (o *ListServiceProviderEventsResult) UnmarshalJSON(data []byte) (err error)
 
 	varListServiceProviderEventsResult := _ListServiceProviderEventsResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListServiceProviderEventsResult)
+	err = json.Unmarshal(data, &varListServiceProviderEventsResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListServiceProviderEventsResult(varListServiceProviderEventsResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "events")
+		delete(additionalProperties, "eventsSummary")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

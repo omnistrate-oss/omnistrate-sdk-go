@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -45,6 +44,7 @@ type CreateAccountConfigRequestBody struct {
 	GcpServiceAccountKey *string `json:"gcpServiceAccountKey,omitempty"`
 	// The name of the account
 	Name string `json:"name"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateAccountConfigRequestBody CreateAccountConfigRequestBody
@@ -388,6 +388,11 @@ func (o CreateAccountConfigRequestBody) ToMap() (map[string]interface{}, error) 
 		toSerialize["gcpServiceAccountKey"] = o.GcpServiceAccountKey
 	}
 	toSerialize["name"] = o.Name
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -417,15 +422,31 @@ func (o *CreateAccountConfigRequestBody) UnmarshalJSON(data []byte) (err error) 
 
 	varCreateAccountConfigRequestBody := _CreateAccountConfigRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateAccountConfigRequestBody)
+	err = json.Unmarshal(data, &varCreateAccountConfigRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateAccountConfigRequestBody(varCreateAccountConfigRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "awsAccessKey")
+		delete(additionalProperties, "awsAccountID")
+		delete(additionalProperties, "awsBootstrapRoleARN")
+		delete(additionalProperties, "awsSecretKey")
+		delete(additionalProperties, "byoaInstanceID")
+		delete(additionalProperties, "cloudProviderId")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "gcpProjectID")
+		delete(additionalProperties, "gcpProjectNumber")
+		delete(additionalProperties, "gcpServiceAccountEmail")
+		delete(additionalProperties, "gcpServiceAccountKey")
+		delete(additionalProperties, "name")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

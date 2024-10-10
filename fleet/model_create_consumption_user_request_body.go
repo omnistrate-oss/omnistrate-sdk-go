@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -29,6 +28,7 @@ type CreateConsumptionUserRequestBody struct {
 	Name string `json:"name"`
 	// Password of the user
 	Password string `json:"password"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateConsumptionUserRequestBody CreateConsumptionUserRequestBody
@@ -164,6 +164,11 @@ func (o CreateConsumptionUserRequestBody) ToMap() (map[string]interface{}, error
 	toSerialize["legalCompanyName"] = o.LegalCompanyName
 	toSerialize["name"] = o.Name
 	toSerialize["password"] = o.Password
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -194,15 +199,23 @@ func (o *CreateConsumptionUserRequestBody) UnmarshalJSON(data []byte) (err error
 
 	varCreateConsumptionUserRequestBody := _CreateConsumptionUserRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateConsumptionUserRequestBody)
+	err = json.Unmarshal(data, &varCreateConsumptionUserRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateConsumptionUserRequestBody(varCreateConsumptionUserRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "legalCompanyName")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "password")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

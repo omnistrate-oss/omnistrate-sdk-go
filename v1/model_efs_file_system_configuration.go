@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type EFSFileSystemConfiguration struct {
 	ProvisionedThroughputInMibps *float64 `json:"ProvisionedThroughputInMibps,omitempty"`
 	// The throughput mode of the EFS file system
 	ThroughputMode string `json:"ThroughputMode"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _EFSFileSystemConfiguration EFSFileSystemConfiguration
@@ -136,6 +136,11 @@ func (o EFSFileSystemConfiguration) ToMap() (map[string]interface{}, error) {
 		toSerialize["ProvisionedThroughputInMibps"] = o.ProvisionedThroughputInMibps
 	}
 	toSerialize["ThroughputMode"] = o.ThroughputMode
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -164,15 +169,22 @@ func (o *EFSFileSystemConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	varEFSFileSystemConfiguration := _EFSFileSystemConfiguration{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEFSFileSystemConfiguration)
+	err = json.Unmarshal(data, &varEFSFileSystemConfiguration)
 
 	if err != nil {
 		return err
 	}
 
 	*o = EFSFileSystemConfiguration(varEFSFileSystemConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "PerformanceMode")
+		delete(additionalProperties, "ProvisionedThroughputInMibps")
+		delete(additionalProperties, "ThroughputMode")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

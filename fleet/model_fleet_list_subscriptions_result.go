@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type FleetListSubscriptionsResult struct {
 	NextPageToken *string `json:"nextPageToken,omitempty"`
 	// List of subscriptions
 	Subscriptions []FleetDescribeSubscriptionResult `json:"subscriptions,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _FleetListSubscriptionsResult FleetListSubscriptionsResult
@@ -154,6 +154,11 @@ func (o FleetListSubscriptionsResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Subscriptions) {
 		toSerialize["subscriptions"] = o.Subscriptions
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -181,15 +186,22 @@ func (o *FleetListSubscriptionsResult) UnmarshalJSON(data []byte) (err error) {
 
 	varFleetListSubscriptionsResult := _FleetListSubscriptionsResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFleetListSubscriptionsResult)
+	err = json.Unmarshal(data, &varFleetListSubscriptionsResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = FleetListSubscriptionsResult(varFleetListSubscriptionsResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "ids")
+		delete(additionalProperties, "nextPageToken")
+		delete(additionalProperties, "subscriptions")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ListFleetFeaturesResult{}
 type ListFleetFeaturesResult struct {
 	// List of features enabled for the service provider.
 	Features []FleetFeature `json:"features"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListFleetFeaturesResult ListFleetFeaturesResult
@@ -80,6 +80,11 @@ func (o ListFleetFeaturesResult) MarshalJSON() ([]byte, error) {
 func (o ListFleetFeaturesResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["features"] = o.Features
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *ListFleetFeaturesResult) UnmarshalJSON(data []byte) (err error) {
 
 	varListFleetFeaturesResult := _ListFleetFeaturesResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListFleetFeaturesResult)
+	err = json.Unmarshal(data, &varListFleetFeaturesResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListFleetFeaturesResult(varListFleetFeaturesResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "features")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &InviteUserRequestBody{}
 type InviteUserRequestBody struct {
 	Email string `json:"email"`
 	RoleType string `json:"roleType"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _InviteUserRequestBody InviteUserRequestBody
@@ -106,6 +106,11 @@ func (o InviteUserRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["email"] = o.Email
 	toSerialize["roleType"] = o.RoleType
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -134,15 +139,21 @@ func (o *InviteUserRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varInviteUserRequestBody := _InviteUserRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varInviteUserRequestBody)
+	err = json.Unmarshal(data, &varInviteUserRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = InviteUserRequestBody(varInviteUserRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "roleType")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

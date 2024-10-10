@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -35,6 +34,7 @@ type ResourceEntity struct {
 	ResourceType *string `json:"resourceType,omitempty"`
 	// The resource URL key
 	UrlKey string `json:"urlKey"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ResourceEntity ResourceEntity
@@ -268,6 +268,11 @@ func (o ResourceEntity) ToMap() (map[string]interface{}, error) {
 		toSerialize["resourceType"] = o.ResourceType
 	}
 	toSerialize["urlKey"] = o.UrlKey
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -299,15 +304,26 @@ func (o *ResourceEntity) UnmarshalJSON(data []byte) (err error) {
 
 	varResourceEntity := _ResourceEntity{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varResourceEntity)
+	err = json.Unmarshal(data, &varResourceEntity)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ResourceEntity(varResourceEntity)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "isAutoscalingEnabled")
+		delete(additionalProperties, "isBackupEnabled")
+		delete(additionalProperties, "isDeprecated")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "resourceId")
+		delete(additionalProperties, "resourceType")
+		delete(additionalProperties, "urlKey")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

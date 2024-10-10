@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -26,6 +25,7 @@ type CustomDNSEndpoint struct {
 	DnsName *string `json:"dnsName,omitempty"`
 	Enabled bool `json:"enabled"`
 	Status *string `json:"status,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CustomDNSEndpoint CustomDNSEndpoint
@@ -223,6 +223,11 @@ func (o CustomDNSEndpoint) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -250,15 +255,24 @@ func (o *CustomDNSEndpoint) UnmarshalJSON(data []byte) (err error) {
 
 	varCustomDNSEndpoint := _CustomDNSEndpoint{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCustomDNSEndpoint)
+	err = json.Unmarshal(data, &varCustomDNSEndpoint)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CustomDNSEndpoint(varCustomDNSEndpoint)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "aRecordTarget")
+		delete(additionalProperties, "cnameTarget")
+		delete(additionalProperties, "dnsName")
+		delete(additionalProperties, "enabled")
+		delete(additionalProperties, "status")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -28,6 +27,7 @@ type CreateCustomDomainRequestBody struct {
 	// The name of the custom domain
 	Name string `json:"name"`
 	Route53Configuration Route53Configuration `json:"route53Configuration"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateCustomDomainRequestBody CreateCustomDomainRequestBody
@@ -163,6 +163,11 @@ func (o CreateCustomDomainRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize["description"] = o.Description
 	toSerialize["name"] = o.Name
 	toSerialize["route53Configuration"] = o.Route53Configuration
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -193,15 +198,23 @@ func (o *CreateCustomDomainRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varCreateCustomDomainRequestBody := _CreateCustomDomainRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateCustomDomainRequestBody)
+	err = json.Unmarshal(data, &varCreateCustomDomainRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateCustomDomainRequestBody(varCreateCustomDomainRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "customDomain")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "route53Configuration")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

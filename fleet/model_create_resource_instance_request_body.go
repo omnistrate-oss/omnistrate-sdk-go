@@ -33,7 +33,10 @@ type CreateResourceInstanceRequestBody struct {
 	RequestParams interface{} `json:"requestParams,omitempty"`
 	// The subscription ID
 	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _CreateResourceInstanceRequestBody CreateResourceInstanceRequestBody
 
 // NewCreateResourceInstanceRequestBody instantiates a new CreateResourceInstanceRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -308,7 +311,39 @@ func (o CreateResourceInstanceRequestBody) ToMap() (map[string]interface{}, erro
 	if !IsNil(o.SubscriptionId) {
 		toSerialize["subscriptionId"] = o.SubscriptionId
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *CreateResourceInstanceRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varCreateResourceInstanceRequestBody := _CreateResourceInstanceRequestBody{}
+
+	err = json.Unmarshal(data, &varCreateResourceInstanceRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CreateResourceInstanceRequestBody(varCreateResourceInstanceRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cloud_provider")
+		delete(additionalProperties, "custom_network_id")
+		delete(additionalProperties, "network_type")
+		delete(additionalProperties, "productTierVersion")
+		delete(additionalProperties, "region")
+		delete(additionalProperties, "requestParams")
+		delete(additionalProperties, "subscriptionId")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableCreateResourceInstanceRequestBody struct {

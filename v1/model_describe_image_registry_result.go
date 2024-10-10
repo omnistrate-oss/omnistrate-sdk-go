@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -33,6 +32,7 @@ type DescribeImageRegistryResult struct {
 	Password *string `json:"password,omitempty"`
 	// The username to use when authenticating to the Image Registry
 	Username *string `json:"username,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeImageRegistryResult DescribeImageRegistryResult
@@ -220,6 +220,11 @@ func (o DescribeImageRegistryResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Username) {
 		toSerialize["username"] = o.Username
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -250,15 +255,25 @@ func (o *DescribeImageRegistryResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribeImageRegistryResult := _DescribeImageRegistryResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeImageRegistryResult)
+	err = json.Unmarshal(data, &varDescribeImageRegistryResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeImageRegistryResult(varDescribeImageRegistryResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "host")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "password")
+		delete(additionalProperties, "username")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }
