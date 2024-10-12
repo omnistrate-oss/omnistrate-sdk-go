@@ -2,10 +2,7 @@ module github.com/omnistrate-oss/omnistrate-sdk-go
 
 go 1.23.1
 
-require (
-	github.com/omnistrate/omnistrate-sdk-go v0.0.7
-	github.com/stretchr/testify v1.9.0
-)
+require github.com/stretchr/testify v1.9.0
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect

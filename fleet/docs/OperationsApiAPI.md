@@ -25,7 +25,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/omnistrate/omnistrate-sdk-go/fleet"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
 )
 
 func main() {
@@ -93,7 +93,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/omnistrate/omnistrate-sdk-go/fleet"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
 )
 
 func main() {
@@ -161,7 +161,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/omnistrate/omnistrate-sdk-go/fleet"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
 )
 
 func main() {

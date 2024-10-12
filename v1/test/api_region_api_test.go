@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/omnistrate/omnistrate-sdk-go/v1"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
 )
 
 func Test_v1_RegionApiAPIService(t *testing.T) {

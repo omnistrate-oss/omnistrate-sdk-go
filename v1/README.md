@@ -21,7 +21,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```go
-import v1 "github.com/omnistrate/omnistrate-sdk-go/v1"
+import v1 "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:

@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/omnistrate/omnistrate-sdk-go/fleet"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
 )
 
 func Test_fleet_NotificationsApiAPIService(t *testing.T) {
