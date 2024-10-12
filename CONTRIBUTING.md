@@ -43,4 +43,4 @@ git merge origin/main
 - Commit often: It’s easier to review small, incremental changes rather than large chunks of code at once.
 
 ## Issues
-Feel free to report bugs or suggest features by opening a new [issue](./issues). Before submitting, check if the issue already exists. If so, feel free to comment on it.
+Feel free to report bugs or suggest features by opening a new [issue](https://github.com/omnistrate-oss/issues). Before submitting, check if the issue already exists. If so, feel free to comment on it.
