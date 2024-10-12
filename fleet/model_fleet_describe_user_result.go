@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type FleetDescribeUserResult struct {
 	Subscriptions []UserSubscription `json:"subscriptions"`
 	// The user ID
 	UserId string `json:"userId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _FleetDescribeUserResult FleetDescribeUserResult
@@ -136,6 +136,11 @@ func (o FleetDescribeUserResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["createdAt"] = o.CreatedAt
 	toSerialize["subscriptions"] = o.Subscriptions
 	toSerialize["userId"] = o.UserId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -165,15 +170,22 @@ func (o *FleetDescribeUserResult) UnmarshalJSON(data []byte) (err error) {
 
 	varFleetDescribeUserResult := _FleetDescribeUserResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFleetDescribeUserResult)
+	err = json.Unmarshal(data, &varFleetDescribeUserResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = FleetDescribeUserResult(varFleetDescribeUserResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "subscriptions")
+		delete(additionalProperties, "userId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -31,6 +30,7 @@ type SaaSPortalEmailConfig struct {
 	SmtpPort *int64 `json:"smtpPort,omitempty"`
 	// The SMTP username
 	SmtpUsername string `json:"smtpUsername"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _SaaSPortalEmailConfig SaaSPortalEmailConfig
@@ -192,6 +192,11 @@ func (o SaaSPortalEmailConfig) ToMap() (map[string]interface{}, error) {
 		toSerialize["smtpPort"] = o.SmtpPort
 	}
 	toSerialize["smtpUsername"] = o.SmtpUsername
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -222,15 +227,24 @@ func (o *SaaSPortalEmailConfig) UnmarshalJSON(data []byte) (err error) {
 
 	varSaaSPortalEmailConfig := _SaaSPortalEmailConfig{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSaaSPortalEmailConfig)
+	err = json.Unmarshal(data, &varSaaSPortalEmailConfig)
 
 	if err != nil {
 		return err
 	}
 
 	*o = SaaSPortalEmailConfig(varSaaSPortalEmailConfig)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "smtpFromEmail")
+		delete(additionalProperties, "smtpHost")
+		delete(additionalProperties, "smtpPassword")
+		delete(additionalProperties, "smtpPort")
+		delete(additionalProperties, "smtpUsername")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

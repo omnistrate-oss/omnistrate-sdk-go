@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -29,6 +28,7 @@ type ListFleetResourceInstancesResultInternal struct {
 	ResourceInstances []ResourceInstance `json:"resourceInstances"`
 	// The service ID this workflow belongs to.
 	ServiceId *string `json:"serviceId,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListFleetResourceInstancesResultInternal ListFleetResourceInstancesResultInternal
@@ -191,6 +191,11 @@ func (o ListFleetResourceInstancesResultInternal) ToMap() (map[string]interface{
 	if !IsNil(o.ServiceId) {
 		toSerialize["serviceId"] = o.ServiceId
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -218,15 +223,23 @@ func (o *ListFleetResourceInstancesResultInternal) UnmarshalJSON(data []byte) (e
 
 	varListFleetResourceInstancesResultInternal := _ListFleetResourceInstancesResultInternal{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListFleetResourceInstancesResultInternal)
+	err = json.Unmarshal(data, &varListFleetResourceInstancesResultInternal)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListFleetResourceInstancesResultInternal(varListFleetResourceInstancesResultInternal)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "nextPageToken")
+		delete(additionalProperties, "resourceInstances")
+		delete(additionalProperties, "serviceId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

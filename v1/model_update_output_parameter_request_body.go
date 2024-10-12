@@ -28,7 +28,10 @@ type UpdateOutputParameterRequestBody struct {
 	// Reference to an input variable that will be used to set the value of the output variable being exported
 	ValueRef *string `json:"valueRef,omitempty"`
 	ValueType *string `json:"valueType,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateOutputParameterRequestBody UpdateOutputParameterRequestBody
 
 // NewUpdateOutputParameterRequestBody instantiates a new UpdateOutputParameterRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -187,7 +190,37 @@ func (o UpdateOutputParameterRequestBody) ToMap() (map[string]interface{}, error
 	if !IsNil(o.ValueType) {
 		toSerialize["valueType"] = o.ValueType
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateOutputParameterRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateOutputParameterRequestBody := _UpdateOutputParameterRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateOutputParameterRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateOutputParameterRequestBody(varUpdateOutputParameterRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "value")
+		delete(additionalProperties, "valueRef")
+		delete(additionalProperties, "valueType")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateOutputParameterRequestBody struct {

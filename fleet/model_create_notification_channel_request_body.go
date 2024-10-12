@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -28,6 +27,7 @@ type CreateNotificationChannelRequestBody struct {
 	Slack *SlackConfiguration `json:"slack,omitempty"`
 	Subscription ChannelSubscription `json:"subscription"`
 	Webhook *WebhookConfiguration `json:"webhook,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateNotificationChannelRequestBody CreateNotificationChannelRequestBody
@@ -251,6 +251,11 @@ func (o CreateNotificationChannelRequestBody) ToMap() (map[string]interface{}, e
 	if !IsNil(o.Webhook) {
 		toSerialize["webhook"] = o.Webhook
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -279,15 +284,25 @@ func (o *CreateNotificationChannelRequestBody) UnmarshalJSON(data []byte) (err e
 
 	varCreateNotificationChannelRequestBody := _CreateNotificationChannelRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateNotificationChannelRequestBody)
+	err = json.Unmarshal(data, &varCreateNotificationChannelRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateNotificationChannelRequestBody(varCreateNotificationChannelRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "pagerDuty")
+		delete(additionalProperties, "slack")
+		delete(additionalProperties, "subscription")
+		delete(additionalProperties, "webhook")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

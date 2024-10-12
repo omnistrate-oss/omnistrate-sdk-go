@@ -25,7 +25,10 @@ type UpdateSaaSPortalCustomDomainRequestBody struct {
 	Description *string `json:"description,omitempty"`
 	// The custom domain name
 	Name *string `json:"name,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateSaaSPortalCustomDomainRequestBody UpdateSaaSPortalCustomDomainRequestBody
 
 // NewUpdateSaaSPortalCustomDomainRequestBody instantiates a new UpdateSaaSPortalCustomDomainRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -132,7 +135,35 @@ func (o UpdateSaaSPortalCustomDomainRequestBody) ToMap() (map[string]interface{}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateSaaSPortalCustomDomainRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateSaaSPortalCustomDomainRequestBody := _UpdateSaaSPortalCustomDomainRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateSaaSPortalCustomDomainRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateSaaSPortalCustomDomainRequestBody(varUpdateSaaSPortalCustomDomainRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "customDomain")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "name")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateSaaSPortalCustomDomainRequestBody struct {

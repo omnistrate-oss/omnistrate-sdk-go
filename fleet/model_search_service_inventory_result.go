@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type SearchServiceInventoryResult struct {
 	Results []SearchRecord `json:"results"`
 	// The service ID this workflow belongs to.
 	ServiceId string `json:"serviceId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _SearchServiceInventoryResult SearchServiceInventoryResult
@@ -108,6 +108,11 @@ func (o SearchServiceInventoryResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["results"] = o.Results
 	toSerialize["serviceId"] = o.ServiceId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *SearchServiceInventoryResult) UnmarshalJSON(data []byte) (err error) {
 
 	varSearchServiceInventoryResult := _SearchServiceInventoryResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSearchServiceInventoryResult)
+	err = json.Unmarshal(data, &varSearchServiceInventoryResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = SearchServiceInventoryResult(varSearchServiceInventoryResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "results")
+		delete(additionalProperties, "serviceId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

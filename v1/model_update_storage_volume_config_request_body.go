@@ -25,7 +25,10 @@ type UpdateStorageVolumeConfigRequestBody struct {
 	DisableBackup *bool `json:"disableBackup,omitempty"`
 	// Name of the storage volume pool
 	Name *string `json:"name,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateStorageVolumeConfigRequestBody UpdateStorageVolumeConfigRequestBody
 
 // NewUpdateStorageVolumeConfigRequestBody instantiates a new UpdateStorageVolumeConfigRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -132,7 +135,35 @@ func (o UpdateStorageVolumeConfigRequestBody) ToMap() (map[string]interface{}, e
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateStorageVolumeConfigRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateStorageVolumeConfigRequestBody := _UpdateStorageVolumeConfigRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateStorageVolumeConfigRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateStorageVolumeConfigRequestBody(varUpdateStorageVolumeConfigRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "disableBackup")
+		delete(additionalProperties, "name")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateStorageVolumeConfigRequestBody struct {

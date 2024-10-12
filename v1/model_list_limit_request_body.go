@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ListLimitRequestBody{}
 type ListLimitRequestBody struct {
 	// Limit family
 	Family string `json:"family"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListLimitRequestBody ListLimitRequestBody
@@ -80,6 +80,11 @@ func (o ListLimitRequestBody) MarshalJSON() ([]byte, error) {
 func (o ListLimitRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["family"] = o.Family
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *ListLimitRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varListLimitRequestBody := _ListLimitRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListLimitRequestBody)
+	err = json.Unmarshal(data, &varListLimitRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListLimitRequestBody(varListLimitRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "family")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -31,7 +31,10 @@ type Organization struct {
 	OrgUrl *string `json:"orgUrl,omitempty"`
 	// The service ID this workflow belongs to.
 	ServiceId *string `json:"serviceId,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _Organization Organization
 
 // NewOrganization instantiates a new Organization object
 // This constructor will assign default values to properties that have it defined,
@@ -270,7 +273,38 @@ func (o Organization) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ServiceId) {
 		toSerialize["serviceId"] = o.ServiceId
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *Organization) UnmarshalJSON(data []byte) (err error) {
+	varOrganization := _Organization{}
+
+	err = json.Unmarshal(data, &varOrganization)
+
+	if err != nil {
+		return err
+	}
+
+	*o = Organization(varOrganization)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "orgId")
+		delete(additionalProperties, "orgName")
+		delete(additionalProperties, "orgUrl")
+		delete(additionalProperties, "serviceId")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableOrganization struct {

@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ListSaaSPortalCustomDomainsResult{}
 type ListSaaSPortalCustomDomainsResult struct {
 	// The list of custom domains
 	CustomDomains []CustomDomain `json:"customDomains"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListSaaSPortalCustomDomainsResult ListSaaSPortalCustomDomainsResult
@@ -80,6 +80,11 @@ func (o ListSaaSPortalCustomDomainsResult) MarshalJSON() ([]byte, error) {
 func (o ListSaaSPortalCustomDomainsResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["customDomains"] = o.CustomDomains
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *ListSaaSPortalCustomDomainsResult) UnmarshalJSON(data []byte) (err erro
 
 	varListSaaSPortalCustomDomainsResult := _ListSaaSPortalCustomDomainsResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListSaaSPortalCustomDomainsResult)
+	err = json.Unmarshal(data, &varListSaaSPortalCustomDomainsResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListSaaSPortalCustomDomainsResult(varListSaaSPortalCustomDomainsResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "customDomains")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

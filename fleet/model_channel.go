@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -32,6 +31,7 @@ type Channel struct {
 	Slack *SlackConfiguration `json:"slack,omitempty"`
 	Subscription ChannelSubscription `json:"subscription"`
 	Webhook *WebhookConfiguration `json:"webhook,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _Channel Channel
@@ -307,6 +307,11 @@ func (o Channel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Webhook) {
 		toSerialize["webhook"] = o.Webhook
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -337,15 +342,27 @@ func (o *Channel) UnmarshalJSON(data []byte) (err error) {
 
 	varChannel := _Channel{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varChannel)
+	err = json.Unmarshal(data, &varChannel)
 
 	if err != nil {
 		return err
 	}
 
 	*o = Channel(varChannel)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "channelType")
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "pagerDuty")
+		delete(additionalProperties, "slack")
+		delete(additionalProperties, "subscription")
+		delete(additionalProperties, "webhook")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

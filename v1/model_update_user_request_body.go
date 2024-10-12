@@ -38,7 +38,10 @@ type UpdateUserRequestBody struct {
 	OrgTermsOfUse *string `json:"orgTermsOfUse,omitempty"`
 	// The url of the org that this user owns
 	OrgURL *string `json:"orgURL,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateUserRequestBody UpdateUserRequestBody
 
 // NewUpdateUserRequestBody instantiates a new UpdateUserRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -327,7 +330,42 @@ func (o UpdateUserRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.OrgURL) {
 		toSerialize["orgURL"] = o.OrgURL
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateUserRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateUserRequestBody := _UpdateUserRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateUserRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateUserRequestBody(varUpdateUserRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "address")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "orgDescription")
+		delete(additionalProperties, "orgFavIconURL")
+		delete(additionalProperties, "orgLogoURL")
+		delete(additionalProperties, "orgName")
+		delete(additionalProperties, "orgPrivacyPolicy")
+		delete(additionalProperties, "orgSupportEmail")
+		delete(additionalProperties, "orgTermsOfUse")
+		delete(additionalProperties, "orgURL")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateUserRequestBody struct {

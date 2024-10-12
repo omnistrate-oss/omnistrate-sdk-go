@@ -21,7 +21,10 @@ var _ MappedNullable = &CreateResourceInstanceResponseBody{}
 type CreateResourceInstanceResponseBody struct {
 	// Resource Instance Id
 	Id *string `json:"id,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _CreateResourceInstanceResponseBody CreateResourceInstanceResponseBody
 
 // NewCreateResourceInstanceResponseBody instantiates a new CreateResourceInstanceResponseBody object
 // This constructor will assign default values to properties that have it defined,
@@ -85,7 +88,33 @@ func (o CreateResourceInstanceResponseBody) ToMap() (map[string]interface{}, err
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *CreateResourceInstanceResponseBody) UnmarshalJSON(data []byte) (err error) {
+	varCreateResourceInstanceResponseBody := _CreateResourceInstanceResponseBody{}
+
+	err = json.Unmarshal(data, &varCreateResourceInstanceResponseBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CreateResourceInstanceResponseBody(varCreateResourceInstanceResponseBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "id")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableCreateResourceInstanceResponseBody struct {

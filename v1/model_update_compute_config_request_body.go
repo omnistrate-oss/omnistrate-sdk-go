@@ -32,7 +32,10 @@ type UpdateComputeConfigRequestBody struct {
 	// Size of the root volume in Gi
 	RootVolumeSizeGi *int64 `json:"rootVolumeSizeGi,omitempty"`
 	WarmPoolConfiguration *WarmPoolConfiguration `json:"warmPoolConfiguration,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateComputeConfigRequestBody UpdateComputeConfigRequestBody
 
 // NewUpdateComputeConfigRequestBody instantiates a new UpdateComputeConfigRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -269,7 +272,40 @@ func (o UpdateComputeConfigRequestBody) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.WarmPoolConfiguration) {
 		toSerialize["warmPoolConfiguration"] = o.WarmPoolConfiguration
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateComputeConfigRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateComputeConfigRequestBody := _UpdateComputeConfigRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateComputeConfigRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateComputeConfigRequestBody(varUpdateComputeConfigRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "autoscalingPolicy")
+		delete(additionalProperties, "cpuArchitecture")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "replicaCount")
+		delete(additionalProperties, "resources")
+		delete(additionalProperties, "rootVolumeSizeGi")
+		delete(additionalProperties, "warmPoolConfiguration")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateComputeConfigRequestBody struct {

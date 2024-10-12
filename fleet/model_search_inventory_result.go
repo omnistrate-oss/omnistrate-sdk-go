@@ -43,7 +43,10 @@ type SearchInventoryResult struct {
 	UserResults []UserSearchRecord `json:"userResults,omitempty"`
 	// The workflow search results
 	WorkflowResults []WorkflowSearchRecord `json:"workflowResults,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _SearchInventoryResult SearchInventoryResult
 
 // NewSearchInventoryResult instantiates a new SearchInventoryResult object
 // This constructor will assign default values to properties that have it defined,
@@ -492,7 +495,44 @@ func (o SearchInventoryResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.WorkflowResults) {
 		toSerialize["workflowResults"] = o.WorkflowResults
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *SearchInventoryResult) UnmarshalJSON(data []byte) (err error) {
+	varSearchInventoryResult := _SearchInventoryResult{}
+
+	err = json.Unmarshal(data, &varSearchInventoryResult)
+
+	if err != nil {
+		return err
+	}
+
+	*o = SearchInventoryResult(varSearchInventoryResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "deploymentCellResults")
+		delete(additionalProperties, "notificationResults")
+		delete(additionalProperties, "proxyInstanceResults")
+		delete(additionalProperties, "resourceInstanceResults")
+		delete(additionalProperties, "resourceResults")
+		delete(additionalProperties, "serverlessProxyResults")
+		delete(additionalProperties, "servicePlanResults")
+		delete(additionalProperties, "serviceResults")
+		delete(additionalProperties, "subscriptionResults")
+		delete(additionalProperties, "upgradePathResults")
+		delete(additionalProperties, "userResults")
+		delete(additionalProperties, "workflowResults")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableSearchInventoryResult struct {

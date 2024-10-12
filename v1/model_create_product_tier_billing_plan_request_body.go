@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -29,6 +28,7 @@ type CreateProductTierBillingPlanRequestBody struct {
 	PlanName string `json:"planName"`
 	// Pricing in dollars.
 	Pricing interface{} `json:"pricing"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateProductTierBillingPlanRequestBody CreateProductTierBillingPlanRequestBody
@@ -168,6 +168,11 @@ func (o CreateProductTierBillingPlanRequestBody) ToMap() (map[string]interface{}
 	if o.Pricing != nil {
 		toSerialize["pricing"] = o.Pricing
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -198,15 +203,23 @@ func (o *CreateProductTierBillingPlanRequestBody) UnmarshalJSON(data []byte) (er
 
 	varCreateProductTierBillingPlanRequestBody := _CreateProductTierBillingPlanRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateProductTierBillingPlanRequestBody)
+	err = json.Unmarshal(data, &varCreateProductTierBillingPlanRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateProductTierBillingPlanRequestBody(varCreateProductTierBillingPlanRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "allowCreatesWhenPaymentNotConfigured")
+		delete(additionalProperties, "maxNumberofInstances")
+		delete(additionalProperties, "planName")
+		delete(additionalProperties, "pricing")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

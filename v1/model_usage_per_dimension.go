@@ -23,7 +23,10 @@ type UsagePerDimension struct {
 	Dimension *string `json:"dimension,omitempty"`
 	// Total amount of usage during the period
 	Total *float64 `json:"total,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UsagePerDimension UsagePerDimension
 
 // NewUsagePerDimension instantiates a new UsagePerDimension object
 // This constructor will assign default values to properties that have it defined,
@@ -104,7 +107,34 @@ func (o UsagePerDimension) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Total) {
 		toSerialize["total"] = o.Total
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UsagePerDimension) UnmarshalJSON(data []byte) (err error) {
+	varUsagePerDimension := _UsagePerDimension{}
+
+	err = json.Unmarshal(data, &varUsagePerDimension)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UsagePerDimension(varUsagePerDimension)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "dimension")
+		delete(additionalProperties, "total")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUsagePerDimension struct {

@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -31,6 +30,7 @@ type ServicePlan struct {
 	ProductTierID string `json:"productTierID"`
 	// Product tier type
 	TierType string `json:"tierType"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ServicePlan ServicePlan
@@ -192,6 +192,11 @@ func (o ServicePlan) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["productTierID"] = o.ProductTierID
 	toSerialize["tierType"] = o.TierType
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -223,15 +228,24 @@ func (o *ServicePlan) UnmarshalJSON(data []byte) (err error) {
 
 	varServicePlan := _ServicePlan{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varServicePlan)
+	err = json.Unmarshal(data, &varServicePlan)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ServicePlan(varServicePlan)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "modelType")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "productTierID")
+		delete(additionalProperties, "tierType")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

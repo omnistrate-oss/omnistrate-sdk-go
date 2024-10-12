@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -31,6 +30,7 @@ type HelmChartConfiguration struct {
 	ChartValues map[string]interface{} `json:"chartValues,omitempty"`
 	// The chart version of the Helm package
 	ChartVersion string `json:"chartVersion"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _HelmChartConfiguration HelmChartConfiguration
@@ -192,6 +192,11 @@ func (o HelmChartConfiguration) ToMap() (map[string]interface{}, error) {
 		toSerialize["chartValues"] = o.ChartValues
 	}
 	toSerialize["chartVersion"] = o.ChartVersion
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -222,15 +227,24 @@ func (o *HelmChartConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	varHelmChartConfiguration := _HelmChartConfiguration{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varHelmChartConfiguration)
+	err = json.Unmarshal(data, &varHelmChartConfiguration)
 
 	if err != nil {
 		return err
 	}
 
 	*o = HelmChartConfiguration(varHelmChartConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "chartName")
+		delete(additionalProperties, "chartRepoName")
+		delete(additionalProperties, "chartRepoUrl")
+		delete(additionalProperties, "chartValues")
+		delete(additionalProperties, "chartVersion")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

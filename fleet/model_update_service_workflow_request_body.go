@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &UpdateServiceWorkflowRequestBody{}
 type UpdateServiceWorkflowRequestBody struct {
 	// The status of the workflow execution.
 	Status string `json:"status"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _UpdateServiceWorkflowRequestBody UpdateServiceWorkflowRequestBody
@@ -80,6 +80,11 @@ func (o UpdateServiceWorkflowRequestBody) MarshalJSON() ([]byte, error) {
 func (o UpdateServiceWorkflowRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["status"] = o.Status
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *UpdateServiceWorkflowRequestBody) UnmarshalJSON(data []byte) (err error
 
 	varUpdateServiceWorkflowRequestBody := _UpdateServiceWorkflowRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varUpdateServiceWorkflowRequestBody)
+	err = json.Unmarshal(data, &varUpdateServiceWorkflowRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = UpdateServiceWorkflowRequestBody(varUpdateServiceWorkflowRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "status")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -21,7 +21,10 @@ var _ MappedNullable = &AddStorageVolumeConfigRequestBody{}
 type AddStorageVolumeConfigRequestBody struct {
 	// The path where the storage volume will be mounted
 	MountPath *string `json:"mountPath,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _AddStorageVolumeConfigRequestBody AddStorageVolumeConfigRequestBody
 
 // NewAddStorageVolumeConfigRequestBody instantiates a new AddStorageVolumeConfigRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -76,7 +79,33 @@ func (o AddStorageVolumeConfigRequestBody) ToMap() (map[string]interface{}, erro
 	if !IsNil(o.MountPath) {
 		toSerialize["mountPath"] = o.MountPath
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *AddStorageVolumeConfigRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varAddStorageVolumeConfigRequestBody := _AddStorageVolumeConfigRequestBody{}
+
+	err = json.Unmarshal(data, &varAddStorageVolumeConfigRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AddStorageVolumeConfigRequestBody(varAddStorageVolumeConfigRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "mountPath")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableAddStorageVolumeConfigRequestBody struct {

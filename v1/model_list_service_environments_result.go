@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type ListServiceEnvironmentsResult struct {
 	Ids []string `json:"ids"`
 	// The next token to use to retrieve the next page of results
 	NextPageToken *string `json:"nextPageToken,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListServiceEnvironmentsResult ListServiceEnvironmentsResult
@@ -108,6 +108,11 @@ func (o ListServiceEnvironmentsResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.NextPageToken) {
 		toSerialize["nextPageToken"] = o.NextPageToken
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -135,15 +140,21 @@ func (o *ListServiceEnvironmentsResult) UnmarshalJSON(data []byte) (err error) {
 
 	varListServiceEnvironmentsResult := _ListServiceEnvironmentsResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListServiceEnvironmentsResult)
+	err = json.Unmarshal(data, &varListServiceEnvironmentsResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListServiceEnvironmentsResult(varListServiceEnvironmentsResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "ids")
+		delete(additionalProperties, "nextPageToken")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

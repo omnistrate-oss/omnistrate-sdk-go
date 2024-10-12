@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ListUpgradePathsResult{}
 type ListUpgradePathsResult struct {
 	// The list of upgrade paths.
 	UpgradePaths []UpgradePath `json:"upgradePaths"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListUpgradePathsResult ListUpgradePathsResult
@@ -80,6 +80,11 @@ func (o ListUpgradePathsResult) MarshalJSON() ([]byte, error) {
 func (o ListUpgradePathsResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["upgradePaths"] = o.UpgradePaths
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *ListUpgradePathsResult) UnmarshalJSON(data []byte) (err error) {
 
 	varListUpgradePathsResult := _ListUpgradePathsResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListUpgradePathsResult)
+	err = json.Unmarshal(data, &varListUpgradePathsResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListUpgradePathsResult(varListUpgradePathsResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "upgradePaths")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

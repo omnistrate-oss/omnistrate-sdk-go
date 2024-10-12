@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type BackupConfiguration struct {
 	BackupPeriodInHours int64 `json:"backupPeriodInHours"`
 	// The number of days to retain backups
 	BackupRetentionInDays int64 `json:"backupRetentionInDays"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _BackupConfiguration BackupConfiguration
@@ -108,6 +108,11 @@ func (o BackupConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["backupPeriodInHours"] = o.BackupPeriodInHours
 	toSerialize["backupRetentionInDays"] = o.BackupRetentionInDays
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *BackupConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	varBackupConfiguration := _BackupConfiguration{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varBackupConfiguration)
+	err = json.Unmarshal(data, &varBackupConfiguration)
 
 	if err != nil {
 		return err
 	}
 
 	*o = BackupConfiguration(varBackupConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "backupPeriodInHours")
+		delete(additionalProperties, "backupRetentionInDays")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

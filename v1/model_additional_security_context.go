@@ -25,7 +25,10 @@ type AdditionalSecurityContext struct {
 	DropCapabilities []string `json:"DropCapabilities,omitempty"`
 	// Supplemental group IDs
 	SupplementalGroupIDs []int64 `json:"SupplementalGroupIDs,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _AdditionalSecurityContext AdditionalSecurityContext
 
 // NewAdditionalSecurityContext instantiates a new AdditionalSecurityContext object
 // This constructor will assign default values to properties that have it defined,
@@ -132,7 +135,35 @@ func (o AdditionalSecurityContext) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.SupplementalGroupIDs) {
 		toSerialize["SupplementalGroupIDs"] = o.SupplementalGroupIDs
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *AdditionalSecurityContext) UnmarshalJSON(data []byte) (err error) {
+	varAdditionalSecurityContext := _AdditionalSecurityContext{}
+
+	err = json.Unmarshal(data, &varAdditionalSecurityContext)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AdditionalSecurityContext(varAdditionalSecurityContext)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "AddCapabilities")
+		delete(additionalProperties, "DropCapabilities")
+		delete(additionalProperties, "SupplementalGroupIDs")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableAdditionalSecurityContext struct {

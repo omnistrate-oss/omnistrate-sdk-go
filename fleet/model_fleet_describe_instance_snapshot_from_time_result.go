@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -35,6 +34,7 @@ type FleetDescribeInstanceSnapshotFromTimeResult struct {
 	SnapshotId string `json:"snapshotId"`
 	// The snapshot status
 	Status string `json:"status"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _FleetDescribeInstanceSnapshotFromTimeResult FleetDescribeInstanceSnapshotFromTimeResult
@@ -248,6 +248,11 @@ func (o FleetDescribeInstanceSnapshotFromTimeResult) ToMap() (map[string]interfa
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["snapshotId"] = o.SnapshotId
 	toSerialize["status"] = o.Status
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -281,15 +286,26 @@ func (o *FleetDescribeInstanceSnapshotFromTimeResult) UnmarshalJSON(data []byte)
 
 	varFleetDescribeInstanceSnapshotFromTimeResult := _FleetDescribeInstanceSnapshotFromTimeResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFleetDescribeInstanceSnapshotFromTimeResult)
+	err = json.Unmarshal(data, &varFleetDescribeInstanceSnapshotFromTimeResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = FleetDescribeInstanceSnapshotFromTimeResult(varFleetDescribeInstanceSnapshotFromTimeResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "completeTime")
+		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "productTierVersion")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "snapshotId")
+		delete(additionalProperties, "status")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -45,6 +44,7 @@ type NotificationSearchRecord struct {
 	Time string `json:"time"`
 	// The notification type.
 	Type string `json:"type"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _NotificationSearchRecord NotificationSearchRecord
@@ -397,6 +397,11 @@ func (o NotificationSearchRecord) ToMap() (map[string]interface{}, error) {
 	toSerialize["serviceName"] = o.ServiceName
 	toSerialize["time"] = o.Time
 	toSerialize["type"] = o.Type
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -434,15 +439,31 @@ func (o *NotificationSearchRecord) UnmarshalJSON(data []byte) (err error) {
 
 	varNotificationSearchRecord := _NotificationSearchRecord{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varNotificationSearchRecord)
+	err = json.Unmarshal(data, &varNotificationSearchRecord)
 
 	if err != nil {
 		return err
 	}
 
 	*o = NotificationSearchRecord(varNotificationSearchRecord)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "priority")
+		delete(additionalProperties, "resourceName")
+		delete(additionalProperties, "serviceEnvironmentID")
+		delete(additionalProperties, "serviceEnvironmentName")
+		delete(additionalProperties, "serviceEnvironmentType")
+		delete(additionalProperties, "serviceID")
+		delete(additionalProperties, "serviceName")
+		delete(additionalProperties, "time")
+		delete(additionalProperties, "type")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

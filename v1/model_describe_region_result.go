@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -30,6 +29,7 @@ type DescribeRegionResult struct {
 	Description string `json:"description"`
 	// ID of the Region
 	Id string `json:"id"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeRegionResult DescribeRegionResult
@@ -191,6 +191,11 @@ func (o DescribeRegionResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["code"] = o.Code
 	toSerialize["description"] = o.Description
 	toSerialize["id"] = o.Id
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -222,15 +227,24 @@ func (o *DescribeRegionResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribeRegionResult := _DescribeRegionResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeRegionResult)
+	err = json.Unmarshal(data, &varDescribeRegionResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeRegionResult(varDescribeRegionResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cloudProviderId")
+		delete(additionalProperties, "cloudProviderName")
+		delete(additionalProperties, "code")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "id")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type DemoRequestBody struct {
 	Email string `json:"email"`
 	Name string `json:"name"`
 	Phone *string `json:"phone,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DemoRequestBody DemoRequestBody
@@ -160,6 +160,11 @@ func (o DemoRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Phone) {
 		toSerialize["phone"] = o.Phone
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -189,15 +194,23 @@ func (o *DemoRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varDemoRequestBody := _DemoRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDemoRequestBody)
+	err = json.Unmarshal(data, &varDemoRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DemoRequestBody(varDemoRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "company")
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "phone")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

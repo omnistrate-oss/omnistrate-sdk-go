@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -31,6 +30,7 @@ type ResourceHealthSummary struct {
 	ResourceType *string `json:"resourceType,omitempty"`
 	// The status of the resource
 	Status string `json:"status"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ResourceHealthSummary ResourceHealthSummary
@@ -201,6 +201,11 @@ func (o ResourceHealthSummary) ToMap() (map[string]interface{}, error) {
 		toSerialize["resourceType"] = o.ResourceType
 	}
 	toSerialize["status"] = o.Status
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -231,15 +236,24 @@ func (o *ResourceHealthSummary) UnmarshalJSON(data []byte) (err error) {
 
 	varResourceHealthSummary := _ResourceHealthSummary{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varResourceHealthSummary)
+	err = json.Unmarshal(data, &varResourceHealthSummary)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ResourceHealthSummary(varResourceHealthSummary)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "nodesHealth")
+		delete(additionalProperties, "resourceID")
+		delete(additionalProperties, "resourceKey")
+		delete(additionalProperties, "resourceType")
+		delete(additionalProperties, "status")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

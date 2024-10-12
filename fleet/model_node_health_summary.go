@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -47,6 +46,7 @@ type NodeHealthSummary struct {
 	RecentLogs string `json:"recentLogs"`
 	// The overall status of the node
 	Status string `json:"status"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _NodeHealthSummary NodeHealthSummary
@@ -425,6 +425,11 @@ func (o NodeHealthSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize["processLiveness"] = o.ProcessLiveness
 	toSerialize["recentLogs"] = o.RecentLogs
 	toSerialize["status"] = o.Status
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -463,15 +468,32 @@ func (o *NodeHealthSummary) UnmarshalJSON(data []byte) (err error) {
 
 	varNodeHealthSummary := _NodeHealthSummary{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varNodeHealthSummary)
+	err = json.Unmarshal(data, &varNodeHealthSummary)
 
 	if err != nil {
 		return err
 	}
 
 	*o = NodeHealthSummary(varNodeHealthSummary)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "availabilityZone")
+		delete(additionalProperties, "connectivityStatus")
+		delete(additionalProperties, "diskHealth")
+		delete(additionalProperties, "endpoint")
+		delete(additionalProperties, "events")
+		delete(additionalProperties, "loadHealth")
+		delete(additionalProperties, "nodeHealth")
+		delete(additionalProperties, "nodeName")
+		delete(additionalProperties, "ports")
+		delete(additionalProperties, "processHealth")
+		delete(additionalProperties, "processLiveness")
+		delete(additionalProperties, "recentLogs")
+		delete(additionalProperties, "status")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

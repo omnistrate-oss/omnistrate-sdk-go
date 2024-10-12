@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -59,6 +58,7 @@ type DescribeResourceInstanceResult struct {
 	Status string `json:"status"`
 	// The subscription ID
 	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeResourceInstanceResult DescribeResourceInstanceResult
@@ -614,6 +614,11 @@ func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.SubscriptionId) {
 		toSerialize["subscriptionId"] = o.SubscriptionId
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -649,15 +654,39 @@ func (o *DescribeResourceInstanceResult) UnmarshalJSON(data []byte) (err error) 
 
 	varDescribeResourceInstanceResult := _DescribeResourceInstanceResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeResourceInstanceResult)
+	err = json.Unmarshal(data, &varDescribeResourceInstanceResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeResourceInstanceResult(varDescribeResourceInstanceResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "active")
+		delete(additionalProperties, "awsAccountID")
+		delete(additionalProperties, "backupStatus")
+		delete(additionalProperties, "cloud_provider")
+		delete(additionalProperties, "created_at")
+		delete(additionalProperties, "createdByUserId")
+		delete(additionalProperties, "createdByUserName")
+		delete(additionalProperties, "customNetworkDetail")
+		delete(additionalProperties, "detailedNetworkTopology")
+		delete(additionalProperties, "externalPayerId")
+		delete(additionalProperties, "gcpProjectID")
+		delete(additionalProperties, "highAvailability")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "last_modified_at")
+		delete(additionalProperties, "network_type")
+		delete(additionalProperties, "productTierFeatures")
+		delete(additionalProperties, "region")
+		delete(additionalProperties, "result_params")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "subscriptionId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type ListLimitResult struct {
 	Keys []string `json:"keys"`
 	// Token to use for the next page
 	NextPageToken *string `json:"nextPageToken,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListLimitResult ListLimitResult
@@ -108,6 +108,11 @@ func (o ListLimitResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.NextPageToken) {
 		toSerialize["nextPageToken"] = o.NextPageToken
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -135,15 +140,21 @@ func (o *ListLimitResult) UnmarshalJSON(data []byte) (err error) {
 
 	varListLimitResult := _ListLimitResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListLimitResult)
+	err = json.Unmarshal(data, &varListLimitResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListLimitResult(varListLimitResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "keys")
+		delete(additionalProperties, "nextPageToken")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

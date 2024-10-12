@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -43,6 +42,7 @@ type DescribeEventResult struct {
 	UserName *string `json:"userName,omitempty"`
 	// The list of workflow events that indicate failures
 	WorkflowFailures []WorkflowFailure `json:"workflowFailures,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeEventResult DescribeEventResult
@@ -360,6 +360,11 @@ func (o DescribeEventResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.WorkflowFailures) {
 		toSerialize["workflowFailures"] = o.WorkflowFailures
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -391,15 +396,30 @@ func (o *DescribeEventResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribeEventResult := _DescribeEventResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeEventResult)
+	err = json.Unmarshal(data, &varDescribeEventResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeEventResult(varDescribeEventResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "eventSource")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "message")
+		delete(additionalProperties, "orgId")
+		delete(additionalProperties, "orgName")
+		delete(additionalProperties, "resourceInstanceId")
+		delete(additionalProperties, "resourceName")
+		delete(additionalProperties, "time")
+		delete(additionalProperties, "userId")
+		delete(additionalProperties, "userName")
+		delete(additionalProperties, "workflowFailures")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

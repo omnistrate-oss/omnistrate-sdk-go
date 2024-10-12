@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -49,6 +48,7 @@ type DescribeAccountConfigResult struct {
 	Status string `json:"status"`
 	// The status message of the account
 	StatusMessage string `json:"statusMessage"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeAccountConfigResult DescribeAccountConfigResult
@@ -444,6 +444,11 @@ func (o DescribeAccountConfigResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["status"] = o.Status
 	toSerialize["statusMessage"] = o.StatusMessage
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -476,15 +481,33 @@ func (o *DescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribeAccountConfigResult := _DescribeAccountConfigResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeAccountConfigResult)
+	err = json.Unmarshal(data, &varDescribeAccountConfigResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeAccountConfigResult(varDescribeAccountConfigResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "awsAccountID")
+		delete(additionalProperties, "awsBootstrapRoleARN")
+		delete(additionalProperties, "awsCloudFormationNoLBTemplateURL")
+		delete(additionalProperties, "awsCloudFormationTemplateURL")
+		delete(additionalProperties, "byoaInstanceIDs")
+		delete(additionalProperties, "cloudProviderId")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "gcpProjectID")
+		delete(additionalProperties, "gcpProjectNumber")
+		delete(additionalProperties, "gcpServiceAccountEmail")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "statusMessage")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

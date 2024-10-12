@@ -25,7 +25,10 @@ type InfraRollConfiguration struct {
 	MaximumNumberOfResourceInstancesPerBatch *int64 `json:"maximumNumberOfResourceInstancesPerBatch,omitempty"`
 	// Maximum number of replicas of this resource that can be unavailable before halting the rollout
 	MaximumUnavailableReplicas *int64 `json:"maximumUnavailableReplicas,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _InfraRollConfiguration InfraRollConfiguration
 
 // NewInfraRollConfiguration instantiates a new InfraRollConfiguration object
 // This constructor will assign default values to properties that have it defined,
@@ -140,7 +143,35 @@ func (o InfraRollConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.MaximumUnavailableReplicas) {
 		toSerialize["maximumUnavailableReplicas"] = o.MaximumUnavailableReplicas
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *InfraRollConfiguration) UnmarshalJSON(data []byte) (err error) {
+	varInfraRollConfiguration := _InfraRollConfiguration{}
+
+	err = json.Unmarshal(data, &varInfraRollConfiguration)
+
+	if err != nil {
+		return err
+	}
+
+	*o = InfraRollConfiguration(varInfraRollConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "infraRolloutStrategy")
+		delete(additionalProperties, "maximumNumberOfResourceInstancesPerBatch")
+		delete(additionalProperties, "maximumUnavailableReplicas")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableInfraRollConfiguration struct {

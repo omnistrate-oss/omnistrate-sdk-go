@@ -25,7 +25,10 @@ type ReportHealthResult struct {
 	Id *string `json:"id,omitempty"`
 	// The health of each environment under this service
 	Report *map[string]EnvironmentHealthReport `json:"report,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ReportHealthResult ReportHealthResult
 
 // NewReportHealthResult instantiates a new ReportHealthResult object
 // This constructor will assign default values to properties that have it defined,
@@ -132,7 +135,35 @@ func (o ReportHealthResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Report) {
 		toSerialize["report"] = o.Report
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ReportHealthResult) UnmarshalJSON(data []byte) (err error) {
+	varReportHealthResult := _ReportHealthResult{}
+
+	err = json.Unmarshal(data, &varReportHealthResult)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ReportHealthResult(varReportHealthResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "health")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "report")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableReportHealthResult struct {

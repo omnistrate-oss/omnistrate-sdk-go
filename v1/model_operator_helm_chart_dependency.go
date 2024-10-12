@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type OperatorHelmChartDependency struct {
 	ChartName string `json:"chartName"`
 	// The version of the helm chart
 	ChartVersion string `json:"chartVersion"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OperatorHelmChartDependency OperatorHelmChartDependency
@@ -108,6 +108,11 @@ func (o OperatorHelmChartDependency) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["chartName"] = o.ChartName
 	toSerialize["chartVersion"] = o.ChartVersion
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *OperatorHelmChartDependency) UnmarshalJSON(data []byte) (err error) {
 
 	varOperatorHelmChartDependency := _OperatorHelmChartDependency{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOperatorHelmChartDependency)
+	err = json.Unmarshal(data, &varOperatorHelmChartDependency)
 
 	if err != nil {
 		return err
 	}
 
 	*o = OperatorHelmChartDependency(varOperatorHelmChartDependency)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "chartName")
+		delete(additionalProperties, "chartVersion")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

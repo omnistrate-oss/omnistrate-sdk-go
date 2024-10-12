@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type BackendPortConfiguration struct {
 	BackendPort int64 `json:"backendPort"`
 	// The ingress port to configure on the load balancer
 	IngressPort int64 `json:"ingressPort"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _BackendPortConfiguration BackendPortConfiguration
@@ -136,6 +136,11 @@ func (o BackendPortConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize["associatedResourceIDs"] = o.AssociatedResourceIDs
 	toSerialize["backendPort"] = o.BackendPort
 	toSerialize["ingressPort"] = o.IngressPort
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -165,15 +170,22 @@ func (o *BackendPortConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	varBackendPortConfiguration := _BackendPortConfiguration{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varBackendPortConfiguration)
+	err = json.Unmarshal(data, &varBackendPortConfiguration)
 
 	if err != nil {
 		return err
 	}
 
 	*o = BackendPortConfiguration(varBackendPortConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "associatedResourceIDs")
+		delete(additionalProperties, "backendPort")
+		delete(additionalProperties, "ingressPort")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -55,6 +54,7 @@ type UpgradePath struct {
 	UpdatedAt string `json:"updatedAt"`
 	// The upgrade path ID
 	UpgradePathId string `json:"upgradePathId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _UpgradePath UpgradePath
@@ -537,6 +537,11 @@ func (o UpgradePath) ToMap() (map[string]interface{}, error) {
 	toSerialize["type"] = o.Type
 	toSerialize["updatedAt"] = o.UpdatedAt
 	toSerialize["upgradePathId"] = o.UpgradePathId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -579,15 +584,36 @@ func (o *UpgradePath) UnmarshalJSON(data []byte) (err error) {
 
 	varUpgradePath := _UpgradePath{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varUpgradePath)
+	err = json.Unmarshal(data, &varUpgradePath)
 
 	if err != nil {
 		return err
 	}
 
 	*o = UpgradePath(varUpgradePath)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "completedAt")
+		delete(additionalProperties, "completedCount")
+		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "createdBy")
+		delete(additionalProperties, "failedCount")
+		delete(additionalProperties, "inProgressCount")
+		delete(additionalProperties, "pendingCount")
+		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "releasedAt")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "sourceVersion")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "targetVersion")
+		delete(additionalProperties, "totalCount")
+		delete(additionalProperties, "type")
+		delete(additionalProperties, "updatedAt")
+		delete(additionalProperties, "upgradePathId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

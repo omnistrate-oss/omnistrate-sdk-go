@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &BackupStatus{}
 type BackupStatus struct {
 	// The earliest restore time
 	EarliestRestoreTime string `json:"earliestRestoreTime"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _BackupStatus BackupStatus
@@ -80,6 +80,11 @@ func (o BackupStatus) MarshalJSON() ([]byte, error) {
 func (o BackupStatus) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["earliestRestoreTime"] = o.EarliestRestoreTime
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *BackupStatus) UnmarshalJSON(data []byte) (err error) {
 
 	varBackupStatus := _BackupStatus{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varBackupStatus)
+	err = json.Unmarshal(data, &varBackupStatus)
 
 	if err != nil {
 		return err
 	}
 
 	*o = BackupStatus(varBackupStatus)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "earliestRestoreTime")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

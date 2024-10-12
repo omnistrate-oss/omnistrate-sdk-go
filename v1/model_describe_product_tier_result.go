@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -55,6 +54,7 @@ type DescribeProductTierResult struct {
 	Support string `json:"support"`
 	// Tier type
 	TierType string `json:"tierType"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeProductTierResult DescribeProductTierResult
@@ -532,6 +532,11 @@ func (o DescribeProductTierResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["serviceModelId"] = o.ServiceModelId
 	toSerialize["support"] = o.Support
 	toSerialize["tierType"] = o.TierType
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -570,15 +575,36 @@ func (o *DescribeProductTierResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribeProductTierResult := _DescribeProductTierResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeProductTierResult)
+	err = json.Unmarshal(data, &varDescribeProductTierResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeProductTierResult(varDescribeProductTierResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "apiGroups")
+		delete(additionalProperties, "awsRegions")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "documentation")
+		delete(additionalProperties, "enabledFeatures")
+		delete(additionalProperties, "features")
+		delete(additionalProperties, "gcpRegions")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "isDisabled")
+		delete(additionalProperties, "key")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "planDescription")
+		delete(additionalProperties, "pricing")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "serviceModelId")
+		delete(additionalProperties, "support")
+		delete(additionalProperties, "tierType")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

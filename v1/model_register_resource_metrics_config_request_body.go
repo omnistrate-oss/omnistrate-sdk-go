@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &RegisterResourceMetricsConfigRequestBody{}
 type RegisterResourceMetricsConfigRequestBody struct {
 	// The local host endpoint to supply prometheus metric
 	MetricEndpoint string `json:"metricEndpoint"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _RegisterResourceMetricsConfigRequestBody RegisterResourceMetricsConfigRequestBody
@@ -80,6 +80,11 @@ func (o RegisterResourceMetricsConfigRequestBody) MarshalJSON() ([]byte, error) 
 func (o RegisterResourceMetricsConfigRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["metricEndpoint"] = o.MetricEndpoint
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *RegisterResourceMetricsConfigRequestBody) UnmarshalJSON(data []byte) (e
 
 	varRegisterResourceMetricsConfigRequestBody := _RegisterResourceMetricsConfigRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varRegisterResourceMetricsConfigRequestBody)
+	err = json.Unmarshal(data, &varRegisterResourceMetricsConfigRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = RegisterResourceMetricsConfigRequestBody(varRegisterResourceMetricsConfigRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "metricEndpoint")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

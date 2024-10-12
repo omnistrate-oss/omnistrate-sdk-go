@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type OmnistrateServiceVersionResult struct {
 	BuildCommitSHA string `json:"buildCommitSHA"`
 	// The timestamp of the build
 	BuildTimestamp string `json:"buildTimestamp"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OmnistrateServiceVersionResult OmnistrateServiceVersionResult
@@ -136,6 +136,11 @@ func (o OmnistrateServiceVersionResult) ToMap() (map[string]interface{}, error) 
 	toSerialize["apiVersion"] = o.ApiVersion
 	toSerialize["buildCommitSHA"] = o.BuildCommitSHA
 	toSerialize["buildTimestamp"] = o.BuildTimestamp
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -165,15 +170,22 @@ func (o *OmnistrateServiceVersionResult) UnmarshalJSON(data []byte) (err error) 
 
 	varOmnistrateServiceVersionResult := _OmnistrateServiceVersionResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOmnistrateServiceVersionResult)
+	err = json.Unmarshal(data, &varOmnistrateServiceVersionResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = OmnistrateServiceVersionResult(varOmnistrateServiceVersionResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "apiVersion")
+		delete(additionalProperties, "buildCommitSHA")
+		delete(additionalProperties, "buildTimestamp")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

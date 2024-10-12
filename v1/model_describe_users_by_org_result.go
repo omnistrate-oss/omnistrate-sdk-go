@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type DescribeUsersByOrgResult struct {
 	Id string `json:"Id"`
 	// The users associated with the corresponding org
 	OrgUsers []OrgUsers `json:"orgUsers"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeUsersByOrgResult DescribeUsersByOrgResult
@@ -108,6 +108,11 @@ func (o DescribeUsersByOrgResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["Id"] = o.Id
 	toSerialize["orgUsers"] = o.OrgUsers
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *DescribeUsersByOrgResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribeUsersByOrgResult := _DescribeUsersByOrgResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeUsersByOrgResult)
+	err = json.Unmarshal(data, &varDescribeUsersByOrgResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeUsersByOrgResult(varDescribeUsersByOrgResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "Id")
+		delete(additionalProperties, "orgUsers")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

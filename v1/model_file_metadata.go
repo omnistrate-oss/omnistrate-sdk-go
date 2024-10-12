@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -37,6 +36,7 @@ type FileMetadata struct {
 	UploadTime string `json:"uploadTime"`
 	// The user who uploaded the file
 	UploadedBy string `json:"uploadedBy"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _FileMetadata FileMetadata
@@ -276,6 +276,11 @@ func (o FileMetadata) ToMap() (map[string]interface{}, error) {
 	toSerialize["type"] = o.Type
 	toSerialize["uploadTime"] = o.UploadTime
 	toSerialize["uploadedBy"] = o.UploadedBy
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -310,15 +315,27 @@ func (o *FileMetadata) UnmarshalJSON(data []byte) (err error) {
 
 	varFileMetadata := _FileMetadata{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFileMetadata)
+	err = json.Unmarshal(data, &varFileMetadata)
 
 	if err != nil {
 		return err
 	}
 
 	*o = FileMetadata(varFileMetadata)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "fileId")
+		delete(additionalProperties, "mountPath")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "size")
+		delete(additionalProperties, "type")
+		delete(additionalProperties, "uploadTime")
+		delete(additionalProperties, "uploadedBy")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

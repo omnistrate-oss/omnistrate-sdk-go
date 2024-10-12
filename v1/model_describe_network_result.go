@@ -31,7 +31,10 @@ type DescribeNetworkResult struct {
 	Type *string `json:"type,omitempty"`
 	// VUnit ID for the Network
 	VunitId *string `json:"vunitId,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _DescribeNetworkResult DescribeNetworkResult
 
 // NewDescribeNetworkResult instantiates a new DescribeNetworkResult object
 // This constructor will assign default values to properties that have it defined,
@@ -216,7 +219,38 @@ func (o DescribeNetworkResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.VunitId) {
 		toSerialize["vunitId"] = o.VunitId
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *DescribeNetworkResult) UnmarshalJSON(data []byte) (err error) {
+	varDescribeNetworkResult := _DescribeNetworkResult{}
+
+	err = json.Unmarshal(data, &varDescribeNetworkResult)
+
+	if err != nil {
+		return err
+	}
+
+	*o = DescribeNetworkResult(varDescribeNetworkResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cidr")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "networkConfigId")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "type")
+		delete(additionalProperties, "vunitId")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableDescribeNetworkResult struct {

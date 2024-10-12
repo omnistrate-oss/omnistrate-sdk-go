@@ -21,7 +21,10 @@ var _ MappedNullable = &EnvironmentHealthReport{}
 type EnvironmentHealthReport struct {
 	// Health report for each model in the environment
 	Models *map[string]VUnitHealthReport `json:"models,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _EnvironmentHealthReport EnvironmentHealthReport
 
 // NewEnvironmentHealthReport instantiates a new EnvironmentHealthReport object
 // This constructor will assign default values to properties that have it defined,
@@ -76,7 +79,33 @@ func (o EnvironmentHealthReport) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Models) {
 		toSerialize["models"] = o.Models
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *EnvironmentHealthReport) UnmarshalJSON(data []byte) (err error) {
+	varEnvironmentHealthReport := _EnvironmentHealthReport{}
+
+	err = json.Unmarshal(data, &varEnvironmentHealthReport)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EnvironmentHealthReport(varEnvironmentHealthReport)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "models")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableEnvironmentHealthReport struct {

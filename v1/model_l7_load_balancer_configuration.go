@@ -21,7 +21,10 @@ var _ MappedNullable = &L7LoadBalancerConfiguration{}
 type L7LoadBalancerConfiguration struct {
 	// The paths to configure on the load balancer
 	Paths []LoadBalancerPathConfiguration `json:"paths,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _L7LoadBalancerConfiguration L7LoadBalancerConfiguration
 
 // NewL7LoadBalancerConfiguration instantiates a new L7LoadBalancerConfiguration object
 // This constructor will assign default values to properties that have it defined,
@@ -76,7 +79,33 @@ func (o L7LoadBalancerConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Paths) {
 		toSerialize["paths"] = o.Paths
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *L7LoadBalancerConfiguration) UnmarshalJSON(data []byte) (err error) {
+	varL7LoadBalancerConfiguration := _L7LoadBalancerConfiguration{}
+
+	err = json.Unmarshal(data, &varL7LoadBalancerConfiguration)
+
+	if err != nil {
+		return err
+	}
+
+	*o = L7LoadBalancerConfiguration(varL7LoadBalancerConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "paths")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableL7LoadBalancerConfiguration struct {

@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -79,6 +78,7 @@ type GetServicePlanResult struct {
 	TierType string `json:"tierType"`
 	// The tier version set status.
 	VersionSetStatus string `json:"versionSetStatus"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _GetServicePlanResult GetServicePlanResult
@@ -868,6 +868,11 @@ func (o GetServicePlanResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["serviceModelName"] = o.ServiceModelName
 	toSerialize["tierType"] = o.TierType
 	toSerialize["versionSetStatus"] = o.VersionSetStatus
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -917,15 +922,48 @@ func (o *GetServicePlanResult) UnmarshalJSON(data []byte) (err error) {
 
 	varGetServicePlanResult := _GetServicePlanResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGetServicePlanResult)
+	err = json.Unmarshal(data, &varGetServicePlanResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = GetServicePlanResult(varGetServicePlanResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "AutoApproveSubscription")
+		delete(additionalProperties, "accountConfigIds")
+		delete(additionalProperties, "activeAccountConfigIds")
+		delete(additionalProperties, "apiVersion")
+		delete(additionalProperties, "awsRegions")
+		delete(additionalProperties, "deploymentConfigId")
+		delete(additionalProperties, "gcpRegions")
+		delete(additionalProperties, "hasPendingChanges")
+		delete(additionalProperties, "isProductTierDisabled")
+		delete(additionalProperties, "latestMajorVersion")
+		delete(additionalProperties, "modelType")
+		delete(additionalProperties, "productTierDescription")
+		delete(additionalProperties, "productTierDocumentation")
+		delete(additionalProperties, "productTierFeatures")
+		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "productTierKey")
+		delete(additionalProperties, "productTierName")
+		delete(additionalProperties, "productTierPlanDescription")
+		delete(additionalProperties, "productTierPricing")
+		delete(additionalProperties, "productTierSupport")
+		delete(additionalProperties, "serviceApiDescription")
+		delete(additionalProperties, "serviceApiId")
+		delete(additionalProperties, "serviceEnvironmentId")
+		delete(additionalProperties, "serviceModelDescription")
+		delete(additionalProperties, "serviceModelFeatures")
+		delete(additionalProperties, "serviceModelId")
+		delete(additionalProperties, "serviceModelName")
+		delete(additionalProperties, "tierType")
+		delete(additionalProperties, "versionSetStatus")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

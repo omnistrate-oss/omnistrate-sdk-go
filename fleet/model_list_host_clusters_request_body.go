@@ -21,7 +21,10 @@ var _ MappedNullable = &ListHostClustersRequestBody{}
 type ListHostClustersRequestBody struct {
 	AccountConfigId *string `json:"accountConfigId,omitempty"`
 	RegionId *string `json:"regionId,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ListHostClustersRequestBody ListHostClustersRequestBody
 
 // NewListHostClustersRequestBody instantiates a new ListHostClustersRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -120,7 +123,34 @@ func (o ListHostClustersRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.RegionId) {
 		toSerialize["regionId"] = o.RegionId
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ListHostClustersRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varListHostClustersRequestBody := _ListHostClustersRequestBody{}
+
+	err = json.Unmarshal(data, &varListHostClustersRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ListHostClustersRequestBody(varListHostClustersRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "accountConfigId")
+		delete(additionalProperties, "regionId")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableListHostClustersRequestBody struct {

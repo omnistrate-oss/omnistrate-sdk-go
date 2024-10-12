@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -31,6 +30,7 @@ type UserSearchRecord struct {
 	Name string `json:"name"`
 	// The organization name.
 	OrgName string `json:"orgName"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _UserSearchRecord UserSearchRecord
@@ -192,6 +192,11 @@ func (o UserSearchRecord) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
 	toSerialize["orgName"] = o.OrgName
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -223,15 +228,24 @@ func (o *UserSearchRecord) UnmarshalJSON(data []byte) (err error) {
 
 	varUserSearchRecord := _UserSearchRecord{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varUserSearchRecord)
+	err = json.Unmarshal(data, &varUserSearchRecord)
 
 	if err != nil {
 		return err
 	}
 
 	*o = UserSearchRecord(varUserSearchRecord)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "external")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "orgName")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

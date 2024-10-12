@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -29,6 +28,7 @@ type AutoScalingMetricSpec struct {
 	MetricLabelValue string `json:"metricLabelValue"`
 	// The prometheus metric name for scaling
 	MetricName string `json:"metricName"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _AutoScalingMetricSpec AutoScalingMetricSpec
@@ -164,6 +164,11 @@ func (o AutoScalingMetricSpec) ToMap() (map[string]interface{}, error) {
 	toSerialize["metricLabelName"] = o.MetricLabelName
 	toSerialize["metricLabelValue"] = o.MetricLabelValue
 	toSerialize["metricName"] = o.MetricName
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -194,15 +199,23 @@ func (o *AutoScalingMetricSpec) UnmarshalJSON(data []byte) (err error) {
 
 	varAutoScalingMetricSpec := _AutoScalingMetricSpec{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAutoScalingMetricSpec)
+	err = json.Unmarshal(data, &varAutoScalingMetricSpec)
 
 	if err != nil {
 		return err
 	}
 
 	*o = AutoScalingMetricSpec(varAutoScalingMetricSpec)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "metricEndpoint")
+		delete(additionalProperties, "metricLabelName")
+		delete(additionalProperties, "metricLabelValue")
+		delete(additionalProperties, "metricName")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

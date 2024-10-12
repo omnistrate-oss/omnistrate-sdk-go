@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &CreateTierVersionSetResult{}
 type CreateTierVersionSetResult struct {
 	// The version number for the specific version set.
 	Version string `json:"version"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateTierVersionSetResult CreateTierVersionSetResult
@@ -80,6 +80,11 @@ func (o CreateTierVersionSetResult) MarshalJSON() ([]byte, error) {
 func (o CreateTierVersionSetResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["version"] = o.Version
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *CreateTierVersionSetResult) UnmarshalJSON(data []byte) (err error) {
 
 	varCreateTierVersionSetResult := _CreateTierVersionSetResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateTierVersionSetResult)
+	err = json.Unmarshal(data, &varCreateTierVersionSetResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateTierVersionSetResult(varCreateTierVersionSetResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "version")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -21,7 +21,10 @@ var _ MappedNullable = &EnableFleetFeatureRequestBody{}
 type EnableFleetFeatureRequestBody struct {
 	// The feature to enable.
 	Feature *string `json:"feature,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _EnableFleetFeatureRequestBody EnableFleetFeatureRequestBody
 
 // NewEnableFleetFeatureRequestBody instantiates a new EnableFleetFeatureRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -85,7 +88,33 @@ func (o EnableFleetFeatureRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Feature) {
 		toSerialize["feature"] = o.Feature
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *EnableFleetFeatureRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varEnableFleetFeatureRequestBody := _EnableFleetFeatureRequestBody{}
+
+	err = json.Unmarshal(data, &varEnableFleetFeatureRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EnableFleetFeatureRequestBody(varEnableFleetFeatureRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "feature")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableEnableFleetFeatureRequestBody struct {

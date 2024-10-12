@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -30,6 +29,7 @@ type DescribeAvailabilityZoneResult struct {
 	Id string `json:"id"`
 	// Cloud-provider native region code
 	RegionCode string `json:"regionCode"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeAvailabilityZoneResult DescribeAvailabilityZoneResult
@@ -191,6 +191,11 @@ func (o DescribeAvailabilityZoneResult) ToMap() (map[string]interface{}, error) 
 	toSerialize["description"] = o.Description
 	toSerialize["id"] = o.Id
 	toSerialize["regionCode"] = o.RegionCode
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -222,15 +227,24 @@ func (o *DescribeAvailabilityZoneResult) UnmarshalJSON(data []byte) (err error) 
 
 	varDescribeAvailabilityZoneResult := _DescribeAvailabilityZoneResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeAvailabilityZoneResult)
+	err = json.Unmarshal(data, &varDescribeAvailabilityZoneResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeAvailabilityZoneResult(varDescribeAvailabilityZoneResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cloudProviderName")
+		delete(additionalProperties, "code")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "regionCode")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

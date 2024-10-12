@@ -21,7 +21,10 @@ var _ MappedNullable = &AddResourceDependencyRequestBody{}
 type AddResourceDependencyRequestBody struct {
 	// A map of the source parameter to the dependency resource parameter
 	ParameterMap *map[string]string `json:"parameterMap,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _AddResourceDependencyRequestBody AddResourceDependencyRequestBody
 
 // NewAddResourceDependencyRequestBody instantiates a new AddResourceDependencyRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -76,7 +79,33 @@ func (o AddResourceDependencyRequestBody) ToMap() (map[string]interface{}, error
 	if !IsNil(o.ParameterMap) {
 		toSerialize["parameterMap"] = o.ParameterMap
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *AddResourceDependencyRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varAddResourceDependencyRequestBody := _AddResourceDependencyRequestBody{}
+
+	err = json.Unmarshal(data, &varAddResourceDependencyRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AddResourceDependencyRequestBody(varAddResourceDependencyRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "parameterMap")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableAddResourceDependencyRequestBody struct {

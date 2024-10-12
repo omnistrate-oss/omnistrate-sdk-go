@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type UpdateResourceInstanceRequestBody struct {
 	RequestParams interface{} `json:"requestParams,omitempty"`
 	// The resource ID.
 	ResourceId string `json:"resourceId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _UpdateResourceInstanceRequestBody UpdateResourceInstanceRequestBody
@@ -118,6 +118,11 @@ func (o UpdateResourceInstanceRequestBody) ToMap() (map[string]interface{}, erro
 		toSerialize["requestParams"] = o.RequestParams
 	}
 	toSerialize["resourceId"] = o.ResourceId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -145,15 +150,21 @@ func (o *UpdateResourceInstanceRequestBody) UnmarshalJSON(data []byte) (err erro
 
 	varUpdateResourceInstanceRequestBody := _UpdateResourceInstanceRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varUpdateResourceInstanceRequestBody)
+	err = json.Unmarshal(data, &varUpdateResourceInstanceRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = UpdateResourceInstanceRequestBody(varUpdateResourceInstanceRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "requestParams")
+		delete(additionalProperties, "resourceId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

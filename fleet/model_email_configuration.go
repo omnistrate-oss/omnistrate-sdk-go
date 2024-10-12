@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &EmailConfiguration{}
 type EmailConfiguration struct {
 	// Email address to send notifications to
 	To string `json:"to"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _EmailConfiguration EmailConfiguration
@@ -80,6 +80,11 @@ func (o EmailConfiguration) MarshalJSON() ([]byte, error) {
 func (o EmailConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["to"] = o.To
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *EmailConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	varEmailConfiguration := _EmailConfiguration{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEmailConfiguration)
+	err = json.Unmarshal(data, &varEmailConfiguration)
 
 	if err != nil {
 		return err
 	}
 
 	*o = EmailConfiguration(varEmailConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "to")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

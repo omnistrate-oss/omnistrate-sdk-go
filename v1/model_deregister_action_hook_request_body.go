@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type DeregisterActionHookRequestBody struct {
 	Scope string `json:"scope"`
 	// The type of hook to execute
 	Type string `json:"type"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DeregisterActionHookRequestBody DeregisterActionHookRequestBody
@@ -108,6 +108,11 @@ func (o DeregisterActionHookRequestBody) ToMap() (map[string]interface{}, error)
 	toSerialize := map[string]interface{}{}
 	toSerialize["scope"] = o.Scope
 	toSerialize["type"] = o.Type
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *DeregisterActionHookRequestBody) UnmarshalJSON(data []byte) (err error)
 
 	varDeregisterActionHookRequestBody := _DeregisterActionHookRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDeregisterActionHookRequestBody)
+	err = json.Unmarshal(data, &varDeregisterActionHookRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DeregisterActionHookRequestBody(varDeregisterActionHookRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "scope")
+		delete(additionalProperties, "type")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

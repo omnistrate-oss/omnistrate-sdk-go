@@ -26,7 +26,10 @@ type UpdateNotificationChannelRequestBody struct {
 	Slack *SlackConfiguration `json:"slack,omitempty"`
 	Subscription *ChannelSubscription `json:"subscription,omitempty"`
 	Webhook *WebhookConfiguration `json:"webhook,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateNotificationChannelRequestBody UpdateNotificationChannelRequestBody
 
 // NewUpdateNotificationChannelRequestBody instantiates a new UpdateNotificationChannelRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -265,7 +268,38 @@ func (o UpdateNotificationChannelRequestBody) ToMap() (map[string]interface{}, e
 	if !IsNil(o.Webhook) {
 		toSerialize["webhook"] = o.Webhook
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateNotificationChannelRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateNotificationChannelRequestBody := _UpdateNotificationChannelRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateNotificationChannelRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateNotificationChannelRequestBody(varUpdateNotificationChannelRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "pagerDuty")
+		delete(additionalProperties, "slack")
+		delete(additionalProperties, "subscription")
+		delete(additionalProperties, "webhook")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateNotificationChannelRequestBody struct {

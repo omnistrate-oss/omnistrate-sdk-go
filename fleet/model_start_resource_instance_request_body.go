@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &StartResourceInstanceRequestBody{}
 type StartResourceInstanceRequestBody struct {
 	// The resource ID.
 	ResourceId string `json:"resourceId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _StartResourceInstanceRequestBody StartResourceInstanceRequestBody
@@ -80,6 +80,11 @@ func (o StartResourceInstanceRequestBody) MarshalJSON() ([]byte, error) {
 func (o StartResourceInstanceRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["resourceId"] = o.ResourceId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *StartResourceInstanceRequestBody) UnmarshalJSON(data []byte) (err error
 
 	varStartResourceInstanceRequestBody := _StartResourceInstanceRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varStartResourceInstanceRequestBody)
+	err = json.Unmarshal(data, &varStartResourceInstanceRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = StartResourceInstanceRequestBody(varStartResourceInstanceRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "resourceId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

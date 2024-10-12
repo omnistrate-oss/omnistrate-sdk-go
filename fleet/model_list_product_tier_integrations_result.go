@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ListProductTierIntegrationsResult{}
 type ListProductTierIntegrationsResult struct {
 	// List of product tier integrations
 	Integrations []ProductTierIntegration `json:"integrations"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListProductTierIntegrationsResult ListProductTierIntegrationsResult
@@ -80,6 +80,11 @@ func (o ListProductTierIntegrationsResult) MarshalJSON() ([]byte, error) {
 func (o ListProductTierIntegrationsResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["integrations"] = o.Integrations
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *ListProductTierIntegrationsResult) UnmarshalJSON(data []byte) (err erro
 
 	varListProductTierIntegrationsResult := _ListProductTierIntegrationsResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListProductTierIntegrationsResult)
+	err = json.Unmarshal(data, &varListProductTierIntegrationsResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListProductTierIntegrationsResult(varListProductTierIntegrationsResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "integrations")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

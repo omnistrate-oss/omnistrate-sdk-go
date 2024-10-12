@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -33,6 +32,7 @@ type DescribeVUnitResult struct {
 	ServiceId *string `json:"serviceId,omitempty"`
 	// Service Model ID for the VUnit
 	ServiceModelId string `json:"serviceModelId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeVUnitResult DescribeVUnitResult
@@ -220,6 +220,11 @@ func (o DescribeVUnitResult) ToMap() (map[string]interface{}, error) {
 		toSerialize["serviceId"] = o.ServiceId
 	}
 	toSerialize["serviceModelId"] = o.ServiceModelId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -250,15 +255,25 @@ func (o *DescribeVUnitResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribeVUnitResult := _DescribeVUnitResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeVUnitResult)
+	err = json.Unmarshal(data, &varDescribeVUnitResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeVUnitResult(varDescribeVUnitResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cloudProvider")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "networkIds")
+		delete(additionalProperties, "region")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "serviceModelId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

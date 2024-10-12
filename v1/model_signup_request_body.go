@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type SignupRequestBody struct {
 	LegalCompanyName *string `json:"legalCompanyName,omitempty"`
 	Name string `json:"name"`
 	Password string `json:"password"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _SignupRequestBody SignupRequestBody
@@ -218,6 +218,11 @@ func (o SignupRequestBody) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["name"] = o.Name
 	toSerialize["password"] = o.Password
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -247,15 +252,25 @@ func (o *SignupRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varSignupRequestBody := _SignupRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSignupRequestBody)
+	err = json.Unmarshal(data, &varSignupRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = SignupRequestBody(varSignupRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "companyDescription")
+		delete(additionalProperties, "companyUrl")
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "legalCompanyName")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "password")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

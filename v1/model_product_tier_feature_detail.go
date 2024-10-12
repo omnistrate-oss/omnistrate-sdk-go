@@ -25,7 +25,10 @@ type ProductTierFeatureDetail struct {
 	Feature *string `json:"feature,omitempty"`
 	// Feature scope
 	Scope *string `json:"scope,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductTierFeatureDetail ProductTierFeatureDetail
 
 // NewProductTierFeatureDetail instantiates a new ProductTierFeatureDetail object
 // This constructor will assign default values to properties that have it defined,
@@ -132,7 +135,35 @@ func (o ProductTierFeatureDetail) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Scope) {
 		toSerialize["scope"] = o.Scope
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ProductTierFeatureDetail) UnmarshalJSON(data []byte) (err error) {
+	varProductTierFeatureDetail := _ProductTierFeatureDetail{}
+
+	err = json.Unmarshal(data, &varProductTierFeatureDetail)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductTierFeatureDetail(varProductTierFeatureDetail)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "configuration")
+		delete(additionalProperties, "feature")
+		delete(additionalProperties, "scope")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableProductTierFeatureDetail struct {

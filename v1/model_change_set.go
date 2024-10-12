@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -33,6 +32,7 @@ type ChangeSet struct {
 	ResourceChanges *string `json:"resourceChanges,omitempty"`
 	// The name of the resource
 	ResourceName *string `json:"resourceName,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ChangeSet ChangeSet
@@ -246,6 +246,11 @@ func (o ChangeSet) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ResourceName) {
 		toSerialize["resourceName"] = o.ResourceName
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -274,15 +279,26 @@ func (o *ChangeSet) UnmarshalJSON(data []byte) (err error) {
 
 	varChangeSet := _ChangeSet{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varChangeSet)
+	err = json.Unmarshal(data, &varChangeSet)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ChangeSet(varChangeSet)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "categorizedResourceChanges")
+		delete(additionalProperties, "imageConfigChanges")
+		delete(additionalProperties, "infraConfigChanges")
+		delete(additionalProperties, "overallResourceStatus")
+		delete(additionalProperties, "productTierFeatureChanges")
+		delete(additionalProperties, "resourceChanges")
+		delete(additionalProperties, "resourceName")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

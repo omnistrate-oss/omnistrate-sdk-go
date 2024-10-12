@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type WorkflowFailure struct {
 	EventTime string `json:"eventTime"`
 	// Details of the event
 	Message string `json:"message"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _WorkflowFailure WorkflowFailure
@@ -108,6 +108,11 @@ func (o WorkflowFailure) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["eventTime"] = o.EventTime
 	toSerialize["message"] = o.Message
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *WorkflowFailure) UnmarshalJSON(data []byte) (err error) {
 
 	varWorkflowFailure := _WorkflowFailure{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varWorkflowFailure)
+	err = json.Unmarshal(data, &varWorkflowFailure)
 
 	if err != nil {
 		return err
 	}
 
 	*o = WorkflowFailure(varWorkflowFailure)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "eventTime")
+		delete(additionalProperties, "message")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

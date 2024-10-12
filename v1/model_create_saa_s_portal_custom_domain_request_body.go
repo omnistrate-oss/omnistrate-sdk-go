@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -29,6 +28,7 @@ type CreateSaaSPortalCustomDomainRequestBody struct {
 	EnvironmentType string `json:"environmentType"`
 	// The custom domain name
 	Name string `json:"name"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateSaaSPortalCustomDomainRequestBody CreateSaaSPortalCustomDomainRequestBody
@@ -164,6 +164,11 @@ func (o CreateSaaSPortalCustomDomainRequestBody) ToMap() (map[string]interface{}
 	toSerialize["description"] = o.Description
 	toSerialize["environmentType"] = o.EnvironmentType
 	toSerialize["name"] = o.Name
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -194,15 +199,23 @@ func (o *CreateSaaSPortalCustomDomainRequestBody) UnmarshalJSON(data []byte) (er
 
 	varCreateSaaSPortalCustomDomainRequestBody := _CreateSaaSPortalCustomDomainRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateSaaSPortalCustomDomainRequestBody)
+	err = json.Unmarshal(data, &varCreateSaaSPortalCustomDomainRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateSaaSPortalCustomDomainRequestBody(varCreateSaaSPortalCustomDomainRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "customDomain")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "environmentType")
+		delete(additionalProperties, "name")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

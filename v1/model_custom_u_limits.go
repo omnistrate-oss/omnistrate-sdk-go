@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type CustomULimits struct {
 	ULimitsType string `json:"ULimitsType"`
 	// The value of the ulimit
 	ULimitsValue int64 `json:"ULimitsValue"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CustomULimits CustomULimits
@@ -136,6 +136,11 @@ func (o CustomULimits) ToMap() (map[string]interface{}, error) {
 	toSerialize["ULimitsName"] = o.ULimitsName
 	toSerialize["ULimitsType"] = o.ULimitsType
 	toSerialize["ULimitsValue"] = o.ULimitsValue
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -165,15 +170,22 @@ func (o *CustomULimits) UnmarshalJSON(data []byte) (err error) {
 
 	varCustomULimits := _CustomULimits{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCustomULimits)
+	err = json.Unmarshal(data, &varCustomULimits)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CustomULimits(varCustomULimits)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "ULimitsName")
+		delete(additionalProperties, "ULimitsType")
+		delete(additionalProperties, "ULimitsValue")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

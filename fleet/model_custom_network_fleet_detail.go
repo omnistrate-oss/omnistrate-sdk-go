@@ -27,7 +27,10 @@ type CustomNetworkFleetDetail struct {
 	Name *string `json:"name,omitempty"`
 	// Name of organization that owns the network
 	OrgName *string `json:"orgName,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _CustomNetworkFleetDetail CustomNetworkFleetDetail
 
 // NewCustomNetworkFleetDetail instantiates a new CustomNetworkFleetDetail object
 // This constructor will assign default values to properties that have it defined,
@@ -196,7 +199,36 @@ func (o CustomNetworkFleetDetail) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.OrgName) {
 		toSerialize["orgName"] = o.OrgName
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *CustomNetworkFleetDetail) UnmarshalJSON(data []byte) (err error) {
+	varCustomNetworkFleetDetail := _CustomNetworkFleetDetail{}
+
+	err = json.Unmarshal(data, &varCustomNetworkFleetDetail)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CustomNetworkFleetDetail(varCustomNetworkFleetDetail)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cidr")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "orgName")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableCustomNetworkFleetDetail struct {

@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type OneOffPatchResourceInstanceRequestBody struct {
 	ResourceId string `json:"resourceId"`
 	// The target resource version.
 	TargetTierVersion *string `json:"targetTierVersion,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OneOffPatchResourceInstanceRequestBody OneOffPatchResourceInstanceRequestBody
@@ -117,6 +117,11 @@ func (o OneOffPatchResourceInstanceRequestBody) ToMap() (map[string]interface{},
 	if !IsNil(o.TargetTierVersion) {
 		toSerialize["targetTierVersion"] = o.TargetTierVersion
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -144,15 +149,21 @@ func (o *OneOffPatchResourceInstanceRequestBody) UnmarshalJSON(data []byte) (err
 
 	varOneOffPatchResourceInstanceRequestBody := _OneOffPatchResourceInstanceRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOneOffPatchResourceInstanceRequestBody)
+	err = json.Unmarshal(data, &varOneOffPatchResourceInstanceRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = OneOffPatchResourceInstanceRequestBody(varOneOffPatchResourceInstanceRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "resourceId")
+		delete(additionalProperties, "targetTierVersion")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

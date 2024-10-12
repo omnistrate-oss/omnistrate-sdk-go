@@ -39,7 +39,10 @@ type UpdateProductTierRequestBody struct {
 	Support *string `json:"support,omitempty"`
 	// Tier type
 	TierType *string `json:"tierType,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateProductTierRequestBody UpdateProductTierRequestBody
 
 // NewUpdateProductTierRequestBody instantiates a new UpdateProductTierRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -329,7 +332,42 @@ func (o UpdateProductTierRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TierType) {
 		toSerialize["tierType"] = o.TierType
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateProductTierRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateProductTierRequestBody := _UpdateProductTierRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateProductTierRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateProductTierRequestBody(varUpdateProductTierRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "awsRegions")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "documentation")
+		delete(additionalProperties, "gcpRegions")
+		delete(additionalProperties, "isDisabled")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "planDescription")
+		delete(additionalProperties, "pricing")
+		delete(additionalProperties, "support")
+		delete(additionalProperties, "tierType")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateProductTierRequestBody struct {

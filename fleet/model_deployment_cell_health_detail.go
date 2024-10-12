@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -33,6 +32,7 @@ type DeploymentCellHealthDetail struct {
 	ServiceEnvironmentName string `json:"serviceEnvironmentName"`
 	// The name of the service
 	ServiceName string `json:"serviceName"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DeploymentCellHealthDetail DeploymentCellHealthDetail
@@ -220,6 +220,11 @@ func (o DeploymentCellHealthDetail) ToMap() (map[string]interface{}, error) {
 	toSerialize["regionCode"] = o.RegionCode
 	toSerialize["serviceEnvironmentName"] = o.ServiceEnvironmentName
 	toSerialize["serviceName"] = o.ServiceName
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -252,15 +257,25 @@ func (o *DeploymentCellHealthDetail) UnmarshalJSON(data []byte) (err error) {
 
 	varDeploymentCellHealthDetail := _DeploymentCellHealthDetail{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDeploymentCellHealthDetail)
+	err = json.Unmarshal(data, &varDeploymentCellHealthDetail)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DeploymentCellHealthDetail(varDeploymentCellHealthDetail)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cloudProvider")
+		delete(additionalProperties, "hostClusterID")
+		delete(additionalProperties, "instanceHealth")
+		delete(additionalProperties, "regionCode")
+		delete(additionalProperties, "serviceEnvironmentName")
+		delete(additionalProperties, "serviceName")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

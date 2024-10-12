@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -24,6 +23,7 @@ type SigninRequestBody struct {
 	Email string `json:"email"`
 	HashedPassword *string `json:"hashedPassword,omitempty"`
 	Password *string `json:"password,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _SigninRequestBody SigninRequestBody
@@ -133,6 +133,11 @@ func (o SigninRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Password) {
 		toSerialize["password"] = o.Password
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -160,15 +165,22 @@ func (o *SigninRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varSigninRequestBody := _SigninRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSigninRequestBody)
+	err = json.Unmarshal(data, &varSigninRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = SigninRequestBody(varSigninRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "hashedPassword")
+		delete(additionalProperties, "password")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

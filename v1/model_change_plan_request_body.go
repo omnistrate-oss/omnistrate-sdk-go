@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ChangePlanRequestBody{}
 type ChangePlanRequestBody struct {
 	// The name of the plan this user is changing to
 	PlanName string `json:"planName"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ChangePlanRequestBody ChangePlanRequestBody
@@ -80,6 +80,11 @@ func (o ChangePlanRequestBody) MarshalJSON() ([]byte, error) {
 func (o ChangePlanRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["planName"] = o.PlanName
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *ChangePlanRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varChangePlanRequestBody := _ChangePlanRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varChangePlanRequestBody)
+	err = json.Unmarshal(data, &varChangePlanRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ChangePlanRequestBody(varChangePlanRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "planName")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

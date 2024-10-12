@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -44,6 +43,7 @@ type DescribeNetworkConfigResult struct {
 	// The port that hosts the reverse proxy for TLS termination
 	TlsTerminationPort *int64 `json:"tlsTerminationPort,omitempty"`
 	ZoneConfiguration string `json:"zoneConfiguration"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeNetworkConfigResult DescribeNetworkConfigResult
@@ -413,6 +413,11 @@ func (o DescribeNetworkConfigResult) ToMap() (map[string]interface{}, error) {
 		toSerialize["tlsTerminationPort"] = o.TlsTerminationPort
 	}
 	toSerialize["zoneConfiguration"] = o.ZoneConfiguration
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -448,15 +453,32 @@ func (o *DescribeNetworkConfigResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDescribeNetworkConfigResult := _DescribeNetworkConfigResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeNetworkConfigResult)
+	err = json.Unmarshal(data, &varDescribeNetworkConfigResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeNetworkConfigResult(varDescribeNetworkConfigResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "endpointPerReplica")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "infraConfigIDs")
+		delete(additionalProperties, "internal")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "openPorts")
+		delete(additionalProperties, "privateNetworkingConfiguration")
+		delete(additionalProperties, "publicNetworkingConfiguration")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "stableEgressIP")
+		delete(additionalProperties, "tlsTerminationPort")
+		delete(additionalProperties, "zoneConfiguration")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

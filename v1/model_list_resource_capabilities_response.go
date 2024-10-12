@@ -21,7 +21,10 @@ var _ MappedNullable = &ListResourceCapabilitiesResponse{}
 type ListResourceCapabilitiesResponse struct {
 	// The configurationParameters to enable capabilities for the resource
 	Capabilities []ResourceCapability `json:"capabilities,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ListResourceCapabilitiesResponse ListResourceCapabilitiesResponse
 
 // NewListResourceCapabilitiesResponse instantiates a new ListResourceCapabilitiesResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -76,7 +79,33 @@ func (o ListResourceCapabilitiesResponse) ToMap() (map[string]interface{}, error
 	if !IsNil(o.Capabilities) {
 		toSerialize["capabilities"] = o.Capabilities
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ListResourceCapabilitiesResponse) UnmarshalJSON(data []byte) (err error) {
+	varListResourceCapabilitiesResponse := _ListResourceCapabilitiesResponse{}
+
+	err = json.Unmarshal(data, &varListResourceCapabilitiesResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ListResourceCapabilitiesResponse(varListResourceCapabilitiesResponse)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "capabilities")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableListResourceCapabilitiesResponse struct {

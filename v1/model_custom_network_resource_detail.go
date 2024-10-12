@@ -25,7 +25,10 @@ type CustomNetworkResourceDetail struct {
 	Id *string `json:"id,omitempty"`
 	// User friendly network name
 	Name *string `json:"name,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _CustomNetworkResourceDetail CustomNetworkResourceDetail
 
 // NewCustomNetworkResourceDetail instantiates a new CustomNetworkResourceDetail object
 // This constructor will assign default values to properties that have it defined,
@@ -132,7 +135,35 @@ func (o CustomNetworkResourceDetail) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *CustomNetworkResourceDetail) UnmarshalJSON(data []byte) (err error) {
+	varCustomNetworkResourceDetail := _CustomNetworkResourceDetail{}
+
+	err = json.Unmarshal(data, &varCustomNetworkResourceDetail)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CustomNetworkResourceDetail(varCustomNetworkResourceDetail)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cidr")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "name")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableCustomNetworkResourceDetail struct {

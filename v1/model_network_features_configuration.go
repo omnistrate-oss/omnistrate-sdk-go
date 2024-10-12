@@ -21,7 +21,10 @@ var _ MappedNullable = &NetworkFeaturesConfiguration{}
 type NetworkFeaturesConfiguration struct {
 	// Indicates if PrivateLink is enabled for the network
 	IsPrivateLinkEnabled *bool `json:"isPrivateLinkEnabled,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _NetworkFeaturesConfiguration NetworkFeaturesConfiguration
 
 // NewNetworkFeaturesConfiguration instantiates a new NetworkFeaturesConfiguration object
 // This constructor will assign default values to properties that have it defined,
@@ -76,7 +79,33 @@ func (o NetworkFeaturesConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsPrivateLinkEnabled) {
 		toSerialize["isPrivateLinkEnabled"] = o.IsPrivateLinkEnabled
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *NetworkFeaturesConfiguration) UnmarshalJSON(data []byte) (err error) {
+	varNetworkFeaturesConfiguration := _NetworkFeaturesConfiguration{}
+
+	err = json.Unmarshal(data, &varNetworkFeaturesConfiguration)
+
+	if err != nil {
+		return err
+	}
+
+	*o = NetworkFeaturesConfiguration(varNetworkFeaturesConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "isPrivateLinkEnabled")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableNetworkFeaturesConfiguration struct {

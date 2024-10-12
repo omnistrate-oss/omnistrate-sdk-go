@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type AddCustomDNSToResourceInstanceRequestBody struct {
 	CustomDNS string `json:"customDNS"`
 	// The target port
 	TargetPort *int64 `json:"targetPort,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _AddCustomDNSToResourceInstanceRequestBody AddCustomDNSToResourceInstanceRequestBody
@@ -117,6 +117,11 @@ func (o AddCustomDNSToResourceInstanceRequestBody) ToMap() (map[string]interface
 	if !IsNil(o.TargetPort) {
 		toSerialize["targetPort"] = o.TargetPort
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -144,15 +149,21 @@ func (o *AddCustomDNSToResourceInstanceRequestBody) UnmarshalJSON(data []byte) (
 
 	varAddCustomDNSToResourceInstanceRequestBody := _AddCustomDNSToResourceInstanceRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAddCustomDNSToResourceInstanceRequestBody)
+	err = json.Unmarshal(data, &varAddCustomDNSToResourceInstanceRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = AddCustomDNSToResourceInstanceRequestBody(varAddCustomDNSToResourceInstanceRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "customDNS")
+		delete(additionalProperties, "targetPort")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

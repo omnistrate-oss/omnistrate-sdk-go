@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -43,6 +42,7 @@ type DescribeAccountConfigByAWSAccountIDResult struct {
 	Status string `json:"status"`
 	// The status message of the account
 	StatusMessage string `json:"statusMessage"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DescribeAccountConfigByAWSAccountIDResult DescribeAccountConfigByAWSAccountIDResult
@@ -360,6 +360,11 @@ func (o DescribeAccountConfigByAWSAccountIDResult) ToMap() (map[string]interface
 	toSerialize["name"] = o.Name
 	toSerialize["status"] = o.Status
 	toSerialize["statusMessage"] = o.StatusMessage
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -394,15 +399,30 @@ func (o *DescribeAccountConfigByAWSAccountIDResult) UnmarshalJSON(data []byte) (
 
 	varDescribeAccountConfigByAWSAccountIDResult := _DescribeAccountConfigByAWSAccountIDResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDescribeAccountConfigByAWSAccountIDResult)
+	err = json.Unmarshal(data, &varDescribeAccountConfigByAWSAccountIDResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DescribeAccountConfigByAWSAccountIDResult(varDescribeAccountConfigByAWSAccountIDResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "awsAccountID")
+		delete(additionalProperties, "awsBootstrapRoleARN")
+		delete(additionalProperties, "awsCloudFormationNoLBTemplateURL")
+		delete(additionalProperties, "awsCloudFormationTemplateURL")
+		delete(additionalProperties, "byoaInstanceIDs")
+		delete(additionalProperties, "cloudProviderId")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "statusMessage")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ListBYOAConfigRequestBody{}
 type ListBYOAConfigRequestBody struct {
 	// Cloud Provider name to filter on
 	CloudProviderName string `json:"cloudProviderName"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListBYOAConfigRequestBody ListBYOAConfigRequestBody
@@ -80,6 +80,11 @@ func (o ListBYOAConfigRequestBody) MarshalJSON() ([]byte, error) {
 func (o ListBYOAConfigRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["cloudProviderName"] = o.CloudProviderName
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *ListBYOAConfigRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varListBYOAConfigRequestBody := _ListBYOAConfigRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListBYOAConfigRequestBody)
+	err = json.Unmarshal(data, &varListBYOAConfigRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListBYOAConfigRequestBody(varListBYOAConfigRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cloudProviderName")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

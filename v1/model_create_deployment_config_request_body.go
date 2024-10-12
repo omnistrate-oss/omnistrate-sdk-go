@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type CreateDeploymentConfigRequestBody struct {
 	// Name of the deployment config
 	Name string `json:"name"`
 	RolloutPriorityList []string `json:"rolloutPriorityList,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateDeploymentConfigRequestBody CreateDeploymentConfigRequestBody
@@ -162,6 +162,11 @@ func (o CreateDeploymentConfigRequestBody) ToMap() (map[string]interface{}, erro
 	if !IsNil(o.RolloutPriorityList) {
 		toSerialize["rolloutPriorityList"] = o.RolloutPriorityList
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -190,15 +195,23 @@ func (o *CreateDeploymentConfigRequestBody) UnmarshalJSON(data []byte) (err erro
 
 	varCreateDeploymentConfigRequestBody := _CreateDeploymentConfigRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateDeploymentConfigRequestBody)
+	err = json.Unmarshal(data, &varCreateDeploymentConfigRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateDeploymentConfigRequestBody(varCreateDeploymentConfigRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "infraRollConfiguration")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "rolloutPriorityList")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

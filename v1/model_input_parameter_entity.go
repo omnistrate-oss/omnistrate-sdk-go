@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -43,6 +42,7 @@ type InputParameterEntity struct {
 	Required bool `json:"required"`
 	// The parameter type
 	Type string `json:"type"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _InputParameterEntity InputParameterEntity
@@ -360,6 +360,11 @@ func (o InputParameterEntity) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["required"] = o.Required
 	toSerialize["type"] = o.Type
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -394,15 +399,30 @@ func (o *InputParameterEntity) UnmarshalJSON(data []byte) (err error) {
 
 	varInputParameterEntity := _InputParameterEntity{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varInputParameterEntity)
+	err = json.Unmarshal(data, &varInputParameterEntity)
 
 	if err != nil {
 		return err
 	}
 
 	*o = InputParameterEntity(varInputParameterEntity)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "custom")
+		delete(additionalProperties, "defaultValue")
+		delete(additionalProperties, "dependentResourceID")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "displayName")
+		delete(additionalProperties, "isList")
+		delete(additionalProperties, "key")
+		delete(additionalProperties, "modifiable")
+		delete(additionalProperties, "options")
+		delete(additionalProperties, "required")
+		delete(additionalProperties, "type")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

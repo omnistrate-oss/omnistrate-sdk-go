@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &RemoveCapacityFromResourceInstanceRequestBody{}
 type RemoveCapacityFromResourceInstanceRequestBody struct {
 	// Number of replicas to be removed
 	CapacityToBeRemoved int64 `json:"capacityToBeRemoved"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _RemoveCapacityFromResourceInstanceRequestBody RemoveCapacityFromResourceInstanceRequestBody
@@ -80,6 +80,11 @@ func (o RemoveCapacityFromResourceInstanceRequestBody) MarshalJSON() ([]byte, er
 func (o RemoveCapacityFromResourceInstanceRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["capacityToBeRemoved"] = o.CapacityToBeRemoved
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *RemoveCapacityFromResourceInstanceRequestBody) UnmarshalJSON(data []byt
 
 	varRemoveCapacityFromResourceInstanceRequestBody := _RemoveCapacityFromResourceInstanceRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varRemoveCapacityFromResourceInstanceRequestBody)
+	err = json.Unmarshal(data, &varRemoveCapacityFromResourceInstanceRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = RemoveCapacityFromResourceInstanceRequestBody(varRemoveCapacityFromResourceInstanceRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "capacityToBeRemoved")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

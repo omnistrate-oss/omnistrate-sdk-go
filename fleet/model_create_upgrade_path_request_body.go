@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type CreateUpgradePathRequestBody struct {
 	TargetVersion string `json:"targetVersion"`
 	// The filter to use to choose the instances to upgrade.
 	UpgradeFilters map[string][]string `json:"upgradeFilters"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateUpgradePathRequestBody CreateUpgradePathRequestBody
@@ -136,6 +136,11 @@ func (o CreateUpgradePathRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize["sourceVersion"] = o.SourceVersion
 	toSerialize["targetVersion"] = o.TargetVersion
 	toSerialize["upgradeFilters"] = o.UpgradeFilters
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -165,15 +170,22 @@ func (o *CreateUpgradePathRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varCreateUpgradePathRequestBody := _CreateUpgradePathRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateUpgradePathRequestBody)
+	err = json.Unmarshal(data, &varCreateUpgradePathRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateUpgradePathRequestBody(varCreateUpgradePathRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "sourceVersion")
+		delete(additionalProperties, "targetVersion")
+		delete(additionalProperties, "upgradeFilters")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

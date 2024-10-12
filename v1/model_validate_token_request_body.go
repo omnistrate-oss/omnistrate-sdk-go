@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ValidateTokenRequestBody{}
 type ValidateTokenRequestBody struct {
 	Email string `json:"email"`
 	Token string `json:"token"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ValidateTokenRequestBody ValidateTokenRequestBody
@@ -106,6 +106,11 @@ func (o ValidateTokenRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["email"] = o.Email
 	toSerialize["token"] = o.Token
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -134,15 +139,21 @@ func (o *ValidateTokenRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varValidateTokenRequestBody := _ValidateTokenRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varValidateTokenRequestBody)
+	err = json.Unmarshal(data, &varValidateTokenRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ValidateTokenRequestBody(varValidateTokenRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "token")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

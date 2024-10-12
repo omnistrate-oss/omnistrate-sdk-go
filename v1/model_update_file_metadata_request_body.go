@@ -25,7 +25,10 @@ type UpdateFileMetadataRequestBody struct {
 	MountPath *string `json:"mountPath,omitempty"`
 	// The name of the file
 	Name *string `json:"name,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateFileMetadataRequestBody UpdateFileMetadataRequestBody
 
 // NewUpdateFileMetadataRequestBody instantiates a new UpdateFileMetadataRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -132,7 +135,35 @@ func (o UpdateFileMetadataRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateFileMetadataRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateFileMetadataRequestBody := _UpdateFileMetadataRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateFileMetadataRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateFileMetadataRequestBody(varUpdateFileMetadataRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "mountPath")
+		delete(additionalProperties, "name")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateFileMetadataRequestBody struct {

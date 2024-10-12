@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -31,6 +30,7 @@ type ChannelSubscription struct {
 	EventPriorities []string `json:"eventPriorities"`
 	// Types of events to route to this channel (optional)
 	EventTypes []string `json:"eventTypes"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ChannelSubscription ChannelSubscription
@@ -192,6 +192,11 @@ func (o ChannelSubscription) ToMap() (map[string]interface{}, error) {
 	toSerialize["eventCategories"] = o.EventCategories
 	toSerialize["eventPriorities"] = o.EventPriorities
 	toSerialize["eventTypes"] = o.EventTypes
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -223,15 +228,24 @@ func (o *ChannelSubscription) UnmarshalJSON(data []byte) (err error) {
 
 	varChannelSubscription := _ChannelSubscription{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varChannelSubscription)
+	err = json.Unmarshal(data, &varChannelSubscription)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ChannelSubscription(varChannelSubscription)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "alertTypes")
+		delete(additionalProperties, "environmentTypes")
+		delete(additionalProperties, "eventCategories")
+		delete(additionalProperties, "eventPriorities")
+		delete(additionalProperties, "eventTypes")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

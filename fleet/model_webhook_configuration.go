@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -29,6 +28,7 @@ type WebhookConfiguration struct {
 	Method string `json:"method"`
 	// URL to send notifications to
 	Url string `json:"url"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _WebhookConfiguration WebhookConfiguration
@@ -182,6 +182,11 @@ func (o WebhookConfiguration) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["method"] = o.Method
 	toSerialize["url"] = o.Url
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -210,15 +215,23 @@ func (o *WebhookConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	varWebhookConfiguration := _WebhookConfiguration{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varWebhookConfiguration)
+	err = json.Unmarshal(data, &varWebhookConfiguration)
 
 	if err != nil {
 		return err
 	}
 
 	*o = WebhookConfiguration(varWebhookConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "additionalBodyParameters")
+		delete(additionalProperties, "headers")
+		delete(additionalProperties, "method")
+		delete(additionalProperties, "url")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

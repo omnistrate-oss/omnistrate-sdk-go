@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -34,6 +33,7 @@ type CreateImageConfigRequestBody struct {
 	ImageTag *string `json:"imageTag,omitempty"`
 	// The service environment ID
 	ServiceEnvironmentId string `json:"serviceEnvironmentId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateImageConfigRequestBody CreateImageConfigRequestBody
@@ -251,6 +251,11 @@ func (o CreateImageConfigRequestBody) ToMap() (map[string]interface{}, error) {
 		toSerialize["imageTag"] = o.ImageTag
 	}
 	toSerialize["serviceEnvironmentId"] = o.ServiceEnvironmentId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -280,15 +285,26 @@ func (o *CreateImageConfigRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varCreateImageConfigRequestBody := _CreateImageConfigRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateImageConfigRequestBody)
+	err = json.Unmarshal(data, &varCreateImageConfigRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateImageConfigRequestBody(varCreateImageConfigRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "customImageCommandsAndArgs")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "imageName")
+		delete(additionalProperties, "imageRegistryId")
+		delete(additionalProperties, "imageSignaturePublicKeyPEM")
+		delete(additionalProperties, "imageTag")
+		delete(additionalProperties, "serviceEnvironmentId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

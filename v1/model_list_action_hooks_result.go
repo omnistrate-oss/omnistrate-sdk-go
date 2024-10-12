@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ListActionHooksResult{}
 type ListActionHooksResult struct {
 	// The list of action hooks
 	Hooks []RegisterActionHookRequestBody `json:"hooks"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ListActionHooksResult ListActionHooksResult
@@ -80,6 +80,11 @@ func (o ListActionHooksResult) MarshalJSON() ([]byte, error) {
 func (o ListActionHooksResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["hooks"] = o.Hooks
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *ListActionHooksResult) UnmarshalJSON(data []byte) (err error) {
 
 	varListActionHooksResult := _ListActionHooksResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varListActionHooksResult)
+	err = json.Unmarshal(data, &varListActionHooksResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ListActionHooksResult(varListActionHooksResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "hooks")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

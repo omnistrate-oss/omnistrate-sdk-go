@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -86,6 +85,7 @@ type ResourceInstance struct {
 	TierVersionReleasedByUserName string `json:"tierVersionReleasedByUserName"`
 	// The tier version set status.
 	TierVersionStatus string `json:"tierVersionStatus"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ResourceInstance ResourceInstance
@@ -1042,6 +1042,11 @@ func (o ResourceInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize["tierVersionReleasedByUserId"] = o.TierVersionReleasedByUserId
 	toSerialize["tierVersionReleasedByUserName"] = o.TierVersionReleasedByUserName
 	toSerialize["tierVersionStatus"] = o.TierVersionStatus
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -1094,15 +1099,52 @@ func (o *ResourceInstance) UnmarshalJSON(data []byte) (err error) {
 
 	varResourceInstance := _ResourceInstance{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varResourceInstance)
+	err = json.Unmarshal(data, &varResourceInstance)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ResourceInstance(varResourceInstance)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "awsAccountID")
+		delete(additionalProperties, "cloudProvider")
+		delete(additionalProperties, "consumptionResourceInstanceResult")
+		delete(additionalProperties, "defaultSubscription")
+		delete(additionalProperties, "deploymentCellID")
+		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "gcpProjectID")
+		delete(additionalProperties, "input_params")
+		delete(additionalProperties, "instanceDebugCommands")
+		delete(additionalProperties, "integrationsStatus")
+		delete(additionalProperties, "managedResourceType")
+		delete(additionalProperties, "organizationId")
+		delete(additionalProperties, "organizationName")
+		delete(additionalProperties, "portsRegistrationStatus")
+		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "productTierName")
+		delete(additionalProperties, "productTierType")
+		delete(additionalProperties, "proxyType")
+		delete(additionalProperties, "resourceVersionSummaries")
+		delete(additionalProperties, "serviceEnvName")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "serviceLogoURL")
+		delete(additionalProperties, "serviceModelId")
+		delete(additionalProperties, "serviceModelName")
+		delete(additionalProperties, "serviceModelType")
+		delete(additionalProperties, "serviceName")
+		delete(additionalProperties, "subscriptionId")
+		delete(additionalProperties, "subscriptionOwnerName")
+		delete(additionalProperties, "tierVersion")
+		delete(additionalProperties, "tierVersionReleasedAt")
+		delete(additionalProperties, "tierVersionReleasedByUserId")
+		delete(additionalProperties, "tierVersionReleasedByUserName")
+		delete(additionalProperties, "tierVersionStatus")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

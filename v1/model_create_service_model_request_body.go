@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -33,6 +32,7 @@ type CreateServiceModelRequestBody struct {
 	Name string `json:"name"`
 	// The service API this model is for
 	ServiceApiId string `json:"serviceApiId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CreateServiceModelRequestBody CreateServiceModelRequestBody
@@ -220,6 +220,11 @@ func (o CreateServiceModelRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize["modelType"] = o.ModelType
 	toSerialize["name"] = o.Name
 	toSerialize["serviceApiId"] = o.ServiceApiId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -250,15 +255,25 @@ func (o *CreateServiceModelRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	varCreateServiceModelRequestBody := _CreateServiceModelRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateServiceModelRequestBody)
+	err = json.Unmarshal(data, &varCreateServiceModelRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CreateServiceModelRequestBody(varCreateServiceModelRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "accountConfigIds")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "features")
+		delete(additionalProperties, "modelType")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "serviceApiId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

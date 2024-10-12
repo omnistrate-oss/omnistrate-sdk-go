@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -52,6 +51,7 @@ type UserSubscription struct {
 	SubscriptionOwnerName string `json:"subscriptionOwnerName"`
 	// The User ID
 	UserId string `json:"userId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _UserSubscription UserSubscription
@@ -508,6 +508,11 @@ func (o UserSubscription) ToMap() (map[string]interface{}, error) {
 	toSerialize["subscriptionId"] = o.SubscriptionId
 	toSerialize["subscriptionOwnerName"] = o.SubscriptionOwnerName
 	toSerialize["userId"] = o.UserId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -549,15 +554,35 @@ func (o *UserSubscription) UnmarshalJSON(data []byte) (err error) {
 
 	varUserSubscription := _UserSubscription{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varUserSubscription)
+	err = json.Unmarshal(data, &varUserSubscription)
 
 	if err != nil {
 		return err
 	}
 
 	*o = UserSubscription(varUserSubscription)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cloudProviderNames")
+		delete(additionalProperties, "defaultSubscription")
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "instanceCount")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "productTierName")
+		delete(additionalProperties, "roleType")
+		delete(additionalProperties, "serviceEnvironmentId")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "serviceLogoURL")
+		delete(additionalProperties, "serviceName")
+		delete(additionalProperties, "subscriptionDate")
+		delete(additionalProperties, "subscriptionId")
+		delete(additionalProperties, "subscriptionOwnerName")
+		delete(additionalProperties, "userId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

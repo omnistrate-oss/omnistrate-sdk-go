@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -51,6 +50,7 @@ type ServerlessProxySearchRecord struct {
 	ServiceModelId string `json:"serviceModelId"`
 	// The service name of the serverless proxy.
 	ServiceName string `json:"serviceName"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ServerlessProxySearchRecord ServerlessProxySearchRecord
@@ -499,6 +499,11 @@ func (o ServerlessProxySearchRecord) ToMap() (map[string]interface{}, error) {
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["serviceModelId"] = o.ServiceModelId
 	toSerialize["serviceName"] = o.ServiceName
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -537,15 +542,34 @@ func (o *ServerlessProxySearchRecord) UnmarshalJSON(data []byte) (err error) {
 
 	varServerlessProxySearchRecord := _ServerlessProxySearchRecord{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varServerlessProxySearchRecord)
+	err = json.Unmarshal(data, &varServerlessProxySearchRecord)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ServerlessProxySearchRecord(varServerlessProxySearchRecord)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "managed")
+		delete(additionalProperties, "managedResourceType")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "productTierName")
+		delete(additionalProperties, "proxyType")
+		delete(additionalProperties, "serviceApiId")
+		delete(additionalProperties, "serviceEnvironmentId")
+		delete(additionalProperties, "serviceEnvironmentName")
+		delete(additionalProperties, "serviceEnvironmentType")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "serviceModelId")
+		delete(additionalProperties, "serviceName")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

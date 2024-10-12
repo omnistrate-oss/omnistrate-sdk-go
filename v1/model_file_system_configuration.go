@@ -20,7 +20,10 @@ var _ MappedNullable = &FileSystemConfiguration{}
 // FileSystemConfiguration struct for FileSystemConfiguration
 type FileSystemConfiguration struct {
 	EFSFileSystemConfiguration *EFSFileSystemConfiguration `json:"EFSFileSystemConfiguration,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _FileSystemConfiguration FileSystemConfiguration
 
 // NewFileSystemConfiguration instantiates a new FileSystemConfiguration object
 // This constructor will assign default values to properties that have it defined,
@@ -75,7 +78,33 @@ func (o FileSystemConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EFSFileSystemConfiguration) {
 		toSerialize["EFSFileSystemConfiguration"] = o.EFSFileSystemConfiguration
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *FileSystemConfiguration) UnmarshalJSON(data []byte) (err error) {
+	varFileSystemConfiguration := _FileSystemConfiguration{}
+
+	err = json.Unmarshal(data, &varFileSystemConfiguration)
+
+	if err != nil {
+		return err
+	}
+
+	*o = FileSystemConfiguration(varFileSystemConfiguration)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "EFSFileSystemConfiguration")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableFileSystemConfiguration struct {

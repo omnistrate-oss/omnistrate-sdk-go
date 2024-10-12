@@ -25,7 +25,10 @@ type UpdateServiceRequestBody struct {
 	Name *string `json:"name,omitempty"`
 	// The logo for the service
 	ServiceLogoURL *string `json:"serviceLogoURL,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateServiceRequestBody UpdateServiceRequestBody
 
 // NewUpdateServiceRequestBody instantiates a new UpdateServiceRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -132,7 +135,35 @@ func (o UpdateServiceRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ServiceLogoURL) {
 		toSerialize["serviceLogoURL"] = o.ServiceLogoURL
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *UpdateServiceRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varUpdateServiceRequestBody := _UpdateServiceRequestBody{}
+
+	err = json.Unmarshal(data, &varUpdateServiceRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateServiceRequestBody(varUpdateServiceRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "serviceLogoURL")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableUpdateServiceRequestBody struct {

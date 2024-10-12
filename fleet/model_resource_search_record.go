@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -46,6 +45,7 @@ type ResourceSearchRecord struct {
 	ServiceModelId string `json:"serviceModelId"`
 	// The service name of the resource.
 	ServiceName string `json:"serviceName"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ResourceSearchRecord ResourceSearchRecord
@@ -433,6 +433,11 @@ func (o ResourceSearchRecord) ToMap() (map[string]interface{}, error) {
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["serviceModelId"] = o.ServiceModelId
 	toSerialize["serviceName"] = o.ServiceName
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -470,15 +475,32 @@ func (o *ResourceSearchRecord) UnmarshalJSON(data []byte) (err error) {
 
 	varResourceSearchRecord := _ResourceSearchRecord{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varResourceSearchRecord)
+	err = json.Unmarshal(data, &varResourceSearchRecord)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ResourceSearchRecord(varResourceSearchRecord)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "productTierName")
+		delete(additionalProperties, "resourceType")
+		delete(additionalProperties, "serviceApiId")
+		delete(additionalProperties, "serviceEnvironmentId")
+		delete(additionalProperties, "serviceEnvironmentName")
+		delete(additionalProperties, "serviceEnvironmentType")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "serviceModelId")
+		delete(additionalProperties, "serviceName")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -21,7 +21,10 @@ var _ MappedNullable = &SetEnvironmentVariablesRequestBody{}
 type SetEnvironmentVariablesRequestBody struct {
 	// The environment variables that this resource requires
 	EnvironmentVariables []EnvironmentVariable `json:"environmentVariables,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _SetEnvironmentVariablesRequestBody SetEnvironmentVariablesRequestBody
 
 // NewSetEnvironmentVariablesRequestBody instantiates a new SetEnvironmentVariablesRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -76,7 +79,33 @@ func (o SetEnvironmentVariablesRequestBody) ToMap() (map[string]interface{}, err
 	if !IsNil(o.EnvironmentVariables) {
 		toSerialize["environmentVariables"] = o.EnvironmentVariables
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *SetEnvironmentVariablesRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varSetEnvironmentVariablesRequestBody := _SetEnvironmentVariablesRequestBody{}
+
+	err = json.Unmarshal(data, &varSetEnvironmentVariablesRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = SetEnvironmentVariablesRequestBody(varSetEnvironmentVariablesRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "environmentVariables")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableSetEnvironmentVariablesRequestBody struct {

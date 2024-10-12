@@ -23,7 +23,10 @@ type ReleaseTierVersionSetRequestBody struct {
 	IsPreferred *bool `json:"isPreferred,omitempty"`
 	// The name of the product-tier version set.
 	Name *string `json:"name,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ReleaseTierVersionSetRequestBody ReleaseTierVersionSetRequestBody
 
 // NewReleaseTierVersionSetRequestBody instantiates a new ReleaseTierVersionSetRequestBody object
 // This constructor will assign default values to properties that have it defined,
@@ -104,7 +107,34 @@ func (o ReleaseTierVersionSetRequestBody) ToMap() (map[string]interface{}, error
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ReleaseTierVersionSetRequestBody) UnmarshalJSON(data []byte) (err error) {
+	varReleaseTierVersionSetRequestBody := _ReleaseTierVersionSetRequestBody{}
+
+	err = json.Unmarshal(data, &varReleaseTierVersionSetRequestBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ReleaseTierVersionSetRequestBody(varReleaseTierVersionSetRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "isPreferred")
+		delete(additionalProperties, "name")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableReleaseTierVersionSetRequestBody struct {

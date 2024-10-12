@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -31,6 +30,7 @@ type DiffTierVersionSetsResult struct {
 	ServiceId string `json:"serviceId"`
 	// The version number for the version set.
 	Version string `json:"version"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _DiffTierVersionSetsResult DiffTierVersionSetsResult
@@ -192,6 +192,11 @@ func (o DiffTierVersionSetsResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["resourceChangeSets"] = o.ResourceChangeSets
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["version"] = o.Version
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -223,15 +228,24 @@ func (o *DiffTierVersionSetsResult) UnmarshalJSON(data []byte) (err error) {
 
 	varDiffTierVersionSetsResult := _DiffTierVersionSetsResult{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDiffTierVersionSetsResult)
+	err = json.Unmarshal(data, &varDiffTierVersionSetsResult)
 
 	if err != nil {
 		return err
 	}
 
 	*o = DiffTierVersionSetsResult(varDiffTierVersionSetsResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "anotherVersion")
+		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "resourceChangeSets")
+		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "version")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -21,7 +21,10 @@ var _ MappedNullable = &DescribeServiceOfferingResourceResult{}
 type DescribeServiceOfferingResourceResult struct {
 	// The APIs
 	Apis []APIEntity `json:"apis,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _DescribeServiceOfferingResourceResult DescribeServiceOfferingResourceResult
 
 // NewDescribeServiceOfferingResourceResult instantiates a new DescribeServiceOfferingResourceResult object
 // This constructor will assign default values to properties that have it defined,
@@ -76,7 +79,33 @@ func (o DescribeServiceOfferingResourceResult) ToMap() (map[string]interface{}, 
 	if !IsNil(o.Apis) {
 		toSerialize["apis"] = o.Apis
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *DescribeServiceOfferingResourceResult) UnmarshalJSON(data []byte) (err error) {
+	varDescribeServiceOfferingResourceResult := _DescribeServiceOfferingResourceResult{}
+
+	err = json.Unmarshal(data, &varDescribeServiceOfferingResourceResult)
+
+	if err != nil {
+		return err
+	}
+
+	*o = DescribeServiceOfferingResourceResult(varDescribeServiceOfferingResourceResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "apis")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableDescribeServiceOfferingResourceResult struct {

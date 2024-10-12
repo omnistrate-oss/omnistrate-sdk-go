@@ -24,7 +24,10 @@ type ListCustomDomainResult struct {
 	Ids []string `json:"ids,omitempty"`
 	// Token to use for the next page
 	NextPageToken *string `json:"nextPageToken,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ListCustomDomainResult ListCustomDomainResult
 
 // NewListCustomDomainResult instantiates a new ListCustomDomainResult object
 // This constructor will assign default values to properties that have it defined,
@@ -131,7 +134,35 @@ func (o ListCustomDomainResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.NextPageToken) {
 		toSerialize["nextPageToken"] = o.NextPageToken
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ListCustomDomainResult) UnmarshalJSON(data []byte) (err error) {
+	varListCustomDomainResult := _ListCustomDomainResult{}
+
+	err = json.Unmarshal(data, &varListCustomDomainResult)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ListCustomDomainResult(varListCustomDomainResult)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "CustomDomains")
+		delete(additionalProperties, "ids")
+		delete(additionalProperties, "nextPageToken")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableListCustomDomainResult struct {

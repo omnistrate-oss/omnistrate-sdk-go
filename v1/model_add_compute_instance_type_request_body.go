@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type AddComputeInstanceTypeRequestBody struct {
 	CloudProviderName string `json:"cloudProviderName"`
 	// The instance type for this compute instance type config
 	InstanceType string `json:"instanceType"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _AddComputeInstanceTypeRequestBody AddComputeInstanceTypeRequestBody
@@ -108,6 +108,11 @@ func (o AddComputeInstanceTypeRequestBody) ToMap() (map[string]interface{}, erro
 	toSerialize := map[string]interface{}{}
 	toSerialize["cloudProviderName"] = o.CloudProviderName
 	toSerialize["instanceType"] = o.InstanceType
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *AddComputeInstanceTypeRequestBody) UnmarshalJSON(data []byte) (err erro
 
 	varAddComputeInstanceTypeRequestBody := _AddComputeInstanceTypeRequestBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAddComputeInstanceTypeRequestBody)
+	err = json.Unmarshal(data, &varAddComputeInstanceTypeRequestBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = AddComputeInstanceTypeRequestBody(varAddComputeInstanceTypeRequestBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cloudProviderName")
+		delete(additionalProperties, "instanceType")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }
