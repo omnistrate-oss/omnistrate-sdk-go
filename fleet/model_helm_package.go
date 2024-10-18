@@ -22,14 +22,16 @@ var _ MappedNullable = &HelmPackage{}
 type HelmPackage struct {
 	// The chart name of the Helm package
 	ChartName string `json:"chartName"`
+	// The chart repository name of the Helm package
+	ChartRepoName string `json:"chartRepoName"`
+	// The chart repository URL of the Helm package
+	ChartRepoUrl string `json:"chartRepoUrl"`
+	// The values of the Helm package
+	ChartValues map[string]interface{} `json:"chartValues,omitempty"`
 	// The chart version of the Helm package
 	ChartVersion string `json:"chartVersion"`
-	// The namespace where the Helm package is installed
+	// The namespace where the Helm package should be installed
 	Namespace string `json:"namespace"`
-	// The repository URL of the Helm package
-	RepoURL string `json:"repoURL"`
-	// Custom values for the helm package
-	Values map[string]interface{} `json:"values,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -39,12 +41,13 @@ type _HelmPackage HelmPackage
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHelmPackage(chartName string, chartVersion string, namespace string, repoURL string) *HelmPackage {
+func NewHelmPackage(chartName string, chartRepoName string, chartRepoUrl string, chartVersion string, namespace string) *HelmPackage {
 	this := HelmPackage{}
 	this.ChartName = chartName
+	this.ChartRepoName = chartRepoName
+	this.ChartRepoUrl = chartRepoUrl
 	this.ChartVersion = chartVersion
 	this.Namespace = namespace
-	this.RepoURL = repoURL
 	return &this
 }
 
@@ -78,6 +81,86 @@ func (o *HelmPackage) GetChartNameOk() (*string, bool) {
 // SetChartName sets field value
 func (o *HelmPackage) SetChartName(v string) {
 	o.ChartName = v
+}
+
+// GetChartRepoName returns the ChartRepoName field value
+func (o *HelmPackage) GetChartRepoName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ChartRepoName
+}
+
+// GetChartRepoNameOk returns a tuple with the ChartRepoName field value
+// and a boolean to check if the value has been set.
+func (o *HelmPackage) GetChartRepoNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ChartRepoName, true
+}
+
+// SetChartRepoName sets field value
+func (o *HelmPackage) SetChartRepoName(v string) {
+	o.ChartRepoName = v
+}
+
+// GetChartRepoUrl returns the ChartRepoUrl field value
+func (o *HelmPackage) GetChartRepoUrl() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ChartRepoUrl
+}
+
+// GetChartRepoUrlOk returns a tuple with the ChartRepoUrl field value
+// and a boolean to check if the value has been set.
+func (o *HelmPackage) GetChartRepoUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ChartRepoUrl, true
+}
+
+// SetChartRepoUrl sets field value
+func (o *HelmPackage) SetChartRepoUrl(v string) {
+	o.ChartRepoUrl = v
+}
+
+// GetChartValues returns the ChartValues field value if set, zero value otherwise.
+func (o *HelmPackage) GetChartValues() map[string]interface{} {
+	if o == nil || IsNil(o.ChartValues) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.ChartValues
+}
+
+// GetChartValuesOk returns a tuple with the ChartValues field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HelmPackage) GetChartValuesOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.ChartValues) {
+		return map[string]interface{}{}, false
+	}
+	return o.ChartValues, true
+}
+
+// HasChartValues returns a boolean if a field has been set.
+func (o *HelmPackage) HasChartValues() bool {
+	if o != nil && !IsNil(o.ChartValues) {
+		return true
+	}
+
+	return false
+}
+
+// SetChartValues gets a reference to the given map[string]interface{} and assigns it to the ChartValues field.
+func (o *HelmPackage) SetChartValues(v map[string]interface{}) {
+	o.ChartValues = v
 }
 
 // GetChartVersion returns the ChartVersion field value
@@ -128,62 +211,6 @@ func (o *HelmPackage) SetNamespace(v string) {
 	o.Namespace = v
 }
 
-// GetRepoURL returns the RepoURL field value
-func (o *HelmPackage) GetRepoURL() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.RepoURL
-}
-
-// GetRepoURLOk returns a tuple with the RepoURL field value
-// and a boolean to check if the value has been set.
-func (o *HelmPackage) GetRepoURLOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.RepoURL, true
-}
-
-// SetRepoURL sets field value
-func (o *HelmPackage) SetRepoURL(v string) {
-	o.RepoURL = v
-}
-
-// GetValues returns the Values field value if set, zero value otherwise.
-func (o *HelmPackage) GetValues() map[string]interface{} {
-	if o == nil || IsNil(o.Values) {
-		var ret map[string]interface{}
-		return ret
-	}
-	return o.Values
-}
-
-// GetValuesOk returns a tuple with the Values field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *HelmPackage) GetValuesOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.Values) {
-		return map[string]interface{}{}, false
-	}
-	return o.Values, true
-}
-
-// HasValues returns a boolean if a field has been set.
-func (o *HelmPackage) HasValues() bool {
-	if o != nil && !IsNil(o.Values) {
-		return true
-	}
-
-	return false
-}
-
-// SetValues gets a reference to the given map[string]interface{} and assigns it to the Values field.
-func (o *HelmPackage) SetValues(v map[string]interface{}) {
-	o.Values = v
-}
-
 func (o HelmPackage) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -195,12 +222,13 @@ func (o HelmPackage) MarshalJSON() ([]byte, error) {
 func (o HelmPackage) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["chartName"] = o.ChartName
+	toSerialize["chartRepoName"] = o.ChartRepoName
+	toSerialize["chartRepoUrl"] = o.ChartRepoUrl
+	if !IsNil(o.ChartValues) {
+		toSerialize["chartValues"] = o.ChartValues
+	}
 	toSerialize["chartVersion"] = o.ChartVersion
 	toSerialize["namespace"] = o.Namespace
-	toSerialize["repoURL"] = o.RepoURL
-	if !IsNil(o.Values) {
-		toSerialize["values"] = o.Values
-	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -215,9 +243,10 @@ func (o *HelmPackage) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"chartName",
+		"chartRepoName",
+		"chartRepoUrl",
 		"chartVersion",
 		"namespace",
-		"repoURL",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -248,10 +277,11 @@ func (o *HelmPackage) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "chartName")
+		delete(additionalProperties, "chartRepoName")
+		delete(additionalProperties, "chartRepoUrl")
+		delete(additionalProperties, "chartValues")
 		delete(additionalProperties, "chartVersion")
 		delete(additionalProperties, "namespace")
-		delete(additionalProperties, "repoURL")
-		delete(additionalProperties, "values")
 		o.AdditionalProperties = additionalProperties
 	}
 

@@ -40,11 +40,19 @@ type HostclusterApiAPIService service
 type ApiHostclusterApiListHostClustersRequest struct {
 	ctx context.Context
 	ApiService HostclusterApiAPI
-	listHostClustersRequestBody *ListHostClustersRequestBody
+	accountConfigId *string
+	regionId *string
 }
 
-func (r ApiHostclusterApiListHostClustersRequest) ListHostClustersRequestBody(listHostClustersRequestBody ListHostClustersRequestBody) ApiHostclusterApiListHostClustersRequest {
-	r.listHostClustersRequestBody = &listHostClustersRequestBody
+// The account config ID of the host cluster
+func (r ApiHostclusterApiListHostClustersRequest) AccountConfigId(accountConfigId string) ApiHostclusterApiListHostClustersRequest {
+	r.accountConfigId = &accountConfigId
+	return r
+}
+
+// The region ID of the host cluster
+func (r ApiHostclusterApiListHostClustersRequest) RegionId(regionId string) ApiHostclusterApiListHostClustersRequest {
+	r.regionId = &regionId
 	return r
 }
 
@@ -85,12 +93,15 @@ func (a *HostclusterApiAPIService) HostclusterApiListHostClustersExecute(r ApiHo
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.listHostClustersRequestBody == nil {
-		return localVarReturnValue, nil, reportError("listHostClustersRequestBody is required and must be specified")
-	}
 
+	if r.accountConfigId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "accountConfigId", r.accountConfigId, "form", "")
+	}
+	if r.regionId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "regionId", r.regionId, "form", "")
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -106,8 +117,6 @@ func (a *HostclusterApiAPIService) HostclusterApiListHostClustersExecute(r ApiHo
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.listHostClustersRequestBody
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

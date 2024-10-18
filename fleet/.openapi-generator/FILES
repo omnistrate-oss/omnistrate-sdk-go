@@ -96,8 +96,6 @@ docs/ListEndCustomerEventsResult.md
 docs/ListFleetFeaturesResult.md
 docs/ListFleetResourceInstancesResultInternal.md
 docs/ListHelmPackageInstallationsResult.md
-docs/ListHelmPackagesResult.md
-docs/ListHostClustersRequestBody.md
 docs/ListHostClustersResult.md
 docs/ListNotificationChannelsResult.md
 docs/ListOrganizationsResult.md
@@ -137,12 +135,12 @@ docs/ResourceNetworkTopologyResult.md
 docs/ResourceSearchRecord.md
 docs/ResourceVersionSummary.md
 docs/RestoreResourceInstanceRequestBody.md
-docs/SaveHelmPackageRequestBody.md
 docs/SearchInventoryResult.md
 docs/SearchRecord.md
 docs/SearchServiceInventoryRequestBody.md
 docs/SearchServiceInventoryResult.md
 docs/ServerlessProxySearchRecord.md
+docs/ServiceAssets.md
 docs/ServiceHealthSummary.md
 docs/ServiceModelFeatureDetail.md
 docs/ServiceOffering.md
@@ -241,8 +239,6 @@ model_list_end_customer_events_result.go
 model_list_fleet_features_result.go
 model_list_fleet_resource_instances_result_internal.go
 model_list_helm_package_installations_result.go
-model_list_helm_packages_result.go
-model_list_host_clusters_request_body.go
 model_list_host_clusters_result.go
 model_list_notification_channels_result.go
 model_list_organizations_result.go
@@ -280,12 +276,12 @@ model_resource_network_topology_result.go
 model_resource_search_record.go
 model_resource_version_summary.go
 model_restore_resource_instance_request_body.go
-model_save_helm_package_request_body.go
 model_search_inventory_result.go
 model_search_record.go
 model_search_service_inventory_request_body.go
 model_search_service_inventory_result.go
 model_serverless_proxy_search_record.go
+model_service_assets.go
 model_service_health_summary.go
 model_service_model_feature_detail.go
 model_service_offering.go

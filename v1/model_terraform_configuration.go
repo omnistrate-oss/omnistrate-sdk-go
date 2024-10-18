@@ -21,6 +21,8 @@ var _ MappedNullable = &TerraformConfiguration{}
 // TerraformConfiguration struct for TerraformConfiguration
 type TerraformConfiguration struct {
 	GitConfiguration *GitConfiguration `json:"gitConfiguration,omitempty"`
+	// The git access tokens for private modules
+	PrivateModuleGitAccessTokens *map[string]string `json:"privateModuleGitAccessTokens,omitempty"`
 	// The path to the terraform files directory
 	TerraformPath string `json:"terraformPath"`
 	AdditionalProperties map[string]interface{}
@@ -69,6 +71,29 @@ func (o *TerraformConfiguration) SetGitConfiguration(v GitConfiguration) {
 	o.GitConfiguration = &v
 }
 
+// GetPrivateModuleGitAccessTokens returns the PrivateModuleGitAccessTokens field value if set, zero value otherwise.
+func (o *TerraformConfiguration) GetPrivateModuleGitAccessTokens() map[string]string {
+	if o == nil || IsNil(o.PrivateModuleGitAccessTokens) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.PrivateModuleGitAccessTokens
+}
+
+// GetPrivateModuleGitAccessTokensOk returns a tuple with the PrivateModuleGitAccessTokens field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TerraformConfiguration) GetPrivateModuleGitAccessTokensOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.PrivateModuleGitAccessTokens) {
+		return nil, false
+	}
+	return o.PrivateModuleGitAccessTokens, true
+}
+
+// SetPrivateModuleGitAccessTokens gets a reference to the given map[string]string and assigns it to the PrivateModuleGitAccessTokens field.
+func (o *TerraformConfiguration) SetPrivateModuleGitAccessTokens(v map[string]string) {
+	o.PrivateModuleGitAccessTokens = &v
+}
+
 // GetTerraformPath returns the TerraformPath field value
 func (o *TerraformConfiguration) GetTerraformPath() string {
 	if o == nil {
@@ -105,6 +130,9 @@ func (o TerraformConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.GitConfiguration) {
 		toSerialize["gitConfiguration"] = o.GitConfiguration
+	}
+	if !IsNil(o.PrivateModuleGitAccessTokens) {
+		toSerialize["privateModuleGitAccessTokens"] = o.PrivateModuleGitAccessTokens
 	}
 	toSerialize["terraformPath"] = o.TerraformPath
 
@@ -151,6 +179,7 @@ func (o *TerraformConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "gitConfiguration")
+		delete(additionalProperties, "privateModuleGitAccessTokens")
 		delete(additionalProperties, "terraformPath")
 		o.AdditionalProperties = additionalProperties
 	}

@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **ChartName** | **string** | The chart name of the Helm package | 
 **ChartRepoName** | **string** | The chart repository name of the Helm package | 
 **ChartRepoUrl** | **string** | The chart repository URL of the Helm package | 
-**ChartType** | Pointer to **string** | Purpose of the chart | [optional] [default to "GENERIC"]
 **ChartValues** | Pointer to **map[string]interface{}** | The values of the Helm package | [optional] 
 **ChartVersion** | **string** | The chart version of the Helm package | 
 **Namespace** | **string** | The namespace where the Helm package should be installed | 
@@ -90,31 +89,6 @@ and a boolean to check if the value has been set.
 
 SetChartRepoUrl sets ChartRepoUrl field to given value.
 
-
-### GetChartType
-
-`func (o *HelmPackage) GetChartType() string`
-
-GetChartType returns the ChartType field if non-nil, zero value otherwise.
-
-### GetChartTypeOk
-
-`func (o *HelmPackage) GetChartTypeOk() (*string, bool)`
-
-GetChartTypeOk returns a tuple with the ChartType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetChartType
-
-`func (o *HelmPackage) SetChartType(v string)`
-
-SetChartType sets ChartType field to given value.
-
-### HasChartType
-
-`func (o *HelmPackage) HasChartType() bool`
-
-HasChartType returns a boolean if a field has been set.
 
 ### GetChartValues
 

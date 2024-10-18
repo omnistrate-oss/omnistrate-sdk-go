@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AutoApproveSubscription** | **bool** | Auto approve subscription or not | 
+**Assets** | Pointer to [**ServiceAssets**](ServiceAssets.md) |  | [optional] 
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this service offering is available on | [optional] 
 **BillingPlans** | Pointer to [**[]OfferingBillingPlan**](OfferingBillingPlan.md) | List of billing plans for this product tier. | [optional] 
 **CloudProviders** | Pointer to **[]string** | List of supported cloud providers for this product tier. | [optional] 
@@ -73,6 +74,31 @@ and a boolean to check if the value has been set.
 
 SetAutoApproveSubscription sets AutoApproveSubscription field to given value.
 
+
+### GetAssets
+
+`func (o *ServiceOffering) GetAssets() ServiceAssets`
+
+GetAssets returns the Assets field if non-nil, zero value otherwise.
+
+### GetAssetsOk
+
+`func (o *ServiceOffering) GetAssetsOk() (*ServiceAssets, bool)`
+
+GetAssetsOk returns a tuple with the Assets field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAssets
+
+`func (o *ServiceOffering) SetAssets(v ServiceAssets)`
+
+SetAssets sets Assets field to given value.
+
+### HasAssets
+
+`func (o *ServiceOffering) HasAssets() bool`
+
+HasAssets returns a boolean if a field has been set.
 
 ### GetAwsRegions
 
