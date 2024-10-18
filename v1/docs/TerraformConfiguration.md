@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **GitConfiguration** | Pointer to [**GitConfiguration**](GitConfiguration.md) |  | [optional] 
+**PrivateModuleGitAccessTokens** | Pointer to **map[string]string** | The git access tokens for private modules | [optional] 
 **TerraformPath** | **string** | The path to the terraform files directory | 
 
 ## Methods
@@ -50,6 +51,31 @@ SetGitConfiguration sets GitConfiguration field to given value.
 `func (o *TerraformConfiguration) HasGitConfiguration() bool`
 
 HasGitConfiguration returns a boolean if a field has been set.
+
+### GetPrivateModuleGitAccessTokens
+
+`func (o *TerraformConfiguration) GetPrivateModuleGitAccessTokens() map[string]string`
+
+GetPrivateModuleGitAccessTokens returns the PrivateModuleGitAccessTokens field if non-nil, zero value otherwise.
+
+### GetPrivateModuleGitAccessTokensOk
+
+`func (o *TerraformConfiguration) GetPrivateModuleGitAccessTokensOk() (*map[string]string, bool)`
+
+GetPrivateModuleGitAccessTokensOk returns a tuple with the PrivateModuleGitAccessTokens field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrivateModuleGitAccessTokens
+
+`func (o *TerraformConfiguration) SetPrivateModuleGitAccessTokens(v map[string]string)`
+
+SetPrivateModuleGitAccessTokens sets PrivateModuleGitAccessTokens field to given value.
+
+### HasPrivateModuleGitAccessTokens
+
+`func (o *TerraformConfiguration) HasPrivateModuleGitAccessTokens() bool`
+
+HasPrivateModuleGitAccessTokens returns a boolean if a field has been set.
 
 ### GetTerraformPath
 

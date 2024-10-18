@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AutoApproveSubscription** | Pointer to **bool** | Auto approve subscription or not | [optional] 
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this product tier is available on | [optional] 
 **Description** | **string** | A brief description of the product tier | 
 **Documentation** | Pointer to **string** | Documentation | [optional] 
@@ -33,6 +34,31 @@ will change when the set of required properties is changed
 NewCopyProductTierRequestBodyWithDefaults instantiates a new CopyProductTierRequestBody object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAutoApproveSubscription
+
+`func (o *CopyProductTierRequestBody) GetAutoApproveSubscription() bool`
+
+GetAutoApproveSubscription returns the AutoApproveSubscription field if non-nil, zero value otherwise.
+
+### GetAutoApproveSubscriptionOk
+
+`func (o *CopyProductTierRequestBody) GetAutoApproveSubscriptionOk() (*bool, bool)`
+
+GetAutoApproveSubscriptionOk returns a tuple with the AutoApproveSubscription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoApproveSubscription
+
+`func (o *CopyProductTierRequestBody) SetAutoApproveSubscription(v bool)`
+
+SetAutoApproveSubscription sets AutoApproveSubscription field to given value.
+
+### HasAutoApproveSubscription
+
+`func (o *CopyProductTierRequestBody) HasAutoApproveSubscription() bool`
+
+HasAutoApproveSubscription returns a boolean if a field has been set.
 
 ### GetAwsRegions
 

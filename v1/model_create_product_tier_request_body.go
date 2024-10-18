@@ -20,6 +20,8 @@ var _ MappedNullable = &CreateProductTierRequestBody{}
 
 // CreateProductTierRequestBody struct for CreateProductTierRequestBody
 type CreateProductTierRequestBody struct {
+	// Auto approve subscription or not
+	AutoApproveSubscription *bool `json:"autoApproveSubscription,omitempty"`
 	// The AWS regions that this product tier is available on
 	AwsRegions []string `json:"awsRegions,omitempty"`
 	// A brief description of the product tier
@@ -67,6 +69,29 @@ func NewCreateProductTierRequestBody(description string, name string, planDescri
 func NewCreateProductTierRequestBodyWithDefaults() *CreateProductTierRequestBody {
 	this := CreateProductTierRequestBody{}
 	return &this
+}
+
+// GetAutoApproveSubscription returns the AutoApproveSubscription field value if set, zero value otherwise.
+func (o *CreateProductTierRequestBody) GetAutoApproveSubscription() bool {
+	if o == nil || IsNil(o.AutoApproveSubscription) {
+		var ret bool
+		return ret
+	}
+	return *o.AutoApproveSubscription
+}
+
+// GetAutoApproveSubscriptionOk returns a tuple with the AutoApproveSubscription field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateProductTierRequestBody) GetAutoApproveSubscriptionOk() (*bool, bool) {
+	if o == nil || IsNil(o.AutoApproveSubscription) {
+		return nil, false
+	}
+	return o.AutoApproveSubscription, true
+}
+
+// SetAutoApproveSubscription gets a reference to the given bool and assigns it to the AutoApproveSubscription field.
+func (o *CreateProductTierRequestBody) SetAutoApproveSubscription(v bool) {
+	o.AutoApproveSubscription = &v
 }
 
 // GetAwsRegions returns the AwsRegions field value if set, zero value otherwise.
@@ -338,6 +363,9 @@ func (o CreateProductTierRequestBody) MarshalJSON() ([]byte, error) {
 
 func (o CreateProductTierRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AutoApproveSubscription) {
+		toSerialize["autoApproveSubscription"] = o.AutoApproveSubscription
+	}
 	if !IsNil(o.AwsRegions) {
 		toSerialize["awsRegions"] = o.AwsRegions
 	}
@@ -408,6 +436,7 @@ func (o *CreateProductTierRequestBody) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "autoApproveSubscription")
 		delete(additionalProperties, "awsRegions")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "documentation")

@@ -292,6 +292,7 @@ docs/SaasPortalApiAPI.md
 docs/SaveHelmPackageRequestBody.md
 docs/ServiceApiAPI.md
 docs/ServiceApiApiAPI.md
+docs/ServiceAssets.md
 docs/ServiceEnvironment.md
 docs/ServiceEnvironmentApiAPI.md
 docs/ServiceModelApiAPI.md
@@ -560,6 +561,7 @@ model_saa_s_portal.go
 model_saa_s_portal_email_config.go
 model_saa_s_portal_image_config.go
 model_save_helm_package_request_body.go
+model_service_assets.go
 model_service_environment.go
 model_service_model_feature_detail.go
 model_service_offering.go

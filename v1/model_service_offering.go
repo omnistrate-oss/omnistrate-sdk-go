@@ -22,6 +22,7 @@ var _ MappedNullable = &ServiceOffering{}
 type ServiceOffering struct {
 	// Auto approve subscription or not
 	AutoApproveSubscription bool `json:"AutoApproveSubscription"`
+	Assets *ServiceAssets `json:"assets,omitempty"`
 	// The AWS regions that this service offering is available on
 	AwsRegions []string `json:"awsRegions,omitempty"`
 	// List of billing plans for this product tier.
@@ -147,6 +148,29 @@ func (o *ServiceOffering) GetAutoApproveSubscriptionOk() (*bool, bool) {
 // SetAutoApproveSubscription sets field value
 func (o *ServiceOffering) SetAutoApproveSubscription(v bool) {
 	o.AutoApproveSubscription = v
+}
+
+// GetAssets returns the Assets field value if set, zero value otherwise.
+func (o *ServiceOffering) GetAssets() ServiceAssets {
+	if o == nil || IsNil(o.Assets) {
+		var ret ServiceAssets
+		return ret
+	}
+	return *o.Assets
+}
+
+// GetAssetsOk returns a tuple with the Assets field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceOffering) GetAssetsOk() (*ServiceAssets, bool) {
+	if o == nil || IsNil(o.Assets) {
+		return nil, false
+	}
+	return o.Assets, true
+}
+
+// SetAssets gets a reference to the given ServiceAssets and assigns it to the Assets field.
+func (o *ServiceOffering) SetAssets(v ServiceAssets) {
+	o.Assets = &v
 }
 
 // GetAwsRegions returns the AwsRegions field value if set, zero value otherwise.
@@ -851,6 +875,9 @@ func (o ServiceOffering) MarshalJSON() ([]byte, error) {
 func (o ServiceOffering) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["AutoApproveSubscription"] = o.AutoApproveSubscription
+	if !IsNil(o.Assets) {
+		toSerialize["assets"] = o.Assets
+	}
 	if !IsNil(o.AwsRegions) {
 		toSerialize["awsRegions"] = o.AwsRegions
 	}
@@ -962,6 +989,7 @@ func (o *ServiceOffering) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "AutoApproveSubscription")
+		delete(additionalProperties, "assets")
 		delete(additionalProperties, "awsRegions")
 		delete(additionalProperties, "billingPlans")
 		delete(additionalProperties, "cloudProviders")

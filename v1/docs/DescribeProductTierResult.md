@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ApiGroups** | Pointer to **map[string]string** | The resources that belong to this service API bundle and their active versions | [optional] 
+**AutoApproveSubscription** | Pointer to **bool** | Auto approve subscription or not | [optional] 
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this product tier is available on | [optional] 
 **Description** | **string** | A brief description of the product tier | 
 **Documentation** | **string** | Documentation | 
@@ -65,6 +66,31 @@ SetApiGroups sets ApiGroups field to given value.
 `func (o *DescribeProductTierResult) HasApiGroups() bool`
 
 HasApiGroups returns a boolean if a field has been set.
+
+### GetAutoApproveSubscription
+
+`func (o *DescribeProductTierResult) GetAutoApproveSubscription() bool`
+
+GetAutoApproveSubscription returns the AutoApproveSubscription field if non-nil, zero value otherwise.
+
+### GetAutoApproveSubscriptionOk
+
+`func (o *DescribeProductTierResult) GetAutoApproveSubscriptionOk() (*bool, bool)`
+
+GetAutoApproveSubscriptionOk returns a tuple with the AutoApproveSubscription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoApproveSubscription
+
+`func (o *DescribeProductTierResult) SetAutoApproveSubscription(v bool)`
+
+SetAutoApproveSubscription sets AutoApproveSubscription field to given value.
+
+### HasAutoApproveSubscription
+
+`func (o *DescribeProductTierResult) HasAutoApproveSubscription() bool`
+
+HasAutoApproveSubscription returns a boolean if a field has been set.
 
 ### GetAwsRegions
 

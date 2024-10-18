@@ -26,8 +26,6 @@ type HelmPackage struct {
 	ChartRepoName string `json:"chartRepoName"`
 	// The chart repository URL of the Helm package
 	ChartRepoUrl string `json:"chartRepoUrl"`
-	// Purpose of the chart
-	ChartType *string `json:"chartType,omitempty"`
 	// The values of the Helm package
 	ChartValues map[string]interface{} `json:"chartValues,omitempty"`
 	// The chart version of the Helm package
@@ -48,8 +46,6 @@ func NewHelmPackage(chartName string, chartRepoName string, chartRepoUrl string,
 	this.ChartName = chartName
 	this.ChartRepoName = chartRepoName
 	this.ChartRepoUrl = chartRepoUrl
-	var chartType string = "GENERIC"
-	this.ChartType = &chartType
 	this.ChartVersion = chartVersion
 	this.Namespace = namespace
 	return &this
@@ -60,8 +56,6 @@ func NewHelmPackage(chartName string, chartRepoName string, chartRepoUrl string,
 // but it doesn't guarantee that properties required by API are set
 func NewHelmPackageWithDefaults() *HelmPackage {
 	this := HelmPackage{}
-	var chartType string = "GENERIC"
-	this.ChartType = &chartType
 	return &this
 }
 
@@ -135,29 +129,6 @@ func (o *HelmPackage) GetChartRepoUrlOk() (*string, bool) {
 // SetChartRepoUrl sets field value
 func (o *HelmPackage) SetChartRepoUrl(v string) {
 	o.ChartRepoUrl = v
-}
-
-// GetChartType returns the ChartType field value if set, zero value otherwise.
-func (o *HelmPackage) GetChartType() string {
-	if o == nil || IsNil(o.ChartType) {
-		var ret string
-		return ret
-	}
-	return *o.ChartType
-}
-
-// GetChartTypeOk returns a tuple with the ChartType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *HelmPackage) GetChartTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.ChartType) {
-		return nil, false
-	}
-	return o.ChartType, true
-}
-
-// SetChartType gets a reference to the given string and assigns it to the ChartType field.
-func (o *HelmPackage) SetChartType(v string) {
-	o.ChartType = &v
 }
 
 // GetChartValues returns the ChartValues field value if set, zero value otherwise.
@@ -244,9 +215,6 @@ func (o HelmPackage) ToMap() (map[string]interface{}, error) {
 	toSerialize["chartName"] = o.ChartName
 	toSerialize["chartRepoName"] = o.ChartRepoName
 	toSerialize["chartRepoUrl"] = o.ChartRepoUrl
-	if !IsNil(o.ChartType) {
-		toSerialize["chartType"] = o.ChartType
-	}
 	if !IsNil(o.ChartValues) {
 		toSerialize["chartValues"] = o.ChartValues
 	}
@@ -302,7 +270,6 @@ func (o *HelmPackage) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "chartName")
 		delete(additionalProperties, "chartRepoName")
 		delete(additionalProperties, "chartRepoUrl")
-		delete(additionalProperties, "chartType")
 		delete(additionalProperties, "chartValues")
 		delete(additionalProperties, "chartVersion")
 		delete(additionalProperties, "namespace")

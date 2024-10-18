@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## HostclusterApiListHostClusters
 
-> ListHostClustersResult HostclusterApiListHostClusters(ctx).ListHostClustersRequestBody(listHostClustersRequestBody).Execute()
+> ListHostClustersResult HostclusterApiListHostClusters(ctx).AccountConfigId(accountConfigId).RegionId(regionId).Execute()
 
 ListHostClusters hostcluster-api
 
@@ -27,11 +27,12 @@ import (
 )
 
 func main() {
-	listHostClustersRequestBody := *openapiclient.NewListHostClustersRequestBody() // ListHostClustersRequestBody | 
+	accountConfigId := "ac-12345678" // string | The account config ID of the host cluster (optional)
+	regionId := "region-12345678" // string | The region ID of the host cluster (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.HostclusterApiAPI.HostclusterApiListHostClusters(context.Background()).ListHostClustersRequestBody(listHostClustersRequestBody).Execute()
+	resp, r, err := apiClient.HostclusterApiAPI.HostclusterApiListHostClusters(context.Background()).AccountConfigId(accountConfigId).RegionId(regionId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `HostclusterApiAPI.HostclusterApiListHostClusters``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -52,7 +53,8 @@ Other parameters are passed through a pointer to a apiHostclusterApiListHostClus
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listHostClustersRequestBody** | [**ListHostClustersRequestBody**](ListHostClustersRequestBody.md) |  | 
+ **accountConfigId** | **string** | The account config ID of the host cluster | 
+ **regionId** | **string** | The region ID of the host cluster | 
 
 ### Return type
 
@@ -64,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

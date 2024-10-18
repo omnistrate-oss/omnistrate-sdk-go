@@ -5,16 +5,17 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ChartName** | **string** | The chart name of the Helm package | 
+**ChartRepoName** | **string** | The chart repository name of the Helm package | 
+**ChartRepoUrl** | **string** | The chart repository URL of the Helm package | 
+**ChartValues** | Pointer to **map[string]interface{}** | The values of the Helm package | [optional] 
 **ChartVersion** | **string** | The chart version of the Helm package | 
-**Namespace** | **string** | The namespace where the Helm package is installed | 
-**RepoURL** | **string** | The repository URL of the Helm package | 
-**Values** | Pointer to **map[string]interface{}** | Custom values for the helm package | [optional] 
+**Namespace** | **string** | The namespace where the Helm package should be installed | 
 
 ## Methods
 
 ### NewHelmPackage
 
-`func NewHelmPackage(chartName string, chartVersion string, namespace string, repoURL string, ) *HelmPackage`
+`func NewHelmPackage(chartName string, chartRepoName string, chartRepoUrl string, chartVersion string, namespace string, ) *HelmPackage`
 
 NewHelmPackage instantiates a new HelmPackage object
 This constructor will assign default values to properties that have it defined,
@@ -48,6 +49,71 @@ and a boolean to check if the value has been set.
 
 SetChartName sets ChartName field to given value.
 
+
+### GetChartRepoName
+
+`func (o *HelmPackage) GetChartRepoName() string`
+
+GetChartRepoName returns the ChartRepoName field if non-nil, zero value otherwise.
+
+### GetChartRepoNameOk
+
+`func (o *HelmPackage) GetChartRepoNameOk() (*string, bool)`
+
+GetChartRepoNameOk returns a tuple with the ChartRepoName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChartRepoName
+
+`func (o *HelmPackage) SetChartRepoName(v string)`
+
+SetChartRepoName sets ChartRepoName field to given value.
+
+
+### GetChartRepoUrl
+
+`func (o *HelmPackage) GetChartRepoUrl() string`
+
+GetChartRepoUrl returns the ChartRepoUrl field if non-nil, zero value otherwise.
+
+### GetChartRepoUrlOk
+
+`func (o *HelmPackage) GetChartRepoUrlOk() (*string, bool)`
+
+GetChartRepoUrlOk returns a tuple with the ChartRepoUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChartRepoUrl
+
+`func (o *HelmPackage) SetChartRepoUrl(v string)`
+
+SetChartRepoUrl sets ChartRepoUrl field to given value.
+
+
+### GetChartValues
+
+`func (o *HelmPackage) GetChartValues() map[string]interface{}`
+
+GetChartValues returns the ChartValues field if non-nil, zero value otherwise.
+
+### GetChartValuesOk
+
+`func (o *HelmPackage) GetChartValuesOk() (*map[string]interface{}, bool)`
+
+GetChartValuesOk returns a tuple with the ChartValues field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChartValues
+
+`func (o *HelmPackage) SetChartValues(v map[string]interface{})`
+
+SetChartValues sets ChartValues field to given value.
+
+### HasChartValues
+
+`func (o *HelmPackage) HasChartValues() bool`
+
+HasChartValues returns a boolean if a field has been set.
 
 ### GetChartVersion
 
@@ -88,51 +154,6 @@ and a boolean to check if the value has been set.
 
 SetNamespace sets Namespace field to given value.
 
-
-### GetRepoURL
-
-`func (o *HelmPackage) GetRepoURL() string`
-
-GetRepoURL returns the RepoURL field if non-nil, zero value otherwise.
-
-### GetRepoURLOk
-
-`func (o *HelmPackage) GetRepoURLOk() (*string, bool)`
-
-GetRepoURLOk returns a tuple with the RepoURL field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRepoURL
-
-`func (o *HelmPackage) SetRepoURL(v string)`
-
-SetRepoURL sets RepoURL field to given value.
-
-
-### GetValues
-
-`func (o *HelmPackage) GetValues() map[string]interface{}`
-
-GetValues returns the Values field if non-nil, zero value otherwise.
-
-### GetValuesOk
-
-`func (o *HelmPackage) GetValuesOk() (*map[string]interface{}, bool)`
-
-GetValuesOk returns a tuple with the Values field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetValues
-
-`func (o *HelmPackage) SetValues(v map[string]interface{})`
-
-SetValues sets Values field to given value.
-
-### HasValues
-
-`func (o *HelmPackage) HasValues() bool`
-
-HasValues returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
