@@ -53,6 +53,8 @@ type APIClient struct {
 
 	EventsApiAPI EventsApiAPI
 
+	FleetCustomNetworkApiAPI FleetCustomNetworkApiAPI
+
 	FleetFeaturesApiAPI FleetFeaturesApiAPI
 
 	FleetWorkflowsApiAPI FleetWorkflowsApiAPI
@@ -90,6 +92,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.CustomerOnboardingsApiAPI = (*CustomerOnboardingsApiAPIService)(&c.common)
 	c.EventsApiAPI = (*EventsApiAPIService)(&c.common)
+	c.FleetCustomNetworkApiAPI = (*FleetCustomNetworkApiAPIService)(&c.common)
 	c.FleetFeaturesApiAPI = (*FleetFeaturesApiAPIService)(&c.common)
 	c.FleetWorkflowsApiAPI = (*FleetWorkflowsApiAPIService)(&c.common)
 	c.HelmPackageApiAPI = (*HelmPackageApiAPIService)(&c.common)

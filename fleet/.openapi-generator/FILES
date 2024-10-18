@@ -5,6 +5,7 @@ README.md
 api/openapi.yaml
 api_customer_onboardings_api.go
 api_events_api.go
+api_fleet_custom_network_api.go
 api_fleet_features_api.go
 api_fleet_workflows_api.go
 api_helm_package_api.go
@@ -59,6 +60,9 @@ docs/EventsPerResource.md
 docs/EventsPerWorkflowStep.md
 docs/FailoverResourceInstanceRequestBody.md
 docs/FleetCreateInstanceSnapshotResult.md
+docs/FleetCustomNetwork.md
+docs/FleetCustomNetworkApiAPI.md
+docs/FleetCustomNetworkInstance.md
 docs/FleetDescribeEventResult.md
 docs/FleetDescribeHostClusterResult.md
 docs/FleetDescribeInstanceSnapshotFromTimeResult.md
@@ -68,11 +72,13 @@ docs/FleetFeature.md
 docs/FleetFeaturesApiAPI.md
 docs/FleetGenerateTokenForHostClusterDashboardResult.md
 docs/FleetListAllUsersResult.md
+docs/FleetListCustomNetworksResult.md
 docs/FleetListEventsResult.md
 docs/FleetListHostClustersResult.md
 docs/FleetListLinkedInstancesResult.md
 docs/FleetListSubscriptionsResult.md
 docs/FleetListUsersResult.md
+docs/FleetNetworkFeaturesConfiguration.md
 docs/FleetWorkflowsApiAPI.md
 docs/GetWorkflowEventsResult.md
 docs/HelmPackage.md
@@ -208,6 +214,8 @@ model_events_per_resource.go
 model_events_per_workflow_step.go
 model_failover_resource_instance_request_body.go
 model_fleet_create_instance_snapshot_result.go
+model_fleet_custom_network.go
+model_fleet_custom_network_instance.go
 model_fleet_describe_event_result.go
 model_fleet_describe_host_cluster_result.go
 model_fleet_describe_instance_snapshot_from_time_result.go
@@ -216,11 +224,13 @@ model_fleet_describe_user_result.go
 model_fleet_feature.go
 model_fleet_generate_token_for_host_cluster_dashboard_result.go
 model_fleet_list_all_users_result.go
+model_fleet_list_custom_networks_result.go
 model_fleet_list_events_result.go
 model_fleet_list_host_clusters_result.go
 model_fleet_list_linked_instances_result.go
 model_fleet_list_subscriptions_result.go
 model_fleet_list_users_result.go
+model_fleet_network_features_configuration.go
 model_get_workflow_events_result.go
 model_helm_package.go
 model_helm_package_installations.go
@@ -309,6 +319,7 @@ model_workflow_search_record.go
 response.go
 test/api_customer_onboardings_api_test.go
 test/api_events_api_test.go
+test/api_fleet_custom_network_api_test.go
 test/api_fleet_features_api_test.go
 test/api_fleet_workflows_api_test.go
 test/api_helm_package_api_test.go
