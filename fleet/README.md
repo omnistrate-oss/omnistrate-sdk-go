@@ -86,6 +86,8 @@ Class | Method | HTTP request | Description
 *CustomerOnboardingsApiAPI* | [**CustomerOnboardingsApiUpdateCustomerOnboarding**](docs/CustomerOnboardingsApiAPI.md#customeronboardingsapiupdatecustomeronboarding) | **Patch** /2022-09-01-00/fleet/customer-onboarding/{id} | UpdateCustomerOnboarding customer-onboardings-api
 *EventsApiAPI* | [**EventsApiAcknowledgeEvent**](docs/EventsApiAPI.md#eventsapiacknowledgeevent) | **Delete** /2022-09-01-00/fleet/events/{id} | AcknowledgeEvent events-api
 *EventsApiAPI* | [**EventsApiListEvents**](docs/EventsApiAPI.md#eventsapilistevents) | **Get** /2022-09-01-00/fleet/events | ListEvents events-api
+*FleetCustomNetworkApiAPI* | [**FleetCustomNetworkApiDescribeCustomNetwork**](docs/FleetCustomNetworkApiAPI.md#fleetcustomnetworkapidescribecustomnetwork) | **Get** /2022-09-01-00/fleet/custom-network/{id} | DescribeCustomNetwork fleet-custom-network-api
+*FleetCustomNetworkApiAPI* | [**FleetCustomNetworkApiListCustomNetworks**](docs/FleetCustomNetworkApiAPI.md#fleetcustomnetworkapilistcustomnetworks) | **Get** /2022-09-01-00/fleet/custom-network | ListCustomNetworks fleet-custom-network-api
 *FleetFeaturesApiAPI* | [**FleetFeaturesApiDescribeFleetFeature**](docs/FleetFeaturesApiAPI.md#fleetfeaturesapidescribefleetfeature) | **Get** /2022-09-01-00/fleet/feature/{feature} | DescribeFleetFeature fleet-features-api
 *FleetFeaturesApiAPI* | [**FleetFeaturesApiDisableFleetFeature**](docs/FleetFeaturesApiAPI.md#fleetfeaturesapidisablefleetfeature) | **Delete** /2022-09-01-00/fleet/feature | DisableFleetFeature fleet-features-api
 *FleetFeaturesApiAPI* | [**FleetFeaturesApiEnableFleetFeature**](docs/FleetFeaturesApiAPI.md#fleetfeaturesapienablefleetfeature) | **Put** /2022-09-01-00/fleet/feature | EnableFleetFeature fleet-features-api
@@ -211,6 +213,8 @@ Class | Method | HTTP request | Description
  - [EventsPerWorkflowStep](docs/EventsPerWorkflowStep.md)
  - [FailoverResourceInstanceRequestBody](docs/FailoverResourceInstanceRequestBody.md)
  - [FleetCreateInstanceSnapshotResult](docs/FleetCreateInstanceSnapshotResult.md)
+ - [FleetCustomNetwork](docs/FleetCustomNetwork.md)
+ - [FleetCustomNetworkInstance](docs/FleetCustomNetworkInstance.md)
  - [FleetDescribeEventResult](docs/FleetDescribeEventResult.md)
  - [FleetDescribeHostClusterResult](docs/FleetDescribeHostClusterResult.md)
  - [FleetDescribeInstanceSnapshotFromTimeResult](docs/FleetDescribeInstanceSnapshotFromTimeResult.md)
@@ -219,11 +223,13 @@ Class | Method | HTTP request | Description
  - [FleetFeature](docs/FleetFeature.md)
  - [FleetGenerateTokenForHostClusterDashboardResult](docs/FleetGenerateTokenForHostClusterDashboardResult.md)
  - [FleetListAllUsersResult](docs/FleetListAllUsersResult.md)
+ - [FleetListCustomNetworksResult](docs/FleetListCustomNetworksResult.md)
  - [FleetListEventsResult](docs/FleetListEventsResult.md)
  - [FleetListHostClustersResult](docs/FleetListHostClustersResult.md)
  - [FleetListLinkedInstancesResult](docs/FleetListLinkedInstancesResult.md)
  - [FleetListSubscriptionsResult](docs/FleetListSubscriptionsResult.md)
  - [FleetListUsersResult](docs/FleetListUsersResult.md)
+ - [FleetNetworkFeaturesConfiguration](docs/FleetNetworkFeaturesConfiguration.md)
  - [GetWorkflowEventsResult](docs/GetWorkflowEventsResult.md)
  - [HelmPackage](docs/HelmPackage.md)
  - [HelmPackageInstallations](docs/HelmPackageInstallations.md)
