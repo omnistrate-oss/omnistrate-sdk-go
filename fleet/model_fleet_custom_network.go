@@ -37,6 +37,10 @@ type FleetCustomNetwork struct {
 	OwningOrgID string `json:"owningOrgID"`
 	// Name of the owning organization
 	OwningOrgName string `json:"owningOrgName"`
+	// ID of the owning user
+	OwningUserID *string `json:"owningUserID,omitempty"`
+	// Name of the owning user
+	OwningUserName *string `json:"owningUserName,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -307,6 +311,70 @@ func (o *FleetCustomNetwork) SetOwningOrgName(v string) {
 	o.OwningOrgName = v
 }
 
+// GetOwningUserID returns the OwningUserID field value if set, zero value otherwise.
+func (o *FleetCustomNetwork) GetOwningUserID() string {
+	if o == nil || IsNil(o.OwningUserID) {
+		var ret string
+		return ret
+	}
+	return *o.OwningUserID
+}
+
+// GetOwningUserIDOk returns a tuple with the OwningUserID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCustomNetwork) GetOwningUserIDOk() (*string, bool) {
+	if o == nil || IsNil(o.OwningUserID) {
+		return nil, false
+	}
+	return o.OwningUserID, true
+}
+
+// HasOwningUserID returns a boolean if a field has been set.
+func (o *FleetCustomNetwork) HasOwningUserID() bool {
+	if o != nil && !IsNil(o.OwningUserID) {
+		return true
+	}
+
+	return false
+}
+
+// SetOwningUserID gets a reference to the given string and assigns it to the OwningUserID field.
+func (o *FleetCustomNetwork) SetOwningUserID(v string) {
+	o.OwningUserID = &v
+}
+
+// GetOwningUserName returns the OwningUserName field value if set, zero value otherwise.
+func (o *FleetCustomNetwork) GetOwningUserName() string {
+	if o == nil || IsNil(o.OwningUserName) {
+		var ret string
+		return ret
+	}
+	return *o.OwningUserName
+}
+
+// GetOwningUserNameOk returns a tuple with the OwningUserName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCustomNetwork) GetOwningUserNameOk() (*string, bool) {
+	if o == nil || IsNil(o.OwningUserName) {
+		return nil, false
+	}
+	return o.OwningUserName, true
+}
+
+// HasOwningUserName returns a boolean if a field has been set.
+func (o *FleetCustomNetwork) HasOwningUserName() bool {
+	if o != nil && !IsNil(o.OwningUserName) {
+		return true
+	}
+
+	return false
+}
+
+// SetOwningUserName gets a reference to the given string and assigns it to the OwningUserName field.
+func (o *FleetCustomNetwork) SetOwningUserName(v string) {
+	o.OwningUserName = &v
+}
+
 func (o FleetCustomNetwork) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -332,6 +400,12 @@ func (o FleetCustomNetwork) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["owningOrgID"] = o.OwningOrgID
 	toSerialize["owningOrgName"] = o.OwningOrgName
+	if !IsNil(o.OwningUserID) {
+		toSerialize["owningUserID"] = o.OwningUserID
+	}
+	if !IsNil(o.OwningUserName) {
+		toSerialize["owningUserName"] = o.OwningUserName
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -389,6 +463,8 @@ func (o *FleetCustomNetwork) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "networkInstances")
 		delete(additionalProperties, "owningOrgID")
 		delete(additionalProperties, "owningOrgName")
+		delete(additionalProperties, "owningUserID")
+		delete(additionalProperties, "owningUserName")
 		o.AdditionalProperties = additionalProperties
 	}
 

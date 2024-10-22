@@ -413,6 +413,7 @@ Class | Method | HTTP request | Description
  - [CustomDomain](docs/CustomDomain.md)
  - [CustomImageCommandsAndArgs](docs/CustomImageCommandsAndArgs.md)
  - [CustomNetwork](docs/CustomNetwork.md)
+ - [CustomNetworkInstance](docs/CustomNetworkInstance.md)
  - [CustomNetworkResourceDetail](docs/CustomNetworkResourceDetail.md)
  - [CustomULimits](docs/CustomULimits.md)
  - [CustomerLoginWithIdentityProviderRequestBody](docs/CustomerLoginWithIdentityProviderRequestBody.md)

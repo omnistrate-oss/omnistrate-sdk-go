@@ -26,6 +26,7 @@ docs/Channel.md
 docs/ChannelSubscription.md
 docs/CloudProviderHealthSummary.md
 docs/CreateConsumptionUserRequestBody.md
+docs/CreateCustomNetworkRequestBody.md
 docs/CreateCustomerOnboardingRequestBody.md
 docs/CreateNotificationChannelRequestBody.md
 docs/CreateProxyResourceInstanceRequestBody.md
@@ -182,6 +183,7 @@ model_channel.go
 model_channel_subscription.go
 model_cloud_provider_health_summary.go
 model_create_consumption_user_request_body.go
+model_create_custom_network_request_body.go
 model_create_customer_onboarding_request_body.go
 model_create_notification_channel_request_body.go
 model_create_proxy_resource_instance_request_body.go

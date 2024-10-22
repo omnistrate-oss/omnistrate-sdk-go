@@ -32,6 +32,10 @@ type HelmPackage struct {
 	ChartVersion string `json:"chartVersion"`
 	// The namespace where the Helm package should be installed
 	Namespace string `json:"namespace"`
+	// The password to authenticate with the registry
+	Password *string `json:"password,omitempty"`
+	// The username to authenticate with the registry
+	Username *string `json:"username,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -202,6 +206,52 @@ func (o *HelmPackage) SetNamespace(v string) {
 	o.Namespace = v
 }
 
+// GetPassword returns the Password field value if set, zero value otherwise.
+func (o *HelmPackage) GetPassword() string {
+	if o == nil || IsNil(o.Password) {
+		var ret string
+		return ret
+	}
+	return *o.Password
+}
+
+// GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HelmPackage) GetPasswordOk() (*string, bool) {
+	if o == nil || IsNil(o.Password) {
+		return nil, false
+	}
+	return o.Password, true
+}
+
+// SetPassword gets a reference to the given string and assigns it to the Password field.
+func (o *HelmPackage) SetPassword(v string) {
+	o.Password = &v
+}
+
+// GetUsername returns the Username field value if set, zero value otherwise.
+func (o *HelmPackage) GetUsername() string {
+	if o == nil || IsNil(o.Username) {
+		var ret string
+		return ret
+	}
+	return *o.Username
+}
+
+// GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HelmPackage) GetUsernameOk() (*string, bool) {
+	if o == nil || IsNil(o.Username) {
+		return nil, false
+	}
+	return o.Username, true
+}
+
+// SetUsername gets a reference to the given string and assigns it to the Username field.
+func (o *HelmPackage) SetUsername(v string) {
+	o.Username = &v
+}
+
 func (o HelmPackage) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -220,6 +270,12 @@ func (o HelmPackage) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["chartVersion"] = o.ChartVersion
 	toSerialize["namespace"] = o.Namespace
+	if !IsNil(o.Password) {
+		toSerialize["password"] = o.Password
+	}
+	if !IsNil(o.Username) {
+		toSerialize["username"] = o.Username
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -273,6 +329,8 @@ func (o *HelmPackage) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "chartValues")
 		delete(additionalProperties, "chartVersion")
 		delete(additionalProperties, "namespace")
+		delete(additionalProperties, "password")
+		delete(additionalProperties, "username")
 		o.AdditionalProperties = additionalProperties
 	}
 

@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **ChartRepoUrl** | **string** | The chart repository URL of the Helm package | 
 **ChartValues** | Pointer to **map[string]interface{}** | The values of the Helm package | [optional] 
 **ChartVersion** | **string** | The chart version of the Helm package | 
+**Password** | Pointer to **string** | The password to authenticate with the registry | [optional] 
+**Username** | Pointer to **string** | The username to authenticate with the registry | [optional] 
 
 ## Methods
 
@@ -133,6 +135,56 @@ and a boolean to check if the value has been set.
 
 SetChartVersion sets ChartVersion field to given value.
 
+
+### GetPassword
+
+`func (o *HelmChartConfiguration) GetPassword() string`
+
+GetPassword returns the Password field if non-nil, zero value otherwise.
+
+### GetPasswordOk
+
+`func (o *HelmChartConfiguration) GetPasswordOk() (*string, bool)`
+
+GetPasswordOk returns a tuple with the Password field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPassword
+
+`func (o *HelmChartConfiguration) SetPassword(v string)`
+
+SetPassword sets Password field to given value.
+
+### HasPassword
+
+`func (o *HelmChartConfiguration) HasPassword() bool`
+
+HasPassword returns a boolean if a field has been set.
+
+### GetUsername
+
+`func (o *HelmChartConfiguration) GetUsername() string`
+
+GetUsername returns the Username field if non-nil, zero value otherwise.
+
+### GetUsernameOk
+
+`func (o *HelmChartConfiguration) GetUsernameOk() (*string, bool)`
+
+GetUsernameOk returns a tuple with the Username field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUsername
+
+`func (o *HelmChartConfiguration) SetUsername(v string)`
+
+SetUsername sets Username field to given value.
+
+### HasUsername
+
+`func (o *HelmChartConfiguration) HasUsername() bool`
+
+HasUsername returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

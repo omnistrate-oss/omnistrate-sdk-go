@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **ChartValues** | Pointer to **map[string]interface{}** | The values of the Helm package | [optional] 
 **ChartVersion** | **string** | The chart version of the Helm package | 
 **Namespace** | **string** | The namespace where the Helm package should be installed | 
+**Password** | Pointer to **string** | The password to authenticate with the registry | [optional] 
+**Username** | Pointer to **string** | The username to authenticate with the registry | [optional] 
 
 ## Methods
 
@@ -154,6 +156,56 @@ and a boolean to check if the value has been set.
 
 SetNamespace sets Namespace field to given value.
 
+
+### GetPassword
+
+`func (o *HelmPackage) GetPassword() string`
+
+GetPassword returns the Password field if non-nil, zero value otherwise.
+
+### GetPasswordOk
+
+`func (o *HelmPackage) GetPasswordOk() (*string, bool)`
+
+GetPasswordOk returns a tuple with the Password field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPassword
+
+`func (o *HelmPackage) SetPassword(v string)`
+
+SetPassword sets Password field to given value.
+
+### HasPassword
+
+`func (o *HelmPackage) HasPassword() bool`
+
+HasPassword returns a boolean if a field has been set.
+
+### GetUsername
+
+`func (o *HelmPackage) GetUsername() string`
+
+GetUsername returns the Username field if non-nil, zero value otherwise.
+
+### GetUsernameOk
+
+`func (o *HelmPackage) GetUsernameOk() (*string, bool)`
+
+GetUsernameOk returns a tuple with the Username field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUsername
+
+`func (o *HelmPackage) SetUsername(v string)`
+
+SetUsername sets Username field to given value.
+
+### HasUsername
+
+`func (o *HelmPackage) HasUsername() bool`
+
+HasUsername returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
