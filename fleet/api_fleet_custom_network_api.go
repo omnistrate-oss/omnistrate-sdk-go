@@ -23,6 +23,30 @@ import (
 type FleetCustomNetworkApiAPI interface {
 
 	/*
+	FleetCustomNetworkApiCreateCustomNetwork CreateCustomNetwork fleet-custom-network-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiFleetCustomNetworkApiCreateCustomNetworkRequest
+	*/
+	FleetCustomNetworkApiCreateCustomNetwork(ctx context.Context) ApiFleetCustomNetworkApiCreateCustomNetworkRequest
+
+	// FleetCustomNetworkApiCreateCustomNetworkExecute executes the request
+	//  @return FleetCustomNetwork
+	FleetCustomNetworkApiCreateCustomNetworkExecute(r ApiFleetCustomNetworkApiCreateCustomNetworkRequest) (*FleetCustomNetwork, *http.Response, error)
+
+	/*
+	FleetCustomNetworkApiDeleteCustomNetwork DeleteCustomNetwork fleet-custom-network-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of a custom network
+	@return ApiFleetCustomNetworkApiDeleteCustomNetworkRequest
+	*/
+	FleetCustomNetworkApiDeleteCustomNetwork(ctx context.Context, id string) ApiFleetCustomNetworkApiDeleteCustomNetworkRequest
+
+	// FleetCustomNetworkApiDeleteCustomNetworkExecute executes the request
+	FleetCustomNetworkApiDeleteCustomNetworkExecute(r ApiFleetCustomNetworkApiDeleteCustomNetworkRequest) (*http.Response, error)
+
+	/*
 	FleetCustomNetworkApiDescribeCustomNetwork DescribeCustomNetwork fleet-custom-network-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -50,6 +74,246 @@ type FleetCustomNetworkApiAPI interface {
 
 // FleetCustomNetworkApiAPIService FleetCustomNetworkApiAPI service
 type FleetCustomNetworkApiAPIService service
+
+type ApiFleetCustomNetworkApiCreateCustomNetworkRequest struct {
+	ctx context.Context
+	ApiService FleetCustomNetworkApiAPI
+	createCustomNetworkRequestBody *CreateCustomNetworkRequestBody
+}
+
+func (r ApiFleetCustomNetworkApiCreateCustomNetworkRequest) CreateCustomNetworkRequestBody(createCustomNetworkRequestBody CreateCustomNetworkRequestBody) ApiFleetCustomNetworkApiCreateCustomNetworkRequest {
+	r.createCustomNetworkRequestBody = &createCustomNetworkRequestBody
+	return r
+}
+
+func (r ApiFleetCustomNetworkApiCreateCustomNetworkRequest) Execute() (*FleetCustomNetwork, *http.Response, error) {
+	return r.ApiService.FleetCustomNetworkApiCreateCustomNetworkExecute(r)
+}
+
+/*
+FleetCustomNetworkApiCreateCustomNetwork CreateCustomNetwork fleet-custom-network-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiFleetCustomNetworkApiCreateCustomNetworkRequest
+*/
+func (a *FleetCustomNetworkApiAPIService) FleetCustomNetworkApiCreateCustomNetwork(ctx context.Context) ApiFleetCustomNetworkApiCreateCustomNetworkRequest {
+	return ApiFleetCustomNetworkApiCreateCustomNetworkRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return FleetCustomNetwork
+func (a *FleetCustomNetworkApiAPIService) FleetCustomNetworkApiCreateCustomNetworkExecute(r ApiFleetCustomNetworkApiCreateCustomNetworkRequest) (*FleetCustomNetwork, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *FleetCustomNetwork
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FleetCustomNetworkApiAPIService.FleetCustomNetworkApiCreateCustomNetwork")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/custom-network"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.createCustomNetworkRequestBody == nil {
+		return localVarReturnValue, nil, reportError("createCustomNetworkRequestBody is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.createCustomNetworkRequestBody
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiFleetCustomNetworkApiDeleteCustomNetworkRequest struct {
+	ctx context.Context
+	ApiService FleetCustomNetworkApiAPI
+	id string
+}
+
+func (r ApiFleetCustomNetworkApiDeleteCustomNetworkRequest) Execute() (*http.Response, error) {
+	return r.ApiService.FleetCustomNetworkApiDeleteCustomNetworkExecute(r)
+}
+
+/*
+FleetCustomNetworkApiDeleteCustomNetwork DeleteCustomNetwork fleet-custom-network-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id ID of a custom network
+ @return ApiFleetCustomNetworkApiDeleteCustomNetworkRequest
+*/
+func (a *FleetCustomNetworkApiAPIService) FleetCustomNetworkApiDeleteCustomNetwork(ctx context.Context, id string) ApiFleetCustomNetworkApiDeleteCustomNetworkRequest {
+	return ApiFleetCustomNetworkApiDeleteCustomNetworkRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+func (a *FleetCustomNetworkApiAPIService) FleetCustomNetworkApiDeleteCustomNetworkExecute(r ApiFleetCustomNetworkApiDeleteCustomNetworkRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FleetCustomNetworkApiAPIService.FleetCustomNetworkApiDeleteCustomNetwork")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/custom-network/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
 
 type ApiFleetCustomNetworkApiDescribeCustomNetworkRequest struct {
 	ctx context.Context

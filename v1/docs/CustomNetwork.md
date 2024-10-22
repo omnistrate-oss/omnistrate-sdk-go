@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Id** | **string** | ID of a custom network | 
 **Name** | Pointer to **string** | User friendly network name to help distinguish networks with same CIDRs | [optional] 
 **NetworkFeaturesConfiguration** | Pointer to [**NetworkFeaturesConfiguration**](NetworkFeaturesConfiguration.md) |  | [optional] 
+**NetworkInstances** | Pointer to [**[]CustomNetworkInstance**](CustomNetworkInstance.md) | List of network instances created within this custom network | [optional] 
 
 ## Methods
 
@@ -164,6 +165,31 @@ SetNetworkFeaturesConfiguration sets NetworkFeaturesConfiguration field to given
 `func (o *CustomNetwork) HasNetworkFeaturesConfiguration() bool`
 
 HasNetworkFeaturesConfiguration returns a boolean if a field has been set.
+
+### GetNetworkInstances
+
+`func (o *CustomNetwork) GetNetworkInstances() []CustomNetworkInstance`
+
+GetNetworkInstances returns the NetworkInstances field if non-nil, zero value otherwise.
+
+### GetNetworkInstancesOk
+
+`func (o *CustomNetwork) GetNetworkInstancesOk() (*[]CustomNetworkInstance, bool)`
+
+GetNetworkInstancesOk returns a tuple with the NetworkInstances field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkInstances
+
+`func (o *CustomNetwork) SetNetworkInstances(v []CustomNetworkInstance)`
+
+SetNetworkInstances sets NetworkInstances field to given value.
+
+### HasNetworkInstances
+
+`func (o *CustomNetwork) HasNetworkInstances() bool`
+
+HasNetworkInstances returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

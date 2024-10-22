@@ -121,6 +121,7 @@ docs/CustomDomainApiAPI.md
 docs/CustomImageCommandsAndArgs.md
 docs/CustomNetwork.md
 docs/CustomNetworkApiAPI.md
+docs/CustomNetworkInstance.md
 docs/CustomNetworkResourceDetail.md
 docs/CustomULimits.md
 docs/CustomerLoginWithIdentityProviderRequestBody.md
@@ -412,6 +413,7 @@ model_custom_dns_endpoint.go
 model_custom_domain.go
 model_custom_image_commands_and_args.go
 model_custom_network.go
+model_custom_network_instance.go
 model_custom_network_resource_detail.go
 model_custom_u_limits.go
 model_customer_login_with_identity_provider_request_body.go

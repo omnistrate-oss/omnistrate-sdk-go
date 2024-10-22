@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ApiGroups** | Pointer to **map[string]string** | The resources that belong to this service API bundle and their active versions | [optional] 
 **AutoApproveSubscription** | Pointer to **bool** | Auto approve subscription or not | [optional] 
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this product tier is available on | [optional] 
+**CloudProvidersConfigReadiness** | Pointer to **map[string]map[string]string** | The readiness of the cloud providers configurations | [optional] 
 **Description** | **string** | A brief description of the product tier | 
 **Documentation** | **string** | Documentation | 
 **EnabledFeatures** | Pointer to [**[]ProductTierFeatureDetail**](ProductTierFeatureDetail.md) | The features that are enabled for this product tier, including scope details and configuration | [optional] 
@@ -116,6 +117,31 @@ SetAwsRegions sets AwsRegions field to given value.
 `func (o *DescribeProductTierResult) HasAwsRegions() bool`
 
 HasAwsRegions returns a boolean if a field has been set.
+
+### GetCloudProvidersConfigReadiness
+
+`func (o *DescribeProductTierResult) GetCloudProvidersConfigReadiness() map[string]map[string]string`
+
+GetCloudProvidersConfigReadiness returns the CloudProvidersConfigReadiness field if non-nil, zero value otherwise.
+
+### GetCloudProvidersConfigReadinessOk
+
+`func (o *DescribeProductTierResult) GetCloudProvidersConfigReadinessOk() (*map[string]map[string]string, bool)`
+
+GetCloudProvidersConfigReadinessOk returns a tuple with the CloudProvidersConfigReadiness field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudProvidersConfigReadiness
+
+`func (o *DescribeProductTierResult) SetCloudProvidersConfigReadiness(v map[string]map[string]string)`
+
+SetCloudProvidersConfigReadiness sets CloudProvidersConfigReadiness field to given value.
+
+### HasCloudProvidersConfigReadiness
+
+`func (o *DescribeProductTierResult) HasCloudProvidersConfigReadiness() bool`
+
+HasCloudProvidersConfigReadiness returns a boolean if a field has been set.
 
 ### GetDescription
 

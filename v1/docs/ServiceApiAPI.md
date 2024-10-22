@@ -227,7 +227,7 @@ import (
 )
 
 func main() {
-	createServiceFromComposeSpecRequestBody := *openapiclient.NewCreateServiceFromComposeSpecRequestBody("A MySQL SaaS specializing in multi-writer clusters for high availability", "Ipsam vero minima et soluta eius.", "text/plain", "mysql.yaml", "MySQL multi-writer service") // CreateServiceFromComposeSpecRequestBody | 
+	createServiceFromComposeSpecRequestBody := *openapiclient.NewCreateServiceFromComposeSpecRequestBody("A MySQL SaaS specializing in multi-writer clusters for high availability", "Soluta eius.", "text/plain", "mysql.yaml", "MySQL multi-writer service") // CreateServiceFromComposeSpecRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

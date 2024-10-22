@@ -86,6 +86,8 @@ Class | Method | HTTP request | Description
 *CustomerOnboardingsApiAPI* | [**CustomerOnboardingsApiUpdateCustomerOnboarding**](docs/CustomerOnboardingsApiAPI.md#customeronboardingsapiupdatecustomeronboarding) | **Patch** /2022-09-01-00/fleet/customer-onboarding/{id} | UpdateCustomerOnboarding customer-onboardings-api
 *EventsApiAPI* | [**EventsApiAcknowledgeEvent**](docs/EventsApiAPI.md#eventsapiacknowledgeevent) | **Delete** /2022-09-01-00/fleet/events/{id} | AcknowledgeEvent events-api
 *EventsApiAPI* | [**EventsApiListEvents**](docs/EventsApiAPI.md#eventsapilistevents) | **Get** /2022-09-01-00/fleet/events | ListEvents events-api
+*FleetCustomNetworkApiAPI* | [**FleetCustomNetworkApiCreateCustomNetwork**](docs/FleetCustomNetworkApiAPI.md#fleetcustomnetworkapicreatecustomnetwork) | **Post** /2022-09-01-00/fleet/custom-network | CreateCustomNetwork fleet-custom-network-api
+*FleetCustomNetworkApiAPI* | [**FleetCustomNetworkApiDeleteCustomNetwork**](docs/FleetCustomNetworkApiAPI.md#fleetcustomnetworkapideletecustomnetwork) | **Delete** /2022-09-01-00/fleet/custom-network/{id} | DeleteCustomNetwork fleet-custom-network-api
 *FleetCustomNetworkApiAPI* | [**FleetCustomNetworkApiDescribeCustomNetwork**](docs/FleetCustomNetworkApiAPI.md#fleetcustomnetworkapidescribecustomnetwork) | **Get** /2022-09-01-00/fleet/custom-network/{id} | DescribeCustomNetwork fleet-custom-network-api
 *FleetCustomNetworkApiAPI* | [**FleetCustomNetworkApiListCustomNetworks**](docs/FleetCustomNetworkApiAPI.md#fleetcustomnetworkapilistcustomnetworks) | **Get** /2022-09-01-00/fleet/custom-network | ListCustomNetworks fleet-custom-network-api
 *FleetFeaturesApiAPI* | [**FleetFeaturesApiDescribeFleetFeature**](docs/FleetFeaturesApiAPI.md#fleetfeaturesapidescribefleetfeature) | **Get** /2022-09-01-00/fleet/feature/{feature} | DescribeFleetFeature fleet-features-api
@@ -181,6 +183,7 @@ Class | Method | HTTP request | Description
  - [ChannelSubscription](docs/ChannelSubscription.md)
  - [CloudProviderHealthSummary](docs/CloudProviderHealthSummary.md)
  - [CreateConsumptionUserRequestBody](docs/CreateConsumptionUserRequestBody.md)
+ - [CreateCustomNetworkRequestBody](docs/CreateCustomNetworkRequestBody.md)
  - [CreateCustomerOnboardingRequestBody](docs/CreateCustomerOnboardingRequestBody.md)
  - [CreateNotificationChannelRequestBody](docs/CreateNotificationChannelRequestBody.md)
  - [CreateProxyResourceInstanceRequestBody](docs/CreateProxyResourceInstanceRequestBody.md)

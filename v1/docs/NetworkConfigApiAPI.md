@@ -172,7 +172,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service
 	id := "nc-12345678" // string | The ID of the network config
-	productTierVersion := "Nostrum voluptatem eveniet officia." // string | Product tier version of the network config to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Reiciendis quas delectus earum." // string | Product tier version of the network config to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the network config to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()

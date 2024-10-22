@@ -30,6 +30,10 @@ type HelmChartConfiguration struct {
 	ChartValues map[string]interface{} `json:"chartValues,omitempty"`
 	// The chart version of the Helm package
 	ChartVersion string `json:"chartVersion"`
+	// The password to authenticate with the registry
+	Password *string `json:"password,omitempty"`
+	// The username to authenticate with the registry
+	Username *string `json:"username,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -175,6 +179,52 @@ func (o *HelmChartConfiguration) SetChartVersion(v string) {
 	o.ChartVersion = v
 }
 
+// GetPassword returns the Password field value if set, zero value otherwise.
+func (o *HelmChartConfiguration) GetPassword() string {
+	if o == nil || IsNil(o.Password) {
+		var ret string
+		return ret
+	}
+	return *o.Password
+}
+
+// GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HelmChartConfiguration) GetPasswordOk() (*string, bool) {
+	if o == nil || IsNil(o.Password) {
+		return nil, false
+	}
+	return o.Password, true
+}
+
+// SetPassword gets a reference to the given string and assigns it to the Password field.
+func (o *HelmChartConfiguration) SetPassword(v string) {
+	o.Password = &v
+}
+
+// GetUsername returns the Username field value if set, zero value otherwise.
+func (o *HelmChartConfiguration) GetUsername() string {
+	if o == nil || IsNil(o.Username) {
+		var ret string
+		return ret
+	}
+	return *o.Username
+}
+
+// GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HelmChartConfiguration) GetUsernameOk() (*string, bool) {
+	if o == nil || IsNil(o.Username) {
+		return nil, false
+	}
+	return o.Username, true
+}
+
+// SetUsername gets a reference to the given string and assigns it to the Username field.
+func (o *HelmChartConfiguration) SetUsername(v string) {
+	o.Username = &v
+}
+
 func (o HelmChartConfiguration) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -192,6 +242,12 @@ func (o HelmChartConfiguration) ToMap() (map[string]interface{}, error) {
 		toSerialize["chartValues"] = o.ChartValues
 	}
 	toSerialize["chartVersion"] = o.ChartVersion
+	if !IsNil(o.Password) {
+		toSerialize["password"] = o.Password
+	}
+	if !IsNil(o.Username) {
+		toSerialize["username"] = o.Username
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -243,6 +299,8 @@ func (o *HelmChartConfiguration) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "chartRepoUrl")
 		delete(additionalProperties, "chartValues")
 		delete(additionalProperties, "chartVersion")
+		delete(additionalProperties, "password")
+		delete(additionalProperties, "username")
 		o.AdditionalProperties = additionalProperties
 	}
 
