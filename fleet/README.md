@@ -141,6 +141,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiListHostClusters**](docs/InventoryApiAPI.md#inventoryapilisthostclusters) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/host-clusters | ListHostClusters inventory-api
 *InventoryApiAPI* | [**InventoryApiListInstanceEvents**](docs/InventoryApiAPI.md#inventoryapilistinstanceevents) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/events | ListInstanceEvents inventory-api
 *InventoryApiAPI* | [**InventoryApiListLinkedInstances**](docs/InventoryApiAPI.md#inventoryapilistlinkedinstances) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/linked-instances | ListLinkedInstances inventory-api
+*InventoryApiAPI* | [**InventoryApiListResourceInstanceSnapshots**](docs/InventoryApiAPI.md#inventoryapilistresourceinstancesnapshots) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/snapshot | ListResourceInstanceSnapshots inventory-api
 *InventoryApiAPI* | [**InventoryApiListResourceInstances**](docs/InventoryApiAPI.md#inventoryapilistresourceinstances) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instances/ | ListResourceInstances inventory-api
 *InventoryApiAPI* | [**InventoryApiListResources**](docs/InventoryApiAPI.md#inventoryapilistresources) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/model/{serviceModelId}/productTier/{productTierId}/resources | ListResources inventory-api
 *InventoryApiAPI* | [**InventoryApiListServiceOfferings**](docs/InventoryApiAPI.md#inventoryapilistserviceofferings) | **Get** /2022-09-01-00/fleet/service-offering | ListServiceOfferings inventory-api
@@ -221,6 +222,7 @@ Class | Method | HTTP request | Description
  - [FleetDescribeEventResult](docs/FleetDescribeEventResult.md)
  - [FleetDescribeHostClusterResult](docs/FleetDescribeHostClusterResult.md)
  - [FleetDescribeInstanceSnapshotFromTimeResult](docs/FleetDescribeInstanceSnapshotFromTimeResult.md)
+ - [FleetDescribeInstanceSnapshotResult](docs/FleetDescribeInstanceSnapshotResult.md)
  - [FleetDescribeSubscriptionResult](docs/FleetDescribeSubscriptionResult.md)
  - [FleetDescribeUserResult](docs/FleetDescribeUserResult.md)
  - [FleetFeature](docs/FleetFeature.md)
@@ -229,6 +231,7 @@ Class | Method | HTTP request | Description
  - [FleetListCustomNetworksResult](docs/FleetListCustomNetworksResult.md)
  - [FleetListEventsResult](docs/FleetListEventsResult.md)
  - [FleetListHostClustersResult](docs/FleetListHostClustersResult.md)
+ - [FleetListInstanceSnapshotResult](docs/FleetListInstanceSnapshotResult.md)
  - [FleetListLinkedInstancesResult](docs/FleetListLinkedInstancesResult.md)
  - [FleetListSubscriptionsResult](docs/FleetListSubscriptionsResult.md)
  - [FleetListUsersResult](docs/FleetListUsersResult.md)

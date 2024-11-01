@@ -40,6 +40,7 @@ Method | HTTP request | Description
 [**InventoryApiListHostClusters**](InventoryApiAPI.md#InventoryApiListHostClusters) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/host-clusters | ListHostClusters inventory-api
 [**InventoryApiListInstanceEvents**](InventoryApiAPI.md#InventoryApiListInstanceEvents) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/events | ListInstanceEvents inventory-api
 [**InventoryApiListLinkedInstances**](InventoryApiAPI.md#InventoryApiListLinkedInstances) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/linked-instances | ListLinkedInstances inventory-api
+[**InventoryApiListResourceInstanceSnapshots**](InventoryApiAPI.md#InventoryApiListResourceInstanceSnapshots) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/snapshot | ListResourceInstanceSnapshots inventory-api
 [**InventoryApiListResourceInstances**](InventoryApiAPI.md#InventoryApiListResourceInstances) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instances/ | ListResourceInstances inventory-api
 [**InventoryApiListResources**](InventoryApiAPI.md#InventoryApiListResources) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/model/{serviceModelId}/productTier/{productTierId}/resources | ListResources inventory-api
 [**InventoryApiListServiceOfferings**](InventoryApiAPI.md#InventoryApiListServiceOfferings) | **Get** /2022-09-01-00/fleet/service-offering | ListServiceOfferings inventory-api
@@ -695,7 +696,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
-	createUpgradePathRequestBody := *openapiclient.NewCreateUpgradePathRequestBody("1.0", "2.0", map[string][]string{"key": []string{"Mollitia voluptatum id rerum."}}) // CreateUpgradePathRequestBody | 
+	createUpgradePathRequestBody := *openapiclient.NewCreateUpgradePathRequestBody("1.0", "2.0", map[string][]string{"key": []string{"Dolor sit eos qui quasi ut dolorem."}}) // CreateUpgradePathRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2750,6 +2751,80 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## InventoryApiListResourceInstanceSnapshots
+
+> FleetListInstanceSnapshotResult InventoryApiListResourceInstanceSnapshots(ctx, serviceId, environmentId, instanceId).Execute()
+
+ListResourceInstanceSnapshots inventory-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
+	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
+	instanceId := "instance-12345678" // string | The resource instance ID.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListResourceInstanceSnapshots(context.Background(), serviceId, environmentId, instanceId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiListResourceInstanceSnapshots``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InventoryApiListResourceInstanceSnapshots`: FleetListInstanceSnapshotResult
+	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiListResourceInstanceSnapshots`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | The service ID this workflow belongs to. | 
+**environmentId** | **string** | The service environment ID this workflow belongs to. | 
+**instanceId** | **string** | The resource instance ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInventoryApiListResourceInstanceSnapshotsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+### Return type
+
+[**FleetListInstanceSnapshotResult**](FleetListInstanceSnapshotResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## InventoryApiListResourceInstances
 
 > ListFleetResourceInstancesResultInternal InventoryApiListResourceInstances(ctx, serviceId, environmentId).ProductTierVersion(productTierVersion).ProductTierId(productTierId).SubscriptionId(subscriptionId).Execute()
@@ -2771,7 +2846,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	productTierVersion := "Accusantium et et quia sapiente." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Consequatur qui perferendis molestiae consequuntur." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Consequatur ipsa fugit minima repellendus." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
 	subscriptionId := "Omnis vitae veritatis." // string | Subscription id of the instance to describe. (optional)
 

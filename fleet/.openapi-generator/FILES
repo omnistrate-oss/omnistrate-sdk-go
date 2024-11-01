@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -67,6 +66,7 @@ docs/FleetCustomNetworkInstance.md
 docs/FleetDescribeEventResult.md
 docs/FleetDescribeHostClusterResult.md
 docs/FleetDescribeInstanceSnapshotFromTimeResult.md
+docs/FleetDescribeInstanceSnapshotResult.md
 docs/FleetDescribeSubscriptionResult.md
 docs/FleetDescribeUserResult.md
 docs/FleetFeature.md
@@ -76,6 +76,7 @@ docs/FleetListAllUsersResult.md
 docs/FleetListCustomNetworksResult.md
 docs/FleetListEventsResult.md
 docs/FleetListHostClustersResult.md
+docs/FleetListInstanceSnapshotResult.md
 docs/FleetListLinkedInstancesResult.md
 docs/FleetListSubscriptionsResult.md
 docs/FleetListUsersResult.md
@@ -221,6 +222,7 @@ model_fleet_custom_network_instance.go
 model_fleet_describe_event_result.go
 model_fleet_describe_host_cluster_result.go
 model_fleet_describe_instance_snapshot_from_time_result.go
+model_fleet_describe_instance_snapshot_result.go
 model_fleet_describe_subscription_result.go
 model_fleet_describe_user_result.go
 model_fleet_feature.go
@@ -229,6 +231,7 @@ model_fleet_list_all_users_result.go
 model_fleet_list_custom_networks_result.go
 model_fleet_list_events_result.go
 model_fleet_list_host_clusters_result.go
+model_fleet_list_instance_snapshot_result.go
 model_fleet_list_linked_instances_result.go
 model_fleet_list_subscriptions_result.go
 model_fleet_list_users_result.go
@@ -319,16 +322,4 @@ model_workflow_event.go
 model_workflow_failure.go
 model_workflow_search_record.go
 response.go
-test/api_customer_onboardings_api_test.go
-test/api_events_api_test.go
-test/api_fleet_custom_network_api_test.go
-test/api_fleet_features_api_test.go
-test/api_fleet_workflows_api_test.go
-test/api_helm_package_api_test.go
-test/api_hostcluster_api_test.go
-test/api_integrations_api_test.go
-test/api_inventory_api_test.go
-test/api_notifications_api_test.go
-test/api_operations_api_test.go
-test/api_webhooks_api_test.go
 utils.go
