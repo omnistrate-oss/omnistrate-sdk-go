@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 ## FleetCustomNetworkApiListCustomNetworks
 
-> FleetListCustomNetworksResult FleetCustomNetworkApiListCustomNetworks(ctx).CloudProviderName(cloudProviderName).CloudProviderRegion(cloudProviderRegion).Execute()
+> FleetListCustomNetworksResult FleetCustomNetworkApiListCustomNetworks(ctx).CloudProviderName(cloudProviderName).CloudProviderRegion(cloudProviderRegion).CustomNetworksOnly(customNetworksOnly).Execute()
 
 ListCustomNetworks fleet-custom-network-api
 
@@ -230,10 +230,11 @@ import (
 func main() {
 	cloudProviderName := "aws" // string | The name of the cloud provider that custom network should be created in (optional)
 	cloudProviderRegion := "us-east-1" // string | The region of the cloud provider that the network should be created in (optional)
+	customNetworksOnly := false // bool | Flag indicating whether to return only custom networks, or to include default and imported networks as well (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FleetCustomNetworkApiAPI.FleetCustomNetworkApiListCustomNetworks(context.Background()).CloudProviderName(cloudProviderName).CloudProviderRegion(cloudProviderRegion).Execute()
+	resp, r, err := apiClient.FleetCustomNetworkApiAPI.FleetCustomNetworkApiListCustomNetworks(context.Background()).CloudProviderName(cloudProviderName).CloudProviderRegion(cloudProviderRegion).CustomNetworksOnly(customNetworksOnly).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FleetCustomNetworkApiAPI.FleetCustomNetworkApiListCustomNetworks``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -256,6 +257,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cloudProviderName** | **string** | The name of the cloud provider that custom network should be created in | 
  **cloudProviderRegion** | **string** | The region of the cloud provider that the network should be created in | 
+ **customNetworksOnly** | **bool** | Flag indicating whether to return only custom networks, or to include default and imported networks as well | 
 
 ### Return type
 

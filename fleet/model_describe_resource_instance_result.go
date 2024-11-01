@@ -22,6 +22,8 @@ var _ MappedNullable = &DescribeResourceInstanceResult{}
 type DescribeResourceInstanceResult struct {
 	// True if this resource instance has associated infrastructure deployed
 	Active bool `json:"active"`
+	// Whether the instance has autoscaling enabled
+	AutoscalingEnabled *bool `json:"autoscalingEnabled,omitempty"`
 	// The AWS account ID
 	AwsAccountID *string `json:"awsAccountID,omitempty"`
 	BackupStatus *BackupStatus `json:"backupStatus,omitempty"`
@@ -111,6 +113,38 @@ func (o *DescribeResourceInstanceResult) GetActiveOk() (*bool, bool) {
 // SetActive sets field value
 func (o *DescribeResourceInstanceResult) SetActive(v bool) {
 	o.Active = v
+}
+
+// GetAutoscalingEnabled returns the AutoscalingEnabled field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetAutoscalingEnabled() bool {
+	if o == nil || IsNil(o.AutoscalingEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.AutoscalingEnabled
+}
+
+// GetAutoscalingEnabledOk returns a tuple with the AutoscalingEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetAutoscalingEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.AutoscalingEnabled) {
+		return nil, false
+	}
+	return o.AutoscalingEnabled, true
+}
+
+// HasAutoscalingEnabled returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasAutoscalingEnabled() bool {
+	if o != nil && !IsNil(o.AutoscalingEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoscalingEnabled gets a reference to the given bool and assigns it to the AutoscalingEnabled field.
+func (o *DescribeResourceInstanceResult) SetAutoscalingEnabled(v bool) {
+	o.AutoscalingEnabled = &v
 }
 
 // GetAwsAccountID returns the AwsAccountID field value if set, zero value otherwise.
@@ -670,6 +704,9 @@ func (o DescribeResourceInstanceResult) MarshalJSON() ([]byte, error) {
 func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["active"] = o.Active
+	if !IsNil(o.AutoscalingEnabled) {
+		toSerialize["autoscalingEnabled"] = o.AutoscalingEnabled
+	}
 	if !IsNil(o.AwsAccountID) {
 		toSerialize["awsAccountID"] = o.AwsAccountID
 	}
@@ -765,6 +802,7 @@ func (o *DescribeResourceInstanceResult) UnmarshalJSON(data []byte) (err error) 
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "active")
+		delete(additionalProperties, "autoscalingEnabled")
 		delete(additionalProperties, "awsAccountID")
 		delete(additionalProperties, "backupStatus")
 		delete(additionalProperties, "cloud_provider")

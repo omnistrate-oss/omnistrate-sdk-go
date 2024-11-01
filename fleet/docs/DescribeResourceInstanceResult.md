@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Active** | **bool** | True if this resource instance has associated infrastructure deployed | 
+**AutoscalingEnabled** | Pointer to **bool** | Whether the instance has autoscaling enabled | [optional] 
 **AwsAccountID** | Pointer to **string** | The AWS account ID | [optional] 
 **BackupStatus** | Pointer to [**BackupStatus**](BackupStatus.md) |  | [optional] 
 **CloudProvider** | Pointer to **string** | The cloud provider name | [optional] 
@@ -63,6 +64,31 @@ and a boolean to check if the value has been set.
 
 SetActive sets Active field to given value.
 
+
+### GetAutoscalingEnabled
+
+`func (o *DescribeResourceInstanceResult) GetAutoscalingEnabled() bool`
+
+GetAutoscalingEnabled returns the AutoscalingEnabled field if non-nil, zero value otherwise.
+
+### GetAutoscalingEnabledOk
+
+`func (o *DescribeResourceInstanceResult) GetAutoscalingEnabledOk() (*bool, bool)`
+
+GetAutoscalingEnabledOk returns a tuple with the AutoscalingEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoscalingEnabled
+
+`func (o *DescribeResourceInstanceResult) SetAutoscalingEnabled(v bool)`
+
+SetAutoscalingEnabled sets AutoscalingEnabled field to given value.
+
+### HasAutoscalingEnabled
+
+`func (o *DescribeResourceInstanceResult) HasAutoscalingEnabled() bool`
+
+HasAutoscalingEnabled returns a boolean if a field has been set.
 
 ### GetAwsAccountID
 

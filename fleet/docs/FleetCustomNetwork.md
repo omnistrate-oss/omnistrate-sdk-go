@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **CloudProviderRegion** | **string** | The region of the cloud provider that the instance is running in. | 
 **Id** | **string** | ID of a custom network | 
 **Name** | Pointer to **string** | User friendly network name to help distinguish networks with same CIDRs | [optional] 
+**NetworkDefinitionType** | Pointer to **string** | Type of the network definition | [optional] 
 **NetworkFeaturesConfiguration** | Pointer to [**FleetNetworkFeaturesConfiguration**](FleetNetworkFeaturesConfiguration.md) |  | [optional] 
 **NetworkInstances** | Pointer to [**[]FleetCustomNetworkInstance**](FleetCustomNetworkInstance.md) | List of network instances created within this custom network | [optional] 
 **OwningOrgID** | **string** | ID of the owning organization | 
@@ -139,6 +140,31 @@ SetName sets Name field to given value.
 `func (o *FleetCustomNetwork) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetNetworkDefinitionType
+
+`func (o *FleetCustomNetwork) GetNetworkDefinitionType() string`
+
+GetNetworkDefinitionType returns the NetworkDefinitionType field if non-nil, zero value otherwise.
+
+### GetNetworkDefinitionTypeOk
+
+`func (o *FleetCustomNetwork) GetNetworkDefinitionTypeOk() (*string, bool)`
+
+GetNetworkDefinitionTypeOk returns a tuple with the NetworkDefinitionType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkDefinitionType
+
+`func (o *FleetCustomNetwork) SetNetworkDefinitionType(v string)`
+
+SetNetworkDefinitionType sets NetworkDefinitionType field to given value.
+
+### HasNetworkDefinitionType
+
+`func (o *FleetCustomNetwork) HasNetworkDefinitionType() bool`
+
+HasNetworkDefinitionType returns a boolean if a field has been set.
 
 ### GetNetworkFeaturesConfiguration
 
