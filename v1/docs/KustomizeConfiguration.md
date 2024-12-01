@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**EndpointConfiguration** | Pointer to [**map[string]Endpoint**](Endpoint.md) | The endpoints from the Kustomize Deployment to expose to the customer | [optional] 
 **GitConfiguration** | Pointer to [**GitConfiguration**](GitConfiguration.md) |  | [optional] 
 **HelmChartDependencies** | Pointer to [**[]OperatorHelmChartDependency**](OperatorHelmChartDependency.md) | The helm chart dependencies for the CRD - Optional | [optional] 
 **KustomizePath** | **string** | The path to the kustomize directory | 
@@ -26,6 +27,31 @@ will change when the set of required properties is changed
 NewKustomizeConfigurationWithDefaults instantiates a new KustomizeConfiguration object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetEndpointConfiguration
+
+`func (o *KustomizeConfiguration) GetEndpointConfiguration() map[string]Endpoint`
+
+GetEndpointConfiguration returns the EndpointConfiguration field if non-nil, zero value otherwise.
+
+### GetEndpointConfigurationOk
+
+`func (o *KustomizeConfiguration) GetEndpointConfigurationOk() (*map[string]Endpoint, bool)`
+
+GetEndpointConfigurationOk returns a tuple with the EndpointConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndpointConfiguration
+
+`func (o *KustomizeConfiguration) SetEndpointConfiguration(v map[string]Endpoint)`
+
+SetEndpointConfiguration sets EndpointConfiguration field to given value.
+
+### HasEndpointConfiguration
+
+`func (o *KustomizeConfiguration) HasEndpointConfiguration() bool`
+
+HasEndpointConfiguration returns a boolean if a field has been set.
 
 ### GetGitConfiguration
 

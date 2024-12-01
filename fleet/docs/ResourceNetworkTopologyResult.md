@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AdditionalEndpoints** | Pointer to [**map[string]ClusterEndpoint**](ClusterEndpoint.md) | The additional endpoints for this resource | [optional] 
 **AllowedIPRanges** | **[]string** | The allowed IP ranges for this resource | 
-**ClusterEndpoint** | **string** | The cluster endpoint that load-balances across replicas of this resource | 
+**ClusterEndpoint** | **string** | The primary cluster endpoint that load-balances across replicas of this resource | 
 **ClusterPorts** | Pointer to **[]int64** | The ports that the whole cluster exposes | [optional] 
 **CustomDNSEndpoint** | Pointer to [**CustomDNSEndpoint**](CustomDNSEndpoint.md) |  | [optional] 
 **HasCompute** | **bool** | Whether this resource has associated compute | 
@@ -40,6 +41,31 @@ will change when the set of required properties is changed
 NewResourceNetworkTopologyResultWithDefaults instantiates a new ResourceNetworkTopologyResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAdditionalEndpoints
+
+`func (o *ResourceNetworkTopologyResult) GetAdditionalEndpoints() map[string]ClusterEndpoint`
+
+GetAdditionalEndpoints returns the AdditionalEndpoints field if non-nil, zero value otherwise.
+
+### GetAdditionalEndpointsOk
+
+`func (o *ResourceNetworkTopologyResult) GetAdditionalEndpointsOk() (*map[string]ClusterEndpoint, bool)`
+
+GetAdditionalEndpointsOk returns a tuple with the AdditionalEndpoints field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdditionalEndpoints
+
+`func (o *ResourceNetworkTopologyResult) SetAdditionalEndpoints(v map[string]ClusterEndpoint)`
+
+SetAdditionalEndpoints sets AdditionalEndpoints field to given value.
+
+### HasAdditionalEndpoints
+
+`func (o *ResourceNetworkTopologyResult) HasAdditionalEndpoints() bool`
+
+HasAdditionalEndpoints returns a boolean if a field has been set.
 
 ### GetAllowedIPRanges
 

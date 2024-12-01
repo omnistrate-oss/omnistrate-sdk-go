@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the RecentDeploymentFailureStatus type satisfies the MappedNullable interface at compile time
@@ -21,9 +20,9 @@ var _ MappedNullable = &RecentDeploymentFailureStatus{}
 // RecentDeploymentFailureStatus The status of the recent deployment failure
 type RecentDeploymentFailureStatus struct {
 	// The time at which the deployment failed
-	FailedAt string `json:"failedAt"`
+	FailedAt *string `json:"failedAt,omitempty"`
 	// The reason for the deployment failure
-	FailureReason string `json:"failureReason"`
+	FailureReason *string `json:"failureReason,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -33,10 +32,8 @@ type _RecentDeploymentFailureStatus RecentDeploymentFailureStatus
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRecentDeploymentFailureStatus(failedAt string, failureReason string) *RecentDeploymentFailureStatus {
+func NewRecentDeploymentFailureStatus() *RecentDeploymentFailureStatus {
 	this := RecentDeploymentFailureStatus{}
-	this.FailedAt = failedAt
-	this.FailureReason = failureReason
 	return &this
 }
 
@@ -48,52 +45,50 @@ func NewRecentDeploymentFailureStatusWithDefaults() *RecentDeploymentFailureStat
 	return &this
 }
 
-// GetFailedAt returns the FailedAt field value
+// GetFailedAt returns the FailedAt field value if set, zero value otherwise.
 func (o *RecentDeploymentFailureStatus) GetFailedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.FailedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.FailedAt
+	return *o.FailedAt
 }
 
-// GetFailedAtOk returns a tuple with the FailedAt field value
+// GetFailedAtOk returns a tuple with the FailedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RecentDeploymentFailureStatus) GetFailedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FailedAt) {
 		return nil, false
 	}
-	return &o.FailedAt, true
+	return o.FailedAt, true
 }
 
-// SetFailedAt sets field value
+// SetFailedAt gets a reference to the given string and assigns it to the FailedAt field.
 func (o *RecentDeploymentFailureStatus) SetFailedAt(v string) {
-	o.FailedAt = v
+	o.FailedAt = &v
 }
 
-// GetFailureReason returns the FailureReason field value
+// GetFailureReason returns the FailureReason field value if set, zero value otherwise.
 func (o *RecentDeploymentFailureStatus) GetFailureReason() string {
-	if o == nil {
+	if o == nil || IsNil(o.FailureReason) {
 		var ret string
 		return ret
 	}
-
-	return o.FailureReason
+	return *o.FailureReason
 }
 
-// GetFailureReasonOk returns a tuple with the FailureReason field value
+// GetFailureReasonOk returns a tuple with the FailureReason field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RecentDeploymentFailureStatus) GetFailureReasonOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FailureReason) {
 		return nil, false
 	}
-	return &o.FailureReason, true
+	return o.FailureReason, true
 }
 
-// SetFailureReason sets field value
+// SetFailureReason gets a reference to the given string and assigns it to the FailureReason field.
 func (o *RecentDeploymentFailureStatus) SetFailureReason(v string) {
-	o.FailureReason = v
+	o.FailureReason = &v
 }
 
 func (o RecentDeploymentFailureStatus) MarshalJSON() ([]byte, error) {
@@ -106,8 +101,12 @@ func (o RecentDeploymentFailureStatus) MarshalJSON() ([]byte, error) {
 
 func (o RecentDeploymentFailureStatus) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["failedAt"] = o.FailedAt
-	toSerialize["failureReason"] = o.FailureReason
+	if !IsNil(o.FailedAt) {
+		toSerialize["failedAt"] = o.FailedAt
+	}
+	if !IsNil(o.FailureReason) {
+		toSerialize["failureReason"] = o.FailureReason
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -117,28 +116,6 @@ func (o RecentDeploymentFailureStatus) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *RecentDeploymentFailureStatus) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"failedAt",
-		"failureReason",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varRecentDeploymentFailureStatus := _RecentDeploymentFailureStatus{}
 
 	err = json.Unmarshal(data, &varRecentDeploymentFailureStatus)

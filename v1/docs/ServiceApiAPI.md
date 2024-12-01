@@ -35,7 +35,7 @@ import (
 )
 
 func main() {
-	buildServiceFromComposeSpecRequestBody := *openapiclient.NewBuildServiceFromComposeSpecRequestBody("Rerum rem et saepe et voluptatem sit.", "MySQL multi-writer service") // BuildServiceFromComposeSpecRequestBody | 
+	buildServiceFromComposeSpecRequestBody := *openapiclient.NewBuildServiceFromComposeSpecRequestBody("Et quia quia distinctio cupiditate corporis ut.", "MySQL multi-writer service") // BuildServiceFromComposeSpecRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -99,7 +99,7 @@ import (
 )
 
 func main() {
-	buildServiceFromServicePlanSpecRequestBody := *openapiclient.NewBuildServiceFromServicePlanSpecRequestBody("Et sint temporibus et in ut.", "MySQL multi-writer service") // BuildServiceFromServicePlanSpecRequestBody | 
+	buildServiceFromServicePlanSpecRequestBody := *openapiclient.NewBuildServiceFromServicePlanSpecRequestBody("Quia dolorum eos eum.", "MySQL multi-writer service") // BuildServiceFromServicePlanSpecRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -227,7 +227,7 @@ import (
 )
 
 func main() {
-	createServiceFromComposeSpecRequestBody := *openapiclient.NewCreateServiceFromComposeSpecRequestBody("A MySQL SaaS specializing in multi-writer clusters for high availability", "Soluta eius.", "text/plain", "mysql.yaml", "MySQL multi-writer service") // CreateServiceFromComposeSpecRequestBody | 
+	createServiceFromComposeSpecRequestBody := *openapiclient.NewCreateServiceFromComposeSpecRequestBody("A MySQL SaaS specializing in multi-writer clusters for high availability", "Non consequatur recusandae.", "text/plain", "mysql.yaml", "MySQL multi-writer service") // CreateServiceFromComposeSpecRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

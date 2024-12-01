@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -24,6 +25,7 @@ docs/BackupStatus.md
 docs/Channel.md
 docs/ChannelSubscription.md
 docs/CloudProviderHealthSummary.md
+docs/ClusterEndpoint.md
 docs/CreateConsumptionUserRequestBody.md
 docs/CreateCustomNetworkRequestBody.md
 docs/CreateCustomerOnboardingRequestBody.md
@@ -97,6 +99,7 @@ docs/InventoryApiAPI.md
 docs/InventoryDescribeServiceOfferingResourceResult.md
 docs/InventoryDescribeServiceOfferingResult.md
 docs/InventoryListServiceOfferingsResult.md
+docs/KubernetesDashboardEndpoint.md
 docs/ListCustomerOnboardingResult.md
 docs/ListCustomerOnboardingStagesResult.md
 docs/ListEligibleInstancesPerUpgradeResult.md
@@ -142,6 +145,7 @@ docs/ResourceInstanceSearchRecord.md
 docs/ResourceNetworkTopologyResult.md
 docs/ResourceSearchRecord.md
 docs/ResourceVersionSummary.md
+docs/RestoreResourceInstanceFromSnapshotRequestBody.md
 docs/RestoreResourceInstanceRequestBody.md
 docs/SearchInventoryResult.md
 docs/SearchRecord.md
@@ -183,6 +187,7 @@ model_backup_status.go
 model_channel.go
 model_channel_subscription.go
 model_cloud_provider_health_summary.go
+model_cluster_endpoint.go
 model_create_consumption_user_request_body.go
 model_create_custom_network_request_body.go
 model_create_customer_onboarding_request_body.go
@@ -247,6 +252,7 @@ model_integration_status.go
 model_inventory_describe_service_offering_resource_result.go
 model_inventory_describe_service_offering_result.go
 model_inventory_list_service_offerings_result.go
+model_kubernetes_dashboard_endpoint.go
 model_list_customer_onboarding_result.go
 model_list_customer_onboarding_stages_result.go
 model_list_eligible_instances_per_upgrade_result.go
@@ -290,6 +296,7 @@ model_resource_instance_search_record.go
 model_resource_network_topology_result.go
 model_resource_search_record.go
 model_resource_version_summary.go
+model_restore_resource_instance_from_snapshot_request_body.go
 model_restore_resource_instance_request_body.go
 model_search_inventory_result.go
 model_search_record.go
@@ -322,4 +329,16 @@ model_workflow_event.go
 model_workflow_failure.go
 model_workflow_search_record.go
 response.go
+test/api_customer_onboardings_api_test.go
+test/api_events_api_test.go
+test/api_fleet_custom_network_api_test.go
+test/api_fleet_features_api_test.go
+test/api_fleet_workflows_api_test.go
+test/api_helm_package_api_test.go
+test/api_hostcluster_api_test.go
+test/api_integrations_api_test.go
+test/api_inventory_api_test.go
+test/api_notifications_api_test.go
+test/api_operations_api_test.go
+test/api_webhooks_api_test.go
 utils.go

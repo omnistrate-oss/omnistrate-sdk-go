@@ -5,9 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CompleteTime** | **string** | The snapshot time | 
+**CreatedTime** | **string** | The snapshot creation time | 
+**Encrypted** | **bool** | Whether the snapshot is encrypted | 
 **EnvironmentId** | **string** | The service environment ID this workflow belongs to. | 
 **ProductTierId** | **string** | The product tier ID | 
 **ProductTierVersion** | **string** | The product tier version | 
+**Progress** | **int64** | The backup progress. 0-100 | 
 **ServiceId** | **string** | The service ID this workflow belongs to. | 
 **SnapshotId** | **string** | The instance snapshot ID | 
 **SourceInstanceId** | **string** | The source instance ID | 
@@ -17,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewFleetDescribeInstanceSnapshotResult
 
-`func NewFleetDescribeInstanceSnapshotResult(completeTime string, environmentId string, productTierId string, productTierVersion string, serviceId string, snapshotId string, sourceInstanceId string, status string, ) *FleetDescribeInstanceSnapshotResult`
+`func NewFleetDescribeInstanceSnapshotResult(completeTime string, createdTime string, encrypted bool, environmentId string, productTierId string, productTierVersion string, progress int64, serviceId string, snapshotId string, sourceInstanceId string, status string, ) *FleetDescribeInstanceSnapshotResult`
 
 NewFleetDescribeInstanceSnapshotResult instantiates a new FleetDescribeInstanceSnapshotResult object
 This constructor will assign default values to properties that have it defined,
@@ -50,6 +53,46 @@ and a boolean to check if the value has been set.
 `func (o *FleetDescribeInstanceSnapshotResult) SetCompleteTime(v string)`
 
 SetCompleteTime sets CompleteTime field to given value.
+
+
+### GetCreatedTime
+
+`func (o *FleetDescribeInstanceSnapshotResult) GetCreatedTime() string`
+
+GetCreatedTime returns the CreatedTime field if non-nil, zero value otherwise.
+
+### GetCreatedTimeOk
+
+`func (o *FleetDescribeInstanceSnapshotResult) GetCreatedTimeOk() (*string, bool)`
+
+GetCreatedTimeOk returns a tuple with the CreatedTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedTime
+
+`func (o *FleetDescribeInstanceSnapshotResult) SetCreatedTime(v string)`
+
+SetCreatedTime sets CreatedTime field to given value.
+
+
+### GetEncrypted
+
+`func (o *FleetDescribeInstanceSnapshotResult) GetEncrypted() bool`
+
+GetEncrypted returns the Encrypted field if non-nil, zero value otherwise.
+
+### GetEncryptedOk
+
+`func (o *FleetDescribeInstanceSnapshotResult) GetEncryptedOk() (*bool, bool)`
+
+GetEncryptedOk returns a tuple with the Encrypted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEncrypted
+
+`func (o *FleetDescribeInstanceSnapshotResult) SetEncrypted(v bool)`
+
+SetEncrypted sets Encrypted field to given value.
 
 
 ### GetEnvironmentId
@@ -110,6 +153,26 @@ and a boolean to check if the value has been set.
 `func (o *FleetDescribeInstanceSnapshotResult) SetProductTierVersion(v string)`
 
 SetProductTierVersion sets ProductTierVersion field to given value.
+
+
+### GetProgress
+
+`func (o *FleetDescribeInstanceSnapshotResult) GetProgress() int64`
+
+GetProgress returns the Progress field if non-nil, zero value otherwise.
+
+### GetProgressOk
+
+`func (o *FleetDescribeInstanceSnapshotResult) GetProgressOk() (*int64, bool)`
+
+GetProgressOk returns a tuple with the Progress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProgress
+
+`func (o *FleetDescribeInstanceSnapshotResult) SetProgress(v int64)`
+
+SetProgress sets Progress field to given value.
 
 
 ### GetServiceId

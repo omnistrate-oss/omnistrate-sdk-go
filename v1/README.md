@@ -237,12 +237,15 @@ Class | Method | HTTP request | Description
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiDeleteResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapideleteresourceinstance) | **Delete** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id} | DeleteResourceInstance resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiDescribeResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapidescriberesourceinstance) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id} | DescribeResourceInstance resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiFailoverResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapifailoverresourceinstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/failover | FailoverResourceInstance resource-instance-api
+*ResourceInstanceApiAPI* | [**ResourceInstanceApiGenerateTokenForDeploymentCellDashboard**](docs/ResourceInstanceApiAPI.md#resourceinstanceapigeneratetokenfordeploymentcelldashboard) | **Post** /2022-09-01-00/resource-instance/{id}/deployment-cell-dashboard/token | GenerateTokenForDeploymentCellDashboard resource-instance-api
+*ResourceInstanceApiAPI* | [**ResourceInstanceApiListResourceInstanceSnapshots**](docs/ResourceInstanceApiAPI.md#resourceinstanceapilistresourceinstancesnapshots) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/snapshot | ListResourceInstanceSnapshots resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiListResourceInstances**](docs/ResourceInstanceApiAPI.md#resourceinstanceapilistresourceinstances) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey} | ListResourceInstances resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiRemoveCapacityFromResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapiremovecapacityfromresourceinstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/remove-capacity | RemoveCapacityFromResourceInstance resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiRemoveCustomDNSFromResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapiremovecustomdnsfromresourceinstance) | **Delete** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/custom-dns | RemoveCustomDNSFromResourceInstance resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiResourceInstanceProvisionerSetupKit**](docs/ResourceInstanceApiAPI.md#resourceinstanceapiresourceinstanceprovisionersetupkit) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/setup-kit | ResourceInstanceProvisionerSetupKit resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiRestartResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapirestartresourceinstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/restart | RestartResourceInstance resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiRestoreResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapirestoreresourceinstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/restore | RestoreResourceInstance resource-instance-api
+*ResourceInstanceApiAPI* | [**ResourceInstanceApiRestoreResourceInstanceFromSnapshot**](docs/ResourceInstanceApiAPI.md#resourceinstanceapirestoreresourceinstancefromsnapshot) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/snapshot/{snapshotId}/restore | RestoreResourceInstanceFromSnapshot resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiStartResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapistartresourceinstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/start | StartResourceInstance resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiStopResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapistopresourceinstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/stop | StopResourceInstance resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiUpdateResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapiupdateresourceinstance) | **Patch** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id} | UpdateResourceInstance resource-instance-api
@@ -294,6 +297,11 @@ Class | Method | HTTP request | Description
 *ServiceOfferingApiAPI* | [**ServiceOfferingApiListServiceOffering**](docs/ServiceOfferingApiAPI.md#serviceofferingapilistserviceoffering) | **Get** /2022-09-01-00/service-offering | ListServiceOffering service-offering-api
 *ServicePlanApiAPI* | [**ServicePlanApiGetServicePlan**](docs/ServicePlanApiAPI.md#serviceplanapigetserviceplan) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{productTierId}/service-plan | GetServicePlan service-plan-api
 *ServicePlanApiAPI* | [**ServicePlanApiListServicePlans**](docs/ServicePlanApiAPI.md#serviceplanapilistserviceplans) | **Get** /2022-09-01-00/service/{serviceId}/environment/{serviceEnvironmentId}/service-plan | ListServicePlans service-plan-api
+*ServicesOrchestrationApiAPI* | [**ServicesOrchestrationApiCreateServicesOrchestration**](docs/ServicesOrchestrationApiAPI.md#servicesorchestrationapicreateservicesorchestration) | **Post** /2022-09-01-00/services-orchestration | CreateServicesOrchestration services-orchestration-api
+*ServicesOrchestrationApiAPI* | [**ServicesOrchestrationApiDeleteServicesOrchestration**](docs/ServicesOrchestrationApiAPI.md#servicesorchestrationapideleteservicesorchestration) | **Delete** /2022-09-01-00/services-orchestration/{id} | DeleteServicesOrchestration services-orchestration-api
+*ServicesOrchestrationApiAPI* | [**ServicesOrchestrationApiDescribeServicesOrchestration**](docs/ServicesOrchestrationApiAPI.md#servicesorchestrationapidescribeservicesorchestration) | **Get** /2022-09-01-00/services-orchestration/{id} | DescribeServicesOrchestration services-orchestration-api
+*ServicesOrchestrationApiAPI* | [**ServicesOrchestrationApiListServicesOrchestration**](docs/ServicesOrchestrationApiAPI.md#servicesorchestrationapilistservicesorchestration) | **Get** /2022-09-01-00/services-orchestration | ListServicesOrchestration services-orchestration-api
+*ServicesOrchestrationApiAPI* | [**ServicesOrchestrationApiModifyServicesOrchestration**](docs/ServicesOrchestrationApiAPI.md#servicesorchestrationapimodifyservicesorchestration) | **Patch** /2022-09-01-00/services-orchestration/{id} | ModifyServicesOrchestration services-orchestration-api
 *SigninApiAPI* | [**SigninApiLoginWithIdentityProvider**](docs/SigninApiAPI.md#signinapiloginwithidentityprovider) | **Post** /2022-09-01-00/login-with-identity-provider | LoginWithIdentityProvider signin-api
 *SigninApiAPI* | [**SigninApiSignin**](docs/SigninApiAPI.md#signinapisignin) | **Post** /2022-09-01-00/signin | Signin signin-api
 *SignupApiAPI* | [**SignupApiChangePassword**](docs/SignupApiAPI.md#signupapichangepassword) | **Post** /2022-09-01-00/change-password | ChangePassword signup-api
@@ -368,6 +376,7 @@ Class | Method | HTTP request | Description
  - [BackupConfiguration](docs/BackupConfiguration.md)
  - [BackupStatus](docs/BackupStatus.md)
  - [BillingPlan](docs/BillingPlan.md)
+ - [BlobStorageConfiguration](docs/BlobStorageConfiguration.md)
  - [BuildServiceFromComposeSpecRequestBody](docs/BuildServiceFromComposeSpecRequestBody.md)
  - [BuildServiceFromServicePlanSpecRequestBody](docs/BuildServiceFromServicePlanSpecRequestBody.md)
  - [BuildServiceFromServicePlanSpecResult](docs/BuildServiceFromServicePlanSpecResult.md)
@@ -377,6 +386,7 @@ Class | Method | HTTP request | Description
  - [ChangeSet](docs/ChangeSet.md)
  - [ChangeSummary](docs/ChangeSummary.md)
  - [CheckIfContainerImageAccessibleResult](docs/CheckIfContainerImageAccessibleResult.md)
+ - [ClusterEndpoint](docs/ClusterEndpoint.md)
  - [ConsumptionServiceAuthResult](docs/ConsumptionServiceAuthResult.md)
  - [ContactusRequestBody](docs/ContactusRequestBody.md)
  - [CopyProductTierRequestBody](docs/CopyProductTierRequestBody.md)
@@ -396,7 +406,6 @@ Class | Method | HTTP request | Description
  - [CreateProductTierBillingPlanRequestBody](docs/CreateProductTierBillingPlanRequestBody.md)
  - [CreateProductTierRequestBody](docs/CreateProductTierRequestBody.md)
  - [CreateResourceInstanceRequestBody](docs/CreateResourceInstanceRequestBody.md)
- - [CreateResourceInstanceResponseBody](docs/CreateResourceInstanceResponseBody.md)
  - [CreateResourceRequestBody](docs/CreateResourceRequestBody.md)
  - [CreateSaaSPortalCustomDomainRequestBody](docs/CreateSaaSPortalCustomDomainRequestBody.md)
  - [CreateServiceAPIRequestBody](docs/CreateServiceAPIRequestBody.md)
@@ -404,6 +413,8 @@ Class | Method | HTTP request | Description
  - [CreateServiceFromComposeSpecRequestBody](docs/CreateServiceFromComposeSpecRequestBody.md)
  - [CreateServiceModelRequestBody](docs/CreateServiceModelRequestBody.md)
  - [CreateServiceRequestBody](docs/CreateServiceRequestBody.md)
+ - [CreateServicesOrchestrationRequestBody](docs/CreateServicesOrchestrationRequestBody.md)
+ - [CreateServicesOrchestrationResponseBody](docs/CreateServicesOrchestrationResponseBody.md)
  - [CreateStorageConfigRequestBody](docs/CreateStorageConfigRequestBody.md)
  - [CreateStorageVolumeConfigRequestBody](docs/CreateStorageVolumeConfigRequestBody.md)
  - [CreateSubscriptionRequestBody](docs/CreateSubscriptionRequestBody.md)
@@ -450,6 +461,7 @@ Class | Method | HTTP request | Description
  - [DescribeServiceOfferingResourceResult](docs/DescribeServiceOfferingResourceResult.md)
  - [DescribeServiceOfferingResult](docs/DescribeServiceOfferingResult.md)
  - [DescribeServiceResult](docs/DescribeServiceResult.md)
+ - [DescribeServicesOrchestrationResult](docs/DescribeServicesOrchestrationResult.md)
  - [DescribeStorageConfigResult](docs/DescribeStorageConfigResult.md)
  - [DescribeStorageVolumeConfigResult](docs/DescribeStorageVolumeConfigResult.md)
  - [DescribeSubscriptionRequestResult](docs/DescribeSubscriptionRequestResult.md)
@@ -468,6 +480,7 @@ Class | Method | HTTP request | Description
  - [EFSFileSystemConfiguration](docs/EFSFileSystemConfiguration.md)
  - [EnableProductTierFeatureRequestBody](docs/EnableProductTierFeatureRequestBody.md)
  - [EnableResourceCapabilityRequestBody](docs/EnableResourceCapabilityRequestBody.md)
+ - [Endpoint](docs/Endpoint.md)
  - [EnvironmentHealthReport](docs/EnvironmentHealthReport.md)
  - [EnvironmentPromotionStatus](docs/EnvironmentPromotionStatus.md)
  - [EnvironmentVariable](docs/EnvironmentVariable.md)
@@ -477,6 +490,7 @@ Class | Method | HTTP request | Description
  - [FileSystemConfiguration](docs/FileSystemConfiguration.md)
  - [GenerateComposeSpecFromContainerImageRequestBody](docs/GenerateComposeSpecFromContainerImageRequestBody.md)
  - [GenerateComposeSpecFromContainerImageResult](docs/GenerateComposeSpecFromContainerImageResult.md)
+ - [GenerateTokenForDeploymentCellDashboardResult](docs/GenerateTokenForDeploymentCellDashboardResult.md)
  - [GetCurrentUsageResult](docs/GetCurrentUsageResult.md)
  - [GetServicePlanResult](docs/GetServicePlanResult.md)
  - [GitConfiguration](docs/GitConfiguration.md)
@@ -486,8 +500,10 @@ Class | Method | HTTP request | Description
  - [InfraConfigChangeSummary](docs/InfraConfigChangeSummary.md)
  - [InfraRollConfiguration](docs/InfraRollConfiguration.md)
  - [InputParameterEntity](docs/InputParameterEntity.md)
+ - [InstanceSnapshot](docs/InstanceSnapshot.md)
  - [InviteUserRequestBody](docs/InviteUserRequestBody.md)
  - [Invoice](docs/Invoice.md)
+ - [KubernetesDashboardEndpoint](docs/KubernetesDashboardEndpoint.md)
  - [KustomizeConfiguration](docs/KustomizeConfiguration.md)
  - [L4LoadBalancerConfiguration](docs/L4LoadBalancerConfiguration.md)
  - [L7LoadBalancerConfiguration](docs/L7LoadBalancerConfiguration.md)
@@ -511,6 +527,7 @@ Class | Method | HTTP request | Description
  - [ListOutputParametersResult](docs/ListOutputParametersResult.md)
  - [ListProductTierBillingPlanResult](docs/ListProductTierBillingPlanResult.md)
  - [ListResourceCapabilitiesResponse](docs/ListResourceCapabilitiesResponse.md)
+ - [ListResourceInstanceSnapshotsResult](docs/ListResourceInstanceSnapshotsResult.md)
  - [ListResourcesResult](docs/ListResourcesResult.md)
  - [ListSaaSPortalCustomDomainsResult](docs/ListSaaSPortalCustomDomainsResult.md)
  - [ListSaaSPortalsResult](docs/ListSaaSPortalsResult.md)
@@ -525,6 +542,7 @@ Class | Method | HTTP request | Description
  - [ListVUnitsResult](docs/ListVUnitsResult.md)
  - [LoadBalancerPathConfiguration](docs/LoadBalancerPathConfiguration.md)
  - [LoginWithIdentityProviderRequestBody](docs/LoginWithIdentityProviderRequestBody.md)
+ - [ModifyServicesOrchestrationRequestBody](docs/ModifyServicesOrchestrationRequestBody.md)
  - [NetworkFeaturesConfiguration](docs/NetworkFeaturesConfiguration.md)
  - [NodeNetworkTopologyResult](docs/NodeNetworkTopologyResult.md)
  - [OfferingBillingPlan](docs/OfferingBillingPlan.md)
@@ -556,6 +574,7 @@ Class | Method | HTTP request | Description
  - [ResourceSpecLimits](docs/ResourceSpecLimits.md)
  - [ResourceSpecRequests](docs/ResourceSpecRequests.md)
  - [ResourceSummary](docs/ResourceSummary.md)
+ - [RestoreResourceInstanceFromSnapshotRequestBody](docs/RestoreResourceInstanceFromSnapshotRequestBody.md)
  - [RestoreResourceInstanceRequestBody](docs/RestoreResourceInstanceRequestBody.md)
  - [Route53Configuration](docs/Route53Configuration.md)
  - [Route53ConfigurationDescription](docs/Route53ConfigurationDescription.md)
@@ -564,6 +583,7 @@ Class | Method | HTTP request | Description
  - [SaaSPortalImageConfig](docs/SaaSPortalImageConfig.md)
  - [SaveHelmPackageRequestBody](docs/SaveHelmPackageRequestBody.md)
  - [ServiceAssets](docs/ServiceAssets.md)
+ - [ServiceDeploymentDetails](docs/ServiceDeploymentDetails.md)
  - [ServiceEnvironment](docs/ServiceEnvironment.md)
  - [ServiceModelFeatureDetail](docs/ServiceModelFeatureDetail.md)
  - [ServiceOffering](docs/ServiceOffering.md)
@@ -574,6 +594,7 @@ Class | Method | HTTP request | Description
  - [SignupRequestBody](docs/SignupRequestBody.md)
  - [SubscriptionUsers](docs/SubscriptionUsers.md)
  - [TerraformConfiguration](docs/TerraformConfiguration.md)
+ - [TerraformOutput](docs/TerraformOutput.md)
  - [TierVersionSet](docs/TierVersionSet.md)
  - [UpdateComputeConfigRequestBody](docs/UpdateComputeConfigRequestBody.md)
  - [UpdateDeploymentConfigRequestBody](docs/UpdateDeploymentConfigRequestBody.md)

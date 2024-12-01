@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the NodeNetworkTopologyResult type satisfies the MappedNullable interface at compile time
@@ -21,18 +20,19 @@ var _ MappedNullable = &NodeNetworkTopologyResult{}
 // NodeNetworkTopologyResult struct for NodeNetworkTopologyResult
 type NodeNetworkTopologyResult struct {
 	// The availability zone of the node
-	AvailabilityZone string `json:"availabilityZone"`
-	DetailedHealth DetailedNodeHealthResult `json:"detailedHealth"`
+	AvailabilityZone *string `json:"availabilityZone,omitempty"`
+	DetailedHealth *DetailedNodeHealthResult `json:"detailedHealth,omitempty"`
 	// The endpoint of the node
-	Endpoint string `json:"endpoint"`
+	Endpoint *string `json:"endpoint,omitempty"`
 	// The heath status of the node
-	HealthStatus string `json:"healthStatus"`
+	HealthStatus *string `json:"healthStatus,omitempty"`
 	// The ID of the node
-	Id string `json:"id"`
+	Id *string `json:"id,omitempty"`
+	KubernetesDashboardEndpoint *KubernetesDashboardEndpoint `json:"kubernetesDashboardEndpoint,omitempty"`
 	// The ports that this node exposes
 	Ports []int64 `json:"ports,omitempty"`
 	// The status of the node
-	Status string `json:"status"`
+	Status *string `json:"status,omitempty"`
 	// The storage size of the node in GiB
 	StorageSize *int64 `json:"storageSize,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -44,14 +44,8 @@ type _NodeNetworkTopologyResult NodeNetworkTopologyResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNodeNetworkTopologyResult(availabilityZone string, detailedHealth DetailedNodeHealthResult, endpoint string, healthStatus string, id string, status string) *NodeNetworkTopologyResult {
+func NewNodeNetworkTopologyResult() *NodeNetworkTopologyResult {
 	this := NodeNetworkTopologyResult{}
-	this.AvailabilityZone = availabilityZone
-	this.DetailedHealth = detailedHealth
-	this.Endpoint = endpoint
-	this.HealthStatus = healthStatus
-	this.Id = id
-	this.Status = status
 	return &this
 }
 
@@ -63,124 +57,196 @@ func NewNodeNetworkTopologyResultWithDefaults() *NodeNetworkTopologyResult {
 	return &this
 }
 
-// GetAvailabilityZone returns the AvailabilityZone field value
+// GetAvailabilityZone returns the AvailabilityZone field value if set, zero value otherwise.
 func (o *NodeNetworkTopologyResult) GetAvailabilityZone() string {
-	if o == nil {
+	if o == nil || IsNil(o.AvailabilityZone) {
 		var ret string
 		return ret
 	}
-
-	return o.AvailabilityZone
+	return *o.AvailabilityZone
 }
 
-// GetAvailabilityZoneOk returns a tuple with the AvailabilityZone field value
+// GetAvailabilityZoneOk returns a tuple with the AvailabilityZone field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeNetworkTopologyResult) GetAvailabilityZoneOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AvailabilityZone) {
 		return nil, false
 	}
-	return &o.AvailabilityZone, true
+	return o.AvailabilityZone, true
 }
 
-// SetAvailabilityZone sets field value
+// HasAvailabilityZone returns a boolean if a field has been set.
+func (o *NodeNetworkTopologyResult) HasAvailabilityZone() bool {
+	if o != nil && !IsNil(o.AvailabilityZone) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvailabilityZone gets a reference to the given string and assigns it to the AvailabilityZone field.
 func (o *NodeNetworkTopologyResult) SetAvailabilityZone(v string) {
-	o.AvailabilityZone = v
+	o.AvailabilityZone = &v
 }
 
-// GetDetailedHealth returns the DetailedHealth field value
+// GetDetailedHealth returns the DetailedHealth field value if set, zero value otherwise.
 func (o *NodeNetworkTopologyResult) GetDetailedHealth() DetailedNodeHealthResult {
-	if o == nil {
+	if o == nil || IsNil(o.DetailedHealth) {
 		var ret DetailedNodeHealthResult
 		return ret
 	}
-
-	return o.DetailedHealth
+	return *o.DetailedHealth
 }
 
-// GetDetailedHealthOk returns a tuple with the DetailedHealth field value
+// GetDetailedHealthOk returns a tuple with the DetailedHealth field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeNetworkTopologyResult) GetDetailedHealthOk() (*DetailedNodeHealthResult, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DetailedHealth) {
 		return nil, false
 	}
-	return &o.DetailedHealth, true
+	return o.DetailedHealth, true
 }
 
-// SetDetailedHealth sets field value
+// HasDetailedHealth returns a boolean if a field has been set.
+func (o *NodeNetworkTopologyResult) HasDetailedHealth() bool {
+	if o != nil && !IsNil(o.DetailedHealth) {
+		return true
+	}
+
+	return false
+}
+
+// SetDetailedHealth gets a reference to the given DetailedNodeHealthResult and assigns it to the DetailedHealth field.
 func (o *NodeNetworkTopologyResult) SetDetailedHealth(v DetailedNodeHealthResult) {
-	o.DetailedHealth = v
+	o.DetailedHealth = &v
 }
 
-// GetEndpoint returns the Endpoint field value
+// GetEndpoint returns the Endpoint field value if set, zero value otherwise.
 func (o *NodeNetworkTopologyResult) GetEndpoint() string {
-	if o == nil {
+	if o == nil || IsNil(o.Endpoint) {
 		var ret string
 		return ret
 	}
-
-	return o.Endpoint
+	return *o.Endpoint
 }
 
-// GetEndpointOk returns a tuple with the Endpoint field value
+// GetEndpointOk returns a tuple with the Endpoint field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeNetworkTopologyResult) GetEndpointOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Endpoint) {
 		return nil, false
 	}
-	return &o.Endpoint, true
+	return o.Endpoint, true
 }
 
-// SetEndpoint sets field value
+// HasEndpoint returns a boolean if a field has been set.
+func (o *NodeNetworkTopologyResult) HasEndpoint() bool {
+	if o != nil && !IsNil(o.Endpoint) {
+		return true
+	}
+
+	return false
+}
+
+// SetEndpoint gets a reference to the given string and assigns it to the Endpoint field.
 func (o *NodeNetworkTopologyResult) SetEndpoint(v string) {
-	o.Endpoint = v
+	o.Endpoint = &v
 }
 
-// GetHealthStatus returns the HealthStatus field value
+// GetHealthStatus returns the HealthStatus field value if set, zero value otherwise.
 func (o *NodeNetworkTopologyResult) GetHealthStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.HealthStatus) {
 		var ret string
 		return ret
 	}
-
-	return o.HealthStatus
+	return *o.HealthStatus
 }
 
-// GetHealthStatusOk returns a tuple with the HealthStatus field value
+// GetHealthStatusOk returns a tuple with the HealthStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeNetworkTopologyResult) GetHealthStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HealthStatus) {
 		return nil, false
 	}
-	return &o.HealthStatus, true
+	return o.HealthStatus, true
 }
 
-// SetHealthStatus sets field value
+// HasHealthStatus returns a boolean if a field has been set.
+func (o *NodeNetworkTopologyResult) HasHealthStatus() bool {
+	if o != nil && !IsNil(o.HealthStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetHealthStatus gets a reference to the given string and assigns it to the HealthStatus field.
 func (o *NodeNetworkTopologyResult) SetHealthStatus(v string) {
-	o.HealthStatus = v
+	o.HealthStatus = &v
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *NodeNetworkTopologyResult) GetId() string {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeNetworkTopologyResult) GetIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *NodeNetworkTopologyResult) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
 func (o *NodeNetworkTopologyResult) SetId(v string) {
-	o.Id = v
+	o.Id = &v
+}
+
+// GetKubernetesDashboardEndpoint returns the KubernetesDashboardEndpoint field value if set, zero value otherwise.
+func (o *NodeNetworkTopologyResult) GetKubernetesDashboardEndpoint() KubernetesDashboardEndpoint {
+	if o == nil || IsNil(o.KubernetesDashboardEndpoint) {
+		var ret KubernetesDashboardEndpoint
+		return ret
+	}
+	return *o.KubernetesDashboardEndpoint
+}
+
+// GetKubernetesDashboardEndpointOk returns a tuple with the KubernetesDashboardEndpoint field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NodeNetworkTopologyResult) GetKubernetesDashboardEndpointOk() (*KubernetesDashboardEndpoint, bool) {
+	if o == nil || IsNil(o.KubernetesDashboardEndpoint) {
+		return nil, false
+	}
+	return o.KubernetesDashboardEndpoint, true
+}
+
+// HasKubernetesDashboardEndpoint returns a boolean if a field has been set.
+func (o *NodeNetworkTopologyResult) HasKubernetesDashboardEndpoint() bool {
+	if o != nil && !IsNil(o.KubernetesDashboardEndpoint) {
+		return true
+	}
+
+	return false
+}
+
+// SetKubernetesDashboardEndpoint gets a reference to the given KubernetesDashboardEndpoint and assigns it to the KubernetesDashboardEndpoint field.
+func (o *NodeNetworkTopologyResult) SetKubernetesDashboardEndpoint(v KubernetesDashboardEndpoint) {
+	o.KubernetesDashboardEndpoint = &v
 }
 
 // GetPorts returns the Ports field value if set, zero value otherwise.
@@ -215,28 +281,36 @@ func (o *NodeNetworkTopologyResult) SetPorts(v []int64) {
 	o.Ports = v
 }
 
-// GetStatus returns the Status field value
+// GetStatus returns the Status field value if set, zero value otherwise.
 func (o *NodeNetworkTopologyResult) GetStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
-
-	return o.Status
+	return *o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NodeNetworkTopologyResult) GetStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return &o.Status, true
+	return o.Status, true
 }
 
-// SetStatus sets field value
+// HasStatus returns a boolean if a field has been set.
+func (o *NodeNetworkTopologyResult) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
 func (o *NodeNetworkTopologyResult) SetStatus(v string) {
-	o.Status = v
+	o.Status = &v
 }
 
 // GetStorageSize returns the StorageSize field value if set, zero value otherwise.
@@ -281,15 +355,30 @@ func (o NodeNetworkTopologyResult) MarshalJSON() ([]byte, error) {
 
 func (o NodeNetworkTopologyResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["availabilityZone"] = o.AvailabilityZone
-	toSerialize["detailedHealth"] = o.DetailedHealth
-	toSerialize["endpoint"] = o.Endpoint
-	toSerialize["healthStatus"] = o.HealthStatus
-	toSerialize["id"] = o.Id
+	if !IsNil(o.AvailabilityZone) {
+		toSerialize["availabilityZone"] = o.AvailabilityZone
+	}
+	if !IsNil(o.DetailedHealth) {
+		toSerialize["detailedHealth"] = o.DetailedHealth
+	}
+	if !IsNil(o.Endpoint) {
+		toSerialize["endpoint"] = o.Endpoint
+	}
+	if !IsNil(o.HealthStatus) {
+		toSerialize["healthStatus"] = o.HealthStatus
+	}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.KubernetesDashboardEndpoint) {
+		toSerialize["kubernetesDashboardEndpoint"] = o.KubernetesDashboardEndpoint
+	}
 	if !IsNil(o.Ports) {
 		toSerialize["ports"] = o.Ports
 	}
-	toSerialize["status"] = o.Status
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
 	if !IsNil(o.StorageSize) {
 		toSerialize["storageSize"] = o.StorageSize
 	}
@@ -302,32 +391,6 @@ func (o NodeNetworkTopologyResult) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *NodeNetworkTopologyResult) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"availabilityZone",
-		"detailedHealth",
-		"endpoint",
-		"healthStatus",
-		"id",
-		"status",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varNodeNetworkTopologyResult := _NodeNetworkTopologyResult{}
 
 	err = json.Unmarshal(data, &varNodeNetworkTopologyResult)
@@ -346,6 +409,7 @@ func (o *NodeNetworkTopologyResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "endpoint")
 		delete(additionalProperties, "healthStatus")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "kubernetesDashboardEndpoint")
 		delete(additionalProperties, "ports")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "storageSize")

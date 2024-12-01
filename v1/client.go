@@ -119,6 +119,8 @@ type APIClient struct {
 
 	ServicePlanApiAPI ServicePlanApiAPI
 
+	ServicesOrchestrationApiAPI ServicesOrchestrationApiAPI
+
 	SigninApiAPI SigninApiAPI
 
 	SignupApiAPI SignupApiAPI
@@ -191,6 +193,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ServiceModelApiAPI = (*ServiceModelApiAPIService)(&c.common)
 	c.ServiceOfferingApiAPI = (*ServiceOfferingApiAPIService)(&c.common)
 	c.ServicePlanApiAPI = (*ServicePlanApiAPIService)(&c.common)
+	c.ServicesOrchestrationApiAPI = (*ServicesOrchestrationApiAPIService)(&c.common)
 	c.SigninApiAPI = (*SigninApiAPIService)(&c.common)
 	c.SignupApiAPI = (*SignupApiAPIService)(&c.common)
 	c.StorageConfigApiAPI = (*StorageConfigApiAPIService)(&c.common)

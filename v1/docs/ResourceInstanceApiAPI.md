@@ -10,12 +10,15 @@ Method | HTTP request | Description
 [**ResourceInstanceApiDeleteResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiDeleteResourceInstance) | **Delete** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id} | DeleteResourceInstance resource-instance-api
 [**ResourceInstanceApiDescribeResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiDescribeResourceInstance) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id} | DescribeResourceInstance resource-instance-api
 [**ResourceInstanceApiFailoverResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiFailoverResourceInstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/failover | FailoverResourceInstance resource-instance-api
+[**ResourceInstanceApiGenerateTokenForDeploymentCellDashboard**](ResourceInstanceApiAPI.md#ResourceInstanceApiGenerateTokenForDeploymentCellDashboard) | **Post** /2022-09-01-00/resource-instance/{id}/deployment-cell-dashboard/token | GenerateTokenForDeploymentCellDashboard resource-instance-api
+[**ResourceInstanceApiListResourceInstanceSnapshots**](ResourceInstanceApiAPI.md#ResourceInstanceApiListResourceInstanceSnapshots) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/snapshot | ListResourceInstanceSnapshots resource-instance-api
 [**ResourceInstanceApiListResourceInstances**](ResourceInstanceApiAPI.md#ResourceInstanceApiListResourceInstances) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey} | ListResourceInstances resource-instance-api
 [**ResourceInstanceApiRemoveCapacityFromResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiRemoveCapacityFromResourceInstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/remove-capacity | RemoveCapacityFromResourceInstance resource-instance-api
 [**ResourceInstanceApiRemoveCustomDNSFromResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiRemoveCustomDNSFromResourceInstance) | **Delete** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/custom-dns | RemoveCustomDNSFromResourceInstance resource-instance-api
 [**ResourceInstanceApiResourceInstanceProvisionerSetupKit**](ResourceInstanceApiAPI.md#ResourceInstanceApiResourceInstanceProvisionerSetupKit) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/setup-kit | ResourceInstanceProvisionerSetupKit resource-instance-api
 [**ResourceInstanceApiRestartResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiRestartResourceInstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/restart | RestartResourceInstance resource-instance-api
 [**ResourceInstanceApiRestoreResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiRestoreResourceInstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/restore | RestoreResourceInstance resource-instance-api
+[**ResourceInstanceApiRestoreResourceInstanceFromSnapshot**](ResourceInstanceApiAPI.md#ResourceInstanceApiRestoreResourceInstanceFromSnapshot) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/snapshot/{snapshotId}/restore | RestoreResourceInstanceFromSnapshot resource-instance-api
 [**ResourceInstanceApiStartResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiStartResourceInstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/start | StartResourceInstance resource-instance-api
 [**ResourceInstanceApiStopResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiStopResourceInstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/stop | StopResourceInstance resource-instance-api
 [**ResourceInstanceApiUpdateResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiUpdateResourceInstance) | **Patch** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id} | UpdateResourceInstance resource-instance-api
@@ -206,7 +209,7 @@ Name | Type | Description  | Notes
 
 ## ResourceInstanceApiCreateResourceInstance
 
-> CreateResourceInstanceResponseBody ResourceInstanceApiCreateResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey).CreateResourceInstanceRequestBody(createResourceInstanceRequestBody).SubscriptionId(subscriptionId).Execute()
+> CreateServicesOrchestrationResponseBody ResourceInstanceApiCreateResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey).CreateResourceInstanceRequestBody(createResourceInstanceRequestBody).SubscriptionId(subscriptionId).Execute()
 
 CreateResourceInstance resource-instance-api
 
@@ -240,7 +243,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiCreateResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ResourceInstanceApiCreateResourceInstance`: CreateResourceInstanceResponseBody
+	// response from `ResourceInstanceApiCreateResourceInstance`: CreateServicesOrchestrationResponseBody
 	fmt.Fprintf(os.Stdout, "Response from `ResourceInstanceApiAPI.ResourceInstanceApiCreateResourceInstance`: %v\n", resp)
 }
 ```
@@ -278,7 +281,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateResourceInstanceResponseBody**](CreateResourceInstanceResponseBody.md)
+[**CreateServicesOrchestrationResponseBody**](CreateServicesOrchestrationResponseBody.md)
 
 ### Authorization
 
@@ -559,6 +562,167 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ResourceInstanceApiGenerateTokenForDeploymentCellDashboard
+
+> GenerateTokenForDeploymentCellDashboardResult ResourceInstanceApiGenerateTokenForDeploymentCellDashboard(ctx, id).SubscriptionId(subscriptionId).Execute()
+
+GenerateTokenForDeploymentCellDashboard resource-instance-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	subscriptionId := "sub-abcd1234" // string | Subscription Id
+	id := "instance-abcd1234" // string | The instance ID whose deployment cell dashboard token is to be generated
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiGenerateTokenForDeploymentCellDashboard(context.Background(), id).SubscriptionId(subscriptionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiGenerateTokenForDeploymentCellDashboard``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ResourceInstanceApiGenerateTokenForDeploymentCellDashboard`: GenerateTokenForDeploymentCellDashboardResult
+	fmt.Fprintf(os.Stdout, "Response from `ResourceInstanceApiAPI.ResourceInstanceApiGenerateTokenForDeploymentCellDashboard`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The instance ID whose deployment cell dashboard token is to be generated | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **subscriptionId** | **string** | Subscription Id | 
+
+
+### Return type
+
+[**GenerateTokenForDeploymentCellDashboardResult**](GenerateTokenForDeploymentCellDashboardResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ResourceInstanceApiListResourceInstanceSnapshots
+
+> ListResourceInstanceSnapshotsResult ResourceInstanceApiListResourceInstanceSnapshots(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).SubscriptionId(subscriptionId).Execute()
+
+ListResourceInstanceSnapshots resource-instance-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	serviceProviderId := "omnistrate" // string | The service provider ID
+	serviceKey := "service-orchestration" // string | The service key
+	serviceAPIVersion := "v1" // string | The service API version
+	serviceEnvironmentKey := "dev" // string | The service environment name
+	serviceModelKey := "hosted" // string | The service model name
+	productTierKey := "premium" // string | The product tier name
+	resourceKey := "mysql" // string | The resource key
+	id := "instance-abcd1234" // string | The instance ID
+	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiListResourceInstanceSnapshots(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).SubscriptionId(subscriptionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiListResourceInstanceSnapshots``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ResourceInstanceApiListResourceInstanceSnapshots`: ListResourceInstanceSnapshotsResult
+	fmt.Fprintf(os.Stdout, "Response from `ResourceInstanceApiAPI.ResourceInstanceApiListResourceInstanceSnapshots`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceProviderId** | **string** | The service provider ID | 
+**serviceKey** | **string** | The service key | 
+**serviceAPIVersion** | **string** | The service API version | 
+**serviceEnvironmentKey** | **string** | The service environment name | 
+**serviceModelKey** | **string** | The service model name | 
+**productTierKey** | **string** | The product tier name | 
+**resourceKey** | **string** | The resource key | 
+**id** | **string** | The instance ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiResourceInstanceApiListResourceInstanceSnapshotsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+
+
+
+
+ **subscriptionId** | **string** | Subscription Id | 
+
+### Return type
+
+[**ListResourceInstanceSnapshotsResult**](ListResourceInstanceSnapshotsResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -1004,7 +1168,7 @@ Name | Type | Description  | Notes
 
 ## ResourceInstanceApiRestoreResourceInstance
 
-> CreateResourceInstanceResponseBody ResourceInstanceApiRestoreResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).RestoreResourceInstanceRequestBody(restoreResourceInstanceRequestBody).SubscriptionId(subscriptionId).Execute()
+> CreateServicesOrchestrationResponseBody ResourceInstanceApiRestoreResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).RestoreResourceInstanceRequestBody(restoreResourceInstanceRequestBody).SubscriptionId(subscriptionId).Execute()
 
 RestoreResourceInstance resource-instance-api
 
@@ -1039,7 +1203,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiRestoreResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ResourceInstanceApiRestoreResourceInstance`: CreateResourceInstanceResponseBody
+	// response from `ResourceInstanceApiRestoreResourceInstance`: CreateServicesOrchestrationResponseBody
 	fmt.Fprintf(os.Stdout, "Response from `ResourceInstanceApiAPI.ResourceInstanceApiRestoreResourceInstance`: %v\n", resp)
 }
 ```
@@ -1079,7 +1243,100 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateResourceInstanceResponseBody**](CreateResourceInstanceResponseBody.md)
+[**CreateServicesOrchestrationResponseBody**](CreateServicesOrchestrationResponseBody.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ResourceInstanceApiRestoreResourceInstanceFromSnapshot
+
+> CreateServicesOrchestrationResponseBody ResourceInstanceApiRestoreResourceInstanceFromSnapshot(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, snapshotId).RestoreResourceInstanceFromSnapshotRequestBody(restoreResourceInstanceFromSnapshotRequestBody).SubscriptionId(subscriptionId).Execute()
+
+RestoreResourceInstanceFromSnapshot resource-instance-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	serviceProviderId := "omnistrate" // string | The service provider ID
+	serviceKey := "service-orchestration" // string | The service name
+	serviceAPIVersion := "v1" // string | The service API version
+	serviceEnvironmentKey := "dev" // string | The service environment name
+	serviceModelKey := "hosted" // string | The service model name
+	productTierKey := "premium" // string | The product tier name
+	resourceKey := "mysql" // string | The resource key
+	snapshotId := "instance-ss-abcd1234" // string | The snapshot ID
+	restoreResourceInstanceFromSnapshotRequestBody := *openapiclient.NewRestoreResourceInstanceFromSnapshotRequestBody() // RestoreResourceInstanceFromSnapshotRequestBody | 
+	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiRestoreResourceInstanceFromSnapshot(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, snapshotId).RestoreResourceInstanceFromSnapshotRequestBody(restoreResourceInstanceFromSnapshotRequestBody).SubscriptionId(subscriptionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiRestoreResourceInstanceFromSnapshot``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ResourceInstanceApiRestoreResourceInstanceFromSnapshot`: CreateServicesOrchestrationResponseBody
+	fmt.Fprintf(os.Stdout, "Response from `ResourceInstanceApiAPI.ResourceInstanceApiRestoreResourceInstanceFromSnapshot`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceProviderId** | **string** | The service provider ID | 
+**serviceKey** | **string** | The service name | 
+**serviceAPIVersion** | **string** | The service API version | 
+**serviceEnvironmentKey** | **string** | The service environment name | 
+**serviceModelKey** | **string** | The service model name | 
+**productTierKey** | **string** | The product tier name | 
+**resourceKey** | **string** | The resource key | 
+**snapshotId** | **string** | The snapshot ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+
+
+
+
+ **restoreResourceInstanceFromSnapshotRequestBody** | [**RestoreResourceInstanceFromSnapshotRequestBody**](RestoreResourceInstanceFromSnapshotRequestBody.md) |  | 
+ **subscriptionId** | **string** | Subscription Id | 
+
+### Return type
+
+[**CreateServicesOrchestrationResponseBody**](CreateServicesOrchestrationResponseBody.md)
 
 ### Authorization
 

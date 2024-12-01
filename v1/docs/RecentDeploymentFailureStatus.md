@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FailedAt** | **string** | The time at which the deployment failed | 
-**FailureReason** | **string** | The reason for the deployment failure | 
+**FailedAt** | Pointer to **string** | The time at which the deployment failed | [optional] 
+**FailureReason** | Pointer to **string** | The reason for the deployment failure | [optional] 
 
 ## Methods
 
 ### NewRecentDeploymentFailureStatus
 
-`func NewRecentDeploymentFailureStatus(failedAt string, failureReason string, ) *RecentDeploymentFailureStatus`
+`func NewRecentDeploymentFailureStatus() *RecentDeploymentFailureStatus`
 
 NewRecentDeploymentFailureStatus instantiates a new RecentDeploymentFailureStatus object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetFailedAt sets FailedAt field to given value.
 
+### HasFailedAt
+
+`func (o *RecentDeploymentFailureStatus) HasFailedAt() bool`
+
+HasFailedAt returns a boolean if a field has been set.
 
 ### GetFailureReason
 
@@ -65,6 +70,11 @@ and a boolean to check if the value has been set.
 
 SetFailureReason sets FailureReason field to given value.
 
+### HasFailureReason
+
+`func (o *RecentDeploymentFailureStatus) HasFailureReason() bool`
+
+HasFailureReason returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## HostclusterApiListHostClusters
 
-> ListHostClustersResult HostclusterApiListHostClusters(ctx).AccountConfigId(accountConfigId).RegionId(regionId).Execute()
+> ListHostClustersResult HostclusterApiListHostClusters(ctx).AccountConfigId(accountConfigId).RegionId(regionId).IncludeProvisionerClusters(includeProvisionerClusters).Execute()
 
 ListHostClusters hostcluster-api
 
@@ -29,10 +29,11 @@ import (
 func main() {
 	accountConfigId := "ac-12345678" // string | The account config ID of the host cluster (optional)
 	regionId := "region-12345678" // string | The region ID of the host cluster (optional)
+	includeProvisionerClusters := true // bool | Whether to include provisioner clusters in the response (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.HostclusterApiAPI.HostclusterApiListHostClusters(context.Background()).AccountConfigId(accountConfigId).RegionId(regionId).Execute()
+	resp, r, err := apiClient.HostclusterApiAPI.HostclusterApiListHostClusters(context.Background()).AccountConfigId(accountConfigId).RegionId(regionId).IncludeProvisionerClusters(includeProvisionerClusters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `HostclusterApiAPI.HostclusterApiListHostClusters``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -55,6 +56,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **accountConfigId** | **string** | The account config ID of the host cluster | 
  **regionId** | **string** | The region ID of the host cluster | 
+ **includeProvisionerClusters** | **bool** | Whether to include provisioner clusters in the response | 
 
 ### Return type
 

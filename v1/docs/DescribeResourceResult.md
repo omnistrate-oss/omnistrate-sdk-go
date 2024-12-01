@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ActionHooks** | Pointer to [**[]RegisterActionHookRequestBody**](RegisterActionHookRequestBody.md) | The action hooks that this resource supports | [optional] 
 **AdditionalSecurityContext** | Pointer to [**AdditionalSecurityContext**](AdditionalSecurityContext.md) |  | [optional] 
 **BackupConfiguration** | Pointer to [**BackupConfiguration**](BackupConfiguration.md) |  | [optional] 
+**BlobStorageConfiguration** | Pointer to [**BlobStorageConfiguration**](BlobStorageConfiguration.md) |  | [optional] 
 **Capabilities** | Pointer to [**[]ResourceCapability**](ResourceCapability.md) | The capabilities enabled for the resource | [optional] 
 **CustomLabels** | Pointer to **map[string]string** | Custom labels for the resource | [optional] 
 **CustomSysCTLs** | Pointer to **map[string]string** | Custom sysctl settings for the resource | [optional] 
@@ -126,6 +127,31 @@ SetBackupConfiguration sets BackupConfiguration field to given value.
 `func (o *DescribeResourceResult) HasBackupConfiguration() bool`
 
 HasBackupConfiguration returns a boolean if a field has been set.
+
+### GetBlobStorageConfiguration
+
+`func (o *DescribeResourceResult) GetBlobStorageConfiguration() BlobStorageConfiguration`
+
+GetBlobStorageConfiguration returns the BlobStorageConfiguration field if non-nil, zero value otherwise.
+
+### GetBlobStorageConfigurationOk
+
+`func (o *DescribeResourceResult) GetBlobStorageConfigurationOk() (*BlobStorageConfiguration, bool)`
+
+GetBlobStorageConfigurationOk returns a tuple with the BlobStorageConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBlobStorageConfiguration
+
+`func (o *DescribeResourceResult) SetBlobStorageConfiguration(v BlobStorageConfiguration)`
+
+SetBlobStorageConfiguration sets BlobStorageConfiguration field to given value.
+
+### HasBlobStorageConfiguration
+
+`func (o *DescribeResourceResult) HasBlobStorageConfiguration() bool`
+
+HasBlobStorageConfiguration returns a boolean if a field has been set.
 
 ### GetCapabilities
 

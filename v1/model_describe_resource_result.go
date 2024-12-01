@@ -24,6 +24,7 @@ type DescribeResourceResult struct {
 	ActionHooks []RegisterActionHookRequestBody `json:"actionHooks,omitempty"`
 	AdditionalSecurityContext *AdditionalSecurityContext `json:"additionalSecurityContext,omitempty"`
 	BackupConfiguration *BackupConfiguration `json:"backupConfiguration,omitempty"`
+	BlobStorageConfiguration *BlobStorageConfiguration `json:"blobStorageConfiguration,omitempty"`
 	// The capabilities enabled for the resource
 	Capabilities []ResourceCapability `json:"capabilities,omitempty"`
 	// Custom labels for the resource
@@ -169,6 +170,29 @@ func (o *DescribeResourceResult) GetBackupConfigurationOk() (*BackupConfiguratio
 // SetBackupConfiguration gets a reference to the given BackupConfiguration and assigns it to the BackupConfiguration field.
 func (o *DescribeResourceResult) SetBackupConfiguration(v BackupConfiguration) {
 	o.BackupConfiguration = &v
+}
+
+// GetBlobStorageConfiguration returns the BlobStorageConfiguration field value if set, zero value otherwise.
+func (o *DescribeResourceResult) GetBlobStorageConfiguration() BlobStorageConfiguration {
+	if o == nil || IsNil(o.BlobStorageConfiguration) {
+		var ret BlobStorageConfiguration
+		return ret
+	}
+	return *o.BlobStorageConfiguration
+}
+
+// GetBlobStorageConfigurationOk returns a tuple with the BlobStorageConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceResult) GetBlobStorageConfigurationOk() (*BlobStorageConfiguration, bool) {
+	if o == nil || IsNil(o.BlobStorageConfiguration) {
+		return nil, false
+	}
+	return o.BlobStorageConfiguration, true
+}
+
+// SetBlobStorageConfiguration gets a reference to the given BlobStorageConfiguration and assigns it to the BlobStorageConfiguration field.
+func (o *DescribeResourceResult) SetBlobStorageConfiguration(v BlobStorageConfiguration) {
+	o.BlobStorageConfiguration = &v
 }
 
 // GetCapabilities returns the Capabilities field value if set, zero value otherwise.
@@ -774,6 +798,9 @@ func (o DescribeResourceResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.BackupConfiguration) {
 		toSerialize["backupConfiguration"] = o.BackupConfiguration
 	}
+	if !IsNil(o.BlobStorageConfiguration) {
+		toSerialize["blobStorageConfiguration"] = o.BlobStorageConfiguration
+	}
 	if !IsNil(o.Capabilities) {
 		toSerialize["capabilities"] = o.Capabilities
 	}
@@ -885,6 +912,7 @@ func (o *DescribeResourceResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "actionHooks")
 		delete(additionalProperties, "additionalSecurityContext")
 		delete(additionalProperties, "backupConfiguration")
+		delete(additionalProperties, "blobStorageConfiguration")
 		delete(additionalProperties, "capabilities")
 		delete(additionalProperties, "customLabels")
 		delete(additionalProperties, "customSysCTLs")

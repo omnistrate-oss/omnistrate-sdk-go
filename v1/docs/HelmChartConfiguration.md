@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **ChartRepoUrl** | **string** | The chart repository URL of the Helm package | 
 **ChartValues** | Pointer to **map[string]interface{}** | The values of the Helm package | [optional] 
 **ChartVersion** | **string** | The chart version of the Helm package | 
+**EndpointConfiguration** | Pointer to [**map[string]Endpoint**](Endpoint.md) | The endpoints from the Helm Deployment to expose to the customer | [optional] 
 **Password** | Pointer to **string** | The password to authenticate with the registry | [optional] 
 **Username** | Pointer to **string** | The username to authenticate with the registry | [optional] 
 
@@ -135,6 +136,31 @@ and a boolean to check if the value has been set.
 
 SetChartVersion sets ChartVersion field to given value.
 
+
+### GetEndpointConfiguration
+
+`func (o *HelmChartConfiguration) GetEndpointConfiguration() map[string]Endpoint`
+
+GetEndpointConfiguration returns the EndpointConfiguration field if non-nil, zero value otherwise.
+
+### GetEndpointConfigurationOk
+
+`func (o *HelmChartConfiguration) GetEndpointConfigurationOk() (*map[string]Endpoint, bool)`
+
+GetEndpointConfigurationOk returns a tuple with the EndpointConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndpointConfiguration
+
+`func (o *HelmChartConfiguration) SetEndpointConfiguration(v map[string]Endpoint)`
+
+SetEndpointConfiguration sets EndpointConfiguration field to given value.
+
+### HasEndpointConfiguration
+
+`func (o *HelmChartConfiguration) HasEndpointConfiguration() bool`
+
+HasEndpointConfiguration returns a boolean if a field has been set.
 
 ### GetPassword
 

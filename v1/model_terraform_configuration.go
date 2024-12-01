@@ -23,6 +23,12 @@ type TerraformConfiguration struct {
 	GitConfiguration *GitConfiguration `json:"gitConfiguration,omitempty"`
 	// The git access tokens for private modules
 	PrivateModuleGitAccessTokens *map[string]string `json:"privateModuleGitAccessTokens,omitempty"`
+	// The required output keys to export
+	RequiredOutputKeys []string `json:"requiredOutputKeys,omitempty"`
+	// The required output keys to export
+	RequiredOutputs []TerraformOutput `json:"requiredOutputs,omitempty"`
+	// The identity to use for terraform execution
+	TerraformExecutionIdentity *string `json:"terraformExecutionIdentity,omitempty"`
 	// The path to the terraform files directory
 	TerraformPath string `json:"terraformPath"`
 	AdditionalProperties map[string]interface{}
@@ -94,6 +100,75 @@ func (o *TerraformConfiguration) SetPrivateModuleGitAccessTokens(v map[string]st
 	o.PrivateModuleGitAccessTokens = &v
 }
 
+// GetRequiredOutputKeys returns the RequiredOutputKeys field value if set, zero value otherwise.
+func (o *TerraformConfiguration) GetRequiredOutputKeys() []string {
+	if o == nil || IsNil(o.RequiredOutputKeys) {
+		var ret []string
+		return ret
+	}
+	return o.RequiredOutputKeys
+}
+
+// GetRequiredOutputKeysOk returns a tuple with the RequiredOutputKeys field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TerraformConfiguration) GetRequiredOutputKeysOk() ([]string, bool) {
+	if o == nil || IsNil(o.RequiredOutputKeys) {
+		return nil, false
+	}
+	return o.RequiredOutputKeys, true
+}
+
+// SetRequiredOutputKeys gets a reference to the given []string and assigns it to the RequiredOutputKeys field.
+func (o *TerraformConfiguration) SetRequiredOutputKeys(v []string) {
+	o.RequiredOutputKeys = v
+}
+
+// GetRequiredOutputs returns the RequiredOutputs field value if set, zero value otherwise.
+func (o *TerraformConfiguration) GetRequiredOutputs() []TerraformOutput {
+	if o == nil || IsNil(o.RequiredOutputs) {
+		var ret []TerraformOutput
+		return ret
+	}
+	return o.RequiredOutputs
+}
+
+// GetRequiredOutputsOk returns a tuple with the RequiredOutputs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TerraformConfiguration) GetRequiredOutputsOk() ([]TerraformOutput, bool) {
+	if o == nil || IsNil(o.RequiredOutputs) {
+		return nil, false
+	}
+	return o.RequiredOutputs, true
+}
+
+// SetRequiredOutputs gets a reference to the given []TerraformOutput and assigns it to the RequiredOutputs field.
+func (o *TerraformConfiguration) SetRequiredOutputs(v []TerraformOutput) {
+	o.RequiredOutputs = v
+}
+
+// GetTerraformExecutionIdentity returns the TerraformExecutionIdentity field value if set, zero value otherwise.
+func (o *TerraformConfiguration) GetTerraformExecutionIdentity() string {
+	if o == nil || IsNil(o.TerraformExecutionIdentity) {
+		var ret string
+		return ret
+	}
+	return *o.TerraformExecutionIdentity
+}
+
+// GetTerraformExecutionIdentityOk returns a tuple with the TerraformExecutionIdentity field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TerraformConfiguration) GetTerraformExecutionIdentityOk() (*string, bool) {
+	if o == nil || IsNil(o.TerraformExecutionIdentity) {
+		return nil, false
+	}
+	return o.TerraformExecutionIdentity, true
+}
+
+// SetTerraformExecutionIdentity gets a reference to the given string and assigns it to the TerraformExecutionIdentity field.
+func (o *TerraformConfiguration) SetTerraformExecutionIdentity(v string) {
+	o.TerraformExecutionIdentity = &v
+}
+
 // GetTerraformPath returns the TerraformPath field value
 func (o *TerraformConfiguration) GetTerraformPath() string {
 	if o == nil {
@@ -133,6 +208,15 @@ func (o TerraformConfiguration) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.PrivateModuleGitAccessTokens) {
 		toSerialize["privateModuleGitAccessTokens"] = o.PrivateModuleGitAccessTokens
+	}
+	if !IsNil(o.RequiredOutputKeys) {
+		toSerialize["requiredOutputKeys"] = o.RequiredOutputKeys
+	}
+	if !IsNil(o.RequiredOutputs) {
+		toSerialize["requiredOutputs"] = o.RequiredOutputs
+	}
+	if !IsNil(o.TerraformExecutionIdentity) {
+		toSerialize["terraformExecutionIdentity"] = o.TerraformExecutionIdentity
 	}
 	toSerialize["terraformPath"] = o.TerraformPath
 
@@ -180,6 +264,9 @@ func (o *TerraformConfiguration) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "gitConfiguration")
 		delete(additionalProperties, "privateModuleGitAccessTokens")
+		delete(additionalProperties, "requiredOutputKeys")
+		delete(additionalProperties, "requiredOutputs")
+		delete(additionalProperties, "terraformExecutionIdentity")
 		delete(additionalProperties, "terraformPath")
 		o.AdditionalProperties = additionalProperties
 	}

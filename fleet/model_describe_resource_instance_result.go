@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the DescribeResourceInstanceResult type satisfies the MappedNullable interface at compile time
@@ -21,7 +20,7 @@ var _ MappedNullable = &DescribeResourceInstanceResult{}
 // DescribeResourceInstanceResult struct for DescribeResourceInstanceResult
 type DescribeResourceInstanceResult struct {
 	// True if this resource instance has associated infrastructure deployed
-	Active bool `json:"active"`
+	Active *bool `json:"active,omitempty"`
 	// Whether the instance has autoscaling enabled
 	AutoscalingEnabled *bool `json:"autoscalingEnabled,omitempty"`
 	// The AWS account ID
@@ -30,11 +29,13 @@ type DescribeResourceInstanceResult struct {
 	// The cloud provider name
 	CloudProvider *string `json:"cloud_provider,omitempty"`
 	// The instance creation time
-	CreatedAt string `json:"created_at"`
+	CreatedAt *string `json:"created_at,omitempty"`
 	// The user ID that created the resource instance
-	CreatedByUserId string `json:"createdByUserId"`
+	CreatedByUserId *string `json:"createdByUserId,omitempty"`
 	// The name of the user that created the resource instance
-	CreatedByUserName string `json:"createdByUserName"`
+	CreatedByUserName *string `json:"createdByUserName,omitempty"`
+	// The current number of replicas
+	CurrentReplicas *string `json:"currentReplicas,omitempty"`
 	CustomNetworkDetail *CustomNetworkResourceDetail `json:"customNetworkDetail,omitempty"`
 	// The detailed network topology
 	DetailedNetworkTopology *map[string]ResourceNetworkTopologyResult `json:"detailedNetworkTopology,omitempty"`
@@ -45,19 +46,28 @@ type DescribeResourceInstanceResult struct {
 	// Whether the instance is High Availability
 	HighAvailability *bool `json:"highAvailability,omitempty"`
 	// The instance ID
-	Id string `json:"id"`
+	Id *string `json:"id,omitempty"`
+	// The instance load status
+	InstanceLoadStatus *string `json:"instanceLoadStatus,omitempty"`
+	KubernetesDashboardEndpoint *KubernetesDashboardEndpoint `json:"kubernetesDashboardEndpoint,omitempty"`
 	// The instance update time
-	LastModifiedAt string `json:"last_modified_at"`
+	LastModifiedAt *string `json:"last_modified_at,omitempty"`
+	// The maximum number of replicas
+	MaxReplicas *string `json:"maxReplicas,omitempty"`
+	// The minimum number of replicas
+	MinReplicas *string `json:"minReplicas,omitempty"`
 	// The network type
 	NetworkType *string `json:"network_type,omitempty"`
 	// The product tier features
-	ProductTierFeatures map[string]interface{} `json:"productTierFeatures"`
+	ProductTierFeatures map[string]interface{} `json:"productTierFeatures,omitempty"`
 	// The region code
 	Region *string `json:"region,omitempty"`
 	// Custom result parameters
-	ResultParams interface{} `json:"result_params"`
+	ResultParams interface{} `json:"result_params,omitempty"`
+	// Whether the instance has serverless enabled
+	ServerlessEnabled *bool `json:"serverlessEnabled,omitempty"`
 	// The instance status
-	Status string `json:"status"`
+	Status *string `json:"status,omitempty"`
 	// The subscription ID
 	SubscriptionId *string `json:"subscriptionId,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -69,17 +79,8 @@ type _DescribeResourceInstanceResult DescribeResourceInstanceResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDescribeResourceInstanceResult(active bool, createdAt string, createdByUserId string, createdByUserName string, id string, lastModifiedAt string, productTierFeatures map[string]interface{}, resultParams interface{}, status string) *DescribeResourceInstanceResult {
+func NewDescribeResourceInstanceResult() *DescribeResourceInstanceResult {
 	this := DescribeResourceInstanceResult{}
-	this.Active = active
-	this.CreatedAt = createdAt
-	this.CreatedByUserId = createdByUserId
-	this.CreatedByUserName = createdByUserName
-	this.Id = id
-	this.LastModifiedAt = lastModifiedAt
-	this.ProductTierFeatures = productTierFeatures
-	this.ResultParams = resultParams
-	this.Status = status
 	return &this
 }
 
@@ -91,28 +92,36 @@ func NewDescribeResourceInstanceResultWithDefaults() *DescribeResourceInstanceRe
 	return &this
 }
 
-// GetActive returns the Active field value
+// GetActive returns the Active field value if set, zero value otherwise.
 func (o *DescribeResourceInstanceResult) GetActive() bool {
-	if o == nil {
+	if o == nil || IsNil(o.Active) {
 		var ret bool
 		return ret
 	}
-
-	return o.Active
+	return *o.Active
 }
 
-// GetActiveOk returns a tuple with the Active field value
+// GetActiveOk returns a tuple with the Active field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeResourceInstanceResult) GetActiveOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Active) {
 		return nil, false
 	}
-	return &o.Active, true
+	return o.Active, true
 }
 
-// SetActive sets field value
+// HasActive returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasActive() bool {
+	if o != nil && !IsNil(o.Active) {
+		return true
+	}
+
+	return false
+}
+
+// SetActive gets a reference to the given bool and assigns it to the Active field.
 func (o *DescribeResourceInstanceResult) SetActive(v bool) {
-	o.Active = v
+	o.Active = &v
 }
 
 // GetAutoscalingEnabled returns the AutoscalingEnabled field value if set, zero value otherwise.
@@ -243,76 +252,132 @@ func (o *DescribeResourceInstanceResult) SetCloudProvider(v string) {
 	o.CloudProvider = &v
 }
 
-// GetCreatedAt returns the CreatedAt field value
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *DescribeResourceInstanceResult) GetCreatedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedAt
+	return *o.CreatedAt
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeResourceInstanceResult) GetCreatedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
-	return &o.CreatedAt, true
+	return o.CreatedAt, true
 }
 
-// SetCreatedAt sets field value
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasCreatedAt() bool {
+	if o != nil && !IsNil(o.CreatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
 func (o *DescribeResourceInstanceResult) SetCreatedAt(v string) {
-	o.CreatedAt = v
+	o.CreatedAt = &v
 }
 
-// GetCreatedByUserId returns the CreatedByUserId field value
+// GetCreatedByUserId returns the CreatedByUserId field value if set, zero value otherwise.
 func (o *DescribeResourceInstanceResult) GetCreatedByUserId() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedByUserId) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedByUserId
+	return *o.CreatedByUserId
 }
 
-// GetCreatedByUserIdOk returns a tuple with the CreatedByUserId field value
+// GetCreatedByUserIdOk returns a tuple with the CreatedByUserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeResourceInstanceResult) GetCreatedByUserIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedByUserId) {
 		return nil, false
 	}
-	return &o.CreatedByUserId, true
+	return o.CreatedByUserId, true
 }
 
-// SetCreatedByUserId sets field value
+// HasCreatedByUserId returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasCreatedByUserId() bool {
+	if o != nil && !IsNil(o.CreatedByUserId) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedByUserId gets a reference to the given string and assigns it to the CreatedByUserId field.
 func (o *DescribeResourceInstanceResult) SetCreatedByUserId(v string) {
-	o.CreatedByUserId = v
+	o.CreatedByUserId = &v
 }
 
-// GetCreatedByUserName returns the CreatedByUserName field value
+// GetCreatedByUserName returns the CreatedByUserName field value if set, zero value otherwise.
 func (o *DescribeResourceInstanceResult) GetCreatedByUserName() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedByUserName) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedByUserName
+	return *o.CreatedByUserName
 }
 
-// GetCreatedByUserNameOk returns a tuple with the CreatedByUserName field value
+// GetCreatedByUserNameOk returns a tuple with the CreatedByUserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeResourceInstanceResult) GetCreatedByUserNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedByUserName) {
 		return nil, false
 	}
-	return &o.CreatedByUserName, true
+	return o.CreatedByUserName, true
 }
 
-// SetCreatedByUserName sets field value
+// HasCreatedByUserName returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasCreatedByUserName() bool {
+	if o != nil && !IsNil(o.CreatedByUserName) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedByUserName gets a reference to the given string and assigns it to the CreatedByUserName field.
 func (o *DescribeResourceInstanceResult) SetCreatedByUserName(v string) {
-	o.CreatedByUserName = v
+	o.CreatedByUserName = &v
+}
+
+// GetCurrentReplicas returns the CurrentReplicas field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetCurrentReplicas() string {
+	if o == nil || IsNil(o.CurrentReplicas) {
+		var ret string
+		return ret
+	}
+	return *o.CurrentReplicas
+}
+
+// GetCurrentReplicasOk returns a tuple with the CurrentReplicas field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetCurrentReplicasOk() (*string, bool) {
+	if o == nil || IsNil(o.CurrentReplicas) {
+		return nil, false
+	}
+	return o.CurrentReplicas, true
+}
+
+// HasCurrentReplicas returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasCurrentReplicas() bool {
+	if o != nil && !IsNil(o.CurrentReplicas) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrentReplicas gets a reference to the given string and assigns it to the CurrentReplicas field.
+func (o *DescribeResourceInstanceResult) SetCurrentReplicas(v string) {
+	o.CurrentReplicas = &v
 }
 
 // GetCustomNetworkDetail returns the CustomNetworkDetail field value if set, zero value otherwise.
@@ -475,52 +540,196 @@ func (o *DescribeResourceInstanceResult) SetHighAvailability(v bool) {
 	o.HighAvailability = &v
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *DescribeResourceInstanceResult) GetId() string {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeResourceInstanceResult) GetIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
 func (o *DescribeResourceInstanceResult) SetId(v string) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetLastModifiedAt returns the LastModifiedAt field value
-func (o *DescribeResourceInstanceResult) GetLastModifiedAt() string {
-	if o == nil {
+// GetInstanceLoadStatus returns the InstanceLoadStatus field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetInstanceLoadStatus() string {
+	if o == nil || IsNil(o.InstanceLoadStatus) {
 		var ret string
 		return ret
 	}
-
-	return o.LastModifiedAt
+	return *o.InstanceLoadStatus
 }
 
-// GetLastModifiedAtOk returns a tuple with the LastModifiedAt field value
+// GetInstanceLoadStatusOk returns a tuple with the InstanceLoadStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeResourceInstanceResult) GetLastModifiedAtOk() (*string, bool) {
-	if o == nil {
+func (o *DescribeResourceInstanceResult) GetInstanceLoadStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.InstanceLoadStatus) {
 		return nil, false
 	}
-	return &o.LastModifiedAt, true
+	return o.InstanceLoadStatus, true
 }
 
-// SetLastModifiedAt sets field value
+// HasInstanceLoadStatus returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasInstanceLoadStatus() bool {
+	if o != nil && !IsNil(o.InstanceLoadStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetInstanceLoadStatus gets a reference to the given string and assigns it to the InstanceLoadStatus field.
+func (o *DescribeResourceInstanceResult) SetInstanceLoadStatus(v string) {
+	o.InstanceLoadStatus = &v
+}
+
+// GetKubernetesDashboardEndpoint returns the KubernetesDashboardEndpoint field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetKubernetesDashboardEndpoint() KubernetesDashboardEndpoint {
+	if o == nil || IsNil(o.KubernetesDashboardEndpoint) {
+		var ret KubernetesDashboardEndpoint
+		return ret
+	}
+	return *o.KubernetesDashboardEndpoint
+}
+
+// GetKubernetesDashboardEndpointOk returns a tuple with the KubernetesDashboardEndpoint field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetKubernetesDashboardEndpointOk() (*KubernetesDashboardEndpoint, bool) {
+	if o == nil || IsNil(o.KubernetesDashboardEndpoint) {
+		return nil, false
+	}
+	return o.KubernetesDashboardEndpoint, true
+}
+
+// HasKubernetesDashboardEndpoint returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasKubernetesDashboardEndpoint() bool {
+	if o != nil && !IsNil(o.KubernetesDashboardEndpoint) {
+		return true
+	}
+
+	return false
+}
+
+// SetKubernetesDashboardEndpoint gets a reference to the given KubernetesDashboardEndpoint and assigns it to the KubernetesDashboardEndpoint field.
+func (o *DescribeResourceInstanceResult) SetKubernetesDashboardEndpoint(v KubernetesDashboardEndpoint) {
+	o.KubernetesDashboardEndpoint = &v
+}
+
+// GetLastModifiedAt returns the LastModifiedAt field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetLastModifiedAt() string {
+	if o == nil || IsNil(o.LastModifiedAt) {
+		var ret string
+		return ret
+	}
+	return *o.LastModifiedAt
+}
+
+// GetLastModifiedAtOk returns a tuple with the LastModifiedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetLastModifiedAtOk() (*string, bool) {
+	if o == nil || IsNil(o.LastModifiedAt) {
+		return nil, false
+	}
+	return o.LastModifiedAt, true
+}
+
+// HasLastModifiedAt returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasLastModifiedAt() bool {
+	if o != nil && !IsNil(o.LastModifiedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastModifiedAt gets a reference to the given string and assigns it to the LastModifiedAt field.
 func (o *DescribeResourceInstanceResult) SetLastModifiedAt(v string) {
-	o.LastModifiedAt = v
+	o.LastModifiedAt = &v
+}
+
+// GetMaxReplicas returns the MaxReplicas field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetMaxReplicas() string {
+	if o == nil || IsNil(o.MaxReplicas) {
+		var ret string
+		return ret
+	}
+	return *o.MaxReplicas
+}
+
+// GetMaxReplicasOk returns a tuple with the MaxReplicas field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetMaxReplicasOk() (*string, bool) {
+	if o == nil || IsNil(o.MaxReplicas) {
+		return nil, false
+	}
+	return o.MaxReplicas, true
+}
+
+// HasMaxReplicas returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasMaxReplicas() bool {
+	if o != nil && !IsNil(o.MaxReplicas) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxReplicas gets a reference to the given string and assigns it to the MaxReplicas field.
+func (o *DescribeResourceInstanceResult) SetMaxReplicas(v string) {
+	o.MaxReplicas = &v
+}
+
+// GetMinReplicas returns the MinReplicas field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetMinReplicas() string {
+	if o == nil || IsNil(o.MinReplicas) {
+		var ret string
+		return ret
+	}
+	return *o.MinReplicas
+}
+
+// GetMinReplicasOk returns a tuple with the MinReplicas field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetMinReplicasOk() (*string, bool) {
+	if o == nil || IsNil(o.MinReplicas) {
+		return nil, false
+	}
+	return o.MinReplicas, true
+}
+
+// HasMinReplicas returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasMinReplicas() bool {
+	if o != nil && !IsNil(o.MinReplicas) {
+		return true
+	}
+
+	return false
+}
+
+// SetMinReplicas gets a reference to the given string and assigns it to the MinReplicas field.
+func (o *DescribeResourceInstanceResult) SetMinReplicas(v string) {
+	o.MinReplicas = &v
 }
 
 // GetNetworkType returns the NetworkType field value if set, zero value otherwise.
@@ -555,26 +764,34 @@ func (o *DescribeResourceInstanceResult) SetNetworkType(v string) {
 	o.NetworkType = &v
 }
 
-// GetProductTierFeatures returns the ProductTierFeatures field value
+// GetProductTierFeatures returns the ProductTierFeatures field value if set, zero value otherwise.
 func (o *DescribeResourceInstanceResult) GetProductTierFeatures() map[string]interface{} {
-	if o == nil {
+	if o == nil || IsNil(o.ProductTierFeatures) {
 		var ret map[string]interface{}
 		return ret
 	}
-
 	return o.ProductTierFeatures
 }
 
-// GetProductTierFeaturesOk returns a tuple with the ProductTierFeatures field value
+// GetProductTierFeaturesOk returns a tuple with the ProductTierFeatures field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeResourceInstanceResult) GetProductTierFeaturesOk() (map[string]interface{}, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProductTierFeatures) {
 		return map[string]interface{}{}, false
 	}
 	return o.ProductTierFeatures, true
 }
 
-// SetProductTierFeatures sets field value
+// HasProductTierFeatures returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasProductTierFeatures() bool {
+	if o != nil && !IsNil(o.ProductTierFeatures) {
+		return true
+	}
+
+	return false
+}
+
+// SetProductTierFeatures gets a reference to the given map[string]interface{} and assigns it to the ProductTierFeatures field.
 func (o *DescribeResourceInstanceResult) SetProductTierFeatures(v map[string]interface{}) {
 	o.ProductTierFeatures = v
 }
@@ -611,18 +828,16 @@ func (o *DescribeResourceInstanceResult) SetRegion(v string) {
 	o.Region = &v
 }
 
-// GetResultParams returns the ResultParams field value
-// If the value is explicit nil, the zero value for interface{} will be returned
+// GetResultParams returns the ResultParams field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DescribeResourceInstanceResult) GetResultParams() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
 	}
-
 	return o.ResultParams
 }
 
-// GetResultParamsOk returns a tuple with the ResultParams field value
+// GetResultParamsOk returns a tuple with the ResultParams field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DescribeResourceInstanceResult) GetResultParamsOk() (*interface{}, bool) {
@@ -632,33 +847,82 @@ func (o *DescribeResourceInstanceResult) GetResultParamsOk() (*interface{}, bool
 	return &o.ResultParams, true
 }
 
-// SetResultParams sets field value
+// HasResultParams returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasResultParams() bool {
+	if o != nil && !IsNil(o.ResultParams) {
+		return true
+	}
+
+	return false
+}
+
+// SetResultParams gets a reference to the given interface{} and assigns it to the ResultParams field.
 func (o *DescribeResourceInstanceResult) SetResultParams(v interface{}) {
 	o.ResultParams = v
 }
 
-// GetStatus returns the Status field value
+// GetServerlessEnabled returns the ServerlessEnabled field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetServerlessEnabled() bool {
+	if o == nil || IsNil(o.ServerlessEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.ServerlessEnabled
+}
+
+// GetServerlessEnabledOk returns a tuple with the ServerlessEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetServerlessEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.ServerlessEnabled) {
+		return nil, false
+	}
+	return o.ServerlessEnabled, true
+}
+
+// HasServerlessEnabled returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasServerlessEnabled() bool {
+	if o != nil && !IsNil(o.ServerlessEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetServerlessEnabled gets a reference to the given bool and assigns it to the ServerlessEnabled field.
+func (o *DescribeResourceInstanceResult) SetServerlessEnabled(v bool) {
+	o.ServerlessEnabled = &v
+}
+
+// GetStatus returns the Status field value if set, zero value otherwise.
 func (o *DescribeResourceInstanceResult) GetStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
-
-	return o.Status
+	return *o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeResourceInstanceResult) GetStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return &o.Status, true
+	return o.Status, true
 }
 
-// SetStatus sets field value
+// HasStatus returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
 func (o *DescribeResourceInstanceResult) SetStatus(v string) {
-	o.Status = v
+	o.Status = &v
 }
 
 // GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
@@ -703,7 +967,9 @@ func (o DescribeResourceInstanceResult) MarshalJSON() ([]byte, error) {
 
 func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["active"] = o.Active
+	if !IsNil(o.Active) {
+		toSerialize["active"] = o.Active
+	}
 	if !IsNil(o.AutoscalingEnabled) {
 		toSerialize["autoscalingEnabled"] = o.AutoscalingEnabled
 	}
@@ -716,9 +982,18 @@ func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.CloudProvider) {
 		toSerialize["cloud_provider"] = o.CloudProvider
 	}
-	toSerialize["created_at"] = o.CreatedAt
-	toSerialize["createdByUserId"] = o.CreatedByUserId
-	toSerialize["createdByUserName"] = o.CreatedByUserName
+	if !IsNil(o.CreatedAt) {
+		toSerialize["created_at"] = o.CreatedAt
+	}
+	if !IsNil(o.CreatedByUserId) {
+		toSerialize["createdByUserId"] = o.CreatedByUserId
+	}
+	if !IsNil(o.CreatedByUserName) {
+		toSerialize["createdByUserName"] = o.CreatedByUserName
+	}
+	if !IsNil(o.CurrentReplicas) {
+		toSerialize["currentReplicas"] = o.CurrentReplicas
+	}
 	if !IsNil(o.CustomNetworkDetail) {
 		toSerialize["customNetworkDetail"] = o.CustomNetworkDetail
 	}
@@ -734,19 +1009,42 @@ func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.HighAvailability) {
 		toSerialize["highAvailability"] = o.HighAvailability
 	}
-	toSerialize["id"] = o.Id
-	toSerialize["last_modified_at"] = o.LastModifiedAt
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.InstanceLoadStatus) {
+		toSerialize["instanceLoadStatus"] = o.InstanceLoadStatus
+	}
+	if !IsNil(o.KubernetesDashboardEndpoint) {
+		toSerialize["kubernetesDashboardEndpoint"] = o.KubernetesDashboardEndpoint
+	}
+	if !IsNil(o.LastModifiedAt) {
+		toSerialize["last_modified_at"] = o.LastModifiedAt
+	}
+	if !IsNil(o.MaxReplicas) {
+		toSerialize["maxReplicas"] = o.MaxReplicas
+	}
+	if !IsNil(o.MinReplicas) {
+		toSerialize["minReplicas"] = o.MinReplicas
+	}
 	if !IsNil(o.NetworkType) {
 		toSerialize["network_type"] = o.NetworkType
 	}
-	toSerialize["productTierFeatures"] = o.ProductTierFeatures
+	if !IsNil(o.ProductTierFeatures) {
+		toSerialize["productTierFeatures"] = o.ProductTierFeatures
+	}
 	if !IsNil(o.Region) {
 		toSerialize["region"] = o.Region
 	}
 	if o.ResultParams != nil {
 		toSerialize["result_params"] = o.ResultParams
 	}
-	toSerialize["status"] = o.Status
+	if !IsNil(o.ServerlessEnabled) {
+		toSerialize["serverlessEnabled"] = o.ServerlessEnabled
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
 	if !IsNil(o.SubscriptionId) {
 		toSerialize["subscriptionId"] = o.SubscriptionId
 	}
@@ -759,35 +1057,6 @@ func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) 
 }
 
 func (o *DescribeResourceInstanceResult) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"active",
-		"created_at",
-		"createdByUserId",
-		"createdByUserName",
-		"id",
-		"last_modified_at",
-		"productTierFeatures",
-		"result_params",
-		"status",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varDescribeResourceInstanceResult := _DescribeResourceInstanceResult{}
 
 	err = json.Unmarshal(data, &varDescribeResourceInstanceResult)
@@ -809,17 +1078,23 @@ func (o *DescribeResourceInstanceResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "created_at")
 		delete(additionalProperties, "createdByUserId")
 		delete(additionalProperties, "createdByUserName")
+		delete(additionalProperties, "currentReplicas")
 		delete(additionalProperties, "customNetworkDetail")
 		delete(additionalProperties, "detailedNetworkTopology")
 		delete(additionalProperties, "externalPayerId")
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "highAvailability")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "instanceLoadStatus")
+		delete(additionalProperties, "kubernetesDashboardEndpoint")
 		delete(additionalProperties, "last_modified_at")
+		delete(additionalProperties, "maxReplicas")
+		delete(additionalProperties, "minReplicas")
 		delete(additionalProperties, "network_type")
 		delete(additionalProperties, "productTierFeatures")
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "result_params")
+		delete(additionalProperties, "serverlessEnabled")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "subscriptionId")
 		o.AdditionalProperties = additionalProperties

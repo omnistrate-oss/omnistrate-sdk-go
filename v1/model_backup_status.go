@@ -20,8 +20,14 @@ var _ MappedNullable = &BackupStatus{}
 
 // BackupStatus struct for BackupStatus
 type BackupStatus struct {
+	// The backup period in hours
+	BackupPeriodInHours int64 `json:"backupPeriodInHours"`
+	// The backup retention in days
+	BackupRetentionInDays int64 `json:"backupRetentionInDays"`
 	// The earliest restore time
-	EarliestRestoreTime string `json:"earliestRestoreTime"`
+	EarliestRestoreTime *string `json:"earliestRestoreTime,omitempty"`
+	// The last backup time
+	LastBackupTime *string `json:"lastBackupTime,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -31,9 +37,10 @@ type _BackupStatus BackupStatus
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBackupStatus(earliestRestoreTime string) *BackupStatus {
+func NewBackupStatus(backupPeriodInHours int64, backupRetentionInDays int64) *BackupStatus {
 	this := BackupStatus{}
-	this.EarliestRestoreTime = earliestRestoreTime
+	this.BackupPeriodInHours = backupPeriodInHours
+	this.BackupRetentionInDays = backupRetentionInDays
 	return &this
 }
 
@@ -45,28 +52,98 @@ func NewBackupStatusWithDefaults() *BackupStatus {
 	return &this
 }
 
-// GetEarliestRestoreTime returns the EarliestRestoreTime field value
-func (o *BackupStatus) GetEarliestRestoreTime() string {
+// GetBackupPeriodInHours returns the BackupPeriodInHours field value
+func (o *BackupStatus) GetBackupPeriodInHours() int64 {
 	if o == nil {
-		var ret string
+		var ret int64
 		return ret
 	}
 
-	return o.EarliestRestoreTime
+	return o.BackupPeriodInHours
 }
 
-// GetEarliestRestoreTimeOk returns a tuple with the EarliestRestoreTime field value
+// GetBackupPeriodInHoursOk returns a tuple with the BackupPeriodInHours field value
 // and a boolean to check if the value has been set.
-func (o *BackupStatus) GetEarliestRestoreTimeOk() (*string, bool) {
+func (o *BackupStatus) GetBackupPeriodInHoursOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.EarliestRestoreTime, true
+	return &o.BackupPeriodInHours, true
 }
 
-// SetEarliestRestoreTime sets field value
+// SetBackupPeriodInHours sets field value
+func (o *BackupStatus) SetBackupPeriodInHours(v int64) {
+	o.BackupPeriodInHours = v
+}
+
+// GetBackupRetentionInDays returns the BackupRetentionInDays field value
+func (o *BackupStatus) GetBackupRetentionInDays() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.BackupRetentionInDays
+}
+
+// GetBackupRetentionInDaysOk returns a tuple with the BackupRetentionInDays field value
+// and a boolean to check if the value has been set.
+func (o *BackupStatus) GetBackupRetentionInDaysOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BackupRetentionInDays, true
+}
+
+// SetBackupRetentionInDays sets field value
+func (o *BackupStatus) SetBackupRetentionInDays(v int64) {
+	o.BackupRetentionInDays = v
+}
+
+// GetEarliestRestoreTime returns the EarliestRestoreTime field value if set, zero value otherwise.
+func (o *BackupStatus) GetEarliestRestoreTime() string {
+	if o == nil || IsNil(o.EarliestRestoreTime) {
+		var ret string
+		return ret
+	}
+	return *o.EarliestRestoreTime
+}
+
+// GetEarliestRestoreTimeOk returns a tuple with the EarliestRestoreTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BackupStatus) GetEarliestRestoreTimeOk() (*string, bool) {
+	if o == nil || IsNil(o.EarliestRestoreTime) {
+		return nil, false
+	}
+	return o.EarliestRestoreTime, true
+}
+
+// SetEarliestRestoreTime gets a reference to the given string and assigns it to the EarliestRestoreTime field.
 func (o *BackupStatus) SetEarliestRestoreTime(v string) {
-	o.EarliestRestoreTime = v
+	o.EarliestRestoreTime = &v
+}
+
+// GetLastBackupTime returns the LastBackupTime field value if set, zero value otherwise.
+func (o *BackupStatus) GetLastBackupTime() string {
+	if o == nil || IsNil(o.LastBackupTime) {
+		var ret string
+		return ret
+	}
+	return *o.LastBackupTime
+}
+
+// GetLastBackupTimeOk returns a tuple with the LastBackupTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BackupStatus) GetLastBackupTimeOk() (*string, bool) {
+	if o == nil || IsNil(o.LastBackupTime) {
+		return nil, false
+	}
+	return o.LastBackupTime, true
+}
+
+// SetLastBackupTime gets a reference to the given string and assigns it to the LastBackupTime field.
+func (o *BackupStatus) SetLastBackupTime(v string) {
+	o.LastBackupTime = &v
 }
 
 func (o BackupStatus) MarshalJSON() ([]byte, error) {
@@ -79,7 +156,14 @@ func (o BackupStatus) MarshalJSON() ([]byte, error) {
 
 func (o BackupStatus) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["earliestRestoreTime"] = o.EarliestRestoreTime
+	toSerialize["backupPeriodInHours"] = o.BackupPeriodInHours
+	toSerialize["backupRetentionInDays"] = o.BackupRetentionInDays
+	if !IsNil(o.EarliestRestoreTime) {
+		toSerialize["earliestRestoreTime"] = o.EarliestRestoreTime
+	}
+	if !IsNil(o.LastBackupTime) {
+		toSerialize["lastBackupTime"] = o.LastBackupTime
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -93,7 +177,8 @@ func (o *BackupStatus) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"earliestRestoreTime",
+		"backupPeriodInHours",
+		"backupRetentionInDays",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -123,7 +208,10 @@ func (o *BackupStatus) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "backupPeriodInHours")
+		delete(additionalProperties, "backupRetentionInDays")
 		delete(additionalProperties, "earliestRestoreTime")
+		delete(additionalProperties, "lastBackupTime")
 		o.AdditionalProperties = additionalProperties
 	}
 
