@@ -22,6 +22,7 @@ var _ MappedNullable = &CreateResourceRequestBody{}
 type CreateResourceRequestBody struct {
 	AdditionalSecurityContext *AdditionalSecurityContext `json:"additionalSecurityContext,omitempty"`
 	BackupConfiguration *BackupConfiguration `json:"backupConfiguration,omitempty"`
+	BlobStorageConfiguration *BlobStorageConfiguration `json:"blobStorageConfiguration,omitempty"`
 	// Custom labels for the resource
 	CustomLabels *map[string]string `json:"customLabels,omitempty"`
 	// Custom sysctl settings for the resource
@@ -140,6 +141,29 @@ func (o *CreateResourceRequestBody) GetBackupConfigurationOk() (*BackupConfigura
 // SetBackupConfiguration gets a reference to the given BackupConfiguration and assigns it to the BackupConfiguration field.
 func (o *CreateResourceRequestBody) SetBackupConfiguration(v BackupConfiguration) {
 	o.BackupConfiguration = &v
+}
+
+// GetBlobStorageConfiguration returns the BlobStorageConfiguration field value if set, zero value otherwise.
+func (o *CreateResourceRequestBody) GetBlobStorageConfiguration() BlobStorageConfiguration {
+	if o == nil || IsNil(o.BlobStorageConfiguration) {
+		var ret BlobStorageConfiguration
+		return ret
+	}
+	return *o.BlobStorageConfiguration
+}
+
+// GetBlobStorageConfigurationOk returns a tuple with the BlobStorageConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateResourceRequestBody) GetBlobStorageConfigurationOk() (*BlobStorageConfiguration, bool) {
+	if o == nil || IsNil(o.BlobStorageConfiguration) {
+		return nil, false
+	}
+	return o.BlobStorageConfiguration, true
+}
+
+// SetBlobStorageConfiguration gets a reference to the given BlobStorageConfiguration and assigns it to the BlobStorageConfiguration field.
+func (o *CreateResourceRequestBody) SetBlobStorageConfiguration(v BlobStorageConfiguration) {
+	o.BlobStorageConfiguration = &v
 }
 
 // GetCustomLabels returns the CustomLabels field value if set, zero value otherwise.
@@ -667,6 +691,9 @@ func (o CreateResourceRequestBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.BackupConfiguration) {
 		toSerialize["backupConfiguration"] = o.BackupConfiguration
 	}
+	if !IsNil(o.BlobStorageConfiguration) {
+		toSerialize["blobStorageConfiguration"] = o.BlobStorageConfiguration
+	}
 	if !IsNil(o.CustomLabels) {
 		toSerialize["customLabels"] = o.CustomLabels
 	}
@@ -774,6 +801,7 @@ func (o *CreateResourceRequestBody) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "additionalSecurityContext")
 		delete(additionalProperties, "backupConfiguration")
+		delete(additionalProperties, "blobStorageConfiguration")
 		delete(additionalProperties, "customLabels")
 		delete(additionalProperties, "customSysCTLs")
 		delete(additionalProperties, "customULimits")

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AdditionalSecurityContext** | Pointer to [**AdditionalSecurityContext**](AdditionalSecurityContext.md) |  | [optional] 
 **BackupConfiguration** | Pointer to [**BackupConfiguration**](BackupConfiguration.md) |  | [optional] 
+**BlobStorageConfiguration** | Pointer to [**BlobStorageConfiguration**](BlobStorageConfiguration.md) |  | [optional] 
 **CustomLabels** | Pointer to **map[string]string** | Custom labels for the resource | [optional] 
 **CustomSysCTLs** | Pointer to **map[string]string** | Custom sysctl settings for the resource | [optional] 
 **CustomULimits** | Pointer to [**[]CustomULimits**](CustomULimits.md) | Custom ulimits for the resource | [optional] 
@@ -97,6 +98,31 @@ SetBackupConfiguration sets BackupConfiguration field to given value.
 `func (o *CreateResourceRequestBody) HasBackupConfiguration() bool`
 
 HasBackupConfiguration returns a boolean if a field has been set.
+
+### GetBlobStorageConfiguration
+
+`func (o *CreateResourceRequestBody) GetBlobStorageConfiguration() BlobStorageConfiguration`
+
+GetBlobStorageConfiguration returns the BlobStorageConfiguration field if non-nil, zero value otherwise.
+
+### GetBlobStorageConfigurationOk
+
+`func (o *CreateResourceRequestBody) GetBlobStorageConfigurationOk() (*BlobStorageConfiguration, bool)`
+
+GetBlobStorageConfigurationOk returns a tuple with the BlobStorageConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBlobStorageConfiguration
+
+`func (o *CreateResourceRequestBody) SetBlobStorageConfiguration(v BlobStorageConfiguration)`
+
+SetBlobStorageConfiguration sets BlobStorageConfiguration field to given value.
+
+### HasBlobStorageConfiguration
+
+`func (o *CreateResourceRequestBody) HasBlobStorageConfiguration() bool`
+
+HasBlobStorageConfiguration returns a boolean if a field has been set.
 
 ### GetCustomLabels
 

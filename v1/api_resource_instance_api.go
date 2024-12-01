@@ -76,8 +76,8 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiCreateResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string) ApiResourceInstanceApiCreateResourceInstanceRequest
 
 	// ResourceInstanceApiCreateResourceInstanceExecute executes the request
-	//  @return CreateResourceInstanceResponseBody
-	ResourceInstanceApiCreateResourceInstanceExecute(r ApiResourceInstanceApiCreateResourceInstanceRequest) (*CreateResourceInstanceResponseBody, *http.Response, error)
+	//  @return CreateServicesOrchestrationResponseBody
+	ResourceInstanceApiCreateResourceInstanceExecute(r ApiResourceInstanceApiCreateResourceInstanceRequest) (*CreateServicesOrchestrationResponseBody, *http.Response, error)
 
 	/*
 	ResourceInstanceApiDeleteResourceInstance DeleteResourceInstance resource-instance-api
@@ -136,6 +136,39 @@ type ResourceInstanceApiAPI interface {
 
 	// ResourceInstanceApiFailoverResourceInstanceExecute executes the request
 	ResourceInstanceApiFailoverResourceInstanceExecute(r ApiResourceInstanceApiFailoverResourceInstanceRequest) (*http.Response, error)
+
+	/*
+	ResourceInstanceApiGenerateTokenForDeploymentCellDashboard GenerateTokenForDeploymentCellDashboard resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The instance ID whose deployment cell dashboard token is to be generated
+	@return ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest
+	*/
+	ResourceInstanceApiGenerateTokenForDeploymentCellDashboard(ctx context.Context, id string) ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest
+
+	// ResourceInstanceApiGenerateTokenForDeploymentCellDashboardExecute executes the request
+	//  @return GenerateTokenForDeploymentCellDashboardResult
+	ResourceInstanceApiGenerateTokenForDeploymentCellDashboardExecute(r ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest) (*GenerateTokenForDeploymentCellDashboardResult, *http.Response, error)
+
+	/*
+	ResourceInstanceApiListResourceInstanceSnapshots ListResourceInstanceSnapshots resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service key
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiListResourceInstanceSnapshotsRequest
+	*/
+	ResourceInstanceApiListResourceInstanceSnapshots(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiListResourceInstanceSnapshotsRequest
+
+	// ResourceInstanceApiListResourceInstanceSnapshotsExecute executes the request
+	//  @return ListResourceInstanceSnapshotsResult
+	ResourceInstanceApiListResourceInstanceSnapshotsExecute(r ApiResourceInstanceApiListResourceInstanceSnapshotsRequest) (*ListResourceInstanceSnapshotsResult, *http.Response, error)
 
 	/*
 	ResourceInstanceApiListResourceInstances ListResourceInstances resource-instance-api
@@ -246,8 +279,28 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiRestoreResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiRestoreResourceInstanceRequest
 
 	// ResourceInstanceApiRestoreResourceInstanceExecute executes the request
-	//  @return CreateResourceInstanceResponseBody
-	ResourceInstanceApiRestoreResourceInstanceExecute(r ApiResourceInstanceApiRestoreResourceInstanceRequest) (*CreateResourceInstanceResponseBody, *http.Response, error)
+	//  @return CreateServicesOrchestrationResponseBody
+	ResourceInstanceApiRestoreResourceInstanceExecute(r ApiResourceInstanceApiRestoreResourceInstanceRequest) (*CreateServicesOrchestrationResponseBody, *http.Response, error)
+
+	/*
+	ResourceInstanceApiRestoreResourceInstanceFromSnapshot RestoreResourceInstanceFromSnapshot resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param snapshotId The snapshot ID
+	@return ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest
+	*/
+	ResourceInstanceApiRestoreResourceInstanceFromSnapshot(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, snapshotId string) ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest
+
+	// ResourceInstanceApiRestoreResourceInstanceFromSnapshotExecute executes the request
+	//  @return CreateServicesOrchestrationResponseBody
+	ResourceInstanceApiRestoreResourceInstanceFromSnapshotExecute(r ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest) (*CreateServicesOrchestrationResponseBody, *http.Response, error)
 
 	/*
 	ResourceInstanceApiStartResourceInstance StartResourceInstance resource-instance-api
@@ -743,7 +796,7 @@ func (r ApiResourceInstanceApiCreateResourceInstanceRequest) SubscriptionId(subs
 	return r
 }
 
-func (r ApiResourceInstanceApiCreateResourceInstanceRequest) Execute() (*CreateResourceInstanceResponseBody, *http.Response, error) {
+func (r ApiResourceInstanceApiCreateResourceInstanceRequest) Execute() (*CreateServicesOrchestrationResponseBody, *http.Response, error) {
 	return r.ApiService.ResourceInstanceApiCreateResourceInstanceExecute(r)
 }
 
@@ -775,13 +828,13 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiCreateResourceInstanc
 }
 
 // Execute executes the request
-//  @return CreateResourceInstanceResponseBody
-func (a *ResourceInstanceApiAPIService) ResourceInstanceApiCreateResourceInstanceExecute(r ApiResourceInstanceApiCreateResourceInstanceRequest) (*CreateResourceInstanceResponseBody, *http.Response, error) {
+//  @return CreateServicesOrchestrationResponseBody
+func (a *ResourceInstanceApiAPIService) ResourceInstanceApiCreateResourceInstanceExecute(r ApiResourceInstanceApiCreateResourceInstanceRequest) (*CreateServicesOrchestrationResponseBody, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateResourceInstanceResponseBody
+		localVarReturnValue  *CreateServicesOrchestrationResponseBody
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiCreateResourceInstance")
@@ -1528,6 +1581,376 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiFailoverResourceInsta
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+type ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest struct {
+	ctx context.Context
+	ApiService ResourceInstanceApiAPI
+	subscriptionId *string
+	id string
+}
+
+// Subscription Id
+func (r ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest) SubscriptionId(subscriptionId string) ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest {
+	r.subscriptionId = &subscriptionId
+	return r
+}
+
+func (r ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest) Execute() (*GenerateTokenForDeploymentCellDashboardResult, *http.Response, error) {
+	return r.ApiService.ResourceInstanceApiGenerateTokenForDeploymentCellDashboardExecute(r)
+}
+
+/*
+ResourceInstanceApiGenerateTokenForDeploymentCellDashboard GenerateTokenForDeploymentCellDashboard resource-instance-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id The instance ID whose deployment cell dashboard token is to be generated
+ @return ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest
+*/
+func (a *ResourceInstanceApiAPIService) ResourceInstanceApiGenerateTokenForDeploymentCellDashboard(ctx context.Context, id string) ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest {
+	return ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+//  @return GenerateTokenForDeploymentCellDashboardResult
+func (a *ResourceInstanceApiAPIService) ResourceInstanceApiGenerateTokenForDeploymentCellDashboardExecute(r ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest) (*GenerateTokenForDeploymentCellDashboardResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GenerateTokenForDeploymentCellDashboardResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiGenerateTokenForDeploymentCellDashboard")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/resource-instance/{id}/deployment-cell-dashboard/token"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.subscriptionId == nil {
+		return localVarReturnValue, nil, reportError("subscriptionId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "subscriptionId", r.subscriptionId, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiResourceInstanceApiListResourceInstanceSnapshotsRequest struct {
+	ctx context.Context
+	ApiService ResourceInstanceApiAPI
+	serviceProviderId string
+	serviceKey string
+	serviceAPIVersion string
+	serviceEnvironmentKey string
+	serviceModelKey string
+	productTierKey string
+	resourceKey string
+	id string
+	subscriptionId *string
+}
+
+// Subscription Id
+func (r ApiResourceInstanceApiListResourceInstanceSnapshotsRequest) SubscriptionId(subscriptionId string) ApiResourceInstanceApiListResourceInstanceSnapshotsRequest {
+	r.subscriptionId = &subscriptionId
+	return r
+}
+
+func (r ApiResourceInstanceApiListResourceInstanceSnapshotsRequest) Execute() (*ListResourceInstanceSnapshotsResult, *http.Response, error) {
+	return r.ApiService.ResourceInstanceApiListResourceInstanceSnapshotsExecute(r)
+}
+
+/*
+ResourceInstanceApiListResourceInstanceSnapshots ListResourceInstanceSnapshots resource-instance-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serviceProviderId The service provider ID
+ @param serviceKey The service key
+ @param serviceAPIVersion The service API version
+ @param serviceEnvironmentKey The service environment name
+ @param serviceModelKey The service model name
+ @param productTierKey The product tier name
+ @param resourceKey The resource key
+ @param id The instance ID
+ @return ApiResourceInstanceApiListResourceInstanceSnapshotsRequest
+*/
+func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstanceSnapshots(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiListResourceInstanceSnapshotsRequest {
+	return ApiResourceInstanceApiListResourceInstanceSnapshotsRequest{
+		ApiService: a,
+		ctx: ctx,
+		serviceProviderId: serviceProviderId,
+		serviceKey: serviceKey,
+		serviceAPIVersion: serviceAPIVersion,
+		serviceEnvironmentKey: serviceEnvironmentKey,
+		serviceModelKey: serviceModelKey,
+		productTierKey: productTierKey,
+		resourceKey: resourceKey,
+		id: id,
+	}
+}
+
+// Execute executes the request
+//  @return ListResourceInstanceSnapshotsResult
+func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstanceSnapshotsExecute(r ApiResourceInstanceApiListResourceInstanceSnapshotsRequest) (*ListResourceInstanceSnapshotsResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListResourceInstanceSnapshotsResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiListResourceInstanceSnapshots")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/snapshot"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceProviderId"+"}", url.PathEscape(parameterValueToString(r.serviceProviderId, "serviceProviderId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceKey"+"}", url.PathEscape(parameterValueToString(r.serviceKey, "serviceKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceAPIVersion"+"}", url.PathEscape(parameterValueToString(r.serviceAPIVersion, "serviceAPIVersion")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceEnvironmentKey"+"}", url.PathEscape(parameterValueToString(r.serviceEnvironmentKey, "serviceEnvironmentKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceModelKey"+"}", url.PathEscape(parameterValueToString(r.serviceModelKey, "serviceModelKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"productTierKey"+"}", url.PathEscape(parameterValueToString(r.productTierKey, "productTierKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"resourceKey"+"}", url.PathEscape(parameterValueToString(r.resourceKey, "resourceKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.subscriptionId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "subscriptionId", r.subscriptionId, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiResourceInstanceApiListResourceInstancesRequest struct {
@@ -2527,7 +2950,7 @@ func (r ApiResourceInstanceApiRestoreResourceInstanceRequest) SubscriptionId(sub
 	return r
 }
 
-func (r ApiResourceInstanceApiRestoreResourceInstanceRequest) Execute() (*CreateResourceInstanceResponseBody, *http.Response, error) {
+func (r ApiResourceInstanceApiRestoreResourceInstanceRequest) Execute() (*CreateServicesOrchestrationResponseBody, *http.Response, error) {
 	return r.ApiService.ResourceInstanceApiRestoreResourceInstanceExecute(r)
 }
 
@@ -2561,13 +2984,13 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 }
 
 // Execute executes the request
-//  @return CreateResourceInstanceResponseBody
-func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstanceExecute(r ApiResourceInstanceApiRestoreResourceInstanceRequest) (*CreateResourceInstanceResponseBody, *http.Response, error) {
+//  @return CreateServicesOrchestrationResponseBody
+func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstanceExecute(r ApiResourceInstanceApiRestoreResourceInstanceRequest) (*CreateServicesOrchestrationResponseBody, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateResourceInstanceResponseBody
+		localVarReturnValue  *CreateServicesOrchestrationResponseBody
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiRestoreResourceInstance")
@@ -2614,6 +3037,221 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 	}
 	// body params
 	localVarPostBody = r.restoreResourceInstanceRequestBody
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest struct {
+	ctx context.Context
+	ApiService ResourceInstanceApiAPI
+	serviceProviderId string
+	serviceKey string
+	serviceAPIVersion string
+	serviceEnvironmentKey string
+	serviceModelKey string
+	productTierKey string
+	resourceKey string
+	snapshotId string
+	restoreResourceInstanceFromSnapshotRequestBody *RestoreResourceInstanceFromSnapshotRequestBody
+	subscriptionId *string
+}
+
+func (r ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest) RestoreResourceInstanceFromSnapshotRequestBody(restoreResourceInstanceFromSnapshotRequestBody RestoreResourceInstanceFromSnapshotRequestBody) ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest {
+	r.restoreResourceInstanceFromSnapshotRequestBody = &restoreResourceInstanceFromSnapshotRequestBody
+	return r
+}
+
+// Subscription Id
+func (r ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest) SubscriptionId(subscriptionId string) ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest {
+	r.subscriptionId = &subscriptionId
+	return r
+}
+
+func (r ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest) Execute() (*CreateServicesOrchestrationResponseBody, *http.Response, error) {
+	return r.ApiService.ResourceInstanceApiRestoreResourceInstanceFromSnapshotExecute(r)
+}
+
+/*
+ResourceInstanceApiRestoreResourceInstanceFromSnapshot RestoreResourceInstanceFromSnapshot resource-instance-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serviceProviderId The service provider ID
+ @param serviceKey The service name
+ @param serviceAPIVersion The service API version
+ @param serviceEnvironmentKey The service environment name
+ @param serviceModelKey The service model name
+ @param productTierKey The product tier name
+ @param resourceKey The resource key
+ @param snapshotId The snapshot ID
+ @return ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest
+*/
+func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstanceFromSnapshot(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, snapshotId string) ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest {
+	return ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest{
+		ApiService: a,
+		ctx: ctx,
+		serviceProviderId: serviceProviderId,
+		serviceKey: serviceKey,
+		serviceAPIVersion: serviceAPIVersion,
+		serviceEnvironmentKey: serviceEnvironmentKey,
+		serviceModelKey: serviceModelKey,
+		productTierKey: productTierKey,
+		resourceKey: resourceKey,
+		snapshotId: snapshotId,
+	}
+}
+
+// Execute executes the request
+//  @return CreateServicesOrchestrationResponseBody
+func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstanceFromSnapshotExecute(r ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest) (*CreateServicesOrchestrationResponseBody, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CreateServicesOrchestrationResponseBody
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiRestoreResourceInstanceFromSnapshot")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/snapshot/{snapshotId}/restore"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceProviderId"+"}", url.PathEscape(parameterValueToString(r.serviceProviderId, "serviceProviderId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceKey"+"}", url.PathEscape(parameterValueToString(r.serviceKey, "serviceKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceAPIVersion"+"}", url.PathEscape(parameterValueToString(r.serviceAPIVersion, "serviceAPIVersion")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceEnvironmentKey"+"}", url.PathEscape(parameterValueToString(r.serviceEnvironmentKey, "serviceEnvironmentKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceModelKey"+"}", url.PathEscape(parameterValueToString(r.serviceModelKey, "serviceModelKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"productTierKey"+"}", url.PathEscape(parameterValueToString(r.productTierKey, "productTierKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"resourceKey"+"}", url.PathEscape(parameterValueToString(r.resourceKey, "resourceKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"snapshotId"+"}", url.PathEscape(parameterValueToString(r.snapshotId, "snapshotId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.restoreResourceInstanceFromSnapshotRequestBody == nil {
+		return localVarReturnValue, nil, reportError("restoreResourceInstanceFromSnapshotRequestBody is required and must be specified")
+	}
+
+	if r.subscriptionId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "subscriptionId", r.subscriptionId, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.restoreResourceInstanceFromSnapshotRequestBody
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

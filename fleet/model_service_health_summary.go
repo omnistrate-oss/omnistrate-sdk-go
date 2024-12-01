@@ -38,6 +38,8 @@ type ServiceHealthSummary struct {
 	TotalInstances int64 `json:"totalInstances"`
 	// The number of unhealthy instances in the region
 	UnhealthyInstances int64 `json:"unhealthyInstances"`
+	// The number of instances with unknown status
+	UnknownInstances *int64 `json:"unknownInstances,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -285,6 +287,38 @@ func (o *ServiceHealthSummary) SetUnhealthyInstances(v int64) {
 	o.UnhealthyInstances = v
 }
 
+// GetUnknownInstances returns the UnknownInstances field value if set, zero value otherwise.
+func (o *ServiceHealthSummary) GetUnknownInstances() int64 {
+	if o == nil || IsNil(o.UnknownInstances) {
+		var ret int64
+		return ret
+	}
+	return *o.UnknownInstances
+}
+
+// GetUnknownInstancesOk returns a tuple with the UnknownInstances field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceHealthSummary) GetUnknownInstancesOk() (*int64, bool) {
+	if o == nil || IsNil(o.UnknownInstances) {
+		return nil, false
+	}
+	return o.UnknownInstances, true
+}
+
+// HasUnknownInstances returns a boolean if a field has been set.
+func (o *ServiceHealthSummary) HasUnknownInstances() bool {
+	if o != nil && !IsNil(o.UnknownInstances) {
+		return true
+	}
+
+	return false
+}
+
+// SetUnknownInstances gets a reference to the given int64 and assigns it to the UnknownInstances field.
+func (o *ServiceHealthSummary) SetUnknownInstances(v int64) {
+	o.UnknownInstances = &v
+}
+
 func (o ServiceHealthSummary) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -304,6 +338,9 @@ func (o ServiceHealthSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize["status"] = o.Status
 	toSerialize["totalInstances"] = o.TotalInstances
 	toSerialize["unhealthyInstances"] = o.UnhealthyInstances
+	if !IsNil(o.UnknownInstances) {
+		toSerialize["unknownInstances"] = o.UnknownInstances
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -364,6 +401,7 @@ func (o *ServiceHealthSummary) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "totalInstances")
 		delete(additionalProperties, "unhealthyInstances")
+		delete(additionalProperties, "unknownInstances")
 		o.AdditionalProperties = additionalProperties
 	}
 

@@ -22,12 +22,18 @@ var _ MappedNullable = &FleetDescribeInstanceSnapshotResult{}
 type FleetDescribeInstanceSnapshotResult struct {
 	// The snapshot time
 	CompleteTime string `json:"completeTime"`
+	// The snapshot creation time
+	CreatedTime string `json:"createdTime"`
+	// Whether the snapshot is encrypted
+	Encrypted bool `json:"encrypted"`
 	// The service environment ID this workflow belongs to.
 	EnvironmentId string `json:"environmentId"`
 	// The product tier ID
 	ProductTierId string `json:"productTierId"`
 	// The product tier version
 	ProductTierVersion string `json:"productTierVersion"`
+	// The backup progress. 0-100
+	Progress int64 `json:"progress"`
 	// The service ID this workflow belongs to.
 	ServiceId string `json:"serviceId"`
 	// The instance snapshot ID
@@ -45,12 +51,15 @@ type _FleetDescribeInstanceSnapshotResult FleetDescribeInstanceSnapshotResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFleetDescribeInstanceSnapshotResult(completeTime string, environmentId string, productTierId string, productTierVersion string, serviceId string, snapshotId string, sourceInstanceId string, status string) *FleetDescribeInstanceSnapshotResult {
+func NewFleetDescribeInstanceSnapshotResult(completeTime string, createdTime string, encrypted bool, environmentId string, productTierId string, productTierVersion string, progress int64, serviceId string, snapshotId string, sourceInstanceId string, status string) *FleetDescribeInstanceSnapshotResult {
 	this := FleetDescribeInstanceSnapshotResult{}
 	this.CompleteTime = completeTime
+	this.CreatedTime = createdTime
+	this.Encrypted = encrypted
 	this.EnvironmentId = environmentId
 	this.ProductTierId = productTierId
 	this.ProductTierVersion = productTierVersion
+	this.Progress = progress
 	this.ServiceId = serviceId
 	this.SnapshotId = snapshotId
 	this.SourceInstanceId = sourceInstanceId
@@ -88,6 +97,54 @@ func (o *FleetDescribeInstanceSnapshotResult) GetCompleteTimeOk() (*string, bool
 // SetCompleteTime sets field value
 func (o *FleetDescribeInstanceSnapshotResult) SetCompleteTime(v string) {
 	o.CompleteTime = v
+}
+
+// GetCreatedTime returns the CreatedTime field value
+func (o *FleetDescribeInstanceSnapshotResult) GetCreatedTime() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CreatedTime
+}
+
+// GetCreatedTimeOk returns a tuple with the CreatedTime field value
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetCreatedTimeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreatedTime, true
+}
+
+// SetCreatedTime sets field value
+func (o *FleetDescribeInstanceSnapshotResult) SetCreatedTime(v string) {
+	o.CreatedTime = v
+}
+
+// GetEncrypted returns the Encrypted field value
+func (o *FleetDescribeInstanceSnapshotResult) GetEncrypted() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.Encrypted
+}
+
+// GetEncryptedOk returns a tuple with the Encrypted field value
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetEncryptedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Encrypted, true
+}
+
+// SetEncrypted sets field value
+func (o *FleetDescribeInstanceSnapshotResult) SetEncrypted(v bool) {
+	o.Encrypted = v
 }
 
 // GetEnvironmentId returns the EnvironmentId field value
@@ -160,6 +217,30 @@ func (o *FleetDescribeInstanceSnapshotResult) GetProductTierVersionOk() (*string
 // SetProductTierVersion sets field value
 func (o *FleetDescribeInstanceSnapshotResult) SetProductTierVersion(v string) {
 	o.ProductTierVersion = v
+}
+
+// GetProgress returns the Progress field value
+func (o *FleetDescribeInstanceSnapshotResult) GetProgress() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.Progress
+}
+
+// GetProgressOk returns a tuple with the Progress field value
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetProgressOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Progress, true
+}
+
+// SetProgress sets field value
+func (o *FleetDescribeInstanceSnapshotResult) SetProgress(v int64) {
+	o.Progress = v
 }
 
 // GetServiceId returns the ServiceId field value
@@ -269,9 +350,12 @@ func (o FleetDescribeInstanceSnapshotResult) MarshalJSON() ([]byte, error) {
 func (o FleetDescribeInstanceSnapshotResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["completeTime"] = o.CompleteTime
+	toSerialize["createdTime"] = o.CreatedTime
+	toSerialize["encrypted"] = o.Encrypted
 	toSerialize["environmentId"] = o.EnvironmentId
 	toSerialize["productTierId"] = o.ProductTierId
 	toSerialize["productTierVersion"] = o.ProductTierVersion
+	toSerialize["progress"] = o.Progress
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["snapshotId"] = o.SnapshotId
 	toSerialize["sourceInstanceId"] = o.SourceInstanceId
@@ -290,9 +374,12 @@ func (o *FleetDescribeInstanceSnapshotResult) UnmarshalJSON(data []byte) (err er
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"completeTime",
+		"createdTime",
+		"encrypted",
 		"environmentId",
 		"productTierId",
 		"productTierVersion",
+		"progress",
 		"serviceId",
 		"snapshotId",
 		"sourceInstanceId",
@@ -327,9 +414,12 @@ func (o *FleetDescribeInstanceSnapshotResult) UnmarshalJSON(data []byte) (err er
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "completeTime")
+		delete(additionalProperties, "createdTime")
+		delete(additionalProperties, "encrypted")
 		delete(additionalProperties, "environmentId")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "productTierVersion")
+		delete(additionalProperties, "progress")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "snapshotId")
 		delete(additionalProperties, "sourceInstanceId")

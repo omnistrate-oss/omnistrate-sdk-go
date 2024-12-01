@@ -573,11 +573,18 @@ type ApiSubscriptionApiListSubscriptionsRequest struct {
 	ctx context.Context
 	ApiService SubscriptionApiAPI
 	serviceId *string
+	environmentType *string
 }
 
 // Service Id
 func (r ApiSubscriptionApiListSubscriptionsRequest) ServiceId(serviceId string) ApiSubscriptionApiListSubscriptionsRequest {
 	r.serviceId = &serviceId
+	return r
+}
+
+// The environment type to filter by
+func (r ApiSubscriptionApiListSubscriptionsRequest) EnvironmentType(environmentType string) ApiSubscriptionApiListSubscriptionsRequest {
+	r.environmentType = &environmentType
 	return r
 }
 
@@ -621,6 +628,9 @@ func (a *SubscriptionApiAPIService) SubscriptionApiListSubscriptionsExecute(r Ap
 
 	if r.serviceId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "serviceId", r.serviceId, "form", "")
+	}
+	if r.environmentType != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "environmentType", r.environmentType, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

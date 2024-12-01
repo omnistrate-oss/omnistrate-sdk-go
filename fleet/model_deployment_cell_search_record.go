@@ -28,16 +28,6 @@ type DeploymentCellSearchRecord struct {
 	Id string `json:"id"`
 	// The region code of the deployment cell.
 	RegionCode string `json:"regionCode"`
-	// The service environment ID of the deployment cell.
-	ServiceEnvironmentID string `json:"serviceEnvironmentID"`
-	// The service environment name of the deployment cell.
-	ServiceEnvironmentName string `json:"serviceEnvironmentName"`
-	// The service environment type of the deployment cell.
-	ServiceEnvironmentType *string `json:"serviceEnvironmentType,omitempty"`
-	// The service ID of the deployment cell.
-	ServiceID string `json:"serviceID"`
-	// The service name of the deployment cell.
-	ServiceName string `json:"serviceName"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -47,16 +37,12 @@ type _DeploymentCellSearchRecord DeploymentCellSearchRecord
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDeploymentCellSearchRecord(cloudProvider string, description string, id string, regionCode string, serviceEnvironmentID string, serviceEnvironmentName string, serviceID string, serviceName string) *DeploymentCellSearchRecord {
+func NewDeploymentCellSearchRecord(cloudProvider string, description string, id string, regionCode string) *DeploymentCellSearchRecord {
 	this := DeploymentCellSearchRecord{}
 	this.CloudProvider = cloudProvider
 	this.Description = description
 	this.Id = id
 	this.RegionCode = regionCode
-	this.ServiceEnvironmentID = serviceEnvironmentID
-	this.ServiceEnvironmentName = serviceEnvironmentName
-	this.ServiceID = serviceID
-	this.ServiceName = serviceName
 	return &this
 }
 
@@ -164,134 +150,6 @@ func (o *DeploymentCellSearchRecord) SetRegionCode(v string) {
 	o.RegionCode = v
 }
 
-// GetServiceEnvironmentID returns the ServiceEnvironmentID field value
-func (o *DeploymentCellSearchRecord) GetServiceEnvironmentID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ServiceEnvironmentID
-}
-
-// GetServiceEnvironmentIDOk returns a tuple with the ServiceEnvironmentID field value
-// and a boolean to check if the value has been set.
-func (o *DeploymentCellSearchRecord) GetServiceEnvironmentIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ServiceEnvironmentID, true
-}
-
-// SetServiceEnvironmentID sets field value
-func (o *DeploymentCellSearchRecord) SetServiceEnvironmentID(v string) {
-	o.ServiceEnvironmentID = v
-}
-
-// GetServiceEnvironmentName returns the ServiceEnvironmentName field value
-func (o *DeploymentCellSearchRecord) GetServiceEnvironmentName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ServiceEnvironmentName
-}
-
-// GetServiceEnvironmentNameOk returns a tuple with the ServiceEnvironmentName field value
-// and a boolean to check if the value has been set.
-func (o *DeploymentCellSearchRecord) GetServiceEnvironmentNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ServiceEnvironmentName, true
-}
-
-// SetServiceEnvironmentName sets field value
-func (o *DeploymentCellSearchRecord) SetServiceEnvironmentName(v string) {
-	o.ServiceEnvironmentName = v
-}
-
-// GetServiceEnvironmentType returns the ServiceEnvironmentType field value if set, zero value otherwise.
-func (o *DeploymentCellSearchRecord) GetServiceEnvironmentType() string {
-	if o == nil || IsNil(o.ServiceEnvironmentType) {
-		var ret string
-		return ret
-	}
-	return *o.ServiceEnvironmentType
-}
-
-// GetServiceEnvironmentTypeOk returns a tuple with the ServiceEnvironmentType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DeploymentCellSearchRecord) GetServiceEnvironmentTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.ServiceEnvironmentType) {
-		return nil, false
-	}
-	return o.ServiceEnvironmentType, true
-}
-
-// HasServiceEnvironmentType returns a boolean if a field has been set.
-func (o *DeploymentCellSearchRecord) HasServiceEnvironmentType() bool {
-	if o != nil && !IsNil(o.ServiceEnvironmentType) {
-		return true
-	}
-
-	return false
-}
-
-// SetServiceEnvironmentType gets a reference to the given string and assigns it to the ServiceEnvironmentType field.
-func (o *DeploymentCellSearchRecord) SetServiceEnvironmentType(v string) {
-	o.ServiceEnvironmentType = &v
-}
-
-// GetServiceID returns the ServiceID field value
-func (o *DeploymentCellSearchRecord) GetServiceID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ServiceID
-}
-
-// GetServiceIDOk returns a tuple with the ServiceID field value
-// and a boolean to check if the value has been set.
-func (o *DeploymentCellSearchRecord) GetServiceIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ServiceID, true
-}
-
-// SetServiceID sets field value
-func (o *DeploymentCellSearchRecord) SetServiceID(v string) {
-	o.ServiceID = v
-}
-
-// GetServiceName returns the ServiceName field value
-func (o *DeploymentCellSearchRecord) GetServiceName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ServiceName
-}
-
-// GetServiceNameOk returns a tuple with the ServiceName field value
-// and a boolean to check if the value has been set.
-func (o *DeploymentCellSearchRecord) GetServiceNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ServiceName, true
-}
-
-// SetServiceName sets field value
-func (o *DeploymentCellSearchRecord) SetServiceName(v string) {
-	o.ServiceName = v
-}
-
 func (o DeploymentCellSearchRecord) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -306,13 +164,6 @@ func (o DeploymentCellSearchRecord) ToMap() (map[string]interface{}, error) {
 	toSerialize["description"] = o.Description
 	toSerialize["id"] = o.Id
 	toSerialize["regionCode"] = o.RegionCode
-	toSerialize["serviceEnvironmentID"] = o.ServiceEnvironmentID
-	toSerialize["serviceEnvironmentName"] = o.ServiceEnvironmentName
-	if !IsNil(o.ServiceEnvironmentType) {
-		toSerialize["serviceEnvironmentType"] = o.ServiceEnvironmentType
-	}
-	toSerialize["serviceID"] = o.ServiceID
-	toSerialize["serviceName"] = o.ServiceName
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -330,10 +181,6 @@ func (o *DeploymentCellSearchRecord) UnmarshalJSON(data []byte) (err error) {
 		"description",
 		"id",
 		"regionCode",
-		"serviceEnvironmentID",
-		"serviceEnvironmentName",
-		"serviceID",
-		"serviceName",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -367,11 +214,6 @@ func (o *DeploymentCellSearchRecord) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "regionCode")
-		delete(additionalProperties, "serviceEnvironmentID")
-		delete(additionalProperties, "serviceEnvironmentName")
-		delete(additionalProperties, "serviceEnvironmentType")
-		delete(additionalProperties, "serviceID")
-		delete(additionalProperties, "serviceName")
 		o.AdditionalProperties = additionalProperties
 	}
 

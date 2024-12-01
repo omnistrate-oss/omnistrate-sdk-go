@@ -22,8 +22,18 @@ var _ MappedNullable = &OperatorHelmChartDependency{}
 type OperatorHelmChartDependency struct {
 	// The name of the helm chart
 	ChartName string `json:"chartName"`
+	// The repository name of the Helm chart
+	ChartRepoName *string `json:"chartRepoName,omitempty"`
+	// The repository URL of the Helm chart
+	ChartRepoUrl *string `json:"chartRepoUrl,omitempty"`
+	// The values of the Helm chart
+	ChartValues map[string]interface{} `json:"chartValues,omitempty"`
 	// The version of the helm chart
 	ChartVersion string `json:"chartVersion"`
+	// The password to authenticate with the registry
+	Password *string `json:"password,omitempty"`
+	// The username to authenticate with the registry
+	Username *string `json:"username,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -72,6 +82,75 @@ func (o *OperatorHelmChartDependency) SetChartName(v string) {
 	o.ChartName = v
 }
 
+// GetChartRepoName returns the ChartRepoName field value if set, zero value otherwise.
+func (o *OperatorHelmChartDependency) GetChartRepoName() string {
+	if o == nil || IsNil(o.ChartRepoName) {
+		var ret string
+		return ret
+	}
+	return *o.ChartRepoName
+}
+
+// GetChartRepoNameOk returns a tuple with the ChartRepoName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OperatorHelmChartDependency) GetChartRepoNameOk() (*string, bool) {
+	if o == nil || IsNil(o.ChartRepoName) {
+		return nil, false
+	}
+	return o.ChartRepoName, true
+}
+
+// SetChartRepoName gets a reference to the given string and assigns it to the ChartRepoName field.
+func (o *OperatorHelmChartDependency) SetChartRepoName(v string) {
+	o.ChartRepoName = &v
+}
+
+// GetChartRepoUrl returns the ChartRepoUrl field value if set, zero value otherwise.
+func (o *OperatorHelmChartDependency) GetChartRepoUrl() string {
+	if o == nil || IsNil(o.ChartRepoUrl) {
+		var ret string
+		return ret
+	}
+	return *o.ChartRepoUrl
+}
+
+// GetChartRepoUrlOk returns a tuple with the ChartRepoUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OperatorHelmChartDependency) GetChartRepoUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.ChartRepoUrl) {
+		return nil, false
+	}
+	return o.ChartRepoUrl, true
+}
+
+// SetChartRepoUrl gets a reference to the given string and assigns it to the ChartRepoUrl field.
+func (o *OperatorHelmChartDependency) SetChartRepoUrl(v string) {
+	o.ChartRepoUrl = &v
+}
+
+// GetChartValues returns the ChartValues field value if set, zero value otherwise.
+func (o *OperatorHelmChartDependency) GetChartValues() map[string]interface{} {
+	if o == nil || IsNil(o.ChartValues) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.ChartValues
+}
+
+// GetChartValuesOk returns a tuple with the ChartValues field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OperatorHelmChartDependency) GetChartValuesOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.ChartValues) {
+		return map[string]interface{}{}, false
+	}
+	return o.ChartValues, true
+}
+
+// SetChartValues gets a reference to the given map[string]interface{} and assigns it to the ChartValues field.
+func (o *OperatorHelmChartDependency) SetChartValues(v map[string]interface{}) {
+	o.ChartValues = v
+}
+
 // GetChartVersion returns the ChartVersion field value
 func (o *OperatorHelmChartDependency) GetChartVersion() string {
 	if o == nil {
@@ -96,6 +175,52 @@ func (o *OperatorHelmChartDependency) SetChartVersion(v string) {
 	o.ChartVersion = v
 }
 
+// GetPassword returns the Password field value if set, zero value otherwise.
+func (o *OperatorHelmChartDependency) GetPassword() string {
+	if o == nil || IsNil(o.Password) {
+		var ret string
+		return ret
+	}
+	return *o.Password
+}
+
+// GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OperatorHelmChartDependency) GetPasswordOk() (*string, bool) {
+	if o == nil || IsNil(o.Password) {
+		return nil, false
+	}
+	return o.Password, true
+}
+
+// SetPassword gets a reference to the given string and assigns it to the Password field.
+func (o *OperatorHelmChartDependency) SetPassword(v string) {
+	o.Password = &v
+}
+
+// GetUsername returns the Username field value if set, zero value otherwise.
+func (o *OperatorHelmChartDependency) GetUsername() string {
+	if o == nil || IsNil(o.Username) {
+		var ret string
+		return ret
+	}
+	return *o.Username
+}
+
+// GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OperatorHelmChartDependency) GetUsernameOk() (*string, bool) {
+	if o == nil || IsNil(o.Username) {
+		return nil, false
+	}
+	return o.Username, true
+}
+
+// SetUsername gets a reference to the given string and assigns it to the Username field.
+func (o *OperatorHelmChartDependency) SetUsername(v string) {
+	o.Username = &v
+}
+
 func (o OperatorHelmChartDependency) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -107,7 +232,22 @@ func (o OperatorHelmChartDependency) MarshalJSON() ([]byte, error) {
 func (o OperatorHelmChartDependency) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["chartName"] = o.ChartName
+	if !IsNil(o.ChartRepoName) {
+		toSerialize["chartRepoName"] = o.ChartRepoName
+	}
+	if !IsNil(o.ChartRepoUrl) {
+		toSerialize["chartRepoUrl"] = o.ChartRepoUrl
+	}
+	if !IsNil(o.ChartValues) {
+		toSerialize["chartValues"] = o.ChartValues
+	}
 	toSerialize["chartVersion"] = o.ChartVersion
+	if !IsNil(o.Password) {
+		toSerialize["password"] = o.Password
+	}
+	if !IsNil(o.Username) {
+		toSerialize["username"] = o.Username
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -153,7 +293,12 @@ func (o *OperatorHelmChartDependency) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "chartName")
+		delete(additionalProperties, "chartRepoName")
+		delete(additionalProperties, "chartRepoUrl")
+		delete(additionalProperties, "chartValues")
 		delete(additionalProperties, "chartVersion")
+		delete(additionalProperties, "password")
+		delete(additionalProperties, "username")
 		o.AdditionalProperties = additionalProperties
 	}
 

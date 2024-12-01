@@ -6,6 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **GitConfiguration** | Pointer to [**GitConfiguration**](GitConfiguration.md) |  | [optional] 
 **PrivateModuleGitAccessTokens** | Pointer to **map[string]string** | The git access tokens for private modules | [optional] 
+**RequiredOutputKeys** | Pointer to **[]string** | The required output keys to export | [optional] 
+**RequiredOutputs** | Pointer to [**[]TerraformOutput**](TerraformOutput.md) | The required output keys to export | [optional] 
+**TerraformExecutionIdentity** | Pointer to **string** | The identity to use for terraform execution | [optional] 
 **TerraformPath** | **string** | The path to the terraform files directory | 
 
 ## Methods
@@ -76,6 +79,81 @@ SetPrivateModuleGitAccessTokens sets PrivateModuleGitAccessTokens field to given
 `func (o *TerraformConfiguration) HasPrivateModuleGitAccessTokens() bool`
 
 HasPrivateModuleGitAccessTokens returns a boolean if a field has been set.
+
+### GetRequiredOutputKeys
+
+`func (o *TerraformConfiguration) GetRequiredOutputKeys() []string`
+
+GetRequiredOutputKeys returns the RequiredOutputKeys field if non-nil, zero value otherwise.
+
+### GetRequiredOutputKeysOk
+
+`func (o *TerraformConfiguration) GetRequiredOutputKeysOk() (*[]string, bool)`
+
+GetRequiredOutputKeysOk returns a tuple with the RequiredOutputKeys field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequiredOutputKeys
+
+`func (o *TerraformConfiguration) SetRequiredOutputKeys(v []string)`
+
+SetRequiredOutputKeys sets RequiredOutputKeys field to given value.
+
+### HasRequiredOutputKeys
+
+`func (o *TerraformConfiguration) HasRequiredOutputKeys() bool`
+
+HasRequiredOutputKeys returns a boolean if a field has been set.
+
+### GetRequiredOutputs
+
+`func (o *TerraformConfiguration) GetRequiredOutputs() []TerraformOutput`
+
+GetRequiredOutputs returns the RequiredOutputs field if non-nil, zero value otherwise.
+
+### GetRequiredOutputsOk
+
+`func (o *TerraformConfiguration) GetRequiredOutputsOk() (*[]TerraformOutput, bool)`
+
+GetRequiredOutputsOk returns a tuple with the RequiredOutputs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequiredOutputs
+
+`func (o *TerraformConfiguration) SetRequiredOutputs(v []TerraformOutput)`
+
+SetRequiredOutputs sets RequiredOutputs field to given value.
+
+### HasRequiredOutputs
+
+`func (o *TerraformConfiguration) HasRequiredOutputs() bool`
+
+HasRequiredOutputs returns a boolean if a field has been set.
+
+### GetTerraformExecutionIdentity
+
+`func (o *TerraformConfiguration) GetTerraformExecutionIdentity() string`
+
+GetTerraformExecutionIdentity returns the TerraformExecutionIdentity field if non-nil, zero value otherwise.
+
+### GetTerraformExecutionIdentityOk
+
+`func (o *TerraformConfiguration) GetTerraformExecutionIdentityOk() (*string, bool)`
+
+GetTerraformExecutionIdentityOk returns a tuple with the TerraformExecutionIdentity field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTerraformExecutionIdentity
+
+`func (o *TerraformConfiguration) SetTerraformExecutionIdentity(v string)`
+
+SetTerraformExecutionIdentity sets TerraformExecutionIdentity field to given value.
+
+### HasTerraformExecutionIdentity
+
+`func (o *TerraformConfiguration) HasTerraformExecutionIdentity() bool`
+
+HasTerraformExecutionIdentity returns a boolean if a field has been set.
 
 ### GetTerraformPath
 

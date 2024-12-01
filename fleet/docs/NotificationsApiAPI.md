@@ -31,7 +31,7 @@ import (
 )
 
 func main() {
-	createNotificationChannelRequestBody := *openapiclient.NewCreateNotificationChannelRequestBody("My Channel", *openapiclient.NewChannelSubscription([]string{"In dolores."}, []string{"Assumenda architecto magni consectetur ducimus sint atque."}, []string{"Magni aperiam unde assumenda alias iusto."}, []string{"Placeat distinctio."}, []string{"Quia ut voluptates laboriosam qui quae."})) // CreateNotificationChannelRequestBody | 
+	createNotificationChannelRequestBody := *openapiclient.NewCreateNotificationChannelRequestBody("My Channel", *openapiclient.NewChannelSubscription([]string{"Cupiditate quidem qui atque rerum."}, []string{"Dignissimos cumque fugit."}, []string{"Cupiditate dolor facere iure quisquam saepe cumque."}, []string{"Saepe ex quod."}, []string{"Nisi est ipsa in et."})) // CreateNotificationChannelRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

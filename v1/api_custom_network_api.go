@@ -442,6 +442,7 @@ type ApiCustomNetworkApiListCustomNetworksRequest struct {
 	ApiService CustomNetworkApiAPI
 	cloudProviderName *string
 	cloudProviderRegion *string
+	customNetworksOnly *bool
 }
 
 // The name of the cloud provider that custom network should be created in
@@ -453,6 +454,12 @@ func (r ApiCustomNetworkApiListCustomNetworksRequest) CloudProviderName(cloudPro
 // The region of the cloud provider that the network should be created in
 func (r ApiCustomNetworkApiListCustomNetworksRequest) CloudProviderRegion(cloudProviderRegion string) ApiCustomNetworkApiListCustomNetworksRequest {
 	r.cloudProviderRegion = &cloudProviderRegion
+	return r
+}
+
+// Flag indicating whether to return only custom networks, or to include default and imported networks as well
+func (r ApiCustomNetworkApiListCustomNetworksRequest) CustomNetworksOnly(customNetworksOnly bool) ApiCustomNetworkApiListCustomNetworksRequest {
+	r.customNetworksOnly = &customNetworksOnly
 	return r
 }
 
@@ -499,6 +506,9 @@ func (a *CustomNetworkApiAPIService) CustomNetworkApiListCustomNetworksExecute(r
 	}
 	if r.cloudProviderRegion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "cloudProviderRegion", r.cloudProviderRegion, "form", "")
+	}
+	if r.customNetworksOnly != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "customNetworksOnly", r.customNetworksOnly, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
