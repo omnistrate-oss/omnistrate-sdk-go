@@ -10,7 +10,9 @@ Name | Type | Description | Notes
 **HelmPackages** | Pointer to [**[]HelmPackage**](HelmPackage.md) | Helm packages installed on the host cluster | [optional] 
 **Id** | **string** |  | 
 **KubernetesDashboardEndpoint** | Pointer to **string** | Endpoint of the Kubernetes dashboard | [optional] 
+**ModelType** | Pointer to **string** | The model type of the host cluster | [optional] 
 **RegionId** | Pointer to **string** |  | [optional] 
+**Role** | Pointer to **string** | The role of the host cluster | [optional] 
 **Status** | **string** | Status of the host cluster | 
 **Type** | **string** | Type of the host cluster | 
 
@@ -168,6 +170,31 @@ SetKubernetesDashboardEndpoint sets KubernetesDashboardEndpoint field to given v
 
 HasKubernetesDashboardEndpoint returns a boolean if a field has been set.
 
+### GetModelType
+
+`func (o *HostCluster) GetModelType() string`
+
+GetModelType returns the ModelType field if non-nil, zero value otherwise.
+
+### GetModelTypeOk
+
+`func (o *HostCluster) GetModelTypeOk() (*string, bool)`
+
+GetModelTypeOk returns a tuple with the ModelType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModelType
+
+`func (o *HostCluster) SetModelType(v string)`
+
+SetModelType sets ModelType field to given value.
+
+### HasModelType
+
+`func (o *HostCluster) HasModelType() bool`
+
+HasModelType returns a boolean if a field has been set.
+
 ### GetRegionId
 
 `func (o *HostCluster) GetRegionId() string`
@@ -192,6 +219,31 @@ SetRegionId sets RegionId field to given value.
 `func (o *HostCluster) HasRegionId() bool`
 
 HasRegionId returns a boolean if a field has been set.
+
+### GetRole
+
+`func (o *HostCluster) GetRole() string`
+
+GetRole returns the Role field if non-nil, zero value otherwise.
+
+### GetRoleOk
+
+`func (o *HostCluster) GetRoleOk() (*string, bool)`
+
+GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRole
+
+`func (o *HostCluster) SetRole(v string)`
+
+SetRole sets Role field to given value.
+
+### HasRole
+
+`func (o *HostCluster) HasRole() bool`
+
+HasRole returns a boolean if a field has been set.
 
 ### GetStatus
 

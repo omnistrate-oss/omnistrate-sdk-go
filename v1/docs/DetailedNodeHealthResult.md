@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ConnectivityStatus** | **string** | The health status of the network endpoints | 
-**DiskHealth** | **string** | The health status of the disk | 
-**LoadHealth** | **string** | The load status of the pod | 
-**NodeHealth** | **string** | The health status of the machine hosting the service | 
-**ProcessHealth** | **string** | The health status of the process | 
-**ProcessLiveness** | **string** | The liveness status of the process | 
+**ConnectivityStatus** | Pointer to **string** | The health status of the network endpoints | [optional] 
+**DiskHealth** | Pointer to **string** | The health status of the disk | [optional] 
+**LoadHealth** | Pointer to **string** | The load status of the pod | [optional] 
+**NodeHealth** | Pointer to **string** | The health status of the machine hosting the service | [optional] 
+**ProcessHealth** | Pointer to **string** | The health status of the process | [optional] 
+**ProcessLiveness** | Pointer to **string** | The liveness status of the process | [optional] 
 
 ## Methods
 
 ### NewDetailedNodeHealthResult
 
-`func NewDetailedNodeHealthResult(connectivityStatus string, diskHealth string, loadHealth string, nodeHealth string, processHealth string, processLiveness string, ) *DetailedNodeHealthResult`
+`func NewDetailedNodeHealthResult() *DetailedNodeHealthResult`
 
 NewDetailedNodeHealthResult instantiates a new DetailedNodeHealthResult object
 This constructor will assign default values to properties that have it defined,
@@ -49,6 +49,11 @@ and a boolean to check if the value has been set.
 
 SetConnectivityStatus sets ConnectivityStatus field to given value.
 
+### HasConnectivityStatus
+
+`func (o *DetailedNodeHealthResult) HasConnectivityStatus() bool`
+
+HasConnectivityStatus returns a boolean if a field has been set.
 
 ### GetDiskHealth
 
@@ -69,6 +74,11 @@ and a boolean to check if the value has been set.
 
 SetDiskHealth sets DiskHealth field to given value.
 
+### HasDiskHealth
+
+`func (o *DetailedNodeHealthResult) HasDiskHealth() bool`
+
+HasDiskHealth returns a boolean if a field has been set.
 
 ### GetLoadHealth
 
@@ -89,6 +99,11 @@ and a boolean to check if the value has been set.
 
 SetLoadHealth sets LoadHealth field to given value.
 
+### HasLoadHealth
+
+`func (o *DetailedNodeHealthResult) HasLoadHealth() bool`
+
+HasLoadHealth returns a boolean if a field has been set.
 
 ### GetNodeHealth
 
@@ -109,6 +124,11 @@ and a boolean to check if the value has been set.
 
 SetNodeHealth sets NodeHealth field to given value.
 
+### HasNodeHealth
+
+`func (o *DetailedNodeHealthResult) HasNodeHealth() bool`
+
+HasNodeHealth returns a boolean if a field has been set.
 
 ### GetProcessHealth
 
@@ -129,6 +149,11 @@ and a boolean to check if the value has been set.
 
 SetProcessHealth sets ProcessHealth field to given value.
 
+### HasProcessHealth
+
+`func (o *DetailedNodeHealthResult) HasProcessHealth() bool`
+
+HasProcessHealth returns a boolean if a field has been set.
 
 ### GetProcessLiveness
 
@@ -149,6 +174,11 @@ and a boolean to check if the value has been set.
 
 SetProcessLiveness sets ProcessLiveness field to given value.
 
+### HasProcessLiveness
+
+`func (o *DetailedNodeHealthResult) HasProcessLiveness() bool`
+
+HasProcessLiveness returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

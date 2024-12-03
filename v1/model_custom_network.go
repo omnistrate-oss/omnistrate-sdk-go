@@ -30,6 +30,8 @@ type CustomNetwork struct {
 	Id string `json:"id"`
 	// User friendly network name to help distinguish networks with same CIDRs
 	Name *string `json:"name,omitempty"`
+	// Type of the network definition
+	NetworkDefinitionType *string `json:"networkDefinitionType,omitempty"`
 	NetworkFeaturesConfiguration *NetworkFeaturesConfiguration `json:"networkFeaturesConfiguration,omitempty"`
 	// List of network instances created within this custom network
 	NetworkInstances []CustomNetworkInstance `json:"networkInstances,omitempty"`
@@ -180,6 +182,29 @@ func (o *CustomNetwork) SetName(v string) {
 	o.Name = &v
 }
 
+// GetNetworkDefinitionType returns the NetworkDefinitionType field value if set, zero value otherwise.
+func (o *CustomNetwork) GetNetworkDefinitionType() string {
+	if o == nil || IsNil(o.NetworkDefinitionType) {
+		var ret string
+		return ret
+	}
+	return *o.NetworkDefinitionType
+}
+
+// GetNetworkDefinitionTypeOk returns a tuple with the NetworkDefinitionType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomNetwork) GetNetworkDefinitionTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.NetworkDefinitionType) {
+		return nil, false
+	}
+	return o.NetworkDefinitionType, true
+}
+
+// SetNetworkDefinitionType gets a reference to the given string and assigns it to the NetworkDefinitionType field.
+func (o *CustomNetwork) SetNetworkDefinitionType(v string) {
+	o.NetworkDefinitionType = &v
+}
+
 // GetNetworkFeaturesConfiguration returns the NetworkFeaturesConfiguration field value if set, zero value otherwise.
 func (o *CustomNetwork) GetNetworkFeaturesConfiguration() NetworkFeaturesConfiguration {
 	if o == nil || IsNil(o.NetworkFeaturesConfiguration) {
@@ -245,6 +270,9 @@ func (o CustomNetwork) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
+	if !IsNil(o.NetworkDefinitionType) {
+		toSerialize["networkDefinitionType"] = o.NetworkDefinitionType
+	}
 	if !IsNil(o.NetworkFeaturesConfiguration) {
 		toSerialize["networkFeaturesConfiguration"] = o.NetworkFeaturesConfiguration
 	}
@@ -301,6 +329,7 @@ func (o *CustomNetwork) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "cloudProviderRegion")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "networkDefinitionType")
 		delete(additionalProperties, "networkFeaturesConfiguration")
 		delete(additionalProperties, "networkInstances")
 		o.AdditionalProperties = additionalProperties

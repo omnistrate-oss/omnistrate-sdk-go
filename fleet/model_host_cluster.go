@@ -28,7 +28,11 @@ type HostCluster struct {
 	Id string `json:"id"`
 	// Endpoint of the Kubernetes dashboard
 	KubernetesDashboardEndpoint *string `json:"kubernetesDashboardEndpoint,omitempty"`
+	// The model type of the host cluster
+	ModelType *string `json:"modelType,omitempty"`
 	RegionId *string `json:"regionId,omitempty"`
+	// The role of the host cluster
+	Role *string `json:"role,omitempty"`
 	// Status of the host cluster
 	Status string `json:"status"`
 	// Type of the host cluster
@@ -228,6 +232,38 @@ func (o *HostCluster) SetKubernetesDashboardEndpoint(v string) {
 	o.KubernetesDashboardEndpoint = &v
 }
 
+// GetModelType returns the ModelType field value if set, zero value otherwise.
+func (o *HostCluster) GetModelType() string {
+	if o == nil || IsNil(o.ModelType) {
+		var ret string
+		return ret
+	}
+	return *o.ModelType
+}
+
+// GetModelTypeOk returns a tuple with the ModelType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetModelTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.ModelType) {
+		return nil, false
+	}
+	return o.ModelType, true
+}
+
+// HasModelType returns a boolean if a field has been set.
+func (o *HostCluster) HasModelType() bool {
+	if o != nil && !IsNil(o.ModelType) {
+		return true
+	}
+
+	return false
+}
+
+// SetModelType gets a reference to the given string and assigns it to the ModelType field.
+func (o *HostCluster) SetModelType(v string) {
+	o.ModelType = &v
+}
+
 // GetRegionId returns the RegionId field value if set, zero value otherwise.
 func (o *HostCluster) GetRegionId() string {
 	if o == nil || IsNil(o.RegionId) {
@@ -258,6 +294,38 @@ func (o *HostCluster) HasRegionId() bool {
 // SetRegionId gets a reference to the given string and assigns it to the RegionId field.
 func (o *HostCluster) SetRegionId(v string) {
 	o.RegionId = &v
+}
+
+// GetRole returns the Role field value if set, zero value otherwise.
+func (o *HostCluster) GetRole() string {
+	if o == nil || IsNil(o.Role) {
+		var ret string
+		return ret
+	}
+	return *o.Role
+}
+
+// GetRoleOk returns a tuple with the Role field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetRoleOk() (*string, bool) {
+	if o == nil || IsNil(o.Role) {
+		return nil, false
+	}
+	return o.Role, true
+}
+
+// HasRole returns a boolean if a field has been set.
+func (o *HostCluster) HasRole() bool {
+	if o != nil && !IsNil(o.Role) {
+		return true
+	}
+
+	return false
+}
+
+// SetRole gets a reference to the given string and assigns it to the Role field.
+func (o *HostCluster) SetRole(v string) {
+	o.Role = &v
 }
 
 // GetStatus returns the Status field value
@@ -330,8 +398,14 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.KubernetesDashboardEndpoint) {
 		toSerialize["kubernetesDashboardEndpoint"] = o.KubernetesDashboardEndpoint
 	}
+	if !IsNil(o.ModelType) {
+		toSerialize["modelType"] = o.ModelType
+	}
 	if !IsNil(o.RegionId) {
 		toSerialize["regionId"] = o.RegionId
+	}
+	if !IsNil(o.Role) {
+		toSerialize["role"] = o.Role
 	}
 	toSerialize["status"] = o.Status
 	toSerialize["type"] = o.Type
@@ -388,7 +462,9 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "helmPackages")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "kubernetesDashboardEndpoint")
+		delete(additionalProperties, "modelType")
 		delete(additionalProperties, "regionId")
+		delete(additionalProperties, "role")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "type")
 		o.AdditionalProperties = additionalProperties

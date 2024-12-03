@@ -143,6 +143,41 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiGenerateTokenForDeploymentCellDashboard", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		resp, httpRes, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiGenerateTokenForDeploymentCellDashboard(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiListResourceInstanceSnapshots", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceProviderId string
+		var serviceKey string
+		var serviceAPIVersion string
+		var serviceEnvironmentKey string
+		var serviceModelKey string
+		var productTierKey string
+		var resourceKey string
+		var id string
+
+		resp, httpRes, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiListResourceInstanceSnapshots(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiListResourceInstances", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -254,6 +289,27 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 		var id string
 
 		resp, httpRes, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiRestoreResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiRestoreResourceInstanceFromSnapshot", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceProviderId string
+		var serviceKey string
+		var serviceAPIVersion string
+		var serviceEnvironmentKey string
+		var serviceModelKey string
+		var productTierKey string
+		var resourceKey string
+		var snapshotId string
+
+		resp, httpRes, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiRestoreResourceInstanceFromSnapshot(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, snapshotId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

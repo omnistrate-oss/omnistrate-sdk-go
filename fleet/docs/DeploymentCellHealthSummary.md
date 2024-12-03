@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Status** | **string** | The status of the cell | 
 **TotalInstances** | **int64** | The total number of instances in the cell | 
 **UnhealthyInstances** | **int64** | The number of unhealthy instances in the cell | 
+**UnknownInstances** | Pointer to **int64** | The number of instances with unknown status | [optional] 
 
 ## Methods
 
@@ -170,6 +171,31 @@ and a boolean to check if the value has been set.
 
 SetUnhealthyInstances sets UnhealthyInstances field to given value.
 
+
+### GetUnknownInstances
+
+`func (o *DeploymentCellHealthSummary) GetUnknownInstances() int64`
+
+GetUnknownInstances returns the UnknownInstances field if non-nil, zero value otherwise.
+
+### GetUnknownInstancesOk
+
+`func (o *DeploymentCellHealthSummary) GetUnknownInstancesOk() (*int64, bool)`
+
+GetUnknownInstancesOk returns a tuple with the UnknownInstances field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnknownInstances
+
+`func (o *DeploymentCellHealthSummary) SetUnknownInstances(v int64)`
+
+SetUnknownInstances sets UnknownInstances field to given value.
+
+### HasUnknownInstances
+
+`func (o *DeploymentCellHealthSummary) HasUnknownInstances() bool`
+
+HasUnknownInstances returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

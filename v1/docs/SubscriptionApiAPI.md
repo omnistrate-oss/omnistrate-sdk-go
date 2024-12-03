@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 ## SubscriptionApiListSubscriptions
 
-> ListSubscriptionsResult SubscriptionApiListSubscriptions(ctx).ServiceId(serviceId).Execute()
+> ListSubscriptionsResult SubscriptionApiListSubscriptions(ctx).ServiceId(serviceId).EnvironmentType(environmentType).Execute()
 
 ListSubscriptions subscription-api
 
@@ -229,10 +229,11 @@ import (
 
 func main() {
 	serviceId := "service-12345678" // string | Service Id (optional)
+	environmentType := "DEV" // string | The environment type to filter by (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SubscriptionApiAPI.SubscriptionApiListSubscriptions(context.Background()).ServiceId(serviceId).Execute()
+	resp, r, err := apiClient.SubscriptionApiAPI.SubscriptionApiListSubscriptions(context.Background()).ServiceId(serviceId).EnvironmentType(environmentType).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApiAPI.SubscriptionApiListSubscriptions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -254,6 +255,7 @@ Other parameters are passed through a pointer to a apiSubscriptionApiListSubscri
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serviceId** | **string** | Service Id | 
+ **environmentType** | **string** | The environment type to filter by | 
 
 ### Return type
 

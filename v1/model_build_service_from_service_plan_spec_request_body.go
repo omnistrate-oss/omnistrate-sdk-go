@@ -30,6 +30,12 @@ type BuildServiceFromServicePlanSpecRequestBody struct {
 	FileContent string `json:"fileContent"`
 	// Name of the Service
 	Name string `json:"name"`
+	// Release the service after building
+	Release *bool `json:"release,omitempty"`
+	// Release the service as preferred
+	ReleaseAsPreferred *bool `json:"releaseAsPreferred,omitempty"`
+	// Release version name
+	ReleaseVersionName *string `json:"releaseVersionName,omitempty"`
 	// The logo for the service
 	ServiceLogoURL *string `json:"serviceLogoURL,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -173,6 +179,75 @@ func (o *BuildServiceFromServicePlanSpecRequestBody) SetName(v string) {
 	o.Name = v
 }
 
+// GetRelease returns the Release field value if set, zero value otherwise.
+func (o *BuildServiceFromServicePlanSpecRequestBody) GetRelease() bool {
+	if o == nil || IsNil(o.Release) {
+		var ret bool
+		return ret
+	}
+	return *o.Release
+}
+
+// GetReleaseOk returns a tuple with the Release field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BuildServiceFromServicePlanSpecRequestBody) GetReleaseOk() (*bool, bool) {
+	if o == nil || IsNil(o.Release) {
+		return nil, false
+	}
+	return o.Release, true
+}
+
+// SetRelease gets a reference to the given bool and assigns it to the Release field.
+func (o *BuildServiceFromServicePlanSpecRequestBody) SetRelease(v bool) {
+	o.Release = &v
+}
+
+// GetReleaseAsPreferred returns the ReleaseAsPreferred field value if set, zero value otherwise.
+func (o *BuildServiceFromServicePlanSpecRequestBody) GetReleaseAsPreferred() bool {
+	if o == nil || IsNil(o.ReleaseAsPreferred) {
+		var ret bool
+		return ret
+	}
+	return *o.ReleaseAsPreferred
+}
+
+// GetReleaseAsPreferredOk returns a tuple with the ReleaseAsPreferred field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BuildServiceFromServicePlanSpecRequestBody) GetReleaseAsPreferredOk() (*bool, bool) {
+	if o == nil || IsNil(o.ReleaseAsPreferred) {
+		return nil, false
+	}
+	return o.ReleaseAsPreferred, true
+}
+
+// SetReleaseAsPreferred gets a reference to the given bool and assigns it to the ReleaseAsPreferred field.
+func (o *BuildServiceFromServicePlanSpecRequestBody) SetReleaseAsPreferred(v bool) {
+	o.ReleaseAsPreferred = &v
+}
+
+// GetReleaseVersionName returns the ReleaseVersionName field value if set, zero value otherwise.
+func (o *BuildServiceFromServicePlanSpecRequestBody) GetReleaseVersionName() string {
+	if o == nil || IsNil(o.ReleaseVersionName) {
+		var ret string
+		return ret
+	}
+	return *o.ReleaseVersionName
+}
+
+// GetReleaseVersionNameOk returns a tuple with the ReleaseVersionName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BuildServiceFromServicePlanSpecRequestBody) GetReleaseVersionNameOk() (*string, bool) {
+	if o == nil || IsNil(o.ReleaseVersionName) {
+		return nil, false
+	}
+	return o.ReleaseVersionName, true
+}
+
+// SetReleaseVersionName gets a reference to the given string and assigns it to the ReleaseVersionName field.
+func (o *BuildServiceFromServicePlanSpecRequestBody) SetReleaseVersionName(v string) {
+	o.ReleaseVersionName = &v
+}
+
 // GetServiceLogoURL returns the ServiceLogoURL field value if set, zero value otherwise.
 func (o *BuildServiceFromServicePlanSpecRequestBody) GetServiceLogoURL() string {
 	if o == nil || IsNil(o.ServiceLogoURL) {
@@ -217,6 +292,15 @@ func (o BuildServiceFromServicePlanSpecRequestBody) ToMap() (map[string]interfac
 	}
 	toSerialize["fileContent"] = o.FileContent
 	toSerialize["name"] = o.Name
+	if !IsNil(o.Release) {
+		toSerialize["release"] = o.Release
+	}
+	if !IsNil(o.ReleaseAsPreferred) {
+		toSerialize["releaseAsPreferred"] = o.ReleaseAsPreferred
+	}
+	if !IsNil(o.ReleaseVersionName) {
+		toSerialize["releaseVersionName"] = o.ReleaseVersionName
+	}
 	if !IsNil(o.ServiceLogoURL) {
 		toSerialize["serviceLogoURL"] = o.ServiceLogoURL
 	}
@@ -269,6 +353,9 @@ func (o *BuildServiceFromServicePlanSpecRequestBody) UnmarshalJSON(data []byte) 
 		delete(additionalProperties, "environmentType")
 		delete(additionalProperties, "fileContent")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "release")
+		delete(additionalProperties, "releaseAsPreferred")
+		delete(additionalProperties, "releaseVersionName")
 		delete(additionalProperties, "serviceLogoURL")
 		o.AdditionalProperties = additionalProperties
 	}

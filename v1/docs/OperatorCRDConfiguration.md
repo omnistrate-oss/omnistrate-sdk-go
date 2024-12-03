@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**EndpointConfiguration** | Pointer to [**map[string]Endpoint**](Endpoint.md) | The endpoints from the Operator CRD Deployment to expose to the customer | [optional] 
 **HelmChartDependencies** | Pointer to [**[]OperatorHelmChartDependency**](OperatorHelmChartDependency.md) | The helm chart dependencies for the CRD (including charts necessary to manage the operator) - Optional | [optional] 
 **OutputParameters** | Pointer to **map[string]string** | The output parameters to export to the user from the CRD | [optional] 
 **ReadinessConditions** | Pointer to **map[string]interface{}** | The readiness conditions to check for the CRD | [optional] 
@@ -28,6 +29,31 @@ will change when the set of required properties is changed
 NewOperatorCRDConfigurationWithDefaults instantiates a new OperatorCRDConfiguration object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetEndpointConfiguration
+
+`func (o *OperatorCRDConfiguration) GetEndpointConfiguration() map[string]Endpoint`
+
+GetEndpointConfiguration returns the EndpointConfiguration field if non-nil, zero value otherwise.
+
+### GetEndpointConfigurationOk
+
+`func (o *OperatorCRDConfiguration) GetEndpointConfigurationOk() (*map[string]Endpoint, bool)`
+
+GetEndpointConfigurationOk returns a tuple with the EndpointConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndpointConfiguration
+
+`func (o *OperatorCRDConfiguration) SetEndpointConfiguration(v map[string]Endpoint)`
+
+SetEndpointConfiguration sets EndpointConfiguration field to given value.
+
+### HasEndpointConfiguration
+
+`func (o *OperatorCRDConfiguration) HasEndpointConfiguration() bool`
+
+HasEndpointConfiguration returns a boolean if a field has been set.
 
 ### GetHelmChartDependencies
 

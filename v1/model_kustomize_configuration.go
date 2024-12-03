@@ -20,6 +20,8 @@ var _ MappedNullable = &KustomizeConfiguration{}
 
 // KustomizeConfiguration struct for KustomizeConfiguration
 type KustomizeConfiguration struct {
+	// The endpoints from the Kustomize Deployment to expose to the customer
+	EndpointConfiguration *map[string]Endpoint `json:"endpointConfiguration,omitempty"`
 	GitConfiguration *GitConfiguration `json:"gitConfiguration,omitempty"`
 	// The helm chart dependencies for the CRD - Optional
 	HelmChartDependencies []OperatorHelmChartDependency `json:"helmChartDependencies,omitempty"`
@@ -46,6 +48,29 @@ func NewKustomizeConfiguration(kustomizePath string) *KustomizeConfiguration {
 func NewKustomizeConfigurationWithDefaults() *KustomizeConfiguration {
 	this := KustomizeConfiguration{}
 	return &this
+}
+
+// GetEndpointConfiguration returns the EndpointConfiguration field value if set, zero value otherwise.
+func (o *KustomizeConfiguration) GetEndpointConfiguration() map[string]Endpoint {
+	if o == nil || IsNil(o.EndpointConfiguration) {
+		var ret map[string]Endpoint
+		return ret
+	}
+	return *o.EndpointConfiguration
+}
+
+// GetEndpointConfigurationOk returns a tuple with the EndpointConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *KustomizeConfiguration) GetEndpointConfigurationOk() (*map[string]Endpoint, bool) {
+	if o == nil || IsNil(o.EndpointConfiguration) {
+		return nil, false
+	}
+	return o.EndpointConfiguration, true
+}
+
+// SetEndpointConfiguration gets a reference to the given map[string]Endpoint and assigns it to the EndpointConfiguration field.
+func (o *KustomizeConfiguration) SetEndpointConfiguration(v map[string]Endpoint) {
+	o.EndpointConfiguration = &v
 }
 
 // GetGitConfiguration returns the GitConfiguration field value if set, zero value otherwise.
@@ -128,6 +153,9 @@ func (o KustomizeConfiguration) MarshalJSON() ([]byte, error) {
 
 func (o KustomizeConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.EndpointConfiguration) {
+		toSerialize["endpointConfiguration"] = o.EndpointConfiguration
+	}
 	if !IsNil(o.GitConfiguration) {
 		toSerialize["gitConfiguration"] = o.GitConfiguration
 	}
@@ -178,6 +206,7 @@ func (o *KustomizeConfiguration) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "endpointConfiguration")
 		delete(additionalProperties, "gitConfiguration")
 		delete(additionalProperties, "helmChartDependencies")
 		delete(additionalProperties, "kustomizePath")

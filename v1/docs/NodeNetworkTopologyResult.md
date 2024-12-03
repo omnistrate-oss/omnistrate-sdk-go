@@ -4,20 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AvailabilityZone** | **string** | The availability zone of the node | 
-**DetailedHealth** | [**DetailedNodeHealthResult**](DetailedNodeHealthResult.md) |  | 
-**Endpoint** | **string** | The endpoint of the node | 
-**HealthStatus** | **string** | The heath status of the node | 
-**Id** | **string** | The ID of the node | 
+**AvailabilityZone** | Pointer to **string** | The availability zone of the node | [optional] 
+**DetailedHealth** | Pointer to [**DetailedNodeHealthResult**](DetailedNodeHealthResult.md) |  | [optional] 
+**Endpoint** | Pointer to **string** | The endpoint of the node | [optional] 
+**HealthStatus** | Pointer to **string** | The heath status of the node | [optional] 
+**Id** | Pointer to **string** | The ID of the node | [optional] 
+**KubernetesDashboardEndpoint** | Pointer to [**KubernetesDashboardEndpoint**](KubernetesDashboardEndpoint.md) |  | [optional] 
 **Ports** | Pointer to **[]int64** | The ports that this node exposes | [optional] 
-**Status** | **string** | The status of the node | 
+**Status** | Pointer to **string** | The status of the node | [optional] 
 **StorageSize** | Pointer to **int64** | The storage size of the node in GiB | [optional] 
 
 ## Methods
 
 ### NewNodeNetworkTopologyResult
 
-`func NewNodeNetworkTopologyResult(availabilityZone string, detailedHealth DetailedNodeHealthResult, endpoint string, healthStatus string, id string, status string, ) *NodeNetworkTopologyResult`
+`func NewNodeNetworkTopologyResult() *NodeNetworkTopologyResult`
 
 NewNodeNetworkTopologyResult instantiates a new NodeNetworkTopologyResult object
 This constructor will assign default values to properties that have it defined,
@@ -51,6 +52,11 @@ and a boolean to check if the value has been set.
 
 SetAvailabilityZone sets AvailabilityZone field to given value.
 
+### HasAvailabilityZone
+
+`func (o *NodeNetworkTopologyResult) HasAvailabilityZone() bool`
+
+HasAvailabilityZone returns a boolean if a field has been set.
 
 ### GetDetailedHealth
 
@@ -71,6 +77,11 @@ and a boolean to check if the value has been set.
 
 SetDetailedHealth sets DetailedHealth field to given value.
 
+### HasDetailedHealth
+
+`func (o *NodeNetworkTopologyResult) HasDetailedHealth() bool`
+
+HasDetailedHealth returns a boolean if a field has been set.
 
 ### GetEndpoint
 
@@ -91,6 +102,11 @@ and a boolean to check if the value has been set.
 
 SetEndpoint sets Endpoint field to given value.
 
+### HasEndpoint
+
+`func (o *NodeNetworkTopologyResult) HasEndpoint() bool`
+
+HasEndpoint returns a boolean if a field has been set.
 
 ### GetHealthStatus
 
@@ -111,6 +127,11 @@ and a boolean to check if the value has been set.
 
 SetHealthStatus sets HealthStatus field to given value.
 
+### HasHealthStatus
+
+`func (o *NodeNetworkTopologyResult) HasHealthStatus() bool`
+
+HasHealthStatus returns a boolean if a field has been set.
 
 ### GetId
 
@@ -131,6 +152,36 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *NodeNetworkTopologyResult) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### GetKubernetesDashboardEndpoint
+
+`func (o *NodeNetworkTopologyResult) GetKubernetesDashboardEndpoint() KubernetesDashboardEndpoint`
+
+GetKubernetesDashboardEndpoint returns the KubernetesDashboardEndpoint field if non-nil, zero value otherwise.
+
+### GetKubernetesDashboardEndpointOk
+
+`func (o *NodeNetworkTopologyResult) GetKubernetesDashboardEndpointOk() (*KubernetesDashboardEndpoint, bool)`
+
+GetKubernetesDashboardEndpointOk returns a tuple with the KubernetesDashboardEndpoint field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKubernetesDashboardEndpoint
+
+`func (o *NodeNetworkTopologyResult) SetKubernetesDashboardEndpoint(v KubernetesDashboardEndpoint)`
+
+SetKubernetesDashboardEndpoint sets KubernetesDashboardEndpoint field to given value.
+
+### HasKubernetesDashboardEndpoint
+
+`func (o *NodeNetworkTopologyResult) HasKubernetesDashboardEndpoint() bool`
+
+HasKubernetesDashboardEndpoint returns a boolean if a field has been set.
 
 ### GetPorts
 
@@ -176,6 +227,11 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
+### HasStatus
+
+`func (o *NodeNetworkTopologyResult) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 ### GetStorageSize
 

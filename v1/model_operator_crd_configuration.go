@@ -20,6 +20,8 @@ var _ MappedNullable = &OperatorCRDConfiguration{}
 
 // OperatorCRDConfiguration struct for OperatorCRDConfiguration
 type OperatorCRDConfiguration struct {
+	// The endpoints from the Operator CRD Deployment to expose to the customer
+	EndpointConfiguration *map[string]Endpoint `json:"endpointConfiguration,omitempty"`
 	// The helm chart dependencies for the CRD (including charts necessary to manage the operator) - Optional
 	HelmChartDependencies []OperatorHelmChartDependency `json:"helmChartDependencies,omitempty"`
 	// The output parameters to export to the user from the CRD
@@ -51,6 +53,29 @@ func NewOperatorCRDConfiguration(template string) *OperatorCRDConfiguration {
 func NewOperatorCRDConfigurationWithDefaults() *OperatorCRDConfiguration {
 	this := OperatorCRDConfiguration{}
 	return &this
+}
+
+// GetEndpointConfiguration returns the EndpointConfiguration field value if set, zero value otherwise.
+func (o *OperatorCRDConfiguration) GetEndpointConfiguration() map[string]Endpoint {
+	if o == nil || IsNil(o.EndpointConfiguration) {
+		var ret map[string]Endpoint
+		return ret
+	}
+	return *o.EndpointConfiguration
+}
+
+// GetEndpointConfigurationOk returns a tuple with the EndpointConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OperatorCRDConfiguration) GetEndpointConfigurationOk() (*map[string]Endpoint, bool) {
+	if o == nil || IsNil(o.EndpointConfiguration) {
+		return nil, false
+	}
+	return o.EndpointConfiguration, true
+}
+
+// SetEndpointConfiguration gets a reference to the given map[string]Endpoint and assigns it to the EndpointConfiguration field.
+func (o *OperatorCRDConfiguration) SetEndpointConfiguration(v map[string]Endpoint) {
+	o.EndpointConfiguration = &v
 }
 
 // GetHelmChartDependencies returns the HelmChartDependencies field value if set, zero value otherwise.
@@ -179,6 +204,9 @@ func (o OperatorCRDConfiguration) MarshalJSON() ([]byte, error) {
 
 func (o OperatorCRDConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.EndpointConfiguration) {
+		toSerialize["endpointConfiguration"] = o.EndpointConfiguration
+	}
 	if !IsNil(o.HelmChartDependencies) {
 		toSerialize["helmChartDependencies"] = o.HelmChartDependencies
 	}
@@ -235,6 +263,7 @@ func (o *OperatorCRDConfiguration) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "endpointConfiguration")
 		delete(additionalProperties, "helmChartDependencies")
 		delete(additionalProperties, "outputParameters")
 		delete(additionalProperties, "readinessConditions")

@@ -20,9 +20,11 @@ var _ MappedNullable = &ResourceNetworkTopologyResult{}
 
 // ResourceNetworkTopologyResult struct for ResourceNetworkTopologyResult
 type ResourceNetworkTopologyResult struct {
+	// The additional endpoints for this resource
+	AdditionalEndpoints *map[string]ClusterEndpoint `json:"additionalEndpoints,omitempty"`
 	// The allowed IP ranges for this resource
 	AllowedIPRanges []string `json:"allowedIPRanges"`
-	// The cluster endpoint that load-balances across replicas of this resource
+	// The primary cluster endpoint that load-balances across replicas of this resource
 	ClusterEndpoint string `json:"clusterEndpoint"`
 	// The ports that the whole cluster exposes
 	ClusterPorts []int64 `json:"clusterPorts,omitempty"`
@@ -79,6 +81,38 @@ func NewResourceNetworkTopologyResult(allowedIPRanges []string, clusterEndpoint 
 func NewResourceNetworkTopologyResultWithDefaults() *ResourceNetworkTopologyResult {
 	this := ResourceNetworkTopologyResult{}
 	return &this
+}
+
+// GetAdditionalEndpoints returns the AdditionalEndpoints field value if set, zero value otherwise.
+func (o *ResourceNetworkTopologyResult) GetAdditionalEndpoints() map[string]ClusterEndpoint {
+	if o == nil || IsNil(o.AdditionalEndpoints) {
+		var ret map[string]ClusterEndpoint
+		return ret
+	}
+	return *o.AdditionalEndpoints
+}
+
+// GetAdditionalEndpointsOk returns a tuple with the AdditionalEndpoints field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceNetworkTopologyResult) GetAdditionalEndpointsOk() (*map[string]ClusterEndpoint, bool) {
+	if o == nil || IsNil(o.AdditionalEndpoints) {
+		return nil, false
+	}
+	return o.AdditionalEndpoints, true
+}
+
+// HasAdditionalEndpoints returns a boolean if a field has been set.
+func (o *ResourceNetworkTopologyResult) HasAdditionalEndpoints() bool {
+	if o != nil && !IsNil(o.AdditionalEndpoints) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdditionalEndpoints gets a reference to the given map[string]ClusterEndpoint and assigns it to the AdditionalEndpoints field.
+func (o *ResourceNetworkTopologyResult) SetAdditionalEndpoints(v map[string]ClusterEndpoint) {
+	o.AdditionalEndpoints = &v
 }
 
 // GetAllowedIPRanges returns the AllowedIPRanges field value
@@ -572,6 +606,9 @@ func (o ResourceNetworkTopologyResult) MarshalJSON() ([]byte, error) {
 
 func (o ResourceNetworkTopologyResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AdditionalEndpoints) {
+		toSerialize["additionalEndpoints"] = o.AdditionalEndpoints
+	}
 	toSerialize["allowedIPRanges"] = o.AllowedIPRanges
 	toSerialize["clusterEndpoint"] = o.ClusterEndpoint
 	if !IsNil(o.ClusterPorts) {
@@ -657,6 +694,7 @@ func (o *ResourceNetworkTopologyResult) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "additionalEndpoints")
 		delete(additionalProperties, "allowedIPRanges")
 		delete(additionalProperties, "clusterEndpoint")
 		delete(additionalProperties, "clusterPorts")

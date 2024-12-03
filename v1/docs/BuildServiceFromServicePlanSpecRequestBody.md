@@ -9,6 +9,9 @@ Name | Type | Description | Notes
 **EnvironmentType** | Pointer to **string** | The type of the environment | [optional] 
 **FileContent** | **string** | Base64 encoded Compose Spec YAML in service plan configuration format | 
 **Name** | **string** | Name of the Service | 
+**Release** | Pointer to **bool** | Release the service after building | [optional] 
+**ReleaseAsPreferred** | Pointer to **bool** | Release the service as preferred | [optional] 
+**ReleaseVersionName** | Pointer to **string** | Release version name | [optional] 
 **ServiceLogoURL** | Pointer to **string** | The logo for the service | [optional] 
 
 ## Methods
@@ -144,6 +147,81 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetRelease
+
+`func (o *BuildServiceFromServicePlanSpecRequestBody) GetRelease() bool`
+
+GetRelease returns the Release field if non-nil, zero value otherwise.
+
+### GetReleaseOk
+
+`func (o *BuildServiceFromServicePlanSpecRequestBody) GetReleaseOk() (*bool, bool)`
+
+GetReleaseOk returns a tuple with the Release field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRelease
+
+`func (o *BuildServiceFromServicePlanSpecRequestBody) SetRelease(v bool)`
+
+SetRelease sets Release field to given value.
+
+### HasRelease
+
+`func (o *BuildServiceFromServicePlanSpecRequestBody) HasRelease() bool`
+
+HasRelease returns a boolean if a field has been set.
+
+### GetReleaseAsPreferred
+
+`func (o *BuildServiceFromServicePlanSpecRequestBody) GetReleaseAsPreferred() bool`
+
+GetReleaseAsPreferred returns the ReleaseAsPreferred field if non-nil, zero value otherwise.
+
+### GetReleaseAsPreferredOk
+
+`func (o *BuildServiceFromServicePlanSpecRequestBody) GetReleaseAsPreferredOk() (*bool, bool)`
+
+GetReleaseAsPreferredOk returns a tuple with the ReleaseAsPreferred field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReleaseAsPreferred
+
+`func (o *BuildServiceFromServicePlanSpecRequestBody) SetReleaseAsPreferred(v bool)`
+
+SetReleaseAsPreferred sets ReleaseAsPreferred field to given value.
+
+### HasReleaseAsPreferred
+
+`func (o *BuildServiceFromServicePlanSpecRequestBody) HasReleaseAsPreferred() bool`
+
+HasReleaseAsPreferred returns a boolean if a field has been set.
+
+### GetReleaseVersionName
+
+`func (o *BuildServiceFromServicePlanSpecRequestBody) GetReleaseVersionName() string`
+
+GetReleaseVersionName returns the ReleaseVersionName field if non-nil, zero value otherwise.
+
+### GetReleaseVersionNameOk
+
+`func (o *BuildServiceFromServicePlanSpecRequestBody) GetReleaseVersionNameOk() (*string, bool)`
+
+GetReleaseVersionNameOk returns a tuple with the ReleaseVersionName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReleaseVersionName
+
+`func (o *BuildServiceFromServicePlanSpecRequestBody) SetReleaseVersionName(v string)`
+
+SetReleaseVersionName sets ReleaseVersionName field to given value.
+
+### HasReleaseVersionName
+
+`func (o *BuildServiceFromServicePlanSpecRequestBody) HasReleaseVersionName() bool`
+
+HasReleaseVersionName returns a boolean if a field has been set.
 
 ### GetServiceLogoURL
 

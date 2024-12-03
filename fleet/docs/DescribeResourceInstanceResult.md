@@ -4,33 +4,39 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Active** | **bool** | True if this resource instance has associated infrastructure deployed | 
+**Active** | Pointer to **bool** | True if this resource instance has associated infrastructure deployed | [optional] 
 **AutoscalingEnabled** | Pointer to **bool** | Whether the instance has autoscaling enabled | [optional] 
 **AwsAccountID** | Pointer to **string** | The AWS account ID | [optional] 
 **BackupStatus** | Pointer to [**BackupStatus**](BackupStatus.md) |  | [optional] 
 **CloudProvider** | Pointer to **string** | The cloud provider name | [optional] 
-**CreatedAt** | **string** | The instance creation time | 
-**CreatedByUserId** | **string** | The user ID that created the resource instance | 
-**CreatedByUserName** | **string** | The name of the user that created the resource instance | 
+**CreatedAt** | Pointer to **string** | The instance creation time | [optional] 
+**CreatedByUserId** | Pointer to **string** | The user ID that created the resource instance | [optional] 
+**CreatedByUserName** | Pointer to **string** | The name of the user that created the resource instance | [optional] 
+**CurrentReplicas** | Pointer to **string** | The current number of replicas | [optional] 
 **CustomNetworkDetail** | Pointer to [**CustomNetworkResourceDetail**](CustomNetworkResourceDetail.md) |  | [optional] 
 **DetailedNetworkTopology** | Pointer to [**map[string]ResourceNetworkTopologyResult**](ResourceNetworkTopologyResult.md) | The detailed network topology | [optional] 
 **ExternalPayerId** | Pointer to **string** | The external payer id to record which customer should pay for this resource instance | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **HighAvailability** | Pointer to **bool** | Whether the instance is High Availability | [optional] 
-**Id** | **string** | The instance ID | 
-**LastModifiedAt** | **string** | The instance update time | 
+**Id** | Pointer to **string** | The instance ID | [optional] 
+**InstanceLoadStatus** | Pointer to **string** | The instance load status | [optional] 
+**KubernetesDashboardEndpoint** | Pointer to [**KubernetesDashboardEndpoint**](KubernetesDashboardEndpoint.md) |  | [optional] 
+**LastModifiedAt** | Pointer to **string** | The instance update time | [optional] 
+**MaxReplicas** | Pointer to **string** | The maximum number of replicas | [optional] 
+**MinReplicas** | Pointer to **string** | The minimum number of replicas | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
-**ProductTierFeatures** | **map[string]interface{}** | The product tier features | 
+**ProductTierFeatures** | Pointer to **map[string]interface{}** | The product tier features | [optional] 
 **Region** | Pointer to **string** | The region code | [optional] 
-**ResultParams** | **interface{}** | Custom result parameters | 
-**Status** | **string** | The instance status | 
+**ResultParams** | Pointer to **interface{}** | Custom result parameters | [optional] 
+**ServerlessEnabled** | Pointer to **bool** | Whether the instance has serverless enabled | [optional] 
+**Status** | Pointer to **string** | The instance status | [optional] 
 **SubscriptionId** | Pointer to **string** | The subscription ID | [optional] 
 
 ## Methods
 
 ### NewDescribeResourceInstanceResult
 
-`func NewDescribeResourceInstanceResult(active bool, createdAt string, createdByUserId string, createdByUserName string, id string, lastModifiedAt string, productTierFeatures map[string]interface{}, resultParams interface{}, status string, ) *DescribeResourceInstanceResult`
+`func NewDescribeResourceInstanceResult() *DescribeResourceInstanceResult`
 
 NewDescribeResourceInstanceResult instantiates a new DescribeResourceInstanceResult object
 This constructor will assign default values to properties that have it defined,
@@ -64,6 +70,11 @@ and a boolean to check if the value has been set.
 
 SetActive sets Active field to given value.
 
+### HasActive
+
+`func (o *DescribeResourceInstanceResult) HasActive() bool`
+
+HasActive returns a boolean if a field has been set.
 
 ### GetAutoscalingEnabled
 
@@ -184,6 +195,11 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
+### HasCreatedAt
+
+`func (o *DescribeResourceInstanceResult) HasCreatedAt() bool`
+
+HasCreatedAt returns a boolean if a field has been set.
 
 ### GetCreatedByUserId
 
@@ -204,6 +220,11 @@ and a boolean to check if the value has been set.
 
 SetCreatedByUserId sets CreatedByUserId field to given value.
 
+### HasCreatedByUserId
+
+`func (o *DescribeResourceInstanceResult) HasCreatedByUserId() bool`
+
+HasCreatedByUserId returns a boolean if a field has been set.
 
 ### GetCreatedByUserName
 
@@ -224,6 +245,36 @@ and a boolean to check if the value has been set.
 
 SetCreatedByUserName sets CreatedByUserName field to given value.
 
+### HasCreatedByUserName
+
+`func (o *DescribeResourceInstanceResult) HasCreatedByUserName() bool`
+
+HasCreatedByUserName returns a boolean if a field has been set.
+
+### GetCurrentReplicas
+
+`func (o *DescribeResourceInstanceResult) GetCurrentReplicas() string`
+
+GetCurrentReplicas returns the CurrentReplicas field if non-nil, zero value otherwise.
+
+### GetCurrentReplicasOk
+
+`func (o *DescribeResourceInstanceResult) GetCurrentReplicasOk() (*string, bool)`
+
+GetCurrentReplicasOk returns a tuple with the CurrentReplicas field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrentReplicas
+
+`func (o *DescribeResourceInstanceResult) SetCurrentReplicas(v string)`
+
+SetCurrentReplicas sets CurrentReplicas field to given value.
+
+### HasCurrentReplicas
+
+`func (o *DescribeResourceInstanceResult) HasCurrentReplicas() bool`
+
+HasCurrentReplicas returns a boolean if a field has been set.
 
 ### GetCustomNetworkDetail
 
@@ -369,6 +420,61 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *DescribeResourceInstanceResult) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### GetInstanceLoadStatus
+
+`func (o *DescribeResourceInstanceResult) GetInstanceLoadStatus() string`
+
+GetInstanceLoadStatus returns the InstanceLoadStatus field if non-nil, zero value otherwise.
+
+### GetInstanceLoadStatusOk
+
+`func (o *DescribeResourceInstanceResult) GetInstanceLoadStatusOk() (*string, bool)`
+
+GetInstanceLoadStatusOk returns a tuple with the InstanceLoadStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstanceLoadStatus
+
+`func (o *DescribeResourceInstanceResult) SetInstanceLoadStatus(v string)`
+
+SetInstanceLoadStatus sets InstanceLoadStatus field to given value.
+
+### HasInstanceLoadStatus
+
+`func (o *DescribeResourceInstanceResult) HasInstanceLoadStatus() bool`
+
+HasInstanceLoadStatus returns a boolean if a field has been set.
+
+### GetKubernetesDashboardEndpoint
+
+`func (o *DescribeResourceInstanceResult) GetKubernetesDashboardEndpoint() KubernetesDashboardEndpoint`
+
+GetKubernetesDashboardEndpoint returns the KubernetesDashboardEndpoint field if non-nil, zero value otherwise.
+
+### GetKubernetesDashboardEndpointOk
+
+`func (o *DescribeResourceInstanceResult) GetKubernetesDashboardEndpointOk() (*KubernetesDashboardEndpoint, bool)`
+
+GetKubernetesDashboardEndpointOk returns a tuple with the KubernetesDashboardEndpoint field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKubernetesDashboardEndpoint
+
+`func (o *DescribeResourceInstanceResult) SetKubernetesDashboardEndpoint(v KubernetesDashboardEndpoint)`
+
+SetKubernetesDashboardEndpoint sets KubernetesDashboardEndpoint field to given value.
+
+### HasKubernetesDashboardEndpoint
+
+`func (o *DescribeResourceInstanceResult) HasKubernetesDashboardEndpoint() bool`
+
+HasKubernetesDashboardEndpoint returns a boolean if a field has been set.
 
 ### GetLastModifiedAt
 
@@ -389,6 +495,61 @@ and a boolean to check if the value has been set.
 
 SetLastModifiedAt sets LastModifiedAt field to given value.
 
+### HasLastModifiedAt
+
+`func (o *DescribeResourceInstanceResult) HasLastModifiedAt() bool`
+
+HasLastModifiedAt returns a boolean if a field has been set.
+
+### GetMaxReplicas
+
+`func (o *DescribeResourceInstanceResult) GetMaxReplicas() string`
+
+GetMaxReplicas returns the MaxReplicas field if non-nil, zero value otherwise.
+
+### GetMaxReplicasOk
+
+`func (o *DescribeResourceInstanceResult) GetMaxReplicasOk() (*string, bool)`
+
+GetMaxReplicasOk returns a tuple with the MaxReplicas field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxReplicas
+
+`func (o *DescribeResourceInstanceResult) SetMaxReplicas(v string)`
+
+SetMaxReplicas sets MaxReplicas field to given value.
+
+### HasMaxReplicas
+
+`func (o *DescribeResourceInstanceResult) HasMaxReplicas() bool`
+
+HasMaxReplicas returns a boolean if a field has been set.
+
+### GetMinReplicas
+
+`func (o *DescribeResourceInstanceResult) GetMinReplicas() string`
+
+GetMinReplicas returns the MinReplicas field if non-nil, zero value otherwise.
+
+### GetMinReplicasOk
+
+`func (o *DescribeResourceInstanceResult) GetMinReplicasOk() (*string, bool)`
+
+GetMinReplicasOk returns a tuple with the MinReplicas field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMinReplicas
+
+`func (o *DescribeResourceInstanceResult) SetMinReplicas(v string)`
+
+SetMinReplicas sets MinReplicas field to given value.
+
+### HasMinReplicas
+
+`func (o *DescribeResourceInstanceResult) HasMinReplicas() bool`
+
+HasMinReplicas returns a boolean if a field has been set.
 
 ### GetNetworkType
 
@@ -434,6 +595,11 @@ and a boolean to check if the value has been set.
 
 SetProductTierFeatures sets ProductTierFeatures field to given value.
 
+### HasProductTierFeatures
+
+`func (o *DescribeResourceInstanceResult) HasProductTierFeatures() bool`
+
+HasProductTierFeatures returns a boolean if a field has been set.
 
 ### GetRegion
 
@@ -479,6 +645,11 @@ and a boolean to check if the value has been set.
 
 SetResultParams sets ResultParams field to given value.
 
+### HasResultParams
+
+`func (o *DescribeResourceInstanceResult) HasResultParams() bool`
+
+HasResultParams returns a boolean if a field has been set.
 
 ### SetResultParamsNil
 
@@ -490,6 +661,31 @@ SetResultParams sets ResultParams field to given value.
 `func (o *DescribeResourceInstanceResult) UnsetResultParams()`
 
 UnsetResultParams ensures that no value is present for ResultParams, not even an explicit nil
+### GetServerlessEnabled
+
+`func (o *DescribeResourceInstanceResult) GetServerlessEnabled() bool`
+
+GetServerlessEnabled returns the ServerlessEnabled field if non-nil, zero value otherwise.
+
+### GetServerlessEnabledOk
+
+`func (o *DescribeResourceInstanceResult) GetServerlessEnabledOk() (*bool, bool)`
+
+GetServerlessEnabledOk returns a tuple with the ServerlessEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServerlessEnabled
+
+`func (o *DescribeResourceInstanceResult) SetServerlessEnabled(v bool)`
+
+SetServerlessEnabled sets ServerlessEnabled field to given value.
+
+### HasServerlessEnabled
+
+`func (o *DescribeResourceInstanceResult) HasServerlessEnabled() bool`
+
+HasServerlessEnabled returns a boolean if a field has been set.
+
 ### GetStatus
 
 `func (o *DescribeResourceInstanceResult) GetStatus() string`
@@ -509,6 +705,11 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
+### HasStatus
+
+`func (o *DescribeResourceInstanceResult) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 ### GetSubscriptionId
 

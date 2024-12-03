@@ -153,6 +153,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiRemoveCustomDNSFromResourceInstance**](docs/InventoryApiAPI.md#inventoryapiremovecustomdnsfromresourceinstance) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/{resourceKey}/instance/{instanceId}/custom-dns | RemoveCustomDNSFromResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiRestartResourceInstance**](docs/InventoryApiAPI.md#inventoryapirestartresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/restart | RestartResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiRestoreResourceInstance**](docs/InventoryApiAPI.md#inventoryapirestoreresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/restore | RestoreResourceInstance inventory-api
+*InventoryApiAPI* | [**InventoryApiRestoreResourceInstanceFromSnapshot**](docs/InventoryApiAPI.md#inventoryapirestoreresourceinstancefromsnapshot) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/snapshot/{snapshotId}/restore | RestoreResourceInstanceFromSnapshot inventory-api
 *InventoryApiAPI* | [**InventoryApiResumeSubscription**](docs/InventoryApiAPI.md#inventoryapiresumesubscription) | **Put** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/{id}/resume | ResumeSubscription inventory-api
 *InventoryApiAPI* | [**InventoryApiSearchInventory**](docs/InventoryApiAPI.md#inventoryapisearchinventory) | **Post** /2022-09-01-00/fleet/search-inventory | SearchInventory inventory-api
 *InventoryApiAPI* | [**InventoryApiSearchServiceInventory**](docs/InventoryApiAPI.md#inventoryapisearchserviceinventory) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/search-inventory | SearchServiceInventory inventory-api
@@ -183,6 +184,7 @@ Class | Method | HTTP request | Description
  - [Channel](docs/Channel.md)
  - [ChannelSubscription](docs/ChannelSubscription.md)
  - [CloudProviderHealthSummary](docs/CloudProviderHealthSummary.md)
+ - [ClusterEndpoint](docs/ClusterEndpoint.md)
  - [CreateConsumptionUserRequestBody](docs/CreateConsumptionUserRequestBody.md)
  - [CreateCustomNetworkRequestBody](docs/CreateCustomNetworkRequestBody.md)
  - [CreateCustomerOnboardingRequestBody](docs/CreateCustomerOnboardingRequestBody.md)
@@ -247,6 +249,7 @@ Class | Method | HTTP request | Description
  - [InventoryDescribeServiceOfferingResourceResult](docs/InventoryDescribeServiceOfferingResourceResult.md)
  - [InventoryDescribeServiceOfferingResult](docs/InventoryDescribeServiceOfferingResult.md)
  - [InventoryListServiceOfferingsResult](docs/InventoryListServiceOfferingsResult.md)
+ - [KubernetesDashboardEndpoint](docs/KubernetesDashboardEndpoint.md)
  - [ListCustomerOnboardingResult](docs/ListCustomerOnboardingResult.md)
  - [ListCustomerOnboardingStagesResult](docs/ListCustomerOnboardingStagesResult.md)
  - [ListEligibleInstancesPerUpgradeResult](docs/ListEligibleInstancesPerUpgradeResult.md)
@@ -290,6 +293,7 @@ Class | Method | HTTP request | Description
  - [ResourceNetworkTopologyResult](docs/ResourceNetworkTopologyResult.md)
  - [ResourceSearchRecord](docs/ResourceSearchRecord.md)
  - [ResourceVersionSummary](docs/ResourceVersionSummary.md)
+ - [RestoreResourceInstanceFromSnapshotRequestBody](docs/RestoreResourceInstanceFromSnapshotRequestBody.md)
  - [RestoreResourceInstanceRequestBody](docs/RestoreResourceInstanceRequestBody.md)
  - [SearchInventoryResult](docs/SearchInventoryResult.md)
  - [SearchRecord](docs/SearchRecord.md)
