@@ -113,10 +113,12 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiCreateProxyResourceInstance**](docs/InventoryApiAPI.md#inventoryapicreateproxyresourceinstance) | **Post** /2022-09-01-00/fleet/proxy-resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{sourceResourceKey} | CreateProxyResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateResourceInstance**](docs/InventoryApiAPI.md#inventoryapicreateresourceinstance) | **Post** /2022-09-01-00/fleet/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey} | CreateResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateResourceInstanceSnapshot**](docs/InventoryApiAPI.md#inventoryapicreateresourceinstancesnapshot) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/snapshot | CreateResourceInstanceSnapshot inventory-api
+*InventoryApiAPI* | [**InventoryApiCreateServicesOrchestration**](docs/InventoryApiAPI.md#inventoryapicreateservicesorchestration) | **Post** /2022-09-01-00/fleet/services-orchestration | CreateServicesOrchestration inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateUpgradePath**](docs/InventoryApiAPI.md#inventoryapicreateupgradepath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path | CreateUpgradePath inventory-api
 *InventoryApiAPI* | [**InventoryApiDeleteProxyResourceInstance**](docs/InventoryApiAPI.md#inventoryapideleteproxyresourceinstance) | **Delete** /2022-09-01-00/fleet/proxy-resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{id} | DeleteProxyResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiDeleteResourceInstance**](docs/InventoryApiAPI.md#inventoryapideleteresourceinstance) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId} | DeleteResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiDeleteResourceInstanceSnapshot**](docs/InventoryApiAPI.md#inventoryapideleteresourceinstancesnapshot) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/snapshot/{snapshotId} | DeleteResourceInstanceSnapshot inventory-api
+*InventoryApiAPI* | [**InventoryApiDeleteServicesOrchestration**](docs/InventoryApiAPI.md#inventoryapideleteservicesorchestration) | **Delete** /2022-09-01-00/fleet/services-orchestration/{id} | DeleteServicesOrchestration inventory-api
 *InventoryApiAPI* | [**InventoryApiDenySubscriptionRequest**](docs/InventoryApiAPI.md#inventoryapidenysubscriptionrequest) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | DenySubscriptionRequest inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeHostCluster**](docs/InventoryApiAPI.md#inventoryapidescribehostcluster) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/host-cluster/{id} | DescribeHostCluster inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeInstanceEvent**](docs/InventoryApiAPI.md#inventoryapidescribeinstanceevent) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/event/{id} | DescribeInstanceEvent inventory-api
@@ -128,6 +130,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiDescribeResourceInstanceSnapshotFromTime**](docs/InventoryApiAPI.md#inventoryapidescriberesourceinstancesnapshotfromtime) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/restore | DescribeResourceInstanceSnapshotFromTime inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeServiceOffering**](docs/InventoryApiAPI.md#inventoryapidescribeserviceoffering) | **Get** /2022-09-01-00/fleet/service-offering/{serviceId} | DescribeServiceOffering inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeServiceOfferingResource**](docs/InventoryApiAPI.md#inventoryapidescribeserviceofferingresource) | **Get** /2022-09-01-00/fleet/service-offering/{serviceId}/resource/{resourceId}/instance/{instanceId} | DescribeServiceOfferingResource inventory-api
+*InventoryApiAPI* | [**InventoryApiDescribeServicesOrchestration**](docs/InventoryApiAPI.md#inventoryapidescribeservicesorchestration) | **Get** /2022-09-01-00/fleet/services-orchestration/{id} | DescribeServicesOrchestration inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeSubscription**](docs/InventoryApiAPI.md#inventoryapidescribesubscription) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/{id} | DescribeSubscription inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeSubscriptionRequest**](docs/InventoryApiAPI.md#inventoryapidescribesubscriptionrequest) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | DescribeSubscriptionRequest inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeUpgradePath**](docs/InventoryApiAPI.md#inventoryapidescribeupgradepath) | **Get** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId} | DescribeUpgradePath inventory-api
@@ -145,10 +148,12 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiListResourceInstances**](docs/InventoryApiAPI.md#inventoryapilistresourceinstances) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instances/ | ListResourceInstances inventory-api
 *InventoryApiAPI* | [**InventoryApiListResources**](docs/InventoryApiAPI.md#inventoryapilistresources) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/model/{serviceModelId}/productTier/{productTierId}/resources | ListResources inventory-api
 *InventoryApiAPI* | [**InventoryApiListServiceOfferings**](docs/InventoryApiAPI.md#inventoryapilistserviceofferings) | **Get** /2022-09-01-00/fleet/service-offering | ListServiceOfferings inventory-api
+*InventoryApiAPI* | [**InventoryApiListServicesOrchestrations**](docs/InventoryApiAPI.md#inventoryapilistservicesorchestrations) | **Get** /2022-09-01-00/fleet/services-orchestration | ListServicesOrchestrations inventory-api
 *InventoryApiAPI* | [**InventoryApiListSubscription**](docs/InventoryApiAPI.md#inventoryapilistsubscription) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription | ListSubscription inventory-api
 *InventoryApiAPI* | [**InventoryApiListSubscriptionRequests**](docs/InventoryApiAPI.md#inventoryapilistsubscriptionrequests) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request | ListSubscriptionRequests inventory-api
 *InventoryApiAPI* | [**InventoryApiListUpgradePaths**](docs/InventoryApiAPI.md#inventoryapilistupgradepaths) | **Get** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-paths | ListUpgradePaths inventory-api
 *InventoryApiAPI* | [**InventoryApiListUsers**](docs/InventoryApiAPI.md#inventoryapilistusers) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/users | ListUsers inventory-api
+*InventoryApiAPI* | [**InventoryApiModifyServicesOrchestration**](docs/InventoryApiAPI.md#inventoryapimodifyservicesorchestration) | **Patch** /2022-09-01-00/fleet/services-orchestration/{id} | ModifyServicesOrchestration inventory-api
 *InventoryApiAPI* | [**InventoryApiRemoveCapacityFromResourceInstance**](docs/InventoryApiAPI.md#inventoryapiremovecapacityfromresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/remove-capacity | RemoveCapacityFromResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiRemoveCustomDNSFromResourceInstance**](docs/InventoryApiAPI.md#inventoryapiremovecustomdnsfromresourceinstance) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/{resourceKey}/instance/{instanceId}/custom-dns | RemoveCustomDNSFromResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiRestartResourceInstance**](docs/InventoryApiAPI.md#inventoryapirestartresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/restart | RestartResourceInstance inventory-api
@@ -192,6 +197,7 @@ Class | Method | HTTP request | Description
  - [CreateProxyResourceInstanceRequestBody](docs/CreateProxyResourceInstanceRequestBody.md)
  - [CreateResourceInstanceRequestBody](docs/CreateResourceInstanceRequestBody.md)
  - [CreateResourceInstanceResponseBody](docs/CreateResourceInstanceResponseBody.md)
+ - [CreateServicesOrchestrationRequestBody](docs/CreateServicesOrchestrationRequestBody.md)
  - [CreateUpgradePathRequestBody](docs/CreateUpgradePathRequestBody.md)
  - [CustomDNSEndpoint](docs/CustomDNSEndpoint.md)
  - [CustomNetworkFleetDetail](docs/CustomNetworkFleetDetail.md)
@@ -207,6 +213,7 @@ Class | Method | HTTP request | Description
  - [DescribeServiceOfferingResult](docs/DescribeServiceOfferingResult.md)
  - [DescribeServiceWorkflowResult](docs/DescribeServiceWorkflowResult.md)
  - [DescribeServiceWorkflowSummaryResult](docs/DescribeServiceWorkflowSummaryResult.md)
+ - [DescribeServicesOrchestrationResult](docs/DescribeServicesOrchestrationResult.md)
  - [DescribeSubscriptionRequestResult](docs/DescribeSubscriptionRequestResult.md)
  - [DetailedNodeHealthResult](docs/DetailedNodeHealthResult.md)
  - [DisableProductTierIntegrationRequestBody](docs/DisableProductTierIntegrationRequestBody.md)
@@ -225,6 +232,7 @@ Class | Method | HTTP request | Description
  - [FleetDescribeHostClusterResult](docs/FleetDescribeHostClusterResult.md)
  - [FleetDescribeInstanceSnapshotFromTimeResult](docs/FleetDescribeInstanceSnapshotFromTimeResult.md)
  - [FleetDescribeInstanceSnapshotResult](docs/FleetDescribeInstanceSnapshotResult.md)
+ - [FleetDescribeServicesOrchestrationResult](docs/FleetDescribeServicesOrchestrationResult.md)
  - [FleetDescribeSubscriptionResult](docs/FleetDescribeSubscriptionResult.md)
  - [FleetDescribeUserResult](docs/FleetDescribeUserResult.md)
  - [FleetFeature](docs/FleetFeature.md)
@@ -268,6 +276,7 @@ Class | Method | HTTP request | Description
  - [ListServiceWorkflowsResult](docs/ListServiceWorkflowsResult.md)
  - [ListSubscriptionRequestsResult](docs/ListSubscriptionRequestsResult.md)
  - [ListUpgradePathsResult](docs/ListUpgradePathsResult.md)
+ - [ModifyServicesOrchestrationRequestBody](docs/ModifyServicesOrchestrationRequestBody.md)
  - [NodeHealthSummary](docs/NodeHealthSummary.md)
  - [NodeNetworkTopologyResult](docs/NodeNetworkTopologyResult.md)
  - [NotificationSearchRecord](docs/NotificationSearchRecord.md)
@@ -301,6 +310,7 @@ Class | Method | HTTP request | Description
  - [SearchServiceInventoryResult](docs/SearchServiceInventoryResult.md)
  - [ServerlessProxySearchRecord](docs/ServerlessProxySearchRecord.md)
  - [ServiceAssets](docs/ServiceAssets.md)
+ - [ServiceDeploymentDetails](docs/ServiceDeploymentDetails.md)
  - [ServiceHealthSummary](docs/ServiceHealthSummary.md)
  - [ServiceModelFeatureDetail](docs/ServiceModelFeatureDetail.md)
  - [ServiceOffering](docs/ServiceOffering.md)

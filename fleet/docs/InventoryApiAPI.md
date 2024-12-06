@@ -12,10 +12,12 @@ Method | HTTP request | Description
 [**InventoryApiCreateProxyResourceInstance**](InventoryApiAPI.md#InventoryApiCreateProxyResourceInstance) | **Post** /2022-09-01-00/fleet/proxy-resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{sourceResourceKey} | CreateProxyResourceInstance inventory-api
 [**InventoryApiCreateResourceInstance**](InventoryApiAPI.md#InventoryApiCreateResourceInstance) | **Post** /2022-09-01-00/fleet/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey} | CreateResourceInstance inventory-api
 [**InventoryApiCreateResourceInstanceSnapshot**](InventoryApiAPI.md#InventoryApiCreateResourceInstanceSnapshot) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/snapshot | CreateResourceInstanceSnapshot inventory-api
+[**InventoryApiCreateServicesOrchestration**](InventoryApiAPI.md#InventoryApiCreateServicesOrchestration) | **Post** /2022-09-01-00/fleet/services-orchestration | CreateServicesOrchestration inventory-api
 [**InventoryApiCreateUpgradePath**](InventoryApiAPI.md#InventoryApiCreateUpgradePath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path | CreateUpgradePath inventory-api
 [**InventoryApiDeleteProxyResourceInstance**](InventoryApiAPI.md#InventoryApiDeleteProxyResourceInstance) | **Delete** /2022-09-01-00/fleet/proxy-resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{id} | DeleteProxyResourceInstance inventory-api
 [**InventoryApiDeleteResourceInstance**](InventoryApiAPI.md#InventoryApiDeleteResourceInstance) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId} | DeleteResourceInstance inventory-api
 [**InventoryApiDeleteResourceInstanceSnapshot**](InventoryApiAPI.md#InventoryApiDeleteResourceInstanceSnapshot) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/snapshot/{snapshotId} | DeleteResourceInstanceSnapshot inventory-api
+[**InventoryApiDeleteServicesOrchestration**](InventoryApiAPI.md#InventoryApiDeleteServicesOrchestration) | **Delete** /2022-09-01-00/fleet/services-orchestration/{id} | DeleteServicesOrchestration inventory-api
 [**InventoryApiDenySubscriptionRequest**](InventoryApiAPI.md#InventoryApiDenySubscriptionRequest) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | DenySubscriptionRequest inventory-api
 [**InventoryApiDescribeHostCluster**](InventoryApiAPI.md#InventoryApiDescribeHostCluster) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/host-cluster/{id} | DescribeHostCluster inventory-api
 [**InventoryApiDescribeInstanceEvent**](InventoryApiAPI.md#InventoryApiDescribeInstanceEvent) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/event/{id} | DescribeInstanceEvent inventory-api
@@ -27,6 +29,7 @@ Method | HTTP request | Description
 [**InventoryApiDescribeResourceInstanceSnapshotFromTime**](InventoryApiAPI.md#InventoryApiDescribeResourceInstanceSnapshotFromTime) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/restore | DescribeResourceInstanceSnapshotFromTime inventory-api
 [**InventoryApiDescribeServiceOffering**](InventoryApiAPI.md#InventoryApiDescribeServiceOffering) | **Get** /2022-09-01-00/fleet/service-offering/{serviceId} | DescribeServiceOffering inventory-api
 [**InventoryApiDescribeServiceOfferingResource**](InventoryApiAPI.md#InventoryApiDescribeServiceOfferingResource) | **Get** /2022-09-01-00/fleet/service-offering/{serviceId}/resource/{resourceId}/instance/{instanceId} | DescribeServiceOfferingResource inventory-api
+[**InventoryApiDescribeServicesOrchestration**](InventoryApiAPI.md#InventoryApiDescribeServicesOrchestration) | **Get** /2022-09-01-00/fleet/services-orchestration/{id} | DescribeServicesOrchestration inventory-api
 [**InventoryApiDescribeSubscription**](InventoryApiAPI.md#InventoryApiDescribeSubscription) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/{id} | DescribeSubscription inventory-api
 [**InventoryApiDescribeSubscriptionRequest**](InventoryApiAPI.md#InventoryApiDescribeSubscriptionRequest) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | DescribeSubscriptionRequest inventory-api
 [**InventoryApiDescribeUpgradePath**](InventoryApiAPI.md#InventoryApiDescribeUpgradePath) | **Get** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId} | DescribeUpgradePath inventory-api
@@ -44,10 +47,12 @@ Method | HTTP request | Description
 [**InventoryApiListResourceInstances**](InventoryApiAPI.md#InventoryApiListResourceInstances) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instances/ | ListResourceInstances inventory-api
 [**InventoryApiListResources**](InventoryApiAPI.md#InventoryApiListResources) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/model/{serviceModelId}/productTier/{productTierId}/resources | ListResources inventory-api
 [**InventoryApiListServiceOfferings**](InventoryApiAPI.md#InventoryApiListServiceOfferings) | **Get** /2022-09-01-00/fleet/service-offering | ListServiceOfferings inventory-api
+[**InventoryApiListServicesOrchestrations**](InventoryApiAPI.md#InventoryApiListServicesOrchestrations) | **Get** /2022-09-01-00/fleet/services-orchestration | ListServicesOrchestrations inventory-api
 [**InventoryApiListSubscription**](InventoryApiAPI.md#InventoryApiListSubscription) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription | ListSubscription inventory-api
 [**InventoryApiListSubscriptionRequests**](InventoryApiAPI.md#InventoryApiListSubscriptionRequests) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request | ListSubscriptionRequests inventory-api
 [**InventoryApiListUpgradePaths**](InventoryApiAPI.md#InventoryApiListUpgradePaths) | **Get** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-paths | ListUpgradePaths inventory-api
 [**InventoryApiListUsers**](InventoryApiAPI.md#InventoryApiListUsers) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/users | ListUsers inventory-api
+[**InventoryApiModifyServicesOrchestration**](InventoryApiAPI.md#InventoryApiModifyServicesOrchestration) | **Patch** /2022-09-01-00/fleet/services-orchestration/{id} | ModifyServicesOrchestration inventory-api
 [**InventoryApiRemoveCapacityFromResourceInstance**](InventoryApiAPI.md#InventoryApiRemoveCapacityFromResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/remove-capacity | RemoveCapacityFromResourceInstance inventory-api
 [**InventoryApiRemoveCustomDNSFromResourceInstance**](InventoryApiAPI.md#InventoryApiRemoveCustomDNSFromResourceInstance) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/{resourceKey}/instance/{instanceId}/custom-dns | RemoveCustomDNSFromResourceInstance inventory-api
 [**InventoryApiRestartResourceInstance**](InventoryApiAPI.md#InventoryApiRestartResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/restart | RestartResourceInstance inventory-api
@@ -676,6 +681,70 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## InventoryApiCreateServicesOrchestration
+
+> CreateResourceInstanceResponseBody InventoryApiCreateServicesOrchestration(ctx).CreateServicesOrchestrationRequestBody(createServicesOrchestrationRequestBody).Execute()
+
+CreateServicesOrchestration inventory-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	createServicesOrchestrationRequestBody := *openapiclient.NewCreateServicesOrchestrationRequestBody("Amet est et sunt beatae architecto numquam.") // CreateServicesOrchestrationRequestBody | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiCreateServicesOrchestration(context.Background()).CreateServicesOrchestrationRequestBody(createServicesOrchestrationRequestBody).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiCreateServicesOrchestration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InventoryApiCreateServicesOrchestration`: CreateResourceInstanceResponseBody
+	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiCreateServicesOrchestration`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInventoryApiCreateServicesOrchestrationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createServicesOrchestrationRequestBody** | [**CreateServicesOrchestrationRequestBody**](CreateServicesOrchestrationRequestBody.md) |  | 
+
+### Return type
+
+[**CreateResourceInstanceResponseBody**](CreateResourceInstanceResponseBody.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## InventoryApiCreateUpgradePath
 
 > UpgradePath InventoryApiCreateUpgradePath(ctx, serviceId, productTierId).CreateUpgradePathRequestBody(createUpgradePathRequestBody).Execute()
@@ -697,7 +766,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
-	createUpgradePathRequestBody := *openapiclient.NewCreateUpgradePathRequestBody("1.0", "2.0", map[string][]string{"key": []string{"Est maiores."}}) // CreateUpgradePathRequestBody | 
+	createUpgradePathRequestBody := *openapiclient.NewCreateUpgradePathRequestBody("1.0", "2.0", map[string][]string{"key": []string{"Sed quae mollitia consectetur ut quo est."}}) // CreateUpgradePathRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -962,6 +1031,72 @@ Name | Type | Description  | Notes
 
 
 
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InventoryApiDeleteServicesOrchestration
+
+> InventoryApiDeleteServicesOrchestration(ctx, id).Execute()
+
+DeleteServicesOrchestration inventory-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	id := "so-12345678" // string | The ID of the services orchestration
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.InventoryApiAPI.InventoryApiDeleteServicesOrchestration(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiDeleteServicesOrchestration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The ID of the services orchestration | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInventoryApiDeleteServicesOrchestrationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type
@@ -1785,6 +1920,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InventoryDescribeServiceOfferingResourceResult**](InventoryDescribeServiceOfferingResourceResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InventoryApiDescribeServicesOrchestration
+
+> FleetDescribeServicesOrchestrationResult InventoryApiDescribeServicesOrchestration(ctx, id).Execute()
+
+DescribeServicesOrchestration inventory-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	id := "so-12345678" // string | The ID of the services orchestration
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiDescribeServicesOrchestration(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiDescribeServicesOrchestration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InventoryApiDescribeServicesOrchestration`: FleetDescribeServicesOrchestrationResult
+	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiDescribeServicesOrchestration`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The ID of the services orchestration | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInventoryApiDescribeServicesOrchestrationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**FleetDescribeServicesOrchestrationResult**](FleetDescribeServicesOrchestrationResult.md)
 
 ### Authorization
 
@@ -2847,7 +3050,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	productTierVersion := "Sed libero cumque adipisci voluptatem." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Vitae placeat ipsam fuga." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Consequatur ipsa fugit minima repellendus." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
 	subscriptionId := "Omnis vitae veritatis." // string | Subscription id of the instance to describe. (optional)
 
@@ -3033,6 +3236,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InventoryListServiceOfferingsResult**](InventoryListServiceOfferingsResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InventoryApiListServicesOrchestrations
+
+> []FleetDescribeServicesOrchestrationResult InventoryApiListServicesOrchestrations(ctx).Execute()
+
+ListServicesOrchestrations inventory-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListServicesOrchestrations(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiListServicesOrchestrations``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InventoryApiListServicesOrchestrations`: []FleetDescribeServicesOrchestrationResult
+	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiListServicesOrchestrations`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInventoryApiListServicesOrchestrationsRequest struct via the builder pattern
+
+
+### Return type
+
+[**[]FleetDescribeServicesOrchestrationResult**](FleetDescribeServicesOrchestrationResult.md)
 
 ### Authorization
 
@@ -3339,6 +3601,76 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InventoryApiModifyServicesOrchestration
+
+> CreateResourceInstanceResponseBody InventoryApiModifyServicesOrchestration(ctx, id).ModifyServicesOrchestrationRequestBody(modifyServicesOrchestrationRequestBody).Execute()
+
+ModifyServicesOrchestration inventory-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	id := "so-12345678" // string | The ID of the services orchestration
+	modifyServicesOrchestrationRequestBody := *openapiclient.NewModifyServicesOrchestrationRequestBody("Saepe exercitationem consequuntur soluta itaque rerum qui.") // ModifyServicesOrchestrationRequestBody | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiModifyServicesOrchestration(context.Background(), id).ModifyServicesOrchestrationRequestBody(modifyServicesOrchestrationRequestBody).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiModifyServicesOrchestration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InventoryApiModifyServicesOrchestration`: CreateResourceInstanceResponseBody
+	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiModifyServicesOrchestration`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The ID of the services orchestration | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInventoryApiModifyServicesOrchestrationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **modifyServicesOrchestrationRequestBody** | [**ModifyServicesOrchestrationRequestBody**](ModifyServicesOrchestrationRequestBody.md) |  | 
+
+### Return type
+
+[**CreateResourceInstanceResponseBody**](CreateResourceInstanceResponseBody.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
