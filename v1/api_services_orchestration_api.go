@@ -60,16 +60,16 @@ type ServicesOrchestrationApiAPI interface {
 	ServicesOrchestrationApiDescribeServicesOrchestrationExecute(r ApiServicesOrchestrationApiDescribeServicesOrchestrationRequest) (*DescribeServicesOrchestrationResult, *http.Response, error)
 
 	/*
-	ServicesOrchestrationApiListServicesOrchestration ListServicesOrchestration services-orchestration-api
+	ServicesOrchestrationApiListServicesOrchestrations ListServicesOrchestrations services-orchestration-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiServicesOrchestrationApiListServicesOrchestrationRequest
+	@return ApiServicesOrchestrationApiListServicesOrchestrationsRequest
 	*/
-	ServicesOrchestrationApiListServicesOrchestration(ctx context.Context) ApiServicesOrchestrationApiListServicesOrchestrationRequest
+	ServicesOrchestrationApiListServicesOrchestrations(ctx context.Context) ApiServicesOrchestrationApiListServicesOrchestrationsRequest
 
-	// ServicesOrchestrationApiListServicesOrchestrationExecute executes the request
+	// ServicesOrchestrationApiListServicesOrchestrationsExecute executes the request
 	//  @return []DescribeServicesOrchestrationResult
-	ServicesOrchestrationApiListServicesOrchestrationExecute(r ApiServicesOrchestrationApiListServicesOrchestrationRequest) ([]DescribeServicesOrchestrationResult, *http.Response, error)
+	ServicesOrchestrationApiListServicesOrchestrationsExecute(r ApiServicesOrchestrationApiListServicesOrchestrationsRequest) ([]DescribeServicesOrchestrationResult, *http.Response, error)
 
 	/*
 	ServicesOrchestrationApiModifyServicesOrchestration ModifyServicesOrchestration services-orchestration-api
@@ -582,23 +582,23 @@ func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiDescribeSer
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiServicesOrchestrationApiListServicesOrchestrationRequest struct {
+type ApiServicesOrchestrationApiListServicesOrchestrationsRequest struct {
 	ctx context.Context
 	ApiService ServicesOrchestrationApiAPI
 }
 
-func (r ApiServicesOrchestrationApiListServicesOrchestrationRequest) Execute() ([]DescribeServicesOrchestrationResult, *http.Response, error) {
-	return r.ApiService.ServicesOrchestrationApiListServicesOrchestrationExecute(r)
+func (r ApiServicesOrchestrationApiListServicesOrchestrationsRequest) Execute() ([]DescribeServicesOrchestrationResult, *http.Response, error) {
+	return r.ApiService.ServicesOrchestrationApiListServicesOrchestrationsExecute(r)
 }
 
 /*
-ServicesOrchestrationApiListServicesOrchestration ListServicesOrchestration services-orchestration-api
+ServicesOrchestrationApiListServicesOrchestrations ListServicesOrchestrations services-orchestration-api
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiServicesOrchestrationApiListServicesOrchestrationRequest
+ @return ApiServicesOrchestrationApiListServicesOrchestrationsRequest
 */
-func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiListServicesOrchestration(ctx context.Context) ApiServicesOrchestrationApiListServicesOrchestrationRequest {
-	return ApiServicesOrchestrationApiListServicesOrchestrationRequest{
+func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiListServicesOrchestrations(ctx context.Context) ApiServicesOrchestrationApiListServicesOrchestrationsRequest {
+	return ApiServicesOrchestrationApiListServicesOrchestrationsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -606,7 +606,7 @@ func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiListService
 
 // Execute executes the request
 //  @return []DescribeServicesOrchestrationResult
-func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiListServicesOrchestrationExecute(r ApiServicesOrchestrationApiListServicesOrchestrationRequest) ([]DescribeServicesOrchestrationResult, *http.Response, error) {
+func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiListServicesOrchestrationsExecute(r ApiServicesOrchestrationApiListServicesOrchestrationsRequest) ([]DescribeServicesOrchestrationResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -614,7 +614,7 @@ func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiListService
 		localVarReturnValue  []DescribeServicesOrchestrationResult
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServicesOrchestrationApiAPIService.ServicesOrchestrationApiListServicesOrchestration")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServicesOrchestrationApiAPIService.ServicesOrchestrationApiListServicesOrchestrations")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

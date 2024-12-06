@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**ServicesOrchestrationApiCreateServicesOrchestration**](ServicesOrchestrationApiAPI.md#ServicesOrchestrationApiCreateServicesOrchestration) | **Post** /2022-09-01-00/services-orchestration | CreateServicesOrchestration services-orchestration-api
 [**ServicesOrchestrationApiDeleteServicesOrchestration**](ServicesOrchestrationApiAPI.md#ServicesOrchestrationApiDeleteServicesOrchestration) | **Delete** /2022-09-01-00/services-orchestration/{id} | DeleteServicesOrchestration services-orchestration-api
 [**ServicesOrchestrationApiDescribeServicesOrchestration**](ServicesOrchestrationApiAPI.md#ServicesOrchestrationApiDescribeServicesOrchestration) | **Get** /2022-09-01-00/services-orchestration/{id} | DescribeServicesOrchestration services-orchestration-api
-[**ServicesOrchestrationApiListServicesOrchestration**](ServicesOrchestrationApiAPI.md#ServicesOrchestrationApiListServicesOrchestration) | **Get** /2022-09-01-00/services-orchestration | ListServicesOrchestration services-orchestration-api
+[**ServicesOrchestrationApiListServicesOrchestrations**](ServicesOrchestrationApiAPI.md#ServicesOrchestrationApiListServicesOrchestrations) | **Get** /2022-09-01-00/services-orchestration | ListServicesOrchestrations services-orchestration-api
 [**ServicesOrchestrationApiModifyServicesOrchestration**](ServicesOrchestrationApiAPI.md#ServicesOrchestrationApiModifyServicesOrchestration) | **Patch** /2022-09-01-00/services-orchestration/{id} | ModifyServicesOrchestration services-orchestration-api
 
 
@@ -210,11 +210,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ServicesOrchestrationApiListServicesOrchestration
+## ServicesOrchestrationApiListServicesOrchestrations
 
-> []DescribeServicesOrchestrationResult ServicesOrchestrationApiListServicesOrchestration(ctx).Execute()
+> []DescribeServicesOrchestrationResult ServicesOrchestrationApiListServicesOrchestrations(ctx).Execute()
 
-ListServicesOrchestration services-orchestration-api
+ListServicesOrchestrations services-orchestration-api
 
 ### Example
 
@@ -232,13 +232,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServicesOrchestrationApiAPI.ServicesOrchestrationApiListServicesOrchestration(context.Background()).Execute()
+	resp, r, err := apiClient.ServicesOrchestrationApiAPI.ServicesOrchestrationApiListServicesOrchestrations(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ServicesOrchestrationApiAPI.ServicesOrchestrationApiListServicesOrchestration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ServicesOrchestrationApiAPI.ServicesOrchestrationApiListServicesOrchestrations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ServicesOrchestrationApiListServicesOrchestration`: []DescribeServicesOrchestrationResult
-	fmt.Fprintf(os.Stdout, "Response from `ServicesOrchestrationApiAPI.ServicesOrchestrationApiListServicesOrchestration`: %v\n", resp)
+	// response from `ServicesOrchestrationApiListServicesOrchestrations`: []DescribeServicesOrchestrationResult
+	fmt.Fprintf(os.Stdout, "Response from `ServicesOrchestrationApiAPI.ServicesOrchestrationApiListServicesOrchestrations`: %v\n", resp)
 }
 ```
 
@@ -248,7 +248,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiServicesOrchestrationApiListServicesOrchestrationRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiServicesOrchestrationApiListServicesOrchestrationsRequest struct via the builder pattern
 
 
 ### Return type
