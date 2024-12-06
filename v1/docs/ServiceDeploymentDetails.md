@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DependsOnDeployment** | Pointer to **[]string** | The deployment keys that this deployment depends on | [optional] 
-**DeploymentKey** | **string** | The deployment key | 
-**InstanceId** | **string** | The instance ID | 
+**InstanceDeploymentAlias** | **string** | The instance deployment alias | 
+**InstanceId** | Pointer to **string** | The instance ID | [optional] 
 **ServiceId** | **string** | The service ID | 
 **SubscriptionId** | **string** | The instance subscription ID | 
 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewServiceDeploymentDetails
 
-`func NewServiceDeploymentDetails(deploymentKey string, instanceId string, serviceId string, subscriptionId string, ) *ServiceDeploymentDetails`
+`func NewServiceDeploymentDetails(instanceDeploymentAlias string, serviceId string, subscriptionId string, ) *ServiceDeploymentDetails`
 
 NewServiceDeploymentDetails instantiates a new ServiceDeploymentDetails object
 This constructor will assign default values to properties that have it defined,
@@ -54,24 +54,24 @@ SetDependsOnDeployment sets DependsOnDeployment field to given value.
 
 HasDependsOnDeployment returns a boolean if a field has been set.
 
-### GetDeploymentKey
+### GetInstanceDeploymentAlias
 
-`func (o *ServiceDeploymentDetails) GetDeploymentKey() string`
+`func (o *ServiceDeploymentDetails) GetInstanceDeploymentAlias() string`
 
-GetDeploymentKey returns the DeploymentKey field if non-nil, zero value otherwise.
+GetInstanceDeploymentAlias returns the InstanceDeploymentAlias field if non-nil, zero value otherwise.
 
-### GetDeploymentKeyOk
+### GetInstanceDeploymentAliasOk
 
-`func (o *ServiceDeploymentDetails) GetDeploymentKeyOk() (*string, bool)`
+`func (o *ServiceDeploymentDetails) GetInstanceDeploymentAliasOk() (*string, bool)`
 
-GetDeploymentKeyOk returns a tuple with the DeploymentKey field if it's non-nil, zero value otherwise
+GetInstanceDeploymentAliasOk returns a tuple with the InstanceDeploymentAlias field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDeploymentKey
+### SetInstanceDeploymentAlias
 
-`func (o *ServiceDeploymentDetails) SetDeploymentKey(v string)`
+`func (o *ServiceDeploymentDetails) SetInstanceDeploymentAlias(v string)`
 
-SetDeploymentKey sets DeploymentKey field to given value.
+SetInstanceDeploymentAlias sets InstanceDeploymentAlias field to given value.
 
 
 ### GetInstanceId
@@ -93,6 +93,11 @@ and a boolean to check if the value has been set.
 
 SetInstanceId sets InstanceId field to given value.
 
+### HasInstanceId
+
+`func (o *ServiceDeploymentDetails) HasInstanceId() bool`
+
+HasInstanceId returns a boolean if a field has been set.
 
 ### GetServiceId
 

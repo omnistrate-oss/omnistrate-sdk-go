@@ -22,10 +22,10 @@ var _ MappedNullable = &ServiceDeploymentDetails{}
 type ServiceDeploymentDetails struct {
 	// The deployment keys that this deployment depends on
 	DependsOnDeployment []string `json:"dependsOnDeployment,omitempty"`
-	// The deployment key
-	DeploymentKey string `json:"deploymentKey"`
+	// The instance deployment alias
+	InstanceDeploymentAlias string `json:"instanceDeploymentAlias"`
 	// The instance ID
-	InstanceId string `json:"instanceId"`
+	InstanceId *string `json:"instanceId,omitempty"`
 	// The service ID
 	ServiceId string `json:"serviceId"`
 	// The instance subscription ID
@@ -39,10 +39,9 @@ type _ServiceDeploymentDetails ServiceDeploymentDetails
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewServiceDeploymentDetails(deploymentKey string, instanceId string, serviceId string, subscriptionId string) *ServiceDeploymentDetails {
+func NewServiceDeploymentDetails(instanceDeploymentAlias string, serviceId string, subscriptionId string) *ServiceDeploymentDetails {
 	this := ServiceDeploymentDetails{}
-	this.DeploymentKey = deploymentKey
-	this.InstanceId = instanceId
+	this.InstanceDeploymentAlias = instanceDeploymentAlias
 	this.ServiceId = serviceId
 	this.SubscriptionId = subscriptionId
 	return &this
@@ -79,52 +78,51 @@ func (o *ServiceDeploymentDetails) SetDependsOnDeployment(v []string) {
 	o.DependsOnDeployment = v
 }
 
-// GetDeploymentKey returns the DeploymentKey field value
-func (o *ServiceDeploymentDetails) GetDeploymentKey() string {
+// GetInstanceDeploymentAlias returns the InstanceDeploymentAlias field value
+func (o *ServiceDeploymentDetails) GetInstanceDeploymentAlias() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.DeploymentKey
+	return o.InstanceDeploymentAlias
 }
 
-// GetDeploymentKeyOk returns a tuple with the DeploymentKey field value
+// GetInstanceDeploymentAliasOk returns a tuple with the InstanceDeploymentAlias field value
 // and a boolean to check if the value has been set.
-func (o *ServiceDeploymentDetails) GetDeploymentKeyOk() (*string, bool) {
+func (o *ServiceDeploymentDetails) GetInstanceDeploymentAliasOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.DeploymentKey, true
+	return &o.InstanceDeploymentAlias, true
 }
 
-// SetDeploymentKey sets field value
-func (o *ServiceDeploymentDetails) SetDeploymentKey(v string) {
-	o.DeploymentKey = v
+// SetInstanceDeploymentAlias sets field value
+func (o *ServiceDeploymentDetails) SetInstanceDeploymentAlias(v string) {
+	o.InstanceDeploymentAlias = v
 }
 
-// GetInstanceId returns the InstanceId field value
+// GetInstanceId returns the InstanceId field value if set, zero value otherwise.
 func (o *ServiceDeploymentDetails) GetInstanceId() string {
-	if o == nil {
+	if o == nil || IsNil(o.InstanceId) {
 		var ret string
 		return ret
 	}
-
-	return o.InstanceId
+	return *o.InstanceId
 }
 
-// GetInstanceIdOk returns a tuple with the InstanceId field value
+// GetInstanceIdOk returns a tuple with the InstanceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ServiceDeploymentDetails) GetInstanceIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.InstanceId) {
 		return nil, false
 	}
-	return &o.InstanceId, true
+	return o.InstanceId, true
 }
 
-// SetInstanceId sets field value
+// SetInstanceId gets a reference to the given string and assigns it to the InstanceId field.
 func (o *ServiceDeploymentDetails) SetInstanceId(v string) {
-	o.InstanceId = v
+	o.InstanceId = &v
 }
 
 // GetServiceId returns the ServiceId field value
@@ -188,8 +186,10 @@ func (o ServiceDeploymentDetails) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DependsOnDeployment) {
 		toSerialize["dependsOnDeployment"] = o.DependsOnDeployment
 	}
-	toSerialize["deploymentKey"] = o.DeploymentKey
-	toSerialize["instanceId"] = o.InstanceId
+	toSerialize["instanceDeploymentAlias"] = o.InstanceDeploymentAlias
+	if !IsNil(o.InstanceId) {
+		toSerialize["instanceId"] = o.InstanceId
+	}
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["subscriptionId"] = o.SubscriptionId
 
@@ -205,8 +205,7 @@ func (o *ServiceDeploymentDetails) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"deploymentKey",
-		"instanceId",
+		"instanceDeploymentAlias",
 		"serviceId",
 		"subscriptionId",
 	}
@@ -239,7 +238,7 @@ func (o *ServiceDeploymentDetails) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "dependsOnDeployment")
-		delete(additionalProperties, "deploymentKey")
+		delete(additionalProperties, "instanceDeploymentAlias")
 		delete(additionalProperties, "instanceId")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "subscriptionId")
