@@ -33,6 +33,7 @@ docs/CreateNotificationChannelRequestBody.md
 docs/CreateProxyResourceInstanceRequestBody.md
 docs/CreateResourceInstanceRequestBody.md
 docs/CreateResourceInstanceResponseBody.md
+docs/CreateServicesOrchestrationRequestBody.md
 docs/CreateUpgradePathRequestBody.md
 docs/CustomDNSEndpoint.md
 docs/CustomNetworkFleetDetail.md
@@ -49,6 +50,7 @@ docs/DescribeServiceOfferingResourceResult.md
 docs/DescribeServiceOfferingResult.md
 docs/DescribeServiceWorkflowResult.md
 docs/DescribeServiceWorkflowSummaryResult.md
+docs/DescribeServicesOrchestrationResult.md
 docs/DescribeSubscriptionRequestResult.md
 docs/DetailedNodeHealthResult.md
 docs/DisableProductTierIntegrationRequestBody.md
@@ -69,6 +71,7 @@ docs/FleetDescribeEventResult.md
 docs/FleetDescribeHostClusterResult.md
 docs/FleetDescribeInstanceSnapshotFromTimeResult.md
 docs/FleetDescribeInstanceSnapshotResult.md
+docs/FleetDescribeServicesOrchestrationResult.md
 docs/FleetDescribeSubscriptionResult.md
 docs/FleetDescribeUserResult.md
 docs/FleetFeature.md
@@ -118,6 +121,7 @@ docs/ListServiceProviderEventsResult.md
 docs/ListServiceWorkflowsResult.md
 docs/ListSubscriptionRequestsResult.md
 docs/ListUpgradePathsResult.md
+docs/ModifyServicesOrchestrationRequestBody.md
 docs/NodeHealthSummary.md
 docs/NodeNetworkTopologyResult.md
 docs/NotificationSearchRecord.md
@@ -153,6 +157,7 @@ docs/SearchServiceInventoryRequestBody.md
 docs/SearchServiceInventoryResult.md
 docs/ServerlessProxySearchRecord.md
 docs/ServiceAssets.md
+docs/ServiceDeploymentDetails.md
 docs/ServiceHealthSummary.md
 docs/ServiceModelFeatureDetail.md
 docs/ServiceOffering.md
@@ -195,6 +200,7 @@ model_create_notification_channel_request_body.go
 model_create_proxy_resource_instance_request_body.go
 model_create_resource_instance_request_body.go
 model_create_resource_instance_response_body.go
+model_create_services_orchestration_request_body.go
 model_create_upgrade_path_request_body.go
 model_custom_dns_endpoint.go
 model_custom_network_fleet_detail.go
@@ -210,6 +216,7 @@ model_describe_service_offering_resource_result.go
 model_describe_service_offering_result.go
 model_describe_service_workflow_result.go
 model_describe_service_workflow_summary_result.go
+model_describe_services_orchestration_result.go
 model_describe_subscription_request_result.go
 model_detailed_node_health_result.go
 model_disable_product_tier_integration_request_body.go
@@ -228,6 +235,7 @@ model_fleet_describe_event_result.go
 model_fleet_describe_host_cluster_result.go
 model_fleet_describe_instance_snapshot_from_time_result.go
 model_fleet_describe_instance_snapshot_result.go
+model_fleet_describe_services_orchestration_result.go
 model_fleet_describe_subscription_result.go
 model_fleet_describe_user_result.go
 model_fleet_feature.go
@@ -271,6 +279,7 @@ model_list_service_provider_events_result.go
 model_list_service_workflows_result.go
 model_list_subscription_requests_result.go
 model_list_upgrade_paths_result.go
+model_modify_services_orchestration_request_body.go
 model_node_health_summary.go
 model_node_network_topology_result.go
 model_notification_search_record.go
@@ -304,6 +313,7 @@ model_search_service_inventory_request_body.go
 model_search_service_inventory_result.go
 model_serverless_proxy_search_record.go
 model_service_assets.go
+model_service_deployment_details.go
 model_service_health_summary.go
 model_service_model_feature_detail.go
 model_service_offering.go
