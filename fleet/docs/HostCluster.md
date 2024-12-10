@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountConfigId** | **string** |  | 
+**AccountConfigId** | **string** | ID of an Account Config | 
 **CustomNetworkDetail** | Pointer to [**CustomNetworkFleetDetail**](CustomNetworkFleetDetail.md) |  | [optional] 
 **Description** | **string** |  | 
 **HelmPackages** | Pointer to [**[]HelmPackage**](HelmPackage.md) | Helm packages installed on the host cluster | [optional] 
-**Id** | **string** |  | 
+**Id** | **string** | ID of a Host Cluster | 
 **KubernetesDashboardEndpoint** | Pointer to **string** | Endpoint of the Kubernetes dashboard | [optional] 
-**ModelType** | Pointer to **string** | The model type of the host cluster | [optional] 
-**RegionId** | Pointer to **string** |  | [optional] 
-**Role** | Pointer to **string** | The role of the host cluster | [optional] 
-**Status** | **string** | Status of the host cluster | 
+**ModelType** | Pointer to **string** | The model type encapsulating this service | [optional] 
+**RegionId** | Pointer to **string** | ID of a Region | [optional] 
+**Role** | Pointer to **string** |  | [optional] 
+**Status** | **string** | The status of an operation | 
 **Type** | **string** | Type of the host cluster | 
 
 ## Methods

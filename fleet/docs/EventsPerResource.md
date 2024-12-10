@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ResourceId** | **string** | Resource ID | 
+**ResourceId** | **string** | ID of a resource | 
 **ResourceKey** | **string** | Resource Key | 
 **ResourceName** | **string** | Resource Name | 
 **WorkflowSteps** | Pointer to [**[]EventsPerWorkflowStep**](EventsPerWorkflowStep.md) | Per step workflow events for the resource | [optional] 

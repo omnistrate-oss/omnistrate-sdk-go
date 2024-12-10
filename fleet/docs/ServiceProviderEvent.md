@@ -5,16 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AlertType** | **string** | The type of the alert | 
-**EventCategory** | **string** | The category of the event | 
-**EventID** | **string** | The ID of the event | 
+**EventCategory** | **string** | The category of the service provider specific event | 
+**EventID** | **string** | ID of a Event | 
 **EventPayload** | **map[string]interface{}** | The event payload for a service provider | 
-**EventType** | **string** | The type of the event | 
+**EventType** | **string** | The type of the service provider specific event | 
 **ExpiryTime** | **string** | The expiry time of the event | 
-**InstanceID** | Pointer to **string** | The ID of the instance | [optional] 
+**InstanceID** | Pointer to **string** | ID of a Resource Instance | [optional] 
 **Priority** | **string** | The priority of the event | 
 **Scope** | **string** | The scope of the event | 
-**ServiceEnvironmentID** | Pointer to **string** | The ID of the service environment | [optional] 
-**ServiceID** | Pointer to **string** | The ID of the service | [optional] 
+**ServiceEnvironmentID** | Pointer to **string** | ID of a Service Environment | [optional] 
+**ServiceID** | Pointer to **string** | ID of a Service | [optional] 
 **Time** | **string** | The event time | 
 
 ## Methods

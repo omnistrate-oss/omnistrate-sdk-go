@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InstanceID** | **string** | The ID of the instance | 
-**LifeCycleStatus** | **string** | The lifecycle status of the instance | 
+**InstanceID** | **string** | ID of a Resource Instance | 
+**LifeCycleStatus** | **string** | The status of an operation | 
 **ResourcesHealth** | [**map[string]ResourceHealthSummary**](ResourceHealthSummary.md) | The health summary of the resources by resource ID | 
-**Status** | **string** | The status of the instance | 
+**Status** | **string** | The heath status of a resource | 
 
 ## Methods
 

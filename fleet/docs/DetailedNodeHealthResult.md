@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ConnectivityStatus** | Pointer to **string** | The health status of the network endpoints | [optional] 
-**DiskHealth** | Pointer to **string** | The health status of the disk | [optional] 
-**LoadHealth** | Pointer to **string** | The load status of the pod | [optional] 
-**NodeHealth** | Pointer to **string** | The health status of the machine hosting the service | [optional] 
-**ProcessHealth** | Pointer to **string** | The health status of the process | [optional] 
-**ProcessLiveness** | Pointer to **string** | The liveness status of the process | [optional] 
+**ConnectivityStatus** | Pointer to **string** | The heath status of a resource | [optional] 
+**DiskHealth** | Pointer to **string** | The heath status of a resource | [optional] 
+**LoadHealth** | Pointer to **string** | The load status of a pod | [optional] 
+**NodeHealth** | Pointer to **string** | The heath status of a resource | [optional] 
+**ProcessHealth** | Pointer to **string** | The heath status of a resource | [optional] 
+**ProcessLiveness** | Pointer to **string** | The heath status of a resource | [optional] 
 
 ## Methods
 

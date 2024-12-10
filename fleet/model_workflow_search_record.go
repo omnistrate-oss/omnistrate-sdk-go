@@ -24,17 +24,17 @@ type WorkflowSearchRecord struct {
 	Id string `json:"id"`
 	// The name of the resource associated with the workflow.
 	ResourceName string `json:"resourceName"`
-	// The service environment ID of the workflow.
+	// ID of a Service Environment
 	ServiceEnvironmentId string `json:"serviceEnvironmentId"`
 	// The service environment name of the workflow.
 	ServiceEnvironmentName string `json:"serviceEnvironmentName"`
-	// The service environment type of the workflow.
+	// The type of service environment
 	ServiceEnvironmentType *string `json:"serviceEnvironmentType,omitempty"`
-	// The service ID of the workflow.
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The service name of the workflow.
 	ServiceName string `json:"serviceName"`
-	// The workflow status.
+	// The status of an operation
 	Status string `json:"status"`
 	// The workflow type.
 	Type string `json:"type"`

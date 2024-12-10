@@ -20,13 +20,13 @@ var _ MappedNullable = &InstanceHealthSummary{}
 
 // InstanceHealthSummary struct for InstanceHealthSummary
 type InstanceHealthSummary struct {
-	// The ID of the instance
+	// ID of a Resource Instance
 	InstanceID string `json:"instanceID"`
-	// The lifecycle status of the instance
+	// The status of an operation
 	LifeCycleStatus string `json:"lifeCycleStatus"`
 	// The health summary of the resources by resource ID
 	ResourcesHealth map[string]ResourceHealthSummary `json:"resourcesHealth"`
-	// The status of the instance
+	// The heath status of a resource
 	Status string `json:"status"`
 	AdditionalProperties map[string]interface{}
 }

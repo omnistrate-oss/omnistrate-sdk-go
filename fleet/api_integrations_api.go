@@ -71,11 +71,11 @@ type ApiIntegrationsApiDisableProductTierIntegrationRequest struct {
 	ApiService IntegrationsApiAPI
 	serviceId string
 	id string
-	disableProductTierIntegrationRequestBody *DisableProductTierIntegrationRequestBody
+	disableProductTierIntegrationRequest2 *DisableProductTierIntegrationRequest2
 }
 
-func (r ApiIntegrationsApiDisableProductTierIntegrationRequest) DisableProductTierIntegrationRequestBody(disableProductTierIntegrationRequestBody DisableProductTierIntegrationRequestBody) ApiIntegrationsApiDisableProductTierIntegrationRequest {
-	r.disableProductTierIntegrationRequestBody = &disableProductTierIntegrationRequestBody
+func (r ApiIntegrationsApiDisableProductTierIntegrationRequest) DisableProductTierIntegrationRequest2(disableProductTierIntegrationRequest2 DisableProductTierIntegrationRequest2) ApiIntegrationsApiDisableProductTierIntegrationRequest {
+	r.disableProductTierIntegrationRequest2 = &disableProductTierIntegrationRequest2
 	return r
 }
 
@@ -120,8 +120,8 @@ func (a *IntegrationsApiAPIService) IntegrationsApiDisableProductTierIntegration
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.disableProductTierIntegrationRequestBody == nil {
-		return nil, reportError("disableProductTierIntegrationRequestBody is required and must be specified")
+	if r.disableProductTierIntegrationRequest2 == nil {
+		return nil, reportError("disableProductTierIntegrationRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -142,7 +142,7 @@ func (a *IntegrationsApiAPIService) IntegrationsApiDisableProductTierIntegration
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.disableProductTierIntegrationRequestBody
+	localVarPostBody = r.disableProductTierIntegrationRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -241,11 +241,11 @@ type ApiIntegrationsApiEnableProductTierIntegrationRequest struct {
 	ApiService IntegrationsApiAPI
 	serviceId string
 	id string
-	enableProductTierIntegrationRequestBody *EnableProductTierIntegrationRequestBody
+	enableProductTierIntegrationRequest2 *EnableProductTierIntegrationRequest2
 }
 
-func (r ApiIntegrationsApiEnableProductTierIntegrationRequest) EnableProductTierIntegrationRequestBody(enableProductTierIntegrationRequestBody EnableProductTierIntegrationRequestBody) ApiIntegrationsApiEnableProductTierIntegrationRequest {
-	r.enableProductTierIntegrationRequestBody = &enableProductTierIntegrationRequestBody
+func (r ApiIntegrationsApiEnableProductTierIntegrationRequest) EnableProductTierIntegrationRequest2(enableProductTierIntegrationRequest2 EnableProductTierIntegrationRequest2) ApiIntegrationsApiEnableProductTierIntegrationRequest {
+	r.enableProductTierIntegrationRequest2 = &enableProductTierIntegrationRequest2
 	return r
 }
 
@@ -290,8 +290,8 @@ func (a *IntegrationsApiAPIService) IntegrationsApiEnableProductTierIntegrationE
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.enableProductTierIntegrationRequestBody == nil {
-		return nil, reportError("enableProductTierIntegrationRequestBody is required and must be specified")
+	if r.enableProductTierIntegrationRequest2 == nil {
+		return nil, reportError("enableProductTierIntegrationRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -312,7 +312,7 @@ func (a *IntegrationsApiAPIService) IntegrationsApiEnableProductTierIntegrationE
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.enableProductTierIntegrationRequestBody
+	localVarPostBody = r.enableProductTierIntegrationRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

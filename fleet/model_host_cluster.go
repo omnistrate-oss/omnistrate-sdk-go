@@ -20,20 +20,22 @@ var _ MappedNullable = &HostCluster{}
 
 // HostCluster struct for HostCluster
 type HostCluster struct {
+	// ID of an Account Config
 	AccountConfigId string `json:"accountConfigId"`
 	CustomNetworkDetail *CustomNetworkFleetDetail `json:"customNetworkDetail,omitempty"`
 	Description string `json:"description"`
 	// Helm packages installed on the host cluster
 	HelmPackages []HelmPackage `json:"helmPackages,omitempty"`
+	// ID of a Host Cluster
 	Id string `json:"id"`
 	// Endpoint of the Kubernetes dashboard
 	KubernetesDashboardEndpoint *string `json:"kubernetesDashboardEndpoint,omitempty"`
-	// The model type of the host cluster
+	// The model type encapsulating this service
 	ModelType *string `json:"modelType,omitempty"`
+	// ID of a Region
 	RegionId *string `json:"regionId,omitempty"`
-	// The role of the host cluster
 	Role *string `json:"role,omitempty"`
-	// Status of the host cluster
+	// The status of an operation
 	Status string `json:"status"`
 	// Type of the host cluster
 	Type string `json:"type"`

@@ -19,7 +19,7 @@ var _ MappedNullable = &Resource{}
 
 // Resource struct for Resource
 type Resource struct {
-	// The service environment ID this workflow belongs to.
+	// ID of a Service Environment
 	EnvironmentId *string `json:"environmentId,omitempty"`
 	// The number of instances for the specific resource.
 	InstanceCount *int64 `json:"instanceCount,omitempty"`
@@ -31,9 +31,9 @@ type Resource struct {
 	ProductTierType *string `json:"productTierType,omitempty"`
 	// The proxy type of instance
 	ProxyType *string `json:"proxyType,omitempty"`
-	// The resource ID.
+	// ID of a resource
 	ResourceId *string `json:"resourceId,omitempty"`
-	// The service ID this workflow belongs to.
+	// ID of a Service
 	ServiceId *string `json:"serviceId,omitempty"`
 	// The service model type
 	ServiceModelType *string `json:"serviceModelType,omitempty"`
