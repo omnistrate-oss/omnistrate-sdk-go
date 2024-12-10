@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Instances** | [**[]InstanceUpgrade**](InstanceUpgrade.md) | The list of instances that are in the upgrade path | 
-**ProductTierId** | **string** | The product tier ID that this upgrade path belongs to | 
-**ServiceId** | **string** | The service ID this workflow belongs to. | 
-**UpgradePathId** | **string** | The upgrade path ID | 
+**ProductTierId** | **string** | ID of a Product Tier | 
+**ServiceId** | **string** | ID of a Service | 
+**UpgradePathId** | **string** | ID of an Upgrade Path | 
 
 ## Methods
 

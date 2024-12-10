@@ -23,6 +23,8 @@ type ListServiceProviderEventsResult struct {
 	// List of events
 	Events []ServiceProviderEvent `json:"events"`
 	EventsSummary ServiceProviderEventSummary `json:"eventsSummary"`
+	// The next token to use for pagination
+	NextPageToken *string `json:"nextPageToken,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -95,6 +97,38 @@ func (o *ListServiceProviderEventsResult) SetEventsSummary(v ServiceProviderEven
 	o.EventsSummary = v
 }
 
+// GetNextPageToken returns the NextPageToken field value if set, zero value otherwise.
+func (o *ListServiceProviderEventsResult) GetNextPageToken() string {
+	if o == nil || IsNil(o.NextPageToken) {
+		var ret string
+		return ret
+	}
+	return *o.NextPageToken
+}
+
+// GetNextPageTokenOk returns a tuple with the NextPageToken field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListServiceProviderEventsResult) GetNextPageTokenOk() (*string, bool) {
+	if o == nil || IsNil(o.NextPageToken) {
+		return nil, false
+	}
+	return o.NextPageToken, true
+}
+
+// HasNextPageToken returns a boolean if a field has been set.
+func (o *ListServiceProviderEventsResult) HasNextPageToken() bool {
+	if o != nil && !IsNil(o.NextPageToken) {
+		return true
+	}
+
+	return false
+}
+
+// SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.
+func (o *ListServiceProviderEventsResult) SetNextPageToken(v string) {
+	o.NextPageToken = &v
+}
+
 func (o ListServiceProviderEventsResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -107,6 +141,9 @@ func (o ListServiceProviderEventsResult) ToMap() (map[string]interface{}, error)
 	toSerialize := map[string]interface{}{}
 	toSerialize["events"] = o.Events
 	toSerialize["eventsSummary"] = o.EventsSummary
+	if !IsNil(o.NextPageToken) {
+		toSerialize["nextPageToken"] = o.NextPageToken
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -153,6 +190,7 @@ func (o *ListServiceProviderEventsResult) UnmarshalJSON(data []byte) (err error)
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "events")
 		delete(additionalProperties, "eventsSummary")
+		delete(additionalProperties, "nextPageToken")
 		o.AdditionalProperties = additionalProperties
 	}
 

@@ -22,13 +22,13 @@ var _ MappedNullable = &ResourceHealthSummary{}
 type ResourceHealthSummary struct {
 	// The health summary of the nodes by node name
 	NodesHealth map[string]NodeHealthSummary `json:"nodesHealth"`
-	// The ID of the resource
+	// ID of a resource
 	ResourceID string `json:"resourceID"`
 	// The key of the resource
 	ResourceKey string `json:"resourceKey"`
 	// The type of the resource
 	ResourceType *string `json:"resourceType,omitempty"`
-	// The status of the resource
+	// The heath status of a resource
 	Status string `json:"status"`
 	AdditionalProperties map[string]interface{}
 }

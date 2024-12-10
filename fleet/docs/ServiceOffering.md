@@ -12,28 +12,28 @@ Name | Type | Description | Notes
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this service offering is available on | [optional] 
 **ProductTierDescription** | Pointer to **string** | A brief description of the product tier | [optional] 
 **ProductTierDocumentation** | **string** | Documentation | 
-**ProductTierID** | **string** | The service product ID | 
+**ProductTierID** | **string** | ID of a Product Tier | 
 **ProductTierName** | **string** | The product tier name | 
 **ProductTierPlanDescription** | Pointer to **string** | A brief description for the end user of the product tier | [optional] 
 **ProductTierPricing** | **interface{}** | Pricing | 
 **ProductTierSupport** | **string** | Support | 
-**ProductTierType** | **string** | Tier type | 
+**ProductTierType** | **string** | ProductTierType is the type of tier for a product | 
 **ProductTierURLKey** | **string** | The product tier URL key | 
 **ProductTierVersion** | **string** | The product tier version | 
 **ResourceParameters** | [**[]ResourceEntity**](ResourceEntity.md) | The resource parameters | 
-**ServiceAPIID** | **string** | The service API ID | 
+**ServiceAPIID** | **string** | ID of a Service API | 
 **ServiceAPIVersion** | **string** | The service API version | 
-**ServiceEnvironmentID** | **string** | The service Environment ID | 
+**ServiceEnvironmentID** | **string** | ID of a Service Environment | 
 **ServiceEnvironmentName** | **string** | The service environment name | 
-**ServiceEnvironmentType** | **string** | The service environment type | 
+**ServiceEnvironmentType** | **string** | The type of service environment | 
 **ServiceEnvironmentURLKey** | **string** | The service environment URL key | 
-**ServiceEnvironmentVisibility** | **string** | The service environment visibility | 
+**ServiceEnvironmentVisibility** | **string** | This parameter is used to configure the visibility of the service control-plane APIs | 
 **ServiceLogoURL** | **string** | The logo for the service | 
 **ServiceModelFeatures** | Pointer to [**[]ServiceModelFeatureDetail**](ServiceModelFeatureDetail.md) | Enabled service model features | [optional] 
-**ServiceModelID** | **string** | The service Model ID | 
+**ServiceModelID** | **string** | ID of a Service Model | 
 **ServiceModelName** | **string** | The service model name | 
 **ServiceModelStatus** | **string** | The service model status | 
-**ServiceModelType** | **string** | The type of the service model. CUSTOMER_HOSTED is a service model that is hosted in the customer account and managed by Omnistrate. OMNISTRATE_HOSTED is a service model that is managed by Omnistrate platform. BYOA is a service model that is hosted in the service provider&#39;s account and managed by Omnistrate. | 
+**ServiceModelType** | **string** | The model type encapsulating this service | 
 **ServiceModelURLKey** | **string** | The service model URL key | 
 
 ## Methods

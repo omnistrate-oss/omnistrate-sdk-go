@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **NetworkingType** | **string** | The networking type for this resource | 
 **Nodes** | Pointer to [**[]NodeNetworkTopologyResult**](NodeNetworkTopologyResult.md) | The nodes that this resource is deployed on | [optional] 
 **PrivateNetworkCIDR** | Pointer to **string** | The private network CIDR for this resource | [optional] 
-**PrivateNetworkID** | Pointer to **string** | The private network ID for this resource | [optional] 
+**PrivateNetworkID** | Pointer to **string** | ID of a Network | [optional] 
 **ProxyEndpoint** | Pointer to [**ProxyEndpoint**](ProxyEndpoint.md) |  | [optional] 
 **PubliclyAccessible** | **bool** | Whether this resource is publicly accessible | 
 **RecentDeploymentFailure** | Pointer to [**RecentDeploymentFailureStatus**](RecentDeploymentFailureStatus.md) |  | [optional] 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NextPageToken** | Pointer to **string** | Token to use for the next request | [optional] 
-**ServiceId** | Pointer to **string** | The service ID of the users. | [optional] 
+**ServiceId** | Pointer to **string** | ID of a Service | [optional] 
 **Users** | [**[]AccessSideUser**](AccessSideUser.md) | List of access-side users. | 
 
 ## Methods

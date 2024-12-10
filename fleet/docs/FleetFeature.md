@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Feature** | **string** | The feature to enable. | 
+**Feature** | **string** | FleetFeatureType is to enable / disable features per service provider | 
 **FeatureConfig** | Pointer to **map[string]string** | The configuration for the feature. | [optional] 
 **Status** | **string** | The status of the feature. | 
 

@@ -24,7 +24,7 @@ type FleetDescribeUserResult struct {
 	CreatedAt string `json:"createdAt"`
 	// List of subscriptions associated with the user.
 	Subscriptions []UserSubscription `json:"subscriptions"`
-	// The user ID
+	// ID of a User
 	UserId string `json:"userId"`
 	AdditionalProperties map[string]interface{}
 }

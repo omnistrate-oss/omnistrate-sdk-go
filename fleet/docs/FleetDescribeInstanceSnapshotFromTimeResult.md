@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CompleteTime** | **string** | The snapshot time | 
-**EnvironmentId** | **string** | The service environment ID this workflow belongs to. | 
-**ProductTierId** | **string** | The product tier ID | 
+**EnvironmentId** | **string** | ID of a Service Environment | 
+**ProductTierId** | **string** | ID of a Product Tier | 
 **ProductTierVersion** | **string** | The product tier version | 
-**ServiceId** | **string** | The service ID this workflow belongs to. | 
-**SnapshotId** | **string** | The instance snapshot ID | 
+**ServiceId** | **string** | ID of a Service | 
+**SnapshotId** | **string** | ID of a Resource Instance Snapshot | 
 **Status** | **string** | The snapshot status | 
 
 ## Methods

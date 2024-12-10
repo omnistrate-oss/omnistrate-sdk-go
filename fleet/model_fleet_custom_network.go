@@ -22,7 +22,7 @@ var _ MappedNullable = &FleetCustomNetwork{}
 type FleetCustomNetwork struct {
 	// CIDR block for the network
 	Cidr string `json:"cidr"`
-	// The name of the cloud provider that the instance is running on.
+	// Name of the Infra Provider
 	CloudProviderName string `json:"cloudProviderName"`
 	// The region of the cloud provider that the instance is running in.
 	CloudProviderRegion string `json:"cloudProviderRegion"`

@@ -7,21 +7,21 @@ Name | Type | Description | Notes
 **CreatedAt** | **string** | The time the user was created. | 
 **Email** | **string** | The user email. | 
 **Enabled** | Pointer to **bool** | Is the user enabled. | [optional] 
-**EnvironmentId** | **string** | The service environment ID this workflow belongs to. | 
+**EnvironmentId** | **string** | ID of a Service Environment | 
 **InstanceCount** | **int64** | The number of active instances the user has. | 
 **LastModifiedAt** | **string** | The last modified time of the user. | 
-**LastModifiedByUserID** | Pointer to **string** | The user ID of the last modifier. | [optional] 
+**LastModifiedByUserID** | Pointer to **string** | ID of a User | [optional] 
 **LastModifiedByUserName** | Pointer to **string** | The user name of the last modifier. | [optional] 
-**OrgId** | **string** | The organization ID. | 
+**OrgId** | **string** | ID of an Org | 
 **OrgName** | **string** | The organization name. | 
 **OrgUrl** | Pointer to **string** | The organization URL. | [optional] 
-**ServiceId** | **string** | The service ID this workflow belongs to. | 
+**ServiceId** | **string** | ID of a Service | 
 **Status** | **string** | The status of the user. | 
 **SubscriptionCount** | Pointer to **int64** | The number of subscriptions the user has. | [optional] 
 **Token** | Pointer to **string** | Token to validate the user, if the user is not enabled. | [optional] 
-**UserId** | **string** | The user ID. | 
+**UserId** | **string** | ID of a User | 
 **UserName** | **string** | The user name. | 
-**UserSubscriptionRole** | Pointer to **string** | The user subscription role. | [optional] 
+**UserSubscriptionRole** | Pointer to **string** | Type of the role | [optional] 
 
 ## Methods
 

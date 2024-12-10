@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **CompleteTime** | **string** | The snapshot time | 
 **CreatedTime** | **string** | The snapshot creation time | 
 **Encrypted** | **bool** | Whether the snapshot is encrypted | 
-**EnvironmentId** | **string** | The service environment ID this workflow belongs to. | 
-**ProductTierId** | **string** | The product tier ID | 
+**EnvironmentId** | **string** | ID of a Service Environment | 
+**ProductTierId** | **string** | ID of a Product Tier | 
 **ProductTierVersion** | **string** | The product tier version | 
 **Progress** | **int64** | The backup progress. 0-100 | 
-**ServiceId** | **string** | The service ID this workflow belongs to. | 
-**SnapshotId** | **string** | The instance snapshot ID | 
-**SourceInstanceId** | **string** | The source instance ID | 
+**ServiceId** | **string** | ID of a Service | 
+**SnapshotId** | **string** | ID of a Resource Instance Snapshot | 
+**SourceInstanceId** | **string** | ID of a Resource Instance | 
 **Status** | **string** | The snapshot status | 
 
 ## Methods

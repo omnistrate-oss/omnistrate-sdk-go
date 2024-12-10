@@ -22,31 +22,31 @@ var _ MappedNullable = &FleetDescribeSubscriptionResult{}
 type FleetDescribeSubscriptionResult struct {
 	// The time that this subscription was created
 	CreatedAt string `json:"createdAt"`
-	// The subscription ID
+	// ID of a Subscription
 	Id string `json:"id"`
 	// The number of active instances in the subscription
 	InstanceCount int64 `json:"instanceCount"`
-	// The product tier ID that this subscription is tied to
+	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// The name of the product tier
 	ProductTierName string `json:"productTierName"`
 	// The email of the user that owns the subscription
 	RootUserEmail string `json:"rootUserEmail"`
-	// The ID of the user that owns the subscription
+	// ID of a User
 	RootUserId string `json:"rootUserId"`
 	// The name of the user that owns the subscription
 	RootUserName string `json:"rootUserName"`
-	// The service ID that this subscription is tied to
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The logo for the service
 	ServiceLogoURL *string `json:"serviceLogoURL,omitempty"`
 	// The name of the service
 	ServiceName string `json:"serviceName"`
-	// The status of the subscription
+	// Subscription Status
 	Status string `json:"status"`
 	// The time that this subscription was last updated
 	UpdatedAt string `json:"updatedAt"`
-	// The id of the user that last updated the subscription
+	// ID of a User
 	UpdatedByUserId string `json:"updatedByUserId"`
 	// The name of the user that last updated the subscription
 	UpdatedByUserName string `json:"updatedByUserName"`

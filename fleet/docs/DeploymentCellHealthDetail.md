@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudProvider** | **string** | The cloud provider of the host cluster | 
-**HostClusterID** | **string** | The ID of the host cluster | 
+**CloudProvider** | **string** | Name of the Infra Provider | 
+**HostClusterID** | **string** | ID of a Host Cluster | 
 **InstanceHealth** | [**map[string]InstanceHealthSummary**](InstanceHealthSummary.md) | The health summary of the instances by instance ID | 
 **RegionCode** | **string** | The region code of the host cluster | 
 **ServiceEnvironmentName** | **string** | The name of the service environment | 

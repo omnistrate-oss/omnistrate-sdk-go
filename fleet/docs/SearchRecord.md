@@ -4,26 +4,26 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudProvider** | Pointer to **string** | The cloud provider of the record, if it&#39;s a deployment cell. | [optional] 
+**CloudProvider** | Pointer to **string** | Name of the Infra Provider | [optional] 
 **Description** | Pointer to **string** | The description of the record. | [optional] 
-**EnvironmentId** | Pointer to **string** | The service environment ID of this record. | [optional] 
+**EnvironmentId** | Pointer to **string** | ID of a Service Environment | [optional] 
 **EnvironmentKey** | Pointer to **string** | The environment key of the record. | [optional] 
 **Id** | **string** | The ID of the record. | 
 **Name** | Pointer to **string** | The name of the record. | [optional] 
-**OrgId** | Pointer to **string** | The organization ID of the record, if it&#39;s a subscription. | [optional] 
+**OrgId** | Pointer to **string** | ID of an Org | [optional] 
 **OrgName** | Pointer to **string** | The Organization Name of the record, if it&#39;s a user. | [optional] 
 **RegionCode** | Pointer to **string** | The region code of the record, if it&#39;s a deployment cell. | [optional] 
 **ResourceId** | Pointer to **string** | The resource ID of the record, if it&#39;s an instance. | [optional] 
 **ResourceName** | Pointer to **string** | The resource name for this record, if it&#39;s a workflow. | [optional] 
 **ServiceEnvironmentName** | Pointer to **string** | The service environment name of this record. | [optional] 
-**ServiceId** | Pointer to **string** | The service ID of the record. | [optional] 
+**ServiceId** | Pointer to **string** | ID of a Service | [optional] 
 **ServiceName** | Pointer to **string** | The service name of this record. | [optional] 
 **ServicePlanName** | Pointer to **string** | The service plan name of this record, if it&#39;s a subscription. | [optional] 
-**Status** | Pointer to **string** | The status of the record. | [optional] 
+**Status** | Pointer to **string** | The status of an operation | [optional] 
 **StatusDescription** | Pointer to **string** | The status description of the record. | [optional] 
 **TargetResourceName** | Pointer to **string** | The Target Resource Name of the record, if it&#39;s a proxy instance. | [optional] 
 **UserEmail** | Pointer to **string** | The user email of this record, if it&#39;s a subscription. | [optional] 
-**UserID** | Pointer to **string** | The User ID of the record, if it&#39;s a subscription. | [optional] 
+**UserID** | Pointer to **string** | ID of a User | [optional] 
 **Version** | Pointer to **string** | The version of this record. | [optional] 
 
 ## Methods

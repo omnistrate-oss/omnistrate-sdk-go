@@ -4,27 +4,27 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudProvider** | **string** | The cloud provider where the instance is hosted. | 
+**CloudProvider** | **string** | Name of the Infra Provider | 
 **Description** | **string** | The instance description. | 
 **Id** | **string** | The resource instance ID. | 
 **Managed** | Pointer to **bool** | Is the proxy managed by Omnistrate. | [optional] 
 **ManagedResourceType** | Pointer to **string** | The managed resource type of the proxy instance. | [optional] 
 **PortsRegistrationStatus** | Pointer to **map[string][]int64** | The ports registration status of the ports based proxy instance. | [optional] 
-**ProductTierId** | **string** | The product tier ID of the instance. | 
+**ProductTierId** | **string** | ID of a Product Tier | 
 **ProductTierName** | Pointer to **string** | The product tier name of the instance. | [optional] 
 **ProductTierVersion** | Pointer to **string** | The product tier version of the instance. | [optional] 
 **ProxyType** | Pointer to **string** | The proxy type. | [optional] 
 **RegionCode** | **string** | The region code where the instance is hosted. | 
-**ResourceId** | Pointer to **string** | The resource ID of the instance. | [optional] 
+**ResourceId** | Pointer to **string** | ID of a resource | [optional] 
 **ResourceName** | **string** | The name of the resource for the instance. | 
-**ServiceEnvironmentId** | **string** | The service environment ID of the instance. | 
+**ServiceEnvironmentId** | **string** | ID of a Service Environment | 
 **ServiceEnvironmentName** | **string** | The service environment name of the instance. | 
-**ServiceEnvironmentType** | Pointer to **string** | The type of the service environment. | [optional] 
-**ServiceId** | **string** | The service ID of the instance. | 
+**ServiceEnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
+**ServiceId** | **string** | ID of a Service | 
 **ServiceName** | **string** | The service name of the instance. | 
-**Status** | **string** | The instance status. | 
+**Status** | **string** | The status of an operation | 
 **StatusDescription** | **string** | The instance status description. | 
-**SubscriptionId** | Pointer to **string** | The subscription ID of the instance. | [optional] 
+**SubscriptionId** | Pointer to **string** | ID of a Subscription | [optional] 
 
 ## Methods
 

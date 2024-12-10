@@ -24,11 +24,11 @@ type ProductTierIntegration struct {
 	Configuration map[string]interface{} `json:"configuration"`
 	// The details of the integration failure
 	IntegrationFailureDetails *string `json:"integrationFailureDetails,omitempty"`
-	// Name of the product tier integration provider.
+	// The provider offering the integration for the product tier feature.
 	IntegrationProviderName string `json:"integrationProviderName"`
 	// The status of the integration
 	IntegrationStatus string `json:"integrationStatus"`
-	// Type of the product tier integration.
+	// ProductTierFeatureType is to enable / disable features per product tier
 	IntegrationType string `json:"integrationType"`
 	AdditionalProperties map[string]interface{}
 }

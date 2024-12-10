@@ -20,7 +20,7 @@ var _ MappedNullable = &ServicePlanSearchRecord{}
 
 // ServicePlanSearchRecord struct for ServicePlanSearchRecord
 type ServicePlanSearchRecord struct {
-	// The Service Model type of the service plan.
+	// The model type encapsulating this service
 	DeploymentType string `json:"deploymentType"`
 	// The Product Tier description of the service plan.
 	Description string `json:"description"`
@@ -30,17 +30,17 @@ type ServicePlanSearchRecord struct {
 	Name string `json:"name"`
 	// The timestamp when the service plan was released.
 	ReleasedAt *string `json:"releasedAt,omitempty"`
-	// The service environment ID of the service plan.
+	// ID of a Service Environment
 	ServiceEnvironmentId string `json:"serviceEnvironmentId"`
 	// The service environment name of the service plan.
 	ServiceEnvironmentName string `json:"serviceEnvironmentName"`
-	// The service environment type of the service plan.
+	// The type of service environment
 	ServiceEnvironmentType *string `json:"serviceEnvironmentType,omitempty"`
-	// The service ID of the service plan.
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The service name of the service plan.
 	ServiceName string `json:"serviceName"`
-	// The Product Tier type of the service plan.
+	// ProductTierType is the type of tier for a product
 	TenancyType string `json:"tenancyType"`
 	// The Product Tier version of the service plan.
 	Version string `json:"version"`

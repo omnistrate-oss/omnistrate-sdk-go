@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Resources** | Pointer to [**[]ResourceDeploymentStatus**](ResourceDeploymentStatus.md) | List of resources with deployment status. | [optional] 
 **Workflow** | [**ServiceWorkflow**](ServiceWorkflow.md) |  | 
-**EnvironmentId** | **string** | The service environment ID this workflow belongs to. | 
-**ServiceId** | **string** | The service ID this workflow belongs to. | 
+**EnvironmentId** | **string** | ID of a Service Environment | 
+**ServiceId** | **string** | ID of a Service | 
 
 ## Methods
 

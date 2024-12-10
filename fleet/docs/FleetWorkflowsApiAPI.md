@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
 
 ## FleetWorkflowsApiUpdateServiceWorkflow
 
-> ServiceWorkflow FleetWorkflowsApiUpdateServiceWorkflow(ctx, serviceId, environmentId, id).UpdateServiceWorkflowRequestBody(updateServiceWorkflowRequestBody).Execute()
+> ServiceWorkflow FleetWorkflowsApiUpdateServiceWorkflow(ctx, serviceId, environmentId, id).UpdateServiceWorkflowRequest2(updateServiceWorkflowRequest2).Execute()
 
 UpdateServiceWorkflow fleet-workflows-api
 
@@ -405,11 +405,11 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	id := "submit-create-instance-plan-instance-50h74sj46" // string | ID of the ServiceWorkflow
-	updateServiceWorkflowRequestBody := *openapiclient.NewUpdateServiceWorkflowRequestBody("Pause") // UpdateServiceWorkflowRequestBody | 
+	updateServiceWorkflowRequest2 := *openapiclient.NewUpdateServiceWorkflowRequest2("Pause") // UpdateServiceWorkflowRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FleetWorkflowsApiAPI.FleetWorkflowsApiUpdateServiceWorkflow(context.Background(), serviceId, environmentId, id).UpdateServiceWorkflowRequestBody(updateServiceWorkflowRequestBody).Execute()
+	resp, r, err := apiClient.FleetWorkflowsApiAPI.FleetWorkflowsApiUpdateServiceWorkflow(context.Background(), serviceId, environmentId, id).UpdateServiceWorkflowRequest2(updateServiceWorkflowRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FleetWorkflowsApiAPI.FleetWorkflowsApiUpdateServiceWorkflow``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -439,7 +439,7 @@ Name | Type | Description  | Notes
 
 
 
- **updateServiceWorkflowRequestBody** | [**UpdateServiceWorkflowRequestBody**](UpdateServiceWorkflowRequestBody.md) |  | 
+ **updateServiceWorkflowRequest2** | [**UpdateServiceWorkflowRequest2**](UpdateServiceWorkflowRequest2.md) |  | 
 
 ### Return type
 

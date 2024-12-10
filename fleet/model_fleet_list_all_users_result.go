@@ -22,7 +22,7 @@ var _ MappedNullable = &FleetListAllUsersResult{}
 type FleetListAllUsersResult struct {
 	// Token to use for the next request
 	NextPageToken *string `json:"nextPageToken,omitempty"`
-	// The service ID of the users.
+	// ID of a Service
 	ServiceId *string `json:"serviceId,omitempty"`
 	// List of access-side users.
 	Users []AccessSideUser `json:"users"`
