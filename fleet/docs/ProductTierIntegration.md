@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Configuration** | **map[string]interface{}** | The configuration parameters for the integration provider. | 
 **IntegrationFailureDetails** | Pointer to **string** | The details of the integration failure | [optional] 
-**IntegrationProviderName** | **string** | Name of the product tier integration provider. | 
+**IntegrationProviderName** | **string** | The provider offering the integration for the product tier feature. | 
 **IntegrationStatus** | **string** | The status of the integration | 
-**IntegrationType** | **string** | Type of the product tier integration. | 
+**IntegrationType** | **string** | ProductTierFeatureType is to enable / disable features per product tier | 
 
 ## Methods
 

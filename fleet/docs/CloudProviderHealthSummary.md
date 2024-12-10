@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudProvider** | **string** | The cloud provider | 
+**CloudProvider** | **string** | Name of the Infra Provider | 
 **DeployingInstances** | **int64** | The number of instances currently deploying | 
 **HealthyInstances** | **int64** | The number of healthy instances in the cloud provider | 
 **Message** | **string** | The status message | 

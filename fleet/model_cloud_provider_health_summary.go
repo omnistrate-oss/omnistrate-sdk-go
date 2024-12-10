@@ -20,7 +20,7 @@ var _ MappedNullable = &CloudProviderHealthSummary{}
 
 // CloudProviderHealthSummary struct for CloudProviderHealthSummary
 type CloudProviderHealthSummary struct {
-	// The cloud provider
+	// Name of the Infra Provider
 	CloudProvider string `json:"cloudProvider"`
 	// The number of instances currently deploying
 	DeployingInstances int64 `json:"deployingInstances"`

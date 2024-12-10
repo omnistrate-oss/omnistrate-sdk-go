@@ -21,7 +21,7 @@ var _ MappedNullable = &HelmPackageInstallations{}
 // HelmPackageInstallations struct for HelmPackageInstallations
 type HelmPackageInstallations struct {
 	HelmPackage HelmPackage `json:"helmPackage"`
-	// The ID of the host cluster where the helm package is installed
+	// ID of a Host Cluster
 	HostClusterID string `json:"hostClusterID"`
 	// The status of the Helm package installation
 	Status string `json:"status"`

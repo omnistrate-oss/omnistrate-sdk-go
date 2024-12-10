@@ -24,7 +24,7 @@ type DeploymentCellHealthSummary struct {
 	DeployingInstances int64 `json:"deployingInstances"`
 	// The number of healthy instances in the cell
 	HealthyInstances int64 `json:"healthyInstances"`
-	// The ID of the host cluster
+	// ID of a Host Cluster
 	HostClusterID string `json:"hostClusterID"`
 	// The status message
 	Message string `json:"message"`

@@ -22,21 +22,20 @@ var _ MappedNullable = &FleetDescribeHostClusterResult{}
 type FleetDescribeHostClusterResult struct {
 	// The AWS account ID
 	AwsAccountID *string `json:"awsAccountID,omitempty"`
-	// The cloud provider of the host cluster
+	// Name of the Infra Provider
 	CloudProvider string `json:"cloudProvider"`
 	// The endpoint to access the dashboard
 	DashboardEndpoint *string `json:"dashboardEndpoint,omitempty"`
 	// The GCP project ID
 	GcpProjectID *string `json:"gcpProjectID,omitempty"`
-	// The host cluster ID
+	// ID of a Host Cluster
 	Id string `json:"id"`
-	// The instance ID of that this host cluster corresponds to
+	// ID of a Resource Instance
 	InstanceID string `json:"instanceID"`
 	// The region of the host cluster
 	Region string `json:"region"`
-	// Status of the host cluster
+	// The status of an operation
 	Status string `json:"status"`
-	// The type of the host cluster
 	Type string `json:"type"`
 	AdditionalProperties map[string]interface{}
 }

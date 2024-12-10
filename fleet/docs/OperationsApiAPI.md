@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ## OperationsApiListEvents
 
-> ListServiceProviderEventsResult OperationsApiListEvents(ctx).ServiceID(serviceID).ServiceEnvironmentID(serviceEnvironmentID).InstanceID(instanceID).Execute()
+> ListServiceProviderEventsResult OperationsApiListEvents(ctx).EnvironmentType(environmentType).ServiceID(serviceID).ServiceEnvironmentID(serviceEnvironmentID).InstanceID(instanceID).NextPageToken(nextPageToken).PageSize(pageSize).StartDate(startDate).EndDate(endDate).Execute()
 
 ListEvents operations-api
 
@@ -93,17 +93,23 @@ import (
 	"context"
 	"fmt"
 	"os"
+    "time"
 	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
 )
 
 func main() {
+	environmentType := "PROD|PRIVATE|CANARY|STAGING|QA|DEV" // string |  (optional)
 	serviceID := "s-123456" // string | The service ID to list events for (optional)
 	serviceEnvironmentID := "se-123456" // string | The service environment ID to list events for (optional)
 	instanceID := "instance-12345678" // string | The instance ID to list events for (optional)
+	nextPageToken := "token" // string | The next token to use for pagination (optional)
+	pageSize := int64(10) // int64 | The number of events to return per page (optional)
+	startDate := time.Now() // time.Time | Start date of the events (optional)
+	endDate := time.Now() // time.Time | End date of the events (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OperationsApiAPI.OperationsApiListEvents(context.Background()).ServiceID(serviceID).ServiceEnvironmentID(serviceEnvironmentID).InstanceID(instanceID).Execute()
+	resp, r, err := apiClient.OperationsApiAPI.OperationsApiListEvents(context.Background()).EnvironmentType(environmentType).ServiceID(serviceID).ServiceEnvironmentID(serviceEnvironmentID).InstanceID(instanceID).NextPageToken(nextPageToken).PageSize(pageSize).StartDate(startDate).EndDate(endDate).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OperationsApiAPI.OperationsApiListEvents``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -124,9 +130,14 @@ Other parameters are passed through a pointer to a apiOperationsApiListEventsReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **environmentType** | **string** |  | 
  **serviceID** | **string** | The service ID to list events for | 
  **serviceEnvironmentID** | **string** | The service environment ID to list events for | 
  **instanceID** | **string** | The instance ID to list events for | 
+ **nextPageToken** | **string** | The next token to use for pagination | 
+ **pageSize** | **int64** | The number of events to return per page | 
+ **startDate** | **time.Time** | Start date of the events | 
+ **endDate** | **time.Time** | End date of the events | 
 
 ### Return type
 

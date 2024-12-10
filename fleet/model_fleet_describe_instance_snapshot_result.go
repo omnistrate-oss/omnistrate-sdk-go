@@ -26,19 +26,19 @@ type FleetDescribeInstanceSnapshotResult struct {
 	CreatedTime string `json:"createdTime"`
 	// Whether the snapshot is encrypted
 	Encrypted bool `json:"encrypted"`
-	// The service environment ID this workflow belongs to.
+	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
-	// The product tier ID
+	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// The product tier version
 	ProductTierVersion string `json:"productTierVersion"`
 	// The backup progress. 0-100
 	Progress int64 `json:"progress"`
-	// The service ID this workflow belongs to.
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
-	// The instance snapshot ID
+	// ID of a Resource Instance Snapshot
 	SnapshotId string `json:"snapshotId"`
-	// The source instance ID
+	// ID of a Resource Instance
 	SourceInstanceId string `json:"sourceInstanceId"`
 	// The snapshot status
 	Status string `json:"status"`

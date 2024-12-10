@@ -72,7 +72,7 @@ Method | HTTP request | Description
 
 ## InventoryApiAddCapacityToResourceInstance
 
-> InventoryApiAddCapacityToResourceInstance(ctx, serviceId, environmentId, instanceId).AddCapacityToResourceInstanceRequestBody(addCapacityToResourceInstanceRequestBody).Execute()
+> InventoryApiAddCapacityToResourceInstance(ctx, serviceId, environmentId, instanceId).FleetAddCapacityToResourceInstanceRequest2(fleetAddCapacityToResourceInstanceRequest2).Execute()
 
 AddCapacityToResourceInstance inventory-api
 
@@ -92,11 +92,11 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	addCapacityToResourceInstanceRequestBody := *openapiclient.NewAddCapacityToResourceInstanceRequestBody(int64(3), "r-12345678") // AddCapacityToResourceInstanceRequestBody | 
+	fleetAddCapacityToResourceInstanceRequest2 := *openapiclient.NewFleetAddCapacityToResourceInstanceRequest2(int64(3), "r-12345678") // FleetAddCapacityToResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.InventoryApiAPI.InventoryApiAddCapacityToResourceInstance(context.Background(), serviceId, environmentId, instanceId).AddCapacityToResourceInstanceRequestBody(addCapacityToResourceInstanceRequestBody).Execute()
+	r, err := apiClient.InventoryApiAPI.InventoryApiAddCapacityToResourceInstance(context.Background(), serviceId, environmentId, instanceId).FleetAddCapacityToResourceInstanceRequest2(fleetAddCapacityToResourceInstanceRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiAddCapacityToResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 
 
- **addCapacityToResourceInstanceRequestBody** | [**AddCapacityToResourceInstanceRequestBody**](AddCapacityToResourceInstanceRequestBody.md) |  | 
+ **fleetAddCapacityToResourceInstanceRequest2** | [**FleetAddCapacityToResourceInstanceRequest2**](FleetAddCapacityToResourceInstanceRequest2.md) |  | 
 
 ### Return type
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiAddCustomDNSToResourceInstance
 
-> InventoryApiAddCustomDNSToResourceInstance(ctx, serviceId, environmentId, resourceKey, instanceId).AddCustomDNSToResourceInstanceRequestBody(addCustomDNSToResourceInstanceRequestBody).Execute()
+> InventoryApiAddCustomDNSToResourceInstance(ctx, serviceId, environmentId, resourceKey, instanceId).FleetAddCustomDNSToResourceInstanceRequest2(fleetAddCustomDNSToResourceInstanceRequest2).Execute()
 
 AddCustomDNSToResourceInstance inventory-api
 
@@ -167,11 +167,11 @@ func main() {
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	resourceKey := "http-service" // string | The resource key
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	addCustomDNSToResourceInstanceRequestBody := *openapiclient.NewAddCustomDNSToResourceInstanceRequestBody("my-custom-dns.com") // AddCustomDNSToResourceInstanceRequestBody | 
+	fleetAddCustomDNSToResourceInstanceRequest2 := *openapiclient.NewFleetAddCustomDNSToResourceInstanceRequest2("my-custom-dns.com") // FleetAddCustomDNSToResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.InventoryApiAPI.InventoryApiAddCustomDNSToResourceInstance(context.Background(), serviceId, environmentId, resourceKey, instanceId).AddCustomDNSToResourceInstanceRequestBody(addCustomDNSToResourceInstanceRequestBody).Execute()
+	r, err := apiClient.InventoryApiAPI.InventoryApiAddCustomDNSToResourceInstance(context.Background(), serviceId, environmentId, resourceKey, instanceId).FleetAddCustomDNSToResourceInstanceRequest2(fleetAddCustomDNSToResourceInstanceRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiAddCustomDNSToResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 
 
- **addCustomDNSToResourceInstanceRequestBody** | [**AddCustomDNSToResourceInstanceRequestBody**](AddCustomDNSToResourceInstanceRequestBody.md) |  | 
+ **fleetAddCustomDNSToResourceInstanceRequest2** | [**FleetAddCustomDNSToResourceInstanceRequest2**](FleetAddCustomDNSToResourceInstanceRequest2.md) |  | 
 
 ### Return type
 
@@ -369,7 +369,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiCreateConsumptionUser
 
-> string InventoryApiCreateConsumptionUser(ctx).CreateConsumptionUserRequestBody(createConsumptionUserRequestBody).Execute()
+> string InventoryApiCreateConsumptionUser(ctx).FleetCreateConsumptionUserRequest2(fleetCreateConsumptionUserRequest2).Execute()
 
 CreateConsumptionUser inventory-api
 
@@ -386,11 +386,11 @@ import (
 )
 
 func main() {
-	createConsumptionUserRequestBody := *openapiclient.NewCreateConsumptionUserRequestBody("abc@gmail.com", "mywebsite", "John Doe", "password") // CreateConsumptionUserRequestBody | 
+	fleetCreateConsumptionUserRequest2 := *openapiclient.NewFleetCreateConsumptionUserRequest2("abc@gmail.com", "mywebsite", "John Doe", "password") // FleetCreateConsumptionUserRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiCreateConsumptionUser(context.Background()).CreateConsumptionUserRequestBody(createConsumptionUserRequestBody).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiCreateConsumptionUser(context.Background()).FleetCreateConsumptionUserRequest2(fleetCreateConsumptionUserRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiCreateConsumptionUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -411,7 +411,7 @@ Other parameters are passed through a pointer to a apiInventoryApiCreateConsumpt
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createConsumptionUserRequestBody** | [**CreateConsumptionUserRequestBody**](CreateConsumptionUserRequestBody.md) |  | 
+ **fleetCreateConsumptionUserRequest2** | [**FleetCreateConsumptionUserRequest2**](FleetCreateConsumptionUserRequest2.md) |  | 
 
 ### Return type
 
@@ -433,7 +433,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiCreateProxyResourceInstance
 
-> CreateResourceInstanceResponseBody InventoryApiCreateProxyResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, sourceResourceKey).CreateProxyResourceInstanceRequestBody(createProxyResourceInstanceRequestBody).Execute()
+> CreateResourceInstanceResponseBody InventoryApiCreateProxyResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, sourceResourceKey).CreateProxyResourceInstanceRequest2(createProxyResourceInstanceRequest2).Execute()
 
 CreateProxyResourceInstance inventory-api
 
@@ -457,11 +457,11 @@ func main() {
 	serviceModelKey := "hosted" // string | The service model name
 	productTierKey := "premium" // string | The product tier name
 	sourceResourceKey := "mysql" // string | The serverless resource key
-	createProxyResourceInstanceRequestBody := *openapiclient.NewCreateProxyResourceInstanceRequestBody() // CreateProxyResourceInstanceRequestBody | 
+	createProxyResourceInstanceRequest2 := *openapiclient.NewCreateProxyResourceInstanceRequest2() // CreateProxyResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiCreateProxyResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, sourceResourceKey).CreateProxyResourceInstanceRequestBody(createProxyResourceInstanceRequestBody).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiCreateProxyResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, sourceResourceKey).CreateProxyResourceInstanceRequest2(createProxyResourceInstanceRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiCreateProxyResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -499,7 +499,7 @@ Name | Type | Description  | Notes
 
 
 
- **createProxyResourceInstanceRequestBody** | [**CreateProxyResourceInstanceRequestBody**](CreateProxyResourceInstanceRequestBody.md) |  | 
+ **createProxyResourceInstanceRequest2** | [**CreateProxyResourceInstanceRequest2**](CreateProxyResourceInstanceRequest2.md) |  | 
 
 ### Return type
 
@@ -521,7 +521,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiCreateResourceInstance
 
-> CreateResourceInstanceResponseBody InventoryApiCreateResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey).CreateResourceInstanceRequestBody(createResourceInstanceRequestBody).Execute()
+> CreateResourceInstanceResponseBody InventoryApiCreateResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey).FleetCreateResourceInstanceRequest2(fleetCreateResourceInstanceRequest2).Execute()
 
 CreateResourceInstance inventory-api
 
@@ -545,11 +545,11 @@ func main() {
 	serviceModelKey := "hosted" // string | The service model name
 	productTierKey := "premium" // string | The product tier name
 	resourceKey := "mysql" // string | The resource key
-	createResourceInstanceRequestBody := *openapiclient.NewCreateResourceInstanceRequestBody() // CreateResourceInstanceRequestBody | 
+	fleetCreateResourceInstanceRequest2 := *openapiclient.NewFleetCreateResourceInstanceRequest2() // FleetCreateResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiCreateResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey).CreateResourceInstanceRequestBody(createResourceInstanceRequestBody).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiCreateResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey).FleetCreateResourceInstanceRequest2(fleetCreateResourceInstanceRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiCreateResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -587,7 +587,7 @@ Name | Type | Description  | Notes
 
 
 
- **createResourceInstanceRequestBody** | [**CreateResourceInstanceRequestBody**](CreateResourceInstanceRequestBody.md) |  | 
+ **fleetCreateResourceInstanceRequest2** | [**FleetCreateResourceInstanceRequest2**](FleetCreateResourceInstanceRequest2.md) |  | 
 
 ### Return type
 
@@ -683,7 +683,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiCreateServicesOrchestration
 
-> CreateResourceInstanceResponseBody InventoryApiCreateServicesOrchestration(ctx).CreateServicesOrchestrationRequestBody(createServicesOrchestrationRequestBody).Execute()
+> CreateResourceInstanceResponseBody InventoryApiCreateServicesOrchestration(ctx).FleetCreateServicesOrchestrationRequest2(fleetCreateServicesOrchestrationRequest2).Execute()
 
 CreateServicesOrchestration inventory-api
 
@@ -700,11 +700,11 @@ import (
 )
 
 func main() {
-	createServicesOrchestrationRequestBody := *openapiclient.NewCreateServicesOrchestrationRequestBody("Amet est et sunt beatae architecto numquam.") // CreateServicesOrchestrationRequestBody | 
+	fleetCreateServicesOrchestrationRequest2 := *openapiclient.NewFleetCreateServicesOrchestrationRequest2("Quo tenetur.") // FleetCreateServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiCreateServicesOrchestration(context.Background()).CreateServicesOrchestrationRequestBody(createServicesOrchestrationRequestBody).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiCreateServicesOrchestration(context.Background()).FleetCreateServicesOrchestrationRequest2(fleetCreateServicesOrchestrationRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiCreateServicesOrchestration``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -725,7 +725,7 @@ Other parameters are passed through a pointer to a apiInventoryApiCreateServices
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createServicesOrchestrationRequestBody** | [**CreateServicesOrchestrationRequestBody**](CreateServicesOrchestrationRequestBody.md) |  | 
+ **fleetCreateServicesOrchestrationRequest2** | [**FleetCreateServicesOrchestrationRequest2**](FleetCreateServicesOrchestrationRequest2.md) |  | 
 
 ### Return type
 
@@ -747,7 +747,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiCreateUpgradePath
 
-> UpgradePath InventoryApiCreateUpgradePath(ctx, serviceId, productTierId).CreateUpgradePathRequestBody(createUpgradePathRequestBody).Execute()
+> UpgradePath InventoryApiCreateUpgradePath(ctx, serviceId, productTierId).CreateUpgradePathRequest2(createUpgradePathRequest2).Execute()
 
 CreateUpgradePath inventory-api
 
@@ -766,11 +766,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
-	createUpgradePathRequestBody := *openapiclient.NewCreateUpgradePathRequestBody("1.0", "2.0", map[string][]string{"key": []string{"Sed quae mollitia consectetur ut quo est."}}) // CreateUpgradePathRequestBody | 
+	createUpgradePathRequest2 := *openapiclient.NewCreateUpgradePathRequest2("1.0", "2.0", map[string][]string{"key": []string{"Inventore qui rerum aut alias corrupti amet."}}) // CreateUpgradePathRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiCreateUpgradePath(context.Background(), serviceId, productTierId).CreateUpgradePathRequestBody(createUpgradePathRequestBody).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiCreateUpgradePath(context.Background(), serviceId, productTierId).CreateUpgradePathRequest2(createUpgradePathRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiCreateUpgradePath``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -798,7 +798,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **createUpgradePathRequestBody** | [**CreateUpgradePathRequestBody**](CreateUpgradePathRequestBody.md) |  | 
+ **createUpgradePathRequest2** | [**CreateUpgradePathRequest2**](CreateUpgradePathRequest2.md) |  | 
 
 ### Return type
 
@@ -904,7 +904,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiDeleteResourceInstance
 
-> InventoryApiDeleteResourceInstance(ctx, serviceId, environmentId, instanceId).StartResourceInstanceRequestBody(startResourceInstanceRequestBody).Execute()
+> InventoryApiDeleteResourceInstance(ctx, serviceId, environmentId, instanceId).FleetDeleteResourceInstanceRequest2(fleetDeleteResourceInstanceRequest2).Execute()
 
 DeleteResourceInstance inventory-api
 
@@ -924,11 +924,11 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	startResourceInstanceRequestBody := *openapiclient.NewStartResourceInstanceRequestBody("r-12345678") // StartResourceInstanceRequestBody | 
+	fleetDeleteResourceInstanceRequest2 := *openapiclient.NewFleetDeleteResourceInstanceRequest2("r-12345678") // FleetDeleteResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.InventoryApiAPI.InventoryApiDeleteResourceInstance(context.Background(), serviceId, environmentId, instanceId).StartResourceInstanceRequestBody(startResourceInstanceRequestBody).Execute()
+	r, err := apiClient.InventoryApiAPI.InventoryApiDeleteResourceInstance(context.Background(), serviceId, environmentId, instanceId).FleetDeleteResourceInstanceRequest2(fleetDeleteResourceInstanceRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiDeleteResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -956,7 +956,7 @@ Name | Type | Description  | Notes
 
 
 
- **startResourceInstanceRequestBody** | [**StartResourceInstanceRequestBody**](StartResourceInstanceRequestBody.md) |  | 
+ **fleetDeleteResourceInstanceRequest2** | [**FleetDeleteResourceInstanceRequest2**](FleetDeleteResourceInstanceRequest2.md) |  | 
 
 ### Return type
 
@@ -1709,7 +1709,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiDescribeResourceInstanceSnapshotFromTime
 
-> FleetDescribeInstanceSnapshotFromTimeResult InventoryApiDescribeResourceInstanceSnapshotFromTime(ctx, serviceId, environmentId, instanceId).DescribeResourceInstanceSnapshotFromTimeRequestBody(describeResourceInstanceSnapshotFromTimeRequestBody).Execute()
+> FleetDescribeInstanceSnapshotFromTimeResult InventoryApiDescribeResourceInstanceSnapshotFromTime(ctx, serviceId, environmentId, instanceId).FleetDescribeInstanceSnapshotFromTimeRequest2(fleetDescribeInstanceSnapshotFromTimeRequest2).Execute()
 
 DescribeResourceInstanceSnapshotFromTime inventory-api
 
@@ -1729,11 +1729,11 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	describeResourceInstanceSnapshotFromTimeRequestBody := *openapiclient.NewDescribeResourceInstanceSnapshotFromTimeRequestBody("2021-09-01T00:00:00Z") // DescribeResourceInstanceSnapshotFromTimeRequestBody | 
+	fleetDescribeInstanceSnapshotFromTimeRequest2 := *openapiclient.NewFleetDescribeInstanceSnapshotFromTimeRequest2("2021-09-01T00:00:00Z") // FleetDescribeInstanceSnapshotFromTimeRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiDescribeResourceInstanceSnapshotFromTime(context.Background(), serviceId, environmentId, instanceId).DescribeResourceInstanceSnapshotFromTimeRequestBody(describeResourceInstanceSnapshotFromTimeRequestBody).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiDescribeResourceInstanceSnapshotFromTime(context.Background(), serviceId, environmentId, instanceId).FleetDescribeInstanceSnapshotFromTimeRequest2(fleetDescribeInstanceSnapshotFromTimeRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiDescribeResourceInstanceSnapshotFromTime``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1763,7 +1763,7 @@ Name | Type | Description  | Notes
 
 
 
- **describeResourceInstanceSnapshotFromTimeRequestBody** | [**DescribeResourceInstanceSnapshotFromTimeRequestBody**](DescribeResourceInstanceSnapshotFromTimeRequestBody.md) |  | 
+ **fleetDescribeInstanceSnapshotFromTimeRequest2** | [**FleetDescribeInstanceSnapshotFromTimeRequest2**](FleetDescribeInstanceSnapshotFromTimeRequest2.md) |  | 
 
 ### Return type
 
@@ -2301,7 +2301,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiFailoverResourceInstance
 
-> InventoryApiFailoverResourceInstance(ctx, serviceId, environmentId, instanceId).FailoverResourceInstanceRequestBody(failoverResourceInstanceRequestBody).Execute()
+> InventoryApiFailoverResourceInstance(ctx, serviceId, environmentId, instanceId).FleetFailoverResourceInstanceRequest2(fleetFailoverResourceInstanceRequest2).Execute()
 
 FailoverResourceInstance inventory-api
 
@@ -2321,11 +2321,11 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	failoverResourceInstanceRequestBody := *openapiclient.NewFailoverResourceInstanceRequestBody("db-0") // FailoverResourceInstanceRequestBody | 
+	fleetFailoverResourceInstanceRequest2 := *openapiclient.NewFleetFailoverResourceInstanceRequest2("db-0") // FleetFailoverResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.InventoryApiAPI.InventoryApiFailoverResourceInstance(context.Background(), serviceId, environmentId, instanceId).FailoverResourceInstanceRequestBody(failoverResourceInstanceRequestBody).Execute()
+	r, err := apiClient.InventoryApiAPI.InventoryApiFailoverResourceInstance(context.Background(), serviceId, environmentId, instanceId).FleetFailoverResourceInstanceRequest2(fleetFailoverResourceInstanceRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiFailoverResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2353,7 +2353,7 @@ Name | Type | Description  | Notes
 
 
 
- **failoverResourceInstanceRequestBody** | [**FailoverResourceInstanceRequestBody**](FailoverResourceInstanceRequestBody.md) |  | 
+ **fleetFailoverResourceInstanceRequest2** | [**FleetFailoverResourceInstanceRequest2**](FleetFailoverResourceInstanceRequest2.md) |  | 
 
 ### Return type
 
@@ -2584,7 +2584,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiListDependentComponents
 
-> ListResourcesResult InventoryApiListDependentComponents(ctx, serviceId, environmentId, instanceId).Execute()
+> FleetListDependentComponentsResult InventoryApiListDependentComponents(ctx, serviceId, environmentId, instanceId).Execute()
 
 ListDependentComponents inventory-api
 
@@ -2612,7 +2612,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiListDependentComponents``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `InventoryApiListDependentComponents`: ListResourcesResult
+	// response from `InventoryApiListDependentComponents`: FleetListDependentComponentsResult
 	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiListDependentComponents`: %v\n", resp)
 }
 ```
@@ -2640,7 +2640,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListResourcesResult**](ListResourcesResult.md)
+[**FleetListDependentComponentsResult**](FleetListDependentComponentsResult.md)
 
 ### Authorization
 
@@ -3050,7 +3050,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	productTierVersion := "Vitae placeat ipsam fuga." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Laborum adipisci." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Consequatur ipsa fugit minima repellendus." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
 	subscriptionId := "Omnis vitae veritatis." // string | Subscription id of the instance to describe. (optional)
 
@@ -3108,7 +3108,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiListResources
 
-> ListResourcesResult InventoryApiListResources(ctx, serviceId, environmentId, serviceModelId, productTierId).ListResourcesRequestBody(listResourcesRequestBody).Execute()
+> ListResourcesResult InventoryApiListResources(ctx, serviceId, environmentId, serviceModelId, productTierId).ListResourcesRequest2(listResourcesRequest2).Execute()
 
 ListResources inventory-api
 
@@ -3129,11 +3129,11 @@ func main() {
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	serviceModelId := "sm-12345678" // string | The service model ID.
 	productTierId := "pt-12345678" // string | The product tier ID.
-	listResourcesRequestBody := *openapiclient.NewListResourcesRequestBody() // ListResourcesRequestBody | 
+	listResourcesRequest2 := *openapiclient.NewListResourcesRequest2() // ListResourcesRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListResources(context.Background(), serviceId, environmentId, serviceModelId, productTierId).ListResourcesRequestBody(listResourcesRequestBody).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListResources(context.Background(), serviceId, environmentId, serviceModelId, productTierId).ListResourcesRequest2(listResourcesRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiListResources``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3165,7 +3165,7 @@ Name | Type | Description  | Notes
 
 
 
- **listResourcesRequestBody** | [**ListResourcesRequestBody**](ListResourcesRequestBody.md) |  | 
+ **listResourcesRequest2** | [**ListResourcesRequest2**](ListResourcesRequest2.md) |  | 
 
 ### Return type
 
@@ -3253,7 +3253,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiListServicesOrchestrations
 
-> []FleetDescribeServicesOrchestrationResult InventoryApiListServicesOrchestrations(ctx).Execute()
+> []FleetDescribeServicesOrchestrationResult InventoryApiListServicesOrchestrations(ctx).EnvironmentType(environmentType).Execute()
 
 ListServicesOrchestrations inventory-api
 
@@ -3270,10 +3270,11 @@ import (
 )
 
 func main() {
+	environmentType := "PROD|PRIVATE|CANARY|STAGING|QA|DEV" // string | The environment type
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListServicesOrchestrations(context.Background()).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListServicesOrchestrations(context.Background()).EnvironmentType(environmentType).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiListServicesOrchestrations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3285,12 +3286,16 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiInventoryApiListServicesOrchestrationsRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **environmentType** | **string** | The environment type | 
 
 ### Return type
 
@@ -3610,7 +3615,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiModifyServicesOrchestration
 
-> CreateResourceInstanceResponseBody InventoryApiModifyServicesOrchestration(ctx, id).ModifyServicesOrchestrationRequestBody(modifyServicesOrchestrationRequestBody).Execute()
+> CreateResourceInstanceResponseBody InventoryApiModifyServicesOrchestration(ctx, id).FleetModifyServicesOrchestrationRequest2(fleetModifyServicesOrchestrationRequest2).Execute()
 
 ModifyServicesOrchestration inventory-api
 
@@ -3628,11 +3633,11 @@ import (
 
 func main() {
 	id := "so-12345678" // string | The ID of the services orchestration
-	modifyServicesOrchestrationRequestBody := *openapiclient.NewModifyServicesOrchestrationRequestBody("Saepe exercitationem consequuntur soluta itaque rerum qui.") // ModifyServicesOrchestrationRequestBody | 
+	fleetModifyServicesOrchestrationRequest2 := *openapiclient.NewFleetModifyServicesOrchestrationRequest2("Est facere blanditiis.") // FleetModifyServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiModifyServicesOrchestration(context.Background(), id).ModifyServicesOrchestrationRequestBody(modifyServicesOrchestrationRequestBody).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiModifyServicesOrchestration(context.Background(), id).FleetModifyServicesOrchestrationRequest2(fleetModifyServicesOrchestrationRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiModifyServicesOrchestration``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3658,7 +3663,7 @@ Other parameters are passed through a pointer to a apiInventoryApiModifyServices
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **modifyServicesOrchestrationRequestBody** | [**ModifyServicesOrchestrationRequestBody**](ModifyServicesOrchestrationRequestBody.md) |  | 
+ **fleetModifyServicesOrchestrationRequest2** | [**FleetModifyServicesOrchestrationRequest2**](FleetModifyServicesOrchestrationRequest2.md) |  | 
 
 ### Return type
 
@@ -3680,7 +3685,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiRemoveCapacityFromResourceInstance
 
-> InventoryApiRemoveCapacityFromResourceInstance(ctx, serviceId, environmentId, instanceId).RemoveCapacityFromResourceInstanceRequestBody(removeCapacityFromResourceInstanceRequestBody).Execute()
+> InventoryApiRemoveCapacityFromResourceInstance(ctx, serviceId, environmentId, instanceId).FleetRemoveCapacityFromResourceInstanceRequest2(fleetRemoveCapacityFromResourceInstanceRequest2).Execute()
 
 RemoveCapacityFromResourceInstance inventory-api
 
@@ -3700,11 +3705,11 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	removeCapacityFromResourceInstanceRequestBody := *openapiclient.NewRemoveCapacityFromResourceInstanceRequestBody(int64(3), "r-12345678") // RemoveCapacityFromResourceInstanceRequestBody | 
+	fleetRemoveCapacityFromResourceInstanceRequest2 := *openapiclient.NewFleetRemoveCapacityFromResourceInstanceRequest2(int64(3), "r-12345678") // FleetRemoveCapacityFromResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.InventoryApiAPI.InventoryApiRemoveCapacityFromResourceInstance(context.Background(), serviceId, environmentId, instanceId).RemoveCapacityFromResourceInstanceRequestBody(removeCapacityFromResourceInstanceRequestBody).Execute()
+	r, err := apiClient.InventoryApiAPI.InventoryApiRemoveCapacityFromResourceInstance(context.Background(), serviceId, environmentId, instanceId).FleetRemoveCapacityFromResourceInstanceRequest2(fleetRemoveCapacityFromResourceInstanceRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiRemoveCapacityFromResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3732,7 +3737,7 @@ Name | Type | Description  | Notes
 
 
 
- **removeCapacityFromResourceInstanceRequestBody** | [**RemoveCapacityFromResourceInstanceRequestBody**](RemoveCapacityFromResourceInstanceRequestBody.md) |  | 
+ **fleetRemoveCapacityFromResourceInstanceRequest2** | [**FleetRemoveCapacityFromResourceInstanceRequest2**](FleetRemoveCapacityFromResourceInstanceRequest2.md) |  | 
 
 ### Return type
 
@@ -3829,7 +3834,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiRestartResourceInstance
 
-> InventoryApiRestartResourceInstance(ctx, serviceId, environmentId, instanceId).StartResourceInstanceRequestBody(startResourceInstanceRequestBody).Execute()
+> InventoryApiRestartResourceInstance(ctx, serviceId, environmentId, instanceId).FleetRestartResourceInstanceRequest2(fleetRestartResourceInstanceRequest2).Execute()
 
 RestartResourceInstance inventory-api
 
@@ -3849,11 +3854,11 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	startResourceInstanceRequestBody := *openapiclient.NewStartResourceInstanceRequestBody("r-12345678") // StartResourceInstanceRequestBody | 
+	fleetRestartResourceInstanceRequest2 := *openapiclient.NewFleetRestartResourceInstanceRequest2("r-12345678") // FleetRestartResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.InventoryApiAPI.InventoryApiRestartResourceInstance(context.Background(), serviceId, environmentId, instanceId).StartResourceInstanceRequestBody(startResourceInstanceRequestBody).Execute()
+	r, err := apiClient.InventoryApiAPI.InventoryApiRestartResourceInstance(context.Background(), serviceId, environmentId, instanceId).FleetRestartResourceInstanceRequest2(fleetRestartResourceInstanceRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiRestartResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3881,7 +3886,7 @@ Name | Type | Description  | Notes
 
 
 
- **startResourceInstanceRequestBody** | [**StartResourceInstanceRequestBody**](StartResourceInstanceRequestBody.md) |  | 
+ **fleetRestartResourceInstanceRequest2** | [**FleetRestartResourceInstanceRequest2**](FleetRestartResourceInstanceRequest2.md) |  | 
 
 ### Return type
 
@@ -3903,7 +3908,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiRestoreResourceInstance
 
-> CreateResourceInstanceResponseBody InventoryApiRestoreResourceInstance(ctx, serviceId, environmentId, instanceId).RestoreResourceInstanceRequestBody(restoreResourceInstanceRequestBody).Execute()
+> CreateResourceInstanceResponseBody InventoryApiRestoreResourceInstance(ctx, serviceId, environmentId, instanceId).FleetRestoreResourceInstanceRequest2(fleetRestoreResourceInstanceRequest2).Execute()
 
 RestoreResourceInstance inventory-api
 
@@ -3923,11 +3928,11 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	restoreResourceInstanceRequestBody := *openapiclient.NewRestoreResourceInstanceRequestBody("2021-09-01T00:00:00Z") // RestoreResourceInstanceRequestBody | 
+	fleetRestoreResourceInstanceRequest2 := *openapiclient.NewFleetRestoreResourceInstanceRequest2("2021-09-01T00:00:00Z") // FleetRestoreResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiRestoreResourceInstance(context.Background(), serviceId, environmentId, instanceId).RestoreResourceInstanceRequestBody(restoreResourceInstanceRequestBody).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiRestoreResourceInstance(context.Background(), serviceId, environmentId, instanceId).FleetRestoreResourceInstanceRequest2(fleetRestoreResourceInstanceRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiRestoreResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3957,7 +3962,7 @@ Name | Type | Description  | Notes
 
 
 
- **restoreResourceInstanceRequestBody** | [**RestoreResourceInstanceRequestBody**](RestoreResourceInstanceRequestBody.md) |  | 
+ **fleetRestoreResourceInstanceRequest2** | [**FleetRestoreResourceInstanceRequest2**](FleetRestoreResourceInstanceRequest2.md) |  | 
 
 ### Return type
 
@@ -3979,7 +3984,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiRestoreResourceInstanceFromSnapshot
 
-> CreateResourceInstanceResponseBody InventoryApiRestoreResourceInstanceFromSnapshot(ctx, serviceId, environmentId, snapshotId).RestoreResourceInstanceFromSnapshotRequestBody(restoreResourceInstanceFromSnapshotRequestBody).Execute()
+> CreateResourceInstanceResponseBody InventoryApiRestoreResourceInstanceFromSnapshot(ctx, serviceId, environmentId, snapshotId).FleetRestoreResourceInstanceFromSnapshotRequest2(fleetRestoreResourceInstanceFromSnapshotRequest2).Execute()
 
 RestoreResourceInstanceFromSnapshot inventory-api
 
@@ -3999,11 +4004,11 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	snapshotId := "instance-ss-12345678" // string | The snapshot ID
-	restoreResourceInstanceFromSnapshotRequestBody := *openapiclient.NewRestoreResourceInstanceFromSnapshotRequestBody() // RestoreResourceInstanceFromSnapshotRequestBody | 
+	fleetRestoreResourceInstanceFromSnapshotRequest2 := *openapiclient.NewFleetRestoreResourceInstanceFromSnapshotRequest2() // FleetRestoreResourceInstanceFromSnapshotRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiRestoreResourceInstanceFromSnapshot(context.Background(), serviceId, environmentId, snapshotId).RestoreResourceInstanceFromSnapshotRequestBody(restoreResourceInstanceFromSnapshotRequestBody).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiRestoreResourceInstanceFromSnapshot(context.Background(), serviceId, environmentId, snapshotId).FleetRestoreResourceInstanceFromSnapshotRequest2(fleetRestoreResourceInstanceFromSnapshotRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiRestoreResourceInstanceFromSnapshot``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4033,7 +4038,7 @@ Name | Type | Description  | Notes
 
 
 
- **restoreResourceInstanceFromSnapshotRequestBody** | [**RestoreResourceInstanceFromSnapshotRequestBody**](RestoreResourceInstanceFromSnapshotRequestBody.md) |  | 
+ **fleetRestoreResourceInstanceFromSnapshotRequest2** | [**FleetRestoreResourceInstanceFromSnapshotRequest2**](FleetRestoreResourceInstanceFromSnapshotRequest2.md) |  | 
 
 ### Return type
 
@@ -4127,7 +4132,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiSearchInventory
 
-> SearchInventoryResult InventoryApiSearchInventory(ctx).SearchServiceInventoryRequestBody(searchServiceInventoryRequestBody).Execute()
+> SearchInventoryResult InventoryApiSearchInventory(ctx).SearchInventoryRequest2(searchInventoryRequest2).Execute()
 
 SearchInventory inventory-api
 
@@ -4144,11 +4149,11 @@ import (
 )
 
 func main() {
-	searchServiceInventoryRequestBody := *openapiclient.NewSearchServiceInventoryRequestBody("foo") // SearchServiceInventoryRequestBody | 
+	searchInventoryRequest2 := *openapiclient.NewSearchInventoryRequest2("foo") // SearchInventoryRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiSearchInventory(context.Background()).SearchServiceInventoryRequestBody(searchServiceInventoryRequestBody).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiSearchInventory(context.Background()).SearchInventoryRequest2(searchInventoryRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiSearchInventory``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4169,7 +4174,7 @@ Other parameters are passed through a pointer to a apiInventoryApiSearchInventor
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **searchServiceInventoryRequestBody** | [**SearchServiceInventoryRequestBody**](SearchServiceInventoryRequestBody.md) |  | 
+ **searchInventoryRequest2** | [**SearchInventoryRequest2**](SearchInventoryRequest2.md) |  | 
 
 ### Return type
 
@@ -4191,7 +4196,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiSearchServiceInventory
 
-> SearchServiceInventoryResult InventoryApiSearchServiceInventory(ctx, serviceId, environmentId).SearchServiceInventoryRequestBody(searchServiceInventoryRequestBody).Execute()
+> SearchServiceInventoryResult InventoryApiSearchServiceInventory(ctx, serviceId, environmentId).SearchServiceInventoryRequest2(searchServiceInventoryRequest2).Execute()
 
 SearchServiceInventory inventory-api
 
@@ -4210,11 +4215,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	searchServiceInventoryRequestBody := *openapiclient.NewSearchServiceInventoryRequestBody("foo") // SearchServiceInventoryRequestBody | 
+	searchServiceInventoryRequest2 := *openapiclient.NewSearchServiceInventoryRequest2("foo") // SearchServiceInventoryRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiSearchServiceInventory(context.Background(), serviceId, environmentId).SearchServiceInventoryRequestBody(searchServiceInventoryRequestBody).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiSearchServiceInventory(context.Background(), serviceId, environmentId).SearchServiceInventoryRequest2(searchServiceInventoryRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiSearchServiceInventory``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4242,7 +4247,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **searchServiceInventoryRequestBody** | [**SearchServiceInventoryRequestBody**](SearchServiceInventoryRequestBody.md) |  | 
+ **searchServiceInventoryRequest2** | [**SearchServiceInventoryRequest2**](SearchServiceInventoryRequest2.md) |  | 
 
 ### Return type
 
@@ -4264,7 +4269,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiStartResourceInstance
 
-> InventoryApiStartResourceInstance(ctx, serviceId, environmentId, instanceId).StartResourceInstanceRequestBody(startResourceInstanceRequestBody).Execute()
+> InventoryApiStartResourceInstance(ctx, serviceId, environmentId, instanceId).FleetStartResourceInstanceRequest2(fleetStartResourceInstanceRequest2).Execute()
 
 StartResourceInstance inventory-api
 
@@ -4284,11 +4289,11 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	startResourceInstanceRequestBody := *openapiclient.NewStartResourceInstanceRequestBody("r-12345678") // StartResourceInstanceRequestBody | 
+	fleetStartResourceInstanceRequest2 := *openapiclient.NewFleetStartResourceInstanceRequest2("r-12345678") // FleetStartResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.InventoryApiAPI.InventoryApiStartResourceInstance(context.Background(), serviceId, environmentId, instanceId).StartResourceInstanceRequestBody(startResourceInstanceRequestBody).Execute()
+	r, err := apiClient.InventoryApiAPI.InventoryApiStartResourceInstance(context.Background(), serviceId, environmentId, instanceId).FleetStartResourceInstanceRequest2(fleetStartResourceInstanceRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiStartResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4316,7 +4321,7 @@ Name | Type | Description  | Notes
 
 
 
- **startResourceInstanceRequestBody** | [**StartResourceInstanceRequestBody**](StartResourceInstanceRequestBody.md) |  | 
+ **fleetStartResourceInstanceRequest2** | [**FleetStartResourceInstanceRequest2**](FleetStartResourceInstanceRequest2.md) |  | 
 
 ### Return type
 
@@ -4338,7 +4343,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiStopResourceInstance
 
-> InventoryApiStopResourceInstance(ctx, serviceId, environmentId, instanceId).StartResourceInstanceRequestBody(startResourceInstanceRequestBody).Execute()
+> InventoryApiStopResourceInstance(ctx, serviceId, environmentId, instanceId).FleetStopResourceInstanceRequest2(fleetStopResourceInstanceRequest2).Execute()
 
 StopResourceInstance inventory-api
 
@@ -4358,11 +4363,11 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	startResourceInstanceRequestBody := *openapiclient.NewStartResourceInstanceRequestBody("r-12345678") // StartResourceInstanceRequestBody | 
+	fleetStopResourceInstanceRequest2 := *openapiclient.NewFleetStopResourceInstanceRequest2("r-12345678") // FleetStopResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.InventoryApiAPI.InventoryApiStopResourceInstance(context.Background(), serviceId, environmentId, instanceId).StartResourceInstanceRequestBody(startResourceInstanceRequestBody).Execute()
+	r, err := apiClient.InventoryApiAPI.InventoryApiStopResourceInstance(context.Background(), serviceId, environmentId, instanceId).FleetStopResourceInstanceRequest2(fleetStopResourceInstanceRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiStopResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4390,7 +4395,7 @@ Name | Type | Description  | Notes
 
 
 
- **startResourceInstanceRequestBody** | [**StartResourceInstanceRequestBody**](StartResourceInstanceRequestBody.md) |  | 
+ **fleetStopResourceInstanceRequest2** | [**FleetStopResourceInstanceRequest2**](FleetStopResourceInstanceRequest2.md) |  | 
 
 ### Return type
 
@@ -4622,7 +4627,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiUpdateResourceInstance
 
-> InventoryApiUpdateResourceInstance(ctx, serviceId, environmentId, instanceId).UpdateResourceInstanceRequestBody(updateResourceInstanceRequestBody).Execute()
+> InventoryApiUpdateResourceInstance(ctx, serviceId, environmentId, instanceId).FleetUpdateResourceInstanceRequest2(fleetUpdateResourceInstanceRequest2).Execute()
 
 UpdateResourceInstance inventory-api
 
@@ -4642,11 +4647,11 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	updateResourceInstanceRequestBody := *openapiclient.NewUpdateResourceInstanceRequestBody("r-12345678") // UpdateResourceInstanceRequestBody | 
+	fleetUpdateResourceInstanceRequest2 := *openapiclient.NewFleetUpdateResourceInstanceRequest2("r-12345678") // FleetUpdateResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.InventoryApiAPI.InventoryApiUpdateResourceInstance(context.Background(), serviceId, environmentId, instanceId).UpdateResourceInstanceRequestBody(updateResourceInstanceRequestBody).Execute()
+	r, err := apiClient.InventoryApiAPI.InventoryApiUpdateResourceInstance(context.Background(), serviceId, environmentId, instanceId).FleetUpdateResourceInstanceRequest2(fleetUpdateResourceInstanceRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiUpdateResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4674,7 +4679,7 @@ Name | Type | Description  | Notes
 
 
 
- **updateResourceInstanceRequestBody** | [**UpdateResourceInstanceRequestBody**](UpdateResourceInstanceRequestBody.md) |  | 
+ **fleetUpdateResourceInstanceRequest2** | [**FleetUpdateResourceInstanceRequest2**](FleetUpdateResourceInstanceRequest2.md) |  | 
 
 ### Return type
 

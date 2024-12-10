@@ -22,29 +22,29 @@ var _ MappedNullable = &NodeHealthSummary{}
 type NodeHealthSummary struct {
 	// The availability zone of the node
 	AvailabilityZone string `json:"availabilityZone"`
-	// The health status of the network endpoints
+	// The heath status of a resource
 	ConnectivityStatus string `json:"connectivityStatus"`
-	// The health status of the disk
+	// The heath status of a resource
 	DiskHealth string `json:"diskHealth"`
 	// The endpoint of the node
 	Endpoint string `json:"endpoint"`
 	// The list of process events
 	Events []string `json:"events"`
-	// The load status of the pod
+	// The load status of a pod
 	LoadHealth string `json:"loadHealth"`
-	// The health status of the machine hosting the service
+	// The heath status of a resource
 	NodeHealth string `json:"nodeHealth"`
 	// The name of the node
 	NodeName string `json:"nodeName"`
 	// The ports that this node exposes
 	Ports []int64 `json:"ports,omitempty"`
-	// The health status of the process
+	// The heath status of a resource
 	ProcessHealth string `json:"processHealth"`
-	// The liveness status of the process
+	// The heath status of a resource
 	ProcessLiveness string `json:"processLiveness"`
 	// The recent logs of the process
 	RecentLogs string `json:"recentLogs"`
-	// The overall status of the node
+	// The heath status of a resource
 	Status string `json:"status"`
 	AdditionalProperties map[string]interface{}
 }

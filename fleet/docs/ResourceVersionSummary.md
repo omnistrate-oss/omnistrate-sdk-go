@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Capabilities** | Pointer to [**[]ResourceCapability**](ResourceCapability.md) | The capabilities enabled for the resource | [optional] 
 **ExternalResource** | Pointer to **bool** | Whether the resource is external. | [optional] 
 **LatestVersion** | Pointer to **string** | The latest version of the resource. | [optional] 
-**ResourceId** | Pointer to **string** | The resource ID. | [optional] 
+**ResourceId** | Pointer to **string** | ID of a resource | [optional] 
 **ResourceName** | Pointer to **string** | The name of the resource. | [optional] 
 **Version** | Pointer to **string** | The version of the resource deployed for the instance. | [optional] 
 

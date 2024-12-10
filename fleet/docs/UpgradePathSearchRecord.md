@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | The ID of the upgrade path. | 
-**ProductTierID** | **string** | The product tier ID of the upgrade path. | 
+**Id** | **string** | ID of an Upgrade Path | 
+**ProductTierID** | **string** | ID of a Product Tier | 
 **ProductTierName** | **string** | The product tier name of the upgrade path. | 
-**ServiceEnvironmentId** | **string** | The service environment ID of the upgrade path. | 
+**ServiceEnvironmentId** | **string** | ID of a Service Environment | 
 **ServiceEnvironmentName** | **string** | The service environment name of the upgrade path. | 
-**ServiceEnvironmentType** | Pointer to **string** | The service environment type of the upgrade path. | [optional] 
-**ServiceId** | **string** | The service ID of the upgrade path. | 
+**ServiceEnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
+**ServiceId** | **string** | ID of a Service | 
 **ServiceName** | **string** | The service name of the upgrade path. | 
-**Status** | **string** | The upgrade path status. | 
+**Status** | **string** | The status of the upgrade path. | 
 
 ## Methods
 

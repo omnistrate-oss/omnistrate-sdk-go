@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **ActiveWorkflowCount** | Pointer to **int64** | Number of active workflows for the given service in the past 24 hours. | [optional] 
 **CompletedWorkflowCount** | Pointer to **int64** | Number of completed workflows for the given service in the past 24 hours. | [optional] 
 **FailedWorkflowCount** | Pointer to **int64** | Number of failed workflows for the given service in the past 24 hours. | [optional] 
-**EnvironmentId** | **string** | The service environment ID this workflow belongs to. | 
-**ServiceId** | **string** | The service ID this workflow belongs to. | 
+**EnvironmentId** | **string** | ID of a Service Environment | 
+**ServiceId** | **string** | ID of a Service | 
 
 ## Methods
 

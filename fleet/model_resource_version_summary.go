@@ -25,7 +25,7 @@ type ResourceVersionSummary struct {
 	ExternalResource *bool `json:"externalResource,omitempty"`
 	// The latest version of the resource.
 	LatestVersion *string `json:"latestVersion,omitempty"`
-	// The resource ID.
+	// ID of a resource
 	ResourceId *string `json:"resourceId,omitempty"`
 	// The name of the resource.
 	ResourceName *string `json:"resourceName,omitempty"`

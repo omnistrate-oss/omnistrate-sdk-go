@@ -5,18 +5,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AvailabilityZone** | **string** | The availability zone of the node | 
-**ConnectivityStatus** | **string** | The health status of the network endpoints | 
-**DiskHealth** | **string** | The health status of the disk | 
+**ConnectivityStatus** | **string** | The heath status of a resource | 
+**DiskHealth** | **string** | The heath status of a resource | 
 **Endpoint** | **string** | The endpoint of the node | 
 **Events** | **[]string** | The list of process events | 
-**LoadHealth** | **string** | The load status of the pod | 
-**NodeHealth** | **string** | The health status of the machine hosting the service | 
+**LoadHealth** | **string** | The load status of a pod | 
+**NodeHealth** | **string** | The heath status of a resource | 
 **NodeName** | **string** | The name of the node | 
 **Ports** | Pointer to **[]int64** | The ports that this node exposes | [optional] 
-**ProcessHealth** | **string** | The health status of the process | 
-**ProcessLiveness** | **string** | The liveness status of the process | 
+**ProcessHealth** | **string** | The heath status of a resource | 
+**ProcessLiveness** | **string** | The heath status of a resource | 
 **RecentLogs** | **string** | The recent logs of the process | 
-**Status** | **string** | The overall status of the node | 
+**Status** | **string** | The heath status of a resource | 
 
 ## Methods
 

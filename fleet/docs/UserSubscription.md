@@ -9,15 +9,15 @@ Name | Type | Description | Notes
 **Email** | **string** | The email of the user | 
 **InstanceCount** | **int64** | The number of active instances in the subscription | 
 **Name** | **string** | The name of the user | 
-**ProductTierId** | **string** | The product tier ID | 
+**ProductTierId** | **string** | ID of a Product Tier | 
 **ProductTierName** | **string** | The name of the product tier | 
-**RoleType** | **string** |  | 
-**ServiceEnvironmentId** | **string** | The service environment ID | 
-**ServiceId** | **string** | The service ID | 
+**RoleType** | **string** | Type of the role | 
+**ServiceEnvironmentId** | **string** | ID of a Service Environment | 
+**ServiceId** | **string** | ID of a Service | 
 **ServiceLogoURL** | Pointer to **string** | The logo for the service | [optional] 
 **ServiceName** | **string** | The name of the service | 
 **SubscriptionDate** | **string** | The date the user joined the subscription | 
-**SubscriptionId** | **string** | The subscription ID | 
+**SubscriptionId** | **string** | ID of a Subscription | 
 **SubscriptionOwnerName** | **string** | The name of the subscription owner user | 
 **UserId** | **string** | The User ID | 
 

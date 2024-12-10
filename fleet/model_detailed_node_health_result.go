@@ -19,17 +19,17 @@ var _ MappedNullable = &DetailedNodeHealthResult{}
 
 // DetailedNodeHealthResult struct for DetailedNodeHealthResult
 type DetailedNodeHealthResult struct {
-	// The health status of the network endpoints
+	// The heath status of a resource
 	ConnectivityStatus *string `json:"ConnectivityStatus,omitempty"`
-	// The health status of the disk
+	// The heath status of a resource
 	DiskHealth *string `json:"DiskHealth,omitempty"`
-	// The load status of the pod
+	// The load status of a pod
 	LoadHealth *string `json:"LoadHealth,omitempty"`
-	// The health status of the machine hosting the service
+	// The heath status of a resource
 	NodeHealth *string `json:"NodeHealth,omitempty"`
-	// The health status of the process
+	// The heath status of a resource
 	ProcessHealth *string `json:"ProcessHealth,omitempty"`
-	// The liveness status of the process
+	// The heath status of a resource
 	ProcessLiveness *string `json:"ProcessLiveness,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

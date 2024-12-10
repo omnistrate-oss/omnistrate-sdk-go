@@ -16,6 +16,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"time"
 )
 
 
@@ -259,9 +260,19 @@ func (a *OperationsApiAPIService) OperationsApiDeploymentCellHealthExecute(r Api
 type ApiOperationsApiListEventsRequest struct {
 	ctx context.Context
 	ApiService OperationsApiAPI
+	environmentType *string
 	serviceID *string
 	serviceEnvironmentID *string
 	instanceID *string
+	nextPageToken *string
+	pageSize *int64
+	startDate *time.Time
+	endDate *time.Time
+}
+
+func (r ApiOperationsApiListEventsRequest) EnvironmentType(environmentType string) ApiOperationsApiListEventsRequest {
+	r.environmentType = &environmentType
+	return r
 }
 
 // The service ID to list events for
@@ -279,6 +290,30 @@ func (r ApiOperationsApiListEventsRequest) ServiceEnvironmentID(serviceEnvironme
 // The instance ID to list events for
 func (r ApiOperationsApiListEventsRequest) InstanceID(instanceID string) ApiOperationsApiListEventsRequest {
 	r.instanceID = &instanceID
+	return r
+}
+
+// The next token to use for pagination
+func (r ApiOperationsApiListEventsRequest) NextPageToken(nextPageToken string) ApiOperationsApiListEventsRequest {
+	r.nextPageToken = &nextPageToken
+	return r
+}
+
+// The number of events to return per page
+func (r ApiOperationsApiListEventsRequest) PageSize(pageSize int64) ApiOperationsApiListEventsRequest {
+	r.pageSize = &pageSize
+	return r
+}
+
+// Start date of the events
+func (r ApiOperationsApiListEventsRequest) StartDate(startDate time.Time) ApiOperationsApiListEventsRequest {
+	r.startDate = &startDate
+	return r
+}
+
+// End date of the events
+func (r ApiOperationsApiListEventsRequest) EndDate(endDate time.Time) ApiOperationsApiListEventsRequest {
+	r.endDate = &endDate
 	return r
 }
 
@@ -320,6 +355,9 @@ func (a *OperationsApiAPIService) OperationsApiListEventsExecute(r ApiOperations
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.environmentType != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "environmentType", r.environmentType, "form", "")
+	}
 	if r.serviceID != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "serviceID", r.serviceID, "form", "")
 	}
@@ -328,6 +366,18 @@ func (a *OperationsApiAPIService) OperationsApiListEventsExecute(r ApiOperations
 	}
 	if r.instanceID != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "instanceID", r.instanceID, "form", "")
+	}
+	if r.nextPageToken != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")
+	}
+	if r.pageSize != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "form", "")
+	}
+	if r.startDate != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "startDate", r.startDate, "form", "")
+	}
+	if r.endDate != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "endDate", r.endDate, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

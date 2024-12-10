@@ -22,7 +22,7 @@ var _ MappedNullable = &WorkflowEvent{}
 type WorkflowEvent struct {
 	// Time of the event
 	EventTime string `json:"eventTime"`
-	// Type of the event
+	// The type of the workflow event
 	EventType string `json:"eventType"`
 	// Details of the event
 	Message string `json:"message"`

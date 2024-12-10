@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EnvironmentId** | **string** | The service environment ID this workflow belongs to. | 
+**EnvironmentId** | **string** | ID of a Service Environment | 
 **NextPageToken** | Pointer to **string** | Token to use for the next request | [optional] 
 **Organizations** | [**[]Organization**](Organization.md) | List of organizations. | 
-**ServiceId** | **string** | The service ID this workflow belongs to. | 
+**ServiceId** | **string** | ID of a Service | 
 
 ## Methods
 

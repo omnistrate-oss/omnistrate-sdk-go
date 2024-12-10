@@ -20,7 +20,7 @@ var _ MappedNullable = &EventsPerResource{}
 
 // EventsPerResource struct for EventsPerResource
 type EventsPerResource struct {
-	// Resource ID
+	// ID of a resource
 	ResourceId string `json:"resourceId"`
 	// Resource Key
 	ResourceKey string `json:"resourceKey"`
