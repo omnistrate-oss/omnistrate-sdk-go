@@ -29,7 +29,7 @@ type DescribeServicesOrchestrationResult struct {
 	// The reason why the orchestration failed
 	OrchestrationFailedReason *string `json:"orchestrationFailedReason,omitempty"`
 	// Custom result parameters of the services orchestration
-	ResultParams interface{} `json:"result_params,omitempty"`
+	ResultParams interface{} `json:"resultParams,omitempty"`
 	// The status of the services orchestration
 	Status string `json:"status"`
 	// The time the services orchestration was last updated
@@ -272,7 +272,7 @@ func (o DescribeServicesOrchestrationResult) ToMap() (map[string]interface{}, er
 		toSerialize["orchestrationFailedReason"] = o.OrchestrationFailedReason
 	}
 	if o.ResultParams != nil {
-		toSerialize["result_params"] = o.ResultParams
+		toSerialize["resultParams"] = o.ResultParams
 	}
 	toSerialize["status"] = o.Status
 	toSerialize["updatedAt"] = o.UpdatedAt
@@ -326,7 +326,7 @@ func (o *DescribeServicesOrchestrationResult) UnmarshalJSON(data []byte) (err er
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "orchestrationFailedReason")
-		delete(additionalProperties, "result_params")
+		delete(additionalProperties, "resultParams")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "updatedAt")
 		o.AdditionalProperties = additionalProperties

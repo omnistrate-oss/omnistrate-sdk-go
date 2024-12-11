@@ -12006,7 +12006,7 @@ paths:
                   createdAt: 2021-01-01T00:00:00Z
                   id: so-12345678
                   orchestrationFailedReason: Invalid DSL
-                  result_params:
+                  resultParams:
                     param1: value1
                     param2: value2
                   status: PENDING
@@ -12030,7 +12030,7 @@ paths:
                   createdAt: 2021-01-01T00:00:00Z
                   id: so-12345678
                   orchestrationFailedReason: Invalid DSL
-                  result_params:
+                  resultParams:
                     param1: value1
                     param2: value2
                   status: PENDING
@@ -12056,7 +12056,7 @@ paths:
                     createdAt: 2021-01-01T00:00:00Z
                     id: so-12345678
                     orchestrationFailedReason: Invalid DSL
-                    result_params:
+                    resultParams:
                       param1: value1
                       param2: value2
                     status: PENDING
@@ -12080,7 +12080,7 @@ paths:
                     createdAt: 2021-01-01T00:00:00Z
                     id: so-12345678
                     orchestrationFailedReason: Invalid DSL
-                    result_params:
+                    resultParams:
                       param1: value1
                       param2: value2
                     status: PENDING
@@ -12104,7 +12104,7 @@ paths:
                     createdAt: 2021-01-01T00:00:00Z
                     id: so-12345678
                     orchestrationFailedReason: Invalid DSL
-                    result_params:
+                    resultParams:
                       param1: value1
                       param2: value2
                     status: PENDING
@@ -12128,7 +12128,7 @@ paths:
                     createdAt: 2021-01-01T00:00:00Z
                     id: so-12345678
                     orchestrationFailedReason: Invalid DSL
-                    result_params:
+                    resultParams:
                       param1: value1
                       param2: value2
                     status: PENDING
@@ -12351,7 +12351,7 @@ paths:
                   createdAt: 2021-01-01T00:00:00Z
                   id: so-12345678
                   orchestrationFailedReason: Invalid DSL
-                  result_params:
+                  resultParams:
                     param1: value1
                     param2: value2
                   status: PENDING
@@ -15600,7 +15600,7 @@ components:
         createdAt: 2021-01-01T00:00:00Z
         id: so-12345678
         orchestrationFailedReason: Invalid DSL
-        result_params:
+        resultParams:
           param1: value1
           param2: value2
         status: PENDING
@@ -15652,7 +15652,7 @@ components:
           description: The reason why the orchestration failed
           example: Invalid DSL
           type: string
-        result_params:
+        resultParams:
           description: Custom result parameters of the services orchestration
           example:
             param1: value1
@@ -16564,7 +16564,7 @@ components:
           createdAt: 2021-01-01T00:00:00Z
           id: so-12345678
           orchestrationFailedReason: Invalid DSL
-          result_params:
+          resultParams:
             param1: value1
             param2: value2
           status: PENDING
