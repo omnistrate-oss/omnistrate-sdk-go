@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the DeploymentCellHealthDetail type satisfies the MappedNullable interface at compile time
@@ -20,18 +19,18 @@ var _ MappedNullable = &DeploymentCellHealthDetail{}
 
 // DeploymentCellHealthDetail struct for DeploymentCellHealthDetail
 type DeploymentCellHealthDetail struct {
-	// Name of the Infra Provider
-	CloudProvider string `json:"cloudProvider"`
-	// ID of a Host Cluster
-	HostClusterID string `json:"hostClusterID"`
+	// The cloud provider of the host cluster
+	CloudProvider *string `json:"cloudProvider,omitempty"`
+	// The ID of the host cluster
+	HostClusterID *string `json:"hostClusterID,omitempty"`
 	// The health summary of the instances by instance ID
-	InstanceHealth map[string]InstanceHealthSummary `json:"instanceHealth"`
+	InstanceHealth *map[string]InstanceHealthSummary `json:"instanceHealth,omitempty"`
 	// The region code of the host cluster
-	RegionCode string `json:"regionCode"`
+	RegionCode *string `json:"regionCode,omitempty"`
 	// The name of the service environment
-	ServiceEnvironmentName string `json:"serviceEnvironmentName"`
+	ServiceEnvironmentName *string `json:"serviceEnvironmentName,omitempty"`
 	// The name of the service
-	ServiceName string `json:"serviceName"`
+	ServiceName *string `json:"serviceName,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -41,14 +40,8 @@ type _DeploymentCellHealthDetail DeploymentCellHealthDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDeploymentCellHealthDetail(cloudProvider string, hostClusterID string, instanceHealth map[string]InstanceHealthSummary, regionCode string, serviceEnvironmentName string, serviceName string) *DeploymentCellHealthDetail {
+func NewDeploymentCellHealthDetail() *DeploymentCellHealthDetail {
 	this := DeploymentCellHealthDetail{}
-	this.CloudProvider = cloudProvider
-	this.HostClusterID = hostClusterID
-	this.InstanceHealth = instanceHealth
-	this.RegionCode = regionCode
-	this.ServiceEnvironmentName = serviceEnvironmentName
-	this.ServiceName = serviceName
 	return &this
 }
 
@@ -60,148 +53,196 @@ func NewDeploymentCellHealthDetailWithDefaults() *DeploymentCellHealthDetail {
 	return &this
 }
 
-// GetCloudProvider returns the CloudProvider field value
+// GetCloudProvider returns the CloudProvider field value if set, zero value otherwise.
 func (o *DeploymentCellHealthDetail) GetCloudProvider() string {
-	if o == nil {
+	if o == nil || IsNil(o.CloudProvider) {
 		var ret string
 		return ret
 	}
-
-	return o.CloudProvider
+	return *o.CloudProvider
 }
 
-// GetCloudProviderOk returns a tuple with the CloudProvider field value
+// GetCloudProviderOk returns a tuple with the CloudProvider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeploymentCellHealthDetail) GetCloudProviderOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CloudProvider) {
 		return nil, false
 	}
-	return &o.CloudProvider, true
+	return o.CloudProvider, true
 }
 
-// SetCloudProvider sets field value
+// HasCloudProvider returns a boolean if a field has been set.
+func (o *DeploymentCellHealthDetail) HasCloudProvider() bool {
+	if o != nil && !IsNil(o.CloudProvider) {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudProvider gets a reference to the given string and assigns it to the CloudProvider field.
 func (o *DeploymentCellHealthDetail) SetCloudProvider(v string) {
-	o.CloudProvider = v
+	o.CloudProvider = &v
 }
 
-// GetHostClusterID returns the HostClusterID field value
+// GetHostClusterID returns the HostClusterID field value if set, zero value otherwise.
 func (o *DeploymentCellHealthDetail) GetHostClusterID() string {
-	if o == nil {
+	if o == nil || IsNil(o.HostClusterID) {
 		var ret string
 		return ret
 	}
-
-	return o.HostClusterID
+	return *o.HostClusterID
 }
 
-// GetHostClusterIDOk returns a tuple with the HostClusterID field value
+// GetHostClusterIDOk returns a tuple with the HostClusterID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeploymentCellHealthDetail) GetHostClusterIDOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HostClusterID) {
 		return nil, false
 	}
-	return &o.HostClusterID, true
+	return o.HostClusterID, true
 }
 
-// SetHostClusterID sets field value
+// HasHostClusterID returns a boolean if a field has been set.
+func (o *DeploymentCellHealthDetail) HasHostClusterID() bool {
+	if o != nil && !IsNil(o.HostClusterID) {
+		return true
+	}
+
+	return false
+}
+
+// SetHostClusterID gets a reference to the given string and assigns it to the HostClusterID field.
 func (o *DeploymentCellHealthDetail) SetHostClusterID(v string) {
-	o.HostClusterID = v
+	o.HostClusterID = &v
 }
 
-// GetInstanceHealth returns the InstanceHealth field value
+// GetInstanceHealth returns the InstanceHealth field value if set, zero value otherwise.
 func (o *DeploymentCellHealthDetail) GetInstanceHealth() map[string]InstanceHealthSummary {
-	if o == nil {
+	if o == nil || IsNil(o.InstanceHealth) {
 		var ret map[string]InstanceHealthSummary
 		return ret
 	}
-
-	return o.InstanceHealth
+	return *o.InstanceHealth
 }
 
-// GetInstanceHealthOk returns a tuple with the InstanceHealth field value
+// GetInstanceHealthOk returns a tuple with the InstanceHealth field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeploymentCellHealthDetail) GetInstanceHealthOk() (*map[string]InstanceHealthSummary, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.InstanceHealth) {
 		return nil, false
 	}
-	return &o.InstanceHealth, true
+	return o.InstanceHealth, true
 }
 
-// SetInstanceHealth sets field value
+// HasInstanceHealth returns a boolean if a field has been set.
+func (o *DeploymentCellHealthDetail) HasInstanceHealth() bool {
+	if o != nil && !IsNil(o.InstanceHealth) {
+		return true
+	}
+
+	return false
+}
+
+// SetInstanceHealth gets a reference to the given map[string]InstanceHealthSummary and assigns it to the InstanceHealth field.
 func (o *DeploymentCellHealthDetail) SetInstanceHealth(v map[string]InstanceHealthSummary) {
-	o.InstanceHealth = v
+	o.InstanceHealth = &v
 }
 
-// GetRegionCode returns the RegionCode field value
+// GetRegionCode returns the RegionCode field value if set, zero value otherwise.
 func (o *DeploymentCellHealthDetail) GetRegionCode() string {
-	if o == nil {
+	if o == nil || IsNil(o.RegionCode) {
 		var ret string
 		return ret
 	}
-
-	return o.RegionCode
+	return *o.RegionCode
 }
 
-// GetRegionCodeOk returns a tuple with the RegionCode field value
+// GetRegionCodeOk returns a tuple with the RegionCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeploymentCellHealthDetail) GetRegionCodeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RegionCode) {
 		return nil, false
 	}
-	return &o.RegionCode, true
+	return o.RegionCode, true
 }
 
-// SetRegionCode sets field value
+// HasRegionCode returns a boolean if a field has been set.
+func (o *DeploymentCellHealthDetail) HasRegionCode() bool {
+	if o != nil && !IsNil(o.RegionCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetRegionCode gets a reference to the given string and assigns it to the RegionCode field.
 func (o *DeploymentCellHealthDetail) SetRegionCode(v string) {
-	o.RegionCode = v
+	o.RegionCode = &v
 }
 
-// GetServiceEnvironmentName returns the ServiceEnvironmentName field value
+// GetServiceEnvironmentName returns the ServiceEnvironmentName field value if set, zero value otherwise.
 func (o *DeploymentCellHealthDetail) GetServiceEnvironmentName() string {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceEnvironmentName) {
 		var ret string
 		return ret
 	}
-
-	return o.ServiceEnvironmentName
+	return *o.ServiceEnvironmentName
 }
 
-// GetServiceEnvironmentNameOk returns a tuple with the ServiceEnvironmentName field value
+// GetServiceEnvironmentNameOk returns a tuple with the ServiceEnvironmentName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeploymentCellHealthDetail) GetServiceEnvironmentNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceEnvironmentName) {
 		return nil, false
 	}
-	return &o.ServiceEnvironmentName, true
+	return o.ServiceEnvironmentName, true
 }
 
-// SetServiceEnvironmentName sets field value
+// HasServiceEnvironmentName returns a boolean if a field has been set.
+func (o *DeploymentCellHealthDetail) HasServiceEnvironmentName() bool {
+	if o != nil && !IsNil(o.ServiceEnvironmentName) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceEnvironmentName gets a reference to the given string and assigns it to the ServiceEnvironmentName field.
 func (o *DeploymentCellHealthDetail) SetServiceEnvironmentName(v string) {
-	o.ServiceEnvironmentName = v
+	o.ServiceEnvironmentName = &v
 }
 
-// GetServiceName returns the ServiceName field value
+// GetServiceName returns the ServiceName field value if set, zero value otherwise.
 func (o *DeploymentCellHealthDetail) GetServiceName() string {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceName) {
 		var ret string
 		return ret
 	}
-
-	return o.ServiceName
+	return *o.ServiceName
 }
 
-// GetServiceNameOk returns a tuple with the ServiceName field value
+// GetServiceNameOk returns a tuple with the ServiceName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeploymentCellHealthDetail) GetServiceNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceName) {
 		return nil, false
 	}
-	return &o.ServiceName, true
+	return o.ServiceName, true
 }
 
-// SetServiceName sets field value
+// HasServiceName returns a boolean if a field has been set.
+func (o *DeploymentCellHealthDetail) HasServiceName() bool {
+	if o != nil && !IsNil(o.ServiceName) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceName gets a reference to the given string and assigns it to the ServiceName field.
 func (o *DeploymentCellHealthDetail) SetServiceName(v string) {
-	o.ServiceName = v
+	o.ServiceName = &v
 }
 
 func (o DeploymentCellHealthDetail) MarshalJSON() ([]byte, error) {
@@ -214,12 +255,24 @@ func (o DeploymentCellHealthDetail) MarshalJSON() ([]byte, error) {
 
 func (o DeploymentCellHealthDetail) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["cloudProvider"] = o.CloudProvider
-	toSerialize["hostClusterID"] = o.HostClusterID
-	toSerialize["instanceHealth"] = o.InstanceHealth
-	toSerialize["regionCode"] = o.RegionCode
-	toSerialize["serviceEnvironmentName"] = o.ServiceEnvironmentName
-	toSerialize["serviceName"] = o.ServiceName
+	if !IsNil(o.CloudProvider) {
+		toSerialize["cloudProvider"] = o.CloudProvider
+	}
+	if !IsNil(o.HostClusterID) {
+		toSerialize["hostClusterID"] = o.HostClusterID
+	}
+	if !IsNil(o.InstanceHealth) {
+		toSerialize["instanceHealth"] = o.InstanceHealth
+	}
+	if !IsNil(o.RegionCode) {
+		toSerialize["regionCode"] = o.RegionCode
+	}
+	if !IsNil(o.ServiceEnvironmentName) {
+		toSerialize["serviceEnvironmentName"] = o.ServiceEnvironmentName
+	}
+	if !IsNil(o.ServiceName) {
+		toSerialize["serviceName"] = o.ServiceName
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -229,32 +282,6 @@ func (o DeploymentCellHealthDetail) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *DeploymentCellHealthDetail) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"cloudProvider",
-		"hostClusterID",
-		"instanceHealth",
-		"regionCode",
-		"serviceEnvironmentName",
-		"serviceName",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varDeploymentCellHealthDetail := _DeploymentCellHealthDetail{}
 
 	err = json.Unmarshal(data, &varDeploymentCellHealthDetail)

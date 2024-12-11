@@ -34,9 +34,9 @@ type DescribeInventorySummaryResult struct {
 	ResourceCount int64 `json:"ResourceCount"`
 	// The number of active users using the service.
 	UserCount int64 `json:"UserCount"`
-	// ID of a Service Environment
+	// The service environment ID this workflow belongs to.
 	EnvironmentId string `json:"environmentId"`
-	// ID of a Service
+	// The service ID this workflow belongs to.
 	ServiceId string `json:"serviceId"`
 	AdditionalProperties map[string]interface{}
 }

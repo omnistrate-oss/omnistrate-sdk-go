@@ -30,23 +30,23 @@ type ServerlessProxySearchRecord struct {
 	ManagedResourceType *string `json:"managedResourceType,omitempty"`
 	// The resource name of the serverless proxy.
 	Name string `json:"name"`
-	// ID of a Product Tier
+	// The product tier ID of the serverless proxy.
 	ProductTierId string `json:"productTierId"`
 	// The product tier name of the serverless proxy.
 	ProductTierName string `json:"productTierName"`
 	// The proxy type of the serverless proxy.
 	ProxyType *string `json:"proxyType,omitempty"`
-	// ID of a Service API
+	// The service API ID of the serverless proxy.
 	ServiceApiId string `json:"serviceApiId"`
-	// ID of a Service Environment
+	// The service environment ID of the serverless proxy.
 	ServiceEnvironmentId string `json:"serviceEnvironmentId"`
 	// The service environment name of the serverless proxy.
 	ServiceEnvironmentName string `json:"serviceEnvironmentName"`
-	// The type of service environment
+	// The service environment type of the serverless proxy.
 	ServiceEnvironmentType *string `json:"serviceEnvironmentType,omitempty"`
-	// ID of a Service
+	// The service ID of the serverless proxy.
 	ServiceId string `json:"serviceId"`
-	// ID of a Service Model
+	// The service model ID of the serverless proxy.
 	ServiceModelId string `json:"serviceModelId"`
 	// The service name of the serverless proxy.
 	ServiceName string `json:"serviceName"`

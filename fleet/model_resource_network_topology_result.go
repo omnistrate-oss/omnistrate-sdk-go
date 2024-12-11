@@ -39,7 +39,7 @@ type ResourceNetworkTopologyResult struct {
 	Nodes []NodeNetworkTopologyResult `json:"nodes,omitempty"`
 	// The private network CIDR for this resource
 	PrivateNetworkCIDR *string `json:"privateNetworkCIDR,omitempty"`
-	// ID of a Network
+	// The private network ID for this resource
 	PrivateNetworkID *string `json:"privateNetworkID,omitempty"`
 	ProxyEndpoint *ProxyEndpoint `json:"proxyEndpoint,omitempty"`
 	// Whether this resource is publicly accessible

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## CustomerOnboardingsApiCreateCustomerOnboarding
 
-> string CustomerOnboardingsApiCreateCustomerOnboarding(ctx).CreateCustomerOnboardingRequest2(createCustomerOnboardingRequest2).Execute()
+> string CustomerOnboardingsApiCreateCustomerOnboarding(ctx).CreateCustomerOnboardingRequestBody(createCustomerOnboardingRequestBody).Execute()
 
 CreateCustomerOnboarding customer-onboardings-api
 
@@ -32,11 +32,11 @@ import (
 )
 
 func main() {
-	createCustomerOnboardingRequest2 := *openapiclient.NewCreateCustomerOnboardingRequest2() // CreateCustomerOnboardingRequest2 | 
+	createCustomerOnboardingRequestBody := *openapiclient.NewCreateCustomerOnboardingRequestBody() // CreateCustomerOnboardingRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CustomerOnboardingsApiAPI.CustomerOnboardingsApiCreateCustomerOnboarding(context.Background()).CreateCustomerOnboardingRequest2(createCustomerOnboardingRequest2).Execute()
+	resp, r, err := apiClient.CustomerOnboardingsApiAPI.CustomerOnboardingsApiCreateCustomerOnboarding(context.Background()).CreateCustomerOnboardingRequestBody(createCustomerOnboardingRequestBody).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CustomerOnboardingsApiAPI.CustomerOnboardingsApiCreateCustomerOnboarding``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -57,7 +57,7 @@ Other parameters are passed through a pointer to a apiCustomerOnboardingsApiCrea
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createCustomerOnboardingRequest2** | [**CreateCustomerOnboardingRequest2**](CreateCustomerOnboardingRequest2.md) |  | 
+ **createCustomerOnboardingRequestBody** | [**CreateCustomerOnboardingRequestBody**](CreateCustomerOnboardingRequestBody.md) |  | 
 
 ### Return type
 
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 
 ## CustomerOnboardingsApiUpdateCustomerOnboarding
 
-> CustomerOnboardingsApiUpdateCustomerOnboarding(ctx, id).UpdateCustomerOnboardingRequest2(updateCustomerOnboardingRequest2).Execute()
+> CustomerOnboardingsApiUpdateCustomerOnboarding(ctx, id).UpdateCustomerOnboardingRequestBody(updateCustomerOnboardingRequestBody).Execute()
 
 UpdateCustomerOnboarding customer-onboardings-api
 
@@ -354,11 +354,11 @@ import (
 
 func main() {
 	id := "onboarding-1234567890" // string | The ID of the onboarding.
-	updateCustomerOnboardingRequest2 := *openapiclient.NewUpdateCustomerOnboardingRequest2() // UpdateCustomerOnboardingRequest2 | 
+	updateCustomerOnboardingRequestBody := *openapiclient.NewUpdateCustomerOnboardingRequestBody() // UpdateCustomerOnboardingRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.CustomerOnboardingsApiAPI.CustomerOnboardingsApiUpdateCustomerOnboarding(context.Background(), id).UpdateCustomerOnboardingRequest2(updateCustomerOnboardingRequest2).Execute()
+	r, err := apiClient.CustomerOnboardingsApiAPI.CustomerOnboardingsApiUpdateCustomerOnboarding(context.Background(), id).UpdateCustomerOnboardingRequestBody(updateCustomerOnboardingRequestBody).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CustomerOnboardingsApiAPI.CustomerOnboardingsApiUpdateCustomerOnboarding``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -382,7 +382,7 @@ Other parameters are passed through a pointer to a apiCustomerOnboardingsApiUpda
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateCustomerOnboardingRequest2** | [**UpdateCustomerOnboardingRequest2**](UpdateCustomerOnboardingRequest2.md) |  | 
+ **updateCustomerOnboardingRequestBody** | [**UpdateCustomerOnboardingRequestBody**](UpdateCustomerOnboardingRequestBody.md) |  | 
 
 ### Return type
 

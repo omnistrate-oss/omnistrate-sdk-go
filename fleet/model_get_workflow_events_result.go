@@ -20,13 +20,13 @@ var _ MappedNullable = &GetWorkflowEventsResult{}
 
 // GetWorkflowEventsResult struct for GetWorkflowEventsResult
 type GetWorkflowEventsResult struct {
-	// ID of a Service Environment
+	// The service environment ID this workflow belongs to.
 	EnvironmentId string `json:"environmentId"`
 	// ID of the ServiceWorkflow
 	Id string `json:"id"`
 	// List of resources with workflow events.
 	Resources []EventsPerResource `json:"resources"`
-	// ID of a Service
+	// The service ID this workflow belongs to.
 	ServiceId string `json:"serviceId"`
 	AdditionalProperties map[string]interface{}
 }

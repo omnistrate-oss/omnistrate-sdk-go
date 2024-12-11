@@ -4,20 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EnvironmentId** | **string** | ID of a Service Environment | 
+**EnvironmentId** | **string** | The service environment ID this workflow belongs to. | 
 **EventSource** | Pointer to **string** | The event source | [optional] 
-**Id** | **string** | ID of a Event | 
-**InstanceId** | **string** | ID of a Resource Instance | 
+**Id** | **string** | The ID of the event | 
+**InstanceId** | **string** | The resource instance ID. | 
 **Message** | **string** | Resource Instance of message | 
-**OrgId** | Pointer to **string** | ID of an Org | [optional] 
+**OrgId** | Pointer to **string** | The organization ID of the user that caused the event | [optional] 
 **OrgName** | Pointer to **string** | The organization name of the user that caused the event | [optional] 
 **ResourceName** | **string** | Name of the resource | 
-**ServiceId** | **string** | ID of a Service | 
+**ServiceId** | **string** | The service ID this workflow belongs to. | 
 **Time** | **string** | The event time | 
-**UserId** | Pointer to **string** | ID of a User | [optional] 
+**UserId** | Pointer to **string** | The ID of the user that caused the event | [optional] 
 **UserName** | Pointer to **string** | The user name of the user that caused the event | [optional] 
 **WorkflowFailures** | Pointer to [**[]WorkflowFailure**](WorkflowFailure.md) | The list of workflow events that indicate failures | [optional] 
-**WorkflowId** | Pointer to **string** | ID of a Workflow | [optional] 
+**WorkflowId** | Pointer to **string** | The workflow ID | [optional] 
 
 ## Methods
 

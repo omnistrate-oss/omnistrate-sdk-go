@@ -22,14 +22,14 @@ var _ MappedNullable = &ResourceInstance{}
 type ResourceInstance struct {
 	// The AWS account ID
 	AwsAccountID *string `json:"awsAccountID,omitempty"`
-	// Name of the Infra Provider
+	// The cloud provider the workflow executed on.
 	CloudProvider string `json:"cloudProvider"`
 	ConsumptionResourceInstanceResult DescribeResourceInstanceResult `json:"consumptionResourceInstanceResult"`
 	// Whether the subscription is the default subscription
 	DefaultSubscription bool `json:"defaultSubscription"`
-	// ID of a Host Cluster
+	// The Deployment Cell ID
 	DeploymentCellID *string `json:"deploymentCellID,omitempty"`
-	// ID of a Service Environment
+	// The service environment ID this workflow belongs to.
 	EnvironmentId string `json:"environmentId"`
 	// The GCP project ID
 	GcpProjectID *string `json:"gcpProjectID,omitempty"`
@@ -41,13 +41,13 @@ type ResourceInstance struct {
 	IntegrationsStatus []IntegrationStatus `json:"integrationsStatus"`
 	// The managed resource type of instance
 	ManagedResourceType *string `json:"managedResourceType,omitempty"`
-	// ID of an Org
+	// The organization ID of the resource instance.
 	OrganizationId string `json:"organizationId"`
 	// The organization name of the resource instance.
 	OrganizationName string `json:"organizationName"`
 	// The ports registration status of ports based proxy instance
 	PortsRegistrationStatus *map[string][]int64 `json:"portsRegistrationStatus,omitempty"`
-	// ID of a Product Tier
+	// The product tier ID
 	ProductTierId string `json:"productTierId"`
 	// The product tier name
 	ProductTierName string `json:"productTierName"`
@@ -59,11 +59,11 @@ type ResourceInstance struct {
 	ResourceVersionSummaries []ResourceVersionSummary `json:"resourceVersionSummaries"`
 	// The service environment name
 	ServiceEnvName string `json:"serviceEnvName"`
-	// ID of a Service
+	// The service ID this workflow belongs to.
 	ServiceId string `json:"serviceId"`
 	// The logo for the service
 	ServiceLogoURL *string `json:"serviceLogoURL,omitempty"`
-	// ID of a Service Model
+	// The service model ID
 	ServiceModelId string `json:"serviceModelId"`
 	// The service model name
 	ServiceModelName string `json:"serviceModelName"`
@@ -71,7 +71,7 @@ type ResourceInstance struct {
 	ServiceModelType string `json:"serviceModelType"`
 	// The service name
 	ServiceName string `json:"serviceName"`
-	// ID of a Subscription
+	// The subscription ID
 	SubscriptionId string `json:"subscriptionId"`
 	// The subscription owner name
 	SubscriptionOwnerName string `json:"subscriptionOwnerName"`
@@ -79,7 +79,7 @@ type ResourceInstance struct {
 	TierVersion string `json:"tierVersion"`
 	// The timestamp when the version set was released.
 	TierVersionReleasedAt string `json:"tierVersionReleasedAt"`
-	// ID of a User
+	// The ID of the user who released the version set.
 	TierVersionReleasedByUserId string `json:"tierVersionReleasedByUserId"`
 	// The name of the user who released the version set.
 	TierVersionReleasedByUserName string `json:"tierVersionReleasedByUserName"`

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Results** | [**[]SearchRecord**](SearchRecord.md) | The search results | 
-**ServiceId** | **string** | ID of a Service | 
+**ServiceId** | **string** | The service ID this workflow belongs to. | 
 
 ## Methods
 

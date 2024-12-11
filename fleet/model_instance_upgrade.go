@@ -26,11 +26,11 @@ type InstanceUpgrade struct {
 	CloudProviderRegion string `json:"cloudProviderRegion"`
 	// The timestamp when the instance was created.
 	CreatedAt string `json:"createdAt"`
-	// The heath status of a resource
+	// The heath status of the instance.
 	HealthStatus *string `json:"healthStatus,omitempty"`
-	// ID of a Resource Instance
+	// The instance ID.
 	InstanceId string `json:"instanceId"`
-	// The status of an operation
+	// Instance lifecycle status.
 	LifecycleStatus string `json:"lifecycleStatus"`
 	// The managed resource type of the top-level resource of the instance.
 	ManagedResourceType *string `json:"managedResourceType,omitempty"`
@@ -38,7 +38,7 @@ type InstanceUpgrade struct {
 	OrgName string `json:"orgName"`
 	// The name of the top-level resource of the instance.
 	ResourceName string `json:"resourceName"`
-	// The status of the upgrade path.
+	// The status of the instance upgrade.
 	Status string `json:"status"`
 	// The timestamp when the instance was updated.
 	UpdatedAt string `json:"updatedAt"`

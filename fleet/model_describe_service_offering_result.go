@@ -28,11 +28,11 @@ type DescribeServiceOfferingResult struct {
 	Offerings []ServiceOffering `json:"offerings"`
 	// The service description
 	ServiceDescription string `json:"serviceDescription"`
-	// ID of a Service
+	// The service id
 	ServiceId string `json:"serviceId"`
 	// The service name
 	ServiceName string `json:"serviceName"`
-	// ID of an Org
+	// The org id of the service
 	ServiceOrgId string `json:"serviceOrgId"`
 	// The id of the service provider
 	ServiceProviderId string `json:"serviceProviderId"`

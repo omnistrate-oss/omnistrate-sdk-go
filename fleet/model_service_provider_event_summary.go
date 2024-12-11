@@ -20,7 +20,7 @@ var _ MappedNullable = &ServiceProviderEventSummary{}
 // ServiceProviderEventSummary struct for ServiceProviderEventSummary
 type ServiceProviderEventSummary struct {
 	// The number of outstanding events by type
-	EventsSummary map[string]interface{} `json:"eventsSummary,omitempty"`
+	EventsSummary *map[string]int64 `json:"eventsSummary,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -44,19 +44,19 @@ func NewServiceProviderEventSummaryWithDefaults() *ServiceProviderEventSummary {
 }
 
 // GetEventsSummary returns the EventsSummary field value if set, zero value otherwise.
-func (o *ServiceProviderEventSummary) GetEventsSummary() map[string]interface{} {
+func (o *ServiceProviderEventSummary) GetEventsSummary() map[string]int64 {
 	if o == nil || IsNil(o.EventsSummary) {
-		var ret map[string]interface{}
+		var ret map[string]int64
 		return ret
 	}
-	return o.EventsSummary
+	return *o.EventsSummary
 }
 
 // GetEventsSummaryOk returns a tuple with the EventsSummary field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ServiceProviderEventSummary) GetEventsSummaryOk() (map[string]interface{}, bool) {
+func (o *ServiceProviderEventSummary) GetEventsSummaryOk() (*map[string]int64, bool) {
 	if o == nil || IsNil(o.EventsSummary) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.EventsSummary, true
 }
@@ -70,9 +70,9 @@ func (o *ServiceProviderEventSummary) HasEventsSummary() bool {
 	return false
 }
 
-// SetEventsSummary gets a reference to the given map[string]interface{} and assigns it to the EventsSummary field.
-func (o *ServiceProviderEventSummary) SetEventsSummary(v map[string]interface{}) {
-	o.EventsSummary = v
+// SetEventsSummary gets a reference to the given map[string]int64 and assigns it to the EventsSummary field.
+func (o *ServiceProviderEventSummary) SetEventsSummary(v map[string]int64) {
+	o.EventsSummary = &v
 }
 
 func (o ServiceProviderEventSummary) MarshalJSON() ([]byte, error) {

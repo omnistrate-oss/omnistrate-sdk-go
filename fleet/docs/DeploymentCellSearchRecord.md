@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudProvider** | **string** | Name of the Infra Provider | 
+**CloudProvider** | **string** | The cloud provider of the deployment cell. | 
 **Description** | **string** | The deployment cell description. | 
 **Id** | **string** | The deployment cell ID. | 
 **RegionCode** | **string** | The region code of the deployment cell. | 

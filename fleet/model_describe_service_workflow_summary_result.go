@@ -26,9 +26,9 @@ type DescribeServiceWorkflowSummaryResult struct {
 	CompletedWorkflowCount *int64 `json:"CompletedWorkflowCount,omitempty"`
 	// Number of failed workflows for the given service in the past 24 hours.
 	FailedWorkflowCount *int64 `json:"FailedWorkflowCount,omitempty"`
-	// ID of a Service Environment
+	// The service environment ID this workflow belongs to.
 	EnvironmentId string `json:"environmentId"`
-	// ID of a Service
+	// The service ID this workflow belongs to.
 	ServiceId string `json:"serviceId"`
 	AdditionalProperties map[string]interface{}
 }

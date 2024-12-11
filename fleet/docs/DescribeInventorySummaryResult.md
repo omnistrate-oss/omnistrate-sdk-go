@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **OrganizationCount** | **int64** | The number of active organizations using the service. | 
 **ResourceCount** | **int64** | The number of resources in the service. | 
 **UserCount** | **int64** | The number of active users using the service. | 
-**EnvironmentId** | **string** | ID of a Service Environment | 
-**ServiceId** | **string** | ID of a Service | 
+**EnvironmentId** | **string** | The service environment ID this workflow belongs to. | 
+**ServiceId** | **string** | The service ID this workflow belongs to. | 
 
 ## Methods
 

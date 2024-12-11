@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DeploymentType** | **string** | The model type encapsulating this service | 
+**DeploymentType** | **string** | The Service Model type of the service plan. | 
 **Description** | **string** | The Product Tier description of the service plan. | 
 **Id** | **string** | The Product Tier ID of the service plan. | 
 **Name** | **string** | The Product Tier name of the service plan. | 
 **ReleasedAt** | Pointer to **string** | The timestamp when the service plan was released. | [optional] 
-**ServiceEnvironmentId** | **string** | ID of a Service Environment | 
+**ServiceEnvironmentId** | **string** | The service environment ID of the service plan. | 
 **ServiceEnvironmentName** | **string** | The service environment name of the service plan. | 
-**ServiceEnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
-**ServiceId** | **string** | ID of a Service | 
+**ServiceEnvironmentType** | Pointer to **string** | The service environment type of the service plan. | [optional] 
+**ServiceId** | **string** | The service ID of the service plan. | 
 **ServiceName** | **string** | The service name of the service plan. | 
-**TenancyType** | **string** | ProductTierType is the type of tier for a product | 
+**TenancyType** | **string** | The Product Tier type of the service plan. | 
 **Version** | **string** | The Product Tier version of the service plan. | 
 **VersionName** | Pointer to **string** | The Product Tier version name of the service plan. | [optional] 
 **VersionSetStatus** | **string** | The Product Tier version set status of the service plan. | 

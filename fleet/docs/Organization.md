@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Email** | Pointer to **string** | Email address to reach for support-related queries. | [optional] 
-**EnvironmentId** | Pointer to **string** | ID of a Service Environment | [optional] 
-**OrgId** | Pointer to **string** | ID of an Org | [optional] 
+**EnvironmentId** | Pointer to **string** | The service environment ID this workflow belongs to. | [optional] 
+**OrgId** | Pointer to **string** | The organization ID. | [optional] 
 **OrgName** | Pointer to **string** | The organization name. | [optional] 
 **OrgUrl** | Pointer to **string** | The organization&#39;s URL. | [optional] 
-**ServiceId** | Pointer to **string** | ID of a Service | [optional] 
+**ServiceId** | Pointer to **string** | The service ID this workflow belongs to. | [optional] 
 
 ## Methods
 

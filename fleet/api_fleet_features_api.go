@@ -242,11 +242,11 @@ func (a *FleetFeaturesApiAPIService) FleetFeaturesApiDescribeFleetFeatureExecute
 type ApiFleetFeaturesApiDisableFleetFeatureRequest struct {
 	ctx context.Context
 	ApiService FleetFeaturesApiAPI
-	disableFleetFeatureRequest2 *DisableFleetFeatureRequest2
+	enableFleetFeatureRequestBody *EnableFleetFeatureRequestBody
 }
 
-func (r ApiFleetFeaturesApiDisableFleetFeatureRequest) DisableFleetFeatureRequest2(disableFleetFeatureRequest2 DisableFleetFeatureRequest2) ApiFleetFeaturesApiDisableFleetFeatureRequest {
-	r.disableFleetFeatureRequest2 = &disableFleetFeatureRequest2
+func (r ApiFleetFeaturesApiDisableFleetFeatureRequest) EnableFleetFeatureRequestBody(enableFleetFeatureRequestBody EnableFleetFeatureRequestBody) ApiFleetFeaturesApiDisableFleetFeatureRequest {
+	r.enableFleetFeatureRequestBody = &enableFleetFeatureRequestBody
 	return r
 }
 
@@ -285,8 +285,8 @@ func (a *FleetFeaturesApiAPIService) FleetFeaturesApiDisableFleetFeatureExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.disableFleetFeatureRequest2 == nil {
-		return nil, reportError("disableFleetFeatureRequest2 is required and must be specified")
+	if r.enableFleetFeatureRequestBody == nil {
+		return nil, reportError("enableFleetFeatureRequestBody is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -307,7 +307,7 @@ func (a *FleetFeaturesApiAPIService) FleetFeaturesApiDisableFleetFeatureExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.disableFleetFeatureRequest2
+	localVarPostBody = r.enableFleetFeatureRequestBody
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -404,11 +404,11 @@ func (a *FleetFeaturesApiAPIService) FleetFeaturesApiDisableFleetFeatureExecute(
 type ApiFleetFeaturesApiEnableFleetFeatureRequest struct {
 	ctx context.Context
 	ApiService FleetFeaturesApiAPI
-	enableFleetFeatureRequest2 *EnableFleetFeatureRequest2
+	enableFleetFeatureRequestBody *EnableFleetFeatureRequestBody
 }
 
-func (r ApiFleetFeaturesApiEnableFleetFeatureRequest) EnableFleetFeatureRequest2(enableFleetFeatureRequest2 EnableFleetFeatureRequest2) ApiFleetFeaturesApiEnableFleetFeatureRequest {
-	r.enableFleetFeatureRequest2 = &enableFleetFeatureRequest2
+func (r ApiFleetFeaturesApiEnableFleetFeatureRequest) EnableFleetFeatureRequestBody(enableFleetFeatureRequestBody EnableFleetFeatureRequestBody) ApiFleetFeaturesApiEnableFleetFeatureRequest {
+	r.enableFleetFeatureRequestBody = &enableFleetFeatureRequestBody
 	return r
 }
 
@@ -447,8 +447,8 @@ func (a *FleetFeaturesApiAPIService) FleetFeaturesApiEnableFleetFeatureExecute(r
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.enableFleetFeatureRequest2 == nil {
-		return nil, reportError("enableFleetFeatureRequest2 is required and must be specified")
+	if r.enableFleetFeatureRequestBody == nil {
+		return nil, reportError("enableFleetFeatureRequestBody is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -469,7 +469,7 @@ func (a *FleetFeaturesApiAPIService) FleetFeaturesApiEnableFleetFeatureExecute(r
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.enableFleetFeatureRequest2
+	localVarPostBody = r.enableFleetFeatureRequestBody
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

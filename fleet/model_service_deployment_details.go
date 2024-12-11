@@ -24,11 +24,11 @@ type ServiceDeploymentDetails struct {
 	DependsOnDeployment []string `json:"dependsOnDeployment,omitempty"`
 	// The instance deployment alias
 	InstanceDeploymentAlias string `json:"instanceDeploymentAlias"`
-	// ID of a Resource Instance
+	// The instance ID
 	InstanceId *string `json:"instanceId,omitempty"`
-	// ID of a Service
+	// The service ID
 	ServiceId string `json:"serviceId"`
-	// ID of a Subscription
+	// The instance subscription ID
 	SubscriptionId string `json:"subscriptionId"`
 	AdditionalProperties map[string]interface{}
 }

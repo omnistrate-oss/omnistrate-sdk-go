@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the InstanceHealthSummary type satisfies the MappedNullable interface at compile time
@@ -20,14 +19,14 @@ var _ MappedNullable = &InstanceHealthSummary{}
 
 // InstanceHealthSummary struct for InstanceHealthSummary
 type InstanceHealthSummary struct {
-	// ID of a Resource Instance
-	InstanceID string `json:"instanceID"`
-	// The status of an operation
-	LifeCycleStatus string `json:"lifeCycleStatus"`
+	// The ID of the instance
+	InstanceID *string `json:"instanceID,omitempty"`
+	// The lifecycle status of the instance
+	LifeCycleStatus *string `json:"lifeCycleStatus,omitempty"`
 	// The health summary of the resources by resource ID
-	ResourcesHealth map[string]ResourceHealthSummary `json:"resourcesHealth"`
-	// The heath status of a resource
-	Status string `json:"status"`
+	ResourcesHealth *map[string]ResourceHealthSummary `json:"resourcesHealth,omitempty"`
+	// The status of the instance
+	Status *string `json:"status,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -37,12 +36,8 @@ type _InstanceHealthSummary InstanceHealthSummary
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInstanceHealthSummary(instanceID string, lifeCycleStatus string, resourcesHealth map[string]ResourceHealthSummary, status string) *InstanceHealthSummary {
+func NewInstanceHealthSummary() *InstanceHealthSummary {
 	this := InstanceHealthSummary{}
-	this.InstanceID = instanceID
-	this.LifeCycleStatus = lifeCycleStatus
-	this.ResourcesHealth = resourcesHealth
-	this.Status = status
 	return &this
 }
 
@@ -54,100 +49,132 @@ func NewInstanceHealthSummaryWithDefaults() *InstanceHealthSummary {
 	return &this
 }
 
-// GetInstanceID returns the InstanceID field value
+// GetInstanceID returns the InstanceID field value if set, zero value otherwise.
 func (o *InstanceHealthSummary) GetInstanceID() string {
-	if o == nil {
+	if o == nil || IsNil(o.InstanceID) {
 		var ret string
 		return ret
 	}
-
-	return o.InstanceID
+	return *o.InstanceID
 }
 
-// GetInstanceIDOk returns a tuple with the InstanceID field value
+// GetInstanceIDOk returns a tuple with the InstanceID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InstanceHealthSummary) GetInstanceIDOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.InstanceID) {
 		return nil, false
 	}
-	return &o.InstanceID, true
+	return o.InstanceID, true
 }
 
-// SetInstanceID sets field value
+// HasInstanceID returns a boolean if a field has been set.
+func (o *InstanceHealthSummary) HasInstanceID() bool {
+	if o != nil && !IsNil(o.InstanceID) {
+		return true
+	}
+
+	return false
+}
+
+// SetInstanceID gets a reference to the given string and assigns it to the InstanceID field.
 func (o *InstanceHealthSummary) SetInstanceID(v string) {
-	o.InstanceID = v
+	o.InstanceID = &v
 }
 
-// GetLifeCycleStatus returns the LifeCycleStatus field value
+// GetLifeCycleStatus returns the LifeCycleStatus field value if set, zero value otherwise.
 func (o *InstanceHealthSummary) GetLifeCycleStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.LifeCycleStatus) {
 		var ret string
 		return ret
 	}
-
-	return o.LifeCycleStatus
+	return *o.LifeCycleStatus
 }
 
-// GetLifeCycleStatusOk returns a tuple with the LifeCycleStatus field value
+// GetLifeCycleStatusOk returns a tuple with the LifeCycleStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InstanceHealthSummary) GetLifeCycleStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LifeCycleStatus) {
 		return nil, false
 	}
-	return &o.LifeCycleStatus, true
+	return o.LifeCycleStatus, true
 }
 
-// SetLifeCycleStatus sets field value
+// HasLifeCycleStatus returns a boolean if a field has been set.
+func (o *InstanceHealthSummary) HasLifeCycleStatus() bool {
+	if o != nil && !IsNil(o.LifeCycleStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetLifeCycleStatus gets a reference to the given string and assigns it to the LifeCycleStatus field.
 func (o *InstanceHealthSummary) SetLifeCycleStatus(v string) {
-	o.LifeCycleStatus = v
+	o.LifeCycleStatus = &v
 }
 
-// GetResourcesHealth returns the ResourcesHealth field value
+// GetResourcesHealth returns the ResourcesHealth field value if set, zero value otherwise.
 func (o *InstanceHealthSummary) GetResourcesHealth() map[string]ResourceHealthSummary {
-	if o == nil {
+	if o == nil || IsNil(o.ResourcesHealth) {
 		var ret map[string]ResourceHealthSummary
 		return ret
 	}
-
-	return o.ResourcesHealth
+	return *o.ResourcesHealth
 }
 
-// GetResourcesHealthOk returns a tuple with the ResourcesHealth field value
+// GetResourcesHealthOk returns a tuple with the ResourcesHealth field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InstanceHealthSummary) GetResourcesHealthOk() (*map[string]ResourceHealthSummary, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ResourcesHealth) {
 		return nil, false
 	}
-	return &o.ResourcesHealth, true
+	return o.ResourcesHealth, true
 }
 
-// SetResourcesHealth sets field value
+// HasResourcesHealth returns a boolean if a field has been set.
+func (o *InstanceHealthSummary) HasResourcesHealth() bool {
+	if o != nil && !IsNil(o.ResourcesHealth) {
+		return true
+	}
+
+	return false
+}
+
+// SetResourcesHealth gets a reference to the given map[string]ResourceHealthSummary and assigns it to the ResourcesHealth field.
 func (o *InstanceHealthSummary) SetResourcesHealth(v map[string]ResourceHealthSummary) {
-	o.ResourcesHealth = v
+	o.ResourcesHealth = &v
 }
 
-// GetStatus returns the Status field value
+// GetStatus returns the Status field value if set, zero value otherwise.
 func (o *InstanceHealthSummary) GetStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
-
-	return o.Status
+	return *o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InstanceHealthSummary) GetStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return &o.Status, true
+	return o.Status, true
 }
 
-// SetStatus sets field value
+// HasStatus returns a boolean if a field has been set.
+func (o *InstanceHealthSummary) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
 func (o *InstanceHealthSummary) SetStatus(v string) {
-	o.Status = v
+	o.Status = &v
 }
 
 func (o InstanceHealthSummary) MarshalJSON() ([]byte, error) {
@@ -160,10 +187,18 @@ func (o InstanceHealthSummary) MarshalJSON() ([]byte, error) {
 
 func (o InstanceHealthSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["instanceID"] = o.InstanceID
-	toSerialize["lifeCycleStatus"] = o.LifeCycleStatus
-	toSerialize["resourcesHealth"] = o.ResourcesHealth
-	toSerialize["status"] = o.Status
+	if !IsNil(o.InstanceID) {
+		toSerialize["instanceID"] = o.InstanceID
+	}
+	if !IsNil(o.LifeCycleStatus) {
+		toSerialize["lifeCycleStatus"] = o.LifeCycleStatus
+	}
+	if !IsNil(o.ResourcesHealth) {
+		toSerialize["resourcesHealth"] = o.ResourcesHealth
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -173,30 +208,6 @@ func (o InstanceHealthSummary) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *InstanceHealthSummary) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"instanceID",
-		"lifeCycleStatus",
-		"resourcesHealth",
-		"status",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varInstanceHealthSummary := _InstanceHealthSummary{}
 
 	err = json.Unmarshal(data, &varInstanceHealthSummary)

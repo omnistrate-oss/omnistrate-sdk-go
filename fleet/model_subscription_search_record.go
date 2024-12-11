@@ -22,29 +22,29 @@ var _ MappedNullable = &SubscriptionSearchRecord{}
 type SubscriptionSearchRecord struct {
 	// The Subscription ID.
 	Id string `json:"id"`
-	// ID of an Org
+	// The organization ID of the subscription root user.
 	OrgID string `json:"orgID"`
-	// ID of a Product Tier
+	// The product tier ID of the subscription.
 	ProductTierID string `json:"productTierID"`
 	// The root user email of the subscription.
 	RootUserEmail string `json:"rootUserEmail"`
-	// ID of a User
+	// The root user ID of the subscription.
 	RootUserID string `json:"rootUserID"`
 	// The root user name of the subscription.
 	RootUserName string `json:"rootUserName"`
-	// ID of a Service Environment
+	// The service environment I of the subscriptionD.
 	ServiceEnvironmentID string `json:"serviceEnvironmentID"`
 	// The service environment name of the subscription.
 	ServiceEnvironmentName string `json:"serviceEnvironmentName"`
-	// The type of service environment
+	// The service environment type of the subscription.
 	ServiceEnvironmentType *string `json:"serviceEnvironmentType,omitempty"`
-	// ID of a Service
+	// The service ID of the subscription.
 	ServiceID string `json:"serviceID"`
 	// The service name of the subscription.
 	ServiceName string `json:"serviceName"`
 	// The service plan name of the subscription.
 	ServicePlanName string `json:"servicePlanName"`
-	// Subscription Status
+	// The subscription status.
 	Status string `json:"status"`
 	AdditionalProperties map[string]interface{}
 }

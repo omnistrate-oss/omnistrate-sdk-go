@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EnvironmentId** | **string** | ID of a Service Environment | 
+**EnvironmentId** | **string** | The service environment ID this workflow belongs to. | 
 **Id** | **string** | ID of the ServiceWorkflow | 
 **Resources** | [**[]EventsPerResource**](EventsPerResource.md) | List of resources with workflow events. | 
-**ServiceId** | **string** | ID of a Service | 
+**ServiceId** | **string** | The service ID this workflow belongs to. | 
 
 ## Methods
 

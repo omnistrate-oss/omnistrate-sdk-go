@@ -19,17 +19,20 @@ var _ MappedNullable = &DetailedNodeHealthResult{}
 
 // DetailedNodeHealthResult struct for DetailedNodeHealthResult
 type DetailedNodeHealthResult struct {
-	// The heath status of a resource
+	// The health status of the network endpoints
 	ConnectivityStatus *string `json:"ConnectivityStatus,omitempty"`
-	// The heath status of a resource
+	// The health status of the disk
 	DiskHealth *string `json:"DiskHealth,omitempty"`
-	// The load status of a pod
+	IntegrationsHealth *IntegrationsHealth `json:"IntegrationsHealth,omitempty"`
+	// (deprecated) The load status of the pod
 	LoadHealth *string `json:"LoadHealth,omitempty"`
-	// The heath status of a resource
+	// The load status of the pod
+	LoadStatus *string `json:"LoadStatus,omitempty"`
+	// The health status of the machine hosting the service
 	NodeHealth *string `json:"NodeHealth,omitempty"`
-	// The heath status of a resource
+	// The health status of the process
 	ProcessHealth *string `json:"ProcessHealth,omitempty"`
-	// The heath status of a resource
+	// The liveness status of the process
 	ProcessLiveness *string `json:"ProcessLiveness,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -117,6 +120,38 @@ func (o *DetailedNodeHealthResult) SetDiskHealth(v string) {
 	o.DiskHealth = &v
 }
 
+// GetIntegrationsHealth returns the IntegrationsHealth field value if set, zero value otherwise.
+func (o *DetailedNodeHealthResult) GetIntegrationsHealth() IntegrationsHealth {
+	if o == nil || IsNil(o.IntegrationsHealth) {
+		var ret IntegrationsHealth
+		return ret
+	}
+	return *o.IntegrationsHealth
+}
+
+// GetIntegrationsHealthOk returns a tuple with the IntegrationsHealth field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DetailedNodeHealthResult) GetIntegrationsHealthOk() (*IntegrationsHealth, bool) {
+	if o == nil || IsNil(o.IntegrationsHealth) {
+		return nil, false
+	}
+	return o.IntegrationsHealth, true
+}
+
+// HasIntegrationsHealth returns a boolean if a field has been set.
+func (o *DetailedNodeHealthResult) HasIntegrationsHealth() bool {
+	if o != nil && !IsNil(o.IntegrationsHealth) {
+		return true
+	}
+
+	return false
+}
+
+// SetIntegrationsHealth gets a reference to the given IntegrationsHealth and assigns it to the IntegrationsHealth field.
+func (o *DetailedNodeHealthResult) SetIntegrationsHealth(v IntegrationsHealth) {
+	o.IntegrationsHealth = &v
+}
+
 // GetLoadHealth returns the LoadHealth field value if set, zero value otherwise.
 func (o *DetailedNodeHealthResult) GetLoadHealth() string {
 	if o == nil || IsNil(o.LoadHealth) {
@@ -147,6 +182,38 @@ func (o *DetailedNodeHealthResult) HasLoadHealth() bool {
 // SetLoadHealth gets a reference to the given string and assigns it to the LoadHealth field.
 func (o *DetailedNodeHealthResult) SetLoadHealth(v string) {
 	o.LoadHealth = &v
+}
+
+// GetLoadStatus returns the LoadStatus field value if set, zero value otherwise.
+func (o *DetailedNodeHealthResult) GetLoadStatus() string {
+	if o == nil || IsNil(o.LoadStatus) {
+		var ret string
+		return ret
+	}
+	return *o.LoadStatus
+}
+
+// GetLoadStatusOk returns a tuple with the LoadStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DetailedNodeHealthResult) GetLoadStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.LoadStatus) {
+		return nil, false
+	}
+	return o.LoadStatus, true
+}
+
+// HasLoadStatus returns a boolean if a field has been set.
+func (o *DetailedNodeHealthResult) HasLoadStatus() bool {
+	if o != nil && !IsNil(o.LoadStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetLoadStatus gets a reference to the given string and assigns it to the LoadStatus field.
+func (o *DetailedNodeHealthResult) SetLoadStatus(v string) {
+	o.LoadStatus = &v
 }
 
 // GetNodeHealth returns the NodeHealth field value if set, zero value otherwise.
@@ -261,8 +328,14 @@ func (o DetailedNodeHealthResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DiskHealth) {
 		toSerialize["DiskHealth"] = o.DiskHealth
 	}
+	if !IsNil(o.IntegrationsHealth) {
+		toSerialize["IntegrationsHealth"] = o.IntegrationsHealth
+	}
 	if !IsNil(o.LoadHealth) {
 		toSerialize["LoadHealth"] = o.LoadHealth
+	}
+	if !IsNil(o.LoadStatus) {
+		toSerialize["LoadStatus"] = o.LoadStatus
 	}
 	if !IsNil(o.NodeHealth) {
 		toSerialize["NodeHealth"] = o.NodeHealth
@@ -297,7 +370,9 @@ func (o *DetailedNodeHealthResult) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "ConnectivityStatus")
 		delete(additionalProperties, "DiskHealth")
+		delete(additionalProperties, "IntegrationsHealth")
 		delete(additionalProperties, "LoadHealth")
+		delete(additionalProperties, "LoadStatus")
 		delete(additionalProperties, "NodeHealth")
 		delete(additionalProperties, "ProcessHealth")
 		delete(additionalProperties, "ProcessLiveness")

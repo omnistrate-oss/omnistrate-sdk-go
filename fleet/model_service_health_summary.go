@@ -21,16 +21,16 @@ var _ MappedNullable = &ServiceHealthSummary{}
 // ServiceHealthSummary struct for ServiceHealthSummary
 type ServiceHealthSummary struct {
 	// The summary of health by cloud provider
-	CloudProviderHealthSummary map[string]interface{} `json:"cloudProviderHealthSummary"`
+	CloudProviderHealthSummary map[string]CloudProviderHealthSummary `json:"cloudProviderHealthSummary"`
 	// The number of instances currently deploying
 	DeployingInstances int64 `json:"deployingInstances"`
 	// The number of healthy instances in the region
 	HealthyInstances int64 `json:"healthyInstances"`
 	// The status message
 	Message string `json:"message"`
-	// ID of a Service Environment
+	// The ID of the service environment
 	ServiceEnvironmentID string `json:"serviceEnvironmentID"`
-	// ID of a Service
+	// The ID of the service
 	ServiceID string `json:"serviceID"`
 	// The status of the service
 	Status string `json:"status"`
@@ -49,7 +49,7 @@ type _ServiceHealthSummary ServiceHealthSummary
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewServiceHealthSummary(cloudProviderHealthSummary map[string]interface{}, deployingInstances int64, healthyInstances int64, message string, serviceEnvironmentID string, serviceID string, status string, totalInstances int64, unhealthyInstances int64) *ServiceHealthSummary {
+func NewServiceHealthSummary(cloudProviderHealthSummary map[string]CloudProviderHealthSummary, deployingInstances int64, healthyInstances int64, message string, serviceEnvironmentID string, serviceID string, status string, totalInstances int64, unhealthyInstances int64) *ServiceHealthSummary {
 	this := ServiceHealthSummary{}
 	this.CloudProviderHealthSummary = cloudProviderHealthSummary
 	this.DeployingInstances = deployingInstances
@@ -72,9 +72,9 @@ func NewServiceHealthSummaryWithDefaults() *ServiceHealthSummary {
 }
 
 // GetCloudProviderHealthSummary returns the CloudProviderHealthSummary field value
-func (o *ServiceHealthSummary) GetCloudProviderHealthSummary() map[string]interface{} {
+func (o *ServiceHealthSummary) GetCloudProviderHealthSummary() map[string]CloudProviderHealthSummary {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret map[string]CloudProviderHealthSummary
 		return ret
 	}
 
@@ -83,15 +83,15 @@ func (o *ServiceHealthSummary) GetCloudProviderHealthSummary() map[string]interf
 
 // GetCloudProviderHealthSummaryOk returns a tuple with the CloudProviderHealthSummary field value
 // and a boolean to check if the value has been set.
-func (o *ServiceHealthSummary) GetCloudProviderHealthSummaryOk() (map[string]interface{}, bool) {
+func (o *ServiceHealthSummary) GetCloudProviderHealthSummaryOk() (*map[string]CloudProviderHealthSummary, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.CloudProviderHealthSummary, true
+	return &o.CloudProviderHealthSummary, true
 }
 
 // SetCloudProviderHealthSummary sets field value
-func (o *ServiceHealthSummary) SetCloudProviderHealthSummary(v map[string]interface{}) {
+func (o *ServiceHealthSummary) SetCloudProviderHealthSummary(v map[string]CloudProviderHealthSummary) {
 	o.CloudProviderHealthSummary = v
 }
 

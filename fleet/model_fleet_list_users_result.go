@@ -20,11 +20,11 @@ var _ MappedNullable = &FleetListUsersResult{}
 
 // FleetListUsersResult struct for FleetListUsersResult
 type FleetListUsersResult struct {
-	// ID of a Service Environment
+	// The service environment ID this workflow belongs to.
 	EnvironmentId *string `json:"environmentId,omitempty"`
 	// Token to use for the next request
 	NextPageToken *string `json:"nextPageToken,omitempty"`
-	// ID of a Service
+	// The service ID this workflow belongs to.
 	ServiceId *string `json:"serviceId,omitempty"`
 	// List of active users using the service.
 	Users []User `json:"users"`

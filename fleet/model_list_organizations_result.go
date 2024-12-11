@@ -20,13 +20,13 @@ var _ MappedNullable = &ListOrganizationsResult{}
 
 // ListOrganizationsResult struct for ListOrganizationsResult
 type ListOrganizationsResult struct {
-	// ID of a Service Environment
+	// The service environment ID this workflow belongs to.
 	EnvironmentId string `json:"environmentId"`
 	// Token to use for the next request
 	NextPageToken *string `json:"nextPageToken,omitempty"`
 	// List of organizations.
 	Organizations []Organization `json:"organizations"`
-	// ID of a Service
+	// The service ID this workflow belongs to.
 	ServiceId string `json:"serviceId"`
 	AdditionalProperties map[string]interface{}
 }

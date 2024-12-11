@@ -20,7 +20,7 @@ var _ MappedNullable = &ProxyInstanceSearchRecord{}
 
 // ProxyInstanceSearchRecord struct for ProxyInstanceSearchRecord
 type ProxyInstanceSearchRecord struct {
-	// Name of the Infra Provider
+	// The cloud provider where the instance is hosted.
 	CloudProvider string `json:"cloudProvider"`
 	// The instance description.
 	Description string `json:"description"`
@@ -36,17 +36,17 @@ type ProxyInstanceSearchRecord struct {
 	ProxyType *string `json:"proxyType,omitempty"`
 	// The region code where the instance is hosted.
 	RegionCode string `json:"regionCode"`
-	// ID of a Service Environment
+	// The service environment ID of the instance.
 	ServiceEnvironmentId string `json:"serviceEnvironmentId"`
 	// The service environment name of the instance.
 	ServiceEnvironmentName string `json:"serviceEnvironmentName"`
-	// The type of service environment
+	// The service environment type of the instance.
 	ServiceEnvironmentType *string `json:"serviceEnvironmentType,omitempty"`
-	// ID of a Service
+	// The service ID of the instance.
 	ServiceId string `json:"serviceId"`
 	// The service name of the instance.
 	ServiceName string `json:"serviceName"`
-	// The status of an operation
+	// The instance status.
 	Status string `json:"status"`
 	// The instance status description.
 	StatusDescription string `json:"statusDescription"`

@@ -30,11 +30,11 @@ type AccessSideUser struct {
 	InstanceCount int64 `json:"instanceCount"`
 	// The last modified time of the user.
 	LastModifiedAt string `json:"lastModifiedAt"`
-	// ID of a User
+	// The user ID of the last modifier.
 	LastModifiedByUserID *string `json:"lastModifiedByUserID,omitempty"`
 	// The user name of the last modifier.
 	LastModifiedByUserName *string `json:"lastModifiedByUserName,omitempty"`
-	// ID of an Org
+	// The organization ID.
 	OrgId string `json:"orgId"`
 	// The organization name.
 	OrgName string `json:"orgName"`
@@ -46,7 +46,7 @@ type AccessSideUser struct {
 	SubscriptionCount int64 `json:"subscriptionCount"`
 	// Token to validate the user, if the user is not enabled.
 	Token *string `json:"token,omitempty"`
-	// ID of a User
+	// The user ID.
 	UserId string `json:"userId"`
 	// The user name.
 	UserName string `json:"userName"`

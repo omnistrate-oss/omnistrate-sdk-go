@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DependsOnDeployment** | Pointer to **[]string** | The deployment keys that this deployment depends on | [optional] 
 **InstanceDeploymentAlias** | **string** | The instance deployment alias | 
-**InstanceId** | Pointer to **string** | ID of a Resource Instance | [optional] 
-**ServiceId** | **string** | ID of a Service | 
-**SubscriptionId** | **string** | ID of a Subscription | 
+**InstanceId** | Pointer to **string** | The instance ID | [optional] 
+**ServiceId** | **string** | The service ID | 
+**SubscriptionId** | **string** | The instance subscription ID | 
 
 ## Methods
 

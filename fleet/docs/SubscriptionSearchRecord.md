@@ -5,18 +5,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | The Subscription ID. | 
-**OrgID** | **string** | ID of an Org | 
-**ProductTierID** | **string** | ID of a Product Tier | 
+**OrgID** | **string** | The organization ID of the subscription root user. | 
+**ProductTierID** | **string** | The product tier ID of the subscription. | 
 **RootUserEmail** | **string** | The root user email of the subscription. | 
-**RootUserID** | **string** | ID of a User | 
+**RootUserID** | **string** | The root user ID of the subscription. | 
 **RootUserName** | **string** | The root user name of the subscription. | 
-**ServiceEnvironmentID** | **string** | ID of a Service Environment | 
+**ServiceEnvironmentID** | **string** | The service environment I of the subscriptionD. | 
 **ServiceEnvironmentName** | **string** | The service environment name of the subscription. | 
-**ServiceEnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
-**ServiceID** | **string** | ID of a Service | 
+**ServiceEnvironmentType** | Pointer to **string** | The service environment type of the subscription. | [optional] 
+**ServiceID** | **string** | The service ID of the subscription. | 
 **ServiceName** | **string** | The service name of the subscription. | 
 **ServicePlanName** | **string** | The service plan name of the subscription. | 
-**Status** | **string** | Subscription Status | 
+**Status** | **string** | The subscription status. | 
 
 ## Methods
 

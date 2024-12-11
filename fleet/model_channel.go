@@ -20,9 +20,10 @@ var _ MappedNullable = &Channel{}
 
 // Channel struct for Channel
 type Channel struct {
+	// Type of notification channel
 	ChannelType string `json:"channelType"`
 	Email *EmailConfiguration `json:"email,omitempty"`
-	// ID of a Notification Channel
+	// Unique identifier of the channel
 	Id string `json:"id"`
 	// Name of the channel
 	Name string `json:"name"`

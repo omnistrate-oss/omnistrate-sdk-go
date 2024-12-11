@@ -20,13 +20,13 @@ var _ MappedNullable = &ListFleetResourceInstancesResultInternal{}
 
 // ListFleetResourceInstancesResultInternal struct for ListFleetResourceInstancesResultInternal
 type ListFleetResourceInstancesResultInternal struct {
-	// ID of a Service Environment
+	// The service environment ID this workflow belongs to.
 	EnvironmentId *string `json:"environmentId,omitempty"`
 	// Token to use for the next request
 	NextPageToken *string `json:"nextPageToken,omitempty"`
 	// The list of resource instances.
 	ResourceInstances []ResourceInstance `json:"resourceInstances"`
-	// ID of a Service
+	// The service ID this workflow belongs to.
 	ServiceId *string `json:"serviceId,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

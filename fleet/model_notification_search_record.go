@@ -30,13 +30,13 @@ type NotificationSearchRecord struct {
 	Priority string `json:"priority"`
 	// The resource name for the notification.
 	ResourceName string `json:"resourceName"`
-	// ID of a Service Environment
+	// The service environment ID of the notification.
 	ServiceEnvironmentID string `json:"serviceEnvironmentID"`
 	// The service environment name of the notification.
 	ServiceEnvironmentName string `json:"serviceEnvironmentName"`
-	// The type of service environment
+	// The service environment type of the notification.
 	ServiceEnvironmentType *string `json:"serviceEnvironmentType,omitempty"`
-	// ID of a Service
+	// The service ID of the notification.
 	ServiceID string `json:"serviceID"`
 	// The service name of the notification.
 	ServiceName string `json:"serviceName"`

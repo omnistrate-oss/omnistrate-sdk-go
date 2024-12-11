@@ -20,9 +20,7 @@ var _ MappedNullable = &ServiceModelFeatureDetail{}
 
 // ServiceModelFeatureDetail struct for ServiceModelFeatureDetail
 type ServiceModelFeatureDetail struct {
-	// The configuration parameters of the service model feature
 	Configuration map[string]interface{} `json:"configuration"`
-	// Name of the service model feature
 	Feature string `json:"feature"`
 	AdditionalProperties map[string]interface{}
 }

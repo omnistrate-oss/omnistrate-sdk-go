@@ -24,14 +24,14 @@ type NodeNetworkTopologyResult struct {
 	DetailedHealth *DetailedNodeHealthResult `json:"detailedHealth,omitempty"`
 	// The endpoint of the node
 	Endpoint *string `json:"endpoint,omitempty"`
-	// The heath status of a resource
+	// The heath status of the node
 	HealthStatus *string `json:"healthStatus,omitempty"`
 	// The ID of the node
 	Id *string `json:"id,omitempty"`
 	KubernetesDashboardEndpoint *KubernetesDashboardEndpoint `json:"kubernetesDashboardEndpoint,omitempty"`
 	// The ports that this node exposes
 	Ports []int64 `json:"ports,omitempty"`
-	// The status of an operation
+	// The status of the node
 	Status *string `json:"status,omitempty"`
 	// The storage size of the node in GiB
 	StorageSize *int64 `json:"storageSize,omitempty"`

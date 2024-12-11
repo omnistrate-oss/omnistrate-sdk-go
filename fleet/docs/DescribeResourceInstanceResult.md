@@ -10,16 +10,16 @@ Name | Type | Description | Notes
 **BackupStatus** | Pointer to [**BackupStatus**](BackupStatus.md) |  | [optional] 
 **CloudProvider** | Pointer to **string** | The cloud provider name | [optional] 
 **CreatedAt** | Pointer to **string** | The instance creation time | [optional] 
-**CreatedByUserId** | Pointer to **string** | ID of a User | [optional] 
+**CreatedByUserId** | Pointer to **string** | The user ID that created the resource instance | [optional] 
 **CreatedByUserName** | Pointer to **string** | The name of the user that created the resource instance | [optional] 
 **CurrentReplicas** | Pointer to **string** | The current number of replicas | [optional] 
 **CustomNetworkDetail** | Pointer to [**CustomNetworkResourceDetail**](CustomNetworkResourceDetail.md) |  | [optional] 
-**DetailedNetworkTopology** | Pointer to **map[string]interface{}** | The detailed network topology | [optional] 
+**DetailedNetworkTopology** | Pointer to [**map[string]ResourceNetworkTopologyResult**](ResourceNetworkTopologyResult.md) | The detailed network topology | [optional] 
 **ExternalPayerId** | Pointer to **string** | The external payer id to record which customer should pay for this resource instance | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **HighAvailability** | Pointer to **bool** | Whether the instance is High Availability | [optional] 
 **Id** | Pointer to **string** | The instance ID | [optional] 
-**InstanceLoadStatus** | Pointer to **string** | The load status of a pod | [optional] 
+**InstanceLoadStatus** | Pointer to **string** | The instance load status | [optional] 
 **KubernetesDashboardEndpoint** | Pointer to [**KubernetesDashboardEndpoint**](KubernetesDashboardEndpoint.md) |  | [optional] 
 **LastModifiedAt** | Pointer to **string** | The instance update time | [optional] 
 **MaxReplicas** | Pointer to **string** | The maximum number of replicas | [optional] 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **Region** | Pointer to **string** | The region code | [optional] 
 **ResultParams** | Pointer to **interface{}** | Custom result parameters | [optional] 
 **ServerlessEnabled** | Pointer to **bool** | Whether the instance has serverless enabled | [optional] 
-**Status** | Pointer to **string** | The status of an operation | [optional] 
+**Status** | Pointer to **string** | The instance status | [optional] 
 **SubscriptionId** | Pointer to **string** | The subscription ID | [optional] 
 
 ## Methods
@@ -303,20 +303,20 @@ HasCustomNetworkDetail returns a boolean if a field has been set.
 
 ### GetDetailedNetworkTopology
 
-`func (o *DescribeResourceInstanceResult) GetDetailedNetworkTopology() map[string]interface{}`
+`func (o *DescribeResourceInstanceResult) GetDetailedNetworkTopology() map[string]ResourceNetworkTopologyResult`
 
 GetDetailedNetworkTopology returns the DetailedNetworkTopology field if non-nil, zero value otherwise.
 
 ### GetDetailedNetworkTopologyOk
 
-`func (o *DescribeResourceInstanceResult) GetDetailedNetworkTopologyOk() (*map[string]interface{}, bool)`
+`func (o *DescribeResourceInstanceResult) GetDetailedNetworkTopologyOk() (*map[string]ResourceNetworkTopologyResult, bool)`
 
 GetDetailedNetworkTopologyOk returns a tuple with the DetailedNetworkTopology field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDetailedNetworkTopology
 
-`func (o *DescribeResourceInstanceResult) SetDetailedNetworkTopology(v map[string]interface{})`
+`func (o *DescribeResourceInstanceResult) SetDetailedNetworkTopology(v map[string]ResourceNetworkTopologyResult)`
 
 SetDetailedNetworkTopology sets DetailedNetworkTopology field to given value.
 

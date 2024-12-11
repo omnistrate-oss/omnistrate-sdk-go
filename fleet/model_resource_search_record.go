@@ -26,22 +26,22 @@ type ResourceSearchRecord struct {
 	Id string `json:"id"`
 	// The resource name.
 	Name string `json:"name"`
-	// ID of a Product Tier
+	// The product tier ID of the resource.
 	ProductTierId string `json:"productTierId"`
 	// The product tier name of the resource.
 	ProductTierName string `json:"productTierName"`
 	ResourceType *string `json:"resourceType,omitempty"`
-	// ID of a Service API
+	// The service API ID of the resource.
 	ServiceApiId string `json:"serviceApiId"`
-	// ID of a Service Environment
+	// The service environment ID of the resource.
 	ServiceEnvironmentId string `json:"serviceEnvironmentId"`
 	// The service environment name of the resource.
 	ServiceEnvironmentName string `json:"serviceEnvironmentName"`
-	// The type of service environment
+	// The service environment type of the resource.
 	ServiceEnvironmentType *string `json:"serviceEnvironmentType,omitempty"`
-	// ID of a Service
+	// The service ID of the resource.
 	ServiceId string `json:"serviceId"`
-	// ID of a Service Model
+	// The service model ID of the resource.
 	ServiceModelId string `json:"serviceModelId"`
 	// The service name of the resource.
 	ServiceName string `json:"serviceName"`

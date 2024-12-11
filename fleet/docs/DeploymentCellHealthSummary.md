@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DeployingInstances** | **int64** | The number of instances currently deploying | 
 **HealthyInstances** | **int64** | The number of healthy instances in the cell | 
-**HostClusterID** | **string** | ID of a Host Cluster | 
+**HostClusterID** | **string** | The ID of the host cluster | 
 **Message** | **string** | The status message | 
 **Status** | **string** | The status of the cell | 
 **TotalInstances** | **int64** | The total number of instances in the cell | 

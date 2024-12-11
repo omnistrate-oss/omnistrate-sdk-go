@@ -20,11 +20,11 @@ var _ MappedNullable = &FleetCreateInstanceSnapshotResult{}
 
 // FleetCreateInstanceSnapshotResult struct for FleetCreateInstanceSnapshotResult
 type FleetCreateInstanceSnapshotResult struct {
-	// ID of a Service Environment
+	// The service environment ID this workflow belongs to.
 	EnvironmentId string `json:"environmentId"`
-	// ID of a Service
+	// The service ID this workflow belongs to.
 	ServiceId string `json:"serviceId"`
-	// ID of a Resource Instance Snapshot
+	// The instance snapshot ID
 	SnapshotId string `json:"snapshotId"`
 	AdditionalProperties map[string]interface{}
 }

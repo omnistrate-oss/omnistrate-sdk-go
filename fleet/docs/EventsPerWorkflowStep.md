@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Events** | [**[]WorkflowEvent**](WorkflowEvent.md) | List of events for the step | 
-**StepName** | **string** | The name of the workflow step | 
+**StepName** | **string** | Name of the workflow step | 
 
 ## Methods
 

@@ -21,15 +21,15 @@ var _ MappedNullable = &Organization{}
 type Organization struct {
 	// Email address to reach for support-related queries.
 	Email *string `json:"email,omitempty"`
-	// ID of a Service Environment
+	// The service environment ID this workflow belongs to.
 	EnvironmentId *string `json:"environmentId,omitempty"`
-	// ID of an Org
+	// The organization ID.
 	OrgId *string `json:"orgId,omitempty"`
 	// The organization name.
 	OrgName *string `json:"orgName,omitempty"`
 	// The organization's URL.
 	OrgUrl *string `json:"orgUrl,omitempty"`
-	// ID of a Service
+	// The service ID this workflow belongs to.
 	ServiceId *string `json:"serviceId,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

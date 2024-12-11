@@ -7,11 +7,11 @@ Name | Type | Description | Notes
 **AvailabilityZone** | Pointer to **string** | The availability zone of the node | [optional] 
 **DetailedHealth** | Pointer to [**DetailedNodeHealthResult**](DetailedNodeHealthResult.md) |  | [optional] 
 **Endpoint** | Pointer to **string** | The endpoint of the node | [optional] 
-**HealthStatus** | Pointer to **string** | The heath status of a resource | [optional] 
+**HealthStatus** | Pointer to **string** | The heath status of the node | [optional] 
 **Id** | Pointer to **string** | The ID of the node | [optional] 
 **KubernetesDashboardEndpoint** | Pointer to [**KubernetesDashboardEndpoint**](KubernetesDashboardEndpoint.md) |  | [optional] 
 **Ports** | Pointer to **[]int64** | The ports that this node exposes | [optional] 
-**Status** | Pointer to **string** | The status of an operation | [optional] 
+**Status** | Pointer to **string** | The status of the node | [optional] 
 **StorageSize** | Pointer to **int64** | The storage size of the node in GiB | [optional] 
 
 ## Methods

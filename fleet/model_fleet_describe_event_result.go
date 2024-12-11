@@ -20,33 +20,33 @@ var _ MappedNullable = &FleetDescribeEventResult{}
 
 // FleetDescribeEventResult struct for FleetDescribeEventResult
 type FleetDescribeEventResult struct {
-	// ID of a Service Environment
+	// The service environment ID this workflow belongs to.
 	EnvironmentId string `json:"environmentId"`
 	// The event source
 	EventSource *string `json:"eventSource,omitempty"`
-	// ID of a Event
+	// The ID of the event
 	Id string `json:"id"`
-	// ID of a Resource Instance
+	// The resource instance ID.
 	InstanceId string `json:"instanceId"`
 	// Resource Instance of message
 	Message string `json:"message"`
-	// ID of an Org
+	// The organization ID of the user that caused the event
 	OrgId *string `json:"orgId,omitempty"`
 	// The organization name of the user that caused the event
 	OrgName *string `json:"orgName,omitempty"`
 	// Name of the resource
 	ResourceName string `json:"resourceName"`
-	// ID of a Service
+	// The service ID this workflow belongs to.
 	ServiceId string `json:"serviceId"`
 	// The event time
 	Time string `json:"time"`
-	// ID of a User
+	// The ID of the user that caused the event
 	UserId *string `json:"userId,omitempty"`
 	// The user name of the user that caused the event
 	UserName *string `json:"userName,omitempty"`
 	// The list of workflow events that indicate failures
 	WorkflowFailures []WorkflowFailure `json:"workflowFailures,omitempty"`
-	// ID of a Workflow
+	// The workflow ID
 	WorkflowId *string `json:"workflowId,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
