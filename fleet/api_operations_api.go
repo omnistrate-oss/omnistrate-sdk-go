@@ -125,19 +125,16 @@ func (a *OperationsApiAPIService) OperationsApiDeploymentCellHealthExecute(r Api
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.hostClusterID == nil {
-		return localVarReturnValue, nil, reportError("hostClusterID is required and must be specified")
-	}
-	if r.serviceID == nil {
-		return localVarReturnValue, nil, reportError("serviceID is required and must be specified")
-	}
-	if r.serviceEnvironmentID == nil {
-		return localVarReturnValue, nil, reportError("serviceEnvironmentID is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "hostClusterID", r.hostClusterID, "form", "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "serviceID", r.serviceID, "form", "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "serviceEnvironmentID", r.serviceEnvironmentID, "form", "")
+	if r.hostClusterID != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hostClusterID", r.hostClusterID, "form", "")
+	}
+	if r.serviceID != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "serviceID", r.serviceID, "form", "")
+	}
+	if r.serviceEnvironmentID != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "serviceEnvironmentID", r.serviceEnvironmentID, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -261,6 +258,7 @@ type ApiOperationsApiListEventsRequest struct {
 	ctx context.Context
 	ApiService OperationsApiAPI
 	environmentType *string
+	eventType *string
 	serviceID *string
 	serviceEnvironmentID *string
 	instanceID *string
@@ -272,6 +270,11 @@ type ApiOperationsApiListEventsRequest struct {
 
 func (r ApiOperationsApiListEventsRequest) EnvironmentType(environmentType string) ApiOperationsApiListEventsRequest {
 	r.environmentType = &environmentType
+	return r
+}
+
+func (r ApiOperationsApiListEventsRequest) EventType(eventType string) ApiOperationsApiListEventsRequest {
+	r.eventType = &eventType
 	return r
 }
 
@@ -357,6 +360,9 @@ func (a *OperationsApiAPIService) OperationsApiListEventsExecute(r ApiOperations
 
 	if r.environmentType != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "environmentType", r.environmentType, "form", "")
+	}
+	if r.eventType != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eventType", r.eventType, "form", "")
 	}
 	if r.serviceID != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "serviceID", r.serviceID, "form", "")

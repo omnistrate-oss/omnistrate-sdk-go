@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **CnameTarget** | Pointer to **string** |  | [optional] 
 **DnsName** | Pointer to **string** |  | [optional] 
 **Enabled** | **bool** |  | 
-**Status** | Pointer to **string** | The status of an operation | [optional] 
+**Status** | Pointer to **string** |  | [optional] 
 
 ## Methods
 

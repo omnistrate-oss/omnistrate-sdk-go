@@ -9,15 +9,15 @@ Name | Type | Description | Notes
 **Managed** | **bool** | Is the serverless proxy managed by Omnistrate. | 
 **ManagedResourceType** | Pointer to **string** | The managed resource type of the serverless proxy. | [optional] 
 **Name** | **string** | The resource name of the serverless proxy. | 
-**ProductTierId** | **string** | ID of a Product Tier | 
+**ProductTierId** | **string** | The product tier ID of the serverless proxy. | 
 **ProductTierName** | **string** | The product tier name of the serverless proxy. | 
 **ProxyType** | Pointer to **string** | The proxy type of the serverless proxy. | [optional] 
-**ServiceApiId** | **string** | ID of a Service API | 
-**ServiceEnvironmentId** | **string** | ID of a Service Environment | 
+**ServiceApiId** | **string** | The service API ID of the serverless proxy. | 
+**ServiceEnvironmentId** | **string** | The service environment ID of the serverless proxy. | 
 **ServiceEnvironmentName** | **string** | The service environment name of the serverless proxy. | 
-**ServiceEnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
-**ServiceId** | **string** | ID of a Service | 
-**ServiceModelId** | **string** | ID of a Service Model | 
+**ServiceEnvironmentType** | Pointer to **string** | The service environment type of the serverless proxy. | [optional] 
+**ServiceId** | **string** | The service ID of the serverless proxy. | 
+**ServiceModelId** | **string** | The service model ID of the serverless proxy. | 
 **ServiceName** | **string** | The service name of the serverless proxy. | 
 
 ## Methods

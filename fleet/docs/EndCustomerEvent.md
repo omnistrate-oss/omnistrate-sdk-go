@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EventID** | **string** | ID of a Event | 
+**EventID** | **string** | The ID of the event | 
 **EventPayload** | **map[string]interface{}** | The event payload for a service provider. | 
-**EventType** | **string** | The type of the end customer specific event | 
-**OrgID** | **string** | ID of an Org | 
+**EventType** | **string** | The type of the event  | 
+**OrgID** | **string** | Associated organization ID. | 
 **OrgName** | **string** | Associated organization name. | 
 **OrgURL** | **string** | Associated organization URL. | 
 **Priority** | **string** | The priority of the event | 
 **Time** | **string** | The event time | 
 **UserEmail** | Pointer to **string** | User email associated with the event. | [optional] 
-**UserID** | Pointer to **string** | ID of a User | [optional] 
+**UserID** | Pointer to **string** | User ID associated with the event. | [optional] 
 **UserName** | Pointer to **string** | Name of the user associated with the event. | [optional] 
 
 ## Methods

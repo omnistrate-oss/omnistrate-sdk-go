@@ -1012,11 +1012,11 @@ type ApiFleetWorkflowsApiUpdateServiceWorkflowRequest struct {
 	serviceId string
 	environmentId string
 	id string
-	updateServiceWorkflowRequest2 *UpdateServiceWorkflowRequest2
+	updateServiceWorkflowRequestBody *UpdateServiceWorkflowRequestBody
 }
 
-func (r ApiFleetWorkflowsApiUpdateServiceWorkflowRequest) UpdateServiceWorkflowRequest2(updateServiceWorkflowRequest2 UpdateServiceWorkflowRequest2) ApiFleetWorkflowsApiUpdateServiceWorkflowRequest {
-	r.updateServiceWorkflowRequest2 = &updateServiceWorkflowRequest2
+func (r ApiFleetWorkflowsApiUpdateServiceWorkflowRequest) UpdateServiceWorkflowRequestBody(updateServiceWorkflowRequestBody UpdateServiceWorkflowRequestBody) ApiFleetWorkflowsApiUpdateServiceWorkflowRequest {
+	r.updateServiceWorkflowRequestBody = &updateServiceWorkflowRequestBody
 	return r
 }
 
@@ -1066,8 +1066,8 @@ func (a *FleetWorkflowsApiAPIService) FleetWorkflowsApiUpdateServiceWorkflowExec
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateServiceWorkflowRequest2 == nil {
-		return localVarReturnValue, nil, reportError("updateServiceWorkflowRequest2 is required and must be specified")
+	if r.updateServiceWorkflowRequestBody == nil {
+		return localVarReturnValue, nil, reportError("updateServiceWorkflowRequestBody is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1088,7 +1088,7 @@ func (a *FleetWorkflowsApiAPIService) FleetWorkflowsApiUpdateServiceWorkflowExec
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateServiceWorkflowRequest2
+	localVarPostBody = r.updateServiceWorkflowRequestBody
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

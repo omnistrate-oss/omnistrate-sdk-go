@@ -171,7 +171,7 @@ paths:
         required: true
         schema:
           description: ID of an Account Config
-          example: Voluptatem nulla deleniti eligendi.
+          example: Ea perferendis voluptatem labore sunt.
           type: string
         style: simple
       responses:
@@ -220,7 +220,7 @@ paths:
         required: true
         schema:
           description: ID of an Account Config
-          example: Voluptatem quos corporis dolores.
+          example: Beatae eos impedit maxime nihil nulla sit.
           type: string
         style: simple
       responses:
@@ -730,7 +730,7 @@ paths:
         required: true
         schema:
           description: ID of an Account Config
-          example: Ipsa expedita laboriosam et error quaerat.
+          example: Eum omnis quibusdam nam mollitia doloremque saepe.
           type: string
         style: simple
       responses:
@@ -783,7 +783,7 @@ paths:
         required: true
         schema:
           description: ID of an AZ
-          example: Molestiae ut quia velit harum quia quo.
+          example: Nostrum voluptatem eveniet officia.
           type: string
         style: simple
       responses:
@@ -944,7 +944,7 @@ paths:
         "200":
           content:
             application/json:
-              example: Ut odit vero deleniti tempore aut.
+              example: Sit ullam.
               schema:
                 example: Et harum aspernatur incidunt perferendis consequatur.
                 type: string
@@ -1144,7 +1144,7 @@ paths:
         required: false
         schema:
           description: ID of a Service
-          example: Saepe optio earum quia enim fuga.
+          example: s-123456
           type: string
         style: form
       - allowEmptyValue: true
@@ -1157,7 +1157,7 @@ paths:
         required: false
         schema:
           description: ID of a Service Model
-          example: Rerum est.
+          example: Impedit dignissimos excepturi commodi natus eligendi et.
           type: string
         style: form
       - allowEmptyValue: true
@@ -1170,7 +1170,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Dolorem expedita voluptatibus quaerat molestiae temporibus.
+          example: Quia molestiae.
           type: string
         style: form
       responses:
@@ -1240,7 +1240,7 @@ paths:
         required: true
         schema:
           description: ID of an CloudProvider
-          example: Quo aliquam fuga laudantium.
+          example: Voluptatum soluta inventore voluptas ipsam et ea.
           type: string
         style: simple
       responses:
@@ -1318,7 +1318,7 @@ paths:
         "200":
           content:
             application/json:
-              example: Eaque et et voluptates quae.
+              example: Aliquid nostrum ipsa.
               schema:
                 example: Rerum voluptas assumenda facere cumque rem neque.
                 type: string
@@ -1760,7 +1760,7 @@ paths:
         required: true
         schema:
           description: ID of an Custom Domain
-          example: Quasi voluptas repudiandae commodi nam.
+          example: Ratione ut veritatis tempora omnis voluptatem et.
           type: string
         style: simple
       responses:
@@ -1809,7 +1809,7 @@ paths:
         required: true
         schema:
           description: ID of an Custom Domain
-          example: Cum eveniet doloribus doloribus voluptas.
+          example: Non veritatis veniam aut omnis iure.
           type: string
         style: simple
       responses:
@@ -1917,7 +1917,7 @@ paths:
         required: true
         schema:
           description: ID of an Custom Domain
-          example: Et alias nihil hic blanditiis est.
+          example: Possimus ea distinctio rem nam adipisci.
           type: string
         style: simple
       responses:
@@ -2475,7 +2475,7 @@ paths:
         required: true
         schema:
           description: ID of a Deployment Config
-          example: Rem consequatur doloribus sint.
+          example: Eum dignissimos natus quo sit qui qui.
           type: string
         style: simple
       responses:
@@ -2616,7 +2616,7 @@ paths:
         required: true
         schema:
           description: ID of a Deployment Config
-          example: Ad voluptates molestias odio mollitia et omnis.
+          example: Quae quis est est.
           type: string
         style: simple
       requestBody:
@@ -3089,7 +3089,7 @@ paths:
         required: true
         schema:
           description: ID of an Identity Provider
-          example: Totam explicabo cupiditate corrupti exercitationem qui.
+          example: Facilis itaque aut aut.
           type: string
         style: simple
       responses:
@@ -3143,7 +3143,7 @@ paths:
         required: true
         schema:
           description: ID of an Identity Provider
-          example: Rem aperiam quos enim vero.
+          example: Dolore veritatis dolor esse sit aut similique.
           type: string
         style: simple
       responses:
@@ -3207,7 +3207,7 @@ paths:
         required: true
         schema:
           description: ID of an Identity Provider
-          example: Optio est ut doloribus tenetur in.
+          example: Iure quia qui iure dicta sint fugit.
           type: string
         style: simple
       requestBody:
@@ -3270,7 +3270,7 @@ paths:
         required: true
         schema:
           description: ID of an Identity Provider
-          example: Officiis eaque esse laboriosam culpa.
+          example: Veniam earum maiores dolorem voluptas.
           type: string
         style: simple
       responses:
@@ -3453,7 +3453,7 @@ paths:
         required: true
         schema:
           description: ID of an Image Registry
-          example: Delectus eum deleniti.
+          example: Quis aspernatur natus consequatur tempora illo ex.
           type: string
         style: simple
       responses:
@@ -3502,7 +3502,7 @@ paths:
         required: true
         schema:
           description: ID of an Image Registry
-          example: Doloribus ipsum.
+          example: Voluptatem fuga ullam accusantium vel illo veniam.
           type: string
         style: simple
       responses:
@@ -3574,7 +3574,7 @@ paths:
         required: true
         schema:
           description: ID of an Image Registry
-          example: Doloribus doloremque quia molestias.
+          example: Est accusamus ratione excepturi.
           type: string
         style: simple
       requestBody:
@@ -4370,7 +4370,7 @@ paths:
         required: true
         schema:
           description: ID of a Region
-          example: Illum dolores porro quia doloremque consequuntur sequi.
+          example: Reiciendis quas delectus earum.
           type: string
         style: simple
       responses:
@@ -4443,7 +4443,7 @@ paths:
         required: false
         schema:
           description: ID of a Service
-          example: Quibusdam odio modi aperiam.
+          example: s-123456
           type: string
         style: form
       - allowEmptyValue: true
@@ -4456,7 +4456,7 @@ paths:
         required: false
         schema:
           description: ID of a Service Model
-          example: Minus est temporibus placeat velit.
+          example: Voluptatibus et aut.
           type: string
         style: form
       - allowEmptyValue: true
@@ -4469,7 +4469,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Unde aut veritatis.
+          example: Quo ipsam fugit perferendis commodi molestiae.
           type: string
         style: form
       - allowEmptyValue: true
@@ -4582,7 +4582,7 @@ paths:
         "200":
           content:
             application/json:
-              example: Fugiat nostrum tempora quibusdam ad.
+              example: Commodi aut omnis sit facilis debitis temporibus.
               schema:
                 example: Velit cum explicabo odio nihil libero similique.
                 type: string
@@ -4711,7 +4711,7 @@ paths:
         required: true
         schema:
           description: ID of a Resource Instance
-          example: Minus fugit autem perspiciatis.
+          example: instance-12345678
           type: string
         style: simple
       responses:
@@ -4920,7 +4920,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Delectus asperiores fuga adipisci.
+          example: Eos eaque fugit laudantium.
           type: string
         style: simple
       - description: The service key
@@ -5068,7 +5068,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Molestias omnis.
+          example: Eum quo numquam nemo.
           type: string
         style: simple
       - description: The service name
@@ -5229,7 +5229,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Distinctio et numquam rerum cum voluptatem.
+          example: Provident nam voluptatibus quis eveniet.
           type: string
         style: simple
       - description: The service name
@@ -5379,7 +5379,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Nesciunt a voluptas iusto.
+          example: Sit alias exercitationem.
           type: string
         style: simple
       - description: The service name
@@ -5603,7 +5603,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Eaque incidunt velit earum.
+          example: Et qui quaerat ea et assumenda.
           type: string
         style: simple
       - description: The service name
@@ -5764,7 +5764,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Ex sit ex.
+          example: Rerum eligendi.
           type: string
         style: simple
       - description: The service name
@@ -5923,7 +5923,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Non excepturi nobis ut.
+          example: Quo veritatis eum aperiam doloremque sed.
           type: string
         style: simple
       - description: The service name
@@ -6073,7 +6073,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Asperiores animi voluptas illo quis.
+          example: Non sit.
           type: string
         style: simple
       - description: The service name
@@ -6233,7 +6233,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Sit dicta eos qui atque necessitatibus.
+          example: Inventore iure quis.
           type: string
         style: simple
       - description: The service name
@@ -6393,7 +6393,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Nulla praesentium.
+          example: Molestiae maxime aut.
           type: string
         style: simple
       - description: The service name
@@ -6552,7 +6552,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Voluptatum ex dolores illo accusantium.
+          example: Doloremque perferendis esse reiciendis quibusdam libero nihil.
           type: string
         style: simple
       - description: The service name
@@ -6703,7 +6703,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Non voluptatum.
+          example: Incidunt voluptas accusantium quaerat officia a.
           type: string
         style: simple
       - description: The service name
@@ -6869,7 +6869,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Ab ipsum et provident omnis ut error.
+          example: Facere fugiat omnis.
           type: string
         style: simple
       - description: The service key
@@ -7025,7 +7025,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Harum sed ut consequatur sequi consequatur ipsum.
+          example: Magni porro.
           type: string
         style: simple
       - description: The service name
@@ -7176,7 +7176,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Totam ut dicta unde in voluptatibus.
+          example: Non repellendus officia.
           type: string
         style: simple
       - description: The service name
@@ -7327,7 +7327,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Quas veniam.
+          example: Possimus nostrum quod qui.
           type: string
         style: simple
       - description: The service name
@@ -7404,7 +7404,7 @@ paths:
         required: true
         schema:
           description: ID of a Resource Instance Snapshot
-          example: Neque at consequuntur.
+          example: Veniam voluptas.
           type: string
         style: simple
       requestBody:
@@ -7492,7 +7492,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Aut odit itaque amet voluptatum.
+          example: Sint accusamus non qui beatae eveniet exercitationem.
           type: string
         style: simple
       - description: The service name
@@ -7689,7 +7689,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Est quia maiores est earum vel.
+          example: Aut sunt at rem est ullam.
           type: string
         style: simple
       - description: The service name
@@ -8032,7 +8032,7 @@ paths:
         required: true
         schema:
           description: ID of a custom network
-          example: Vel neque.
+          example: Reprehenderit error.
           type: string
         style: simple
       responses:
@@ -8068,7 +8068,7 @@ paths:
         required: true
         schema:
           description: ID of a custom network
-          example: Qui et aperiam dolorum.
+          example: Optio eum soluta qui ullam et necessitatibus.
           type: string
         style: simple
       responses:
@@ -8151,7 +8151,7 @@ paths:
         required: true
         schema:
           description: ID of a Event
-          example: Libero vel qui culpa perferendis.
+          example: Sint libero.
           type: string
         style: simple
       responses:
@@ -8236,6 +8236,510 @@ paths:
       summary: consumptionServiceHealth global-api
       tags:
       - global-api
+  /2022-09-01-00/resource-instance/services-orchestration:
+    get:
+      operationId: services-orchestration-api#ListServicesOrchestrations
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+              - ServicesTopology:
+                - dependsOnDeployment:
+                  - instanceDeploymentAlias1
+                  - instanceDeploymentAlias2
+                  instanceDeploymentAlias: instanceDeploymentAlias
+                  instanceId: i-12345678
+                  serviceId: s-12345678
+                  subscriptionId: Odio totam.
+                - dependsOnDeployment:
+                  - instanceDeploymentAlias1
+                  - instanceDeploymentAlias2
+                  instanceDeploymentAlias: instanceDeploymentAlias
+                  instanceId: i-12345678
+                  serviceId: s-12345678
+                  subscriptionId: Odio totam.
+                - dependsOnDeployment:
+                  - instanceDeploymentAlias1
+                  - instanceDeploymentAlias2
+                  instanceDeploymentAlias: instanceDeploymentAlias
+                  instanceId: i-12345678
+                  serviceId: s-12345678
+                  subscriptionId: Odio totam.
+                createdAt: 2021-01-01T00:00:00Z
+                id: so-12345678
+                orchestrationFailedReason: Invalid DSL
+                result_params:
+                  param1: value1
+                  param2: value2
+                status: PENDING
+                updatedAt: 2021-01-01T00:00:00Z
+              - ServicesTopology:
+                - dependsOnDeployment:
+                  - instanceDeploymentAlias1
+                  - instanceDeploymentAlias2
+                  instanceDeploymentAlias: instanceDeploymentAlias
+                  instanceId: i-12345678
+                  serviceId: s-12345678
+                  subscriptionId: Odio totam.
+                - dependsOnDeployment:
+                  - instanceDeploymentAlias1
+                  - instanceDeploymentAlias2
+                  instanceDeploymentAlias: instanceDeploymentAlias
+                  instanceId: i-12345678
+                  serviceId: s-12345678
+                  subscriptionId: Odio totam.
+                - dependsOnDeployment:
+                  - instanceDeploymentAlias1
+                  - instanceDeploymentAlias2
+                  instanceDeploymentAlias: instanceDeploymentAlias
+                  instanceId: i-12345678
+                  serviceId: s-12345678
+                  subscriptionId: Odio totam.
+                createdAt: 2021-01-01T00:00:00Z
+                id: so-12345678
+                orchestrationFailedReason: Invalid DSL
+                result_params:
+                  param1: value1
+                  param2: value2
+                status: PENDING
+                updatedAt: 2021-01-01T00:00:00Z
+              schema:
+                example:
+                - ServicesTopology:
+                  - dependsOnDeployment:
+                    - instanceDeploymentAlias1
+                    - instanceDeploymentAlias2
+                    instanceDeploymentAlias: instanceDeploymentAlias
+                    instanceId: i-12345678
+                    serviceId: s-12345678
+                    subscriptionId: Odio totam.
+                  - dependsOnDeployment:
+                    - instanceDeploymentAlias1
+                    - instanceDeploymentAlias2
+                    instanceDeploymentAlias: instanceDeploymentAlias
+                    instanceId: i-12345678
+                    serviceId: s-12345678
+                    subscriptionId: Odio totam.
+                  - dependsOnDeployment:
+                    - instanceDeploymentAlias1
+                    - instanceDeploymentAlias2
+                    instanceDeploymentAlias: instanceDeploymentAlias
+                    instanceId: i-12345678
+                    serviceId: s-12345678
+                    subscriptionId: Odio totam.
+                  createdAt: 2021-01-01T00:00:00Z
+                  id: so-12345678
+                  orchestrationFailedReason: Invalid DSL
+                  result_params:
+                    param1: value1
+                    param2: value2
+                  status: PENDING
+                  updatedAt: 2021-01-01T00:00:00Z
+                - ServicesTopology:
+                  - dependsOnDeployment:
+                    - instanceDeploymentAlias1
+                    - instanceDeploymentAlias2
+                    instanceDeploymentAlias: instanceDeploymentAlias
+                    instanceId: i-12345678
+                    serviceId: s-12345678
+                    subscriptionId: Odio totam.
+                  - dependsOnDeployment:
+                    - instanceDeploymentAlias1
+                    - instanceDeploymentAlias2
+                    instanceDeploymentAlias: instanceDeploymentAlias
+                    instanceId: i-12345678
+                    serviceId: s-12345678
+                    subscriptionId: Odio totam.
+                  - dependsOnDeployment:
+                    - instanceDeploymentAlias1
+                    - instanceDeploymentAlias2
+                    instanceDeploymentAlias: instanceDeploymentAlias
+                    instanceId: i-12345678
+                    serviceId: s-12345678
+                    subscriptionId: Odio totam.
+                  createdAt: 2021-01-01T00:00:00Z
+                  id: so-12345678
+                  orchestrationFailedReason: Invalid DSL
+                  result_params:
+                    param1: value1
+                    param2: value2
+                  status: PENDING
+                  updatedAt: 2021-01-01T00:00:00Z
+                - ServicesTopology:
+                  - dependsOnDeployment:
+                    - instanceDeploymentAlias1
+                    - instanceDeploymentAlias2
+                    instanceDeploymentAlias: instanceDeploymentAlias
+                    instanceId: i-12345678
+                    serviceId: s-12345678
+                    subscriptionId: Odio totam.
+                  - dependsOnDeployment:
+                    - instanceDeploymentAlias1
+                    - instanceDeploymentAlias2
+                    instanceDeploymentAlias: instanceDeploymentAlias
+                    instanceId: i-12345678
+                    serviceId: s-12345678
+                    subscriptionId: Odio totam.
+                  - dependsOnDeployment:
+                    - instanceDeploymentAlias1
+                    - instanceDeploymentAlias2
+                    instanceDeploymentAlias: instanceDeploymentAlias
+                    instanceId: i-12345678
+                    serviceId: s-12345678
+                    subscriptionId: Odio totam.
+                  createdAt: 2021-01-01T00:00:00Z
+                  id: so-12345678
+                  orchestrationFailedReason: Invalid DSL
+                  result_params:
+                    param1: value1
+                    param2: value2
+                  status: PENDING
+                  updatedAt: 2021-01-01T00:00:00Z
+                items:
+                  $ref: '#/components/schemas/DescribeServicesOrchestrationResult'
+                type: array
+          description: OK response.
+        "400":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "bad_request: Response used on a bad request"
+        "401":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "auth_failure: Response used on authentication failure"
+        "403":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "forbidden: Response used on authorization failure"
+        "404":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "not_found: Response used when the requested resource is not\
+            \ found"
+        "409":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "invalid_state: Response used when requested resource is in\
+            \ an invalid state for this operation"
+        "500":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "failed_request: Response used on failure to list resource\
+            \ instances"
+      security:
+      - api_key_header_Authorization: []
+      summary: ListServicesOrchestrations services-orchestration-api
+      tags:
+      - services-orchestration-api
+    post:
+      operationId: services-orchestration-api#CreateServicesOrchestration
+      requestBody:
+        content:
+          application/json:
+            example:
+              orchestrationCreateDSL: Sed est alias.
+            schema:
+              $ref: '#/components/schemas/CreateServicesOrchestrationRequestBody'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              example:
+                id: Ducimus ut consectetur.
+              schema:
+                $ref: '#/components/schemas/CreateServicesOrchestrationResponseBody'
+          description: Accepted response.
+        "400":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "bad_request: Response used on a bad request"
+        "401":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "auth_failure: Response used on authentication failure"
+        "403":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "forbidden: Response used on authorization failure"
+        "404":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "not_found: Response used when the requested resource is not\
+            \ found"
+        "409":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "invalid_state: Response used when requested resource is in\
+            \ an invalid state for this operation"
+        "500":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "failed_request: Response used on failure to create a resource\
+            \ instance"
+      security:
+      - api_key_header_Authorization: []
+      summary: CreateServicesOrchestration services-orchestration-api
+      tags:
+      - services-orchestration-api
+  /2022-09-01-00/resource-instance/services-orchestration/{id}:
+    delete:
+      operationId: services-orchestration-api#DeleteServicesOrchestration
+      parameters:
+      - description: The ID of the services orchestration
+        example: so-12345678
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: ID of a Services Orchestration
+          example: Sed sit exercitationem impedit aut.
+          type: string
+        style: simple
+      responses:
+        "202":
+          description: Accepted response.
+        "400":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "bad_request: Response used on a bad request"
+        "401":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "auth_failure: Response used on authentication failure"
+        "403":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "forbidden: Response used on authorization failure"
+        "404":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "not_found: Response used when the requested resource is not\
+            \ found"
+        "409":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "invalid_state: Response used when requested resource is in\
+            \ an invalid state for this operation"
+        "500":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "failed_request: Response used on failure to delete a resource\
+            \ instance"
+      security:
+      - api_key_header_Authorization: []
+      summary: DeleteServicesOrchestration services-orchestration-api
+      tags:
+      - services-orchestration-api
+    get:
+      operationId: services-orchestration-api#DescribeServicesOrchestration
+      parameters:
+      - description: The ID of the services orchestration
+        example: so-12345678
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: ID of a Services Orchestration
+          example: Quia explicabo qui ut dicta omnis.
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                ServicesTopology:
+                - dependsOnDeployment:
+                  - instanceDeploymentAlias1
+                  - instanceDeploymentAlias2
+                  instanceDeploymentAlias: instanceDeploymentAlias
+                  instanceId: i-12345678
+                  serviceId: s-12345678
+                  subscriptionId: Dicta iste aperiam maxime incidunt sunt.
+                - dependsOnDeployment:
+                  - instanceDeploymentAlias1
+                  - instanceDeploymentAlias2
+                  instanceDeploymentAlias: instanceDeploymentAlias
+                  instanceId: i-12345678
+                  serviceId: s-12345678
+                  subscriptionId: Dicta iste aperiam maxime incidunt sunt.
+                - dependsOnDeployment:
+                  - instanceDeploymentAlias1
+                  - instanceDeploymentAlias2
+                  instanceDeploymentAlias: instanceDeploymentAlias
+                  instanceId: i-12345678
+                  serviceId: s-12345678
+                  subscriptionId: Dicta iste aperiam maxime incidunt sunt.
+                createdAt: 2021-01-01T00:00:00Z
+                id: so-12345678
+                orchestrationFailedReason: Invalid DSL
+                result_params:
+                  param1: value1
+                  param2: value2
+                status: PENDING
+                updatedAt: 2021-01-01T00:00:00Z
+              schema:
+                $ref: '#/components/schemas/DescribeServicesOrchestrationResult'
+          description: OK response.
+        "400":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "bad_request: Response used on a bad request"
+        "401":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "auth_failure: Response used on authentication failure"
+        "403":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "forbidden: Response used on authorization failure"
+        "404":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "not_found: Response used when the requested resource is not\
+            \ found"
+        "409":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "invalid_state: Response used when requested resource is in\
+            \ an invalid state for this operation"
+        "500":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "failed_request: Response used on failure to describe a resource\
+            \ instance"
+      security:
+      - api_key_header_Authorization: []
+      summary: DescribeServicesOrchestration services-orchestration-api
+      tags:
+      - services-orchestration-api
+    patch:
+      operationId: services-orchestration-api#ModifyServicesOrchestration
+      parameters:
+      - description: The ID of the services orchestration
+        example: so-12345678
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: ID of a Services Orchestration
+          example: Necessitatibus quae esse nobis expedita sit.
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            example:
+              orchestrationModifyDSL: Qui temporibus enim.
+            schema:
+              $ref: '#/components/schemas/ModifyServicesOrchestrationRequestBody'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              example:
+                id: Accusamus repellat eum consequatur quas debitis.
+              schema:
+                $ref: '#/components/schemas/CreateServicesOrchestrationResponseBody'
+          description: Accepted response.
+        "400":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "bad_request: Response used on a bad request"
+        "401":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "auth_failure: Response used on authentication failure"
+        "403":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "forbidden: Response used on authorization failure"
+        "404":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "not_found: Response used when the requested resource is not\
+            \ found"
+        "409":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "invalid_state: Response used when requested resource is in\
+            \ an invalid state for this operation"
+        "500":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "failed_request: Response used on failure to update a resource\
+            \ instance"
+      security:
+      - api_key_header_Authorization: []
+      summary: ModifyServicesOrchestration services-orchestration-api
+      tags:
+      - services-orchestration-api
   /2022-09-01-00/resource-instance/subscription/{subscriptionId}/invite-user:
     post:
       operationId: consumption-user-api#InviteUser
@@ -8453,7 +8957,7 @@ paths:
         required: true
         schema:
           description: ID of a User
-          example: Eaque incidunt odio cumque eaque sed.
+          example: Quaerat sunt dolor repellendus voluptatem vitae dolores.
           type: string
         style: simple
       responses:
@@ -9495,7 +9999,7 @@ paths:
         required: false
         schema:
           description: ID of an Org
-          example: Quasi omnis cumque eaque sed numquam sint.
+          example: Minima numquam id.
           type: string
         style: form
       - allowEmptyValue: true
@@ -9745,7 +10249,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Omnis delectus.
+          example: s-123456
           type: string
         style: simple
       responses:
@@ -9855,7 +10359,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Dolorem itaque nemo.
+          example: s-123456
           type: string
         style: simple
       - description: The resource ID
@@ -9866,7 +10370,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Non magnam maxime delectus quia.
+          example: Est nobis vitae quos.
           type: string
         style: simple
       - description: The instance ID
@@ -10001,7 +10505,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Ipsa dolores sint.
+          example: s-123456
           type: string
         style: simple
       responses:
@@ -10061,7 +10565,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Id sint quae quo quae quidem.
+          example: s-123456
           type: string
         style: simple
       responses:
@@ -10212,7 +10716,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Libero quia.
+          example: s-123456
           type: string
         style: simple
       requestBody:
@@ -10284,7 +10788,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Nam et quibusdam non.
+          example: s-123456
           type: string
         style: simple
       responses:
@@ -10370,7 +10874,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Repudiandae sed.
+          example: s-123456
           type: string
         style: simple
       responses:
@@ -10440,7 +10944,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Hic et ex illo nam cupiditate.
+          example: s-123456
           type: string
         style: simple
       requestBody:
@@ -10536,7 +11040,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Aperiam voluptatum aut consequuntur qui sed ut.
+          example: s-123456
           type: string
         style: simple
       - description: ID of the compute config
@@ -10547,7 +11051,7 @@ paths:
         required: true
         schema:
           description: ID of a Compute Config
-          example: Beatae eos perspiciatis esse est.
+          example: Nostrum quia qui architecto ea.
           type: string
         style: simple
       responses:
@@ -10603,7 +11107,7 @@ paths:
       - allowEmptyValue: true
         description: "Product tier version of the compute config to describe. If not\
           \ specified, the latest version is described."
-        example: Voluptatum doloribus.
+        example: Ut ducimus assumenda.
         explode: true
         in: query
         name: ProductTierVersion
@@ -10611,7 +11115,7 @@ paths:
         schema:
           description: "Product tier version of the compute config to describe. If\
             \ not specified, the latest version is described."
-          example: Et esse ad inventore eos nobis.
+          example: Illum itaque distinctio enim rerum veritatis cum.
           type: string
         style: form
       - allowEmptyValue: true
@@ -10624,7 +11128,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Quos iusto modi non.
+          example: Libero rerum similique in hic dolore.
           type: string
         style: form
       - description: The service ID
@@ -10635,7 +11139,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Rem veniam necessitatibus ratione amet accusamus.
+          example: s-123456
           type: string
         style: simple
       - description: ID of the compute config
@@ -10646,7 +11150,7 @@ paths:
         required: true
         schema:
           description: ID of a Compute Config
-          example: Est sed exercitationem natus doloremque quis dolorem.
+          example: Quo unde tempora accusantium aut aliquid consequatur.
           type: string
         style: simple
       responses:
@@ -10743,7 +11247,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Ut in consequatur non praesentium.
+          example: s-123456
           type: string
         style: simple
       - description: ID of the compute config
@@ -10754,7 +11258,7 @@ paths:
         required: true
         schema:
           description: ID of a Compute Config
-          example: Et maiores voluptatem ut ea dolores.
+          example: Labore harum fugit.
           type: string
         style: simple
       requestBody:
@@ -10840,7 +11344,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Aliquam et recusandae id officia aut exercitationem.
+          example: s-123456
           type: string
         style: simple
       - description: ID of the compute config
@@ -10851,7 +11355,7 @@ paths:
         required: true
         schema:
           description: ID of a Compute Config
-          example: Ut quidem.
+          example: Corporis rerum velit cupiditate dolorum.
           type: string
         style: simple
       requestBody:
@@ -10921,7 +11425,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Minus odio voluptates.
+          example: s-123456
           type: string
         style: simple
       - description: ID of the compute config
@@ -10932,7 +11436,7 @@ paths:
         required: true
         schema:
           description: ID of a Compute Config
-          example: Commodi vel quas rem aut.
+          example: Ea quia error fugiat.
           type: string
         style: simple
       requestBody:
@@ -11003,7 +11507,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Id et enim delectus.
+          example: s-123456
           type: string
         style: simple
       - description: The cloud provider for this compute instance type config
@@ -11086,7 +11590,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Consequuntur quos nihil tempore quas eveniet porro.
+          example: s-123456
           type: string
         style: simple
       responses:
@@ -11155,7 +11659,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Velit tempora at ex.
+          example: s-123456
           type: string
         style: simple
       requestBody:
@@ -11246,7 +11750,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Pariatur praesentium ex qui in sed aspernatur.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the service environment
@@ -11257,7 +11761,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Environment
-          example: Voluptates quis.
+          example: se-123456
           type: string
         style: simple
       responses:
@@ -11318,7 +11822,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Ipsam placeat.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the service environment
@@ -11329,7 +11833,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Environment
-          example: Natus dolor.
+          example: se-123456
           type: string
         style: simple
       responses:
@@ -11414,7 +11918,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Odio distinctio quos et minima.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the service environment
@@ -11425,7 +11929,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Environment
-          example: Dolores officia aut.
+          example: se-123456
           type: string
         style: simple
       requestBody:
@@ -11505,7 +12009,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Aspernatur iusto debitis ut et.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the service environment
@@ -11516,7 +12020,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Environment
-          example: Sunt eligendi.
+          example: se-123456
           type: string
         style: simple
       responses:
@@ -11524,6 +12028,8 @@ paths:
           content:
             application/json:
               example:
+              - status: IN_SYNC|OUT_OF_SYNC|UNKNOWN
+                targetEnvironmentID: se-12345678
               - status: IN_SYNC|OUT_OF_SYNC|UNKNOWN
                 targetEnvironmentID: se-12345678
               - status: IN_SYNC|OUT_OF_SYNC|UNKNOWN
@@ -11597,7 +12103,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Sed ut impedit error qui laudantium consectetur.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the service environment
@@ -11608,7 +12114,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Environment
-          example: Sunt qui ad vero rerum magni non.
+          example: se-123456
           type: string
         style: simple
       responses:
@@ -11670,7 +12176,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Ullam iste voluptas.
+          example: s-123456
           type: string
         style: simple
       - description: Service environment ID
@@ -11681,7 +12187,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Environment
-          example: Quisquam non similique.
+          example: se-123456
           type: string
         style: simple
       responses:
@@ -12013,7 +12519,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Quia et commodi tenetur ea.
+          example: s-123456
           type: string
         style: simple
       requestBody:
@@ -12109,7 +12615,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Aut sint ad ut totam quis dolores.
+          example: s-123456
           type: string
         style: simple
       - description: The image configuration ID
@@ -12120,7 +12626,7 @@ paths:
         required: true
         schema:
           description: ID of an Image Config
-          example: Repellendus asperiores dolorem optio esse explicabo ullam.
+          example: Quis corrupti.
           type: string
         style: simple
       responses:
@@ -12176,7 +12682,7 @@ paths:
       - allowEmptyValue: true
         description: "Product tier version of the image config to describe. If not\
           \ specified, the latest version is described."
-        example: Quam ipsam est quisquam nobis perspiciatis.
+        example: Quos error quo ad sed.
         explode: true
         in: query
         name: ProductTierVersion
@@ -12184,7 +12690,7 @@ paths:
         schema:
           description: "Product tier version of the image config to describe. If not\
             \ specified, the latest version is described."
-          example: Quaerat nisi molestiae molestiae.
+          example: Et quia hic ut.
           type: string
         style: form
       - allowEmptyValue: true
@@ -12197,7 +12703,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Qui et.
+          example: Molestiae fugit repudiandae.
           type: string
         style: form
       - description: The service ID
@@ -12208,7 +12714,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Explicabo quaerat a qui nostrum.
+          example: s-123456
           type: string
         style: simple
       - description: The image configuration ID
@@ -12219,7 +12725,7 @@ paths:
         required: true
         schema:
           description: ID of an Image Config
-          example: Ipsam praesentium ab repellat.
+          example: Non molestiae omnis et dolorum voluptas dolor.
           type: string
         style: simple
       responses:
@@ -12304,7 +12810,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Amet fugit aut rerum.
+          example: s-123456
           type: string
         style: simple
       - description: The image configuration ID
@@ -12315,7 +12821,7 @@ paths:
         required: true
         schema:
           description: ID of an Image Config
-          example: Fugiat reiciendis et mollitia.
+          example: Sed sapiente sunt natus.
           type: string
         style: simple
       requestBody:
@@ -12400,7 +12906,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Iure est ex.
+          example: s-123456
           type: string
         style: simple
       - description: The image configuration ID
@@ -12411,7 +12917,7 @@ paths:
         required: true
         schema:
           description: ID of an Image Config
-          example: Beatae nulla molestiae.
+          example: Voluptas numquam qui cum nihil asperiores.
           type: string
         style: simple
       requestBody:
@@ -12481,7 +12987,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Velit eligendi.
+          example: s-123456
           type: string
         style: simple
       - description: The image configuration ID
@@ -12492,7 +12998,7 @@ paths:
         required: true
         schema:
           description: ID of an Image Config
-          example: Sequi voluptatem.
+          example: Dolorem ut alias omnis voluptatem.
           type: string
         style: simple
       responses:
@@ -12559,7 +13065,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Consectetur quam necessitatibus.
+          example: s-123456
           type: string
         style: simple
       - description: The image configuration ID
@@ -12570,7 +13076,7 @@ paths:
         required: true
         schema:
           description: ID of an Image Config
-          example: Ut voluptas.
+          example: Atque magni voluptatem eveniet dolore.
           type: string
         style: simple
       responses:
@@ -12632,7 +13138,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Quis aspernatur natus consequatur tempora illo ex.
+          example: s-123456
           type: string
         style: simple
       requestBody:
@@ -12720,7 +13226,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Odit et velit nobis eos.
+          example: s-123456
           type: string
         style: simple
       - description: Infra Config ID to operate on
@@ -12731,7 +13237,7 @@ paths:
         required: true
         schema:
           description: ID of an Infra Config
-          example: Corrupti omnis.
+          example: Nulla et placeat.
           type: string
         style: simple
       responses:
@@ -12787,7 +13293,7 @@ paths:
       - allowEmptyValue: true
         description: "Product tier version of the infra config to describe. If not\
           \ specified, the latest version is described."
-        example: Numquam cumque at delectus.
+        example: Velit repellendus modi ut quasi ut.
         explode: true
         in: query
         name: ProductTierVersion
@@ -12795,7 +13301,7 @@ paths:
         schema:
           description: "Product tier version of the infra config to describe. If not\
             \ specified, the latest version is described."
-          example: Rerum sunt.
+          example: Eos amet neque aperiam.
           type: string
         style: form
       - allowEmptyValue: true
@@ -12808,7 +13314,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Eos maiores totam quos debitis.
+          example: Quasi vel.
           type: string
         style: form
       - description: The service ID
@@ -12819,7 +13325,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Eos sapiente maxime ullam quaerat sapiente.
+          example: s-123456
           type: string
         style: simple
       - description: Infra Config ID to operate on
@@ -12830,7 +13336,7 @@ paths:
         required: true
         schema:
           description: ID of an Infra Config
-          example: Quia eos sed et quibusdam.
+          example: Dolorem architecto aut numquam incidunt voluptatem ad.
           type: string
         style: simple
       responses:
@@ -12907,7 +13413,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Est nobis vitae quos.
+          example: s-123456
           type: string
         style: simple
       - description: Infra Config ID to operate on
@@ -12918,7 +13424,7 @@ paths:
         required: true
         schema:
           description: ID of an Infra Config
-          example: Minima numquam id.
+          example: Repellendus ea iure pariatur.
           type: string
         style: simple
       requestBody:
@@ -12995,7 +13501,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Nulla consequatur quis aliquid quia sunt est.
+          example: s-123456
           type: string
         style: simple
       - description: Infra Config ID to operate on
@@ -13006,7 +13512,7 @@ paths:
         required: true
         schema:
           description: ID of an Infra Config
-          example: Quia aperiam sit pariatur.
+          example: Hic inventore velit.
           type: string
         style: simple
       responses:
@@ -13078,7 +13584,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Sint libero.
+          example: s-123456
           type: string
         style: simple
       - description: Infra Config ID to operate on
@@ -13089,7 +13595,7 @@ paths:
         required: true
         schema:
           description: ID of an Infra Config
-          example: Sint accusamus non qui beatae eveniet exercitationem.
+          example: Recusandae tempore enim.
           type: string
         style: simple
       responses:
@@ -13151,7 +13657,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Dolorum soluta quis non dolorum et.
+          example: s-123456
           type: string
         style: simple
       - description: Infra Config ID to operate on
@@ -13162,7 +13668,7 @@ paths:
         required: true
         schema:
           description: ID of an Infra Config
-          example: Sed incidunt est aut aliquid.
+          example: Non in et.
           type: string
         style: simple
       responses:
@@ -13224,7 +13730,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Dolore veritatis dolor esse sit aut similique.
+          example: s-123456
           type: string
         style: simple
       - description: Infra Config ID to operate on
@@ -13235,7 +13741,7 @@ paths:
         required: true
         schema:
           description: ID of an Infra Config
-          example: Iure quia qui iure dicta sint fugit.
+          example: Voluptate velit cupiditate laboriosam hic voluptates.
           type: string
         style: simple
       requestBody:
@@ -13305,7 +13811,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Facilis itaque aut aut.
+          example: s-123456
           type: string
         style: simple
       - description: Infra Config ID to operate on
@@ -13316,7 +13822,7 @@ paths:
         required: true
         schema:
           description: ID of an Infra Config
-          example: Veniam earum maiores dolorem voluptas.
+          example: Saepe mollitia aut.
           type: string
         style: simple
       responses:
@@ -13378,7 +13884,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Optio eum soluta qui ullam et necessitatibus.
+          example: s-123456
           type: string
         style: simple
       - description: Infra Config ID to operate on
@@ -13389,7 +13895,7 @@ paths:
         required: true
         schema:
           description: ID of an Infra Config
-          example: Reprehenderit error.
+          example: Sit sapiente sed totam minus maxime.
           type: string
         style: simple
       responses:
@@ -13457,7 +13963,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Deserunt quia praesentium perspiciatis.
+          example: s-123456
           type: string
         style: simple
       - description: Infra Config ID to operate on
@@ -13468,7 +13974,7 @@ paths:
         required: true
         schema:
           description: ID of an Infra Config
-          example: Assumenda delectus explicabo tempore est qui laborum.
+          example: Culpa magnam voluptas ducimus omnis expedita fuga.
           type: string
         style: simple
       responses:
@@ -13530,7 +14036,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Voluptatibus et aut.
+          example: s-123456
           type: string
         style: simple
       requestBody:
@@ -13634,7 +14140,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Id veniam voluptas.
+          example: s-123456
           type: string
         style: simple
       - description: ID of the input parameter
@@ -13645,7 +14151,7 @@ paths:
         required: true
         schema:
           description: ID of an Input Parameter
-          example: Sit alias exercitationem.
+          example: Velit nihil ut pariatur non aut.
           type: string
         style: simple
       responses:
@@ -13701,7 +14207,7 @@ paths:
       - allowEmptyValue: true
         description: "Product tier version of the instance to describe. If not specified,\
           \ the latest version is described."
-        example: Impedit dignissimos excepturi commodi natus eligendi et.
+        example: In ut id ut soluta.
         explode: true
         in: query
         name: ProductTierVersion
@@ -13709,7 +14215,7 @@ paths:
         schema:
           description: "Product tier version of the instance to describe. If not specified,\
             \ the latest version is described."
-          example: Aliquid nostrum ipsa.
+          example: Non non beatae eos omnis.
           type: string
         style: form
       - allowEmptyValue: true
@@ -13722,7 +14228,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Quia molestiae.
+          example: Commodi sunt accusantium et voluptatum dolore.
           type: string
         style: form
       - description: The ID of the service that this output parameter belongs to
@@ -13733,7 +14239,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Quaerat sunt dolor repellendus voluptatem vitae dolores.
+          example: s-123456
           type: string
         style: simple
       - description: ID of the input parameter
@@ -13744,7 +14250,7 @@ paths:
         required: true
         schema:
           description: ID of an Input Parameter
-          example: Quia explicabo qui ut dicta omnis.
+          example: Eum totam quam a.
           type: string
         style: simple
       responses:
@@ -13835,7 +14341,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Quo ipsam fugit perferendis commodi molestiae.
+          example: s-123456
           type: string
         style: simple
       - description: ID of the input parameter
@@ -13846,7 +14352,7 @@ paths:
         required: true
         schema:
           description: ID of an Input Parameter
-          example: Voluptatum soluta inventore voluptas ipsam et ea.
+          example: Perferendis soluta qui alias ipsa quia.
           type: string
         style: simple
       requestBody:
@@ -13933,7 +14439,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Non pariatur.
+          example: s-123456
           type: string
         style: simple
       requestBody:
@@ -14036,7 +14542,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Nisi sed perspiciatis est.
+          example: s-123456
           type: string
         style: simple
       - description: The service model ID
@@ -14047,7 +14553,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Model
-          example: Quisquam optio voluptatum odio.
+          example: Ad consequuntur quos nihil tempore quas eveniet.
           type: string
         style: simple
       responses:
@@ -14108,7 +14614,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Quia tempore.
+          example: s-123456
           type: string
         style: simple
       - description: The service model ID
@@ -14119,7 +14625,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Model
-          example: Modi in qui iure tempora tenetur nam.
+          example: Aspernatur iusto debitis ut et.
           type: string
         style: simple
       responses:
@@ -14223,7 +14729,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Autem incidunt.
+          example: s-123456
           type: string
         style: simple
       - description: The service model ID
@@ -14234,7 +14740,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Model
-          example: Non laudantium facere eos non voluptatum necessitatibus.
+          example: Sunt ipsa dolores.
           type: string
         style: simple
       requestBody:
@@ -14306,7 +14812,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Hic similique.
+          example: s-123456
           type: string
         style: simple
       - description: The service model ID
@@ -14317,7 +14823,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Model
-          example: Atque optio.
+          example: Quos et minima pariatur dolores officia aut.
           type: string
         style: simple
       requestBody:
@@ -14386,7 +14892,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Sit asperiores dicta recusandae laborum occaecati suscipit.
+          example: s-123456
           type: string
         style: simple
       - description: The service model ID
@@ -14397,7 +14903,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Model
-          example: Consequatur et id qui eum.
+          example: Dolor velit tempora at ex minima odio.
           type: string
         style: simple
       requestBody:
@@ -14467,7 +14973,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Vero nam ducimus ut et ea odio.
+          example: s-123456
           type: string
         style: simple
       - description: The service model ID
@@ -14478,7 +14984,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Model
-          example: Qui voluptas dolor debitis eveniet.
+          example: Sed ut impedit error qui laudantium consectetur.
           type: string
         style: simple
       - description: The infrastructure account configuration ID
@@ -14489,7 +14995,7 @@ paths:
         required: true
         schema:
           description: ID of an Account Config
-          example: Non a itaque.
+          example: Sunt qui ad vero rerum magni non.
           type: string
         style: simple
       responses:
@@ -14551,7 +15057,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Quia inventore illum.
+          example: s-123456
           type: string
         style: simple
       - description: The service model ID
@@ -14562,7 +15068,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Model
-          example: Veritatis quasi at aut beatae omnis.
+          example: Quae quo quae quidem quae.
           type: string
         style: simple
       requestBody:
@@ -14631,7 +15137,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Porro praesentium nesciunt ex voluptatem omnis.
+          example: s-123456
           type: string
         style: simple
       - description: The service model ID
@@ -14642,7 +15148,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Model
-          example: Quia voluptatem doloribus nemo placeat id voluptas.
+          example: Quia quaerat id.
           type: string
         style: simple
       requestBody:
@@ -14715,7 +15221,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Voluptatem doloremque saepe rerum voluptatem unde.
+          example: s-123456
           type: string
         style: simple
       - description: The service model ID
@@ -14726,7 +15232,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Model
-          example: Possimus commodi quae dolor provident.
+          example: Sunt eligendi.
           type: string
         style: simple
       responses:
@@ -14794,7 +15300,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Libero architecto odit id.
+          example: s-123456
           type: string
         style: simple
       - description: Service model ID
@@ -14805,7 +15311,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Model
-          example: Incidunt dolorem non ad animi.
+          example: Vel veritatis quasi at.
           type: string
         style: simple
       responses:
@@ -14877,7 +15383,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Est accusamus ratione excepturi.
+          example: s-123456
           type: string
         style: simple
       - description: Service Model ID for the VUnit
@@ -14888,7 +15394,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Model
-          example: Voluptatem fuga ullam accusantium vel illo veniam.
+          example: Cum ducimus voluptas neque officia.
           type: string
         style: simple
       requestBody:
@@ -14970,7 +15476,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Eaque exercitationem.
+          example: s-123456
           type: string
         style: simple
       - description: The source service model ID
@@ -14981,7 +15487,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Model
-          example: Illo culpa voluptatibus explicabo.
+          example: Et quibusdam.
           type: string
         style: simple
       requestBody:
@@ -15101,7 +15607,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Exercitationem est dolores eaque molestiae expedita exercitationem.
+          example: s-123456
           type: string
         style: simple
       responses:
@@ -15170,7 +15676,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Aut optio sint.
+          example: s-123456
           type: string
         style: simple
       requestBody:
@@ -15273,7 +15779,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Numquam neque quia dolorem ipsum ratione.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the network config
@@ -15284,7 +15790,7 @@ paths:
         required: true
         schema:
           description: ID of a Network Config
-          example: Corrupti quasi in omnis autem iste consequuntur.
+          example: Consectetur eum dolor.
           type: string
         style: simple
       responses:
@@ -15340,7 +15846,7 @@ paths:
       - allowEmptyValue: true
         description: "Product tier version of the network config to describe. If not\
           \ specified, the latest version is described."
-        example: Saepe quia.
+        example: Consequatur recusandae excepturi velit dolore minima qui.
         explode: true
         in: query
         name: ProductTierVersion
@@ -15348,7 +15854,7 @@ paths:
         schema:
           description: "Product tier version of the network config to describe. If\
             \ not specified, the latest version is described."
-          example: Harum reiciendis ut a nostrum quis repellat.
+          example: Nihil dicta.
           type: string
         style: form
       - allowEmptyValue: true
@@ -15361,7 +15867,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Maxime recusandae nihil occaecati assumenda.
+          example: Voluptas vitae quae.
           type: string
         style: form
       - description: The ID of the service
@@ -15372,7 +15878,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Aut atque doloremque dolorem commodi accusamus.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the network config
@@ -15383,7 +15889,7 @@ paths:
         required: true
         schema:
           description: ID of a Network Config
-          example: Nihil ad.
+          example: Est doloremque ut minus quidem.
           type: string
         style: simple
       responses:
@@ -15476,7 +15982,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Quas placeat ut esse similique.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the network config
@@ -15487,7 +15993,7 @@ paths:
         required: true
         schema:
           description: ID of a Network Config
-          example: Aut aliquam rerum sed velit accusamus.
+          example: Nobis rem et pariatur.
           type: string
         style: simple
       requestBody:
@@ -15580,7 +16086,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Possimus ea distinctio rem nam adipisci.
+          example: s-123456
           type: string
         style: simple
       - description: Network to operate on
@@ -15591,7 +16097,7 @@ paths:
         required: true
         schema:
           description: ID of a Network
-          example: Ratione ut veritatis tempora omnis voluptatem et.
+          example: Vel ut quam ullam fuga sit magni.
           type: string
         style: simple
       responses:
@@ -15663,7 +16169,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Eos eaque fugit laudantium.
+          example: s-123456
           type: string
         style: simple
       requestBody:
@@ -15749,7 +16255,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Beatae eos impedit maxime nihil nulla sit.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the output parameter
@@ -15760,7 +16266,7 @@ paths:
         required: true
         schema:
           description: ID of an Output Parameter
-          example: Eum omnis quibusdam nam mollitia doloremque saepe.
+          example: Excepturi ipsa voluptas porro temporibus.
           type: string
         style: simple
       responses:
@@ -15816,7 +16322,7 @@ paths:
       - allowEmptyValue: true
         description: "Product tier version of the resource to describe. If not specified,\
           \ the latest version is described."
-        example: Magni porro.
+        example: Voluptatem omnis praesentium sunt qui voluptate nihil.
         explode: true
         in: query
         name: ProductTierVersion
@@ -15824,7 +16330,7 @@ paths:
         schema:
           description: "Product tier version of the resource to describe. If not specified,\
             \ the latest version is described."
-          example: Et qui quaerat ea et assumenda.
+          example: Dolorem rerum.
           type: string
         style: form
       - allowEmptyValue: true
@@ -15837,7 +16343,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Non repellendus officia.
+          example: Quam facere quia eaque sunt sed.
           type: string
         style: form
       - description: The ID of the service that this output parameter belongs to
@@ -15848,7 +16354,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Doloremque perferendis esse reiciendis quibusdam libero nihil.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the output parameter
@@ -15859,7 +16365,7 @@ paths:
         required: true
         schema:
           description: ID of an Output Parameter
-          example: Rerum eligendi.
+          example: Praesentium sint veritatis corporis impedit.
           type: string
         style: simple
       responses:
@@ -15934,7 +16440,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Non sit.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the output parameter
@@ -15945,7 +16451,7 @@ paths:
         required: true
         schema:
           description: ID of an Output Parameter
-          example: Quo veritatis eum aperiam doloremque sed.
+          example: Quisquam suscipit aut enim.
           type: string
         style: simple
       requestBody:
@@ -16019,7 +16525,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Asperiores veritatis in maxime autem sed.
+          example: s-123456
           type: string
         style: simple
       requestBody:
@@ -16114,7 +16620,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Rerum totam vero id totam sunt optio.
+          example: s-123456
           type: string
         style: simple
       - description: Product tier ID
@@ -16125,7 +16631,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Doloremque in accusantium quasi ut.
+          example: Beatae omnis dolores eaque.
           type: string
         style: simple
       responses:
@@ -16198,7 +16704,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Cumque tempore numquam temporibus doloremque ut inventore.
+          example: s-123456
           type: string
         style: simple
       - description: Product tier ID
@@ -16209,7 +16715,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Dolor quibusdam dolore ullam molestias quis cum.
+          example: Placeat id voluptas asperiores quia inventore.
           type: string
         style: simple
       responses:
@@ -16319,7 +16825,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Dicta harum.
+          example: s-123456
           type: string
         style: simple
       - description: Product tier ID
@@ -16330,7 +16836,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Deserunt ut et ut illum.
+          example: Aspernatur sint voluptates.
           type: string
         style: simple
       requestBody:
@@ -16414,7 +16920,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Unde sequi omnis quisquam inventore exercitationem ducimus.
+          example: s-123456
           type: string
         style: simple
       - description: Product tier ID
@@ -16425,7 +16931,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Ut expedita temporibus voluptatem.
+          example: Maxime vero nam ducimus.
           type: string
         style: simple
       responses:
@@ -16512,7 +17018,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Possimus autem nihil sit ea porro.
+          example: s-123456
           type: string
         style: simple
       - description: Product tier ID
@@ -16523,7 +17029,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Voluptas voluptas impedit.
+          example: Et illo culpa.
           type: string
         style: simple
       requestBody:
@@ -16614,7 +17120,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Nemo optio possimus omnis.
+          example: s-123456
           type: string
         style: simple
       - description: Product tier ID
@@ -16625,7 +17131,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Et similique quas ad.
+          example: Voluptatem omnis magnam quia voluptatem doloribus.
           type: string
         style: simple
       requestBody:
@@ -16695,7 +17201,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Et dolorum.
+          example: s-123456
           type: string
         style: simple
       - description: Product tier ID
@@ -16706,7 +17212,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Earum illum recusandae mollitia tenetur id ut.
+          example: Cumque non pariatur rerum porro praesentium nesciunt.
           type: string
         style: simple
       requestBody:
@@ -16779,7 +17285,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Sint in eos fuga.
+          example: s-123456
           type: string
         style: simple
       - description: Product tier ID
@@ -16790,7 +17296,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Non autem.
+          example: Suscipit et consequatur et id.
           type: string
         style: simple
       - description: Product tier billing plan ID
@@ -16801,7 +17307,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier Billing Plan
-          example: Hic doloremque.
+          example: Eum ratione hic similique repellendus atque.
           type: string
         style: simple
       responses:
@@ -16862,7 +17368,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Aut sed aliquam veritatis.
+          example: s-123456
           type: string
         style: simple
       - description: Product tier ID
@@ -16873,7 +17379,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Corporis dolorum.
+          example: Voluptatum necessitatibus voluptas sit asperiores.
           type: string
         style: simple
       - description: Product tier billing plan ID
@@ -16884,7 +17390,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier Billing Plan
-          example: Aspernatur illo et quia veritatis.
+          example: Recusandae laborum.
           type: string
         style: simple
       responses:
@@ -16960,7 +17466,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Rem placeat eos est dolorum et ad.
+          example: s-123456
           type: string
         style: simple
       - description: Product tier ID
@@ -16971,7 +17477,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Sapiente esse.
+          example: Explicabo nostrum autem.
           type: string
         style: simple
       - description: Product tier billing plan ID
@@ -16982,7 +17488,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier Billing Plan
-          example: Quia sint.
+          example: Odit non laudantium facere eos.
           type: string
         style: simple
       requestBody:
@@ -17072,7 +17578,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Dicta rerum dicta et.
+          example: s-123456
           type: string
         style: simple
       - description: Product tier ID
@@ -17083,7 +17589,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Quia omnis cupiditate odio quam dolorem sed.
+          example: Asperiores veritatis in maxime autem sed.
           type: string
         style: simple
       responses:
@@ -17211,7 +17717,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Placeat qui molestias quia itaque nulla temporibus.
+          example: s-123456
           type: string
         style: simple
       - description: The source product tier ID
@@ -17222,7 +17728,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Occaecati quia quia culpa.
+          example: Et pariatur praesentium ex qui in.
           type: string
         style: simple
       requestBody:
@@ -17344,7 +17850,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Consequatur recusandae excepturi velit dolore minima qui.
+          example: s-123456
           type: string
         style: simple
       - description: The product tier ID that this version set belongs to.
@@ -17355,7 +17861,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Voluptas vitae quae.
+          example: Ullam iste voluptas.
           type: string
         style: simple
       responses:
@@ -17646,7 +18152,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Dolores illum nesciunt libero autem.
+          example: s-123456
           type: string
         style: simple
       - description: The product tier ID that this version set belongs to.
@@ -17657,7 +18163,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Quia minus cupiditate.
+          example: Est eum animi quos.
           type: string
         style: simple
       requestBody:
@@ -17736,7 +18242,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Nobis rem et pariatur.
+          example: s-123456
           type: string
         style: simple
       - description: The product tier ID that this version set belongs to.
@@ -17747,7 +18253,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Nihil dicta.
+          example: Quia omnis cupiditate odio quam dolorem sed.
           type: string
         style: simple
       - description: The version number for the specific version set.
@@ -17888,7 +18394,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Nostrum voluptatem eveniet officia.
+          example: s-123456
           type: string
         style: simple
       - description: The product tier ID that this version set belongs to.
@@ -17899,7 +18405,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Sit ullam.
+          example: Harum dolorem totam alias possimus perferendis nihil.
           type: string
         style: simple
       - description: The version number for the specific version set.
@@ -18024,7 +18530,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Commodi aut omnis sit facilis debitis temporibus.
+          example: s-123456
           type: string
         style: simple
       - description: The product tier ID that this version set belongs to.
@@ -18035,7 +18541,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Reiciendis quas delectus earum.
+          example: Dignissimos non consectetur odit repellat rerum.
           type: string
         style: simple
       - description: The version number for the version set.
@@ -18222,7 +18728,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Est doloremque ut minus quidem.
+          example: s-123456
           type: string
         style: simple
       - description: The product tier ID that this version set belongs to.
@@ -18233,7 +18739,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Consectetur eum dolor.
+          example: Quisquam non similique.
           type: string
         style: simple
       - description: The version number for the specific version set.
@@ -18362,7 +18868,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Quia delectus sequi maiores veritatis harum animi.
+          example: s-123456
           type: string
         style: simple
       - description: The product tier ID that this version set belongs to.
@@ -18373,7 +18879,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Est et sed similique.
+          example: Dicta rerum dicta et.
           type: string
         style: simple
       - description: The version number for the specific version set.
@@ -18515,7 +19021,7 @@ paths:
       - allowEmptyValue: true
         description: "Product tier version of the instance to describe. If not specified,\
           \ the latest version is described."
-        example: Ex quisquam est sed.
+        example: Consectetur error at quo.
         explode: true
         in: query
         name: ProductTierVersion
@@ -18523,7 +19029,7 @@ paths:
         schema:
           description: "Product tier version of the instance to describe. If not specified,\
             \ the latest version is described."
-          example: Aperiam velit.
+          example: Et necessitatibus maiores ut temporibus dicta quidem.
           type: string
         style: form
       - description: The ID of the service to list resources for
@@ -18534,7 +19040,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Nemo eum expedita qui iure occaecati qui.
+          example: s-123456
           type: string
         style: simple
       - description: The product tier ID
@@ -18545,7 +19051,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Velit velit et.
+          example: Fuga et.
           type: string
         style: simple
       responses:
@@ -19669,7 +20175,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Harum dolorem totam alias possimus perferendis nihil.
+          example: s-123456
           type: string
         style: simple
       requestBody:
@@ -19988,7 +20494,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Excepturi blanditiis non ut accusamus nulla.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -19999,7 +20505,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Unde molestiae cupiditate.
+          example: Odit voluptatem qui enim expedita quam.
           type: string
         style: simple
       responses:
@@ -20054,7 +20560,7 @@ paths:
       - allowEmptyValue: true
         description: "Product tier version of the resource to describe. If not specified,\
           \ the latest version is described."
-        example: Ducimus quia.
+        example: Quaerat harum totam omnis.
         explode: true
         in: query
         name: ProductTierVersion
@@ -20062,7 +20568,7 @@ paths:
         schema:
           description: "Product tier version of the resource to describe. If not specified,\
             \ the latest version is described."
-          example: Nostrum quia qui architecto ea.
+          example: Consequatur vel fugiat eveniet.
           type: string
         style: form
       - allowEmptyValue: true
@@ -20075,7 +20581,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Et eius facilis at et consectetur.
+          example: Fuga amet eos voluptas nemo incidunt quasi.
           type: string
         style: form
       - description: The service ID that this API bundle belongs to
@@ -20086,7 +20592,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Quis velit vel aut fuga fugiat saepe.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -20097,7 +20603,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Ut neque similique maiores.
+          example: Nihil quam autem dolore ut vel quia.
           type: string
         style: simple
       responses:
@@ -20410,7 +20916,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Et quod libero impedit aspernatur possimus.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -20421,7 +20927,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Velit nihil ut pariatur non aut.
+          example: Nemo optio possimus omnis.
           type: string
         style: simple
       requestBody:
@@ -20687,7 +21193,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Quos error quo ad sed.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource to which the hook belongs
@@ -20698,7 +21204,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Molestiae fugit repudiandae.
+          example: Voluptas ipsa earum similique expedita non.
           type: string
         style: simple
       requestBody:
@@ -20768,7 +21274,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Libero rerum similique in hic dolore.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource to which the hook belongs
@@ -20779,7 +21285,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Quo unde tempora accusantium aut aliquid consequatur.
+          example: Placeat maxime asperiores molestias error.
           type: string
         style: simple
       responses:
@@ -20854,7 +21360,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Dolorem ut alias omnis voluptatem.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource to which the hook belongs
@@ -20865,7 +21371,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Et quia hic ut.
+          example: Ut expedita temporibus voluptatem.
           type: string
         style: simple
       requestBody:
@@ -20937,7 +21443,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Non non beatae eos omnis.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -20948,7 +21454,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: In ut id ut soluta.
+          example: Occaecati quia quia culpa.
           type: string
         style: simple
       requestBody:
@@ -21012,7 +21518,7 @@ paths:
       - allowEmptyValue: true
         description: "Product tier version of the instance to describe. If not specified,\
           \ the latest version is described."
-        example: Eum totam quam a.
+        example: Deserunt ut et ut illum.
         explode: true
         in: query
         name: ProductTierVersion
@@ -21020,7 +21526,7 @@ paths:
         schema:
           description: "Product tier version of the instance to describe. If not specified,\
             \ the latest version is described."
-          example: Commodi sunt accusantium et voluptatum dolore.
+          example: Dicta harum.
           type: string
         style: form
       - allowEmptyValue: true
@@ -21033,7 +21539,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Unde accusamus est deserunt soluta.
+          example: Et dolorum.
           type: string
         style: form
       - description: The service ID that this API bundle belongs to
@@ -21044,7 +21550,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Veniam incidunt molestiae suscipit nostrum.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -21055,7 +21561,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Dolor minima necessitatibus iste.
+          example: Earum illum recusandae mollitia tenetur id ut.
           type: string
         style: simple
       responses:
@@ -21142,7 +21648,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Dignissimos non consectetur odit repellat rerum.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -21153,7 +21659,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Perferendis soluta qui alias ipsa quia.
+          example: Placeat qui molestias quia itaque nulla temporibus.
           type: string
         style: simple
       requestBody:
@@ -21231,7 +21737,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Sed aut corrupti commodi.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -21242,7 +21748,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Iste vero quo reiciendis blanditiis.
+          example: Beatae voluptas.
           type: string
         style: simple
       responses:
@@ -21315,7 +21821,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Quae officia repellendus dolores expedita nostrum ut.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -21326,7 +21832,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Dolores voluptas.
+          example: Ut delectus et ut.
           type: string
         style: simple
       responses:
@@ -21387,7 +21893,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Voluptatem omnis praesentium sunt qui voluptate nihil.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -21398,7 +21904,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Quam facere quia eaque sunt sed.
+          example: Cumque tempore numquam temporibus doloremque ut inventore.
           type: string
         style: simple
       requestBody:
@@ -21469,7 +21975,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Quisquam suscipit aut enim.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -21480,7 +21986,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Dolorem rerum.
+          example: Et similique quas ad.
           type: string
         style: simple
       requestBody:
@@ -21553,7 +22059,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Repellendus ea iure pariatur.
+          example: Voluptas voluptas impedit.
           type: string
         style: form
       - allowEmptyValue: true
@@ -21578,7 +22084,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Recusandae tempore enim.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -21589,7 +22095,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Culpa magnam voluptas ducimus omnis expedita fuga.
+          example: Rem placeat eos est dolorum et ad.
           type: string
         style: simple
       responses:
@@ -21687,7 +22193,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Praesentium sint veritatis corporis impedit.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -21698,7 +22204,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Error ut et quas.
+          example: Dolor quibusdam dolore ullam molestias quis cum.
           type: string
         style: simple
       - description: "Content-Type header, must define value for multipart boundary."
@@ -21762,7 +22268,7 @@ paths:
         "200":
           content:
             application/json:
-              example: Nemo aut et perferendis.
+              example: Libero architecto odit id.
               schema:
                 example: Et quia omnis facilis.
                 type: string
@@ -21809,7 +22315,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Eos amet neque aperiam.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -21820,7 +22326,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Velit repellendus modi ut quasi ut.
+          example: Corporis dolorum.
           type: string
         style: simple
       - description: The ID of the file
@@ -21831,7 +22337,7 @@ paths:
         required: true
         schema:
           description: ID of a File
-          example: Quasi vel.
+          example: Aspernatur illo et quia veritatis.
           type: string
         style: simple
       responses:
@@ -21892,7 +22398,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Non in et.
+          example: Sapiente esse.
           type: string
         style: form
       - allowEmptyValue: true
@@ -21917,7 +22423,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Voluptate velit cupiditate laboriosam hic voluptates.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -21928,7 +22434,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Saepe mollitia aut.
+          example: Quia sint.
           type: string
         style: simple
       - description: The ID of the file
@@ -21939,7 +22445,7 @@ paths:
         required: true
         schema:
           description: ID of a File
-          example: Sit sapiente sed totam minus maxime.
+          example: Aut sed aliquam veritatis.
           type: string
         style: simple
       responses:
@@ -22027,7 +22533,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: In placeat.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -22038,7 +22544,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Vel ut quam ullam fuga sit magni.
+          example: Doloremque in accusantium quasi ut.
           type: string
         style: simple
       - description: The ID of the file
@@ -22049,7 +22555,7 @@ paths:
         required: true
         schema:
           description: ID of a File
-          example: Cum ducimus voluptas neque officia.
+          example: Possimus autem nihil sit ea porro.
           type: string
         style: simple
       - description: "Content-Type header, must define value for multipart boundary."
@@ -22103,7 +22609,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Numquam nulla cumque qui quaerat quia itaque.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -22114,7 +22620,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Earum ut molestiae maxime qui dignissimos dolore.
+          example: Incidunt dolorem non ad animi.
           type: string
         style: simple
       - description: The ID of the file
@@ -22125,7 +22631,7 @@ paths:
         required: true
         schema:
           description: ID of a File
-          example: Excepturi ipsa voluptas porro temporibus.
+          example: Rerum totam vero id totam sunt optio.
           type: string
         style: simple
       requestBody:
@@ -22176,7 +22682,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Quae quis est est.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -22187,7 +22693,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Eum dignissimos natus quo sit qui qui.
+          example: Quaerat sint saepe quo natus quo similique.
           type: string
         style: simple
       responses:
@@ -22242,7 +22748,7 @@ paths:
       - allowEmptyValue: true
         description: "Product tier version of the resource to describe. If not specified,\
           \ the latest version is described."
-        example: Ea quia error fugiat.
+        example: Et quo enim.
         explode: true
         in: query
         name: ProductTierVersion
@@ -22250,7 +22756,7 @@ paths:
         schema:
           description: "Product tier version of the resource to describe. If not specified,\
             \ the latest version is described."
-          example: Labore harum fugit.
+          example: Explicabo architecto.
           type: string
         style: form
       - allowEmptyValue: true
@@ -22263,7 +22769,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Corporis rerum velit cupiditate dolorum.
+          example: Itaque laboriosam rem unde.
           type: string
         style: form
       - description: The service ID that this API bundle belongs to
@@ -22274,7 +22780,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Illum itaque distinctio enim rerum veritatis cum.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -22285,7 +22791,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Ut ducimus assumenda.
+          example: Nihil aspernatur nam voluptas aut asperiores.
           type: string
         style: simple
       responses:
@@ -22352,7 +22858,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Non molestiae omnis et dolorum voluptas dolor.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -22363,7 +22869,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Quis corrupti.
+          example: Nam quasi vero non non.
           type: string
         style: simple
       requestBody:
@@ -22432,7 +22938,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Sed sapiente sunt natus.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -22443,7 +22949,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Voluptas numquam qui cum nihil asperiores.
+          example: Hic doloremque.
           type: string
         style: simple
       - description: The ID of the resource dependency to remove
@@ -22454,7 +22960,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Atque magni voluptatem eveniet dolore.
+          example: Unde sequi omnis quisquam inventore exercitationem ducimus.
           type: string
         style: simple
       responses:
@@ -22515,7 +23021,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Dolorem architecto aut numquam incidunt voluptatem ad.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource
@@ -22526,7 +23032,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Hic inventore velit.
+          example: Sint in eos fuga.
           type: string
         style: simple
       - description: The ID of the resource to be added as a dependency
@@ -22537,7 +23043,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Nulla et placeat.
+          example: Non autem.
           type: string
         style: simple
       requestBody:
@@ -22604,7 +23110,7 @@ paths:
       - allowEmptyValue: true
         description: "Product tier version of the instance to describe. If not specified,\
           \ the latest version is described."
-        example: Expedita sit ut sed sit exercitationem impedit.
+        example: Veniam incidunt molestiae suscipit nostrum.
         explode: true
         in: query
         name: ProductTierVersion
@@ -22612,7 +23118,7 @@ paths:
         schema:
           description: "Product tier version of the instance to describe. If not specified,\
             \ the latest version is described."
-          example: Aut necessitatibus quae esse.
+          example: Unde accusamus est deserunt soluta.
           type: string
         style: form
       - allowEmptyValue: true
@@ -22625,7 +23131,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Magnam eum quo numquam nemo quia.
+          example: Dolor minima necessitatibus iste.
           type: string
         style: form
       - description: The ID of the service that this output parameter belongs to
@@ -22636,7 +23142,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Voluptas accusantium.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource that this input parameter belongs to
@@ -22647,7 +23153,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Officia a qui possimus nostrum quod.
+          example: Et quod libero impedit aspernatur possimus.
           type: string
         style: simple
       responses:
@@ -22788,7 +23294,7 @@ paths:
       - allowEmptyValue: true
         description: "Product tier version of the resource to describe. If not specified,\
           \ the latest version is described."
-        example: Inventore iure quis.
+        example: Nemo aut et perferendis.
         explode: true
         in: query
         name: ProductTierVersion
@@ -22796,7 +23302,7 @@ paths:
         schema:
           description: "Product tier version of the resource to describe. If not specified,\
             \ the latest version is described."
-          example: Molestiae maxime aut.
+          example: Error ut et quas.
           type: string
         style: form
       - allowEmptyValue: true
@@ -22809,7 +23315,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Provident nam voluptatibus quis eveniet.
+          example: Numquam nulla cumque qui quaerat quia itaque.
           type: string
         style: form
       - description: The ID of the service that this output parameter belongs to
@@ -22820,7 +23326,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Facere fugiat omnis.
+          example: s-123456
           type: string
         style: simple
       - description: The ID of the resource that this output parameter belongs to
@@ -22831,7 +23337,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Aut sunt at rem est ullam.
+          example: Earum ut molestiae maxime qui dignissimos dolore.
           type: string
         style: simple
       responses:
@@ -22937,7 +23443,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Voluptas ipsa earum similique expedita non.
+          example: s-123456
           type: string
         style: simple
       requestBody:
@@ -23019,7 +23525,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Ut delectus et ut.
+          example: s-123456
           type: string
         style: simple
       - description: The service API ID
@@ -23030,7 +23536,7 @@ paths:
         required: true
         schema:
           description: ID of a Service API
-          example: Est eum animi quos.
+          example: Perspiciatis est quisquam quisquam optio voluptatum odio.
           type: string
         style: simple
       responses:
@@ -23091,7 +23597,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Consectetur error at quo.
+          example: s-123456
           type: string
         style: simple
       - description: The service API ID
@@ -23102,7 +23608,7 @@ paths:
         required: true
         schema:
           description: ID of a Service API
-          example: Fuga et.
+          example: Rem et cupiditate laborum nisi.
           type: string
         style: simple
       responses:
@@ -23176,7 +23682,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Nam quasi vero non non.
+          example: s-123456
           type: string
         style: simple
       - description: The service API ID
@@ -23187,7 +23693,7 @@ paths:
         required: true
         schema:
           description: ID of a Service API
-          example: Quaerat sint saepe quo natus quo similique.
+          example: Et ea odio aliquam qui voluptas dolor.
           type: string
         style: simple
       requestBody:
@@ -23260,7 +23766,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Nihil aspernatur nam voluptas aut asperiores.
+          example: Tempora tenetur nam quo voluptatem.
           type: string
         style: form
       - description: The service ID that this API bundle belongs to
@@ -23271,7 +23777,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Placeat maxime asperiores molestias error.
+          example: s-123456
           type: string
         style: simple
       - description: The service API ID
@@ -23282,7 +23788,7 @@ paths:
         required: true
         schema:
           description: ID of a Service API
-          example: Consequatur vel fugiat eveniet.
+          example: Saepe rerum voluptatem unde accusantium possimus.
           type: string
         style: simple
       responses:
@@ -23345,7 +23851,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Explicabo architecto.
+          example: Eveniet eligendi non a.
           type: string
         style: form
       - description: The service ID that this API bundle belongs to
@@ -23356,7 +23862,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Et quo enim.
+          example: s-123456
           type: string
         style: simple
       - description: The service API ID
@@ -23367,7 +23873,7 @@ paths:
         required: true
         schema:
           description: ID of a Service API
-          example: Itaque laboriosam rem unde.
+          example: Est quia tempore voluptas modi in qui.
           type: string
         style: simple
       responses:
@@ -23531,7 +24037,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Nihil quam autem dolore ut vel quia.
+          example: s-123456
           type: string
         style: simple
       - description: The service API ID
@@ -23542,7 +24048,7 @@ paths:
         required: true
         schema:
           description: ID of a Service API
-          example: Et necessitatibus maiores ut temporibus dicta quidem.
+          example: In ullam et et exercitationem.
           type: string
         style: simple
       responses:
@@ -23604,7 +24110,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Quaerat harum totam omnis.
+          example: s-123456
           type: string
         style: simple
       - description: The service API ID
@@ -23615,7 +24121,7 @@ paths:
         required: true
         schema:
           description: ID of a Service API
-          example: Fuga amet eos voluptas nemo incidunt quasi.
+          example: Quae dolor.
           type: string
         style: simple
       requestBody:
@@ -23688,7 +24194,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Ullam et.
+          example: s-123456
           type: string
         style: simple
       - description: The service API ID
@@ -23699,7 +24205,7 @@ paths:
         required: true
         schema:
           description: ID of a Service API
-          example: Exercitationem et rem et cupiditate.
+          example: Qui ipsam placeat deserunt natus.
           type: string
         style: simple
       responses:
@@ -23769,7 +24275,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Inventore temporibus perferendis occaecati expedita.
+          example: s-123456
           type: string
         style: simple
       - description: The service environment ID
@@ -23780,7 +24286,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Environment
-          example: Atque cupiditate quibusdam saepe a tempora.
+          example: se-123456
           type: string
         style: simple
       responses:
@@ -23862,7 +24368,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Impedit soluta ab itaque nemo et.
+          example: s-123456
           type: string
         style: simple
       - description: The service environment ID
@@ -23873,7 +24379,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Environment
-          example: Adipisci dolor.
+          example: se-123456
           type: string
         style: simple
       responses:
@@ -23944,7 +24450,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Beatae voluptas.
+          example: s-123456
           type: string
         style: simple
       - description: The service environment ID
@@ -23955,7 +24461,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Environment
-          example: Odit voluptatem qui enim expedita quam.
+          example: se-123456
           type: string
         style: simple
       responses:
@@ -24036,7 +24542,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Minus qui.
+          example: s-123456
           type: string
         style: simple
       responses:
@@ -24104,7 +24610,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Quis excepturi alias et perspiciatis nostrum adipisci.
+          example: s-123456
           type: string
         style: simple
       requestBody:
@@ -24185,7 +24691,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Placeat exercitationem sunt incidunt minus at et.
+          example: s-123456
           type: string
         style: simple
       - description: The storage config ID
@@ -24196,7 +24702,7 @@ paths:
         required: true
         schema:
           description: ID of a Storage Config
-          example: Aut qui asperiores impedit.
+          example: Iste vero quo reiciendis blanditiis.
           type: string
         style: simple
       responses:
@@ -24252,7 +24758,7 @@ paths:
       - allowEmptyValue: true
         description: "Product tier version of the storage config to describe. If not\
           \ specified, the latest version is described."
-        example: Dolorem commodi.
+        example: Nemo eum expedita qui iure occaecati qui.
         explode: true
         in: query
         name: ProductTierVersion
@@ -24260,7 +24766,7 @@ paths:
         schema:
           description: "Product tier version of the storage config to describe. If\
             \ not specified, the latest version is described."
-          example: Asperiores asperiores nam saepe iste.
+          example: Ex quisquam est sed.
           type: string
         style: form
       - allowEmptyValue: true
@@ -24273,7 +24779,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Cum eum ut vero assumenda expedita.
+          example: Velit velit et.
           type: string
         style: form
       - description: The service ID
@@ -24284,7 +24790,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Recusandae laudantium accusantium voluptas reiciendis sit deleniti.
+          example: s-123456
           type: string
         style: simple
       - description: The storage config ID
@@ -24295,7 +24801,7 @@ paths:
         required: true
         schema:
           description: ID of a Storage Config
-          example: Ut totam dolorem.
+          example: Sed aut corrupti commodi.
           type: string
         style: simple
       responses:
@@ -24374,7 +24880,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Perferendis dolores quae ipsum cum assumenda.
+          example: s-123456
           type: string
         style: simple
       - description: The storage config ID
@@ -24385,7 +24891,7 @@ paths:
         required: true
         schema:
           description: ID of a Storage Config
-          example: Laboriosam commodi.
+          example: Ducimus quia.
           type: string
         style: simple
       requestBody:
@@ -24456,7 +24962,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Nemo natus ipsum dolore aut.
+          example: s-123456
           type: string
         style: simple
       - description: The storage config ID
@@ -24467,7 +24973,7 @@ paths:
         required: true
         schema:
           description: ID of a Storage Config
-          example: Qui aut cum.
+          example: Ut neque similique maiores.
           type: string
         style: simple
       - description: The storage volume config ID
@@ -24478,7 +24984,7 @@ paths:
         required: true
         schema:
           description: ID of a Storage Volume Config
-          example: Impedit expedita ut et magnam.
+          example: Aperiam velit.
           type: string
         style: simple
       requestBody:
@@ -24547,7 +25053,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Sed dolore id officia animi ut.
+          example: s-123456
           type: string
         style: simple
       - description: The storage config ID
@@ -24558,7 +25064,7 @@ paths:
         required: true
         schema:
           description: ID of a Storage Config
-          example: Vel facilis molestiae pariatur.
+          example: Et eius facilis at et consectetur.
           type: string
         style: simple
       - description: The storage volume config ID
@@ -24569,7 +25075,7 @@ paths:
         required: true
         schema:
           description: ID of a Storage Volume Config
-          example: Eaque omnis.
+          example: Quis velit vel aut fuga fugiat saepe.
           type: string
         style: simple
       requestBody:
@@ -24651,7 +25157,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Esse perspiciatis sit.
+          example: s-123456
           type: string
         style: simple
       responses:
@@ -24720,7 +25226,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Itaque natus voluptas qui ut.
+          example: s-123456
           type: string
         style: simple
       requestBody:
@@ -24808,7 +25314,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Quo nesciunt.
+          example: s-123456
           type: string
         style: simple
       - description: The storage volume config ID
@@ -24819,7 +25325,7 @@ paths:
         required: true
         schema:
           description: ID of a Storage Volume Config
-          example: Maxime aut provident est necessitatibus.
+          example: Est et sed similique.
           type: string
         style: simple
       responses:
@@ -24875,7 +25381,7 @@ paths:
       - allowEmptyValue: true
         description: "Product tier version of the network config to describe. If not\
           \ specified, the latest version is described."
-        example: Ducimus voluptatem iusto velit.
+        example: Dolores illum nesciunt libero autem.
         explode: true
         in: query
         name: ProductTierVersion
@@ -24883,7 +25389,7 @@ paths:
         schema:
           description: "Product tier version of the network config to describe. If\
             \ not specified, the latest version is described."
-          example: Sint ea.
+          example: Dolores voluptas.
           type: string
         style: form
       - allowEmptyValue: true
@@ -24896,7 +25402,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Hic quia non ad est.
+          example: Quia minus cupiditate.
           type: string
         style: form
       - description: The service ID
@@ -24907,7 +25413,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Aliquam adipisci voluptatem vero molestiae doloribus omnis.
+          example: s-123456
           type: string
         style: simple
       - description: The storage volume config ID
@@ -24918,7 +25424,7 @@ paths:
         required: true
         schema:
           description: ID of a Storage Volume Config
-          example: Quia inventore non quis est.
+          example: Quia delectus sequi maiores veritatis harum animi.
           type: string
         style: simple
       responses:
@@ -24996,7 +25502,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Beatae totam.
+          example: s-123456
           type: string
         style: simple
       - description: The storage volume config ID
@@ -25007,7 +25513,7 @@ paths:
         required: true
         schema:
           description: ID of a Storage Volume Config
-          example: Est similique distinctio voluptatum beatae iste.
+          example: Excepturi blanditiis non ut accusamus nulla.
           type: string
         style: simple
       requestBody:
@@ -25079,7 +25585,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Facilis deleniti distinctio hic sit.
+          example: s-123456
           type: string
         style: simple
       - description: The storage volume config ID
@@ -25090,7 +25596,7 @@ paths:
         required: true
         schema:
           description: ID of a Storage Volume Config
-          example: Nisi qui qui ex.
+          example: Quae officia repellendus dolores expedita nostrum ut.
           type: string
         style: simple
       requestBody:
@@ -25162,7 +25668,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Et aliquam.
+          example: s-123456
           type: string
         style: simple
       - description: The storage volume config ID
@@ -25173,7 +25679,7 @@ paths:
         required: true
         schema:
           description: ID of a Storage Volume Config
-          example: Voluptas inventore eos ut molestiae.
+          example: Unde molestiae cupiditate.
           type: string
         style: simple
       requestBody:
@@ -25243,7 +25749,7 @@ paths:
         required: true
         schema:
           description: ID of a Service
-          example: Ea perferendis voluptatem labore sunt.
+          example: s-123456
           type: string
         style: simple
       - description: VUnit to operate on
@@ -25254,7 +25760,7 @@ paths:
         required: true
         schema:
           description: ID of a VUnit
-          example: Non veritatis veniam aut omnis iure.
+          example: In placeat.
           type: string
         style: simple
       responses:
@@ -25551,570 +26057,6 @@ paths:
       summary: BuildServiceFromServicePlanSpec service-api
       tags:
       - service-api
-  /2022-09-01-00/services-orchestration:
-    get:
-      operationId: services-orchestration-api#ListServicesOrchestrations
-      responses:
-        "200":
-          content:
-            application/json:
-              example:
-              - ServicesTopology:
-                - dependsOnDeployment:
-                  - instanceDeploymentAlias1
-                  - instanceDeploymentAlias2
-                  instanceDeploymentAlias: instanceDeploymentAlias
-                  instanceId: i-12345678
-                  serviceId: s-12345678
-                  subscriptionId: Odio totam.
-                - dependsOnDeployment:
-                  - instanceDeploymentAlias1
-                  - instanceDeploymentAlias2
-                  instanceDeploymentAlias: instanceDeploymentAlias
-                  instanceId: i-12345678
-                  serviceId: s-12345678
-                  subscriptionId: Odio totam.
-                - dependsOnDeployment:
-                  - instanceDeploymentAlias1
-                  - instanceDeploymentAlias2
-                  instanceDeploymentAlias: instanceDeploymentAlias
-                  instanceId: i-12345678
-                  serviceId: s-12345678
-                  subscriptionId: Odio totam.
-                createdAt: 2021-01-01T00:00:00Z
-                id: so-12345678
-                orchestrationFailedReason: Invalid DSL
-                result_params:
-                  param1: value1
-                  param2: value2
-                status: PENDING
-                updatedAt: 2021-01-01T00:00:00Z
-              - ServicesTopology:
-                - dependsOnDeployment:
-                  - instanceDeploymentAlias1
-                  - instanceDeploymentAlias2
-                  instanceDeploymentAlias: instanceDeploymentAlias
-                  instanceId: i-12345678
-                  serviceId: s-12345678
-                  subscriptionId: Odio totam.
-                - dependsOnDeployment:
-                  - instanceDeploymentAlias1
-                  - instanceDeploymentAlias2
-                  instanceDeploymentAlias: instanceDeploymentAlias
-                  instanceId: i-12345678
-                  serviceId: s-12345678
-                  subscriptionId: Odio totam.
-                - dependsOnDeployment:
-                  - instanceDeploymentAlias1
-                  - instanceDeploymentAlias2
-                  instanceDeploymentAlias: instanceDeploymentAlias
-                  instanceId: i-12345678
-                  serviceId: s-12345678
-                  subscriptionId: Odio totam.
-                createdAt: 2021-01-01T00:00:00Z
-                id: so-12345678
-                orchestrationFailedReason: Invalid DSL
-                result_params:
-                  param1: value1
-                  param2: value2
-                status: PENDING
-                updatedAt: 2021-01-01T00:00:00Z
-              - ServicesTopology:
-                - dependsOnDeployment:
-                  - instanceDeploymentAlias1
-                  - instanceDeploymentAlias2
-                  instanceDeploymentAlias: instanceDeploymentAlias
-                  instanceId: i-12345678
-                  serviceId: s-12345678
-                  subscriptionId: Odio totam.
-                - dependsOnDeployment:
-                  - instanceDeploymentAlias1
-                  - instanceDeploymentAlias2
-                  instanceDeploymentAlias: instanceDeploymentAlias
-                  instanceId: i-12345678
-                  serviceId: s-12345678
-                  subscriptionId: Odio totam.
-                - dependsOnDeployment:
-                  - instanceDeploymentAlias1
-                  - instanceDeploymentAlias2
-                  instanceDeploymentAlias: instanceDeploymentAlias
-                  instanceId: i-12345678
-                  serviceId: s-12345678
-                  subscriptionId: Odio totam.
-                createdAt: 2021-01-01T00:00:00Z
-                id: so-12345678
-                orchestrationFailedReason: Invalid DSL
-                result_params:
-                  param1: value1
-                  param2: value2
-                status: PENDING
-                updatedAt: 2021-01-01T00:00:00Z
-              - ServicesTopology:
-                - dependsOnDeployment:
-                  - instanceDeploymentAlias1
-                  - instanceDeploymentAlias2
-                  instanceDeploymentAlias: instanceDeploymentAlias
-                  instanceId: i-12345678
-                  serviceId: s-12345678
-                  subscriptionId: Odio totam.
-                - dependsOnDeployment:
-                  - instanceDeploymentAlias1
-                  - instanceDeploymentAlias2
-                  instanceDeploymentAlias: instanceDeploymentAlias
-                  instanceId: i-12345678
-                  serviceId: s-12345678
-                  subscriptionId: Odio totam.
-                - dependsOnDeployment:
-                  - instanceDeploymentAlias1
-                  - instanceDeploymentAlias2
-                  instanceDeploymentAlias: instanceDeploymentAlias
-                  instanceId: i-12345678
-                  serviceId: s-12345678
-                  subscriptionId: Odio totam.
-                createdAt: 2021-01-01T00:00:00Z
-                id: so-12345678
-                orchestrationFailedReason: Invalid DSL
-                result_params:
-                  param1: value1
-                  param2: value2
-                status: PENDING
-                updatedAt: 2021-01-01T00:00:00Z
-              schema:
-                example:
-                - ServicesTopology:
-                  - dependsOnDeployment:
-                    - instanceDeploymentAlias1
-                    - instanceDeploymentAlias2
-                    instanceDeploymentAlias: instanceDeploymentAlias
-                    instanceId: i-12345678
-                    serviceId: s-12345678
-                    subscriptionId: Odio totam.
-                  - dependsOnDeployment:
-                    - instanceDeploymentAlias1
-                    - instanceDeploymentAlias2
-                    instanceDeploymentAlias: instanceDeploymentAlias
-                    instanceId: i-12345678
-                    serviceId: s-12345678
-                    subscriptionId: Odio totam.
-                  - dependsOnDeployment:
-                    - instanceDeploymentAlias1
-                    - instanceDeploymentAlias2
-                    instanceDeploymentAlias: instanceDeploymentAlias
-                    instanceId: i-12345678
-                    serviceId: s-12345678
-                    subscriptionId: Odio totam.
-                  createdAt: 2021-01-01T00:00:00Z
-                  id: so-12345678
-                  orchestrationFailedReason: Invalid DSL
-                  result_params:
-                    param1: value1
-                    param2: value2
-                  status: PENDING
-                  updatedAt: 2021-01-01T00:00:00Z
-                - ServicesTopology:
-                  - dependsOnDeployment:
-                    - instanceDeploymentAlias1
-                    - instanceDeploymentAlias2
-                    instanceDeploymentAlias: instanceDeploymentAlias
-                    instanceId: i-12345678
-                    serviceId: s-12345678
-                    subscriptionId: Odio totam.
-                  - dependsOnDeployment:
-                    - instanceDeploymentAlias1
-                    - instanceDeploymentAlias2
-                    instanceDeploymentAlias: instanceDeploymentAlias
-                    instanceId: i-12345678
-                    serviceId: s-12345678
-                    subscriptionId: Odio totam.
-                  - dependsOnDeployment:
-                    - instanceDeploymentAlias1
-                    - instanceDeploymentAlias2
-                    instanceDeploymentAlias: instanceDeploymentAlias
-                    instanceId: i-12345678
-                    serviceId: s-12345678
-                    subscriptionId: Odio totam.
-                  createdAt: 2021-01-01T00:00:00Z
-                  id: so-12345678
-                  orchestrationFailedReason: Invalid DSL
-                  result_params:
-                    param1: value1
-                    param2: value2
-                  status: PENDING
-                  updatedAt: 2021-01-01T00:00:00Z
-                - ServicesTopology:
-                  - dependsOnDeployment:
-                    - instanceDeploymentAlias1
-                    - instanceDeploymentAlias2
-                    instanceDeploymentAlias: instanceDeploymentAlias
-                    instanceId: i-12345678
-                    serviceId: s-12345678
-                    subscriptionId: Odio totam.
-                  - dependsOnDeployment:
-                    - instanceDeploymentAlias1
-                    - instanceDeploymentAlias2
-                    instanceDeploymentAlias: instanceDeploymentAlias
-                    instanceId: i-12345678
-                    serviceId: s-12345678
-                    subscriptionId: Odio totam.
-                  - dependsOnDeployment:
-                    - instanceDeploymentAlias1
-                    - instanceDeploymentAlias2
-                    instanceDeploymentAlias: instanceDeploymentAlias
-                    instanceId: i-12345678
-                    serviceId: s-12345678
-                    subscriptionId: Odio totam.
-                  createdAt: 2021-01-01T00:00:00Z
-                  id: so-12345678
-                  orchestrationFailedReason: Invalid DSL
-                  result_params:
-                    param1: value1
-                    param2: value2
-                  status: PENDING
-                  updatedAt: 2021-01-01T00:00:00Z
-                items:
-                  $ref: '#/components/schemas/DescribeServicesOrchestrationResult'
-                type: array
-          description: OK response.
-        "400":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "bad_request: Response used on a bad request"
-        "401":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "auth_failure: Response used on authentication failure"
-        "403":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "forbidden: Response used on authorization failure"
-        "404":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "not_found: Response used when the requested resource is not\
-            \ found"
-        "409":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "invalid_state: Response used when requested resource is in\
-            \ an invalid state for this operation"
-        "500":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "failed_request: Response used on failure to list resource\
-            \ instances"
-      security:
-      - api_key_header_Authorization: []
-      summary: ListServicesOrchestrations services-orchestration-api
-      tags:
-      - services-orchestration-api
-    post:
-      operationId: services-orchestration-api#CreateServicesOrchestration
-      requestBody:
-        content:
-          application/json:
-            example:
-              orchestrationCreateDSL: Sed est alias.
-            schema:
-              $ref: '#/components/schemas/CreateServicesOrchestrationRequestBody'
-        required: true
-      responses:
-        "202":
-          content:
-            application/json:
-              example:
-                id: Ducimus ut consectetur.
-              schema:
-                $ref: '#/components/schemas/CreateServicesOrchestrationResponseBody'
-          description: Accepted response.
-        "400":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "bad_request: Response used on a bad request"
-        "401":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "auth_failure: Response used on authentication failure"
-        "403":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "forbidden: Response used on authorization failure"
-        "404":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "not_found: Response used when the requested resource is not\
-            \ found"
-        "409":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "invalid_state: Response used when requested resource is in\
-            \ an invalid state for this operation"
-        "500":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "failed_request: Response used on failure to create a resource\
-            \ instance"
-      security:
-      - api_key_header_Authorization: []
-      summary: CreateServicesOrchestration services-orchestration-api
-      tags:
-      - services-orchestration-api
-  /2022-09-01-00/services-orchestration/{id}:
-    delete:
-      operationId: services-orchestration-api#DeleteServicesOrchestration
-      parameters:
-      - description: The ID of the services orchestration
-        example: so-12345678
-        explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          description: ID of a Services Orchestration
-          example: Sunt ut maxime vel.
-          type: string
-        style: simple
-      responses:
-        "202":
-          description: Accepted response.
-        "400":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "bad_request: Response used on a bad request"
-        "401":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "auth_failure: Response used on authentication failure"
-        "403":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "forbidden: Response used on authorization failure"
-        "404":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "not_found: Response used when the requested resource is not\
-            \ found"
-        "409":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "invalid_state: Response used when requested resource is in\
-            \ an invalid state for this operation"
-        "500":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "failed_request: Response used on failure to delete a resource\
-            \ instance"
-      security:
-      - api_key_header_Authorization: []
-      summary: DeleteServicesOrchestration services-orchestration-api
-      tags:
-      - services-orchestration-api
-    get:
-      operationId: services-orchestration-api#DescribeServicesOrchestration
-      parameters:
-      - description: The ID of the services orchestration
-        example: so-12345678
-        explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          description: ID of a Services Orchestration
-          example: Eaque dignissimos deleniti tempora.
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              example:
-                ServicesTopology:
-                - dependsOnDeployment:
-                  - instanceDeploymentAlias1
-                  - instanceDeploymentAlias2
-                  instanceDeploymentAlias: instanceDeploymentAlias
-                  instanceId: i-12345678
-                  serviceId: s-12345678
-                  subscriptionId: Dicta iste aperiam maxime incidunt sunt.
-                - dependsOnDeployment:
-                  - instanceDeploymentAlias1
-                  - instanceDeploymentAlias2
-                  instanceDeploymentAlias: instanceDeploymentAlias
-                  instanceId: i-12345678
-                  serviceId: s-12345678
-                  subscriptionId: Dicta iste aperiam maxime incidunt sunt.
-                - dependsOnDeployment:
-                  - instanceDeploymentAlias1
-                  - instanceDeploymentAlias2
-                  instanceDeploymentAlias: instanceDeploymentAlias
-                  instanceId: i-12345678
-                  serviceId: s-12345678
-                  subscriptionId: Dicta iste aperiam maxime incidunt sunt.
-                createdAt: 2021-01-01T00:00:00Z
-                id: so-12345678
-                orchestrationFailedReason: Invalid DSL
-                result_params:
-                  param1: value1
-                  param2: value2
-                status: PENDING
-                updatedAt: 2021-01-01T00:00:00Z
-              schema:
-                $ref: '#/components/schemas/DescribeServicesOrchestrationResult'
-          description: OK response.
-        "400":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "bad_request: Response used on a bad request"
-        "401":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "auth_failure: Response used on authentication failure"
-        "403":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "forbidden: Response used on authorization failure"
-        "404":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "not_found: Response used when the requested resource is not\
-            \ found"
-        "409":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "invalid_state: Response used when requested resource is in\
-            \ an invalid state for this operation"
-        "500":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "failed_request: Response used on failure to describe a resource\
-            \ instance"
-      security:
-      - api_key_header_Authorization: []
-      summary: DescribeServicesOrchestration services-orchestration-api
-      tags:
-      - services-orchestration-api
-    patch:
-      operationId: services-orchestration-api#ModifyServicesOrchestration
-      parameters:
-      - description: The ID of the services orchestration
-        example: so-12345678
-        explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          description: ID of a Services Orchestration
-          example: Illum inventore.
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            example:
-              orchestrationModifyDSL: Qui temporibus enim.
-            schema:
-              $ref: '#/components/schemas/ModifyServicesOrchestrationRequestBody'
-        required: true
-      responses:
-        "202":
-          content:
-            application/json:
-              example:
-                id: Accusamus repellat eum consequatur quas debitis.
-              schema:
-                $ref: '#/components/schemas/CreateServicesOrchestrationResponseBody'
-          description: Accepted response.
-        "400":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "bad_request: Response used on a bad request"
-        "401":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "auth_failure: Response used on authentication failure"
-        "403":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "forbidden: Response used on authorization failure"
-        "404":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "not_found: Response used when the requested resource is not\
-            \ found"
-        "409":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "invalid_state: Response used when requested resource is in\
-            \ an invalid state for this operation"
-        "500":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "failed_request: Response used on failure to update a resource\
-            \ instance"
-      security:
-      - api_key_header_Authorization: []
-      summary: ModifyServicesOrchestration services-orchestration-api
-      tags:
-      - services-orchestration-api
   /2022-09-01-00/signin:
     post:
       operationId: signin-api#Signin
@@ -26251,7 +26193,7 @@ paths:
         required: false
         schema:
           description: ID of a Service
-          example: Dolore enim maiores dolorem.
+          example: s-123456
           type: string
         style: form
       - allowEmptyValue: true
@@ -26438,7 +26380,7 @@ paths:
         required: true
         schema:
           description: ID of a Subscription
-          example: Consequatur nihil nostrum rerum doloremque.
+          example: Assumenda delectus explicabo tempore est qui laborum.
           type: string
         style: simple
       responses:
@@ -26498,7 +26440,7 @@ paths:
         required: true
         schema:
           description: ID of a Subscription
-          example: Quia sit quaerat porro et.
+          example: Deserunt quia praesentium perspiciatis.
           type: string
         style: simple
       responses:
@@ -26752,7 +26694,7 @@ paths:
         required: true
         schema:
           description: ID of a Subscription Request
-          example: Rerum ex.
+          example: Sed incidunt est aut aliquid.
           type: string
         style: simple
       responses:
@@ -26812,7 +26754,7 @@ paths:
         required: true
         schema:
           description: ID of a Subscription Request
-          example: Enim sunt.
+          example: Dolorum soluta quis non dolorum et.
           type: string
         style: simple
       responses:
@@ -34086,7 +34028,11 @@ components:
       example:
         ConnectivityStatus: HEALTHY
         DiskHealth: HEALTHY
-        LoadHealth: POD_NORMAL
+        IntegrationsHealth:
+          CustomerObservabilityHealth: HEALTHY
+          InternalObservabilityHealth: HEALTHY
+        LoadHealth: LOAD_NORMAL
+        LoadStatus: LOAD_NORMAL
         NodeHealth: HEALTHY
         ProcessHealth: HEALTHY
         ProcessLiveness: HEALTHY
@@ -34099,9 +34045,15 @@ components:
           description: The health status of the disk
           example: HEALTHY
           type: string
+        IntegrationsHealth:
+          $ref: '#/components/schemas/IntegrationsHealth'
         LoadHealth:
+          description: (deprecated) The load status of the pod
+          example: LOAD_NORMAL
+          type: string
+        LoadStatus:
           description: The load status of the pod
-          example: POD_NORMAL
+          example: LOAD_NORMAL
           type: string
         NodeHealth:
           description: The health status of the machine hosting the service
@@ -35382,6 +35334,22 @@ components:
       - progress
       - snapshotId
       - status
+      type: object
+    IntegrationsHealth:
+      example:
+        CustomerObservabilityHealth: HEALTHY
+        InternalObservabilityHealth: HEALTHY
+      properties:
+        CustomerObservabilityHealth:
+          description: The health status of the integration with customer provider
+            observability stack on BYOA
+          example: HEALTHY
+          type: string
+        InternalObservabilityHealth:
+          description: The health status of the integration with service provider
+            observability stack
+          example: HEALTHY
+          type: string
       type: object
     InviteUserRequestBody:
       example:
@@ -40774,10 +40742,16 @@ components:
       type: object
     LoadBalancerPathConfiguration:
       example:
+        associatedKubernetesServiceName: my-service
         associatedResourceID: r-12345678
         path: /path
         port: 8080
       properties:
+        associatedKubernetesServiceName:
+          description: Override the default target Kubernetes service name with this
+            value
+          example: my-service
+          type: string
         associatedResourceID:
           description: The ID of the resource associated with the path
           example: r-12345678
@@ -40869,7 +40843,7 @@ components:
         detailedHealth:
           ConnectivityStatus: UNHEALTHY
           DiskHealth: UNKNOWN
-          LoadHealth: POD_NORMAL
+          LoadStatus: LOAD_NORMAL
           NodeHealth: HEALTHY
           ProcessHealth: HEALTHY
           ProcessLiveness: HEALTHY
@@ -41643,7 +41617,7 @@ components:
           detailedHealth:
             ConnectivityStatus: UNHEALTHY
             DiskHealth: UNKNOWN
-            LoadHealth: POD_NORMAL
+            LoadStatus: LOAD_NORMAL
             NodeHealth: HEALTHY
             ProcessHealth: HEALTHY
             ProcessLiveness: HEALTHY
@@ -41662,7 +41636,7 @@ components:
           detailedHealth:
             ConnectivityStatus: UNHEALTHY
             DiskHealth: UNKNOWN
-            LoadHealth: POD_NORMAL
+            LoadStatus: LOAD_NORMAL
             NodeHealth: HEALTHY
             ProcessHealth: HEALTHY
             ProcessLiveness: HEALTHY
@@ -41681,7 +41655,7 @@ components:
           detailedHealth:
             ConnectivityStatus: UNHEALTHY
             DiskHealth: UNKNOWN
-            LoadHealth: POD_NORMAL
+            LoadStatus: LOAD_NORMAL
             NodeHealth: HEALTHY
             ProcessHealth: HEALTHY
             ProcessLiveness: HEALTHY
@@ -41700,7 +41674,7 @@ components:
           detailedHealth:
             ConnectivityStatus: UNHEALTHY
             DiskHealth: UNKNOWN
-            LoadHealth: POD_NORMAL
+            LoadStatus: LOAD_NORMAL
             NodeHealth: HEALTHY
             ProcessHealth: HEALTHY
             ProcessLiveness: HEALTHY
@@ -41793,7 +41767,7 @@ components:
             detailedHealth:
               ConnectivityStatus: UNHEALTHY
               DiskHealth: UNKNOWN
-              LoadHealth: POD_NORMAL
+              LoadStatus: LOAD_NORMAL
               NodeHealth: HEALTHY
               ProcessHealth: HEALTHY
               ProcessLiveness: HEALTHY
@@ -41812,7 +41786,7 @@ components:
             detailedHealth:
               ConnectivityStatus: UNHEALTHY
               DiskHealth: UNKNOWN
-              LoadHealth: POD_NORMAL
+              LoadStatus: LOAD_NORMAL
               NodeHealth: HEALTHY
               ProcessHealth: HEALTHY
               ProcessLiveness: HEALTHY

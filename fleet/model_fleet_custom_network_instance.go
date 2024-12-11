@@ -27,7 +27,7 @@ type FleetCustomNetworkInstance struct {
 	GcpProjectID *string `json:"gcpProjectID,omitempty"`
 	// The GCP project number
 	GcpProjectNumber *string `json:"gcpProjectNumber,omitempty"`
-	// ID of a Host Cluster
+	// The ID of the host cluster within the network
 	HostClusterID *string `json:"hostClusterID,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## NotificationsApiCreateNotificationChannel
 
-> string NotificationsApiCreateNotificationChannel(ctx).CreateNotificationChannelRequest2(createNotificationChannelRequest2).Execute()
+> string NotificationsApiCreateNotificationChannel(ctx).CreateNotificationChannelRequestBody(createNotificationChannelRequestBody).Execute()
 
 CreateNotificationChannel notifications-api
 
@@ -31,11 +31,11 @@ import (
 )
 
 func main() {
-	createNotificationChannelRequest2 := *openapiclient.NewCreateNotificationChannelRequest2("My Channel", *openapiclient.NewChannelSubscription([]string{"Alarm|Notification"}, []string{"PROD|PRIVATE|CANARY|STAGING|QA|DEV"}, []string{"InstanceEvent|ServiceEvent|UserEvent|IdentityProviderEvent"}, []string{"Critical|High|Medium|Low"}, []string{"UnhealthyInstance|FailedDeployment|ScaleOut|UserSignUp|UserSubscription"})) // CreateNotificationChannelRequest2 | 
+	createNotificationChannelRequestBody := *openapiclient.NewCreateNotificationChannelRequestBody("My Channel", *openapiclient.NewChannelSubscription([]string{"Quo veritatis labore."}, []string{"Ex nihil nesciunt impedit minus."}, []string{"Enim cupiditate atque eum consequatur natus quasi."}, []string{"Voluptatem consequatur."}, []string{"Distinctio a est delectus."})) // CreateNotificationChannelRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.NotificationsApiAPI.NotificationsApiCreateNotificationChannel(context.Background()).CreateNotificationChannelRequest2(createNotificationChannelRequest2).Execute()
+	resp, r, err := apiClient.NotificationsApiAPI.NotificationsApiCreateNotificationChannel(context.Background()).CreateNotificationChannelRequestBody(createNotificationChannelRequestBody).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsApiAPI.NotificationsApiCreateNotificationChannel``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -56,7 +56,7 @@ Other parameters are passed through a pointer to a apiNotificationsApiCreateNoti
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createNotificationChannelRequest2** | [**CreateNotificationChannelRequest2**](CreateNotificationChannelRequest2.md) |  | 
+ **createNotificationChannelRequestBody** | [**CreateNotificationChannelRequestBody**](CreateNotificationChannelRequestBody.md) |  | 
 
 ### Return type
 
@@ -271,7 +271,7 @@ Other parameters are passed through a pointer to a apiNotificationsApiListNotifi
 
 ## NotificationsApiUpdateNotificationChannel
 
-> NotificationsApiUpdateNotificationChannel(ctx, id).UpdateNotificationChannelRequest2(updateNotificationChannelRequest2).Execute()
+> NotificationsApiUpdateNotificationChannel(ctx, id).UpdateNotificationChannelRequestBody(updateNotificationChannelRequestBody).Execute()
 
 UpdateNotificationChannel notifications-api
 
@@ -289,11 +289,11 @@ import (
 
 func main() {
 	id := "channel-12345678" // string | Unique identifier of the channel
-	updateNotificationChannelRequest2 := *openapiclient.NewUpdateNotificationChannelRequest2() // UpdateNotificationChannelRequest2 | 
+	updateNotificationChannelRequestBody := *openapiclient.NewUpdateNotificationChannelRequestBody() // UpdateNotificationChannelRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.NotificationsApiAPI.NotificationsApiUpdateNotificationChannel(context.Background(), id).UpdateNotificationChannelRequest2(updateNotificationChannelRequest2).Execute()
+	r, err := apiClient.NotificationsApiAPI.NotificationsApiUpdateNotificationChannel(context.Background(), id).UpdateNotificationChannelRequestBody(updateNotificationChannelRequestBody).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsApiAPI.NotificationsApiUpdateNotificationChannel``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -317,7 +317,7 @@ Other parameters are passed through a pointer to a apiNotificationsApiUpdateNoti
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateNotificationChannelRequest2** | [**UpdateNotificationChannelRequest2**](UpdateNotificationChannelRequest2.md) |  | 
+ **updateNotificationChannelRequestBody** | [**UpdateNotificationChannelRequestBody**](UpdateNotificationChannelRequestBody.md) |  | 
 
 ### Return type
 

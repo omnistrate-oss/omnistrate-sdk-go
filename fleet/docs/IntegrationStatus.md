@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Url** | Pointer to **string** | Additional URL relevant for integration (optional and integration specific) | [optional] 
-**HealthStatus** | Pointer to **string** | The heath status of a resource | [optional] 
+**HealthStatus** | Pointer to **string** | The health status of the integration | [optional] 
 **IntegrationType** | Pointer to **string** | The name of the integration or feature | [optional] 
 **Message** | Pointer to **string** | Additional details regarding integration health | [optional] 
-**Scope** | Pointer to **string** | ProductTierFeatureScope defines scope of the feature within product tier | [optional] 
+**Scope** | Pointer to **string** | Scope of the feature/integration | [optional] 
 
 ## Methods
 

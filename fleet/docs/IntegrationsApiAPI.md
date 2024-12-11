@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## IntegrationsApiDisableProductTierIntegration
 
-> IntegrationsApiDisableProductTierIntegration(ctx, serviceId, id).DisableProductTierIntegrationRequest2(disableProductTierIntegrationRequest2).Execute()
+> IntegrationsApiDisableProductTierIntegration(ctx, serviceId, id).DisableProductTierIntegrationRequestBody(disableProductTierIntegrationRequestBody).Execute()
 
 DisableProductTierIntegration integrations-api
 
@@ -31,11 +31,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | Service ID
 	id := "pt-12345678" // string | Product tier ID
-	disableProductTierIntegrationRequest2 := *openapiclient.NewDisableProductTierIntegrationRequest2("PAGERDUTY", "ALERTS") // DisableProductTierIntegrationRequest2 | 
+	disableProductTierIntegrationRequestBody := *openapiclient.NewDisableProductTierIntegrationRequestBody("PAGERDUTY", "ALERTS") // DisableProductTierIntegrationRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.IntegrationsApiAPI.IntegrationsApiDisableProductTierIntegration(context.Background(), serviceId, id).DisableProductTierIntegrationRequest2(disableProductTierIntegrationRequest2).Execute()
+	r, err := apiClient.IntegrationsApiAPI.IntegrationsApiDisableProductTierIntegration(context.Background(), serviceId, id).DisableProductTierIntegrationRequestBody(disableProductTierIntegrationRequestBody).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IntegrationsApiAPI.IntegrationsApiDisableProductTierIntegration``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **disableProductTierIntegrationRequest2** | [**DisableProductTierIntegrationRequest2**](DisableProductTierIntegrationRequest2.md) |  | 
+ **disableProductTierIntegrationRequestBody** | [**DisableProductTierIntegrationRequestBody**](DisableProductTierIntegrationRequestBody.md) |  | 
 
 ### Return type
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ## IntegrationsApiEnableProductTierIntegration
 
-> IntegrationsApiEnableProductTierIntegration(ctx, serviceId, id).EnableProductTierIntegrationRequest2(enableProductTierIntegrationRequest2).Execute()
+> IntegrationsApiEnableProductTierIntegration(ctx, serviceId, id).EnableProductTierIntegrationRequestBody(enableProductTierIntegrationRequestBody).Execute()
 
 EnableProductTierIntegration integrations-api
 
@@ -102,11 +102,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | Service ID
 	id := "pt-12345678" // string | Product tier ID
-	enableProductTierIntegrationRequest2 := *openapiclient.NewEnableProductTierIntegrationRequest2("PAGERDUTY", "ALERTS") // EnableProductTierIntegrationRequest2 | 
+	enableProductTierIntegrationRequestBody := *openapiclient.NewEnableProductTierIntegrationRequestBody("PAGERDUTY", "ALERTS") // EnableProductTierIntegrationRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.IntegrationsApiAPI.IntegrationsApiEnableProductTierIntegration(context.Background(), serviceId, id).EnableProductTierIntegrationRequest2(enableProductTierIntegrationRequest2).Execute()
+	r, err := apiClient.IntegrationsApiAPI.IntegrationsApiEnableProductTierIntegration(context.Background(), serviceId, id).EnableProductTierIntegrationRequestBody(enableProductTierIntegrationRequestBody).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IntegrationsApiAPI.IntegrationsApiEnableProductTierIntegration``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **enableProductTierIntegrationRequest2** | [**EnableProductTierIntegrationRequest2**](EnableProductTierIntegrationRequest2.md) |  | 
+ **enableProductTierIntegrationRequestBody** | [**EnableProductTierIntegrationRequestBody**](EnableProductTierIntegrationRequestBody.md) |  | 
 
 ### Return type
 

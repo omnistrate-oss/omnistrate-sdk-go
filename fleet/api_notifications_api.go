@@ -90,11 +90,11 @@ type NotificationsApiAPIService service
 type ApiNotificationsApiCreateNotificationChannelRequest struct {
 	ctx context.Context
 	ApiService NotificationsApiAPI
-	createNotificationChannelRequest2 *CreateNotificationChannelRequest2
+	createNotificationChannelRequestBody *CreateNotificationChannelRequestBody
 }
 
-func (r ApiNotificationsApiCreateNotificationChannelRequest) CreateNotificationChannelRequest2(createNotificationChannelRequest2 CreateNotificationChannelRequest2) ApiNotificationsApiCreateNotificationChannelRequest {
-	r.createNotificationChannelRequest2 = &createNotificationChannelRequest2
+func (r ApiNotificationsApiCreateNotificationChannelRequest) CreateNotificationChannelRequestBody(createNotificationChannelRequestBody CreateNotificationChannelRequestBody) ApiNotificationsApiCreateNotificationChannelRequest {
+	r.createNotificationChannelRequestBody = &createNotificationChannelRequestBody
 	return r
 }
 
@@ -135,8 +135,8 @@ func (a *NotificationsApiAPIService) NotificationsApiCreateNotificationChannelEx
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createNotificationChannelRequest2 == nil {
-		return localVarReturnValue, nil, reportError("createNotificationChannelRequest2 is required and must be specified")
+	if r.createNotificationChannelRequestBody == nil {
+		return localVarReturnValue, nil, reportError("createNotificationChannelRequestBody is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -157,7 +157,7 @@ func (a *NotificationsApiAPIService) NotificationsApiCreateNotificationChannelEx
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createNotificationChannelRequest2
+	localVarPostBody = r.createNotificationChannelRequestBody
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -659,11 +659,11 @@ type ApiNotificationsApiUpdateNotificationChannelRequest struct {
 	ctx context.Context
 	ApiService NotificationsApiAPI
 	id string
-	updateNotificationChannelRequest2 *UpdateNotificationChannelRequest2
+	updateNotificationChannelRequestBody *UpdateNotificationChannelRequestBody
 }
 
-func (r ApiNotificationsApiUpdateNotificationChannelRequest) UpdateNotificationChannelRequest2(updateNotificationChannelRequest2 UpdateNotificationChannelRequest2) ApiNotificationsApiUpdateNotificationChannelRequest {
-	r.updateNotificationChannelRequest2 = &updateNotificationChannelRequest2
+func (r ApiNotificationsApiUpdateNotificationChannelRequest) UpdateNotificationChannelRequestBody(updateNotificationChannelRequestBody UpdateNotificationChannelRequestBody) ApiNotificationsApiUpdateNotificationChannelRequest {
+	r.updateNotificationChannelRequestBody = &updateNotificationChannelRequestBody
 	return r
 }
 
@@ -705,8 +705,8 @@ func (a *NotificationsApiAPIService) NotificationsApiUpdateNotificationChannelEx
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateNotificationChannelRequest2 == nil {
-		return nil, reportError("updateNotificationChannelRequest2 is required and must be specified")
+	if r.updateNotificationChannelRequestBody == nil {
+		return nil, reportError("updateNotificationChannelRequestBody is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -727,7 +727,7 @@ func (a *NotificationsApiAPIService) NotificationsApiUpdateNotificationChannelEx
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateNotificationChannelRequest2
+	localVarPostBody = r.updateNotificationChannelRequestBody
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

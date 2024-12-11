@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **UpdatedReason** | Pointer to **string** | The reason the workflow execution was terminated. | [optional] 
 **WorkflowType** | **string** | The type of workflow execution. | 
 **AwsAccountID** | Pointer to **string** | The AWS account ID | [optional] 
-**CloudProvider** | **string** | Name of the Infra Provider | 
+**CloudProvider** | **string** | The cloud provider the workflow executed on. | 
 **EndTime** | Pointer to **string** | The time the workflow execution ended. | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **Id** | **string** | ID of the ServiceWorkflow | 

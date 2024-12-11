@@ -22,7 +22,7 @@ var _ MappedNullable = &SearchServiceInventoryResult{}
 type SearchServiceInventoryResult struct {
 	// The search results
 	Results []SearchRecord `json:"results"`
-	// ID of a Service
+	// The service ID this workflow belongs to.
 	ServiceId string `json:"serviceId"`
 	AdditionalProperties map[string]interface{}
 }

@@ -22,7 +22,7 @@ var _ MappedNullable = &EventsPerWorkflowStep{}
 type EventsPerWorkflowStep struct {
 	// List of events for the step
 	Events []WorkflowEvent `json:"events"`
-	// The name of the workflow step
+	// Name of the workflow step
 	StepName string `json:"stepName"`
 	AdditionalProperties map[string]interface{}
 }

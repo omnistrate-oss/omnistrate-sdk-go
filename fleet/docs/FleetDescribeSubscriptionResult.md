@@ -5,19 +5,19 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CreatedAt** | **string** | The time that this subscription was created | 
-**Id** | **string** | ID of a Subscription | 
+**Id** | **string** | The subscription ID | 
 **InstanceCount** | **int64** | The number of active instances in the subscription | 
-**ProductTierId** | **string** | ID of a Product Tier | 
+**ProductTierId** | **string** | The product tier ID that this subscription is tied to | 
 **ProductTierName** | **string** | The name of the product tier | 
 **RootUserEmail** | **string** | The email of the user that owns the subscription | 
-**RootUserId** | **string** | ID of a User | 
+**RootUserId** | **string** | The ID of the user that owns the subscription | 
 **RootUserName** | **string** | The name of the user that owns the subscription | 
-**ServiceId** | **string** | ID of a Service | 
+**ServiceId** | **string** | The service ID that this subscription is tied to | 
 **ServiceLogoURL** | Pointer to **string** | The logo for the service | [optional] 
 **ServiceName** | **string** | The name of the service | 
-**Status** | **string** | Subscription Status | 
+**Status** | **string** | The status of the subscription | 
 **UpdatedAt** | **string** | The time that this subscription was last updated | 
-**UpdatedByUserId** | **string** | ID of a User | 
+**UpdatedByUserId** | **string** | The id of the user that last updated the subscription | 
 **UpdatedByUserName** | **string** | The name of the user that last updated the subscription | 
 
 ## Methods

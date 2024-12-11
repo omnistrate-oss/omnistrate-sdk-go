@@ -4,25 +4,27 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AvailabilityZone** | **string** | The availability zone of the node | 
-**ConnectivityStatus** | **string** | The heath status of a resource | 
-**DiskHealth** | **string** | The heath status of a resource | 
-**Endpoint** | **string** | The endpoint of the node | 
-**Events** | **[]string** | The list of process events | 
-**LoadHealth** | **string** | The load status of a pod | 
-**NodeHealth** | **string** | The heath status of a resource | 
-**NodeName** | **string** | The name of the node | 
+**AvailabilityZone** | Pointer to **string** | The availability zone of the node | [optional] 
+**ConnectivityStatus** | Pointer to **string** | The health status of the network endpoints | [optional] 
+**DiskHealth** | Pointer to **string** | The health status of the disk | [optional] 
+**Endpoint** | Pointer to **string** | The endpoint of the node | [optional] 
+**Events** | Pointer to **[]string** | The list of process events | [optional] 
+**IntegrationsHealth** | Pointer to [**IntegrationsHealth**](IntegrationsHealth.md) |  | [optional] 
+**LoadHealth** | Pointer to **string** | (deprecated) The load status of the pod | [optional] 
+**LoadStatus** | Pointer to **string** | The load status of the pod | [optional] 
+**NodeHealth** | Pointer to **string** | The health status of the machine hosting the service | [optional] 
+**NodeName** | Pointer to **string** | The name of the node | [optional] 
 **Ports** | Pointer to **[]int64** | The ports that this node exposes | [optional] 
-**ProcessHealth** | **string** | The heath status of a resource | 
-**ProcessLiveness** | **string** | The heath status of a resource | 
-**RecentLogs** | **string** | The recent logs of the process | 
-**Status** | **string** | The heath status of a resource | 
+**ProcessHealth** | Pointer to **string** | The health status of the process | [optional] 
+**ProcessLiveness** | Pointer to **string** | The liveness status of the process | [optional] 
+**RecentLogs** | Pointer to **string** | The recent logs of the process | [optional] 
+**Status** | Pointer to **string** | The overall status of the node | [optional] 
 
 ## Methods
 
 ### NewNodeHealthSummary
 
-`func NewNodeHealthSummary(availabilityZone string, connectivityStatus string, diskHealth string, endpoint string, events []string, loadHealth string, nodeHealth string, nodeName string, processHealth string, processLiveness string, recentLogs string, status string, ) *NodeHealthSummary`
+`func NewNodeHealthSummary() *NodeHealthSummary`
 
 NewNodeHealthSummary instantiates a new NodeHealthSummary object
 This constructor will assign default values to properties that have it defined,
@@ -56,6 +58,11 @@ and a boolean to check if the value has been set.
 
 SetAvailabilityZone sets AvailabilityZone field to given value.
 
+### HasAvailabilityZone
+
+`func (o *NodeHealthSummary) HasAvailabilityZone() bool`
+
+HasAvailabilityZone returns a boolean if a field has been set.
 
 ### GetConnectivityStatus
 
@@ -76,6 +83,11 @@ and a boolean to check if the value has been set.
 
 SetConnectivityStatus sets ConnectivityStatus field to given value.
 
+### HasConnectivityStatus
+
+`func (o *NodeHealthSummary) HasConnectivityStatus() bool`
+
+HasConnectivityStatus returns a boolean if a field has been set.
 
 ### GetDiskHealth
 
@@ -96,6 +108,11 @@ and a boolean to check if the value has been set.
 
 SetDiskHealth sets DiskHealth field to given value.
 
+### HasDiskHealth
+
+`func (o *NodeHealthSummary) HasDiskHealth() bool`
+
+HasDiskHealth returns a boolean if a field has been set.
 
 ### GetEndpoint
 
@@ -116,6 +133,11 @@ and a boolean to check if the value has been set.
 
 SetEndpoint sets Endpoint field to given value.
 
+### HasEndpoint
+
+`func (o *NodeHealthSummary) HasEndpoint() bool`
+
+HasEndpoint returns a boolean if a field has been set.
 
 ### GetEvents
 
@@ -136,6 +158,36 @@ and a boolean to check if the value has been set.
 
 SetEvents sets Events field to given value.
 
+### HasEvents
+
+`func (o *NodeHealthSummary) HasEvents() bool`
+
+HasEvents returns a boolean if a field has been set.
+
+### GetIntegrationsHealth
+
+`func (o *NodeHealthSummary) GetIntegrationsHealth() IntegrationsHealth`
+
+GetIntegrationsHealth returns the IntegrationsHealth field if non-nil, zero value otherwise.
+
+### GetIntegrationsHealthOk
+
+`func (o *NodeHealthSummary) GetIntegrationsHealthOk() (*IntegrationsHealth, bool)`
+
+GetIntegrationsHealthOk returns a tuple with the IntegrationsHealth field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIntegrationsHealth
+
+`func (o *NodeHealthSummary) SetIntegrationsHealth(v IntegrationsHealth)`
+
+SetIntegrationsHealth sets IntegrationsHealth field to given value.
+
+### HasIntegrationsHealth
+
+`func (o *NodeHealthSummary) HasIntegrationsHealth() bool`
+
+HasIntegrationsHealth returns a boolean if a field has been set.
 
 ### GetLoadHealth
 
@@ -156,6 +208,36 @@ and a boolean to check if the value has been set.
 
 SetLoadHealth sets LoadHealth field to given value.
 
+### HasLoadHealth
+
+`func (o *NodeHealthSummary) HasLoadHealth() bool`
+
+HasLoadHealth returns a boolean if a field has been set.
+
+### GetLoadStatus
+
+`func (o *NodeHealthSummary) GetLoadStatus() string`
+
+GetLoadStatus returns the LoadStatus field if non-nil, zero value otherwise.
+
+### GetLoadStatusOk
+
+`func (o *NodeHealthSummary) GetLoadStatusOk() (*string, bool)`
+
+GetLoadStatusOk returns a tuple with the LoadStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLoadStatus
+
+`func (o *NodeHealthSummary) SetLoadStatus(v string)`
+
+SetLoadStatus sets LoadStatus field to given value.
+
+### HasLoadStatus
+
+`func (o *NodeHealthSummary) HasLoadStatus() bool`
+
+HasLoadStatus returns a boolean if a field has been set.
 
 ### GetNodeHealth
 
@@ -176,6 +258,11 @@ and a boolean to check if the value has been set.
 
 SetNodeHealth sets NodeHealth field to given value.
 
+### HasNodeHealth
+
+`func (o *NodeHealthSummary) HasNodeHealth() bool`
+
+HasNodeHealth returns a boolean if a field has been set.
 
 ### GetNodeName
 
@@ -196,6 +283,11 @@ and a boolean to check if the value has been set.
 
 SetNodeName sets NodeName field to given value.
 
+### HasNodeName
+
+`func (o *NodeHealthSummary) HasNodeName() bool`
+
+HasNodeName returns a boolean if a field has been set.
 
 ### GetPorts
 
@@ -241,6 +333,11 @@ and a boolean to check if the value has been set.
 
 SetProcessHealth sets ProcessHealth field to given value.
 
+### HasProcessHealth
+
+`func (o *NodeHealthSummary) HasProcessHealth() bool`
+
+HasProcessHealth returns a boolean if a field has been set.
 
 ### GetProcessLiveness
 
@@ -261,6 +358,11 @@ and a boolean to check if the value has been set.
 
 SetProcessLiveness sets ProcessLiveness field to given value.
 
+### HasProcessLiveness
+
+`func (o *NodeHealthSummary) HasProcessLiveness() bool`
+
+HasProcessLiveness returns a boolean if a field has been set.
 
 ### GetRecentLogs
 
@@ -281,6 +383,11 @@ and a boolean to check if the value has been set.
 
 SetRecentLogs sets RecentLogs field to given value.
 
+### HasRecentLogs
+
+`func (o *NodeHealthSummary) HasRecentLogs() bool`
+
+HasRecentLogs returns a boolean if a field has been set.
 
 ### GetStatus
 
@@ -301,6 +408,11 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
+### HasStatus
+
+`func (o *NodeHealthSummary) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

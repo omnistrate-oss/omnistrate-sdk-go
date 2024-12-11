@@ -4,11 +4,11 @@ All URIs are relative to *https://api.omnistrate.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ServicesOrchestrationApiCreateServicesOrchestration**](ServicesOrchestrationApiAPI.md#ServicesOrchestrationApiCreateServicesOrchestration) | **Post** /2022-09-01-00/services-orchestration | CreateServicesOrchestration services-orchestration-api
-[**ServicesOrchestrationApiDeleteServicesOrchestration**](ServicesOrchestrationApiAPI.md#ServicesOrchestrationApiDeleteServicesOrchestration) | **Delete** /2022-09-01-00/services-orchestration/{id} | DeleteServicesOrchestration services-orchestration-api
-[**ServicesOrchestrationApiDescribeServicesOrchestration**](ServicesOrchestrationApiAPI.md#ServicesOrchestrationApiDescribeServicesOrchestration) | **Get** /2022-09-01-00/services-orchestration/{id} | DescribeServicesOrchestration services-orchestration-api
-[**ServicesOrchestrationApiListServicesOrchestrations**](ServicesOrchestrationApiAPI.md#ServicesOrchestrationApiListServicesOrchestrations) | **Get** /2022-09-01-00/services-orchestration | ListServicesOrchestrations services-orchestration-api
-[**ServicesOrchestrationApiModifyServicesOrchestration**](ServicesOrchestrationApiAPI.md#ServicesOrchestrationApiModifyServicesOrchestration) | **Patch** /2022-09-01-00/services-orchestration/{id} | ModifyServicesOrchestration services-orchestration-api
+[**ServicesOrchestrationApiCreateServicesOrchestration**](ServicesOrchestrationApiAPI.md#ServicesOrchestrationApiCreateServicesOrchestration) | **Post** /2022-09-01-00/resource-instance/services-orchestration | CreateServicesOrchestration services-orchestration-api
+[**ServicesOrchestrationApiDeleteServicesOrchestration**](ServicesOrchestrationApiAPI.md#ServicesOrchestrationApiDeleteServicesOrchestration) | **Delete** /2022-09-01-00/resource-instance/services-orchestration/{id} | DeleteServicesOrchestration services-orchestration-api
+[**ServicesOrchestrationApiDescribeServicesOrchestration**](ServicesOrchestrationApiAPI.md#ServicesOrchestrationApiDescribeServicesOrchestration) | **Get** /2022-09-01-00/resource-instance/services-orchestration/{id} | DescribeServicesOrchestration services-orchestration-api
+[**ServicesOrchestrationApiListServicesOrchestrations**](ServicesOrchestrationApiAPI.md#ServicesOrchestrationApiListServicesOrchestrations) | **Get** /2022-09-01-00/resource-instance/services-orchestration | ListServicesOrchestrations services-orchestration-api
+[**ServicesOrchestrationApiModifyServicesOrchestration**](ServicesOrchestrationApiAPI.md#ServicesOrchestrationApiModifyServicesOrchestration) | **Patch** /2022-09-01-00/resource-instance/services-orchestration/{id} | ModifyServicesOrchestration services-orchestration-api
 
 
 

@@ -20,7 +20,7 @@ var _ MappedNullable = &FleetFeature{}
 
 // FleetFeature struct for FleetFeature
 type FleetFeature struct {
-	// FleetFeatureType is to enable / disable features per service provider
+	// The feature to enable.
 	Feature string `json:"feature"`
 	// The configuration for the feature.
 	FeatureConfig *map[string]string `json:"featureConfig,omitempty"`

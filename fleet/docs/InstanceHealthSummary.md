@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InstanceID** | **string** | ID of a Resource Instance | 
-**LifeCycleStatus** | **string** | The status of an operation | 
-**ResourcesHealth** | [**map[string]ResourceHealthSummary**](ResourceHealthSummary.md) | The health summary of the resources by resource ID | 
-**Status** | **string** | The heath status of a resource | 
+**InstanceID** | Pointer to **string** | The ID of the instance | [optional] 
+**LifeCycleStatus** | Pointer to **string** | The lifecycle status of the instance | [optional] 
+**ResourcesHealth** | Pointer to [**map[string]ResourceHealthSummary**](ResourceHealthSummary.md) | The health summary of the resources by resource ID | [optional] 
+**Status** | Pointer to **string** | The status of the instance | [optional] 
 
 ## Methods
 
 ### NewInstanceHealthSummary
 
-`func NewInstanceHealthSummary(instanceID string, lifeCycleStatus string, resourcesHealth map[string]ResourceHealthSummary, status string, ) *InstanceHealthSummary`
+`func NewInstanceHealthSummary() *InstanceHealthSummary`
 
 NewInstanceHealthSummary instantiates a new InstanceHealthSummary object
 This constructor will assign default values to properties that have it defined,
@@ -47,6 +47,11 @@ and a boolean to check if the value has been set.
 
 SetInstanceID sets InstanceID field to given value.
 
+### HasInstanceID
+
+`func (o *InstanceHealthSummary) HasInstanceID() bool`
+
+HasInstanceID returns a boolean if a field has been set.
 
 ### GetLifeCycleStatus
 
@@ -67,6 +72,11 @@ and a boolean to check if the value has been set.
 
 SetLifeCycleStatus sets LifeCycleStatus field to given value.
 
+### HasLifeCycleStatus
+
+`func (o *InstanceHealthSummary) HasLifeCycleStatus() bool`
+
+HasLifeCycleStatus returns a boolean if a field has been set.
 
 ### GetResourcesHealth
 
@@ -87,6 +97,11 @@ and a boolean to check if the value has been set.
 
 SetResourcesHealth sets ResourcesHealth field to given value.
 
+### HasResourcesHealth
+
+`func (o *InstanceHealthSummary) HasResourcesHealth() bool`
+
+HasResourcesHealth returns a boolean if a field has been set.
 
 ### GetStatus
 
@@ -107,6 +122,11 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
+### HasStatus
+
+`func (o *InstanceHealthSummary) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

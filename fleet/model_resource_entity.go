@@ -28,7 +28,7 @@ type ResourceEntity struct {
 	IsDeprecated bool `json:"isDeprecated"`
 	// The resource name
 	Name string `json:"name"`
-	// ID of a resource
+	// The resource ID
 	ResourceId string `json:"resourceId"`
 	// The resource type
 	ResourceType *string `json:"resourceType,omitempty"`

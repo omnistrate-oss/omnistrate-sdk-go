@@ -20,13 +20,13 @@ var _ MappedNullable = &EndCustomerEvent{}
 
 // EndCustomerEvent struct for EndCustomerEvent
 type EndCustomerEvent struct {
-	// ID of a Event
+	// The ID of the event
 	EventID string `json:"eventID"`
 	// The event payload for a service provider.
 	EventPayload map[string]interface{} `json:"eventPayload"`
-	// The type of the end customer specific event
+	// The type of the event 
 	EventType string `json:"eventType"`
-	// ID of an Org
+	// Associated organization ID.
 	OrgID string `json:"orgID"`
 	// Associated organization name.
 	OrgName string `json:"orgName"`
@@ -38,7 +38,7 @@ type EndCustomerEvent struct {
 	Time string `json:"time"`
 	// User email associated with the event.
 	UserEmail *string `json:"userEmail,omitempty"`
-	// ID of a User
+	// User ID associated with the event.
 	UserID *string `json:"userID,omitempty"`
 	// Name of the user associated with the event.
 	UserName *string `json:"userName,omitempty"`

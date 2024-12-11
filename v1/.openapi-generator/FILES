@@ -212,6 +212,7 @@ docs/InfraRollConfiguration.md
 docs/InputParameterApiAPI.md
 docs/InputParameterEntity.md
 docs/InstanceSnapshot.md
+docs/IntegrationsHealth.md
 docs/InviteUserRequestBody.md
 docs/Invoice.md
 docs/InvoiceApiAPI.md
@@ -508,6 +509,7 @@ model_infra_config_change_summary.go
 model_infra_roll_configuration.go
 model_input_parameter_entity.go
 model_instance_snapshot.go
+model_integrations_health.go
 model_invite_user_request_body.go
 model_invoice.go
 model_kubernetes_dashboard_endpoint.go

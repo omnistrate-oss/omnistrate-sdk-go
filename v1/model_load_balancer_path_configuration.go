@@ -20,6 +20,8 @@ var _ MappedNullable = &LoadBalancerPathConfiguration{}
 
 // LoadBalancerPathConfiguration struct for LoadBalancerPathConfiguration
 type LoadBalancerPathConfiguration struct {
+	// Override the default target Kubernetes service name with this value
+	AssociatedKubernetesServiceName *string `json:"associatedKubernetesServiceName,omitempty"`
 	// The ID of the resource associated with the path
 	AssociatedResourceID string `json:"associatedResourceID"`
 	// The REST API path backed by the load balancer
@@ -49,6 +51,29 @@ func NewLoadBalancerPathConfiguration(associatedResourceID string, path string, 
 func NewLoadBalancerPathConfigurationWithDefaults() *LoadBalancerPathConfiguration {
 	this := LoadBalancerPathConfiguration{}
 	return &this
+}
+
+// GetAssociatedKubernetesServiceName returns the AssociatedKubernetesServiceName field value if set, zero value otherwise.
+func (o *LoadBalancerPathConfiguration) GetAssociatedKubernetesServiceName() string {
+	if o == nil || IsNil(o.AssociatedKubernetesServiceName) {
+		var ret string
+		return ret
+	}
+	return *o.AssociatedKubernetesServiceName
+}
+
+// GetAssociatedKubernetesServiceNameOk returns a tuple with the AssociatedKubernetesServiceName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LoadBalancerPathConfiguration) GetAssociatedKubernetesServiceNameOk() (*string, bool) {
+	if o == nil || IsNil(o.AssociatedKubernetesServiceName) {
+		return nil, false
+	}
+	return o.AssociatedKubernetesServiceName, true
+}
+
+// SetAssociatedKubernetesServiceName gets a reference to the given string and assigns it to the AssociatedKubernetesServiceName field.
+func (o *LoadBalancerPathConfiguration) SetAssociatedKubernetesServiceName(v string) {
+	o.AssociatedKubernetesServiceName = &v
 }
 
 // GetAssociatedResourceID returns the AssociatedResourceID field value
@@ -133,6 +158,9 @@ func (o LoadBalancerPathConfiguration) MarshalJSON() ([]byte, error) {
 
 func (o LoadBalancerPathConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AssociatedKubernetesServiceName) {
+		toSerialize["associatedKubernetesServiceName"] = o.AssociatedKubernetesServiceName
+	}
 	toSerialize["associatedResourceID"] = o.AssociatedResourceID
 	toSerialize["path"] = o.Path
 	toSerialize["port"] = o.Port
@@ -181,6 +209,7 @@ func (o *LoadBalancerPathConfiguration) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "associatedKubernetesServiceName")
 		delete(additionalProperties, "associatedResourceID")
 		delete(additionalProperties, "path")
 		delete(additionalProperties, "port")

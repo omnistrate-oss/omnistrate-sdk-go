@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudProvider** | **string** | Name of the Infra Provider | 
-**HostClusterID** | **string** | ID of a Host Cluster | 
-**InstanceHealth** | [**map[string]InstanceHealthSummary**](InstanceHealthSummary.md) | The health summary of the instances by instance ID | 
-**RegionCode** | **string** | The region code of the host cluster | 
-**ServiceEnvironmentName** | **string** | The name of the service environment | 
-**ServiceName** | **string** | The name of the service | 
+**CloudProvider** | Pointer to **string** | The cloud provider of the host cluster | [optional] 
+**HostClusterID** | Pointer to **string** | The ID of the host cluster | [optional] 
+**InstanceHealth** | Pointer to [**map[string]InstanceHealthSummary**](InstanceHealthSummary.md) | The health summary of the instances by instance ID | [optional] 
+**RegionCode** | Pointer to **string** | The region code of the host cluster | [optional] 
+**ServiceEnvironmentName** | Pointer to **string** | The name of the service environment | [optional] 
+**ServiceName** | Pointer to **string** | The name of the service | [optional] 
 
 ## Methods
 
 ### NewDeploymentCellHealthDetail
 
-`func NewDeploymentCellHealthDetail(cloudProvider string, hostClusterID string, instanceHealth map[string]InstanceHealthSummary, regionCode string, serviceEnvironmentName string, serviceName string, ) *DeploymentCellHealthDetail`
+`func NewDeploymentCellHealthDetail() *DeploymentCellHealthDetail`
 
 NewDeploymentCellHealthDetail instantiates a new DeploymentCellHealthDetail object
 This constructor will assign default values to properties that have it defined,
@@ -49,6 +49,11 @@ and a boolean to check if the value has been set.
 
 SetCloudProvider sets CloudProvider field to given value.
 
+### HasCloudProvider
+
+`func (o *DeploymentCellHealthDetail) HasCloudProvider() bool`
+
+HasCloudProvider returns a boolean if a field has been set.
 
 ### GetHostClusterID
 
@@ -69,6 +74,11 @@ and a boolean to check if the value has been set.
 
 SetHostClusterID sets HostClusterID field to given value.
 
+### HasHostClusterID
+
+`func (o *DeploymentCellHealthDetail) HasHostClusterID() bool`
+
+HasHostClusterID returns a boolean if a field has been set.
 
 ### GetInstanceHealth
 
@@ -89,6 +99,11 @@ and a boolean to check if the value has been set.
 
 SetInstanceHealth sets InstanceHealth field to given value.
 
+### HasInstanceHealth
+
+`func (o *DeploymentCellHealthDetail) HasInstanceHealth() bool`
+
+HasInstanceHealth returns a boolean if a field has been set.
 
 ### GetRegionCode
 
@@ -109,6 +124,11 @@ and a boolean to check if the value has been set.
 
 SetRegionCode sets RegionCode field to given value.
 
+### HasRegionCode
+
+`func (o *DeploymentCellHealthDetail) HasRegionCode() bool`
+
+HasRegionCode returns a boolean if a field has been set.
 
 ### GetServiceEnvironmentName
 
@@ -129,6 +149,11 @@ and a boolean to check if the value has been set.
 
 SetServiceEnvironmentName sets ServiceEnvironmentName field to given value.
 
+### HasServiceEnvironmentName
+
+`func (o *DeploymentCellHealthDetail) HasServiceEnvironmentName() bool`
+
+HasServiceEnvironmentName returns a boolean if a field has been set.
 
 ### GetServiceName
 
@@ -149,6 +174,11 @@ and a boolean to check if the value has been set.
 
 SetServiceName sets ServiceName field to given value.
 
+### HasServiceName
+
+`func (o *DeploymentCellHealthDetail) HasServiceName() bool`
+
+HasServiceName returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

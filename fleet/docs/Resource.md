@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EnvironmentId** | Pointer to **string** | ID of a Service Environment | [optional] 
+**EnvironmentId** | Pointer to **string** | The service environment ID this workflow belongs to. | [optional] 
 **InstanceCount** | Pointer to **int64** | The number of instances for the specific resource. | [optional] 
 **Name** | Pointer to **string** | The name of the resource. | [optional] 
 **PerVersionInstanceCount** | Pointer to **map[string]int64** | The per-version instance count for the resource. | [optional] 
 **ProductTierType** | Pointer to **string** | The product tier type | [optional] 
 **ProxyType** | Pointer to **string** | The proxy type of instance | [optional] 
-**ResourceId** | Pointer to **string** | ID of a resource | [optional] 
-**ServiceId** | Pointer to **string** | ID of a Service | [optional] 
+**ResourceId** | Pointer to **string** | The resource ID. | [optional] 
+**ServiceId** | Pointer to **string** | The service ID this workflow belongs to. | [optional] 
 **ServiceModelType** | Pointer to **string** | The service model type | [optional] 
 **Version** | Pointer to **string** | The latest version of the resource. | [optional] 
 **VersionHistory** | Pointer to **[]string** | The version history of the resource. | [optional] 

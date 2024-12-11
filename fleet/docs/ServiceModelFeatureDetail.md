@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Configuration** | **map[string]interface{}** | The configuration parameters of the service model feature | 
-**Feature** | **string** | Name of the service model feature | 
+**Configuration** | **map[string]interface{}** |  | 
+**Feature** | **string** |  | 
 
 ## Methods
 

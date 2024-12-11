@@ -22,15 +22,15 @@ var _ MappedNullable = &FleetDescribeInstanceSnapshotFromTimeResult{}
 type FleetDescribeInstanceSnapshotFromTimeResult struct {
 	// The snapshot time
 	CompleteTime string `json:"completeTime"`
-	// ID of a Service Environment
+	// The service environment ID this workflow belongs to.
 	EnvironmentId string `json:"environmentId"`
-	// ID of a Product Tier
+	// The product tier ID
 	ProductTierId string `json:"productTierId"`
 	// The product tier version
 	ProductTierVersion string `json:"productTierVersion"`
-	// ID of a Service
+	// The service ID this workflow belongs to.
 	ServiceId string `json:"serviceId"`
-	// ID of a Resource Instance Snapshot
+	// The instance snapshot ID
 	SnapshotId string `json:"snapshotId"`
 	// The snapshot status
 	Status string `json:"status"`

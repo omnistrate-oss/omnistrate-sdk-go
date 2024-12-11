@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## FleetFeaturesApiDisableFleetFeature
 
-> FleetFeaturesApiDisableFleetFeature(ctx).DisableFleetFeatureRequest2(disableFleetFeatureRequest2).Execute()
+> FleetFeaturesApiDisableFleetFeature(ctx).EnableFleetFeatureRequestBody(enableFleetFeatureRequestBody).Execute()
 
 DisableFleetFeature fleet-features-api
 
@@ -98,11 +98,11 @@ import (
 )
 
 func main() {
-	disableFleetFeatureRequest2 := *openapiclient.NewDisableFleetFeatureRequest2() // DisableFleetFeatureRequest2 | 
+	enableFleetFeatureRequestBody := *openapiclient.NewEnableFleetFeatureRequestBody() // EnableFleetFeatureRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.FleetFeaturesApiAPI.FleetFeaturesApiDisableFleetFeature(context.Background()).DisableFleetFeatureRequest2(disableFleetFeatureRequest2).Execute()
+	r, err := apiClient.FleetFeaturesApiAPI.FleetFeaturesApiDisableFleetFeature(context.Background()).EnableFleetFeatureRequestBody(enableFleetFeatureRequestBody).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FleetFeaturesApiAPI.FleetFeaturesApiDisableFleetFeature``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -121,7 +121,7 @@ Other parameters are passed through a pointer to a apiFleetFeaturesApiDisableFle
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **disableFleetFeatureRequest2** | [**DisableFleetFeatureRequest2**](DisableFleetFeatureRequest2.md) |  | 
+ **enableFleetFeatureRequestBody** | [**EnableFleetFeatureRequestBody**](EnableFleetFeatureRequestBody.md) |  | 
 
 ### Return type
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 ## FleetFeaturesApiEnableFleetFeature
 
-> FleetFeaturesApiEnableFleetFeature(ctx).EnableFleetFeatureRequest2(enableFleetFeatureRequest2).Execute()
+> FleetFeaturesApiEnableFleetFeature(ctx).EnableFleetFeatureRequestBody(enableFleetFeatureRequestBody).Execute()
 
 EnableFleetFeature fleet-features-api
 
@@ -160,11 +160,11 @@ import (
 )
 
 func main() {
-	enableFleetFeatureRequest2 := *openapiclient.NewEnableFleetFeatureRequest2() // EnableFleetFeatureRequest2 | 
+	enableFleetFeatureRequestBody := *openapiclient.NewEnableFleetFeatureRequestBody() // EnableFleetFeatureRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.FleetFeaturesApiAPI.FleetFeaturesApiEnableFleetFeature(context.Background()).EnableFleetFeatureRequest2(enableFleetFeatureRequest2).Execute()
+	r, err := apiClient.FleetFeaturesApiAPI.FleetFeaturesApiEnableFleetFeature(context.Background()).EnableFleetFeatureRequestBody(enableFleetFeatureRequestBody).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FleetFeaturesApiAPI.FleetFeaturesApiEnableFleetFeature``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -183,7 +183,7 @@ Other parameters are passed through a pointer to a apiFleetFeaturesApiEnableFlee
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **enableFleetFeatureRequest2** | [**EnableFleetFeatureRequest2**](EnableFleetFeatureRequest2.md) |  | 
+ **enableFleetFeatureRequestBody** | [**EnableFleetFeatureRequestBody**](EnableFleetFeatureRequestBody.md) |  | 
 
 ### Return type
 

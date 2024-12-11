@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **IsBackupEnabled** | **bool** | Whether the resource has backup enabled | 
 **IsDeprecated** | **bool** | Whether the service offering is deprecated | [default to false]
 **Name** | **string** | The resource name | 
-**ResourceId** | **string** | ID of a resource | 
+**ResourceId** | **string** | The resource ID | 
 **ResourceType** | Pointer to **string** | The resource type | [optional] 
 **UrlKey** | **string** | The resource URL key | 
 

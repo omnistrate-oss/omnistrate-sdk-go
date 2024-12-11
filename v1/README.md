@@ -297,11 +297,11 @@ Class | Method | HTTP request | Description
 *ServiceOfferingApiAPI* | [**ServiceOfferingApiListServiceOffering**](docs/ServiceOfferingApiAPI.md#serviceofferingapilistserviceoffering) | **Get** /2022-09-01-00/service-offering | ListServiceOffering service-offering-api
 *ServicePlanApiAPI* | [**ServicePlanApiGetServicePlan**](docs/ServicePlanApiAPI.md#serviceplanapigetserviceplan) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{productTierId}/service-plan | GetServicePlan service-plan-api
 *ServicePlanApiAPI* | [**ServicePlanApiListServicePlans**](docs/ServicePlanApiAPI.md#serviceplanapilistserviceplans) | **Get** /2022-09-01-00/service/{serviceId}/environment/{serviceEnvironmentId}/service-plan | ListServicePlans service-plan-api
-*ServicesOrchestrationApiAPI* | [**ServicesOrchestrationApiCreateServicesOrchestration**](docs/ServicesOrchestrationApiAPI.md#servicesorchestrationapicreateservicesorchestration) | **Post** /2022-09-01-00/services-orchestration | CreateServicesOrchestration services-orchestration-api
-*ServicesOrchestrationApiAPI* | [**ServicesOrchestrationApiDeleteServicesOrchestration**](docs/ServicesOrchestrationApiAPI.md#servicesorchestrationapideleteservicesorchestration) | **Delete** /2022-09-01-00/services-orchestration/{id} | DeleteServicesOrchestration services-orchestration-api
-*ServicesOrchestrationApiAPI* | [**ServicesOrchestrationApiDescribeServicesOrchestration**](docs/ServicesOrchestrationApiAPI.md#servicesorchestrationapidescribeservicesorchestration) | **Get** /2022-09-01-00/services-orchestration/{id} | DescribeServicesOrchestration services-orchestration-api
-*ServicesOrchestrationApiAPI* | [**ServicesOrchestrationApiListServicesOrchestrations**](docs/ServicesOrchestrationApiAPI.md#servicesorchestrationapilistservicesorchestrations) | **Get** /2022-09-01-00/services-orchestration | ListServicesOrchestrations services-orchestration-api
-*ServicesOrchestrationApiAPI* | [**ServicesOrchestrationApiModifyServicesOrchestration**](docs/ServicesOrchestrationApiAPI.md#servicesorchestrationapimodifyservicesorchestration) | **Patch** /2022-09-01-00/services-orchestration/{id} | ModifyServicesOrchestration services-orchestration-api
+*ServicesOrchestrationApiAPI* | [**ServicesOrchestrationApiCreateServicesOrchestration**](docs/ServicesOrchestrationApiAPI.md#servicesorchestrationapicreateservicesorchestration) | **Post** /2022-09-01-00/resource-instance/services-orchestration | CreateServicesOrchestration services-orchestration-api
+*ServicesOrchestrationApiAPI* | [**ServicesOrchestrationApiDeleteServicesOrchestration**](docs/ServicesOrchestrationApiAPI.md#servicesorchestrationapideleteservicesorchestration) | **Delete** /2022-09-01-00/resource-instance/services-orchestration/{id} | DeleteServicesOrchestration services-orchestration-api
+*ServicesOrchestrationApiAPI* | [**ServicesOrchestrationApiDescribeServicesOrchestration**](docs/ServicesOrchestrationApiAPI.md#servicesorchestrationapidescribeservicesorchestration) | **Get** /2022-09-01-00/resource-instance/services-orchestration/{id} | DescribeServicesOrchestration services-orchestration-api
+*ServicesOrchestrationApiAPI* | [**ServicesOrchestrationApiListServicesOrchestrations**](docs/ServicesOrchestrationApiAPI.md#servicesorchestrationapilistservicesorchestrations) | **Get** /2022-09-01-00/resource-instance/services-orchestration | ListServicesOrchestrations services-orchestration-api
+*ServicesOrchestrationApiAPI* | [**ServicesOrchestrationApiModifyServicesOrchestration**](docs/ServicesOrchestrationApiAPI.md#servicesorchestrationapimodifyservicesorchestration) | **Patch** /2022-09-01-00/resource-instance/services-orchestration/{id} | ModifyServicesOrchestration services-orchestration-api
 *SigninApiAPI* | [**SigninApiLoginWithIdentityProvider**](docs/SigninApiAPI.md#signinapiloginwithidentityprovider) | **Post** /2022-09-01-00/login-with-identity-provider | LoginWithIdentityProvider signin-api
 *SigninApiAPI* | [**SigninApiSignin**](docs/SigninApiAPI.md#signinapisignin) | **Post** /2022-09-01-00/signin | Signin signin-api
 *SignupApiAPI* | [**SignupApiChangePassword**](docs/SignupApiAPI.md#signupapichangepassword) | **Post** /2022-09-01-00/change-password | ChangePassword signup-api
@@ -501,6 +501,7 @@ Class | Method | HTTP request | Description
  - [InfraRollConfiguration](docs/InfraRollConfiguration.md)
  - [InputParameterEntity](docs/InputParameterEntity.md)
  - [InstanceSnapshot](docs/InstanceSnapshot.md)
+ - [IntegrationsHealth](docs/IntegrationsHealth.md)
  - [InviteUserRequestBody](docs/InviteUserRequestBody.md)
  - [Invoice](docs/Invoice.md)
  - [KubernetesDashboardEndpoint](docs/KubernetesDashboardEndpoint.md)

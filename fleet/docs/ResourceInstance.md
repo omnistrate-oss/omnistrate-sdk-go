@@ -5,36 +5,36 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AwsAccountID** | Pointer to **string** | The AWS account ID | [optional] 
-**CloudProvider** | **string** | Name of the Infra Provider | 
+**CloudProvider** | **string** | The cloud provider the workflow executed on. | 
 **ConsumptionResourceInstanceResult** | [**DescribeResourceInstanceResult**](DescribeResourceInstanceResult.md) |  | 
 **DefaultSubscription** | **bool** | Whether the subscription is the default subscription | 
-**DeploymentCellID** | Pointer to **string** | ID of a Host Cluster | [optional] 
-**EnvironmentId** | **string** | ID of a Service Environment | 
+**DeploymentCellID** | Pointer to **string** | The Deployment Cell ID | [optional] 
+**EnvironmentId** | **string** | The service environment ID this workflow belongs to. | 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **InputParams** | **interface{}** | Custom input parameters | 
 **InstanceDebugCommands** | **[]string** | The debug commands to access the instance | 
 **IntegrationsStatus** | [**[]IntegrationStatus**](IntegrationStatus.md) | List of individual integrations and their statuses for the instance | 
 **ManagedResourceType** | Pointer to **string** | The managed resource type of instance | [optional] 
-**OrganizationId** | **string** | ID of an Org | 
+**OrganizationId** | **string** | The organization ID of the resource instance. | 
 **OrganizationName** | **string** | The organization name of the resource instance. | 
 **PortsRegistrationStatus** | Pointer to **map[string][]int64** | The ports registration status of ports based proxy instance | [optional] 
-**ProductTierId** | **string** | ID of a Product Tier | 
+**ProductTierId** | **string** | The product tier ID | 
 **ProductTierName** | **string** | The product tier name | 
 **ProductTierType** | **string** | The product tier type | 
 **ProxyType** | Pointer to **string** | The proxy type of instance | [optional] 
 **ResourceVersionSummaries** | [**[]ResourceVersionSummary**](ResourceVersionSummary.md) | Associated internal/external resources deployed for the instance, the corresponding versions deployed. | 
 **ServiceEnvName** | **string** | The service environment name | 
-**ServiceId** | **string** | ID of a Service | 
+**ServiceId** | **string** | The service ID this workflow belongs to. | 
 **ServiceLogoURL** | Pointer to **string** | The logo for the service | [optional] 
-**ServiceModelId** | **string** | ID of a Service Model | 
+**ServiceModelId** | **string** | The service model ID | 
 **ServiceModelName** | **string** | The service model name | 
 **ServiceModelType** | **string** | The service model type | 
 **ServiceName** | **string** | The service name | 
-**SubscriptionId** | **string** | ID of a Subscription | 
+**SubscriptionId** | **string** | The subscription ID | 
 **SubscriptionOwnerName** | **string** | The subscription owner name | 
 **TierVersion** | **string** | The tier version of the resource instance. | 
 **TierVersionReleasedAt** | **string** | The timestamp when the version set was released. | 
-**TierVersionReleasedByUserId** | **string** | ID of a User | 
+**TierVersionReleasedByUserId** | **string** | The ID of the user who released the version set. | 
 **TierVersionReleasedByUserName** | **string** | The name of the user who released the version set. | 
 **TierVersionStatus** | **string** | The tier version set status. | 
 

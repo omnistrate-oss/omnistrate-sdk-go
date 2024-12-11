@@ -20,7 +20,7 @@ var _ MappedNullable = &DeploymentCellSearchRecord{}
 
 // DeploymentCellSearchRecord struct for DeploymentCellSearchRecord
 type DeploymentCellSearchRecord struct {
-	// Name of the Infra Provider
+	// The cloud provider of the deployment cell.
 	CloudProvider string `json:"cloudProvider"`
 	// The deployment cell description.
 	Description string `json:"description"`

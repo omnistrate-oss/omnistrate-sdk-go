@@ -35,7 +35,7 @@ type ServiceOffering struct {
 	ProductTierDescription *string `json:"productTierDescription,omitempty"`
 	// Documentation
 	ProductTierDocumentation string `json:"productTierDocumentation"`
-	// ID of a Product Tier
+	// The service product ID
 	ProductTierID string `json:"productTierID"`
 	// The product tier name
 	ProductTierName string `json:"productTierName"`
@@ -45,7 +45,7 @@ type ServiceOffering struct {
 	ProductTierPricing interface{} `json:"productTierPricing"`
 	// Support
 	ProductTierSupport string `json:"productTierSupport"`
-	// ProductTierType is the type of tier for a product
+	// Tier type
 	ProductTierType string `json:"productTierType"`
 	// The product tier URL key
 	ProductTierURLKey string `json:"productTierURLKey"`
@@ -53,31 +53,31 @@ type ServiceOffering struct {
 	ProductTierVersion string `json:"productTierVersion"`
 	// The resource parameters
 	ResourceParameters []ResourceEntity `json:"resourceParameters"`
-	// ID of a Service API
+	// The service API ID
 	ServiceAPIID string `json:"serviceAPIID"`
 	// The service API version
 	ServiceAPIVersion string `json:"serviceAPIVersion"`
-	// ID of a Service Environment
+	// The service Environment ID
 	ServiceEnvironmentID string `json:"serviceEnvironmentID"`
 	// The service environment name
 	ServiceEnvironmentName string `json:"serviceEnvironmentName"`
-	// The type of service environment
+	// The service environment type
 	ServiceEnvironmentType string `json:"serviceEnvironmentType"`
 	// The service environment URL key
 	ServiceEnvironmentURLKey string `json:"serviceEnvironmentURLKey"`
-	// This parameter is used to configure the visibility of the service control-plane APIs
+	// The service environment visibility
 	ServiceEnvironmentVisibility string `json:"serviceEnvironmentVisibility"`
 	// The logo for the service
 	ServiceLogoURL string `json:"serviceLogoURL"`
 	// Enabled service model features
 	ServiceModelFeatures []ServiceModelFeatureDetail `json:"serviceModelFeatures,omitempty"`
-	// ID of a Service Model
+	// The service Model ID
 	ServiceModelID string `json:"serviceModelID"`
 	// The service model name
 	ServiceModelName string `json:"serviceModelName"`
 	// The service model status
 	ServiceModelStatus string `json:"serviceModelStatus"`
-	// The model type encapsulating this service
+	// The type of the service model. CUSTOMER_HOSTED is a service model that is hosted in the customer account and managed by Omnistrate. OMNISTRATE_HOSTED is a service model that is managed by Omnistrate platform. BYOA is a service model that is hosted in the service provider's account and managed by Omnistrate.
 	ServiceModelType string `json:"serviceModelType"`
 	// The service model URL key
 	ServiceModelURLKey string `json:"serviceModelURLKey"`

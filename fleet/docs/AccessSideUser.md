@@ -9,15 +9,15 @@ Name | Type | Description | Notes
 **Enabled** | **bool** | Is the user enabled. | 
 **InstanceCount** | **int64** | The number of active instances the user has. | 
 **LastModifiedAt** | **string** | The last modified time of the user. | 
-**LastModifiedByUserID** | Pointer to **string** | ID of a User | [optional] 
+**LastModifiedByUserID** | Pointer to **string** | The user ID of the last modifier. | [optional] 
 **LastModifiedByUserName** | Pointer to **string** | The user name of the last modifier. | [optional] 
-**OrgId** | **string** | ID of an Org | 
+**OrgId** | **string** | The organization ID. | 
 **OrgName** | **string** | The organization name. | 
 **OrgUrl** | Pointer to **string** | The organization URL. | [optional] 
 **Status** | **string** | The status of the user. | 
 **SubscriptionCount** | **int64** | The number of subscriptions the user has. | 
 **Token** | Pointer to **string** | Token to validate the user, if the user is not enabled. | [optional] 
-**UserId** | **string** | ID of a User | 
+**UserId** | **string** | The user ID. | 
 **UserName** | **string** | The user name. | 
 
 ## Methods

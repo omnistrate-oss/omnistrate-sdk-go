@@ -102,11 +102,11 @@ type CustomerOnboardingsApiAPIService service
 type ApiCustomerOnboardingsApiCreateCustomerOnboardingRequest struct {
 	ctx context.Context
 	ApiService CustomerOnboardingsApiAPI
-	createCustomerOnboardingRequest2 *CreateCustomerOnboardingRequest2
+	createCustomerOnboardingRequestBody *CreateCustomerOnboardingRequestBody
 }
 
-func (r ApiCustomerOnboardingsApiCreateCustomerOnboardingRequest) CreateCustomerOnboardingRequest2(createCustomerOnboardingRequest2 CreateCustomerOnboardingRequest2) ApiCustomerOnboardingsApiCreateCustomerOnboardingRequest {
-	r.createCustomerOnboardingRequest2 = &createCustomerOnboardingRequest2
+func (r ApiCustomerOnboardingsApiCreateCustomerOnboardingRequest) CreateCustomerOnboardingRequestBody(createCustomerOnboardingRequestBody CreateCustomerOnboardingRequestBody) ApiCustomerOnboardingsApiCreateCustomerOnboardingRequest {
+	r.createCustomerOnboardingRequestBody = &createCustomerOnboardingRequestBody
 	return r
 }
 
@@ -147,8 +147,8 @@ func (a *CustomerOnboardingsApiAPIService) CustomerOnboardingsApiCreateCustomerO
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createCustomerOnboardingRequest2 == nil {
-		return localVarReturnValue, nil, reportError("createCustomerOnboardingRequest2 is required and must be specified")
+	if r.createCustomerOnboardingRequestBody == nil {
+		return localVarReturnValue, nil, reportError("createCustomerOnboardingRequestBody is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -169,7 +169,7 @@ func (a *CustomerOnboardingsApiAPIService) CustomerOnboardingsApiCreateCustomerO
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createCustomerOnboardingRequest2
+	localVarPostBody = r.createCustomerOnboardingRequestBody
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -843,11 +843,11 @@ type ApiCustomerOnboardingsApiUpdateCustomerOnboardingRequest struct {
 	ctx context.Context
 	ApiService CustomerOnboardingsApiAPI
 	id string
-	updateCustomerOnboardingRequest2 *UpdateCustomerOnboardingRequest2
+	updateCustomerOnboardingRequestBody *UpdateCustomerOnboardingRequestBody
 }
 
-func (r ApiCustomerOnboardingsApiUpdateCustomerOnboardingRequest) UpdateCustomerOnboardingRequest2(updateCustomerOnboardingRequest2 UpdateCustomerOnboardingRequest2) ApiCustomerOnboardingsApiUpdateCustomerOnboardingRequest {
-	r.updateCustomerOnboardingRequest2 = &updateCustomerOnboardingRequest2
+func (r ApiCustomerOnboardingsApiUpdateCustomerOnboardingRequest) UpdateCustomerOnboardingRequestBody(updateCustomerOnboardingRequestBody UpdateCustomerOnboardingRequestBody) ApiCustomerOnboardingsApiUpdateCustomerOnboardingRequest {
+	r.updateCustomerOnboardingRequestBody = &updateCustomerOnboardingRequestBody
 	return r
 }
 
@@ -889,8 +889,8 @@ func (a *CustomerOnboardingsApiAPIService) CustomerOnboardingsApiUpdateCustomerO
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateCustomerOnboardingRequest2 == nil {
-		return nil, reportError("updateCustomerOnboardingRequest2 is required and must be specified")
+	if r.updateCustomerOnboardingRequestBody == nil {
+		return nil, reportError("updateCustomerOnboardingRequestBody is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -911,7 +911,7 @@ func (a *CustomerOnboardingsApiAPIService) CustomerOnboardingsApiUpdateCustomerO
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateCustomerOnboardingRequest2
+	localVarPostBody = r.updateCustomerOnboardingRequestBody
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

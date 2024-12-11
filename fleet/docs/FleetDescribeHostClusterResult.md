@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AwsAccountID** | Pointer to **string** | The AWS account ID | [optional] 
-**CloudProvider** | **string** | Name of the Infra Provider | 
+**CloudProvider** | **string** | The cloud provider of the host cluster | 
 **DashboardEndpoint** | Pointer to **string** | The endpoint to access the dashboard | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
-**Id** | **string** | ID of a Host Cluster | 
-**InstanceID** | **string** | ID of a Resource Instance | 
+**Id** | **string** | The host cluster ID | 
+**InstanceID** | **string** | The instance ID of that this host cluster corresponds to | 
 **Region** | **string** | The region of the host cluster | 
-**Status** | **string** | The status of an operation | 
-**Type** | **string** |  | 
+**Status** | **string** | Status of the host cluster | 
+**Type** | **string** | The type of the host cluster | 
 
 ## Methods
 

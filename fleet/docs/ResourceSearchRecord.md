@@ -7,15 +7,15 @@ Name | Type | Description | Notes
 **Description** | **string** | The resource description. | 
 **Id** | **string** | The Resource ID. | 
 **Name** | **string** | The resource name. | 
-**ProductTierId** | **string** | ID of a Product Tier | 
+**ProductTierId** | **string** | The product tier ID of the resource. | 
 **ProductTierName** | **string** | The product tier name of the resource. | 
 **ResourceType** | Pointer to **string** |  | [optional] 
-**ServiceApiId** | **string** | ID of a Service API | 
-**ServiceEnvironmentId** | **string** | ID of a Service Environment | 
+**ServiceApiId** | **string** | The service API ID of the resource. | 
+**ServiceEnvironmentId** | **string** | The service environment ID of the resource. | 
 **ServiceEnvironmentName** | **string** | The service environment name of the resource. | 
-**ServiceEnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
-**ServiceId** | **string** | ID of a Service | 
-**ServiceModelId** | **string** | ID of a Service Model | 
+**ServiceEnvironmentType** | Pointer to **string** | The service environment type of the resource. | [optional] 
+**ServiceId** | **string** | The service ID of the resource. | 
+**ServiceModelId** | **string** | The service model ID of the resource. | 
 **ServiceName** | **string** | The service name of the resource. | 
 
 ## Methods

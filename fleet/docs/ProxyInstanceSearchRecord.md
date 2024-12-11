@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudProvider** | **string** | Name of the Infra Provider | 
+**CloudProvider** | **string** | The cloud provider where the instance is hosted. | 
 **Description** | **string** | The instance description. | 
 **Id** | **string** | The proxy instance ID. | 
 **Managed** | **bool** | Is the proxy managed by Omnistrate. | 
@@ -12,12 +12,12 @@ Name | Type | Description | Notes
 **PortsRegistrationStatus** | **map[string][]int64** | The ports registration status of the ports based proxy instance. | 
 **ProxyType** | Pointer to **string** | The proxy type. | [optional] 
 **RegionCode** | **string** | The region code where the instance is hosted. | 
-**ServiceEnvironmentId** | **string** | ID of a Service Environment | 
+**ServiceEnvironmentId** | **string** | The service environment ID of the instance. | 
 **ServiceEnvironmentName** | **string** | The service environment name of the instance. | 
-**ServiceEnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
-**ServiceId** | **string** | ID of a Service | 
+**ServiceEnvironmentType** | Pointer to **string** | The service environment type of the instance. | [optional] 
+**ServiceId** | **string** | The service ID of the instance. | 
 **ServiceName** | **string** | The service name of the instance. | 
-**Status** | **string** | The status of an operation | 
+**Status** | **string** | The instance status. | 
 **StatusDescription** | **string** | The instance status description. | 
 **TargetResourceName** | **string** | The name of the target resource of the proxy instance. | 
 

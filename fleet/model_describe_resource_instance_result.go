@@ -30,7 +30,7 @@ type DescribeResourceInstanceResult struct {
 	CloudProvider *string `json:"cloud_provider,omitempty"`
 	// The instance creation time
 	CreatedAt *string `json:"created_at,omitempty"`
-	// ID of a User
+	// The user ID that created the resource instance
 	CreatedByUserId *string `json:"createdByUserId,omitempty"`
 	// The name of the user that created the resource instance
 	CreatedByUserName *string `json:"createdByUserName,omitempty"`
@@ -38,7 +38,7 @@ type DescribeResourceInstanceResult struct {
 	CurrentReplicas *string `json:"currentReplicas,omitempty"`
 	CustomNetworkDetail *CustomNetworkResourceDetail `json:"customNetworkDetail,omitempty"`
 	// The detailed network topology
-	DetailedNetworkTopology map[string]interface{} `json:"detailedNetworkTopology,omitempty"`
+	DetailedNetworkTopology *map[string]ResourceNetworkTopologyResult `json:"detailedNetworkTopology,omitempty"`
 	// The external payer id to record which customer should pay for this resource instance
 	ExternalPayerId *string `json:"externalPayerId,omitempty"`
 	// The GCP project ID
@@ -47,7 +47,7 @@ type DescribeResourceInstanceResult struct {
 	HighAvailability *bool `json:"highAvailability,omitempty"`
 	// The instance ID
 	Id *string `json:"id,omitempty"`
-	// The load status of a pod
+	// The instance load status
 	InstanceLoadStatus *string `json:"instanceLoadStatus,omitempty"`
 	KubernetesDashboardEndpoint *KubernetesDashboardEndpoint `json:"kubernetesDashboardEndpoint,omitempty"`
 	// The instance update time
@@ -66,7 +66,7 @@ type DescribeResourceInstanceResult struct {
 	ResultParams interface{} `json:"result_params,omitempty"`
 	// Whether the instance has serverless enabled
 	ServerlessEnabled *bool `json:"serverlessEnabled,omitempty"`
-	// The status of an operation
+	// The instance status
 	Status *string `json:"status,omitempty"`
 	// The subscription ID
 	SubscriptionId *string `json:"subscriptionId,omitempty"`
@@ -413,19 +413,19 @@ func (o *DescribeResourceInstanceResult) SetCustomNetworkDetail(v CustomNetworkR
 }
 
 // GetDetailedNetworkTopology returns the DetailedNetworkTopology field value if set, zero value otherwise.
-func (o *DescribeResourceInstanceResult) GetDetailedNetworkTopology() map[string]interface{} {
+func (o *DescribeResourceInstanceResult) GetDetailedNetworkTopology() map[string]ResourceNetworkTopologyResult {
 	if o == nil || IsNil(o.DetailedNetworkTopology) {
-		var ret map[string]interface{}
+		var ret map[string]ResourceNetworkTopologyResult
 		return ret
 	}
-	return o.DetailedNetworkTopology
+	return *o.DetailedNetworkTopology
 }
 
 // GetDetailedNetworkTopologyOk returns a tuple with the DetailedNetworkTopology field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeResourceInstanceResult) GetDetailedNetworkTopologyOk() (map[string]interface{}, bool) {
+func (o *DescribeResourceInstanceResult) GetDetailedNetworkTopologyOk() (*map[string]ResourceNetworkTopologyResult, bool) {
 	if o == nil || IsNil(o.DetailedNetworkTopology) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.DetailedNetworkTopology, true
 }
@@ -439,9 +439,9 @@ func (o *DescribeResourceInstanceResult) HasDetailedNetworkTopology() bool {
 	return false
 }
 
-// SetDetailedNetworkTopology gets a reference to the given map[string]interface{} and assigns it to the DetailedNetworkTopology field.
-func (o *DescribeResourceInstanceResult) SetDetailedNetworkTopology(v map[string]interface{}) {
-	o.DetailedNetworkTopology = v
+// SetDetailedNetworkTopology gets a reference to the given map[string]ResourceNetworkTopologyResult and assigns it to the DetailedNetworkTopology field.
+func (o *DescribeResourceInstanceResult) SetDetailedNetworkTopology(v map[string]ResourceNetworkTopologyResult) {
+	o.DetailedNetworkTopology = &v
 }
 
 // GetExternalPayerId returns the ExternalPayerId field value if set, zero value otherwise.

@@ -20,11 +20,11 @@ var _ MappedNullable = &SearchRecord{}
 
 // SearchRecord struct for SearchRecord
 type SearchRecord struct {
-	// Name of the Infra Provider
+	// The cloud provider of the record, if it's a deployment cell.
 	CloudProvider *string `json:"cloudProvider,omitempty"`
 	// The description of the record.
 	Description *string `json:"description,omitempty"`
-	// ID of a Service Environment
+	// The service environment ID of this record.
 	EnvironmentId *string `json:"environmentId,omitempty"`
 	// The environment key of the record.
 	EnvironmentKey *string `json:"environmentKey,omitempty"`
@@ -32,7 +32,7 @@ type SearchRecord struct {
 	Id string `json:"id"`
 	// The name of the record.
 	Name *string `json:"name,omitempty"`
-	// ID of an Org
+	// The organization ID of the record, if it's a subscription.
 	OrgId *string `json:"orgId,omitempty"`
 	// The Organization Name of the record, if it's a user.
 	OrgName *string `json:"orgName,omitempty"`
@@ -44,13 +44,13 @@ type SearchRecord struct {
 	ResourceName *string `json:"resourceName,omitempty"`
 	// The service environment name of this record.
 	ServiceEnvironmentName *string `json:"serviceEnvironmentName,omitempty"`
-	// ID of a Service
+	// The service ID of the record.
 	ServiceId *string `json:"serviceId,omitempty"`
 	// The service name of this record.
 	ServiceName *string `json:"serviceName,omitempty"`
 	// The service plan name of this record, if it's a subscription.
 	ServicePlanName *string `json:"servicePlanName,omitempty"`
-	// The status of an operation
+	// The status of the record.
 	Status *string `json:"status,omitempty"`
 	// The status description of the record.
 	StatusDescription *string `json:"statusDescription,omitempty"`
@@ -58,7 +58,7 @@ type SearchRecord struct {
 	TargetResourceName *string `json:"targetResourceName,omitempty"`
 	// The user email of this record, if it's a subscription.
 	UserEmail *string `json:"userEmail,omitempty"`
-	// ID of a User
+	// The User ID of the record, if it's a subscription.
 	UserID *string `json:"userID,omitempty"`
 	// The version of this record.
 	Version *string `json:"version,omitempty"`

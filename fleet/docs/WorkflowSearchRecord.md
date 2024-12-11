@@ -6,12 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | The ID of the workflow. | 
 **ResourceName** | **string** | The name of the resource associated with the workflow. | 
-**ServiceEnvironmentId** | **string** | ID of a Service Environment | 
+**ServiceEnvironmentId** | **string** | The service environment ID of the workflow. | 
 **ServiceEnvironmentName** | **string** | The service environment name of the workflow. | 
-**ServiceEnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
-**ServiceId** | **string** | ID of a Service | 
+**ServiceEnvironmentType** | Pointer to **string** | The service environment type of the workflow. | [optional] 
+**ServiceId** | **string** | The service ID of the workflow. | 
 **ServiceName** | **string** | The service name of the workflow. | 
-**Status** | **string** | The status of an operation | 
+**Status** | **string** | The workflow status. | 
 **Type** | **string** | The workflow type. | 
 
 ## Methods

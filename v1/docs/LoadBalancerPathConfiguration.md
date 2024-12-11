@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AssociatedKubernetesServiceName** | Pointer to **string** | Override the default target Kubernetes service name with this value | [optional] 
 **AssociatedResourceID** | **string** | The ID of the resource associated with the path | 
 **Path** | **string** | The REST API path backed by the load balancer | 
 **Port** | **int64** | The port to forward traffic to | 
@@ -26,6 +27,31 @@ will change when the set of required properties is changed
 NewLoadBalancerPathConfigurationWithDefaults instantiates a new LoadBalancerPathConfiguration object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAssociatedKubernetesServiceName
+
+`func (o *LoadBalancerPathConfiguration) GetAssociatedKubernetesServiceName() string`
+
+GetAssociatedKubernetesServiceName returns the AssociatedKubernetesServiceName field if non-nil, zero value otherwise.
+
+### GetAssociatedKubernetesServiceNameOk
+
+`func (o *LoadBalancerPathConfiguration) GetAssociatedKubernetesServiceNameOk() (*string, bool)`
+
+GetAssociatedKubernetesServiceNameOk returns a tuple with the AssociatedKubernetesServiceName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAssociatedKubernetesServiceName
+
+`func (o *LoadBalancerPathConfiguration) SetAssociatedKubernetesServiceName(v string)`
+
+SetAssociatedKubernetesServiceName sets AssociatedKubernetesServiceName field to given value.
+
+### HasAssociatedKubernetesServiceName
+
+`func (o *LoadBalancerPathConfiguration) HasAssociatedKubernetesServiceName() bool`
+
+HasAssociatedKubernetesServiceName returns a boolean if a field has been set.
 
 ### GetAssociatedResourceID
 
