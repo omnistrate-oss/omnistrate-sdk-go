@@ -6,7 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ConnectivityStatus** | Pointer to **string** | The health status of the network endpoints | [optional] 
 **DiskHealth** | Pointer to **string** | The health status of the disk | [optional] 
-**LoadHealth** | Pointer to **string** | The load status of the pod | [optional] 
+**IntegrationsHealth** | Pointer to [**IntegrationsHealth**](IntegrationsHealth.md) |  | [optional] 
+**LoadHealth** | Pointer to **string** | (deprecated) The load status of the pod | [optional] 
+**LoadStatus** | Pointer to **string** | The load status of the pod | [optional] 
 **NodeHealth** | Pointer to **string** | The health status of the machine hosting the service | [optional] 
 **ProcessHealth** | Pointer to **string** | The health status of the process | [optional] 
 **ProcessLiveness** | Pointer to **string** | The liveness status of the process | [optional] 
@@ -80,6 +82,31 @@ SetDiskHealth sets DiskHealth field to given value.
 
 HasDiskHealth returns a boolean if a field has been set.
 
+### GetIntegrationsHealth
+
+`func (o *DetailedNodeHealthResult) GetIntegrationsHealth() IntegrationsHealth`
+
+GetIntegrationsHealth returns the IntegrationsHealth field if non-nil, zero value otherwise.
+
+### GetIntegrationsHealthOk
+
+`func (o *DetailedNodeHealthResult) GetIntegrationsHealthOk() (*IntegrationsHealth, bool)`
+
+GetIntegrationsHealthOk returns a tuple with the IntegrationsHealth field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIntegrationsHealth
+
+`func (o *DetailedNodeHealthResult) SetIntegrationsHealth(v IntegrationsHealth)`
+
+SetIntegrationsHealth sets IntegrationsHealth field to given value.
+
+### HasIntegrationsHealth
+
+`func (o *DetailedNodeHealthResult) HasIntegrationsHealth() bool`
+
+HasIntegrationsHealth returns a boolean if a field has been set.
+
 ### GetLoadHealth
 
 `func (o *DetailedNodeHealthResult) GetLoadHealth() string`
@@ -104,6 +131,31 @@ SetLoadHealth sets LoadHealth field to given value.
 `func (o *DetailedNodeHealthResult) HasLoadHealth() bool`
 
 HasLoadHealth returns a boolean if a field has been set.
+
+### GetLoadStatus
+
+`func (o *DetailedNodeHealthResult) GetLoadStatus() string`
+
+GetLoadStatus returns the LoadStatus field if non-nil, zero value otherwise.
+
+### GetLoadStatusOk
+
+`func (o *DetailedNodeHealthResult) GetLoadStatusOk() (*string, bool)`
+
+GetLoadStatusOk returns a tuple with the LoadStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLoadStatus
+
+`func (o *DetailedNodeHealthResult) SetLoadStatus(v string)`
+
+SetLoadStatus sets LoadStatus field to given value.
+
+### HasLoadStatus
+
+`func (o *DetailedNodeHealthResult) HasLoadStatus() bool`
+
+HasLoadStatus returns a boolean if a field has been set.
 
 ### GetNodeHealth
 

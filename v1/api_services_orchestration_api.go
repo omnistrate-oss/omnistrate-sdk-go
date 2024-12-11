@@ -131,7 +131,7 @@ func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiCreateServi
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2022-09-01-00/services-orchestration"
+	localVarPath := localBasePath + "/2022-09-01-00/resource-instance/services-orchestration"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -299,7 +299,7 @@ func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiDeleteServi
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2022-09-01-00/services-orchestration/{id}"
+	localVarPath := localBasePath + "/2022-09-01-00/resource-instance/services-orchestration/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -456,7 +456,7 @@ func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiDescribeSer
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2022-09-01-00/services-orchestration/{id}"
+	localVarPath := localBasePath + "/2022-09-01-00/resource-instance/services-orchestration/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -619,7 +619,7 @@ func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiListService
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2022-09-01-00/services-orchestration"
+	localVarPath := localBasePath + "/2022-09-01-00/resource-instance/services-orchestration"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -790,7 +790,7 @@ func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiModifyServi
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2022-09-01-00/services-orchestration/{id}"
+	localVarPath := localBasePath + "/2022-09-01-00/resource-instance/services-orchestration/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
