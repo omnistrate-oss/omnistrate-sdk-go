@@ -242,6 +242,19 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test InventoryApiAPIService InventoryApiDeleteUser", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var userId string
+
+		httpRes, err := apiClient.InventoryApiAPI.InventoryApiDeleteUser(context.Background(), userId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test InventoryApiAPIService InventoryApiDenySubscriptionRequest", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -768,10 +781,9 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 		var id string
 
-		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiModifyServicesOrchestration(context.Background(), id).Execute()
+		httpRes, err := apiClient.InventoryApiAPI.InventoryApiModifyServicesOrchestration(context.Background(), id).Execute()
 
 		require.Nil(t, err)
-		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -963,6 +975,19 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 		var id string
 
 		httpRes, err := apiClient.InventoryApiAPI.InventoryApiTerminateSubscription(context.Background(), serviceId, environmentId, id).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InventoryApiAPIService InventoryApiUnsuspendUser", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var userId string
+
+		httpRes, err := apiClient.InventoryApiAPI.InventoryApiUnsuspendUser(context.Background(), userId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

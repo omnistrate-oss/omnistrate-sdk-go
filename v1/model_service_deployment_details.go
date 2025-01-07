@@ -28,6 +28,10 @@ type ServiceDeploymentDetails struct {
 	InstanceId *string `json:"instanceId,omitempty"`
 	// The service ID
 	ServiceId string `json:"serviceId"`
+	// The status of the service deployment
+	Status *string `json:"status,omitempty"`
+	// The status message of the service deployment
+	StatusMessage *string `json:"statusMessage,omitempty"`
 	// The instance subscription ID
 	SubscriptionId string `json:"subscriptionId"`
 	AdditionalProperties map[string]interface{}
@@ -149,6 +153,52 @@ func (o *ServiceDeploymentDetails) SetServiceId(v string) {
 	o.ServiceId = v
 }
 
+// GetStatus returns the Status field value if set, zero value otherwise.
+func (o *ServiceDeploymentDetails) GetStatus() string {
+	if o == nil || IsNil(o.Status) {
+		var ret string
+		return ret
+	}
+	return *o.Status
+}
+
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceDeploymentDetails) GetStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.Status) {
+		return nil, false
+	}
+	return o.Status, true
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
+func (o *ServiceDeploymentDetails) SetStatus(v string) {
+	o.Status = &v
+}
+
+// GetStatusMessage returns the StatusMessage field value if set, zero value otherwise.
+func (o *ServiceDeploymentDetails) GetStatusMessage() string {
+	if o == nil || IsNil(o.StatusMessage) {
+		var ret string
+		return ret
+	}
+	return *o.StatusMessage
+}
+
+// GetStatusMessageOk returns a tuple with the StatusMessage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceDeploymentDetails) GetStatusMessageOk() (*string, bool) {
+	if o == nil || IsNil(o.StatusMessage) {
+		return nil, false
+	}
+	return o.StatusMessage, true
+}
+
+// SetStatusMessage gets a reference to the given string and assigns it to the StatusMessage field.
+func (o *ServiceDeploymentDetails) SetStatusMessage(v string) {
+	o.StatusMessage = &v
+}
+
 // GetSubscriptionId returns the SubscriptionId field value
 func (o *ServiceDeploymentDetails) GetSubscriptionId() string {
 	if o == nil {
@@ -191,6 +241,12 @@ func (o ServiceDeploymentDetails) ToMap() (map[string]interface{}, error) {
 		toSerialize["instanceId"] = o.InstanceId
 	}
 	toSerialize["serviceId"] = o.ServiceId
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
+	if !IsNil(o.StatusMessage) {
+		toSerialize["statusMessage"] = o.StatusMessage
+	}
 	toSerialize["subscriptionId"] = o.SubscriptionId
 
 	for key, value := range o.AdditionalProperties {
@@ -241,6 +297,8 @@ func (o *ServiceDeploymentDetails) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "instanceDeploymentAlias")
 		delete(additionalProperties, "instanceId")
 		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "statusMessage")
 		delete(additionalProperties, "subscriptionId")
 		o.AdditionalProperties = additionalProperties
 	}

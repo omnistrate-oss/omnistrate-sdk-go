@@ -16,6 +16,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"reflect"
 	"time"
 )
 
@@ -258,7 +259,7 @@ type ApiOperationsApiListEventsRequest struct {
 	ctx context.Context
 	ApiService OperationsApiAPI
 	environmentType *string
-	eventType *string
+	eventTypes *[]string
 	serviceID *string
 	serviceEnvironmentID *string
 	instanceID *string
@@ -273,8 +274,9 @@ func (r ApiOperationsApiListEventsRequest) EnvironmentType(environmentType strin
 	return r
 }
 
-func (r ApiOperationsApiListEventsRequest) EventType(eventType string) ApiOperationsApiListEventsRequest {
-	r.eventType = &eventType
+// The event types to filter by
+func (r ApiOperationsApiListEventsRequest) EventTypes(eventTypes []string) ApiOperationsApiListEventsRequest {
+	r.eventTypes = &eventTypes
 	return r
 }
 
@@ -361,8 +363,16 @@ func (a *OperationsApiAPIService) OperationsApiListEventsExecute(r ApiOperations
 	if r.environmentType != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "environmentType", r.environmentType, "form", "")
 	}
-	if r.eventType != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "eventType", r.eventType, "form", "")
+	if r.eventTypes != nil {
+		t := *r.eventTypes
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "eventTypes", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "eventTypes", t, "form", "multi")
+		}
 	}
 	if r.serviceID != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "serviceID", r.serviceID, "form", "")

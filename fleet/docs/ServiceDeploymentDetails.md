@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **InstanceDeploymentAlias** | **string** | The instance deployment alias | 
 **InstanceId** | Pointer to **string** | The instance ID | [optional] 
 **ServiceId** | **string** | The service ID | 
+**Status** | Pointer to **string** | The status of the service deployment | [optional] 
+**StatusMessage** | Pointer to **string** | The status message of the service deployment | [optional] 
 **SubscriptionId** | **string** | The instance subscription ID | 
 
 ## Methods
@@ -118,6 +120,56 @@ and a boolean to check if the value has been set.
 
 SetServiceId sets ServiceId field to given value.
 
+
+### GetStatus
+
+`func (o *ServiceDeploymentDetails) GetStatus() string`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *ServiceDeploymentDetails) GetStatusOk() (*string, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *ServiceDeploymentDetails) SetStatus(v string)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *ServiceDeploymentDetails) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
+
+### GetStatusMessage
+
+`func (o *ServiceDeploymentDetails) GetStatusMessage() string`
+
+GetStatusMessage returns the StatusMessage field if non-nil, zero value otherwise.
+
+### GetStatusMessageOk
+
+`func (o *ServiceDeploymentDetails) GetStatusMessageOk() (*string, bool)`
+
+GetStatusMessageOk returns a tuple with the StatusMessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatusMessage
+
+`func (o *ServiceDeploymentDetails) SetStatusMessage(v string)`
+
+SetStatusMessage sets StatusMessage field to given value.
+
+### HasStatusMessage
+
+`func (o *ServiceDeploymentDetails) HasStatusMessage() bool`
+
+HasStatusMessage returns a boolean if a field has been set.
 
 ### GetSubscriptionId
 

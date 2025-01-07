@@ -202,6 +202,7 @@ docs/GlobalApiAPI.md
 docs/HelmChartConfiguration.md
 docs/HelmPackage.md
 docs/HelmPackageApiAPI.md
+docs/HelmRuntimeConfiguration.md
 docs/IdentityProviderApiAPI.md
 docs/ImageConfigApiAPI.md
 docs/ImageConfigChangeSummary.md
@@ -260,6 +261,7 @@ docs/ModifyServicesOrchestrationRequestBody.md
 docs/NetworkConfigApiAPI.md
 docs/NetworkFeaturesConfiguration.md
 docs/NodeNetworkTopologyResult.md
+docs/NodeVMInfoResult.md
 docs/OfferingBillingPlan.md
 docs/OmnistrateServiceHealthResult.md
 docs/OmnistrateServiceVersionResult.md
@@ -504,6 +506,7 @@ model_get_service_plan_result.go
 model_git_configuration.go
 model_helm_chart_configuration.go
 model_helm_package.go
+model_helm_runtime_configuration.go
 model_image_config_change_summary.go
 model_infra_config_change_summary.go
 model_infra_roll_configuration.go
@@ -554,6 +557,7 @@ model_login_with_identity_provider_request_body.go
 model_modify_services_orchestration_request_body.go
 model_network_features_configuration.go
 model_node_network_topology_result.go
+model_node_vm_info_result.go
 model_offering_billing_plan.go
 model_omnistrate_service_health_result.go
 model_omnistrate_service_version_result.go

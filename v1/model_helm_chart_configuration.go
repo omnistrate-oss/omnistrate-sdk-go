@@ -34,6 +34,7 @@ type HelmChartConfiguration struct {
 	EndpointConfiguration *map[string]Endpoint `json:"endpointConfiguration,omitempty"`
 	// The password to authenticate with the registry
 	Password *string `json:"password,omitempty"`
+	RuntimeConfiguration *HelmRuntimeConfiguration `json:"runtimeConfiguration,omitempty"`
 	// The username to authenticate with the registry
 	Username *string `json:"username,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -227,6 +228,29 @@ func (o *HelmChartConfiguration) SetPassword(v string) {
 	o.Password = &v
 }
 
+// GetRuntimeConfiguration returns the RuntimeConfiguration field value if set, zero value otherwise.
+func (o *HelmChartConfiguration) GetRuntimeConfiguration() HelmRuntimeConfiguration {
+	if o == nil || IsNil(o.RuntimeConfiguration) {
+		var ret HelmRuntimeConfiguration
+		return ret
+	}
+	return *o.RuntimeConfiguration
+}
+
+// GetRuntimeConfigurationOk returns a tuple with the RuntimeConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HelmChartConfiguration) GetRuntimeConfigurationOk() (*HelmRuntimeConfiguration, bool) {
+	if o == nil || IsNil(o.RuntimeConfiguration) {
+		return nil, false
+	}
+	return o.RuntimeConfiguration, true
+}
+
+// SetRuntimeConfiguration gets a reference to the given HelmRuntimeConfiguration and assigns it to the RuntimeConfiguration field.
+func (o *HelmChartConfiguration) SetRuntimeConfiguration(v HelmRuntimeConfiguration) {
+	o.RuntimeConfiguration = &v
+}
+
 // GetUsername returns the Username field value if set, zero value otherwise.
 func (o *HelmChartConfiguration) GetUsername() string {
 	if o == nil || IsNil(o.Username) {
@@ -272,6 +296,9 @@ func (o HelmChartConfiguration) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Password) {
 		toSerialize["password"] = o.Password
+	}
+	if !IsNil(o.RuntimeConfiguration) {
+		toSerialize["runtimeConfiguration"] = o.RuntimeConfiguration
 	}
 	if !IsNil(o.Username) {
 		toSerialize["username"] = o.Username
@@ -329,6 +356,7 @@ func (o *HelmChartConfiguration) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "chartVersion")
 		delete(additionalProperties, "endpointConfiguration")
 		delete(additionalProperties, "password")
+		delete(additionalProperties, "runtimeConfiguration")
 		delete(additionalProperties, "username")
 		o.AdditionalProperties = additionalProperties
 	}

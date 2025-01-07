@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ## OperationsApiListEvents
 
-> ListServiceProviderEventsResult OperationsApiListEvents(ctx).EnvironmentType(environmentType).EventType(eventType).ServiceID(serviceID).ServiceEnvironmentID(serviceEnvironmentID).InstanceID(instanceID).NextPageToken(nextPageToken).PageSize(pageSize).StartDate(startDate).EndDate(endDate).Execute()
+> ListServiceProviderEventsResult OperationsApiListEvents(ctx).EnvironmentType(environmentType).EventTypes(eventTypes).ServiceID(serviceID).ServiceEnvironmentID(serviceEnvironmentID).InstanceID(instanceID).NextPageToken(nextPageToken).PageSize(pageSize).StartDate(startDate).EndDate(endDate).Execute()
 
 ListEvents operations-api
 
@@ -99,7 +99,7 @@ import (
 
 func main() {
 	environmentType := "PROD|PRIVATE|CANARY|STAGING|QA|DEV" // string |  (optional)
-	eventType := "UnhealthyInstance|FailedDeployment|ScaleOut|UserSignUp|UserSubscription" // string |  (optional)
+	eventTypes := []string{"UnhealthyInstance|FailedDeployment|ScaleOut|UserSignUp|UserSubscription"} // []string | The event types to filter by (optional)
 	serviceID := "s-123456" // string | The service ID to list events for (optional)
 	serviceEnvironmentID := "se-123456" // string | The service environment ID to list events for (optional)
 	instanceID := "instance-12345678" // string | The instance ID to list events for (optional)
@@ -110,7 +110,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OperationsApiAPI.OperationsApiListEvents(context.Background()).EnvironmentType(environmentType).EventType(eventType).ServiceID(serviceID).ServiceEnvironmentID(serviceEnvironmentID).InstanceID(instanceID).NextPageToken(nextPageToken).PageSize(pageSize).StartDate(startDate).EndDate(endDate).Execute()
+	resp, r, err := apiClient.OperationsApiAPI.OperationsApiListEvents(context.Background()).EnvironmentType(environmentType).EventTypes(eventTypes).ServiceID(serviceID).ServiceEnvironmentID(serviceEnvironmentID).InstanceID(instanceID).NextPageToken(nextPageToken).PageSize(pageSize).StartDate(startDate).EndDate(endDate).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OperationsApiAPI.OperationsApiListEvents``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -132,7 +132,7 @@ Other parameters are passed through a pointer to a apiOperationsApiListEventsReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **environmentType** | **string** |  | 
- **eventType** | **string** |  | 
+ **eventTypes** | **[]string** | The event types to filter by | 
  **serviceID** | **string** | The service ID to list events for | 
  **serviceEnvironmentID** | **string** | The service environment ID to list events for | 
  **instanceID** | **string** | The instance ID to list events for | 

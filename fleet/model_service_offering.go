@@ -81,6 +81,8 @@ type ServiceOffering struct {
 	ServiceModelType string `json:"serviceModelType"`
 	// The service model URL key
 	ServiceModelURLKey string `json:"serviceModelURLKey"`
+	// Indicates whether any of the resources in the product tier support public network
+	SupportsPublicNetwork *bool `json:"supportsPublicNetwork,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -936,6 +938,38 @@ func (o *ServiceOffering) SetServiceModelURLKey(v string) {
 	o.ServiceModelURLKey = v
 }
 
+// GetSupportsPublicNetwork returns the SupportsPublicNetwork field value if set, zero value otherwise.
+func (o *ServiceOffering) GetSupportsPublicNetwork() bool {
+	if o == nil || IsNil(o.SupportsPublicNetwork) {
+		var ret bool
+		return ret
+	}
+	return *o.SupportsPublicNetwork
+}
+
+// GetSupportsPublicNetworkOk returns a tuple with the SupportsPublicNetwork field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceOffering) GetSupportsPublicNetworkOk() (*bool, bool) {
+	if o == nil || IsNil(o.SupportsPublicNetwork) {
+		return nil, false
+	}
+	return o.SupportsPublicNetwork, true
+}
+
+// HasSupportsPublicNetwork returns a boolean if a field has been set.
+func (o *ServiceOffering) HasSupportsPublicNetwork() bool {
+	if o != nil && !IsNil(o.SupportsPublicNetwork) {
+		return true
+	}
+
+	return false
+}
+
+// SetSupportsPublicNetwork gets a reference to the given bool and assigns it to the SupportsPublicNetwork field.
+func (o *ServiceOffering) SetSupportsPublicNetwork(v bool) {
+	o.SupportsPublicNetwork = &v
+}
+
 func (o ServiceOffering) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -995,6 +1029,9 @@ func (o ServiceOffering) ToMap() (map[string]interface{}, error) {
 	toSerialize["serviceModelStatus"] = o.ServiceModelStatus
 	toSerialize["serviceModelType"] = o.ServiceModelType
 	toSerialize["serviceModelURLKey"] = o.ServiceModelURLKey
+	if !IsNil(o.SupportsPublicNetwork) {
+		toSerialize["supportsPublicNetwork"] = o.SupportsPublicNetwork
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -1091,6 +1128,7 @@ func (o *ServiceOffering) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "serviceModelStatus")
 		delete(additionalProperties, "serviceModelType")
 		delete(additionalProperties, "serviceModelURLKey")
+		delete(additionalProperties, "supportsPublicNetwork")
 		o.AdditionalProperties = additionalProperties
 	}
 

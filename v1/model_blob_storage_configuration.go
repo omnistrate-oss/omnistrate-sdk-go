@@ -20,6 +20,7 @@ var _ MappedNullable = &BlobStorageConfiguration{}
 // BlobStorageConfiguration struct for BlobStorageConfiguration
 type BlobStorageConfiguration struct {
 	GCSConfiguration map[string]interface{} `json:"GCSConfiguration,omitempty"`
+	S3Configuration map[string]interface{} `json:"S3Configuration,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -65,6 +66,29 @@ func (o *BlobStorageConfiguration) SetGCSConfiguration(v map[string]interface{})
 	o.GCSConfiguration = v
 }
 
+// GetS3Configuration returns the S3Configuration field value if set, zero value otherwise.
+func (o *BlobStorageConfiguration) GetS3Configuration() map[string]interface{} {
+	if o == nil || IsNil(o.S3Configuration) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.S3Configuration
+}
+
+// GetS3ConfigurationOk returns a tuple with the S3Configuration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BlobStorageConfiguration) GetS3ConfigurationOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.S3Configuration) {
+		return map[string]interface{}{}, false
+	}
+	return o.S3Configuration, true
+}
+
+// SetS3Configuration gets a reference to the given map[string]interface{} and assigns it to the S3Configuration field.
+func (o *BlobStorageConfiguration) SetS3Configuration(v map[string]interface{}) {
+	o.S3Configuration = v
+}
+
 func (o BlobStorageConfiguration) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -77,6 +101,9 @@ func (o BlobStorageConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.GCSConfiguration) {
 		toSerialize["GCSConfiguration"] = o.GCSConfiguration
+	}
+	if !IsNil(o.S3Configuration) {
+		toSerialize["S3Configuration"] = o.S3Configuration
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -101,6 +128,7 @@ func (o *BlobStorageConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "GCSConfiguration")
+		delete(additionalProperties, "S3Configuration")
 		o.AdditionalProperties = additionalProperties
 	}
 

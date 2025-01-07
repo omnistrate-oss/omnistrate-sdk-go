@@ -22,6 +22,10 @@ var _ MappedNullable = &RegisterActionHookRequestBody{}
 type RegisterActionHookRequestBody struct {
 	// The Base64 encoded command template to execute
 	CommandTemplate string `json:"commandTemplate"`
+	// The custom command to execute the hook with
+	CustomCommand []string `json:"customCommand,omitempty"`
+	// The custom image to execute the hook
+	CustomImage *string `json:"customImage,omitempty"`
 	// The scope of the hook
 	Scope string `json:"scope"`
 	// The type of hook to execute
@@ -73,6 +77,52 @@ func (o *RegisterActionHookRequestBody) GetCommandTemplateOk() (*string, bool) {
 // SetCommandTemplate sets field value
 func (o *RegisterActionHookRequestBody) SetCommandTemplate(v string) {
 	o.CommandTemplate = v
+}
+
+// GetCustomCommand returns the CustomCommand field value if set, zero value otherwise.
+func (o *RegisterActionHookRequestBody) GetCustomCommand() []string {
+	if o == nil || IsNil(o.CustomCommand) {
+		var ret []string
+		return ret
+	}
+	return o.CustomCommand
+}
+
+// GetCustomCommandOk returns a tuple with the CustomCommand field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RegisterActionHookRequestBody) GetCustomCommandOk() ([]string, bool) {
+	if o == nil || IsNil(o.CustomCommand) {
+		return nil, false
+	}
+	return o.CustomCommand, true
+}
+
+// SetCustomCommand gets a reference to the given []string and assigns it to the CustomCommand field.
+func (o *RegisterActionHookRequestBody) SetCustomCommand(v []string) {
+	o.CustomCommand = v
+}
+
+// GetCustomImage returns the CustomImage field value if set, zero value otherwise.
+func (o *RegisterActionHookRequestBody) GetCustomImage() string {
+	if o == nil || IsNil(o.CustomImage) {
+		var ret string
+		return ret
+	}
+	return *o.CustomImage
+}
+
+// GetCustomImageOk returns a tuple with the CustomImage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RegisterActionHookRequestBody) GetCustomImageOk() (*string, bool) {
+	if o == nil || IsNil(o.CustomImage) {
+		return nil, false
+	}
+	return o.CustomImage, true
+}
+
+// SetCustomImage gets a reference to the given string and assigns it to the CustomImage field.
+func (o *RegisterActionHookRequestBody) SetCustomImage(v string) {
+	o.CustomImage = &v
 }
 
 // GetScope returns the Scope field value
@@ -134,6 +184,12 @@ func (o RegisterActionHookRequestBody) MarshalJSON() ([]byte, error) {
 func (o RegisterActionHookRequestBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["commandTemplate"] = o.CommandTemplate
+	if !IsNil(o.CustomCommand) {
+		toSerialize["customCommand"] = o.CustomCommand
+	}
+	if !IsNil(o.CustomImage) {
+		toSerialize["customImage"] = o.CustomImage
+	}
 	toSerialize["scope"] = o.Scope
 	toSerialize["type"] = o.Type
 
@@ -182,6 +238,8 @@ func (o *RegisterActionHookRequestBody) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "commandTemplate")
+		delete(additionalProperties, "customCommand")
+		delete(additionalProperties, "customImage")
 		delete(additionalProperties, "scope")
 		delete(additionalProperties, "type")
 		o.AdditionalProperties = additionalProperties

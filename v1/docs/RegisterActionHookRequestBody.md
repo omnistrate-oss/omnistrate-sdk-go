@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CommandTemplate** | **string** | The Base64 encoded command template to execute | 
+**CustomCommand** | Pointer to **[]string** | The custom command to execute the hook with | [optional] 
+**CustomImage** | Pointer to **string** | The custom image to execute the hook | [optional] 
 **Scope** | **string** | The scope of the hook | 
 **Type** | **string** | The type of hook to execute | 
 
@@ -46,6 +48,56 @@ and a boolean to check if the value has been set.
 
 SetCommandTemplate sets CommandTemplate field to given value.
 
+
+### GetCustomCommand
+
+`func (o *RegisterActionHookRequestBody) GetCustomCommand() []string`
+
+GetCustomCommand returns the CustomCommand field if non-nil, zero value otherwise.
+
+### GetCustomCommandOk
+
+`func (o *RegisterActionHookRequestBody) GetCustomCommandOk() (*[]string, bool)`
+
+GetCustomCommandOk returns a tuple with the CustomCommand field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomCommand
+
+`func (o *RegisterActionHookRequestBody) SetCustomCommand(v []string)`
+
+SetCustomCommand sets CustomCommand field to given value.
+
+### HasCustomCommand
+
+`func (o *RegisterActionHookRequestBody) HasCustomCommand() bool`
+
+HasCustomCommand returns a boolean if a field has been set.
+
+### GetCustomImage
+
+`func (o *RegisterActionHookRequestBody) GetCustomImage() string`
+
+GetCustomImage returns the CustomImage field if non-nil, zero value otherwise.
+
+### GetCustomImageOk
+
+`func (o *RegisterActionHookRequestBody) GetCustomImageOk() (*string, bool)`
+
+GetCustomImageOk returns a tuple with the CustomImage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomImage
+
+`func (o *RegisterActionHookRequestBody) SetCustomImage(v string)`
+
+SetCustomImage sets CustomImage field to given value.
+
+### HasCustomImage
+
+`func (o *RegisterActionHookRequestBody) HasCustomImage() bool`
+
+HasCustomImage returns a boolean if a field has been set.
 
 ### GetScope
 
