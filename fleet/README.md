@@ -102,9 +102,6 @@ Class | Method | HTTP request | Description
 *FleetWorkflowsApiAPI* | [**FleetWorkflowsApiUpdateServiceWorkflow**](docs/FleetWorkflowsApiAPI.md#fleetworkflowsapiupdateserviceworkflow) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows/{id} | UpdateServiceWorkflow fleet-workflows-api
 *HelmPackageApiAPI* | [**HelmPackageApiListHelmPackageInstallations**](docs/HelmPackageApiAPI.md#helmpackageapilisthelmpackageinstallations) | **Get** /2022-09-01-00/fleet/helm-package-installations | ListHelmPackageInstallations helm-package-api
 *HostclusterApiAPI* | [**HostclusterApiListHostClusters**](docs/HostclusterApiAPI.md#hostclusterapilisthostclusters) | **Get** /2022-09-01-00/fleet/host-clusters | ListHostClusters hostcluster-api
-*IntegrationsApiAPI* | [**IntegrationsApiDisableProductTierIntegration**](docs/IntegrationsApiAPI.md#integrationsapidisableproducttierintegration) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/product-tier/{id}/integration | DisableProductTierIntegration integrations-api
-*IntegrationsApiAPI* | [**IntegrationsApiEnableProductTierIntegration**](docs/IntegrationsApiAPI.md#integrationsapienableproducttierintegration) | **Put** /2022-09-01-00/fleet/service/{serviceId}/product-tier/{id}/integration | EnableProductTierIntegration integrations-api
-*IntegrationsApiAPI* | [**IntegrationsApiListProductTierIntegrations**](docs/IntegrationsApiAPI.md#integrationsapilistproducttierintegrations) | **Get** /2022-09-01-00/fleet/service/{serviceId}/product-tier/{id}/integration | ListProductTierIntegrations integrations-api
 *InventoryApiAPI* | [**InventoryApiAddCapacityToResourceInstance**](docs/InventoryApiAPI.md#inventoryapiaddcapacitytoresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/add-capacity | AddCapacityToResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiAddCustomDNSToResourceInstance**](docs/InventoryApiAPI.md#inventoryapiaddcustomdnstoresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/{resourceKey}/instance/{instanceId}/custom-dns | AddCustomDNSToResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiApproveSubscriptionRequest**](docs/InventoryApiAPI.md#inventoryapiapprovesubscriptionrequest) | **Put** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | ApproveSubscriptionRequest inventory-api
@@ -119,6 +116,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiDeleteResourceInstance**](docs/InventoryApiAPI.md#inventoryapideleteresourceinstance) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId} | DeleteResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiDeleteResourceInstanceSnapshot**](docs/InventoryApiAPI.md#inventoryapideleteresourceinstancesnapshot) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/snapshot/{snapshotId} | DeleteResourceInstanceSnapshot inventory-api
 *InventoryApiAPI* | [**InventoryApiDeleteServicesOrchestration**](docs/InventoryApiAPI.md#inventoryapideleteservicesorchestration) | **Delete** /2022-09-01-00/fleet/services-orchestration/{id} | DeleteServicesOrchestration inventory-api
+*InventoryApiAPI* | [**InventoryApiDeleteUser**](docs/InventoryApiAPI.md#inventoryapideleteuser) | **Delete** /2022-09-01-00/fleet/user/{userId} | DeleteUser inventory-api
 *InventoryApiAPI* | [**InventoryApiDenySubscriptionRequest**](docs/InventoryApiAPI.md#inventoryapidenysubscriptionrequest) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | DenySubscriptionRequest inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeHostCluster**](docs/InventoryApiAPI.md#inventoryapidescribehostcluster) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/host-cluster/{id} | DescribeHostCluster inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeInstanceEvent**](docs/InventoryApiAPI.md#inventoryapidescribeinstanceevent) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/event/{id} | DescribeInstanceEvent inventory-api
@@ -167,6 +165,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiSuspendSubscription**](docs/InventoryApiAPI.md#inventoryapisuspendsubscription) | **Put** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/{id}/suspend | SuspendSubscription inventory-api
 *InventoryApiAPI* | [**InventoryApiSuspendUser**](docs/InventoryApiAPI.md#inventoryapisuspenduser) | **Put** /2022-09-01-00/fleet/user/{userId}/suspend | SuspendUser inventory-api
 *InventoryApiAPI* | [**InventoryApiTerminateSubscription**](docs/InventoryApiAPI.md#inventoryapiterminatesubscription) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/{id} | TerminateSubscription inventory-api
+*InventoryApiAPI* | [**InventoryApiUnsuspendUser**](docs/InventoryApiAPI.md#inventoryapiunsuspenduser) | **Put** /2022-09-01-00/fleet/user/{userId}/unsuspend | UnsuspendUser inventory-api
 *InventoryApiAPI* | [**InventoryApiUpdateResourceInstance**](docs/InventoryApiAPI.md#inventoryapiupdateresourceinstance) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId} | UpdateResourceInstance inventory-api
 *NotificationsApiAPI* | [**NotificationsApiCreateNotificationChannel**](docs/NotificationsApiAPI.md#notificationsapicreatenotificationchannel) | **Post** /2022-09-01-00/fleet/notification-channel | CreateNotificationChannel notifications-api
 *NotificationsApiAPI* | [**NotificationsApiDeleteNotificationChannel**](docs/NotificationsApiAPI.md#notificationsapideletenotificationchannel) | **Delete** /2022-09-01-00/fleet/notification-channel/{id} | DeleteNotificationChannel notifications-api
@@ -216,10 +215,8 @@ Class | Method | HTTP request | Description
  - [DescribeServicesOrchestrationResult](docs/DescribeServicesOrchestrationResult.md)
  - [DescribeSubscriptionRequestResult](docs/DescribeSubscriptionRequestResult.md)
  - [DetailedNodeHealthResult](docs/DetailedNodeHealthResult.md)
- - [DisableProductTierIntegrationRequestBody](docs/DisableProductTierIntegrationRequestBody.md)
  - [EmailConfiguration](docs/EmailConfiguration.md)
  - [EnableFleetFeatureRequestBody](docs/EnableFleetFeatureRequestBody.md)
- - [EnableProductTierIntegrationRequestBody](docs/EnableProductTierIntegrationRequestBody.md)
  - [EndCustomerEvent](docs/EndCustomerEvent.md)
  - [Error](docs/Error.md)
  - [EventsPerResource](docs/EventsPerResource.md)
@@ -269,7 +266,6 @@ Class | Method | HTTP request | Description
  - [ListHostClustersResult](docs/ListHostClustersResult.md)
  - [ListNotificationChannelsResult](docs/ListNotificationChannelsResult.md)
  - [ListOrganizationsResult](docs/ListOrganizationsResult.md)
- - [ListProductTierIntegrationsResult](docs/ListProductTierIntegrationsResult.md)
  - [ListResourcesRequestBody](docs/ListResourcesRequestBody.md)
  - [ListResourcesResult](docs/ListResourcesResult.md)
  - [ListServiceOfferingsResult](docs/ListServiceOfferingsResult.md)
@@ -280,6 +276,7 @@ Class | Method | HTTP request | Description
  - [ModifyServicesOrchestrationRequestBody](docs/ModifyServicesOrchestrationRequestBody.md)
  - [NodeHealthSummary](docs/NodeHealthSummary.md)
  - [NodeNetworkTopologyResult](docs/NodeNetworkTopologyResult.md)
+ - [NodeVMInfoResult](docs/NodeVMInfoResult.md)
  - [NotificationSearchRecord](docs/NotificationSearchRecord.md)
  - [OfferingBillingPlan](docs/OfferingBillingPlan.md)
  - [OnboardingStage](docs/OnboardingStage.md)
@@ -287,7 +284,6 @@ Class | Method | HTTP request | Description
  - [Organization](docs/Organization.md)
  - [OutputParameterEntity](docs/OutputParameterEntity.md)
  - [PagerDutyConfiguration](docs/PagerDutyConfiguration.md)
- - [ProductTierIntegration](docs/ProductTierIntegration.md)
  - [ProxyEndpoint](docs/ProxyEndpoint.md)
  - [ProxyInstanceSearchRecord](docs/ProxyInstanceSearchRecord.md)
  - [RecentDeploymentFailureStatus](docs/RecentDeploymentFailureStatus.md)

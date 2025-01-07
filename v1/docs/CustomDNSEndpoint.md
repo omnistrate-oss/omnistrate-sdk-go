@@ -6,8 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ARecordTarget** | Pointer to **string** |  | [optional] 
 **CnameTarget** | Pointer to **string** |  | [optional] 
-**DnsName** | Pointer to **string** |  | [optional] 
+**DnsHost** | Pointer to **string** |  | [optional] 
+**DnsName** | Pointer to **string** | DEPRECATED: Use dnsHost instead | [optional] 
 **Enabled** | **bool** |  | 
+**Name** | Pointer to **string** |  | [optional] 
 **Status** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -79,6 +81,31 @@ SetCnameTarget sets CnameTarget field to given value.
 
 HasCnameTarget returns a boolean if a field has been set.
 
+### GetDnsHost
+
+`func (o *CustomDNSEndpoint) GetDnsHost() string`
+
+GetDnsHost returns the DnsHost field if non-nil, zero value otherwise.
+
+### GetDnsHostOk
+
+`func (o *CustomDNSEndpoint) GetDnsHostOk() (*string, bool)`
+
+GetDnsHostOk returns a tuple with the DnsHost field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDnsHost
+
+`func (o *CustomDNSEndpoint) SetDnsHost(v string)`
+
+SetDnsHost sets DnsHost field to given value.
+
+### HasDnsHost
+
+`func (o *CustomDNSEndpoint) HasDnsHost() bool`
+
+HasDnsHost returns a boolean if a field has been set.
+
 ### GetDnsName
 
 `func (o *CustomDNSEndpoint) GetDnsName() string`
@@ -123,6 +150,31 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
+
+### GetName
+
+`func (o *CustomDNSEndpoint) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *CustomDNSEndpoint) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *CustomDNSEndpoint) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *CustomDNSEndpoint) HasName() bool`
+
+HasName returns a boolean if a field has been set.
 
 ### GetStatus
 

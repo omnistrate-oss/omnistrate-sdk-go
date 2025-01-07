@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **ServiceModelStatus** | **string** | The service model status | 
 **ServiceModelType** | **string** | The type of the service model. CUSTOMER_HOSTED is a service model that is hosted in the customer account and managed by Omnistrate. OMNISTRATE_HOSTED is a service model that is managed by Omnistrate platform. BYOA is a service model that is hosted in the service provider&#39;s account and managed by Omnistrate. | 
 **ServiceModelURLKey** | **string** | The service model URL key | 
+**SupportsPublicNetwork** | Pointer to **bool** | Indicates whether any of the resources in the product tier support public network | [optional] 
 
 ## Methods
 
@@ -724,6 +725,31 @@ and a boolean to check if the value has been set.
 
 SetServiceModelURLKey sets ServiceModelURLKey field to given value.
 
+
+### GetSupportsPublicNetwork
+
+`func (o *ServiceOffering) GetSupportsPublicNetwork() bool`
+
+GetSupportsPublicNetwork returns the SupportsPublicNetwork field if non-nil, zero value otherwise.
+
+### GetSupportsPublicNetworkOk
+
+`func (o *ServiceOffering) GetSupportsPublicNetworkOk() (*bool, bool)`
+
+GetSupportsPublicNetworkOk returns a tuple with the SupportsPublicNetwork field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportsPublicNetwork
+
+`func (o *ServiceOffering) SetSupportsPublicNetwork(v bool)`
+
+SetSupportsPublicNetwork sets SupportsPublicNetwork field to given value.
+
+### HasSupportsPublicNetwork
+
+`func (o *ServiceOffering) HasSupportsPublicNetwork() bool`
+
+HasSupportsPublicNetwork returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

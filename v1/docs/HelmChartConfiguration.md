@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **ChartVersion** | **string** | The chart version of the Helm package | 
 **EndpointConfiguration** | Pointer to [**map[string]Endpoint**](Endpoint.md) | The endpoints from the Helm Deployment to expose to the customer | [optional] 
 **Password** | Pointer to **string** | The password to authenticate with the registry | [optional] 
+**RuntimeConfiguration** | Pointer to [**HelmRuntimeConfiguration**](HelmRuntimeConfiguration.md) |  | [optional] 
 **Username** | Pointer to **string** | The username to authenticate with the registry | [optional] 
 
 ## Methods
@@ -186,6 +187,31 @@ SetPassword sets Password field to given value.
 `func (o *HelmChartConfiguration) HasPassword() bool`
 
 HasPassword returns a boolean if a field has been set.
+
+### GetRuntimeConfiguration
+
+`func (o *HelmChartConfiguration) GetRuntimeConfiguration() HelmRuntimeConfiguration`
+
+GetRuntimeConfiguration returns the RuntimeConfiguration field if non-nil, zero value otherwise.
+
+### GetRuntimeConfigurationOk
+
+`func (o *HelmChartConfiguration) GetRuntimeConfigurationOk() (*HelmRuntimeConfiguration, bool)`
+
+GetRuntimeConfigurationOk returns a tuple with the RuntimeConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRuntimeConfiguration
+
+`func (o *HelmChartConfiguration) SetRuntimeConfiguration(v HelmRuntimeConfiguration)`
+
+SetRuntimeConfiguration sets RuntimeConfiguration field to given value.
+
+### HasRuntimeConfiguration
+
+`func (o *HelmChartConfiguration) HasRuntimeConfiguration() bool`
+
+HasRuntimeConfiguration returns a boolean if a field has been set.
 
 ### GetUsername
 

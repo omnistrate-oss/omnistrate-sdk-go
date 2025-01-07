@@ -35,6 +35,7 @@ type NodeNetworkTopologyResult struct {
 	Status *string `json:"status,omitempty"`
 	// The storage size of the node in GiB
 	StorageSize *int64 `json:"storageSize,omitempty"`
+	VmInfo *NodeVMInfoResult `json:"vmInfo,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -345,6 +346,38 @@ func (o *NodeNetworkTopologyResult) SetStorageSize(v int64) {
 	o.StorageSize = &v
 }
 
+// GetVmInfo returns the VmInfo field value if set, zero value otherwise.
+func (o *NodeNetworkTopologyResult) GetVmInfo() NodeVMInfoResult {
+	if o == nil || IsNil(o.VmInfo) {
+		var ret NodeVMInfoResult
+		return ret
+	}
+	return *o.VmInfo
+}
+
+// GetVmInfoOk returns a tuple with the VmInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NodeNetworkTopologyResult) GetVmInfoOk() (*NodeVMInfoResult, bool) {
+	if o == nil || IsNil(o.VmInfo) {
+		return nil, false
+	}
+	return o.VmInfo, true
+}
+
+// HasVmInfo returns a boolean if a field has been set.
+func (o *NodeNetworkTopologyResult) HasVmInfo() bool {
+	if o != nil && !IsNil(o.VmInfo) {
+		return true
+	}
+
+	return false
+}
+
+// SetVmInfo gets a reference to the given NodeVMInfoResult and assigns it to the VmInfo field.
+func (o *NodeNetworkTopologyResult) SetVmInfo(v NodeVMInfoResult) {
+	o.VmInfo = &v
+}
+
 func (o NodeNetworkTopologyResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -382,6 +415,9 @@ func (o NodeNetworkTopologyResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.StorageSize) {
 		toSerialize["storageSize"] = o.StorageSize
 	}
+	if !IsNil(o.VmInfo) {
+		toSerialize["vmInfo"] = o.VmInfo
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -413,6 +449,7 @@ func (o *NodeNetworkTopologyResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "ports")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "storageSize")
+		delete(additionalProperties, "vmInfo")
 		o.AdditionalProperties = additionalProperties
 	}
 

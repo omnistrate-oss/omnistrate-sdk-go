@@ -11,10 +11,14 @@ Name | Type | Description | Notes
 **EventType** | **string** | The type of the event | 
 **ExpiryTime** | **string** | The expiry time of the event | 
 **InstanceID** | Pointer to **string** | The ID of the instance | [optional] 
+**PlanVersion** | Pointer to **string** | The version of the plan | [optional] 
 **Priority** | **string** | The priority of the event | 
+**ResourceName** | Pointer to **string** | The name of the resource | [optional] 
 **Scope** | **string** | The scope of the event | 
 **ServiceEnvironmentID** | Pointer to **string** | The ID of the service environment | [optional] 
 **ServiceID** | Pointer to **string** | The ID of the service | [optional] 
+**ServiceName** | Pointer to **string** | The name of the service | [optional] 
+**ServicePlanName** | Pointer to **string** | The name of the service plan | [optional] 
 **Time** | **string** | The event time | 
 
 ## Methods
@@ -181,6 +185,31 @@ SetInstanceID sets InstanceID field to given value.
 
 HasInstanceID returns a boolean if a field has been set.
 
+### GetPlanVersion
+
+`func (o *ServiceProviderEvent) GetPlanVersion() string`
+
+GetPlanVersion returns the PlanVersion field if non-nil, zero value otherwise.
+
+### GetPlanVersionOk
+
+`func (o *ServiceProviderEvent) GetPlanVersionOk() (*string, bool)`
+
+GetPlanVersionOk returns a tuple with the PlanVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPlanVersion
+
+`func (o *ServiceProviderEvent) SetPlanVersion(v string)`
+
+SetPlanVersion sets PlanVersion field to given value.
+
+### HasPlanVersion
+
+`func (o *ServiceProviderEvent) HasPlanVersion() bool`
+
+HasPlanVersion returns a boolean if a field has been set.
+
 ### GetPriority
 
 `func (o *ServiceProviderEvent) GetPriority() string`
@@ -200,6 +229,31 @@ and a boolean to check if the value has been set.
 
 SetPriority sets Priority field to given value.
 
+
+### GetResourceName
+
+`func (o *ServiceProviderEvent) GetResourceName() string`
+
+GetResourceName returns the ResourceName field if non-nil, zero value otherwise.
+
+### GetResourceNameOk
+
+`func (o *ServiceProviderEvent) GetResourceNameOk() (*string, bool)`
+
+GetResourceNameOk returns a tuple with the ResourceName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceName
+
+`func (o *ServiceProviderEvent) SetResourceName(v string)`
+
+SetResourceName sets ResourceName field to given value.
+
+### HasResourceName
+
+`func (o *ServiceProviderEvent) HasResourceName() bool`
+
+HasResourceName returns a boolean if a field has been set.
 
 ### GetScope
 
@@ -270,6 +324,56 @@ SetServiceID sets ServiceID field to given value.
 `func (o *ServiceProviderEvent) HasServiceID() bool`
 
 HasServiceID returns a boolean if a field has been set.
+
+### GetServiceName
+
+`func (o *ServiceProviderEvent) GetServiceName() string`
+
+GetServiceName returns the ServiceName field if non-nil, zero value otherwise.
+
+### GetServiceNameOk
+
+`func (o *ServiceProviderEvent) GetServiceNameOk() (*string, bool)`
+
+GetServiceNameOk returns a tuple with the ServiceName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceName
+
+`func (o *ServiceProviderEvent) SetServiceName(v string)`
+
+SetServiceName sets ServiceName field to given value.
+
+### HasServiceName
+
+`func (o *ServiceProviderEvent) HasServiceName() bool`
+
+HasServiceName returns a boolean if a field has been set.
+
+### GetServicePlanName
+
+`func (o *ServiceProviderEvent) GetServicePlanName() string`
+
+GetServicePlanName returns the ServicePlanName field if non-nil, zero value otherwise.
+
+### GetServicePlanNameOk
+
+`func (o *ServiceProviderEvent) GetServicePlanNameOk() (*string, bool)`
+
+GetServicePlanNameOk returns a tuple with the ServicePlanName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServicePlanName
+
+`func (o *ServiceProviderEvent) SetServicePlanName(v string)`
+
+SetServicePlanName sets ServicePlanName field to given value.
+
+### HasServicePlanName
+
+`func (o *ServiceProviderEvent) HasServicePlanName() bool`
+
+HasServicePlanName returns a boolean if a field has been set.
 
 ### GetTime
 

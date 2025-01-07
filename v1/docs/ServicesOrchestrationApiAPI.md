@@ -31,7 +31,7 @@ import (
 )
 
 func main() {
-	createServicesOrchestrationRequestBody := *openapiclient.NewCreateServicesOrchestrationRequestBody("Et vero pariatur sed et veritatis possimus.") // CreateServicesOrchestrationRequestBody | 
+	createServicesOrchestrationRequestBody := *openapiclient.NewCreateServicesOrchestrationRequestBody("Itaque quo ut.") // CreateServicesOrchestrationRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -271,7 +271,7 @@ Other parameters are passed through a pointer to a apiServicesOrchestrationApiLi
 
 ## ServicesOrchestrationApiModifyServicesOrchestration
 
-> CreateServicesOrchestrationResponseBody ServicesOrchestrationApiModifyServicesOrchestration(ctx, id).ModifyServicesOrchestrationRequestBody(modifyServicesOrchestrationRequestBody).Execute()
+> ServicesOrchestrationApiModifyServicesOrchestration(ctx, id).ModifyServicesOrchestrationRequestBody(modifyServicesOrchestrationRequestBody).Execute()
 
 ModifyServicesOrchestration services-orchestration-api
 
@@ -289,17 +289,15 @@ import (
 
 func main() {
 	id := "so-12345678" // string | The ID of the services orchestration
-	modifyServicesOrchestrationRequestBody := *openapiclient.NewModifyServicesOrchestrationRequestBody("Voluptatibus quod fuga sapiente doloremque deleniti.") // ModifyServicesOrchestrationRequestBody | 
+	modifyServicesOrchestrationRequestBody := *openapiclient.NewModifyServicesOrchestrationRequestBody("Quasi dolor quo eum.") // ModifyServicesOrchestrationRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServicesOrchestrationApiAPI.ServicesOrchestrationApiModifyServicesOrchestration(context.Background(), id).ModifyServicesOrchestrationRequestBody(modifyServicesOrchestrationRequestBody).Execute()
+	r, err := apiClient.ServicesOrchestrationApiAPI.ServicesOrchestrationApiModifyServicesOrchestration(context.Background(), id).ModifyServicesOrchestrationRequestBody(modifyServicesOrchestrationRequestBody).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServicesOrchestrationApiAPI.ServicesOrchestrationApiModifyServicesOrchestration``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ServicesOrchestrationApiModifyServicesOrchestration`: CreateServicesOrchestrationResponseBody
-	fmt.Fprintf(os.Stdout, "Response from `ServicesOrchestrationApiAPI.ServicesOrchestrationApiModifyServicesOrchestration`: %v\n", resp)
 }
 ```
 
@@ -323,7 +321,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateServicesOrchestrationResponseBody**](CreateServicesOrchestrationResponseBody.md)
+ (empty response body)
 
 ### Authorization
 
@@ -332,7 +330,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json, application/vnd.goa.error
+- **Accept**: application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

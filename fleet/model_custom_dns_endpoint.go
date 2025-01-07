@@ -22,8 +22,11 @@ var _ MappedNullable = &CustomDNSEndpoint{}
 type CustomDNSEndpoint struct {
 	ARecordTarget *string `json:"aRecordTarget,omitempty"`
 	CnameTarget *string `json:"cnameTarget,omitempty"`
+	DnsHost *string `json:"dnsHost,omitempty"`
+	// DEPRECATED: Use dnsHost instead
 	DnsName *string `json:"dnsName,omitempty"`
 	Enabled bool `json:"enabled"`
+	Name *string `json:"name,omitempty"`
 	Status *string `json:"status,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -112,6 +115,38 @@ func (o *CustomDNSEndpoint) SetCnameTarget(v string) {
 	o.CnameTarget = &v
 }
 
+// GetDnsHost returns the DnsHost field value if set, zero value otherwise.
+func (o *CustomDNSEndpoint) GetDnsHost() string {
+	if o == nil || IsNil(o.DnsHost) {
+		var ret string
+		return ret
+	}
+	return *o.DnsHost
+}
+
+// GetDnsHostOk returns a tuple with the DnsHost field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomDNSEndpoint) GetDnsHostOk() (*string, bool) {
+	if o == nil || IsNil(o.DnsHost) {
+		return nil, false
+	}
+	return o.DnsHost, true
+}
+
+// HasDnsHost returns a boolean if a field has been set.
+func (o *CustomDNSEndpoint) HasDnsHost() bool {
+	if o != nil && !IsNil(o.DnsHost) {
+		return true
+	}
+
+	return false
+}
+
+// SetDnsHost gets a reference to the given string and assigns it to the DnsHost field.
+func (o *CustomDNSEndpoint) SetDnsHost(v string) {
+	o.DnsHost = &v
+}
+
 // GetDnsName returns the DnsName field value if set, zero value otherwise.
 func (o *CustomDNSEndpoint) GetDnsName() string {
 	if o == nil || IsNil(o.DnsName) {
@@ -168,6 +203,38 @@ func (o *CustomDNSEndpoint) SetEnabled(v bool) {
 	o.Enabled = v
 }
 
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *CustomDNSEndpoint) GetName() string {
+	if o == nil || IsNil(o.Name) {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomDNSEndpoint) GetNameOk() (*string, bool) {
+	if o == nil || IsNil(o.Name) {
+		return nil, false
+	}
+	return o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *CustomDNSEndpoint) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *CustomDNSEndpoint) SetName(v string) {
+	o.Name = &v
+}
+
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *CustomDNSEndpoint) GetStatus() string {
 	if o == nil || IsNil(o.Status) {
@@ -216,10 +283,16 @@ func (o CustomDNSEndpoint) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CnameTarget) {
 		toSerialize["cnameTarget"] = o.CnameTarget
 	}
+	if !IsNil(o.DnsHost) {
+		toSerialize["dnsHost"] = o.DnsHost
+	}
 	if !IsNil(o.DnsName) {
 		toSerialize["dnsName"] = o.DnsName
 	}
 	toSerialize["enabled"] = o.Enabled
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
@@ -268,8 +341,10 @@ func (o *CustomDNSEndpoint) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "aRecordTarget")
 		delete(additionalProperties, "cnameTarget")
+		delete(additionalProperties, "dnsHost")
 		delete(additionalProperties, "dnsName")
 		delete(additionalProperties, "enabled")
+		delete(additionalProperties, "name")
 		delete(additionalProperties, "status")
 		o.AdditionalProperties = additionalProperties
 	}

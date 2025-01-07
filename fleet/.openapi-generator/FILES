@@ -10,7 +10,6 @@ api_fleet_features_api.go
 api_fleet_workflows_api.go
 api_helm_package_api.go
 api_hostcluster_api.go
-api_integrations_api.go
 api_inventory_api.go
 api_notifications_api.go
 api_operations_api.go
@@ -53,10 +52,8 @@ docs/DescribeServiceWorkflowSummaryResult.md
 docs/DescribeServicesOrchestrationResult.md
 docs/DescribeSubscriptionRequestResult.md
 docs/DetailedNodeHealthResult.md
-docs/DisableProductTierIntegrationRequestBody.md
 docs/EmailConfiguration.md
 docs/EnableFleetFeatureRequestBody.md
-docs/EnableProductTierIntegrationRequestBody.md
 docs/EndCustomerEvent.md
 docs/Error.md
 docs/EventsApiAPI.md
@@ -97,7 +94,6 @@ docs/InputParameterEntity.md
 docs/InstanceHealthSummary.md
 docs/InstanceUpgrade.md
 docs/IntegrationStatus.md
-docs/IntegrationsApiAPI.md
 docs/IntegrationsHealth.md
 docs/InventoryApiAPI.md
 docs/InventoryDescribeServiceOfferingResourceResult.md
@@ -114,7 +110,6 @@ docs/ListHelmPackageInstallationsResult.md
 docs/ListHostClustersResult.md
 docs/ListNotificationChannelsResult.md
 docs/ListOrganizationsResult.md
-docs/ListProductTierIntegrationsResult.md
 docs/ListResourcesRequestBody.md
 docs/ListResourcesResult.md
 docs/ListServiceOfferingsResult.md
@@ -125,6 +120,7 @@ docs/ListUpgradePathsResult.md
 docs/ModifyServicesOrchestrationRequestBody.md
 docs/NodeHealthSummary.md
 docs/NodeNetworkTopologyResult.md
+docs/NodeVMInfoResult.md
 docs/NotificationSearchRecord.md
 docs/NotificationsApiAPI.md
 docs/OfferingBillingPlan.md
@@ -134,7 +130,6 @@ docs/OperationsApiAPI.md
 docs/Organization.md
 docs/OutputParameterEntity.md
 docs/PagerDutyConfiguration.md
-docs/ProductTierIntegration.md
 docs/ProxyEndpoint.md
 docs/ProxyInstanceSearchRecord.md
 docs/RecentDeploymentFailureStatus.md
@@ -220,10 +215,8 @@ model_describe_service_workflow_summary_result.go
 model_describe_services_orchestration_result.go
 model_describe_subscription_request_result.go
 model_detailed_node_health_result.go
-model_disable_product_tier_integration_request_body.go
 model_email_configuration.go
 model_enable_fleet_feature_request_body.go
-model_enable_product_tier_integration_request_body.go
 model_end_customer_event.go
 model_error.go
 model_events_per_resource.go
@@ -273,7 +266,6 @@ model_list_helm_package_installations_result.go
 model_list_host_clusters_result.go
 model_list_notification_channels_result.go
 model_list_organizations_result.go
-model_list_product_tier_integrations_result.go
 model_list_resources_request_body.go
 model_list_resources_result.go
 model_list_service_offerings_result.go
@@ -284,6 +276,7 @@ model_list_upgrade_paths_result.go
 model_modify_services_orchestration_request_body.go
 model_node_health_summary.go
 model_node_network_topology_result.go
+model_node_vm_info_result.go
 model_notification_search_record.go
 model_offering_billing_plan.go
 model_onboarding_stage.go
@@ -291,7 +284,6 @@ model_one_off_patch_resource_instance_request_body.go
 model_organization.go
 model_output_parameter_entity.go
 model_pager_duty_configuration.go
-model_product_tier_integration.go
 model_proxy_endpoint.go
 model_proxy_instance_search_record.go
 model_recent_deployment_failure_status.go
@@ -348,7 +340,6 @@ test/api_fleet_features_api_test.go
 test/api_fleet_workflows_api_test.go
 test/api_helm_package_api_test.go
 test/api_hostcluster_api_test.go
-test/api_integrations_api_test.go
 test/api_inventory_api_test.go
 test/api_notifications_api_test.go
 test/api_operations_api_test.go

@@ -34,14 +34,22 @@ type ServiceProviderEvent struct {
 	ExpiryTime string `json:"expiryTime"`
 	// The ID of the instance
 	InstanceID *string `json:"instanceID,omitempty"`
+	// The version of the plan
+	PlanVersion *string `json:"planVersion,omitempty"`
 	// The priority of the event
 	Priority string `json:"priority"`
+	// The name of the resource
+	ResourceName *string `json:"resourceName,omitempty"`
 	// The scope of the event
 	Scope string `json:"scope"`
 	// The ID of the service environment
 	ServiceEnvironmentID *string `json:"serviceEnvironmentID,omitempty"`
 	// The ID of the service
 	ServiceID *string `json:"serviceID,omitempty"`
+	// The name of the service
+	ServiceName *string `json:"serviceName,omitempty"`
+	// The name of the service plan
+	ServicePlanName *string `json:"servicePlanName,omitempty"`
 	// The event time
 	Time string `json:"time"`
 	AdditionalProperties map[string]interface{}
@@ -251,6 +259,38 @@ func (o *ServiceProviderEvent) SetInstanceID(v string) {
 	o.InstanceID = &v
 }
 
+// GetPlanVersion returns the PlanVersion field value if set, zero value otherwise.
+func (o *ServiceProviderEvent) GetPlanVersion() string {
+	if o == nil || IsNil(o.PlanVersion) {
+		var ret string
+		return ret
+	}
+	return *o.PlanVersion
+}
+
+// GetPlanVersionOk returns a tuple with the PlanVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceProviderEvent) GetPlanVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.PlanVersion) {
+		return nil, false
+	}
+	return o.PlanVersion, true
+}
+
+// HasPlanVersion returns a boolean if a field has been set.
+func (o *ServiceProviderEvent) HasPlanVersion() bool {
+	if o != nil && !IsNil(o.PlanVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetPlanVersion gets a reference to the given string and assigns it to the PlanVersion field.
+func (o *ServiceProviderEvent) SetPlanVersion(v string) {
+	o.PlanVersion = &v
+}
+
 // GetPriority returns the Priority field value
 func (o *ServiceProviderEvent) GetPriority() string {
 	if o == nil {
@@ -273,6 +313,38 @@ func (o *ServiceProviderEvent) GetPriorityOk() (*string, bool) {
 // SetPriority sets field value
 func (o *ServiceProviderEvent) SetPriority(v string) {
 	o.Priority = v
+}
+
+// GetResourceName returns the ResourceName field value if set, zero value otherwise.
+func (o *ServiceProviderEvent) GetResourceName() string {
+	if o == nil || IsNil(o.ResourceName) {
+		var ret string
+		return ret
+	}
+	return *o.ResourceName
+}
+
+// GetResourceNameOk returns a tuple with the ResourceName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceProviderEvent) GetResourceNameOk() (*string, bool) {
+	if o == nil || IsNil(o.ResourceName) {
+		return nil, false
+	}
+	return o.ResourceName, true
+}
+
+// HasResourceName returns a boolean if a field has been set.
+func (o *ServiceProviderEvent) HasResourceName() bool {
+	if o != nil && !IsNil(o.ResourceName) {
+		return true
+	}
+
+	return false
+}
+
+// SetResourceName gets a reference to the given string and assigns it to the ResourceName field.
+func (o *ServiceProviderEvent) SetResourceName(v string) {
+	o.ResourceName = &v
 }
 
 // GetScope returns the Scope field value
@@ -363,6 +435,70 @@ func (o *ServiceProviderEvent) SetServiceID(v string) {
 	o.ServiceID = &v
 }
 
+// GetServiceName returns the ServiceName field value if set, zero value otherwise.
+func (o *ServiceProviderEvent) GetServiceName() string {
+	if o == nil || IsNil(o.ServiceName) {
+		var ret string
+		return ret
+	}
+	return *o.ServiceName
+}
+
+// GetServiceNameOk returns a tuple with the ServiceName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceProviderEvent) GetServiceNameOk() (*string, bool) {
+	if o == nil || IsNil(o.ServiceName) {
+		return nil, false
+	}
+	return o.ServiceName, true
+}
+
+// HasServiceName returns a boolean if a field has been set.
+func (o *ServiceProviderEvent) HasServiceName() bool {
+	if o != nil && !IsNil(o.ServiceName) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceName gets a reference to the given string and assigns it to the ServiceName field.
+func (o *ServiceProviderEvent) SetServiceName(v string) {
+	o.ServiceName = &v
+}
+
+// GetServicePlanName returns the ServicePlanName field value if set, zero value otherwise.
+func (o *ServiceProviderEvent) GetServicePlanName() string {
+	if o == nil || IsNil(o.ServicePlanName) {
+		var ret string
+		return ret
+	}
+	return *o.ServicePlanName
+}
+
+// GetServicePlanNameOk returns a tuple with the ServicePlanName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceProviderEvent) GetServicePlanNameOk() (*string, bool) {
+	if o == nil || IsNil(o.ServicePlanName) {
+		return nil, false
+	}
+	return o.ServicePlanName, true
+}
+
+// HasServicePlanName returns a boolean if a field has been set.
+func (o *ServiceProviderEvent) HasServicePlanName() bool {
+	if o != nil && !IsNil(o.ServicePlanName) {
+		return true
+	}
+
+	return false
+}
+
+// SetServicePlanName gets a reference to the given string and assigns it to the ServicePlanName field.
+func (o *ServiceProviderEvent) SetServicePlanName(v string) {
+	o.ServicePlanName = &v
+}
+
 // GetTime returns the Time field value
 func (o *ServiceProviderEvent) GetTime() string {
 	if o == nil {
@@ -406,13 +542,25 @@ func (o ServiceProviderEvent) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.InstanceID) {
 		toSerialize["instanceID"] = o.InstanceID
 	}
+	if !IsNil(o.PlanVersion) {
+		toSerialize["planVersion"] = o.PlanVersion
+	}
 	toSerialize["priority"] = o.Priority
+	if !IsNil(o.ResourceName) {
+		toSerialize["resourceName"] = o.ResourceName
+	}
 	toSerialize["scope"] = o.Scope
 	if !IsNil(o.ServiceEnvironmentID) {
 		toSerialize["serviceEnvironmentID"] = o.ServiceEnvironmentID
 	}
 	if !IsNil(o.ServiceID) {
 		toSerialize["serviceID"] = o.ServiceID
+	}
+	if !IsNil(o.ServiceName) {
+		toSerialize["serviceName"] = o.ServiceName
+	}
+	if !IsNil(o.ServicePlanName) {
+		toSerialize["servicePlanName"] = o.ServicePlanName
 	}
 	toSerialize["time"] = o.Time
 
@@ -473,10 +621,14 @@ func (o *ServiceProviderEvent) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "eventType")
 		delete(additionalProperties, "expiryTime")
 		delete(additionalProperties, "instanceID")
+		delete(additionalProperties, "planVersion")
 		delete(additionalProperties, "priority")
+		delete(additionalProperties, "resourceName")
 		delete(additionalProperties, "scope")
 		delete(additionalProperties, "serviceEnvironmentID")
 		delete(additionalProperties, "serviceID")
+		delete(additionalProperties, "serviceName")
+		delete(additionalProperties, "servicePlanName")
 		delete(additionalProperties, "time")
 		o.AdditionalProperties = additionalProperties
 	}

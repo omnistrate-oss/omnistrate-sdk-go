@@ -81,8 +81,7 @@ type ServicesOrchestrationApiAPI interface {
 	ServicesOrchestrationApiModifyServicesOrchestration(ctx context.Context, id string) ApiServicesOrchestrationApiModifyServicesOrchestrationRequest
 
 	// ServicesOrchestrationApiModifyServicesOrchestrationExecute executes the request
-	//  @return CreateServicesOrchestrationResponseBody
-	ServicesOrchestrationApiModifyServicesOrchestrationExecute(r ApiServicesOrchestrationApiModifyServicesOrchestrationRequest) (*CreateServicesOrchestrationResponseBody, *http.Response, error)
+	ServicesOrchestrationApiModifyServicesOrchestrationExecute(r ApiServicesOrchestrationApiModifyServicesOrchestrationRequest) (*http.Response, error)
 }
 
 // ServicesOrchestrationApiAPIService ServicesOrchestrationApiAPI service
@@ -756,7 +755,7 @@ func (r ApiServicesOrchestrationApiModifyServicesOrchestrationRequest) ModifySer
 	return r
 }
 
-func (r ApiServicesOrchestrationApiModifyServicesOrchestrationRequest) Execute() (*CreateServicesOrchestrationResponseBody, *http.Response, error) {
+func (r ApiServicesOrchestrationApiModifyServicesOrchestrationRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ServicesOrchestrationApiModifyServicesOrchestrationExecute(r)
 }
 
@@ -776,18 +775,16 @@ func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiModifyServi
 }
 
 // Execute executes the request
-//  @return CreateServicesOrchestrationResponseBody
-func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiModifyServicesOrchestrationExecute(r ApiServicesOrchestrationApiModifyServicesOrchestrationRequest) (*CreateServicesOrchestrationResponseBody, *http.Response, error) {
+func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiModifyServicesOrchestrationExecute(r ApiServicesOrchestrationApiModifyServicesOrchestrationRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateServicesOrchestrationResponseBody
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServicesOrchestrationApiAPIService.ServicesOrchestrationApiModifyServicesOrchestration")
 	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/2022-09-01-00/resource-instance/services-orchestration/{id}"
@@ -797,7 +794,7 @@ func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiModifyServi
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 	if r.modifyServicesOrchestrationRequestBody == nil {
-		return localVarReturnValue, nil, reportError("modifyServicesOrchestrationRequestBody is required and must be specified")
+		return nil, reportError("modifyServicesOrchestrationRequestBody is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -810,7 +807,7 @@ func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiModifyServi
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+	localVarHTTPHeaderAccepts := []string{"application/vnd.goa.error"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -821,19 +818,19 @@ func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiModifyServi
 	localVarPostBody = r.modifyServicesOrchestrationRequestBody
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -846,77 +843,68 @@ func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiModifyServi
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
+		return localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
+	return localVarHTTPResponse, nil
 }
