@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**ConsumptionUserApiDescribeUserBillingDetails**](ConsumptionUserApiAPI.md#ConsumptionUserApiDescribeUserBillingDetails) | **Get** /2022-09-01-00/resource-instance/user/{id}/billing-details | DescribeUserBillingDetails consumption-user-api
 [**ConsumptionUserApiDescribeUsersBySubscription**](ConsumptionUserApiAPI.md#ConsumptionUserApiDescribeUsersBySubscription) | **Get** /2022-09-01-00/resource-instance/subscription/{subscriptionId}/subscription-users | DescribeUsersBySubscription consumption-user-api
 [**ConsumptionUserApiInviteUser**](ConsumptionUserApiAPI.md#ConsumptionUserApiInviteUser) | **Post** /2022-09-01-00/resource-instance/subscription/{subscriptionId}/invite-user | InviteUser consumption-user-api
+[**ConsumptionUserApiListAllSubscriptionUsers**](ConsumptionUserApiAPI.md#ConsumptionUserApiListAllSubscriptionUsers) | **Get** /2022-09-01-00/resource-instance/subscription-users | ListAllSubscriptionUsers consumption-user-api
 [**ConsumptionUserApiRevokeUserRole**](ConsumptionUserApiAPI.md#ConsumptionUserApiRevokeUserRole) | **Delete** /2022-09-01-00/resource-instance/subscription/{subscriptionId}/revoke-user-role | RevokeUserRole consumption-user-api
 [**ConsumptionUserApiSignin**](ConsumptionUserApiAPI.md#ConsumptionUserApiSignin) | **Post** /2022-09-01-00/resource-instance/user/signin | Signin consumption-user-api
 
@@ -210,6 +211,70 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ConsumptionUserApiListAllSubscriptionUsers
+
+> ListAllSubscriptionUsersResult ConsumptionUserApiListAllSubscriptionUsers(ctx).EnvironmentType(environmentType).Execute()
+
+ListAllSubscriptionUsers consumption-user-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	environmentType := "DEV" // string | The environment type to filter by (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConsumptionUserApiAPI.ConsumptionUserApiListAllSubscriptionUsers(context.Background()).EnvironmentType(environmentType).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConsumptionUserApiAPI.ConsumptionUserApiListAllSubscriptionUsers``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ConsumptionUserApiListAllSubscriptionUsers`: ListAllSubscriptionUsersResult
+	fmt.Fprintf(os.Stdout, "Response from `ConsumptionUserApiAPI.ConsumptionUserApiListAllSubscriptionUsers`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiConsumptionUserApiListAllSubscriptionUsersRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **environmentType** | **string** | The environment type to filter by | 
+
+### Return type
+
+[**ListAllSubscriptionUsersResult**](ListAllSubscriptionUsersResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

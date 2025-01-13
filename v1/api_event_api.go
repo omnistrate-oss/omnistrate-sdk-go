@@ -36,7 +36,32 @@ type EventApiAPI interface {
 	EventApiDescribeEventExecute(r ApiEventApiDescribeEventRequest) (*DescribeEventResult, *http.Response, error)
 
 	/*
-	EventApiListAllEvent ListAllEvent event-api
+	EventApiListAllEvents ListAllEvents event-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiEventApiListAllEventsRequest
+	*/
+	EventApiListAllEvents(ctx context.Context) ApiEventApiListAllEventsRequest
+
+	// EventApiListAllEventsExecute executes the request
+	//  @return ListEventsResult
+	EventApiListAllEventsExecute(r ApiEventApiListAllEventsRequest) (*ListEventsResult, *http.Response, error)
+
+	/*
+	EventApiListEventsForInstance ListEventsForInstance event-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId The ID of the resource instance
+	@return ApiEventApiListEventsForInstanceRequest
+	*/
+	EventApiListEventsForInstance(ctx context.Context, instanceId string) ApiEventApiListEventsForInstanceRequest
+
+	// EventApiListEventsForInstanceExecute executes the request
+	//  @return ListEventsResult
+	EventApiListEventsForInstanceExecute(r ApiEventApiListEventsForInstanceRequest) (*ListEventsResult, *http.Response, error)
+
+	/*
+	EventApiListEventsForServicePlan ListEventsForServicePlan event-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param serviceProviderId The service provider ID
@@ -45,26 +70,13 @@ type EventApiAPI interface {
 	@param serviceEnvironmentKey The service environment name
 	@param serviceModelKey The service model name
 	@param productTierKey The product tier name
-	@return ApiEventApiListAllEventRequest
+	@return ApiEventApiListEventsForServicePlanRequest
 	*/
-	EventApiListAllEvent(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string) ApiEventApiListAllEventRequest
+	EventApiListEventsForServicePlan(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string) ApiEventApiListEventsForServicePlanRequest
 
-	// EventApiListAllEventExecute executes the request
-	//  @return ListEventResult
-	EventApiListAllEventExecute(r ApiEventApiListAllEventRequest) (*ListEventResult, *http.Response, error)
-
-	/*
-	EventApiListEvent ListEvent event-api
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param instanceId The ID of the resource instance
-	@return ApiEventApiListEventRequest
-	*/
-	EventApiListEvent(ctx context.Context, instanceId string) ApiEventApiListEventRequest
-
-	// EventApiListEventExecute executes the request
-	//  @return ListEventResult
-	EventApiListEventExecute(r ApiEventApiListEventRequest) (*ListEventResult, *http.Response, error)
+	// EventApiListEventsForServicePlanExecute executes the request
+	//  @return ListEventsResult
+	EventApiListEventsForServicePlanExecute(r ApiEventApiListEventsForServicePlanRequest) (*ListEventsResult, *http.Response, error)
 }
 
 // EventApiAPIService EventApiAPI service
@@ -246,75 +258,287 @@ func (a *EventApiAPIService) EventApiDescribeEventExecute(r ApiEventApiDescribeE
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiEventApiListAllEventRequest struct {
+type ApiEventApiListAllEventsRequest struct {
 	ctx context.Context
 	ApiService EventApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
-	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
+	environmentType *string
+	startTime *string
+	endTime *string
+	serviceId *string
+	productTierId *string
 	subscriptionId *string
+	eventSource *string
 }
 
-// Subscription Id
-func (r ApiEventApiListAllEventRequest) SubscriptionId(subscriptionId string) ApiEventApiListAllEventRequest {
+// The environment type to filter by
+func (r ApiEventApiListAllEventsRequest) EnvironmentType(environmentType string) ApiEventApiListAllEventsRequest {
+	r.environmentType = &environmentType
+	return r
+}
+
+// Filter events that occurred after this time
+func (r ApiEventApiListAllEventsRequest) StartTime(startTime string) ApiEventApiListAllEventsRequest {
+	r.startTime = &startTime
+	return r
+}
+
+// Filter events that occurred before this time
+func (r ApiEventApiListAllEventsRequest) EndTime(endTime string) ApiEventApiListAllEventsRequest {
+	r.endTime = &endTime
+	return r
+}
+
+// The service ID to filter by
+func (r ApiEventApiListAllEventsRequest) ServiceId(serviceId string) ApiEventApiListAllEventsRequest {
+	r.serviceId = &serviceId
+	return r
+}
+
+// The product tier ID to filter by
+func (r ApiEventApiListAllEventsRequest) ProductTierId(productTierId string) ApiEventApiListAllEventsRequest {
+	r.productTierId = &productTierId
+	return r
+}
+
+// The subscription ID to filter by
+func (r ApiEventApiListAllEventsRequest) SubscriptionId(subscriptionId string) ApiEventApiListAllEventsRequest {
 	r.subscriptionId = &subscriptionId
 	return r
 }
 
-func (r ApiEventApiListAllEventRequest) Execute() (*ListEventResult, *http.Response, error) {
-	return r.ApiService.EventApiListAllEventExecute(r)
+// The event source to filter by
+func (r ApiEventApiListAllEventsRequest) EventSource(eventSource string) ApiEventApiListAllEventsRequest {
+	r.eventSource = &eventSource
+	return r
+}
+
+func (r ApiEventApiListAllEventsRequest) Execute() (*ListEventsResult, *http.Response, error) {
+	return r.ApiService.EventApiListAllEventsExecute(r)
 }
 
 /*
-EventApiListAllEvent ListAllEvent event-api
+EventApiListAllEvents ListAllEvents event-api
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @return ApiEventApiListAllEventRequest
+ @return ApiEventApiListAllEventsRequest
 */
-func (a *EventApiAPIService) EventApiListAllEvent(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string) ApiEventApiListAllEventRequest {
-	return ApiEventApiListAllEventRequest{
+func (a *EventApiAPIService) EventApiListAllEvents(ctx context.Context) ApiEventApiListAllEventsRequest {
+	return ApiEventApiListAllEventsRequest{
 		ApiService: a,
 		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
-		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
 	}
 }
 
 // Execute executes the request
-//  @return ListEventResult
-func (a *EventApiAPIService) EventApiListAllEventExecute(r ApiEventApiListAllEventRequest) (*ListEventResult, *http.Response, error) {
+//  @return ListEventsResult
+func (a *EventApiAPIService) EventApiListAllEventsExecute(r ApiEventApiListAllEventsRequest) (*ListEventsResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListEventResult
+		localVarReturnValue  *ListEventsResult
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EventApiAPIService.EventApiListAllEvent")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EventApiAPIService.EventApiListAllEvents")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/event"
-	localVarPath = strings.Replace(localVarPath, "{"+"serviceProviderId"+"}", url.PathEscape(parameterValueToString(r.serviceProviderId, "serviceProviderId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"serviceKey"+"}", url.PathEscape(parameterValueToString(r.serviceKey, "serviceKey")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"serviceAPIVersion"+"}", url.PathEscape(parameterValueToString(r.serviceAPIVersion, "serviceAPIVersion")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"serviceEnvironmentKey"+"}", url.PathEscape(parameterValueToString(r.serviceEnvironmentKey, "serviceEnvironmentKey")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"serviceModelKey"+"}", url.PathEscape(parameterValueToString(r.serviceModelKey, "serviceModelKey")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"productTierKey"+"}", url.PathEscape(parameterValueToString(r.productTierKey, "productTierKey")), -1)
+	localVarPath := localBasePath + "/2022-09-01-00/resource-instance/event"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.environmentType != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "environmentType", r.environmentType, "form", "")
+	}
+	if r.startTime != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "startTime", r.startTime, "form", "")
+	}
+	if r.endTime != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "endTime", r.endTime, "form", "")
+	}
+	if r.serviceId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "serviceId", r.serviceId, "form", "")
+	}
+	if r.productTierId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "productTierId", r.productTierId, "form", "")
+	}
+	if r.subscriptionId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "subscriptionId", r.subscriptionId, "form", "")
+	}
+	if r.eventSource != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eventSource", r.eventSource, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiEventApiListEventsForInstanceRequest struct {
+	ctx context.Context
+	ApiService EventApiAPI
+	instanceId string
+	subscriptionId *string
+}
+
+// Subscription Id
+func (r ApiEventApiListEventsForInstanceRequest) SubscriptionId(subscriptionId string) ApiEventApiListEventsForInstanceRequest {
+	r.subscriptionId = &subscriptionId
+	return r
+}
+
+func (r ApiEventApiListEventsForInstanceRequest) Execute() (*ListEventsResult, *http.Response, error) {
+	return r.ApiService.EventApiListEventsForInstanceExecute(r)
+}
+
+/*
+EventApiListEventsForInstance ListEventsForInstance event-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param instanceId The ID of the resource instance
+ @return ApiEventApiListEventsForInstanceRequest
+*/
+func (a *EventApiAPIService) EventApiListEventsForInstance(ctx context.Context, instanceId string) ApiEventApiListEventsForInstanceRequest {
+	return ApiEventApiListEventsForInstanceRequest{
+		ApiService: a,
+		ctx: ctx,
+		instanceId: instanceId,
+	}
+}
+
+// Execute executes the request
+//  @return ListEventsResult
+func (a *EventApiAPIService) EventApiListEventsForInstanceExecute(r ApiEventApiListEventsForInstanceRequest) (*ListEventsResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListEventsResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EventApiAPIService.EventApiListEventsForInstance")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/resource-instance/{instanceId}/event"
+	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -442,55 +666,75 @@ func (a *EventApiAPIService) EventApiListAllEventExecute(r ApiEventApiListAllEve
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiEventApiListEventRequest struct {
+type ApiEventApiListEventsForServicePlanRequest struct {
 	ctx context.Context
 	ApiService EventApiAPI
-	instanceId string
+	serviceProviderId string
+	serviceKey string
+	serviceAPIVersion string
+	serviceEnvironmentKey string
+	serviceModelKey string
+	productTierKey string
 	subscriptionId *string
 }
 
 // Subscription Id
-func (r ApiEventApiListEventRequest) SubscriptionId(subscriptionId string) ApiEventApiListEventRequest {
+func (r ApiEventApiListEventsForServicePlanRequest) SubscriptionId(subscriptionId string) ApiEventApiListEventsForServicePlanRequest {
 	r.subscriptionId = &subscriptionId
 	return r
 }
 
-func (r ApiEventApiListEventRequest) Execute() (*ListEventResult, *http.Response, error) {
-	return r.ApiService.EventApiListEventExecute(r)
+func (r ApiEventApiListEventsForServicePlanRequest) Execute() (*ListEventsResult, *http.Response, error) {
+	return r.ApiService.EventApiListEventsForServicePlanExecute(r)
 }
 
 /*
-EventApiListEvent ListEvent event-api
+EventApiListEventsForServicePlan ListEventsForServicePlan event-api
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId The ID of the resource instance
- @return ApiEventApiListEventRequest
+ @param serviceProviderId The service provider ID
+ @param serviceKey The service name
+ @param serviceAPIVersion The service API version
+ @param serviceEnvironmentKey The service environment name
+ @param serviceModelKey The service model name
+ @param productTierKey The product tier name
+ @return ApiEventApiListEventsForServicePlanRequest
 */
-func (a *EventApiAPIService) EventApiListEvent(ctx context.Context, instanceId string) ApiEventApiListEventRequest {
-	return ApiEventApiListEventRequest{
+func (a *EventApiAPIService) EventApiListEventsForServicePlan(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string) ApiEventApiListEventsForServicePlanRequest {
+	return ApiEventApiListEventsForServicePlanRequest{
 		ApiService: a,
 		ctx: ctx,
-		instanceId: instanceId,
+		serviceProviderId: serviceProviderId,
+		serviceKey: serviceKey,
+		serviceAPIVersion: serviceAPIVersion,
+		serviceEnvironmentKey: serviceEnvironmentKey,
+		serviceModelKey: serviceModelKey,
+		productTierKey: productTierKey,
 	}
 }
 
 // Execute executes the request
-//  @return ListEventResult
-func (a *EventApiAPIService) EventApiListEventExecute(r ApiEventApiListEventRequest) (*ListEventResult, *http.Response, error) {
+//  @return ListEventsResult
+func (a *EventApiAPIService) EventApiListEventsForServicePlanExecute(r ApiEventApiListEventsForServicePlanRequest) (*ListEventsResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListEventResult
+		localVarReturnValue  *ListEventsResult
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EventApiAPIService.EventApiListEvent")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EventApiAPIService.EventApiListEventsForServicePlan")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2022-09-01-00/resource-instance/{instanceId}/event"
-	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
+	localVarPath := localBasePath + "/2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/event"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceProviderId"+"}", url.PathEscape(parameterValueToString(r.serviceProviderId, "serviceProviderId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceKey"+"}", url.PathEscape(parameterValueToString(r.serviceKey, "serviceKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceAPIVersion"+"}", url.PathEscape(parameterValueToString(r.serviceAPIVersion, "serviceAPIVersion")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceEnvironmentKey"+"}", url.PathEscape(parameterValueToString(r.serviceEnvironmentKey, "serviceEnvironmentKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceModelKey"+"}", url.PathEscape(parameterValueToString(r.serviceModelKey, "serviceModelKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"productTierKey"+"}", url.PathEscape(parameterValueToString(r.productTierKey, "productTierKey")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

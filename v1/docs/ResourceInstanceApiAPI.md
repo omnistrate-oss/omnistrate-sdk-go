@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**ResourceInstanceApiDescribeResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiDescribeResourceInstance) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id} | DescribeResourceInstance resource-instance-api
 [**ResourceInstanceApiFailoverResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiFailoverResourceInstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/failover | FailoverResourceInstance resource-instance-api
 [**ResourceInstanceApiGenerateTokenForDeploymentCellDashboard**](ResourceInstanceApiAPI.md#ResourceInstanceApiGenerateTokenForDeploymentCellDashboard) | **Post** /2022-09-01-00/resource-instance/{id}/deployment-cell-dashboard/token | GenerateTokenForDeploymentCellDashboard resource-instance-api
+[**ResourceInstanceApiListAllResourceInstances**](ResourceInstanceApiAPI.md#ResourceInstanceApiListAllResourceInstances) | **Get** /2022-09-01-00/resource-instance | ListAllResourceInstances resource-instance-api
 [**ResourceInstanceApiListResourceInstanceSnapshots**](ResourceInstanceApiAPI.md#ResourceInstanceApiListResourceInstanceSnapshots) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/snapshot | ListResourceInstanceSnapshots resource-instance-api
 [**ResourceInstanceApiListResourceInstances**](ResourceInstanceApiAPI.md#ResourceInstanceApiListResourceInstances) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey} | ListResourceInstances resource-instance-api
 [**ResourceInstanceApiRemoveCapacityFromResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiRemoveCapacityFromResourceInstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/remove-capacity | RemoveCapacityFromResourceInstance resource-instance-api
@@ -623,6 +624,70 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GenerateTokenForDeploymentCellDashboardResult**](GenerateTokenForDeploymentCellDashboardResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ResourceInstanceApiListAllResourceInstances
+
+> ListAllResourceInstancesResult ResourceInstanceApiListAllResourceInstances(ctx).EnvironmentType(environmentType).Execute()
+
+ListAllResourceInstances resource-instance-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	environmentType := "DEV" // string | The environment type to filter by (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiListAllResourceInstances(context.Background()).EnvironmentType(environmentType).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiListAllResourceInstances``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ResourceInstanceApiListAllResourceInstances`: ListAllResourceInstancesResult
+	fmt.Fprintf(os.Stdout, "Response from `ResourceInstanceApiAPI.ResourceInstanceApiListAllResourceInstances`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiResourceInstanceApiListAllResourceInstancesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **environmentType** | **string** | The environment type to filter by | 
+
+### Return type
+
+[**ListAllResourceInstancesResult**](ListAllResourceInstancesResult.md)
 
 ### Authorization
 

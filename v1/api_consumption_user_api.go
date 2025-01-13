@@ -61,6 +61,18 @@ type ConsumptionUserApiAPI interface {
 	ConsumptionUserApiInviteUserExecute(r ApiConsumptionUserApiInviteUserRequest) (*http.Response, error)
 
 	/*
+	ConsumptionUserApiListAllSubscriptionUsers ListAllSubscriptionUsers consumption-user-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiConsumptionUserApiListAllSubscriptionUsersRequest
+	*/
+	ConsumptionUserApiListAllSubscriptionUsers(ctx context.Context) ApiConsumptionUserApiListAllSubscriptionUsersRequest
+
+	// ConsumptionUserApiListAllSubscriptionUsersExecute executes the request
+	//  @return ListAllSubscriptionUsersResult
+	ConsumptionUserApiListAllSubscriptionUsersExecute(r ApiConsumptionUserApiListAllSubscriptionUsersRequest) (*ListAllSubscriptionUsersResult, *http.Response, error)
+
+	/*
 	ConsumptionUserApiRevokeUserRole RevokeUserRole consumption-user-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -562,6 +574,167 @@ func (a *ConsumptionUserApiAPIService) ConsumptionUserApiInviteUserExecute(r Api
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+type ApiConsumptionUserApiListAllSubscriptionUsersRequest struct {
+	ctx context.Context
+	ApiService ConsumptionUserApiAPI
+	environmentType *string
+}
+
+// The environment type to filter by
+func (r ApiConsumptionUserApiListAllSubscriptionUsersRequest) EnvironmentType(environmentType string) ApiConsumptionUserApiListAllSubscriptionUsersRequest {
+	r.environmentType = &environmentType
+	return r
+}
+
+func (r ApiConsumptionUserApiListAllSubscriptionUsersRequest) Execute() (*ListAllSubscriptionUsersResult, *http.Response, error) {
+	return r.ApiService.ConsumptionUserApiListAllSubscriptionUsersExecute(r)
+}
+
+/*
+ConsumptionUserApiListAllSubscriptionUsers ListAllSubscriptionUsers consumption-user-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiConsumptionUserApiListAllSubscriptionUsersRequest
+*/
+func (a *ConsumptionUserApiAPIService) ConsumptionUserApiListAllSubscriptionUsers(ctx context.Context) ApiConsumptionUserApiListAllSubscriptionUsersRequest {
+	return ApiConsumptionUserApiListAllSubscriptionUsersRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ListAllSubscriptionUsersResult
+func (a *ConsumptionUserApiAPIService) ConsumptionUserApiListAllSubscriptionUsersExecute(r ApiConsumptionUserApiListAllSubscriptionUsersRequest) (*ListAllSubscriptionUsersResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListAllSubscriptionUsersResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConsumptionUserApiAPIService.ConsumptionUserApiListAllSubscriptionUsers")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/resource-instance/subscription-users"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.environmentType != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "environmentType", r.environmentType, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiConsumptionUserApiRevokeUserRoleRequest struct {

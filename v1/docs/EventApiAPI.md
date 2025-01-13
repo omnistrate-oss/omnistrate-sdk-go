@@ -5,8 +5,9 @@ All URIs are relative to *https://api.omnistrate.cloud*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**EventApiDescribeEvent**](EventApiAPI.md#EventApiDescribeEvent) | **Get** /2022-09-01-00/resource-instance/event/{id} | DescribeEvent event-api
-[**EventApiListAllEvent**](EventApiAPI.md#EventApiListAllEvent) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/event | ListAllEvent event-api
-[**EventApiListEvent**](EventApiAPI.md#EventApiListEvent) | **Get** /2022-09-01-00/resource-instance/{instanceId}/event | ListEvent event-api
+[**EventApiListAllEvents**](EventApiAPI.md#EventApiListAllEvents) | **Get** /2022-09-01-00/resource-instance/event | ListAllEvents event-api
+[**EventApiListEventsForInstance**](EventApiAPI.md#EventApiListEventsForInstance) | **Get** /2022-09-01-00/resource-instance/{instanceId}/event | ListEventsForInstance event-api
+[**EventApiListEventsForServicePlan**](EventApiAPI.md#EventApiListEventsForServicePlan) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/event | ListEventsForServicePlan event-api
 
 
 
@@ -80,11 +81,157 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## EventApiListAllEvent
+## EventApiListAllEvents
 
-> ListEventResult EventApiListAllEvent(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey).SubscriptionId(subscriptionId).Execute()
+> ListEventsResult EventApiListAllEvents(ctx).EnvironmentType(environmentType).StartTime(startTime).EndTime(endTime).ServiceId(serviceId).ProductTierId(productTierId).SubscriptionId(subscriptionId).EventSource(eventSource).Execute()
 
-ListAllEvent event-api
+ListAllEvents event-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	environmentType := "DEV" // string | The environment type to filter by (optional)
+	startTime := "2023-01-10T00:00:00Z" // string | Filter events that occurred after this time (optional)
+	endTime := "2023-01-10T00:00:00Z" // string | Filter events that occurred before this time (optional)
+	serviceId := "s-12345678" // string | The service ID to filter by (optional)
+	productTierId := "pt-12345678" // string | The product tier ID to filter by (optional)
+	subscriptionId := "sub-abcd1234" // string | The subscription ID to filter by (optional)
+	eventSource := "Customer" // string | The event source to filter by (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.EventApiAPI.EventApiListAllEvents(context.Background()).EnvironmentType(environmentType).StartTime(startTime).EndTime(endTime).ServiceId(serviceId).ProductTierId(productTierId).SubscriptionId(subscriptionId).EventSource(eventSource).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `EventApiAPI.EventApiListAllEvents``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EventApiListAllEvents`: ListEventsResult
+	fmt.Fprintf(os.Stdout, "Response from `EventApiAPI.EventApiListAllEvents`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEventApiListAllEventsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **environmentType** | **string** | The environment type to filter by | 
+ **startTime** | **string** | Filter events that occurred after this time | 
+ **endTime** | **string** | Filter events that occurred before this time | 
+ **serviceId** | **string** | The service ID to filter by | 
+ **productTierId** | **string** | The product tier ID to filter by | 
+ **subscriptionId** | **string** | The subscription ID to filter by | 
+ **eventSource** | **string** | The event source to filter by | 
+
+### Return type
+
+[**ListEventsResult**](ListEventsResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EventApiListEventsForInstance
+
+> ListEventsResult EventApiListEventsForInstance(ctx, instanceId).SubscriptionId(subscriptionId).Execute()
+
+ListEventsForInstance event-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	instanceId := "instance-12345678" // string | The ID of the resource instance
+	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.EventApiAPI.EventApiListEventsForInstance(context.Background(), instanceId).SubscriptionId(subscriptionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `EventApiAPI.EventApiListEventsForInstance``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EventApiListEventsForInstance`: ListEventsResult
+	fmt.Fprintf(os.Stdout, "Response from `EventApiAPI.EventApiListEventsForInstance`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** | The ID of the resource instance | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEventApiListEventsForInstanceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **subscriptionId** | **string** | Subscription Id | 
+
+### Return type
+
+[**ListEventsResult**](ListEventsResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EventApiListEventsForServicePlan
+
+> ListEventsResult EventApiListEventsForServicePlan(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey).SubscriptionId(subscriptionId).Execute()
+
+ListEventsForServicePlan event-api
 
 ### Example
 
@@ -109,13 +256,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EventApiAPI.EventApiListAllEvent(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey).SubscriptionId(subscriptionId).Execute()
+	resp, r, err := apiClient.EventApiAPI.EventApiListEventsForServicePlan(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey).SubscriptionId(subscriptionId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EventApiAPI.EventApiListAllEvent``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `EventApiAPI.EventApiListEventsForServicePlan``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EventApiListAllEvent`: ListEventResult
-	fmt.Fprintf(os.Stdout, "Response from `EventApiAPI.EventApiListAllEvent`: %v\n", resp)
+	// response from `EventApiListEventsForServicePlan`: ListEventsResult
+	fmt.Fprintf(os.Stdout, "Response from `EventApiAPI.EventApiListEventsForServicePlan`: %v\n", resp)
 }
 ```
 
@@ -134,7 +281,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiEventApiListAllEventRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiEventApiListEventsForServicePlanRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -149,77 +296,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListEventResult**](ListEventResult.md)
-
-### Authorization
-
-[api_key_header_Authorization](../README.md#api_key_header_Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/vnd.goa.error
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## EventApiListEvent
-
-> ListEventResult EventApiListEvent(ctx, instanceId).SubscriptionId(subscriptionId).Execute()
-
-ListEvent event-api
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
-)
-
-func main() {
-	instanceId := "instance-12345678" // string | The ID of the resource instance
-	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EventApiAPI.EventApiListEvent(context.Background(), instanceId).SubscriptionId(subscriptionId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EventApiAPI.EventApiListEvent``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `EventApiListEvent`: ListEventResult
-	fmt.Fprintf(os.Stdout, "Response from `EventApiAPI.EventApiListEvent`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceId** | **string** | The ID of the resource instance | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiEventApiListEventRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **subscriptionId** | **string** | Subscription Id | 
-
-### Return type
-
-[**ListEventResult**](ListEventResult.md)
+[**ListEventsResult**](ListEventsResult.md)
 
 ### Authorization
 

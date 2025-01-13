@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **OrgName** | Pointer to **string** | The organization name of the user that caused the event | [optional] 
 **ResourceInstanceId** | **string** | Instance Id of the resource instance | 
 **ResourceName** | **string** | Name of the resource | 
+**SubscriptionId** | **string** | The subscription ID | 
 **Time** | **string** | The event time | 
 **UserId** | Pointer to **string** | The ID of the user that caused the event | [optional] 
 **UserName** | Pointer to **string** | The user name of the user that caused the event | [optional] 
@@ -20,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewDescribeEventResult
 
-`func NewDescribeEventResult(id string, message string, resourceInstanceId string, resourceName string, time string, ) *DescribeEventResult`
+`func NewDescribeEventResult(id string, message string, resourceInstanceId string, resourceName string, subscriptionId string, time string, ) *DescribeEventResult`
 
 NewDescribeEventResult instantiates a new DescribeEventResult object
 This constructor will assign default values to properties that have it defined,
@@ -188,6 +189,26 @@ and a boolean to check if the value has been set.
 `func (o *DescribeEventResult) SetResourceName(v string)`
 
 SetResourceName sets ResourceName field to given value.
+
+
+### GetSubscriptionId
+
+`func (o *DescribeEventResult) GetSubscriptionId() string`
+
+GetSubscriptionId returns the SubscriptionId field if non-nil, zero value otherwise.
+
+### GetSubscriptionIdOk
+
+`func (o *DescribeEventResult) GetSubscriptionIdOk() (*string, bool)`
+
+GetSubscriptionIdOk returns a tuple with the SubscriptionId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscriptionId
+
+`func (o *DescribeEventResult) SetSubscriptionId(v string)`
+
+SetSubscriptionId sets SubscriptionId field to given value.
 
 
 ### GetTime

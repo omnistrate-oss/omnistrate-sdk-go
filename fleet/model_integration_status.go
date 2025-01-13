@@ -21,6 +21,8 @@ var _ MappedNullable = &IntegrationStatus{}
 type IntegrationStatus struct {
 	// Additional URL relevant for integration (optional and integration specific)
 	Url *string `json:"Url,omitempty"`
+	// The configuration of the integration
+	Configuration map[string]interface{} `json:"configuration,omitempty"`
 	// The health status of the integration
 	HealthStatus *string `json:"healthStatus,omitempty"`
 	// The name of the integration or feature
@@ -81,6 +83,38 @@ func (o *IntegrationStatus) HasUrl() bool {
 // SetUrl gets a reference to the given string and assigns it to the Url field.
 func (o *IntegrationStatus) SetUrl(v string) {
 	o.Url = &v
+}
+
+// GetConfiguration returns the Configuration field value if set, zero value otherwise.
+func (o *IntegrationStatus) GetConfiguration() map[string]interface{} {
+	if o == nil || IsNil(o.Configuration) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Configuration
+}
+
+// GetConfigurationOk returns a tuple with the Configuration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IntegrationStatus) GetConfigurationOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Configuration) {
+		return map[string]interface{}{}, false
+	}
+	return o.Configuration, true
+}
+
+// HasConfiguration returns a boolean if a field has been set.
+func (o *IntegrationStatus) HasConfiguration() bool {
+	if o != nil && !IsNil(o.Configuration) {
+		return true
+	}
+
+	return false
+}
+
+// SetConfiguration gets a reference to the given map[string]interface{} and assigns it to the Configuration field.
+func (o *IntegrationStatus) SetConfiguration(v map[string]interface{}) {
+	o.Configuration = v
 }
 
 // GetHealthStatus returns the HealthStatus field value if set, zero value otherwise.
@@ -224,6 +258,9 @@ func (o IntegrationStatus) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Url) {
 		toSerialize["Url"] = o.Url
 	}
+	if !IsNil(o.Configuration) {
+		toSerialize["configuration"] = o.Configuration
+	}
 	if !IsNil(o.HealthStatus) {
 		toSerialize["healthStatus"] = o.HealthStatus
 	}
@@ -259,6 +296,7 @@ func (o *IntegrationStatus) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "Url")
+		delete(additionalProperties, "configuration")
 		delete(additionalProperties, "healthStatus")
 		delete(additionalProperties, "integrationType")
 		delete(additionalProperties, "message")
