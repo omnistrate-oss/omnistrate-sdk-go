@@ -3,6 +3,7 @@
 .travis.yml
 README.md
 api/openapi.yaml
+api_audit_events_api.go
 api_customer_onboardings_api.go
 api_events_api.go
 api_fleet_custom_network_api.go
@@ -20,6 +21,7 @@ docs/APIEntity.md
 docs/AccessSideUser.md
 docs/AddCapacityToResourceInstanceRequestBody.md
 docs/AddCustomDNSToResourceInstanceRequestBody.md
+docs/AuditEventsApiAPI.md
 docs/BackupStatus.md
 docs/Channel.md
 docs/ChannelSubscription.md
@@ -333,6 +335,7 @@ model_workflow_event.go
 model_workflow_failure.go
 model_workflow_search_record.go
 response.go
+test/api_audit_events_api_test.go
 test/api_customer_onboardings_api_test.go
 test/api_events_api_test.go
 test/api_fleet_custom_network_api_test.go

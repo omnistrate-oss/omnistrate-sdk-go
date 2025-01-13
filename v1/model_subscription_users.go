@@ -25,6 +25,8 @@ type SubscriptionUsers struct {
 	// The name of the user
 	Name string `json:"name"`
 	RoleType string `json:"roleType"`
+	// The subscription ID
+	SubscriptionId string `json:"subscriptionId"`
 	// The User ID
 	UserId string `json:"userId"`
 	AdditionalProperties map[string]interface{}
@@ -36,11 +38,12 @@ type _SubscriptionUsers SubscriptionUsers
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSubscriptionUsers(email string, name string, roleType string, userId string) *SubscriptionUsers {
+func NewSubscriptionUsers(email string, name string, roleType string, subscriptionId string, userId string) *SubscriptionUsers {
 	this := SubscriptionUsers{}
 	this.Email = email
 	this.Name = name
 	this.RoleType = roleType
+	this.SubscriptionId = subscriptionId
 	this.UserId = userId
 	return &this
 }
@@ -125,6 +128,30 @@ func (o *SubscriptionUsers) SetRoleType(v string) {
 	o.RoleType = v
 }
 
+// GetSubscriptionId returns the SubscriptionId field value
+func (o *SubscriptionUsers) GetSubscriptionId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SubscriptionId
+}
+
+// GetSubscriptionIdOk returns a tuple with the SubscriptionId field value
+// and a boolean to check if the value has been set.
+func (o *SubscriptionUsers) GetSubscriptionIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SubscriptionId, true
+}
+
+// SetSubscriptionId sets field value
+func (o *SubscriptionUsers) SetSubscriptionId(v string) {
+	o.SubscriptionId = v
+}
+
 // GetUserId returns the UserId field value
 func (o *SubscriptionUsers) GetUserId() string {
 	if o == nil {
@@ -162,6 +189,7 @@ func (o SubscriptionUsers) ToMap() (map[string]interface{}, error) {
 	toSerialize["email"] = o.Email
 	toSerialize["name"] = o.Name
 	toSerialize["roleType"] = o.RoleType
+	toSerialize["subscriptionId"] = o.SubscriptionId
 	toSerialize["userId"] = o.UserId
 
 	for key, value := range o.AdditionalProperties {
@@ -179,6 +207,7 @@ func (o *SubscriptionUsers) UnmarshalJSON(data []byte) (err error) {
 		"email",
 		"name",
 		"roleType",
+		"subscriptionId",
 		"userId",
 	}
 
@@ -212,6 +241,7 @@ func (o *SubscriptionUsers) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "email")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "roleType")
+		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "userId")
 		o.AdditionalProperties = additionalProperties
 	}

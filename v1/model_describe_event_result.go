@@ -34,6 +34,8 @@ type DescribeEventResult struct {
 	ResourceInstanceId string `json:"resourceInstanceId"`
 	// Name of the resource
 	ResourceName string `json:"resourceName"`
+	// The subscription ID
+	SubscriptionId string `json:"subscriptionId"`
 	// The event time
 	Time string `json:"time"`
 	// The ID of the user that caused the event
@@ -51,12 +53,13 @@ type _DescribeEventResult DescribeEventResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDescribeEventResult(id string, message string, resourceInstanceId string, resourceName string, time string) *DescribeEventResult {
+func NewDescribeEventResult(id string, message string, resourceInstanceId string, resourceName string, subscriptionId string, time string) *DescribeEventResult {
 	this := DescribeEventResult{}
 	this.Id = id
 	this.Message = message
 	this.ResourceInstanceId = resourceInstanceId
 	this.ResourceName = resourceName
+	this.SubscriptionId = subscriptionId
 	this.Time = time
 	return &this
 }
@@ -234,6 +237,30 @@ func (o *DescribeEventResult) SetResourceName(v string) {
 	o.ResourceName = v
 }
 
+// GetSubscriptionId returns the SubscriptionId field value
+func (o *DescribeEventResult) GetSubscriptionId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SubscriptionId
+}
+
+// GetSubscriptionIdOk returns a tuple with the SubscriptionId field value
+// and a boolean to check if the value has been set.
+func (o *DescribeEventResult) GetSubscriptionIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SubscriptionId, true
+}
+
+// SetSubscriptionId sets field value
+func (o *DescribeEventResult) SetSubscriptionId(v string) {
+	o.SubscriptionId = v
+}
+
 // GetTime returns the Time field value
 func (o *DescribeEventResult) GetTime() string {
 	if o == nil {
@@ -350,6 +377,7 @@ func (o DescribeEventResult) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["resourceInstanceId"] = o.ResourceInstanceId
 	toSerialize["resourceName"] = o.ResourceName
+	toSerialize["subscriptionId"] = o.SubscriptionId
 	toSerialize["time"] = o.Time
 	if !IsNil(o.UserId) {
 		toSerialize["userId"] = o.UserId
@@ -377,6 +405,7 @@ func (o *DescribeEventResult) UnmarshalJSON(data []byte) (err error) {
 		"message",
 		"resourceInstanceId",
 		"resourceName",
+		"subscriptionId",
 		"time",
 	}
 
@@ -414,6 +443,7 @@ func (o *DescribeEventResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "orgName")
 		delete(additionalProperties, "resourceInstanceId")
 		delete(additionalProperties, "resourceName")
+		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "time")
 		delete(additionalProperties, "userId")
 		delete(additionalProperties, "userName")

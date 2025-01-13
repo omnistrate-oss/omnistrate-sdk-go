@@ -702,7 +702,7 @@ import (
 )
 
 func main() {
-	createServicesOrchestrationRequestBody := *openapiclient.NewCreateServicesOrchestrationRequestBody("Ipsa et odio repellat in.") // CreateServicesOrchestrationRequestBody | 
+	createServicesOrchestrationRequestBody := *openapiclient.NewCreateServicesOrchestrationRequestBody("Fugit quasi eligendi eos nostrum molestias.") // CreateServicesOrchestrationRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -768,7 +768,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
-	createUpgradePathRequestBody := *openapiclient.NewCreateUpgradePathRequestBody("1.0", "2.0", map[string][]string{"key": []string{"Molestias consequatur qui perferendis molestiae consequuntur."}}) // CreateUpgradePathRequestBody | 
+	createUpgradePathRequestBody := *openapiclient.NewCreateUpgradePathRequestBody("1.0", "2.0", map[string][]string{"key": []string{"In in rerum recusandae molestiae."}}) // CreateUpgradePathRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3118,7 +3118,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	productTierVersion := "Et non ducimus consequuntur unde." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Accusantium voluptatem quibusdam dignissimos." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Consequatur ipsa fugit minima repellendus." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
 	subscriptionId := "Omnis vitae veritatis." // string | Subscription id of the instance to describe. (optional)
 
@@ -3701,7 +3701,7 @@ import (
 
 func main() {
 	id := "so-12345678" // string | The ID of the services orchestration
-	modifyServicesOrchestrationRequestBody := *openapiclient.NewModifyServicesOrchestrationRequestBody("Totam adipisci ut tempora velit.") // ModifyServicesOrchestrationRequestBody | 
+	modifyServicesOrchestrationRequestBody := *openapiclient.NewModifyServicesOrchestrationRequestBody("Sit tempore ex quibusdam aspernatur necessitatibus eveniet.") // ModifyServicesOrchestrationRequestBody | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

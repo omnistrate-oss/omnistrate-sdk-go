@@ -15,11 +15,11 @@ import (
 	"fmt"
 )
 
-// checks if the ListEventResult type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ListEventResult{}
+// checks if the ListEventsResult type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ListEventsResult{}
 
-// ListEventResult struct for ListEventResult
-type ListEventResult struct {
+// ListEventsResult struct for ListEventsResult
+type ListEventsResult struct {
 	// The list of events
 	Events []DescribeEventResult `json:"events,omitempty"`
 	// The list of event IDs
@@ -29,28 +29,28 @@ type ListEventResult struct {
 	AdditionalProperties map[string]interface{}
 }
 
-type _ListEventResult ListEventResult
+type _ListEventsResult ListEventsResult
 
-// NewListEventResult instantiates a new ListEventResult object
+// NewListEventsResult instantiates a new ListEventsResult object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListEventResult(ids []string) *ListEventResult {
-	this := ListEventResult{}
+func NewListEventsResult(ids []string) *ListEventsResult {
+	this := ListEventsResult{}
 	this.Ids = ids
 	return &this
 }
 
-// NewListEventResultWithDefaults instantiates a new ListEventResult object
+// NewListEventsResultWithDefaults instantiates a new ListEventsResult object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewListEventResultWithDefaults() *ListEventResult {
-	this := ListEventResult{}
+func NewListEventsResultWithDefaults() *ListEventsResult {
+	this := ListEventsResult{}
 	return &this
 }
 
 // GetEvents returns the Events field value if set, zero value otherwise.
-func (o *ListEventResult) GetEvents() []DescribeEventResult {
+func (o *ListEventsResult) GetEvents() []DescribeEventResult {
 	if o == nil || IsNil(o.Events) {
 		var ret []DescribeEventResult
 		return ret
@@ -60,7 +60,7 @@ func (o *ListEventResult) GetEvents() []DescribeEventResult {
 
 // GetEventsOk returns a tuple with the Events field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListEventResult) GetEventsOk() ([]DescribeEventResult, bool) {
+func (o *ListEventsResult) GetEventsOk() ([]DescribeEventResult, bool) {
 	if o == nil || IsNil(o.Events) {
 		return nil, false
 	}
@@ -68,12 +68,12 @@ func (o *ListEventResult) GetEventsOk() ([]DescribeEventResult, bool) {
 }
 
 // SetEvents gets a reference to the given []DescribeEventResult and assigns it to the Events field.
-func (o *ListEventResult) SetEvents(v []DescribeEventResult) {
+func (o *ListEventsResult) SetEvents(v []DescribeEventResult) {
 	o.Events = v
 }
 
 // GetIds returns the Ids field value
-func (o *ListEventResult) GetIds() []string {
+func (o *ListEventsResult) GetIds() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -84,7 +84,7 @@ func (o *ListEventResult) GetIds() []string {
 
 // GetIdsOk returns a tuple with the Ids field value
 // and a boolean to check if the value has been set.
-func (o *ListEventResult) GetIdsOk() ([]string, bool) {
+func (o *ListEventsResult) GetIdsOk() ([]string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -92,12 +92,12 @@ func (o *ListEventResult) GetIdsOk() ([]string, bool) {
 }
 
 // SetIds sets field value
-func (o *ListEventResult) SetIds(v []string) {
+func (o *ListEventsResult) SetIds(v []string) {
 	o.Ids = v
 }
 
 // GetNextPageToken returns the NextPageToken field value if set, zero value otherwise.
-func (o *ListEventResult) GetNextPageToken() string {
+func (o *ListEventsResult) GetNextPageToken() string {
 	if o == nil || IsNil(o.NextPageToken) {
 		var ret string
 		return ret
@@ -107,7 +107,7 @@ func (o *ListEventResult) GetNextPageToken() string {
 
 // GetNextPageTokenOk returns a tuple with the NextPageToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListEventResult) GetNextPageTokenOk() (*string, bool) {
+func (o *ListEventsResult) GetNextPageTokenOk() (*string, bool) {
 	if o == nil || IsNil(o.NextPageToken) {
 		return nil, false
 	}
@@ -115,11 +115,11 @@ func (o *ListEventResult) GetNextPageTokenOk() (*string, bool) {
 }
 
 // SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.
-func (o *ListEventResult) SetNextPageToken(v string) {
+func (o *ListEventsResult) SetNextPageToken(v string) {
 	o.NextPageToken = &v
 }
 
-func (o ListEventResult) MarshalJSON() ([]byte, error) {
+func (o ListEventsResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -127,7 +127,7 @@ func (o ListEventResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ListEventResult) ToMap() (map[string]interface{}, error) {
+func (o ListEventsResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Events) {
 		toSerialize["events"] = o.Events
@@ -144,7 +144,7 @@ func (o ListEventResult) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *ListEventResult) UnmarshalJSON(data []byte) (err error) {
+func (o *ListEventsResult) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -166,15 +166,15 @@ func (o *ListEventResult) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varListEventResult := _ListEventResult{}
+	varListEventsResult := _ListEventsResult{}
 
-	err = json.Unmarshal(data, &varListEventResult)
+	err = json.Unmarshal(data, &varListEventsResult)
 
 	if err != nil {
 		return err
 	}
 
-	*o = ListEventResult(varListEventResult)
+	*o = ListEventsResult(varListEventsResult)
 
 	additionalProperties := make(map[string]interface{})
 
@@ -188,38 +188,38 @@ func (o *ListEventResult) UnmarshalJSON(data []byte) (err error) {
 	return err
 }
 
-type NullableListEventResult struct {
-	value *ListEventResult
+type NullableListEventsResult struct {
+	value *ListEventsResult
 	isSet bool
 }
 
-func (v NullableListEventResult) Get() *ListEventResult {
+func (v NullableListEventsResult) Get() *ListEventsResult {
 	return v.value
 }
 
-func (v *NullableListEventResult) Set(val *ListEventResult) {
+func (v *NullableListEventsResult) Set(val *ListEventsResult) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableListEventResult) IsSet() bool {
+func (v NullableListEventsResult) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableListEventResult) Unset() {
+func (v *NullableListEventsResult) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableListEventResult(val *ListEventResult) *NullableListEventResult {
-	return &NullableListEventResult{value: val, isSet: true}
+func NewNullableListEventsResult(val *ListEventsResult) *NullableListEventsResult {
+	return &NullableListEventsResult{value: val, isSet: true}
 }
 
-func (v NullableListEventResult) MarshalJSON() ([]byte, error) {
+func (v NullableListEventsResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableListEventResult) UnmarshalJSON(src []byte) error {
+func (v *NullableListEventsResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

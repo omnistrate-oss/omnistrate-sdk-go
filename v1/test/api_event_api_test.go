@@ -36,7 +36,33 @@ func Test_v1_EventApiAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test EventApiAPIService EventApiListAllEvent", func(t *testing.T) {
+	t.Run("Test EventApiAPIService EventApiListAllEvents", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.EventApiAPI.EventApiListAllEvents(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test EventApiAPIService EventApiListEventsForInstance", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var instanceId string
+
+		resp, httpRes, err := apiClient.EventApiAPI.EventApiListEventsForInstance(context.Background(), instanceId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test EventApiAPIService EventApiListEventsForServicePlan", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
@@ -47,21 +73,7 @@ func Test_v1_EventApiAPIService(t *testing.T) {
 		var serviceModelKey string
 		var productTierKey string
 
-		resp, httpRes, err := apiClient.EventApiAPI.EventApiListAllEvent(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test EventApiAPIService EventApiListEvent", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var instanceId string
-
-		resp, httpRes, err := apiClient.EventApiAPI.EventApiListEvent(context.Background(), instanceId).Execute()
+		resp, httpRes, err := apiClient.EventApiAPI.EventApiListEventsForServicePlan(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

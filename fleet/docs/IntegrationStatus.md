@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Url** | Pointer to **string** | Additional URL relevant for integration (optional and integration specific) | [optional] 
+**Configuration** | Pointer to **map[string]interface{}** | The configuration of the integration | [optional] 
 **HealthStatus** | Pointer to **string** | The health status of the integration | [optional] 
 **IntegrationType** | Pointer to **string** | The name of the integration or feature | [optional] 
 **Message** | Pointer to **string** | Additional details regarding integration health | [optional] 
@@ -53,6 +54,31 @@ SetUrl sets Url field to given value.
 `func (o *IntegrationStatus) HasUrl() bool`
 
 HasUrl returns a boolean if a field has been set.
+
+### GetConfiguration
+
+`func (o *IntegrationStatus) GetConfiguration() map[string]interface{}`
+
+GetConfiguration returns the Configuration field if non-nil, zero value otherwise.
+
+### GetConfigurationOk
+
+`func (o *IntegrationStatus) GetConfigurationOk() (*map[string]interface{}, bool)`
+
+GetConfigurationOk returns a tuple with the Configuration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConfiguration
+
+`func (o *IntegrationStatus) SetConfiguration(v map[string]interface{})`
+
+SetConfiguration sets Configuration field to given value.
+
+### HasConfiguration
+
+`func (o *IntegrationStatus) HasConfiguration() bool`
+
+HasConfiguration returns a boolean if a field has been set.
 
 ### GetHealthStatus
 

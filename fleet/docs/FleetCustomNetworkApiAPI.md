@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**FleetCustomNetworkApiDeleteCustomNetwork**](FleetCustomNetworkApiAPI.md#FleetCustomNetworkApiDeleteCustomNetwork) | **Delete** /2022-09-01-00/fleet/custom-network/{id} | DeleteCustomNetwork fleet-custom-network-api
 [**FleetCustomNetworkApiDescribeCustomNetwork**](FleetCustomNetworkApiAPI.md#FleetCustomNetworkApiDescribeCustomNetwork) | **Get** /2022-09-01-00/fleet/custom-network/{id} | DescribeCustomNetwork fleet-custom-network-api
 [**FleetCustomNetworkApiListCustomNetworks**](FleetCustomNetworkApiAPI.md#FleetCustomNetworkApiListCustomNetworks) | **Get** /2022-09-01-00/fleet/custom-network | ListCustomNetworks fleet-custom-network-api
+[**FleetCustomNetworkApiUpdateCustomNetwork**](FleetCustomNetworkApiAPI.md#FleetCustomNetworkApiUpdateCustomNetwork) | **Patch** /2022-09-01-00/fleet/custom-network/{id} | UpdateCustomNetwork fleet-custom-network-api
 
 
 
@@ -270,6 +271,76 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## FleetCustomNetworkApiUpdateCustomNetwork
+
+> FleetCustomNetwork FleetCustomNetworkApiUpdateCustomNetwork(ctx, id).CreateCustomerOnboardingRequestBody(createCustomerOnboardingRequestBody).Execute()
+
+UpdateCustomNetwork fleet-custom-network-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	id := "n-12345678" // string | ID of a custom network
+	createCustomerOnboardingRequestBody := *openapiclient.NewCreateCustomerOnboardingRequestBody() // CreateCustomerOnboardingRequestBody | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.FleetCustomNetworkApiAPI.FleetCustomNetworkApiUpdateCustomNetwork(context.Background(), id).CreateCustomerOnboardingRequestBody(createCustomerOnboardingRequestBody).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `FleetCustomNetworkApiAPI.FleetCustomNetworkApiUpdateCustomNetwork``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `FleetCustomNetworkApiUpdateCustomNetwork`: FleetCustomNetwork
+	fmt.Fprintf(os.Stdout, "Response from `FleetCustomNetworkApiAPI.FleetCustomNetworkApiUpdateCustomNetwork`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | ID of a custom network | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiFleetCustomNetworkApiUpdateCustomNetworkRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **createCustomerOnboardingRequestBody** | [**CreateCustomerOnboardingRequestBody**](CreateCustomerOnboardingRequestBody.md) |  | 
+
+### Return type
+
+[**FleetCustomNetwork**](FleetCustomNetwork.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

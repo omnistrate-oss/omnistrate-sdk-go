@@ -7,13 +7,14 @@ Name | Type | Description | Notes
 **Email** | **string** | The email of the user | 
 **Name** | **string** | The name of the user | 
 **RoleType** | **string** |  | 
+**SubscriptionId** | **string** | The subscription ID | 
 **UserId** | **string** | The User ID | 
 
 ## Methods
 
 ### NewSubscriptionUsers
 
-`func NewSubscriptionUsers(email string, name string, roleType string, userId string, ) *SubscriptionUsers`
+`func NewSubscriptionUsers(email string, name string, roleType string, subscriptionId string, userId string, ) *SubscriptionUsers`
 
 NewSubscriptionUsers instantiates a new SubscriptionUsers object
 This constructor will assign default values to properties that have it defined,
@@ -86,6 +87,26 @@ and a boolean to check if the value has been set.
 `func (o *SubscriptionUsers) SetRoleType(v string)`
 
 SetRoleType sets RoleType field to given value.
+
+
+### GetSubscriptionId
+
+`func (o *SubscriptionUsers) GetSubscriptionId() string`
+
+GetSubscriptionId returns the SubscriptionId field if non-nil, zero value otherwise.
+
+### GetSubscriptionIdOk
+
+`func (o *SubscriptionUsers) GetSubscriptionIdOk() (*string, bool)`
+
+GetSubscriptionIdOk returns a tuple with the SubscriptionId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscriptionId
+
+`func (o *SubscriptionUsers) SetSubscriptionId(v string)`
+
+SetSubscriptionId sets SubscriptionId field to given value.
 
 
 ### GetUserId
