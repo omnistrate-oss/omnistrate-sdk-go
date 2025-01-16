@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InstanceID** | Pointer to **string** | The ID of the instance | [optional] 
-**LifeCycleStatus** | Pointer to **string** | The lifecycle status of the instance | [optional] 
+**InstanceID** | Pointer to **string** | ID of a Resource Instance | [optional] 
+**LifeCycleStatus** | Pointer to **string** | The status of an operation | [optional] 
 **ResourcesHealth** | Pointer to [**map[string]ResourceHealthSummary**](ResourceHealthSummary.md) | The health summary of the resources by resource ID | [optional] 
-**Status** | Pointer to **string** | The status of the instance | [optional] 
+**Status** | Pointer to **string** | The heath status of a resource | [optional] 
 
 ## Methods
 

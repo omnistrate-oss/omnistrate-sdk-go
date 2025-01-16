@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | The ID of the onboarding. | 
+**Id** | **string** | ID of a Customer Onboarding | 
 **IsCompleted** | **bool** | Whether the onboarding is completed. | 
 **Name** | Pointer to **string** | The name of the onboarding. | [optional] 
-**OrgId** | **string** | The Organization ID of the user. | 
+**OrgId** | **string** | ID of an Org | 
 **ServiceId** | Pointer to **string** | The ID of the service associated with this onboarding. | [optional] 
 **Stages** | [**[]OnboardingStage**](OnboardingStage.md) | The stages of the onboarding. | 
-**UserId** | **string** | The user ID. | 
+**UserId** | **string** | ID of a User | 
 
 ## Methods
 

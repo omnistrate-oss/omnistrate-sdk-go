@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ChannelType** | **string** | Type of notification channel | 
+**ChannelType** | **string** |  | 
 **Email** | Pointer to [**EmailConfiguration**](EmailConfiguration.md) |  | [optional] 
-**Id** | **string** | Unique identifier of the channel | 
+**Id** | **string** | ID of a Notification Channel | 
 **Name** | **string** | Name of the channel | 
 **PagerDuty** | Pointer to [**PagerDutyConfiguration**](PagerDutyConfiguration.md) |  | [optional] 
 **Slack** | Pointer to [**SlackConfiguration**](SlackConfiguration.md) |  | [optional] 

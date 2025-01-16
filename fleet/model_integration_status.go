@@ -23,13 +23,13 @@ type IntegrationStatus struct {
 	Url *string `json:"Url,omitempty"`
 	// The configuration of the integration
 	Configuration map[string]interface{} `json:"configuration,omitempty"`
-	// The health status of the integration
+	// The heath status of a resource
 	HealthStatus *string `json:"healthStatus,omitempty"`
 	// The name of the integration or feature
 	IntegrationType *string `json:"integrationType,omitempty"`
 	// Additional details regarding integration health
 	Message *string `json:"message,omitempty"`
-	// Scope of the feature/integration
+	// ProductTierFeatureScope defines scope of the feature within product tier
 	Scope *string `json:"scope,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

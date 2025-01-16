@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **DnsName** | Pointer to **string** | DEPRECATED: Use dnsHost instead | [optional] 
 **Enabled** | **bool** |  | 
 **Name** | Pointer to **string** |  | [optional] 
-**Status** | Pointer to **string** |  | [optional] 
+**Status** | Pointer to **string** | The status of an operation | [optional] 
 
 ## Methods
 

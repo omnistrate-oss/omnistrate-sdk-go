@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NodesHealth** | Pointer to [**map[string]NodeHealthSummary**](NodeHealthSummary.md) | The health summary of the nodes by node name | [optional] 
-**ResourceID** | Pointer to **string** | The ID of the resource | [optional] 
+**ResourceID** | Pointer to **string** | ID of a resource | [optional] 
 **ResourceKey** | Pointer to **string** | The key of the resource | [optional] 
 **ResourceType** | Pointer to **string** | The type of the resource | [optional] 
-**Status** | Pointer to **string** | The status of the resource | [optional] 
+**Status** | Pointer to **string** | The heath status of a resource | [optional] 
 
 ## Methods
 

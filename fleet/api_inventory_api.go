@@ -544,8 +544,8 @@ type InventoryApiAPI interface {
 	InventoryApiListDependentComponents(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiListDependentComponentsRequest
 
 	// InventoryApiListDependentComponentsExecute executes the request
-	//  @return ListResourcesResult
-	InventoryApiListDependentComponentsExecute(r ApiInventoryApiListDependentComponentsRequest) (*ListResourcesResult, *http.Response, error)
+	//  @return FleetListDependentComponentsResult
+	InventoryApiListDependentComponentsExecute(r ApiInventoryApiListDependentComponentsRequest) (*FleetListDependentComponentsResult, *http.Response, error)
 
 	/*
 	InventoryApiListEligibleInstancesPerUpgrade ListEligibleInstancesPerUpgrade inventory-api
@@ -960,11 +960,11 @@ type ApiInventoryApiAddCapacityToResourceInstanceRequest struct {
 	serviceId string
 	environmentId string
 	instanceId string
-	addCapacityToResourceInstanceRequestBody *AddCapacityToResourceInstanceRequestBody
+	fleetAddCapacityToResourceInstanceRequest2 *FleetAddCapacityToResourceInstanceRequest2
 }
 
-func (r ApiInventoryApiAddCapacityToResourceInstanceRequest) AddCapacityToResourceInstanceRequestBody(addCapacityToResourceInstanceRequestBody AddCapacityToResourceInstanceRequestBody) ApiInventoryApiAddCapacityToResourceInstanceRequest {
-	r.addCapacityToResourceInstanceRequestBody = &addCapacityToResourceInstanceRequestBody
+func (r ApiInventoryApiAddCapacityToResourceInstanceRequest) FleetAddCapacityToResourceInstanceRequest2(fleetAddCapacityToResourceInstanceRequest2 FleetAddCapacityToResourceInstanceRequest2) ApiInventoryApiAddCapacityToResourceInstanceRequest {
+	r.fleetAddCapacityToResourceInstanceRequest2 = &fleetAddCapacityToResourceInstanceRequest2
 	return r
 }
 
@@ -1012,8 +1012,8 @@ func (a *InventoryApiAPIService) InventoryApiAddCapacityToResourceInstanceExecut
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.addCapacityToResourceInstanceRequestBody == nil {
-		return nil, reportError("addCapacityToResourceInstanceRequestBody is required and must be specified")
+	if r.fleetAddCapacityToResourceInstanceRequest2 == nil {
+		return nil, reportError("fleetAddCapacityToResourceInstanceRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1034,7 +1034,7 @@ func (a *InventoryApiAPIService) InventoryApiAddCapacityToResourceInstanceExecut
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.addCapacityToResourceInstanceRequestBody
+	localVarPostBody = r.fleetAddCapacityToResourceInstanceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1135,11 +1135,11 @@ type ApiInventoryApiAddCustomDNSToResourceInstanceRequest struct {
 	environmentId string
 	resourceKey string
 	instanceId string
-	addCustomDNSToResourceInstanceRequestBody *AddCustomDNSToResourceInstanceRequestBody
+	fleetAddCustomDNSToResourceInstanceRequest2 *FleetAddCustomDNSToResourceInstanceRequest2
 }
 
-func (r ApiInventoryApiAddCustomDNSToResourceInstanceRequest) AddCustomDNSToResourceInstanceRequestBody(addCustomDNSToResourceInstanceRequestBody AddCustomDNSToResourceInstanceRequestBody) ApiInventoryApiAddCustomDNSToResourceInstanceRequest {
-	r.addCustomDNSToResourceInstanceRequestBody = &addCustomDNSToResourceInstanceRequestBody
+func (r ApiInventoryApiAddCustomDNSToResourceInstanceRequest) FleetAddCustomDNSToResourceInstanceRequest2(fleetAddCustomDNSToResourceInstanceRequest2 FleetAddCustomDNSToResourceInstanceRequest2) ApiInventoryApiAddCustomDNSToResourceInstanceRequest {
+	r.fleetAddCustomDNSToResourceInstanceRequest2 = &fleetAddCustomDNSToResourceInstanceRequest2
 	return r
 }
 
@@ -1190,8 +1190,8 @@ func (a *InventoryApiAPIService) InventoryApiAddCustomDNSToResourceInstanceExecu
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.addCustomDNSToResourceInstanceRequestBody == nil {
-		return nil, reportError("addCustomDNSToResourceInstanceRequestBody is required and must be specified")
+	if r.fleetAddCustomDNSToResourceInstanceRequest2 == nil {
+		return nil, reportError("fleetAddCustomDNSToResourceInstanceRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1212,7 +1212,7 @@ func (a *InventoryApiAPIService) InventoryApiAddCustomDNSToResourceInstanceExecu
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.addCustomDNSToResourceInstanceRequestBody
+	localVarPostBody = r.fleetAddCustomDNSToResourceInstanceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1646,11 +1646,11 @@ func (a *InventoryApiAPIService) InventoryApiCancelUpgradePathExecute(r ApiInven
 type ApiInventoryApiCreateConsumptionUserRequest struct {
 	ctx context.Context
 	ApiService InventoryApiAPI
-	createConsumptionUserRequestBody *CreateConsumptionUserRequestBody
+	fleetCreateConsumptionUserRequest2 *FleetCreateConsumptionUserRequest2
 }
 
-func (r ApiInventoryApiCreateConsumptionUserRequest) CreateConsumptionUserRequestBody(createConsumptionUserRequestBody CreateConsumptionUserRequestBody) ApiInventoryApiCreateConsumptionUserRequest {
-	r.createConsumptionUserRequestBody = &createConsumptionUserRequestBody
+func (r ApiInventoryApiCreateConsumptionUserRequest) FleetCreateConsumptionUserRequest2(fleetCreateConsumptionUserRequest2 FleetCreateConsumptionUserRequest2) ApiInventoryApiCreateConsumptionUserRequest {
+	r.fleetCreateConsumptionUserRequest2 = &fleetCreateConsumptionUserRequest2
 	return r
 }
 
@@ -1691,8 +1691,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateConsumptionUserExecute(r ApiI
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createConsumptionUserRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createConsumptionUserRequestBody is required and must be specified")
+	if r.fleetCreateConsumptionUserRequest2 == nil {
+		return localVarReturnValue, nil, reportError("fleetCreateConsumptionUserRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1713,7 +1713,7 @@ func (a *InventoryApiAPIService) InventoryApiCreateConsumptionUserExecute(r ApiI
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createConsumptionUserRequestBody
+	localVarPostBody = r.fleetCreateConsumptionUserRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1826,11 +1826,11 @@ type ApiInventoryApiCreateProxyResourceInstanceRequest struct {
 	serviceModelKey string
 	productTierKey string
 	sourceResourceKey string
-	createProxyResourceInstanceRequestBody *CreateProxyResourceInstanceRequestBody
+	createProxyResourceInstanceRequest2 *CreateProxyResourceInstanceRequest2
 }
 
-func (r ApiInventoryApiCreateProxyResourceInstanceRequest) CreateProxyResourceInstanceRequestBody(createProxyResourceInstanceRequestBody CreateProxyResourceInstanceRequestBody) ApiInventoryApiCreateProxyResourceInstanceRequest {
-	r.createProxyResourceInstanceRequestBody = &createProxyResourceInstanceRequestBody
+func (r ApiInventoryApiCreateProxyResourceInstanceRequest) CreateProxyResourceInstanceRequest2(createProxyResourceInstanceRequest2 CreateProxyResourceInstanceRequest2) ApiInventoryApiCreateProxyResourceInstanceRequest {
+	r.createProxyResourceInstanceRequest2 = &createProxyResourceInstanceRequest2
 	return r
 }
 
@@ -1892,8 +1892,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateProxyResourceInstanceExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createProxyResourceInstanceRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createProxyResourceInstanceRequestBody is required and must be specified")
+	if r.createProxyResourceInstanceRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createProxyResourceInstanceRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1914,7 +1914,7 @@ func (a *InventoryApiAPIService) InventoryApiCreateProxyResourceInstanceExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createProxyResourceInstanceRequestBody
+	localVarPostBody = r.createProxyResourceInstanceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2027,11 +2027,11 @@ type ApiInventoryApiCreateResourceInstanceRequest struct {
 	serviceModelKey string
 	productTierKey string
 	resourceKey string
-	createResourceInstanceRequestBody *CreateResourceInstanceRequestBody
+	fleetCreateResourceInstanceRequest2 *FleetCreateResourceInstanceRequest2
 }
 
-func (r ApiInventoryApiCreateResourceInstanceRequest) CreateResourceInstanceRequestBody(createResourceInstanceRequestBody CreateResourceInstanceRequestBody) ApiInventoryApiCreateResourceInstanceRequest {
-	r.createResourceInstanceRequestBody = &createResourceInstanceRequestBody
+func (r ApiInventoryApiCreateResourceInstanceRequest) FleetCreateResourceInstanceRequest2(fleetCreateResourceInstanceRequest2 FleetCreateResourceInstanceRequest2) ApiInventoryApiCreateResourceInstanceRequest {
+	r.fleetCreateResourceInstanceRequest2 = &fleetCreateResourceInstanceRequest2
 	return r
 }
 
@@ -2093,8 +2093,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceExecute(r Api
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createResourceInstanceRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createResourceInstanceRequestBody is required and must be specified")
+	if r.fleetCreateResourceInstanceRequest2 == nil {
+		return localVarReturnValue, nil, reportError("fleetCreateResourceInstanceRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -2115,7 +2115,7 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceExecute(r Api
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createResourceInstanceRequestBody
+	localVarPostBody = r.fleetCreateResourceInstanceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2395,11 +2395,11 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceSnapshotExecu
 type ApiInventoryApiCreateServicesOrchestrationRequest struct {
 	ctx context.Context
 	ApiService InventoryApiAPI
-	createServicesOrchestrationRequestBody *CreateServicesOrchestrationRequestBody
+	fleetCreateServicesOrchestrationRequest2 *FleetCreateServicesOrchestrationRequest2
 }
 
-func (r ApiInventoryApiCreateServicesOrchestrationRequest) CreateServicesOrchestrationRequestBody(createServicesOrchestrationRequestBody CreateServicesOrchestrationRequestBody) ApiInventoryApiCreateServicesOrchestrationRequest {
-	r.createServicesOrchestrationRequestBody = &createServicesOrchestrationRequestBody
+func (r ApiInventoryApiCreateServicesOrchestrationRequest) FleetCreateServicesOrchestrationRequest2(fleetCreateServicesOrchestrationRequest2 FleetCreateServicesOrchestrationRequest2) ApiInventoryApiCreateServicesOrchestrationRequest {
+	r.fleetCreateServicesOrchestrationRequest2 = &fleetCreateServicesOrchestrationRequest2
 	return r
 }
 
@@ -2440,8 +2440,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateServicesOrchestrationExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createServicesOrchestrationRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createServicesOrchestrationRequestBody is required and must be specified")
+	if r.fleetCreateServicesOrchestrationRequest2 == nil {
+		return localVarReturnValue, nil, reportError("fleetCreateServicesOrchestrationRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -2462,7 +2462,7 @@ func (a *InventoryApiAPIService) InventoryApiCreateServicesOrchestrationExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createServicesOrchestrationRequestBody
+	localVarPostBody = r.fleetCreateServicesOrchestrationRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2570,11 +2570,11 @@ type ApiInventoryApiCreateUpgradePathRequest struct {
 	ApiService InventoryApiAPI
 	serviceId string
 	productTierId string
-	createUpgradePathRequestBody *CreateUpgradePathRequestBody
+	createUpgradePathRequest2 *CreateUpgradePathRequest2
 }
 
-func (r ApiInventoryApiCreateUpgradePathRequest) CreateUpgradePathRequestBody(createUpgradePathRequestBody CreateUpgradePathRequestBody) ApiInventoryApiCreateUpgradePathRequest {
-	r.createUpgradePathRequestBody = &createUpgradePathRequestBody
+func (r ApiInventoryApiCreateUpgradePathRequest) CreateUpgradePathRequest2(createUpgradePathRequest2 CreateUpgradePathRequest2) ApiInventoryApiCreateUpgradePathRequest {
+	r.createUpgradePathRequest2 = &createUpgradePathRequest2
 	return r
 }
 
@@ -2621,8 +2621,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateUpgradePathExecute(r ApiInven
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createUpgradePathRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createUpgradePathRequestBody is required and must be specified")
+	if r.createUpgradePathRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createUpgradePathRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -2643,7 +2643,7 @@ func (a *InventoryApiAPIService) InventoryApiCreateUpgradePathExecute(r ApiInven
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createUpgradePathRequestBody
+	localVarPostBody = r.createUpgradePathRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2931,11 +2931,11 @@ type ApiInventoryApiDeleteResourceInstanceRequest struct {
 	serviceId string
 	environmentId string
 	instanceId string
-	startResourceInstanceRequestBody *StartResourceInstanceRequestBody
+	fleetDeleteResourceInstanceRequest2 *FleetDeleteResourceInstanceRequest2
 }
 
-func (r ApiInventoryApiDeleteResourceInstanceRequest) StartResourceInstanceRequestBody(startResourceInstanceRequestBody StartResourceInstanceRequestBody) ApiInventoryApiDeleteResourceInstanceRequest {
-	r.startResourceInstanceRequestBody = &startResourceInstanceRequestBody
+func (r ApiInventoryApiDeleteResourceInstanceRequest) FleetDeleteResourceInstanceRequest2(fleetDeleteResourceInstanceRequest2 FleetDeleteResourceInstanceRequest2) ApiInventoryApiDeleteResourceInstanceRequest {
+	r.fleetDeleteResourceInstanceRequest2 = &fleetDeleteResourceInstanceRequest2
 	return r
 }
 
@@ -2983,8 +2983,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceExecute(r Api
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.startResourceInstanceRequestBody == nil {
-		return nil, reportError("startResourceInstanceRequestBody is required and must be specified")
+	if r.fleetDeleteResourceInstanceRequest2 == nil {
+		return nil, reportError("fleetDeleteResourceInstanceRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -3005,7 +3005,7 @@ func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceExecute(r Api
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.startResourceInstanceRequestBody
+	localVarPostBody = r.fleetDeleteResourceInstanceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -4963,11 +4963,11 @@ type ApiInventoryApiDescribeResourceInstanceSnapshotFromTimeRequest struct {
 	serviceId string
 	environmentId string
 	instanceId string
-	describeResourceInstanceSnapshotFromTimeRequestBody *DescribeResourceInstanceSnapshotFromTimeRequestBody
+	fleetDescribeInstanceSnapshotFromTimeRequest2 *FleetDescribeInstanceSnapshotFromTimeRequest2
 }
 
-func (r ApiInventoryApiDescribeResourceInstanceSnapshotFromTimeRequest) DescribeResourceInstanceSnapshotFromTimeRequestBody(describeResourceInstanceSnapshotFromTimeRequestBody DescribeResourceInstanceSnapshotFromTimeRequestBody) ApiInventoryApiDescribeResourceInstanceSnapshotFromTimeRequest {
-	r.describeResourceInstanceSnapshotFromTimeRequestBody = &describeResourceInstanceSnapshotFromTimeRequestBody
+func (r ApiInventoryApiDescribeResourceInstanceSnapshotFromTimeRequest) FleetDescribeInstanceSnapshotFromTimeRequest2(fleetDescribeInstanceSnapshotFromTimeRequest2 FleetDescribeInstanceSnapshotFromTimeRequest2) ApiInventoryApiDescribeResourceInstanceSnapshotFromTimeRequest {
+	r.fleetDescribeInstanceSnapshotFromTimeRequest2 = &fleetDescribeInstanceSnapshotFromTimeRequest2
 	return r
 }
 
@@ -5017,8 +5017,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceSnapshotFro
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.describeResourceInstanceSnapshotFromTimeRequestBody == nil {
-		return localVarReturnValue, nil, reportError("describeResourceInstanceSnapshotFromTimeRequestBody is required and must be specified")
+	if r.fleetDescribeInstanceSnapshotFromTimeRequest2 == nil {
+		return localVarReturnValue, nil, reportError("fleetDescribeInstanceSnapshotFromTimeRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -5039,7 +5039,7 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceSnapshotFro
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.describeResourceInstanceSnapshotFromTimeRequestBody
+	localVarPostBody = r.fleetDescribeInstanceSnapshotFromTimeRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -6400,11 +6400,11 @@ type ApiInventoryApiFailoverResourceInstanceRequest struct {
 	serviceId string
 	environmentId string
 	instanceId string
-	failoverResourceInstanceRequestBody *FailoverResourceInstanceRequestBody
+	fleetFailoverResourceInstanceRequest2 *FleetFailoverResourceInstanceRequest2
 }
 
-func (r ApiInventoryApiFailoverResourceInstanceRequest) FailoverResourceInstanceRequestBody(failoverResourceInstanceRequestBody FailoverResourceInstanceRequestBody) ApiInventoryApiFailoverResourceInstanceRequest {
-	r.failoverResourceInstanceRequestBody = &failoverResourceInstanceRequestBody
+func (r ApiInventoryApiFailoverResourceInstanceRequest) FleetFailoverResourceInstanceRequest2(fleetFailoverResourceInstanceRequest2 FleetFailoverResourceInstanceRequest2) ApiInventoryApiFailoverResourceInstanceRequest {
+	r.fleetFailoverResourceInstanceRequest2 = &fleetFailoverResourceInstanceRequest2
 	return r
 }
 
@@ -6452,8 +6452,8 @@ func (a *InventoryApiAPIService) InventoryApiFailoverResourceInstanceExecute(r A
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.failoverResourceInstanceRequestBody == nil {
-		return nil, reportError("failoverResourceInstanceRequestBody is required and must be specified")
+	if r.fleetFailoverResourceInstanceRequest2 == nil {
+		return nil, reportError("fleetFailoverResourceInstanceRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -6474,7 +6474,7 @@ func (a *InventoryApiAPIService) InventoryApiFailoverResourceInstanceExecute(r A
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.failoverResourceInstanceRequestBody
+	localVarPostBody = r.fleetFailoverResourceInstanceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -7092,7 +7092,7 @@ type ApiInventoryApiListDependentComponentsRequest struct {
 	instanceId string
 }
 
-func (r ApiInventoryApiListDependentComponentsRequest) Execute() (*ListResourcesResult, *http.Response, error) {
+func (r ApiInventoryApiListDependentComponentsRequest) Execute() (*FleetListDependentComponentsResult, *http.Response, error) {
 	return r.ApiService.InventoryApiListDependentComponentsExecute(r)
 }
 
@@ -7116,13 +7116,13 @@ func (a *InventoryApiAPIService) InventoryApiListDependentComponents(ctx context
 }
 
 // Execute executes the request
-//  @return ListResourcesResult
-func (a *InventoryApiAPIService) InventoryApiListDependentComponentsExecute(r ApiInventoryApiListDependentComponentsRequest) (*ListResourcesResult, *http.Response, error) {
+//  @return FleetListDependentComponentsResult
+func (a *InventoryApiAPIService) InventoryApiListDependentComponentsExecute(r ApiInventoryApiListDependentComponentsRequest) (*FleetListDependentComponentsResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListResourcesResult
+		localVarReturnValue  *FleetListDependentComponentsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiListDependentComponents")
@@ -8361,11 +8361,11 @@ type ApiInventoryApiListResourcesRequest struct {
 	environmentId string
 	serviceModelId string
 	productTierId string
-	listResourcesRequestBody *ListResourcesRequestBody
+	listResourcesRequest2 *ListResourcesRequest2
 }
 
-func (r ApiInventoryApiListResourcesRequest) ListResourcesRequestBody(listResourcesRequestBody ListResourcesRequestBody) ApiInventoryApiListResourcesRequest {
-	r.listResourcesRequestBody = &listResourcesRequestBody
+func (r ApiInventoryApiListResourcesRequest) ListResourcesRequest2(listResourcesRequest2 ListResourcesRequest2) ApiInventoryApiListResourcesRequest {
+	r.listResourcesRequest2 = &listResourcesRequest2
 	return r
 }
 
@@ -8418,8 +8418,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourcesExecute(r ApiInventory
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.listResourcesRequestBody == nil {
-		return localVarReturnValue, nil, reportError("listResourcesRequestBody is required and must be specified")
+	if r.listResourcesRequest2 == nil {
+		return localVarReturnValue, nil, reportError("listResourcesRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -8440,7 +8440,7 @@ func (a *InventoryApiAPIService) InventoryApiListResourcesExecute(r ApiInventory
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.listResourcesRequestBody
+	localVarPostBody = r.listResourcesRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -9652,11 +9652,11 @@ type ApiInventoryApiModifyServicesOrchestrationRequest struct {
 	ctx context.Context
 	ApiService InventoryApiAPI
 	id string
-	modifyServicesOrchestrationRequestBody *ModifyServicesOrchestrationRequestBody
+	fleetModifyServicesOrchestrationRequest2 *FleetModifyServicesOrchestrationRequest2
 }
 
-func (r ApiInventoryApiModifyServicesOrchestrationRequest) ModifyServicesOrchestrationRequestBody(modifyServicesOrchestrationRequestBody ModifyServicesOrchestrationRequestBody) ApiInventoryApiModifyServicesOrchestrationRequest {
-	r.modifyServicesOrchestrationRequestBody = &modifyServicesOrchestrationRequestBody
+func (r ApiInventoryApiModifyServicesOrchestrationRequest) FleetModifyServicesOrchestrationRequest2(fleetModifyServicesOrchestrationRequest2 FleetModifyServicesOrchestrationRequest2) ApiInventoryApiModifyServicesOrchestrationRequest {
+	r.fleetModifyServicesOrchestrationRequest2 = &fleetModifyServicesOrchestrationRequest2
 	return r
 }
 
@@ -9698,8 +9698,8 @@ func (a *InventoryApiAPIService) InventoryApiModifyServicesOrchestrationExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.modifyServicesOrchestrationRequestBody == nil {
-		return nil, reportError("modifyServicesOrchestrationRequestBody is required and must be specified")
+	if r.fleetModifyServicesOrchestrationRequest2 == nil {
+		return nil, reportError("fleetModifyServicesOrchestrationRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -9720,7 +9720,7 @@ func (a *InventoryApiAPIService) InventoryApiModifyServicesOrchestrationExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.modifyServicesOrchestrationRequestBody
+	localVarPostBody = r.fleetModifyServicesOrchestrationRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -9820,11 +9820,11 @@ type ApiInventoryApiRemoveCapacityFromResourceInstanceRequest struct {
 	serviceId string
 	environmentId string
 	instanceId string
-	removeCapacityFromResourceInstanceRequestBody *RemoveCapacityFromResourceInstanceRequestBody
+	fleetRemoveCapacityFromResourceInstanceRequest2 *FleetRemoveCapacityFromResourceInstanceRequest2
 }
 
-func (r ApiInventoryApiRemoveCapacityFromResourceInstanceRequest) RemoveCapacityFromResourceInstanceRequestBody(removeCapacityFromResourceInstanceRequestBody RemoveCapacityFromResourceInstanceRequestBody) ApiInventoryApiRemoveCapacityFromResourceInstanceRequest {
-	r.removeCapacityFromResourceInstanceRequestBody = &removeCapacityFromResourceInstanceRequestBody
+func (r ApiInventoryApiRemoveCapacityFromResourceInstanceRequest) FleetRemoveCapacityFromResourceInstanceRequest2(fleetRemoveCapacityFromResourceInstanceRequest2 FleetRemoveCapacityFromResourceInstanceRequest2) ApiInventoryApiRemoveCapacityFromResourceInstanceRequest {
+	r.fleetRemoveCapacityFromResourceInstanceRequest2 = &fleetRemoveCapacityFromResourceInstanceRequest2
 	return r
 }
 
@@ -9872,8 +9872,8 @@ func (a *InventoryApiAPIService) InventoryApiRemoveCapacityFromResourceInstanceE
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.removeCapacityFromResourceInstanceRequestBody == nil {
-		return nil, reportError("removeCapacityFromResourceInstanceRequestBody is required and must be specified")
+	if r.fleetRemoveCapacityFromResourceInstanceRequest2 == nil {
+		return nil, reportError("fleetRemoveCapacityFromResourceInstanceRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -9894,7 +9894,7 @@ func (a *InventoryApiAPIService) InventoryApiRemoveCapacityFromResourceInstanceE
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.removeCapacityFromResourceInstanceRequestBody
+	localVarPostBody = r.fleetRemoveCapacityFromResourceInstanceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -10161,11 +10161,11 @@ type ApiInventoryApiRestartResourceInstanceRequest struct {
 	serviceId string
 	environmentId string
 	instanceId string
-	startResourceInstanceRequestBody *StartResourceInstanceRequestBody
+	fleetRestartResourceInstanceRequest2 *FleetRestartResourceInstanceRequest2
 }
 
-func (r ApiInventoryApiRestartResourceInstanceRequest) StartResourceInstanceRequestBody(startResourceInstanceRequestBody StartResourceInstanceRequestBody) ApiInventoryApiRestartResourceInstanceRequest {
-	r.startResourceInstanceRequestBody = &startResourceInstanceRequestBody
+func (r ApiInventoryApiRestartResourceInstanceRequest) FleetRestartResourceInstanceRequest2(fleetRestartResourceInstanceRequest2 FleetRestartResourceInstanceRequest2) ApiInventoryApiRestartResourceInstanceRequest {
+	r.fleetRestartResourceInstanceRequest2 = &fleetRestartResourceInstanceRequest2
 	return r
 }
 
@@ -10213,8 +10213,8 @@ func (a *InventoryApiAPIService) InventoryApiRestartResourceInstanceExecute(r Ap
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.startResourceInstanceRequestBody == nil {
-		return nil, reportError("startResourceInstanceRequestBody is required and must be specified")
+	if r.fleetRestartResourceInstanceRequest2 == nil {
+		return nil, reportError("fleetRestartResourceInstanceRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -10235,7 +10235,7 @@ func (a *InventoryApiAPIService) InventoryApiRestartResourceInstanceExecute(r Ap
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.startResourceInstanceRequestBody
+	localVarPostBody = r.fleetRestartResourceInstanceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -10335,11 +10335,11 @@ type ApiInventoryApiRestoreResourceInstanceRequest struct {
 	serviceId string
 	environmentId string
 	instanceId string
-	restoreResourceInstanceRequestBody *RestoreResourceInstanceRequestBody
+	fleetRestoreResourceInstanceRequest2 *FleetRestoreResourceInstanceRequest2
 }
 
-func (r ApiInventoryApiRestoreResourceInstanceRequest) RestoreResourceInstanceRequestBody(restoreResourceInstanceRequestBody RestoreResourceInstanceRequestBody) ApiInventoryApiRestoreResourceInstanceRequest {
-	r.restoreResourceInstanceRequestBody = &restoreResourceInstanceRequestBody
+func (r ApiInventoryApiRestoreResourceInstanceRequest) FleetRestoreResourceInstanceRequest2(fleetRestoreResourceInstanceRequest2 FleetRestoreResourceInstanceRequest2) ApiInventoryApiRestoreResourceInstanceRequest {
+	r.fleetRestoreResourceInstanceRequest2 = &fleetRestoreResourceInstanceRequest2
 	return r
 }
 
@@ -10389,8 +10389,8 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceExecute(r Ap
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.restoreResourceInstanceRequestBody == nil {
-		return localVarReturnValue, nil, reportError("restoreResourceInstanceRequestBody is required and must be specified")
+	if r.fleetRestoreResourceInstanceRequest2 == nil {
+		return localVarReturnValue, nil, reportError("fleetRestoreResourceInstanceRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -10411,7 +10411,7 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceExecute(r Ap
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.restoreResourceInstanceRequestBody
+	localVarPostBody = r.fleetRestoreResourceInstanceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -10520,11 +10520,11 @@ type ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest struct {
 	serviceId string
 	environmentId string
 	snapshotId string
-	restoreResourceInstanceFromSnapshotRequestBody *RestoreResourceInstanceFromSnapshotRequestBody
+	fleetRestoreResourceInstanceFromSnapshotRequest2 *FleetRestoreResourceInstanceFromSnapshotRequest2
 }
 
-func (r ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest) RestoreResourceInstanceFromSnapshotRequestBody(restoreResourceInstanceFromSnapshotRequestBody RestoreResourceInstanceFromSnapshotRequestBody) ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest {
-	r.restoreResourceInstanceFromSnapshotRequestBody = &restoreResourceInstanceFromSnapshotRequestBody
+func (r ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest) FleetRestoreResourceInstanceFromSnapshotRequest2(fleetRestoreResourceInstanceFromSnapshotRequest2 FleetRestoreResourceInstanceFromSnapshotRequest2) ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest {
+	r.fleetRestoreResourceInstanceFromSnapshotRequest2 = &fleetRestoreResourceInstanceFromSnapshotRequest2
 	return r
 }
 
@@ -10574,8 +10574,8 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceFromSnapshot
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.restoreResourceInstanceFromSnapshotRequestBody == nil {
-		return localVarReturnValue, nil, reportError("restoreResourceInstanceFromSnapshotRequestBody is required and must be specified")
+	if r.fleetRestoreResourceInstanceFromSnapshotRequest2 == nil {
+		return localVarReturnValue, nil, reportError("fleetRestoreResourceInstanceFromSnapshotRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -10596,7 +10596,7 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceFromSnapshot
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.restoreResourceInstanceFromSnapshotRequestBody
+	localVarPostBody = r.fleetRestoreResourceInstanceFromSnapshotRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -10865,11 +10865,11 @@ func (a *InventoryApiAPIService) InventoryApiResumeSubscriptionExecute(r ApiInve
 type ApiInventoryApiSearchInventoryRequest struct {
 	ctx context.Context
 	ApiService InventoryApiAPI
-	searchServiceInventoryRequestBody *SearchServiceInventoryRequestBody
+	searchInventoryRequest2 *SearchInventoryRequest2
 }
 
-func (r ApiInventoryApiSearchInventoryRequest) SearchServiceInventoryRequestBody(searchServiceInventoryRequestBody SearchServiceInventoryRequestBody) ApiInventoryApiSearchInventoryRequest {
-	r.searchServiceInventoryRequestBody = &searchServiceInventoryRequestBody
+func (r ApiInventoryApiSearchInventoryRequest) SearchInventoryRequest2(searchInventoryRequest2 SearchInventoryRequest2) ApiInventoryApiSearchInventoryRequest {
+	r.searchInventoryRequest2 = &searchInventoryRequest2
 	return r
 }
 
@@ -10910,8 +10910,8 @@ func (a *InventoryApiAPIService) InventoryApiSearchInventoryExecute(r ApiInvento
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.searchServiceInventoryRequestBody == nil {
-		return localVarReturnValue, nil, reportError("searchServiceInventoryRequestBody is required and must be specified")
+	if r.searchInventoryRequest2 == nil {
+		return localVarReturnValue, nil, reportError("searchInventoryRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -10932,7 +10932,7 @@ func (a *InventoryApiAPIService) InventoryApiSearchInventoryExecute(r ApiInvento
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.searchServiceInventoryRequestBody
+	localVarPostBody = r.searchInventoryRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -11040,11 +11040,11 @@ type ApiInventoryApiSearchServiceInventoryRequest struct {
 	ApiService InventoryApiAPI
 	serviceId string
 	environmentId string
-	searchServiceInventoryRequestBody *SearchServiceInventoryRequestBody
+	searchServiceInventoryRequest2 *SearchServiceInventoryRequest2
 }
 
-func (r ApiInventoryApiSearchServiceInventoryRequest) SearchServiceInventoryRequestBody(searchServiceInventoryRequestBody SearchServiceInventoryRequestBody) ApiInventoryApiSearchServiceInventoryRequest {
-	r.searchServiceInventoryRequestBody = &searchServiceInventoryRequestBody
+func (r ApiInventoryApiSearchServiceInventoryRequest) SearchServiceInventoryRequest2(searchServiceInventoryRequest2 SearchServiceInventoryRequest2) ApiInventoryApiSearchServiceInventoryRequest {
+	r.searchServiceInventoryRequest2 = &searchServiceInventoryRequest2
 	return r
 }
 
@@ -11091,8 +11091,8 @@ func (a *InventoryApiAPIService) InventoryApiSearchServiceInventoryExecute(r Api
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.searchServiceInventoryRequestBody == nil {
-		return localVarReturnValue, nil, reportError("searchServiceInventoryRequestBody is required and must be specified")
+	if r.searchServiceInventoryRequest2 == nil {
+		return localVarReturnValue, nil, reportError("searchServiceInventoryRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -11113,7 +11113,7 @@ func (a *InventoryApiAPIService) InventoryApiSearchServiceInventoryExecute(r Api
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.searchServiceInventoryRequestBody
+	localVarPostBody = r.searchServiceInventoryRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -11222,11 +11222,11 @@ type ApiInventoryApiStartResourceInstanceRequest struct {
 	serviceId string
 	environmentId string
 	instanceId string
-	startResourceInstanceRequestBody *StartResourceInstanceRequestBody
+	fleetStartResourceInstanceRequest2 *FleetStartResourceInstanceRequest2
 }
 
-func (r ApiInventoryApiStartResourceInstanceRequest) StartResourceInstanceRequestBody(startResourceInstanceRequestBody StartResourceInstanceRequestBody) ApiInventoryApiStartResourceInstanceRequest {
-	r.startResourceInstanceRequestBody = &startResourceInstanceRequestBody
+func (r ApiInventoryApiStartResourceInstanceRequest) FleetStartResourceInstanceRequest2(fleetStartResourceInstanceRequest2 FleetStartResourceInstanceRequest2) ApiInventoryApiStartResourceInstanceRequest {
+	r.fleetStartResourceInstanceRequest2 = &fleetStartResourceInstanceRequest2
 	return r
 }
 
@@ -11274,8 +11274,8 @@ func (a *InventoryApiAPIService) InventoryApiStartResourceInstanceExecute(r ApiI
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.startResourceInstanceRequestBody == nil {
-		return nil, reportError("startResourceInstanceRequestBody is required and must be specified")
+	if r.fleetStartResourceInstanceRequest2 == nil {
+		return nil, reportError("fleetStartResourceInstanceRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -11296,7 +11296,7 @@ func (a *InventoryApiAPIService) InventoryApiStartResourceInstanceExecute(r ApiI
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.startResourceInstanceRequestBody
+	localVarPostBody = r.fleetStartResourceInstanceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -11396,11 +11396,11 @@ type ApiInventoryApiStopResourceInstanceRequest struct {
 	serviceId string
 	environmentId string
 	instanceId string
-	startResourceInstanceRequestBody *StartResourceInstanceRequestBody
+	fleetStopResourceInstanceRequest2 *FleetStopResourceInstanceRequest2
 }
 
-func (r ApiInventoryApiStopResourceInstanceRequest) StartResourceInstanceRequestBody(startResourceInstanceRequestBody StartResourceInstanceRequestBody) ApiInventoryApiStopResourceInstanceRequest {
-	r.startResourceInstanceRequestBody = &startResourceInstanceRequestBody
+func (r ApiInventoryApiStopResourceInstanceRequest) FleetStopResourceInstanceRequest2(fleetStopResourceInstanceRequest2 FleetStopResourceInstanceRequest2) ApiInventoryApiStopResourceInstanceRequest {
+	r.fleetStopResourceInstanceRequest2 = &fleetStopResourceInstanceRequest2
 	return r
 }
 
@@ -11448,8 +11448,8 @@ func (a *InventoryApiAPIService) InventoryApiStopResourceInstanceExecute(r ApiIn
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.startResourceInstanceRequestBody == nil {
-		return nil, reportError("startResourceInstanceRequestBody is required and must be specified")
+	if r.fleetStopResourceInstanceRequest2 == nil {
+		return nil, reportError("fleetStopResourceInstanceRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -11470,7 +11470,7 @@ func (a *InventoryApiAPIService) InventoryApiStopResourceInstanceExecute(r ApiIn
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.startResourceInstanceRequestBody
+	localVarPostBody = r.fleetStopResourceInstanceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -12206,11 +12206,11 @@ type ApiInventoryApiUpdateResourceInstanceRequest struct {
 	serviceId string
 	environmentId string
 	instanceId string
-	updateResourceInstanceRequestBody *UpdateResourceInstanceRequestBody
+	fleetUpdateResourceInstanceRequest2 *FleetUpdateResourceInstanceRequest2
 }
 
-func (r ApiInventoryApiUpdateResourceInstanceRequest) UpdateResourceInstanceRequestBody(updateResourceInstanceRequestBody UpdateResourceInstanceRequestBody) ApiInventoryApiUpdateResourceInstanceRequest {
-	r.updateResourceInstanceRequestBody = &updateResourceInstanceRequestBody
+func (r ApiInventoryApiUpdateResourceInstanceRequest) FleetUpdateResourceInstanceRequest2(fleetUpdateResourceInstanceRequest2 FleetUpdateResourceInstanceRequest2) ApiInventoryApiUpdateResourceInstanceRequest {
+	r.fleetUpdateResourceInstanceRequest2 = &fleetUpdateResourceInstanceRequest2
 	return r
 }
 
@@ -12258,8 +12258,8 @@ func (a *InventoryApiAPIService) InventoryApiUpdateResourceInstanceExecute(r Api
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateResourceInstanceRequestBody == nil {
-		return nil, reportError("updateResourceInstanceRequestBody is required and must be specified")
+	if r.fleetUpdateResourceInstanceRequest2 == nil {
+		return nil, reportError("fleetUpdateResourceInstanceRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -12280,7 +12280,7 @@ func (a *InventoryApiAPIService) InventoryApiUpdateResourceInstanceExecute(r Api
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateResourceInstanceRequestBody
+	localVarPostBody = r.fleetUpdateResourceInstanceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

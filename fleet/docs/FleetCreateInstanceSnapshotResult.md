@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EnvironmentId** | **string** | The service environment ID this workflow belongs to. | 
-**ServiceId** | **string** | The service ID this workflow belongs to. | 
-**SnapshotId** | **string** | The instance snapshot ID | 
+**EnvironmentId** | **string** | ID of a Service Environment | 
+**ServiceId** | **string** | ID of a Service | 
+**SnapshotId** | **string** | ID of a Resource Instance Snapshot | 
 
 ## Methods
 

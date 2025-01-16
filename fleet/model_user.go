@@ -26,23 +26,23 @@ type User struct {
 	Email string `json:"email"`
 	// Is the user enabled.
 	Enabled *bool `json:"enabled,omitempty"`
-	// The service environment ID this workflow belongs to.
+	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
 	// The number of active instances the user has.
 	InstanceCount int64 `json:"instanceCount"`
 	// The last modified time of the user.
 	LastModifiedAt string `json:"lastModifiedAt"`
-	// The user ID of the last modifier.
+	// ID of a User
 	LastModifiedByUserID *string `json:"lastModifiedByUserID,omitempty"`
 	// The user name of the last modifier.
 	LastModifiedByUserName *string `json:"lastModifiedByUserName,omitempty"`
-	// The organization ID.
+	// ID of an Org
 	OrgId string `json:"orgId"`
 	// The organization name.
 	OrgName string `json:"orgName"`
 	// The organization URL.
 	OrgUrl *string `json:"orgUrl,omitempty"`
-	// The service ID this workflow belongs to.
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The status of the user.
 	Status string `json:"status"`
@@ -50,11 +50,11 @@ type User struct {
 	SubscriptionCount *int64 `json:"subscriptionCount,omitempty"`
 	// Token to validate the user, if the user is not enabled.
 	Token *string `json:"token,omitempty"`
-	// The user ID.
+	// ID of a User
 	UserId string `json:"userId"`
 	// The user name.
 	UserName string `json:"userName"`
-	// The user subscription role.
+	// Type of the role
 	UserSubscriptionRole *string `json:"userSubscriptionRole,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

@@ -267,6 +267,7 @@ type ApiOperationsApiListEventsRequest struct {
 	pageSize *int64
 	startDate *time.Time
 	endDate *time.Time
+	productTierID *string
 }
 
 func (r ApiOperationsApiListEventsRequest) EnvironmentType(environmentType string) ApiOperationsApiListEventsRequest {
@@ -319,6 +320,11 @@ func (r ApiOperationsApiListEventsRequest) StartDate(startDate time.Time) ApiOpe
 // End date of the events
 func (r ApiOperationsApiListEventsRequest) EndDate(endDate time.Time) ApiOperationsApiListEventsRequest {
 	r.endDate = &endDate
+	return r
+}
+
+func (r ApiOperationsApiListEventsRequest) ProductTierID(productTierID string) ApiOperationsApiListEventsRequest {
+	r.productTierID = &productTierID
 	return r
 }
 
@@ -394,6 +400,9 @@ func (a *OperationsApiAPIService) OperationsApiListEventsExecute(r ApiOperations
 	}
 	if r.endDate != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "endDate", r.endDate, "form", "")
+	}
+	if r.productTierID != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "productTierID", r.productTierID, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

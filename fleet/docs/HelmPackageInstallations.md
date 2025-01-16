@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **HelmPackage** | [**HelmPackage**](HelmPackage.md) |  | 
-**HostClusterID** | **string** | The ID of the host cluster where the helm package is installed | 
+**HostClusterID** | **string** | ID of a Host Cluster | 
 **Status** | **string** | The status of the Helm package installation | 
 
 ## Methods

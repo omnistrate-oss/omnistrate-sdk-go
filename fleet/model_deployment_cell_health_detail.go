@@ -19,9 +19,9 @@ var _ MappedNullable = &DeploymentCellHealthDetail{}
 
 // DeploymentCellHealthDetail struct for DeploymentCellHealthDetail
 type DeploymentCellHealthDetail struct {
-	// The cloud provider of the host cluster
+	// Name of the Infra Provider
 	CloudProvider *string `json:"cloudProvider,omitempty"`
-	// The ID of the host cluster
+	// ID of a Host Cluster
 	HostClusterID *string `json:"hostClusterID,omitempty"`
 	// The health summary of the instances by instance ID
 	InstanceHealth *map[string]InstanceHealthSummary `json:"instanceHealth,omitempty"`

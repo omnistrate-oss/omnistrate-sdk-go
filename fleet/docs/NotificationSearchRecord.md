@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **Name** | **string** | The notification name. | 
 **Priority** | **string** | The priority of the notification. | 
 **ResourceName** | **string** | The resource name for the notification. | 
-**ServiceEnvironmentID** | **string** | The service environment ID of the notification. | 
+**ServiceEnvironmentID** | **string** | ID of a Service Environment | 
 **ServiceEnvironmentName** | **string** | The service environment name of the notification. | 
-**ServiceEnvironmentType** | Pointer to **string** | The service environment type of the notification. | [optional] 
-**ServiceID** | **string** | The service ID of the notification. | 
+**ServiceEnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
+**ServiceID** | **string** | ID of a Service | 
 **ServiceName** | **string** | The service name of the notification. | 
 **Time** | **string** | The event time of the notification. | 
 **Type** | **string** | The notification type. | 

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EnvironmentId** | **string** | The service environment ID this workflow belongs to. | 
-**NextPageToken** | Pointer to **string** |  | [optional] 
-**ServiceId** | **string** | The service ID this workflow belongs to. | 
+**EnvironmentId** | **string** | ID of a Service Environment | 
+**NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
+**ServiceId** | **string** | ID of a Service | 
 **Workflows** | [**[]ServiceWorkflow**](ServiceWorkflow.md) | List of workflows. | 
 
 ## Methods

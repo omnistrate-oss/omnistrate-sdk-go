@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CustomerObservabilityHealth** | Pointer to **string** | The health status of the integration with customer provider observability stack on BYOA | [optional] 
-**InternalObservabilityHealth** | Pointer to **string** | The health status of the integration with service provider observability stack | [optional] 
+**CustomerObservabilityHealth** | Pointer to **string** | The heath status of a resource | [optional] 
+**InternalObservabilityHealth** | Pointer to **string** | The heath status of a resource | [optional] 
 
 ## Methods
 

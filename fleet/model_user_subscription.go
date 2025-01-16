@@ -30,14 +30,15 @@ type UserSubscription struct {
 	InstanceCount int64 `json:"instanceCount"`
 	// The name of the user
 	Name string `json:"name"`
-	// The product tier ID
+	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// The name of the product tier
 	ProductTierName string `json:"productTierName"`
+	// Type of the role
 	RoleType string `json:"roleType"`
-	// The service environment ID
+	// ID of a Service Environment
 	ServiceEnvironmentId string `json:"serviceEnvironmentId"`
-	// The service ID
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The logo for the service
 	ServiceLogoURL *string `json:"serviceLogoURL,omitempty"`
@@ -45,7 +46,7 @@ type UserSubscription struct {
 	ServiceName string `json:"serviceName"`
 	// The date the user joined the subscription
 	SubscriptionDate string `json:"subscriptionDate"`
-	// The subscription ID
+	// ID of a Subscription
 	SubscriptionId string `json:"subscriptionId"`
 	// The name of the subscription owner user
 	SubscriptionOwnerName string `json:"subscriptionOwnerName"`

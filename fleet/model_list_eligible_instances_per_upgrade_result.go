@@ -22,11 +22,11 @@ var _ MappedNullable = &ListEligibleInstancesPerUpgradeResult{}
 type ListEligibleInstancesPerUpgradeResult struct {
 	// The list of instances that are in the upgrade path
 	Instances []InstanceUpgrade `json:"instances"`
-	// The product tier ID that this upgrade path belongs to
+	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
-	// The service ID this workflow belongs to.
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
-	// The upgrade path ID
+	// ID of an Upgrade Path
 	UpgradePathId string `json:"upgradePathId"`
 	AdditionalProperties map[string]interface{}
 }

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CreatedAt** | **string** | The time the user was created. | 
 **Subscriptions** | [**[]UserSubscription**](UserSubscription.md) | List of subscriptions associated with the user. | 
-**UserId** | **string** | The user ID | 
+**UserId** | **string** | ID of a User | 
 
 ## Methods
 

@@ -27,6 +27,7 @@ type CustomDNSEndpoint struct {
 	DnsName *string `json:"dnsName,omitempty"`
 	Enabled bool `json:"enabled"`
 	Name *string `json:"name,omitempty"`
+	// The status of an operation
 	Status *string `json:"status,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

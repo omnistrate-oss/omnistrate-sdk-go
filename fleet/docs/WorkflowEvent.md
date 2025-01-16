@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EventTime** | **string** | Time of the event | 
-**EventType** | **string** | Type of the event | 
+**EventType** | **string** | The type of the workflow event | 
 **Message** | **string** | Details of the event | 
 
 ## Methods

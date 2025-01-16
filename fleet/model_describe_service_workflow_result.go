@@ -23,9 +23,9 @@ type DescribeServiceWorkflowResult struct {
 	// List of resources with deployment status.
 	Resources []ResourceDeploymentStatus `json:"Resources,omitempty"`
 	Workflow ServiceWorkflow `json:"Workflow"`
-	// The service environment ID this workflow belongs to.
+	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
-	// The service ID this workflow belongs to.
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	AdditionalProperties map[string]interface{}
 }

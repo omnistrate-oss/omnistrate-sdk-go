@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **CloudProviderName** | **string** | The name of the cloud provider that the instance is running on. | 
 **CloudProviderRegion** | **string** | The region of the cloud provider that the instance is running in. | 
 **CreatedAt** | **string** | The timestamp when the instance was created. | 
-**HealthStatus** | Pointer to **string** | The heath status of the instance. | [optional] 
-**InstanceId** | **string** | The instance ID. | 
-**LifecycleStatus** | **string** | Instance lifecycle status. | 
+**HealthStatus** | Pointer to **string** | The heath status of a resource | [optional] 
+**InstanceId** | **string** | ID of a Resource Instance | 
+**LifecycleStatus** | **string** | The status of an operation | 
 **ManagedResourceType** | Pointer to **string** | The managed resource type of the top-level resource of the instance. | [optional] 
 **OrgName** | **string** | The name of the organization that owns the instance. | 
 **ResourceName** | **string** | The name of the top-level resource of the instance. | 
-**Status** | **string** | The status of the instance upgrade. | 
+**Status** | **string** | The status of the upgrade path. | 
 **UpdatedAt** | **string** | The timestamp when the instance was updated. | 
 **UpgradeEndTime** | Pointer to **string** | The timestamp when the upgrade ended. | [optional] 
 **UpgradeStartTime** | Pointer to **string** | The timestamp when the upgrade started. | [optional] 

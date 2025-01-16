@@ -22,17 +22,17 @@ var _ MappedNullable = &ServiceProviderEvent{}
 type ServiceProviderEvent struct {
 	// The type of the alert
 	AlertType string `json:"alertType"`
-	// The category of the event
+	// The category of the service provider specific event
 	EventCategory string `json:"eventCategory"`
-	// The ID of the event
+	// ID of a Event
 	EventID string `json:"eventID"`
 	// The event payload for a service provider
 	EventPayload map[string]interface{} `json:"eventPayload"`
-	// The type of the event
+	// The type of the service provider specific event
 	EventType string `json:"eventType"`
 	// The expiry time of the event
 	ExpiryTime string `json:"expiryTime"`
-	// The ID of the instance
+	// ID of a Resource Instance
 	InstanceID *string `json:"instanceID,omitempty"`
 	// The version of the plan
 	PlanVersion *string `json:"planVersion,omitempty"`
@@ -42,9 +42,9 @@ type ServiceProviderEvent struct {
 	ResourceName *string `json:"resourceName,omitempty"`
 	// The scope of the event
 	Scope string `json:"scope"`
-	// The ID of the service environment
+	// ID of a Service Environment
 	ServiceEnvironmentID *string `json:"serviceEnvironmentID,omitempty"`
-	// The ID of the service
+	// ID of a Service
 	ServiceID *string `json:"serviceID,omitempty"`
 	// The name of the service
 	ServiceName *string `json:"serviceName,omitempty"`
