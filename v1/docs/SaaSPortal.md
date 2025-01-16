@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CustomDomain** | Pointer to **string** | The custom domain of the SaaS portal | [optional] 
-**CustomDomainStatus** | Pointer to **string** | The custom domain status of the SaaS portal | [optional] 
-**DetailedNetworkTopology** | Pointer to [**map[string]ResourceNetworkTopologyResult**](ResourceNetworkTopologyResult.md) | The detailed network topology of the SaaS portal | [optional] 
+**CustomDomainStatus** | Pointer to **string** | The status of an operation | [optional] 
+**DetailedNetworkTopology** | Pointer to **map[string]interface{}** | The detailed network topology of the SaaS portal | [optional] 
 **EmailConfig** | Pointer to [**SaaSPortalEmailConfig**](SaaSPortalEmailConfig.md) |  | [optional] 
 **Endpoint** | Pointer to **string** | The endpoint of the SaaS portal for this environment type | [optional] 
-**EnvironmentType** | **string** | The environment type for the SaaS portal | 
+**EnvironmentType** | **string** | The type of service environment | 
 **GoogleAnalyticsTagID** | Pointer to **string** | The Google Analytics tag ID for the SaaS portal | [optional] 
 **ImageConfig** | Pointer to [**SaaSPortalImageConfig**](SaaSPortalImageConfig.md) |  | [optional] 
-**Status** | **string** | The status of the SaaS portal for this environment type | 
+**Status** | **string** | The status of an operation | 
 
 ## Methods
 
@@ -85,20 +85,20 @@ HasCustomDomainStatus returns a boolean if a field has been set.
 
 ### GetDetailedNetworkTopology
 
-`func (o *SaaSPortal) GetDetailedNetworkTopology() map[string]ResourceNetworkTopologyResult`
+`func (o *SaaSPortal) GetDetailedNetworkTopology() map[string]interface{}`
 
 GetDetailedNetworkTopology returns the DetailedNetworkTopology field if non-nil, zero value otherwise.
 
 ### GetDetailedNetworkTopologyOk
 
-`func (o *SaaSPortal) GetDetailedNetworkTopologyOk() (*map[string]ResourceNetworkTopologyResult, bool)`
+`func (o *SaaSPortal) GetDetailedNetworkTopologyOk() (*map[string]interface{}, bool)`
 
 GetDetailedNetworkTopologyOk returns a tuple with the DetailedNetworkTopology field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDetailedNetworkTopology
 
-`func (o *SaaSPortal) SetDetailedNetworkTopology(v map[string]ResourceNetworkTopologyResult)`
+`func (o *SaaSPortal) SetDetailedNetworkTopology(v map[string]interface{})`
 
 SetDetailedNetworkTopology sets DetailedNetworkTopology field to given value.
 

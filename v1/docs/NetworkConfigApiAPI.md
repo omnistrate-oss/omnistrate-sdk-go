@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## NetworkConfigApiCreateNetworkConfig
 
-> string NetworkConfigApiCreateNetworkConfig(ctx, serviceId).CreateNetworkConfigRequestBody(createNetworkConfigRequestBody).Execute()
+> string NetworkConfigApiCreateNetworkConfig(ctx, serviceId).CreateNetworkConfigRequest2(createNetworkConfigRequest2).Execute()
 
 CreateNetworkConfig network-config-api
 
@@ -32,11 +32,11 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service
-	createNetworkConfigRequestBody := *openapiclient.NewCreateNetworkConfigRequestBody("A multi-zone HA network config", true, "Multi-zone") // CreateNetworkConfigRequestBody | 
+	createNetworkConfigRequest2 := *openapiclient.NewCreateNetworkConfigRequest2("A multi-zone HA network config", true, "Multi-zone") // CreateNetworkConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.NetworkConfigApiAPI.NetworkConfigApiCreateNetworkConfig(context.Background(), serviceId).CreateNetworkConfigRequestBody(createNetworkConfigRequestBody).Execute()
+	resp, r, err := apiClient.NetworkConfigApiAPI.NetworkConfigApiCreateNetworkConfig(context.Background(), serviceId).CreateNetworkConfigRequest2(createNetworkConfigRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NetworkConfigApiAPI.NetworkConfigApiCreateNetworkConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -62,7 +62,7 @@ Other parameters are passed through a pointer to a apiNetworkConfigApiCreateNetw
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createNetworkConfigRequestBody** | [**CreateNetworkConfigRequestBody**](CreateNetworkConfigRequestBody.md) |  | 
+ **createNetworkConfigRequest2** | [**CreateNetworkConfigRequest2**](CreateNetworkConfigRequest2.md) |  | 
 
 ### Return type
 
@@ -172,7 +172,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service
 	id := "nc-12345678" // string | The ID of the network config
-	productTierVersion := "Sint accusamus non qui beatae eveniet exercitationem." // string | Product tier version of the network config to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Dignissimos laboriosam facilis sed." // string | Product tier version of the network config to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the network config to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ## NetworkConfigApiListNetworkConfig
 
-> ListServiceEnvironmentsResult NetworkConfigApiListNetworkConfig(ctx, serviceId).Managed(managed).Execute()
+> ListNetworkConfigsResult NetworkConfigApiListNetworkConfig(ctx, serviceId).Managed(managed).Execute()
 
 ListNetworkConfig network-config-api
 
@@ -255,7 +255,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `NetworkConfigApiAPI.NetworkConfigApiListNetworkConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `NetworkConfigApiListNetworkConfig`: ListServiceEnvironmentsResult
+	// response from `NetworkConfigApiListNetworkConfig`: ListNetworkConfigsResult
 	fmt.Fprintf(os.Stdout, "Response from `NetworkConfigApiAPI.NetworkConfigApiListNetworkConfig`: %v\n", resp)
 }
 ```
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListServiceEnvironmentsResult**](ListServiceEnvironmentsResult.md)
+[**ListNetworkConfigsResult**](ListNetworkConfigsResult.md)
 
 ### Authorization
 
@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 
 ## NetworkConfigApiUpdateNetworkConfig
 
-> NetworkConfigApiUpdateNetworkConfig(ctx, serviceId, id).UpdateNetworkConfigRequestBody(updateNetworkConfigRequestBody).Execute()
+> NetworkConfigApiUpdateNetworkConfig(ctx, serviceId, id).UpdateNetworkConfigRequest2(updateNetworkConfigRequest2).Execute()
 
 UpdateNetworkConfig network-config-api
 
@@ -317,11 +317,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service
 	id := "nc-12345678" // string | The ID of the network config
-	updateNetworkConfigRequestBody := *openapiclient.NewUpdateNetworkConfigRequestBody() // UpdateNetworkConfigRequestBody | 
+	updateNetworkConfigRequest2 := *openapiclient.NewUpdateNetworkConfigRequest2() // UpdateNetworkConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.NetworkConfigApiAPI.NetworkConfigApiUpdateNetworkConfig(context.Background(), serviceId, id).UpdateNetworkConfigRequestBody(updateNetworkConfigRequestBody).Execute()
+	r, err := apiClient.NetworkConfigApiAPI.NetworkConfigApiUpdateNetworkConfig(context.Background(), serviceId, id).UpdateNetworkConfigRequest2(updateNetworkConfigRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NetworkConfigApiAPI.NetworkConfigApiUpdateNetworkConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **updateNetworkConfigRequestBody** | [**UpdateNetworkConfigRequestBody**](UpdateNetworkConfigRequestBody.md) |  | 
+ **updateNetworkConfigRequest2** | [**UpdateNetworkConfigRequest2**](UpdateNetworkConfigRequest2.md) |  | 
 
 ### Return type
 

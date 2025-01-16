@@ -68,8 +68,8 @@ type ImageRegistryApiAPI interface {
 	ImageRegistryApiListImageRegistry(ctx context.Context) ApiImageRegistryApiListImageRegistryRequest
 
 	// ImageRegistryApiListImageRegistryExecute executes the request
-	//  @return ListServiceEnvironmentsResult
-	ImageRegistryApiListImageRegistryExecute(r ApiImageRegistryApiListImageRegistryRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+	//  @return ListImageRegistryResult
+	ImageRegistryApiListImageRegistryExecute(r ApiImageRegistryApiListImageRegistryRequest) (*ListImageRegistryResult, *http.Response, error)
 
 	/*
 	ImageRegistryApiUpdateImageRegistry UpdateImageRegistry image-registry-api
@@ -90,11 +90,11 @@ type ImageRegistryApiAPIService service
 type ApiImageRegistryApiCreateImageRegistryRequest struct {
 	ctx context.Context
 	ApiService ImageRegistryApiAPI
-	createImageRegistryRequestBody *CreateImageRegistryRequestBody
+	createImageRegistryRequest2 *CreateImageRegistryRequest2
 }
 
-func (r ApiImageRegistryApiCreateImageRegistryRequest) CreateImageRegistryRequestBody(createImageRegistryRequestBody CreateImageRegistryRequestBody) ApiImageRegistryApiCreateImageRegistryRequest {
-	r.createImageRegistryRequestBody = &createImageRegistryRequestBody
+func (r ApiImageRegistryApiCreateImageRegistryRequest) CreateImageRegistryRequest2(createImageRegistryRequest2 CreateImageRegistryRequest2) ApiImageRegistryApiCreateImageRegistryRequest {
+	r.createImageRegistryRequest2 = &createImageRegistryRequest2
 	return r
 }
 
@@ -135,8 +135,8 @@ func (a *ImageRegistryApiAPIService) ImageRegistryApiCreateImageRegistryExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createImageRegistryRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createImageRegistryRequestBody is required and must be specified")
+	if r.createImageRegistryRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createImageRegistryRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -157,7 +157,7 @@ func (a *ImageRegistryApiAPIService) ImageRegistryApiCreateImageRegistryExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createImageRegistryRequestBody
+	localVarPostBody = r.createImageRegistryRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -542,7 +542,7 @@ type ApiImageRegistryApiListImageRegistryRequest struct {
 	ApiService ImageRegistryApiAPI
 }
 
-func (r ApiImageRegistryApiListImageRegistryRequest) Execute() (*ListServiceEnvironmentsResult, *http.Response, error) {
+func (r ApiImageRegistryApiListImageRegistryRequest) Execute() (*ListImageRegistryResult, *http.Response, error) {
 	return r.ApiService.ImageRegistryApiListImageRegistryExecute(r)
 }
 
@@ -560,13 +560,13 @@ func (a *ImageRegistryApiAPIService) ImageRegistryApiListImageRegistry(ctx conte
 }
 
 // Execute executes the request
-//  @return ListServiceEnvironmentsResult
-func (a *ImageRegistryApiAPIService) ImageRegistryApiListImageRegistryExecute(r ApiImageRegistryApiListImageRegistryRequest) (*ListServiceEnvironmentsResult, *http.Response, error) {
+//  @return ListImageRegistryResult
+func (a *ImageRegistryApiAPIService) ImageRegistryApiListImageRegistryExecute(r ApiImageRegistryApiListImageRegistryRequest) (*ListImageRegistryResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListServiceEnvironmentsResult
+		localVarReturnValue  *ListImageRegistryResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageRegistryApiAPIService.ImageRegistryApiListImageRegistry")
@@ -703,11 +703,11 @@ type ApiImageRegistryApiUpdateImageRegistryRequest struct {
 	ctx context.Context
 	ApiService ImageRegistryApiAPI
 	id string
-	updateImageRegistryRequestBody *UpdateImageRegistryRequestBody
+	updateImageRegistryRequest2 *UpdateImageRegistryRequest2
 }
 
-func (r ApiImageRegistryApiUpdateImageRegistryRequest) UpdateImageRegistryRequestBody(updateImageRegistryRequestBody UpdateImageRegistryRequestBody) ApiImageRegistryApiUpdateImageRegistryRequest {
-	r.updateImageRegistryRequestBody = &updateImageRegistryRequestBody
+func (r ApiImageRegistryApiUpdateImageRegistryRequest) UpdateImageRegistryRequest2(updateImageRegistryRequest2 UpdateImageRegistryRequest2) ApiImageRegistryApiUpdateImageRegistryRequest {
+	r.updateImageRegistryRequest2 = &updateImageRegistryRequest2
 	return r
 }
 
@@ -749,8 +749,8 @@ func (a *ImageRegistryApiAPIService) ImageRegistryApiUpdateImageRegistryExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateImageRegistryRequestBody == nil {
-		return nil, reportError("updateImageRegistryRequestBody is required and must be specified")
+	if r.updateImageRegistryRequest2 == nil {
+		return nil, reportError("updateImageRegistryRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -771,7 +771,7 @@ func (a *ImageRegistryApiAPIService) ImageRegistryApiUpdateImageRegistryExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateImageRegistryRequestBody
+	localVarPostBody = r.updateImageRegistryRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

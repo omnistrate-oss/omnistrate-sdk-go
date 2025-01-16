@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudProvider** | **string** | The infra / cloud provider name | 
-**Id** | Pointer to **string** | VUnit to operate on | [optional] 
+**CloudProvider** | **string** | Name of the Infra Provider | 
+**Id** | Pointer to **string** | ID of a VUnit | [optional] 
 **NetworkIds** | **[]string** | List of network IDs in the given context | 
 **Region** | **string** | Region code specific to the cloud-provider | 
-**ServiceId** | Pointer to **string** | Service ID for the VUnit | [optional] 
-**ServiceModelId** | **string** | Service Model ID for the VUnit | 
+**ServiceId** | Pointer to **string** | ID of a Service | [optional] 
+**ServiceModelId** | **string** | ID of a Service Model | 
 
 ## Methods
 

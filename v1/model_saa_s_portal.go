@@ -22,19 +22,19 @@ var _ MappedNullable = &SaaSPortal{}
 type SaaSPortal struct {
 	// The custom domain of the SaaS portal
 	CustomDomain *string `json:"customDomain,omitempty"`
-	// The custom domain status of the SaaS portal
+	// The status of an operation
 	CustomDomainStatus *string `json:"customDomainStatus,omitempty"`
 	// The detailed network topology of the SaaS portal
-	DetailedNetworkTopology *map[string]ResourceNetworkTopologyResult `json:"detailedNetworkTopology,omitempty"`
+	DetailedNetworkTopology map[string]interface{} `json:"detailedNetworkTopology,omitempty"`
 	EmailConfig *SaaSPortalEmailConfig `json:"emailConfig,omitempty"`
 	// The endpoint of the SaaS portal for this environment type
 	Endpoint *string `json:"endpoint,omitempty"`
-	// The environment type for the SaaS portal
+	// The type of service environment
 	EnvironmentType string `json:"environmentType"`
 	// The Google Analytics tag ID for the SaaS portal
 	GoogleAnalyticsTagID *string `json:"googleAnalyticsTagID,omitempty"`
 	ImageConfig *SaaSPortalImageConfig `json:"imageConfig,omitempty"`
-	// The status of the SaaS portal for this environment type
+	// The status of an operation
 	Status string `json:"status"`
 	AdditionalProperties map[string]interface{}
 }
@@ -107,26 +107,26 @@ func (o *SaaSPortal) SetCustomDomainStatus(v string) {
 }
 
 // GetDetailedNetworkTopology returns the DetailedNetworkTopology field value if set, zero value otherwise.
-func (o *SaaSPortal) GetDetailedNetworkTopology() map[string]ResourceNetworkTopologyResult {
+func (o *SaaSPortal) GetDetailedNetworkTopology() map[string]interface{} {
 	if o == nil || IsNil(o.DetailedNetworkTopology) {
-		var ret map[string]ResourceNetworkTopologyResult
+		var ret map[string]interface{}
 		return ret
 	}
-	return *o.DetailedNetworkTopology
+	return o.DetailedNetworkTopology
 }
 
 // GetDetailedNetworkTopologyOk returns a tuple with the DetailedNetworkTopology field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SaaSPortal) GetDetailedNetworkTopologyOk() (*map[string]ResourceNetworkTopologyResult, bool) {
+func (o *SaaSPortal) GetDetailedNetworkTopologyOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.DetailedNetworkTopology) {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
 	return o.DetailedNetworkTopology, true
 }
 
-// SetDetailedNetworkTopology gets a reference to the given map[string]ResourceNetworkTopologyResult and assigns it to the DetailedNetworkTopology field.
-func (o *SaaSPortal) SetDetailedNetworkTopology(v map[string]ResourceNetworkTopologyResult) {
-	o.DetailedNetworkTopology = &v
+// SetDetailedNetworkTopology gets a reference to the given map[string]interface{} and assigns it to the DetailedNetworkTopology field.
+func (o *SaaSPortal) SetDetailedNetworkTopology(v map[string]interface{}) {
+	o.DetailedNetworkTopology = v
 }
 
 // GetEmailConfig returns the EmailConfig field value if set, zero value otherwise.

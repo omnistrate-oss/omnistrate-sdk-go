@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ChangeState** | Pointer to **string** | The pending change state for the infra configuration | [optional] 
-**ImageConfigId** | Pointer to **string** | The ID of the image configuration that this resource refers to | [optional] 
+**ChangeState** | Pointer to **string** | State of the configuration change | [optional] 
+**ImageConfigId** | Pointer to **string** | ID of an Image Config | [optional] 
 **ImageName** | Pointer to **string** | Name of the container image | [optional] 
 
 ## Methods

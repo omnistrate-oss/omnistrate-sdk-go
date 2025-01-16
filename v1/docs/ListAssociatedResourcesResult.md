@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Infra Config ID to operate on | 
+**Id** | **string** | ID of an Infra Config | 
 **ResourceIds** | **[]string** | The resources associated with the infra config | 
-**ServiceId** | **string** | The service ID | 
+**ServiceId** | **string** | ID of a Service | 
 
 ## Methods
 

@@ -32,11 +32,11 @@ type DescribePlanResult struct {
 	PlanCoreHourCost *float64 `json:"planCoreHourCost,omitempty"`
 	// The description of the plan
 	PlanDescription *string `json:"planDescription,omitempty"`
-	// Whether the plan is charged monthly or yearly
+	// This parameter tells you if the plan is charged monthly or yearly
 	PlanFrequency *string `json:"planFrequency,omitempty"`
 	// The minimum monthly cost of this plan
 	PlanMonthlyCost *float64 `json:"planMonthlyCost,omitempty"`
-	// The name of the plan this user is changing to
+	// This parameter is used to select the appropriate Product Plan
 	PlanName string `json:"planName"`
 	// The credits remaining for the customer for the customer in Paigo
 	RemainingCredits *string `json:"remainingCredits,omitempty"`

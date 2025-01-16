@@ -28,7 +28,7 @@ type InstanceSnapshot struct {
 	Encrypted bool `json:"encrypted"`
 	// The backup progress. 0-100
 	Progress int64 `json:"progress"`
-	// The instance snapshot ID
+	// ID of a Resource Instance Snapshot
 	SnapshotId string `json:"snapshotId"`
 	// The snapshot status
 	Status string `json:"status"`

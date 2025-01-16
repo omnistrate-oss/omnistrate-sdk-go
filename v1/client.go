@@ -51,6 +51,8 @@ type APIClient struct {
 
 	AccountConfigApiAPI AccountConfigApiAPI
 
+	AuditEventsApiAPI AuditEventsApiAPI
+
 	AvailabilityZoneApiAPI AvailabilityZoneApiAPI
 
 	CloudProviderApiAPI CloudProviderApiAPI
@@ -70,8 +72,6 @@ type APIClient struct {
 	DemoApiAPI DemoApiAPI
 
 	DeploymentConfigApiAPI DeploymentConfigApiAPI
-
-	EventApiAPI EventApiAPI
 
 	GlobalApiAPI GlobalApiAPI
 
@@ -159,6 +159,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 
 	// API Services
 	c.AccountConfigApiAPI = (*AccountConfigApiAPIService)(&c.common)
+	c.AuditEventsApiAPI = (*AuditEventsApiAPIService)(&c.common)
 	c.AvailabilityZoneApiAPI = (*AvailabilityZoneApiAPIService)(&c.common)
 	c.CloudProviderApiAPI = (*CloudProviderApiAPIService)(&c.common)
 	c.ComposeGenApiAPI = (*ComposeGenApiAPIService)(&c.common)
@@ -169,7 +170,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.CustomNetworkApiAPI = (*CustomNetworkApiAPIService)(&c.common)
 	c.DemoApiAPI = (*DemoApiAPIService)(&c.common)
 	c.DeploymentConfigApiAPI = (*DeploymentConfigApiAPIService)(&c.common)
-	c.EventApiAPI = (*EventApiAPIService)(&c.common)
 	c.GlobalApiAPI = (*GlobalApiAPIService)(&c.common)
 	c.HelmPackageApiAPI = (*HelmPackageApiAPIService)(&c.common)
 	c.IdentityProviderApiAPI = (*IdentityProviderApiAPIService)(&c.common)

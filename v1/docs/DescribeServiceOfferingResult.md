@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **IsDeprecated** | **bool** | Whether the service offering is deprecated | [default to false]
 **Offerings** | [**[]ServiceOffering**](ServiceOffering.md) | The service offerings | 
 **ServiceDescription** | **string** | The service description | 
-**ServiceId** | **string** | The service id | 
+**ServiceId** | **string** | ID of a Service | 
 **ServiceName** | **string** | The service name | 
-**ServiceOrgId** | **string** | The org id of the service | 
+**ServiceOrgId** | **string** | ID of an Org | 
 **ServiceProviderId** | **string** | The id of the service provider | 
 **ServiceProviderName** | **string** | The name of the service provider | 
 **ServiceURLKey** | **string** | The service URL key | 

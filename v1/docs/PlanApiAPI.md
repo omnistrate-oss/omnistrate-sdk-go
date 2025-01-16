@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## PlanApiChangePlan
 
-> PlanApiChangePlan(ctx).ChangePlanRequestBody(changePlanRequestBody).Execute()
+> PlanApiChangePlan(ctx).ChangePlanRequest2(changePlanRequest2).Execute()
 
 ChangePlan plan-api
 
@@ -28,11 +28,11 @@ import (
 )
 
 func main() {
-	changePlanRequestBody := *openapiclient.NewChangePlanRequestBody("STARTER") // ChangePlanRequestBody | 
+	changePlanRequest2 := *openapiclient.NewChangePlanRequest2("STARTER") // ChangePlanRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.PlanApiAPI.PlanApiChangePlan(context.Background()).ChangePlanRequestBody(changePlanRequestBody).Execute()
+	r, err := apiClient.PlanApiAPI.PlanApiChangePlan(context.Background()).ChangePlanRequest2(changePlanRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PlanApiAPI.PlanApiChangePlan``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -51,7 +51,7 @@ Other parameters are passed through a pointer to a apiPlanApiChangePlanRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **changePlanRequestBody** | [**ChangePlanRequestBody**](ChangePlanRequestBody.md) |  | 
+ **changePlanRequest2** | [**ChangePlanRequest2**](ChangePlanRequest2.md) |  | 
 
 ### Return type
 

@@ -45,8 +45,8 @@ type CustomDomainApiAPI interface {
 	CustomDomainApiCustomDomainIdentityID(ctx context.Context) ApiCustomDomainApiCustomDomainIdentityIDRequest
 
 	// CustomDomainApiCustomDomainIdentityIDExecute executes the request
-	//  @return AccountConfigIdentityIDResult
-	CustomDomainApiCustomDomainIdentityIDExecute(r ApiCustomDomainApiCustomDomainIdentityIDRequest) (*AccountConfigIdentityIDResult, *http.Response, error)
+	//  @return CustomDomainIdentityIDResult
+	CustomDomainApiCustomDomainIdentityIDExecute(r ApiCustomDomainApiCustomDomainIdentityIDRequest) (*CustomDomainIdentityIDResult, *http.Response, error)
 
 	/*
 	CustomDomainApiDeleteCustomDomain DeleteCustomDomain custom-domain-api
@@ -104,11 +104,11 @@ type CustomDomainApiAPIService service
 type ApiCustomDomainApiCreateCustomDomainRequest struct {
 	ctx context.Context
 	ApiService CustomDomainApiAPI
-	createCustomDomainRequestBody *CreateCustomDomainRequestBody
+	createCustomDomainRequest2 *CreateCustomDomainRequest2
 }
 
-func (r ApiCustomDomainApiCreateCustomDomainRequest) CreateCustomDomainRequestBody(createCustomDomainRequestBody CreateCustomDomainRequestBody) ApiCustomDomainApiCreateCustomDomainRequest {
-	r.createCustomDomainRequestBody = &createCustomDomainRequestBody
+func (r ApiCustomDomainApiCreateCustomDomainRequest) CreateCustomDomainRequest2(createCustomDomainRequest2 CreateCustomDomainRequest2) ApiCustomDomainApiCreateCustomDomainRequest {
+	r.createCustomDomainRequest2 = &createCustomDomainRequest2
 	return r
 }
 
@@ -149,8 +149,8 @@ func (a *CustomDomainApiAPIService) CustomDomainApiCreateCustomDomainExecute(r A
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createCustomDomainRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createCustomDomainRequestBody is required and must be specified")
+	if r.createCustomDomainRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createCustomDomainRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -171,7 +171,7 @@ func (a *CustomDomainApiAPIService) CustomDomainApiCreateCustomDomainExecute(r A
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createCustomDomainRequestBody
+	localVarPostBody = r.createCustomDomainRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -257,7 +257,7 @@ type ApiCustomDomainApiCustomDomainIdentityIDRequest struct {
 	ApiService CustomDomainApiAPI
 }
 
-func (r ApiCustomDomainApiCustomDomainIdentityIDRequest) Execute() (*AccountConfigIdentityIDResult, *http.Response, error) {
+func (r ApiCustomDomainApiCustomDomainIdentityIDRequest) Execute() (*CustomDomainIdentityIDResult, *http.Response, error) {
 	return r.ApiService.CustomDomainApiCustomDomainIdentityIDExecute(r)
 }
 
@@ -277,13 +277,13 @@ func (a *CustomDomainApiAPIService) CustomDomainApiCustomDomainIdentityID(ctx co
 }
 
 // Execute executes the request
-//  @return AccountConfigIdentityIDResult
-func (a *CustomDomainApiAPIService) CustomDomainApiCustomDomainIdentityIDExecute(r ApiCustomDomainApiCustomDomainIdentityIDRequest) (*AccountConfigIdentityIDResult, *http.Response, error) {
+//  @return CustomDomainIdentityIDResult
+func (a *CustomDomainApiAPIService) CustomDomainApiCustomDomainIdentityIDExecute(r ApiCustomDomainApiCustomDomainIdentityIDRequest) (*CustomDomainIdentityIDResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AccountConfigIdentityIDResult
+		localVarReturnValue  *CustomDomainIdentityIDResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomDomainApiAPIService.CustomDomainApiCustomDomainIdentityID")

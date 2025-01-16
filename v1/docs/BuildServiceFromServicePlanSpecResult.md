@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProductTierID** | **string** | The product tier ID of the built service plan | 
-**ServiceEnvironmentID** | **string** | The service environment ID of the built service | 
-**ServiceID** | **string** | The service ID of the built service | 
+**ProductTierID** | **string** | ID of a Product Tier | 
+**ServiceEnvironmentID** | **string** | ID of a Service Environment | 
+**ServiceID** | **string** | ID of a Service | 
 **UndefinedResources** | Pointer to **map[string]string** | Resources that appear in the service plan but were not defined in the spec. These resources were not processed during the build. | [optional] 
 
 ## Methods

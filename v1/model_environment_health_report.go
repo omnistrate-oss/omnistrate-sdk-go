@@ -20,7 +20,7 @@ var _ MappedNullable = &EnvironmentHealthReport{}
 // EnvironmentHealthReport struct for EnvironmentHealthReport
 type EnvironmentHealthReport struct {
 	// Health report for each model in the environment
-	Models *map[string]VUnitHealthReport `json:"models,omitempty"`
+	Models map[string]interface{} `json:"models,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -44,26 +44,26 @@ func NewEnvironmentHealthReportWithDefaults() *EnvironmentHealthReport {
 }
 
 // GetModels returns the Models field value if set, zero value otherwise.
-func (o *EnvironmentHealthReport) GetModels() map[string]VUnitHealthReport {
+func (o *EnvironmentHealthReport) GetModels() map[string]interface{} {
 	if o == nil || IsNil(o.Models) {
-		var ret map[string]VUnitHealthReport
+		var ret map[string]interface{}
 		return ret
 	}
-	return *o.Models
+	return o.Models
 }
 
 // GetModelsOk returns a tuple with the Models field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EnvironmentHealthReport) GetModelsOk() (*map[string]VUnitHealthReport, bool) {
+func (o *EnvironmentHealthReport) GetModelsOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Models) {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
 	return o.Models, true
 }
 
-// SetModels gets a reference to the given map[string]VUnitHealthReport and assigns it to the Models field.
-func (o *EnvironmentHealthReport) SetModels(v map[string]VUnitHealthReport) {
-	o.Models = &v
+// SetModels gets a reference to the given map[string]interface{} and assigns it to the Models field.
+func (o *EnvironmentHealthReport) SetModels(v map[string]interface{}) {
+	o.Models = v
 }
 
 func (o EnvironmentHealthReport) MarshalJSON() ([]byte, error) {

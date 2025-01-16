@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | The ID of the resource | 
+**Id** | **string** | ID of a resource | 
 **MetricEndpoint** | **string** | The local host endpoint to supply prometheus metric | 
-**ServiceId** | **string** | The service ID that this API bundle belongs to | 
+**ServiceId** | **string** | ID of a Service | 
 
 ## Methods
 

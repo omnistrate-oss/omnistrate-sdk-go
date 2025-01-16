@@ -588,11 +588,11 @@ type ApiResourceApiAddResourceDependencyRequest struct {
 	serviceId string
 	id string
 	resourceDependencyId string
-	addResourceDependencyRequestBody *AddResourceDependencyRequestBody
+	addResourceDependencyRequest2 *AddResourceDependencyRequest2
 }
 
-func (r ApiResourceApiAddResourceDependencyRequest) AddResourceDependencyRequestBody(addResourceDependencyRequestBody AddResourceDependencyRequestBody) ApiResourceApiAddResourceDependencyRequest {
-	r.addResourceDependencyRequestBody = &addResourceDependencyRequestBody
+func (r ApiResourceApiAddResourceDependencyRequest) AddResourceDependencyRequest2(addResourceDependencyRequest2 AddResourceDependencyRequest2) ApiResourceApiAddResourceDependencyRequest {
+	r.addResourceDependencyRequest2 = &addResourceDependencyRequest2
 	return r
 }
 
@@ -640,8 +640,8 @@ func (a *ResourceApiAPIService) ResourceApiAddResourceDependencyExecute(r ApiRes
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.addResourceDependencyRequestBody == nil {
-		return nil, reportError("addResourceDependencyRequestBody is required and must be specified")
+	if r.addResourceDependencyRequest2 == nil {
+		return nil, reportError("addResourceDependencyRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -662,7 +662,7 @@ func (a *ResourceApiAPIService) ResourceApiAddResourceDependencyExecute(r ApiRes
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.addResourceDependencyRequestBody
+	localVarPostBody = r.addResourceDependencyRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -760,11 +760,11 @@ type ApiResourceApiCreateResourceRequest struct {
 	ctx context.Context
 	ApiService ResourceApiAPI
 	serviceId string
-	createResourceRequestBody *CreateResourceRequestBody
+	createResourceRequest2 *CreateResourceRequest2
 }
 
-func (r ApiResourceApiCreateResourceRequest) CreateResourceRequestBody(createResourceRequestBody CreateResourceRequestBody) ApiResourceApiCreateResourceRequest {
-	r.createResourceRequestBody = &createResourceRequestBody
+func (r ApiResourceApiCreateResourceRequest) CreateResourceRequest2(createResourceRequest2 CreateResourceRequest2) ApiResourceApiCreateResourceRequest {
+	r.createResourceRequest2 = &createResourceRequest2
 	return r
 }
 
@@ -808,8 +808,8 @@ func (a *ResourceApiAPIService) ResourceApiCreateResourceExecute(r ApiResourceAp
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createResourceRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createResourceRequestBody is required and must be specified")
+	if r.createResourceRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createResourceRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -830,7 +830,7 @@ func (a *ResourceApiAPIService) ResourceApiCreateResourceExecute(r ApiResourceAp
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createResourceRequestBody
+	localVarPostBody = r.createResourceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1256,11 +1256,11 @@ type ApiResourceApiDeregisterActionHookRequest struct {
 	ApiService ResourceApiAPI
 	serviceId string
 	id string
-	deregisterActionHookRequestBody *DeregisterActionHookRequestBody
+	deregisterActionHookRequest2 *DeregisterActionHookRequest2
 }
 
-func (r ApiResourceApiDeregisterActionHookRequest) DeregisterActionHookRequestBody(deregisterActionHookRequestBody DeregisterActionHookRequestBody) ApiResourceApiDeregisterActionHookRequest {
-	r.deregisterActionHookRequestBody = &deregisterActionHookRequestBody
+func (r ApiResourceApiDeregisterActionHookRequest) DeregisterActionHookRequest2(deregisterActionHookRequest2 DeregisterActionHookRequest2) ApiResourceApiDeregisterActionHookRequest {
+	r.deregisterActionHookRequest2 = &deregisterActionHookRequest2
 	return r
 }
 
@@ -1305,8 +1305,8 @@ func (a *ResourceApiAPIService) ResourceApiDeregisterActionHookExecute(r ApiReso
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.deregisterActionHookRequestBody == nil {
-		return nil, reportError("deregisterActionHookRequestBody is required and must be specified")
+	if r.deregisterActionHookRequest2 == nil {
+		return nil, reportError("deregisterActionHookRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1327,7 +1327,7 @@ func (a *ResourceApiAPIService) ResourceApiDeregisterActionHookExecute(r ApiReso
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.deregisterActionHookRequestBody
+	localVarPostBody = r.deregisterActionHookRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1965,11 +1965,11 @@ type ApiResourceApiDisableResourceCapabilityRequest struct {
 	ApiService ResourceApiAPI
 	serviceId string
 	id string
-	disableResourceCapabilityRequestBody *DisableResourceCapabilityRequestBody
+	disableResourceCapabilityRequest2 *DisableResourceCapabilityRequest2
 }
 
-func (r ApiResourceApiDisableResourceCapabilityRequest) DisableResourceCapabilityRequestBody(disableResourceCapabilityRequestBody DisableResourceCapabilityRequestBody) ApiResourceApiDisableResourceCapabilityRequest {
-	r.disableResourceCapabilityRequestBody = &disableResourceCapabilityRequestBody
+func (r ApiResourceApiDisableResourceCapabilityRequest) DisableResourceCapabilityRequest2(disableResourceCapabilityRequest2 DisableResourceCapabilityRequest2) ApiResourceApiDisableResourceCapabilityRequest {
+	r.disableResourceCapabilityRequest2 = &disableResourceCapabilityRequest2
 	return r
 }
 
@@ -2014,8 +2014,8 @@ func (a *ResourceApiAPIService) ResourceApiDisableResourceCapabilityExecute(r Ap
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.disableResourceCapabilityRequestBody == nil {
-		return nil, reportError("disableResourceCapabilityRequestBody is required and must be specified")
+	if r.disableResourceCapabilityRequest2 == nil {
+		return nil, reportError("disableResourceCapabilityRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -2036,7 +2036,7 @@ func (a *ResourceApiAPIService) ResourceApiDisableResourceCapabilityExecute(r Ap
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.disableResourceCapabilityRequestBody
+	localVarPostBody = r.disableResourceCapabilityRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -2135,11 +2135,11 @@ type ApiResourceApiEnableResourceCapabilityRequest struct {
 	ApiService ResourceApiAPI
 	serviceId string
 	id string
-	enableResourceCapabilityRequestBody *EnableResourceCapabilityRequestBody
+	enableResourceCapabilityRequest2 *EnableResourceCapabilityRequest2
 }
 
-func (r ApiResourceApiEnableResourceCapabilityRequest) EnableResourceCapabilityRequestBody(enableResourceCapabilityRequestBody EnableResourceCapabilityRequestBody) ApiResourceApiEnableResourceCapabilityRequest {
-	r.enableResourceCapabilityRequestBody = &enableResourceCapabilityRequestBody
+func (r ApiResourceApiEnableResourceCapabilityRequest) EnableResourceCapabilityRequest2(enableResourceCapabilityRequest2 EnableResourceCapabilityRequest2) ApiResourceApiEnableResourceCapabilityRequest {
+	r.enableResourceCapabilityRequest2 = &enableResourceCapabilityRequest2
 	return r
 }
 
@@ -2184,8 +2184,8 @@ func (a *ResourceApiAPIService) ResourceApiEnableResourceCapabilityExecute(r Api
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.enableResourceCapabilityRequestBody == nil {
-		return nil, reportError("enableResourceCapabilityRequestBody is required and must be specified")
+	if r.enableResourceCapabilityRequest2 == nil {
+		return nil, reportError("enableResourceCapabilityRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -2206,7 +2206,7 @@ func (a *ResourceApiAPIService) ResourceApiEnableResourceCapabilityExecute(r Api
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.enableResourceCapabilityRequestBody
+	localVarPostBody = r.enableResourceCapabilityRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -3409,11 +3409,11 @@ type ApiResourceApiRegisterActionHookRequest struct {
 	ApiService ResourceApiAPI
 	serviceId string
 	id string
-	registerActionHookRequestBody *RegisterActionHookRequestBody
+	registerActionHookRequest2 *RegisterActionHookRequest2
 }
 
-func (r ApiResourceApiRegisterActionHookRequest) RegisterActionHookRequestBody(registerActionHookRequestBody RegisterActionHookRequestBody) ApiResourceApiRegisterActionHookRequest {
-	r.registerActionHookRequestBody = &registerActionHookRequestBody
+func (r ApiResourceApiRegisterActionHookRequest) RegisterActionHookRequest2(registerActionHookRequest2 RegisterActionHookRequest2) ApiResourceApiRegisterActionHookRequest {
+	r.registerActionHookRequest2 = &registerActionHookRequest2
 	return r
 }
 
@@ -3458,8 +3458,8 @@ func (a *ResourceApiAPIService) ResourceApiRegisterActionHookExecute(r ApiResour
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.registerActionHookRequestBody == nil {
-		return nil, reportError("registerActionHookRequestBody is required and must be specified")
+	if r.registerActionHookRequest2 == nil {
+		return nil, reportError("registerActionHookRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -3480,7 +3480,7 @@ func (a *ResourceApiAPIService) ResourceApiRegisterActionHookExecute(r ApiResour
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.registerActionHookRequestBody
+	localVarPostBody = r.registerActionHookRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -3579,11 +3579,11 @@ type ApiResourceApiRegisterResourceMetricsConfigRequest struct {
 	ApiService ResourceApiAPI
 	serviceId string
 	id string
-	registerResourceMetricsConfigRequestBody *RegisterResourceMetricsConfigRequestBody
+	registerResourceMetricsConfigRequest2 *RegisterResourceMetricsConfigRequest2
 }
 
-func (r ApiResourceApiRegisterResourceMetricsConfigRequest) RegisterResourceMetricsConfigRequestBody(registerResourceMetricsConfigRequestBody RegisterResourceMetricsConfigRequestBody) ApiResourceApiRegisterResourceMetricsConfigRequest {
-	r.registerResourceMetricsConfigRequestBody = &registerResourceMetricsConfigRequestBody
+func (r ApiResourceApiRegisterResourceMetricsConfigRequest) RegisterResourceMetricsConfigRequest2(registerResourceMetricsConfigRequest2 RegisterResourceMetricsConfigRequest2) ApiResourceApiRegisterResourceMetricsConfigRequest {
+	r.registerResourceMetricsConfigRequest2 = &registerResourceMetricsConfigRequest2
 	return r
 }
 
@@ -3628,8 +3628,8 @@ func (a *ResourceApiAPIService) ResourceApiRegisterResourceMetricsConfigExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.registerResourceMetricsConfigRequestBody == nil {
-		return nil, reportError("registerResourceMetricsConfigRequestBody is required and must be specified")
+	if r.registerResourceMetricsConfigRequest2 == nil {
+		return nil, reportError("registerResourceMetricsConfigRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -3650,7 +3650,7 @@ func (a *ResourceApiAPIService) ResourceApiRegisterResourceMetricsConfigExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.registerResourceMetricsConfigRequestBody
+	localVarPostBody = r.registerResourceMetricsConfigRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -4075,11 +4075,11 @@ type ApiResourceApiSetEnvironmentVariablesRequest struct {
 	ApiService ResourceApiAPI
 	serviceId string
 	id string
-	setEnvironmentVariablesRequestBody *SetEnvironmentVariablesRequestBody
+	setEnvironmentVariablesRequest2 *SetEnvironmentVariablesRequest2
 }
 
-func (r ApiResourceApiSetEnvironmentVariablesRequest) SetEnvironmentVariablesRequestBody(setEnvironmentVariablesRequestBody SetEnvironmentVariablesRequestBody) ApiResourceApiSetEnvironmentVariablesRequest {
-	r.setEnvironmentVariablesRequestBody = &setEnvironmentVariablesRequestBody
+func (r ApiResourceApiSetEnvironmentVariablesRequest) SetEnvironmentVariablesRequest2(setEnvironmentVariablesRequest2 SetEnvironmentVariablesRequest2) ApiResourceApiSetEnvironmentVariablesRequest {
+	r.setEnvironmentVariablesRequest2 = &setEnvironmentVariablesRequest2
 	return r
 }
 
@@ -4124,8 +4124,8 @@ func (a *ResourceApiAPIService) ResourceApiSetEnvironmentVariablesExecute(r ApiR
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.setEnvironmentVariablesRequestBody == nil {
-		return nil, reportError("setEnvironmentVariablesRequestBody is required and must be specified")
+	if r.setEnvironmentVariablesRequest2 == nil {
+		return nil, reportError("setEnvironmentVariablesRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -4146,7 +4146,7 @@ func (a *ResourceApiAPIService) ResourceApiSetEnvironmentVariablesExecute(r ApiR
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.setEnvironmentVariablesRequestBody
+	localVarPostBody = r.setEnvironmentVariablesRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -4245,11 +4245,11 @@ type ApiResourceApiUnsetEnvironmentVariablesRequest struct {
 	ApiService ResourceApiAPI
 	serviceId string
 	id string
-	setEnvironmentVariablesRequestBody *SetEnvironmentVariablesRequestBody
+	unsetEnvironmentVariablesRequest2 *UnsetEnvironmentVariablesRequest2
 }
 
-func (r ApiResourceApiUnsetEnvironmentVariablesRequest) SetEnvironmentVariablesRequestBody(setEnvironmentVariablesRequestBody SetEnvironmentVariablesRequestBody) ApiResourceApiUnsetEnvironmentVariablesRequest {
-	r.setEnvironmentVariablesRequestBody = &setEnvironmentVariablesRequestBody
+func (r ApiResourceApiUnsetEnvironmentVariablesRequest) UnsetEnvironmentVariablesRequest2(unsetEnvironmentVariablesRequest2 UnsetEnvironmentVariablesRequest2) ApiResourceApiUnsetEnvironmentVariablesRequest {
+	r.unsetEnvironmentVariablesRequest2 = &unsetEnvironmentVariablesRequest2
 	return r
 }
 
@@ -4294,8 +4294,8 @@ func (a *ResourceApiAPIService) ResourceApiUnsetEnvironmentVariablesExecute(r Ap
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.setEnvironmentVariablesRequestBody == nil {
-		return nil, reportError("setEnvironmentVariablesRequestBody is required and must be specified")
+	if r.unsetEnvironmentVariablesRequest2 == nil {
+		return nil, reportError("unsetEnvironmentVariablesRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -4316,7 +4316,7 @@ func (a *ResourceApiAPIService) ResourceApiUnsetEnvironmentVariablesExecute(r Ap
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.setEnvironmentVariablesRequestBody
+	localVarPostBody = r.unsetEnvironmentVariablesRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -4556,11 +4556,11 @@ type ApiResourceApiUpdateFileMetadataRequest struct {
 	serviceId string
 	id string
 	fileId string
-	updateFileMetadataRequestBody *UpdateFileMetadataRequestBody
+	updateFileMetadataRequest2 *UpdateFileMetadataRequest2
 }
 
-func (r ApiResourceApiUpdateFileMetadataRequest) UpdateFileMetadataRequestBody(updateFileMetadataRequestBody UpdateFileMetadataRequestBody) ApiResourceApiUpdateFileMetadataRequest {
-	r.updateFileMetadataRequestBody = &updateFileMetadataRequestBody
+func (r ApiResourceApiUpdateFileMetadataRequest) UpdateFileMetadataRequest2(updateFileMetadataRequest2 UpdateFileMetadataRequest2) ApiResourceApiUpdateFileMetadataRequest {
+	r.updateFileMetadataRequest2 = &updateFileMetadataRequest2
 	return r
 }
 
@@ -4608,8 +4608,8 @@ func (a *ResourceApiAPIService) ResourceApiUpdateFileMetadataExecute(r ApiResour
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateFileMetadataRequestBody == nil {
-		return nil, reportError("updateFileMetadataRequestBody is required and must be specified")
+	if r.updateFileMetadataRequest2 == nil {
+		return nil, reportError("updateFileMetadataRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -4630,7 +4630,7 @@ func (a *ResourceApiAPIService) ResourceApiUpdateFileMetadataExecute(r ApiResour
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateFileMetadataRequestBody
+	localVarPostBody = r.updateFileMetadataRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -4696,11 +4696,11 @@ type ApiResourceApiUpdateResourceRequest struct {
 	ApiService ResourceApiAPI
 	serviceId string
 	id string
-	updateResourceRequestBody *UpdateResourceRequestBody
+	updateResourceRequest2 *UpdateResourceRequest2
 }
 
-func (r ApiResourceApiUpdateResourceRequest) UpdateResourceRequestBody(updateResourceRequestBody UpdateResourceRequestBody) ApiResourceApiUpdateResourceRequest {
-	r.updateResourceRequestBody = &updateResourceRequestBody
+func (r ApiResourceApiUpdateResourceRequest) UpdateResourceRequest2(updateResourceRequest2 UpdateResourceRequest2) ApiResourceApiUpdateResourceRequest {
+	r.updateResourceRequest2 = &updateResourceRequest2
 	return r
 }
 
@@ -4745,8 +4745,8 @@ func (a *ResourceApiAPIService) ResourceApiUpdateResourceExecute(r ApiResourceAp
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateResourceRequestBody == nil {
-		return nil, reportError("updateResourceRequestBody is required and must be specified")
+	if r.updateResourceRequest2 == nil {
+		return nil, reportError("updateResourceRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -4767,7 +4767,7 @@ func (a *ResourceApiAPIService) ResourceApiUpdateResourceExecute(r ApiResourceAp
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateResourceRequestBody
+	localVarPostBody = r.updateResourceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

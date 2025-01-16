@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudProviderName** | Pointer to **string** | The cloud provider name for fixed storage types | [optional] 
+**CloudProviderName** | Pointer to **string** | Name of the Infra Provider | [optional] 
 **ClusterStorageType** | Pointer to **string** | The type of the fixed storage for the cluster | [optional] 
 **Description** | **string** | A brief description of the context for the storage volume pool | 
 **DisableBackup** | Pointer to **bool** | Disable backup for the storage volume | [optional] 
-**Id** | **string** | The storage volume config ID | 
+**Id** | **string** | ID of a Storage Volume Config | 
 **InstanceStorageIops** | Pointer to **string** | The IOPS provisioned for the configured instance storage type | [optional] 
 **InstanceStorageSizeGi** | Pointer to **string** | The fixed storage size (in Gi) provisioned for the configured instance storage type | [optional] 
 **InstanceStorageThroughputMiBps** | Pointer to **string** | The throughput (in MiBps) provisioned for the configured instance storage type | [optional] 
 **InstanceStorageType** | Pointer to **string** | The type of the fixed storage for a compute instance | [optional] 
 **Name** | **string** | Name of the storage volume pool | 
-**ServiceId** | **string** | The service ID | 
+**ServiceId** | **string** | ID of a Service | 
 **StorageResourceID** | Pointer to **string** | The storage resource ID | [optional] 
 
 ## Methods

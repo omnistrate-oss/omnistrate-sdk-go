@@ -20,17 +20,17 @@ var _ MappedNullable = &DescribeVUnitResult{}
 
 // DescribeVUnitResult struct for DescribeVUnitResult
 type DescribeVUnitResult struct {
-	// The infra / cloud provider name
+	// Name of the Infra Provider
 	CloudProvider string `json:"cloudProvider"`
-	// VUnit to operate on
+	// ID of a VUnit
 	Id *string `json:"id,omitempty"`
 	// List of network IDs in the given context
 	NetworkIds []string `json:"networkIds"`
 	// Region code specific to the cloud-provider
 	Region string `json:"region"`
-	// Service ID for the VUnit
+	// ID of a Service
 	ServiceId *string `json:"serviceId,omitempty"`
-	// Service Model ID for the VUnit
+	// ID of a Service Model
 	ServiceModelId string `json:"serviceModelId"`
 	AdditionalProperties map[string]interface{}
 }

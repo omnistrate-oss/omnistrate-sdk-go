@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## SubscriptionRequestApiCreateSubscriptionRequest
 
-> string SubscriptionRequestApiCreateSubscriptionRequest(ctx).CreateSubscriptionRequestBody(createSubscriptionRequestBody).Execute()
+> string SubscriptionRequestApiCreateSubscriptionRequest(ctx).CreateSubscriptionRequestRequest2(createSubscriptionRequestRequest2).Execute()
 
 CreateSubscriptionRequest subscription-request-api
 
@@ -96,11 +96,11 @@ import (
 )
 
 func main() {
-	createSubscriptionRequestBody := *openapiclient.NewCreateSubscriptionRequestBody("pt-12345678", "s-12345678") // CreateSubscriptionRequestBody | 
+	createSubscriptionRequestRequest2 := *openapiclient.NewCreateSubscriptionRequestRequest2("pt-12345678", "s-12345678") // CreateSubscriptionRequestRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SubscriptionRequestApiAPI.SubscriptionRequestApiCreateSubscriptionRequest(context.Background()).CreateSubscriptionRequestBody(createSubscriptionRequestBody).Execute()
+	resp, r, err := apiClient.SubscriptionRequestApiAPI.SubscriptionRequestApiCreateSubscriptionRequest(context.Background()).CreateSubscriptionRequestRequest2(createSubscriptionRequestRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionRequestApiAPI.SubscriptionRequestApiCreateSubscriptionRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -121,7 +121,7 @@ Other parameters are passed through a pointer to a apiSubscriptionRequestApiCrea
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createSubscriptionRequestBody** | [**CreateSubscriptionRequestBody**](CreateSubscriptionRequestBody.md) |  | 
+ **createSubscriptionRequestRequest2** | [**CreateSubscriptionRequestRequest2**](CreateSubscriptionRequestRequest2.md) |  | 
 
 ### Return type
 

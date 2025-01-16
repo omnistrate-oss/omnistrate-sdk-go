@@ -57,8 +57,8 @@ type CloudProviderApiAPI interface {
 	CloudProviderApiListCloudProvider(ctx context.Context) ApiCloudProviderApiListCloudProviderRequest
 
 	// CloudProviderApiListCloudProviderExecute executes the request
-	//  @return ListServiceEnvironmentsResult
-	CloudProviderApiListCloudProviderExecute(r ApiCloudProviderApiListCloudProviderRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+	//  @return ListCloudProvidersResult
+	CloudProviderApiListCloudProviderExecute(r ApiCloudProviderApiListCloudProviderRequest) (*ListCloudProvidersResult, *http.Response, error)
 }
 
 // CloudProviderApiAPIService CloudProviderApiAPI service
@@ -425,7 +425,7 @@ func (r ApiCloudProviderApiListCloudProviderRequest) ProductTierId(productTierId
 	return r
 }
 
-func (r ApiCloudProviderApiListCloudProviderRequest) Execute() (*ListServiceEnvironmentsResult, *http.Response, error) {
+func (r ApiCloudProviderApiListCloudProviderRequest) Execute() (*ListCloudProvidersResult, *http.Response, error) {
 	return r.ApiService.CloudProviderApiListCloudProviderExecute(r)
 }
 
@@ -443,13 +443,13 @@ func (a *CloudProviderApiAPIService) CloudProviderApiListCloudProvider(ctx conte
 }
 
 // Execute executes the request
-//  @return ListServiceEnvironmentsResult
-func (a *CloudProviderApiAPIService) CloudProviderApiListCloudProviderExecute(r ApiCloudProviderApiListCloudProviderRequest) (*ListServiceEnvironmentsResult, *http.Response, error) {
+//  @return ListCloudProvidersResult
+func (a *CloudProviderApiAPIService) CloudProviderApiListCloudProviderExecute(r ApiCloudProviderApiListCloudProviderRequest) (*ListCloudProvidersResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListServiceEnvironmentsResult
+		localVarReturnValue  *ListCloudProvidersResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudProviderApiAPIService.CloudProviderApiListCloudProvider")

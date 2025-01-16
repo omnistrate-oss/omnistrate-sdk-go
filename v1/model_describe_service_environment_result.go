@@ -22,28 +22,29 @@ var _ MappedNullable = &DescribeServiceEnvironmentResult{}
 type DescribeServiceEnvironmentResult struct {
 	// Auto approve subscription or not
 	AutoApproveSubscription *bool `json:"autoApproveSubscription,omitempty"`
-	// The deployment configuration ID
+	// ID of a Deployment Config
 	DeploymentConfigId string `json:"deploymentConfigId"`
 	// A brief description of the service environment
 	Description string `json:"description"`
-	// The ID of the service environment
+	// ID of a Service Environment
 	Id string `json:"id"`
 	// Unique Key of the Service Environment
 	Key string `json:"key"`
 	// Name of the Service Environment
 	Name string `json:"name"`
-	// The role type of the caller user
+	// Type of the role
 	RoleType *string `json:"roleType,omitempty"`
-	// The status of the SaaS portal for this environment type
+	// The status of an operation
 	SaasPortalStatus *string `json:"saasPortalStatus,omitempty"`
 	// The URL of the SaaS portal for this environment type
 	SaasPortalUrl *string `json:"saasPortalUrl,omitempty"`
 	// PEM-encoded Public key part of the key used to sign the JWT tokens for the service control plane APIs
 	ServiceAuthPublicKey *string `json:"serviceAuthPublicKey,omitempty"`
-	// The ID of the service this environment belongs to
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
-	// The ID of the service environment to use for promoting changes to this environment
+	// ID of a Service Environment
 	SourceEnvironmentId *string `json:"sourceEnvironmentId,omitempty"`
+	// The type of service environment
 	Type string `json:"type"`
 	// This parameter is used to configure the visibility of the service control-plane APIs
 	Visibility string `json:"visibility"`

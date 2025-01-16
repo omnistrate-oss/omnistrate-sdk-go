@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **string** | The status of the service | 
+**Status** | **string** | The status of an operation | 
 
 ## Methods
 

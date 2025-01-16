@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | **string** | A brief description of the deployment config | 
-**Id** | **string** | The deployment configuration ID | 
+**Id** | **string** | ID of a Deployment Config | 
 **InfraRollConfiguration** | [**InfraRollConfiguration**](InfraRollConfiguration.md) |  | 
 **Name** | **string** | Name of the deployment config | 
 **RolloutPriorityList** | **[]string** |  | 

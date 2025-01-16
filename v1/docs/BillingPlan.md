@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AllowCreatesWhenPaymentNotConfigured** | **bool** | Allow creates when payment not configured | 
-**Id** | **string** | Product tier billing plan ID | 
+**Id** | **string** | ID of a Product Tier Billing Plan | 
 **MaxNumberofInstances** | **int64** | Maximum number of instances | 
 **PlanName** | **string** | Plan name | 
 **Pricing** | **interface{}** | Pricing in dollars. | 
-**ProductTierId** | **string** | Product tier ID | 
-**ServiceId** | **string** | Service ID | 
+**ProductTierId** | **string** | ID of a Product Tier | 
+**ServiceId** | **string** | ID of a Service | 
 
 ## Methods
 

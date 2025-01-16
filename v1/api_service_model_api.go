@@ -126,8 +126,8 @@ type ServiceModelApiAPI interface {
 	ServiceModelApiListServiceModel(ctx context.Context, serviceId string, serviceApiId string) ApiServiceModelApiListServiceModelRequest
 
 	// ServiceModelApiListServiceModelExecute executes the request
-	//  @return ListServiceEnvironmentsResult
-	ServiceModelApiListServiceModelExecute(r ApiServiceModelApiListServiceModelRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+	//  @return ListServiceModelsResult
+	ServiceModelApiListServiceModelExecute(r ApiServiceModelApiListServiceModelRequest) (*ListServiceModelsResult, *http.Response, error)
 
 	/*
 	ServiceModelApiReleaseServiceModelStatus ReleaseServiceModelStatus service-model-api
@@ -140,8 +140,8 @@ type ServiceModelApiAPI interface {
 	ServiceModelApiReleaseServiceModelStatus(ctx context.Context, serviceId string, id string) ApiServiceModelApiReleaseServiceModelStatusRequest
 
 	// ServiceModelApiReleaseServiceModelStatusExecute executes the request
-	//  @return OmnistrateServiceHealthResult
-	ServiceModelApiReleaseServiceModelStatusExecute(r ApiServiceModelApiReleaseServiceModelStatusRequest) (*OmnistrateServiceHealthResult, *http.Response, error)
+	//  @return ReleaseServiceModelResult
+	ServiceModelApiReleaseServiceModelStatusExecute(r ApiServiceModelApiReleaseServiceModelStatusRequest) (*ReleaseServiceModelResult, *http.Response, error)
 
 	/*
 	ServiceModelApiRemoveAccountConfigFromServiceModel RemoveAccountConfigFromServiceModel service-model-api
@@ -192,11 +192,11 @@ type ApiServiceModelApiAddAccountConfigToServiceModelRequest struct {
 	ApiService ServiceModelApiAPI
 	serviceId string
 	id string
-	addAccountConfigToServiceModelRequestBody *AddAccountConfigToServiceModelRequestBody
+	addAccountConfigToServiceModelRequest2 *AddAccountConfigToServiceModelRequest2
 }
 
-func (r ApiServiceModelApiAddAccountConfigToServiceModelRequest) AddAccountConfigToServiceModelRequestBody(addAccountConfigToServiceModelRequestBody AddAccountConfigToServiceModelRequestBody) ApiServiceModelApiAddAccountConfigToServiceModelRequest {
-	r.addAccountConfigToServiceModelRequestBody = &addAccountConfigToServiceModelRequestBody
+func (r ApiServiceModelApiAddAccountConfigToServiceModelRequest) AddAccountConfigToServiceModelRequest2(addAccountConfigToServiceModelRequest2 AddAccountConfigToServiceModelRequest2) ApiServiceModelApiAddAccountConfigToServiceModelRequest {
+	r.addAccountConfigToServiceModelRequest2 = &addAccountConfigToServiceModelRequest2
 	return r
 }
 
@@ -241,8 +241,8 @@ func (a *ServiceModelApiAPIService) ServiceModelApiAddAccountConfigToServiceMode
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.addAccountConfigToServiceModelRequestBody == nil {
-		return nil, reportError("addAccountConfigToServiceModelRequestBody is required and must be specified")
+	if r.addAccountConfigToServiceModelRequest2 == nil {
+		return nil, reportError("addAccountConfigToServiceModelRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -263,7 +263,7 @@ func (a *ServiceModelApiAPIService) ServiceModelApiAddAccountConfigToServiceMode
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.addAccountConfigToServiceModelRequestBody
+	localVarPostBody = r.addAccountConfigToServiceModelRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -362,11 +362,11 @@ type ApiServiceModelApiCopyServiceModelRequest struct {
 	ApiService ServiceModelApiAPI
 	serviceId string
 	sourceId string
-	copyServiceModelRequestBody *CopyServiceModelRequestBody
+	copyServiceModelRequest2 *CopyServiceModelRequest2
 }
 
-func (r ApiServiceModelApiCopyServiceModelRequest) CopyServiceModelRequestBody(copyServiceModelRequestBody CopyServiceModelRequestBody) ApiServiceModelApiCopyServiceModelRequest {
-	r.copyServiceModelRequestBody = &copyServiceModelRequestBody
+func (r ApiServiceModelApiCopyServiceModelRequest) CopyServiceModelRequest2(copyServiceModelRequest2 CopyServiceModelRequest2) ApiServiceModelApiCopyServiceModelRequest {
+	r.copyServiceModelRequest2 = &copyServiceModelRequest2
 	return r
 }
 
@@ -413,8 +413,8 @@ func (a *ServiceModelApiAPIService) ServiceModelApiCopyServiceModelExecute(r Api
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.copyServiceModelRequestBody == nil {
-		return localVarReturnValue, nil, reportError("copyServiceModelRequestBody is required and must be specified")
+	if r.copyServiceModelRequest2 == nil {
+		return localVarReturnValue, nil, reportError("copyServiceModelRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -435,7 +435,7 @@ func (a *ServiceModelApiAPIService) ServiceModelApiCopyServiceModelExecute(r Api
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.copyServiceModelRequestBody
+	localVarPostBody = r.copyServiceModelRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -542,11 +542,11 @@ type ApiServiceModelApiCreateServiceModelRequest struct {
 	ctx context.Context
 	ApiService ServiceModelApiAPI
 	serviceId string
-	createServiceModelRequestBody *CreateServiceModelRequestBody
+	createServiceModelRequest2 *CreateServiceModelRequest2
 }
 
-func (r ApiServiceModelApiCreateServiceModelRequest) CreateServiceModelRequestBody(createServiceModelRequestBody CreateServiceModelRequestBody) ApiServiceModelApiCreateServiceModelRequest {
-	r.createServiceModelRequestBody = &createServiceModelRequestBody
+func (r ApiServiceModelApiCreateServiceModelRequest) CreateServiceModelRequest2(createServiceModelRequest2 CreateServiceModelRequest2) ApiServiceModelApiCreateServiceModelRequest {
+	r.createServiceModelRequest2 = &createServiceModelRequest2
 	return r
 }
 
@@ -590,8 +590,8 @@ func (a *ServiceModelApiAPIService) ServiceModelApiCreateServiceModelExecute(r A
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createServiceModelRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createServiceModelRequestBody is required and must be specified")
+	if r.createServiceModelRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createServiceModelRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -612,7 +612,7 @@ func (a *ServiceModelApiAPIService) ServiceModelApiCreateServiceModelExecute(r A
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createServiceModelRequestBody
+	localVarPostBody = r.createServiceModelRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1049,11 +1049,11 @@ type ApiServiceModelApiDisableServiceModelFeatureRequest struct {
 	ApiService ServiceModelApiAPI
 	serviceId string
 	id string
-	disableServiceModelFeatureRequestBody *DisableServiceModelFeatureRequestBody
+	disableServiceModelFeatureRequest2 *DisableServiceModelFeatureRequest2
 }
 
-func (r ApiServiceModelApiDisableServiceModelFeatureRequest) DisableServiceModelFeatureRequestBody(disableServiceModelFeatureRequestBody DisableServiceModelFeatureRequestBody) ApiServiceModelApiDisableServiceModelFeatureRequest {
-	r.disableServiceModelFeatureRequestBody = &disableServiceModelFeatureRequestBody
+func (r ApiServiceModelApiDisableServiceModelFeatureRequest) DisableServiceModelFeatureRequest2(disableServiceModelFeatureRequest2 DisableServiceModelFeatureRequest2) ApiServiceModelApiDisableServiceModelFeatureRequest {
+	r.disableServiceModelFeatureRequest2 = &disableServiceModelFeatureRequest2
 	return r
 }
 
@@ -1098,8 +1098,8 @@ func (a *ServiceModelApiAPIService) ServiceModelApiDisableServiceModelFeatureExe
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.disableServiceModelFeatureRequestBody == nil {
-		return nil, reportError("disableServiceModelFeatureRequestBody is required and must be specified")
+	if r.disableServiceModelFeatureRequest2 == nil {
+		return nil, reportError("disableServiceModelFeatureRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1120,7 +1120,7 @@ func (a *ServiceModelApiAPIService) ServiceModelApiDisableServiceModelFeatureExe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.disableServiceModelFeatureRequestBody
+	localVarPostBody = r.disableServiceModelFeatureRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1219,11 +1219,11 @@ type ApiServiceModelApiEnableServiceModelFeatureRequest struct {
 	ApiService ServiceModelApiAPI
 	serviceId string
 	id string
-	serviceModelFeatureDetail *ServiceModelFeatureDetail
+	enableServiceModelFeatureRequest2 *EnableServiceModelFeatureRequest2
 }
 
-func (r ApiServiceModelApiEnableServiceModelFeatureRequest) ServiceModelFeatureDetail(serviceModelFeatureDetail ServiceModelFeatureDetail) ApiServiceModelApiEnableServiceModelFeatureRequest {
-	r.serviceModelFeatureDetail = &serviceModelFeatureDetail
+func (r ApiServiceModelApiEnableServiceModelFeatureRequest) EnableServiceModelFeatureRequest2(enableServiceModelFeatureRequest2 EnableServiceModelFeatureRequest2) ApiServiceModelApiEnableServiceModelFeatureRequest {
+	r.enableServiceModelFeatureRequest2 = &enableServiceModelFeatureRequest2
 	return r
 }
 
@@ -1268,8 +1268,8 @@ func (a *ServiceModelApiAPIService) ServiceModelApiEnableServiceModelFeatureExec
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.serviceModelFeatureDetail == nil {
-		return nil, reportError("serviceModelFeatureDetail is required and must be specified")
+	if r.enableServiceModelFeatureRequest2 == nil {
+		return nil, reportError("enableServiceModelFeatureRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1290,7 +1290,7 @@ func (a *ServiceModelApiAPIService) ServiceModelApiEnableServiceModelFeatureExec
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.serviceModelFeatureDetail
+	localVarPostBody = r.enableServiceModelFeatureRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1391,7 +1391,7 @@ type ApiServiceModelApiListServiceModelRequest struct {
 	serviceApiId string
 }
 
-func (r ApiServiceModelApiListServiceModelRequest) Execute() (*ListServiceEnvironmentsResult, *http.Response, error) {
+func (r ApiServiceModelApiListServiceModelRequest) Execute() (*ListServiceModelsResult, *http.Response, error) {
 	return r.ApiService.ServiceModelApiListServiceModelExecute(r)
 }
 
@@ -1413,13 +1413,13 @@ func (a *ServiceModelApiAPIService) ServiceModelApiListServiceModel(ctx context.
 }
 
 // Execute executes the request
-//  @return ListServiceEnvironmentsResult
-func (a *ServiceModelApiAPIService) ServiceModelApiListServiceModelExecute(r ApiServiceModelApiListServiceModelRequest) (*ListServiceEnvironmentsResult, *http.Response, error) {
+//  @return ListServiceModelsResult
+func (a *ServiceModelApiAPIService) ServiceModelApiListServiceModelExecute(r ApiServiceModelApiListServiceModelRequest) (*ListServiceModelsResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListServiceEnvironmentsResult
+		localVarReturnValue  *ListServiceModelsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceModelApiAPIService.ServiceModelApiListServiceModel")
@@ -1561,7 +1561,7 @@ type ApiServiceModelApiReleaseServiceModelStatusRequest struct {
 	id string
 }
 
-func (r ApiServiceModelApiReleaseServiceModelStatusRequest) Execute() (*OmnistrateServiceHealthResult, *http.Response, error) {
+func (r ApiServiceModelApiReleaseServiceModelStatusRequest) Execute() (*ReleaseServiceModelResult, *http.Response, error) {
 	return r.ApiService.ServiceModelApiReleaseServiceModelStatusExecute(r)
 }
 
@@ -1583,13 +1583,13 @@ func (a *ServiceModelApiAPIService) ServiceModelApiReleaseServiceModelStatus(ctx
 }
 
 // Execute executes the request
-//  @return OmnistrateServiceHealthResult
-func (a *ServiceModelApiAPIService) ServiceModelApiReleaseServiceModelStatusExecute(r ApiServiceModelApiReleaseServiceModelStatusRequest) (*OmnistrateServiceHealthResult, *http.Response, error) {
+//  @return ReleaseServiceModelResult
+func (a *ServiceModelApiAPIService) ServiceModelApiReleaseServiceModelStatusExecute(r ApiServiceModelApiReleaseServiceModelStatusRequest) (*ReleaseServiceModelResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *OmnistrateServiceHealthResult
+		localVarReturnValue  *ReleaseServiceModelResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceModelApiAPIService.ServiceModelApiReleaseServiceModelStatus")
@@ -1729,11 +1729,11 @@ type ApiServiceModelApiRemoveAccountConfigFromServiceModelRequest struct {
 	ApiService ServiceModelApiAPI
 	serviceId string
 	id string
-	addAccountConfigToServiceModelRequestBody *AddAccountConfigToServiceModelRequestBody
+	removeAccountConfigFromServiceModelRequest2 *RemoveAccountConfigFromServiceModelRequest2
 }
 
-func (r ApiServiceModelApiRemoveAccountConfigFromServiceModelRequest) AddAccountConfigToServiceModelRequestBody(addAccountConfigToServiceModelRequestBody AddAccountConfigToServiceModelRequestBody) ApiServiceModelApiRemoveAccountConfigFromServiceModelRequest {
-	r.addAccountConfigToServiceModelRequestBody = &addAccountConfigToServiceModelRequestBody
+func (r ApiServiceModelApiRemoveAccountConfigFromServiceModelRequest) RemoveAccountConfigFromServiceModelRequest2(removeAccountConfigFromServiceModelRequest2 RemoveAccountConfigFromServiceModelRequest2) ApiServiceModelApiRemoveAccountConfigFromServiceModelRequest {
+	r.removeAccountConfigFromServiceModelRequest2 = &removeAccountConfigFromServiceModelRequest2
 	return r
 }
 
@@ -1778,8 +1778,8 @@ func (a *ServiceModelApiAPIService) ServiceModelApiRemoveAccountConfigFromServic
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.addAccountConfigToServiceModelRequestBody == nil {
-		return nil, reportError("addAccountConfigToServiceModelRequestBody is required and must be specified")
+	if r.removeAccountConfigFromServiceModelRequest2 == nil {
+		return nil, reportError("removeAccountConfigFromServiceModelRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1800,7 +1800,7 @@ func (a *ServiceModelApiAPIService) ServiceModelApiRemoveAccountConfigFromServic
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.addAccountConfigToServiceModelRequestBody
+	localVarPostBody = r.removeAccountConfigFromServiceModelRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -2062,11 +2062,11 @@ type ApiServiceModelApiUpdateServiceModelRequest struct {
 	ApiService ServiceModelApiAPI
 	serviceId string
 	id string
-	updateServiceModelRequestBody *UpdateServiceModelRequestBody
+	updateServiceModelRequest2 *UpdateServiceModelRequest2
 }
 
-func (r ApiServiceModelApiUpdateServiceModelRequest) UpdateServiceModelRequestBody(updateServiceModelRequestBody UpdateServiceModelRequestBody) ApiServiceModelApiUpdateServiceModelRequest {
-	r.updateServiceModelRequestBody = &updateServiceModelRequestBody
+func (r ApiServiceModelApiUpdateServiceModelRequest) UpdateServiceModelRequest2(updateServiceModelRequest2 UpdateServiceModelRequest2) ApiServiceModelApiUpdateServiceModelRequest {
+	r.updateServiceModelRequest2 = &updateServiceModelRequest2
 	return r
 }
 
@@ -2111,8 +2111,8 @@ func (a *ServiceModelApiAPIService) ServiceModelApiUpdateServiceModelExecute(r A
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateServiceModelRequestBody == nil {
-		return nil, reportError("updateServiceModelRequestBody is required and must be specified")
+	if r.updateServiceModelRequest2 == nil {
+		return nil, reportError("updateServiceModelRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -2133,7 +2133,7 @@ func (a *ServiceModelApiAPIService) ServiceModelApiUpdateServiceModelExecute(r A
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateServiceModelRequestBody
+	localVarPostBody = r.updateServiceModelRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

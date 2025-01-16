@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Email** | **string** | The email of the user | 
 **InvitedAt** | **string** | The time when the user was invited | 
 **Name** | **string** | The name of the user | 
-**RoleType** | **string** |  | 
+**RoleType** | **string** | Type of the role | 
 **UserId** | **string** | The User ID | 
 
 ## Methods

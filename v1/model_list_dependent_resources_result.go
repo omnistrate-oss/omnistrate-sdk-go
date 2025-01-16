@@ -20,13 +20,13 @@ var _ MappedNullable = &ListDependentResourcesResult{}
 
 // ListDependentResourcesResult struct for ListDependentResourcesResult
 type ListDependentResourcesResult struct {
-	// The ID of the resource
+	// ID of a resource
 	Id *string `json:"id,omitempty"`
 	// List of dependent resource IDs
 	Ids []string `json:"ids"`
 	// Token to use for the next page
 	NextPageToken *string `json:"nextPageToken,omitempty"`
-	// The service ID that this API bundle belongs to
+	// ID of a Service
 	ServiceId *string `json:"serviceId,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

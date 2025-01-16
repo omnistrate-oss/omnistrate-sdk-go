@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ## AvailabilityZoneApiListAvailabilityZone
 
-> ListServiceEnvironmentsResult AvailabilityZoneApiListAvailabilityZone(ctx, cloudProviderName).Execute()
+> ListAvailabilityZonesResult AvailabilityZoneApiListAvailabilityZone(ctx, cloudProviderName).Execute()
 
 ListAvailabilityZone availability-zone-api
 
@@ -178,7 +178,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AvailabilityZoneApiAPI.AvailabilityZoneApiListAvailabilityZone``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AvailabilityZoneApiListAvailabilityZone`: ListServiceEnvironmentsResult
+	// response from `AvailabilityZoneApiListAvailabilityZone`: ListAvailabilityZonesResult
 	fmt.Fprintf(os.Stdout, "Response from `AvailabilityZoneApiAPI.AvailabilityZoneApiListAvailabilityZone`: %v\n", resp)
 }
 ```
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListServiceEnvironmentsResult**](ListServiceEnvironmentsResult.md)
+[**ListAvailabilityZonesResult**](ListAvailabilityZonesResult.md)
 
 ### Authorization
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ## AvailabilityZoneApiListAvailabilityZonesByRegionCode
 
-> ListServiceEnvironmentsResult AvailabilityZoneApiListAvailabilityZonesByRegionCode(ctx, regionCode, cloudProviderName).Execute()
+> ListAvailabilityZonesByRegionCodeResult AvailabilityZoneApiListAvailabilityZonesByRegionCode(ctx, regionCode, cloudProviderName).Execute()
 
 ListAvailabilityZonesByRegionCode availability-zone-api
 
@@ -247,7 +247,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AvailabilityZoneApiAPI.AvailabilityZoneApiListAvailabilityZonesByRegionCode``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AvailabilityZoneApiListAvailabilityZonesByRegionCode`: ListServiceEnvironmentsResult
+	// response from `AvailabilityZoneApiListAvailabilityZonesByRegionCode`: ListAvailabilityZonesByRegionCodeResult
 	fmt.Fprintf(os.Stdout, "Response from `AvailabilityZoneApiAPI.AvailabilityZoneApiListAvailabilityZonesByRegionCode`: %v\n", resp)
 }
 ```
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListServiceEnvironmentsResult**](ListServiceEnvironmentsResult.md)
+[**ListAvailabilityZonesByRegionCodeResult**](ListAvailabilityZonesByRegionCodeResult.md)
 
 ### Authorization
 

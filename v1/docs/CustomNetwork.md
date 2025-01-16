@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Cidr** | Pointer to **string** | CIDR block for the network | [optional] [default to "10.0.0.0/16"]
-**CloudProviderName** | **string** | The name of the cloud provider that the instance is running on. | 
+**CloudProviderName** | **string** | Name of the Infra Provider | 
 **CloudProviderRegion** | **string** | The region of the cloud provider that the instance is running in. | 
 **Id** | **string** | ID of a custom network | 
 **Name** | Pointer to **string** | User friendly network name to help distinguish networks with same CIDRs | [optional] 

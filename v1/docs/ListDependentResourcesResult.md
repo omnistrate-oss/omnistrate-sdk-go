@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | The ID of the resource | [optional] 
+**Id** | Pointer to **string** | ID of a resource | [optional] 
 **Ids** | **[]string** | List of dependent resource IDs | 
 **NextPageToken** | Pointer to **string** | Token to use for the next page | [optional] 
-**ServiceId** | Pointer to **string** | The service ID that this API bundle belongs to | [optional] 
+**ServiceId** | Pointer to **string** | ID of a Service | [optional] 
 
 ## Methods
 

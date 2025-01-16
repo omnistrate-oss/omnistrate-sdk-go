@@ -73,8 +73,8 @@ type ImageConfigApiAPI interface {
 	ImageConfigApiListImageConfigs(ctx context.Context, serviceId string, serviceEnvironmentId string) ApiImageConfigApiListImageConfigsRequest
 
 	// ImageConfigApiListImageConfigsExecute executes the request
-	//  @return ListServiceEnvironmentsResult
-	ImageConfigApiListImageConfigsExecute(r ApiImageConfigApiListImageConfigsRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+	//  @return ListImageConfigsResult
+	ImageConfigApiListImageConfigsExecute(r ApiImageConfigApiListImageConfigsRequest) (*ListImageConfigsResult, *http.Response, error)
 
 	/*
 	ImageConfigApiReleaseImageConfig ReleaseImageConfig image-config-api
@@ -113,8 +113,8 @@ type ImageConfigApiAPI interface {
 	ImageConfigApiRolloutFleetImageStatus(ctx context.Context, serviceId string, id string) ApiImageConfigApiRolloutFleetImageStatusRequest
 
 	// ImageConfigApiRolloutFleetImageStatusExecute executes the request
-	//  @return OmnistrateServiceHealthResult
-	ImageConfigApiRolloutFleetImageStatusExecute(r ApiImageConfigApiRolloutFleetImageStatusRequest) (*OmnistrateServiceHealthResult, *http.Response, error)
+	//  @return RolloutFleetImageStatusResult
+	ImageConfigApiRolloutFleetImageStatusExecute(r ApiImageConfigApiRolloutFleetImageStatusRequest) (*RolloutFleetImageStatusResult, *http.Response, error)
 
 	/*
 	ImageConfigApiUpdateImageConfig UpdateImageConfig image-config-api
@@ -137,11 +137,11 @@ type ApiImageConfigApiCreateImageConfigRequest struct {
 	ctx context.Context
 	ApiService ImageConfigApiAPI
 	serviceId string
-	createImageConfigRequestBody *CreateImageConfigRequestBody
+	createImageConfigRequest2 *CreateImageConfigRequest2
 }
 
-func (r ApiImageConfigApiCreateImageConfigRequest) CreateImageConfigRequestBody(createImageConfigRequestBody CreateImageConfigRequestBody) ApiImageConfigApiCreateImageConfigRequest {
-	r.createImageConfigRequestBody = &createImageConfigRequestBody
+func (r ApiImageConfigApiCreateImageConfigRequest) CreateImageConfigRequest2(createImageConfigRequest2 CreateImageConfigRequest2) ApiImageConfigApiCreateImageConfigRequest {
+	r.createImageConfigRequest2 = &createImageConfigRequest2
 	return r
 }
 
@@ -185,8 +185,8 @@ func (a *ImageConfigApiAPIService) ImageConfigApiCreateImageConfigExecute(r ApiI
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createImageConfigRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createImageConfigRequestBody is required and must be specified")
+	if r.createImageConfigRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createImageConfigRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -207,7 +207,7 @@ func (a *ImageConfigApiAPIService) ImageConfigApiCreateImageConfigExecute(r ApiI
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createImageConfigRequestBody
+	localVarPostBody = r.createImageConfigRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -666,7 +666,7 @@ type ApiImageConfigApiListImageConfigsRequest struct {
 	serviceEnvironmentId string
 }
 
-func (r ApiImageConfigApiListImageConfigsRequest) Execute() (*ListServiceEnvironmentsResult, *http.Response, error) {
+func (r ApiImageConfigApiListImageConfigsRequest) Execute() (*ListImageConfigsResult, *http.Response, error) {
 	return r.ApiService.ImageConfigApiListImageConfigsExecute(r)
 }
 
@@ -688,13 +688,13 @@ func (a *ImageConfigApiAPIService) ImageConfigApiListImageConfigs(ctx context.Co
 }
 
 // Execute executes the request
-//  @return ListServiceEnvironmentsResult
-func (a *ImageConfigApiAPIService) ImageConfigApiListImageConfigsExecute(r ApiImageConfigApiListImageConfigsRequest) (*ListServiceEnvironmentsResult, *http.Response, error) {
+//  @return ListImageConfigsResult
+func (a *ImageConfigApiAPIService) ImageConfigApiListImageConfigsExecute(r ApiImageConfigApiListImageConfigsRequest) (*ListImageConfigsResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListServiceEnvironmentsResult
+		localVarReturnValue  *ListImageConfigsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageConfigApiAPIService.ImageConfigApiListImageConfigs")
@@ -834,11 +834,11 @@ type ApiImageConfigApiReleaseImageConfigRequest struct {
 	ApiService ImageConfigApiAPI
 	serviceId string
 	id string
-	releaseInfraConfigRequestBody *ReleaseInfraConfigRequestBody
+	releaseImageConfigRequest2 *ReleaseImageConfigRequest2
 }
 
-func (r ApiImageConfigApiReleaseImageConfigRequest) ReleaseInfraConfigRequestBody(releaseInfraConfigRequestBody ReleaseInfraConfigRequestBody) ApiImageConfigApiReleaseImageConfigRequest {
-	r.releaseInfraConfigRequestBody = &releaseInfraConfigRequestBody
+func (r ApiImageConfigApiReleaseImageConfigRequest) ReleaseImageConfigRequest2(releaseImageConfigRequest2 ReleaseImageConfigRequest2) ApiImageConfigApiReleaseImageConfigRequest {
+	r.releaseImageConfigRequest2 = &releaseImageConfigRequest2
 	return r
 }
 
@@ -883,8 +883,8 @@ func (a *ImageConfigApiAPIService) ImageConfigApiReleaseImageConfigExecute(r Api
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.releaseInfraConfigRequestBody == nil {
-		return nil, reportError("releaseInfraConfigRequestBody is required and must be specified")
+	if r.releaseImageConfigRequest2 == nil {
+		return nil, reportError("releaseImageConfigRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -905,7 +905,7 @@ func (a *ImageConfigApiAPIService) ImageConfigApiReleaseImageConfigExecute(r Api
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.releaseInfraConfigRequestBody
+	localVarPostBody = r.releaseImageConfigRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1165,7 +1165,7 @@ type ApiImageConfigApiRolloutFleetImageStatusRequest struct {
 	id string
 }
 
-func (r ApiImageConfigApiRolloutFleetImageStatusRequest) Execute() (*OmnistrateServiceHealthResult, *http.Response, error) {
+func (r ApiImageConfigApiRolloutFleetImageStatusRequest) Execute() (*RolloutFleetImageStatusResult, *http.Response, error) {
 	return r.ApiService.ImageConfigApiRolloutFleetImageStatusExecute(r)
 }
 
@@ -1187,13 +1187,13 @@ func (a *ImageConfigApiAPIService) ImageConfigApiRolloutFleetImageStatus(ctx con
 }
 
 // Execute executes the request
-//  @return OmnistrateServiceHealthResult
-func (a *ImageConfigApiAPIService) ImageConfigApiRolloutFleetImageStatusExecute(r ApiImageConfigApiRolloutFleetImageStatusRequest) (*OmnistrateServiceHealthResult, *http.Response, error) {
+//  @return RolloutFleetImageStatusResult
+func (a *ImageConfigApiAPIService) ImageConfigApiRolloutFleetImageStatusExecute(r ApiImageConfigApiRolloutFleetImageStatusRequest) (*RolloutFleetImageStatusResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *OmnistrateServiceHealthResult
+		localVarReturnValue  *RolloutFleetImageStatusResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageConfigApiAPIService.ImageConfigApiRolloutFleetImageStatus")
@@ -1333,11 +1333,11 @@ type ApiImageConfigApiUpdateImageConfigRequest struct {
 	ApiService ImageConfigApiAPI
 	serviceId string
 	id string
-	updateImageConfigRequestBody *UpdateImageConfigRequestBody
+	updateImageConfigRequest2 *UpdateImageConfigRequest2
 }
 
-func (r ApiImageConfigApiUpdateImageConfigRequest) UpdateImageConfigRequestBody(updateImageConfigRequestBody UpdateImageConfigRequestBody) ApiImageConfigApiUpdateImageConfigRequest {
-	r.updateImageConfigRequestBody = &updateImageConfigRequestBody
+func (r ApiImageConfigApiUpdateImageConfigRequest) UpdateImageConfigRequest2(updateImageConfigRequest2 UpdateImageConfigRequest2) ApiImageConfigApiUpdateImageConfigRequest {
+	r.updateImageConfigRequest2 = &updateImageConfigRequest2
 	return r
 }
 
@@ -1382,8 +1382,8 @@ func (a *ImageConfigApiAPIService) ImageConfigApiUpdateImageConfigExecute(r ApiI
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateImageConfigRequestBody == nil {
-		return nil, reportError("updateImageConfigRequestBody is required and must be specified")
+	if r.updateImageConfigRequest2 == nil {
+		return nil, reportError("updateImageConfigRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1404,7 +1404,7 @@ func (a *ImageConfigApiAPIService) ImageConfigApiUpdateImageConfigExecute(r ApiI
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateImageConfigRequestBody
+	localVarPostBody = r.updateImageConfigRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## ServiceEnvironmentApiCreateServiceEnvironment
 
-> string ServiceEnvironmentApiCreateServiceEnvironment(ctx, serviceId).CreateServiceEnvironmentRequestBody(createServiceEnvironmentRequestBody).Execute()
+> string ServiceEnvironmentApiCreateServiceEnvironment(ctx, serviceId).CreateServiceEnvironmentRequest2(createServiceEnvironmentRequest2).Execute()
 
 CreateServiceEnvironment service-environment-api
 
@@ -34,11 +34,11 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service this environment belongs to
-	createServiceEnvironmentRequestBody := *openapiclient.NewCreateServiceEnvironmentRequestBody("dc-12345678", "The production environment for the MySQL multi-writer service", "Production") // CreateServiceEnvironmentRequestBody | 
+	createServiceEnvironmentRequest2 := *openapiclient.NewCreateServiceEnvironmentRequest2("dc-12345678", "The production environment for the MySQL multi-writer service", "Production") // CreateServiceEnvironmentRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServiceEnvironmentApiAPI.ServiceEnvironmentApiCreateServiceEnvironment(context.Background(), serviceId).CreateServiceEnvironmentRequestBody(createServiceEnvironmentRequestBody).Execute()
+	resp, r, err := apiClient.ServiceEnvironmentApiAPI.ServiceEnvironmentApiCreateServiceEnvironment(context.Background(), serviceId).CreateServiceEnvironmentRequest2(createServiceEnvironmentRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceEnvironmentApiAPI.ServiceEnvironmentApiCreateServiceEnvironment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -64,7 +64,7 @@ Other parameters are passed through a pointer to a apiServiceEnvironmentApiCreat
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createServiceEnvironmentRequestBody** | [**CreateServiceEnvironmentRequestBody**](CreateServiceEnvironmentRequestBody.md) |  | 
+ **createServiceEnvironmentRequest2** | [**CreateServiceEnvironmentRequest2**](CreateServiceEnvironmentRequest2.md) |  | 
 
 ### Return type
 
@@ -434,7 +434,7 @@ Name | Type | Description  | Notes
 
 ## ServiceEnvironmentApiUpdateServiceEnvironment
 
-> ServiceEnvironmentApiUpdateServiceEnvironment(ctx, serviceId, id).UpdateServiceEnvironmentRequestBody(updateServiceEnvironmentRequestBody).Execute()
+> ServiceEnvironmentApiUpdateServiceEnvironment(ctx, serviceId, id).UpdateServiceEnvironmentRequest2(updateServiceEnvironmentRequest2).Execute()
 
 UpdateServiceEnvironment service-environment-api
 
@@ -453,11 +453,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service this environment belongs to
 	id := "se-12345678" // string | The ID of the service environment
-	updateServiceEnvironmentRequestBody := *openapiclient.NewUpdateServiceEnvironmentRequestBody() // UpdateServiceEnvironmentRequestBody | 
+	updateServiceEnvironmentRequest2 := *openapiclient.NewUpdateServiceEnvironmentRequest2() // UpdateServiceEnvironmentRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ServiceEnvironmentApiAPI.ServiceEnvironmentApiUpdateServiceEnvironment(context.Background(), serviceId, id).UpdateServiceEnvironmentRequestBody(updateServiceEnvironmentRequestBody).Execute()
+	r, err := apiClient.ServiceEnvironmentApiAPI.ServiceEnvironmentApiUpdateServiceEnvironment(context.Background(), serviceId, id).UpdateServiceEnvironmentRequest2(updateServiceEnvironmentRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceEnvironmentApiAPI.ServiceEnvironmentApiUpdateServiceEnvironment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -483,7 +483,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **updateServiceEnvironmentRequestBody** | [**UpdateServiceEnvironmentRequestBody**](UpdateServiceEnvironmentRequestBody.md) |  | 
+ **updateServiceEnvironmentRequest2** | [**UpdateServiceEnvironmentRequest2**](UpdateServiceEnvironmentRequest2.md) |  | 
 
 ### Return type
 

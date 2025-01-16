@@ -39,11 +39,11 @@ type ContactusApiAPIService service
 type ApiContactusApiContactusRequest struct {
 	ctx context.Context
 	ApiService ContactusApiAPI
-	contactusRequestBody *ContactusRequestBody
+	contactusRequest *ContactusRequest
 }
 
-func (r ApiContactusApiContactusRequest) ContactusRequestBody(contactusRequestBody ContactusRequestBody) ApiContactusApiContactusRequest {
-	r.contactusRequestBody = &contactusRequestBody
+func (r ApiContactusApiContactusRequest) ContactusRequest(contactusRequest ContactusRequest) ApiContactusApiContactusRequest {
+	r.contactusRequest = &contactusRequest
 	return r
 }
 
@@ -82,8 +82,8 @@ func (a *ContactusApiAPIService) ContactusApiContactusExecute(r ApiContactusApiC
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.contactusRequestBody == nil {
-		return nil, reportError("contactusRequestBody is required and must be specified")
+	if r.contactusRequest == nil {
+		return nil, reportError("contactusRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -104,7 +104,7 @@ func (a *ContactusApiAPIService) ContactusApiContactusExecute(r ApiContactusApiC
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.contactusRequestBody
+	localVarPostBody = r.contactusRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

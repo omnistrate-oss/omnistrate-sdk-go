@@ -90,11 +90,11 @@ type ServicesOrchestrationApiAPIService service
 type ApiServicesOrchestrationApiCreateServicesOrchestrationRequest struct {
 	ctx context.Context
 	ApiService ServicesOrchestrationApiAPI
-	createServicesOrchestrationRequestBody *CreateServicesOrchestrationRequestBody
+	createServicesOrchestrationRequest2 *CreateServicesOrchestrationRequest2
 }
 
-func (r ApiServicesOrchestrationApiCreateServicesOrchestrationRequest) CreateServicesOrchestrationRequestBody(createServicesOrchestrationRequestBody CreateServicesOrchestrationRequestBody) ApiServicesOrchestrationApiCreateServicesOrchestrationRequest {
-	r.createServicesOrchestrationRequestBody = &createServicesOrchestrationRequestBody
+func (r ApiServicesOrchestrationApiCreateServicesOrchestrationRequest) CreateServicesOrchestrationRequest2(createServicesOrchestrationRequest2 CreateServicesOrchestrationRequest2) ApiServicesOrchestrationApiCreateServicesOrchestrationRequest {
+	r.createServicesOrchestrationRequest2 = &createServicesOrchestrationRequest2
 	return r
 }
 
@@ -135,8 +135,8 @@ func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiCreateServi
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createServicesOrchestrationRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createServicesOrchestrationRequestBody is required and must be specified")
+	if r.createServicesOrchestrationRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createServicesOrchestrationRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -157,7 +157,7 @@ func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiCreateServi
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createServicesOrchestrationRequestBody
+	localVarPostBody = r.createServicesOrchestrationRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -747,11 +747,11 @@ type ApiServicesOrchestrationApiModifyServicesOrchestrationRequest struct {
 	ctx context.Context
 	ApiService ServicesOrchestrationApiAPI
 	id string
-	modifyServicesOrchestrationRequestBody *ModifyServicesOrchestrationRequestBody
+	modifyServicesOrchestrationRequest2 *ModifyServicesOrchestrationRequest2
 }
 
-func (r ApiServicesOrchestrationApiModifyServicesOrchestrationRequest) ModifyServicesOrchestrationRequestBody(modifyServicesOrchestrationRequestBody ModifyServicesOrchestrationRequestBody) ApiServicesOrchestrationApiModifyServicesOrchestrationRequest {
-	r.modifyServicesOrchestrationRequestBody = &modifyServicesOrchestrationRequestBody
+func (r ApiServicesOrchestrationApiModifyServicesOrchestrationRequest) ModifyServicesOrchestrationRequest2(modifyServicesOrchestrationRequest2 ModifyServicesOrchestrationRequest2) ApiServicesOrchestrationApiModifyServicesOrchestrationRequest {
+	r.modifyServicesOrchestrationRequest2 = &modifyServicesOrchestrationRequest2
 	return r
 }
 
@@ -793,8 +793,8 @@ func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiModifyServi
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.modifyServicesOrchestrationRequestBody == nil {
-		return nil, reportError("modifyServicesOrchestrationRequestBody is required and must be specified")
+	if r.modifyServicesOrchestrationRequest2 == nil {
+		return nil, reportError("modifyServicesOrchestrationRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -815,7 +815,7 @@ func (a *ServicesOrchestrationApiAPIService) ServicesOrchestrationApiModifyServi
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.modifyServicesOrchestrationRequestBody
+	localVarPostBody = r.modifyServicesOrchestrationRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

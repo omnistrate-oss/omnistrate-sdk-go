@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## ComposeGenApiGenerateComposeSpecFromContainerImage
 
-> GenerateComposeSpecFromContainerImageResult ComposeGenApiGenerateComposeSpecFromContainerImage(ctx).GenerateComposeSpecFromContainerImageRequestBody(generateComposeSpecFromContainerImageRequestBody).Execute()
+> GenerateComposeSpecFromContainerImageResult ComposeGenApiGenerateComposeSpecFromContainerImage(ctx).GenerateComposeSpecFromContainerImageRequest2(generateComposeSpecFromContainerImageRequest2).Execute()
 
 GenerateComposeSpecFromContainerImage compose-gen-api
 
@@ -98,11 +98,11 @@ import (
 )
 
 func main() {
-	generateComposeSpecFromContainerImageRequestBody := *openapiclient.NewGenerateComposeSpecFromContainerImageRequestBody("library/mysql:5.7", "docker.io") // GenerateComposeSpecFromContainerImageRequestBody | 
+	generateComposeSpecFromContainerImageRequest2 := *openapiclient.NewGenerateComposeSpecFromContainerImageRequest2("library/mysql:5.7", "docker.io") // GenerateComposeSpecFromContainerImageRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ComposeGenApiAPI.ComposeGenApiGenerateComposeSpecFromContainerImage(context.Background()).GenerateComposeSpecFromContainerImageRequestBody(generateComposeSpecFromContainerImageRequestBody).Execute()
+	resp, r, err := apiClient.ComposeGenApiAPI.ComposeGenApiGenerateComposeSpecFromContainerImage(context.Background()).GenerateComposeSpecFromContainerImageRequest2(generateComposeSpecFromContainerImageRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ComposeGenApiAPI.ComposeGenApiGenerateComposeSpecFromContainerImage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -123,7 +123,7 @@ Other parameters are passed through a pointer to a apiComposeGenApiGenerateCompo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **generateComposeSpecFromContainerImageRequestBody** | [**GenerateComposeSpecFromContainerImageRequestBody**](GenerateComposeSpecFromContainerImageRequestBody.md) |  | 
+ **generateComposeSpecFromContainerImageRequest2** | [**GenerateComposeSpecFromContainerImageRequest2**](GenerateComposeSpecFromContainerImageRequest2.md) |  | 
 
 ### Return type
 

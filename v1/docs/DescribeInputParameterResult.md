@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DefaultValue** | Pointer to **string** | Default value to use for an optional input parameter represented as a string | [optional] 
-**DependentResourceId** | Pointer to **string** | The ID of the resource whose instance this input parameter depends on | [optional] 
+**DependentResourceId** | Pointer to **string** | ID of a resource | [optional] 
 **Description** | **string** | A brief description of the input parameter | 
 **HasOptions** | Pointer to **bool** | Marks the input parameter to be selectable from a list of values | [optional] [default to false]
-**Id** | **string** | ID of the input parameter | 
+**Id** | **string** | ID of an Input Parameter | 
 **IsList** | **bool** | Marks the input parameter as a list of values | [default to false]
 **Key** | **string** | Key of the input parameter | 
 **LabeledOptions** | Pointer to **map[string]string** | A map for labeled options. The key is the label and the value is the option. When the option is selected, the label will be displayed to the end customer. | [optional] 
@@ -17,9 +17,9 @@ Name | Type | Description | Notes
 **Name** | **string** | External name for the input parameter | 
 **Options** | Pointer to **[]string** | A list of options to restrict the value of the input parameter to (represented as a string) | [optional] 
 **Required** | **bool** | Enforces the input parameter as a required parameter | 
-**ResourceId** | **string** | The ID of the resource that this input parameter belongs to | 
-**ServiceId** | **string** | The ID of the service that this output parameter belongs to | 
-**Type** | **string** |  | 
+**ResourceId** | **string** | ID of a resource | 
+**ServiceId** | **string** | ID of a Service | 
+**Type** | **string** | Type of the variable encoding the value | 
 
 ## Methods
 

@@ -21,9 +21,9 @@ var _ MappedNullable = &ProductTierFeatureDetail{}
 type ProductTierFeatureDetail struct {
 	// The configuration parameters of the product tier feature
 	Configuration map[string]interface{} `json:"configuration,omitempty"`
-	// Feature name
+	// ProductTierFeatureType is to enable / disable features per product tier
 	Feature *string `json:"feature,omitempty"`
-	// Feature scope
+	// ProductTierFeatureScope defines scope of the feature within product tier
 	Scope *string `json:"scope,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

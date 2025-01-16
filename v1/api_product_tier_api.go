@@ -156,8 +156,8 @@ type ProductTierApiAPI interface {
 	ProductTierApiListProductTier(ctx context.Context, serviceId string, serviceModelId string) ApiProductTierApiListProductTierRequest
 
 	// ProductTierApiListProductTierExecute executes the request
-	//  @return ListServiceEnvironmentsResult
-	ProductTierApiListProductTierExecute(r ApiProductTierApiListProductTierRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+	//  @return ListProductTiersResult
+	ProductTierApiListProductTierExecute(r ApiProductTierApiListProductTierRequest) (*ListProductTiersResult, *http.Response, error)
 
 	/*
 	ProductTierApiListProductTierBillingPlan ListProductTierBillingPlan product-tier-api
@@ -210,11 +210,11 @@ type ApiProductTierApiCopyProductTierRequest struct {
 	ApiService ProductTierApiAPI
 	serviceId string
 	sourceId string
-	copyProductTierRequestBody *CopyProductTierRequestBody
+	copyProductTierRequest2 *CopyProductTierRequest2
 }
 
-func (r ApiProductTierApiCopyProductTierRequest) CopyProductTierRequestBody(copyProductTierRequestBody CopyProductTierRequestBody) ApiProductTierApiCopyProductTierRequest {
-	r.copyProductTierRequestBody = &copyProductTierRequestBody
+func (r ApiProductTierApiCopyProductTierRequest) CopyProductTierRequest2(copyProductTierRequest2 CopyProductTierRequest2) ApiProductTierApiCopyProductTierRequest {
+	r.copyProductTierRequest2 = &copyProductTierRequest2
 	return r
 }
 
@@ -261,8 +261,8 @@ func (a *ProductTierApiAPIService) ProductTierApiCopyProductTierExecute(r ApiPro
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.copyProductTierRequestBody == nil {
-		return localVarReturnValue, nil, reportError("copyProductTierRequestBody is required and must be specified")
+	if r.copyProductTierRequest2 == nil {
+		return localVarReturnValue, nil, reportError("copyProductTierRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -283,7 +283,7 @@ func (a *ProductTierApiAPIService) ProductTierApiCopyProductTierExecute(r ApiPro
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.copyProductTierRequestBody
+	localVarPostBody = r.copyProductTierRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -390,11 +390,11 @@ type ApiProductTierApiCreateProductTierRequest struct {
 	ctx context.Context
 	ApiService ProductTierApiAPI
 	serviceId string
-	createProductTierRequestBody *CreateProductTierRequestBody
+	createProductTierRequest2 *CreateProductTierRequest2
 }
 
-func (r ApiProductTierApiCreateProductTierRequest) CreateProductTierRequestBody(createProductTierRequestBody CreateProductTierRequestBody) ApiProductTierApiCreateProductTierRequest {
-	r.createProductTierRequestBody = &createProductTierRequestBody
+func (r ApiProductTierApiCreateProductTierRequest) CreateProductTierRequest2(createProductTierRequest2 CreateProductTierRequest2) ApiProductTierApiCreateProductTierRequest {
+	r.createProductTierRequest2 = &createProductTierRequest2
 	return r
 }
 
@@ -438,8 +438,8 @@ func (a *ProductTierApiAPIService) ProductTierApiCreateProductTierExecute(r ApiP
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createProductTierRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createProductTierRequestBody is required and must be specified")
+	if r.createProductTierRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createProductTierRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -460,7 +460,7 @@ func (a *ProductTierApiAPIService) ProductTierApiCreateProductTierExecute(r ApiP
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createProductTierRequestBody
+	localVarPostBody = r.createProductTierRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -568,11 +568,11 @@ type ApiProductTierApiCreateProductTierBillingPlanRequest struct {
 	ApiService ProductTierApiAPI
 	serviceId string
 	id string
-	createProductTierBillingPlanRequestBody *CreateProductTierBillingPlanRequestBody
+	createProductTierBillingPlanRequest2 *CreateProductTierBillingPlanRequest2
 }
 
-func (r ApiProductTierApiCreateProductTierBillingPlanRequest) CreateProductTierBillingPlanRequestBody(createProductTierBillingPlanRequestBody CreateProductTierBillingPlanRequestBody) ApiProductTierApiCreateProductTierBillingPlanRequest {
-	r.createProductTierBillingPlanRequestBody = &createProductTierBillingPlanRequestBody
+func (r ApiProductTierApiCreateProductTierBillingPlanRequest) CreateProductTierBillingPlanRequest2(createProductTierBillingPlanRequest2 CreateProductTierBillingPlanRequest2) ApiProductTierApiCreateProductTierBillingPlanRequest {
+	r.createProductTierBillingPlanRequest2 = &createProductTierBillingPlanRequest2
 	return r
 }
 
@@ -619,8 +619,8 @@ func (a *ProductTierApiAPIService) ProductTierApiCreateProductTierBillingPlanExe
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createProductTierBillingPlanRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createProductTierBillingPlanRequestBody is required and must be specified")
+	if r.createProductTierBillingPlanRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createProductTierBillingPlanRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -641,7 +641,7 @@ func (a *ProductTierApiAPIService) ProductTierApiCreateProductTierBillingPlanExe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createProductTierBillingPlanRequestBody
+	localVarPostBody = r.createProductTierBillingPlanRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1425,11 +1425,11 @@ type ApiProductTierApiDisableProductTierFeatureRequest struct {
 	ApiService ProductTierApiAPI
 	serviceId string
 	id string
-	disableProductTierFeatureRequestBody *DisableProductTierFeatureRequestBody
+	disableProductTierFeatureRequest2 *DisableProductTierFeatureRequest2
 }
 
-func (r ApiProductTierApiDisableProductTierFeatureRequest) DisableProductTierFeatureRequestBody(disableProductTierFeatureRequestBody DisableProductTierFeatureRequestBody) ApiProductTierApiDisableProductTierFeatureRequest {
-	r.disableProductTierFeatureRequestBody = &disableProductTierFeatureRequestBody
+func (r ApiProductTierApiDisableProductTierFeatureRequest) DisableProductTierFeatureRequest2(disableProductTierFeatureRequest2 DisableProductTierFeatureRequest2) ApiProductTierApiDisableProductTierFeatureRequest {
+	r.disableProductTierFeatureRequest2 = &disableProductTierFeatureRequest2
 	return r
 }
 
@@ -1474,8 +1474,8 @@ func (a *ProductTierApiAPIService) ProductTierApiDisableProductTierFeatureExecut
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.disableProductTierFeatureRequestBody == nil {
-		return nil, reportError("disableProductTierFeatureRequestBody is required and must be specified")
+	if r.disableProductTierFeatureRequest2 == nil {
+		return nil, reportError("disableProductTierFeatureRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1496,7 +1496,7 @@ func (a *ProductTierApiAPIService) ProductTierApiDisableProductTierFeatureExecut
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.disableProductTierFeatureRequestBody
+	localVarPostBody = r.disableProductTierFeatureRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1595,11 +1595,11 @@ type ApiProductTierApiEnableProductTierFeatureRequest struct {
 	ApiService ProductTierApiAPI
 	serviceId string
 	id string
-	enableProductTierFeatureRequestBody *EnableProductTierFeatureRequestBody
+	enableProductTierFeatureRequest2 *EnableProductTierFeatureRequest2
 }
 
-func (r ApiProductTierApiEnableProductTierFeatureRequest) EnableProductTierFeatureRequestBody(enableProductTierFeatureRequestBody EnableProductTierFeatureRequestBody) ApiProductTierApiEnableProductTierFeatureRequest {
-	r.enableProductTierFeatureRequestBody = &enableProductTierFeatureRequestBody
+func (r ApiProductTierApiEnableProductTierFeatureRequest) EnableProductTierFeatureRequest2(enableProductTierFeatureRequest2 EnableProductTierFeatureRequest2) ApiProductTierApiEnableProductTierFeatureRequest {
+	r.enableProductTierFeatureRequest2 = &enableProductTierFeatureRequest2
 	return r
 }
 
@@ -1644,8 +1644,8 @@ func (a *ProductTierApiAPIService) ProductTierApiEnableProductTierFeatureExecute
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.enableProductTierFeatureRequestBody == nil {
-		return nil, reportError("enableProductTierFeatureRequestBody is required and must be specified")
+	if r.enableProductTierFeatureRequest2 == nil {
+		return nil, reportError("enableProductTierFeatureRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1666,7 +1666,7 @@ func (a *ProductTierApiAPIService) ProductTierApiEnableProductTierFeatureExecute
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.enableProductTierFeatureRequestBody
+	localVarPostBody = r.enableProductTierFeatureRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1767,7 +1767,7 @@ type ApiProductTierApiListProductTierRequest struct {
 	serviceModelId string
 }
 
-func (r ApiProductTierApiListProductTierRequest) Execute() (*ListServiceEnvironmentsResult, *http.Response, error) {
+func (r ApiProductTierApiListProductTierRequest) Execute() (*ListProductTiersResult, *http.Response, error) {
 	return r.ApiService.ProductTierApiListProductTierExecute(r)
 }
 
@@ -1789,13 +1789,13 @@ func (a *ProductTierApiAPIService) ProductTierApiListProductTier(ctx context.Con
 }
 
 // Execute executes the request
-//  @return ListServiceEnvironmentsResult
-func (a *ProductTierApiAPIService) ProductTierApiListProductTierExecute(r ApiProductTierApiListProductTierRequest) (*ListServiceEnvironmentsResult, *http.Response, error) {
+//  @return ListProductTiersResult
+func (a *ProductTierApiAPIService) ProductTierApiListProductTierExecute(r ApiProductTierApiListProductTierRequest) (*ListProductTiersResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListServiceEnvironmentsResult
+		localVarReturnValue  *ListProductTiersResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductTierApiAPIService.ProductTierApiListProductTier")
@@ -2105,11 +2105,11 @@ type ApiProductTierApiUpdateProductTierRequest struct {
 	ApiService ProductTierApiAPI
 	serviceId string
 	id string
-	updateProductTierRequestBody *UpdateProductTierRequestBody
+	updateProductTierRequest2 *UpdateProductTierRequest2
 }
 
-func (r ApiProductTierApiUpdateProductTierRequest) UpdateProductTierRequestBody(updateProductTierRequestBody UpdateProductTierRequestBody) ApiProductTierApiUpdateProductTierRequest {
-	r.updateProductTierRequestBody = &updateProductTierRequestBody
+func (r ApiProductTierApiUpdateProductTierRequest) UpdateProductTierRequest2(updateProductTierRequest2 UpdateProductTierRequest2) ApiProductTierApiUpdateProductTierRequest {
+	r.updateProductTierRequest2 = &updateProductTierRequest2
 	return r
 }
 
@@ -2154,8 +2154,8 @@ func (a *ProductTierApiAPIService) ProductTierApiUpdateProductTierExecute(r ApiP
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateProductTierRequestBody == nil {
-		return nil, reportError("updateProductTierRequestBody is required and must be specified")
+	if r.updateProductTierRequest2 == nil {
+		return nil, reportError("updateProductTierRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -2176,7 +2176,7 @@ func (a *ProductTierApiAPIService) ProductTierApiUpdateProductTierExecute(r ApiP
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateProductTierRequestBody
+	localVarPostBody = r.updateProductTierRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -2276,11 +2276,11 @@ type ApiProductTierApiUpdateProductTierBillingPlanRequest struct {
 	serviceId string
 	productTierId string
 	id string
-	updateProductTierBillingPlanRequestBody *UpdateProductTierBillingPlanRequestBody
+	updateProductTierBillingPlanRequest2 *UpdateProductTierBillingPlanRequest2
 }
 
-func (r ApiProductTierApiUpdateProductTierBillingPlanRequest) UpdateProductTierBillingPlanRequestBody(updateProductTierBillingPlanRequestBody UpdateProductTierBillingPlanRequestBody) ApiProductTierApiUpdateProductTierBillingPlanRequest {
-	r.updateProductTierBillingPlanRequestBody = &updateProductTierBillingPlanRequestBody
+func (r ApiProductTierApiUpdateProductTierBillingPlanRequest) UpdateProductTierBillingPlanRequest2(updateProductTierBillingPlanRequest2 UpdateProductTierBillingPlanRequest2) ApiProductTierApiUpdateProductTierBillingPlanRequest {
+	r.updateProductTierBillingPlanRequest2 = &updateProductTierBillingPlanRequest2
 	return r
 }
 
@@ -2330,8 +2330,8 @@ func (a *ProductTierApiAPIService) ProductTierApiUpdateProductTierBillingPlanExe
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateProductTierBillingPlanRequestBody == nil {
-		return localVarReturnValue, nil, reportError("updateProductTierBillingPlanRequestBody is required and must be specified")
+	if r.updateProductTierBillingPlanRequest2 == nil {
+		return localVarReturnValue, nil, reportError("updateProductTierBillingPlanRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -2352,7 +2352,7 @@ func (a *ProductTierApiAPIService) ProductTierApiUpdateProductTierBillingPlanExe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateProductTierBillingPlanRequestBody
+	localVarPostBody = r.updateProductTierBillingPlanRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

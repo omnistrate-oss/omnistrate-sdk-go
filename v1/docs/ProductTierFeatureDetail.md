@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Configuration** | Pointer to **map[string]interface{}** | The configuration parameters of the product tier feature | [optional] 
-**Feature** | Pointer to **string** | Feature name | [optional] 
-**Scope** | Pointer to **string** | Feature scope | [optional] 
+**Feature** | Pointer to **string** | ProductTierFeatureType is to enable / disable features per product tier | [optional] 
+**Scope** | Pointer to **string** | ProductTierFeatureScope defines scope of the feature within product tier | [optional] 
 
 ## Methods
 

@@ -78,11 +78,11 @@ type SubscriptionApiAPIService service
 type ApiSubscriptionApiCreateSubscriptionRequest struct {
 	ctx context.Context
 	ApiService SubscriptionApiAPI
-	createSubscriptionRequestBody *CreateSubscriptionRequestBody
+	createSubscriptionRequest2 *CreateSubscriptionRequest2
 }
 
-func (r ApiSubscriptionApiCreateSubscriptionRequest) CreateSubscriptionRequestBody(createSubscriptionRequestBody CreateSubscriptionRequestBody) ApiSubscriptionApiCreateSubscriptionRequest {
-	r.createSubscriptionRequestBody = &createSubscriptionRequestBody
+func (r ApiSubscriptionApiCreateSubscriptionRequest) CreateSubscriptionRequest2(createSubscriptionRequest2 CreateSubscriptionRequest2) ApiSubscriptionApiCreateSubscriptionRequest {
+	r.createSubscriptionRequest2 = &createSubscriptionRequest2
 	return r
 }
 
@@ -123,8 +123,8 @@ func (a *SubscriptionApiAPIService) SubscriptionApiCreateSubscriptionExecute(r A
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createSubscriptionRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createSubscriptionRequestBody is required and must be specified")
+	if r.createSubscriptionRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createSubscriptionRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -145,7 +145,7 @@ func (a *SubscriptionApiAPIService) SubscriptionApiCreateSubscriptionExecute(r A
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createSubscriptionRequestBody
+	localVarPostBody = r.createSubscriptionRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

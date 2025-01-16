@@ -20,7 +20,7 @@ var _ MappedNullable = &DescribeStorageVolumeConfigResult{}
 
 // DescribeStorageVolumeConfigResult struct for DescribeStorageVolumeConfigResult
 type DescribeStorageVolumeConfigResult struct {
-	// The cloud provider name for fixed storage types
+	// Name of the Infra Provider
 	CloudProviderName *string `json:"cloudProviderName,omitempty"`
 	// The type of the fixed storage for the cluster
 	ClusterStorageType *string `json:"clusterStorageType,omitempty"`
@@ -28,7 +28,7 @@ type DescribeStorageVolumeConfigResult struct {
 	Description string `json:"description"`
 	// Disable backup for the storage volume
 	DisableBackup *bool `json:"disableBackup,omitempty"`
-	// The storage volume config ID
+	// ID of a Storage Volume Config
 	Id string `json:"id"`
 	// The IOPS provisioned for the configured instance storage type
 	InstanceStorageIops *string `json:"instanceStorageIops,omitempty"`
@@ -40,7 +40,7 @@ type DescribeStorageVolumeConfigResult struct {
 	InstanceStorageType *string `json:"instanceStorageType,omitempty"`
 	// Name of the storage volume pool
 	Name string `json:"name"`
-	// The service ID
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The storage resource ID
 	StorageResourceID *string `json:"storageResourceID,omitempty"`

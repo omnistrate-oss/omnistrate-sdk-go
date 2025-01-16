@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## ComputeConfigApiAddComputeInstanceType
 
-> ComputeConfigApiAddComputeInstanceType(ctx, serviceId, id).AddComputeInstanceTypeRequestBody(addComputeInstanceTypeRequestBody).Execute()
+> ComputeConfigApiAddComputeInstanceType(ctx, serviceId, id).AddComputeInstanceTypeRequest2(addComputeInstanceTypeRequest2).Execute()
 
 AddComputeInstanceType compute-config-api
 
@@ -36,11 +36,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "cc-12345678" // string | ID of the compute config
-	addComputeInstanceTypeRequestBody := *openapiclient.NewAddComputeInstanceTypeRequestBody("aws", "t3.micro") // AddComputeInstanceTypeRequestBody | 
+	addComputeInstanceTypeRequest2 := *openapiclient.NewAddComputeInstanceTypeRequest2("aws", "t3.micro") // AddComputeInstanceTypeRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ComputeConfigApiAPI.ComputeConfigApiAddComputeInstanceType(context.Background(), serviceId, id).AddComputeInstanceTypeRequestBody(addComputeInstanceTypeRequestBody).Execute()
+	r, err := apiClient.ComputeConfigApiAPI.ComputeConfigApiAddComputeInstanceType(context.Background(), serviceId, id).AddComputeInstanceTypeRequest2(addComputeInstanceTypeRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ComputeConfigApiAPI.ComputeConfigApiAddComputeInstanceType``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **addComputeInstanceTypeRequestBody** | [**AddComputeInstanceTypeRequestBody**](AddComputeInstanceTypeRequestBody.md) |  | 
+ **addComputeInstanceTypeRequest2** | [**AddComputeInstanceTypeRequest2**](AddComputeInstanceTypeRequest2.md) |  | 
 
 ### Return type
 
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 ## ComputeConfigApiCreateComputeConfig
 
-> string ComputeConfigApiCreateComputeConfig(ctx, serviceId).CreateComputeConfigRequestBody(createComputeConfigRequestBody).Execute()
+> string ComputeConfigApiCreateComputeConfig(ctx, serviceId).CreateComputeConfigRequest2(createComputeConfigRequest2).Execute()
 
 CreateComputeConfig compute-config-api
 
@@ -106,11 +106,11 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The service ID
-	createComputeConfigRequestBody := *openapiclient.NewCreateComputeConfigRequestBody("my compute config description", "my compute config") // CreateComputeConfigRequestBody | 
+	createComputeConfigRequest2 := *openapiclient.NewCreateComputeConfigRequest2("my compute config description", "my compute config") // CreateComputeConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ComputeConfigApiAPI.ComputeConfigApiCreateComputeConfig(context.Background(), serviceId).CreateComputeConfigRequestBody(createComputeConfigRequestBody).Execute()
+	resp, r, err := apiClient.ComputeConfigApiAPI.ComputeConfigApiCreateComputeConfig(context.Background(), serviceId).CreateComputeConfigRequest2(createComputeConfigRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ComputeConfigApiAPI.ComputeConfigApiCreateComputeConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -136,7 +136,7 @@ Other parameters are passed through a pointer to a apiComputeConfigApiCreateComp
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createComputeConfigRequestBody** | [**CreateComputeConfigRequestBody**](CreateComputeConfigRequestBody.md) |  | 
+ **createComputeConfigRequest2** | [**CreateComputeConfigRequest2**](CreateComputeConfigRequest2.md) |  | 
 
 ### Return type
 
@@ -246,7 +246,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "cc-12345678" // string | ID of the compute config
-	productTierVersion := "Non sit." // string | Product tier version of the compute config to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Consequuntur provident et non voluptatem voluptatem." // string | Product tier version of the compute config to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the compute config to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 ## ComputeConfigApiListComputeConfig
 
-> ListServiceEnvironmentsResult ComputeConfigApiListComputeConfig(ctx, serviceId).Managed(managed).Execute()
+> ListComputeConfigsResult ComputeConfigApiListComputeConfig(ctx, serviceId).Managed(managed).Execute()
 
 ListComputeConfig compute-config-api
 
@@ -329,7 +329,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ComputeConfigApiAPI.ComputeConfigApiListComputeConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ComputeConfigApiListComputeConfig`: ListServiceEnvironmentsResult
+	// response from `ComputeConfigApiListComputeConfig`: ListComputeConfigsResult
 	fmt.Fprintf(os.Stdout, "Response from `ComputeConfigApiAPI.ComputeConfigApiListComputeConfig`: %v\n", resp)
 }
 ```
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListServiceEnvironmentsResult**](ListServiceEnvironmentsResult.md)
+[**ListComputeConfigsResult**](ListComputeConfigsResult.md)
 
 ### Authorization
 
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 
 ## ComputeConfigApiRemoveComputeInstanceType
 
-> ComputeConfigApiRemoveComputeInstanceType(ctx, serviceId, id).AddComputeInstanceTypeRequestBody(addComputeInstanceTypeRequestBody).Execute()
+> ComputeConfigApiRemoveComputeInstanceType(ctx, serviceId, id).RemoveComputeInstanceTypeRequest2(removeComputeInstanceTypeRequest2).Execute()
 
 RemoveComputeInstanceType compute-config-api
 
@@ -462,11 +462,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "cc-12345678" // string | ID of the compute config
-	addComputeInstanceTypeRequestBody := *openapiclient.NewAddComputeInstanceTypeRequestBody("aws", "t3.micro") // AddComputeInstanceTypeRequestBody | 
+	removeComputeInstanceTypeRequest2 := *openapiclient.NewRemoveComputeInstanceTypeRequest2("aws", "t3.micro") // RemoveComputeInstanceTypeRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ComputeConfigApiAPI.ComputeConfigApiRemoveComputeInstanceType(context.Background(), serviceId, id).AddComputeInstanceTypeRequestBody(addComputeInstanceTypeRequestBody).Execute()
+	r, err := apiClient.ComputeConfigApiAPI.ComputeConfigApiRemoveComputeInstanceType(context.Background(), serviceId, id).RemoveComputeInstanceTypeRequest2(removeComputeInstanceTypeRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ComputeConfigApiAPI.ComputeConfigApiRemoveComputeInstanceType``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -492,7 +492,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **addComputeInstanceTypeRequestBody** | [**AddComputeInstanceTypeRequestBody**](AddComputeInstanceTypeRequestBody.md) |  | 
+ **removeComputeInstanceTypeRequest2** | [**RemoveComputeInstanceTypeRequest2**](RemoveComputeInstanceTypeRequest2.md) |  | 
 
 ### Return type
 
@@ -514,7 +514,7 @@ Name | Type | Description  | Notes
 
 ## ComputeConfigApiUpdateComputeConfig
 
-> ComputeConfigApiUpdateComputeConfig(ctx, serviceId, id).UpdateComputeConfigRequestBody(updateComputeConfigRequestBody).Execute()
+> ComputeConfigApiUpdateComputeConfig(ctx, serviceId, id).UpdateComputeConfigRequest2(updateComputeConfigRequest2).Execute()
 
 UpdateComputeConfig compute-config-api
 
@@ -533,11 +533,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "cc-12345678" // string | ID of the compute config
-	updateComputeConfigRequestBody := *openapiclient.NewUpdateComputeConfigRequestBody() // UpdateComputeConfigRequestBody | 
+	updateComputeConfigRequest2 := *openapiclient.NewUpdateComputeConfigRequest2() // UpdateComputeConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ComputeConfigApiAPI.ComputeConfigApiUpdateComputeConfig(context.Background(), serviceId, id).UpdateComputeConfigRequestBody(updateComputeConfigRequestBody).Execute()
+	r, err := apiClient.ComputeConfigApiAPI.ComputeConfigApiUpdateComputeConfig(context.Background(), serviceId, id).UpdateComputeConfigRequest2(updateComputeConfigRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ComputeConfigApiAPI.ComputeConfigApiUpdateComputeConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -563,7 +563,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **updateComputeConfigRequestBody** | [**UpdateComputeConfigRequestBody**](UpdateComputeConfigRequestBody.md) |  | 
+ **updateComputeConfigRequest2** | [**UpdateComputeConfigRequest2**](UpdateComputeConfigRequest2.md) |  | 
 
 ### Return type
 

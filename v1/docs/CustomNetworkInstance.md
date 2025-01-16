@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **CloudProviderNativeNetworkId** | Pointer to **string** | The ID of the network within cloud provider account | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **GcpProjectNumber** | Pointer to **string** | The GCP project number | [optional] 
-**HostClusterID** | Pointer to **string** | The ID of the host cluster within the network | [optional] 
+**HostClusterID** | Pointer to **string** | ID of a Host Cluster | [optional] 
 
 ## Methods
 

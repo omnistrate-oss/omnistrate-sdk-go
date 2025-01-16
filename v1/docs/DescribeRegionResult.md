@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudProviderId** | **string** |  | 
-**CloudProviderName** | **string** | The cloud provider for this compute instance type config | 
+**CloudProviderId** | **string** | ID of an CloudProvider | 
+**CloudProviderName** | **string** | Name of the Infra Provider | 
 **Code** | **string** | Cloud-provider native region code | 
 **Description** | **string** | Description of the Region | 
-**Id** | **string** | ID of the Region | 
+**Id** | **string** | ID of a Region | 
 
 ## Methods
 

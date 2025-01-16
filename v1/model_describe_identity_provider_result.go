@@ -24,11 +24,11 @@ type DescribeIdentityProviderResult struct {
 	ClientId string `json:"clientId"`
 	// The Client Secret of the Identity Provider
 	ClientSecret *string `json:"clientSecret,omitempty"`
-	// The Identity Provider ID
+	// ID of an Identity Provider
 	Id string `json:"id"`
-	// The name of the Identity Provider
+	// The name of the identity provider
 	IdentityProviderName string `json:"identityProviderName"`
-	// The status of the Identity Provider
+	// The status of an operation
 	Status string `json:"status"`
 	AdditionalProperties map[string]interface{}
 }

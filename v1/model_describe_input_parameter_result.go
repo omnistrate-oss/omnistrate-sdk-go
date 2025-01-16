@@ -22,13 +22,13 @@ var _ MappedNullable = &DescribeInputParameterResult{}
 type DescribeInputParameterResult struct {
 	// Default value to use for an optional input parameter represented as a string
 	DefaultValue *string `json:"defaultValue,omitempty"`
-	// The ID of the resource whose instance this input parameter depends on
+	// ID of a resource
 	DependentResourceId *string `json:"dependentResourceId,omitempty"`
 	// A brief description of the input parameter
 	Description string `json:"description"`
 	// Marks the input parameter to be selectable from a list of values
 	HasOptions *bool `json:"hasOptions,omitempty"`
-	// ID of the input parameter
+	// ID of an Input Parameter
 	Id string `json:"id"`
 	// Marks the input parameter as a list of values
 	IsList bool `json:"isList"`
@@ -45,10 +45,11 @@ type DescribeInputParameterResult struct {
 	Options []string `json:"options,omitempty"`
 	// Enforces the input parameter as a required parameter
 	Required bool `json:"required"`
-	// The ID of the resource that this input parameter belongs to
+	// ID of a resource
 	ResourceId string `json:"resourceId"`
-	// The ID of the service that this output parameter belongs to
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
+	// Type of the variable encoding the value
 	Type string `json:"type"`
 	AdditionalProperties map[string]interface{}
 }

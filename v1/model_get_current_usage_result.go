@@ -21,7 +21,7 @@ var _ MappedNullable = &GetCurrentUsageResult{}
 type GetCurrentUsageResult struct {
 	// End timestamp of usage
 	EndTime *string `json:"endTime,omitempty"`
-	// The name of the current plan
+	// This parameter is used to select the appropriate Product Plan
 	PlanName *string `json:"planName,omitempty"`
 	// Start timestamp of usage
 	StartTime *string `json:"startTime,omitempty"`

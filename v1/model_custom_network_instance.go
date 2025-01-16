@@ -27,7 +27,7 @@ type CustomNetworkInstance struct {
 	GcpProjectID *string `json:"gcpProjectID,omitempty"`
 	// The GCP project number
 	GcpProjectNumber *string `json:"gcpProjectNumber,omitempty"`
-	// The ID of the host cluster within the network
+	// ID of a Host Cluster
 	HostClusterID *string `json:"hostClusterID,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

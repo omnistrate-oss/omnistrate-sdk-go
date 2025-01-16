@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## DemoApiDemo
 
-> DemoApiDemo(ctx).DemoRequestBody(demoRequestBody).Execute()
+> DemoApiDemo(ctx).DemoRequest(demoRequest).Execute()
 
 Demo demo-api
 
@@ -27,11 +27,11 @@ import (
 )
 
 func main() {
-	demoRequestBody := *openapiclient.NewDemoRequestBody("ABC", "abc@gmail.com", "John Doe") // DemoRequestBody | 
+	demoRequest := *openapiclient.NewDemoRequest("ABC", "abc@gmail.com", "John Doe") // DemoRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.DemoApiAPI.DemoApiDemo(context.Background()).DemoRequestBody(demoRequestBody).Execute()
+	r, err := apiClient.DemoApiAPI.DemoApiDemo(context.Background()).DemoRequest(demoRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DemoApiAPI.DemoApiDemo``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -50,7 +50,7 @@ Other parameters are passed through a pointer to a apiDemoApiDemoRequest struct 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **demoRequestBody** | [**DemoRequestBody**](DemoRequestBody.md) |  | 
+ **demoRequest** | [**DemoRequest**](DemoRequest.md) |  | 
 
 ### Return type
 

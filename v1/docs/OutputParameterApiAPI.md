@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## OutputParameterApiCreateOutputParameter
 
-> string OutputParameterApiCreateOutputParameter(ctx, serviceId).CreateOutputParameterRequestBody(createOutputParameterRequestBody).Execute()
+> string OutputParameterApiCreateOutputParameter(ctx, serviceId).CreateOutputParameterRequest2(createOutputParameterRequest2).Execute()
 
 CreateOutputParameter output-parameter-api
 
@@ -32,11 +32,11 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service that this output parameter belongs to
-	createOutputParameterRequestBody := *openapiclient.NewCreateOutputParameterRequestBody("Username of the user created in the target system", "username", "Username", "r-12345678") // CreateOutputParameterRequestBody | 
+	createOutputParameterRequest2 := *openapiclient.NewCreateOutputParameterRequest2("Username of the user created in the target system", "username", "Username", "r-12345678") // CreateOutputParameterRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OutputParameterApiAPI.OutputParameterApiCreateOutputParameter(context.Background(), serviceId).CreateOutputParameterRequestBody(createOutputParameterRequestBody).Execute()
+	resp, r, err := apiClient.OutputParameterApiAPI.OutputParameterApiCreateOutputParameter(context.Background(), serviceId).CreateOutputParameterRequest2(createOutputParameterRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OutputParameterApiAPI.OutputParameterApiCreateOutputParameter``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -62,7 +62,7 @@ Other parameters are passed through a pointer to a apiOutputParameterApiCreateOu
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createOutputParameterRequestBody** | [**CreateOutputParameterRequestBody**](CreateOutputParameterRequestBody.md) |  | 
+ **createOutputParameterRequest2** | [**CreateOutputParameterRequest2**](CreateOutputParameterRequest2.md) |  | 
 
 ### Return type
 
@@ -172,7 +172,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service that this output parameter belongs to
 	id := "op-12345678" // string | The ID of the output parameter
-	productTierVersion := "Ex quisquam est sed." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Itaque enim cupiditate tempora quisquam voluptatem." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the resource to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -247,7 +247,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service that this output parameter belongs to
 	resourceId := "r-12345678" // string | The ID of the resource that this output parameter belongs to
-	productTierVersion := "Iste vero quo reiciendis blanditiis." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Recusandae tenetur qui amet veniam tempora sed." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the resource to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ## OutputParameterApiUpdateOutputParameter
 
-> OutputParameterApiUpdateOutputParameter(ctx, serviceId, id).UpdateOutputParameterRequestBody(updateOutputParameterRequestBody).Execute()
+> OutputParameterApiUpdateOutputParameter(ctx, serviceId, id).UpdateOutputParameterRequest2(updateOutputParameterRequest2).Execute()
 
 UpdateOutputParameter output-parameter-api
 
@@ -322,11 +322,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service that this output parameter belongs to
 	id := "op-12345678" // string | The ID of the output parameter
-	updateOutputParameterRequestBody := *openapiclient.NewUpdateOutputParameterRequestBody() // UpdateOutputParameterRequestBody | 
+	updateOutputParameterRequest2 := *openapiclient.NewUpdateOutputParameterRequest2() // UpdateOutputParameterRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.OutputParameterApiAPI.OutputParameterApiUpdateOutputParameter(context.Background(), serviceId, id).UpdateOutputParameterRequestBody(updateOutputParameterRequestBody).Execute()
+	r, err := apiClient.OutputParameterApiAPI.OutputParameterApiUpdateOutputParameter(context.Background(), serviceId, id).UpdateOutputParameterRequest2(updateOutputParameterRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OutputParameterApiAPI.OutputParameterApiUpdateOutputParameter``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **updateOutputParameterRequestBody** | [**UpdateOutputParameterRequestBody**](UpdateOutputParameterRequestBody.md) |  | 
+ **updateOutputParameterRequest2** | [**UpdateOutputParameterRequest2**](UpdateOutputParameterRequest2.md) |  | 
 
 ### Return type
 

@@ -113,8 +113,8 @@ type ServiceApiApiAPI interface {
 	ServiceApiApiListServiceAPI(ctx context.Context, serviceId string, serviceEnvironmentId string) ApiServiceApiApiListServiceAPIRequest
 
 	// ServiceApiApiListServiceAPIExecute executes the request
-	//  @return ListServiceEnvironmentsResult
-	ServiceApiApiListServiceAPIExecute(r ApiServiceApiApiListServiceAPIRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+	//  @return ListServiceAPIsResult
+	ServiceApiApiListServiceAPIExecute(r ApiServiceApiApiListServiceAPIRequest) (*ListServiceAPIsResult, *http.Response, error)
 
 	/*
 	ServiceApiApiReleaseServiceAPI ReleaseServiceAPI service-api-api
@@ -150,11 +150,11 @@ type ApiServiceApiApiCreateServiceAPIRequest struct {
 	ctx context.Context
 	ApiService ServiceApiApiAPI
 	serviceId string
-	createServiceAPIRequestBody *CreateServiceAPIRequestBody
+	createServiceAPIRequest2 *CreateServiceAPIRequest2
 }
 
-func (r ApiServiceApiApiCreateServiceAPIRequest) CreateServiceAPIRequestBody(createServiceAPIRequestBody CreateServiceAPIRequestBody) ApiServiceApiApiCreateServiceAPIRequest {
-	r.createServiceAPIRequestBody = &createServiceAPIRequestBody
+func (r ApiServiceApiApiCreateServiceAPIRequest) CreateServiceAPIRequest2(createServiceAPIRequest2 CreateServiceAPIRequest2) ApiServiceApiApiCreateServiceAPIRequest {
+	r.createServiceAPIRequest2 = &createServiceAPIRequest2
 	return r
 }
 
@@ -198,8 +198,8 @@ func (a *ServiceApiApiAPIService) ServiceApiApiCreateServiceAPIExecute(r ApiServ
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createServiceAPIRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createServiceAPIRequestBody is required and must be specified")
+	if r.createServiceAPIRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createServiceAPIRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -220,7 +220,7 @@ func (a *ServiceApiApiAPIService) ServiceApiApiCreateServiceAPIExecute(r ApiServ
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createServiceAPIRequestBody
+	localVarPostBody = r.createServiceAPIRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1167,7 +1167,7 @@ type ApiServiceApiApiListServiceAPIRequest struct {
 	serviceEnvironmentId string
 }
 
-func (r ApiServiceApiApiListServiceAPIRequest) Execute() (*ListServiceEnvironmentsResult, *http.Response, error) {
+func (r ApiServiceApiApiListServiceAPIRequest) Execute() (*ListServiceAPIsResult, *http.Response, error) {
 	return r.ApiService.ServiceApiApiListServiceAPIExecute(r)
 }
 
@@ -1189,13 +1189,13 @@ func (a *ServiceApiApiAPIService) ServiceApiApiListServiceAPI(ctx context.Contex
 }
 
 // Execute executes the request
-//  @return ListServiceEnvironmentsResult
-func (a *ServiceApiApiAPIService) ServiceApiApiListServiceAPIExecute(r ApiServiceApiApiListServiceAPIRequest) (*ListServiceEnvironmentsResult, *http.Response, error) {
+//  @return ListServiceAPIsResult
+func (a *ServiceApiApiAPIService) ServiceApiApiListServiceAPIExecute(r ApiServiceApiApiListServiceAPIRequest) (*ListServiceAPIsResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListServiceEnvironmentsResult
+		localVarReturnValue  *ListServiceAPIsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceApiApiAPIService.ServiceApiApiListServiceAPI")
@@ -1335,11 +1335,11 @@ type ApiServiceApiApiReleaseServiceAPIRequest struct {
 	ApiService ServiceApiApiAPI
 	serviceId string
 	id string
-	releaseServiceAPIRequestBody *ReleaseServiceAPIRequestBody
+	releaseServiceAPIRequest2 *ReleaseServiceAPIRequest2
 }
 
-func (r ApiServiceApiApiReleaseServiceAPIRequest) ReleaseServiceAPIRequestBody(releaseServiceAPIRequestBody ReleaseServiceAPIRequestBody) ApiServiceApiApiReleaseServiceAPIRequest {
-	r.releaseServiceAPIRequestBody = &releaseServiceAPIRequestBody
+func (r ApiServiceApiApiReleaseServiceAPIRequest) ReleaseServiceAPIRequest2(releaseServiceAPIRequest2 ReleaseServiceAPIRequest2) ApiServiceApiApiReleaseServiceAPIRequest {
+	r.releaseServiceAPIRequest2 = &releaseServiceAPIRequest2
 	return r
 }
 
@@ -1384,8 +1384,8 @@ func (a *ServiceApiApiAPIService) ServiceApiApiReleaseServiceAPIExecute(r ApiSer
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.releaseServiceAPIRequestBody == nil {
-		return nil, reportError("releaseServiceAPIRequestBody is required and must be specified")
+	if r.releaseServiceAPIRequest2 == nil {
+		return nil, reportError("releaseServiceAPIRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1406,7 +1406,7 @@ func (a *ServiceApiApiAPIService) ServiceApiApiReleaseServiceAPIExecute(r ApiSer
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.releaseServiceAPIRequestBody
+	localVarPostBody = r.releaseServiceAPIRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1505,11 +1505,11 @@ type ApiServiceApiApiUpdateServiceAPIRequest struct {
 	ApiService ServiceApiApiAPI
 	serviceId string
 	id string
-	updateServiceAPIRequestBody *UpdateServiceAPIRequestBody
+	updateServiceAPIRequest2 *UpdateServiceAPIRequest2
 }
 
-func (r ApiServiceApiApiUpdateServiceAPIRequest) UpdateServiceAPIRequestBody(updateServiceAPIRequestBody UpdateServiceAPIRequestBody) ApiServiceApiApiUpdateServiceAPIRequest {
-	r.updateServiceAPIRequestBody = &updateServiceAPIRequestBody
+func (r ApiServiceApiApiUpdateServiceAPIRequest) UpdateServiceAPIRequest2(updateServiceAPIRequest2 UpdateServiceAPIRequest2) ApiServiceApiApiUpdateServiceAPIRequest {
+	r.updateServiceAPIRequest2 = &updateServiceAPIRequest2
 	return r
 }
 
@@ -1554,8 +1554,8 @@ func (a *ServiceApiApiAPIService) ServiceApiApiUpdateServiceAPIExecute(r ApiServ
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateServiceAPIRequestBody == nil {
-		return nil, reportError("updateServiceAPIRequestBody is required and must be specified")
+	if r.updateServiceAPIRequest2 == nil {
+		return nil, reportError("updateServiceAPIRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1576,7 +1576,7 @@ func (a *ServiceApiApiAPIService) ServiceApiApiUpdateServiceAPIExecute(r ApiServ
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateServiceAPIRequestBody
+	localVarPostBody = r.updateServiceAPIRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

@@ -24,6 +24,7 @@ type SubscriptionUsers struct {
 	Email string `json:"email"`
 	// The name of the user
 	Name string `json:"name"`
+	// Type of the role
 	RoleType string `json:"roleType"`
 	// The subscription ID
 	SubscriptionId string `json:"subscriptionId"`

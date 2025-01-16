@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Service environment ID | 
+**Id** | **string** | ID of a Service Environment | 
 **Name** | **string** | Name of the Service Environment | 
 **PromoteStatus** | Pointer to **string** | The status of the promotion | [optional] 
-**SaasPortalStatus** | Pointer to **string** | The status of the SaaS portal for this environment type | [optional] 
+**SaasPortalStatus** | Pointer to **string** | The status of an operation | [optional] 
 **SaasPortalUrl** | Pointer to **string** | The URL of the SaaS portal for this environment type | [optional] 
 **ServicePlans** | [**[]ServicePlan**](ServicePlan.md) | List of service plans | 
-**SourceEnvironmentID** | Pointer to **string** | The source environment ID | [optional] 
+**SourceEnvironmentID** | Pointer to **string** | ID of a Service Environment | [optional] 
 **SourceEnvironmentName** | Pointer to **string** | The source environment name | [optional] 
-**Type** | Pointer to **string** |  | [optional] 
-**Visibility** | **string** | Visibility of the service environment | 
+**Type** | Pointer to **string** | The type of service environment | [optional] 
+**Visibility** | **string** | This parameter is used to configure the visibility of the service control-plane APIs | 
 
 ## Methods
 

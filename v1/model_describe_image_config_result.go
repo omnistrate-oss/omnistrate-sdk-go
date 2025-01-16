@@ -23,19 +23,19 @@ type DescribeImageConfigResult struct {
 	CustomImageCommandsAndArgs *CustomImageCommandsAndArgs `json:"customImageCommandsAndArgs,omitempty"`
 	// A brief description of the image configuration
 	Description string `json:"description"`
-	// The image configuration ID
+	// ID of an Image Config
 	Id string `json:"id"`
 	// Name of the container image
 	ImageName string `json:"imageName"`
-	// The image registry ID to use for the infra
+	// ID of an Image Registry
 	ImageRegistryId string `json:"imageRegistryId"`
 	// PEM-encoded Public key part of the key used to sign the container image
 	ImageSignaturePublicKeyPEM *string `json:"imageSignaturePublicKeyPEM,omitempty"`
 	// Tag representing the software image version that is currently preferred
 	ImageTag string `json:"imageTag"`
-	// The service environment ID
+	// ID of a Service Environment
 	ServiceEnvironmentId string `json:"serviceEnvironmentId"`
-	// The service ID
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	AdditionalProperties map[string]interface{}
 }

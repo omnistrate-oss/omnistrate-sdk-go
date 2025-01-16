@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudProviderName** | **string** | The cloud provider for this compute instance type config | 
+**CloudProviderName** | **string** | Name of the Infra Provider | 
 **Code** | **string** | Cloud-provider native availability zone code | 
 **Description** | **string** | Description of the AvailabilityZone | 
-**Id** | **string** |  | 
+**Id** | **string** | ID of an AZ | 
 **RegionCode** | **string** | Cloud-provider native region code | 
 
 ## Methods

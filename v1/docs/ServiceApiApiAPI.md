@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## ServiceApiApiCreateServiceAPI
 
-> string ServiceApiApiCreateServiceAPI(ctx, serviceId).CreateServiceAPIRequestBody(createServiceAPIRequestBody).Execute()
+> string ServiceApiApiCreateServiceAPI(ctx, serviceId).CreateServiceAPIRequest2(createServiceAPIRequest2).Execute()
 
 CreateServiceAPI service-api-api
 
@@ -36,11 +36,11 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
-	createServiceAPIRequestBody := *openapiclient.NewCreateServiceAPIRequestBody("A MySQL SaaS API specializing in multi-writer multi-tenant clusters for high availability", "se-12345678") // CreateServiceAPIRequestBody | 
+	createServiceAPIRequest2 := *openapiclient.NewCreateServiceAPIRequest2("A MySQL SaaS API specializing in multi-writer multi-tenant clusters for high availability", "se-12345678") // CreateServiceAPIRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServiceApiApiAPI.ServiceApiApiCreateServiceAPI(context.Background(), serviceId).CreateServiceAPIRequestBody(createServiceAPIRequestBody).Execute()
+	resp, r, err := apiClient.ServiceApiApiAPI.ServiceApiApiCreateServiceAPI(context.Background(), serviceId).CreateServiceAPIRequest2(createServiceAPIRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceApiApiAPI.ServiceApiApiCreateServiceAPI``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -66,7 +66,7 @@ Other parameters are passed through a pointer to a apiServiceApiApiCreateService
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createServiceAPIRequestBody** | [**CreateServiceAPIRequestBody**](CreateServiceAPIRequestBody.md) |  | 
+ **createServiceAPIRequest2** | [**CreateServiceAPIRequest2**](CreateServiceAPIRequest2.md) |  | 
 
 ### Return type
 
@@ -441,7 +441,7 @@ Name | Type | Description  | Notes
 
 ## ServiceApiApiListServiceAPI
 
-> ListServiceEnvironmentsResult ServiceApiApiListServiceAPI(ctx, serviceId, serviceEnvironmentId).Execute()
+> ListServiceAPIsResult ServiceApiApiListServiceAPI(ctx, serviceId, serviceEnvironmentId).Execute()
 
 ListServiceAPI service-api-api
 
@@ -468,7 +468,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceApiApiAPI.ServiceApiApiListServiceAPI``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ServiceApiApiListServiceAPI`: ListServiceEnvironmentsResult
+	// response from `ServiceApiApiListServiceAPI`: ListServiceAPIsResult
 	fmt.Fprintf(os.Stdout, "Response from `ServiceApiApiAPI.ServiceApiApiListServiceAPI`: %v\n", resp)
 }
 ```
@@ -494,7 +494,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListServiceEnvironmentsResult**](ListServiceEnvironmentsResult.md)
+[**ListServiceAPIsResult**](ListServiceAPIsResult.md)
 
 ### Authorization
 
@@ -512,7 +512,7 @@ Name | Type | Description  | Notes
 
 ## ServiceApiApiReleaseServiceAPI
 
-> ServiceApiApiReleaseServiceAPI(ctx, serviceId, id).ReleaseServiceAPIRequestBody(releaseServiceAPIRequestBody).Execute()
+> ServiceApiApiReleaseServiceAPI(ctx, serviceId, id).ReleaseServiceAPIRequest2(releaseServiceAPIRequest2).Execute()
 
 ReleaseServiceAPI service-api-api
 
@@ -531,11 +531,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "sa-12345678" // string | The service API ID
-	releaseServiceAPIRequestBody := *openapiclient.NewReleaseServiceAPIRequestBody() // ReleaseServiceAPIRequestBody | 
+	releaseServiceAPIRequest2 := *openapiclient.NewReleaseServiceAPIRequest2() // ReleaseServiceAPIRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ServiceApiApiAPI.ServiceApiApiReleaseServiceAPI(context.Background(), serviceId, id).ReleaseServiceAPIRequestBody(releaseServiceAPIRequestBody).Execute()
+	r, err := apiClient.ServiceApiApiAPI.ServiceApiApiReleaseServiceAPI(context.Background(), serviceId, id).ReleaseServiceAPIRequest2(releaseServiceAPIRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceApiApiAPI.ServiceApiApiReleaseServiceAPI``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -561,7 +561,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **releaseServiceAPIRequestBody** | [**ReleaseServiceAPIRequestBody**](ReleaseServiceAPIRequestBody.md) |  | 
+ **releaseServiceAPIRequest2** | [**ReleaseServiceAPIRequest2**](ReleaseServiceAPIRequest2.md) |  | 
 
 ### Return type
 
@@ -583,7 +583,7 @@ Name | Type | Description  | Notes
 
 ## ServiceApiApiUpdateServiceAPI
 
-> ServiceApiApiUpdateServiceAPI(ctx, serviceId, id).UpdateServiceAPIRequestBody(updateServiceAPIRequestBody).Execute()
+> ServiceApiApiUpdateServiceAPI(ctx, serviceId, id).UpdateServiceAPIRequest2(updateServiceAPIRequest2).Execute()
 
 UpdateServiceAPI service-api-api
 
@@ -602,11 +602,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "sa-12345678" // string | The service API ID
-	updateServiceAPIRequestBody := *openapiclient.NewUpdateServiceAPIRequestBody() // UpdateServiceAPIRequestBody | 
+	updateServiceAPIRequest2 := *openapiclient.NewUpdateServiceAPIRequest2() // UpdateServiceAPIRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ServiceApiApiAPI.ServiceApiApiUpdateServiceAPI(context.Background(), serviceId, id).UpdateServiceAPIRequestBody(updateServiceAPIRequestBody).Execute()
+	r, err := apiClient.ServiceApiApiAPI.ServiceApiApiUpdateServiceAPI(context.Background(), serviceId, id).UpdateServiceAPIRequest2(updateServiceAPIRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceApiApiAPI.ServiceApiApiUpdateServiceAPI``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -632,7 +632,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **updateServiceAPIRequestBody** | [**UpdateServiceAPIRequestBody**](UpdateServiceAPIRequestBody.md) |  | 
+ **updateServiceAPIRequest2** | [**UpdateServiceAPIRequest2**](UpdateServiceAPIRequest2.md) |  | 
 
 ### Return type
 

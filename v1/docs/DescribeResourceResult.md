@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ActionHooks** | Pointer to [**[]RegisterActionHookRequestBody**](RegisterActionHookRequestBody.md) | The action hooks that this resource supports | [optional] 
+**ActionHooks** | Pointer to [**[]ActionHook**](ActionHook.md) | The action hooks that this resource supports | [optional] 
 **AdditionalSecurityContext** | Pointer to [**AdditionalSecurityContext**](AdditionalSecurityContext.md) |  | [optional] 
 **BackupConfiguration** | Pointer to [**BackupConfiguration**](BackupConfiguration.md) |  | [optional] 
 **BlobStorageConfiguration** | Pointer to [**BlobStorageConfiguration**](BlobStorageConfiguration.md) |  | [optional] 
@@ -17,9 +17,9 @@ Name | Type | Description | Notes
 **EnvironmentVariables** | Pointer to [**[]EnvironmentVariable**](EnvironmentVariable.md) | The environment variables that this resource requires | [optional] 
 **FileSystemConfiguration** | Pointer to [**FileSystemConfiguration**](FileSystemConfiguration.md) |  | [optional] 
 **HelmChartConfiguration** | Pointer to [**HelmChartConfiguration**](HelmChartConfiguration.md) |  | [optional] 
-**Id** | **string** | The ID of the resource | 
-**ImageConfigId** | Pointer to **string** | The ID of the image configuration that this resource refers to | [optional] 
-**InfraConfigId** | Pointer to **string** | The ID of the infrastructure configuration that this resource refers to | [optional] 
+**Id** | **string** | ID of a resource | 
+**ImageConfigId** | Pointer to **string** | ID of an Image Config | [optional] 
+**InfraConfigId** | Pointer to **string** | ID of an Infra Config | [optional] 
 **Internal** | **bool** | Whether this resource is internal or not | [default to false]
 **IsDeprecated** | **bool** | Whether this resource is deprecated or not | [default to false]
 **Key** | **string** | The key of the resource | 
@@ -28,11 +28,11 @@ Name | Type | Description | Notes
 **L7LoadBalancerConfiguration** | Pointer to [**L7LoadBalancerConfiguration**](L7LoadBalancerConfiguration.md) |  | [optional] 
 **Name** | **string** | Name of the resource | 
 **OperatorCRDConfiguration** | Pointer to [**OperatorCRDConfiguration**](OperatorCRDConfiguration.md) |  | [optional] 
-**ProductTierId** | **string** | The product tier ID | 
+**ProductTierId** | **string** | ID of a Product Tier | 
 **ProxyType** | Pointer to **string** | The proxy type of instance | [optional] 
 **ResourceType** | **string** | The type of the resource | 
-**ServiceId** | **string** | The service ID that this API bundle belongs to | 
-**TerraformConfigurations** | Pointer to [**map[string]TerraformConfiguration**](TerraformConfiguration.md) | The Terraform configurations for various cloud providers | [optional] 
+**ServiceId** | **string** | ID of a Service | 
+**TerraformConfigurations** | Pointer to **map[string]interface{}** | The Terraform configurations for cloud providers | [optional] 
 
 ## Methods
 
@@ -55,20 +55,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetActionHooks
 
-`func (o *DescribeResourceResult) GetActionHooks() []RegisterActionHookRequestBody`
+`func (o *DescribeResourceResult) GetActionHooks() []ActionHook`
 
 GetActionHooks returns the ActionHooks field if non-nil, zero value otherwise.
 
 ### GetActionHooksOk
 
-`func (o *DescribeResourceResult) GetActionHooksOk() (*[]RegisterActionHookRequestBody, bool)`
+`func (o *DescribeResourceResult) GetActionHooksOk() (*[]ActionHook, bool)`
 
 GetActionHooksOk returns a tuple with the ActionHooks field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetActionHooks
 
-`func (o *DescribeResourceResult) SetActionHooks(v []RegisterActionHookRequestBody)`
+`func (o *DescribeResourceResult) SetActionHooks(v []ActionHook)`
 
 SetActionHooks sets ActionHooks field to given value.
 
@@ -710,20 +710,20 @@ SetServiceId sets ServiceId field to given value.
 
 ### GetTerraformConfigurations
 
-`func (o *DescribeResourceResult) GetTerraformConfigurations() map[string]TerraformConfiguration`
+`func (o *DescribeResourceResult) GetTerraformConfigurations() map[string]interface{}`
 
 GetTerraformConfigurations returns the TerraformConfigurations field if non-nil, zero value otherwise.
 
 ### GetTerraformConfigurationsOk
 
-`func (o *DescribeResourceResult) GetTerraformConfigurationsOk() (*map[string]TerraformConfiguration, bool)`
+`func (o *DescribeResourceResult) GetTerraformConfigurationsOk() (*map[string]interface{}, bool)`
 
 GetTerraformConfigurationsOk returns a tuple with the TerraformConfigurations field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTerraformConfigurations
 
-`func (o *DescribeResourceResult) SetTerraformConfigurations(v map[string]TerraformConfiguration)`
+`func (o *DescribeResourceResult) SetTerraformConfigurations(v map[string]interface{})`
 
 SetTerraformConfigurations sets TerraformConfigurations field to given value.
 

@@ -28,7 +28,7 @@ type DescribeUserBillingDetailsResult struct {
 	PaymentConfigured bool `json:"paymentConfigured"`
 	// The URL from the billing provide to redirect users to so they can enter their payment information.  Only present when first adding payment information
 	PaymentInfoPortalURL *string `json:"paymentInfoPortalURL,omitempty"`
-	// The User ID
+	// ID of a User
 	UserId string `json:"userId"`
 	AdditionalProperties map[string]interface{}
 }

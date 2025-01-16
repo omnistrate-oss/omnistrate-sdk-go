@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Email** | **string** | The email of the user | 
 **Name** | **string** | The name of the user | 
-**RoleType** | **string** |  | 
+**RoleType** | **string** | Type of the role | 
 **SubscriptionId** | **string** | The subscription ID | 
 **UserId** | **string** | The User ID | 
 

@@ -86,8 +86,8 @@ type StorageConfigApiAPI interface {
 	StorageConfigApiListStorageConfig(ctx context.Context, serviceId string) ApiStorageConfigApiListStorageConfigRequest
 
 	// StorageConfigApiListStorageConfigExecute executes the request
-	//  @return ListServiceEnvironmentsResult
-	StorageConfigApiListStorageConfigExecute(r ApiStorageConfigApiListStorageConfigRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+	//  @return ListStorageConfigsResult
+	StorageConfigApiListStorageConfigExecute(r ApiStorageConfigApiListStorageConfigRequest) (*ListStorageConfigsResult, *http.Response, error)
 
 	/*
 	StorageConfigApiRemoveStorageVolumeConfig RemoveStorageVolumeConfig storage-config-api
@@ -126,11 +126,11 @@ type ApiStorageConfigApiAddStorageVolumeConfigRequest struct {
 	serviceId string
 	id string
 	storageVolumeConfigId string
-	addStorageVolumeConfigRequestBody *AddStorageVolumeConfigRequestBody
+	addStorageVolumeConfigRequest2 *AddStorageVolumeConfigRequest2
 }
 
-func (r ApiStorageConfigApiAddStorageVolumeConfigRequest) AddStorageVolumeConfigRequestBody(addStorageVolumeConfigRequestBody AddStorageVolumeConfigRequestBody) ApiStorageConfigApiAddStorageVolumeConfigRequest {
-	r.addStorageVolumeConfigRequestBody = &addStorageVolumeConfigRequestBody
+func (r ApiStorageConfigApiAddStorageVolumeConfigRequest) AddStorageVolumeConfigRequest2(addStorageVolumeConfigRequest2 AddStorageVolumeConfigRequest2) ApiStorageConfigApiAddStorageVolumeConfigRequest {
+	r.addStorageVolumeConfigRequest2 = &addStorageVolumeConfigRequest2
 	return r
 }
 
@@ -178,8 +178,8 @@ func (a *StorageConfigApiAPIService) StorageConfigApiAddStorageVolumeConfigExecu
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.addStorageVolumeConfigRequestBody == nil {
-		return nil, reportError("addStorageVolumeConfigRequestBody is required and must be specified")
+	if r.addStorageVolumeConfigRequest2 == nil {
+		return nil, reportError("addStorageVolumeConfigRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -200,7 +200,7 @@ func (a *StorageConfigApiAPIService) StorageConfigApiAddStorageVolumeConfigExecu
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.addStorageVolumeConfigRequestBody
+	localVarPostBody = r.addStorageVolumeConfigRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -298,11 +298,11 @@ type ApiStorageConfigApiCreateStorageConfigRequest struct {
 	ctx context.Context
 	ApiService StorageConfigApiAPI
 	serviceId string
-	createStorageConfigRequestBody *CreateStorageConfigRequestBody
+	createStorageConfigRequest2 *CreateStorageConfigRequest2
 }
 
-func (r ApiStorageConfigApiCreateStorageConfigRequest) CreateStorageConfigRequestBody(createStorageConfigRequestBody CreateStorageConfigRequestBody) ApiStorageConfigApiCreateStorageConfigRequest {
-	r.createStorageConfigRequestBody = &createStorageConfigRequestBody
+func (r ApiStorageConfigApiCreateStorageConfigRequest) CreateStorageConfigRequest2(createStorageConfigRequest2 CreateStorageConfigRequest2) ApiStorageConfigApiCreateStorageConfigRequest {
+	r.createStorageConfigRequest2 = &createStorageConfigRequest2
 	return r
 }
 
@@ -346,8 +346,8 @@ func (a *StorageConfigApiAPIService) StorageConfigApiCreateStorageConfigExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createStorageConfigRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createStorageConfigRequestBody is required and must be specified")
+	if r.createStorageConfigRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createStorageConfigRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -368,7 +368,7 @@ func (a *StorageConfigApiAPIService) StorageConfigApiCreateStorageConfigExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createStorageConfigRequestBody
+	localVarPostBody = r.createStorageConfigRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -833,7 +833,7 @@ func (r ApiStorageConfigApiListStorageConfigRequest) Managed(managed bool) ApiSt
 	return r
 }
 
-func (r ApiStorageConfigApiListStorageConfigRequest) Execute() (*ListServiceEnvironmentsResult, *http.Response, error) {
+func (r ApiStorageConfigApiListStorageConfigRequest) Execute() (*ListStorageConfigsResult, *http.Response, error) {
 	return r.ApiService.StorageConfigApiListStorageConfigExecute(r)
 }
 
@@ -853,13 +853,13 @@ func (a *StorageConfigApiAPIService) StorageConfigApiListStorageConfig(ctx conte
 }
 
 // Execute executes the request
-//  @return ListServiceEnvironmentsResult
-func (a *StorageConfigApiAPIService) StorageConfigApiListStorageConfigExecute(r ApiStorageConfigApiListStorageConfigRequest) (*ListServiceEnvironmentsResult, *http.Response, error) {
+//  @return ListStorageConfigsResult
+func (a *StorageConfigApiAPIService) StorageConfigApiListStorageConfigExecute(r ApiStorageConfigApiListStorageConfigRequest) (*ListStorageConfigsResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListServiceEnvironmentsResult
+		localVarReturnValue  *ListStorageConfigsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StorageConfigApiAPIService.StorageConfigApiListStorageConfig")
@@ -1002,11 +1002,11 @@ type ApiStorageConfigApiRemoveStorageVolumeConfigRequest struct {
 	serviceId string
 	id string
 	storageVolumeConfigId string
-	addStorageVolumeConfigRequestBody *AddStorageVolumeConfigRequestBody
+	removeStorageVolumeConfigRequest2 *RemoveStorageVolumeConfigRequest2
 }
 
-func (r ApiStorageConfigApiRemoveStorageVolumeConfigRequest) AddStorageVolumeConfigRequestBody(addStorageVolumeConfigRequestBody AddStorageVolumeConfigRequestBody) ApiStorageConfigApiRemoveStorageVolumeConfigRequest {
-	r.addStorageVolumeConfigRequestBody = &addStorageVolumeConfigRequestBody
+func (r ApiStorageConfigApiRemoveStorageVolumeConfigRequest) RemoveStorageVolumeConfigRequest2(removeStorageVolumeConfigRequest2 RemoveStorageVolumeConfigRequest2) ApiStorageConfigApiRemoveStorageVolumeConfigRequest {
+	r.removeStorageVolumeConfigRequest2 = &removeStorageVolumeConfigRequest2
 	return r
 }
 
@@ -1054,8 +1054,8 @@ func (a *StorageConfigApiAPIService) StorageConfigApiRemoveStorageVolumeConfigEx
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.addStorageVolumeConfigRequestBody == nil {
-		return nil, reportError("addStorageVolumeConfigRequestBody is required and must be specified")
+	if r.removeStorageVolumeConfigRequest2 == nil {
+		return nil, reportError("removeStorageVolumeConfigRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1076,7 +1076,7 @@ func (a *StorageConfigApiAPIService) StorageConfigApiRemoveStorageVolumeConfigEx
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.addStorageVolumeConfigRequestBody
+	localVarPostBody = r.removeStorageVolumeConfigRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1175,11 +1175,11 @@ type ApiStorageConfigApiUpdateStorageConfigRequest struct {
 	ApiService StorageConfigApiAPI
 	serviceId string
 	id string
-	updateServiceModelRequestBody *UpdateServiceModelRequestBody
+	updateStorageConfigRequest2 *UpdateStorageConfigRequest2
 }
 
-func (r ApiStorageConfigApiUpdateStorageConfigRequest) UpdateServiceModelRequestBody(updateServiceModelRequestBody UpdateServiceModelRequestBody) ApiStorageConfigApiUpdateStorageConfigRequest {
-	r.updateServiceModelRequestBody = &updateServiceModelRequestBody
+func (r ApiStorageConfigApiUpdateStorageConfigRequest) UpdateStorageConfigRequest2(updateStorageConfigRequest2 UpdateStorageConfigRequest2) ApiStorageConfigApiUpdateStorageConfigRequest {
+	r.updateStorageConfigRequest2 = &updateStorageConfigRequest2
 	return r
 }
 
@@ -1224,8 +1224,8 @@ func (a *StorageConfigApiAPIService) StorageConfigApiUpdateStorageConfigExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateServiceModelRequestBody == nil {
-		return nil, reportError("updateServiceModelRequestBody is required and must be specified")
+	if r.updateStorageConfigRequest2 == nil {
+		return nil, reportError("updateStorageConfigRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1246,7 +1246,7 @@ func (a *StorageConfigApiAPIService) StorageConfigApiUpdateStorageConfigExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateServiceModelRequestBody
+	localVarPostBody = r.updateStorageConfigRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

@@ -410,11 +410,11 @@ func (a *LimitApiAPIService) LimitApiDescribeLimitExecute(r ApiLimitApiDescribeL
 type ApiLimitApiListLimitRequest struct {
 	ctx context.Context
 	ApiService LimitApiAPI
-	listLimitRequestBody *ListLimitRequestBody
+	listLimitRequest2 *ListLimitRequest2
 }
 
-func (r ApiLimitApiListLimitRequest) ListLimitRequestBody(listLimitRequestBody ListLimitRequestBody) ApiLimitApiListLimitRequest {
-	r.listLimitRequestBody = &listLimitRequestBody
+func (r ApiLimitApiListLimitRequest) ListLimitRequest2(listLimitRequest2 ListLimitRequest2) ApiLimitApiListLimitRequest {
+	r.listLimitRequest2 = &listLimitRequest2
 	return r
 }
 
@@ -455,8 +455,8 @@ func (a *LimitApiAPIService) LimitApiListLimitExecute(r ApiLimitApiListLimitRequ
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.listLimitRequestBody == nil {
-		return localVarReturnValue, nil, reportError("listLimitRequestBody is required and must be specified")
+	if r.listLimitRequest2 == nil {
+		return localVarReturnValue, nil, reportError("listLimitRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -477,7 +477,7 @@ func (a *LimitApiAPIService) LimitApiListLimitExecute(r ApiLimitApiListLimitRequ
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.listLimitRequestBody
+	localVarPostBody = r.listLimitRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -585,11 +585,11 @@ type ApiLimitApiUpdateLimitRequest struct {
 	ApiService LimitApiAPI
 	family string
 	key string
-	updateLimitRequestBody *UpdateLimitRequestBody
+	updateLimitRequest2 *UpdateLimitRequest2
 }
 
-func (r ApiLimitApiUpdateLimitRequest) UpdateLimitRequestBody(updateLimitRequestBody UpdateLimitRequestBody) ApiLimitApiUpdateLimitRequest {
-	r.updateLimitRequestBody = &updateLimitRequestBody
+func (r ApiLimitApiUpdateLimitRequest) UpdateLimitRequest2(updateLimitRequest2 UpdateLimitRequest2) ApiLimitApiUpdateLimitRequest {
+	r.updateLimitRequest2 = &updateLimitRequest2
 	return r
 }
 
@@ -634,8 +634,8 @@ func (a *LimitApiAPIService) LimitApiUpdateLimitExecute(r ApiLimitApiUpdateLimit
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateLimitRequestBody == nil {
-		return nil, reportError("updateLimitRequestBody is required and must be specified")
+	if r.updateLimitRequest2 == nil {
+		return nil, reportError("updateLimitRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -656,7 +656,7 @@ func (a *LimitApiAPIService) LimitApiUpdateLimitExecute(r ApiLimitApiUpdateLimit
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateLimitRequestBody
+	localVarPostBody = r.updateLimitRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

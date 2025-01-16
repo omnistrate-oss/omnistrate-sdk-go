@@ -22,7 +22,7 @@ var _ MappedNullable = &LoadBalancerPathConfiguration{}
 type LoadBalancerPathConfiguration struct {
 	// Override the default target Kubernetes service name with this value
 	AssociatedKubernetesServiceName *string `json:"associatedKubernetesServiceName,omitempty"`
-	// The ID of the resource associated with the path
+	// ID of a resource
 	AssociatedResourceID string `json:"associatedResourceID"`
 	// The REST API path backed by the load balancer
 	Path string `json:"path"`

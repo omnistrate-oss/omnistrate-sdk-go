@@ -121,8 +121,8 @@ type AccountConfigApiAPI interface {
 	AccountConfigApiListBYOAConfig(ctx context.Context) ApiAccountConfigApiListBYOAConfigRequest
 
 	// AccountConfigApiListBYOAConfigExecute executes the request
-	//  @return ListAccountConfigResult
-	AccountConfigApiListBYOAConfigExecute(r ApiAccountConfigApiListBYOAConfigRequest) (*ListAccountConfigResult, *http.Response, error)
+	//  @return ListBYOAConfigResult
+	AccountConfigApiListBYOAConfigExecute(r ApiAccountConfigApiListBYOAConfigRequest) (*ListBYOAConfigResult, *http.Response, error)
 
 	/*
 	AccountConfigApiVerifyAccountConfig VerifyAccountConfig account-config-api
@@ -263,11 +263,11 @@ func (a *AccountConfigApiAPIService) AccountConfigApiAccountConfigIdentityIDExec
 type ApiAccountConfigApiCreateAccountConfigRequest struct {
 	ctx context.Context
 	ApiService AccountConfigApiAPI
-	createAccountConfigRequestBody *CreateAccountConfigRequestBody
+	createAccountConfigRequest2 *CreateAccountConfigRequest2
 }
 
-func (r ApiAccountConfigApiCreateAccountConfigRequest) CreateAccountConfigRequestBody(createAccountConfigRequestBody CreateAccountConfigRequestBody) ApiAccountConfigApiCreateAccountConfigRequest {
-	r.createAccountConfigRequestBody = &createAccountConfigRequestBody
+func (r ApiAccountConfigApiCreateAccountConfigRequest) CreateAccountConfigRequest2(createAccountConfigRequest2 CreateAccountConfigRequest2) ApiAccountConfigApiCreateAccountConfigRequest {
+	r.createAccountConfigRequest2 = &createAccountConfigRequest2
 	return r
 }
 
@@ -308,8 +308,8 @@ func (a *AccountConfigApiAPIService) AccountConfigApiCreateAccountConfigExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createAccountConfigRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createAccountConfigRequestBody is required and must be specified")
+	if r.createAccountConfigRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createAccountConfigRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -330,7 +330,7 @@ func (a *AccountConfigApiAPIService) AccountConfigApiCreateAccountConfigExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createAccountConfigRequestBody
+	localVarPostBody = r.createAccountConfigRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1211,15 +1211,15 @@ func (a *AccountConfigApiAPIService) AccountConfigApiListAccountConfigExecute(r 
 type ApiAccountConfigApiListBYOAConfigRequest struct {
 	ctx context.Context
 	ApiService AccountConfigApiAPI
-	listBYOAConfigRequestBody *ListBYOAConfigRequestBody
+	listBYOAConfigRequest2 *ListBYOAConfigRequest2
 }
 
-func (r ApiAccountConfigApiListBYOAConfigRequest) ListBYOAConfigRequestBody(listBYOAConfigRequestBody ListBYOAConfigRequestBody) ApiAccountConfigApiListBYOAConfigRequest {
-	r.listBYOAConfigRequestBody = &listBYOAConfigRequestBody
+func (r ApiAccountConfigApiListBYOAConfigRequest) ListBYOAConfigRequest2(listBYOAConfigRequest2 ListBYOAConfigRequest2) ApiAccountConfigApiListBYOAConfigRequest {
+	r.listBYOAConfigRequest2 = &listBYOAConfigRequest2
 	return r
 }
 
-func (r ApiAccountConfigApiListBYOAConfigRequest) Execute() (*ListAccountConfigResult, *http.Response, error) {
+func (r ApiAccountConfigApiListBYOAConfigRequest) Execute() (*ListBYOAConfigResult, *http.Response, error) {
 	return r.ApiService.AccountConfigApiListBYOAConfigExecute(r)
 }
 
@@ -1237,13 +1237,13 @@ func (a *AccountConfigApiAPIService) AccountConfigApiListBYOAConfig(ctx context.
 }
 
 // Execute executes the request
-//  @return ListAccountConfigResult
-func (a *AccountConfigApiAPIService) AccountConfigApiListBYOAConfigExecute(r ApiAccountConfigApiListBYOAConfigRequest) (*ListAccountConfigResult, *http.Response, error) {
+//  @return ListBYOAConfigResult
+func (a *AccountConfigApiAPIService) AccountConfigApiListBYOAConfigExecute(r ApiAccountConfigApiListBYOAConfigRequest) (*ListBYOAConfigResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListAccountConfigResult
+		localVarReturnValue  *ListBYOAConfigResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountConfigApiAPIService.AccountConfigApiListBYOAConfig")
@@ -1256,8 +1256,8 @@ func (a *AccountConfigApiAPIService) AccountConfigApiListBYOAConfigExecute(r Api
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.listBYOAConfigRequestBody == nil {
-		return localVarReturnValue, nil, reportError("listBYOAConfigRequestBody is required and must be specified")
+	if r.listBYOAConfigRequest2 == nil {
+		return localVarReturnValue, nil, reportError("listBYOAConfigRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1278,7 +1278,7 @@ func (a *AccountConfigApiAPIService) AccountConfigApiListBYOAConfigExecute(r Api
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.listBYOAConfigRequestBody
+	localVarPostBody = r.listBYOAConfigRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

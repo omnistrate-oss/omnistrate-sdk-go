@@ -97,11 +97,11 @@ type ApiOutputParameterApiCreateOutputParameterRequest struct {
 	ctx context.Context
 	ApiService OutputParameterApiAPI
 	serviceId string
-	createOutputParameterRequestBody *CreateOutputParameterRequestBody
+	createOutputParameterRequest2 *CreateOutputParameterRequest2
 }
 
-func (r ApiOutputParameterApiCreateOutputParameterRequest) CreateOutputParameterRequestBody(createOutputParameterRequestBody CreateOutputParameterRequestBody) ApiOutputParameterApiCreateOutputParameterRequest {
-	r.createOutputParameterRequestBody = &createOutputParameterRequestBody
+func (r ApiOutputParameterApiCreateOutputParameterRequest) CreateOutputParameterRequest2(createOutputParameterRequest2 CreateOutputParameterRequest2) ApiOutputParameterApiCreateOutputParameterRequest {
+	r.createOutputParameterRequest2 = &createOutputParameterRequest2
 	return r
 }
 
@@ -145,8 +145,8 @@ func (a *OutputParameterApiAPIService) OutputParameterApiCreateOutputParameterEx
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createOutputParameterRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createOutputParameterRequestBody is required and must be specified")
+	if r.createOutputParameterRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createOutputParameterRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -167,7 +167,7 @@ func (a *OutputParameterApiAPIService) OutputParameterApiCreateOutputParameterEx
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createOutputParameterRequestBody
+	localVarPostBody = r.createOutputParameterRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -814,11 +814,11 @@ type ApiOutputParameterApiUpdateOutputParameterRequest struct {
 	ApiService OutputParameterApiAPI
 	serviceId string
 	id string
-	updateOutputParameterRequestBody *UpdateOutputParameterRequestBody
+	updateOutputParameterRequest2 *UpdateOutputParameterRequest2
 }
 
-func (r ApiOutputParameterApiUpdateOutputParameterRequest) UpdateOutputParameterRequestBody(updateOutputParameterRequestBody UpdateOutputParameterRequestBody) ApiOutputParameterApiUpdateOutputParameterRequest {
-	r.updateOutputParameterRequestBody = &updateOutputParameterRequestBody
+func (r ApiOutputParameterApiUpdateOutputParameterRequest) UpdateOutputParameterRequest2(updateOutputParameterRequest2 UpdateOutputParameterRequest2) ApiOutputParameterApiUpdateOutputParameterRequest {
+	r.updateOutputParameterRequest2 = &updateOutputParameterRequest2
 	return r
 }
 
@@ -863,8 +863,8 @@ func (a *OutputParameterApiAPIService) OutputParameterApiUpdateOutputParameterEx
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateOutputParameterRequestBody == nil {
-		return nil, reportError("updateOutputParameterRequestBody is required and must be specified")
+	if r.updateOutputParameterRequest2 == nil {
+		return nil, reportError("updateOutputParameterRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -885,7 +885,7 @@ func (a *OutputParameterApiAPIService) OutputParameterApiUpdateOutputParameterEx
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateOutputParameterRequestBody
+	localVarPostBody = r.updateOutputParameterRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

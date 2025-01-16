@@ -17,7 +17,7 @@ import (
 // checks if the ListAccountConfigResult type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ListAccountConfigResult{}
 
-// ListAccountConfigResult struct for ListAccountConfigResult
+// ListAccountConfigResult List of Account Config IDs
 type ListAccountConfigResult struct {
 	// The list of account configs
 	AccountConfigs []DescribeAccountConfigResult `json:"accountConfigs,omitempty"`

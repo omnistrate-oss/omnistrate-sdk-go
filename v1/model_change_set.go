@@ -21,14 +21,14 @@ var _ MappedNullable = &ChangeSet{}
 // ChangeSet struct for ChangeSet
 type ChangeSet struct {
 	// Summary of all changes within a resource for each category (ie. image, infra, product tier feature, etc.)
-	CategorizedResourceChanges map[string]ChangeSummary `json:"categorizedResourceChanges"`
+	CategorizedResourceChanges map[string]interface{} `json:"categorizedResourceChanges"`
 	ImageConfigChanges *ImageConfigChangeSummary `json:"imageConfigChanges,omitempty"`
 	InfraConfigChanges *InfraConfigChangeSummary `json:"infraConfigChanges,omitempty"`
-	// The overall resource change status across all change categories
+	// Summary status of the changes
 	OverallResourceStatus string `json:"overallResourceStatus"`
-	// The product tier feature changes for the resource.
+	// State of the configuration change
 	ProductTierFeatureChanges *string `json:"productTierFeatureChanges,omitempty"`
-	// The service api changes for the resource.
+	// State of the configuration change
 	ResourceChanges *string `json:"resourceChanges,omitempty"`
 	// The name of the resource
 	ResourceName *string `json:"resourceName,omitempty"`
@@ -41,7 +41,7 @@ type _ChangeSet ChangeSet
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewChangeSet(categorizedResourceChanges map[string]ChangeSummary, overallResourceStatus string) *ChangeSet {
+func NewChangeSet(categorizedResourceChanges map[string]interface{}, overallResourceStatus string) *ChangeSet {
 	this := ChangeSet{}
 	this.CategorizedResourceChanges = categorizedResourceChanges
 	this.OverallResourceStatus = overallResourceStatus
@@ -57,9 +57,9 @@ func NewChangeSetWithDefaults() *ChangeSet {
 }
 
 // GetCategorizedResourceChanges returns the CategorizedResourceChanges field value
-func (o *ChangeSet) GetCategorizedResourceChanges() map[string]ChangeSummary {
+func (o *ChangeSet) GetCategorizedResourceChanges() map[string]interface{} {
 	if o == nil {
-		var ret map[string]ChangeSummary
+		var ret map[string]interface{}
 		return ret
 	}
 
@@ -68,15 +68,15 @@ func (o *ChangeSet) GetCategorizedResourceChanges() map[string]ChangeSummary {
 
 // GetCategorizedResourceChangesOk returns a tuple with the CategorizedResourceChanges field value
 // and a boolean to check if the value has been set.
-func (o *ChangeSet) GetCategorizedResourceChangesOk() (*map[string]ChangeSummary, bool) {
+func (o *ChangeSet) GetCategorizedResourceChangesOk() (map[string]interface{}, bool) {
 	if o == nil {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
-	return &o.CategorizedResourceChanges, true
+	return o.CategorizedResourceChanges, true
 }
 
 // SetCategorizedResourceChanges sets field value
-func (o *ChangeSet) SetCategorizedResourceChanges(v map[string]ChangeSummary) {
+func (o *ChangeSet) SetCategorizedResourceChanges(v map[string]interface{}) {
 	o.CategorizedResourceChanges = v
 }
 

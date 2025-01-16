@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**DisableMonitoring** | Pointer to **bool** | Whether to disable monitoring for this endpoint | [optional] [default to false]
 **Host** | Pointer to **string** | The host of the endpoint | [optional] [default to ""]
 **NetworkingType** | Pointer to **string** | The networking type of the endpoint | [optional] [default to "PUBLIC"]
 **Ports** | Pointer to **[]int64** | The ports of the endpoint | [optional] 
@@ -27,6 +28,31 @@ will change when the set of required properties is changed
 NewEndpointWithDefaults instantiates a new Endpoint object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetDisableMonitoring
+
+`func (o *Endpoint) GetDisableMonitoring() bool`
+
+GetDisableMonitoring returns the DisableMonitoring field if non-nil, zero value otherwise.
+
+### GetDisableMonitoringOk
+
+`func (o *Endpoint) GetDisableMonitoringOk() (*bool, bool)`
+
+GetDisableMonitoringOk returns a tuple with the DisableMonitoring field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisableMonitoring
+
+`func (o *Endpoint) SetDisableMonitoring(v bool)`
+
+SetDisableMonitoring sets DisableMonitoring field to given value.
+
+### HasDisableMonitoring
+
+`func (o *Endpoint) HasDisableMonitoring() bool`
+
+HasDisableMonitoring returns a boolean if a field has been set.
 
 ### GetHost
 

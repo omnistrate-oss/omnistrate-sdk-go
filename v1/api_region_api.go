@@ -59,8 +59,8 @@ type RegionApiAPI interface {
 	RegionApiListRegion(ctx context.Context, cloudProviderName string) ApiRegionApiListRegionRequest
 
 	// RegionApiListRegionExecute executes the request
-	//  @return ListServiceEnvironmentsResult
-	RegionApiListRegionExecute(r ApiRegionApiListRegionRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+	//  @return ListRegionsResult
+	RegionApiListRegionExecute(r ApiRegionApiListRegionRequest) (*ListRegionsResult, *http.Response, error)
 }
 
 // RegionApiAPIService RegionApiAPI service
@@ -439,7 +439,7 @@ func (r ApiRegionApiListRegionRequest) ModelType(modelType string) ApiRegionApiL
 	return r
 }
 
-func (r ApiRegionApiListRegionRequest) Execute() (*ListServiceEnvironmentsResult, *http.Response, error) {
+func (r ApiRegionApiListRegionRequest) Execute() (*ListRegionsResult, *http.Response, error) {
 	return r.ApiService.RegionApiListRegionExecute(r)
 }
 
@@ -459,13 +459,13 @@ func (a *RegionApiAPIService) RegionApiListRegion(ctx context.Context, cloudProv
 }
 
 // Execute executes the request
-//  @return ListServiceEnvironmentsResult
-func (a *RegionApiAPIService) RegionApiListRegionExecute(r ApiRegionApiListRegionRequest) (*ListServiceEnvironmentsResult, *http.Response, error) {
+//  @return ListRegionsResult
+func (a *RegionApiAPIService) RegionApiListRegionExecute(r ApiRegionApiListRegionRequest) (*ListRegionsResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListServiceEnvironmentsResult
+		localVarReturnValue  *ListRegionsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegionApiAPIService.RegionApiListRegion")

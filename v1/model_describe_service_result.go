@@ -24,19 +24,19 @@ type DescribeServiceResult struct {
 	CreatedAt string `json:"createdAt"`
 	// A brief description of the service
 	Description string `json:"description"`
-	// The service ID to operate on
+	// ID of a Service
 	Id string `json:"id"`
 	// Unique key of the service
 	Key string `json:"key"`
 	// Name of the Service
 	Name string `json:"name"`
-	// The role type of the caller user
+	// Type of the role
 	RoleType *string `json:"roleType,omitempty"`
 	// List of service environments
 	ServiceEnvironments []ServiceEnvironment `json:"serviceEnvironments"`
 	// The logo for the service
 	ServiceLogoURL *string `json:"serviceLogoURL,omitempty"`
-	// The ID of the service provider owning the service
+	// ID of a Service Provider
 	ServiceProviderID string `json:"serviceProviderID"`
 	// The name of the service provider
 	ServiceProviderName string `json:"serviceProviderName"`

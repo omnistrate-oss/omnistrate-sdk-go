@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## CustomDomainApiCreateCustomDomain
 
-> string CustomDomainApiCreateCustomDomain(ctx).CreateCustomDomainRequestBody(createCustomDomainRequestBody).Execute()
+> string CustomDomainApiCreateCustomDomain(ctx).CreateCustomDomainRequest2(createCustomDomainRequest2).Execute()
 
 CreateCustomDomain custom-domain-api
 
@@ -32,11 +32,11 @@ import (
 )
 
 func main() {
-	createCustomDomainRequestBody := *openapiclient.NewCreateCustomDomainRequestBody("mydomain.dev", "Description of the domain", "Dev domain", *openapiclient.NewRoute53Configuration("123456789012")) // CreateCustomDomainRequestBody | 
+	createCustomDomainRequest2 := *openapiclient.NewCreateCustomDomainRequest2("mydomain.dev", "Description of the domain", "Dev domain", *openapiclient.NewRoute53Configuration("123456789012")) // CreateCustomDomainRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CustomDomainApiAPI.CustomDomainApiCreateCustomDomain(context.Background()).CreateCustomDomainRequestBody(createCustomDomainRequestBody).Execute()
+	resp, r, err := apiClient.CustomDomainApiAPI.CustomDomainApiCreateCustomDomain(context.Background()).CreateCustomDomainRequest2(createCustomDomainRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CustomDomainApiAPI.CustomDomainApiCreateCustomDomain``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -57,7 +57,7 @@ Other parameters are passed through a pointer to a apiCustomDomainApiCreateCusto
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createCustomDomainRequestBody** | [**CreateCustomDomainRequestBody**](CreateCustomDomainRequestBody.md) |  | 
+ **createCustomDomainRequest2** | [**CreateCustomDomainRequest2**](CreateCustomDomainRequest2.md) |  | 
 
 ### Return type
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## CustomDomainApiCustomDomainIdentityID
 
-> AccountConfigIdentityIDResult CustomDomainApiCustomDomainIdentityID(ctx).Execute()
+> CustomDomainIdentityIDResult CustomDomainApiCustomDomainIdentityID(ctx).Execute()
 
 CustomDomainIdentityID custom-domain-api
 
@@ -106,7 +106,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `CustomDomainApiAPI.CustomDomainApiCustomDomainIdentityID``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CustomDomainApiCustomDomainIdentityID`: AccountConfigIdentityIDResult
+	// response from `CustomDomainApiCustomDomainIdentityID`: CustomDomainIdentityIDResult
 	fmt.Fprintf(os.Stdout, "Response from `CustomDomainApiAPI.CustomDomainApiCustomDomainIdentityID`: %v\n", resp)
 }
 ```
@@ -122,7 +122,7 @@ Other parameters are passed through a pointer to a apiCustomDomainApiCustomDomai
 
 ### Return type
 
-[**AccountConfigIdentityIDResult**](AccountConfigIdentityIDResult.md)
+[**CustomDomainIdentityIDResult**](CustomDomainIdentityIDResult.md)
 
 ### Authorization
 

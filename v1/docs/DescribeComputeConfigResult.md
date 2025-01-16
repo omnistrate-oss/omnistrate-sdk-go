@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **AutoscalingPolicy** | Pointer to [**AutoscalingPolicy**](AutoscalingPolicy.md) |  | [optional] 
 **CpuArchitecture** | Pointer to **string** | Processor architecture | [optional] 
 **Description** | **string** | Description of the compute config | 
-**Id** | **string** | ID of the compute config | 
+**Id** | **string** | ID of a Compute Config | 
 **InfraConfigIDs** | Pointer to **[]string** | The list of infra config IDs associated with the compute config. | [optional] 
-**InstanceTypes** | Pointer to **map[string][]string** | The instance types for this compute config | [optional] 
+**InstanceTypes** | Pointer to **map[string]interface{}** | The instance types for this compute config | [optional] 
 **Name** | **string** | Name of the compute config | 
 **ReplicaCount** | **string** | Number of replicas to provision for this logical pool of nodes per instance of the resource | 
 **Resources** | Pointer to [**ResourceSpec**](ResourceSpec.md) |  | [optional] 
 **RootVolumeSizeGi** | Pointer to **int64** | Size of the root volume in Gi | [optional] 
-**ServiceId** | **string** | The service ID | 
+**ServiceId** | **string** | ID of a Service | 
 **WarmPoolConfiguration** | Pointer to [**WarmPoolConfiguration**](WarmPoolConfiguration.md) |  | [optional] 
 
 ## Methods
@@ -153,20 +153,20 @@ HasInfraConfigIDs returns a boolean if a field has been set.
 
 ### GetInstanceTypes
 
-`func (o *DescribeComputeConfigResult) GetInstanceTypes() map[string][]string`
+`func (o *DescribeComputeConfigResult) GetInstanceTypes() map[string]interface{}`
 
 GetInstanceTypes returns the InstanceTypes field if non-nil, zero value otherwise.
 
 ### GetInstanceTypesOk
 
-`func (o *DescribeComputeConfigResult) GetInstanceTypesOk() (*map[string][]string, bool)`
+`func (o *DescribeComputeConfigResult) GetInstanceTypesOk() (*map[string]interface{}, bool)`
 
 GetInstanceTypesOk returns a tuple with the InstanceTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInstanceTypes
 
-`func (o *DescribeComputeConfigResult) SetInstanceTypes(v map[string][]string)`
+`func (o *DescribeComputeConfigResult) SetInstanceTypes(v map[string]interface{})`
 
 SetInstanceTypes sets InstanceTypes field to given value.
 

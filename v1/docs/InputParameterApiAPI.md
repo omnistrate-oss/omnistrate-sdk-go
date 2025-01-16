@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## InputParameterApiCreateInputParameter
 
-> string InputParameterApiCreateInputParameter(ctx, serviceId).CreateInputParameterRequestBody(createInputParameterRequestBody).Execute()
+> string InputParameterApiCreateInputParameter(ctx, serviceId).CreateInputParameterRequest2(createInputParameterRequest2).Execute()
 
 CreateInputParameter input-parameter-api
 
@@ -32,11 +32,11 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service that this output parameter belongs to
-	createInputParameterRequestBody := *openapiclient.NewCreateInputParameterRequestBody("Molestiae autem.", "li", false, "2r", false, "r-12345678", "Voluptas voluptas.") // CreateInputParameterRequestBody | 
+	createInputParameterRequest2 := *openapiclient.NewCreateInputParameterRequest2("Fugiat reprehenderit sit.", "b", false, "a9f", false, "r-12345678", "In asperiores repellendus.") // CreateInputParameterRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InputParameterApiAPI.InputParameterApiCreateInputParameter(context.Background(), serviceId).CreateInputParameterRequestBody(createInputParameterRequestBody).Execute()
+	resp, r, err := apiClient.InputParameterApiAPI.InputParameterApiCreateInputParameter(context.Background(), serviceId).CreateInputParameterRequest2(createInputParameterRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InputParameterApiAPI.InputParameterApiCreateInputParameter``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -62,7 +62,7 @@ Other parameters are passed through a pointer to a apiInputParameterApiCreateInp
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createInputParameterRequestBody** | [**CreateInputParameterRequestBody**](CreateInputParameterRequestBody.md) |  | 
+ **createInputParameterRequest2** | [**CreateInputParameterRequest2**](CreateInputParameterRequest2.md) |  | 
 
 ### Return type
 
@@ -172,7 +172,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service that this output parameter belongs to
 	id := "var-12345678" // string | ID of the input parameter
-	productTierVersion := "Illum itaque distinctio enim rerum veritatis cum." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Enim facilis aspernatur mollitia est aliquid." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -247,7 +247,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service that this output parameter belongs to
 	resourceId := "r-12345678" // string | The ID of the resource that this input parameter belongs to
-	productTierVersion := "Nostrum quia qui architecto ea." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Et ut hic." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ## InputParameterApiUpdateInputParameter
 
-> InputParameterApiUpdateInputParameter(ctx, serviceId, id).UpdateInputParameterRequestBody(updateInputParameterRequestBody).Execute()
+> InputParameterApiUpdateInputParameter(ctx, serviceId, id).UpdateInputParameterRequest2(updateInputParameterRequest2).Execute()
 
 UpdateInputParameter input-parameter-api
 
@@ -322,11 +322,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service that this output parameter belongs to
 	id := "var-12345678" // string | ID of the input parameter
-	updateInputParameterRequestBody := *openapiclient.NewUpdateInputParameterRequestBody() // UpdateInputParameterRequestBody | 
+	updateInputParameterRequest2 := *openapiclient.NewUpdateInputParameterRequest2() // UpdateInputParameterRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.InputParameterApiAPI.InputParameterApiUpdateInputParameter(context.Background(), serviceId, id).UpdateInputParameterRequestBody(updateInputParameterRequestBody).Execute()
+	r, err := apiClient.InputParameterApiAPI.InputParameterApiUpdateInputParameter(context.Background(), serviceId, id).UpdateInputParameterRequest2(updateInputParameterRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InputParameterApiAPI.InputParameterApiUpdateInputParameter``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **updateInputParameterRequestBody** | [**UpdateInputParameterRequestBody**](UpdateInputParameterRequestBody.md) |  | 
+ **updateInputParameterRequest2** | [**UpdateInputParameterRequest2**](UpdateInputParameterRequest2.md) |  | 
 
 ### Return type
 

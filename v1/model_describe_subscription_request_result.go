@@ -22,19 +22,19 @@ var _ MappedNullable = &DescribeSubscriptionRequestResult{}
 type DescribeSubscriptionRequestResult struct {
 	// The time that this subscription request was issued
 	CreatedAt string `json:"createdAt"`
-	// The subscription ID
+	// ID of a Subscription Request
 	Id string `json:"id"`
-	// The product tier ID that this subscription is tied to
+	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// The name of the product tier
 	ProductTierName string `json:"productTierName"`
 	// The email of the user that issued the subscription request
 	RootUserEmail string `json:"rootUserEmail"`
-	// The ID of the user that issued the subscription request
+	// ID of a User
 	RootUserId string `json:"rootUserId"`
 	// The name of the user that issued the subscription request
 	RootUserName string `json:"rootUserName"`
-	// The service ID that this subscription is tied to
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The logo for the service
 	ServiceLogoURL *string `json:"serviceLogoURL,omitempty"`
@@ -44,7 +44,7 @@ type DescribeSubscriptionRequestResult struct {
 	Status string `json:"status"`
 	// The time that this subscription request was issued
 	UpdatedAt string `json:"updatedAt"`
-	// The user ID that last updated the subscription request
+	// ID of a User
 	UpdatedByUserId string `json:"updatedByUserId"`
 	// The user that last updated the subscription request
 	UpdatedByUserName string `json:"updatedByUserName"`

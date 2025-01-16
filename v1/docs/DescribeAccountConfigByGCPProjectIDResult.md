@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ByoaInstanceIDs** | Pointer to **[]string** | The BYOA instance IDs that this account config is tied to | [optional] 
-**CloudProviderId** | **string** | Cloud Provider ID to operate on | 
+**CloudProviderId** | **string** | ID of an CloudProvider | 
 **Description** | **string** | The description for the account | 
 **GcpProjectID** | **string** | The GCP project ID | 
 **GcpProjectNumber** | **string** | The GCP project number | 
 **GcpServiceAccountEmail** | **string** | The GCP service account email | 
-**Id** | **string** | Account Config ID to operate on | 
+**Id** | **string** | ID of an Account Config | 
 **Name** | **string** | The name of the account | 
-**Status** | **string** | The status of the account | 
+**Status** | **string** | The status of the account configuration | 
 **StatusMessage** | **string** | The status message of the account | 
 
 ## Methods

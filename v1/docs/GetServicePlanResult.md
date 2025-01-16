@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AutoApproveSubscription** | **bool** | Auto approve subscription or not | 
 **AccountConfigIds** | Pointer to **[]string** | The infrastructure account configuration ID list | [optional] 
-**ActiveAccountConfigIds** | Pointer to **map[string]string** | The active infrastructure account configuration IDs per cloud provider | [optional] 
+**ActiveAccountConfigIds** | Pointer to **map[string]interface{}** | The active infrastructure account configuration IDs per cloud provider | [optional] 
 **ApiVersion** | **string** | The external version of the API | 
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this service plan is available on | [optional] 
-**DeploymentConfigId** | **string** | The deployment configuration ID | 
+**DeploymentConfigId** | **string** | ID of a Deployment Config | 
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this service plan is available on | [optional] 
 **HasPendingChanges** | **bool** | Whether there are any pending changes for the product tier configuration | 
 **IsProductTierDisabled** | **bool** | Whether the product tier is disabled | 
@@ -17,21 +17,21 @@ Name | Type | Description | Notes
 **ModelType** | **string** | The model type encapsulating this service | 
 **ProductTierDescription** | **string** | A brief description of the product tier | 
 **ProductTierDocumentation** | **string** | Documentation | 
-**ProductTierFeatures** | Pointer to **map[string]bool** | The features that are enabled / disabled for this product tier | [optional] 
-**ProductTierId** | **string** | Product tier ID | 
+**ProductTierFeatures** | Pointer to **map[string]interface{}** | The features that are enabled / disabled for this product tier | [optional] 
+**ProductTierId** | **string** | ID of a Product Tier | 
 **ProductTierKey** | **string** | Unique Key of the product tier | 
 **ProductTierName** | **string** | Name of the product tier | 
 **ProductTierPlanDescription** | **string** | A brief description for the end user of the product tier | 
 **ProductTierPricing** | **interface{}** | Pricing | 
 **ProductTierSupport** | **string** | Support | 
 **ServiceApiDescription** | **string** | A brief description of the service API bundle | 
-**ServiceApiId** | **string** | The service API ID | 
-**ServiceEnvironmentId** | **string** | The service environment ID | 
+**ServiceApiId** | **string** | ID of a Service API | 
+**ServiceEnvironmentId** | **string** | ID of a Service Environment | 
 **ServiceModelDescription** | **string** | A brief description of the service model | 
 **ServiceModelFeatures** | Pointer to [**[]ServiceModelFeatureDetail**](ServiceModelFeatureDetail.md) | Enabled service model features | [optional] 
-**ServiceModelId** | **string** | The service model ID | 
+**ServiceModelId** | **string** | ID of a Service Model | 
 **ServiceModelName** | **string** | Name of the Service Model | 
-**TierType** | **string** | Tier type | 
+**TierType** | **string** | ProductTierType is the type of tier for a product | 
 **VersionSetStatus** | **string** | The tier version set status. | 
 
 ## Methods
@@ -100,20 +100,20 @@ HasAccountConfigIds returns a boolean if a field has been set.
 
 ### GetActiveAccountConfigIds
 
-`func (o *GetServicePlanResult) GetActiveAccountConfigIds() map[string]string`
+`func (o *GetServicePlanResult) GetActiveAccountConfigIds() map[string]interface{}`
 
 GetActiveAccountConfigIds returns the ActiveAccountConfigIds field if non-nil, zero value otherwise.
 
 ### GetActiveAccountConfigIdsOk
 
-`func (o *GetServicePlanResult) GetActiveAccountConfigIdsOk() (*map[string]string, bool)`
+`func (o *GetServicePlanResult) GetActiveAccountConfigIdsOk() (*map[string]interface{}, bool)`
 
 GetActiveAccountConfigIdsOk returns a tuple with the ActiveAccountConfigIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetActiveAccountConfigIds
 
-`func (o *GetServicePlanResult) SetActiveAccountConfigIds(v map[string]string)`
+`func (o *GetServicePlanResult) SetActiveAccountConfigIds(v map[string]interface{})`
 
 SetActiveAccountConfigIds sets ActiveAccountConfigIds field to given value.
 
@@ -335,20 +335,20 @@ SetProductTierDocumentation sets ProductTierDocumentation field to given value.
 
 ### GetProductTierFeatures
 
-`func (o *GetServicePlanResult) GetProductTierFeatures() map[string]bool`
+`func (o *GetServicePlanResult) GetProductTierFeatures() map[string]interface{}`
 
 GetProductTierFeatures returns the ProductTierFeatures field if non-nil, zero value otherwise.
 
 ### GetProductTierFeaturesOk
 
-`func (o *GetServicePlanResult) GetProductTierFeaturesOk() (*map[string]bool, bool)`
+`func (o *GetServicePlanResult) GetProductTierFeaturesOk() (*map[string]interface{}, bool)`
 
 GetProductTierFeaturesOk returns a tuple with the ProductTierFeatures field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProductTierFeatures
 
-`func (o *GetServicePlanResult) SetProductTierFeatures(v map[string]bool)`
+`func (o *GetServicePlanResult) SetProductTierFeatures(v map[string]interface{})`
 
 SetProductTierFeatures sets ProductTierFeatures field to given value.
 

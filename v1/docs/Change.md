@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Attributes** | **map[string]string** | Additional setting/component attributes | 
-**ChangeType** | **string** | Type of the pending change | 
+**ChangeType** | **string** | State of the configuration change | 
 **Name** | **string** | The name of the setting/component that changed | 
 
 ## Methods

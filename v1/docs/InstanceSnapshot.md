@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **CreatedTime** | **string** | The snapshot creation time | 
 **Encrypted** | **bool** | Whether the snapshot is encrypted | 
 **Progress** | **int64** | The backup progress. 0-100 | 
-**SnapshotId** | **string** | The instance snapshot ID | 
+**SnapshotId** | **string** | ID of a Resource Instance Snapshot | 
 **Status** | **string** | The snapshot status | 
 
 ## Methods

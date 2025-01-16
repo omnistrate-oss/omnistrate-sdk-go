@@ -22,7 +22,7 @@ var _ MappedNullable = &Change{}
 type Change struct {
 	// Additional setting/component attributes
 	Attributes map[string]string `json:"attributes"`
-	// Type of the pending change
+	// State of the configuration change
 	ChangeType string `json:"changeType"`
 	// The name of the setting/component that changed
 	Name string `json:"name"`

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## ServicesOrchestrationApiCreateServicesOrchestration
 
-> CreateServicesOrchestrationResponseBody ServicesOrchestrationApiCreateServicesOrchestration(ctx).CreateServicesOrchestrationRequestBody(createServicesOrchestrationRequestBody).Execute()
+> CreateServicesOrchestrationResponseBody ServicesOrchestrationApiCreateServicesOrchestration(ctx).CreateServicesOrchestrationRequest2(createServicesOrchestrationRequest2).Execute()
 
 CreateServicesOrchestration services-orchestration-api
 
@@ -31,11 +31,11 @@ import (
 )
 
 func main() {
-	createServicesOrchestrationRequestBody := *openapiclient.NewCreateServicesOrchestrationRequestBody("Dolores sint dolor velit tempora at.") // CreateServicesOrchestrationRequestBody | 
+	createServicesOrchestrationRequest2 := *openapiclient.NewCreateServicesOrchestrationRequest2("Iste quia reiciendis molestiae similique voluptas laboriosam.") // CreateServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServicesOrchestrationApiAPI.ServicesOrchestrationApiCreateServicesOrchestration(context.Background()).CreateServicesOrchestrationRequestBody(createServicesOrchestrationRequestBody).Execute()
+	resp, r, err := apiClient.ServicesOrchestrationApiAPI.ServicesOrchestrationApiCreateServicesOrchestration(context.Background()).CreateServicesOrchestrationRequest2(createServicesOrchestrationRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServicesOrchestrationApiAPI.ServicesOrchestrationApiCreateServicesOrchestration``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -56,7 +56,7 @@ Other parameters are passed through a pointer to a apiServicesOrchestrationApiCr
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createServicesOrchestrationRequestBody** | [**CreateServicesOrchestrationRequestBody**](CreateServicesOrchestrationRequestBody.md) |  | 
+ **createServicesOrchestrationRequest2** | [**CreateServicesOrchestrationRequest2**](CreateServicesOrchestrationRequest2.md) |  | 
 
 ### Return type
 
@@ -271,7 +271,7 @@ Other parameters are passed through a pointer to a apiServicesOrchestrationApiLi
 
 ## ServicesOrchestrationApiModifyServicesOrchestration
 
-> ServicesOrchestrationApiModifyServicesOrchestration(ctx, id).ModifyServicesOrchestrationRequestBody(modifyServicesOrchestrationRequestBody).Execute()
+> ServicesOrchestrationApiModifyServicesOrchestration(ctx, id).ModifyServicesOrchestrationRequest2(modifyServicesOrchestrationRequest2).Execute()
 
 ModifyServicesOrchestration services-orchestration-api
 
@@ -289,11 +289,11 @@ import (
 
 func main() {
 	id := "so-12345678" // string | The ID of the services orchestration
-	modifyServicesOrchestrationRequestBody := *openapiclient.NewModifyServicesOrchestrationRequestBody("Sunt eligendi.") // ModifyServicesOrchestrationRequestBody | 
+	modifyServicesOrchestrationRequest2 := *openapiclient.NewModifyServicesOrchestrationRequest2("Odit sit eum non ea quos.") // ModifyServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ServicesOrchestrationApiAPI.ServicesOrchestrationApiModifyServicesOrchestration(context.Background(), id).ModifyServicesOrchestrationRequestBody(modifyServicesOrchestrationRequestBody).Execute()
+	r, err := apiClient.ServicesOrchestrationApiAPI.ServicesOrchestrationApiModifyServicesOrchestration(context.Background(), id).ModifyServicesOrchestrationRequest2(modifyServicesOrchestrationRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServicesOrchestrationApiAPI.ServicesOrchestrationApiModifyServicesOrchestration``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -317,7 +317,7 @@ Other parameters are passed through a pointer to a apiServicesOrchestrationApiMo
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **modifyServicesOrchestrationRequestBody** | [**ModifyServicesOrchestrationRequestBody**](ModifyServicesOrchestrationRequestBody.md) |  | 
+ **modifyServicesOrchestrationRequest2** | [**ModifyServicesOrchestrationRequest2**](ModifyServicesOrchestrationRequest2.md) |  | 
 
 ### Return type
 

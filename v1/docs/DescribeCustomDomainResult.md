@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CustomDomain** | **string** | The root domain of the domain to use as suffix | 
 **Description** | **string** | The description for the domain | 
-**Id** | **string** | custom domain ID to operate on | 
+**Id** | **string** | ID of an Custom Domain | 
 **Name** | **string** | The name of the custom domain | 
 **Route53Configuration** | [**Route53ConfigurationDescription**](Route53ConfigurationDescription.md) |  | 
-**Status** | Pointer to **string** | The status of the custom domain | [optional] 
+**Status** | Pointer to **string** |  | [optional] 
 **StatusMessage** | Pointer to **string** | The status message of the custom domain | [optional] 
 
 ## Methods

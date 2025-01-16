@@ -93,8 +93,8 @@ type IdentityProviderApiAPI interface {
 	IdentityProviderApiVerifyIdentityProvider(ctx context.Context, id string) ApiIdentityProviderApiVerifyIdentityProviderRequest
 
 	// IdentityProviderApiVerifyIdentityProviderExecute executes the request
-	//  @return DescribeIdentityProviderResult
-	IdentityProviderApiVerifyIdentityProviderExecute(r ApiIdentityProviderApiVerifyIdentityProviderRequest) (*DescribeIdentityProviderResult, *http.Response, error)
+	//  @return VerifyIdentityProviderResult
+	IdentityProviderApiVerifyIdentityProviderExecute(r ApiIdentityProviderApiVerifyIdentityProviderRequest) (*VerifyIdentityProviderResult, *http.Response, error)
 }
 
 // IdentityProviderApiAPIService IdentityProviderApiAPI service
@@ -103,11 +103,11 @@ type IdentityProviderApiAPIService service
 type ApiIdentityProviderApiCreateIdentityProviderRequest struct {
 	ctx context.Context
 	ApiService IdentityProviderApiAPI
-	createIdentityProviderRequestBody *CreateIdentityProviderRequestBody
+	createIdentityProviderRequest2 *CreateIdentityProviderRequest2
 }
 
-func (r ApiIdentityProviderApiCreateIdentityProviderRequest) CreateIdentityProviderRequestBody(createIdentityProviderRequestBody CreateIdentityProviderRequestBody) ApiIdentityProviderApiCreateIdentityProviderRequest {
-	r.createIdentityProviderRequestBody = &createIdentityProviderRequestBody
+func (r ApiIdentityProviderApiCreateIdentityProviderRequest) CreateIdentityProviderRequest2(createIdentityProviderRequest2 CreateIdentityProviderRequest2) ApiIdentityProviderApiCreateIdentityProviderRequest {
+	r.createIdentityProviderRequest2 = &createIdentityProviderRequest2
 	return r
 }
 
@@ -148,8 +148,8 @@ func (a *IdentityProviderApiAPIService) IdentityProviderApiCreateIdentityProvide
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createIdentityProviderRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createIdentityProviderRequestBody is required and must be specified")
+	if r.createIdentityProviderRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createIdentityProviderRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -170,7 +170,7 @@ func (a *IdentityProviderApiAPIService) IdentityProviderApiCreateIdentityProvide
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createIdentityProviderRequestBody
+	localVarPostBody = r.createIdentityProviderRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -727,11 +727,11 @@ type ApiIdentityProviderApiUpdateIdentityProviderRequest struct {
 	ctx context.Context
 	ApiService IdentityProviderApiAPI
 	id string
-	updateIdentityProviderRequestBody *UpdateIdentityProviderRequestBody
+	updateIdentityProviderRequest2 *UpdateIdentityProviderRequest2
 }
 
-func (r ApiIdentityProviderApiUpdateIdentityProviderRequest) UpdateIdentityProviderRequestBody(updateIdentityProviderRequestBody UpdateIdentityProviderRequestBody) ApiIdentityProviderApiUpdateIdentityProviderRequest {
-	r.updateIdentityProviderRequestBody = &updateIdentityProviderRequestBody
+func (r ApiIdentityProviderApiUpdateIdentityProviderRequest) UpdateIdentityProviderRequest2(updateIdentityProviderRequest2 UpdateIdentityProviderRequest2) ApiIdentityProviderApiUpdateIdentityProviderRequest {
+	r.updateIdentityProviderRequest2 = &updateIdentityProviderRequest2
 	return r
 }
 
@@ -773,8 +773,8 @@ func (a *IdentityProviderApiAPIService) IdentityProviderApiUpdateIdentityProvide
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateIdentityProviderRequestBody == nil {
-		return nil, reportError("updateIdentityProviderRequestBody is required and must be specified")
+	if r.updateIdentityProviderRequest2 == nil {
+		return nil, reportError("updateIdentityProviderRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -795,7 +795,7 @@ func (a *IdentityProviderApiAPIService) IdentityProviderApiUpdateIdentityProvide
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateIdentityProviderRequestBody
+	localVarPostBody = r.updateIdentityProviderRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -884,7 +884,7 @@ type ApiIdentityProviderApiVerifyIdentityProviderRequest struct {
 	id string
 }
 
-func (r ApiIdentityProviderApiVerifyIdentityProviderRequest) Execute() (*DescribeIdentityProviderResult, *http.Response, error) {
+func (r ApiIdentityProviderApiVerifyIdentityProviderRequest) Execute() (*VerifyIdentityProviderResult, *http.Response, error) {
 	return r.ApiService.IdentityProviderApiVerifyIdentityProviderExecute(r)
 }
 
@@ -904,13 +904,13 @@ func (a *IdentityProviderApiAPIService) IdentityProviderApiVerifyIdentityProvide
 }
 
 // Execute executes the request
-//  @return DescribeIdentityProviderResult
-func (a *IdentityProviderApiAPIService) IdentityProviderApiVerifyIdentityProviderExecute(r ApiIdentityProviderApiVerifyIdentityProviderRequest) (*DescribeIdentityProviderResult, *http.Response, error) {
+//  @return VerifyIdentityProviderResult
+func (a *IdentityProviderApiAPIService) IdentityProviderApiVerifyIdentityProviderExecute(r ApiIdentityProviderApiVerifyIdentityProviderRequest) (*VerifyIdentityProviderResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DescribeIdentityProviderResult
+		localVarReturnValue  *VerifyIdentityProviderResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProviderApiAPIService.IdentityProviderApiVerifyIdentityProvider")

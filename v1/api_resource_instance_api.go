@@ -198,8 +198,8 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiListResourceInstances(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string) ApiResourceInstanceApiListResourceInstancesRequest
 
 	// ResourceInstanceApiListResourceInstancesExecute executes the request
-	//  @return ListServiceEnvironmentsResult
-	ResourceInstanceApiListResourceInstancesExecute(r ApiResourceInstanceApiListResourceInstancesRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+	//  @return ListResourceInstancesResult
+	ResourceInstanceApiListResourceInstancesExecute(r ApiResourceInstanceApiListResourceInstancesRequest) (*ListResourceInstancesResult, *http.Response, error)
 
 	/*
 	ResourceInstanceApiRemoveCapacityFromResourceInstance RemoveCapacityFromResourceInstance resource-instance-api
@@ -386,12 +386,12 @@ type ApiResourceInstanceApiAddCapacityToResourceInstanceRequest struct {
 	productTierKey string
 	resourceKey string
 	id string
-	addCapacityToResourceInstanceRequestBody *AddCapacityToResourceInstanceRequestBody
+	addCapacityToResourceInstanceRequest2 *AddCapacityToResourceInstanceRequest2
 	subscriptionId *string
 }
 
-func (r ApiResourceInstanceApiAddCapacityToResourceInstanceRequest) AddCapacityToResourceInstanceRequestBody(addCapacityToResourceInstanceRequestBody AddCapacityToResourceInstanceRequestBody) ApiResourceInstanceApiAddCapacityToResourceInstanceRequest {
-	r.addCapacityToResourceInstanceRequestBody = &addCapacityToResourceInstanceRequestBody
+func (r ApiResourceInstanceApiAddCapacityToResourceInstanceRequest) AddCapacityToResourceInstanceRequest2(addCapacityToResourceInstanceRequest2 AddCapacityToResourceInstanceRequest2) ApiResourceInstanceApiAddCapacityToResourceInstanceRequest {
+	r.addCapacityToResourceInstanceRequest2 = &addCapacityToResourceInstanceRequest2
 	return r
 }
 
@@ -460,8 +460,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCapacityToResource
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.addCapacityToResourceInstanceRequestBody == nil {
-		return nil, reportError("addCapacityToResourceInstanceRequestBody is required and must be specified")
+	if r.addCapacityToResourceInstanceRequest2 == nil {
+		return nil, reportError("addCapacityToResourceInstanceRequest2 is required and must be specified")
 	}
 
 	if r.subscriptionId != nil {
@@ -485,7 +485,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCapacityToResource
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.addCapacityToResourceInstanceRequestBody
+	localVarPostBody = r.addCapacityToResourceInstanceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -590,12 +590,12 @@ type ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest struct {
 	productTierKey string
 	resourceKey string
 	id string
-	addCustomDNSToResourceInstanceRequestBody *AddCustomDNSToResourceInstanceRequestBody
+	addCustomDNSToResourceInstanceRequest2 *AddCustomDNSToResourceInstanceRequest2
 	subscriptionId *string
 }
 
-func (r ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest) AddCustomDNSToResourceInstanceRequestBody(addCustomDNSToResourceInstanceRequestBody AddCustomDNSToResourceInstanceRequestBody) ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest {
-	r.addCustomDNSToResourceInstanceRequestBody = &addCustomDNSToResourceInstanceRequestBody
+func (r ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest) AddCustomDNSToResourceInstanceRequest2(addCustomDNSToResourceInstanceRequest2 AddCustomDNSToResourceInstanceRequest2) ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest {
+	r.addCustomDNSToResourceInstanceRequest2 = &addCustomDNSToResourceInstanceRequest2
 	return r
 }
 
@@ -664,8 +664,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCustomDNSToResourc
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.addCustomDNSToResourceInstanceRequestBody == nil {
-		return nil, reportError("addCustomDNSToResourceInstanceRequestBody is required and must be specified")
+	if r.addCustomDNSToResourceInstanceRequest2 == nil {
+		return nil, reportError("addCustomDNSToResourceInstanceRequest2 is required and must be specified")
 	}
 
 	if r.subscriptionId != nil {
@@ -689,7 +689,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCustomDNSToResourc
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.addCustomDNSToResourceInstanceRequestBody
+	localVarPostBody = r.addCustomDNSToResourceInstanceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -793,12 +793,12 @@ type ApiResourceInstanceApiCreateResourceInstanceRequest struct {
 	serviceModelKey string
 	productTierKey string
 	resourceKey string
-	createResourceInstanceRequestBody *CreateResourceInstanceRequestBody
+	createResourceInstanceRequest2 *CreateResourceInstanceRequest2
 	subscriptionId *string
 }
 
-func (r ApiResourceInstanceApiCreateResourceInstanceRequest) CreateResourceInstanceRequestBody(createResourceInstanceRequestBody CreateResourceInstanceRequestBody) ApiResourceInstanceApiCreateResourceInstanceRequest {
-	r.createResourceInstanceRequestBody = &createResourceInstanceRequestBody
+func (r ApiResourceInstanceApiCreateResourceInstanceRequest) CreateResourceInstanceRequest2(createResourceInstanceRequest2 CreateResourceInstanceRequest2) ApiResourceInstanceApiCreateResourceInstanceRequest {
+	r.createResourceInstanceRequest2 = &createResourceInstanceRequest2
 	return r
 }
 
@@ -866,8 +866,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiCreateResourceInstanc
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createResourceInstanceRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createResourceInstanceRequestBody is required and must be specified")
+	if r.createResourceInstanceRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createResourceInstanceRequest2 is required and must be specified")
 	}
 
 	if r.subscriptionId != nil {
@@ -891,7 +891,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiCreateResourceInstanc
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createResourceInstanceRequestBody
+	localVarPostBody = r.createResourceInstanceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1402,12 +1402,12 @@ type ApiResourceInstanceApiFailoverResourceInstanceRequest struct {
 	productTierKey string
 	resourceKey string
 	id string
-	failoverResourceInstanceRequestBody *FailoverResourceInstanceRequestBody
+	failoverResourceInstanceRequest2 *FailoverResourceInstanceRequest2
 	subscriptionId *string
 }
 
-func (r ApiResourceInstanceApiFailoverResourceInstanceRequest) FailoverResourceInstanceRequestBody(failoverResourceInstanceRequestBody FailoverResourceInstanceRequestBody) ApiResourceInstanceApiFailoverResourceInstanceRequest {
-	r.failoverResourceInstanceRequestBody = &failoverResourceInstanceRequestBody
+func (r ApiResourceInstanceApiFailoverResourceInstanceRequest) FailoverResourceInstanceRequest2(failoverResourceInstanceRequest2 FailoverResourceInstanceRequest2) ApiResourceInstanceApiFailoverResourceInstanceRequest {
+	r.failoverResourceInstanceRequest2 = &failoverResourceInstanceRequest2
 	return r
 }
 
@@ -1476,8 +1476,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiFailoverResourceInsta
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.failoverResourceInstanceRequestBody == nil {
-		return nil, reportError("failoverResourceInstanceRequestBody is required and must be specified")
+	if r.failoverResourceInstanceRequest2 == nil {
+		return nil, reportError("failoverResourceInstanceRequest2 is required and must be specified")
 	}
 
 	if r.subscriptionId != nil {
@@ -1501,7 +1501,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiFailoverResourceInsta
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.failoverResourceInstanceRequestBody
+	localVarPostBody = r.failoverResourceInstanceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -2156,7 +2156,7 @@ func (r ApiResourceInstanceApiListResourceInstancesRequest) SubscriptionId(subsc
 	return r
 }
 
-func (r ApiResourceInstanceApiListResourceInstancesRequest) Execute() (*ListServiceEnvironmentsResult, *http.Response, error) {
+func (r ApiResourceInstanceApiListResourceInstancesRequest) Execute() (*ListResourceInstancesResult, *http.Response, error) {
 	return r.ApiService.ResourceInstanceApiListResourceInstancesExecute(r)
 }
 
@@ -2188,13 +2188,13 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstances
 }
 
 // Execute executes the request
-//  @return ListServiceEnvironmentsResult
-func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstancesExecute(r ApiResourceInstanceApiListResourceInstancesRequest) (*ListServiceEnvironmentsResult, *http.Response, error) {
+//  @return ListResourceInstancesResult
+func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstancesExecute(r ApiResourceInstanceApiListResourceInstancesRequest) (*ListResourceInstancesResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListServiceEnvironmentsResult
+		localVarReturnValue  *ListResourceInstancesResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiListResourceInstances")
@@ -2348,12 +2348,12 @@ type ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest struct {
 	productTierKey string
 	resourceKey string
 	id string
-	removeCapacityFromResourceInstanceRequestBody *RemoveCapacityFromResourceInstanceRequestBody
+	removeCapacityFromResourceInstanceRequest2 *RemoveCapacityFromResourceInstanceRequest2
 	subscriptionId *string
 }
 
-func (r ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest) RemoveCapacityFromResourceInstanceRequestBody(removeCapacityFromResourceInstanceRequestBody RemoveCapacityFromResourceInstanceRequestBody) ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest {
-	r.removeCapacityFromResourceInstanceRequestBody = &removeCapacityFromResourceInstanceRequestBody
+func (r ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest) RemoveCapacityFromResourceInstanceRequest2(removeCapacityFromResourceInstanceRequest2 RemoveCapacityFromResourceInstanceRequest2) ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest {
+	r.removeCapacityFromResourceInstanceRequest2 = &removeCapacityFromResourceInstanceRequest2
 	return r
 }
 
@@ -2422,8 +2422,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCapacityFromRes
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.removeCapacityFromResourceInstanceRequestBody == nil {
-		return nil, reportError("removeCapacityFromResourceInstanceRequestBody is required and must be specified")
+	if r.removeCapacityFromResourceInstanceRequest2 == nil {
+		return nil, reportError("removeCapacityFromResourceInstanceRequest2 is required and must be specified")
 	}
 
 	if r.subscriptionId != nil {
@@ -2447,7 +2447,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCapacityFromRes
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.removeCapacityFromResourceInstanceRequestBody
+	localVarPostBody = r.removeCapacityFromResourceInstanceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -3119,12 +3119,12 @@ type ApiResourceInstanceApiRestoreResourceInstanceRequest struct {
 	productTierKey string
 	resourceKey string
 	id string
-	restoreResourceInstanceRequestBody *RestoreResourceInstanceRequestBody
+	restoreResourceInstanceRequest2 *RestoreResourceInstanceRequest2
 	subscriptionId *string
 }
 
-func (r ApiResourceInstanceApiRestoreResourceInstanceRequest) RestoreResourceInstanceRequestBody(restoreResourceInstanceRequestBody RestoreResourceInstanceRequestBody) ApiResourceInstanceApiRestoreResourceInstanceRequest {
-	r.restoreResourceInstanceRequestBody = &restoreResourceInstanceRequestBody
+func (r ApiResourceInstanceApiRestoreResourceInstanceRequest) RestoreResourceInstanceRequest2(restoreResourceInstanceRequest2 RestoreResourceInstanceRequest2) ApiResourceInstanceApiRestoreResourceInstanceRequest {
+	r.restoreResourceInstanceRequest2 = &restoreResourceInstanceRequest2
 	return r
 }
 
@@ -3195,8 +3195,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.restoreResourceInstanceRequestBody == nil {
-		return localVarReturnValue, nil, reportError("restoreResourceInstanceRequestBody is required and must be specified")
+	if r.restoreResourceInstanceRequest2 == nil {
+		return localVarReturnValue, nil, reportError("restoreResourceInstanceRequest2 is required and must be specified")
 	}
 
 	if r.subscriptionId != nil {
@@ -3220,7 +3220,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.restoreResourceInstanceRequestBody
+	localVarPostBody = r.restoreResourceInstanceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3334,12 +3334,12 @@ type ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest struct {
 	productTierKey string
 	resourceKey string
 	snapshotId string
-	restoreResourceInstanceFromSnapshotRequestBody *RestoreResourceInstanceFromSnapshotRequestBody
+	restoreResourceInstanceFromSnapshotRequest2 *RestoreResourceInstanceFromSnapshotRequest2
 	subscriptionId *string
 }
 
-func (r ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest) RestoreResourceInstanceFromSnapshotRequestBody(restoreResourceInstanceFromSnapshotRequestBody RestoreResourceInstanceFromSnapshotRequestBody) ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest {
-	r.restoreResourceInstanceFromSnapshotRequestBody = &restoreResourceInstanceFromSnapshotRequestBody
+func (r ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest) RestoreResourceInstanceFromSnapshotRequest2(restoreResourceInstanceFromSnapshotRequest2 RestoreResourceInstanceFromSnapshotRequest2) ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest {
+	r.restoreResourceInstanceFromSnapshotRequest2 = &restoreResourceInstanceFromSnapshotRequest2
 	return r
 }
 
@@ -3410,8 +3410,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.restoreResourceInstanceFromSnapshotRequestBody == nil {
-		return localVarReturnValue, nil, reportError("restoreResourceInstanceFromSnapshotRequestBody is required and must be specified")
+	if r.restoreResourceInstanceFromSnapshotRequest2 == nil {
+		return localVarReturnValue, nil, reportError("restoreResourceInstanceFromSnapshotRequest2 is required and must be specified")
 	}
 
 	if r.subscriptionId != nil {
@@ -3435,7 +3435,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.restoreResourceInstanceFromSnapshotRequestBody
+	localVarPostBody = r.restoreResourceInstanceFromSnapshotRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3935,12 +3935,12 @@ type ApiResourceInstanceApiUpdateResourceInstanceRequest struct {
 	productTierKey string
 	resourceKey string
 	id string
-	updateResourceInstanceRequestBody *UpdateResourceInstanceRequestBody
+	updateResourceInstanceRequest2 *UpdateResourceInstanceRequest2
 	subscriptionId *string
 }
 
-func (r ApiResourceInstanceApiUpdateResourceInstanceRequest) UpdateResourceInstanceRequestBody(updateResourceInstanceRequestBody UpdateResourceInstanceRequestBody) ApiResourceInstanceApiUpdateResourceInstanceRequest {
-	r.updateResourceInstanceRequestBody = &updateResourceInstanceRequestBody
+func (r ApiResourceInstanceApiUpdateResourceInstanceRequest) UpdateResourceInstanceRequest2(updateResourceInstanceRequest2 UpdateResourceInstanceRequest2) ApiResourceInstanceApiUpdateResourceInstanceRequest {
+	r.updateResourceInstanceRequest2 = &updateResourceInstanceRequest2
 	return r
 }
 
@@ -4009,8 +4009,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiUpdateResourceInstanc
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateResourceInstanceRequestBody == nil {
-		return nil, reportError("updateResourceInstanceRequestBody is required and must be specified")
+	if r.updateResourceInstanceRequest2 == nil {
+		return nil, reportError("updateResourceInstanceRequest2 is required and must be specified")
 	}
 
 	if r.subscriptionId != nil {
@@ -4034,7 +4034,7 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiUpdateResourceInstanc
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateResourceInstanceRequestBody
+	localVarPostBody = r.updateResourceInstanceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

@@ -20,12 +20,13 @@ var _ MappedNullable = &DescribeAvailabilityZoneResult{}
 
 // DescribeAvailabilityZoneResult struct for DescribeAvailabilityZoneResult
 type DescribeAvailabilityZoneResult struct {
-	// The cloud provider for this compute instance type config
+	// Name of the Infra Provider
 	CloudProviderName string `json:"cloudProviderName"`
 	// Cloud-provider native availability zone code
 	Code string `json:"code"`
 	// Description of the AvailabilityZone
 	Description string `json:"description"`
+	// ID of an AZ
 	Id string `json:"id"`
 	// Cloud-provider native region code
 	RegionCode string `json:"regionCode"`

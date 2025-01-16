@@ -414,11 +414,11 @@ type ApiConsumptionUserApiInviteUserRequest struct {
 	ctx context.Context
 	ApiService ConsumptionUserApiAPI
 	subscriptionId string
-	inviteUserRequestBody *InviteUserRequestBody
+	inviteConsumptionUserRequest2 *InviteConsumptionUserRequest2
 }
 
-func (r ApiConsumptionUserApiInviteUserRequest) InviteUserRequestBody(inviteUserRequestBody InviteUserRequestBody) ApiConsumptionUserApiInviteUserRequest {
-	r.inviteUserRequestBody = &inviteUserRequestBody
+func (r ApiConsumptionUserApiInviteUserRequest) InviteConsumptionUserRequest2(inviteConsumptionUserRequest2 InviteConsumptionUserRequest2) ApiConsumptionUserApiInviteUserRequest {
+	r.inviteConsumptionUserRequest2 = &inviteConsumptionUserRequest2
 	return r
 }
 
@@ -460,8 +460,8 @@ func (a *ConsumptionUserApiAPIService) ConsumptionUserApiInviteUserExecute(r Api
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.inviteUserRequestBody == nil {
-		return nil, reportError("inviteUserRequestBody is required and must be specified")
+	if r.inviteConsumptionUserRequest2 == nil {
+		return nil, reportError("inviteConsumptionUserRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -482,7 +482,7 @@ func (a *ConsumptionUserApiAPIService) ConsumptionUserApiInviteUserExecute(r Api
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.inviteUserRequestBody
+	localVarPostBody = r.inviteConsumptionUserRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -741,11 +741,11 @@ type ApiConsumptionUserApiRevokeUserRoleRequest struct {
 	ctx context.Context
 	ApiService ConsumptionUserApiAPI
 	subscriptionId string
-	inviteUserRequestBody *InviteUserRequestBody
+	revokeConsumptionUserRoleRequest2 *RevokeConsumptionUserRoleRequest2
 }
 
-func (r ApiConsumptionUserApiRevokeUserRoleRequest) InviteUserRequestBody(inviteUserRequestBody InviteUserRequestBody) ApiConsumptionUserApiRevokeUserRoleRequest {
-	r.inviteUserRequestBody = &inviteUserRequestBody
+func (r ApiConsumptionUserApiRevokeUserRoleRequest) RevokeConsumptionUserRoleRequest2(revokeConsumptionUserRoleRequest2 RevokeConsumptionUserRoleRequest2) ApiConsumptionUserApiRevokeUserRoleRequest {
+	r.revokeConsumptionUserRoleRequest2 = &revokeConsumptionUserRoleRequest2
 	return r
 }
 
@@ -787,8 +787,8 @@ func (a *ConsumptionUserApiAPIService) ConsumptionUserApiRevokeUserRoleExecute(r
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.inviteUserRequestBody == nil {
-		return nil, reportError("inviteUserRequestBody is required and must be specified")
+	if r.revokeConsumptionUserRoleRequest2 == nil {
+		return nil, reportError("revokeConsumptionUserRoleRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -809,7 +809,7 @@ func (a *ConsumptionUserApiAPIService) ConsumptionUserApiRevokeUserRoleExecute(r
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.inviteUserRequestBody
+	localVarPostBody = r.revokeConsumptionUserRoleRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

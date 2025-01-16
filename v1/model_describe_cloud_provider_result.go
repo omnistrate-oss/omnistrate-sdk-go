@@ -22,7 +22,7 @@ var _ MappedNullable = &DescribeCloudProviderResult{}
 type DescribeCloudProviderResult struct {
 	// Description of the CloudProvider
 	Description string `json:"description"`
-	// ID of the CloudProvider
+	// ID of an CloudProvider
 	Id string `json:"id"`
 	// Name of the CloudProvider
 	Name string `json:"name"`

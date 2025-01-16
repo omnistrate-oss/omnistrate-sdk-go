@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | **string** | Description of the output variable being exported | 
-**Id** | **string** | The ID of the output parameter | 
+**Id** | **string** | ID of an Output Parameter | 
 **Key** | **string** | Key of the output variable being exported | 
 **Name** | **string** | External name of the output variable being exported | 
-**ResourceId** | **string** | The ID of the resource that this input parameter belongs to | 
-**ServiceId** | **string** | The ID of the service that this output parameter belongs to | 
+**ResourceId** | **string** | ID of a resource | 
+**ServiceId** | **string** | ID of a Service | 
 **Value** | Pointer to **string** | Value of the output variable being exported | [optional] 
 **ValueRef** | Pointer to **string** | Reference to an input variable that will be used to set the value of the output variable being exported | [optional] 
-**ValueType** | Pointer to **string** |  | [optional] 
+**ValueType** | Pointer to **string** | Type of the variable encoding the value | [optional] 
 
 ## Methods
 

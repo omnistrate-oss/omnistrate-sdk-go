@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | **string** | Description of the CloudProvider | 
-**Id** | **string** | ID of the CloudProvider | 
+**Id** | **string** | ID of an CloudProvider | 
 **Name** | **string** | Name of the CloudProvider | 
 
 ## Methods

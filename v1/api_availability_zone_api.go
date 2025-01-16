@@ -59,8 +59,8 @@ type AvailabilityZoneApiAPI interface {
 	AvailabilityZoneApiListAvailabilityZone(ctx context.Context, cloudProviderName string) ApiAvailabilityZoneApiListAvailabilityZoneRequest
 
 	// AvailabilityZoneApiListAvailabilityZoneExecute executes the request
-	//  @return ListServiceEnvironmentsResult
-	AvailabilityZoneApiListAvailabilityZoneExecute(r ApiAvailabilityZoneApiListAvailabilityZoneRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+	//  @return ListAvailabilityZonesResult
+	AvailabilityZoneApiListAvailabilityZoneExecute(r ApiAvailabilityZoneApiListAvailabilityZoneRequest) (*ListAvailabilityZonesResult, *http.Response, error)
 
 	/*
 	AvailabilityZoneApiListAvailabilityZonesByRegionCode ListAvailabilityZonesByRegionCode availability-zone-api
@@ -73,8 +73,8 @@ type AvailabilityZoneApiAPI interface {
 	AvailabilityZoneApiListAvailabilityZonesByRegionCode(ctx context.Context, regionCode string, cloudProviderName string) ApiAvailabilityZoneApiListAvailabilityZonesByRegionCodeRequest
 
 	// AvailabilityZoneApiListAvailabilityZonesByRegionCodeExecute executes the request
-	//  @return ListServiceEnvironmentsResult
-	AvailabilityZoneApiListAvailabilityZonesByRegionCodeExecute(r ApiAvailabilityZoneApiListAvailabilityZonesByRegionCodeRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+	//  @return ListAvailabilityZonesByRegionCodeResult
+	AvailabilityZoneApiListAvailabilityZonesByRegionCodeExecute(r ApiAvailabilityZoneApiListAvailabilityZonesByRegionCodeRequest) (*ListAvailabilityZonesByRegionCodeResult, *http.Response, error)
 }
 
 // AvailabilityZoneApiAPIService AvailabilityZoneApiAPI service
@@ -422,7 +422,7 @@ type ApiAvailabilityZoneApiListAvailabilityZoneRequest struct {
 	cloudProviderName string
 }
 
-func (r ApiAvailabilityZoneApiListAvailabilityZoneRequest) Execute() (*ListServiceEnvironmentsResult, *http.Response, error) {
+func (r ApiAvailabilityZoneApiListAvailabilityZoneRequest) Execute() (*ListAvailabilityZonesResult, *http.Response, error) {
 	return r.ApiService.AvailabilityZoneApiListAvailabilityZoneExecute(r)
 }
 
@@ -442,13 +442,13 @@ func (a *AvailabilityZoneApiAPIService) AvailabilityZoneApiListAvailabilityZone(
 }
 
 // Execute executes the request
-//  @return ListServiceEnvironmentsResult
-func (a *AvailabilityZoneApiAPIService) AvailabilityZoneApiListAvailabilityZoneExecute(r ApiAvailabilityZoneApiListAvailabilityZoneRequest) (*ListServiceEnvironmentsResult, *http.Response, error) {
+//  @return ListAvailabilityZonesResult
+func (a *AvailabilityZoneApiAPIService) AvailabilityZoneApiListAvailabilityZoneExecute(r ApiAvailabilityZoneApiListAvailabilityZoneRequest) (*ListAvailabilityZonesResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListServiceEnvironmentsResult
+		localVarReturnValue  *ListAvailabilityZonesResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AvailabilityZoneApiAPIService.AvailabilityZoneApiListAvailabilityZone")
@@ -589,7 +589,7 @@ type ApiAvailabilityZoneApiListAvailabilityZonesByRegionCodeRequest struct {
 	cloudProviderName string
 }
 
-func (r ApiAvailabilityZoneApiListAvailabilityZonesByRegionCodeRequest) Execute() (*ListServiceEnvironmentsResult, *http.Response, error) {
+func (r ApiAvailabilityZoneApiListAvailabilityZonesByRegionCodeRequest) Execute() (*ListAvailabilityZonesByRegionCodeResult, *http.Response, error) {
 	return r.ApiService.AvailabilityZoneApiListAvailabilityZonesByRegionCodeExecute(r)
 }
 
@@ -611,13 +611,13 @@ func (a *AvailabilityZoneApiAPIService) AvailabilityZoneApiListAvailabilityZones
 }
 
 // Execute executes the request
-//  @return ListServiceEnvironmentsResult
-func (a *AvailabilityZoneApiAPIService) AvailabilityZoneApiListAvailabilityZonesByRegionCodeExecute(r ApiAvailabilityZoneApiListAvailabilityZonesByRegionCodeRequest) (*ListServiceEnvironmentsResult, *http.Response, error) {
+//  @return ListAvailabilityZonesByRegionCodeResult
+func (a *AvailabilityZoneApiAPIService) AvailabilityZoneApiListAvailabilityZonesByRegionCodeExecute(r ApiAvailabilityZoneApiListAvailabilityZonesByRegionCodeRequest) (*ListAvailabilityZonesByRegionCodeResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListServiceEnvironmentsResult
+		localVarReturnValue  *ListAvailabilityZonesByRegionCodeResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AvailabilityZoneApiAPIService.AvailabilityZoneApiListAvailabilityZonesByRegionCode")

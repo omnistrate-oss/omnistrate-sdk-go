@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Changes** | [**[]Change**](Change.md) | List of individual changes | 
-**Status** | **string** | The product tier feature changes for the resource. | 
+**Status** | **string** | Summary status of the changes | 
 
 ## Methods
 

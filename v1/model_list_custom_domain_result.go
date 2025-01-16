@@ -17,7 +17,7 @@ import (
 // checks if the ListCustomDomainResult type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ListCustomDomainResult{}
 
-// ListCustomDomainResult struct for ListCustomDomainResult
+// ListCustomDomainResult List of custom domain IDs
 type ListCustomDomainResult struct {
 	// The list of custom domains
 	CustomDomains []DescribeCustomDomainResult `json:"CustomDomains,omitempty"`

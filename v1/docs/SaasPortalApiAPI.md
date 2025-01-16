@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## SaasPortalApiCreateSaaSPortalCustomDomain
 
-> SaasPortalApiCreateSaaSPortalCustomDomain(ctx).CreateSaaSPortalCustomDomainRequestBody(createSaaSPortalCustomDomainRequestBody).Execute()
+> SaasPortalApiCreateSaaSPortalCustomDomain(ctx).CreateSaaSPortalCustomDomainRequest2(createSaaSPortalCustomDomainRequest2).Execute()
 
 CreateSaaSPortalCustomDomain saas-portal-api
 
@@ -32,11 +32,11 @@ import (
 )
 
 func main() {
-	createSaaSPortalCustomDomainRequestBody := *openapiclient.NewCreateSaaSPortalCustomDomainRequestBody("mycustomdomain.com", "My custom domain description", "DEV", "MyCustomDomain") // CreateSaaSPortalCustomDomainRequestBody | 
+	createSaaSPortalCustomDomainRequest2 := *openapiclient.NewCreateSaaSPortalCustomDomainRequest2("mycustomdomain.com", "My custom domain description", "DEV", "MyCustomDomain") // CreateSaaSPortalCustomDomainRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.SaasPortalApiAPI.SaasPortalApiCreateSaaSPortalCustomDomain(context.Background()).CreateSaaSPortalCustomDomainRequestBody(createSaaSPortalCustomDomainRequestBody).Execute()
+	r, err := apiClient.SaasPortalApiAPI.SaasPortalApiCreateSaaSPortalCustomDomain(context.Background()).CreateSaaSPortalCustomDomainRequest2(createSaaSPortalCustomDomainRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SaasPortalApiAPI.SaasPortalApiCreateSaaSPortalCustomDomain``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -55,7 +55,7 @@ Other parameters are passed through a pointer to a apiSaasPortalApiCreateSaaSPor
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createSaaSPortalCustomDomainRequestBody** | [**CreateSaaSPortalCustomDomainRequestBody**](CreateSaaSPortalCustomDomainRequestBody.md) |  | 
+ **createSaaSPortalCustomDomainRequest2** | [**CreateSaaSPortalCustomDomainRequest2**](CreateSaaSPortalCustomDomainRequest2.md) |  | 
 
 ### Return type
 
@@ -261,7 +261,7 @@ Other parameters are passed through a pointer to a apiSaasPortalApiListSaaSPorta
 
 ## SaasPortalApiUpdateSaaSPortal
 
-> SaasPortalApiUpdateSaaSPortal(ctx, environmentType).UpdateSaaSPortalRequestBody(updateSaaSPortalRequestBody).Execute()
+> SaasPortalApiUpdateSaaSPortal(ctx, environmentType).UpdateSaaSPortalRequest2(updateSaaSPortalRequest2).Execute()
 
 UpdateSaaSPortal saas-portal-api
 
@@ -279,11 +279,11 @@ import (
 
 func main() {
 	environmentType := "DEV" // string | The environment type for the saas portal custom domain to update
-	updateSaaSPortalRequestBody := *openapiclient.NewUpdateSaaSPortalRequestBody() // UpdateSaaSPortalRequestBody | 
+	updateSaaSPortalRequest2 := *openapiclient.NewUpdateSaaSPortalRequest2() // UpdateSaaSPortalRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.SaasPortalApiAPI.SaasPortalApiUpdateSaaSPortal(context.Background(), environmentType).UpdateSaaSPortalRequestBody(updateSaaSPortalRequestBody).Execute()
+	r, err := apiClient.SaasPortalApiAPI.SaasPortalApiUpdateSaaSPortal(context.Background(), environmentType).UpdateSaaSPortalRequest2(updateSaaSPortalRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SaasPortalApiAPI.SaasPortalApiUpdateSaaSPortal``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -307,7 +307,7 @@ Other parameters are passed through a pointer to a apiSaasPortalApiUpdateSaaSPor
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateSaaSPortalRequestBody** | [**UpdateSaaSPortalRequestBody**](UpdateSaaSPortalRequestBody.md) |  | 
+ **updateSaaSPortalRequest2** | [**UpdateSaaSPortalRequest2**](UpdateSaaSPortalRequest2.md) |  | 
 
 ### Return type
 
@@ -329,7 +329,7 @@ Name | Type | Description  | Notes
 
 ## SaasPortalApiUpdateSaaSPortalCustomDomain
 
-> SaasPortalApiUpdateSaaSPortalCustomDomain(ctx, environmentType).UpdateSaaSPortalCustomDomainRequestBody(updateSaaSPortalCustomDomainRequestBody).Execute()
+> SaasPortalApiUpdateSaaSPortalCustomDomain(ctx, environmentType).UpdateSaaSPortalCustomDomainRequest2(updateSaaSPortalCustomDomainRequest2).Execute()
 
 UpdateSaaSPortalCustomDomain saas-portal-api
 
@@ -347,11 +347,11 @@ import (
 
 func main() {
 	environmentType := "DEV" // string | The environment type for the saas portal custom domain to update
-	updateSaaSPortalCustomDomainRequestBody := *openapiclient.NewUpdateSaaSPortalCustomDomainRequestBody() // UpdateSaaSPortalCustomDomainRequestBody | 
+	updateSaaSPortalCustomDomainRequest2 := *openapiclient.NewUpdateSaaSPortalCustomDomainRequest2() // UpdateSaaSPortalCustomDomainRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.SaasPortalApiAPI.SaasPortalApiUpdateSaaSPortalCustomDomain(context.Background(), environmentType).UpdateSaaSPortalCustomDomainRequestBody(updateSaaSPortalCustomDomainRequestBody).Execute()
+	r, err := apiClient.SaasPortalApiAPI.SaasPortalApiUpdateSaaSPortalCustomDomain(context.Background(), environmentType).UpdateSaaSPortalCustomDomainRequest2(updateSaaSPortalCustomDomainRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SaasPortalApiAPI.SaasPortalApiUpdateSaaSPortalCustomDomain``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -375,7 +375,7 @@ Other parameters are passed through a pointer to a apiSaasPortalApiUpdateSaaSPor
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateSaaSPortalCustomDomainRequestBody** | [**UpdateSaaSPortalCustomDomainRequestBody**](UpdateSaaSPortalCustomDomainRequestBody.md) |  | 
+ **updateSaaSPortalCustomDomainRequest2** | [**UpdateSaaSPortalCustomDomainRequest2**](UpdateSaaSPortalCustomDomainRequest2.md) |  | 
 
 ### Return type
 

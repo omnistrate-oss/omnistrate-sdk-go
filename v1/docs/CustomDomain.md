@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **ClusterEndpoint** | **string** | The cluster endpoint for the saas portal instance | 
 **CustomDomain** | **string** | The custom domain | 
 **Description** | **string** | The custom domain description | 
-**EnvironmentType** | **string** | The environment type for the custom domain | 
+**EnvironmentType** | **string** | The type of service environment | 
 **Name** | **string** | The custom domain name | 
-**Status** | **string** | The custom domain status | 
+**Status** | **string** | The status of an operation | 
 
 ## Methods
 

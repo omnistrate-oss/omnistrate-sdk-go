@@ -18,7 +18,7 @@ import (
 // checks if the DescribeAccountConfigResult type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &DescribeAccountConfigResult{}
 
-// DescribeAccountConfigResult struct for DescribeAccountConfigResult
+// DescribeAccountConfigResult Account configuration including the role required to access
 type DescribeAccountConfigResult struct {
 	// The AWS account ID
 	AwsAccountID *string `json:"awsAccountID,omitempty"`
@@ -30,7 +30,7 @@ type DescribeAccountConfigResult struct {
 	AwsCloudFormationTemplateURL *string `json:"awsCloudFormationTemplateURL,omitempty"`
 	// The BYOA instance IDs that this account config is tied to
 	ByoaInstanceIDs []string `json:"byoaInstanceIDs,omitempty"`
-	// Cloud Provider ID to operate on
+	// ID of an CloudProvider
 	CloudProviderId string `json:"cloudProviderId"`
 	// The description for the account
 	Description string `json:"description"`
@@ -40,11 +40,11 @@ type DescribeAccountConfigResult struct {
 	GcpProjectNumber *string `json:"gcpProjectNumber,omitempty"`
 	// The GCP service account email
 	GcpServiceAccountEmail *string `json:"gcpServiceAccountEmail,omitempty"`
-	// Account Config ID to operate on
+	// ID of an Account Config
 	Id string `json:"id"`
 	// The name of the account
 	Name string `json:"name"`
-	// The status of the account
+	// The status of the account configuration
 	Status string `json:"status"`
 	// The status message of the account
 	StatusMessage string `json:"statusMessage"`

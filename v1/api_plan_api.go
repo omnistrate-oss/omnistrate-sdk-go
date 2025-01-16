@@ -51,11 +51,11 @@ type PlanApiAPIService service
 type ApiPlanApiChangePlanRequest struct {
 	ctx context.Context
 	ApiService PlanApiAPI
-	changePlanRequestBody *ChangePlanRequestBody
+	changePlanRequest2 *ChangePlanRequest2
 }
 
-func (r ApiPlanApiChangePlanRequest) ChangePlanRequestBody(changePlanRequestBody ChangePlanRequestBody) ApiPlanApiChangePlanRequest {
-	r.changePlanRequestBody = &changePlanRequestBody
+func (r ApiPlanApiChangePlanRequest) ChangePlanRequest2(changePlanRequest2 ChangePlanRequest2) ApiPlanApiChangePlanRequest {
+	r.changePlanRequest2 = &changePlanRequest2
 	return r
 }
 
@@ -94,8 +94,8 @@ func (a *PlanApiAPIService) PlanApiChangePlanExecute(r ApiPlanApiChangePlanReque
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.changePlanRequestBody == nil {
-		return nil, reportError("changePlanRequestBody is required and must be specified")
+	if r.changePlanRequest2 == nil {
+		return nil, reportError("changePlanRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -116,7 +116,7 @@ func (a *PlanApiAPIService) PlanApiChangePlanExecute(r ApiPlanApiChangePlanReque
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.changePlanRequestBody
+	localVarPostBody = r.changePlanRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **PaymentInfoPortalURL** | Pointer to **string** | The URL from Paigo to redirect users to so they can enter their payment information.  Only present when first adding payment information | [optional] 
 **PlanCoreHourCost** | Pointer to **float64** | The cost per core hour of this plan | [optional] 
 **PlanDescription** | Pointer to **string** | The description of the plan | [optional] 
-**PlanFrequency** | Pointer to **string** | Whether the plan is charged monthly or yearly | [optional] 
+**PlanFrequency** | Pointer to **string** | This parameter tells you if the plan is charged monthly or yearly | [optional] 
 **PlanMonthlyCost** | Pointer to **float64** | The minimum monthly cost of this plan | [optional] 
-**PlanName** | **string** | The name of the plan this user is changing to | 
+**PlanName** | **string** | This parameter is used to select the appropriate Product Plan | 
 **RemainingCredits** | Pointer to **string** | The credits remaining for the customer for the customer in Paigo | [optional] 
 **StartDate** | Pointer to **string** | The date that the plan starts | [optional] 
 

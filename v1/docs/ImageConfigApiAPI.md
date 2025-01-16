@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## ImageConfigApiCreateImageConfig
 
-> string ImageConfigApiCreateImageConfig(ctx, serviceId).CreateImageConfigRequestBody(createImageConfigRequestBody).Execute()
+> string ImageConfigApiCreateImageConfig(ctx, serviceId).CreateImageConfigRequest2(createImageConfigRequest2).Execute()
 
 CreateImageConfig image-config-api
 
@@ -35,11 +35,11 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The service ID to use for the infra
-	createImageConfigRequestBody := *openapiclient.NewCreateImageConfigRequestBody("A image configuration for my new entity", "mysql", "se-12345678") // CreateImageConfigRequestBody | 
+	createImageConfigRequest2 := *openapiclient.NewCreateImageConfigRequest2("A image configuration for my new entity", "mysql", "se-12345678") // CreateImageConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ImageConfigApiAPI.ImageConfigApiCreateImageConfig(context.Background(), serviceId).CreateImageConfigRequestBody(createImageConfigRequestBody).Execute()
+	resp, r, err := apiClient.ImageConfigApiAPI.ImageConfigApiCreateImageConfig(context.Background(), serviceId).CreateImageConfigRequest2(createImageConfigRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ImageConfigApiAPI.ImageConfigApiCreateImageConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -65,7 +65,7 @@ Other parameters are passed through a pointer to a apiImageConfigApiCreateImageC
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createImageConfigRequestBody** | [**CreateImageConfigRequestBody**](CreateImageConfigRequestBody.md) |  | 
+ **createImageConfigRequest2** | [**CreateImageConfigRequest2**](CreateImageConfigRequest2.md) |  | 
 
 ### Return type
 
@@ -175,7 +175,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "imgc-12345678" // string | The image configuration ID
-	productTierVersion := "Quaerat sunt dolor repellendus voluptatem vitae dolores." // string | Product tier version of the image config to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Fuga qui quam ullam amet ullam." // string | Product tier version of the image config to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the image config to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 
 ## ImageConfigApiListImageConfigs
 
-> ListServiceEnvironmentsResult ImageConfigApiListImageConfigs(ctx, serviceId, serviceEnvironmentId).Execute()
+> ListImageConfigsResult ImageConfigApiListImageConfigs(ctx, serviceId, serviceEnvironmentId).Execute()
 
 ListImageConfigs image-config-api
 
@@ -258,7 +258,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ImageConfigApiAPI.ImageConfigApiListImageConfigs``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ImageConfigApiListImageConfigs`: ListServiceEnvironmentsResult
+	// response from `ImageConfigApiListImageConfigs`: ListImageConfigsResult
 	fmt.Fprintf(os.Stdout, "Response from `ImageConfigApiAPI.ImageConfigApiListImageConfigs`: %v\n", resp)
 }
 ```
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListServiceEnvironmentsResult**](ListServiceEnvironmentsResult.md)
+[**ListImageConfigsResult**](ListImageConfigsResult.md)
 
 ### Authorization
 
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 ## ImageConfigApiReleaseImageConfig
 
-> ImageConfigApiReleaseImageConfig(ctx, serviceId, id).ReleaseInfraConfigRequestBody(releaseInfraConfigRequestBody).Execute()
+> ImageConfigApiReleaseImageConfig(ctx, serviceId, id).ReleaseImageConfigRequest2(releaseImageConfigRequest2).Execute()
 
 ReleaseImageConfig image-config-api
 
@@ -321,11 +321,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "imgc-12345678" // string | The image configuration ID
-	releaseInfraConfigRequestBody := *openapiclient.NewReleaseInfraConfigRequestBody() // ReleaseInfraConfigRequestBody | 
+	releaseImageConfigRequest2 := *openapiclient.NewReleaseImageConfigRequest2() // ReleaseImageConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ImageConfigApiAPI.ImageConfigApiReleaseImageConfig(context.Background(), serviceId, id).ReleaseInfraConfigRequestBody(releaseInfraConfigRequestBody).Execute()
+	r, err := apiClient.ImageConfigApiAPI.ImageConfigApiReleaseImageConfig(context.Background(), serviceId, id).ReleaseImageConfigRequest2(releaseImageConfigRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ImageConfigApiAPI.ImageConfigApiReleaseImageConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -351,7 +351,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **releaseInfraConfigRequestBody** | [**ReleaseInfraConfigRequestBody**](ReleaseInfraConfigRequestBody.md) |  | 
+ **releaseImageConfigRequest2** | [**ReleaseImageConfigRequest2**](ReleaseImageConfigRequest2.md) |  | 
 
 ### Return type
 
@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
 
 ## ImageConfigApiRolloutFleetImageStatus
 
-> OmnistrateServiceHealthResult ImageConfigApiRolloutFleetImageStatus(ctx, serviceId, id).Execute()
+> RolloutFleetImageStatusResult ImageConfigApiRolloutFleetImageStatus(ctx, serviceId, id).Execute()
 
 RolloutFleetImageStatus image-config-api
 
@@ -469,7 +469,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ImageConfigApiAPI.ImageConfigApiRolloutFleetImageStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ImageConfigApiRolloutFleetImageStatus`: OmnistrateServiceHealthResult
+	// response from `ImageConfigApiRolloutFleetImageStatus`: RolloutFleetImageStatusResult
 	fmt.Fprintf(os.Stdout, "Response from `ImageConfigApiAPI.ImageConfigApiRolloutFleetImageStatus`: %v\n", resp)
 }
 ```
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OmnistrateServiceHealthResult**](OmnistrateServiceHealthResult.md)
+[**RolloutFleetImageStatusResult**](RolloutFleetImageStatusResult.md)
 
 ### Authorization
 
@@ -513,7 +513,7 @@ Name | Type | Description  | Notes
 
 ## ImageConfigApiUpdateImageConfig
 
-> ImageConfigApiUpdateImageConfig(ctx, serviceId, id).UpdateImageConfigRequestBody(updateImageConfigRequestBody).Execute()
+> ImageConfigApiUpdateImageConfig(ctx, serviceId, id).UpdateImageConfigRequest2(updateImageConfigRequest2).Execute()
 
 UpdateImageConfig image-config-api
 
@@ -532,11 +532,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "imgc-12345678" // string | The image configuration ID
-	updateImageConfigRequestBody := *openapiclient.NewUpdateImageConfigRequestBody() // UpdateImageConfigRequestBody | 
+	updateImageConfigRequest2 := *openapiclient.NewUpdateImageConfigRequest2() // UpdateImageConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ImageConfigApiAPI.ImageConfigApiUpdateImageConfig(context.Background(), serviceId, id).UpdateImageConfigRequestBody(updateImageConfigRequestBody).Execute()
+	r, err := apiClient.ImageConfigApiAPI.ImageConfigApiUpdateImageConfig(context.Background(), serviceId, id).UpdateImageConfigRequest2(updateImageConfigRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ImageConfigApiAPI.ImageConfigApiUpdateImageConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -562,7 +562,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **updateImageConfigRequestBody** | [**UpdateImageConfigRequestBody**](UpdateImageConfigRequestBody.md) |  | 
+ **updateImageConfigRequest2** | [**UpdateImageConfigRequest2**](UpdateImageConfigRequest2.md) |  | 
 
 ### Return type
 

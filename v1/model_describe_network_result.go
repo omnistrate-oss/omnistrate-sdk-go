@@ -21,15 +21,15 @@ var _ MappedNullable = &DescribeNetworkResult{}
 type DescribeNetworkResult struct {
 	// CIDR block for the network
 	Cidr *string `json:"cidr,omitempty"`
-	// Network to operate on
+	// ID of a Network
 	Id *string `json:"id,omitempty"`
-	// Network config ID for the network
+	// ID of a Network Config
 	NetworkConfigId *string `json:"networkConfigId,omitempty"`
-	// Service ID context
+	// ID of a Service
 	ServiceId *string `json:"serviceId,omitempty"`
 	// The type of network
 	Type *string `json:"type,omitempty"`
-	// VUnit ID for the Network
+	// ID of a VUnit
 	VunitId *string `json:"vunitId,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
