@@ -5,18 +5,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CreatedAt** | **string** | The time that this subscription request was issued | 
-**Id** | **string** | The subscription ID | 
-**ProductTierId** | **string** | The product tier ID that this subscription is tied to | 
+**Id** | **string** | ID of a Subscription Request | 
+**ProductTierId** | **string** | ID of a Product Tier | 
 **ProductTierName** | **string** | The name of the product tier | 
 **RootUserEmail** | **string** | The email of the user that issued the subscription request | 
-**RootUserId** | **string** | The ID of the user that issued the subscription request | 
+**RootUserId** | **string** | ID of a User | 
 **RootUserName** | **string** | The name of the user that issued the subscription request | 
-**ServiceId** | **string** | The service ID that this subscription is tied to | 
+**ServiceId** | **string** | ID of a Service | 
 **ServiceLogoURL** | Pointer to **string** | The logo for the service | [optional] 
 **ServiceName** | **string** | The name of the service | 
 **Status** | **string** | The status of the subscription request | 
 **UpdatedAt** | **string** | The time that this subscription request was issued | 
-**UpdatedByUserId** | **string** | The user ID that last updated the subscription request | 
+**UpdatedByUserId** | **string** | ID of a User | 
 **UpdatedByUserName** | **string** | The user that last updated the subscription request | 
 
 ## Methods

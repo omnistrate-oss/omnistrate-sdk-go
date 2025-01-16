@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## ImageRegistryApiCreateImageRegistry
 
-> string ImageRegistryApiCreateImageRegistry(ctx).CreateImageRegistryRequestBody(createImageRegistryRequestBody).Execute()
+> string ImageRegistryApiCreateImageRegistry(ctx).CreateImageRegistryRequest2(createImageRegistryRequest2).Execute()
 
 CreateImageRegistry image-registry-api
 
@@ -31,11 +31,11 @@ import (
 )
 
 func main() {
-	createImageRegistryRequestBody := *openapiclient.NewCreateImageRegistryRequestBody("DockerHub is a public Docker Image Registry", "docker.io", "DockerHub") // CreateImageRegistryRequestBody | 
+	createImageRegistryRequest2 := *openapiclient.NewCreateImageRegistryRequest2("DockerHub is a public Docker Image Registry", "docker.io", "DockerHub") // CreateImageRegistryRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ImageRegistryApiAPI.ImageRegistryApiCreateImageRegistry(context.Background()).CreateImageRegistryRequestBody(createImageRegistryRequestBody).Execute()
+	resp, r, err := apiClient.ImageRegistryApiAPI.ImageRegistryApiCreateImageRegistry(context.Background()).CreateImageRegistryRequest2(createImageRegistryRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ImageRegistryApiAPI.ImageRegistryApiCreateImageRegistry``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -56,7 +56,7 @@ Other parameters are passed through a pointer to a apiImageRegistryApiCreateImag
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createImageRegistryRequestBody** | [**CreateImageRegistryRequestBody**](CreateImageRegistryRequestBody.md) |  | 
+ **createImageRegistryRequest2** | [**CreateImageRegistryRequest2**](CreateImageRegistryRequest2.md) |  | 
 
 ### Return type
 
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 ## ImageRegistryApiListImageRegistry
 
-> ListServiceEnvironmentsResult ImageRegistryApiListImageRegistry(ctx).Execute()
+> ListImageRegistryResult ImageRegistryApiListImageRegistry(ctx).Execute()
 
 ListImageRegistry image-registry-api
 
@@ -237,7 +237,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ImageRegistryApiAPI.ImageRegistryApiListImageRegistry``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ImageRegistryApiListImageRegistry`: ListServiceEnvironmentsResult
+	// response from `ImageRegistryApiListImageRegistry`: ListImageRegistryResult
 	fmt.Fprintf(os.Stdout, "Response from `ImageRegistryApiAPI.ImageRegistryApiListImageRegistry`: %v\n", resp)
 }
 ```
@@ -253,7 +253,7 @@ Other parameters are passed through a pointer to a apiImageRegistryApiListImageR
 
 ### Return type
 
-[**ListServiceEnvironmentsResult**](ListServiceEnvironmentsResult.md)
+[**ListImageRegistryResult**](ListImageRegistryResult.md)
 
 ### Authorization
 
@@ -271,7 +271,7 @@ Other parameters are passed through a pointer to a apiImageRegistryApiListImageR
 
 ## ImageRegistryApiUpdateImageRegistry
 
-> ImageRegistryApiUpdateImageRegistry(ctx, id).UpdateImageRegistryRequestBody(updateImageRegistryRequestBody).Execute()
+> ImageRegistryApiUpdateImageRegistry(ctx, id).UpdateImageRegistryRequest2(updateImageRegistryRequest2).Execute()
 
 UpdateImageRegistry image-registry-api
 
@@ -289,11 +289,11 @@ import (
 
 func main() {
 	id := "ir-12345678" // string | The ID of the Image Registry
-	updateImageRegistryRequestBody := *openapiclient.NewUpdateImageRegistryRequestBody() // UpdateImageRegistryRequestBody | 
+	updateImageRegistryRequest2 := *openapiclient.NewUpdateImageRegistryRequest2() // UpdateImageRegistryRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ImageRegistryApiAPI.ImageRegistryApiUpdateImageRegistry(context.Background(), id).UpdateImageRegistryRequestBody(updateImageRegistryRequestBody).Execute()
+	r, err := apiClient.ImageRegistryApiAPI.ImageRegistryApiUpdateImageRegistry(context.Background(), id).UpdateImageRegistryRequest2(updateImageRegistryRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ImageRegistryApiAPI.ImageRegistryApiUpdateImageRegistry``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -317,7 +317,7 @@ Other parameters are passed through a pointer to a apiImageRegistryApiUpdateImag
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateImageRegistryRequestBody** | [**UpdateImageRegistryRequestBody**](UpdateImageRegistryRequestBody.md) |  | 
+ **updateImageRegistryRequest2** | [**UpdateImageRegistryRequest2**](UpdateImageRegistryRequest2.md) |  | 
 
 ### Return type
 

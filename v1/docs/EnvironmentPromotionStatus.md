@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Status** | **string** | The status of the promotion | 
-**TargetEnvironmentID** | **string** | The ID of the target environment | 
+**TargetEnvironmentID** | **string** | ID of a Service Environment | 
 
 ## Methods
 

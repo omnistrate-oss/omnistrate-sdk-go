@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## IdentityProviderApiCreateIdentityProvider
 
-> string IdentityProviderApiCreateIdentityProvider(ctx).CreateIdentityProviderRequestBody(createIdentityProviderRequestBody).Execute()
+> string IdentityProviderApiCreateIdentityProvider(ctx).CreateIdentityProviderRequest2(createIdentityProviderRequest2).Execute()
 
 CreateIdentityProvider identity-provider-api
 
@@ -32,11 +32,11 @@ import (
 )
 
 func main() {
-	createIdentityProviderRequestBody := *openapiclient.NewCreateIdentityProviderRequestBody("205376496935-vtfpdnseqmjhsynlh0bsufl38k0test.apps.googleusercontent.com", "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", "Google") // CreateIdentityProviderRequestBody | 
+	createIdentityProviderRequest2 := *openapiclient.NewCreateIdentityProviderRequest2("205376496935-vtfpdnseqmjhsynlh0bsufl38k0test.apps.googleusercontent.com", "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", "Google") // CreateIdentityProviderRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IdentityProviderApiAPI.IdentityProviderApiCreateIdentityProvider(context.Background()).CreateIdentityProviderRequestBody(createIdentityProviderRequestBody).Execute()
+	resp, r, err := apiClient.IdentityProviderApiAPI.IdentityProviderApiCreateIdentityProvider(context.Background()).CreateIdentityProviderRequest2(createIdentityProviderRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProviderApiAPI.IdentityProviderApiCreateIdentityProvider``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -57,7 +57,7 @@ Other parameters are passed through a pointer to a apiIdentityProviderApiCreateI
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createIdentityProviderRequestBody** | [**CreateIdentityProviderRequestBody**](CreateIdentityProviderRequestBody.md) |  | 
+ **createIdentityProviderRequest2** | [**CreateIdentityProviderRequest2**](CreateIdentityProviderRequest2.md) |  | 
 
 ### Return type
 
@@ -272,7 +272,7 @@ Other parameters are passed through a pointer to a apiIdentityProviderApiListIde
 
 ## IdentityProviderApiUpdateIdentityProvider
 
-> IdentityProviderApiUpdateIdentityProvider(ctx, id).UpdateIdentityProviderRequestBody(updateIdentityProviderRequestBody).Execute()
+> IdentityProviderApiUpdateIdentityProvider(ctx, id).UpdateIdentityProviderRequest2(updateIdentityProviderRequest2).Execute()
 
 UpdateIdentityProvider identity-provider-api
 
@@ -290,11 +290,11 @@ import (
 
 func main() {
 	id := "idp-12345678" // string | The Identity Provider ID
-	updateIdentityProviderRequestBody := *openapiclient.NewUpdateIdentityProviderRequestBody() // UpdateIdentityProviderRequestBody | 
+	updateIdentityProviderRequest2 := *openapiclient.NewUpdateIdentityProviderRequest2() // UpdateIdentityProviderRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.IdentityProviderApiAPI.IdentityProviderApiUpdateIdentityProvider(context.Background(), id).UpdateIdentityProviderRequestBody(updateIdentityProviderRequestBody).Execute()
+	r, err := apiClient.IdentityProviderApiAPI.IdentityProviderApiUpdateIdentityProvider(context.Background(), id).UpdateIdentityProviderRequest2(updateIdentityProviderRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProviderApiAPI.IdentityProviderApiUpdateIdentityProvider``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -318,7 +318,7 @@ Other parameters are passed through a pointer to a apiIdentityProviderApiUpdateI
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateIdentityProviderRequestBody** | [**UpdateIdentityProviderRequestBody**](UpdateIdentityProviderRequestBody.md) |  | 
+ **updateIdentityProviderRequest2** | [**UpdateIdentityProviderRequest2**](UpdateIdentityProviderRequest2.md) |  | 
 
 ### Return type
 
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 
 ## IdentityProviderApiVerifyIdentityProvider
 
-> DescribeIdentityProviderResult IdentityProviderApiVerifyIdentityProvider(ctx, id).Execute()
+> VerifyIdentityProviderResult IdentityProviderApiVerifyIdentityProvider(ctx, id).Execute()
 
 VerifyIdentityProvider identity-provider-api
 
@@ -366,7 +366,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProviderApiAPI.IdentityProviderApiVerifyIdentityProvider``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `IdentityProviderApiVerifyIdentityProvider`: DescribeIdentityProviderResult
+	// response from `IdentityProviderApiVerifyIdentityProvider`: VerifyIdentityProviderResult
 	fmt.Fprintf(os.Stdout, "Response from `IdentityProviderApiAPI.IdentityProviderApiVerifyIdentityProvider`: %v\n", resp)
 }
 ```
@@ -390,7 +390,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DescribeIdentityProviderResult**](DescribeIdentityProviderResult.md)
+[**VerifyIdentityProviderResult**](VerifyIdentityProviderResult.md)
 
 ### Authorization
 

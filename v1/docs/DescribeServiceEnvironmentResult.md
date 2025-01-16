@@ -5,18 +5,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AutoApproveSubscription** | Pointer to **bool** | Auto approve subscription or not | [optional] 
-**DeploymentConfigId** | **string** | The deployment configuration ID | 
+**DeploymentConfigId** | **string** | ID of a Deployment Config | 
 **Description** | **string** | A brief description of the service environment | 
-**Id** | **string** | The ID of the service environment | 
+**Id** | **string** | ID of a Service Environment | 
 **Key** | **string** | Unique Key of the Service Environment | 
 **Name** | **string** | Name of the Service Environment | 
-**RoleType** | Pointer to **string** | The role type of the caller user | [optional] 
-**SaasPortalStatus** | Pointer to **string** | The status of the SaaS portal for this environment type | [optional] 
+**RoleType** | Pointer to **string** | Type of the role | [optional] 
+**SaasPortalStatus** | Pointer to **string** | The status of an operation | [optional] 
 **SaasPortalUrl** | Pointer to **string** | The URL of the SaaS portal for this environment type | [optional] 
 **ServiceAuthPublicKey** | Pointer to **string** | PEM-encoded Public key part of the key used to sign the JWT tokens for the service control plane APIs | [optional] 
-**ServiceId** | **string** | The ID of the service this environment belongs to | 
-**SourceEnvironmentId** | Pointer to **string** | The ID of the service environment to use for promoting changes to this environment | [optional] 
-**Type** | **string** |  | 
+**ServiceId** | **string** | ID of a Service | 
+**SourceEnvironmentId** | Pointer to **string** | ID of a Service Environment | [optional] 
+**Type** | **string** | The type of service environment | 
 **Visibility** | **string** | This parameter is used to configure the visibility of the service control-plane APIs | 
 
 ## Methods

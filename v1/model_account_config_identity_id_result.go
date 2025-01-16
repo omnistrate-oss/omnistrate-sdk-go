@@ -20,6 +20,7 @@ var _ MappedNullable = &AccountConfigIdentityIDResult{}
 
 // AccountConfigIdentityIDResult struct for AccountConfigIdentityIDResult
 type AccountConfigIdentityIDResult struct {
+	// ID of an Org
 	Id string `json:"id"`
 	AdditionalProperties map[string]interface{}
 }

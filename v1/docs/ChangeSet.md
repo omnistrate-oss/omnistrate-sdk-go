@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CategorizedResourceChanges** | [**map[string]ChangeSummary**](ChangeSummary.md) | Summary of all changes within a resource for each category (ie. image, infra, product tier feature, etc.) | 
+**CategorizedResourceChanges** | **map[string]interface{}** | Summary of all changes within a resource for each category (ie. image, infra, product tier feature, etc.) | 
 **ImageConfigChanges** | Pointer to [**ImageConfigChangeSummary**](ImageConfigChangeSummary.md) |  | [optional] 
 **InfraConfigChanges** | Pointer to [**InfraConfigChangeSummary**](InfraConfigChangeSummary.md) |  | [optional] 
-**OverallResourceStatus** | **string** | The overall resource change status across all change categories | 
-**ProductTierFeatureChanges** | Pointer to **string** | The product tier feature changes for the resource. | [optional] 
-**ResourceChanges** | Pointer to **string** | The service api changes for the resource. | [optional] 
+**OverallResourceStatus** | **string** | Summary status of the changes | 
+**ProductTierFeatureChanges** | Pointer to **string** | State of the configuration change | [optional] 
+**ResourceChanges** | Pointer to **string** | State of the configuration change | [optional] 
 **ResourceName** | Pointer to **string** | The name of the resource | [optional] 
 
 ## Methods
 
 ### NewChangeSet
 
-`func NewChangeSet(categorizedResourceChanges map[string]ChangeSummary, overallResourceStatus string, ) *ChangeSet`
+`func NewChangeSet(categorizedResourceChanges map[string]interface{}, overallResourceStatus string, ) *ChangeSet`
 
 NewChangeSet instantiates a new ChangeSet object
 This constructor will assign default values to properties that have it defined,
@@ -33,20 +33,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCategorizedResourceChanges
 
-`func (o *ChangeSet) GetCategorizedResourceChanges() map[string]ChangeSummary`
+`func (o *ChangeSet) GetCategorizedResourceChanges() map[string]interface{}`
 
 GetCategorizedResourceChanges returns the CategorizedResourceChanges field if non-nil, zero value otherwise.
 
 ### GetCategorizedResourceChangesOk
 
-`func (o *ChangeSet) GetCategorizedResourceChangesOk() (*map[string]ChangeSummary, bool)`
+`func (o *ChangeSet) GetCategorizedResourceChangesOk() (*map[string]interface{}, bool)`
 
 GetCategorizedResourceChangesOk returns a tuple with the CategorizedResourceChanges field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCategorizedResourceChanges
 
-`func (o *ChangeSet) SetCategorizedResourceChanges(v map[string]ChangeSummary)`
+`func (o *ChangeSet) SetCategorizedResourceChanges(v map[string]interface{})`
 
 SetCategorizedResourceChanges sets CategorizedResourceChanges field to given value.
 

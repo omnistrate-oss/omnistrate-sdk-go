@@ -22,15 +22,15 @@ var _ MappedNullable = &DescribeServiceAPIResult{}
 type DescribeServiceAPIResult struct {
 	// The external version of the API
 	ApiVersion string `json:"apiVersion"`
-	// The deployment configuration ID
+	// ID of a Deployment Config
 	DeploymentConfigId string `json:"deploymentConfigId"`
 	// A brief description of the service API bundle
 	Description string `json:"description"`
-	// The service API ID
+	// ID of a Service API
 	Id string `json:"id"`
-	// The service environment ID
+	// ID of a Service Environment
 	ServiceEnvironmentId string `json:"serviceEnvironmentId"`
-	// The service ID that this API bundle belongs to
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The name of the service
 	ServiceName string `json:"serviceName"`

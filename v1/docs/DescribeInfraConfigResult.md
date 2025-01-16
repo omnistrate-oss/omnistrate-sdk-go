@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ComputeConfigId** | Pointer to **string** | The compute config ID | [optional] 
-**CustomTag** | Pointer to [**EnvironmentVariable**](EnvironmentVariable.md) |  | [optional] 
+**ComputeConfigId** | Pointer to **string** | ID of a Compute Config | [optional] 
+**CustomTag** | Pointer to [**CustomTag**](CustomTag.md) |  | [optional] 
 **Description** | **string** | The description for the infra config | 
-**Id** | **string** | Infra Config ID to operate on | 
+**Id** | **string** | ID of an Infra Config | 
 **Name** | **string** | The name of the infra config | 
-**NetworkConfigId** | Pointer to **string** | The network config ID | [optional] 
-**ServiceEnvironmentId** | **string** | The service environment ID | 
-**ServiceId** | **string** | The service ID | 
-**StorageConfigId** | Pointer to **string** | The storage config ID | [optional] 
+**NetworkConfigId** | Pointer to **string** | ID of a Network Config | [optional] 
+**ServiceEnvironmentId** | **string** | ID of a Service Environment | 
+**ServiceId** | **string** | ID of a Service | 
+**StorageConfigId** | Pointer to **string** | ID of a Storage Config | [optional] 
 
 ## Methods
 
@@ -60,20 +60,20 @@ HasComputeConfigId returns a boolean if a field has been set.
 
 ### GetCustomTag
 
-`func (o *DescribeInfraConfigResult) GetCustomTag() EnvironmentVariable`
+`func (o *DescribeInfraConfigResult) GetCustomTag() CustomTag`
 
 GetCustomTag returns the CustomTag field if non-nil, zero value otherwise.
 
 ### GetCustomTagOk
 
-`func (o *DescribeInfraConfigResult) GetCustomTagOk() (*EnvironmentVariable, bool)`
+`func (o *DescribeInfraConfigResult) GetCustomTagOk() (*CustomTag, bool)`
 
 GetCustomTagOk returns a tuple with the CustomTag field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCustomTag
 
-`func (o *DescribeInfraConfigResult) SetCustomTag(v EnvironmentVariable)`
+`func (o *DescribeInfraConfigResult) SetCustomTag(v CustomTag)`
 
 SetCustomTag sets CustomTag field to given value.
 

@@ -6,17 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | **string** | A brief description of the network config | 
 **EndpointPerReplica** | **bool** | Generates a DNS endpoint per-replica for this network config | 
-**Id** | **string** | The ID of the network config | 
+**Id** | **string** | ID of a Network Config | 
 **InfraConfigIDs** | Pointer to **[]string** | The list of infra config IDs associated with the compute config. | [optional] 
 **Internal** | **bool** | Restrict access to this network config to the internal network | 
 **Name** | **string** | Name of the network config | 
 **OpenPorts** | **[]int64** | Ports to map to the generated DNS endpoint | 
 **PrivateNetworkingConfiguration** | Pointer to [**PrivateNetworkingConfiguration**](PrivateNetworkingConfiguration.md) |  | [optional] 
 **PublicNetworkingConfiguration** | Pointer to [**PublicNetworkingConfiguration**](PublicNetworkingConfiguration.md) |  | [optional] 
-**ServiceId** | **string** | The ID of the service | 
+**ServiceId** | **string** | ID of a Service | 
 **StableEgressIP** | **bool** | Create an external node load balancer per node rather than expose the node ip directly | 
 **TlsTerminationPort** | Pointer to **int64** | The port that hosts the reverse proxy for TLS termination | [optional] 
-**ZoneConfiguration** | **string** |  | 
+**ZoneConfiguration** | **string** | The preferred type of zonal availability for this resource and the specific zone(s) to deploy in | 
 
 ## Methods
 

@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ApiVersion** | **string** | The external version of the API | 
-**DeploymentConfigId** | **string** | The deployment configuration ID | 
+**DeploymentConfigId** | **string** | ID of a Deployment Config | 
 **Description** | **string** | A brief description of the service API bundle | 
-**Id** | **string** | The service API ID | 
-**ServiceEnvironmentId** | **string** | The service environment ID | 
-**ServiceId** | **string** | The service ID that this API bundle belongs to | 
+**Id** | **string** | ID of a Service API | 
+**ServiceEnvironmentId** | **string** | ID of a Service Environment | 
+**ServiceId** | **string** | ID of a Service | 
 **ServiceName** | **string** | The name of the service | 
 
 ## Methods

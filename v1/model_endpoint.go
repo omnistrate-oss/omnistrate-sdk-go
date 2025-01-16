@@ -19,6 +19,8 @@ var _ MappedNullable = &Endpoint{}
 
 // Endpoint struct for Endpoint
 type Endpoint struct {
+	// Whether to disable monitoring for this endpoint
+	DisableMonitoring *bool `json:"disableMonitoring,omitempty"`
 	// The host of the endpoint
 	Host *string `json:"host,omitempty"`
 	// The networking type of the endpoint
@@ -38,6 +40,8 @@ type _Endpoint Endpoint
 // will change when the set of required properties is changed
 func NewEndpoint() *Endpoint {
 	this := Endpoint{}
+	var disableMonitoring bool = false
+	this.DisableMonitoring = &disableMonitoring
 	var host string = ""
 	this.Host = &host
 	var networkingType string = "PUBLIC"
@@ -52,6 +56,8 @@ func NewEndpoint() *Endpoint {
 // but it doesn't guarantee that properties required by API are set
 func NewEndpointWithDefaults() *Endpoint {
 	this := Endpoint{}
+	var disableMonitoring bool = false
+	this.DisableMonitoring = &disableMonitoring
 	var host string = ""
 	this.Host = &host
 	var networkingType string = "PUBLIC"
@@ -59,6 +65,29 @@ func NewEndpointWithDefaults() *Endpoint {
 	var primary bool = false
 	this.Primary = &primary
 	return &this
+}
+
+// GetDisableMonitoring returns the DisableMonitoring field value if set, zero value otherwise.
+func (o *Endpoint) GetDisableMonitoring() bool {
+	if o == nil || IsNil(o.DisableMonitoring) {
+		var ret bool
+		return ret
+	}
+	return *o.DisableMonitoring
+}
+
+// GetDisableMonitoringOk returns a tuple with the DisableMonitoring field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Endpoint) GetDisableMonitoringOk() (*bool, bool) {
+	if o == nil || IsNil(o.DisableMonitoring) {
+		return nil, false
+	}
+	return o.DisableMonitoring, true
+}
+
+// SetDisableMonitoring gets a reference to the given bool and assigns it to the DisableMonitoring field.
+func (o *Endpoint) SetDisableMonitoring(v bool) {
+	o.DisableMonitoring = &v
 }
 
 // GetHost returns the Host field value if set, zero value otherwise.
@@ -163,6 +192,9 @@ func (o Endpoint) MarshalJSON() ([]byte, error) {
 
 func (o Endpoint) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.DisableMonitoring) {
+		toSerialize["disableMonitoring"] = o.DisableMonitoring
+	}
 	if !IsNil(o.Host) {
 		toSerialize["host"] = o.Host
 	}
@@ -197,6 +229,7 @@ func (o *Endpoint) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "disableMonitoring")
 		delete(additionalProperties, "host")
 		delete(additionalProperties, "networkingType")
 		delete(additionalProperties, "ports")

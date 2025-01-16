@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** | The name of the user | 
 **PaymentConfigured** | **bool** | Whether the customer has configured their payment information. | 
 **PaymentInfoPortalURL** | Pointer to **string** | The URL from the billing provide to redirect users to so they can enter their payment information.  Only present when first adding payment information | [optional] 
-**UserId** | **string** | The User ID | 
+**UserId** | **string** | ID of a User | 
 
 ## Methods
 

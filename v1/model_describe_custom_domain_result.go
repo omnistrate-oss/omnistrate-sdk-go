@@ -18,18 +18,17 @@ import (
 // checks if the DescribeCustomDomainResult type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &DescribeCustomDomainResult{}
 
-// DescribeCustomDomainResult struct for DescribeCustomDomainResult
+// DescribeCustomDomainResult Custom domain including the role required to access
 type DescribeCustomDomainResult struct {
 	// The root domain of the domain to use as suffix
 	CustomDomain string `json:"customDomain"`
 	// The description for the domain
 	Description string `json:"description"`
-	// custom domain ID to operate on
+	// ID of an Custom Domain
 	Id string `json:"id"`
 	// The name of the custom domain
 	Name string `json:"name"`
 	Route53Configuration Route53ConfigurationDescription `json:"route53Configuration"`
-	// The status of the custom domain
 	Status *string `json:"status,omitempty"`
 	// The status message of the custom domain
 	StatusMessage *string `json:"statusMessage,omitempty"`

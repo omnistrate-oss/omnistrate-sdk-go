@@ -19,9 +19,9 @@ var _ MappedNullable = &InfraConfigChangeSummary{}
 
 // InfraConfigChangeSummary struct for InfraConfigChangeSummary
 type InfraConfigChangeSummary struct {
-	// The pending change state for the infra configuration
+	// State of the configuration change
 	ChangeState *string `json:"changeState,omitempty"`
-	// The ID of the infrastructure configuration that this resource refers to
+	// ID of an Infra Config
 	InfraConfigId *string `json:"infraConfigId,omitempty"`
 	// The name of the infra config
 	Name *string `json:"name,omitempty"`

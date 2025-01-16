@@ -22,11 +22,11 @@ var _ MappedNullable = &ResourceSummary{}
 type ResourceSummary struct {
 	// A brief description of the resource
 	Description string `json:"description"`
-	// The ID of the resource
+	// ID of a resource
 	Id string `json:"id"`
-	// The ID of the image configuration that this resource refers to
+	// ID of an Image Config
 	ImageConfigId *string `json:"imageConfigId,omitempty"`
-	// The ID of the infrastructure configuration that this resource refers to
+	// ID of an Infra Config
 	InfraConfigId *string `json:"infraConfigId,omitempty"`
 	// Whether the resource is external
 	IsExternal bool `json:"isExternal"`

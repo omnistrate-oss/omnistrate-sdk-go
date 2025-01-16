@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## StorageVolumeConfigApiCreateStorageVolumeConfig
 
-> string StorageVolumeConfigApiCreateStorageVolumeConfig(ctx, serviceId).CreateStorageVolumeConfigRequestBody(createStorageVolumeConfigRequestBody).Execute()
+> string StorageVolumeConfigApiCreateStorageVolumeConfig(ctx, serviceId).CreateStorageVolumeConfigRequest2(createStorageVolumeConfigRequest2).Execute()
 
 CreateStorageVolumeConfig storage-volume-config-api
 
@@ -34,11 +34,11 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The service ID
-	createStorageVolumeConfigRequestBody := *openapiclient.NewCreateStorageVolumeConfigRequestBody("A storage volume set to store the MySQL data directory", "MySQL Data Volume") // CreateStorageVolumeConfigRequestBody | 
+	createStorageVolumeConfigRequest2 := *openapiclient.NewCreateStorageVolumeConfigRequest2("A storage volume set to store the MySQL data directory", "MySQL Data Volume") // CreateStorageVolumeConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.StorageVolumeConfigApiAPI.StorageVolumeConfigApiCreateStorageVolumeConfig(context.Background(), serviceId).CreateStorageVolumeConfigRequestBody(createStorageVolumeConfigRequestBody).Execute()
+	resp, r, err := apiClient.StorageVolumeConfigApiAPI.StorageVolumeConfigApiCreateStorageVolumeConfig(context.Background(), serviceId).CreateStorageVolumeConfigRequest2(createStorageVolumeConfigRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `StorageVolumeConfigApiAPI.StorageVolumeConfigApiCreateStorageVolumeConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -64,7 +64,7 @@ Other parameters are passed through a pointer to a apiStorageVolumeConfigApiCrea
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createStorageVolumeConfigRequestBody** | [**CreateStorageVolumeConfigRequestBody**](CreateStorageVolumeConfigRequestBody.md) |  | 
+ **createStorageVolumeConfigRequest2** | [**CreateStorageVolumeConfigRequest2**](CreateStorageVolumeConfigRequest2.md) |  | 
 
 ### Return type
 
@@ -174,7 +174,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "svc-12345678" // string | The storage volume config ID
-	productTierVersion := "Est accusamus ratione excepturi." // string | Product tier version of the network config to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Voluptatibus officiis ducimus minima." // string | Product tier version of the network config to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the network config to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ## StorageVolumeConfigApiListStorageVolumeConfig
 
-> ListServiceEnvironmentsResult StorageVolumeConfigApiListStorageVolumeConfig(ctx, serviceId).Managed(managed).Execute()
+> ListStorageVolumeConfigsResult StorageVolumeConfigApiListStorageVolumeConfig(ctx, serviceId).Managed(managed).Execute()
 
 ListStorageVolumeConfig storage-volume-config-api
 
@@ -257,7 +257,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `StorageVolumeConfigApiAPI.StorageVolumeConfigApiListStorageVolumeConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `StorageVolumeConfigApiListStorageVolumeConfig`: ListServiceEnvironmentsResult
+	// response from `StorageVolumeConfigApiListStorageVolumeConfig`: ListStorageVolumeConfigsResult
 	fmt.Fprintf(os.Stdout, "Response from `StorageVolumeConfigApiAPI.StorageVolumeConfigApiListStorageVolumeConfig`: %v\n", resp)
 }
 ```
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListServiceEnvironmentsResult**](ListServiceEnvironmentsResult.md)
+[**ListStorageVolumeConfigsResult**](ListStorageVolumeConfigsResult.md)
 
 ### Authorization
 
@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 
 ## StorageVolumeConfigApiUpdateInstanceStorageVolumeConfig
 
-> StorageVolumeConfigApiUpdateInstanceStorageVolumeConfig(ctx, serviceId, id).UpdateInstanceStorageVolumeConfigRequestBody(updateInstanceStorageVolumeConfigRequestBody).Execute()
+> StorageVolumeConfigApiUpdateInstanceStorageVolumeConfig(ctx, serviceId, id).UpdateInstanceStorageVolumeConfigRequest2(updateInstanceStorageVolumeConfigRequest2).Execute()
 
 UpdateInstanceStorageVolumeConfig storage-volume-config-api
 
@@ -319,11 +319,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "svc-12345678" // string | The storage volume config ID
-	updateInstanceStorageVolumeConfigRequestBody := *openapiclient.NewUpdateInstanceStorageVolumeConfigRequestBody() // UpdateInstanceStorageVolumeConfigRequestBody | 
+	updateInstanceStorageVolumeConfigRequest2 := *openapiclient.NewUpdateInstanceStorageVolumeConfigRequest2() // UpdateInstanceStorageVolumeConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.StorageVolumeConfigApiAPI.StorageVolumeConfigApiUpdateInstanceStorageVolumeConfig(context.Background(), serviceId, id).UpdateInstanceStorageVolumeConfigRequestBody(updateInstanceStorageVolumeConfigRequestBody).Execute()
+	r, err := apiClient.StorageVolumeConfigApiAPI.StorageVolumeConfigApiUpdateInstanceStorageVolumeConfig(context.Background(), serviceId, id).UpdateInstanceStorageVolumeConfigRequest2(updateInstanceStorageVolumeConfigRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `StorageVolumeConfigApiAPI.StorageVolumeConfigApiUpdateInstanceStorageVolumeConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **updateInstanceStorageVolumeConfigRequestBody** | [**UpdateInstanceStorageVolumeConfigRequestBody**](UpdateInstanceStorageVolumeConfigRequestBody.md) |  | 
+ **updateInstanceStorageVolumeConfigRequest2** | [**UpdateInstanceStorageVolumeConfigRequest2**](UpdateInstanceStorageVolumeConfigRequest2.md) |  | 
 
 ### Return type
 
@@ -371,7 +371,7 @@ Name | Type | Description  | Notes
 
 ## StorageVolumeConfigApiUpdateStorageVolumeConfig
 
-> StorageVolumeConfigApiUpdateStorageVolumeConfig(ctx, serviceId, id).UpdateStorageVolumeConfigRequestBody(updateStorageVolumeConfigRequestBody).Execute()
+> StorageVolumeConfigApiUpdateStorageVolumeConfig(ctx, serviceId, id).UpdateStorageVolumeConfigRequest2(updateStorageVolumeConfigRequest2).Execute()
 
 UpdateStorageVolumeConfig storage-volume-config-api
 
@@ -390,11 +390,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "svc-12345678" // string | The storage volume config ID
-	updateStorageVolumeConfigRequestBody := *openapiclient.NewUpdateStorageVolumeConfigRequestBody() // UpdateStorageVolumeConfigRequestBody | 
+	updateStorageVolumeConfigRequest2 := *openapiclient.NewUpdateStorageVolumeConfigRequest2() // UpdateStorageVolumeConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.StorageVolumeConfigApiAPI.StorageVolumeConfigApiUpdateStorageVolumeConfig(context.Background(), serviceId, id).UpdateStorageVolumeConfigRequestBody(updateStorageVolumeConfigRequestBody).Execute()
+	r, err := apiClient.StorageVolumeConfigApiAPI.StorageVolumeConfigApiUpdateStorageVolumeConfig(context.Background(), serviceId, id).UpdateStorageVolumeConfigRequest2(updateStorageVolumeConfigRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `StorageVolumeConfigApiAPI.StorageVolumeConfigApiUpdateStorageVolumeConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **updateStorageVolumeConfigRequestBody** | [**UpdateStorageVolumeConfigRequestBody**](UpdateStorageVolumeConfigRequestBody.md) |  | 
+ **updateStorageVolumeConfigRequest2** | [**UpdateStorageVolumeConfigRequest2**](UpdateStorageVolumeConfigRequest2.md) |  | 
 
 ### Return type
 
@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
 
 ## StorageVolumeConfigApiUpdateStorageVolumeSizeConfig
 
-> StorageVolumeConfigApiUpdateStorageVolumeSizeConfig(ctx, serviceId, id).UpdateStorageVolumeSizeConfigRequestBody(updateStorageVolumeSizeConfigRequestBody).Execute()
+> StorageVolumeConfigApiUpdateStorageVolumeSizeConfig(ctx, serviceId, id).UpdateStorageVolumeSizeConfigRequest2(updateStorageVolumeSizeConfigRequest2).Execute()
 
 UpdateStorageVolumeSizeConfig storage-volume-config-api
 
@@ -461,11 +461,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "svc-12345678" // string | The storage volume config ID
-	updateStorageVolumeSizeConfigRequestBody := *openapiclient.NewUpdateStorageVolumeSizeConfigRequestBody("$var.storage_size") // UpdateStorageVolumeSizeConfigRequestBody | 
+	updateStorageVolumeSizeConfigRequest2 := *openapiclient.NewUpdateStorageVolumeSizeConfigRequest2("$var.storage_size") // UpdateStorageVolumeSizeConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.StorageVolumeConfigApiAPI.StorageVolumeConfigApiUpdateStorageVolumeSizeConfig(context.Background(), serviceId, id).UpdateStorageVolumeSizeConfigRequestBody(updateStorageVolumeSizeConfigRequestBody).Execute()
+	r, err := apiClient.StorageVolumeConfigApiAPI.StorageVolumeConfigApiUpdateStorageVolumeSizeConfig(context.Background(), serviceId, id).UpdateStorageVolumeSizeConfigRequest2(updateStorageVolumeSizeConfigRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `StorageVolumeConfigApiAPI.StorageVolumeConfigApiUpdateStorageVolumeSizeConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -491,7 +491,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **updateStorageVolumeSizeConfigRequestBody** | [**UpdateStorageVolumeSizeConfigRequestBody**](UpdateStorageVolumeSizeConfigRequestBody.md) |  | 
+ **updateStorageVolumeSizeConfigRequest2** | [**UpdateStorageVolumeSizeConfigRequest2**](UpdateStorageVolumeSizeConfigRequest2.md) |  | 
 
 ### Return type
 

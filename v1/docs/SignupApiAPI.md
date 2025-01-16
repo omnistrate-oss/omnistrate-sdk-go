@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## SignupApiChangePassword
 
-> SignupApiChangePassword(ctx).ChangePasswordRequestBody(changePasswordRequestBody).Execute()
+> SignupApiChangePassword(ctx).ChangePasswordRequest(changePasswordRequest).Execute()
 
 ChangePassword signup-api
 
@@ -31,11 +31,11 @@ import (
 )
 
 func main() {
-	changePasswordRequestBody := *openapiclient.NewChangePasswordRequestBody("abc@gmail.com", "password", "fc7b8dea-a50b-4c9a-8864-fc3d845a2be6") // ChangePasswordRequestBody | 
+	changePasswordRequest := *openapiclient.NewChangePasswordRequest("abc@gmail.com", "password", "fc7b8dea-a50b-4c9a-8864-fc3d845a2be6") // ChangePasswordRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.SignupApiAPI.SignupApiChangePassword(context.Background()).ChangePasswordRequestBody(changePasswordRequestBody).Execute()
+	r, err := apiClient.SignupApiAPI.SignupApiChangePassword(context.Background()).ChangePasswordRequest(changePasswordRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SignupApiAPI.SignupApiChangePassword``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -54,7 +54,7 @@ Other parameters are passed through a pointer to a apiSignupApiChangePasswordReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **changePasswordRequestBody** | [**ChangePasswordRequestBody**](ChangePasswordRequestBody.md) |  | 
+ **changePasswordRequest** | [**ChangePasswordRequest**](ChangePasswordRequest.md) |  | 
 
 ### Return type
 
@@ -142,7 +142,7 @@ No authorization required
 
 ## SignupApiResetPassword
 
-> SignupApiResetPassword(ctx).ResetPasswordRequestBody(resetPasswordRequestBody).Execute()
+> SignupApiResetPassword(ctx).ResetPasswordRequest(resetPasswordRequest).Execute()
 
 ResetPassword signup-api
 
@@ -159,11 +159,11 @@ import (
 )
 
 func main() {
-	resetPasswordRequestBody := *openapiclient.NewResetPasswordRequestBody("abc@gmail.com") // ResetPasswordRequestBody | 
+	resetPasswordRequest := *openapiclient.NewResetPasswordRequest("abc@gmail.com") // ResetPasswordRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.SignupApiAPI.SignupApiResetPassword(context.Background()).ResetPasswordRequestBody(resetPasswordRequestBody).Execute()
+	r, err := apiClient.SignupApiAPI.SignupApiResetPassword(context.Background()).ResetPasswordRequest(resetPasswordRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SignupApiAPI.SignupApiResetPassword``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -182,7 +182,7 @@ Other parameters are passed through a pointer to a apiSignupApiResetPasswordRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resetPasswordRequestBody** | [**ResetPasswordRequestBody**](ResetPasswordRequestBody.md) |  | 
+ **resetPasswordRequest** | [**ResetPasswordRequest**](ResetPasswordRequest.md) |  | 
 
 ### Return type
 
@@ -204,7 +204,7 @@ No authorization required
 
 ## SignupApiSignup
 
-> SignupApiSignup(ctx).SignupRequestBody(signupRequestBody).Execute()
+> SignupApiSignup(ctx).SignupRequest(signupRequest).Execute()
 
 Signup signup-api
 
@@ -221,11 +221,11 @@ import (
 )
 
 func main() {
-	signupRequestBody := *openapiclient.NewSignupRequestBody("abc@gmail.com", "John Doe", "password") // SignupRequestBody | 
+	signupRequest := *openapiclient.NewSignupRequest("abc@gmail.com", "John Doe", "password") // SignupRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.SignupApiAPI.SignupApiSignup(context.Background()).SignupRequestBody(signupRequestBody).Execute()
+	r, err := apiClient.SignupApiAPI.SignupApiSignup(context.Background()).SignupRequest(signupRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SignupApiAPI.SignupApiSignup``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -244,7 +244,7 @@ Other parameters are passed through a pointer to a apiSignupApiSignupRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **signupRequestBody** | [**SignupRequestBody**](SignupRequestBody.md) |  | 
+ **signupRequest** | [**SignupRequest**](SignupRequest.md) |  | 
 
 ### Return type
 
@@ -266,7 +266,7 @@ No authorization required
 
 ## SignupApiValidateToken
 
-> SignupApiValidateToken(ctx).ValidateTokenRequestBody(validateTokenRequestBody).Execute()
+> SignupApiValidateToken(ctx).ValidateTokenRequest(validateTokenRequest).Execute()
 
 ValidateToken signup-api
 
@@ -283,11 +283,11 @@ import (
 )
 
 func main() {
-	validateTokenRequestBody := *openapiclient.NewValidateTokenRequestBody("abc@gmail.com", "fc7b8dea-a50b-4c9a-8864-fc3d845a2be6") // ValidateTokenRequestBody | 
+	validateTokenRequest := *openapiclient.NewValidateTokenRequest("abc@gmail.com", "fc7b8dea-a50b-4c9a-8864-fc3d845a2be6") // ValidateTokenRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.SignupApiAPI.SignupApiValidateToken(context.Background()).ValidateTokenRequestBody(validateTokenRequestBody).Execute()
+	r, err := apiClient.SignupApiAPI.SignupApiValidateToken(context.Background()).ValidateTokenRequest(validateTokenRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SignupApiAPI.SignupApiValidateToken``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -306,7 +306,7 @@ Other parameters are passed through a pointer to a apiSignupApiValidateTokenRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **validateTokenRequestBody** | [**ValidateTokenRequestBody**](ValidateTokenRequestBody.md) |  | 
+ **validateTokenRequest** | [**ValidateTokenRequest**](ValidateTokenRequest.md) |  | 
 
 ### Return type
 

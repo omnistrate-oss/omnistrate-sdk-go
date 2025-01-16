@@ -26,6 +26,7 @@ type OrgUsers struct {
 	InvitedAt string `json:"invitedAt"`
 	// The name of the user
 	Name string `json:"name"`
+	// Type of the role
 	RoleType string `json:"roleType"`
 	// The User ID
 	UserId string `json:"userId"`

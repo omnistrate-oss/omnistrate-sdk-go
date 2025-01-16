@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 ## UsersApiCustomerInviteUser
 
-> UsersApiCustomerInviteUser(ctx).ResetPasswordRequestBody(resetPasswordRequestBody).Execute()
+> UsersApiCustomerInviteUser(ctx).CustomerInviteUserRequest2(customerInviteUserRequest2).Execute()
 
 CustomerInviteUser users-api
 
@@ -39,11 +39,11 @@ import (
 )
 
 func main() {
-	resetPasswordRequestBody := *openapiclient.NewResetPasswordRequestBody("abc@gmail.com") // ResetPasswordRequestBody | 
+	customerInviteUserRequest2 := *openapiclient.NewCustomerInviteUserRequest2("abc@example.com") // CustomerInviteUserRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.UsersApiAPI.UsersApiCustomerInviteUser(context.Background()).ResetPasswordRequestBody(resetPasswordRequestBody).Execute()
+	r, err := apiClient.UsersApiAPI.UsersApiCustomerInviteUser(context.Background()).CustomerInviteUserRequest2(customerInviteUserRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersApiAPI.UsersApiCustomerInviteUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -62,7 +62,7 @@ Other parameters are passed through a pointer to a apiUsersApiCustomerInviteUser
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resetPasswordRequestBody** | [**ResetPasswordRequestBody**](ResetPasswordRequestBody.md) |  | 
+ **customerInviteUserRequest2** | [**CustomerInviteUserRequest2**](CustomerInviteUserRequest2.md) |  | 
 
 ### Return type
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## UsersApiCustomerLoginWithIdentityProvider
 
-> SigninResult UsersApiCustomerLoginWithIdentityProvider(ctx).CustomerLoginWithIdentityProviderRequestBody(customerLoginWithIdentityProviderRequestBody).Execute()
+> CustomerLoginWithIdentityProviderResult UsersApiCustomerLoginWithIdentityProvider(ctx).CustomerLoginWithIdentityProviderRequest2(customerLoginWithIdentityProviderRequest2).Execute()
 
 CustomerLoginWithIdentityProvider users-api
 
@@ -101,16 +101,16 @@ import (
 )
 
 func main() {
-	customerLoginWithIdentityProviderRequestBody := *openapiclient.NewCustomerLoginWithIdentityProviderRequestBody("4/P7q7W91a-oMsCeLvIaQm6bTrgtp7&", "Google") // CustomerLoginWithIdentityProviderRequestBody | 
+	customerLoginWithIdentityProviderRequest2 := *openapiclient.NewCustomerLoginWithIdentityProviderRequest2("4/P7q7W91a-oMsCeLvIaQm6bTrgtp7&", "Google") // CustomerLoginWithIdentityProviderRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsersApiAPI.UsersApiCustomerLoginWithIdentityProvider(context.Background()).CustomerLoginWithIdentityProviderRequestBody(customerLoginWithIdentityProviderRequestBody).Execute()
+	resp, r, err := apiClient.UsersApiAPI.UsersApiCustomerLoginWithIdentityProvider(context.Background()).CustomerLoginWithIdentityProviderRequest2(customerLoginWithIdentityProviderRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersApiAPI.UsersApiCustomerLoginWithIdentityProvider``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UsersApiCustomerLoginWithIdentityProvider`: SigninResult
+	// response from `UsersApiCustomerLoginWithIdentityProvider`: CustomerLoginWithIdentityProviderResult
 	fmt.Fprintf(os.Stdout, "Response from `UsersApiAPI.UsersApiCustomerLoginWithIdentityProvider`: %v\n", resp)
 }
 ```
@@ -126,11 +126,11 @@ Other parameters are passed through a pointer to a apiUsersApiCustomerLoginWithI
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customerLoginWithIdentityProviderRequestBody** | [**CustomerLoginWithIdentityProviderRequestBody**](CustomerLoginWithIdentityProviderRequestBody.md) |  | 
+ **customerLoginWithIdentityProviderRequest2** | [**CustomerLoginWithIdentityProviderRequest2**](CustomerLoginWithIdentityProviderRequest2.md) |  | 
 
 ### Return type
 
-[**SigninResult**](SigninResult.md)
+[**CustomerLoginWithIdentityProviderResult**](CustomerLoginWithIdentityProviderResult.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 ## UsersApiCustomerResetPassword
 
-> UsersApiCustomerResetPassword(ctx).ResetPasswordRequestBody(resetPasswordRequestBody).Execute()
+> UsersApiCustomerResetPassword(ctx).CustomerResetPasswordRequest2(customerResetPasswordRequest2).Execute()
 
 CustomerResetPassword users-api
 
@@ -165,11 +165,11 @@ import (
 )
 
 func main() {
-	resetPasswordRequestBody := *openapiclient.NewResetPasswordRequestBody("abc@gmail.com") // ResetPasswordRequestBody | 
+	customerResetPasswordRequest2 := *openapiclient.NewCustomerResetPasswordRequest2("abc@example.com") // CustomerResetPasswordRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.UsersApiAPI.UsersApiCustomerResetPassword(context.Background()).ResetPasswordRequestBody(resetPasswordRequestBody).Execute()
+	r, err := apiClient.UsersApiAPI.UsersApiCustomerResetPassword(context.Background()).CustomerResetPasswordRequest2(customerResetPasswordRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersApiAPI.UsersApiCustomerResetPassword``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -188,7 +188,7 @@ Other parameters are passed through a pointer to a apiUsersApiCustomerResetPassw
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resetPasswordRequestBody** | [**ResetPasswordRequestBody**](ResetPasswordRequestBody.md) |  | 
+ **customerResetPasswordRequest2** | [**CustomerResetPasswordRequest2**](CustomerResetPasswordRequest2.md) |  | 
 
 ### Return type
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 ## UsersApiCustomerSignin
 
-> SigninResult UsersApiCustomerSignin(ctx).CustomerSigninRequestBody(customerSigninRequestBody).Execute()
+> CustomerSigninResult UsersApiCustomerSignin(ctx).CustomerSigninRequest2(customerSigninRequest2).Execute()
 
 CustomerSignin users-api
 
@@ -227,16 +227,16 @@ import (
 )
 
 func main() {
-	customerSigninRequestBody := *openapiclient.NewCustomerSigninRequestBody("abc@gmail.com") // CustomerSigninRequestBody | 
+	customerSigninRequest2 := *openapiclient.NewCustomerSigninRequest2("abc@gmail.com") // CustomerSigninRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsersApiAPI.UsersApiCustomerSignin(context.Background()).CustomerSigninRequestBody(customerSigninRequestBody).Execute()
+	resp, r, err := apiClient.UsersApiAPI.UsersApiCustomerSignin(context.Background()).CustomerSigninRequest2(customerSigninRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersApiAPI.UsersApiCustomerSignin``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UsersApiCustomerSignin`: SigninResult
+	// response from `UsersApiCustomerSignin`: CustomerSigninResult
 	fmt.Fprintf(os.Stdout, "Response from `UsersApiAPI.UsersApiCustomerSignin`: %v\n", resp)
 }
 ```
@@ -252,11 +252,11 @@ Other parameters are passed through a pointer to a apiUsersApiCustomerSigninRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customerSigninRequestBody** | [**CustomerSigninRequestBody**](CustomerSigninRequestBody.md) |  | 
+ **customerSigninRequest2** | [**CustomerSigninRequest2**](CustomerSigninRequest2.md) |  | 
 
 ### Return type
 
-[**SigninResult**](SigninResult.md)
+[**CustomerSigninResult**](CustomerSigninResult.md)
 
 ### Authorization
 
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 ## UsersApiCustomerSignup
 
-> UsersApiCustomerSignup(ctx).SignupRequestBody(signupRequestBody).Execute()
+> UsersApiCustomerSignup(ctx).CustomerSignupRequest2(customerSignupRequest2).Execute()
 
 CustomerSignup users-api
 
@@ -291,11 +291,11 @@ import (
 )
 
 func main() {
-	signupRequestBody := *openapiclient.NewSignupRequestBody("abc@gmail.com", "John Doe", "password") // SignupRequestBody | 
+	customerSignupRequest2 := *openapiclient.NewCustomerSignupRequest2("abc@gmail.com", "John Doe", "password") // CustomerSignupRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.UsersApiAPI.UsersApiCustomerSignup(context.Background()).SignupRequestBody(signupRequestBody).Execute()
+	r, err := apiClient.UsersApiAPI.UsersApiCustomerSignup(context.Background()).CustomerSignupRequest2(customerSignupRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersApiAPI.UsersApiCustomerSignup``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -314,7 +314,7 @@ Other parameters are passed through a pointer to a apiUsersApiCustomerSignupRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **signupRequestBody** | [**SignupRequestBody**](SignupRequestBody.md) |  | 
+ **customerSignupRequest2** | [**CustomerSignupRequest2**](CustomerSignupRequest2.md) |  | 
 
 ### Return type
 
@@ -511,7 +511,7 @@ Other parameters are passed through a pointer to a apiUsersApiDescribeUsersByOrg
 
 ## UsersApiInviteUser
 
-> UsersApiInviteUser(ctx).InviteUserRequestBody(inviteUserRequestBody).Execute()
+> UsersApiInviteUser(ctx).InviteUserRequest2(inviteUserRequest2).Execute()
 
 InviteUser users-api
 
@@ -528,11 +528,11 @@ import (
 )
 
 func main() {
-	inviteUserRequestBody := *openapiclient.NewInviteUserRequestBody("abc@gmail.com", "reader") // InviteUserRequestBody | 
+	inviteUserRequest2 := *openapiclient.NewInviteUserRequest2("abc@gmail.com", "reader") // InviteUserRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.UsersApiAPI.UsersApiInviteUser(context.Background()).InviteUserRequestBody(inviteUserRequestBody).Execute()
+	r, err := apiClient.UsersApiAPI.UsersApiInviteUser(context.Background()).InviteUserRequest2(inviteUserRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersApiAPI.UsersApiInviteUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -551,7 +551,7 @@ Other parameters are passed through a pointer to a apiUsersApiInviteUserRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inviteUserRequestBody** | [**InviteUserRequestBody**](InviteUserRequestBody.md) |  | 
+ **inviteUserRequest2** | [**InviteUserRequest2**](InviteUserRequest2.md) |  | 
 
 ### Return type
 
@@ -630,7 +630,7 @@ Other parameters are passed through a pointer to a apiUsersApiLogoutRequest stru
 
 ## UsersApiRevokeUserRole
 
-> UsersApiRevokeUserRole(ctx).InviteUserRequestBody(inviteUserRequestBody).Execute()
+> UsersApiRevokeUserRole(ctx).RevokeUserRoleRequest2(revokeUserRoleRequest2).Execute()
 
 RevokeUserRole users-api
 
@@ -647,11 +647,11 @@ import (
 )
 
 func main() {
-	inviteUserRequestBody := *openapiclient.NewInviteUserRequestBody("abc@gmail.com", "reader") // InviteUserRequestBody | 
+	revokeUserRoleRequest2 := *openapiclient.NewRevokeUserRoleRequest2("abc@gmail.com", "reader") // RevokeUserRoleRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.UsersApiAPI.UsersApiRevokeUserRole(context.Background()).InviteUserRequestBody(inviteUserRequestBody).Execute()
+	r, err := apiClient.UsersApiAPI.UsersApiRevokeUserRole(context.Background()).RevokeUserRoleRequest2(revokeUserRoleRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersApiAPI.UsersApiRevokeUserRole``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -670,7 +670,7 @@ Other parameters are passed through a pointer to a apiUsersApiRevokeUserRoleRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inviteUserRequestBody** | [**InviteUserRequestBody**](InviteUserRequestBody.md) |  | 
+ **revokeUserRoleRequest2** | [**RevokeUserRoleRequest2**](RevokeUserRoleRequest2.md) |  | 
 
 ### Return type
 
@@ -692,7 +692,7 @@ Name | Type | Description  | Notes
 
 ## UsersApiUpdatePassword
 
-> UsersApiUpdatePassword(ctx).UpdatePasswordRequestBody(updatePasswordRequestBody).Execute()
+> UsersApiUpdatePassword(ctx).UpdatePasswordRequest2(updatePasswordRequest2).Execute()
 
 UpdatePassword users-api
 
@@ -709,11 +709,11 @@ import (
 )
 
 func main() {
-	updatePasswordRequestBody := *openapiclient.NewUpdatePasswordRequestBody("password") // UpdatePasswordRequestBody | 
+	updatePasswordRequest2 := *openapiclient.NewUpdatePasswordRequest2("password") // UpdatePasswordRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.UsersApiAPI.UsersApiUpdatePassword(context.Background()).UpdatePasswordRequestBody(updatePasswordRequestBody).Execute()
+	r, err := apiClient.UsersApiAPI.UsersApiUpdatePassword(context.Background()).UpdatePasswordRequest2(updatePasswordRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersApiAPI.UsersApiUpdatePassword``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -732,7 +732,7 @@ Other parameters are passed through a pointer to a apiUsersApiUpdatePasswordRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **updatePasswordRequestBody** | [**UpdatePasswordRequestBody**](UpdatePasswordRequestBody.md) |  | 
+ **updatePasswordRequest2** | [**UpdatePasswordRequest2**](UpdatePasswordRequest2.md) |  | 
 
 ### Return type
 
@@ -754,7 +754,7 @@ Name | Type | Description  | Notes
 
 ## UsersApiUpdateUser
 
-> UsersApiUpdateUser(ctx, id).UpdateUserRequestBody(updateUserRequestBody).Execute()
+> UsersApiUpdateUser(ctx, id).UpdateUserRequest2(updateUserRequest2).Execute()
 
 UpdateUser users-api
 
@@ -772,11 +772,11 @@ import (
 
 func main() {
 	id := "user-abcd1234" // string | The User ID
-	updateUserRequestBody := *openapiclient.NewUpdateUserRequestBody() // UpdateUserRequestBody | 
+	updateUserRequest2 := *openapiclient.NewUpdateUserRequest2() // UpdateUserRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.UsersApiAPI.UsersApiUpdateUser(context.Background(), id).UpdateUserRequestBody(updateUserRequestBody).Execute()
+	r, err := apiClient.UsersApiAPI.UsersApiUpdateUser(context.Background(), id).UpdateUserRequest2(updateUserRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersApiAPI.UsersApiUpdateUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -800,7 +800,7 @@ Other parameters are passed through a pointer to a apiUsersApiUpdateUserRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateUserRequestBody** | [**UpdateUserRequestBody**](UpdateUserRequestBody.md) |  | 
+ **updateUserRequest2** | [**UpdateUserRequest2**](UpdateUserRequest2.md) |  | 
 
 ### Return type
 

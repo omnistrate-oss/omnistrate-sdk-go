@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | **string** | A brief description of the Image Registry | 
 **Host** | **string** | The Image Registry host | 
-**Id** | **string** | The ID of the Image Registry | 
+**Id** | **string** | ID of an Image Registry | 
 **Name** | **string** | Name of the Image Registry | 
 **Password** | Pointer to **string** | The password to use when authenticating to the Image Registry | [optional] 
 **Username** | Pointer to **string** | The username to use when authenticating to the Image Registry | [optional] 

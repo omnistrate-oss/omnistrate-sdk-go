@@ -31,8 +31,8 @@ type ServiceApiAPI interface {
 	ServiceApiBuildServiceFromComposeSpec(ctx context.Context) ApiServiceApiBuildServiceFromComposeSpecRequest
 
 	// ServiceApiBuildServiceFromComposeSpecExecute executes the request
-	//  @return BuildServiceFromServicePlanSpecResult
-	ServiceApiBuildServiceFromComposeSpecExecute(r ApiServiceApiBuildServiceFromComposeSpecRequest) (*BuildServiceFromServicePlanSpecResult, *http.Response, error)
+	//  @return BuildServiceFromComposeSpecResult
+	ServiceApiBuildServiceFromComposeSpecExecute(r ApiServiceApiBuildServiceFromComposeSpecRequest) (*BuildServiceFromComposeSpecResult, *http.Response, error)
 
 	/*
 	ServiceApiBuildServiceFromServicePlanSpec BuildServiceFromServicePlanSpec service-api
@@ -139,15 +139,15 @@ type ServiceApiAPIService service
 type ApiServiceApiBuildServiceFromComposeSpecRequest struct {
 	ctx context.Context
 	ApiService ServiceApiAPI
-	buildServiceFromComposeSpecRequestBody *BuildServiceFromComposeSpecRequestBody
+	buildServiceFromComposeSpecRequest2 *BuildServiceFromComposeSpecRequest2
 }
 
-func (r ApiServiceApiBuildServiceFromComposeSpecRequest) BuildServiceFromComposeSpecRequestBody(buildServiceFromComposeSpecRequestBody BuildServiceFromComposeSpecRequestBody) ApiServiceApiBuildServiceFromComposeSpecRequest {
-	r.buildServiceFromComposeSpecRequestBody = &buildServiceFromComposeSpecRequestBody
+func (r ApiServiceApiBuildServiceFromComposeSpecRequest) BuildServiceFromComposeSpecRequest2(buildServiceFromComposeSpecRequest2 BuildServiceFromComposeSpecRequest2) ApiServiceApiBuildServiceFromComposeSpecRequest {
+	r.buildServiceFromComposeSpecRequest2 = &buildServiceFromComposeSpecRequest2
 	return r
 }
 
-func (r ApiServiceApiBuildServiceFromComposeSpecRequest) Execute() (*BuildServiceFromServicePlanSpecResult, *http.Response, error) {
+func (r ApiServiceApiBuildServiceFromComposeSpecRequest) Execute() (*BuildServiceFromComposeSpecResult, *http.Response, error) {
 	return r.ApiService.ServiceApiBuildServiceFromComposeSpecExecute(r)
 }
 
@@ -165,13 +165,13 @@ func (a *ServiceApiAPIService) ServiceApiBuildServiceFromComposeSpec(ctx context
 }
 
 // Execute executes the request
-//  @return BuildServiceFromServicePlanSpecResult
-func (a *ServiceApiAPIService) ServiceApiBuildServiceFromComposeSpecExecute(r ApiServiceApiBuildServiceFromComposeSpecRequest) (*BuildServiceFromServicePlanSpecResult, *http.Response, error) {
+//  @return BuildServiceFromComposeSpecResult
+func (a *ServiceApiAPIService) ServiceApiBuildServiceFromComposeSpecExecute(r ApiServiceApiBuildServiceFromComposeSpecRequest) (*BuildServiceFromComposeSpecResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *BuildServiceFromServicePlanSpecResult
+		localVarReturnValue  *BuildServiceFromComposeSpecResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceApiAPIService.ServiceApiBuildServiceFromComposeSpec")
@@ -184,8 +184,8 @@ func (a *ServiceApiAPIService) ServiceApiBuildServiceFromComposeSpecExecute(r Ap
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.buildServiceFromComposeSpecRequestBody == nil {
-		return localVarReturnValue, nil, reportError("buildServiceFromComposeSpecRequestBody is required and must be specified")
+	if r.buildServiceFromComposeSpecRequest2 == nil {
+		return localVarReturnValue, nil, reportError("buildServiceFromComposeSpecRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -206,7 +206,7 @@ func (a *ServiceApiAPIService) ServiceApiBuildServiceFromComposeSpecExecute(r Ap
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.buildServiceFromComposeSpecRequestBody
+	localVarPostBody = r.buildServiceFromComposeSpecRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -312,11 +312,11 @@ func (a *ServiceApiAPIService) ServiceApiBuildServiceFromComposeSpecExecute(r Ap
 type ApiServiceApiBuildServiceFromServicePlanSpecRequest struct {
 	ctx context.Context
 	ApiService ServiceApiAPI
-	buildServiceFromServicePlanSpecRequestBody *BuildServiceFromServicePlanSpecRequestBody
+	buildServiceFromServicePlanSpecRequest2 *BuildServiceFromServicePlanSpecRequest2
 }
 
-func (r ApiServiceApiBuildServiceFromServicePlanSpecRequest) BuildServiceFromServicePlanSpecRequestBody(buildServiceFromServicePlanSpecRequestBody BuildServiceFromServicePlanSpecRequestBody) ApiServiceApiBuildServiceFromServicePlanSpecRequest {
-	r.buildServiceFromServicePlanSpecRequestBody = &buildServiceFromServicePlanSpecRequestBody
+func (r ApiServiceApiBuildServiceFromServicePlanSpecRequest) BuildServiceFromServicePlanSpecRequest2(buildServiceFromServicePlanSpecRequest2 BuildServiceFromServicePlanSpecRequest2) ApiServiceApiBuildServiceFromServicePlanSpecRequest {
+	r.buildServiceFromServicePlanSpecRequest2 = &buildServiceFromServicePlanSpecRequest2
 	return r
 }
 
@@ -357,8 +357,8 @@ func (a *ServiceApiAPIService) ServiceApiBuildServiceFromServicePlanSpecExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.buildServiceFromServicePlanSpecRequestBody == nil {
-		return localVarReturnValue, nil, reportError("buildServiceFromServicePlanSpecRequestBody is required and must be specified")
+	if r.buildServiceFromServicePlanSpecRequest2 == nil {
+		return localVarReturnValue, nil, reportError("buildServiceFromServicePlanSpecRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -379,7 +379,7 @@ func (a *ServiceApiAPIService) ServiceApiBuildServiceFromServicePlanSpecExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.buildServiceFromServicePlanSpecRequestBody
+	localVarPostBody = r.buildServiceFromServicePlanSpecRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -485,11 +485,11 @@ func (a *ServiceApiAPIService) ServiceApiBuildServiceFromServicePlanSpecExecute(
 type ApiServiceApiCreateServiceRequest struct {
 	ctx context.Context
 	ApiService ServiceApiAPI
-	createServiceRequestBody *CreateServiceRequestBody
+	createServiceRequest2 *CreateServiceRequest2
 }
 
-func (r ApiServiceApiCreateServiceRequest) CreateServiceRequestBody(createServiceRequestBody CreateServiceRequestBody) ApiServiceApiCreateServiceRequest {
-	r.createServiceRequestBody = &createServiceRequestBody
+func (r ApiServiceApiCreateServiceRequest) CreateServiceRequest2(createServiceRequest2 CreateServiceRequest2) ApiServiceApiCreateServiceRequest {
+	r.createServiceRequest2 = &createServiceRequest2
 	return r
 }
 
@@ -530,8 +530,8 @@ func (a *ServiceApiAPIService) ServiceApiCreateServiceExecute(r ApiServiceApiCre
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createServiceRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createServiceRequestBody is required and must be specified")
+	if r.createServiceRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createServiceRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -552,7 +552,7 @@ func (a *ServiceApiAPIService) ServiceApiCreateServiceExecute(r ApiServiceApiCre
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createServiceRequestBody
+	localVarPostBody = r.createServiceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -658,11 +658,11 @@ func (a *ServiceApiAPIService) ServiceApiCreateServiceExecute(r ApiServiceApiCre
 type ApiServiceApiCreateServiceFromComposeSpecRequest struct {
 	ctx context.Context
 	ApiService ServiceApiAPI
-	createServiceFromComposeSpecRequestBody *CreateServiceFromComposeSpecRequestBody
+	createServiceFromComposeSpecRequest2 *CreateServiceFromComposeSpecRequest2
 }
 
-func (r ApiServiceApiCreateServiceFromComposeSpecRequest) CreateServiceFromComposeSpecRequestBody(createServiceFromComposeSpecRequestBody CreateServiceFromComposeSpecRequestBody) ApiServiceApiCreateServiceFromComposeSpecRequest {
-	r.createServiceFromComposeSpecRequestBody = &createServiceFromComposeSpecRequestBody
+func (r ApiServiceApiCreateServiceFromComposeSpecRequest) CreateServiceFromComposeSpecRequest2(createServiceFromComposeSpecRequest2 CreateServiceFromComposeSpecRequest2) ApiServiceApiCreateServiceFromComposeSpecRequest {
+	r.createServiceFromComposeSpecRequest2 = &createServiceFromComposeSpecRequest2
 	return r
 }
 
@@ -703,8 +703,8 @@ func (a *ServiceApiAPIService) ServiceApiCreateServiceFromComposeSpecExecute(r A
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createServiceFromComposeSpecRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createServiceFromComposeSpecRequestBody is required and must be specified")
+	if r.createServiceFromComposeSpecRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createServiceFromComposeSpecRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -725,7 +725,7 @@ func (a *ServiceApiAPIService) ServiceApiCreateServiceFromComposeSpecExecute(r A
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createServiceFromComposeSpecRequestBody
+	localVarPostBody = r.createServiceFromComposeSpecRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1481,11 +1481,11 @@ type ApiServiceApiUpdateServiceRequest struct {
 	ctx context.Context
 	ApiService ServiceApiAPI
 	id string
-	updateServiceRequestBody *UpdateServiceRequestBody
+	updateServiceRequest2 *UpdateServiceRequest2
 }
 
-func (r ApiServiceApiUpdateServiceRequest) UpdateServiceRequestBody(updateServiceRequestBody UpdateServiceRequestBody) ApiServiceApiUpdateServiceRequest {
-	r.updateServiceRequestBody = &updateServiceRequestBody
+func (r ApiServiceApiUpdateServiceRequest) UpdateServiceRequest2(updateServiceRequest2 UpdateServiceRequest2) ApiServiceApiUpdateServiceRequest {
+	r.updateServiceRequest2 = &updateServiceRequest2
 	return r
 }
 
@@ -1527,8 +1527,8 @@ func (a *ServiceApiAPIService) ServiceApiUpdateServiceExecute(r ApiServiceApiUpd
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateServiceRequestBody == nil {
-		return nil, reportError("updateServiceRequestBody is required and must be specified")
+	if r.updateServiceRequest2 == nil {
+		return nil, reportError("updateServiceRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1549,7 +1549,7 @@ func (a *ServiceApiAPIService) ServiceApiUpdateServiceExecute(r ApiServiceApiUpd
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateServiceRequestBody
+	localVarPostBody = r.updateServiceRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

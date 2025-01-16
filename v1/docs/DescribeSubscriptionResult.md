@@ -4,21 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountConfigIdentityId** | **string** | The org ID of the account config identity | 
+**AccountConfigIdentityId** | **string** | ID of an Org | 
 **CloudProviderNames** | **[]string** | List of cloud provider names | 
 **CreatedAt** | **string** | The time that this subscription was created | 
 **DefaultSubscription** | **bool** | Whether this is the default subscription for the user | 
-**Id** | **string** | The subscription ID | 
-**ProductTierId** | **string** | The product tier ID that this subscription is tied to | 
+**Id** | **string** | ID of a Subscription | 
+**ProductTierId** | **string** | ID of a Product Tier | 
 **ProductTierName** | **string** | The name of the product tier | 
-**RoleType** | **string** | The role type of the caller user in this subscription | 
-**RootUserId** | **string** | The user ID that this subscription belong to | 
-**ServiceId** | **string** | The service ID that this subscription is tied to | 
+**RoleType** | **string** | Type of the role | 
+**RootUserId** | **string** | ID of a User | 
+**ServiceId** | **string** | ID of a Service | 
 **ServiceLogoURL** | **string** | The logo for the service | 
 **ServiceName** | **string** | The name of the service | 
-**ServiceOrgId** | **string** | The org ID of the org that owns the service | 
+**ServiceOrgId** | **string** | ID of an Org | 
 **ServiceOrgName** | **string** | The name of the org that owns the service | 
-**Status** | **string** | The status of the subscription | 
+**Status** | **string** | Subscription Status | 
 **SubscriptionOwnerName** | **string** | The name of the subscription owner user | 
 
 ## Methods

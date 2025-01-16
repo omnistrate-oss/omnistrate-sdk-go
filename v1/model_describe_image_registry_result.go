@@ -24,7 +24,7 @@ type DescribeImageRegistryResult struct {
 	Description string `json:"description"`
 	// The Image Registry host
 	Host string `json:"host"`
-	// The ID of the Image Registry
+	// ID of an Image Registry
 	Id string `json:"id"`
 	// Name of the Image Registry
 	Name string `json:"name"`

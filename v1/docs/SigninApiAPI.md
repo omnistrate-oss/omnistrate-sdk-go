@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## SigninApiLoginWithIdentityProvider
 
-> SigninResult SigninApiLoginWithIdentityProvider(ctx).LoginWithIdentityProviderRequestBody(loginWithIdentityProviderRequestBody).Execute()
+> LoginWithIdentityProviderResult SigninApiLoginWithIdentityProvider(ctx).LoginWithIdentityProviderRequest(loginWithIdentityProviderRequest).Execute()
 
 LoginWithIdentityProvider signin-api
 
@@ -28,16 +28,16 @@ import (
 )
 
 func main() {
-	loginWithIdentityProviderRequestBody := *openapiclient.NewLoginWithIdentityProviderRequestBody("Google") // LoginWithIdentityProviderRequestBody | 
+	loginWithIdentityProviderRequest := *openapiclient.NewLoginWithIdentityProviderRequest("Google|GitHub|Google for CTL|GitHub for CTL") // LoginWithIdentityProviderRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SigninApiAPI.SigninApiLoginWithIdentityProvider(context.Background()).LoginWithIdentityProviderRequestBody(loginWithIdentityProviderRequestBody).Execute()
+	resp, r, err := apiClient.SigninApiAPI.SigninApiLoginWithIdentityProvider(context.Background()).LoginWithIdentityProviderRequest(loginWithIdentityProviderRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SigninApiAPI.SigninApiLoginWithIdentityProvider``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SigninApiLoginWithIdentityProvider`: SigninResult
+	// response from `SigninApiLoginWithIdentityProvider`: LoginWithIdentityProviderResult
 	fmt.Fprintf(os.Stdout, "Response from `SigninApiAPI.SigninApiLoginWithIdentityProvider`: %v\n", resp)
 }
 ```
@@ -53,11 +53,11 @@ Other parameters are passed through a pointer to a apiSigninApiLoginWithIdentity
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loginWithIdentityProviderRequestBody** | [**LoginWithIdentityProviderRequestBody**](LoginWithIdentityProviderRequestBody.md) |  | 
+ **loginWithIdentityProviderRequest** | [**LoginWithIdentityProviderRequest**](LoginWithIdentityProviderRequest.md) |  | 
 
 ### Return type
 
-[**SigninResult**](SigninResult.md)
+[**LoginWithIdentityProviderResult**](LoginWithIdentityProviderResult.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ No authorization required
 
 ## SigninApiSignin
 
-> SigninResult SigninApiSignin(ctx).SigninRequestBody(signinRequestBody).Execute()
+> SigninResult SigninApiSignin(ctx).SigninRequest(signinRequest).Execute()
 
 Signin signin-api
 
@@ -92,11 +92,11 @@ import (
 )
 
 func main() {
-	signinRequestBody := *openapiclient.NewSigninRequestBody("abc@gmail.com") // SigninRequestBody | 
+	signinRequest := *openapiclient.NewSigninRequest("abc@gmail.com") // SigninRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SigninApiAPI.SigninApiSignin(context.Background()).SigninRequestBody(signinRequestBody).Execute()
+	resp, r, err := apiClient.SigninApiAPI.SigninApiSignin(context.Background()).SigninRequest(signinRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SigninApiAPI.SigninApiSignin``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -117,7 +117,7 @@ Other parameters are passed through a pointer to a apiSigninApiSigninRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **signinRequestBody** | [**SigninRequestBody**](SigninRequestBody.md) |  | 
+ **signinRequest** | [**SigninRequest**](SigninRequest.md) |  | 
 
 ### Return type
 

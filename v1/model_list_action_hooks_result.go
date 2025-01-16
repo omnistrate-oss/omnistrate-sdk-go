@@ -21,7 +21,7 @@ var _ MappedNullable = &ListActionHooksResult{}
 // ListActionHooksResult struct for ListActionHooksResult
 type ListActionHooksResult struct {
 	// The list of action hooks
-	Hooks []RegisterActionHookRequestBody `json:"hooks"`
+	Hooks []ActionHook `json:"hooks"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -31,7 +31,7 @@ type _ListActionHooksResult ListActionHooksResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListActionHooksResult(hooks []RegisterActionHookRequestBody) *ListActionHooksResult {
+func NewListActionHooksResult(hooks []ActionHook) *ListActionHooksResult {
 	this := ListActionHooksResult{}
 	this.Hooks = hooks
 	return &this
@@ -46,9 +46,9 @@ func NewListActionHooksResultWithDefaults() *ListActionHooksResult {
 }
 
 // GetHooks returns the Hooks field value
-func (o *ListActionHooksResult) GetHooks() []RegisterActionHookRequestBody {
+func (o *ListActionHooksResult) GetHooks() []ActionHook {
 	if o == nil {
-		var ret []RegisterActionHookRequestBody
+		var ret []ActionHook
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *ListActionHooksResult) GetHooks() []RegisterActionHookRequestBody {
 
 // GetHooksOk returns a tuple with the Hooks field value
 // and a boolean to check if the value has been set.
-func (o *ListActionHooksResult) GetHooksOk() ([]RegisterActionHookRequestBody, bool) {
+func (o *ListActionHooksResult) GetHooksOk() ([]ActionHook, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *ListActionHooksResult) GetHooksOk() ([]RegisterActionHookRequestBody, b
 }
 
 // SetHooks sets field value
-func (o *ListActionHooksResult) SetHooks(v []RegisterActionHookRequestBody) {
+func (o *ListActionHooksResult) SetHooks(v []ActionHook) {
 	o.Hooks = v
 }
 

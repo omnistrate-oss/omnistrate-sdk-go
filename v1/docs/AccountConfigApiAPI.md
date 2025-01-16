@@ -79,7 +79,7 @@ Other parameters are passed through a pointer to a apiAccountConfigApiAccountCon
 
 ## AccountConfigApiCreateAccountConfig
 
-> string AccountConfigApiCreateAccountConfig(ctx).CreateAccountConfigRequestBody(createAccountConfigRequestBody).Execute()
+> string AccountConfigApiCreateAccountConfig(ctx).CreateAccountConfigRequest2(createAccountConfigRequest2).Execute()
 
 CreateAccountConfig account-config-api
 
@@ -96,11 +96,11 @@ import (
 )
 
 func main() {
-	createAccountConfigRequestBody := *openapiclient.NewCreateAccountConfigRequestBody("infra-12345678", "An AWS account hosting multiple dev environments", "Dev AWS account") // CreateAccountConfigRequestBody | 
+	createAccountConfigRequest2 := *openapiclient.NewCreateAccountConfigRequest2("infra-12345678", "An AWS account hosting multiple dev environments", "Dev AWS account") // CreateAccountConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountConfigApiAPI.AccountConfigApiCreateAccountConfig(context.Background()).CreateAccountConfigRequestBody(createAccountConfigRequestBody).Execute()
+	resp, r, err := apiClient.AccountConfigApiAPI.AccountConfigApiCreateAccountConfig(context.Background()).CreateAccountConfigRequest2(createAccountConfigRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountConfigApiAPI.AccountConfigApiCreateAccountConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -121,7 +121,7 @@ Other parameters are passed through a pointer to a apiAccountConfigApiCreateAcco
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createAccountConfigRequestBody** | [**CreateAccountConfigRequestBody**](CreateAccountConfigRequestBody.md) |  | 
+ **createAccountConfigRequest2** | [**CreateAccountConfigRequest2**](CreateAccountConfigRequest2.md) |  | 
 
 ### Return type
 
@@ -481,7 +481,7 @@ Name | Type | Description  | Notes
 
 ## AccountConfigApiListBYOAConfig
 
-> ListAccountConfigResult AccountConfigApiListBYOAConfig(ctx).ListBYOAConfigRequestBody(listBYOAConfigRequestBody).Execute()
+> ListBYOAConfigResult AccountConfigApiListBYOAConfig(ctx).ListBYOAConfigRequest2(listBYOAConfigRequest2).Execute()
 
 ListBYOAConfig account-config-api
 
@@ -498,16 +498,16 @@ import (
 )
 
 func main() {
-	listBYOAConfigRequestBody := *openapiclient.NewListBYOAConfigRequestBody("aws") // ListBYOAConfigRequestBody | 
+	listBYOAConfigRequest2 := *openapiclient.NewListBYOAConfigRequest2("aws") // ListBYOAConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountConfigApiAPI.AccountConfigApiListBYOAConfig(context.Background()).ListBYOAConfigRequestBody(listBYOAConfigRequestBody).Execute()
+	resp, r, err := apiClient.AccountConfigApiAPI.AccountConfigApiListBYOAConfig(context.Background()).ListBYOAConfigRequest2(listBYOAConfigRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountConfigApiAPI.AccountConfigApiListBYOAConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AccountConfigApiListBYOAConfig`: ListAccountConfigResult
+	// response from `AccountConfigApiListBYOAConfig`: ListBYOAConfigResult
 	fmt.Fprintf(os.Stdout, "Response from `AccountConfigApiAPI.AccountConfigApiListBYOAConfig`: %v\n", resp)
 }
 ```
@@ -523,11 +523,11 @@ Other parameters are passed through a pointer to a apiAccountConfigApiListBYOACo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listBYOAConfigRequestBody** | [**ListBYOAConfigRequestBody**](ListBYOAConfigRequestBody.md) |  | 
+ **listBYOAConfigRequest2** | [**ListBYOAConfigRequest2**](ListBYOAConfigRequest2.md) |  | 
 
 ### Return type
 
-[**ListAccountConfigResult**](ListAccountConfigResult.md)
+[**ListBYOAConfigResult**](ListBYOAConfigResult.md)
 
 ### Authorization
 

@@ -20,7 +20,7 @@ var _ MappedNullable = &OmnistrateServiceVersionResult{}
 
 // OmnistrateServiceVersionResult struct for OmnistrateServiceVersionResult
 type OmnistrateServiceVersionResult struct {
-	// Omnistrate API version
+	// Version of the Entity to operate on
 	ApiVersion string `json:"apiVersion"`
 	// The commit hash of the build
 	BuildCommitSHA string `json:"buildCommitSHA"`

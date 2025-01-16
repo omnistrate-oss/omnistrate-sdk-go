@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 ## ServiceModelApiAddAccountConfigToServiceModel
 
-> ServiceModelApiAddAccountConfigToServiceModel(ctx, serviceId, id).AddAccountConfigToServiceModelRequestBody(addAccountConfigToServiceModelRequestBody).Execute()
+> ServiceModelApiAddAccountConfigToServiceModel(ctx, serviceId, id).AddAccountConfigToServiceModelRequest2(addAccountConfigToServiceModelRequest2).Execute()
 
 AddAccountConfigToServiceModel service-model-api
 
@@ -40,11 +40,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this model belongs to
 	id := "sm-12345678" // string | The service model ID
-	addAccountConfigToServiceModelRequestBody := *openapiclient.NewAddAccountConfigToServiceModelRequestBody("ac-12345678") // AddAccountConfigToServiceModelRequestBody | 
+	addAccountConfigToServiceModelRequest2 := *openapiclient.NewAddAccountConfigToServiceModelRequest2("ac-12345678") // AddAccountConfigToServiceModelRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ServiceModelApiAPI.ServiceModelApiAddAccountConfigToServiceModel(context.Background(), serviceId, id).AddAccountConfigToServiceModelRequestBody(addAccountConfigToServiceModelRequestBody).Execute()
+	r, err := apiClient.ServiceModelApiAPI.ServiceModelApiAddAccountConfigToServiceModel(context.Background(), serviceId, id).AddAccountConfigToServiceModelRequest2(addAccountConfigToServiceModelRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceModelApiAPI.ServiceModelApiAddAccountConfigToServiceModel``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **addAccountConfigToServiceModelRequestBody** | [**AddAccountConfigToServiceModelRequestBody**](AddAccountConfigToServiceModelRequestBody.md) |  | 
+ **addAccountConfigToServiceModelRequest2** | [**AddAccountConfigToServiceModelRequest2**](AddAccountConfigToServiceModelRequest2.md) |  | 
 
 ### Return type
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ## ServiceModelApiCopyServiceModel
 
-> string ServiceModelApiCopyServiceModel(ctx, serviceId, sourceId).CopyServiceModelRequestBody(copyServiceModelRequestBody).Execute()
+> string ServiceModelApiCopyServiceModel(ctx, serviceId, sourceId).CopyServiceModelRequest2(copyServiceModelRequest2).Execute()
 
 CopyServiceModel service-model-api
 
@@ -111,11 +111,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this model belongs to
 	sourceId := "sm-12345678" // string | The source service model ID
-	copyServiceModelRequestBody := *openapiclient.NewCopyServiceModelRequestBody("A MySQL Hosted SaaS specializing in multi-writer clusters for high availability", "MySQL multi-writer service hosted model", "CUSTOMER_HOSTED") // CopyServiceModelRequestBody | 
+	copyServiceModelRequest2 := *openapiclient.NewCopyServiceModelRequest2("A MySQL Hosted SaaS specializing in multi-writer clusters for high availability", "MySQL multi-writer service hosted model", "CUSTOMER_HOSTED") // CopyServiceModelRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServiceModelApiAPI.ServiceModelApiCopyServiceModel(context.Background(), serviceId, sourceId).CopyServiceModelRequestBody(copyServiceModelRequestBody).Execute()
+	resp, r, err := apiClient.ServiceModelApiAPI.ServiceModelApiCopyServiceModel(context.Background(), serviceId, sourceId).CopyServiceModelRequest2(copyServiceModelRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceModelApiAPI.ServiceModelApiCopyServiceModel``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **copyServiceModelRequestBody** | [**CopyServiceModelRequestBody**](CopyServiceModelRequestBody.md) |  | 
+ **copyServiceModelRequest2** | [**CopyServiceModelRequest2**](CopyServiceModelRequest2.md) |  | 
 
 ### Return type
 
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ## ServiceModelApiCreateServiceModel
 
-> string ServiceModelApiCreateServiceModel(ctx, serviceId).CreateServiceModelRequestBody(createServiceModelRequestBody).Execute()
+> string ServiceModelApiCreateServiceModel(ctx, serviceId).CreateServiceModelRequest2(createServiceModelRequest2).Execute()
 
 CreateServiceModel service-model-api
 
@@ -183,11 +183,11 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The service this model is for
-	createServiceModelRequestBody := *openapiclient.NewCreateServiceModelRequestBody("A MySQL Hosted SaaS specializing in multi-writer clusters for high availability", "CUSTOMER_HOSTED", "MySQL multi-writer service hosted model", "sa-12345678") // CreateServiceModelRequestBody | 
+	createServiceModelRequest2 := *openapiclient.NewCreateServiceModelRequest2("A MySQL Hosted SaaS specializing in multi-writer clusters for high availability", "CUSTOMER_HOSTED", "MySQL multi-writer service hosted model", "sa-12345678") // CreateServiceModelRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServiceModelApiAPI.ServiceModelApiCreateServiceModel(context.Background(), serviceId).CreateServiceModelRequestBody(createServiceModelRequestBody).Execute()
+	resp, r, err := apiClient.ServiceModelApiAPI.ServiceModelApiCreateServiceModel(context.Background(), serviceId).CreateServiceModelRequest2(createServiceModelRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceModelApiAPI.ServiceModelApiCreateServiceModel``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -213,7 +213,7 @@ Other parameters are passed through a pointer to a apiServiceModelApiCreateServi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createServiceModelRequestBody** | [**CreateServiceModelRequestBody**](CreateServiceModelRequestBody.md) |  | 
+ **createServiceModelRequest2** | [**CreateServiceModelRequest2**](CreateServiceModelRequest2.md) |  | 
 
 ### Return type
 
@@ -375,7 +375,7 @@ Name | Type | Description  | Notes
 
 ## ServiceModelApiDisableServiceModelFeature
 
-> ServiceModelApiDisableServiceModelFeature(ctx, serviceId, id).DisableServiceModelFeatureRequestBody(disableServiceModelFeatureRequestBody).Execute()
+> ServiceModelApiDisableServiceModelFeature(ctx, serviceId, id).DisableServiceModelFeatureRequest2(disableServiceModelFeatureRequest2).Execute()
 
 DisableServiceModelFeature service-model-api
 
@@ -394,11 +394,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this model belongs to
 	id := "sm-12345678" // string | The service model ID
-	disableServiceModelFeatureRequestBody := *openapiclient.NewDisableServiceModelFeatureRequestBody("Incidunt consequatur.") // DisableServiceModelFeatureRequestBody | 
+	disableServiceModelFeatureRequest2 := *openapiclient.NewDisableServiceModelFeatureRequest2("Facere voluptatum aut aut perspiciatis fugiat.") // DisableServiceModelFeatureRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ServiceModelApiAPI.ServiceModelApiDisableServiceModelFeature(context.Background(), serviceId, id).DisableServiceModelFeatureRequestBody(disableServiceModelFeatureRequestBody).Execute()
+	r, err := apiClient.ServiceModelApiAPI.ServiceModelApiDisableServiceModelFeature(context.Background(), serviceId, id).DisableServiceModelFeatureRequest2(disableServiceModelFeatureRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceModelApiAPI.ServiceModelApiDisableServiceModelFeature``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -424,7 +424,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **disableServiceModelFeatureRequestBody** | [**DisableServiceModelFeatureRequestBody**](DisableServiceModelFeatureRequestBody.md) |  | 
+ **disableServiceModelFeatureRequest2** | [**DisableServiceModelFeatureRequest2**](DisableServiceModelFeatureRequest2.md) |  | 
 
 ### Return type
 
@@ -446,7 +446,7 @@ Name | Type | Description  | Notes
 
 ## ServiceModelApiEnableServiceModelFeature
 
-> ServiceModelApiEnableServiceModelFeature(ctx, serviceId, id).ServiceModelFeatureDetail(serviceModelFeatureDetail).Execute()
+> ServiceModelApiEnableServiceModelFeature(ctx, serviceId, id).EnableServiceModelFeatureRequest2(enableServiceModelFeatureRequest2).Execute()
 
 EnableServiceModelFeature service-model-api
 
@@ -465,11 +465,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this model belongs to
 	id := "sm-12345678" // string | The service model ID
-	serviceModelFeatureDetail := *openapiclient.NewServiceModelFeatureDetail(map[string]interface{}{"key": interface{}(123)}, "Aperiam expedita et et.") // ServiceModelFeatureDetail | 
+	enableServiceModelFeatureRequest2 := *openapiclient.NewEnableServiceModelFeatureRequest2(map[string]interface{}{"key": interface{}(123)}, "Qui aspernatur magnam.") // EnableServiceModelFeatureRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ServiceModelApiAPI.ServiceModelApiEnableServiceModelFeature(context.Background(), serviceId, id).ServiceModelFeatureDetail(serviceModelFeatureDetail).Execute()
+	r, err := apiClient.ServiceModelApiAPI.ServiceModelApiEnableServiceModelFeature(context.Background(), serviceId, id).EnableServiceModelFeatureRequest2(enableServiceModelFeatureRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceModelApiAPI.ServiceModelApiEnableServiceModelFeature``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **serviceModelFeatureDetail** | [**ServiceModelFeatureDetail**](ServiceModelFeatureDetail.md) |  | 
+ **enableServiceModelFeatureRequest2** | [**EnableServiceModelFeatureRequest2**](EnableServiceModelFeatureRequest2.md) |  | 
 
 ### Return type
 
@@ -517,7 +517,7 @@ Name | Type | Description  | Notes
 
 ## ServiceModelApiListServiceModel
 
-> ListServiceEnvironmentsResult ServiceModelApiListServiceModel(ctx, serviceId, serviceApiId).Execute()
+> ListServiceModelsResult ServiceModelApiListServiceModel(ctx, serviceId, serviceApiId).Execute()
 
 ListServiceModel service-model-api
 
@@ -544,7 +544,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceModelApiAPI.ServiceModelApiListServiceModel``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ServiceModelApiListServiceModel`: ListServiceEnvironmentsResult
+	// response from `ServiceModelApiListServiceModel`: ListServiceModelsResult
 	fmt.Fprintf(os.Stdout, "Response from `ServiceModelApiAPI.ServiceModelApiListServiceModel`: %v\n", resp)
 }
 ```
@@ -570,7 +570,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListServiceEnvironmentsResult**](ListServiceEnvironmentsResult.md)
+[**ListServiceModelsResult**](ListServiceModelsResult.md)
 
 ### Authorization
 
@@ -588,7 +588,7 @@ Name | Type | Description  | Notes
 
 ## ServiceModelApiReleaseServiceModelStatus
 
-> OmnistrateServiceHealthResult ServiceModelApiReleaseServiceModelStatus(ctx, serviceId, id).Execute()
+> ReleaseServiceModelResult ServiceModelApiReleaseServiceModelStatus(ctx, serviceId, id).Execute()
 
 ReleaseServiceModelStatus service-model-api
 
@@ -615,7 +615,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceModelApiAPI.ServiceModelApiReleaseServiceModelStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ServiceModelApiReleaseServiceModelStatus`: OmnistrateServiceHealthResult
+	// response from `ServiceModelApiReleaseServiceModelStatus`: ReleaseServiceModelResult
 	fmt.Fprintf(os.Stdout, "Response from `ServiceModelApiAPI.ServiceModelApiReleaseServiceModelStatus`: %v\n", resp)
 }
 ```
@@ -641,7 +641,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OmnistrateServiceHealthResult**](OmnistrateServiceHealthResult.md)
+[**ReleaseServiceModelResult**](ReleaseServiceModelResult.md)
 
 ### Authorization
 
@@ -659,7 +659,7 @@ Name | Type | Description  | Notes
 
 ## ServiceModelApiRemoveAccountConfigFromServiceModel
 
-> ServiceModelApiRemoveAccountConfigFromServiceModel(ctx, serviceId, id).AddAccountConfigToServiceModelRequestBody(addAccountConfigToServiceModelRequestBody).Execute()
+> ServiceModelApiRemoveAccountConfigFromServiceModel(ctx, serviceId, id).RemoveAccountConfigFromServiceModelRequest2(removeAccountConfigFromServiceModelRequest2).Execute()
 
 RemoveAccountConfigFromServiceModel service-model-api
 
@@ -678,11 +678,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this model belongs to
 	id := "sm-12345678" // string | The service model ID
-	addAccountConfigToServiceModelRequestBody := *openapiclient.NewAddAccountConfigToServiceModelRequestBody("ac-12345678") // AddAccountConfigToServiceModelRequestBody | 
+	removeAccountConfigFromServiceModelRequest2 := *openapiclient.NewRemoveAccountConfigFromServiceModelRequest2("ac-12345678") // RemoveAccountConfigFromServiceModelRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ServiceModelApiAPI.ServiceModelApiRemoveAccountConfigFromServiceModel(context.Background(), serviceId, id).AddAccountConfigToServiceModelRequestBody(addAccountConfigToServiceModelRequestBody).Execute()
+	r, err := apiClient.ServiceModelApiAPI.ServiceModelApiRemoveAccountConfigFromServiceModel(context.Background(), serviceId, id).RemoveAccountConfigFromServiceModelRequest2(removeAccountConfigFromServiceModelRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceModelApiAPI.ServiceModelApiRemoveAccountConfigFromServiceModel``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -708,7 +708,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **addAccountConfigToServiceModelRequestBody** | [**AddAccountConfigToServiceModelRequestBody**](AddAccountConfigToServiceModelRequestBody.md) |  | 
+ **removeAccountConfigFromServiceModelRequest2** | [**RemoveAccountConfigFromServiceModelRequest2**](RemoveAccountConfigFromServiceModelRequest2.md) |  | 
 
 ### Return type
 
@@ -802,7 +802,7 @@ Name | Type | Description  | Notes
 
 ## ServiceModelApiUpdateServiceModel
 
-> ServiceModelApiUpdateServiceModel(ctx, serviceId, id).UpdateServiceModelRequestBody(updateServiceModelRequestBody).Execute()
+> ServiceModelApiUpdateServiceModel(ctx, serviceId, id).UpdateServiceModelRequest2(updateServiceModelRequest2).Execute()
 
 UpdateServiceModel service-model-api
 
@@ -821,11 +821,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this model belongs to
 	id := "sm-12345678" // string | The service model ID
-	updateServiceModelRequestBody := *openapiclient.NewUpdateServiceModelRequestBody() // UpdateServiceModelRequestBody | 
+	updateServiceModelRequest2 := *openapiclient.NewUpdateServiceModelRequest2() // UpdateServiceModelRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ServiceModelApiAPI.ServiceModelApiUpdateServiceModel(context.Background(), serviceId, id).UpdateServiceModelRequestBody(updateServiceModelRequestBody).Execute()
+	r, err := apiClient.ServiceModelApiAPI.ServiceModelApiUpdateServiceModel(context.Background(), serviceId, id).UpdateServiceModelRequest2(updateServiceModelRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceModelApiAPI.ServiceModelApiUpdateServiceModel``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -851,7 +851,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **updateServiceModelRequestBody** | [**UpdateServiceModelRequestBody**](UpdateServiceModelRequestBody.md) |  | 
+ **updateServiceModelRequest2** | [**UpdateServiceModelRequest2**](UpdateServiceModelRequest2.md) |  | 
 
 ### Return type
 

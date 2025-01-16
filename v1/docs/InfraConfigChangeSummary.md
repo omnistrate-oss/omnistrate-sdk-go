@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ChangeState** | Pointer to **string** | The pending change state for the infra configuration | [optional] 
-**InfraConfigId** | Pointer to **string** | The ID of the infrastructure configuration that this resource refers to | [optional] 
+**ChangeState** | Pointer to **string** | State of the configuration change | [optional] 
+**InfraConfigId** | Pointer to **string** | ID of an Infra Config | [optional] 
 **Name** | Pointer to **string** | The name of the infra config | [optional] 
 
 ## Methods

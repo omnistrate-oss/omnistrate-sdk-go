@@ -22,20 +22,21 @@ var _ MappedNullable = &DescribeOutputParameterResult{}
 type DescribeOutputParameterResult struct {
 	// Description of the output variable being exported
 	Description string `json:"description"`
-	// The ID of the output parameter
+	// ID of an Output Parameter
 	Id string `json:"id"`
 	// Key of the output variable being exported
 	Key string `json:"key"`
 	// External name of the output variable being exported
 	Name string `json:"name"`
-	// The ID of the resource that this input parameter belongs to
+	// ID of a resource
 	ResourceId string `json:"resourceId"`
-	// The ID of the service that this output parameter belongs to
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// Value of the output variable being exported
 	Value *string `json:"value,omitempty"`
 	// Reference to an input variable that will be used to set the value of the output variable being exported
 	ValueRef *string `json:"valueRef,omitempty"`
+	// Type of the variable encoding the value
 	ValueType *string `json:"valueType,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

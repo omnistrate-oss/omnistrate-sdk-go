@@ -20,24 +20,25 @@ var _ MappedNullable = &ServiceEnvironment{}
 
 // ServiceEnvironment struct for ServiceEnvironment
 type ServiceEnvironment struct {
-	// Service environment ID
+	// ID of a Service Environment
 	Id string `json:"id"`
 	// Name of the Service Environment
 	Name string `json:"name"`
 	// The status of the promotion
 	PromoteStatus *string `json:"promoteStatus,omitempty"`
-	// The status of the SaaS portal for this environment type
+	// The status of an operation
 	SaasPortalStatus *string `json:"saasPortalStatus,omitempty"`
 	// The URL of the SaaS portal for this environment type
 	SaasPortalUrl *string `json:"saasPortalUrl,omitempty"`
 	// List of service plans
 	ServicePlans []ServicePlan `json:"servicePlans"`
-	// The source environment ID
+	// ID of a Service Environment
 	SourceEnvironmentID *string `json:"sourceEnvironmentID,omitempty"`
 	// The source environment name
 	SourceEnvironmentName *string `json:"sourceEnvironmentName,omitempty"`
+	// The type of service environment
 	Type *string `json:"type,omitempty"`
-	// Visibility of the service environment
+	// This parameter is used to configure the visibility of the service control-plane APIs
 	Visibility string `json:"visibility"`
 	AdditionalProperties map[string]interface{}
 }

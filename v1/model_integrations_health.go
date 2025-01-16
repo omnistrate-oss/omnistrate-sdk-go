@@ -19,9 +19,9 @@ var _ MappedNullable = &IntegrationsHealth{}
 
 // IntegrationsHealth struct for IntegrationsHealth
 type IntegrationsHealth struct {
-	// The health status of the integration with customer provider observability stack on BYOA
+	// The heath status of a resource
 	CustomerObservabilityHealth *string `json:"CustomerObservabilityHealth,omitempty"`
-	// The health status of the integration with service provider observability stack
+	// The heath status of a resource
 	InternalObservabilityHealth *string `json:"InternalObservabilityHealth,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

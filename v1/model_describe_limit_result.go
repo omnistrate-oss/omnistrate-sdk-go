@@ -22,7 +22,7 @@ var _ MappedNullable = &DescribeLimitResult{}
 type DescribeLimitResult struct {
 	// A brief description of the limit
 	Description string `json:"description"`
-	// Limit family
+	// The limit family
 	Family string `json:"family"`
 	// Unique key to identify the limit
 	Key string `json:"key"`

@@ -22,7 +22,7 @@ var _ MappedNullable = &ResourceDependency{}
 type ResourceDependency struct {
 	// A map of the source parameter to the resource dependency parameter
 	ParameterMap *map[string]string `json:"parameterMap,omitempty"`
-	// The ID of the resource
+	// ID of a resource
 	ResourceId string `json:"resourceId"`
 	AdditionalProperties map[string]interface{}
 }

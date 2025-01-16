@@ -22,7 +22,6 @@ var _ MappedNullable = &CustomULimits{}
 type CustomULimits struct {
 	// The name of the ulimit
 	ULimitsName string `json:"ULimitsName"`
-	// The type of the ulimit
 	ULimitsType string `json:"ULimitsType"`
 	// The value of the ulimit
 	ULimitsValue int64 `json:"ULimitsValue"`

@@ -135,11 +135,11 @@ type ApiTierVersionSetApiCreateTierVersionSetRequest struct {
 	ApiService TierVersionSetApiAPI
 	serviceId string
 	productTierId string
-	createTierVersionSetRequestBody *CreateTierVersionSetRequestBody
+	createTierVersionSetRequest2 *CreateTierVersionSetRequest2
 }
 
-func (r ApiTierVersionSetApiCreateTierVersionSetRequest) CreateTierVersionSetRequestBody(createTierVersionSetRequestBody CreateTierVersionSetRequestBody) ApiTierVersionSetApiCreateTierVersionSetRequest {
-	r.createTierVersionSetRequestBody = &createTierVersionSetRequestBody
+func (r ApiTierVersionSetApiCreateTierVersionSetRequest) CreateTierVersionSetRequest2(createTierVersionSetRequest2 CreateTierVersionSetRequest2) ApiTierVersionSetApiCreateTierVersionSetRequest {
+	r.createTierVersionSetRequest2 = &createTierVersionSetRequest2
 	return r
 }
 
@@ -186,8 +186,8 @@ func (a *TierVersionSetApiAPIService) TierVersionSetApiCreateTierVersionSetExecu
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createTierVersionSetRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createTierVersionSetRequestBody is required and must be specified")
+	if r.createTierVersionSetRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createTierVersionSetRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -208,7 +208,7 @@ func (a *TierVersionSetApiAPIService) TierVersionSetApiCreateTierVersionSetExecu
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createTierVersionSetRequestBody
+	localVarPostBody = r.createTierVersionSetRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1207,11 +1207,11 @@ type ApiTierVersionSetApiReleaseTierVersionSetRequest struct {
 	serviceId string
 	productTierId string
 	version string
-	releaseTierVersionSetRequestBody *ReleaseTierVersionSetRequestBody
+	releaseTierVersionSetRequest2 *ReleaseTierVersionSetRequest2
 }
 
-func (r ApiTierVersionSetApiReleaseTierVersionSetRequest) ReleaseTierVersionSetRequestBody(releaseTierVersionSetRequestBody ReleaseTierVersionSetRequestBody) ApiTierVersionSetApiReleaseTierVersionSetRequest {
-	r.releaseTierVersionSetRequestBody = &releaseTierVersionSetRequestBody
+func (r ApiTierVersionSetApiReleaseTierVersionSetRequest) ReleaseTierVersionSetRequest2(releaseTierVersionSetRequest2 ReleaseTierVersionSetRequest2) ApiTierVersionSetApiReleaseTierVersionSetRequest {
+	r.releaseTierVersionSetRequest2 = &releaseTierVersionSetRequest2
 	return r
 }
 
@@ -1261,8 +1261,8 @@ func (a *TierVersionSetApiAPIService) TierVersionSetApiReleaseTierVersionSetExec
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.releaseTierVersionSetRequestBody == nil {
-		return localVarReturnValue, nil, reportError("releaseTierVersionSetRequestBody is required and must be specified")
+	if r.releaseTierVersionSetRequest2 == nil {
+		return localVarReturnValue, nil, reportError("releaseTierVersionSetRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1283,7 +1283,7 @@ func (a *TierVersionSetApiAPIService) TierVersionSetApiReleaseTierVersionSetExec
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.releaseTierVersionSetRequestBody
+	localVarPostBody = r.releaseTierVersionSetRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

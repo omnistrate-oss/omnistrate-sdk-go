@@ -26,9 +26,9 @@ type ServicePlan struct {
 	ModelType string `json:"modelType"`
 	// Name of the Product Tier
 	Name string `json:"name"`
-	// Product tier ID
+	// ID of a Product Tier
 	ProductTierID string `json:"productTierID"`
-	// Product tier type
+	// ProductTierType is the type of tier for a product
 	TierType string `json:"tierType"`
 	AdditionalProperties map[string]interface{}
 }

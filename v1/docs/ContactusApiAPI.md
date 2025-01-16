@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## ContactusApiContactus
 
-> ContactusApiContactus(ctx).ContactusRequestBody(contactusRequestBody).Execute()
+> ContactusApiContactus(ctx).ContactusRequest(contactusRequest).Execute()
 
 Contactus contactus-api
 
@@ -27,11 +27,11 @@ import (
 )
 
 func main() {
-	contactusRequestBody := *openapiclient.NewContactusRequestBody("ABC", "abc@gmail.com", "this is a test", "John Doe") // ContactusRequestBody | 
+	contactusRequest := *openapiclient.NewContactusRequest("ABC", "abc@gmail.com", "this is a test", "John Doe") // ContactusRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ContactusApiAPI.ContactusApiContactus(context.Background()).ContactusRequestBody(contactusRequestBody).Execute()
+	r, err := apiClient.ContactusApiAPI.ContactusApiContactus(context.Background()).ContactusRequest(contactusRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ContactusApiAPI.ContactusApiContactus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -50,7 +50,7 @@ Other parameters are passed through a pointer to a apiContactusApiContactusReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactusRequestBody** | [**ContactusRequestBody**](ContactusRequestBody.md) |  | 
+ **contactusRequest** | [**ContactusRequest**](ContactusRequest.md) |  | 
 
 ### Return type
 

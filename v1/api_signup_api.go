@@ -85,11 +85,11 @@ type SignupApiAPIService service
 type ApiSignupApiChangePasswordRequest struct {
 	ctx context.Context
 	ApiService SignupApiAPI
-	changePasswordRequestBody *ChangePasswordRequestBody
+	changePasswordRequest *ChangePasswordRequest
 }
 
-func (r ApiSignupApiChangePasswordRequest) ChangePasswordRequestBody(changePasswordRequestBody ChangePasswordRequestBody) ApiSignupApiChangePasswordRequest {
-	r.changePasswordRequestBody = &changePasswordRequestBody
+func (r ApiSignupApiChangePasswordRequest) ChangePasswordRequest(changePasswordRequest ChangePasswordRequest) ApiSignupApiChangePasswordRequest {
+	r.changePasswordRequest = &changePasswordRequest
 	return r
 }
 
@@ -128,8 +128,8 @@ func (a *SignupApiAPIService) SignupApiChangePasswordExecute(r ApiSignupApiChang
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.changePasswordRequestBody == nil {
-		return nil, reportError("changePasswordRequestBody is required and must be specified")
+	if r.changePasswordRequest == nil {
+		return nil, reportError("changePasswordRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -150,7 +150,7 @@ func (a *SignupApiAPIService) SignupApiChangePasswordExecute(r ApiSignupApiChang
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.changePasswordRequestBody
+	localVarPostBody = r.changePasswordRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -372,11 +372,11 @@ func (a *SignupApiAPIService) SignupApiRegenerateTokenExecute(r ApiSignupApiRege
 type ApiSignupApiResetPasswordRequest struct {
 	ctx context.Context
 	ApiService SignupApiAPI
-	resetPasswordRequestBody *ResetPasswordRequestBody
+	resetPasswordRequest *ResetPasswordRequest
 }
 
-func (r ApiSignupApiResetPasswordRequest) ResetPasswordRequestBody(resetPasswordRequestBody ResetPasswordRequestBody) ApiSignupApiResetPasswordRequest {
-	r.resetPasswordRequestBody = &resetPasswordRequestBody
+func (r ApiSignupApiResetPasswordRequest) ResetPasswordRequest(resetPasswordRequest ResetPasswordRequest) ApiSignupApiResetPasswordRequest {
+	r.resetPasswordRequest = &resetPasswordRequest
 	return r
 }
 
@@ -415,8 +415,8 @@ func (a *SignupApiAPIService) SignupApiResetPasswordExecute(r ApiSignupApiResetP
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.resetPasswordRequestBody == nil {
-		return nil, reportError("resetPasswordRequestBody is required and must be specified")
+	if r.resetPasswordRequest == nil {
+		return nil, reportError("resetPasswordRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -437,7 +437,7 @@ func (a *SignupApiAPIService) SignupApiResetPasswordExecute(r ApiSignupApiResetP
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.resetPasswordRequestBody
+	localVarPostBody = r.resetPasswordRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -534,11 +534,11 @@ func (a *SignupApiAPIService) SignupApiResetPasswordExecute(r ApiSignupApiResetP
 type ApiSignupApiSignupRequest struct {
 	ctx context.Context
 	ApiService SignupApiAPI
-	signupRequestBody *SignupRequestBody
+	signupRequest *SignupRequest
 }
 
-func (r ApiSignupApiSignupRequest) SignupRequestBody(signupRequestBody SignupRequestBody) ApiSignupApiSignupRequest {
-	r.signupRequestBody = &signupRequestBody
+func (r ApiSignupApiSignupRequest) SignupRequest(signupRequest SignupRequest) ApiSignupApiSignupRequest {
+	r.signupRequest = &signupRequest
 	return r
 }
 
@@ -577,8 +577,8 @@ func (a *SignupApiAPIService) SignupApiSignupExecute(r ApiSignupApiSignupRequest
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.signupRequestBody == nil {
-		return nil, reportError("signupRequestBody is required and must be specified")
+	if r.signupRequest == nil {
+		return nil, reportError("signupRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -599,7 +599,7 @@ func (a *SignupApiAPIService) SignupApiSignupExecute(r ApiSignupApiSignupRequest
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.signupRequestBody
+	localVarPostBody = r.signupRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -696,11 +696,11 @@ func (a *SignupApiAPIService) SignupApiSignupExecute(r ApiSignupApiSignupRequest
 type ApiSignupApiValidateTokenRequest struct {
 	ctx context.Context
 	ApiService SignupApiAPI
-	validateTokenRequestBody *ValidateTokenRequestBody
+	validateTokenRequest *ValidateTokenRequest
 }
 
-func (r ApiSignupApiValidateTokenRequest) ValidateTokenRequestBody(validateTokenRequestBody ValidateTokenRequestBody) ApiSignupApiValidateTokenRequest {
-	r.validateTokenRequestBody = &validateTokenRequestBody
+func (r ApiSignupApiValidateTokenRequest) ValidateTokenRequest(validateTokenRequest ValidateTokenRequest) ApiSignupApiValidateTokenRequest {
+	r.validateTokenRequest = &validateTokenRequest
 	return r
 }
 
@@ -739,8 +739,8 @@ func (a *SignupApiAPIService) SignupApiValidateTokenExecute(r ApiSignupApiValida
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.validateTokenRequestBody == nil {
-		return nil, reportError("validateTokenRequestBody is required and must be specified")
+	if r.validateTokenRequest == nil {
+		return nil, reportError("validateTokenRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -761,7 +761,7 @@ func (a *SignupApiAPIService) SignupApiValidateTokenExecute(r ApiSignupApiValida
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.validateTokenRequestBody
+	localVarPostBody = r.validateTokenRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

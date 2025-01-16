@@ -20,7 +20,7 @@ var _ MappedNullable = &VUnitHealthReport{}
 // VUnitHealthReport struct for VUnitHealthReport
 type VUnitHealthReport struct {
 	// The health of each vunit under this service environment
-	Vunits *map[string]string `json:"vunits,omitempty"`
+	Vunits map[string]interface{} `json:"vunits,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -44,26 +44,26 @@ func NewVUnitHealthReportWithDefaults() *VUnitHealthReport {
 }
 
 // GetVunits returns the Vunits field value if set, zero value otherwise.
-func (o *VUnitHealthReport) GetVunits() map[string]string {
+func (o *VUnitHealthReport) GetVunits() map[string]interface{} {
 	if o == nil || IsNil(o.Vunits) {
-		var ret map[string]string
+		var ret map[string]interface{}
 		return ret
 	}
-	return *o.Vunits
+	return o.Vunits
 }
 
 // GetVunitsOk returns a tuple with the Vunits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VUnitHealthReport) GetVunitsOk() (*map[string]string, bool) {
+func (o *VUnitHealthReport) GetVunitsOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Vunits) {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
 	return o.Vunits, true
 }
 
-// SetVunits gets a reference to the given map[string]string and assigns it to the Vunits field.
-func (o *VUnitHealthReport) SetVunits(v map[string]string) {
-	o.Vunits = &v
+// SetVunits gets a reference to the given map[string]interface{} and assigns it to the Vunits field.
+func (o *VUnitHealthReport) SetVunits(v map[string]interface{}) {
+	o.Vunits = v
 }
 
 func (o VUnitHealthReport) MarshalJSON() ([]byte, error) {

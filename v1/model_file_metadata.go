@@ -22,7 +22,7 @@ var _ MappedNullable = &FileMetadata{}
 type FileMetadata struct {
 	// The description of the file
 	Description string `json:"description"`
-	// The ID of the file
+	// ID of a File
 	FileId string `json:"fileId"`
 	// The mount path of the file
 	MountPath string `json:"mountPath"`

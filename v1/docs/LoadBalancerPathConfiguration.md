@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AssociatedKubernetesServiceName** | Pointer to **string** | Override the default target Kubernetes service name with this value | [optional] 
-**AssociatedResourceID** | **string** | The ID of the resource associated with the path | 
+**AssociatedResourceID** | **string** | ID of a resource | 
 **Path** | **string** | The REST API path backed by the load balancer | 
 **Port** | **int64** | The port to forward traffic to | 
 

@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClientId** | **string** | The Client ID of the Identity Provider | 
 **ClientSecret** | Pointer to **string** | The Client Secret of the Identity Provider | [optional] 
-**Id** | **string** | The Identity Provider ID | 
-**IdentityProviderName** | **string** | The name of the Identity Provider | 
-**Status** | **string** | The status of the Identity Provider | 
+**Id** | **string** | ID of an Identity Provider | 
+**IdentityProviderName** | **string** | The name of the identity provider | 
+**Status** | **string** | The status of an operation | 
 
 ## Methods
 

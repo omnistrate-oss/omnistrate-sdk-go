@@ -91,11 +91,11 @@ type CustomNetworkApiAPIService service
 type ApiCustomNetworkApiCreateCustomNetworkRequest struct {
 	ctx context.Context
 	ApiService CustomNetworkApiAPI
-	createCustomNetworkRequestBody *CreateCustomNetworkRequestBody
+	createCustomNetworkRequest2 *CreateCustomNetworkRequest2
 }
 
-func (r ApiCustomNetworkApiCreateCustomNetworkRequest) CreateCustomNetworkRequestBody(createCustomNetworkRequestBody CreateCustomNetworkRequestBody) ApiCustomNetworkApiCreateCustomNetworkRequest {
-	r.createCustomNetworkRequestBody = &createCustomNetworkRequestBody
+func (r ApiCustomNetworkApiCreateCustomNetworkRequest) CreateCustomNetworkRequest2(createCustomNetworkRequest2 CreateCustomNetworkRequest2) ApiCustomNetworkApiCreateCustomNetworkRequest {
+	r.createCustomNetworkRequest2 = &createCustomNetworkRequest2
 	return r
 }
 
@@ -136,8 +136,8 @@ func (a *CustomNetworkApiAPIService) CustomNetworkApiCreateCustomNetworkExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createCustomNetworkRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createCustomNetworkRequestBody is required and must be specified")
+	if r.createCustomNetworkRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createCustomNetworkRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -158,7 +158,7 @@ func (a *CustomNetworkApiAPIService) CustomNetworkApiCreateCustomNetworkExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createCustomNetworkRequestBody
+	localVarPostBody = r.createCustomNetworkRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -624,11 +624,11 @@ type ApiCustomNetworkApiUpdateCustomNetworkRequest struct {
 	ctx context.Context
 	ApiService CustomNetworkApiAPI
 	id string
-	updateCustomNetworkRequestBody *UpdateCustomNetworkRequestBody
+	updateCustomNetworkRequest2 *UpdateCustomNetworkRequest2
 }
 
-func (r ApiCustomNetworkApiUpdateCustomNetworkRequest) UpdateCustomNetworkRequestBody(updateCustomNetworkRequestBody UpdateCustomNetworkRequestBody) ApiCustomNetworkApiUpdateCustomNetworkRequest {
-	r.updateCustomNetworkRequestBody = &updateCustomNetworkRequestBody
+func (r ApiCustomNetworkApiUpdateCustomNetworkRequest) UpdateCustomNetworkRequest2(updateCustomNetworkRequest2 UpdateCustomNetworkRequest2) ApiCustomNetworkApiUpdateCustomNetworkRequest {
+	r.updateCustomNetworkRequest2 = &updateCustomNetworkRequest2
 	return r
 }
 
@@ -672,8 +672,8 @@ func (a *CustomNetworkApiAPIService) CustomNetworkApiUpdateCustomNetworkExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateCustomNetworkRequestBody == nil {
-		return localVarReturnValue, nil, reportError("updateCustomNetworkRequestBody is required and must be specified")
+	if r.updateCustomNetworkRequest2 == nil {
+		return localVarReturnValue, nil, reportError("updateCustomNetworkRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -694,7 +694,7 @@ func (a *CustomNetworkApiAPIService) CustomNetworkApiUpdateCustomNetworkExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateCustomNetworkRequestBody
+	localVarPostBody = r.updateCustomNetworkRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

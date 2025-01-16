@@ -21,7 +21,7 @@ var _ MappedNullable = &DescribeResourceResult{}
 // DescribeResourceResult struct for DescribeResourceResult
 type DescribeResourceResult struct {
 	// The action hooks that this resource supports
-	ActionHooks []RegisterActionHookRequestBody `json:"actionHooks,omitempty"`
+	ActionHooks []ActionHook `json:"actionHooks,omitempty"`
 	AdditionalSecurityContext *AdditionalSecurityContext `json:"additionalSecurityContext,omitempty"`
 	BackupConfiguration *BackupConfiguration `json:"backupConfiguration,omitempty"`
 	BlobStorageConfiguration *BlobStorageConfiguration `json:"blobStorageConfiguration,omitempty"`
@@ -40,11 +40,11 @@ type DescribeResourceResult struct {
 	EnvironmentVariables []EnvironmentVariable `json:"environmentVariables,omitempty"`
 	FileSystemConfiguration *FileSystemConfiguration `json:"fileSystemConfiguration,omitempty"`
 	HelmChartConfiguration *HelmChartConfiguration `json:"helmChartConfiguration,omitempty"`
-	// The ID of the resource
+	// ID of a resource
 	Id string `json:"id"`
-	// The ID of the image configuration that this resource refers to
+	// ID of an Image Config
 	ImageConfigId *string `json:"imageConfigId,omitempty"`
-	// The ID of the infrastructure configuration that this resource refers to
+	// ID of an Infra Config
 	InfraConfigId *string `json:"infraConfigId,omitempty"`
 	// Whether this resource is internal or not
 	Internal bool `json:"internal"`
@@ -58,16 +58,16 @@ type DescribeResourceResult struct {
 	// Name of the resource
 	Name string `json:"name"`
 	OperatorCRDConfiguration *OperatorCRDConfiguration `json:"operatorCRDConfiguration,omitempty"`
-	// The product tier ID
+	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// The proxy type of instance
 	ProxyType *string `json:"proxyType,omitempty"`
 	// The type of the resource
 	ResourceType string `json:"resourceType"`
-	// The service ID that this API bundle belongs to
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
-	// The Terraform configurations for various cloud providers
-	TerraformConfigurations *map[string]TerraformConfiguration `json:"terraformConfigurations,omitempty"`
+	// The Terraform configurations for cloud providers
+	TerraformConfigurations map[string]interface{} `json:"terraformConfigurations,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -104,9 +104,9 @@ func NewDescribeResourceResultWithDefaults() *DescribeResourceResult {
 }
 
 // GetActionHooks returns the ActionHooks field value if set, zero value otherwise.
-func (o *DescribeResourceResult) GetActionHooks() []RegisterActionHookRequestBody {
+func (o *DescribeResourceResult) GetActionHooks() []ActionHook {
 	if o == nil || IsNil(o.ActionHooks) {
-		var ret []RegisterActionHookRequestBody
+		var ret []ActionHook
 		return ret
 	}
 	return o.ActionHooks
@@ -114,15 +114,15 @@ func (o *DescribeResourceResult) GetActionHooks() []RegisterActionHookRequestBod
 
 // GetActionHooksOk returns a tuple with the ActionHooks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeResourceResult) GetActionHooksOk() ([]RegisterActionHookRequestBody, bool) {
+func (o *DescribeResourceResult) GetActionHooksOk() ([]ActionHook, bool) {
 	if o == nil || IsNil(o.ActionHooks) {
 		return nil, false
 	}
 	return o.ActionHooks, true
 }
 
-// SetActionHooks gets a reference to the given []RegisterActionHookRequestBody and assigns it to the ActionHooks field.
-func (o *DescribeResourceResult) SetActionHooks(v []RegisterActionHookRequestBody) {
+// SetActionHooks gets a reference to the given []ActionHook and assigns it to the ActionHooks field.
+func (o *DescribeResourceResult) SetActionHooks(v []ActionHook) {
 	o.ActionHooks = v
 }
 
@@ -757,26 +757,26 @@ func (o *DescribeResourceResult) SetServiceId(v string) {
 }
 
 // GetTerraformConfigurations returns the TerraformConfigurations field value if set, zero value otherwise.
-func (o *DescribeResourceResult) GetTerraformConfigurations() map[string]TerraformConfiguration {
+func (o *DescribeResourceResult) GetTerraformConfigurations() map[string]interface{} {
 	if o == nil || IsNil(o.TerraformConfigurations) {
-		var ret map[string]TerraformConfiguration
+		var ret map[string]interface{}
 		return ret
 	}
-	return *o.TerraformConfigurations
+	return o.TerraformConfigurations
 }
 
 // GetTerraformConfigurationsOk returns a tuple with the TerraformConfigurations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeResourceResult) GetTerraformConfigurationsOk() (*map[string]TerraformConfiguration, bool) {
+func (o *DescribeResourceResult) GetTerraformConfigurationsOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.TerraformConfigurations) {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
 	return o.TerraformConfigurations, true
 }
 
-// SetTerraformConfigurations gets a reference to the given map[string]TerraformConfiguration and assigns it to the TerraformConfigurations field.
-func (o *DescribeResourceResult) SetTerraformConfigurations(v map[string]TerraformConfiguration) {
-	o.TerraformConfigurations = &v
+// SetTerraformConfigurations gets a reference to the given map[string]interface{} and assigns it to the TerraformConfigurations field.
+func (o *DescribeResourceResult) SetTerraformConfigurations(v map[string]interface{}) {
+	o.TerraformConfigurations = v
 }
 
 func (o DescribeResourceResult) MarshalJSON() ([]byte, error) {

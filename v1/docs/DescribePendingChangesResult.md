@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | The service API ID | 
-**ResourceChangeSets** | [**map[string]ChangeSet**](ChangeSet.md) | The difference for the service API configuration per resource | 
-**ServiceId** | **string** | The service ID that this API bundle belongs to | 
+**Id** | **string** | ID of a Service API | 
+**ResourceChangeSets** | **map[string]interface{}** | The difference for the service API configuration per resource | 
+**ServiceId** | **string** | ID of a Service | 
 
 ## Methods
 
 ### NewDescribePendingChangesResult
 
-`func NewDescribePendingChangesResult(id string, resourceChangeSets map[string]ChangeSet, serviceId string, ) *DescribePendingChangesResult`
+`func NewDescribePendingChangesResult(id string, resourceChangeSets map[string]interface{}, serviceId string, ) *DescribePendingChangesResult`
 
 NewDescribePendingChangesResult instantiates a new DescribePendingChangesResult object
 This constructor will assign default values to properties that have it defined,
@@ -49,20 +49,20 @@ SetId sets Id field to given value.
 
 ### GetResourceChangeSets
 
-`func (o *DescribePendingChangesResult) GetResourceChangeSets() map[string]ChangeSet`
+`func (o *DescribePendingChangesResult) GetResourceChangeSets() map[string]interface{}`
 
 GetResourceChangeSets returns the ResourceChangeSets field if non-nil, zero value otherwise.
 
 ### GetResourceChangeSetsOk
 
-`func (o *DescribePendingChangesResult) GetResourceChangeSetsOk() (*map[string]ChangeSet, bool)`
+`func (o *DescribePendingChangesResult) GetResourceChangeSetsOk() (*map[string]interface{}, bool)`
 
 GetResourceChangeSetsOk returns a tuple with the ResourceChangeSets field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResourceChangeSets
 
-`func (o *DescribePendingChangesResult) SetResourceChangeSets(v map[string]ChangeSet)`
+`func (o *DescribePendingChangesResult) SetResourceChangeSets(v map[string]interface{})`
 
 SetResourceChangeSets sets ResourceChangeSets field to given value.
 

@@ -20,11 +20,11 @@ var _ MappedNullable = &Describeresourcemetricsconfigresult{}
 
 // Describeresourcemetricsconfigresult struct for Describeresourcemetricsconfigresult
 type Describeresourcemetricsconfigresult struct {
-	// The ID of the resource
+	// ID of a resource
 	Id string `json:"id"`
 	// The local host endpoint to supply prometheus metric
 	MetricEndpoint string `json:"metricEndpoint"`
-	// The service ID that this API bundle belongs to
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	AdditionalProperties map[string]interface{}
 }

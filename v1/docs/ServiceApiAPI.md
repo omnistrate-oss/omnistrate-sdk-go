@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## ServiceApiBuildServiceFromComposeSpec
 
-> BuildServiceFromServicePlanSpecResult ServiceApiBuildServiceFromComposeSpec(ctx).BuildServiceFromComposeSpecRequestBody(buildServiceFromComposeSpecRequestBody).Execute()
+> BuildServiceFromComposeSpecResult ServiceApiBuildServiceFromComposeSpec(ctx).BuildServiceFromComposeSpecRequest2(buildServiceFromComposeSpecRequest2).Execute()
 
 BuildServiceFromComposeSpec service-api
 
@@ -35,16 +35,16 @@ import (
 )
 
 func main() {
-	buildServiceFromComposeSpecRequestBody := *openapiclient.NewBuildServiceFromComposeSpecRequestBody("Et et ipsum sit aut omnis.", "MySQL multi-writer service") // BuildServiceFromComposeSpecRequestBody | 
+	buildServiceFromComposeSpecRequest2 := *openapiclient.NewBuildServiceFromComposeSpecRequest2("Et quaerat soluta qui iure.", "MySQL multi-writer service") // BuildServiceFromComposeSpecRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServiceApiAPI.ServiceApiBuildServiceFromComposeSpec(context.Background()).BuildServiceFromComposeSpecRequestBody(buildServiceFromComposeSpecRequestBody).Execute()
+	resp, r, err := apiClient.ServiceApiAPI.ServiceApiBuildServiceFromComposeSpec(context.Background()).BuildServiceFromComposeSpecRequest2(buildServiceFromComposeSpecRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceApiAPI.ServiceApiBuildServiceFromComposeSpec``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ServiceApiBuildServiceFromComposeSpec`: BuildServiceFromServicePlanSpecResult
+	// response from `ServiceApiBuildServiceFromComposeSpec`: BuildServiceFromComposeSpecResult
 	fmt.Fprintf(os.Stdout, "Response from `ServiceApiAPI.ServiceApiBuildServiceFromComposeSpec`: %v\n", resp)
 }
 ```
@@ -60,11 +60,11 @@ Other parameters are passed through a pointer to a apiServiceApiBuildServiceFrom
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **buildServiceFromComposeSpecRequestBody** | [**BuildServiceFromComposeSpecRequestBody**](BuildServiceFromComposeSpecRequestBody.md) |  | 
+ **buildServiceFromComposeSpecRequest2** | [**BuildServiceFromComposeSpecRequest2**](BuildServiceFromComposeSpecRequest2.md) |  | 
 
 ### Return type
 
-[**BuildServiceFromServicePlanSpecResult**](BuildServiceFromServicePlanSpecResult.md)
+[**BuildServiceFromComposeSpecResult**](BuildServiceFromComposeSpecResult.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ## ServiceApiBuildServiceFromServicePlanSpec
 
-> BuildServiceFromServicePlanSpecResult ServiceApiBuildServiceFromServicePlanSpec(ctx).BuildServiceFromServicePlanSpecRequestBody(buildServiceFromServicePlanSpecRequestBody).Execute()
+> BuildServiceFromServicePlanSpecResult ServiceApiBuildServiceFromServicePlanSpec(ctx).BuildServiceFromServicePlanSpecRequest2(buildServiceFromServicePlanSpecRequest2).Execute()
 
 BuildServiceFromServicePlanSpec service-api
 
@@ -99,11 +99,11 @@ import (
 )
 
 func main() {
-	buildServiceFromServicePlanSpecRequestBody := *openapiclient.NewBuildServiceFromServicePlanSpecRequestBody("Assumenda possimus quia doloremque rerum ducimus nemo.", "MySQL multi-writer service") // BuildServiceFromServicePlanSpecRequestBody | 
+	buildServiceFromServicePlanSpecRequest2 := *openapiclient.NewBuildServiceFromServicePlanSpecRequest2("Enim magni.", "MySQL multi-writer service") // BuildServiceFromServicePlanSpecRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServiceApiAPI.ServiceApiBuildServiceFromServicePlanSpec(context.Background()).BuildServiceFromServicePlanSpecRequestBody(buildServiceFromServicePlanSpecRequestBody).Execute()
+	resp, r, err := apiClient.ServiceApiAPI.ServiceApiBuildServiceFromServicePlanSpec(context.Background()).BuildServiceFromServicePlanSpecRequest2(buildServiceFromServicePlanSpecRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceApiAPI.ServiceApiBuildServiceFromServicePlanSpec``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -124,7 +124,7 @@ Other parameters are passed through a pointer to a apiServiceApiBuildServiceFrom
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **buildServiceFromServicePlanSpecRequestBody** | [**BuildServiceFromServicePlanSpecRequestBody**](BuildServiceFromServicePlanSpecRequestBody.md) |  | 
+ **buildServiceFromServicePlanSpecRequest2** | [**BuildServiceFromServicePlanSpecRequest2**](BuildServiceFromServicePlanSpecRequest2.md) |  | 
 
 ### Return type
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 ## ServiceApiCreateService
 
-> string ServiceApiCreateService(ctx).CreateServiceRequestBody(createServiceRequestBody).Execute()
+> string ServiceApiCreateService(ctx).CreateServiceRequest2(createServiceRequest2).Execute()
 
 CreateService service-api
 
@@ -163,11 +163,11 @@ import (
 )
 
 func main() {
-	createServiceRequestBody := *openapiclient.NewCreateServiceRequestBody("A MySQL SaaS specializing in multi-writer clusters for high availability", "MySQL multi-writer service") // CreateServiceRequestBody | 
+	createServiceRequest2 := *openapiclient.NewCreateServiceRequest2("A MySQL SaaS specializing in multi-writer clusters for high availability", "MySQL multi-writer service") // CreateServiceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServiceApiAPI.ServiceApiCreateService(context.Background()).CreateServiceRequestBody(createServiceRequestBody).Execute()
+	resp, r, err := apiClient.ServiceApiAPI.ServiceApiCreateService(context.Background()).CreateServiceRequest2(createServiceRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceApiAPI.ServiceApiCreateService``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -188,7 +188,7 @@ Other parameters are passed through a pointer to a apiServiceApiCreateServiceReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createServiceRequestBody** | [**CreateServiceRequestBody**](CreateServiceRequestBody.md) |  | 
+ **createServiceRequest2** | [**CreateServiceRequest2**](CreateServiceRequest2.md) |  | 
 
 ### Return type
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 ## ServiceApiCreateServiceFromComposeSpec
 
-> string ServiceApiCreateServiceFromComposeSpec(ctx).CreateServiceFromComposeSpecRequestBody(createServiceFromComposeSpecRequestBody).Execute()
+> string ServiceApiCreateServiceFromComposeSpec(ctx).CreateServiceFromComposeSpecRequest2(createServiceFromComposeSpecRequest2).Execute()
 
 CreateServiceFromComposeSpec service-api
 
@@ -227,11 +227,11 @@ import (
 )
 
 func main() {
-	createServiceFromComposeSpecRequestBody := *openapiclient.NewCreateServiceFromComposeSpecRequestBody("A MySQL SaaS specializing in multi-writer clusters for high availability", "Suscipit corrupti distinctio quas voluptas.", "text/plain", "mysql.yaml", "MySQL multi-writer service") // CreateServiceFromComposeSpecRequestBody | 
+	createServiceFromComposeSpecRequest2 := *openapiclient.NewCreateServiceFromComposeSpecRequest2("A MySQL SaaS specializing in multi-writer clusters for high availability", "Perspiciatis dolor ipsum quia.", "text/plain", "mysql.yaml", "MySQL multi-writer service") // CreateServiceFromComposeSpecRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServiceApiAPI.ServiceApiCreateServiceFromComposeSpec(context.Background()).CreateServiceFromComposeSpecRequestBody(createServiceFromComposeSpecRequestBody).Execute()
+	resp, r, err := apiClient.ServiceApiAPI.ServiceApiCreateServiceFromComposeSpec(context.Background()).CreateServiceFromComposeSpecRequest2(createServiceFromComposeSpecRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceApiAPI.ServiceApiCreateServiceFromComposeSpec``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -252,7 +252,7 @@ Other parameters are passed through a pointer to a apiServiceApiCreateServiceFro
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createServiceFromComposeSpecRequestBody** | [**CreateServiceFromComposeSpecRequestBody**](CreateServiceFromComposeSpecRequestBody.md) |  | 
+ **createServiceFromComposeSpecRequest2** | [**CreateServiceFromComposeSpecRequest2**](CreateServiceFromComposeSpecRequest2.md) |  | 
 
 ### Return type
 
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 
 ## ServiceApiUpdateService
 
-> ServiceApiUpdateService(ctx, id).UpdateServiceRequestBody(updateServiceRequestBody).Execute()
+> ServiceApiUpdateService(ctx, id).UpdateServiceRequest2(updateServiceRequest2).Execute()
 
 UpdateService service-api
 
@@ -553,11 +553,11 @@ import (
 
 func main() {
 	id := "s-12345678" // string | The service ID to operate on
-	updateServiceRequestBody := *openapiclient.NewUpdateServiceRequestBody() // UpdateServiceRequestBody | 
+	updateServiceRequest2 := *openapiclient.NewUpdateServiceRequest2() // UpdateServiceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ServiceApiAPI.ServiceApiUpdateService(context.Background(), id).UpdateServiceRequestBody(updateServiceRequestBody).Execute()
+	r, err := apiClient.ServiceApiAPI.ServiceApiUpdateService(context.Background(), id).UpdateServiceRequest2(updateServiceRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceApiAPI.ServiceApiUpdateService``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -581,7 +581,7 @@ Other parameters are passed through a pointer to a apiServiceApiUpdateServiceReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateServiceRequestBody** | [**UpdateServiceRequestBody**](UpdateServiceRequestBody.md) |  | 
+ **updateServiceRequest2** | [**UpdateServiceRequest2**](UpdateServiceRequest2.md) |  | 
 
 ### Return type
 

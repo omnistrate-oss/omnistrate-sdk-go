@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ULimitsName** | **string** | The name of the ulimit | 
-**ULimitsType** | **string** | The type of the ulimit | 
+**ULimitsType** | **string** |  | 
 **ULimitsValue** | **int64** | The value of the ulimit | 
 
 ## Methods

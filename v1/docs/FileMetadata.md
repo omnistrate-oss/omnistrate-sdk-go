@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | **string** | The description of the file | 
-**FileId** | **string** | The ID of the file | 
+**FileId** | **string** | ID of a File | 
 **MountPath** | **string** | The mount path of the file | 
 **Name** | **string** | The name of the file | 
 **Size** | **int64** | The size of the file | 

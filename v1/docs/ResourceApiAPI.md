@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ## ResourceApiAddResourceDependency
 
-> ResourceApiAddResourceDependency(ctx, serviceId, id, resourceDependencyId).AddResourceDependencyRequestBody(addResourceDependencyRequestBody).Execute()
+> ResourceApiAddResourceDependency(ctx, serviceId, id, resourceDependencyId).AddResourceDependencyRequest2(addResourceDependencyRequest2).Execute()
 
 AddResourceDependency resource-api
 
@@ -136,11 +136,11 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
 	resourceDependencyId := "r-12345678" // string | The ID of the resource to be added as a dependency
-	addResourceDependencyRequestBody := *openapiclient.NewAddResourceDependencyRequestBody() // AddResourceDependencyRequestBody | 
+	addResourceDependencyRequest2 := *openapiclient.NewAddResourceDependencyRequest2() // AddResourceDependencyRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ResourceApiAPI.ResourceApiAddResourceDependency(context.Background(), serviceId, id, resourceDependencyId).AddResourceDependencyRequestBody(addResourceDependencyRequestBody).Execute()
+	r, err := apiClient.ResourceApiAPI.ResourceApiAddResourceDependency(context.Background(), serviceId, id, resourceDependencyId).AddResourceDependencyRequest2(addResourceDependencyRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceApiAPI.ResourceApiAddResourceDependency``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 
 
- **addResourceDependencyRequestBody** | [**AddResourceDependencyRequestBody**](AddResourceDependencyRequestBody.md) |  | 
+ **addResourceDependencyRequest2** | [**AddResourceDependencyRequest2**](AddResourceDependencyRequest2.md) |  | 
 
 ### Return type
 
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 ## ResourceApiCreateResource
 
-> string ResourceApiCreateResource(ctx, serviceId).CreateResourceRequestBody(createResourceRequestBody).Execute()
+> string ResourceApiCreateResource(ctx, serviceId).CreateResourceRequest2(createResourceRequest2).Execute()
 
 CreateResource resource-api
 
@@ -208,11 +208,11 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
-	createResourceRequestBody := *openapiclient.NewCreateResourceRequestBody("A resource to manage a hosted public SaaS offering of a multi-writer MySQL service", "Galera", "pt-12345678") // CreateResourceRequestBody | 
+	createResourceRequest2 := *openapiclient.NewCreateResourceRequest2("A resource to manage a hosted public SaaS offering of a multi-writer MySQL service", "Galera", "pt-12345678") // CreateResourceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ResourceApiAPI.ResourceApiCreateResource(context.Background(), serviceId).CreateResourceRequestBody(createResourceRequestBody).Execute()
+	resp, r, err := apiClient.ResourceApiAPI.ResourceApiCreateResource(context.Background(), serviceId).CreateResourceRequest2(createResourceRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceApiAPI.ResourceApiCreateResource``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -238,7 +238,7 @@ Other parameters are passed through a pointer to a apiResourceApiCreateResourceR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createResourceRequestBody** | [**CreateResourceRequestBody**](CreateResourceRequestBody.md) |  | 
+ **createResourceRequest2** | [**CreateResourceRequest2**](CreateResourceRequest2.md) |  | 
 
 ### Return type
 
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 
 ## ResourceApiDeregisterActionHook
 
-> ResourceApiDeregisterActionHook(ctx, serviceId, id).DeregisterActionHookRequestBody(deregisterActionHookRequestBody).Execute()
+> ResourceApiDeregisterActionHook(ctx, serviceId, id).DeregisterActionHookRequest2(deregisterActionHookRequest2).Execute()
 
 DeregisterActionHook resource-api
 
@@ -417,11 +417,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service to which the hook belongs
 	id := "r-12345678" // string | The ID of the resource to which the hook belongs
-	deregisterActionHookRequestBody := *openapiclient.NewDeregisterActionHookRequestBody("CLUSTER", "ADD") // DeregisterActionHookRequestBody | 
+	deregisterActionHookRequest2 := *openapiclient.NewDeregisterActionHookRequest2("CLUSTER", "ADD") // DeregisterActionHookRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ResourceApiAPI.ResourceApiDeregisterActionHook(context.Background(), serviceId, id).DeregisterActionHookRequestBody(deregisterActionHookRequestBody).Execute()
+	r, err := apiClient.ResourceApiAPI.ResourceApiDeregisterActionHook(context.Background(), serviceId, id).DeregisterActionHookRequest2(deregisterActionHookRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceApiAPI.ResourceApiDeregisterActionHook``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -447,7 +447,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **deregisterActionHookRequestBody** | [**DeregisterActionHookRequestBody**](DeregisterActionHookRequestBody.md) |  | 
+ **deregisterActionHookRequest2** | [**DeregisterActionHookRequest2**](DeregisterActionHookRequest2.md) |  | 
 
 ### Return type
 
@@ -557,7 +557,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	productTierVersion := "Quasi vel." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Ut aut facilis enim." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the resource to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -632,7 +632,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	productTierVersion := "Voluptate velit cupiditate laboriosam hic voluptates." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Tempora quis illum accusantium vel molestiae natus." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the resource to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -688,7 +688,7 @@ Name | Type | Description  | Notes
 
 ## ResourceApiDisableResourceCapability
 
-> ResourceApiDisableResourceCapability(ctx, serviceId, id).DisableResourceCapabilityRequestBody(disableResourceCapabilityRequestBody).Execute()
+> ResourceApiDisableResourceCapability(ctx, serviceId, id).DisableResourceCapabilityRequest2(disableResourceCapabilityRequest2).Execute()
 
 DisableResourceCapability resource-api
 
@@ -707,11 +707,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	disableResourceCapabilityRequestBody := *openapiclient.NewDisableResourceCapabilityRequestBody("SERVERLESS") // DisableResourceCapabilityRequestBody | 
+	disableResourceCapabilityRequest2 := *openapiclient.NewDisableResourceCapabilityRequest2("SERVERLESS") // DisableResourceCapabilityRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ResourceApiAPI.ResourceApiDisableResourceCapability(context.Background(), serviceId, id).DisableResourceCapabilityRequestBody(disableResourceCapabilityRequestBody).Execute()
+	r, err := apiClient.ResourceApiAPI.ResourceApiDisableResourceCapability(context.Background(), serviceId, id).DisableResourceCapabilityRequest2(disableResourceCapabilityRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceApiAPI.ResourceApiDisableResourceCapability``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -737,7 +737,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **disableResourceCapabilityRequestBody** | [**DisableResourceCapabilityRequestBody**](DisableResourceCapabilityRequestBody.md) |  | 
+ **disableResourceCapabilityRequest2** | [**DisableResourceCapabilityRequest2**](DisableResourceCapabilityRequest2.md) |  | 
 
 ### Return type
 
@@ -759,7 +759,7 @@ Name | Type | Description  | Notes
 
 ## ResourceApiEnableResourceCapability
 
-> ResourceApiEnableResourceCapability(ctx, serviceId, id).EnableResourceCapabilityRequestBody(enableResourceCapabilityRequestBody).Execute()
+> ResourceApiEnableResourceCapability(ctx, serviceId, id).EnableResourceCapabilityRequest2(enableResourceCapabilityRequest2).Execute()
 
 EnableResourceCapability resource-api
 
@@ -778,11 +778,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	enableResourceCapabilityRequestBody := *openapiclient.NewEnableResourceCapabilityRequestBody("SERVERLESS") // EnableResourceCapabilityRequestBody | 
+	enableResourceCapabilityRequest2 := *openapiclient.NewEnableResourceCapabilityRequest2("SERVERLESS") // EnableResourceCapabilityRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ResourceApiAPI.ResourceApiEnableResourceCapability(context.Background(), serviceId, id).EnableResourceCapabilityRequestBody(enableResourceCapabilityRequestBody).Execute()
+	r, err := apiClient.ResourceApiAPI.ResourceApiEnableResourceCapability(context.Background(), serviceId, id).EnableResourceCapabilityRequest2(enableResourceCapabilityRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceApiAPI.ResourceApiEnableResourceCapability``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -808,7 +808,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **enableResourceCapabilityRequestBody** | [**EnableResourceCapabilityRequestBody**](EnableResourceCapabilityRequestBody.md) |  | 
+ **enableResourceCapabilityRequest2** | [**EnableResourceCapabilityRequest2**](EnableResourceCapabilityRequest2.md) |  | 
 
 ### Return type
 
@@ -1144,7 +1144,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	productTierVersion := "Dignissimos non consectetur odit repellat rerum." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Et voluptatem dolores." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -1220,7 +1220,7 @@ func main() {
 	serviceId := "si-12345678" // string | The ID of the service to list resources for
 	productTierId := "pt-12345678" // string | The product tier ID
 	managed := false // bool | Is resource managed by omnistrate (optional)
-	productTierVersion := "Sed sapiente sunt natus." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Et cum." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1275,7 +1275,7 @@ Name | Type | Description  | Notes
 
 ## ResourceApiRegisterActionHook
 
-> ResourceApiRegisterActionHook(ctx, serviceId, id).RegisterActionHookRequestBody(registerActionHookRequestBody).Execute()
+> ResourceApiRegisterActionHook(ctx, serviceId, id).RegisterActionHookRequest2(registerActionHookRequest2).Execute()
 
 RegisterActionHook resource-api
 
@@ -1294,11 +1294,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service to which the hook belongs
 	id := "r-12345678" // string | The ID of the resource to which the hook belongs
-	registerActionHookRequestBody := *openapiclient.NewRegisterActionHookRequestBody("ZWNobyAiaGVsbG8gd29ybGQi", "CLUSTER", "ADD") // RegisterActionHookRequestBody | 
+	registerActionHookRequest2 := *openapiclient.NewRegisterActionHookRequest2("ZWNobyAiaGVsbG8gd29ybGQi", "CLUSTER", "ADD") // RegisterActionHookRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ResourceApiAPI.ResourceApiRegisterActionHook(context.Background(), serviceId, id).RegisterActionHookRequestBody(registerActionHookRequestBody).Execute()
+	r, err := apiClient.ResourceApiAPI.ResourceApiRegisterActionHook(context.Background(), serviceId, id).RegisterActionHookRequest2(registerActionHookRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceApiAPI.ResourceApiRegisterActionHook``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1324,7 +1324,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **registerActionHookRequestBody** | [**RegisterActionHookRequestBody**](RegisterActionHookRequestBody.md) |  | 
+ **registerActionHookRequest2** | [**RegisterActionHookRequest2**](RegisterActionHookRequest2.md) |  | 
 
 ### Return type
 
@@ -1346,7 +1346,7 @@ Name | Type | Description  | Notes
 
 ## ResourceApiRegisterResourceMetricsConfig
 
-> ResourceApiRegisterResourceMetricsConfig(ctx, serviceId, id).RegisterResourceMetricsConfigRequestBody(registerResourceMetricsConfigRequestBody).Execute()
+> ResourceApiRegisterResourceMetricsConfig(ctx, serviceId, id).RegisterResourceMetricsConfigRequest2(registerResourceMetricsConfigRequest2).Execute()
 
 RegisterResourceMetricsConfig resource-api
 
@@ -1365,11 +1365,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	registerResourceMetricsConfigRequestBody := *openapiclient.NewRegisterResourceMetricsConfigRequestBody("http://localhost:9187/metrics") // RegisterResourceMetricsConfigRequestBody | 
+	registerResourceMetricsConfigRequest2 := *openapiclient.NewRegisterResourceMetricsConfigRequest2("http://localhost:9187/metrics") // RegisterResourceMetricsConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ResourceApiAPI.ResourceApiRegisterResourceMetricsConfig(context.Background(), serviceId, id).RegisterResourceMetricsConfigRequestBody(registerResourceMetricsConfigRequestBody).Execute()
+	r, err := apiClient.ResourceApiAPI.ResourceApiRegisterResourceMetricsConfig(context.Background(), serviceId, id).RegisterResourceMetricsConfigRequest2(registerResourceMetricsConfigRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceApiAPI.ResourceApiRegisterResourceMetricsConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1395,7 +1395,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **registerResourceMetricsConfigRequestBody** | [**RegisterResourceMetricsConfigRequestBody**](RegisterResourceMetricsConfigRequestBody.md) |  | 
+ **registerResourceMetricsConfigRequest2** | [**RegisterResourceMetricsConfigRequest2**](RegisterResourceMetricsConfigRequest2.md) |  | 
 
 ### Return type
 
@@ -1561,7 +1561,7 @@ Name | Type | Description  | Notes
 
 ## ResourceApiSetEnvironmentVariables
 
-> ResourceApiSetEnvironmentVariables(ctx, serviceId, id).SetEnvironmentVariablesRequestBody(setEnvironmentVariablesRequestBody).Execute()
+> ResourceApiSetEnvironmentVariables(ctx, serviceId, id).SetEnvironmentVariablesRequest2(setEnvironmentVariablesRequest2).Execute()
 
 SetEnvironmentVariables resource-api
 
@@ -1580,11 +1580,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	setEnvironmentVariablesRequestBody := *openapiclient.NewSetEnvironmentVariablesRequestBody() // SetEnvironmentVariablesRequestBody | 
+	setEnvironmentVariablesRequest2 := *openapiclient.NewSetEnvironmentVariablesRequest2() // SetEnvironmentVariablesRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ResourceApiAPI.ResourceApiSetEnvironmentVariables(context.Background(), serviceId, id).SetEnvironmentVariablesRequestBody(setEnvironmentVariablesRequestBody).Execute()
+	r, err := apiClient.ResourceApiAPI.ResourceApiSetEnvironmentVariables(context.Background(), serviceId, id).SetEnvironmentVariablesRequest2(setEnvironmentVariablesRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceApiAPI.ResourceApiSetEnvironmentVariables``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1610,7 +1610,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **setEnvironmentVariablesRequestBody** | [**SetEnvironmentVariablesRequestBody**](SetEnvironmentVariablesRequestBody.md) |  | 
+ **setEnvironmentVariablesRequest2** | [**SetEnvironmentVariablesRequest2**](SetEnvironmentVariablesRequest2.md) |  | 
 
 ### Return type
 
@@ -1632,7 +1632,7 @@ Name | Type | Description  | Notes
 
 ## ResourceApiUnsetEnvironmentVariables
 
-> ResourceApiUnsetEnvironmentVariables(ctx, serviceId, id).SetEnvironmentVariablesRequestBody(setEnvironmentVariablesRequestBody).Execute()
+> ResourceApiUnsetEnvironmentVariables(ctx, serviceId, id).UnsetEnvironmentVariablesRequest2(unsetEnvironmentVariablesRequest2).Execute()
 
 UnsetEnvironmentVariables resource-api
 
@@ -1651,11 +1651,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	setEnvironmentVariablesRequestBody := *openapiclient.NewSetEnvironmentVariablesRequestBody() // SetEnvironmentVariablesRequestBody | 
+	unsetEnvironmentVariablesRequest2 := *openapiclient.NewUnsetEnvironmentVariablesRequest2() // UnsetEnvironmentVariablesRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ResourceApiAPI.ResourceApiUnsetEnvironmentVariables(context.Background(), serviceId, id).SetEnvironmentVariablesRequestBody(setEnvironmentVariablesRequestBody).Execute()
+	r, err := apiClient.ResourceApiAPI.ResourceApiUnsetEnvironmentVariables(context.Background(), serviceId, id).UnsetEnvironmentVariablesRequest2(unsetEnvironmentVariablesRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceApiAPI.ResourceApiUnsetEnvironmentVariables``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1681,7 +1681,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **setEnvironmentVariablesRequestBody** | [**SetEnvironmentVariablesRequestBody**](SetEnvironmentVariablesRequestBody.md) |  | 
+ **unsetEnvironmentVariablesRequest2** | [**UnsetEnvironmentVariablesRequest2**](UnsetEnvironmentVariablesRequest2.md) |  | 
 
 ### Return type
 
@@ -1777,7 +1777,7 @@ Name | Type | Description  | Notes
 
 ## ResourceApiUpdateFileMetadata
 
-> ResourceApiUpdateFileMetadata(ctx, serviceId, id, fileId).UpdateFileMetadataRequestBody(updateFileMetadataRequestBody).Execute()
+> ResourceApiUpdateFileMetadata(ctx, serviceId, id, fileId).UpdateFileMetadataRequest2(updateFileMetadataRequest2).Execute()
 
 UpdateFileMetadata resource-api
 
@@ -1797,11 +1797,11 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
 	fileId := "f-12345678" // string | The ID of the file
-	updateFileMetadataRequestBody := *openapiclient.NewUpdateFileMetadataRequestBody() // UpdateFileMetadataRequestBody | 
+	updateFileMetadataRequest2 := *openapiclient.NewUpdateFileMetadataRequest2() // UpdateFileMetadataRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ResourceApiAPI.ResourceApiUpdateFileMetadata(context.Background(), serviceId, id, fileId).UpdateFileMetadataRequestBody(updateFileMetadataRequestBody).Execute()
+	r, err := apiClient.ResourceApiAPI.ResourceApiUpdateFileMetadata(context.Background(), serviceId, id, fileId).UpdateFileMetadataRequest2(updateFileMetadataRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceApiAPI.ResourceApiUpdateFileMetadata``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1829,7 +1829,7 @@ Name | Type | Description  | Notes
 
 
 
- **updateFileMetadataRequestBody** | [**UpdateFileMetadataRequestBody**](UpdateFileMetadataRequestBody.md) |  | 
+ **updateFileMetadataRequest2** | [**UpdateFileMetadataRequest2**](UpdateFileMetadataRequest2.md) |  | 
 
 ### Return type
 
@@ -1851,7 +1851,7 @@ Name | Type | Description  | Notes
 
 ## ResourceApiUpdateResource
 
-> ResourceApiUpdateResource(ctx, serviceId, id).UpdateResourceRequestBody(updateResourceRequestBody).Execute()
+> ResourceApiUpdateResource(ctx, serviceId, id).UpdateResourceRequest2(updateResourceRequest2).Execute()
 
 UpdateResource resource-api
 
@@ -1870,11 +1870,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	updateResourceRequestBody := *openapiclient.NewUpdateResourceRequestBody() // UpdateResourceRequestBody | 
+	updateResourceRequest2 := *openapiclient.NewUpdateResourceRequest2() // UpdateResourceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ResourceApiAPI.ResourceApiUpdateResource(context.Background(), serviceId, id).UpdateResourceRequestBody(updateResourceRequestBody).Execute()
+	r, err := apiClient.ResourceApiAPI.ResourceApiUpdateResource(context.Background(), serviceId, id).UpdateResourceRequest2(updateResourceRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceApiAPI.ResourceApiUpdateResource``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1900,7 +1900,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **updateResourceRequestBody** | [**UpdateResourceRequestBody**](UpdateResourceRequestBody.md) |  | 
+ **updateResourceRequest2** | [**UpdateResourceRequest2**](UpdateResourceRequest2.md) |  | 
 
 ### Return type
 

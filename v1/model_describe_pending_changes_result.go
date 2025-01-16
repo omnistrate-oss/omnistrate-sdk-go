@@ -20,11 +20,11 @@ var _ MappedNullable = &DescribePendingChangesResult{}
 
 // DescribePendingChangesResult struct for DescribePendingChangesResult
 type DescribePendingChangesResult struct {
-	// The service API ID
+	// ID of a Service API
 	Id string `json:"id"`
 	// The difference for the service API configuration per resource
-	ResourceChangeSets map[string]ChangeSet `json:"resourceChangeSets"`
-	// The service ID that this API bundle belongs to
+	ResourceChangeSets map[string]interface{} `json:"resourceChangeSets"`
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	AdditionalProperties map[string]interface{}
 }
@@ -35,7 +35,7 @@ type _DescribePendingChangesResult DescribePendingChangesResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDescribePendingChangesResult(id string, resourceChangeSets map[string]ChangeSet, serviceId string) *DescribePendingChangesResult {
+func NewDescribePendingChangesResult(id string, resourceChangeSets map[string]interface{}, serviceId string) *DescribePendingChangesResult {
 	this := DescribePendingChangesResult{}
 	this.Id = id
 	this.ResourceChangeSets = resourceChangeSets
@@ -76,9 +76,9 @@ func (o *DescribePendingChangesResult) SetId(v string) {
 }
 
 // GetResourceChangeSets returns the ResourceChangeSets field value
-func (o *DescribePendingChangesResult) GetResourceChangeSets() map[string]ChangeSet {
+func (o *DescribePendingChangesResult) GetResourceChangeSets() map[string]interface{} {
 	if o == nil {
-		var ret map[string]ChangeSet
+		var ret map[string]interface{}
 		return ret
 	}
 
@@ -87,15 +87,15 @@ func (o *DescribePendingChangesResult) GetResourceChangeSets() map[string]Change
 
 // GetResourceChangeSetsOk returns a tuple with the ResourceChangeSets field value
 // and a boolean to check if the value has been set.
-func (o *DescribePendingChangesResult) GetResourceChangeSetsOk() (*map[string]ChangeSet, bool) {
+func (o *DescribePendingChangesResult) GetResourceChangeSetsOk() (map[string]interface{}, bool) {
 	if o == nil {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
-	return &o.ResourceChangeSets, true
+	return o.ResourceChangeSets, true
 }
 
 // SetResourceChangeSets sets field value
-func (o *DescribePendingChangesResult) SetResourceChangeSets(v map[string]ChangeSet) {
+func (o *DescribePendingChangesResult) SetResourceChangeSets(v map[string]interface{}) {
 	o.ResourceChangeSets = v
 }
 

@@ -19,8 +19,8 @@ Name | Type | Description | Notes
 **OrgSupportEmail** | **string** | The support email of the org that this user owns | 
 **OrgTermsOfUse** | **string** | The terms of use for the org that this user owns | 
 **OrgURL** | **string** | The url of the org that this user owns | 
-**PlanName** | Pointer to **string** | The name of the plan of the user | [optional] 
-**RoleType** | **string** | The role type of the user | 
+**PlanName** | Pointer to **string** | This parameter is used to select the appropriate Product Plan | [optional] 
+**RoleType** | **string** | Type of the role | 
 
 ## Methods
 

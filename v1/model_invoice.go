@@ -27,6 +27,7 @@ type Invoice struct {
 	InvoiceId *string `json:"invoiceId,omitempty"`
 	// Invoice Payment Term
 	InvoicePaymentTerm *string `json:"invoicePaymentTerm,omitempty"`
+	// This describes the status of the invoice and is set by the payment provider
 	InvoiceStatus *string `json:"invoiceStatus,omitempty"`
 	// URL for this invoice
 	InvoiceUrl *string `json:"invoiceUrl,omitempty"`

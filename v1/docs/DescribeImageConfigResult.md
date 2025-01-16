@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CustomImageCommandsAndArgs** | Pointer to [**CustomImageCommandsAndArgs**](CustomImageCommandsAndArgs.md) |  | [optional] 
 **Description** | **string** | A brief description of the image configuration | 
-**Id** | **string** | The image configuration ID | 
+**Id** | **string** | ID of an Image Config | 
 **ImageName** | **string** | Name of the container image | 
-**ImageRegistryId** | **string** | The image registry ID to use for the infra | 
+**ImageRegistryId** | **string** | ID of an Image Registry | 
 **ImageSignaturePublicKeyPEM** | Pointer to **string** | PEM-encoded Public key part of the key used to sign the container image | [optional] 
 **ImageTag** | **string** | Tag representing the software image version that is currently preferred | [default to "latest"]
-**ServiceEnvironmentId** | **string** | The service environment ID | 
-**ServiceId** | **string** | The service ID | 
+**ServiceEnvironmentId** | **string** | ID of a Service Environment | 
+**ServiceId** | **string** | ID of a Service | 
 
 ## Methods
 

@@ -448,11 +448,11 @@ func (a *HelmPackageApiAPIService) HelmPackageApiListHelmPackagesExecute(r ApiHe
 type ApiHelmPackageApiSaveHelmPackageRequest struct {
 	ctx context.Context
 	ApiService HelmPackageApiAPI
-	saveHelmPackageRequestBody *SaveHelmPackageRequestBody
+	saveHelmPackageRequest2 *SaveHelmPackageRequest2
 }
 
-func (r ApiHelmPackageApiSaveHelmPackageRequest) SaveHelmPackageRequestBody(saveHelmPackageRequestBody SaveHelmPackageRequestBody) ApiHelmPackageApiSaveHelmPackageRequest {
-	r.saveHelmPackageRequestBody = &saveHelmPackageRequestBody
+func (r ApiHelmPackageApiSaveHelmPackageRequest) SaveHelmPackageRequest2(saveHelmPackageRequest2 SaveHelmPackageRequest2) ApiHelmPackageApiSaveHelmPackageRequest {
+	r.saveHelmPackageRequest2 = &saveHelmPackageRequest2
 	return r
 }
 
@@ -491,8 +491,8 @@ func (a *HelmPackageApiAPIService) HelmPackageApiSaveHelmPackageExecute(r ApiHel
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.saveHelmPackageRequestBody == nil {
-		return nil, reportError("saveHelmPackageRequestBody is required and must be specified")
+	if r.saveHelmPackageRequest2 == nil {
+		return nil, reportError("saveHelmPackageRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -513,7 +513,7 @@ func (a *HelmPackageApiAPIService) HelmPackageApiSaveHelmPackageExecute(r ApiHel
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.saveHelmPackageRequestBody
+	localVarPostBody = r.saveHelmPackageRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

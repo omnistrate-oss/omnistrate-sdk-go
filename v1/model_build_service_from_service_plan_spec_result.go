@@ -20,11 +20,11 @@ var _ MappedNullable = &BuildServiceFromServicePlanSpecResult{}
 
 // BuildServiceFromServicePlanSpecResult struct for BuildServiceFromServicePlanSpecResult
 type BuildServiceFromServicePlanSpecResult struct {
-	// The product tier ID of the built service plan
+	// ID of a Product Tier
 	ProductTierID string `json:"productTierID"`
-	// The service environment ID of the built service
+	// ID of a Service Environment
 	ServiceEnvironmentID string `json:"serviceEnvironmentID"`
-	// The service ID of the built service
+	// ID of a Service
 	ServiceID string `json:"serviceID"`
 	// Resources that appear in the service plan but were not defined in the spec. These resources were not processed during the build.
 	UndefinedResources *map[string]string `json:"undefinedResources,omitempty"`

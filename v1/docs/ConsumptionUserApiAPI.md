@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ## ConsumptionUserApiInviteUser
 
-> ConsumptionUserApiInviteUser(ctx, subscriptionId).InviteUserRequestBody(inviteUserRequestBody).Execute()
+> ConsumptionUserApiInviteUser(ctx, subscriptionId).InviteConsumptionUserRequest2(inviteConsumptionUserRequest2).Execute()
 
 InviteUser consumption-user-api
 
@@ -169,11 +169,11 @@ import (
 
 func main() {
 	subscriptionId := "sub-abcd1234" // string | The subscription ID
-	inviteUserRequestBody := *openapiclient.NewInviteUserRequestBody("abc@gmail.com", "reader") // InviteUserRequestBody | 
+	inviteConsumptionUserRequest2 := *openapiclient.NewInviteConsumptionUserRequest2("abc@gmail.com", "reader") // InviteConsumptionUserRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ConsumptionUserApiAPI.ConsumptionUserApiInviteUser(context.Background(), subscriptionId).InviteUserRequestBody(inviteUserRequestBody).Execute()
+	r, err := apiClient.ConsumptionUserApiAPI.ConsumptionUserApiInviteUser(context.Background(), subscriptionId).InviteConsumptionUserRequest2(inviteConsumptionUserRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConsumptionUserApiAPI.ConsumptionUserApiInviteUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -197,7 +197,7 @@ Other parameters are passed through a pointer to a apiConsumptionUserApiInviteUs
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **inviteUserRequestBody** | [**InviteUserRequestBody**](InviteUserRequestBody.md) |  | 
+ **inviteConsumptionUserRequest2** | [**InviteConsumptionUserRequest2**](InviteConsumptionUserRequest2.md) |  | 
 
 ### Return type
 
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 
 ## ConsumptionUserApiRevokeUserRole
 
-> ConsumptionUserApiRevokeUserRole(ctx, subscriptionId).InviteUserRequestBody(inviteUserRequestBody).Execute()
+> ConsumptionUserApiRevokeUserRole(ctx, subscriptionId).RevokeConsumptionUserRoleRequest2(revokeConsumptionUserRoleRequest2).Execute()
 
 RevokeUserRole consumption-user-api
 
@@ -301,11 +301,11 @@ import (
 
 func main() {
 	subscriptionId := "sub-abcd1234" // string | The subscription ID
-	inviteUserRequestBody := *openapiclient.NewInviteUserRequestBody("abc@gmail.com", "reader") // InviteUserRequestBody | 
+	revokeConsumptionUserRoleRequest2 := *openapiclient.NewRevokeConsumptionUserRoleRequest2("abc@gmail.com", "reader") // RevokeConsumptionUserRoleRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ConsumptionUserApiAPI.ConsumptionUserApiRevokeUserRole(context.Background(), subscriptionId).InviteUserRequestBody(inviteUserRequestBody).Execute()
+	r, err := apiClient.ConsumptionUserApiAPI.ConsumptionUserApiRevokeUserRole(context.Background(), subscriptionId).RevokeConsumptionUserRoleRequest2(revokeConsumptionUserRoleRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConsumptionUserApiAPI.ConsumptionUserApiRevokeUserRole``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -329,7 +329,7 @@ Other parameters are passed through a pointer to a apiConsumptionUserApiRevokeUs
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **inviteUserRequestBody** | [**InviteUserRequestBody**](InviteUserRequestBody.md) |  | 
+ **revokeConsumptionUserRoleRequest2** | [**RevokeConsumptionUserRoleRequest2**](RevokeConsumptionUserRoleRequest2.md) |  | 
 
 ### Return type
 

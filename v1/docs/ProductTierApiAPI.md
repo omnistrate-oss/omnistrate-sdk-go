@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 ## ProductTierApiCopyProductTier
 
-> string ProductTierApiCopyProductTier(ctx, serviceId, sourceId).CopyProductTierRequestBody(copyProductTierRequestBody).Execute()
+> string ProductTierApiCopyProductTier(ctx, serviceId, sourceId).CopyProductTierRequest2(copyProductTierRequest2).Execute()
 
 CopyProductTier product-tier-api
 
@@ -41,11 +41,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | Service ID
 	sourceId := "pt-12345678" // string | The source product tier ID
-	copyProductTierRequestBody := *openapiclient.NewCopyProductTierRequestBody("A premium product tier", "Premium", "sm-12345678") // CopyProductTierRequestBody | 
+	copyProductTierRequest2 := *openapiclient.NewCopyProductTierRequest2("A premium product tier", "Premium", "sm-12345678") // CopyProductTierRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProductTierApiAPI.ProductTierApiCopyProductTier(context.Background(), serviceId, sourceId).CopyProductTierRequestBody(copyProductTierRequestBody).Execute()
+	resp, r, err := apiClient.ProductTierApiAPI.ProductTierApiCopyProductTier(context.Background(), serviceId, sourceId).CopyProductTierRequest2(copyProductTierRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProductTierApiAPI.ProductTierApiCopyProductTier``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **copyProductTierRequestBody** | [**CopyProductTierRequestBody**](CopyProductTierRequestBody.md) |  | 
+ **copyProductTierRequest2** | [**CopyProductTierRequest2**](CopyProductTierRequest2.md) |  | 
 
 ### Return type
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ## ProductTierApiCreateProductTier
 
-> string ProductTierApiCreateProductTier(ctx, serviceId).CreateProductTierRequestBody(createProductTierRequestBody).Execute()
+> string ProductTierApiCreateProductTier(ctx, serviceId).CreateProductTierRequest2(createProductTierRequest2).Execute()
 
 CreateProductTier product-tier-api
 
@@ -113,11 +113,11 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | Service ID
-	createProductTierRequestBody := *openapiclient.NewCreateProductTierRequestBody("A premium product tier", "Premium", "A premium plan", "sm-12345678", "OMNISTRATE_DEDICATED_TENANCY") // CreateProductTierRequestBody | 
+	createProductTierRequest2 := *openapiclient.NewCreateProductTierRequest2("A premium product tier", "Premium", "A premium plan", "sm-12345678", "OMNISTRATE_DEDICATED_TENANCY") // CreateProductTierRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProductTierApiAPI.ProductTierApiCreateProductTier(context.Background(), serviceId).CreateProductTierRequestBody(createProductTierRequestBody).Execute()
+	resp, r, err := apiClient.ProductTierApiAPI.ProductTierApiCreateProductTier(context.Background(), serviceId).CreateProductTierRequest2(createProductTierRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProductTierApiAPI.ProductTierApiCreateProductTier``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -143,7 +143,7 @@ Other parameters are passed through a pointer to a apiProductTierApiCreateProduc
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createProductTierRequestBody** | [**CreateProductTierRequestBody**](CreateProductTierRequestBody.md) |  | 
+ **createProductTierRequest2** | [**CreateProductTierRequest2**](CreateProductTierRequest2.md) |  | 
 
 ### Return type
 
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ## ProductTierApiCreateProductTierBillingPlan
 
-> BillingPlan ProductTierApiCreateProductTierBillingPlan(ctx, serviceId, id).CreateProductTierBillingPlanRequestBody(createProductTierBillingPlanRequestBody).Execute()
+> BillingPlan ProductTierApiCreateProductTierBillingPlan(ctx, serviceId, id).CreateProductTierBillingPlanRequest2(createProductTierBillingPlanRequest2).Execute()
 
 CreateProductTierBillingPlan product-tier-api
 
@@ -184,11 +184,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | Service ID
 	id := "pt-12345678" // string | Product tier ID
-	createProductTierBillingPlanRequestBody := *openapiclient.NewCreateProductTierBillingPlanRequestBody(true, int64(5), "STARTER", interface{}({"cpuCoreHours":"0.001","memoryGiBHours":"0.0001","storageGiBHours":"0.0001"})) // CreateProductTierBillingPlanRequestBody | 
+	createProductTierBillingPlanRequest2 := *openapiclient.NewCreateProductTierBillingPlanRequest2(true, int64(5), "STARTER", interface{}({"cpuCoreHours":"0.001","memoryGiBHours":"0.0001","storageGiBHours":"0.0001"})) // CreateProductTierBillingPlanRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProductTierApiAPI.ProductTierApiCreateProductTierBillingPlan(context.Background(), serviceId, id).CreateProductTierBillingPlanRequestBody(createProductTierBillingPlanRequestBody).Execute()
+	resp, r, err := apiClient.ProductTierApiAPI.ProductTierApiCreateProductTierBillingPlan(context.Background(), serviceId, id).CreateProductTierBillingPlanRequest2(createProductTierBillingPlanRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProductTierApiAPI.ProductTierApiCreateProductTierBillingPlan``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **createProductTierBillingPlanRequestBody** | [**CreateProductTierBillingPlanRequestBody**](CreateProductTierBillingPlanRequestBody.md) |  | 
+ **createProductTierBillingPlanRequest2** | [**CreateProductTierBillingPlanRequest2**](CreateProductTierBillingPlanRequest2.md) |  | 
 
 ### Return type
 
@@ -526,7 +526,7 @@ Name | Type | Description  | Notes
 
 ## ProductTierApiDisableProductTierFeature
 
-> ProductTierApiDisableProductTierFeature(ctx, serviceId, id).DisableProductTierFeatureRequestBody(disableProductTierFeatureRequestBody).Execute()
+> ProductTierApiDisableProductTierFeature(ctx, serviceId, id).DisableProductTierFeatureRequest2(disableProductTierFeatureRequest2).Execute()
 
 DisableProductTierFeature product-tier-api
 
@@ -545,11 +545,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | Service ID
 	id := "pt-12345678" // string | Product tier ID
-	disableProductTierFeatureRequestBody := *openapiclient.NewDisableProductTierFeatureRequestBody("BILLING") // DisableProductTierFeatureRequestBody | 
+	disableProductTierFeatureRequest2 := *openapiclient.NewDisableProductTierFeatureRequest2("BILLING") // DisableProductTierFeatureRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ProductTierApiAPI.ProductTierApiDisableProductTierFeature(context.Background(), serviceId, id).DisableProductTierFeatureRequestBody(disableProductTierFeatureRequestBody).Execute()
+	r, err := apiClient.ProductTierApiAPI.ProductTierApiDisableProductTierFeature(context.Background(), serviceId, id).DisableProductTierFeatureRequest2(disableProductTierFeatureRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProductTierApiAPI.ProductTierApiDisableProductTierFeature``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -575,7 +575,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **disableProductTierFeatureRequestBody** | [**DisableProductTierFeatureRequestBody**](DisableProductTierFeatureRequestBody.md) |  | 
+ **disableProductTierFeatureRequest2** | [**DisableProductTierFeatureRequest2**](DisableProductTierFeatureRequest2.md) |  | 
 
 ### Return type
 
@@ -597,7 +597,7 @@ Name | Type | Description  | Notes
 
 ## ProductTierApiEnableProductTierFeature
 
-> ProductTierApiEnableProductTierFeature(ctx, serviceId, id).EnableProductTierFeatureRequestBody(enableProductTierFeatureRequestBody).Execute()
+> ProductTierApiEnableProductTierFeature(ctx, serviceId, id).EnableProductTierFeatureRequest2(enableProductTierFeatureRequest2).Execute()
 
 EnableProductTierFeature product-tier-api
 
@@ -616,11 +616,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | Service ID
 	id := "pt-12345678" // string | Product tier ID
-	enableProductTierFeatureRequestBody := *openapiclient.NewEnableProductTierFeatureRequestBody("BILLING") // EnableProductTierFeatureRequestBody | 
+	enableProductTierFeatureRequest2 := *openapiclient.NewEnableProductTierFeatureRequest2("BILLING") // EnableProductTierFeatureRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ProductTierApiAPI.ProductTierApiEnableProductTierFeature(context.Background(), serviceId, id).EnableProductTierFeatureRequestBody(enableProductTierFeatureRequestBody).Execute()
+	r, err := apiClient.ProductTierApiAPI.ProductTierApiEnableProductTierFeature(context.Background(), serviceId, id).EnableProductTierFeatureRequest2(enableProductTierFeatureRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProductTierApiAPI.ProductTierApiEnableProductTierFeature``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -646,7 +646,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **enableProductTierFeatureRequestBody** | [**EnableProductTierFeatureRequestBody**](EnableProductTierFeatureRequestBody.md) |  | 
+ **enableProductTierFeatureRequest2** | [**EnableProductTierFeatureRequest2**](EnableProductTierFeatureRequest2.md) |  | 
 
 ### Return type
 
@@ -668,7 +668,7 @@ Name | Type | Description  | Notes
 
 ## ProductTierApiListProductTier
 
-> ListServiceEnvironmentsResult ProductTierApiListProductTier(ctx, serviceId, serviceModelId).Execute()
+> ListProductTiersResult ProductTierApiListProductTier(ctx, serviceId, serviceModelId).Execute()
 
 ListProductTier product-tier-api
 
@@ -695,7 +695,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProductTierApiAPI.ProductTierApiListProductTier``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ProductTierApiListProductTier`: ListServiceEnvironmentsResult
+	// response from `ProductTierApiListProductTier`: ListProductTiersResult
 	fmt.Fprintf(os.Stdout, "Response from `ProductTierApiAPI.ProductTierApiListProductTier`: %v\n", resp)
 }
 ```
@@ -721,7 +721,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListServiceEnvironmentsResult**](ListServiceEnvironmentsResult.md)
+[**ListProductTiersResult**](ListProductTiersResult.md)
 
 ### Authorization
 
@@ -810,7 +810,7 @@ Name | Type | Description  | Notes
 
 ## ProductTierApiUpdateProductTier
 
-> ProductTierApiUpdateProductTier(ctx, serviceId, id).UpdateProductTierRequestBody(updateProductTierRequestBody).Execute()
+> ProductTierApiUpdateProductTier(ctx, serviceId, id).UpdateProductTierRequest2(updateProductTierRequest2).Execute()
 
 UpdateProductTier product-tier-api
 
@@ -829,11 +829,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | Service ID
 	id := "pt-12345678" // string | Product tier ID
-	updateProductTierRequestBody := *openapiclient.NewUpdateProductTierRequestBody() // UpdateProductTierRequestBody | 
+	updateProductTierRequest2 := *openapiclient.NewUpdateProductTierRequest2() // UpdateProductTierRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ProductTierApiAPI.ProductTierApiUpdateProductTier(context.Background(), serviceId, id).UpdateProductTierRequestBody(updateProductTierRequestBody).Execute()
+	r, err := apiClient.ProductTierApiAPI.ProductTierApiUpdateProductTier(context.Background(), serviceId, id).UpdateProductTierRequest2(updateProductTierRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProductTierApiAPI.ProductTierApiUpdateProductTier``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -859,7 +859,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **updateProductTierRequestBody** | [**UpdateProductTierRequestBody**](UpdateProductTierRequestBody.md) |  | 
+ **updateProductTierRequest2** | [**UpdateProductTierRequest2**](UpdateProductTierRequest2.md) |  | 
 
 ### Return type
 
@@ -881,7 +881,7 @@ Name | Type | Description  | Notes
 
 ## ProductTierApiUpdateProductTierBillingPlan
 
-> BillingPlan ProductTierApiUpdateProductTierBillingPlan(ctx, serviceId, productTierId, id).UpdateProductTierBillingPlanRequestBody(updateProductTierBillingPlanRequestBody).Execute()
+> BillingPlan ProductTierApiUpdateProductTierBillingPlan(ctx, serviceId, productTierId, id).UpdateProductTierBillingPlanRequest2(updateProductTierBillingPlanRequest2).Execute()
 
 UpdateProductTierBillingPlan product-tier-api
 
@@ -901,11 +901,11 @@ func main() {
 	serviceId := "s-12345678" // string | Service ID
 	productTierId := "pt-12345678" // string | Product tier ID
 	id := "bp-12345678" // string | Product tier billing plan ID
-	updateProductTierBillingPlanRequestBody := *openapiclient.NewUpdateProductTierBillingPlanRequestBody() // UpdateProductTierBillingPlanRequestBody | 
+	updateProductTierBillingPlanRequest2 := *openapiclient.NewUpdateProductTierBillingPlanRequest2() // UpdateProductTierBillingPlanRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProductTierApiAPI.ProductTierApiUpdateProductTierBillingPlan(context.Background(), serviceId, productTierId, id).UpdateProductTierBillingPlanRequestBody(updateProductTierBillingPlanRequestBody).Execute()
+	resp, r, err := apiClient.ProductTierApiAPI.ProductTierApiUpdateProductTierBillingPlan(context.Background(), serviceId, productTierId, id).UpdateProductTierBillingPlanRequest2(updateProductTierBillingPlanRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProductTierApiAPI.ProductTierApiUpdateProductTierBillingPlan``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -935,7 +935,7 @@ Name | Type | Description  | Notes
 
 
 
- **updateProductTierBillingPlanRequestBody** | [**UpdateProductTierBillingPlanRequestBody**](UpdateProductTierBillingPlanRequestBody.md) |  | 
+ **updateProductTierBillingPlanRequest2** | [**UpdateProductTierBillingPlanRequest2**](UpdateProductTierBillingPlanRequest2.md) |  | 
 
 ### Return type
 

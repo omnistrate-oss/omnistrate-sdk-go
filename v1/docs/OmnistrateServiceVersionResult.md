@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApiVersion** | **string** | Omnistrate API version | 
+**ApiVersion** | **string** | Version of the Entity to operate on | 
 **BuildCommitSHA** | **string** | The commit hash of the build | 
 **BuildTimestamp** | **string** | The timestamp of the build | 
 

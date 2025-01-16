@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## TierVersionSetApiCreateTierVersionSet
 
-> CreateTierVersionSetResult TierVersionSetApiCreateTierVersionSet(ctx, serviceId, productTierId).CreateTierVersionSetRequestBody(createTierVersionSetRequestBody).Execute()
+> CreateTierVersionSetResult TierVersionSetApiCreateTierVersionSet(ctx, serviceId, productTierId).CreateTierVersionSetRequest2(createTierVersionSetRequest2).Execute()
 
 CreateTierVersionSet tier-version-set-api
 
@@ -35,11 +35,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | ID of the Service
 	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
-	createTierVersionSetRequestBody := *openapiclient.NewCreateTierVersionSetRequestBody("Major|Incremental|UserDefined") // CreateTierVersionSetRequestBody | 
+	createTierVersionSetRequest2 := *openapiclient.NewCreateTierVersionSetRequest2("Major|Incremental|UserDefined") // CreateTierVersionSetRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiCreateTierVersionSet(context.Background(), serviceId, productTierId).CreateTierVersionSetRequestBody(createTierVersionSetRequestBody).Execute()
+	resp, r, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiCreateTierVersionSet(context.Background(), serviceId, productTierId).CreateTierVersionSetRequest2(createTierVersionSetRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TierVersionSetApiAPI.TierVersionSetApiCreateTierVersionSet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **createTierVersionSetRequestBody** | [**CreateTierVersionSetRequestBody**](CreateTierVersionSetRequestBody.md) |  | 
+ **createTierVersionSetRequest2** | [**CreateTierVersionSetRequest2**](CreateTierVersionSetRequest2.md) |  | 
 
 ### Return type
 
@@ -463,7 +463,7 @@ Name | Type | Description  | Notes
 
 ## TierVersionSetApiReleaseTierVersionSet
 
-> TierVersionSet TierVersionSetApiReleaseTierVersionSet(ctx, serviceId, productTierId, version).ReleaseTierVersionSetRequestBody(releaseTierVersionSetRequestBody).Execute()
+> TierVersionSet TierVersionSetApiReleaseTierVersionSet(ctx, serviceId, productTierId, version).ReleaseTierVersionSetRequest2(releaseTierVersionSetRequest2).Execute()
 
 ReleaseTierVersionSet tier-version-set-api
 
@@ -483,11 +483,11 @@ func main() {
 	serviceId := "s-12345678" // string | ID of the Service
 	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
 	version := "3.0" // string | The version number for the specific version set.
-	releaseTierVersionSetRequestBody := *openapiclient.NewReleaseTierVersionSetRequestBody() // ReleaseTierVersionSetRequestBody | 
+	releaseTierVersionSetRequest2 := *openapiclient.NewReleaseTierVersionSetRequest2() // ReleaseTierVersionSetRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiReleaseTierVersionSet(context.Background(), serviceId, productTierId, version).ReleaseTierVersionSetRequestBody(releaseTierVersionSetRequestBody).Execute()
+	resp, r, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiReleaseTierVersionSet(context.Background(), serviceId, productTierId, version).ReleaseTierVersionSetRequest2(releaseTierVersionSetRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TierVersionSetApiAPI.TierVersionSetApiReleaseTierVersionSet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -517,7 +517,7 @@ Name | Type | Description  | Notes
 
 
 
- **releaseTierVersionSetRequestBody** | [**ReleaseTierVersionSetRequestBody**](ReleaseTierVersionSetRequestBody.md) |  | 
+ **releaseTierVersionSetRequest2** | [**ReleaseTierVersionSetRequest2**](ReleaseTierVersionSetRequest2.md) |  | 
 
 ### Return type
 

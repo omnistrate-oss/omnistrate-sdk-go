@@ -30,8 +30,8 @@ type SigninApiAPI interface {
 	SigninApiLoginWithIdentityProvider(ctx context.Context) ApiSigninApiLoginWithIdentityProviderRequest
 
 	// SigninApiLoginWithIdentityProviderExecute executes the request
-	//  @return SigninResult
-	SigninApiLoginWithIdentityProviderExecute(r ApiSigninApiLoginWithIdentityProviderRequest) (*SigninResult, *http.Response, error)
+	//  @return LoginWithIdentityProviderResult
+	SigninApiLoginWithIdentityProviderExecute(r ApiSigninApiLoginWithIdentityProviderRequest) (*LoginWithIdentityProviderResult, *http.Response, error)
 
 	/*
 	SigninApiSignin Signin signin-api
@@ -52,15 +52,15 @@ type SigninApiAPIService service
 type ApiSigninApiLoginWithIdentityProviderRequest struct {
 	ctx context.Context
 	ApiService SigninApiAPI
-	loginWithIdentityProviderRequestBody *LoginWithIdentityProviderRequestBody
+	loginWithIdentityProviderRequest *LoginWithIdentityProviderRequest
 }
 
-func (r ApiSigninApiLoginWithIdentityProviderRequest) LoginWithIdentityProviderRequestBody(loginWithIdentityProviderRequestBody LoginWithIdentityProviderRequestBody) ApiSigninApiLoginWithIdentityProviderRequest {
-	r.loginWithIdentityProviderRequestBody = &loginWithIdentityProviderRequestBody
+func (r ApiSigninApiLoginWithIdentityProviderRequest) LoginWithIdentityProviderRequest(loginWithIdentityProviderRequest LoginWithIdentityProviderRequest) ApiSigninApiLoginWithIdentityProviderRequest {
+	r.loginWithIdentityProviderRequest = &loginWithIdentityProviderRequest
 	return r
 }
 
-func (r ApiSigninApiLoginWithIdentityProviderRequest) Execute() (*SigninResult, *http.Response, error) {
+func (r ApiSigninApiLoginWithIdentityProviderRequest) Execute() (*LoginWithIdentityProviderResult, *http.Response, error) {
 	return r.ApiService.SigninApiLoginWithIdentityProviderExecute(r)
 }
 
@@ -78,13 +78,13 @@ func (a *SigninApiAPIService) SigninApiLoginWithIdentityProvider(ctx context.Con
 }
 
 // Execute executes the request
-//  @return SigninResult
-func (a *SigninApiAPIService) SigninApiLoginWithIdentityProviderExecute(r ApiSigninApiLoginWithIdentityProviderRequest) (*SigninResult, *http.Response, error) {
+//  @return LoginWithIdentityProviderResult
+func (a *SigninApiAPIService) SigninApiLoginWithIdentityProviderExecute(r ApiSigninApiLoginWithIdentityProviderRequest) (*LoginWithIdentityProviderResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SigninResult
+		localVarReturnValue  *LoginWithIdentityProviderResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SigninApiAPIService.SigninApiLoginWithIdentityProvider")
@@ -97,8 +97,8 @@ func (a *SigninApiAPIService) SigninApiLoginWithIdentityProviderExecute(r ApiSig
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.loginWithIdentityProviderRequestBody == nil {
-		return localVarReturnValue, nil, reportError("loginWithIdentityProviderRequestBody is required and must be specified")
+	if r.loginWithIdentityProviderRequest == nil {
+		return localVarReturnValue, nil, reportError("loginWithIdentityProviderRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -119,7 +119,7 @@ func (a *SigninApiAPIService) SigninApiLoginWithIdentityProviderExecute(r ApiSig
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.loginWithIdentityProviderRequestBody
+	localVarPostBody = r.loginWithIdentityProviderRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -225,11 +225,11 @@ func (a *SigninApiAPIService) SigninApiLoginWithIdentityProviderExecute(r ApiSig
 type ApiSigninApiSigninRequest struct {
 	ctx context.Context
 	ApiService SigninApiAPI
-	signinRequestBody *SigninRequestBody
+	signinRequest *SigninRequest
 }
 
-func (r ApiSigninApiSigninRequest) SigninRequestBody(signinRequestBody SigninRequestBody) ApiSigninApiSigninRequest {
-	r.signinRequestBody = &signinRequestBody
+func (r ApiSigninApiSigninRequest) SigninRequest(signinRequest SigninRequest) ApiSigninApiSigninRequest {
+	r.signinRequest = &signinRequest
 	return r
 }
 
@@ -270,8 +270,8 @@ func (a *SigninApiAPIService) SigninApiSigninExecute(r ApiSigninApiSigninRequest
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.signinRequestBody == nil {
-		return localVarReturnValue, nil, reportError("signinRequestBody is required and must be specified")
+	if r.signinRequest == nil {
+		return localVarReturnValue, nil, reportError("signinRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -292,7 +292,7 @@ func (a *SigninApiAPIService) SigninApiSigninExecute(r ApiSigninApiSigninRequest
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.signinRequestBody
+	localVarPostBody = r.signinRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

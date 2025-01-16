@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Cidr** | Pointer to **string** | CIDR block for the network | [optional] 
-**Id** | Pointer to **string** | Network to operate on | [optional] 
-**NetworkConfigId** | Pointer to **string** | Network config ID for the network | [optional] 
-**ServiceId** | Pointer to **string** | Service ID context | [optional] 
+**Id** | Pointer to **string** | ID of a Network | [optional] 
+**NetworkConfigId** | Pointer to **string** | ID of a Network Config | [optional] 
+**ServiceId** | Pointer to **string** | ID of a Service | [optional] 
 **Type** | Pointer to **string** | The type of network | [optional] 
-**VunitId** | Pointer to **string** | VUnit ID for the Network | [optional] 
+**VunitId** | Pointer to **string** | ID of a VUnit | [optional] 
 
 ## Methods
 

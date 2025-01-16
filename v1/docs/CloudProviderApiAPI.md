@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 ## CloudProviderApiListCloudProvider
 
-> ListServiceEnvironmentsResult CloudProviderApiListCloudProvider(ctx).ServiceId(serviceId).ServiceModelId(serviceModelId).ProductTierId(productTierId).Execute()
+> ListCloudProvidersResult CloudProviderApiListCloudProvider(ctx).ServiceId(serviceId).ServiceModelId(serviceModelId).ProductTierId(productTierId).Execute()
 
 ListCloudProvider cloud-provider-api
 
@@ -176,7 +176,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `CloudProviderApiAPI.CloudProviderApiListCloudProvider``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CloudProviderApiListCloudProvider`: ListServiceEnvironmentsResult
+	// response from `CloudProviderApiListCloudProvider`: ListCloudProvidersResult
 	fmt.Fprintf(os.Stdout, "Response from `CloudProviderApiAPI.CloudProviderApiListCloudProvider`: %v\n", resp)
 }
 ```
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListServiceEnvironmentsResult**](ListServiceEnvironmentsResult.md)
+[**ListCloudProvidersResult**](ListCloudProvidersResult.md)
 
 ### Authorization
 

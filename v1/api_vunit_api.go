@@ -413,11 +413,11 @@ type ApiVunitApiListVUnitsRequest struct {
 	ApiService VunitApiAPI
 	serviceId string
 	serviceModelId string
-	listVUnitsRequestBody *ListVUnitsRequestBody
+	listVUnitsRequest2 *ListVUnitsRequest2
 }
 
-func (r ApiVunitApiListVUnitsRequest) ListVUnitsRequestBody(listVUnitsRequestBody ListVUnitsRequestBody) ApiVunitApiListVUnitsRequest {
-	r.listVUnitsRequestBody = &listVUnitsRequestBody
+func (r ApiVunitApiListVUnitsRequest) ListVUnitsRequest2(listVUnitsRequest2 ListVUnitsRequest2) ApiVunitApiListVUnitsRequest {
+	r.listVUnitsRequest2 = &listVUnitsRequest2
 	return r
 }
 
@@ -464,8 +464,8 @@ func (a *VunitApiAPIService) VunitApiListVUnitsExecute(r ApiVunitApiListVUnitsRe
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.listVUnitsRequestBody == nil {
-		return localVarReturnValue, nil, reportError("listVUnitsRequestBody is required and must be specified")
+	if r.listVUnitsRequest2 == nil {
+		return localVarReturnValue, nil, reportError("listVUnitsRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -486,7 +486,7 @@ func (a *VunitApiAPIService) VunitApiListVUnitsExecute(r ApiVunitApiListVUnitsRe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.listVUnitsRequestBody
+	localVarPostBody = r.listVUnitsRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

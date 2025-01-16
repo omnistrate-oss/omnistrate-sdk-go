@@ -20,11 +20,11 @@ var _ MappedNullable = &ListAssociatedResourcesResult{}
 
 // ListAssociatedResourcesResult struct for ListAssociatedResourcesResult
 type ListAssociatedResourcesResult struct {
-	// Infra Config ID to operate on
+	// ID of an Infra Config
 	Id string `json:"id"`
 	// The resources associated with the infra config
 	ResourceIds []string `json:"resourceIds"`
-	// The service ID
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	AdditionalProperties map[string]interface{}
 }

@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | **string** | A brief description of the resource | 
-**Id** | **string** | The ID of the resource | 
-**ImageConfigId** | Pointer to **string** | The ID of the image configuration that this resource refers to | [optional] 
-**InfraConfigId** | Pointer to **string** | The ID of the infrastructure configuration that this resource refers to | [optional] 
+**Id** | **string** | ID of a resource | 
+**ImageConfigId** | Pointer to **string** | ID of an Image Config | [optional] 
+**InfraConfigId** | Pointer to **string** | ID of an Infra Config | [optional] 
 **IsExternal** | **bool** | Whether the resource is external | 
 **ManagedResourceType** | Pointer to **string** | The managed resource type of instance | [optional] 
 **Name** | **string** | The name of the resource | 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | **string** | A brief description of the limit | 
-**Family** | **string** | Limit family | 
+**Family** | **string** | The limit family | 
 **Key** | **string** | Unique key to identify the limit | 
 **Modifiable** | **bool** | Whether the limit can be modified | 
 **Name** | **string** | Name of the limit | 

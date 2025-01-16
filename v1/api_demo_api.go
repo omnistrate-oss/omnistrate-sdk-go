@@ -39,11 +39,11 @@ type DemoApiAPIService service
 type ApiDemoApiDemoRequest struct {
 	ctx context.Context
 	ApiService DemoApiAPI
-	demoRequestBody *DemoRequestBody
+	demoRequest *DemoRequest
 }
 
-func (r ApiDemoApiDemoRequest) DemoRequestBody(demoRequestBody DemoRequestBody) ApiDemoApiDemoRequest {
-	r.demoRequestBody = &demoRequestBody
+func (r ApiDemoApiDemoRequest) DemoRequest(demoRequest DemoRequest) ApiDemoApiDemoRequest {
+	r.demoRequest = &demoRequest
 	return r
 }
 
@@ -82,8 +82,8 @@ func (a *DemoApiAPIService) DemoApiDemoExecute(r ApiDemoApiDemoRequest) (*http.R
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.demoRequestBody == nil {
-		return nil, reportError("demoRequestBody is required and must be specified")
+	if r.demoRequest == nil {
+		return nil, reportError("demoRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -104,7 +104,7 @@ func (a *DemoApiAPIService) DemoApiDemoExecute(r ApiDemoApiDemoRequest) (*http.R
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.demoRequestBody
+	localVarPostBody = r.demoRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

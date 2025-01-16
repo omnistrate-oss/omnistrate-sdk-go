@@ -22,7 +22,7 @@ var _ MappedNullable = &DescribeDeploymentConfigResult{}
 type DescribeDeploymentConfigResult struct {
 	// A brief description of the deployment config
 	Description string `json:"description"`
-	// The deployment configuration ID
+	// ID of a Deployment Config
 	Id string `json:"id"`
 	InfraRollConfiguration InfraRollConfiguration `json:"infraRollConfiguration"`
 	// Name of the deployment config

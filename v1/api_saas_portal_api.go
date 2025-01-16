@@ -100,11 +100,11 @@ type SaasPortalApiAPIService service
 type ApiSaasPortalApiCreateSaaSPortalCustomDomainRequest struct {
 	ctx context.Context
 	ApiService SaasPortalApiAPI
-	createSaaSPortalCustomDomainRequestBody *CreateSaaSPortalCustomDomainRequestBody
+	createSaaSPortalCustomDomainRequest2 *CreateSaaSPortalCustomDomainRequest2
 }
 
-func (r ApiSaasPortalApiCreateSaaSPortalCustomDomainRequest) CreateSaaSPortalCustomDomainRequestBody(createSaaSPortalCustomDomainRequestBody CreateSaaSPortalCustomDomainRequestBody) ApiSaasPortalApiCreateSaaSPortalCustomDomainRequest {
-	r.createSaaSPortalCustomDomainRequestBody = &createSaaSPortalCustomDomainRequestBody
+func (r ApiSaasPortalApiCreateSaaSPortalCustomDomainRequest) CreateSaaSPortalCustomDomainRequest2(createSaaSPortalCustomDomainRequest2 CreateSaaSPortalCustomDomainRequest2) ApiSaasPortalApiCreateSaaSPortalCustomDomainRequest {
+	r.createSaaSPortalCustomDomainRequest2 = &createSaaSPortalCustomDomainRequest2
 	return r
 }
 
@@ -143,8 +143,8 @@ func (a *SaasPortalApiAPIService) SaasPortalApiCreateSaaSPortalCustomDomainExecu
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createSaaSPortalCustomDomainRequestBody == nil {
-		return nil, reportError("createSaaSPortalCustomDomainRequestBody is required and must be specified")
+	if r.createSaaSPortalCustomDomainRequest2 == nil {
+		return nil, reportError("createSaaSPortalCustomDomainRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -165,7 +165,7 @@ func (a *SaasPortalApiAPIService) SaasPortalApiCreateSaaSPortalCustomDomainExecu
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createSaaSPortalCustomDomainRequestBody
+	localVarPostBody = r.createSaaSPortalCustomDomainRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -720,11 +720,11 @@ type ApiSaasPortalApiUpdateSaaSPortalRequest struct {
 	ctx context.Context
 	ApiService SaasPortalApiAPI
 	environmentType string
-	updateSaaSPortalRequestBody *UpdateSaaSPortalRequestBody
+	updateSaaSPortalRequest2 *UpdateSaaSPortalRequest2
 }
 
-func (r ApiSaasPortalApiUpdateSaaSPortalRequest) UpdateSaaSPortalRequestBody(updateSaaSPortalRequestBody UpdateSaaSPortalRequestBody) ApiSaasPortalApiUpdateSaaSPortalRequest {
-	r.updateSaaSPortalRequestBody = &updateSaaSPortalRequestBody
+func (r ApiSaasPortalApiUpdateSaaSPortalRequest) UpdateSaaSPortalRequest2(updateSaaSPortalRequest2 UpdateSaaSPortalRequest2) ApiSaasPortalApiUpdateSaaSPortalRequest {
+	r.updateSaaSPortalRequest2 = &updateSaaSPortalRequest2
 	return r
 }
 
@@ -766,8 +766,8 @@ func (a *SaasPortalApiAPIService) SaasPortalApiUpdateSaaSPortalExecute(r ApiSaas
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateSaaSPortalRequestBody == nil {
-		return nil, reportError("updateSaaSPortalRequestBody is required and must be specified")
+	if r.updateSaaSPortalRequest2 == nil {
+		return nil, reportError("updateSaaSPortalRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -788,7 +788,7 @@ func (a *SaasPortalApiAPIService) SaasPortalApiUpdateSaaSPortalExecute(r ApiSaas
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateSaaSPortalRequestBody
+	localVarPostBody = r.updateSaaSPortalRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -886,11 +886,11 @@ type ApiSaasPortalApiUpdateSaaSPortalCustomDomainRequest struct {
 	ctx context.Context
 	ApiService SaasPortalApiAPI
 	environmentType string
-	updateSaaSPortalCustomDomainRequestBody *UpdateSaaSPortalCustomDomainRequestBody
+	updateSaaSPortalCustomDomainRequest2 *UpdateSaaSPortalCustomDomainRequest2
 }
 
-func (r ApiSaasPortalApiUpdateSaaSPortalCustomDomainRequest) UpdateSaaSPortalCustomDomainRequestBody(updateSaaSPortalCustomDomainRequestBody UpdateSaaSPortalCustomDomainRequestBody) ApiSaasPortalApiUpdateSaaSPortalCustomDomainRequest {
-	r.updateSaaSPortalCustomDomainRequestBody = &updateSaaSPortalCustomDomainRequestBody
+func (r ApiSaasPortalApiUpdateSaaSPortalCustomDomainRequest) UpdateSaaSPortalCustomDomainRequest2(updateSaaSPortalCustomDomainRequest2 UpdateSaaSPortalCustomDomainRequest2) ApiSaasPortalApiUpdateSaaSPortalCustomDomainRequest {
+	r.updateSaaSPortalCustomDomainRequest2 = &updateSaaSPortalCustomDomainRequest2
 	return r
 }
 
@@ -932,8 +932,8 @@ func (a *SaasPortalApiAPIService) SaasPortalApiUpdateSaaSPortalCustomDomainExecu
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateSaaSPortalCustomDomainRequestBody == nil {
-		return nil, reportError("updateSaaSPortalCustomDomainRequestBody is required and must be specified")
+	if r.updateSaaSPortalCustomDomainRequest2 == nil {
+		return nil, reportError("updateSaaSPortalCustomDomainRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -954,7 +954,7 @@ func (a *SaasPortalApiAPIService) SaasPortalApiUpdateSaaSPortalCustomDomainExecu
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateSaaSPortalCustomDomainRequestBody
+	localVarPostBody = r.updateSaaSPortalCustomDomainRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

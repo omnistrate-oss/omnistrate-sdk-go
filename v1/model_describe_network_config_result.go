@@ -24,7 +24,7 @@ type DescribeNetworkConfigResult struct {
 	Description string `json:"description"`
 	// Generates a DNS endpoint per-replica for this network config
 	EndpointPerReplica bool `json:"endpointPerReplica"`
-	// The ID of the network config
+	// ID of a Network Config
 	Id string `json:"id"`
 	// The list of infra config IDs associated with the compute config.
 	InfraConfigIDs []string `json:"infraConfigIDs,omitempty"`
@@ -36,12 +36,13 @@ type DescribeNetworkConfigResult struct {
 	OpenPorts []int64 `json:"openPorts"`
 	PrivateNetworkingConfiguration *PrivateNetworkingConfiguration `json:"privateNetworkingConfiguration,omitempty"`
 	PublicNetworkingConfiguration *PublicNetworkingConfiguration `json:"publicNetworkingConfiguration,omitempty"`
-	// The ID of the service
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// Create an external node load balancer per node rather than expose the node ip directly
 	StableEgressIP bool `json:"stableEgressIP"`
 	// The port that hosts the reverse proxy for TLS termination
 	TlsTerminationPort *int64 `json:"tlsTerminationPort,omitempty"`
+	// The preferred type of zonal availability for this resource and the specific zone(s) to deploy in
 	ZoneConfiguration string `json:"zoneConfiguration"`
 	AdditionalProperties map[string]interface{}
 }

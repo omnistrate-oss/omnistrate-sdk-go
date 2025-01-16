@@ -22,7 +22,7 @@ var _ MappedNullable = &EnvironmentPromotionStatus{}
 type EnvironmentPromotionStatus struct {
 	// The status of the promotion
 	Status string `json:"status"`
-	// The ID of the target environment
+	// ID of a Service Environment
 	TargetEnvironmentID string `json:"targetEnvironmentID"`
 	AdditionalProperties map[string]interface{}
 }

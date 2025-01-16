@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Models** | Pointer to [**map[string]VUnitHealthReport**](VUnitHealthReport.md) | Health report for each model in the environment | [optional] 
+**Models** | Pointer to **map[string]interface{}** | Health report for each model in the environment | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetModels
 
-`func (o *EnvironmentHealthReport) GetModels() map[string]VUnitHealthReport`
+`func (o *EnvironmentHealthReport) GetModels() map[string]interface{}`
 
 GetModels returns the Models field if non-nil, zero value otherwise.
 
 ### GetModelsOk
 
-`func (o *EnvironmentHealthReport) GetModelsOk() (*map[string]VUnitHealthReport, bool)`
+`func (o *EnvironmentHealthReport) GetModelsOk() (*map[string]interface{}, bool)`
 
 GetModelsOk returns a tuple with the Models field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModels
 
-`func (o *EnvironmentHealthReport) SetModels(v map[string]VUnitHealthReport)`
+`func (o *EnvironmentHealthReport) SetModels(v map[string]interface{})`
 
 SetModels sets Models field to given value.
 

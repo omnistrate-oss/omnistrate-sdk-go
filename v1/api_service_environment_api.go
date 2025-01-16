@@ -123,11 +123,11 @@ type ApiServiceEnvironmentApiCreateServiceEnvironmentRequest struct {
 	ctx context.Context
 	ApiService ServiceEnvironmentApiAPI
 	serviceId string
-	createServiceEnvironmentRequestBody *CreateServiceEnvironmentRequestBody
+	createServiceEnvironmentRequest2 *CreateServiceEnvironmentRequest2
 }
 
-func (r ApiServiceEnvironmentApiCreateServiceEnvironmentRequest) CreateServiceEnvironmentRequestBody(createServiceEnvironmentRequestBody CreateServiceEnvironmentRequestBody) ApiServiceEnvironmentApiCreateServiceEnvironmentRequest {
-	r.createServiceEnvironmentRequestBody = &createServiceEnvironmentRequestBody
+func (r ApiServiceEnvironmentApiCreateServiceEnvironmentRequest) CreateServiceEnvironmentRequest2(createServiceEnvironmentRequest2 CreateServiceEnvironmentRequest2) ApiServiceEnvironmentApiCreateServiceEnvironmentRequest {
+	r.createServiceEnvironmentRequest2 = &createServiceEnvironmentRequest2
 	return r
 }
 
@@ -171,8 +171,8 @@ func (a *ServiceEnvironmentApiAPIService) ServiceEnvironmentApiCreateServiceEnvi
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createServiceEnvironmentRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createServiceEnvironmentRequestBody is required and must be specified")
+	if r.createServiceEnvironmentRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createServiceEnvironmentRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -193,7 +193,7 @@ func (a *ServiceEnvironmentApiAPIService) ServiceEnvironmentApiCreateServiceEnvi
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createServiceEnvironmentRequestBody
+	localVarPostBody = r.createServiceEnvironmentRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1125,11 +1125,11 @@ type ApiServiceEnvironmentApiUpdateServiceEnvironmentRequest struct {
 	ApiService ServiceEnvironmentApiAPI
 	serviceId string
 	id string
-	updateServiceEnvironmentRequestBody *UpdateServiceEnvironmentRequestBody
+	updateServiceEnvironmentRequest2 *UpdateServiceEnvironmentRequest2
 }
 
-func (r ApiServiceEnvironmentApiUpdateServiceEnvironmentRequest) UpdateServiceEnvironmentRequestBody(updateServiceEnvironmentRequestBody UpdateServiceEnvironmentRequestBody) ApiServiceEnvironmentApiUpdateServiceEnvironmentRequest {
-	r.updateServiceEnvironmentRequestBody = &updateServiceEnvironmentRequestBody
+func (r ApiServiceEnvironmentApiUpdateServiceEnvironmentRequest) UpdateServiceEnvironmentRequest2(updateServiceEnvironmentRequest2 UpdateServiceEnvironmentRequest2) ApiServiceEnvironmentApiUpdateServiceEnvironmentRequest {
+	r.updateServiceEnvironmentRequest2 = &updateServiceEnvironmentRequest2
 	return r
 }
 
@@ -1174,8 +1174,8 @@ func (a *ServiceEnvironmentApiAPIService) ServiceEnvironmentApiUpdateServiceEnvi
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateServiceEnvironmentRequestBody == nil {
-		return nil, reportError("updateServiceEnvironmentRequestBody is required and must be specified")
+	if r.updateServiceEnvironmentRequest2 == nil {
+		return nil, reportError("updateServiceEnvironmentRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1196,7 +1196,7 @@ func (a *ServiceEnvironmentApiAPIService) ServiceEnvironmentApiUpdateServiceEnvi
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateServiceEnvironmentRequestBody
+	localVarPostBody = r.updateServiceEnvironmentRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

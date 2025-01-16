@@ -25,12 +25,12 @@ type GetServicePlanResult struct {
 	// The infrastructure account configuration ID list
 	AccountConfigIds []string `json:"accountConfigIds,omitempty"`
 	// The active infrastructure account configuration IDs per cloud provider
-	ActiveAccountConfigIds *map[string]string `json:"activeAccountConfigIds,omitempty"`
+	ActiveAccountConfigIds map[string]interface{} `json:"activeAccountConfigIds,omitempty"`
 	// The external version of the API
 	ApiVersion string `json:"apiVersion"`
 	// The AWS regions that this service plan is available on
 	AwsRegions []string `json:"awsRegions,omitempty"`
-	// The deployment configuration ID
+	// ID of a Deployment Config
 	DeploymentConfigId string `json:"deploymentConfigId"`
 	// The GCP regions that this service plan is available on
 	GcpRegions []string `json:"gcpRegions,omitempty"`
@@ -47,8 +47,8 @@ type GetServicePlanResult struct {
 	// Documentation
 	ProductTierDocumentation string `json:"productTierDocumentation"`
 	// The features that are enabled / disabled for this product tier
-	ProductTierFeatures *map[string]bool `json:"productTierFeatures,omitempty"`
-	// Product tier ID
+	ProductTierFeatures map[string]interface{} `json:"productTierFeatures,omitempty"`
+	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// Unique Key of the product tier
 	ProductTierKey string `json:"productTierKey"`
@@ -62,19 +62,19 @@ type GetServicePlanResult struct {
 	ProductTierSupport string `json:"productTierSupport"`
 	// A brief description of the service API bundle
 	ServiceApiDescription string `json:"serviceApiDescription"`
-	// The service API ID
+	// ID of a Service API
 	ServiceApiId string `json:"serviceApiId"`
-	// The service environment ID
+	// ID of a Service Environment
 	ServiceEnvironmentId string `json:"serviceEnvironmentId"`
 	// A brief description of the service model
 	ServiceModelDescription string `json:"serviceModelDescription"`
 	// Enabled service model features
 	ServiceModelFeatures []ServiceModelFeatureDetail `json:"serviceModelFeatures,omitempty"`
-	// The service model ID
+	// ID of a Service Model
 	ServiceModelId string `json:"serviceModelId"`
 	// Name of the Service Model
 	ServiceModelName string `json:"serviceModelName"`
-	// Tier type
+	// ProductTierType is the type of tier for a product
 	TierType string `json:"tierType"`
 	// The tier version set status.
 	VersionSetStatus string `json:"versionSetStatus"`
@@ -171,26 +171,26 @@ func (o *GetServicePlanResult) SetAccountConfigIds(v []string) {
 }
 
 // GetActiveAccountConfigIds returns the ActiveAccountConfigIds field value if set, zero value otherwise.
-func (o *GetServicePlanResult) GetActiveAccountConfigIds() map[string]string {
+func (o *GetServicePlanResult) GetActiveAccountConfigIds() map[string]interface{} {
 	if o == nil || IsNil(o.ActiveAccountConfigIds) {
-		var ret map[string]string
+		var ret map[string]interface{}
 		return ret
 	}
-	return *o.ActiveAccountConfigIds
+	return o.ActiveAccountConfigIds
 }
 
 // GetActiveAccountConfigIdsOk returns a tuple with the ActiveAccountConfigIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetServicePlanResult) GetActiveAccountConfigIdsOk() (*map[string]string, bool) {
+func (o *GetServicePlanResult) GetActiveAccountConfigIdsOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.ActiveAccountConfigIds) {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
 	return o.ActiveAccountConfigIds, true
 }
 
-// SetActiveAccountConfigIds gets a reference to the given map[string]string and assigns it to the ActiveAccountConfigIds field.
-func (o *GetServicePlanResult) SetActiveAccountConfigIds(v map[string]string) {
-	o.ActiveAccountConfigIds = &v
+// SetActiveAccountConfigIds gets a reference to the given map[string]interface{} and assigns it to the ActiveAccountConfigIds field.
+func (o *GetServicePlanResult) SetActiveAccountConfigIds(v map[string]interface{}) {
+	o.ActiveAccountConfigIds = v
 }
 
 // GetApiVersion returns the ApiVersion field value
@@ -432,26 +432,26 @@ func (o *GetServicePlanResult) SetProductTierDocumentation(v string) {
 }
 
 // GetProductTierFeatures returns the ProductTierFeatures field value if set, zero value otherwise.
-func (o *GetServicePlanResult) GetProductTierFeatures() map[string]bool {
+func (o *GetServicePlanResult) GetProductTierFeatures() map[string]interface{} {
 	if o == nil || IsNil(o.ProductTierFeatures) {
-		var ret map[string]bool
+		var ret map[string]interface{}
 		return ret
 	}
-	return *o.ProductTierFeatures
+	return o.ProductTierFeatures
 }
 
 // GetProductTierFeaturesOk returns a tuple with the ProductTierFeatures field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetServicePlanResult) GetProductTierFeaturesOk() (*map[string]bool, bool) {
+func (o *GetServicePlanResult) GetProductTierFeaturesOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.ProductTierFeatures) {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
 	return o.ProductTierFeatures, true
 }
 
-// SetProductTierFeatures gets a reference to the given map[string]bool and assigns it to the ProductTierFeatures field.
-func (o *GetServicePlanResult) SetProductTierFeatures(v map[string]bool) {
-	o.ProductTierFeatures = &v
+// SetProductTierFeatures gets a reference to the given map[string]interface{} and assigns it to the ProductTierFeatures field.
+func (o *GetServicePlanResult) SetProductTierFeatures(v map[string]interface{}) {
+	o.ProductTierFeatures = v
 }
 
 // GetProductTierId returns the ProductTierId field value

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ParameterMap** | Pointer to **map[string]string** | A map of the source parameter to the resource dependency parameter | [optional] 
-**ResourceId** | **string** | The ID of the resource | 
+**ResourceId** | **string** | ID of a resource | 
 
 ## Methods
 

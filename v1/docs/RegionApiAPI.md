@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ## RegionApiListRegion
 
-> ListServiceEnvironmentsResult RegionApiListRegion(ctx, cloudProviderName).ServiceId(serviceId).ServiceModelId(serviceModelId).ProductTierId(productTierId).ModelType(modelType).Execute()
+> ListRegionsResult RegionApiListRegion(ctx, cloudProviderName).ServiceId(serviceId).ServiceModelId(serviceModelId).ProductTierId(productTierId).ModelType(modelType).Execute()
 
 ListRegion region-api
 
@@ -181,7 +181,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RegionApiAPI.RegionApiListRegion``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `RegionApiListRegion`: ListServiceEnvironmentsResult
+	// response from `RegionApiListRegion`: ListRegionsResult
 	fmt.Fprintf(os.Stdout, "Response from `RegionApiAPI.RegionApiListRegion`: %v\n", resp)
 }
 ```
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListServiceEnvironmentsResult**](ListServiceEnvironmentsResult.md)
+[**ListRegionsResult**](ListRegionsResult.md)
 
 ### Authorization
 

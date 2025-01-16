@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **InvoiceDate** | Pointer to **string** | Date of the invoice | [optional] 
 **InvoiceId** | Pointer to **string** | ID of the invoice | [optional] 
 **InvoicePaymentTerm** | Pointer to **string** | Invoice Payment Term | [optional] 
-**InvoiceStatus** | Pointer to **string** |  | [optional] 
+**InvoiceStatus** | Pointer to **string** | This describes the status of the invoice and is set by the payment provider | [optional] 
 **InvoiceUrl** | Pointer to **string** | URL for this invoice | [optional] 
 **TaxAmount** | Pointer to **float64** | Amount of tax, if any | [optional] 
 **TotalAmount** | Pointer to **float64** | Amount of Invoice | [optional] 

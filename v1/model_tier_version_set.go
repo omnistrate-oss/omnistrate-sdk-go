@@ -18,7 +18,7 @@ import (
 // checks if the TierVersionSet type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TierVersionSet{}
 
-// TierVersionSet Details about the product-tier version set.
+// TierVersionSet struct for TierVersionSet
 type TierVersionSet struct {
 	// Auto approve subscription or not
 	AutoApproveSubscription *bool `json:"autoApproveSubscription,omitempty"`
@@ -33,16 +33,16 @@ type TierVersionSet struct {
 	// The features that are enabled for this product tier, including scope details and configuration
 	EnabledFeatures []ProductTierFeatureDetail `json:"enabledFeatures"`
 	// The features that are enabled / disabled for this product tier
-	Features map[string]bool `json:"features"`
+	Features map[string]interface{} `json:"features"`
 	// The number of instances that are currently running this version set.
 	InstanceCount *int64 `json:"instanceCount,omitempty"`
-	// The ID of the latest upgrade path away from the tier-version set.
+	// ID of an Upgrade Path
 	LatestUpgradePathId *string `json:"latestUpgradePathId,omitempty"`
 	// The name of the product-tier version set.
 	Name *string `json:"name,omitempty"`
 	// The parent version of this release.
 	ParentVersion *string `json:"parentVersion,omitempty"`
-	// The product tier ID that this version set belongs to.
+	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// The timestamp when the version set was released.
 	ReleasedAt string `json:"releasedAt"`
@@ -50,9 +50,9 @@ type TierVersionSet struct {
 	ReleasedBy *string `json:"releasedBy,omitempty"`
 	// List of resources that are part of this version set.
 	Resources []ResourceSummary `json:"resources,omitempty"`
-	// ID of the Service
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
-	// The service model ID that this version set belongs to.
+	// ID of a Service Model
 	ServiceModelId string `json:"serviceModelId"`
 	// The tier version set status.
 	Status string `json:"status"`
@@ -71,7 +71,7 @@ type _TierVersionSet TierVersionSet
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTierVersionSet(baseVersion string, createdAt string, enabledFeatures []ProductTierFeatureDetail, features map[string]bool, productTierId string, releasedAt string, serviceId string, serviceModelId string, status string, type_ string, updatedAt string, version string) *TierVersionSet {
+func NewTierVersionSet(baseVersion string, createdAt string, enabledFeatures []ProductTierFeatureDetail, features map[string]interface{}, productTierId string, releasedAt string, serviceId string, serviceModelId string, status string, type_ string, updatedAt string, version string) *TierVersionSet {
 	this := TierVersionSet{}
 	this.BaseVersion = baseVersion
 	this.CreatedAt = createdAt
@@ -238,9 +238,9 @@ func (o *TierVersionSet) SetEnabledFeatures(v []ProductTierFeatureDetail) {
 }
 
 // GetFeatures returns the Features field value
-func (o *TierVersionSet) GetFeatures() map[string]bool {
+func (o *TierVersionSet) GetFeatures() map[string]interface{} {
 	if o == nil {
-		var ret map[string]bool
+		var ret map[string]interface{}
 		return ret
 	}
 
@@ -249,15 +249,15 @@ func (o *TierVersionSet) GetFeatures() map[string]bool {
 
 // GetFeaturesOk returns a tuple with the Features field value
 // and a boolean to check if the value has been set.
-func (o *TierVersionSet) GetFeaturesOk() (*map[string]bool, bool) {
+func (o *TierVersionSet) GetFeaturesOk() (map[string]interface{}, bool) {
 	if o == nil {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
-	return &o.Features, true
+	return o.Features, true
 }
 
 // SetFeatures sets field value
-func (o *TierVersionSet) SetFeatures(v map[string]bool) {
+func (o *TierVersionSet) SetFeatures(v map[string]interface{}) {
 	o.Features = v
 }
 

@@ -97,11 +97,11 @@ type ApiInputParameterApiCreateInputParameterRequest struct {
 	ctx context.Context
 	ApiService InputParameterApiAPI
 	serviceId string
-	createInputParameterRequestBody *CreateInputParameterRequestBody
+	createInputParameterRequest2 *CreateInputParameterRequest2
 }
 
-func (r ApiInputParameterApiCreateInputParameterRequest) CreateInputParameterRequestBody(createInputParameterRequestBody CreateInputParameterRequestBody) ApiInputParameterApiCreateInputParameterRequest {
-	r.createInputParameterRequestBody = &createInputParameterRequestBody
+func (r ApiInputParameterApiCreateInputParameterRequest) CreateInputParameterRequest2(createInputParameterRequest2 CreateInputParameterRequest2) ApiInputParameterApiCreateInputParameterRequest {
+	r.createInputParameterRequest2 = &createInputParameterRequest2
 	return r
 }
 
@@ -145,8 +145,8 @@ func (a *InputParameterApiAPIService) InputParameterApiCreateInputParameterExecu
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createInputParameterRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createInputParameterRequestBody is required and must be specified")
+	if r.createInputParameterRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createInputParameterRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -167,7 +167,7 @@ func (a *InputParameterApiAPIService) InputParameterApiCreateInputParameterExecu
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createInputParameterRequestBody
+	localVarPostBody = r.createInputParameterRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -814,11 +814,11 @@ type ApiInputParameterApiUpdateInputParameterRequest struct {
 	ApiService InputParameterApiAPI
 	serviceId string
 	id string
-	updateInputParameterRequestBody *UpdateInputParameterRequestBody
+	updateInputParameterRequest2 *UpdateInputParameterRequest2
 }
 
-func (r ApiInputParameterApiUpdateInputParameterRequest) UpdateInputParameterRequestBody(updateInputParameterRequestBody UpdateInputParameterRequestBody) ApiInputParameterApiUpdateInputParameterRequest {
-	r.updateInputParameterRequestBody = &updateInputParameterRequestBody
+func (r ApiInputParameterApiUpdateInputParameterRequest) UpdateInputParameterRequest2(updateInputParameterRequest2 UpdateInputParameterRequest2) ApiInputParameterApiUpdateInputParameterRequest {
+	r.updateInputParameterRequest2 = &updateInputParameterRequest2
 	return r
 }
 
@@ -863,8 +863,8 @@ func (a *InputParameterApiAPIService) InputParameterApiUpdateInputParameterExecu
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateInputParameterRequestBody == nil {
-		return nil, reportError("updateInputParameterRequestBody is required and must be specified")
+	if r.updateInputParameterRequest2 == nil {
+		return nil, reportError("updateInputParameterRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -885,7 +885,7 @@ func (a *InputParameterApiAPIService) InputParameterApiUpdateInputParameterExecu
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateInputParameterRequestBody
+	localVarPostBody = r.updateInputParameterRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

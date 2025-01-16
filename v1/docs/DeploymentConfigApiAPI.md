@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## DeploymentConfigApiCreateDeploymentConfig
 
-> string DeploymentConfigApiCreateDeploymentConfig(ctx).CreateDeploymentConfigRequestBody(createDeploymentConfigRequestBody).Execute()
+> string DeploymentConfigApiCreateDeploymentConfig(ctx).CreateDeploymentConfigRequest2(createDeploymentConfigRequest2).Execute()
 
 CreateDeploymentConfig deployment-config-api
 
@@ -31,11 +31,11 @@ import (
 )
 
 func main() {
-	createDeploymentConfigRequestBody := *openapiclient.NewCreateDeploymentConfigRequestBody("A production deployment config", "Production") // CreateDeploymentConfigRequestBody | 
+	createDeploymentConfigRequest2 := *openapiclient.NewCreateDeploymentConfigRequest2("A production deployment config", "Production") // CreateDeploymentConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DeploymentConfigApiAPI.DeploymentConfigApiCreateDeploymentConfig(context.Background()).CreateDeploymentConfigRequestBody(createDeploymentConfigRequestBody).Execute()
+	resp, r, err := apiClient.DeploymentConfigApiAPI.DeploymentConfigApiCreateDeploymentConfig(context.Background()).CreateDeploymentConfigRequest2(createDeploymentConfigRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentConfigApiAPI.DeploymentConfigApiCreateDeploymentConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -56,7 +56,7 @@ Other parameters are passed through a pointer to a apiDeploymentConfigApiCreateD
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createDeploymentConfigRequestBody** | [**CreateDeploymentConfigRequestBody**](CreateDeploymentConfigRequestBody.md) |  | 
+ **createDeploymentConfigRequest2** | [**CreateDeploymentConfigRequest2**](CreateDeploymentConfigRequest2.md) |  | 
 
 ### Return type
 
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 ## DeploymentConfigApiListDeploymentConfigs
 
-> ListServiceEnvironmentsResult DeploymentConfigApiListDeploymentConfigs(ctx).Execute()
+> ListDeploymentConfigsResult DeploymentConfigApiListDeploymentConfigs(ctx).Execute()
 
 ListDeploymentConfigs deployment-config-api
 
@@ -237,7 +237,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentConfigApiAPI.DeploymentConfigApiListDeploymentConfigs``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeploymentConfigApiListDeploymentConfigs`: ListServiceEnvironmentsResult
+	// response from `DeploymentConfigApiListDeploymentConfigs`: ListDeploymentConfigsResult
 	fmt.Fprintf(os.Stdout, "Response from `DeploymentConfigApiAPI.DeploymentConfigApiListDeploymentConfigs`: %v\n", resp)
 }
 ```
@@ -253,7 +253,7 @@ Other parameters are passed through a pointer to a apiDeploymentConfigApiListDep
 
 ### Return type
 
-[**ListServiceEnvironmentsResult**](ListServiceEnvironmentsResult.md)
+[**ListDeploymentConfigsResult**](ListDeploymentConfigsResult.md)
 
 ### Authorization
 
@@ -271,7 +271,7 @@ Other parameters are passed through a pointer to a apiDeploymentConfigApiListDep
 
 ## DeploymentConfigApiUpdateDeploymentConfig
 
-> DeploymentConfigApiUpdateDeploymentConfig(ctx, id).UpdateDeploymentConfigRequestBody(updateDeploymentConfigRequestBody).Execute()
+> DeploymentConfigApiUpdateDeploymentConfig(ctx, id).UpdateDeploymentConfigRequest2(updateDeploymentConfigRequest2).Execute()
 
 UpdateDeploymentConfig deployment-config-api
 
@@ -289,11 +289,11 @@ import (
 
 func main() {
 	id := "dc-12345678" // string | The deployment configuration ID
-	updateDeploymentConfigRequestBody := *openapiclient.NewUpdateDeploymentConfigRequestBody() // UpdateDeploymentConfigRequestBody | 
+	updateDeploymentConfigRequest2 := *openapiclient.NewUpdateDeploymentConfigRequest2() // UpdateDeploymentConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.DeploymentConfigApiAPI.DeploymentConfigApiUpdateDeploymentConfig(context.Background(), id).UpdateDeploymentConfigRequestBody(updateDeploymentConfigRequestBody).Execute()
+	r, err := apiClient.DeploymentConfigApiAPI.DeploymentConfigApiUpdateDeploymentConfig(context.Background(), id).UpdateDeploymentConfigRequest2(updateDeploymentConfigRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentConfigApiAPI.DeploymentConfigApiUpdateDeploymentConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -317,7 +317,7 @@ Other parameters are passed through a pointer to a apiDeploymentConfigApiUpdateD
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateDeploymentConfigRequestBody** | [**UpdateDeploymentConfigRequestBody**](UpdateDeploymentConfigRequestBody.md) |  | 
+ **updateDeploymentConfigRequest2** | [**UpdateDeploymentConfigRequest2**](UpdateDeploymentConfigRequest2.md) |  | 
 
 ### Return type
 

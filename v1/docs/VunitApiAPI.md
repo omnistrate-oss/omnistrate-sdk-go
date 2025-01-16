@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ## VunitApiListVUnits
 
-> ListVUnitsResult VunitApiListVUnits(ctx, serviceId, serviceModelId).ListVUnitsRequestBody(listVUnitsRequestBody).Execute()
+> ListVUnitsResult VunitApiListVUnits(ctx, serviceId, serviceModelId).ListVUnitsRequest2(listVUnitsRequest2).Execute()
 
 ListVUnits vunit-api
 
@@ -173,11 +173,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | Service ID for the VUnit
 	serviceModelId := "sm-12345678" // string | Service Model ID for the VUnit
-	listVUnitsRequestBody := *openapiclient.NewListVUnitsRequestBody("aws", "us-west-2") // ListVUnitsRequestBody | 
+	listVUnitsRequest2 := *openapiclient.NewListVUnitsRequest2("aws", "us-west-2") // ListVUnitsRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VunitApiAPI.VunitApiListVUnits(context.Background(), serviceId, serviceModelId).ListVUnitsRequestBody(listVUnitsRequestBody).Execute()
+	resp, r, err := apiClient.VunitApiAPI.VunitApiListVUnits(context.Background(), serviceId, serviceModelId).ListVUnitsRequest2(listVUnitsRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VunitApiAPI.VunitApiListVUnits``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **listVUnitsRequestBody** | [**ListVUnitsRequestBody**](ListVUnitsRequestBody.md) |  | 
+ **listVUnitsRequest2** | [**ListVUnitsRequest2**](ListVUnitsRequest2.md) |  | 
 
 ### Return type
 

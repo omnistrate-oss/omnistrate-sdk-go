@@ -20,22 +20,22 @@ var _ MappedNullable = &DescribeInfraConfigResult{}
 
 // DescribeInfraConfigResult struct for DescribeInfraConfigResult
 type DescribeInfraConfigResult struct {
-	// The compute config ID
+	// ID of a Compute Config
 	ComputeConfigId *string `json:"computeConfigId,omitempty"`
-	CustomTag *EnvironmentVariable `json:"customTag,omitempty"`
+	CustomTag *CustomTag `json:"customTag,omitempty"`
 	// The description for the infra config
 	Description string `json:"description"`
-	// Infra Config ID to operate on
+	// ID of an Infra Config
 	Id string `json:"id"`
 	// The name of the infra config
 	Name string `json:"name"`
-	// The network config ID
+	// ID of a Network Config
 	NetworkConfigId *string `json:"networkConfigId,omitempty"`
-	// The service environment ID
+	// ID of a Service Environment
 	ServiceEnvironmentId string `json:"serviceEnvironmentId"`
-	// The service ID
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
-	// The storage config ID
+	// ID of a Storage Config
 	StorageConfigId *string `json:"storageConfigId,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -88,9 +88,9 @@ func (o *DescribeInfraConfigResult) SetComputeConfigId(v string) {
 }
 
 // GetCustomTag returns the CustomTag field value if set, zero value otherwise.
-func (o *DescribeInfraConfigResult) GetCustomTag() EnvironmentVariable {
+func (o *DescribeInfraConfigResult) GetCustomTag() CustomTag {
 	if o == nil || IsNil(o.CustomTag) {
-		var ret EnvironmentVariable
+		var ret CustomTag
 		return ret
 	}
 	return *o.CustomTag
@@ -98,15 +98,15 @@ func (o *DescribeInfraConfigResult) GetCustomTag() EnvironmentVariable {
 
 // GetCustomTagOk returns a tuple with the CustomTag field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeInfraConfigResult) GetCustomTagOk() (*EnvironmentVariable, bool) {
+func (o *DescribeInfraConfigResult) GetCustomTagOk() (*CustomTag, bool) {
 	if o == nil || IsNil(o.CustomTag) {
 		return nil, false
 	}
 	return o.CustomTag, true
 }
 
-// SetCustomTag gets a reference to the given EnvironmentVariable and assigns it to the CustomTag field.
-func (o *DescribeInfraConfigResult) SetCustomTag(v EnvironmentVariable) {
+// SetCustomTag gets a reference to the given CustomTag and assigns it to the CustomTag field.
+func (o *DescribeInfraConfigResult) SetCustomTag(v CustomTag) {
 	o.CustomTag = &v
 }
 

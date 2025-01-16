@@ -22,7 +22,7 @@ var _ MappedNullable = &ChangeSummary{}
 type ChangeSummary struct {
 	// List of individual changes
 	Changes []Change `json:"changes"`
-	// The product tier feature changes for the resource.
+	// Summary status of the changes
 	Status string `json:"status"`
 	AdditionalProperties map[string]interface{}
 }

@@ -256,11 +256,11 @@ func (a *ComposeGenApiAPIService) ComposeGenApiCheckIfContainerImageAccessibleEx
 type ApiComposeGenApiGenerateComposeSpecFromContainerImageRequest struct {
 	ctx context.Context
 	ApiService ComposeGenApiAPI
-	generateComposeSpecFromContainerImageRequestBody *GenerateComposeSpecFromContainerImageRequestBody
+	generateComposeSpecFromContainerImageRequest2 *GenerateComposeSpecFromContainerImageRequest2
 }
 
-func (r ApiComposeGenApiGenerateComposeSpecFromContainerImageRequest) GenerateComposeSpecFromContainerImageRequestBody(generateComposeSpecFromContainerImageRequestBody GenerateComposeSpecFromContainerImageRequestBody) ApiComposeGenApiGenerateComposeSpecFromContainerImageRequest {
-	r.generateComposeSpecFromContainerImageRequestBody = &generateComposeSpecFromContainerImageRequestBody
+func (r ApiComposeGenApiGenerateComposeSpecFromContainerImageRequest) GenerateComposeSpecFromContainerImageRequest2(generateComposeSpecFromContainerImageRequest2 GenerateComposeSpecFromContainerImageRequest2) ApiComposeGenApiGenerateComposeSpecFromContainerImageRequest {
+	r.generateComposeSpecFromContainerImageRequest2 = &generateComposeSpecFromContainerImageRequest2
 	return r
 }
 
@@ -301,8 +301,8 @@ func (a *ComposeGenApiAPIService) ComposeGenApiGenerateComposeSpecFromContainerI
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.generateComposeSpecFromContainerImageRequestBody == nil {
-		return localVarReturnValue, nil, reportError("generateComposeSpecFromContainerImageRequestBody is required and must be specified")
+	if r.generateComposeSpecFromContainerImageRequest2 == nil {
+		return localVarReturnValue, nil, reportError("generateComposeSpecFromContainerImageRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -323,7 +323,7 @@ func (a *ComposeGenApiAPIService) ComposeGenApiGenerateComposeSpecFromContainerI
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.generateComposeSpecFromContainerImageRequestBody
+	localVarPostBody = r.generateComposeSpecFromContainerImageRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

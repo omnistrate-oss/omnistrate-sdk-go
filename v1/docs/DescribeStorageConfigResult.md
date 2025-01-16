@@ -5,17 +5,17 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | **string** | Description of the storage config | 
-**Id** | **string** | The storage config ID | 
+**Id** | **string** | ID of a Storage Config | 
 **InfraConfigIDs** | Pointer to **[]string** | The list of infra config IDs associated with the compute config. | [optional] 
 **Name** | **string** | Name of the storage config | 
-**ServiceId** | **string** | The service ID | 
-**Volumes** | **map[string][]string** | The storage volume config IDs and the corresponding mount path | 
+**ServiceId** | **string** | ID of a Service | 
+**Volumes** | **map[string]interface{}** | The storage volume config IDs and the corresponding mount path | 
 
 ## Methods
 
 ### NewDescribeStorageConfigResult
 
-`func NewDescribeStorageConfigResult(description string, id string, name string, serviceId string, volumes map[string][]string, ) *DescribeStorageConfigResult`
+`func NewDescribeStorageConfigResult(description string, id string, name string, serviceId string, volumes map[string]interface{}, ) *DescribeStorageConfigResult`
 
 NewDescribeStorageConfigResult instantiates a new DescribeStorageConfigResult object
 This constructor will assign default values to properties that have it defined,
@@ -137,20 +137,20 @@ SetServiceId sets ServiceId field to given value.
 
 ### GetVolumes
 
-`func (o *DescribeStorageConfigResult) GetVolumes() map[string][]string`
+`func (o *DescribeStorageConfigResult) GetVolumes() map[string]interface{}`
 
 GetVolumes returns the Volumes field if non-nil, zero value otherwise.
 
 ### GetVolumesOk
 
-`func (o *DescribeStorageConfigResult) GetVolumesOk() (*map[string][]string, bool)`
+`func (o *DescribeStorageConfigResult) GetVolumesOk() (*map[string]interface{}, bool)`
 
 GetVolumesOk returns a tuple with the Volumes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVolumes
 
-`func (o *DescribeStorageConfigResult) SetVolumes(v map[string][]string)`
+`func (o *DescribeStorageConfigResult) SetVolumes(v map[string]interface{})`
 
 SetVolumes sets Volumes field to given value.
 

@@ -20,14 +20,15 @@ var _ MappedNullable = &DescribeRegionResult{}
 
 // DescribeRegionResult struct for DescribeRegionResult
 type DescribeRegionResult struct {
+	// ID of an CloudProvider
 	CloudProviderId string `json:"cloudProviderId"`
-	// The cloud provider for this compute instance type config
+	// Name of the Infra Provider
 	CloudProviderName string `json:"cloudProviderName"`
 	// Cloud-provider native region code
 	Code string `json:"code"`
 	// Description of the Region
 	Description string `json:"description"`
-	// ID of the Region
+	// ID of a Region
 	Id string `json:"id"`
 	AdditionalProperties map[string]interface{}
 }

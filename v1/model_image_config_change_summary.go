@@ -19,9 +19,9 @@ var _ MappedNullable = &ImageConfigChangeSummary{}
 
 // ImageConfigChangeSummary struct for ImageConfigChangeSummary
 type ImageConfigChangeSummary struct {
-	// The pending change state for the infra configuration
+	// State of the configuration change
 	ChangeState *string `json:"changeState,omitempty"`
-	// The ID of the image configuration that this resource refers to
+	// ID of an Image Config
 	ImageConfigId *string `json:"imageConfigId,omitempty"`
 	// Name of the container image
 	ImageName *string `json:"imageName,omitempty"`

@@ -68,8 +68,8 @@ type DeploymentConfigApiAPI interface {
 	DeploymentConfigApiListDeploymentConfigs(ctx context.Context) ApiDeploymentConfigApiListDeploymentConfigsRequest
 
 	// DeploymentConfigApiListDeploymentConfigsExecute executes the request
-	//  @return ListServiceEnvironmentsResult
-	DeploymentConfigApiListDeploymentConfigsExecute(r ApiDeploymentConfigApiListDeploymentConfigsRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+	//  @return ListDeploymentConfigsResult
+	DeploymentConfigApiListDeploymentConfigsExecute(r ApiDeploymentConfigApiListDeploymentConfigsRequest) (*ListDeploymentConfigsResult, *http.Response, error)
 
 	/*
 	DeploymentConfigApiUpdateDeploymentConfig UpdateDeploymentConfig deployment-config-api
@@ -90,11 +90,11 @@ type DeploymentConfigApiAPIService service
 type ApiDeploymentConfigApiCreateDeploymentConfigRequest struct {
 	ctx context.Context
 	ApiService DeploymentConfigApiAPI
-	createDeploymentConfigRequestBody *CreateDeploymentConfigRequestBody
+	createDeploymentConfigRequest2 *CreateDeploymentConfigRequest2
 }
 
-func (r ApiDeploymentConfigApiCreateDeploymentConfigRequest) CreateDeploymentConfigRequestBody(createDeploymentConfigRequestBody CreateDeploymentConfigRequestBody) ApiDeploymentConfigApiCreateDeploymentConfigRequest {
-	r.createDeploymentConfigRequestBody = &createDeploymentConfigRequestBody
+func (r ApiDeploymentConfigApiCreateDeploymentConfigRequest) CreateDeploymentConfigRequest2(createDeploymentConfigRequest2 CreateDeploymentConfigRequest2) ApiDeploymentConfigApiCreateDeploymentConfigRequest {
+	r.createDeploymentConfigRequest2 = &createDeploymentConfigRequest2
 	return r
 }
 
@@ -135,8 +135,8 @@ func (a *DeploymentConfigApiAPIService) DeploymentConfigApiCreateDeploymentConfi
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createDeploymentConfigRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createDeploymentConfigRequestBody is required and must be specified")
+	if r.createDeploymentConfigRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createDeploymentConfigRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -157,7 +157,7 @@ func (a *DeploymentConfigApiAPIService) DeploymentConfigApiCreateDeploymentConfi
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createDeploymentConfigRequestBody
+	localVarPostBody = r.createDeploymentConfigRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -586,7 +586,7 @@ type ApiDeploymentConfigApiListDeploymentConfigsRequest struct {
 	ApiService DeploymentConfigApiAPI
 }
 
-func (r ApiDeploymentConfigApiListDeploymentConfigsRequest) Execute() (*ListServiceEnvironmentsResult, *http.Response, error) {
+func (r ApiDeploymentConfigApiListDeploymentConfigsRequest) Execute() (*ListDeploymentConfigsResult, *http.Response, error) {
 	return r.ApiService.DeploymentConfigApiListDeploymentConfigsExecute(r)
 }
 
@@ -604,13 +604,13 @@ func (a *DeploymentConfigApiAPIService) DeploymentConfigApiListDeploymentConfigs
 }
 
 // Execute executes the request
-//  @return ListServiceEnvironmentsResult
-func (a *DeploymentConfigApiAPIService) DeploymentConfigApiListDeploymentConfigsExecute(r ApiDeploymentConfigApiListDeploymentConfigsRequest) (*ListServiceEnvironmentsResult, *http.Response, error) {
+//  @return ListDeploymentConfigsResult
+func (a *DeploymentConfigApiAPIService) DeploymentConfigApiListDeploymentConfigsExecute(r ApiDeploymentConfigApiListDeploymentConfigsRequest) (*ListDeploymentConfigsResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListServiceEnvironmentsResult
+		localVarReturnValue  *ListDeploymentConfigsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentConfigApiAPIService.DeploymentConfigApiListDeploymentConfigs")
@@ -747,11 +747,11 @@ type ApiDeploymentConfigApiUpdateDeploymentConfigRequest struct {
 	ctx context.Context
 	ApiService DeploymentConfigApiAPI
 	id string
-	updateDeploymentConfigRequestBody *UpdateDeploymentConfigRequestBody
+	updateDeploymentConfigRequest2 *UpdateDeploymentConfigRequest2
 }
 
-func (r ApiDeploymentConfigApiUpdateDeploymentConfigRequest) UpdateDeploymentConfigRequestBody(updateDeploymentConfigRequestBody UpdateDeploymentConfigRequestBody) ApiDeploymentConfigApiUpdateDeploymentConfigRequest {
-	r.updateDeploymentConfigRequestBody = &updateDeploymentConfigRequestBody
+func (r ApiDeploymentConfigApiUpdateDeploymentConfigRequest) UpdateDeploymentConfigRequest2(updateDeploymentConfigRequest2 UpdateDeploymentConfigRequest2) ApiDeploymentConfigApiUpdateDeploymentConfigRequest {
+	r.updateDeploymentConfigRequest2 = &updateDeploymentConfigRequest2
 	return r
 }
 
@@ -793,8 +793,8 @@ func (a *DeploymentConfigApiAPIService) DeploymentConfigApiUpdateDeploymentConfi
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateDeploymentConfigRequestBody == nil {
-		return nil, reportError("updateDeploymentConfigRequestBody is required and must be specified")
+	if r.updateDeploymentConfigRequest2 == nil {
+		return nil, reportError("updateDeploymentConfigRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -815,7 +815,7 @@ func (a *DeploymentConfigApiAPIService) DeploymentConfigApiUpdateDeploymentConfi
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateDeploymentConfigRequestBody
+	localVarPostBody = r.updateDeploymentConfigRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

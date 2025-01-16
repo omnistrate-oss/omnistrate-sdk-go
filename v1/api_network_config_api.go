@@ -72,8 +72,8 @@ type NetworkConfigApiAPI interface {
 	NetworkConfigApiListNetworkConfig(ctx context.Context, serviceId string) ApiNetworkConfigApiListNetworkConfigRequest
 
 	// NetworkConfigApiListNetworkConfigExecute executes the request
-	//  @return ListServiceEnvironmentsResult
-	NetworkConfigApiListNetworkConfigExecute(r ApiNetworkConfigApiListNetworkConfigRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+	//  @return ListNetworkConfigsResult
+	NetworkConfigApiListNetworkConfigExecute(r ApiNetworkConfigApiListNetworkConfigRequest) (*ListNetworkConfigsResult, *http.Response, error)
 
 	/*
 	NetworkConfigApiUpdateNetworkConfig UpdateNetworkConfig network-config-api
@@ -96,11 +96,11 @@ type ApiNetworkConfigApiCreateNetworkConfigRequest struct {
 	ctx context.Context
 	ApiService NetworkConfigApiAPI
 	serviceId string
-	createNetworkConfigRequestBody *CreateNetworkConfigRequestBody
+	createNetworkConfigRequest2 *CreateNetworkConfigRequest2
 }
 
-func (r ApiNetworkConfigApiCreateNetworkConfigRequest) CreateNetworkConfigRequestBody(createNetworkConfigRequestBody CreateNetworkConfigRequestBody) ApiNetworkConfigApiCreateNetworkConfigRequest {
-	r.createNetworkConfigRequestBody = &createNetworkConfigRequestBody
+func (r ApiNetworkConfigApiCreateNetworkConfigRequest) CreateNetworkConfigRequest2(createNetworkConfigRequest2 CreateNetworkConfigRequest2) ApiNetworkConfigApiCreateNetworkConfigRequest {
+	r.createNetworkConfigRequest2 = &createNetworkConfigRequest2
 	return r
 }
 
@@ -144,8 +144,8 @@ func (a *NetworkConfigApiAPIService) NetworkConfigApiCreateNetworkConfigExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createNetworkConfigRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createNetworkConfigRequestBody is required and must be specified")
+	if r.createNetworkConfigRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createNetworkConfigRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -166,7 +166,7 @@ func (a *NetworkConfigApiAPIService) NetworkConfigApiCreateNetworkConfigExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createNetworkConfigRequestBody
+	localVarPostBody = r.createNetworkConfigRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -631,7 +631,7 @@ func (r ApiNetworkConfigApiListNetworkConfigRequest) Managed(managed bool) ApiNe
 	return r
 }
 
-func (r ApiNetworkConfigApiListNetworkConfigRequest) Execute() (*ListServiceEnvironmentsResult, *http.Response, error) {
+func (r ApiNetworkConfigApiListNetworkConfigRequest) Execute() (*ListNetworkConfigsResult, *http.Response, error) {
 	return r.ApiService.NetworkConfigApiListNetworkConfigExecute(r)
 }
 
@@ -651,13 +651,13 @@ func (a *NetworkConfigApiAPIService) NetworkConfigApiListNetworkConfig(ctx conte
 }
 
 // Execute executes the request
-//  @return ListServiceEnvironmentsResult
-func (a *NetworkConfigApiAPIService) NetworkConfigApiListNetworkConfigExecute(r ApiNetworkConfigApiListNetworkConfigRequest) (*ListServiceEnvironmentsResult, *http.Response, error) {
+//  @return ListNetworkConfigsResult
+func (a *NetworkConfigApiAPIService) NetworkConfigApiListNetworkConfigExecute(r ApiNetworkConfigApiListNetworkConfigRequest) (*ListNetworkConfigsResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListServiceEnvironmentsResult
+		localVarReturnValue  *ListNetworkConfigsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NetworkConfigApiAPIService.NetworkConfigApiListNetworkConfig")
@@ -799,11 +799,11 @@ type ApiNetworkConfigApiUpdateNetworkConfigRequest struct {
 	ApiService NetworkConfigApiAPI
 	serviceId string
 	id string
-	updateNetworkConfigRequestBody *UpdateNetworkConfigRequestBody
+	updateNetworkConfigRequest2 *UpdateNetworkConfigRequest2
 }
 
-func (r ApiNetworkConfigApiUpdateNetworkConfigRequest) UpdateNetworkConfigRequestBody(updateNetworkConfigRequestBody UpdateNetworkConfigRequestBody) ApiNetworkConfigApiUpdateNetworkConfigRequest {
-	r.updateNetworkConfigRequestBody = &updateNetworkConfigRequestBody
+func (r ApiNetworkConfigApiUpdateNetworkConfigRequest) UpdateNetworkConfigRequest2(updateNetworkConfigRequest2 UpdateNetworkConfigRequest2) ApiNetworkConfigApiUpdateNetworkConfigRequest {
+	r.updateNetworkConfigRequest2 = &updateNetworkConfigRequest2
 	return r
 }
 
@@ -848,8 +848,8 @@ func (a *NetworkConfigApiAPIService) NetworkConfigApiUpdateNetworkConfigExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateNetworkConfigRequestBody == nil {
-		return nil, reportError("updateNetworkConfigRequestBody is required and must be specified")
+	if r.updateNetworkConfigRequest2 == nil {
+		return nil, reportError("updateNetworkConfigRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -870,7 +870,7 @@ func (a *NetworkConfigApiAPIService) NetworkConfigApiUpdateNetworkConfigExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateNetworkConfigRequestBody
+	localVarPostBody = r.updateNetworkConfigRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

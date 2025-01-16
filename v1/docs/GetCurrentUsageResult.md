@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EndTime** | Pointer to **string** | End timestamp of usage | [optional] 
-**PlanName** | Pointer to **string** | The name of the current plan | [optional] 
+**PlanName** | Pointer to **string** | This parameter is used to select the appropriate Product Plan | [optional] 
 **StartTime** | Pointer to **string** | Start timestamp of usage | [optional] 
 **Usage** | Pointer to [**[]UsagePerDimension**](UsagePerDimension.md) | Usage for the current plan | [optional] 
 

@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ## LimitApiListLimit
 
-> ListLimitResult LimitApiListLimit(ctx).ListLimitRequestBody(listLimitRequestBody).Execute()
+> ListLimitResult LimitApiListLimit(ctx).ListLimitRequest2(listLimitRequest2).Execute()
 
 ListLimit limit-api
 
@@ -170,11 +170,11 @@ import (
 )
 
 func main() {
-	listLimitRequestBody := *openapiclient.NewListLimitRequestBody("COMPUTE_INFRA") // ListLimitRequestBody | 
+	listLimitRequest2 := *openapiclient.NewListLimitRequest2("COMPUTE_INFRA") // ListLimitRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LimitApiAPI.LimitApiListLimit(context.Background()).ListLimitRequestBody(listLimitRequestBody).Execute()
+	resp, r, err := apiClient.LimitApiAPI.LimitApiListLimit(context.Background()).ListLimitRequest2(listLimitRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LimitApiAPI.LimitApiListLimit``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -195,7 +195,7 @@ Other parameters are passed through a pointer to a apiLimitApiListLimitRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listLimitRequestBody** | [**ListLimitRequestBody**](ListLimitRequestBody.md) |  | 
+ **listLimitRequest2** | [**ListLimitRequest2**](ListLimitRequest2.md) |  | 
 
 ### Return type
 
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 ## LimitApiUpdateLimit
 
-> LimitApiUpdateLimit(ctx, family, key).UpdateLimitRequestBody(updateLimitRequestBody).Execute()
+> LimitApiUpdateLimit(ctx, family, key).UpdateLimitRequest2(updateLimitRequest2).Execute()
 
 UpdateLimit limit-api
 
@@ -236,11 +236,11 @@ import (
 func main() {
 	family := "COMPUTE_INFRA" // string | Limit family
 	key := "MAX_VIRTUAL_CORES_PER_RESOURCE" // string | Unique key to identify the limit
-	updateLimitRequestBody := *openapiclient.NewUpdateLimitRequestBody(int64(4)) // UpdateLimitRequestBody | 
+	updateLimitRequest2 := *openapiclient.NewUpdateLimitRequest2(int64(4)) // UpdateLimitRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.LimitApiAPI.LimitApiUpdateLimit(context.Background(), family, key).UpdateLimitRequestBody(updateLimitRequestBody).Execute()
+	r, err := apiClient.LimitApiAPI.LimitApiUpdateLimit(context.Background(), family, key).UpdateLimitRequest2(updateLimitRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LimitApiAPI.LimitApiUpdateLimit``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **updateLimitRequestBody** | [**UpdateLimitRequestBody**](UpdateLimitRequestBody.md) |  | 
+ **updateLimitRequest2** | [**UpdateLimitRequest2**](UpdateLimitRequest2.md) |  | 
 
 ### Return type
 

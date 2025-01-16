@@ -49,9 +49,9 @@ type DescribeUserResult struct {
 	OrgTermsOfUse string `json:"orgTermsOfUse"`
 	// The url of the org that this user owns
 	OrgURL string `json:"orgURL"`
-	// The name of the plan of the user
+	// This parameter is used to select the appropriate Product Plan
 	PlanName *string `json:"planName,omitempty"`
-	// The role type of the user
+	// Type of the role
 	RoleType string `json:"roleType"`
 	AdditionalProperties map[string]interface{}
 }

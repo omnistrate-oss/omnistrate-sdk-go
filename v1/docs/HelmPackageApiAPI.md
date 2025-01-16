@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 ## HelmPackageApiSaveHelmPackage
 
-> HelmPackageApiSaveHelmPackage(ctx).SaveHelmPackageRequestBody(saveHelmPackageRequestBody).Execute()
+> HelmPackageApiSaveHelmPackage(ctx).SaveHelmPackageRequest2(saveHelmPackageRequest2).Execute()
 
 SaveHelmPackage helm-package-api
 
@@ -234,11 +234,11 @@ import (
 )
 
 func main() {
-	saveHelmPackageRequestBody := *openapiclient.NewSaveHelmPackageRequestBody(*openapiclient.NewHelmPackage("my-chart", "my-repo", "https://my-repo.com", "1.0.0", "default")) // SaveHelmPackageRequestBody | 
+	saveHelmPackageRequest2 := *openapiclient.NewSaveHelmPackageRequest2(*openapiclient.NewHelmPackage("my-chart", "my-repo", "https://my-repo.com", "1.0.0", "default")) // SaveHelmPackageRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.HelmPackageApiAPI.HelmPackageApiSaveHelmPackage(context.Background()).SaveHelmPackageRequestBody(saveHelmPackageRequestBody).Execute()
+	r, err := apiClient.HelmPackageApiAPI.HelmPackageApiSaveHelmPackage(context.Background()).SaveHelmPackageRequest2(saveHelmPackageRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `HelmPackageApiAPI.HelmPackageApiSaveHelmPackage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -257,7 +257,7 @@ Other parameters are passed through a pointer to a apiHelmPackageApiSaveHelmPack
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **saveHelmPackageRequestBody** | [**SaveHelmPackageRequestBody**](SaveHelmPackageRequestBody.md) |  | 
+ **saveHelmPackageRequest2** | [**SaveHelmPackageRequest2**](SaveHelmPackageRequest2.md) |  | 
 
 ### Return type
 

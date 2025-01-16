@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 ## ResourceInstanceApiAddCapacityToResourceInstance
 
-> ResourceInstanceApiAddCapacityToResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).AddCapacityToResourceInstanceRequestBody(addCapacityToResourceInstanceRequestBody).SubscriptionId(subscriptionId).Execute()
+> ResourceInstanceApiAddCapacityToResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).AddCapacityToResourceInstanceRequest2(addCapacityToResourceInstanceRequest2).SubscriptionId(subscriptionId).Execute()
 
 AddCapacityToResourceInstance resource-instance-api
 
@@ -53,12 +53,12 @@ func main() {
 	productTierKey := "premium" // string | The product tier name
 	resourceKey := "mysql" // string | The resource key
 	id := "instance-abcd1234" // string | The instance ID
-	addCapacityToResourceInstanceRequestBody := *openapiclient.NewAddCapacityToResourceInstanceRequestBody(int64(3)) // AddCapacityToResourceInstanceRequestBody | 
+	addCapacityToResourceInstanceRequest2 := *openapiclient.NewAddCapacityToResourceInstanceRequest2(int64(3)) // AddCapacityToResourceInstanceRequest2 | 
 	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiAddCapacityToResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).AddCapacityToResourceInstanceRequestBody(addCapacityToResourceInstanceRequestBody).SubscriptionId(subscriptionId).Execute()
+	r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiAddCapacityToResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).AddCapacityToResourceInstanceRequest2(addCapacityToResourceInstanceRequest2).SubscriptionId(subscriptionId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiAddCapacityToResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 
 
- **addCapacityToResourceInstanceRequestBody** | [**AddCapacityToResourceInstanceRequestBody**](AddCapacityToResourceInstanceRequestBody.md) |  | 
+ **addCapacityToResourceInstanceRequest2** | [**AddCapacityToResourceInstanceRequest2**](AddCapacityToResourceInstanceRequest2.md) |  | 
  **subscriptionId** | **string** | Subscription Id | 
 
 ### Return type
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ## ResourceInstanceApiAddCustomDNSToResourceInstance
 
-> ResourceInstanceApiAddCustomDNSToResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).AddCustomDNSToResourceInstanceRequestBody(addCustomDNSToResourceInstanceRequestBody).SubscriptionId(subscriptionId).Execute()
+> ResourceInstanceApiAddCustomDNSToResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).AddCustomDNSToResourceInstanceRequest2(addCustomDNSToResourceInstanceRequest2).SubscriptionId(subscriptionId).Execute()
 
 AddCustomDNSToResourceInstance resource-instance-api
 
@@ -144,12 +144,12 @@ func main() {
 	productTierKey := "premium" // string | The product tier name
 	resourceKey := "http-service" // string | The resource key
 	id := "instance-abcd1234" // string | The instance ID
-	addCustomDNSToResourceInstanceRequestBody := *openapiclient.NewAddCustomDNSToResourceInstanceRequestBody("my-custom-dns.com") // AddCustomDNSToResourceInstanceRequestBody | 
+	addCustomDNSToResourceInstanceRequest2 := *openapiclient.NewAddCustomDNSToResourceInstanceRequest2("my-custom-dns.com") // AddCustomDNSToResourceInstanceRequest2 | 
 	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiAddCustomDNSToResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).AddCustomDNSToResourceInstanceRequestBody(addCustomDNSToResourceInstanceRequestBody).SubscriptionId(subscriptionId).Execute()
+	r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiAddCustomDNSToResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).AddCustomDNSToResourceInstanceRequest2(addCustomDNSToResourceInstanceRequest2).SubscriptionId(subscriptionId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiAddCustomDNSToResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 
 
- **addCustomDNSToResourceInstanceRequestBody** | [**AddCustomDNSToResourceInstanceRequestBody**](AddCustomDNSToResourceInstanceRequestBody.md) |  | 
+ **addCustomDNSToResourceInstanceRequest2** | [**AddCustomDNSToResourceInstanceRequest2**](AddCustomDNSToResourceInstanceRequest2.md) |  | 
  **subscriptionId** | **string** | Subscription Id | 
 
 ### Return type
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 ## ResourceInstanceApiCreateResourceInstance
 
-> CreateServicesOrchestrationResponseBody ResourceInstanceApiCreateResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey).CreateResourceInstanceRequestBody(createResourceInstanceRequestBody).SubscriptionId(subscriptionId).Execute()
+> CreateServicesOrchestrationResponseBody ResourceInstanceApiCreateResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey).CreateResourceInstanceRequest2(createResourceInstanceRequest2).SubscriptionId(subscriptionId).Execute()
 
 CreateResourceInstance resource-instance-api
 
@@ -234,12 +234,12 @@ func main() {
 	serviceModelKey := "hosted" // string | The service model name
 	productTierKey := "premium" // string | The product tier name
 	resourceKey := "mysql" // string | The resource key
-	createResourceInstanceRequestBody := *openapiclient.NewCreateResourceInstanceRequestBody() // CreateResourceInstanceRequestBody | 
+	createResourceInstanceRequest2 := *openapiclient.NewCreateResourceInstanceRequest2() // CreateResourceInstanceRequest2 | 
 	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiCreateResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey).CreateResourceInstanceRequestBody(createResourceInstanceRequestBody).SubscriptionId(subscriptionId).Execute()
+	resp, r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiCreateResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey).CreateResourceInstanceRequest2(createResourceInstanceRequest2).SubscriptionId(subscriptionId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiCreateResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 
 
- **createResourceInstanceRequestBody** | [**CreateResourceInstanceRequestBody**](CreateResourceInstanceRequestBody.md) |  | 
+ **createResourceInstanceRequest2** | [**CreateResourceInstanceRequest2**](CreateResourceInstanceRequest2.md) |  | 
  **subscriptionId** | **string** | Subscription Id | 
 
 ### Return type
@@ -480,7 +480,7 @@ Name | Type | Description  | Notes
 
 ## ResourceInstanceApiFailoverResourceInstance
 
-> ResourceInstanceApiFailoverResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).FailoverResourceInstanceRequestBody(failoverResourceInstanceRequestBody).SubscriptionId(subscriptionId).Execute()
+> ResourceInstanceApiFailoverResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).FailoverResourceInstanceRequest2(failoverResourceInstanceRequest2).SubscriptionId(subscriptionId).Execute()
 
 FailoverResourceInstance resource-instance-api
 
@@ -505,12 +505,12 @@ func main() {
 	productTierKey := "premium" // string | The product tier name
 	resourceKey := "mysql" // string | The resource key
 	id := "instance-abcd1234" // string | The instance ID
-	failoverResourceInstanceRequestBody := *openapiclient.NewFailoverResourceInstanceRequestBody("db-0") // FailoverResourceInstanceRequestBody | 
+	failoverResourceInstanceRequest2 := *openapiclient.NewFailoverResourceInstanceRequest2("db-0") // FailoverResourceInstanceRequest2 | 
 	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiFailoverResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).FailoverResourceInstanceRequestBody(failoverResourceInstanceRequestBody).SubscriptionId(subscriptionId).Execute()
+	r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiFailoverResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).FailoverResourceInstanceRequest2(failoverResourceInstanceRequest2).SubscriptionId(subscriptionId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiFailoverResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -548,7 +548,7 @@ Name | Type | Description  | Notes
 
 
 
- **failoverResourceInstanceRequestBody** | [**FailoverResourceInstanceRequestBody**](FailoverResourceInstanceRequestBody.md) |  | 
+ **failoverResourceInstanceRequest2** | [**FailoverResourceInstanceRequest2**](FailoverResourceInstanceRequest2.md) |  | 
  **subscriptionId** | **string** | Subscription Id | 
 
 ### Return type
@@ -796,7 +796,7 @@ Name | Type | Description  | Notes
 
 ## ResourceInstanceApiListResourceInstances
 
-> ListServiceEnvironmentsResult ResourceInstanceApiListResourceInstances(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey).SubscriptionId(subscriptionId).Execute()
+> ListResourceInstancesResult ResourceInstanceApiListResourceInstances(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey).SubscriptionId(subscriptionId).Execute()
 
 ListResourceInstances resource-instance-api
 
@@ -829,7 +829,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiListResourceInstances``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ResourceInstanceApiListResourceInstances`: ListServiceEnvironmentsResult
+	// response from `ResourceInstanceApiListResourceInstances`: ListResourceInstancesResult
 	fmt.Fprintf(os.Stdout, "Response from `ResourceInstanceApiAPI.ResourceInstanceApiListResourceInstances`: %v\n", resp)
 }
 ```
@@ -866,7 +866,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListServiceEnvironmentsResult**](ListServiceEnvironmentsResult.md)
+[**ListResourceInstancesResult**](ListResourceInstancesResult.md)
 
 ### Authorization
 
@@ -884,7 +884,7 @@ Name | Type | Description  | Notes
 
 ## ResourceInstanceApiRemoveCapacityFromResourceInstance
 
-> ResourceInstanceApiRemoveCapacityFromResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).RemoveCapacityFromResourceInstanceRequestBody(removeCapacityFromResourceInstanceRequestBody).SubscriptionId(subscriptionId).Execute()
+> ResourceInstanceApiRemoveCapacityFromResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).RemoveCapacityFromResourceInstanceRequest2(removeCapacityFromResourceInstanceRequest2).SubscriptionId(subscriptionId).Execute()
 
 RemoveCapacityFromResourceInstance resource-instance-api
 
@@ -909,12 +909,12 @@ func main() {
 	productTierKey := "premium" // string | The product tier name
 	resourceKey := "mysql" // string | The resource key
 	id := "instance-abcd1234" // string | The instance ID
-	removeCapacityFromResourceInstanceRequestBody := *openapiclient.NewRemoveCapacityFromResourceInstanceRequestBody(int64(3)) // RemoveCapacityFromResourceInstanceRequestBody | 
+	removeCapacityFromResourceInstanceRequest2 := *openapiclient.NewRemoveCapacityFromResourceInstanceRequest2(int64(3)) // RemoveCapacityFromResourceInstanceRequest2 | 
 	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiRemoveCapacityFromResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).RemoveCapacityFromResourceInstanceRequestBody(removeCapacityFromResourceInstanceRequestBody).SubscriptionId(subscriptionId).Execute()
+	r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiRemoveCapacityFromResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).RemoveCapacityFromResourceInstanceRequest2(removeCapacityFromResourceInstanceRequest2).SubscriptionId(subscriptionId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiRemoveCapacityFromResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -952,7 +952,7 @@ Name | Type | Description  | Notes
 
 
 
- **removeCapacityFromResourceInstanceRequestBody** | [**RemoveCapacityFromResourceInstanceRequestBody**](RemoveCapacityFromResourceInstanceRequestBody.md) |  | 
+ **removeCapacityFromResourceInstanceRequest2** | [**RemoveCapacityFromResourceInstanceRequest2**](RemoveCapacityFromResourceInstanceRequest2.md) |  | 
  **subscriptionId** | **string** | Subscription Id | 
 
 ### Return type
@@ -1233,7 +1233,7 @@ Name | Type | Description  | Notes
 
 ## ResourceInstanceApiRestoreResourceInstance
 
-> CreateServicesOrchestrationResponseBody ResourceInstanceApiRestoreResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).RestoreResourceInstanceRequestBody(restoreResourceInstanceRequestBody).SubscriptionId(subscriptionId).Execute()
+> CreateServicesOrchestrationResponseBody ResourceInstanceApiRestoreResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).RestoreResourceInstanceRequest2(restoreResourceInstanceRequest2).SubscriptionId(subscriptionId).Execute()
 
 RestoreResourceInstance resource-instance-api
 
@@ -1258,12 +1258,12 @@ func main() {
 	productTierKey := "premium" // string | The product tier name
 	resourceKey := "mysql" // string | The resource key
 	id := "instance-abcd1234" // string | The instance ID
-	restoreResourceInstanceRequestBody := *openapiclient.NewRestoreResourceInstanceRequestBody("2021-09-01T00:00:00Z") // RestoreResourceInstanceRequestBody | 
+	restoreResourceInstanceRequest2 := *openapiclient.NewRestoreResourceInstanceRequest2("2021-09-01T00:00:00Z") // RestoreResourceInstanceRequest2 | 
 	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiRestoreResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).RestoreResourceInstanceRequestBody(restoreResourceInstanceRequestBody).SubscriptionId(subscriptionId).Execute()
+	resp, r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiRestoreResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).RestoreResourceInstanceRequest2(restoreResourceInstanceRequest2).SubscriptionId(subscriptionId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiRestoreResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1303,7 +1303,7 @@ Name | Type | Description  | Notes
 
 
 
- **restoreResourceInstanceRequestBody** | [**RestoreResourceInstanceRequestBody**](RestoreResourceInstanceRequestBody.md) |  | 
+ **restoreResourceInstanceRequest2** | [**RestoreResourceInstanceRequest2**](RestoreResourceInstanceRequest2.md) |  | 
  **subscriptionId** | **string** | Subscription Id | 
 
 ### Return type
@@ -1326,7 +1326,7 @@ Name | Type | Description  | Notes
 
 ## ResourceInstanceApiRestoreResourceInstanceFromSnapshot
 
-> CreateServicesOrchestrationResponseBody ResourceInstanceApiRestoreResourceInstanceFromSnapshot(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, snapshotId).RestoreResourceInstanceFromSnapshotRequestBody(restoreResourceInstanceFromSnapshotRequestBody).SubscriptionId(subscriptionId).Execute()
+> CreateServicesOrchestrationResponseBody ResourceInstanceApiRestoreResourceInstanceFromSnapshot(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, snapshotId).RestoreResourceInstanceFromSnapshotRequest2(restoreResourceInstanceFromSnapshotRequest2).SubscriptionId(subscriptionId).Execute()
 
 RestoreResourceInstanceFromSnapshot resource-instance-api
 
@@ -1351,12 +1351,12 @@ func main() {
 	productTierKey := "premium" // string | The product tier name
 	resourceKey := "mysql" // string | The resource key
 	snapshotId := "instance-ss-abcd1234" // string | The snapshot ID
-	restoreResourceInstanceFromSnapshotRequestBody := *openapiclient.NewRestoreResourceInstanceFromSnapshotRequestBody() // RestoreResourceInstanceFromSnapshotRequestBody | 
+	restoreResourceInstanceFromSnapshotRequest2 := *openapiclient.NewRestoreResourceInstanceFromSnapshotRequest2() // RestoreResourceInstanceFromSnapshotRequest2 | 
 	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiRestoreResourceInstanceFromSnapshot(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, snapshotId).RestoreResourceInstanceFromSnapshotRequestBody(restoreResourceInstanceFromSnapshotRequestBody).SubscriptionId(subscriptionId).Execute()
+	resp, r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiRestoreResourceInstanceFromSnapshot(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, snapshotId).RestoreResourceInstanceFromSnapshotRequest2(restoreResourceInstanceFromSnapshotRequest2).SubscriptionId(subscriptionId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiRestoreResourceInstanceFromSnapshot``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1396,7 +1396,7 @@ Name | Type | Description  | Notes
 
 
 
- **restoreResourceInstanceFromSnapshotRequestBody** | [**RestoreResourceInstanceFromSnapshotRequestBody**](RestoreResourceInstanceFromSnapshotRequestBody.md) |  | 
+ **restoreResourceInstanceFromSnapshotRequest2** | [**RestoreResourceInstanceFromSnapshotRequest2**](RestoreResourceInstanceFromSnapshotRequest2.md) |  | 
  **subscriptionId** | **string** | Subscription Id | 
 
 ### Return type
@@ -1597,7 +1597,7 @@ Name | Type | Description  | Notes
 
 ## ResourceInstanceApiUpdateResourceInstance
 
-> ResourceInstanceApiUpdateResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).UpdateResourceInstanceRequestBody(updateResourceInstanceRequestBody).SubscriptionId(subscriptionId).Execute()
+> ResourceInstanceApiUpdateResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).UpdateResourceInstanceRequest2(updateResourceInstanceRequest2).SubscriptionId(subscriptionId).Execute()
 
 UpdateResourceInstance resource-instance-api
 
@@ -1622,12 +1622,12 @@ func main() {
 	productTierKey := "premium" // string | The product tier name
 	resourceKey := "mysql" // string | The resource key
 	id := "instance-abcd1234" // string | The instance ID
-	updateResourceInstanceRequestBody := *openapiclient.NewUpdateResourceInstanceRequestBody() // UpdateResourceInstanceRequestBody | 
+	updateResourceInstanceRequest2 := *openapiclient.NewUpdateResourceInstanceRequest2() // UpdateResourceInstanceRequest2 | 
 	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiUpdateResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).UpdateResourceInstanceRequestBody(updateResourceInstanceRequestBody).SubscriptionId(subscriptionId).Execute()
+	r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiUpdateResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).UpdateResourceInstanceRequest2(updateResourceInstanceRequest2).SubscriptionId(subscriptionId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiUpdateResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1665,7 +1665,7 @@ Name | Type | Description  | Notes
 
 
 
- **updateResourceInstanceRequestBody** | [**UpdateResourceInstanceRequestBody**](UpdateResourceInstanceRequestBody.md) |  | 
+ **updateResourceInstanceRequest2** | [**UpdateResourceInstanceRequest2**](UpdateResourceInstanceRequest2.md) |  | 
  **subscriptionId** | **string** | Subscription Id | 
 
 ### Return type

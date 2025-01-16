@@ -126,8 +126,8 @@ type InfraConfigApiAPI interface {
 	InfraConfigApiListInfraConfig(ctx context.Context, serviceId string, serviceEnvironmentId string) ApiInfraConfigApiListInfraConfigRequest
 
 	// InfraConfigApiListInfraConfigExecute executes the request
-	//  @return ListServiceEnvironmentsResult
-	InfraConfigApiListInfraConfigExecute(r ApiInfraConfigApiListInfraConfigRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+	//  @return ListInfraConfigResult
+	InfraConfigApiListInfraConfigExecute(r ApiInfraConfigApiListInfraConfigRequest) (*ListInfraConfigResult, *http.Response, error)
 
 	/*
 	InfraConfigApiReleaseInfraConfig ReleaseInfraConfig infra-config-api
@@ -166,8 +166,8 @@ type InfraConfigApiAPI interface {
 	InfraConfigApiRolloutFleetInfraStatus(ctx context.Context, serviceId string, id string) ApiInfraConfigApiRolloutFleetInfraStatusRequest
 
 	// InfraConfigApiRolloutFleetInfraStatusExecute executes the request
-	//  @return OmnistrateServiceHealthResult
-	InfraConfigApiRolloutFleetInfraStatusExecute(r ApiInfraConfigApiRolloutFleetInfraStatusRequest) (*OmnistrateServiceHealthResult, *http.Response, error)
+	//  @return RolloutFleetInfraStatusResult
+	InfraConfigApiRolloutFleetInfraStatusExecute(r ApiInfraConfigApiRolloutFleetInfraStatusRequest) (*RolloutFleetInfraStatusResult, *http.Response, error)
 
 	/*
 	InfraConfigApiUpdateInfraConfig UpdateInfraConfig infra-config-api
@@ -190,11 +190,11 @@ type ApiInfraConfigApiCreateInfraConfigRequest struct {
 	ctx context.Context
 	ApiService InfraConfigApiAPI
 	serviceId string
-	createInfraConfigRequestBody *CreateInfraConfigRequestBody
+	createInfraConfigRequest2 *CreateInfraConfigRequest2
 }
 
-func (r ApiInfraConfigApiCreateInfraConfigRequest) CreateInfraConfigRequestBody(createInfraConfigRequestBody CreateInfraConfigRequestBody) ApiInfraConfigApiCreateInfraConfigRequest {
-	r.createInfraConfigRequestBody = &createInfraConfigRequestBody
+func (r ApiInfraConfigApiCreateInfraConfigRequest) CreateInfraConfigRequest2(createInfraConfigRequest2 CreateInfraConfigRequest2) ApiInfraConfigApiCreateInfraConfigRequest {
+	r.createInfraConfigRequest2 = &createInfraConfigRequest2
 	return r
 }
 
@@ -238,8 +238,8 @@ func (a *InfraConfigApiAPIService) InfraConfigApiCreateInfraConfigExecute(r ApiI
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createInfraConfigRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createInfraConfigRequestBody is required and must be specified")
+	if r.createInfraConfigRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createInfraConfigRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -260,7 +260,7 @@ func (a *InfraConfigApiAPIService) InfraConfigApiCreateInfraConfigExecute(r ApiI
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createInfraConfigRequestBody
+	localVarPostBody = r.createInfraConfigRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1373,7 +1373,7 @@ func (r ApiInfraConfigApiListInfraConfigRequest) Managed(managed bool) ApiInfraC
 	return r
 }
 
-func (r ApiInfraConfigApiListInfraConfigRequest) Execute() (*ListServiceEnvironmentsResult, *http.Response, error) {
+func (r ApiInfraConfigApiListInfraConfigRequest) Execute() (*ListInfraConfigResult, *http.Response, error) {
 	return r.ApiService.InfraConfigApiListInfraConfigExecute(r)
 }
 
@@ -1395,13 +1395,13 @@ func (a *InfraConfigApiAPIService) InfraConfigApiListInfraConfig(ctx context.Con
 }
 
 // Execute executes the request
-//  @return ListServiceEnvironmentsResult
-func (a *InfraConfigApiAPIService) InfraConfigApiListInfraConfigExecute(r ApiInfraConfigApiListInfraConfigRequest) (*ListServiceEnvironmentsResult, *http.Response, error) {
+//  @return ListInfraConfigResult
+func (a *InfraConfigApiAPIService) InfraConfigApiListInfraConfigExecute(r ApiInfraConfigApiListInfraConfigRequest) (*ListInfraConfigResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListServiceEnvironmentsResult
+		localVarReturnValue  *ListInfraConfigResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InfraConfigApiAPIService.InfraConfigApiListInfraConfig")
@@ -1544,11 +1544,11 @@ type ApiInfraConfigApiReleaseInfraConfigRequest struct {
 	ApiService InfraConfigApiAPI
 	serviceId string
 	id string
-	releaseInfraConfigRequestBody *ReleaseInfraConfigRequestBody
+	releaseInfraConfigRequest2 *ReleaseInfraConfigRequest2
 }
 
-func (r ApiInfraConfigApiReleaseInfraConfigRequest) ReleaseInfraConfigRequestBody(releaseInfraConfigRequestBody ReleaseInfraConfigRequestBody) ApiInfraConfigApiReleaseInfraConfigRequest {
-	r.releaseInfraConfigRequestBody = &releaseInfraConfigRequestBody
+func (r ApiInfraConfigApiReleaseInfraConfigRequest) ReleaseInfraConfigRequest2(releaseInfraConfigRequest2 ReleaseInfraConfigRequest2) ApiInfraConfigApiReleaseInfraConfigRequest {
+	r.releaseInfraConfigRequest2 = &releaseInfraConfigRequest2
 	return r
 }
 
@@ -1593,8 +1593,8 @@ func (a *InfraConfigApiAPIService) InfraConfigApiReleaseInfraConfigExecute(r Api
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.releaseInfraConfigRequestBody == nil {
-		return nil, reportError("releaseInfraConfigRequestBody is required and must be specified")
+	if r.releaseInfraConfigRequest2 == nil {
+		return nil, reportError("releaseInfraConfigRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1615,7 +1615,7 @@ func (a *InfraConfigApiAPIService) InfraConfigApiReleaseInfraConfigExecute(r Api
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.releaseInfraConfigRequestBody
+	localVarPostBody = r.releaseInfraConfigRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1875,7 +1875,7 @@ type ApiInfraConfigApiRolloutFleetInfraStatusRequest struct {
 	id string
 }
 
-func (r ApiInfraConfigApiRolloutFleetInfraStatusRequest) Execute() (*OmnistrateServiceHealthResult, *http.Response, error) {
+func (r ApiInfraConfigApiRolloutFleetInfraStatusRequest) Execute() (*RolloutFleetInfraStatusResult, *http.Response, error) {
 	return r.ApiService.InfraConfigApiRolloutFleetInfraStatusExecute(r)
 }
 
@@ -1897,13 +1897,13 @@ func (a *InfraConfigApiAPIService) InfraConfigApiRolloutFleetInfraStatus(ctx con
 }
 
 // Execute executes the request
-//  @return OmnistrateServiceHealthResult
-func (a *InfraConfigApiAPIService) InfraConfigApiRolloutFleetInfraStatusExecute(r ApiInfraConfigApiRolloutFleetInfraStatusRequest) (*OmnistrateServiceHealthResult, *http.Response, error) {
+//  @return RolloutFleetInfraStatusResult
+func (a *InfraConfigApiAPIService) InfraConfigApiRolloutFleetInfraStatusExecute(r ApiInfraConfigApiRolloutFleetInfraStatusRequest) (*RolloutFleetInfraStatusResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *OmnistrateServiceHealthResult
+		localVarReturnValue  *RolloutFleetInfraStatusResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InfraConfigApiAPIService.InfraConfigApiRolloutFleetInfraStatus")
@@ -2043,11 +2043,11 @@ type ApiInfraConfigApiUpdateInfraConfigRequest struct {
 	ApiService InfraConfigApiAPI
 	serviceId string
 	id string
-	updateInfraConfigRequestBody *UpdateInfraConfigRequestBody
+	updateInfraConfigRequest2 *UpdateInfraConfigRequest2
 }
 
-func (r ApiInfraConfigApiUpdateInfraConfigRequest) UpdateInfraConfigRequestBody(updateInfraConfigRequestBody UpdateInfraConfigRequestBody) ApiInfraConfigApiUpdateInfraConfigRequest {
-	r.updateInfraConfigRequestBody = &updateInfraConfigRequestBody
+func (r ApiInfraConfigApiUpdateInfraConfigRequest) UpdateInfraConfigRequest2(updateInfraConfigRequest2 UpdateInfraConfigRequest2) ApiInfraConfigApiUpdateInfraConfigRequest {
+	r.updateInfraConfigRequest2 = &updateInfraConfigRequest2
 	return r
 }
 
@@ -2092,8 +2092,8 @@ func (a *InfraConfigApiAPIService) InfraConfigApiUpdateInfraConfigExecute(r ApiI
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateInfraConfigRequestBody == nil {
-		return nil, reportError("updateInfraConfigRequestBody is required and must be specified")
+	if r.updateInfraConfigRequest2 == nil {
+		return nil, reportError("updateInfraConfigRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -2114,7 +2114,7 @@ func (a *InfraConfigApiAPIService) InfraConfigApiUpdateInfraConfigExecute(r ApiI
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateInfraConfigRequestBody
+	localVarPostBody = r.updateInfraConfigRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

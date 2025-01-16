@@ -42,8 +42,8 @@ type UsersApiAPI interface {
 	UsersApiCustomerLoginWithIdentityProvider(ctx context.Context) ApiUsersApiCustomerLoginWithIdentityProviderRequest
 
 	// UsersApiCustomerLoginWithIdentityProviderExecute executes the request
-	//  @return SigninResult
-	UsersApiCustomerLoginWithIdentityProviderExecute(r ApiUsersApiCustomerLoginWithIdentityProviderRequest) (*SigninResult, *http.Response, error)
+	//  @return CustomerLoginWithIdentityProviderResult
+	UsersApiCustomerLoginWithIdentityProviderExecute(r ApiUsersApiCustomerLoginWithIdentityProviderRequest) (*CustomerLoginWithIdentityProviderResult, *http.Response, error)
 
 	/*
 	UsersApiCustomerResetPassword CustomerResetPassword users-api
@@ -65,8 +65,8 @@ type UsersApiAPI interface {
 	UsersApiCustomerSignin(ctx context.Context) ApiUsersApiCustomerSigninRequest
 
 	// UsersApiCustomerSigninExecute executes the request
-	//  @return SigninResult
-	UsersApiCustomerSigninExecute(r ApiUsersApiCustomerSigninRequest) (*SigninResult, *http.Response, error)
+	//  @return CustomerSigninResult
+	UsersApiCustomerSigninExecute(r ApiUsersApiCustomerSigninRequest) (*CustomerSigninResult, *http.Response, error)
 
 	/*
 	UsersApiCustomerSignup CustomerSignup users-api
@@ -177,11 +177,11 @@ type UsersApiAPIService service
 type ApiUsersApiCustomerInviteUserRequest struct {
 	ctx context.Context
 	ApiService UsersApiAPI
-	resetPasswordRequestBody *ResetPasswordRequestBody
+	customerInviteUserRequest2 *CustomerInviteUserRequest2
 }
 
-func (r ApiUsersApiCustomerInviteUserRequest) ResetPasswordRequestBody(resetPasswordRequestBody ResetPasswordRequestBody) ApiUsersApiCustomerInviteUserRequest {
-	r.resetPasswordRequestBody = &resetPasswordRequestBody
+func (r ApiUsersApiCustomerInviteUserRequest) CustomerInviteUserRequest2(customerInviteUserRequest2 CustomerInviteUserRequest2) ApiUsersApiCustomerInviteUserRequest {
+	r.customerInviteUserRequest2 = &customerInviteUserRequest2
 	return r
 }
 
@@ -220,8 +220,8 @@ func (a *UsersApiAPIService) UsersApiCustomerInviteUserExecute(r ApiUsersApiCust
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.resetPasswordRequestBody == nil {
-		return nil, reportError("resetPasswordRequestBody is required and must be specified")
+	if r.customerInviteUserRequest2 == nil {
+		return nil, reportError("customerInviteUserRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -242,7 +242,7 @@ func (a *UsersApiAPIService) UsersApiCustomerInviteUserExecute(r ApiUsersApiCust
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.resetPasswordRequestBody
+	localVarPostBody = r.customerInviteUserRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -339,15 +339,15 @@ func (a *UsersApiAPIService) UsersApiCustomerInviteUserExecute(r ApiUsersApiCust
 type ApiUsersApiCustomerLoginWithIdentityProviderRequest struct {
 	ctx context.Context
 	ApiService UsersApiAPI
-	customerLoginWithIdentityProviderRequestBody *CustomerLoginWithIdentityProviderRequestBody
+	customerLoginWithIdentityProviderRequest2 *CustomerLoginWithIdentityProviderRequest2
 }
 
-func (r ApiUsersApiCustomerLoginWithIdentityProviderRequest) CustomerLoginWithIdentityProviderRequestBody(customerLoginWithIdentityProviderRequestBody CustomerLoginWithIdentityProviderRequestBody) ApiUsersApiCustomerLoginWithIdentityProviderRequest {
-	r.customerLoginWithIdentityProviderRequestBody = &customerLoginWithIdentityProviderRequestBody
+func (r ApiUsersApiCustomerLoginWithIdentityProviderRequest) CustomerLoginWithIdentityProviderRequest2(customerLoginWithIdentityProviderRequest2 CustomerLoginWithIdentityProviderRequest2) ApiUsersApiCustomerLoginWithIdentityProviderRequest {
+	r.customerLoginWithIdentityProviderRequest2 = &customerLoginWithIdentityProviderRequest2
 	return r
 }
 
-func (r ApiUsersApiCustomerLoginWithIdentityProviderRequest) Execute() (*SigninResult, *http.Response, error) {
+func (r ApiUsersApiCustomerLoginWithIdentityProviderRequest) Execute() (*CustomerLoginWithIdentityProviderResult, *http.Response, error) {
 	return r.ApiService.UsersApiCustomerLoginWithIdentityProviderExecute(r)
 }
 
@@ -365,13 +365,13 @@ func (a *UsersApiAPIService) UsersApiCustomerLoginWithIdentityProvider(ctx conte
 }
 
 // Execute executes the request
-//  @return SigninResult
-func (a *UsersApiAPIService) UsersApiCustomerLoginWithIdentityProviderExecute(r ApiUsersApiCustomerLoginWithIdentityProviderRequest) (*SigninResult, *http.Response, error) {
+//  @return CustomerLoginWithIdentityProviderResult
+func (a *UsersApiAPIService) UsersApiCustomerLoginWithIdentityProviderExecute(r ApiUsersApiCustomerLoginWithIdentityProviderRequest) (*CustomerLoginWithIdentityProviderResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SigninResult
+		localVarReturnValue  *CustomerLoginWithIdentityProviderResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiAPIService.UsersApiCustomerLoginWithIdentityProvider")
@@ -384,8 +384,8 @@ func (a *UsersApiAPIService) UsersApiCustomerLoginWithIdentityProviderExecute(r 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.customerLoginWithIdentityProviderRequestBody == nil {
-		return localVarReturnValue, nil, reportError("customerLoginWithIdentityProviderRequestBody is required and must be specified")
+	if r.customerLoginWithIdentityProviderRequest2 == nil {
+		return localVarReturnValue, nil, reportError("customerLoginWithIdentityProviderRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -406,7 +406,7 @@ func (a *UsersApiAPIService) UsersApiCustomerLoginWithIdentityProviderExecute(r 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.customerLoginWithIdentityProviderRequestBody
+	localVarPostBody = r.customerLoginWithIdentityProviderRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -512,11 +512,11 @@ func (a *UsersApiAPIService) UsersApiCustomerLoginWithIdentityProviderExecute(r 
 type ApiUsersApiCustomerResetPasswordRequest struct {
 	ctx context.Context
 	ApiService UsersApiAPI
-	resetPasswordRequestBody *ResetPasswordRequestBody
+	customerResetPasswordRequest2 *CustomerResetPasswordRequest2
 }
 
-func (r ApiUsersApiCustomerResetPasswordRequest) ResetPasswordRequestBody(resetPasswordRequestBody ResetPasswordRequestBody) ApiUsersApiCustomerResetPasswordRequest {
-	r.resetPasswordRequestBody = &resetPasswordRequestBody
+func (r ApiUsersApiCustomerResetPasswordRequest) CustomerResetPasswordRequest2(customerResetPasswordRequest2 CustomerResetPasswordRequest2) ApiUsersApiCustomerResetPasswordRequest {
+	r.customerResetPasswordRequest2 = &customerResetPasswordRequest2
 	return r
 }
 
@@ -555,8 +555,8 @@ func (a *UsersApiAPIService) UsersApiCustomerResetPasswordExecute(r ApiUsersApiC
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.resetPasswordRequestBody == nil {
-		return nil, reportError("resetPasswordRequestBody is required and must be specified")
+	if r.customerResetPasswordRequest2 == nil {
+		return nil, reportError("customerResetPasswordRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -577,7 +577,7 @@ func (a *UsersApiAPIService) UsersApiCustomerResetPasswordExecute(r ApiUsersApiC
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.resetPasswordRequestBody
+	localVarPostBody = r.customerResetPasswordRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -674,15 +674,15 @@ func (a *UsersApiAPIService) UsersApiCustomerResetPasswordExecute(r ApiUsersApiC
 type ApiUsersApiCustomerSigninRequest struct {
 	ctx context.Context
 	ApiService UsersApiAPI
-	customerSigninRequestBody *CustomerSigninRequestBody
+	customerSigninRequest2 *CustomerSigninRequest2
 }
 
-func (r ApiUsersApiCustomerSigninRequest) CustomerSigninRequestBody(customerSigninRequestBody CustomerSigninRequestBody) ApiUsersApiCustomerSigninRequest {
-	r.customerSigninRequestBody = &customerSigninRequestBody
+func (r ApiUsersApiCustomerSigninRequest) CustomerSigninRequest2(customerSigninRequest2 CustomerSigninRequest2) ApiUsersApiCustomerSigninRequest {
+	r.customerSigninRequest2 = &customerSigninRequest2
 	return r
 }
 
-func (r ApiUsersApiCustomerSigninRequest) Execute() (*SigninResult, *http.Response, error) {
+func (r ApiUsersApiCustomerSigninRequest) Execute() (*CustomerSigninResult, *http.Response, error) {
 	return r.ApiService.UsersApiCustomerSigninExecute(r)
 }
 
@@ -700,13 +700,13 @@ func (a *UsersApiAPIService) UsersApiCustomerSignin(ctx context.Context) ApiUser
 }
 
 // Execute executes the request
-//  @return SigninResult
-func (a *UsersApiAPIService) UsersApiCustomerSigninExecute(r ApiUsersApiCustomerSigninRequest) (*SigninResult, *http.Response, error) {
+//  @return CustomerSigninResult
+func (a *UsersApiAPIService) UsersApiCustomerSigninExecute(r ApiUsersApiCustomerSigninRequest) (*CustomerSigninResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SigninResult
+		localVarReturnValue  *CustomerSigninResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiAPIService.UsersApiCustomerSignin")
@@ -719,8 +719,8 @@ func (a *UsersApiAPIService) UsersApiCustomerSigninExecute(r ApiUsersApiCustomer
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.customerSigninRequestBody == nil {
-		return localVarReturnValue, nil, reportError("customerSigninRequestBody is required and must be specified")
+	if r.customerSigninRequest2 == nil {
+		return localVarReturnValue, nil, reportError("customerSigninRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -741,7 +741,7 @@ func (a *UsersApiAPIService) UsersApiCustomerSigninExecute(r ApiUsersApiCustomer
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.customerSigninRequestBody
+	localVarPostBody = r.customerSigninRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -847,11 +847,11 @@ func (a *UsersApiAPIService) UsersApiCustomerSigninExecute(r ApiUsersApiCustomer
 type ApiUsersApiCustomerSignupRequest struct {
 	ctx context.Context
 	ApiService UsersApiAPI
-	signupRequestBody *SignupRequestBody
+	customerSignupRequest2 *CustomerSignupRequest2
 }
 
-func (r ApiUsersApiCustomerSignupRequest) SignupRequestBody(signupRequestBody SignupRequestBody) ApiUsersApiCustomerSignupRequest {
-	r.signupRequestBody = &signupRequestBody
+func (r ApiUsersApiCustomerSignupRequest) CustomerSignupRequest2(customerSignupRequest2 CustomerSignupRequest2) ApiUsersApiCustomerSignupRequest {
+	r.customerSignupRequest2 = &customerSignupRequest2
 	return r
 }
 
@@ -890,8 +890,8 @@ func (a *UsersApiAPIService) UsersApiCustomerSignupExecute(r ApiUsersApiCustomer
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.signupRequestBody == nil {
-		return nil, reportError("signupRequestBody is required and must be specified")
+	if r.customerSignupRequest2 == nil {
+		return nil, reportError("customerSignupRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -912,7 +912,7 @@ func (a *UsersApiAPIService) UsersApiCustomerSignupExecute(r ApiUsersApiCustomer
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.signupRequestBody
+	localVarPostBody = r.customerSignupRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1473,11 +1473,11 @@ func (a *UsersApiAPIService) UsersApiDescribeUsersByOrgExecute(r ApiUsersApiDesc
 type ApiUsersApiInviteUserRequest struct {
 	ctx context.Context
 	ApiService UsersApiAPI
-	inviteUserRequestBody *InviteUserRequestBody
+	inviteUserRequest2 *InviteUserRequest2
 }
 
-func (r ApiUsersApiInviteUserRequest) InviteUserRequestBody(inviteUserRequestBody InviteUserRequestBody) ApiUsersApiInviteUserRequest {
-	r.inviteUserRequestBody = &inviteUserRequestBody
+func (r ApiUsersApiInviteUserRequest) InviteUserRequest2(inviteUserRequest2 InviteUserRequest2) ApiUsersApiInviteUserRequest {
+	r.inviteUserRequest2 = &inviteUserRequest2
 	return r
 }
 
@@ -1516,8 +1516,8 @@ func (a *UsersApiAPIService) UsersApiInviteUserExecute(r ApiUsersApiInviteUserRe
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.inviteUserRequestBody == nil {
-		return nil, reportError("inviteUserRequestBody is required and must be specified")
+	if r.inviteUserRequest2 == nil {
+		return nil, reportError("inviteUserRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1538,7 +1538,7 @@ func (a *UsersApiAPIService) UsersApiInviteUserExecute(r ApiUsersApiInviteUserRe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.inviteUserRequestBody
+	localVarPostBody = r.inviteUserRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1786,11 +1786,11 @@ func (a *UsersApiAPIService) UsersApiLogoutExecute(r ApiUsersApiLogoutRequest) (
 type ApiUsersApiRevokeUserRoleRequest struct {
 	ctx context.Context
 	ApiService UsersApiAPI
-	inviteUserRequestBody *InviteUserRequestBody
+	revokeUserRoleRequest2 *RevokeUserRoleRequest2
 }
 
-func (r ApiUsersApiRevokeUserRoleRequest) InviteUserRequestBody(inviteUserRequestBody InviteUserRequestBody) ApiUsersApiRevokeUserRoleRequest {
-	r.inviteUserRequestBody = &inviteUserRequestBody
+func (r ApiUsersApiRevokeUserRoleRequest) RevokeUserRoleRequest2(revokeUserRoleRequest2 RevokeUserRoleRequest2) ApiUsersApiRevokeUserRoleRequest {
+	r.revokeUserRoleRequest2 = &revokeUserRoleRequest2
 	return r
 }
 
@@ -1829,8 +1829,8 @@ func (a *UsersApiAPIService) UsersApiRevokeUserRoleExecute(r ApiUsersApiRevokeUs
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.inviteUserRequestBody == nil {
-		return nil, reportError("inviteUserRequestBody is required and must be specified")
+	if r.revokeUserRoleRequest2 == nil {
+		return nil, reportError("revokeUserRoleRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1851,7 +1851,7 @@ func (a *UsersApiAPIService) UsersApiRevokeUserRoleExecute(r ApiUsersApiRevokeUs
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.inviteUserRequestBody
+	localVarPostBody = r.revokeUserRoleRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1948,11 +1948,11 @@ func (a *UsersApiAPIService) UsersApiRevokeUserRoleExecute(r ApiUsersApiRevokeUs
 type ApiUsersApiUpdatePasswordRequest struct {
 	ctx context.Context
 	ApiService UsersApiAPI
-	updatePasswordRequestBody *UpdatePasswordRequestBody
+	updatePasswordRequest2 *UpdatePasswordRequest2
 }
 
-func (r ApiUsersApiUpdatePasswordRequest) UpdatePasswordRequestBody(updatePasswordRequestBody UpdatePasswordRequestBody) ApiUsersApiUpdatePasswordRequest {
-	r.updatePasswordRequestBody = &updatePasswordRequestBody
+func (r ApiUsersApiUpdatePasswordRequest) UpdatePasswordRequest2(updatePasswordRequest2 UpdatePasswordRequest2) ApiUsersApiUpdatePasswordRequest {
+	r.updatePasswordRequest2 = &updatePasswordRequest2
 	return r
 }
 
@@ -1991,8 +1991,8 @@ func (a *UsersApiAPIService) UsersApiUpdatePasswordExecute(r ApiUsersApiUpdatePa
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updatePasswordRequestBody == nil {
-		return nil, reportError("updatePasswordRequestBody is required and must be specified")
+	if r.updatePasswordRequest2 == nil {
+		return nil, reportError("updatePasswordRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -2013,7 +2013,7 @@ func (a *UsersApiAPIService) UsersApiUpdatePasswordExecute(r ApiUsersApiUpdatePa
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updatePasswordRequestBody
+	localVarPostBody = r.updatePasswordRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -2111,11 +2111,11 @@ type ApiUsersApiUpdateUserRequest struct {
 	ctx context.Context
 	ApiService UsersApiAPI
 	id string
-	updateUserRequestBody *UpdateUserRequestBody
+	updateUserRequest2 *UpdateUserRequest2
 }
 
-func (r ApiUsersApiUpdateUserRequest) UpdateUserRequestBody(updateUserRequestBody UpdateUserRequestBody) ApiUsersApiUpdateUserRequest {
-	r.updateUserRequestBody = &updateUserRequestBody
+func (r ApiUsersApiUpdateUserRequest) UpdateUserRequest2(updateUserRequest2 UpdateUserRequest2) ApiUsersApiUpdateUserRequest {
+	r.updateUserRequest2 = &updateUserRequest2
 	return r
 }
 
@@ -2157,8 +2157,8 @@ func (a *UsersApiAPIService) UsersApiUpdateUserExecute(r ApiUsersApiUpdateUserRe
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateUserRequestBody == nil {
-		return nil, reportError("updateUserRequestBody is required and must be specified")
+	if r.updateUserRequest2 == nil {
+		return nil, reportError("updateUserRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -2179,7 +2179,7 @@ func (a *UsersApiAPIService) UsersApiUpdateUserExecute(r ApiUsersApiUpdateUserRe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateUserRequestBody
+	localVarPostBody = r.updateUserRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## CustomNetworkApiCreateCustomNetwork
 
-> CustomNetwork CustomNetworkApiCreateCustomNetwork(ctx).CreateCustomNetworkRequestBody(createCustomNetworkRequestBody).Execute()
+> CustomNetwork CustomNetworkApiCreateCustomNetwork(ctx).CreateCustomNetworkRequest2(createCustomNetworkRequest2).Execute()
 
 CreateCustomNetwork custom-network-api
 
@@ -31,11 +31,11 @@ import (
 )
 
 func main() {
-	createCustomNetworkRequestBody := *openapiclient.NewCreateCustomNetworkRequestBody("aws", "us-east-1") // CreateCustomNetworkRequestBody | 
+	createCustomNetworkRequest2 := *openapiclient.NewCreateCustomNetworkRequest2("aws", "us-east-1") // CreateCustomNetworkRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CustomNetworkApiAPI.CustomNetworkApiCreateCustomNetwork(context.Background()).CreateCustomNetworkRequestBody(createCustomNetworkRequestBody).Execute()
+	resp, r, err := apiClient.CustomNetworkApiAPI.CustomNetworkApiCreateCustomNetwork(context.Background()).CreateCustomNetworkRequest2(createCustomNetworkRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CustomNetworkApiAPI.CustomNetworkApiCreateCustomNetwork``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -56,7 +56,7 @@ Other parameters are passed through a pointer to a apiCustomNetworkApiCreateCust
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createCustomNetworkRequestBody** | [**CreateCustomNetworkRequestBody**](CreateCustomNetworkRequestBody.md) |  | 
+ **createCustomNetworkRequest2** | [**CreateCustomNetworkRequest2**](CreateCustomNetworkRequest2.md) |  | 
 
 ### Return type
 
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
 
 ## CustomNetworkApiUpdateCustomNetwork
 
-> CustomNetwork CustomNetworkApiUpdateCustomNetwork(ctx, id).UpdateCustomNetworkRequestBody(updateCustomNetworkRequestBody).Execute()
+> CustomNetwork CustomNetworkApiUpdateCustomNetwork(ctx, id).UpdateCustomNetworkRequest2(updateCustomNetworkRequest2).Execute()
 
 UpdateCustomNetwork custom-network-api
 
@@ -298,11 +298,11 @@ import (
 
 func main() {
 	id := "n-12345678" // string | ID of a custom network
-	updateCustomNetworkRequestBody := *openapiclient.NewUpdateCustomNetworkRequestBody() // UpdateCustomNetworkRequestBody | 
+	updateCustomNetworkRequest2 := *openapiclient.NewUpdateCustomNetworkRequest2() // UpdateCustomNetworkRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CustomNetworkApiAPI.CustomNetworkApiUpdateCustomNetwork(context.Background(), id).UpdateCustomNetworkRequestBody(updateCustomNetworkRequestBody).Execute()
+	resp, r, err := apiClient.CustomNetworkApiAPI.CustomNetworkApiUpdateCustomNetwork(context.Background(), id).UpdateCustomNetworkRequest2(updateCustomNetworkRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CustomNetworkApiAPI.CustomNetworkApiUpdateCustomNetwork``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -328,7 +328,7 @@ Other parameters are passed through a pointer to a apiCustomNetworkApiUpdateCust
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateCustomNetworkRequestBody** | [**UpdateCustomNetworkRequestBody**](UpdateCustomNetworkRequestBody.md) |  | 
+ **updateCustomNetworkRequest2** | [**UpdateCustomNetworkRequest2**](UpdateCustomNetworkRequest2.md) |  | 
 
 ### Return type
 

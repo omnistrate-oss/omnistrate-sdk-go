@@ -26,11 +26,11 @@ type CustomDomain struct {
 	CustomDomain string `json:"customDomain"`
 	// The custom domain description
 	Description string `json:"description"`
-	// The environment type for the custom domain
+	// The type of service environment
 	EnvironmentType string `json:"environmentType"`
 	// The custom domain name
 	Name string `json:"name"`
-	// The custom domain status
+	// The status of an operation
 	Status string `json:"status"`
 	AdditionalProperties map[string]interface{}
 }

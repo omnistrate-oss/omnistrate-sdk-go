@@ -10,17 +10,17 @@ Name | Type | Description | Notes
 **CreatedBy** | Pointer to **string** | The name of the user who created the version set. | [optional] 
 **Description** | Pointer to **string** | A brief description of the product-tier version set. | [optional] 
 **EnabledFeatures** | [**[]ProductTierFeatureDetail**](ProductTierFeatureDetail.md) | The features that are enabled for this product tier, including scope details and configuration | 
-**Features** | **map[string]bool** | The features that are enabled / disabled for this product tier | 
+**Features** | **map[string]interface{}** | The features that are enabled / disabled for this product tier | 
 **InstanceCount** | Pointer to **int64** | The number of instances that are currently running this version set. | [optional] 
-**LatestUpgradePathId** | Pointer to **string** | The ID of the latest upgrade path away from the tier-version set. | [optional] 
+**LatestUpgradePathId** | Pointer to **string** | ID of an Upgrade Path | [optional] 
 **Name** | Pointer to **string** | The name of the product-tier version set. | [optional] 
 **ParentVersion** | Pointer to **string** | The parent version of this release. | [optional] 
-**ProductTierId** | **string** | The product tier ID that this version set belongs to. | 
+**ProductTierId** | **string** | ID of a Product Tier | 
 **ReleasedAt** | **string** | The timestamp when the version set was released. | 
 **ReleasedBy** | Pointer to **string** | The name of the user who released the version set. | [optional] 
 **Resources** | Pointer to [**[]ResourceSummary**](ResourceSummary.md) | List of resources that are part of this version set. | [optional] 
-**ServiceId** | **string** | ID of the Service | 
-**ServiceModelId** | **string** | The service model ID that this version set belongs to. | 
+**ServiceId** | **string** | ID of a Service | 
+**ServiceModelId** | **string** | ID of a Service Model | 
 **Status** | **string** | The tier version set status. | 
 **Type** | **string** | The version-set type of the product-tier. | 
 **UpdatedAt** | **string** | The timestamp when the version set was updated. | 
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewTierVersionSet
 
-`func NewTierVersionSet(baseVersion string, createdAt string, enabledFeatures []ProductTierFeatureDetail, features map[string]bool, productTierId string, releasedAt string, serviceId string, serviceModelId string, status string, type_ string, updatedAt string, version string, ) *TierVersionSet`
+`func NewTierVersionSet(baseVersion string, createdAt string, enabledFeatures []ProductTierFeatureDetail, features map[string]interface{}, productTierId string, releasedAt string, serviceId string, serviceModelId string, status string, type_ string, updatedAt string, version string, ) *TierVersionSet`
 
 NewTierVersionSet instantiates a new TierVersionSet object
 This constructor will assign default values to properties that have it defined,
@@ -182,20 +182,20 @@ SetEnabledFeatures sets EnabledFeatures field to given value.
 
 ### GetFeatures
 
-`func (o *TierVersionSet) GetFeatures() map[string]bool`
+`func (o *TierVersionSet) GetFeatures() map[string]interface{}`
 
 GetFeatures returns the Features field if non-nil, zero value otherwise.
 
 ### GetFeaturesOk
 
-`func (o *TierVersionSet) GetFeaturesOk() (*map[string]bool, bool)`
+`func (o *TierVersionSet) GetFeaturesOk() (*map[string]interface{}, bool)`
 
 GetFeaturesOk returns a tuple with the Features field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFeatures
 
-`func (o *TierVersionSet) SetFeatures(v map[string]bool)`
+`func (o *TierVersionSet) SetFeatures(v map[string]interface{})`
 
 SetFeatures sets Features field to given value.
 

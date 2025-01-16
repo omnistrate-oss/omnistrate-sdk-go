@@ -233,11 +233,11 @@ func (a *SubscriptionRequestApiAPIService) SubscriptionRequestApiCancelSubscript
 type ApiSubscriptionRequestApiCreateSubscriptionRequestRequest struct {
 	ctx context.Context
 	ApiService SubscriptionRequestApiAPI
-	createSubscriptionRequestBody *CreateSubscriptionRequestBody
+	createSubscriptionRequestRequest2 *CreateSubscriptionRequestRequest2
 }
 
-func (r ApiSubscriptionRequestApiCreateSubscriptionRequestRequest) CreateSubscriptionRequestBody(createSubscriptionRequestBody CreateSubscriptionRequestBody) ApiSubscriptionRequestApiCreateSubscriptionRequestRequest {
-	r.createSubscriptionRequestBody = &createSubscriptionRequestBody
+func (r ApiSubscriptionRequestApiCreateSubscriptionRequestRequest) CreateSubscriptionRequestRequest2(createSubscriptionRequestRequest2 CreateSubscriptionRequestRequest2) ApiSubscriptionRequestApiCreateSubscriptionRequestRequest {
+	r.createSubscriptionRequestRequest2 = &createSubscriptionRequestRequest2
 	return r
 }
 
@@ -278,8 +278,8 @@ func (a *SubscriptionRequestApiAPIService) SubscriptionRequestApiCreateSubscript
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createSubscriptionRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createSubscriptionRequestBody is required and must be specified")
+	if r.createSubscriptionRequestRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createSubscriptionRequestRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -300,7 +300,7 @@ func (a *SubscriptionRequestApiAPIService) SubscriptionRequestApiCreateSubscript
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createSubscriptionRequestBody
+	localVarPostBody = r.createSubscriptionRequestRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 ## InfraConfigApiCreateInfraConfig
 
-> string InfraConfigApiCreateInfraConfig(ctx, serviceId).CreateInfraConfigRequestBody(createInfraConfigRequestBody).Execute()
+> string InfraConfigApiCreateInfraConfig(ctx, serviceId).CreateInfraConfigRequest2(createInfraConfigRequest2).Execute()
 
 CreateInfraConfig infra-config-api
 
@@ -39,11 +39,11 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The service ID
-	createInfraConfigRequestBody := *openapiclient.NewCreateInfraConfigRequestBody("Infra config used for the base tier MySQL service", "MySQL Writer Infra Config", "se-12345678") // CreateInfraConfigRequestBody | 
+	createInfraConfigRequest2 := *openapiclient.NewCreateInfraConfigRequest2("Infra config used for the base tier MySQL service", "MySQL Writer Infra Config", "se-12345678") // CreateInfraConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InfraConfigApiAPI.InfraConfigApiCreateInfraConfig(context.Background(), serviceId).CreateInfraConfigRequestBody(createInfraConfigRequestBody).Execute()
+	resp, r, err := apiClient.InfraConfigApiAPI.InfraConfigApiCreateInfraConfig(context.Background(), serviceId).CreateInfraConfigRequest2(createInfraConfigRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InfraConfigApiAPI.InfraConfigApiCreateInfraConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -69,7 +69,7 @@ Other parameters are passed through a pointer to a apiInfraConfigApiCreateInfraC
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createInfraConfigRequestBody** | [**CreateInfraConfigRequestBody**](CreateInfraConfigRequestBody.md) |  | 
+ **createInfraConfigRequest2** | [**CreateInfraConfigRequest2**](CreateInfraConfigRequest2.md) |  | 
 
 ### Return type
 
@@ -179,7 +179,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "ic-12345678" // string | Infra Config ID to operate on
-	productTierVersion := "Nostrum voluptatem eveniet officia." // string | Product tier version of the infra config to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Voluptas vero a." // string | Product tier version of the infra config to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the infra config to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -513,7 +513,7 @@ Name | Type | Description  | Notes
 
 ## InfraConfigApiListInfraConfig
 
-> ListServiceEnvironmentsResult InfraConfigApiListInfraConfig(ctx, serviceId, serviceEnvironmentId).Managed(managed).Execute()
+> ListInfraConfigResult InfraConfigApiListInfraConfig(ctx, serviceId, serviceEnvironmentId).Managed(managed).Execute()
 
 ListInfraConfig infra-config-api
 
@@ -541,7 +541,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `InfraConfigApiAPI.InfraConfigApiListInfraConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `InfraConfigApiListInfraConfig`: ListServiceEnvironmentsResult
+	// response from `InfraConfigApiListInfraConfig`: ListInfraConfigResult
 	fmt.Fprintf(os.Stdout, "Response from `InfraConfigApiAPI.InfraConfigApiListInfraConfig`: %v\n", resp)
 }
 ```
@@ -568,7 +568,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListServiceEnvironmentsResult**](ListServiceEnvironmentsResult.md)
+[**ListInfraConfigResult**](ListInfraConfigResult.md)
 
 ### Authorization
 
@@ -586,7 +586,7 @@ Name | Type | Description  | Notes
 
 ## InfraConfigApiReleaseInfraConfig
 
-> InfraConfigApiReleaseInfraConfig(ctx, serviceId, id).ReleaseInfraConfigRequestBody(releaseInfraConfigRequestBody).Execute()
+> InfraConfigApiReleaseInfraConfig(ctx, serviceId, id).ReleaseInfraConfigRequest2(releaseInfraConfigRequest2).Execute()
 
 ReleaseInfraConfig infra-config-api
 
@@ -605,11 +605,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "ic-12345678" // string | Infra Config ID to operate on
-	releaseInfraConfigRequestBody := *openapiclient.NewReleaseInfraConfigRequestBody() // ReleaseInfraConfigRequestBody | 
+	releaseInfraConfigRequest2 := *openapiclient.NewReleaseInfraConfigRequest2() // ReleaseInfraConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.InfraConfigApiAPI.InfraConfigApiReleaseInfraConfig(context.Background(), serviceId, id).ReleaseInfraConfigRequestBody(releaseInfraConfigRequestBody).Execute()
+	r, err := apiClient.InfraConfigApiAPI.InfraConfigApiReleaseInfraConfig(context.Background(), serviceId, id).ReleaseInfraConfigRequest2(releaseInfraConfigRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InfraConfigApiAPI.InfraConfigApiReleaseInfraConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -635,7 +635,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **releaseInfraConfigRequestBody** | [**ReleaseInfraConfigRequestBody**](ReleaseInfraConfigRequestBody.md) |  | 
+ **releaseInfraConfigRequest2** | [**ReleaseInfraConfigRequest2**](ReleaseInfraConfigRequest2.md) |  | 
 
 ### Return type
 
@@ -726,7 +726,7 @@ Name | Type | Description  | Notes
 
 ## InfraConfigApiRolloutFleetInfraStatus
 
-> OmnistrateServiceHealthResult InfraConfigApiRolloutFleetInfraStatus(ctx, serviceId, id).Execute()
+> RolloutFleetInfraStatusResult InfraConfigApiRolloutFleetInfraStatus(ctx, serviceId, id).Execute()
 
 RolloutFleetInfraStatus infra-config-api
 
@@ -753,7 +753,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `InfraConfigApiAPI.InfraConfigApiRolloutFleetInfraStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `InfraConfigApiRolloutFleetInfraStatus`: OmnistrateServiceHealthResult
+	// response from `InfraConfigApiRolloutFleetInfraStatus`: RolloutFleetInfraStatusResult
 	fmt.Fprintf(os.Stdout, "Response from `InfraConfigApiAPI.InfraConfigApiRolloutFleetInfraStatus`: %v\n", resp)
 }
 ```
@@ -779,7 +779,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OmnistrateServiceHealthResult**](OmnistrateServiceHealthResult.md)
+[**RolloutFleetInfraStatusResult**](RolloutFleetInfraStatusResult.md)
 
 ### Authorization
 
@@ -797,7 +797,7 @@ Name | Type | Description  | Notes
 
 ## InfraConfigApiUpdateInfraConfig
 
-> InfraConfigApiUpdateInfraConfig(ctx, serviceId, id).UpdateInfraConfigRequestBody(updateInfraConfigRequestBody).Execute()
+> InfraConfigApiUpdateInfraConfig(ctx, serviceId, id).UpdateInfraConfigRequest2(updateInfraConfigRequest2).Execute()
 
 UpdateInfraConfig infra-config-api
 
@@ -816,11 +816,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "ic-12345678" // string | Infra Config ID to operate on
-	updateInfraConfigRequestBody := *openapiclient.NewUpdateInfraConfigRequestBody() // UpdateInfraConfigRequestBody | 
+	updateInfraConfigRequest2 := *openapiclient.NewUpdateInfraConfigRequest2() // UpdateInfraConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.InfraConfigApiAPI.InfraConfigApiUpdateInfraConfig(context.Background(), serviceId, id).UpdateInfraConfigRequestBody(updateInfraConfigRequestBody).Execute()
+	r, err := apiClient.InfraConfigApiAPI.InfraConfigApiUpdateInfraConfig(context.Background(), serviceId, id).UpdateInfraConfigRequest2(updateInfraConfigRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InfraConfigApiAPI.InfraConfigApiUpdateInfraConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -846,7 +846,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **updateInfraConfigRequestBody** | [**UpdateInfraConfigRequestBody**](UpdateInfraConfigRequestBody.md) |  | 
+ **updateInfraConfigRequest2** | [**UpdateInfraConfigRequest2**](UpdateInfraConfigRequest2.md) |  | 
 
 ### Return type
 

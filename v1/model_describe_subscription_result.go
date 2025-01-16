@@ -20,7 +20,7 @@ var _ MappedNullable = &DescribeSubscriptionResult{}
 
 // DescribeSubscriptionResult struct for DescribeSubscriptionResult
 type DescribeSubscriptionResult struct {
-	// The org ID of the account config identity
+	// ID of an Org
 	AccountConfigIdentityId string `json:"accountConfigIdentityId"`
 	// List of cloud provider names
 	CloudProviderNames []string `json:"cloudProviderNames"`
@@ -28,27 +28,27 @@ type DescribeSubscriptionResult struct {
 	CreatedAt string `json:"createdAt"`
 	// Whether this is the default subscription for the user
 	DefaultSubscription bool `json:"defaultSubscription"`
-	// The subscription ID
+	// ID of a Subscription
 	Id string `json:"id"`
-	// The product tier ID that this subscription is tied to
+	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// The name of the product tier
 	ProductTierName string `json:"productTierName"`
-	// The role type of the caller user in this subscription
+	// Type of the role
 	RoleType string `json:"roleType"`
-	// The user ID that this subscription belong to
+	// ID of a User
 	RootUserId string `json:"rootUserId"`
-	// The service ID that this subscription is tied to
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The logo for the service
 	ServiceLogoURL string `json:"serviceLogoURL"`
 	// The name of the service
 	ServiceName string `json:"serviceName"`
-	// The org ID of the org that owns the service
+	// ID of an Org
 	ServiceOrgId string `json:"serviceOrgId"`
 	// The name of the org that owns the service
 	ServiceOrgName string `json:"serviceOrgName"`
-	// The status of the subscription
+	// Subscription Status
 	Status string `json:"status"`
 	// The name of the subscription owner user
 	SubscriptionOwnerName string `json:"subscriptionOwnerName"`

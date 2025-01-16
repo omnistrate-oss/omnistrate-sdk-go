@@ -22,7 +22,7 @@ var _ MappedNullable = &BillingPlan{}
 type BillingPlan struct {
 	// Allow creates when payment not configured
 	AllowCreatesWhenPaymentNotConfigured bool `json:"allowCreatesWhenPaymentNotConfigured"`
-	// Product tier billing plan ID
+	// ID of a Product Tier Billing Plan
 	Id string `json:"id"`
 	// Maximum number of instances
 	MaxNumberofInstances int64 `json:"maxNumberofInstances"`
@@ -30,9 +30,9 @@ type BillingPlan struct {
 	PlanName string `json:"planName"`
 	// Pricing in dollars.
 	Pricing interface{} `json:"pricing"`
-	// Product tier ID
+	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
-	// Service ID
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	AdditionalProperties map[string]interface{}
 }

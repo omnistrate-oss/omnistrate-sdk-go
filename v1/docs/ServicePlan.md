@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **Description** | **string** | Description of the Product Tier | 
 **ModelType** | **string** | The model type encapsulating this service | 
 **Name** | **string** | Name of the Product Tier | 
-**ProductTierID** | **string** | Product tier ID | 
-**TierType** | **string** | Product tier type | 
+**ProductTierID** | **string** | ID of a Product Tier | 
+**TierType** | **string** | ProductTierType is the type of tier for a product | 
 
 ## Methods
 

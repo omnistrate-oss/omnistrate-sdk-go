@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CreatedAt** | **string** | The time the service was created | 
 **Description** | **string** | A brief description of the service | 
-**Id** | **string** | The service ID to operate on | 
+**Id** | **string** | ID of a Service | 
 **Key** | **string** | Unique key of the service | 
 **Name** | **string** | Name of the Service | 
-**RoleType** | Pointer to **string** | The role type of the caller user | [optional] 
+**RoleType** | Pointer to **string** | Type of the role | [optional] 
 **ServiceEnvironments** | [**[]ServiceEnvironment**](ServiceEnvironment.md) | List of service environments | 
 **ServiceLogoURL** | Pointer to **string** | The logo for the service | [optional] 
-**ServiceProviderID** | **string** | The ID of the service provider owning the service | 
+**ServiceProviderID** | **string** | ID of a Service Provider | 
 **ServiceProviderName** | **string** | The name of the service provider | 
 
 ## Methods

@@ -20,7 +20,7 @@ var _ MappedNullable = &OmnistrateServiceHealthResult{}
 
 // OmnistrateServiceHealthResult struct for OmnistrateServiceHealthResult
 type OmnistrateServiceHealthResult struct {
-	// The status of the service
+	// The status of an operation
 	Status string `json:"status"`
 	AdditionalProperties map[string]interface{}
 }

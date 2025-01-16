@@ -85,8 +85,8 @@ type ComputeConfigApiAPI interface {
 	ComputeConfigApiListComputeConfig(ctx context.Context, serviceId string) ApiComputeConfigApiListComputeConfigRequest
 
 	// ComputeConfigApiListComputeConfigExecute executes the request
-	//  @return ListServiceEnvironmentsResult
-	ComputeConfigApiListComputeConfigExecute(r ApiComputeConfigApiListComputeConfigRequest) (*ListServiceEnvironmentsResult, *http.Response, error)
+	//  @return ListComputeConfigsResult
+	ComputeConfigApiListComputeConfigExecute(r ApiComputeConfigApiListComputeConfigRequest) (*ListComputeConfigsResult, *http.Response, error)
 
 	/*
 	ComputeConfigApiListComputeInstanceTypes ListComputeInstanceTypes compute-config-api
@@ -137,11 +137,11 @@ type ApiComputeConfigApiAddComputeInstanceTypeRequest struct {
 	ApiService ComputeConfigApiAPI
 	serviceId string
 	id string
-	addComputeInstanceTypeRequestBody *AddComputeInstanceTypeRequestBody
+	addComputeInstanceTypeRequest2 *AddComputeInstanceTypeRequest2
 }
 
-func (r ApiComputeConfigApiAddComputeInstanceTypeRequest) AddComputeInstanceTypeRequestBody(addComputeInstanceTypeRequestBody AddComputeInstanceTypeRequestBody) ApiComputeConfigApiAddComputeInstanceTypeRequest {
-	r.addComputeInstanceTypeRequestBody = &addComputeInstanceTypeRequestBody
+func (r ApiComputeConfigApiAddComputeInstanceTypeRequest) AddComputeInstanceTypeRequest2(addComputeInstanceTypeRequest2 AddComputeInstanceTypeRequest2) ApiComputeConfigApiAddComputeInstanceTypeRequest {
+	r.addComputeInstanceTypeRequest2 = &addComputeInstanceTypeRequest2
 	return r
 }
 
@@ -186,8 +186,8 @@ func (a *ComputeConfigApiAPIService) ComputeConfigApiAddComputeInstanceTypeExecu
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.addComputeInstanceTypeRequestBody == nil {
-		return nil, reportError("addComputeInstanceTypeRequestBody is required and must be specified")
+	if r.addComputeInstanceTypeRequest2 == nil {
+		return nil, reportError("addComputeInstanceTypeRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -208,7 +208,7 @@ func (a *ComputeConfigApiAPIService) ComputeConfigApiAddComputeInstanceTypeExecu
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.addComputeInstanceTypeRequestBody
+	localVarPostBody = r.addComputeInstanceTypeRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -306,11 +306,11 @@ type ApiComputeConfigApiCreateComputeConfigRequest struct {
 	ctx context.Context
 	ApiService ComputeConfigApiAPI
 	serviceId string
-	createComputeConfigRequestBody *CreateComputeConfigRequestBody
+	createComputeConfigRequest2 *CreateComputeConfigRequest2
 }
 
-func (r ApiComputeConfigApiCreateComputeConfigRequest) CreateComputeConfigRequestBody(createComputeConfigRequestBody CreateComputeConfigRequestBody) ApiComputeConfigApiCreateComputeConfigRequest {
-	r.createComputeConfigRequestBody = &createComputeConfigRequestBody
+func (r ApiComputeConfigApiCreateComputeConfigRequest) CreateComputeConfigRequest2(createComputeConfigRequest2 CreateComputeConfigRequest2) ApiComputeConfigApiCreateComputeConfigRequest {
+	r.createComputeConfigRequest2 = &createComputeConfigRequest2
 	return r
 }
 
@@ -354,8 +354,8 @@ func (a *ComputeConfigApiAPIService) ComputeConfigApiCreateComputeConfigExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createComputeConfigRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createComputeConfigRequestBody is required and must be specified")
+	if r.createComputeConfigRequest2 == nil {
+		return localVarReturnValue, nil, reportError("createComputeConfigRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -376,7 +376,7 @@ func (a *ComputeConfigApiAPIService) ComputeConfigApiCreateComputeConfigExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createComputeConfigRequestBody
+	localVarPostBody = r.createComputeConfigRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -841,7 +841,7 @@ func (r ApiComputeConfigApiListComputeConfigRequest) Managed(managed bool) ApiCo
 	return r
 }
 
-func (r ApiComputeConfigApiListComputeConfigRequest) Execute() (*ListServiceEnvironmentsResult, *http.Response, error) {
+func (r ApiComputeConfigApiListComputeConfigRequest) Execute() (*ListComputeConfigsResult, *http.Response, error) {
 	return r.ApiService.ComputeConfigApiListComputeConfigExecute(r)
 }
 
@@ -861,13 +861,13 @@ func (a *ComputeConfigApiAPIService) ComputeConfigApiListComputeConfig(ctx conte
 }
 
 // Execute executes the request
-//  @return ListServiceEnvironmentsResult
-func (a *ComputeConfigApiAPIService) ComputeConfigApiListComputeConfigExecute(r ApiComputeConfigApiListComputeConfigRequest) (*ListServiceEnvironmentsResult, *http.Response, error) {
+//  @return ListComputeConfigsResult
+func (a *ComputeConfigApiAPIService) ComputeConfigApiListComputeConfigExecute(r ApiComputeConfigApiListComputeConfigRequest) (*ListComputeConfigsResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListServiceEnvironmentsResult
+		localVarReturnValue  *ListComputeConfigsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ComputeConfigApiAPIService.ComputeConfigApiListComputeConfig")
@@ -1179,11 +1179,11 @@ type ApiComputeConfigApiRemoveComputeInstanceTypeRequest struct {
 	ApiService ComputeConfigApiAPI
 	serviceId string
 	id string
-	addComputeInstanceTypeRequestBody *AddComputeInstanceTypeRequestBody
+	removeComputeInstanceTypeRequest2 *RemoveComputeInstanceTypeRequest2
 }
 
-func (r ApiComputeConfigApiRemoveComputeInstanceTypeRequest) AddComputeInstanceTypeRequestBody(addComputeInstanceTypeRequestBody AddComputeInstanceTypeRequestBody) ApiComputeConfigApiRemoveComputeInstanceTypeRequest {
-	r.addComputeInstanceTypeRequestBody = &addComputeInstanceTypeRequestBody
+func (r ApiComputeConfigApiRemoveComputeInstanceTypeRequest) RemoveComputeInstanceTypeRequest2(removeComputeInstanceTypeRequest2 RemoveComputeInstanceTypeRequest2) ApiComputeConfigApiRemoveComputeInstanceTypeRequest {
+	r.removeComputeInstanceTypeRequest2 = &removeComputeInstanceTypeRequest2
 	return r
 }
 
@@ -1228,8 +1228,8 @@ func (a *ComputeConfigApiAPIService) ComputeConfigApiRemoveComputeInstanceTypeEx
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.addComputeInstanceTypeRequestBody == nil {
-		return nil, reportError("addComputeInstanceTypeRequestBody is required and must be specified")
+	if r.removeComputeInstanceTypeRequest2 == nil {
+		return nil, reportError("removeComputeInstanceTypeRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1250,7 +1250,7 @@ func (a *ComputeConfigApiAPIService) ComputeConfigApiRemoveComputeInstanceTypeEx
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.addComputeInstanceTypeRequestBody
+	localVarPostBody = r.removeComputeInstanceTypeRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1349,11 +1349,11 @@ type ApiComputeConfigApiUpdateComputeConfigRequest struct {
 	ApiService ComputeConfigApiAPI
 	serviceId string
 	id string
-	updateComputeConfigRequestBody *UpdateComputeConfigRequestBody
+	updateComputeConfigRequest2 *UpdateComputeConfigRequest2
 }
 
-func (r ApiComputeConfigApiUpdateComputeConfigRequest) UpdateComputeConfigRequestBody(updateComputeConfigRequestBody UpdateComputeConfigRequestBody) ApiComputeConfigApiUpdateComputeConfigRequest {
-	r.updateComputeConfigRequestBody = &updateComputeConfigRequestBody
+func (r ApiComputeConfigApiUpdateComputeConfigRequest) UpdateComputeConfigRequest2(updateComputeConfigRequest2 UpdateComputeConfigRequest2) ApiComputeConfigApiUpdateComputeConfigRequest {
+	r.updateComputeConfigRequest2 = &updateComputeConfigRequest2
 	return r
 }
 
@@ -1398,8 +1398,8 @@ func (a *ComputeConfigApiAPIService) ComputeConfigApiUpdateComputeConfigExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateComputeConfigRequestBody == nil {
-		return nil, reportError("updateComputeConfigRequestBody is required and must be specified")
+	if r.updateComputeConfigRequest2 == nil {
+		return nil, reportError("updateComputeConfigRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1420,7 +1420,7 @@ func (a *ComputeConfigApiAPIService) ComputeConfigApiUpdateComputeConfigExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateComputeConfigRequestBody
+	localVarPostBody = r.updateComputeConfigRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
