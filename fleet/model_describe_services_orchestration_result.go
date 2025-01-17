@@ -24,7 +24,7 @@ type DescribeServicesOrchestrationResult struct {
 	ServicesTopology []ServiceDeploymentDetails `json:"ServicesTopology,omitempty"`
 	// The time the services orchestration was created
 	CreatedAt string `json:"createdAt"`
-	// The ID of the services orchestration
+	// ID of a Services Orchestration
 	Id string `json:"id"`
 	// The reason why the orchestration failed
 	OrchestrationFailedReason *string `json:"orchestrationFailedReason,omitempty"`

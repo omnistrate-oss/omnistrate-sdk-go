@@ -20,23 +20,23 @@ var _ MappedNullable = &UpgradePathSearchRecord{}
 
 // UpgradePathSearchRecord struct for UpgradePathSearchRecord
 type UpgradePathSearchRecord struct {
-	// The ID of the upgrade path.
+	// ID of an Upgrade Path
 	Id string `json:"id"`
-	// The product tier ID of the upgrade path.
+	// ID of a Product Tier
 	ProductTierID string `json:"productTierID"`
 	// The product tier name of the upgrade path.
 	ProductTierName string `json:"productTierName"`
-	// The service environment ID of the upgrade path.
+	// ID of a Service Environment
 	ServiceEnvironmentId string `json:"serviceEnvironmentId"`
 	// The service environment name of the upgrade path.
 	ServiceEnvironmentName string `json:"serviceEnvironmentName"`
-	// The service environment type of the upgrade path.
+	// The type of service environment
 	ServiceEnvironmentType *string `json:"serviceEnvironmentType,omitempty"`
-	// The service ID of the upgrade path.
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The service name of the upgrade path.
 	ServiceName string `json:"serviceName"`
-	// The upgrade path status.
+	// The status of the upgrade path.
 	Status string `json:"status"`
 	AdditionalProperties map[string]interface{}
 }

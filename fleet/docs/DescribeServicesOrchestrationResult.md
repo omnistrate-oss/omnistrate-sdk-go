@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ServicesTopology** | Pointer to [**[]ServiceDeploymentDetails**](ServiceDeploymentDetails.md) | The services deployment details | [optional] 
 **CreatedAt** | **string** | The time the services orchestration was created | 
-**Id** | **string** | The ID of the services orchestration | 
+**Id** | **string** | ID of a Services Orchestration | 
 **OrchestrationFailedReason** | Pointer to **string** | The reason why the orchestration failed | [optional] 
 **ResultParams** | Pointer to **interface{}** | Custom result parameters of the services orchestration | [optional] 
 **Status** | **string** | The status of the services orchestration | 

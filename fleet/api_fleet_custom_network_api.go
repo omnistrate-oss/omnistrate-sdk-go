@@ -91,11 +91,11 @@ type FleetCustomNetworkApiAPIService service
 type ApiFleetCustomNetworkApiCreateCustomNetworkRequest struct {
 	ctx context.Context
 	ApiService FleetCustomNetworkApiAPI
-	createCustomNetworkRequestBody *CreateCustomNetworkRequestBody
+	fleetCreateCustomNetworkRequest2 *FleetCreateCustomNetworkRequest2
 }
 
-func (r ApiFleetCustomNetworkApiCreateCustomNetworkRequest) CreateCustomNetworkRequestBody(createCustomNetworkRequestBody CreateCustomNetworkRequestBody) ApiFleetCustomNetworkApiCreateCustomNetworkRequest {
-	r.createCustomNetworkRequestBody = &createCustomNetworkRequestBody
+func (r ApiFleetCustomNetworkApiCreateCustomNetworkRequest) FleetCreateCustomNetworkRequest2(fleetCreateCustomNetworkRequest2 FleetCreateCustomNetworkRequest2) ApiFleetCustomNetworkApiCreateCustomNetworkRequest {
+	r.fleetCreateCustomNetworkRequest2 = &fleetCreateCustomNetworkRequest2
 	return r
 }
 
@@ -136,8 +136,8 @@ func (a *FleetCustomNetworkApiAPIService) FleetCustomNetworkApiCreateCustomNetwo
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createCustomNetworkRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createCustomNetworkRequestBody is required and must be specified")
+	if r.fleetCreateCustomNetworkRequest2 == nil {
+		return localVarReturnValue, nil, reportError("fleetCreateCustomNetworkRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -158,7 +158,7 @@ func (a *FleetCustomNetworkApiAPIService) FleetCustomNetworkApiCreateCustomNetwo
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createCustomNetworkRequestBody
+	localVarPostBody = r.fleetCreateCustomNetworkRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -624,11 +624,11 @@ type ApiFleetCustomNetworkApiUpdateCustomNetworkRequest struct {
 	ctx context.Context
 	ApiService FleetCustomNetworkApiAPI
 	id string
-	createCustomerOnboardingRequestBody *CreateCustomerOnboardingRequestBody
+	fleetUpdateCustomNetworkRequest2 *FleetUpdateCustomNetworkRequest2
 }
 
-func (r ApiFleetCustomNetworkApiUpdateCustomNetworkRequest) CreateCustomerOnboardingRequestBody(createCustomerOnboardingRequestBody CreateCustomerOnboardingRequestBody) ApiFleetCustomNetworkApiUpdateCustomNetworkRequest {
-	r.createCustomerOnboardingRequestBody = &createCustomerOnboardingRequestBody
+func (r ApiFleetCustomNetworkApiUpdateCustomNetworkRequest) FleetUpdateCustomNetworkRequest2(fleetUpdateCustomNetworkRequest2 FleetUpdateCustomNetworkRequest2) ApiFleetCustomNetworkApiUpdateCustomNetworkRequest {
+	r.fleetUpdateCustomNetworkRequest2 = &fleetUpdateCustomNetworkRequest2
 	return r
 }
 
@@ -672,8 +672,8 @@ func (a *FleetCustomNetworkApiAPIService) FleetCustomNetworkApiUpdateCustomNetwo
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createCustomerOnboardingRequestBody == nil {
-		return localVarReturnValue, nil, reportError("createCustomerOnboardingRequestBody is required and must be specified")
+	if r.fleetUpdateCustomNetworkRequest2 == nil {
+		return localVarReturnValue, nil, reportError("fleetUpdateCustomNetworkRequest2 is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -694,7 +694,7 @@ func (a *FleetCustomNetworkApiAPIService) FleetCustomNetworkApiUpdateCustomNetwo
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createCustomerOnboardingRequestBody
+	localVarPostBody = r.fleetUpdateCustomNetworkRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

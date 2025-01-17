@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Events** | [**[]ServiceProviderEvent**](ServiceProviderEvent.md) | List of events | 
 **EventsSummary** | [**ServiceProviderEventSummary**](ServiceProviderEventSummary.md) |  | 
-**NextPageToken** | Pointer to **string** |  | [optional] 
+**NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
 
 ## Methods
 

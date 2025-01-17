@@ -20,7 +20,7 @@ var _ MappedNullable = &ResourceInstanceSearchRecord{}
 
 // ResourceInstanceSearchRecord struct for ResourceInstanceSearchRecord
 type ResourceInstanceSearchRecord struct {
-	// The cloud provider where the instance is hosted.
+	// Name of the Infra Provider
 	CloudProvider string `json:"cloudProvider"`
 	// The instance description.
 	Description string `json:"description"`
@@ -32,7 +32,7 @@ type ResourceInstanceSearchRecord struct {
 	ManagedResourceType *string `json:"managedResourceType,omitempty"`
 	// The ports registration status of the ports based proxy instance.
 	PortsRegistrationStatus *map[string][]int64 `json:"portsRegistrationStatus,omitempty"`
-	// The product tier ID of the instance.
+	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// The product tier name of the instance.
 	ProductTierName *string `json:"productTierName,omitempty"`
@@ -42,25 +42,25 @@ type ResourceInstanceSearchRecord struct {
 	ProxyType *string `json:"proxyType,omitempty"`
 	// The region code where the instance is hosted.
 	RegionCode string `json:"regionCode"`
-	// The resource ID of the instance.
+	// ID of a resource
 	ResourceId *string `json:"resourceId,omitempty"`
 	// The name of the resource for the instance.
 	ResourceName string `json:"resourceName"`
-	// The service environment ID of the instance.
+	// ID of a Service Environment
 	ServiceEnvironmentId string `json:"serviceEnvironmentId"`
 	// The service environment name of the instance.
 	ServiceEnvironmentName string `json:"serviceEnvironmentName"`
-	// The type of the service environment.
+	// The type of service environment
 	ServiceEnvironmentType *string `json:"serviceEnvironmentType,omitempty"`
-	// The service ID of the instance.
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The service name of the instance.
 	ServiceName string `json:"serviceName"`
-	// The instance status.
+	// The status of an operation
 	Status string `json:"status"`
 	// The instance status description.
 	StatusDescription string `json:"statusDescription"`
-	// The subscription ID of the instance.
+	// ID of a Subscription
 	SubscriptionId *string `json:"subscriptionId,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

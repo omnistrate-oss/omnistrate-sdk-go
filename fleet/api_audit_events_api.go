@@ -32,8 +32,8 @@ type AuditEventsApiAPI interface {
 	AuditEventsApiAuditEvents(ctx context.Context) ApiAuditEventsApiAuditEventsRequest
 
 	// AuditEventsApiAuditEventsExecute executes the request
-	//  @return FleetListEventsResult
-	AuditEventsApiAuditEventsExecute(r ApiAuditEventsApiAuditEventsRequest) (*FleetListEventsResult, *http.Response, error)
+	//  @return FleetAuditEventsResult
+	AuditEventsApiAuditEventsExecute(r ApiAuditEventsApiAuditEventsRequest) (*FleetAuditEventsResult, *http.Response, error)
 }
 
 // AuditEventsApiAPIService AuditEventsApiAPI service
@@ -46,6 +46,7 @@ type ApiAuditEventsApiAuditEventsRequest struct {
 	environmentType *string
 	eventSourceTypes *[]string
 	instanceID *string
+	productTierID *string
 	nextPageToken *string
 	pageSize *int64
 	startDate *time.Time
@@ -75,6 +76,11 @@ func (r ApiAuditEventsApiAuditEventsRequest) InstanceID(instanceID string) ApiAu
 	return r
 }
 
+func (r ApiAuditEventsApiAuditEventsRequest) ProductTierID(productTierID string) ApiAuditEventsApiAuditEventsRequest {
+	r.productTierID = &productTierID
+	return r
+}
+
 // The next token to use for pagination
 func (r ApiAuditEventsApiAuditEventsRequest) NextPageToken(nextPageToken string) ApiAuditEventsApiAuditEventsRequest {
 	r.nextPageToken = &nextPageToken
@@ -99,7 +105,7 @@ func (r ApiAuditEventsApiAuditEventsRequest) EndDate(endDate time.Time) ApiAudit
 	return r
 }
 
-func (r ApiAuditEventsApiAuditEventsRequest) Execute() (*FleetListEventsResult, *http.Response, error) {
+func (r ApiAuditEventsApiAuditEventsRequest) Execute() (*FleetAuditEventsResult, *http.Response, error) {
 	return r.ApiService.AuditEventsApiAuditEventsExecute(r)
 }
 
@@ -117,13 +123,13 @@ func (a *AuditEventsApiAPIService) AuditEventsApiAuditEvents(ctx context.Context
 }
 
 // Execute executes the request
-//  @return FleetListEventsResult
-func (a *AuditEventsApiAPIService) AuditEventsApiAuditEventsExecute(r ApiAuditEventsApiAuditEventsRequest) (*FleetListEventsResult, *http.Response, error) {
+//  @return FleetAuditEventsResult
+func (a *AuditEventsApiAPIService) AuditEventsApiAuditEventsExecute(r ApiAuditEventsApiAuditEventsRequest) (*FleetAuditEventsResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *FleetListEventsResult
+		localVarReturnValue  *FleetAuditEventsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuditEventsApiAPIService.AuditEventsApiAuditEvents")
@@ -156,6 +162,9 @@ func (a *AuditEventsApiAPIService) AuditEventsApiAuditEventsExecute(r ApiAuditEv
 	}
 	if r.instanceID != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "instanceID", r.instanceID, "form", "")
+	}
+	if r.productTierID != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "productTierID", r.productTierID, "form", "")
 	}
 	if r.nextPageToken != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")

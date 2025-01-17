@@ -30,7 +30,7 @@ type ServiceWorkflow struct {
 	WorkflowType string `json:"WorkflowType"`
 	// The AWS account ID
 	AwsAccountID *string `json:"awsAccountID,omitempty"`
-	// The cloud provider the workflow executed on.
+	// Name of the Infra Provider
 	CloudProvider string `json:"cloudProvider"`
 	// The time the workflow execution ended.
 	EndTime *string `json:"endTime,omitempty"`

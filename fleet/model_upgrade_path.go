@@ -34,11 +34,11 @@ type UpgradePath struct {
 	InProgressCount int64 `json:"inProgressCount"`
 	// The number of instances that are pending the upgrade.
 	PendingCount int64 `json:"pendingCount"`
-	// The product tier ID that this upgrade path belongs to
+	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// The timestamp when the upgrade path was released.
 	ReleasedAt string `json:"releasedAt"`
-	// The service ID this workflow belongs to.
+	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The source version of the upgrade path.
 	SourceVersion string `json:"sourceVersion"`
@@ -52,7 +52,7 @@ type UpgradePath struct {
 	Type string `json:"type"`
 	// The timestamp when the upgrade path was updated.
 	UpdatedAt string `json:"updatedAt"`
-	// The upgrade path ID
+	// ID of an Upgrade Path
 	UpgradePathId string `json:"upgradePathId"`
 	AdditionalProperties map[string]interface{}
 }

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## FleetCustomNetworkApiCreateCustomNetwork
 
-> FleetCustomNetwork FleetCustomNetworkApiCreateCustomNetwork(ctx).CreateCustomNetworkRequestBody(createCustomNetworkRequestBody).Execute()
+> FleetCustomNetwork FleetCustomNetworkApiCreateCustomNetwork(ctx).FleetCreateCustomNetworkRequest2(fleetCreateCustomNetworkRequest2).Execute()
 
 CreateCustomNetwork fleet-custom-network-api
 
@@ -31,11 +31,11 @@ import (
 )
 
 func main() {
-	createCustomNetworkRequestBody := *openapiclient.NewCreateCustomNetworkRequestBody("10.0.0.0/16", "aws", "us-east-1") // CreateCustomNetworkRequestBody | 
+	fleetCreateCustomNetworkRequest2 := *openapiclient.NewFleetCreateCustomNetworkRequest2("10.0.0.0/16", "aws", "us-east-1") // FleetCreateCustomNetworkRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FleetCustomNetworkApiAPI.FleetCustomNetworkApiCreateCustomNetwork(context.Background()).CreateCustomNetworkRequestBody(createCustomNetworkRequestBody).Execute()
+	resp, r, err := apiClient.FleetCustomNetworkApiAPI.FleetCustomNetworkApiCreateCustomNetwork(context.Background()).FleetCreateCustomNetworkRequest2(fleetCreateCustomNetworkRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FleetCustomNetworkApiAPI.FleetCustomNetworkApiCreateCustomNetwork``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -56,7 +56,7 @@ Other parameters are passed through a pointer to a apiFleetCustomNetworkApiCreat
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createCustomNetworkRequestBody** | [**CreateCustomNetworkRequestBody**](CreateCustomNetworkRequestBody.md) |  | 
+ **fleetCreateCustomNetworkRequest2** | [**FleetCreateCustomNetworkRequest2**](FleetCreateCustomNetworkRequest2.md) |  | 
 
 ### Return type
 
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
 
 ## FleetCustomNetworkApiUpdateCustomNetwork
 
-> FleetCustomNetwork FleetCustomNetworkApiUpdateCustomNetwork(ctx, id).CreateCustomerOnboardingRequestBody(createCustomerOnboardingRequestBody).Execute()
+> FleetCustomNetwork FleetCustomNetworkApiUpdateCustomNetwork(ctx, id).FleetUpdateCustomNetworkRequest2(fleetUpdateCustomNetworkRequest2).Execute()
 
 UpdateCustomNetwork fleet-custom-network-api
 
@@ -298,11 +298,11 @@ import (
 
 func main() {
 	id := "n-12345678" // string | ID of a custom network
-	createCustomerOnboardingRequestBody := *openapiclient.NewCreateCustomerOnboardingRequestBody() // CreateCustomerOnboardingRequestBody | 
+	fleetUpdateCustomNetworkRequest2 := *openapiclient.NewFleetUpdateCustomNetworkRequest2() // FleetUpdateCustomNetworkRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FleetCustomNetworkApiAPI.FleetCustomNetworkApiUpdateCustomNetwork(context.Background(), id).CreateCustomerOnboardingRequestBody(createCustomerOnboardingRequestBody).Execute()
+	resp, r, err := apiClient.FleetCustomNetworkApiAPI.FleetCustomNetworkApiUpdateCustomNetwork(context.Background(), id).FleetUpdateCustomNetworkRequest2(fleetUpdateCustomNetworkRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FleetCustomNetworkApiAPI.FleetCustomNetworkApiUpdateCustomNetwork``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -328,7 +328,7 @@ Other parameters are passed through a pointer to a apiFleetCustomNetworkApiUpdat
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createCustomerOnboardingRequestBody** | [**CreateCustomerOnboardingRequestBody**](CreateCustomerOnboardingRequestBody.md) |  | 
+ **fleetUpdateCustomNetworkRequest2** | [**FleetUpdateCustomNetworkRequest2**](FleetUpdateCustomNetworkRequest2.md) |  | 
 
 ### Return type
 

@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ## OperationsApiListEvents
 
-> ListServiceProviderEventsResult OperationsApiListEvents(ctx).EnvironmentType(environmentType).EventTypes(eventTypes).ServiceID(serviceID).ServiceEnvironmentID(serviceEnvironmentID).InstanceID(instanceID).NextPageToken(nextPageToken).PageSize(pageSize).StartDate(startDate).EndDate(endDate).Execute()
+> ListServiceProviderEventsResult OperationsApiListEvents(ctx).EnvironmentType(environmentType).EventTypes(eventTypes).ServiceID(serviceID).ServiceEnvironmentID(serviceEnvironmentID).InstanceID(instanceID).NextPageToken(nextPageToken).PageSize(pageSize).StartDate(startDate).EndDate(endDate).ProductTierID(productTierID).Execute()
 
 ListEvents operations-api
 
@@ -107,10 +107,11 @@ func main() {
 	pageSize := int64(10) // int64 | The number of events to return per page (optional)
 	startDate := time.Now() // time.Time | Start date of the events (optional)
 	endDate := time.Now() // time.Time | End date of the events (optional)
+	productTierID := "Consequatur ipsa fugit minima repellendus." // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OperationsApiAPI.OperationsApiListEvents(context.Background()).EnvironmentType(environmentType).EventTypes(eventTypes).ServiceID(serviceID).ServiceEnvironmentID(serviceEnvironmentID).InstanceID(instanceID).NextPageToken(nextPageToken).PageSize(pageSize).StartDate(startDate).EndDate(endDate).Execute()
+	resp, r, err := apiClient.OperationsApiAPI.OperationsApiListEvents(context.Background()).EnvironmentType(environmentType).EventTypes(eventTypes).ServiceID(serviceID).ServiceEnvironmentID(serviceEnvironmentID).InstanceID(instanceID).NextPageToken(nextPageToken).PageSize(pageSize).StartDate(startDate).EndDate(endDate).ProductTierID(productTierID).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OperationsApiAPI.OperationsApiListEvents``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -140,6 +141,7 @@ Name | Type | Description  | Notes
  **pageSize** | **int64** | The number of events to return per page | 
  **startDate** | **time.Time** | Start date of the events | 
  **endDate** | **time.Time** | End date of the events | 
+ **productTierID** | **string** |  | 
 
 ### Return type
 

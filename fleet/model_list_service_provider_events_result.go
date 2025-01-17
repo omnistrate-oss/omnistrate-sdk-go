@@ -23,6 +23,7 @@ type ListServiceProviderEventsResult struct {
 	// List of events
 	Events []ServiceProviderEvent `json:"events"`
 	EventsSummary ServiceProviderEventSummary `json:"eventsSummary"`
+	// The next token to use for pagination
 	NextPageToken *string `json:"nextPageToken,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

@@ -20,19 +20,19 @@ var _ MappedNullable = &CustomerOnboarding{}
 
 // CustomerOnboarding struct for CustomerOnboarding
 type CustomerOnboarding struct {
-	// The ID of the onboarding.
+	// ID of a Customer Onboarding
 	Id string `json:"id"`
 	// Whether the onboarding is completed.
 	IsCompleted bool `json:"isCompleted"`
 	// The name of the onboarding.
 	Name *string `json:"name,omitempty"`
-	// The Organization ID of the user.
+	// ID of an Org
 	OrgId string `json:"orgId"`
 	// The ID of the service associated with this onboarding.
 	ServiceId *string `json:"serviceId,omitempty"`
 	// The stages of the onboarding.
 	Stages []OnboardingStage `json:"stages"`
-	// The user ID.
+	// ID of a User
 	UserId string `json:"userId"`
 	AdditionalProperties map[string]interface{}
 }

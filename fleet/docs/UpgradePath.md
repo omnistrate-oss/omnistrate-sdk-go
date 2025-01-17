@@ -11,16 +11,16 @@ Name | Type | Description | Notes
 **FailedCount** | **int64** | The number of instances that have failed the upgrade. | 
 **InProgressCount** | **int64** | The number of instances that are in progress of the upgrade. | 
 **PendingCount** | **int64** | The number of instances that are pending the upgrade. | 
-**ProductTierId** | **string** | The product tier ID that this upgrade path belongs to | 
+**ProductTierId** | **string** | ID of a Product Tier | 
 **ReleasedAt** | **string** | The timestamp when the upgrade path was released. | 
-**ServiceId** | **string** | The service ID this workflow belongs to. | 
+**ServiceId** | **string** | ID of a Service | 
 **SourceVersion** | **string** | The source version of the upgrade path. | 
 **Status** | **string** | The status of the upgrade path. | 
 **TargetVersion** | **string** | The target version of the upgrade path. | 
 **TotalCount** | **int64** | The total number of instances that are eligible for the upgrade. | 
 **Type** | **string** | The type of the upgrade path. | 
 **UpdatedAt** | **string** | The timestamp when the upgrade path was updated. | 
-**UpgradePathId** | **string** | The upgrade path ID | 
+**UpgradePathId** | **string** | ID of an Upgrade Path | 
 
 ## Methods
 

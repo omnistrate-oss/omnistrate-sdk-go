@@ -5,20 +5,20 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AvailabilityZone** | Pointer to **string** | The availability zone of the node | [optional] 
-**ConnectivityStatus** | Pointer to **string** | The health status of the network endpoints | [optional] 
-**DiskHealth** | Pointer to **string** | The health status of the disk | [optional] 
+**ConnectivityStatus** | Pointer to **string** | The heath status of a resource | [optional] 
+**DiskHealth** | Pointer to **string** | The heath status of a resource | [optional] 
 **Endpoint** | Pointer to **string** | The endpoint of the node | [optional] 
 **Events** | Pointer to **[]string** | The list of process events | [optional] 
 **IntegrationsHealth** | Pointer to [**IntegrationsHealth**](IntegrationsHealth.md) |  | [optional] 
-**LoadHealth** | Pointer to **string** | (deprecated) The load status of the pod | [optional] 
-**LoadStatus** | Pointer to **string** | The load status of the pod | [optional] 
-**NodeHealth** | Pointer to **string** | The health status of the machine hosting the service | [optional] 
+**LoadHealth** | Pointer to **string** | The load status of a pod | [optional] 
+**LoadStatus** | Pointer to **string** | The load status of a pod | [optional] 
+**NodeHealth** | Pointer to **string** | The heath status of a resource | [optional] 
 **NodeName** | Pointer to **string** | The name of the node | [optional] 
 **Ports** | Pointer to **[]int64** | The ports that this node exposes | [optional] 
-**ProcessHealth** | Pointer to **string** | The health status of the process | [optional] 
-**ProcessLiveness** | Pointer to **string** | The liveness status of the process | [optional] 
+**ProcessHealth** | Pointer to **string** | The heath status of a resource | [optional] 
+**ProcessLiveness** | Pointer to **string** | The heath status of a resource | [optional] 
 **RecentLogs** | Pointer to **string** | The recent logs of the process | [optional] 
-**Status** | Pointer to **string** | The overall status of the node | [optional] 
+**Status** | Pointer to **string** | The heath status of a resource | [optional] 
 
 ## Methods
 

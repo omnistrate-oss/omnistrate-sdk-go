@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DependsOnDeployment** | Pointer to **[]string** | The deployment keys that this deployment depends on | [optional] 
 **InstanceDeploymentAlias** | **string** | The instance deployment alias | 
-**InstanceId** | Pointer to **string** | The instance ID | [optional] 
-**ServiceId** | **string** | The service ID | 
+**InstanceId** | Pointer to **string** | ID of a Resource Instance | [optional] 
+**ServiceId** | **string** | ID of a Service | 
 **Status** | Pointer to **string** | The status of the service deployment | [optional] 
 **StatusMessage** | Pointer to **string** | The status message of the service deployment | [optional] 
-**SubscriptionId** | **string** | The instance subscription ID | 
+**SubscriptionId** | **string** | ID of a Subscription | 
 
 ## Methods
 
