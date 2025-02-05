@@ -21,6 +21,8 @@ var _ MappedNullable = &ClusterEndpoint{}
 type ClusterEndpoint struct {
 	// The endpoint
 	Endpoint *string `json:"endpoint,omitempty"`
+	// The heath status of a resource
+	HealthStatus *string `json:"healthStatus,omitempty"`
 	// The networking type for this resource
 	NetworkingType *string `json:"networkingType,omitempty"`
 	// The open ports
@@ -78,6 +80,29 @@ func (o *ClusterEndpoint) GetEndpointOk() (*string, bool) {
 // SetEndpoint gets a reference to the given string and assigns it to the Endpoint field.
 func (o *ClusterEndpoint) SetEndpoint(v string) {
 	o.Endpoint = &v
+}
+
+// GetHealthStatus returns the HealthStatus field value if set, zero value otherwise.
+func (o *ClusterEndpoint) GetHealthStatus() string {
+	if o == nil || IsNil(o.HealthStatus) {
+		var ret string
+		return ret
+	}
+	return *o.HealthStatus
+}
+
+// GetHealthStatusOk returns a tuple with the HealthStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ClusterEndpoint) GetHealthStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.HealthStatus) {
+		return nil, false
+	}
+	return o.HealthStatus, true
+}
+
+// SetHealthStatus gets a reference to the given string and assigns it to the HealthStatus field.
+func (o *ClusterEndpoint) SetHealthStatus(v string) {
+	o.HealthStatus = &v
 }
 
 // GetNetworkingType returns the NetworkingType field value if set, zero value otherwise.
@@ -162,6 +187,9 @@ func (o ClusterEndpoint) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Endpoint) {
 		toSerialize["endpoint"] = o.Endpoint
 	}
+	if !IsNil(o.HealthStatus) {
+		toSerialize["healthStatus"] = o.HealthStatus
+	}
 	if !IsNil(o.NetworkingType) {
 		toSerialize["networkingType"] = o.NetworkingType
 	}
@@ -194,6 +222,7 @@ func (o *ClusterEndpoint) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "endpoint")
+		delete(additionalProperties, "healthStatus")
 		delete(additionalProperties, "networkingType")
 		delete(additionalProperties, "openPorts")
 		delete(additionalProperties, "primary")

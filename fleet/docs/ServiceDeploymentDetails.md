@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DependsOnDeployment** | Pointer to **[]string** | The deployment keys that this deployment depends on | [optional] 
+**FailedReason** | Pointer to **string** | The reason why the deployment failed | [optional] 
 **InstanceDeploymentAlias** | **string** | The instance deployment alias | 
 **InstanceId** | Pointer to **string** | ID of a Resource Instance | [optional] 
 **ServiceId** | **string** | ID of a Service | 
@@ -55,6 +56,31 @@ SetDependsOnDeployment sets DependsOnDeployment field to given value.
 `func (o *ServiceDeploymentDetails) HasDependsOnDeployment() bool`
 
 HasDependsOnDeployment returns a boolean if a field has been set.
+
+### GetFailedReason
+
+`func (o *ServiceDeploymentDetails) GetFailedReason() string`
+
+GetFailedReason returns the FailedReason field if non-nil, zero value otherwise.
+
+### GetFailedReasonOk
+
+`func (o *ServiceDeploymentDetails) GetFailedReasonOk() (*string, bool)`
+
+GetFailedReasonOk returns a tuple with the FailedReason field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFailedReason
+
+`func (o *ServiceDeploymentDetails) SetFailedReason(v string)`
+
+SetFailedReason sets FailedReason field to given value.
+
+### HasFailedReason
+
+`func (o *ServiceDeploymentDetails) HasFailedReason() bool`
+
+HasFailedReason returns a boolean if a field has been set.
 
 ### GetInstanceDeploymentAlias
 

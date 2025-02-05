@@ -62,6 +62,8 @@ type DescribeResourceInstanceResult struct {
 	ProductTierFeatures map[string]interface{} `json:"productTierFeatures,omitempty"`
 	// The region code
 	Region *string `json:"region,omitempty"`
+	// ID of a resource
+	ResourceID *string `json:"resourceID,omitempty"`
 	// Custom result parameters
 	ResultParams interface{} `json:"result_params,omitempty"`
 	// Whether the instance has serverless enabled
@@ -828,6 +830,38 @@ func (o *DescribeResourceInstanceResult) SetRegion(v string) {
 	o.Region = &v
 }
 
+// GetResourceID returns the ResourceID field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetResourceID() string {
+	if o == nil || IsNil(o.ResourceID) {
+		var ret string
+		return ret
+	}
+	return *o.ResourceID
+}
+
+// GetResourceIDOk returns a tuple with the ResourceID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetResourceIDOk() (*string, bool) {
+	if o == nil || IsNil(o.ResourceID) {
+		return nil, false
+	}
+	return o.ResourceID, true
+}
+
+// HasResourceID returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasResourceID() bool {
+	if o != nil && !IsNil(o.ResourceID) {
+		return true
+	}
+
+	return false
+}
+
+// SetResourceID gets a reference to the given string and assigns it to the ResourceID field.
+func (o *DescribeResourceInstanceResult) SetResourceID(v string) {
+	o.ResourceID = &v
+}
+
 // GetResultParams returns the ResultParams field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DescribeResourceInstanceResult) GetResultParams() interface{} {
 	if o == nil {
@@ -1036,6 +1070,9 @@ func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.Region) {
 		toSerialize["region"] = o.Region
 	}
+	if !IsNil(o.ResourceID) {
+		toSerialize["resourceID"] = o.ResourceID
+	}
 	if o.ResultParams != nil {
 		toSerialize["result_params"] = o.ResultParams
 	}
@@ -1093,6 +1130,7 @@ func (o *DescribeResourceInstanceResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "network_type")
 		delete(additionalProperties, "productTierFeatures")
 		delete(additionalProperties, "region")
+		delete(additionalProperties, "resourceID")
 		delete(additionalProperties, "result_params")
 		delete(additionalProperties, "serverlessEnabled")
 		delete(additionalProperties, "status")
