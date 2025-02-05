@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **NetworkDefinitionType** | Pointer to **string** | Type of the network definition | [optional] 
 **NetworkFeaturesConfiguration** | Pointer to [**NetworkFeaturesConfiguration**](NetworkFeaturesConfiguration.md) |  | [optional] 
 **NetworkInstances** | Pointer to [**[]CustomNetworkInstance**](CustomNetworkInstance.md) | List of network instances created within this custom network | [optional] 
+**OwningUserId** | Pointer to **string** | ID of a User | [optional] 
+**OwningUserName** | Pointer to **string** | The name of the user that created and owns the custom network | [optional] 
 
 ## Methods
 
@@ -216,6 +218,56 @@ SetNetworkInstances sets NetworkInstances field to given value.
 `func (o *CustomNetwork) HasNetworkInstances() bool`
 
 HasNetworkInstances returns a boolean if a field has been set.
+
+### GetOwningUserId
+
+`func (o *CustomNetwork) GetOwningUserId() string`
+
+GetOwningUserId returns the OwningUserId field if non-nil, zero value otherwise.
+
+### GetOwningUserIdOk
+
+`func (o *CustomNetwork) GetOwningUserIdOk() (*string, bool)`
+
+GetOwningUserIdOk returns a tuple with the OwningUserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwningUserId
+
+`func (o *CustomNetwork) SetOwningUserId(v string)`
+
+SetOwningUserId sets OwningUserId field to given value.
+
+### HasOwningUserId
+
+`func (o *CustomNetwork) HasOwningUserId() bool`
+
+HasOwningUserId returns a boolean if a field has been set.
+
+### GetOwningUserName
+
+`func (o *CustomNetwork) GetOwningUserName() string`
+
+GetOwningUserName returns the OwningUserName field if non-nil, zero value otherwise.
+
+### GetOwningUserNameOk
+
+`func (o *CustomNetwork) GetOwningUserNameOk() (*string, bool)`
+
+GetOwningUserNameOk returns a tuple with the OwningUserName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwningUserName
+
+`func (o *CustomNetwork) SetOwningUserName(v string)`
+
+SetOwningUserName sets OwningUserName field to given value.
+
+### HasOwningUserName
+
+`func (o *CustomNetwork) HasOwningUserName() bool`
+
+HasOwningUserName returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

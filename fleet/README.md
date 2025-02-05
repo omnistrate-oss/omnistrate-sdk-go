@@ -114,6 +114,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiCreateResourceInstanceSnapshot**](docs/InventoryApiAPI.md#inventoryapicreateresourceinstancesnapshot) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/snapshot | CreateResourceInstanceSnapshot inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateServicesOrchestration**](docs/InventoryApiAPI.md#inventoryapicreateservicesorchestration) | **Post** /2022-09-01-00/fleet/services-orchestration | CreateServicesOrchestration inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateUpgradePath**](docs/InventoryApiAPI.md#inventoryapicreateupgradepath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path | CreateUpgradePath inventory-api
+*InventoryApiAPI* | [**InventoryApiDebugResourceInstance**](docs/InventoryApiAPI.md#inventoryapidebugresourceinstance) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/debug | DebugResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiDeleteProxyResourceInstance**](docs/InventoryApiAPI.md#inventoryapideleteproxyresourceinstance) | **Delete** /2022-09-01-00/fleet/proxy-resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{id} | DeleteProxyResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiDeleteResourceInstance**](docs/InventoryApiAPI.md#inventoryapideleteresourceinstance) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId} | DeleteResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiDeleteResourceInstanceSnapshot**](docs/InventoryApiAPI.md#inventoryapideleteresourceinstancesnapshot) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/snapshot/{snapshotId} | DeleteResourceInstanceSnapshot inventory-api
@@ -248,6 +249,9 @@ Class | Method | HTTP request | Description
  - [CustomerSigninRequest](docs/CustomerSigninRequest.md)
  - [CustomerSigninResult](docs/CustomerSigninResult.md)
  - [CustomerSignupRequest](docs/CustomerSignupRequest.md)
+ - [DebugResourceInstanceRequest](docs/DebugResourceInstanceRequest.md)
+ - [DebugResourceInstanceResult](docs/DebugResourceInstanceResult.md)
+ - [DebugResourceResult](docs/DebugResourceResult.md)
  - [DeleteCustomerOnboardingRequest](docs/DeleteCustomerOnboardingRequest.md)
  - [DeleteIdentityProviderRequest](docs/DeleteIdentityProviderRequest.md)
  - [DeleteNotificationChannelRequest](docs/DeleteNotificationChannelRequest.md)

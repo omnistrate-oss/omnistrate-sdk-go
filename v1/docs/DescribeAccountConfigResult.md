@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **ByoaInstanceIDs** | Pointer to **[]string** | The BYOA instance IDs that this account config is tied to | [optional] 
 **CloudProviderId** | **string** | ID of an CloudProvider | 
 **Description** | **string** | The description for the account | 
+**GcpBootstrapShellCommand** | Pointer to **string** | The GCP bootstrap shell command | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **GcpProjectNumber** | Pointer to **string** | The GCP project number | [optional] 
 **GcpServiceAccountEmail** | Pointer to **string** | The GCP service account email | [optional] 
@@ -202,6 +203,31 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
+
+### GetGcpBootstrapShellCommand
+
+`func (o *DescribeAccountConfigResult) GetGcpBootstrapShellCommand() string`
+
+GetGcpBootstrapShellCommand returns the GcpBootstrapShellCommand field if non-nil, zero value otherwise.
+
+### GetGcpBootstrapShellCommandOk
+
+`func (o *DescribeAccountConfigResult) GetGcpBootstrapShellCommandOk() (*string, bool)`
+
+GetGcpBootstrapShellCommandOk returns a tuple with the GcpBootstrapShellCommand field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGcpBootstrapShellCommand
+
+`func (o *DescribeAccountConfigResult) SetGcpBootstrapShellCommand(v string)`
+
+SetGcpBootstrapShellCommand sets GcpBootstrapShellCommand field to given value.
+
+### HasGcpBootstrapShellCommand
+
+`func (o *DescribeAccountConfigResult) HasGcpBootstrapShellCommand() bool`
+
+HasGcpBootstrapShellCommand returns a boolean if a field has been set.
 
 ### GetGcpProjectID
 

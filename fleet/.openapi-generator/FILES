@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -85,6 +84,9 @@ docs/CustomerResetPasswordRequest.md
 docs/CustomerSigninRequest.md
 docs/CustomerSigninResult.md
 docs/CustomerSignupRequest.md
+docs/DebugResourceInstanceRequest.md
+docs/DebugResourceInstanceResult.md
+docs/DebugResourceResult.md
 docs/DeleteCustomerOnboardingRequest.md
 docs/DeleteIdentityProviderRequest.md
 docs/DeleteNotificationChannelRequest.md
@@ -579,6 +581,9 @@ model_customer_reset_password_request.go
 model_customer_signin_request.go
 model_customer_signin_result.go
 model_customer_signup_request.go
+model_debug_resource_instance_request.go
+model_debug_resource_instance_result.go
+model_debug_resource_result.go
 model_delete_customer_onboarding_request.go
 model_delete_identity_provider_request.go
 model_delete_notification_channel_request.go
@@ -997,16 +1002,4 @@ model_workflow_event.go
 model_workflow_failure.go
 model_workflow_search_record.go
 response.go
-test/api_audit_events_api_test.go
-test/api_customer_onboardings_api_test.go
-test/api_events_api_test.go
-test/api_fleet_custom_network_api_test.go
-test/api_fleet_features_api_test.go
-test/api_fleet_workflows_api_test.go
-test/api_helm_package_api_test.go
-test/api_hostcluster_api_test.go
-test/api_inventory_api_test.go
-test/api_notifications_api_test.go
-test/api_operations_api_test.go
-test/api_webhooks_api_test.go
 utils.go
