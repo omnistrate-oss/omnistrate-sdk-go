@@ -20,6 +20,8 @@ var _ MappedNullable = &CreateUpgradePathRequest2{}
 
 // CreateUpgradePathRequest2 struct for CreateUpgradePathRequest2
 type CreateUpgradePathRequest2 struct {
+	// The future date when the upgrade is planned to be executed. Empty for immediate upgrade.
+	ScheduledDate *string `json:"scheduledDate,omitempty"`
 	// The source version of the upgrade path.
 	SourceVersion string `json:"sourceVersion"`
 	// The target version of the upgrade path.
@@ -49,6 +51,38 @@ func NewCreateUpgradePathRequest2(sourceVersion string, targetVersion string, up
 func NewCreateUpgradePathRequest2WithDefaults() *CreateUpgradePathRequest2 {
 	this := CreateUpgradePathRequest2{}
 	return &this
+}
+
+// GetScheduledDate returns the ScheduledDate field value if set, zero value otherwise.
+func (o *CreateUpgradePathRequest2) GetScheduledDate() string {
+	if o == nil || IsNil(o.ScheduledDate) {
+		var ret string
+		return ret
+	}
+	return *o.ScheduledDate
+}
+
+// GetScheduledDateOk returns a tuple with the ScheduledDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpgradePathRequest2) GetScheduledDateOk() (*string, bool) {
+	if o == nil || IsNil(o.ScheduledDate) {
+		return nil, false
+	}
+	return o.ScheduledDate, true
+}
+
+// HasScheduledDate returns a boolean if a field has been set.
+func (o *CreateUpgradePathRequest2) HasScheduledDate() bool {
+	if o != nil && !IsNil(o.ScheduledDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetScheduledDate gets a reference to the given string and assigns it to the ScheduledDate field.
+func (o *CreateUpgradePathRequest2) SetScheduledDate(v string) {
+	o.ScheduledDate = &v
 }
 
 // GetSourceVersion returns the SourceVersion field value
@@ -133,6 +167,9 @@ func (o CreateUpgradePathRequest2) MarshalJSON() ([]byte, error) {
 
 func (o CreateUpgradePathRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ScheduledDate) {
+		toSerialize["scheduledDate"] = o.ScheduledDate
+	}
 	toSerialize["sourceVersion"] = o.SourceVersion
 	toSerialize["targetVersion"] = o.TargetVersion
 	toSerialize["upgradeFilters"] = o.UpgradeFilters
@@ -181,6 +218,7 @@ func (o *CreateUpgradePathRequest2) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "scheduledDate")
 		delete(additionalProperties, "sourceVersion")
 		delete(additionalProperties, "targetVersion")
 		delete(additionalProperties, "upgradeFilters")

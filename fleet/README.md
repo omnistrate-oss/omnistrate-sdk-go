@@ -107,6 +107,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiAddCapacityToResourceInstance**](docs/InventoryApiAPI.md#inventoryapiaddcapacitytoresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/add-capacity | AddCapacityToResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiAddCustomDNSToResourceInstance**](docs/InventoryApiAPI.md#inventoryapiaddcustomdnstoresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/{resourceKey}/instance/{instanceId}/custom-dns | AddCustomDNSToResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiApproveSubscriptionRequest**](docs/InventoryApiAPI.md#inventoryapiapprovesubscriptionrequest) | **Put** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | ApproveSubscriptionRequest inventory-api
+*InventoryApiAPI* | [**InventoryApiBlockResourceInstance**](docs/InventoryApiAPI.md#inventoryapiblockresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/block | BlockResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiCancelUpgradePath**](docs/InventoryApiAPI.md#inventoryapicancelupgradepath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/cancel | CancelUpgradePath inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateConsumptionUser**](docs/InventoryApiAPI.md#inventoryapicreateconsumptionuser) | **Post** /2022-09-01-00/fleet/user | CreateConsumptionUser inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateProxyResourceInstance**](docs/InventoryApiAPI.md#inventoryapicreateproxyresourceinstance) | **Post** /2022-09-01-00/fleet/proxy-resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{sourceResourceKey} | CreateProxyResourceInstance inventory-api
@@ -356,6 +357,7 @@ Class | Method | HTTP request | Description
  - [FleetAuditEvent](docs/FleetAuditEvent.md)
  - [FleetAuditEventsRequest](docs/FleetAuditEventsRequest.md)
  - [FleetAuditEventsResult](docs/FleetAuditEventsResult.md)
+ - [FleetBlockResourceInstanceRequest](docs/FleetBlockResourceInstanceRequest.md)
  - [FleetCreateConsumptionUserRequest](docs/FleetCreateConsumptionUserRequest.md)
  - [FleetCreateConsumptionUserRequest2](docs/FleetCreateConsumptionUserRequest2.md)
  - [FleetCreateCustomNetworkRequest](docs/FleetCreateCustomNetworkRequest.md)

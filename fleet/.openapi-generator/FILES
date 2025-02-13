@@ -192,6 +192,7 @@ docs/FleetAddCustomDNSToResourceInstanceRequest2.md
 docs/FleetAuditEvent.md
 docs/FleetAuditEventsRequest.md
 docs/FleetAuditEventsResult.md
+docs/FleetBlockResourceInstanceRequest.md
 docs/FleetCreateConsumptionUserRequest.md
 docs/FleetCreateConsumptionUserRequest2.md
 docs/FleetCreateCustomNetworkRequest.md
@@ -688,6 +689,7 @@ model_fleet_add_custom_dnsto_resource_instance_request2.go
 model_fleet_audit_event.go
 model_fleet_audit_events_request.go
 model_fleet_audit_events_result.go
+model_fleet_block_resource_instance_request.go
 model_fleet_create_consumption_user_request.go
 model_fleet_create_consumption_user_request2.go
 model_fleet_create_custom_network_request.go

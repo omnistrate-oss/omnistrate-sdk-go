@@ -31,8 +31,6 @@ type NodeHealthSummary struct {
 	Events []string `json:"events,omitempty"`
 	IntegrationsHealth *IntegrationsHealth `json:"integrationsHealth,omitempty"`
 	// The load status of a pod
-	LoadHealth *string `json:"loadHealth,omitempty"`
-	// The load status of a pod
 	LoadStatus *string `json:"loadStatus,omitempty"`
 	// The heath status of a resource
 	NodeHealth *string `json:"nodeHealth,omitempty"`
@@ -260,38 +258,6 @@ func (o *NodeHealthSummary) HasIntegrationsHealth() bool {
 // SetIntegrationsHealth gets a reference to the given IntegrationsHealth and assigns it to the IntegrationsHealth field.
 func (o *NodeHealthSummary) SetIntegrationsHealth(v IntegrationsHealth) {
 	o.IntegrationsHealth = &v
-}
-
-// GetLoadHealth returns the LoadHealth field value if set, zero value otherwise.
-func (o *NodeHealthSummary) GetLoadHealth() string {
-	if o == nil || IsNil(o.LoadHealth) {
-		var ret string
-		return ret
-	}
-	return *o.LoadHealth
-}
-
-// GetLoadHealthOk returns a tuple with the LoadHealth field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *NodeHealthSummary) GetLoadHealthOk() (*string, bool) {
-	if o == nil || IsNil(o.LoadHealth) {
-		return nil, false
-	}
-	return o.LoadHealth, true
-}
-
-// HasLoadHealth returns a boolean if a field has been set.
-func (o *NodeHealthSummary) HasLoadHealth() bool {
-	if o != nil && !IsNil(o.LoadHealth) {
-		return true
-	}
-
-	return false
-}
-
-// SetLoadHealth gets a reference to the given string and assigns it to the LoadHealth field.
-func (o *NodeHealthSummary) SetLoadHealth(v string) {
-	o.LoadHealth = &v
 }
 
 // GetLoadStatus returns the LoadStatus field value if set, zero value otherwise.
@@ -578,9 +544,6 @@ func (o NodeHealthSummary) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IntegrationsHealth) {
 		toSerialize["integrationsHealth"] = o.IntegrationsHealth
 	}
-	if !IsNil(o.LoadHealth) {
-		toSerialize["loadHealth"] = o.LoadHealth
-	}
 	if !IsNil(o.LoadStatus) {
 		toSerialize["loadStatus"] = o.LoadStatus
 	}
@@ -633,7 +596,6 @@ func (o *NodeHealthSummary) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "endpoint")
 		delete(additionalProperties, "events")
 		delete(additionalProperties, "integrationsHealth")
-		delete(additionalProperties, "loadHealth")
 		delete(additionalProperties, "loadStatus")
 		delete(additionalProperties, "nodeHealth")
 		delete(additionalProperties, "nodeName")

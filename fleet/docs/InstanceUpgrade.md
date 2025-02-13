@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **ManagedResourceType** | Pointer to **string** | The managed resource type of the top-level resource of the instance. | [optional] 
 **OrgName** | **string** | The name of the organization that owns the instance. | 
 **ResourceName** | **string** | The name of the top-level resource of the instance. | 
+**ScheduledAt** | Pointer to **string** | The date when the instance is scheduled to be updated. | [optional] 
 **Status** | **string** | The status of the upgrade path. | 
 **UpdatedAt** | **string** | The timestamp when the instance was updated. | 
 **UpgradeEndTime** | Pointer to **string** | The timestamp when the upgrade ended. | [optional] 
@@ -227,6 +228,31 @@ and a boolean to check if the value has been set.
 
 SetResourceName sets ResourceName field to given value.
 
+
+### GetScheduledAt
+
+`func (o *InstanceUpgrade) GetScheduledAt() string`
+
+GetScheduledAt returns the ScheduledAt field if non-nil, zero value otherwise.
+
+### GetScheduledAtOk
+
+`func (o *InstanceUpgrade) GetScheduledAtOk() (*string, bool)`
+
+GetScheduledAtOk returns a tuple with the ScheduledAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScheduledAt
+
+`func (o *InstanceUpgrade) SetScheduledAt(v string)`
+
+SetScheduledAt sets ScheduledAt field to given value.
+
+### HasScheduledAt
+
+`func (o *InstanceUpgrade) HasScheduledAt() bool`
+
+HasScheduledAt returns a boolean if a field has been set.
 
 ### GetStatus
 

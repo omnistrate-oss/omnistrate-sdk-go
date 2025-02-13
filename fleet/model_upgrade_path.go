@@ -34,10 +34,14 @@ type UpgradePath struct {
 	InProgressCount int64 `json:"inProgressCount"`
 	// The number of instances that are pending the upgrade.
 	PendingCount int64 `json:"pendingCount"`
+	// The date when the upgrade was/is planned to be executed.
+	PlannedExecutionDate *string `json:"plannedExecutionDate,omitempty"`
 	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// The timestamp when the upgrade path was released.
 	ReleasedAt string `json:"releasedAt"`
+	// The number of instances that are scheduled to upgrade.
+	ScheduledCount *int64 `json:"scheduledCount,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The source version of the upgrade path.
@@ -268,6 +272,38 @@ func (o *UpgradePath) SetPendingCount(v int64) {
 	o.PendingCount = v
 }
 
+// GetPlannedExecutionDate returns the PlannedExecutionDate field value if set, zero value otherwise.
+func (o *UpgradePath) GetPlannedExecutionDate() string {
+	if o == nil || IsNil(o.PlannedExecutionDate) {
+		var ret string
+		return ret
+	}
+	return *o.PlannedExecutionDate
+}
+
+// GetPlannedExecutionDateOk returns a tuple with the PlannedExecutionDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpgradePath) GetPlannedExecutionDateOk() (*string, bool) {
+	if o == nil || IsNil(o.PlannedExecutionDate) {
+		return nil, false
+	}
+	return o.PlannedExecutionDate, true
+}
+
+// HasPlannedExecutionDate returns a boolean if a field has been set.
+func (o *UpgradePath) HasPlannedExecutionDate() bool {
+	if o != nil && !IsNil(o.PlannedExecutionDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetPlannedExecutionDate gets a reference to the given string and assigns it to the PlannedExecutionDate field.
+func (o *UpgradePath) SetPlannedExecutionDate(v string) {
+	o.PlannedExecutionDate = &v
+}
+
 // GetProductTierId returns the ProductTierId field value
 func (o *UpgradePath) GetProductTierId() string {
 	if o == nil {
@@ -314,6 +350,38 @@ func (o *UpgradePath) GetReleasedAtOk() (*string, bool) {
 // SetReleasedAt sets field value
 func (o *UpgradePath) SetReleasedAt(v string) {
 	o.ReleasedAt = v
+}
+
+// GetScheduledCount returns the ScheduledCount field value if set, zero value otherwise.
+func (o *UpgradePath) GetScheduledCount() int64 {
+	if o == nil || IsNil(o.ScheduledCount) {
+		var ret int64
+		return ret
+	}
+	return *o.ScheduledCount
+}
+
+// GetScheduledCountOk returns a tuple with the ScheduledCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpgradePath) GetScheduledCountOk() (*int64, bool) {
+	if o == nil || IsNil(o.ScheduledCount) {
+		return nil, false
+	}
+	return o.ScheduledCount, true
+}
+
+// HasScheduledCount returns a boolean if a field has been set.
+func (o *UpgradePath) HasScheduledCount() bool {
+	if o != nil && !IsNil(o.ScheduledCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetScheduledCount gets a reference to the given int64 and assigns it to the ScheduledCount field.
+func (o *UpgradePath) SetScheduledCount(v int64) {
+	o.ScheduledCount = &v
 }
 
 // GetServiceId returns the ServiceId field value
@@ -527,8 +595,14 @@ func (o UpgradePath) ToMap() (map[string]interface{}, error) {
 	toSerialize["failedCount"] = o.FailedCount
 	toSerialize["inProgressCount"] = o.InProgressCount
 	toSerialize["pendingCount"] = o.PendingCount
+	if !IsNil(o.PlannedExecutionDate) {
+		toSerialize["plannedExecutionDate"] = o.PlannedExecutionDate
+	}
 	toSerialize["productTierId"] = o.ProductTierId
 	toSerialize["releasedAt"] = o.ReleasedAt
+	if !IsNil(o.ScheduledCount) {
+		toSerialize["scheduledCount"] = o.ScheduledCount
+	}
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["sourceVersion"] = o.SourceVersion
 	toSerialize["status"] = o.Status
@@ -602,8 +676,10 @@ func (o *UpgradePath) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "failedCount")
 		delete(additionalProperties, "inProgressCount")
 		delete(additionalProperties, "pendingCount")
+		delete(additionalProperties, "plannedExecutionDate")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "releasedAt")
+		delete(additionalProperties, "scheduledCount")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "sourceVersion")
 		delete(additionalProperties, "status")
