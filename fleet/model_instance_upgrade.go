@@ -38,6 +38,8 @@ type InstanceUpgrade struct {
 	OrgName string `json:"orgName"`
 	// The name of the top-level resource of the instance.
 	ResourceName string `json:"resourceName"`
+	// The date when the instance is scheduled to be updated.
+	ScheduledAt *string `json:"scheduledAt,omitempty"`
 	// The status of the upgrade path.
 	Status string `json:"status"`
 	// The timestamp when the instance was updated.
@@ -312,6 +314,38 @@ func (o *InstanceUpgrade) SetResourceName(v string) {
 	o.ResourceName = v
 }
 
+// GetScheduledAt returns the ScheduledAt field value if set, zero value otherwise.
+func (o *InstanceUpgrade) GetScheduledAt() string {
+	if o == nil || IsNil(o.ScheduledAt) {
+		var ret string
+		return ret
+	}
+	return *o.ScheduledAt
+}
+
+// GetScheduledAtOk returns a tuple with the ScheduledAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InstanceUpgrade) GetScheduledAtOk() (*string, bool) {
+	if o == nil || IsNil(o.ScheduledAt) {
+		return nil, false
+	}
+	return o.ScheduledAt, true
+}
+
+// HasScheduledAt returns a boolean if a field has been set.
+func (o *InstanceUpgrade) HasScheduledAt() bool {
+	if o != nil && !IsNil(o.ScheduledAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetScheduledAt gets a reference to the given string and assigns it to the ScheduledAt field.
+func (o *InstanceUpgrade) SetScheduledAt(v string) {
+	o.ScheduledAt = &v
+}
+
 // GetStatus returns the Status field value
 func (o *InstanceUpgrade) GetStatus() string {
 	if o == nil {
@@ -471,6 +505,9 @@ func (o InstanceUpgrade) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["orgName"] = o.OrgName
 	toSerialize["resourceName"] = o.ResourceName
+	if !IsNil(o.ScheduledAt) {
+		toSerialize["scheduledAt"] = o.ScheduledAt
+	}
 	toSerialize["status"] = o.Status
 	toSerialize["updatedAt"] = o.UpdatedAt
 	if !IsNil(o.UpgradeEndTime) {
@@ -541,6 +578,7 @@ func (o *InstanceUpgrade) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "managedResourceType")
 		delete(additionalProperties, "orgName")
 		delete(additionalProperties, "resourceName")
+		delete(additionalProperties, "scheduledAt")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "updatedAt")
 		delete(additionalProperties, "upgradeEndTime")

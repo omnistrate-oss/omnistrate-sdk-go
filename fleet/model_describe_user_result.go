@@ -31,6 +31,8 @@ type DescribeUserResult struct {
 	LastModifiedAt string `json:"lastModifiedAt"`
 	// The name of the user
 	Name string `json:"name"`
+	// The cookie policy for the org that this user owns
+	OrgCookiePolicy *string `json:"orgCookiePolicy,omitempty"`
 	// The description of the org that this user owns
 	OrgDescription string `json:"orgDescription"`
 	// The favicon of the org that this user owns
@@ -240,6 +242,38 @@ func (o *DescribeUserResult) GetNameOk() (*string, bool) {
 // SetName sets field value
 func (o *DescribeUserResult) SetName(v string) {
 	o.Name = v
+}
+
+// GetOrgCookiePolicy returns the OrgCookiePolicy field value if set, zero value otherwise.
+func (o *DescribeUserResult) GetOrgCookiePolicy() string {
+	if o == nil || IsNil(o.OrgCookiePolicy) {
+		var ret string
+		return ret
+	}
+	return *o.OrgCookiePolicy
+}
+
+// GetOrgCookiePolicyOk returns a tuple with the OrgCookiePolicy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeUserResult) GetOrgCookiePolicyOk() (*string, bool) {
+	if o == nil || IsNil(o.OrgCookiePolicy) {
+		return nil, false
+	}
+	return o.OrgCookiePolicy, true
+}
+
+// HasOrgCookiePolicy returns a boolean if a field has been set.
+func (o *DescribeUserResult) HasOrgCookiePolicy() bool {
+	if o != nil && !IsNil(o.OrgCookiePolicy) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgCookiePolicy gets a reference to the given string and assigns it to the OrgCookiePolicy field.
+func (o *DescribeUserResult) SetOrgCookiePolicy(v string) {
+	o.OrgCookiePolicy = &v
 }
 
 // GetOrgDescription returns the OrgDescription field value
@@ -532,6 +566,9 @@ func (o DescribeUserResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["lastModifiedAt"] = o.LastModifiedAt
 	toSerialize["name"] = o.Name
+	if !IsNil(o.OrgCookiePolicy) {
+		toSerialize["orgCookiePolicy"] = o.OrgCookiePolicy
+	}
 	toSerialize["orgDescription"] = o.OrgDescription
 	toSerialize["orgFavIconURL"] = o.OrgFavIconURL
 	toSerialize["orgId"] = o.OrgId
@@ -608,6 +645,7 @@ func (o *DescribeUserResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "lastModifiedAt")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "orgCookiePolicy")
 		delete(additionalProperties, "orgDescription")
 		delete(additionalProperties, "orgFavIconURL")
 		delete(additionalProperties, "orgId")
