@@ -7,7 +7,6 @@ Method | HTTP request | Description
 [**InventoryApiAddCapacityToResourceInstance**](InventoryApiAPI.md#InventoryApiAddCapacityToResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/add-capacity | AddCapacityToResourceInstance inventory-api
 [**InventoryApiAddCustomDNSToResourceInstance**](InventoryApiAPI.md#InventoryApiAddCustomDNSToResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/{resourceKey}/instance/{instanceId}/custom-dns | AddCustomDNSToResourceInstance inventory-api
 [**InventoryApiApproveSubscriptionRequest**](InventoryApiAPI.md#InventoryApiApproveSubscriptionRequest) | **Put** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | ApproveSubscriptionRequest inventory-api
-[**InventoryApiBlockResourceInstance**](InventoryApiAPI.md#InventoryApiBlockResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/block | BlockResourceInstance inventory-api
 [**InventoryApiCancelUpgradePath**](InventoryApiAPI.md#InventoryApiCancelUpgradePath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/cancel | CancelUpgradePath inventory-api
 [**InventoryApiCreateConsumptionUser**](InventoryApiAPI.md#InventoryApiCreateConsumptionUser) | **Post** /2022-09-01-00/fleet/user | CreateConsumptionUser inventory-api
 [**InventoryApiCreateProxyResourceInstance**](InventoryApiAPI.md#InventoryApiCreateProxyResourceInstance) | **Post** /2022-09-01-00/fleet/proxy-resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{sourceResourceKey} | CreateProxyResourceInstance inventory-api
@@ -37,6 +36,7 @@ Method | HTTP request | Description
 [**InventoryApiDescribeSubscriptionRequest**](InventoryApiAPI.md#InventoryApiDescribeSubscriptionRequest) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | DescribeSubscriptionRequest inventory-api
 [**InventoryApiDescribeUpgradePath**](InventoryApiAPI.md#InventoryApiDescribeUpgradePath) | **Get** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId} | DescribeUpgradePath inventory-api
 [**InventoryApiDescribeUser**](InventoryApiAPI.md#InventoryApiDescribeUser) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/user/{userId} | DescribeUser inventory-api
+[**InventoryApiEnableResourceInstanceManualOverride**](InventoryApiAPI.md#InventoryApiEnableResourceInstanceManualOverride) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/override | EnableResourceInstanceManualOverride inventory-api
 [**InventoryApiFailoverResourceInstance**](InventoryApiAPI.md#InventoryApiFailoverResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/failover | FailoverResourceInstance inventory-api
 [**InventoryApiGenerateTokenForHostClusterDashboard**](InventoryApiAPI.md#InventoryApiGenerateTokenForHostClusterDashboard) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard inventory-api
 [**InventoryApiListActiveOrganizations**](InventoryApiAPI.md#InventoryApiListActiveOrganizations) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/organizations | ListActiveOrganizations inventory-api
@@ -271,78 +271,6 @@ Name | Type | Description  | Notes
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiInventoryApiApproveSubscriptionRequestRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[api_key_header_Authorization](../README.md#api_key_header_Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/vnd.goa.error
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## InventoryApiBlockResourceInstance
-
-> InventoryApiBlockResourceInstance(ctx, serviceId, environmentId, instanceId).Execute()
-
-BlockResourceInstance inventory-api
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
-)
-
-func main() {
-	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
-	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	instanceId := "instance-12345678" // string | The resource instance ID.
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.InventoryApiAPI.InventoryApiBlockResourceInstance(context.Background(), serviceId, environmentId, instanceId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiBlockResourceInstance``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**serviceId** | **string** | The service ID this workflow belongs to. | 
-**environmentId** | **string** | The service environment ID this workflow belongs to. | 
-**instanceId** | **string** | The resource instance ID. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInventoryApiBlockResourceInstanceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -2509,6 +2437,78 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InventoryApiEnableResourceInstanceManualOverride
+
+> InventoryApiEnableResourceInstanceManualOverride(ctx, serviceId, environmentId, instanceId).Execute()
+
+EnableResourceInstanceManualOverride inventory-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
+	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
+	instanceId := "instance-12345678" // string | The resource instance ID.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.InventoryApiAPI.InventoryApiEnableResourceInstanceManualOverride(context.Background(), serviceId, environmentId, instanceId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiEnableResourceInstanceManualOverride``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | The service ID this workflow belongs to. | 
+**environmentId** | **string** | The service environment ID this workflow belongs to. | 
+**instanceId** | **string** | The resource instance ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInventoryApiEnableResourceInstanceManualOverrideRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

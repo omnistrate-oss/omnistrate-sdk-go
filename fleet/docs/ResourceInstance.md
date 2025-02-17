@@ -14,7 +14,9 @@ Name | Type | Description | Notes
 **InputParams** | **interface{}** | Custom input parameters | 
 **InstanceDebugCommands** | **[]string** | The debug commands to access the instance | 
 **IntegrationsStatus** | [**[]IntegrationStatus**](IntegrationStatus.md) | List of individual integrations and their statuses for the instance | 
+**MaintenanceTasks** | Pointer to **map[string]string** | Pending actions or maintenance tasks for the resource instance, with action type as key and reference key as value. | [optional] 
 **ManagedResourceType** | Pointer to **string** | The managed resource type of instance | [optional] 
+**ManualOverride** | Pointer to [**ManualOverride**](ManualOverride.md) |  | [optional] 
 **OrganizationId** | **string** | ID of an Org | 
 **OrganizationName** | **string** | The organization name of the resource instance. | 
 **PortsRegistrationStatus** | Pointer to **map[string][]int64** | The ports registration status of ports based proxy instance | [optional] 
@@ -282,6 +284,31 @@ and a boolean to check if the value has been set.
 SetIntegrationsStatus sets IntegrationsStatus field to given value.
 
 
+### GetMaintenanceTasks
+
+`func (o *ResourceInstance) GetMaintenanceTasks() map[string]string`
+
+GetMaintenanceTasks returns the MaintenanceTasks field if non-nil, zero value otherwise.
+
+### GetMaintenanceTasksOk
+
+`func (o *ResourceInstance) GetMaintenanceTasksOk() (*map[string]string, bool)`
+
+GetMaintenanceTasksOk returns a tuple with the MaintenanceTasks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaintenanceTasks
+
+`func (o *ResourceInstance) SetMaintenanceTasks(v map[string]string)`
+
+SetMaintenanceTasks sets MaintenanceTasks field to given value.
+
+### HasMaintenanceTasks
+
+`func (o *ResourceInstance) HasMaintenanceTasks() bool`
+
+HasMaintenanceTasks returns a boolean if a field has been set.
+
 ### GetManagedResourceType
 
 `func (o *ResourceInstance) GetManagedResourceType() string`
@@ -306,6 +333,31 @@ SetManagedResourceType sets ManagedResourceType field to given value.
 `func (o *ResourceInstance) HasManagedResourceType() bool`
 
 HasManagedResourceType returns a boolean if a field has been set.
+
+### GetManualOverride
+
+`func (o *ResourceInstance) GetManualOverride() ManualOverride`
+
+GetManualOverride returns the ManualOverride field if non-nil, zero value otherwise.
+
+### GetManualOverrideOk
+
+`func (o *ResourceInstance) GetManualOverrideOk() (*ManualOverride, bool)`
+
+GetManualOverrideOk returns a tuple with the ManualOverride field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManualOverride
+
+`func (o *ResourceInstance) SetManualOverride(v ManualOverride)`
+
+SetManualOverride sets ManualOverride field to given value.
+
+### HasManualOverride
+
+`func (o *ResourceInstance) HasManualOverride() bool`
+
+HasManualOverride returns a boolean if a field has been set.
 
 ### GetOrganizationId
 

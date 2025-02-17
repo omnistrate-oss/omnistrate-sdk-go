@@ -192,7 +192,6 @@ docs/FleetAddCustomDNSToResourceInstanceRequest2.md
 docs/FleetAuditEvent.md
 docs/FleetAuditEventsRequest.md
 docs/FleetAuditEventsResult.md
-docs/FleetBlockResourceInstanceRequest.md
 docs/FleetCreateConsumptionUserRequest.md
 docs/FleetCreateConsumptionUserRequest2.md
 docs/FleetCreateCustomNetworkRequest.md
@@ -229,6 +228,7 @@ docs/FleetDescribeSubscriptionRequestRequest.md
 docs/FleetDescribeSubscriptionResult.md
 docs/FleetDescribeUser.md
 docs/FleetDescribeUserResult.md
+docs/FleetEnableResourceInstanceManualOverrideRequest.md
 docs/FleetFailoverResourceInstanceRequest.md
 docs/FleetFailoverResourceInstanceRequest2.md
 docs/FleetFeature.md
@@ -288,10 +288,11 @@ docs/GenerateTokenForDeploymentCellDashboardResult.md
 docs/GetAvailabilityZoneByCodeRequest.md
 docs/GetCloudProviderByNameRequest.md
 docs/GetCurrentUsageRequest.md
-docs/GetCurrentUsageResult.md
 docs/GetRegionByCodeRequest.md
 docs/GetServicePlanRequest.md
 docs/GetServicePlanResult.md
+docs/GetUsageRequest.md
+docs/GetUsageResult.md
 docs/GetWorkflowEventsRequest.md
 docs/GetWorkflowEventsResult.md
 docs/HelmPackage.md
@@ -397,6 +398,7 @@ docs/ListVUnitsResult.md
 docs/LoginWithIdentityProviderRequest.md
 docs/LoginWithIdentityProviderResult.md
 docs/LogoutRequest.md
+docs/ManualOverride.md
 docs/ModifyServicesOrchestrationRequest.md
 docs/NodeHealthSummary.md
 docs/NodeNetworkTopologyResult.md
@@ -689,7 +691,6 @@ model_fleet_add_custom_dnsto_resource_instance_request2.go
 model_fleet_audit_event.go
 model_fleet_audit_events_request.go
 model_fleet_audit_events_result.go
-model_fleet_block_resource_instance_request.go
 model_fleet_create_consumption_user_request.go
 model_fleet_create_consumption_user_request2.go
 model_fleet_create_custom_network_request.go
@@ -725,6 +726,7 @@ model_fleet_describe_subscription_request_request.go
 model_fleet_describe_subscription_result.go
 model_fleet_describe_user.go
 model_fleet_describe_user_result.go
+model_fleet_enable_resource_instance_manual_override_request.go
 model_fleet_failover_resource_instance_request.go
 model_fleet_failover_resource_instance_request2.go
 model_fleet_feature.go
@@ -782,10 +784,11 @@ model_generate_token_for_deployment_cell_dashboard_result.go
 model_get_availability_zone_by_code_request.go
 model_get_cloud_provider_by_name_request.go
 model_get_current_usage_request.go
-model_get_current_usage_result.go
 model_get_region_by_code_request.go
 model_get_service_plan_request.go
 model_get_service_plan_result.go
+model_get_usage_request.go
+model_get_usage_result.go
 model_get_workflow_events_request.go
 model_get_workflow_events_result.go
 model_helm_package.go
@@ -888,6 +891,7 @@ model_list_v_units_result.go
 model_login_with_identity_provider_request.go
 model_login_with_identity_provider_result.go
 model_logout_request.go
+model_manual_override.go
 model_modify_services_orchestration_request.go
 model_node_health_summary.go
 model_node_network_topology_result.go
