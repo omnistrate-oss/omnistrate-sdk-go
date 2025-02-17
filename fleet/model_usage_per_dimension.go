@@ -21,6 +21,10 @@ var _ MappedNullable = &UsagePerDimension{}
 type UsagePerDimension struct {
 	// Dimension of usage
 	Dimension *string `json:"dimension,omitempty"`
+	// End timestamp of usage
+	EndTime *string `json:"endTime,omitempty"`
+	// Start timestamp of usage
+	StartTime *string `json:"startTime,omitempty"`
 	// Total amount of usage during the period
 	Total *float64 `json:"total,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -77,6 +81,70 @@ func (o *UsagePerDimension) SetDimension(v string) {
 	o.Dimension = &v
 }
 
+// GetEndTime returns the EndTime field value if set, zero value otherwise.
+func (o *UsagePerDimension) GetEndTime() string {
+	if o == nil || IsNil(o.EndTime) {
+		var ret string
+		return ret
+	}
+	return *o.EndTime
+}
+
+// GetEndTimeOk returns a tuple with the EndTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsagePerDimension) GetEndTimeOk() (*string, bool) {
+	if o == nil || IsNil(o.EndTime) {
+		return nil, false
+	}
+	return o.EndTime, true
+}
+
+// HasEndTime returns a boolean if a field has been set.
+func (o *UsagePerDimension) HasEndTime() bool {
+	if o != nil && !IsNil(o.EndTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetEndTime gets a reference to the given string and assigns it to the EndTime field.
+func (o *UsagePerDimension) SetEndTime(v string) {
+	o.EndTime = &v
+}
+
+// GetStartTime returns the StartTime field value if set, zero value otherwise.
+func (o *UsagePerDimension) GetStartTime() string {
+	if o == nil || IsNil(o.StartTime) {
+		var ret string
+		return ret
+	}
+	return *o.StartTime
+}
+
+// GetStartTimeOk returns a tuple with the StartTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsagePerDimension) GetStartTimeOk() (*string, bool) {
+	if o == nil || IsNil(o.StartTime) {
+		return nil, false
+	}
+	return o.StartTime, true
+}
+
+// HasStartTime returns a boolean if a field has been set.
+func (o *UsagePerDimension) HasStartTime() bool {
+	if o != nil && !IsNil(o.StartTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetStartTime gets a reference to the given string and assigns it to the StartTime field.
+func (o *UsagePerDimension) SetStartTime(v string) {
+	o.StartTime = &v
+}
+
 // GetTotal returns the Total field value if set, zero value otherwise.
 func (o *UsagePerDimension) GetTotal() float64 {
 	if o == nil || IsNil(o.Total) {
@@ -122,6 +190,12 @@ func (o UsagePerDimension) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Dimension) {
 		toSerialize["dimension"] = o.Dimension
 	}
+	if !IsNil(o.EndTime) {
+		toSerialize["endTime"] = o.EndTime
+	}
+	if !IsNil(o.StartTime) {
+		toSerialize["startTime"] = o.StartTime
+	}
 	if !IsNil(o.Total) {
 		toSerialize["total"] = o.Total
 	}
@@ -148,6 +222,8 @@ func (o *UsagePerDimension) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "dimension")
+		delete(additionalProperties, "endTime")
+		delete(additionalProperties, "startTime")
 		delete(additionalProperties, "total")
 		o.AdditionalProperties = additionalProperties
 	}

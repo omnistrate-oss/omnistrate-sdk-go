@@ -4652,7 +4652,14 @@ paths:
                   integrationType: LOGS
                   message: missing exporter secret configuration for gcp
                   scope: INTERNAL
+                maintenanceTasks:
+                  backup: ref-87654321
+                  upgrade: ref-12345678
                 managedResourceType: PortsBasedProxy
+                manualOverride:
+                  setAt: 2020-01-01T00:00:00Z
+                  setterUserId: user-12345678
+                  workflowId: wf-12345678
                 organizationId: org-12345678
                 organizationName: my-org
                 portsRegistrationStatus:
@@ -5017,90 +5024,6 @@ paths:
       security:
       - api_key_header_Authorization: []
       summary: AddCapacityToResourceInstance inventory-api
-      tags:
-      - inventory-api
-  /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/block:
-    post:
-      operationId: inventory-api#BlockResourceInstance
-      parameters:
-      - description: The service ID this workflow belongs to.
-        example: s-12345678
-        explode: false
-        in: path
-        name: serviceId
-        required: true
-        schema:
-          description: ID of a Service
-          example: s-123456
-          type: string
-        style: simple
-      - description: The service environment ID this workflow belongs to.
-        example: se-12345678
-        explode: false
-        in: path
-        name: environmentId
-        required: true
-        schema:
-          description: ID of a Service Environment
-          example: se-123456
-          type: string
-        style: simple
-      - description: The resource instance ID.
-        example: instance-12345678
-        explode: false
-        in: path
-        name: instanceId
-        required: true
-        schema:
-          description: ID of a Resource Instance
-          example: instance-12345678
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: OK response.
-        "400":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "bad_request: Response used on a bad request"
-        "401":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "auth_failure: Response used on authentication failure"
-        "403":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "forbidden: Response used on authorization failure"
-        "404":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "not_found: Response used when the requested resource is not\
-            \ found"
-        "409":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "invalid_state: Response used when requested resource is in\
-            \ an invalid state for this operation"
-        "500":
-          content:
-            application/vnd.goa.error:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: "failed_request: Response used on failure to set resource instance\
-            \ maintenance mode."
-      security:
-      - api_key_header_Authorization: []
-      summary: BlockResourceInstance inventory-api
       tags:
       - inventory-api
   /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/debug:
@@ -5884,7 +5807,14 @@ paths:
                     integrationType: LOGS
                     message: missing exporter secret configuration for gcp
                     scope: INTERNAL
+                  maintenanceTasks:
+                    backup: ref-87654321
+                    upgrade: ref-12345678
                   managedResourceType: PortsBasedProxy
+                  manualOverride:
+                    setAt: 2020-01-01T00:00:00Z
+                    setterUserId: user-12345678
+                    workflowId: wf-12345678
                   organizationId: org-12345678
                   organizationName: my-org
                   portsRegistrationStatus:
@@ -6063,7 +5993,14 @@ paths:
                     integrationType: LOGS
                     message: missing exporter secret configuration for gcp
                     scope: INTERNAL
+                  maintenanceTasks:
+                    backup: ref-87654321
+                    upgrade: ref-12345678
                   managedResourceType: PortsBasedProxy
+                  manualOverride:
+                    setAt: 2020-01-01T00:00:00Z
+                    setterUserId: user-12345678
+                    workflowId: wf-12345678
                   organizationId: org-12345678
                   organizationName: my-org
                   portsRegistrationStatus:
@@ -6242,7 +6179,14 @@ paths:
                     integrationType: LOGS
                     message: missing exporter secret configuration for gcp
                     scope: INTERNAL
+                  maintenanceTasks:
+                    backup: ref-87654321
+                    upgrade: ref-12345678
                   managedResourceType: PortsBasedProxy
+                  manualOverride:
+                    setAt: 2020-01-01T00:00:00Z
+                    setterUserId: user-12345678
+                    workflowId: wf-12345678
                   organizationId: org-12345678
                   organizationName: my-org
                   portsRegistrationStatus:
@@ -6369,6 +6313,90 @@ paths:
       security:
       - api_key_header_Authorization: []
       summary: ListLinkedInstances inventory-api
+      tags:
+      - inventory-api
+  /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/override:
+    post:
+      operationId: inventory-api#EnableResourceInstanceManualOverride
+      parameters:
+      - description: The service ID this workflow belongs to.
+        example: s-12345678
+        explode: false
+        in: path
+        name: serviceId
+        required: true
+        schema:
+          description: ID of a Service
+          example: s-123456
+          type: string
+        style: simple
+      - description: The service environment ID this workflow belongs to.
+        example: se-12345678
+        explode: false
+        in: path
+        name: environmentId
+        required: true
+        schema:
+          description: ID of a Service Environment
+          example: se-123456
+          type: string
+        style: simple
+      - description: The resource instance ID.
+        example: instance-12345678
+        explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          description: ID of a Resource Instance
+          example: instance-12345678
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK response.
+        "400":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "bad_request: Response used on a bad request"
+        "401":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "auth_failure: Response used on authentication failure"
+        "403":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "forbidden: Response used on authorization failure"
+        "404":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "not_found: Response used when the requested resource is not\
+            \ found"
+        "409":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "invalid_state: Response used when requested resource is in\
+            \ an invalid state for this operation"
+        "500":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "failed_request: Response used on failure to set resource instance\
+            \ maintenance mode."
+      security:
+      - api_key_header_Authorization: []
+      summary: EnableResourceInstanceManualOverride inventory-api
       tags:
       - inventory-api
   /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/remove-capacity:
@@ -7418,7 +7446,14 @@ paths:
                     integrationType: LOGS
                     message: missing exporter secret configuration for gcp
                     scope: INTERNAL
+                  maintenanceTasks:
+                    backup: ref-87654321
+                    upgrade: ref-12345678
                   managedResourceType: PortsBasedProxy
+                  manualOverride:
+                    setAt: 2020-01-01T00:00:00Z
+                    setterUserId: user-12345678
+                    workflowId: wf-12345678
                   organizationId: org-12345678
                   organizationName: my-org
                   portsRegistrationStatus:
@@ -7597,7 +7632,14 @@ paths:
                     integrationType: LOGS
                     message: missing exporter secret configuration for gcp
                     scope: INTERNAL
+                  maintenanceTasks:
+                    backup: ref-87654321
+                    upgrade: ref-12345678
                   managedResourceType: PortsBasedProxy
+                  manualOverride:
+                    setAt: 2020-01-01T00:00:00Z
+                    setterUserId: user-12345678
+                    workflowId: wf-12345678
                   organizationId: org-12345678
                   organizationName: my-org
                   portsRegistrationStatus:
@@ -7776,7 +7818,14 @@ paths:
                     integrationType: LOGS
                     message: missing exporter secret configuration for gcp
                     scope: INTERNAL
+                  maintenanceTasks:
+                    backup: ref-87654321
+                    upgrade: ref-12345678
                   managedResourceType: PortsBasedProxy
+                  manualOverride:
+                    setAt: 2020-01-01T00:00:00Z
+                    setterUserId: user-12345678
+                    workflowId: wf-12345678
                   organizationId: org-12345678
                   organizationName: my-org
                   portsRegistrationStatus:
@@ -7955,7 +8004,14 @@ paths:
                     integrationType: LOGS
                     message: missing exporter secret configuration for gcp
                     scope: INTERNAL
+                  maintenanceTasks:
+                    backup: ref-87654321
+                    upgrade: ref-12345678
                   managedResourceType: PortsBasedProxy
+                  manualOverride:
+                    setAt: 2020-01-01T00:00:00Z
+                    setterUserId: user-12345678
+                    workflowId: wf-12345678
                   organizationId: org-12345678
                   organizationName: my-org
                   portsRegistrationStatus:
@@ -14467,7 +14523,7 @@ components:
         serviceModelKey: hosted
         serviceProviderId: omnistrate
         sourceResourceKey: mysql
-        token: vd
+        token: ui2
       properties:
         cloud_provider:
           description: The cloud provider name
@@ -14504,7 +14560,7 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Voluptatem in.
+          example: Et id.
           type: string
         sourceResourceKey:
           description: The serverless resource key
@@ -14512,7 +14568,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: 1t5
+          example: 8p
           minLength: 1
           type: string
       required:
@@ -15664,7 +15720,7 @@ components:
         serviceKey: service-orchestration
         serviceModelKey: hosted
         serviceProviderId: omnistrate
-        token: s
+        token: j3
       properties:
         id:
           description: The instance ID
@@ -15692,11 +15748,11 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Soluta et iste ut totam consequatur.
+          example: Sit expedita quia reiciendis neque quidem.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: h7j
+          example: de
           minLength: 1
           type: string
       required:
@@ -16806,33 +16862,26 @@ components:
     DescribePlanResult:
       example:
         modifiedAt: 2023-01-01T00:00:00Z
-        nextChargeDate: 2023-02-01
         paymentConfigured: true
-        paymentInfoPortalURL: https://billing.paigo.com/stripe-portal?customerId=cus_xxxxxxxxxxxxxx
+        paymentInfoPortalURL: https://billing.stripe.com/p/session/abc123
         planCoreHourCost: 0.05
         planDescription: The starter plan is priced at 'X' units
         planFrequency: MONTHLY
         planMonthlyCost: 49
         planName: STARTER
-        remainingCredits: "100"
         startDate: 2023-01-01
       properties:
         modifiedAt:
           description: The time the plan was last modified
           example: 2023-01-01T00:00:00Z
           type: string
-        nextChargeDate:
-          description: The next day stripe will process a charge for this plan
-          example: 2023-02-01
-          type: string
         paymentConfigured:
           description: Whether the customer has configured their payment information.
           example: true
           type: boolean
         paymentInfoPortalURL:
-          description: The URL from Paigo to redirect users to so they can enter their
-            payment information.  Only present when first adding payment information
-          example: https://billing.paigo.com/stripe-portal?customerId=cus_xxxxxxxxxxxxxx
+          description: The URL from Stripe to configure payment information
+          example: https://billing.stripe.com/p/session/abc123
           type: string
         planCoreHourCost:
           description: The cost per core hour of this plan
@@ -16856,11 +16905,6 @@ components:
         planName:
           description: This parameter is used to select the appropriate Product Plan
           example: STARTER_NO_COMMIT|STARTER|GROWTH|ENTERPRISE
-          type: string
-        remainingCredits:
-          description: The credits remaining for the customer for the customer in
-            Paigo
-          example: "100"
           type: string
         startDate:
           description: The date that the plan starts
@@ -17227,7 +17271,7 @@ components:
         environmentId: se-12345678
         instanceId: instance-12345678
         serviceId: s-12345678
-        token: ya
+        token: cdj
       properties:
         environmentId:
           description: ID of a Service Environment
@@ -17243,7 +17287,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: "8"
+          example: q
           minLength: 1
           type: string
       required:
@@ -18874,11 +18918,11 @@ components:
       type: object
     DescribeUserRequest:
       example:
-        token: hp
+        token: aj
       properties:
         token:
           description: JWT token used to perform authorization
-          example: rz
+          example: s4l
           minLength: 1
           type: string
       required:
@@ -18901,13 +18945,13 @@ components:
         name: John Dae
         orgCookiePolicy: Eum occaecati nam.
         orgDescription: ACME Inc.
-        orgFavIconURL: Tempora non saepe.
+        orgFavIconURL: Consectetur est tempora.
         orgId: org-aKQ8G13QeR
-        orgLogoURL: Consequuntur rerum commodi quia quo consectetur.
+        orgLogoURL: Rerum commodi quia.
         orgName: ACME
         orgPrivacyPolicy: Tenetur qui aut.
         orgSupportEmail: support@example.com
-        orgTermsOfUse: Rem est labore non.
+        orgTermsOfUse: Saepe aut rem est labore non.
         orgURL: something.acme
         planName: STARTER
         roleType: reader
@@ -18936,7 +18980,7 @@ components:
           type: string
         orgCookiePolicy:
           description: The cookie policy for the org that this user owns
-          example: Accusantium in id minima ipsum.
+          example: In id minima ipsum dolorum.
           type: string
         orgDescription:
           description: The description of the org that this user owns
@@ -18944,7 +18988,7 @@ components:
           type: string
         orgFavIconURL:
           description: The favicon of the org that this user owns
-          example: Earum adipisci mollitia repudiandae dolor culpa.
+          example: Deleniti omnis.
           type: string
         orgId:
           description: The ID of the org that this user owns
@@ -18952,7 +18996,7 @@ components:
           type: string
         orgLogoURL:
           description: The logo of the org that this user owns
-          example: Ut rerum aspernatur voluptatem quia et.
+          example: Et esse earum adipisci mollitia repudiandae dolor.
           type: string
         orgName:
           description: The org name that this user owns
@@ -18960,7 +19004,7 @@ components:
           type: string
         orgPrivacyPolicy:
           description: The privacy policy for the org that this user owns
-          example: Dolor quis et officiis.
+          example: Quis et officiis rerum.
           type: string
         orgSupportEmail:
           description: The support email of the org that this user owns
@@ -18968,7 +19012,7 @@ components:
           type: string
         orgTermsOfUse:
           description: The terms of use for the org that this user owns
-          example: Omnis a provident quidem.
+          example: Provident quidem non.
           type: string
         orgURL:
           description: The url of the org that this user owns
@@ -19001,11 +19045,11 @@ components:
       type: object
     DescribeUsersByOrgRequest:
       example:
-        token: aj
+        token: h
       properties:
         token:
           description: JWT token used to perform authorization
-          example: s4l
+          example: iq
           minLength: 1
           type: string
       required:
@@ -20221,36 +20265,6 @@ components:
       - events
       - ids
       type: object
-    FleetBlockResourceInstanceRequest:
-      example:
-        environmentId: se-12345678
-        instanceId: instance-12345678
-        serviceId: s-12345678
-        token: fq
-      properties:
-        environmentId:
-          description: ID of a Service Environment
-          example: se-123456
-          type: string
-        instanceId:
-          description: ID of a Resource Instance
-          example: instance-12345678
-          type: string
-        serviceId:
-          description: ID of a Service
-          example: s-123456
-          type: string
-        token:
-          description: JWT token used to perform authorization
-          example: oer
-          minLength: 1
-          type: string
-      required:
-      - environmentId
-      - instanceId
-      - serviceId
-      - token
-      type: object
     FleetCreateConsumptionUserRequest:
       example:
         email: abc@gmail.com
@@ -20477,7 +20491,7 @@ components:
         serviceModelKey: hosted
         serviceProviderId: omnistrate
         subscriptionId: sub-12345678
-        token: pl3
+        token: p
       properties:
         cloud_provider:
           description: The cloud provider name
@@ -20530,15 +20544,15 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Reiciendis neque quidem omnis error aut et.
+          example: Amet harum quod.
           type: string
         subscriptionId:
           description: ID of a Subscription
-          example: Et et et id autem laudantium repellat.
+          example: Quia aspernatur omnis.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: ytq
+          example: l3
           minLength: 1
           type: string
       required:
@@ -21679,6 +21693,36 @@ components:
       - createdAt
       - subscriptions
       - userId
+      type: object
+    FleetEnableResourceInstanceManualOverrideRequest:
+      example:
+        environmentId: se-12345678
+        instanceId: instance-12345678
+        serviceId: s-12345678
+        token: usn
+      properties:
+        environmentId:
+          description: ID of a Service Environment
+          example: se-123456
+          type: string
+        instanceId:
+          description: ID of a Resource Instance
+          example: instance-12345678
+          type: string
+        serviceId:
+          description: ID of a Service
+          example: s-123456
+          type: string
+        token:
+          description: JWT token used to perform authorization
+          example: j
+          minLength: 1
+          type: string
+      required:
+      - environmentId
+      - instanceId
+      - serviceId
+      - token
       type: object
     FleetFailoverResourceInstanceRequest:
       example:
@@ -22870,7 +22914,14 @@ components:
             integrationType: LOGS
             message: missing exporter secret configuration for gcp
             scope: INTERNAL
+          maintenanceTasks:
+            backup: ref-87654321
+            upgrade: ref-12345678
           managedResourceType: PortsBasedProxy
+          manualOverride:
+            setAt: 2020-01-01T00:00:00Z
+            setterUserId: user-12345678
+            workflowId: wf-12345678
           organizationId: org-12345678
           organizationName: my-org
           portsRegistrationStatus:
@@ -23195,7 +23246,14 @@ components:
             integrationType: LOGS
             message: missing exporter secret configuration for gcp
             scope: INTERNAL
+          maintenanceTasks:
+            backup: ref-87654321
+            upgrade: ref-12345678
           managedResourceType: PortsBasedProxy
+          manualOverride:
+            setAt: 2020-01-01T00:00:00Z
+            setterUserId: user-12345678
+            workflowId: wf-12345678
           organizationId: org-12345678
           organizationName: my-org
           portsRegistrationStatus:
@@ -23533,7 +23591,14 @@ components:
               integrationType: LOGS
               message: missing exporter secret configuration for gcp
               scope: INTERNAL
+            maintenanceTasks:
+              backup: ref-87654321
+              upgrade: ref-12345678
             managedResourceType: PortsBasedProxy
+            manualOverride:
+              setAt: 2020-01-01T00:00:00Z
+              setterUserId: user-12345678
+              workflowId: wf-12345678
             organizationId: org-12345678
             organizationName: my-org
             portsRegistrationStatus:
@@ -23858,7 +23923,14 @@ components:
               integrationType: LOGS
               message: missing exporter secret configuration for gcp
               scope: INTERNAL
+            maintenanceTasks:
+              backup: ref-87654321
+              upgrade: ref-12345678
             managedResourceType: PortsBasedProxy
+            manualOverride:
+              setAt: 2020-01-01T00:00:00Z
+              setterUserId: user-12345678
+              workflowId: wf-12345678
             organizationId: org-12345678
             organizationName: my-org
             portsRegistrationStatus:
@@ -24183,7 +24255,14 @@ components:
               integrationType: LOGS
               message: missing exporter secret configuration for gcp
               scope: INTERNAL
+            maintenanceTasks:
+              backup: ref-87654321
+              upgrade: ref-12345678
             managedResourceType: PortsBasedProxy
+            manualOverride:
+              setAt: 2020-01-01T00:00:00Z
+              setterUserId: user-12345678
+              workflowId: wf-12345678
             organizationId: org-12345678
             organizationName: my-org
             portsRegistrationStatus:
@@ -25563,36 +25642,6 @@ components:
       required:
       - token
       type: object
-    GetCurrentUsageResult:
-      example:
-        endTime: 2021-01-01T00:00:00.000Z
-        planName: STARTER
-        startTime: 2021-01-01T00:00:00.000Z
-        usage:
-        - dimension: core/hours
-          total: 0.67
-      properties:
-        endTime:
-          description: End timestamp of usage
-          example: 2021-01-01T00:00:00.000Z
-          type: string
-        planName:
-          description: This parameter is used to select the appropriate Product Plan
-          example: STARTER_NO_COMMIT|STARTER|GROWTH|ENTERPRISE
-          type: string
-        startTime:
-          description: Start timestamp of usage
-          example: 2021-01-01T00:00:00.000Z
-          type: string
-        usage:
-          description: Usage for the current plan
-          example:
-          - dimension: core/hours
-            total: 0.67
-          items:
-            $ref: '#/components/schemas/UsagePerDimension'
-          type: array
-      type: object
     GetRegionByCodeRequest:
       example:
         cloudProviderName: aws
@@ -25873,6 +25922,66 @@ components:
       - serviceModelName
       - tierType
       - versionSetStatus
+      type: object
+    GetUsageRequest:
+      example:
+        endDate: 2024-01-01T10:00:00Z
+        startDate: 2023-01-01T10:00:00Z
+        token: a
+      properties:
+        endDate:
+          description: "End time of the window in ISO 8601 format. If omitted, the\
+            \ filter is open-ended at the start."
+          example: 2024-01-01T10:00:00Z
+          format: date-time
+          type: string
+        startDate:
+          description: "Start time of the window in ISO 8601 format. If omitted, the\
+            \ filter is open-ended at the start."
+          example: 2023-01-01T10:00:00Z
+          format: date-time
+          type: string
+        token:
+          description: JWT token used to perform authorization
+          example: at4
+          minLength: 1
+          type: string
+      required:
+      - token
+      type: object
+    GetUsageResult:
+      example:
+        endTime: 2021-01-01T00:00:00.000Z
+        planName: STARTER
+        startTime: 2021-01-01T00:00:00.000Z
+        usage:
+        - dimension: core/hours
+          endTime: 2021-01-01T00:00:00.000Z
+          startTime: 2021-01-01T00:00:00.000Z
+          total: 0.67
+      properties:
+        endTime:
+          description: End timestamp of usage
+          example: 2021-01-01T00:00:00.000Z
+          type: string
+        planName:
+          description: This parameter is used to select the appropriate Product Plan
+          example: STARTER_NO_COMMIT|STARTER|GROWTH|ENTERPRISE
+          type: string
+        startTime:
+          description: Start timestamp of usage
+          example: 2021-01-01T00:00:00.000Z
+          type: string
+        usage:
+          description: Usage for the current plan
+          example:
+          - dimension: core/hours
+            endTime: 2021-01-01T00:00:00.000Z
+            startTime: 2021-01-01T00:00:00.000Z
+            total: 0.67
+          items:
+            $ref: '#/components/schemas/UsagePerDimension'
+          type: array
       type: object
     GetWorkflowEventsRequest:
       example:
@@ -27193,7 +27302,7 @@ components:
       example:
         email: abc@gmail.com
         roleType: reader
-        token: a
+        token: hp
       properties:
         email:
           example: abc@gmail.com
@@ -27206,7 +27315,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: at4
+          example: rz
           minLength: 1
           type: string
       required:
@@ -28172,24 +28281,24 @@ components:
     ListFleetResourceInstancesRequest:
       example:
         ProductTierId: Et et dolorem harum.
-        ProductTierVersion: Vitae ullam eos dicta enim at.
+        ProductTierVersion: Corrupti vitae ullam eos.
         SubscriptionId: Laboriosam dolorem dignissimos quasi ex totam expedita.
         environmentId: se-12345678
         serviceId: s-12345678
-        token: oe3
+        token: e
       properties:
         ProductTierId:
           description: ID of a Product Tier
-          example: Architecto et voluptate molestias rerum.
+          example: Rerum molestiae pariatur deserunt praesentium.
           type: string
         ProductTierVersion:
           description: "The product tier version of the infra config to describe.\
             \ If not specified, the latest version is described."
-          example: Facere aut rerum in inventore veniam id.
+          example: Et voluptate.
           type: string
         SubscriptionId:
           description: ID of a Subscription
-          example: Pariatur deserunt praesentium pariatur repellat sint.
+          example: Repellat sint molestias.
           type: string
         environmentId:
           description: ID of a Service Environment
@@ -28201,7 +28310,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: cdj
+          example: zh
           minLength: 1
           type: string
       required:
@@ -28326,7 +28435,14 @@ components:
             integrationType: LOGS
             message: missing exporter secret configuration for gcp
             scope: INTERNAL
+          maintenanceTasks:
+            backup: ref-87654321
+            upgrade: ref-12345678
           managedResourceType: PortsBasedProxy
+          manualOverride:
+            setAt: 2020-01-01T00:00:00Z
+            setterUserId: user-12345678
+            workflowId: wf-12345678
           organizationId: org-12345678
           organizationName: my-org
           portsRegistrationStatus:
@@ -28651,7 +28767,14 @@ components:
             integrationType: LOGS
             message: missing exporter secret configuration for gcp
             scope: INTERNAL
+          maintenanceTasks:
+            backup: ref-87654321
+            upgrade: ref-12345678
           managedResourceType: PortsBasedProxy
+          manualOverride:
+            setAt: 2020-01-01T00:00:00Z
+            setterUserId: user-12345678
+            workflowId: wf-12345678
           organizationId: org-12345678
           organizationName: my-org
           portsRegistrationStatus:
@@ -28976,7 +29099,14 @@ components:
             integrationType: LOGS
             message: missing exporter secret configuration for gcp
             scope: INTERNAL
+          maintenanceTasks:
+            backup: ref-87654321
+            upgrade: ref-12345678
           managedResourceType: PortsBasedProxy
+          manualOverride:
+            setAt: 2020-01-01T00:00:00Z
+            setterUserId: user-12345678
+            workflowId: wf-12345678
           organizationId: org-12345678
           organizationName: my-org
           portsRegistrationStatus:
@@ -29301,7 +29431,14 @@ components:
             integrationType: LOGS
             message: missing exporter secret configuration for gcp
             scope: INTERNAL
+          maintenanceTasks:
+            backup: ref-87654321
+            upgrade: ref-12345678
           managedResourceType: PortsBasedProxy
+          manualOverride:
+            setAt: 2020-01-01T00:00:00Z
+            setterUserId: user-12345678
+            workflowId: wf-12345678
           organizationId: org-12345678
           organizationName: my-org
           portsRegistrationStatus:
@@ -29639,7 +29776,14 @@ components:
               integrationType: LOGS
               message: missing exporter secret configuration for gcp
               scope: INTERNAL
+            maintenanceTasks:
+              backup: ref-87654321
+              upgrade: ref-12345678
             managedResourceType: PortsBasedProxy
+            manualOverride:
+              setAt: 2020-01-01T00:00:00Z
+              setterUserId: user-12345678
+              workflowId: wf-12345678
             organizationId: org-12345678
             organizationName: my-org
             portsRegistrationStatus:
@@ -29964,7 +30108,14 @@ components:
               integrationType: LOGS
               message: missing exporter secret configuration for gcp
               scope: INTERNAL
+            maintenanceTasks:
+              backup: ref-87654321
+              upgrade: ref-12345678
             managedResourceType: PortsBasedProxy
+            manualOverride:
+              setAt: 2020-01-01T00:00:00Z
+              setterUserId: user-12345678
+              workflowId: wf-12345678
             organizationId: org-12345678
             organizationName: my-org
             portsRegistrationStatus:
@@ -30289,332 +30440,14 @@ components:
               integrationType: LOGS
               message: missing exporter secret configuration for gcp
               scope: INTERNAL
+            maintenanceTasks:
+              backup: ref-87654321
+              upgrade: ref-12345678
             managedResourceType: PortsBasedProxy
-            organizationId: org-12345678
-            organizationName: my-org
-            portsRegistrationStatus:
-              instance-123:
-              - 30000
-              - 30001
-              instance-456:
-              - 30002
-              - 30003
-            productTierId: pt-12345678
-            productTierName: premium
-            productTierType: OMNISTRATE_DEDICATED
-            proxyType: PortsBasedProxy
-            resourceVersionSummaries:
-            - capabilities:
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              externalResource: true
-              latestVersion: "2.0"
-              resourceId: r-12345678
-              resourceName: asserts-server
-              version: "1.0"
-            - capabilities:
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              externalResource: true
-              latestVersion: "2.0"
-              resourceId: r-12345678
-              resourceName: asserts-server
-              version: "1.0"
-            - capabilities:
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              externalResource: true
-              latestVersion: "2.0"
-              resourceId: r-12345678
-              resourceName: asserts-server
-              version: "1.0"
-            - capabilities:
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              externalResource: true
-              latestVersion: "2.0"
-              resourceId: r-12345678
-              resourceName: asserts-server
-              version: "1.0"
-            serviceEnvName: dev
-            serviceId: s-12345678
-            serviceLogoURL: Explicabo blanditiis labore.
-            serviceModelId: sm-12345678
-            serviceModelName: hosted
-            serviceModelType: OMNISTRATE_HOSTED
-            serviceName: mysql
-            subscriptionId: sub-12345678
-            subscriptionOwnerName: John Doe
-            tierVersion: "1.0"
-            tierVersionReleasedAt: 2020-01-01T00:00:00Z
-            tierVersionReleasedByUserId: user-12345678
-            tierVersionReleasedByUserName: John Doe
-            tierVersionStatus: Preferred|Active|Deprecated|Pending
-          - awsAccountID: "123456789012"
-            cloudProvider: aws
-            consumptionResourceInstanceResult:
-              active: true
-              autoscalingEnabled: true
-              awsAccountID: "123456789012"
-              backupStatus:
-                backupPeriodInHours: 2
-                backupRetentionInDays: 7
-                earliestRestoreTime: 2021-09-01T00:00:00Z
-                lastBackupTime: 2021-09-01T00:00:00Z
-              cloud_provider: aws
-              created_at: 2023-01-10T00:00:00Z
-              createdByUserId: user-12345678
-              createdByUserName: John Doe
-              currentReplicas: "2"
-              customNetworkDetail:
-                cidr: 10.177.0.0/16
-                id: n-12345678
-                name: Prod us-east-1
-              detailedNetworkTopology:
-                r-abcd1234:
-                  allowedIPRanges:
-                  - 0.0.0.0/0
-                  clusterEndpoint: primary.instance-abcd1234.us-east-2.aws.omnistrate.cloud
-                  clusterPorts:
-                  - 3306
-                  main: true
-                  networkingType: PUBLIC
-                  nodes:
-                  - availabilityZone: us-east-2a
-                    endpoint: primary-0.instance-abcd1234.us-east-2.aws.omnistrate.cloud
-                    healthStatus: healthy
-                    id: primary-0
-                    ports:
-                    - 3306
-                    status: RUNNING
-                  privateNetworkCIDR: 10.0.0.2/24
-                  privateNetworkID: n-1234abcd
-                  publiclyAccessible: true
-                  resourceKey: primary
-                  resourceName: Primary MySQL Instance
-              externalPayerId: external-payer-id-1234
-              gcpProjectID: my-project
-              highAvailability: true
-              id: instance-abcd1234
-              instanceLoadStatus: LOAD_NORMAL|LOAD_IDLE|LOAD_OVERLOADED|STOPPED|UNKNOWN|N/A
-              kubernetesDashboardEndpoint:
-                dashboardEndpoint: https://kubernetes-dashboard.hc-12345678.region.cloudprovider.f2e0a955bb84.cloud/#/pod?namespace=instance-abcdefgh
-                deploymentCellID: hc-12345678
-              last_modified_at: 2023-01-20T00:00:00Z
-              maxReplicas: "1"
-              minReplicas: "1"
-              network_type: PUBLIC
-              productTierFeatures:
-                BILLING:
-                  enabled: false
-                LOGS:
-                  auth:
-                    password: px3c4d5f6g7h8i
-                    username: abcd1234
-                  enabled: true
-                  websocketBaseUrl: wss://r-injectedobserve.instance-abcdefgh.us-east-2.aws.omnistrate.cloud/logs
-                METRICS:
-                  enabled: false
-              region: us-east-1
-              resourceID: r-abcd1234
-              result_params:
-                param1: value1
-                param2: value2
-              serverlessEnabled: true
-              status: RUNNING
-              subscriptionId: sub-abcd1234
-            defaultSubscription: true
-            deploymentCellID: hc-12345678
-            environmentId: se-12345678
-            gcpProjectID: my-project
-            input_params:
-              param1: value1
-              param2: value2
-            instanceDebugCommands:
-            - aws eks update-kubeconfig --name my-cluster --region us-west-2
-            - kubectl -n instance-12345678 get pods
-            integrationsStatus:
-            - Url: https://one.newrelic.com/data-exploration/data-explorer/explorer
-              configuration:
-                provider: native
-              healthStatus: UNHEALTHY
-              integrationType: LOGS
-              message: missing exporter secret configuration for gcp
-              scope: INTERNAL
-            - Url: https://one.newrelic.com/data-exploration/data-explorer/explorer
-              configuration:
-                provider: native
-              healthStatus: UNHEALTHY
-              integrationType: LOGS
-              message: missing exporter secret configuration for gcp
-              scope: INTERNAL
-            - Url: https://one.newrelic.com/data-exploration/data-explorer/explorer
-              configuration:
-                provider: native
-              healthStatus: UNHEALTHY
-              integrationType: LOGS
-              message: missing exporter secret configuration for gcp
-              scope: INTERNAL
-            - Url: https://one.newrelic.com/data-exploration/data-explorer/explorer
-              configuration:
-                provider: native
-              healthStatus: UNHEALTHY
-              integrationType: LOGS
-              message: missing exporter secret configuration for gcp
-              scope: INTERNAL
-            managedResourceType: PortsBasedProxy
+            manualOverride:
+              setAt: 2020-01-01T00:00:00Z
+              setterUserId: user-12345678
+              workflowId: wf-12345678
             organizationId: org-12345678
             organizationName: my-org
             portsRegistrationStatus:
@@ -34861,6 +34694,25 @@ components:
       required:
       - token
       type: object
+    ManualOverride:
+      example:
+        setAt: 2020-01-01T00:00:00Z
+        setterUserId: user-12345678
+        workflowId: wf-12345678
+      properties:
+        setAt:
+          description: The timestamp when the manual override was set.
+          example: 2020-01-01T00:00:00Z
+          type: string
+        setterUserId:
+          description: ID of a User
+          example: Quam id quo nam.
+          type: string
+        workflowId:
+          description: ID of a Workflow
+          example: Dicta sit in commodi.
+          type: string
+      type: object
     ModifyServicesOrchestrationRequest:
       example:
         id: so-12345678
@@ -35297,7 +35149,7 @@ components:
           type: string
         resourceId:
           description: ID of a resource
-          example: Molestias tempora.
+          example: Ratione placeat perspiciatis molestias tempora.
           type: string
         serviceId:
           description: ID of a Service
@@ -35309,7 +35161,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: d7n
+          example: teq
           minLength: 1
           type: string
       required:
@@ -36464,7 +36316,21 @@ components:
           integrationType: LOGS
           message: missing exporter secret configuration for gcp
           scope: INTERNAL
+        - Url: https://one.newrelic.com/data-exploration/data-explorer/explorer
+          configuration:
+            provider: native
+          healthStatus: UNHEALTHY
+          integrationType: LOGS
+          message: missing exporter secret configuration for gcp
+          scope: INTERNAL
+        maintenanceTasks:
+          backup: ref-87654321
+          upgrade: ref-12345678
         managedResourceType: PortsBasedProxy
+        manualOverride:
+          setAt: 2020-01-01T00:00:00Z
+          setterUserId: user-12345678
+          workflowId: wf-12345678
         organizationId: org-12345678
         organizationName: my-org
         portsRegistrationStatus:
@@ -36665,7 +36531,7 @@ components:
           version: "1.0"
         serviceEnvName: dev
         serviceId: s-12345678
-        serviceLogoURL: Sunt magni.
+        serviceLogoURL: Voluptatem in.
         serviceModelId: sm-12345678
         serviceModelName: hosted
         serviceModelType: OMNISTRATE_HOSTED
@@ -36694,7 +36560,7 @@ components:
           type: boolean
         deploymentCellID:
           description: ID of a Host Cluster
-          example: Soluta voluptatem qui aliquam.
+          example: Atque sunt.
           type: string
         environmentId:
           description: ID of a Service Environment
@@ -36715,7 +36581,7 @@ components:
           - aws eks update-kubeconfig --name my-cluster --region us-west-2
           - kubectl -n instance-12345678 get pods
           items:
-            example: Sed expedita non magni nisi doloribus.
+            example: Beatae soluta et iste.
             type: string
           type: array
         integrationsStatus:
@@ -36739,13 +36605,25 @@ components:
           items:
             $ref: '#/components/schemas/IntegrationStatus'
           type: array
+        maintenanceTasks:
+          additionalProperties:
+            example: Totam consequatur nisi quasi voluptas porro necessitatibus.
+            type: string
+          description: "Pending actions or maintenance tasks for the resource instance,\
+            \ with action type as key and reference key as value."
+          example:
+            backup: ref-87654321
+            upgrade: ref-12345678
+          type: object
         managedResourceType:
           description: The managed resource type of instance
           example: PortsBasedProxy
           type: string
+        manualOverride:
+          $ref: '#/components/schemas/ManualOverride'
         organizationId:
           description: ID of an Org
-          example: Sit in.
+          example: Corporis praesentium nobis.
           type: string
         organizationName:
           description: The organization name of the resource instance.
@@ -36754,11 +36632,11 @@ components:
         portsRegistrationStatus:
           additionalProperties:
             example:
-            - 4122451001638814925
-            - 2862156339418833372
-            - 9138816197968341387
+            - 8577496598680384240
+            - 3177355625222346195
+            - 4584796041789198385
             items:
-              example: 4556321976153976079
+              example: 1450291979328402440
               format: int64
               type: integer
             type: array
@@ -36773,7 +36651,7 @@ components:
           type: object
         productTierId:
           description: ID of a Product Tier
-          example: Nemo non.
+          example: Non debitis soluta et.
           type: string
         productTierName:
           description: The product tier name
@@ -36883,98 +36761,6 @@ components:
             resourceId: r-12345678
             resourceName: asserts-server
             version: "1.0"
-          - capabilities:
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            externalResource: true
-            latestVersion: "2.0"
-            resourceId: r-12345678
-            resourceName: asserts-server
-            version: "1.0"
-          - capabilities:
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            externalResource: true
-            latestVersion: "2.0"
-            resourceId: r-12345678
-            resourceName: asserts-server
-            version: "1.0"
           items:
             $ref: '#/components/schemas/ResourceVersionSummary'
           type: array
@@ -36988,11 +36774,11 @@ components:
           type: string
         serviceLogoURL:
           description: The logo for the service
-          example: Consectetur ducimus.
+          example: Ullam sit autem soluta voluptatem qui.
           type: string
         serviceModelId:
           description: ID of a Service Model
-          example: Sed laudantium.
+          example: Nihil cupiditate.
           type: string
         serviceModelName:
           description: The service model name
@@ -37008,7 +36794,7 @@ components:
           type: string
         subscriptionId:
           description: ID of a Subscription
-          example: Cupiditate sint non debitis soluta.
+          example: Et architecto accusamus culpa.
           type: string
         subscriptionOwnerName:
           description: The subscription owner name
@@ -37024,7 +36810,7 @@ components:
           type: string
         tierVersionReleasedByUserId:
           description: ID of a User
-          example: Id quo nam molestiae.
+          example: Repellendus sed laudantium rem nemo.
           type: string
         tierVersionReleasedByUserName:
           description: The name of the user who released the version set.
@@ -41225,11 +41011,21 @@ components:
     UsagePerDimension:
       example:
         dimension: core/hours
+        endTime: 2021-01-01T00:00:00.000Z
+        startTime: 2021-01-01T00:00:00.000Z
         total: 0.67
       properties:
         dimension:
           description: Dimension of usage
           example: core/hours
+          type: string
+        endTime:
+          description: End timestamp of usage
+          example: 2021-01-01T00:00:00.000Z
+          type: string
+        startTime:
+          description: Start timestamp of usage
+          example: 2021-01-01T00:00:00.000Z
           type: string
         total:
           description: Total amount of usage during the period

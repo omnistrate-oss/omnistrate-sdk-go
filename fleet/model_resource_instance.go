@@ -39,8 +39,11 @@ type ResourceInstance struct {
 	InstanceDebugCommands []string `json:"instanceDebugCommands"`
 	// List of individual integrations and their statuses for the instance
 	IntegrationsStatus []IntegrationStatus `json:"integrationsStatus"`
+	// Pending actions or maintenance tasks for the resource instance, with action type as key and reference key as value.
+	MaintenanceTasks *map[string]string `json:"maintenanceTasks,omitempty"`
 	// The managed resource type of instance
 	ManagedResourceType *string `json:"managedResourceType,omitempty"`
+	ManualOverride *ManualOverride `json:"manualOverride,omitempty"`
 	// ID of an Org
 	OrganizationId string `json:"organizationId"`
 	// The organization name of the resource instance.
@@ -399,6 +402,38 @@ func (o *ResourceInstance) SetIntegrationsStatus(v []IntegrationStatus) {
 	o.IntegrationsStatus = v
 }
 
+// GetMaintenanceTasks returns the MaintenanceTasks field value if set, zero value otherwise.
+func (o *ResourceInstance) GetMaintenanceTasks() map[string]string {
+	if o == nil || IsNil(o.MaintenanceTasks) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.MaintenanceTasks
+}
+
+// GetMaintenanceTasksOk returns a tuple with the MaintenanceTasks field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceInstance) GetMaintenanceTasksOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.MaintenanceTasks) {
+		return nil, false
+	}
+	return o.MaintenanceTasks, true
+}
+
+// HasMaintenanceTasks returns a boolean if a field has been set.
+func (o *ResourceInstance) HasMaintenanceTasks() bool {
+	if o != nil && !IsNil(o.MaintenanceTasks) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaintenanceTasks gets a reference to the given map[string]string and assigns it to the MaintenanceTasks field.
+func (o *ResourceInstance) SetMaintenanceTasks(v map[string]string) {
+	o.MaintenanceTasks = &v
+}
+
 // GetManagedResourceType returns the ManagedResourceType field value if set, zero value otherwise.
 func (o *ResourceInstance) GetManagedResourceType() string {
 	if o == nil || IsNil(o.ManagedResourceType) {
@@ -429,6 +464,38 @@ func (o *ResourceInstance) HasManagedResourceType() bool {
 // SetManagedResourceType gets a reference to the given string and assigns it to the ManagedResourceType field.
 func (o *ResourceInstance) SetManagedResourceType(v string) {
 	o.ManagedResourceType = &v
+}
+
+// GetManualOverride returns the ManualOverride field value if set, zero value otherwise.
+func (o *ResourceInstance) GetManualOverride() ManualOverride {
+	if o == nil || IsNil(o.ManualOverride) {
+		var ret ManualOverride
+		return ret
+	}
+	return *o.ManualOverride
+}
+
+// GetManualOverrideOk returns a tuple with the ManualOverride field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceInstance) GetManualOverrideOk() (*ManualOverride, bool) {
+	if o == nil || IsNil(o.ManualOverride) {
+		return nil, false
+	}
+	return o.ManualOverride, true
+}
+
+// HasManualOverride returns a boolean if a field has been set.
+func (o *ResourceInstance) HasManualOverride() bool {
+	if o != nil && !IsNil(o.ManualOverride) {
+		return true
+	}
+
+	return false
+}
+
+// SetManualOverride gets a reference to the given ManualOverride and assigns it to the ManualOverride field.
+func (o *ResourceInstance) SetManualOverride(v ManualOverride) {
+	o.ManualOverride = &v
 }
 
 // GetOrganizationId returns the OrganizationId field value
@@ -1011,8 +1078,14 @@ func (o ResourceInstance) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["instanceDebugCommands"] = o.InstanceDebugCommands
 	toSerialize["integrationsStatus"] = o.IntegrationsStatus
+	if !IsNil(o.MaintenanceTasks) {
+		toSerialize["maintenanceTasks"] = o.MaintenanceTasks
+	}
 	if !IsNil(o.ManagedResourceType) {
 		toSerialize["managedResourceType"] = o.ManagedResourceType
+	}
+	if !IsNil(o.ManualOverride) {
+		toSerialize["manualOverride"] = o.ManualOverride
 	}
 	toSerialize["organizationId"] = o.OrganizationId
 	toSerialize["organizationName"] = o.OrganizationName
@@ -1120,7 +1193,9 @@ func (o *ResourceInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "input_params")
 		delete(additionalProperties, "instanceDebugCommands")
 		delete(additionalProperties, "integrationsStatus")
+		delete(additionalProperties, "maintenanceTasks")
 		delete(additionalProperties, "managedResourceType")
+		delete(additionalProperties, "manualOverride")
 		delete(additionalProperties, "organizationId")
 		delete(additionalProperties, "organizationName")
 		delete(additionalProperties, "portsRegistrationStatus")
