@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Id** | **string** | The User ID | 
 **LastModifiedAt** | **string** | The user update time | 
 **Name** | **string** | The name of the user | 
+**OrgCookiePolicy** | Pointer to **string** | The cookie policy for the org that this user owns | [optional] 
 **OrgDescription** | **string** | The description of the org that this user owns | 
 **OrgFavIconURL** | **string** | The favicon of the org that this user owns | 
 **OrgId** | **string** | The ID of the org that this user owns | 
@@ -165,6 +166,31 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetOrgCookiePolicy
+
+`func (o *DescribeUserResult) GetOrgCookiePolicy() string`
+
+GetOrgCookiePolicy returns the OrgCookiePolicy field if non-nil, zero value otherwise.
+
+### GetOrgCookiePolicyOk
+
+`func (o *DescribeUserResult) GetOrgCookiePolicyOk() (*string, bool)`
+
+GetOrgCookiePolicyOk returns a tuple with the OrgCookiePolicy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrgCookiePolicy
+
+`func (o *DescribeUserResult) SetOrgCookiePolicy(v string)`
+
+SetOrgCookiePolicy sets OrgCookiePolicy field to given value.
+
+### HasOrgCookiePolicy
+
+`func (o *DescribeUserResult) HasOrgCookiePolicy() bool`
+
+HasOrgCookiePolicy returns a boolean if a field has been set.
 
 ### GetOrgDescription
 

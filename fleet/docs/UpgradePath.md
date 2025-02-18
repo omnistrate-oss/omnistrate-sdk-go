@@ -11,8 +11,10 @@ Name | Type | Description | Notes
 **FailedCount** | **int64** | The number of instances that have failed the upgrade. | 
 **InProgressCount** | **int64** | The number of instances that are in progress of the upgrade. | 
 **PendingCount** | **int64** | The number of instances that are pending the upgrade. | 
+**PlannedExecutionDate** | Pointer to **string** | The date when the upgrade was/is planned to be executed. | [optional] 
 **ProductTierId** | **string** | ID of a Product Tier | 
 **ReleasedAt** | **string** | The timestamp when the upgrade path was released. | 
+**ScheduledCount** | Pointer to **int64** | The number of instances that are scheduled to upgrade. | [optional] 
 **ServiceId** | **string** | ID of a Service | 
 **SourceVersion** | **string** | The source version of the upgrade path. | 
 **Status** | **string** | The status of the upgrade path. | 
@@ -186,6 +188,31 @@ and a boolean to check if the value has been set.
 SetPendingCount sets PendingCount field to given value.
 
 
+### GetPlannedExecutionDate
+
+`func (o *UpgradePath) GetPlannedExecutionDate() string`
+
+GetPlannedExecutionDate returns the PlannedExecutionDate field if non-nil, zero value otherwise.
+
+### GetPlannedExecutionDateOk
+
+`func (o *UpgradePath) GetPlannedExecutionDateOk() (*string, bool)`
+
+GetPlannedExecutionDateOk returns a tuple with the PlannedExecutionDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPlannedExecutionDate
+
+`func (o *UpgradePath) SetPlannedExecutionDate(v string)`
+
+SetPlannedExecutionDate sets PlannedExecutionDate field to given value.
+
+### HasPlannedExecutionDate
+
+`func (o *UpgradePath) HasPlannedExecutionDate() bool`
+
+HasPlannedExecutionDate returns a boolean if a field has been set.
+
 ### GetProductTierId
 
 `func (o *UpgradePath) GetProductTierId() string`
@@ -225,6 +252,31 @@ and a boolean to check if the value has been set.
 
 SetReleasedAt sets ReleasedAt field to given value.
 
+
+### GetScheduledCount
+
+`func (o *UpgradePath) GetScheduledCount() int64`
+
+GetScheduledCount returns the ScheduledCount field if non-nil, zero value otherwise.
+
+### GetScheduledCountOk
+
+`func (o *UpgradePath) GetScheduledCountOk() (*int64, bool)`
+
+GetScheduledCountOk returns a tuple with the ScheduledCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScheduledCount
+
+`func (o *UpgradePath) SetScheduledCount(v int64)`
+
+SetScheduledCount sets ScheduledCount field to given value.
+
+### HasScheduledCount
+
+`func (o *UpgradePath) HasScheduledCount() bool`
+
+HasScheduledCount returns a boolean if a field has been set.
 
 ### GetServiceId
 

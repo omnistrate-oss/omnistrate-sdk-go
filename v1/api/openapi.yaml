@@ -237,6 +237,7 @@ paths:
                 - instance-abcdefgh
                 cloudProviderId: infra-12345678
                 description: An AWS account hosting multiple dev environments
+                gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
                 gcpProjectID: my-project
                 gcpProjectNumber: "123456789012"
                 gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -313,7 +314,7 @@ paths:
               example:
                 awsAccountID: "123456789012"
                 awsBootstrapRoleARN: arn:aws:iam::<ACCOUNT_ID>:role/<ROLE_NAME>
-                awsCloudFormationNoLBTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template-no-lb-policy.yaml
+                awsCloudFormationNoLBTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template.yaml&param_CreateLoadBalancerPolicy=false
                 awsCloudFormationTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template.yaml
                 byoaInstanceIDs:
                 - instance-12345678
@@ -397,6 +398,7 @@ paths:
                   - instance-abcdefgh
                   cloudProviderId: infra-12345678
                   description: An AWS account hosting multiple dev environments
+                  gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
                   gcpProjectID: my-project
                   gcpProjectNumber: "123456789012"
                   gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -413,6 +415,7 @@ paths:
                   - instance-abcdefgh
                   cloudProviderId: infra-12345678
                   description: An AWS account hosting multiple dev environments
+                  gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
                   gcpProjectID: my-project
                   gcpProjectNumber: "123456789012"
                   gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -429,6 +432,7 @@ paths:
                   - instance-abcdefgh
                   cloudProviderId: infra-12345678
                   description: An AWS account hosting multiple dev environments
+                  gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
                   gcpProjectID: my-project
                   gcpProjectNumber: "123456789012"
                   gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -517,6 +521,7 @@ paths:
                   - instance-abcdefgh
                   cloudProviderId: infra-12345678
                   description: An AWS account hosting multiple dev environments
+                  gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
                   gcpProjectID: my-project
                   gcpProjectNumber: "123456789012"
                   gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -533,6 +538,7 @@ paths:
                   - instance-abcdefgh
                   cloudProviderId: infra-12345678
                   description: An AWS account hosting multiple dev environments
+                  gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
                   gcpProjectID: my-project
                   gcpProjectNumber: "123456789012"
                   gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -549,6 +555,7 @@ paths:
                   - instance-abcdefgh
                   cloudProviderId: infra-12345678
                   description: An AWS account hosting multiple dev environments
+                  gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
                   gcpProjectID: my-project
                   gcpProjectNumber: "123456789012"
                   gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -565,6 +572,7 @@ paths:
                   - instance-abcdefgh
                   cloudProviderId: infra-12345678
                   description: An AWS account hosting multiple dev environments
+                  gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
                   gcpProjectID: my-project
                   gcpProjectNumber: "123456789012"
                   gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -4783,6 +4791,7 @@ paths:
                     METRICS:
                       enabled: false
                   region: us-east-1
+                  resourceID: r-abcd1234
                   result_params:
                     param1: value1
                     param2: value2
@@ -4852,6 +4861,7 @@ paths:
                     METRICS:
                       enabled: false
                   region: us-east-1
+                  resourceID: r-abcd1234
                   result_params:
                     param1: value1
                     param2: value2
@@ -4921,6 +4931,7 @@ paths:
                     METRICS:
                       enabled: false
                   region: us-east-1
+                  resourceID: r-abcd1234
                   result_params:
                     param1: value1
                     param2: value2
@@ -5948,6 +5959,7 @@ paths:
                   METRICS:
                     enabled: false
                 region: us-east-1
+                resourceID: r-abcd1234
                 result_params:
                   param1: value1
                   param2: value2
@@ -8783,6 +8795,8 @@ paths:
                     gcpProjectID: my-project
                     gcpProjectNumber: "123456789012"
                     hostClusterID: hc-12345678
+                  owningUserId: user-12345678
+                  owningUserName: John Doe
                 - cidr: 10.0.0.0/16
                   cloudProviderName: aws
                   cloudProviderRegion: us-east-1
@@ -8812,6 +8826,8 @@ paths:
                     gcpProjectID: my-project
                     gcpProjectNumber: "123456789012"
                     hostClusterID: hc-12345678
+                  owningUserId: user-12345678
+                  owningUserName: John Doe
                 - cidr: 10.0.0.0/16
                   cloudProviderName: aws
                   cloudProviderRegion: us-east-1
@@ -8841,6 +8857,8 @@ paths:
                     gcpProjectID: my-project
                     gcpProjectNumber: "123456789012"
                     hostClusterID: hc-12345678
+                  owningUserId: user-12345678
+                  owningUserName: John Doe
                 - cidr: 10.0.0.0/16
                   cloudProviderName: aws
                   cloudProviderRegion: us-east-1
@@ -8870,6 +8888,8 @@ paths:
                     gcpProjectID: my-project
                     gcpProjectNumber: "123456789012"
                     hostClusterID: hc-12345678
+                  owningUserId: user-12345678
+                  owningUserName: John Doe
               schema:
                 $ref: '#/components/schemas/ListCustomNetworksResult'
           description: OK response.
@@ -8934,6 +8954,8 @@ paths:
                   gcpProjectID: my-project
                   gcpProjectNumber: "123456789012"
                   hostClusterID: hc-12345678
+                owningUserId: user-12345678
+                owningUserName: John Doe
               schema:
                 $ref: '#/components/schemas/CustomNetwork'
           description: OK response.
@@ -9042,6 +9064,8 @@ paths:
                   gcpProjectID: my-project
                   gcpProjectNumber: "123456789012"
                   hostClusterID: hc-12345678
+                owningUserId: user-12345678
+                owningUserName: John Doe
               schema:
                 $ref: '#/components/schemas/CustomNetwork'
           description: OK response.
@@ -9127,6 +9151,8 @@ paths:
                   gcpProjectID: my-project
                   gcpProjectNumber: "123456789012"
                   hostClusterID: hc-12345678
+                owningUserId: user-12345678
+                owningUserName: John Doe
               schema:
                 $ref: '#/components/schemas/CustomNetwork'
           description: OK response.
@@ -28898,6 +28924,8 @@ components:
         targetGroupName: my-target-group
       - port: 80
         targetGroupName: my-target-group
+      - port: 80
+        targetGroupName: my-target-group
       items:
         $ref: '#/components/schemas/AWSPrivateLinkConfiguration'
       type: array
@@ -28962,7 +28990,7 @@ components:
           - /bin/sh
           - -c
           items:
-            example: Maxime aut facere inventore iure quis ratione.
+            example: Iure quis ratione provident nam voluptatibus quis.
             type: string
           type: array
         customImage:
@@ -28975,7 +29003,7 @@ components:
           type: string
         type:
           description: The type of hook to execute
-          example: INIT|ADD|REMOVE|PROMOTE|DEMOTE|HEALTH_CHECK|POST_START|POST_UPGRADE|PRE_STOP
+          example: INIT|ADD|REMOVE|PROMOTE|DEMOTE|HEALTH_CHECK|READINESS_CHECK|STARTUP_CHECK|PRE_START|POST_START|PRE_UPGRADE|POST_UPGRADE|PRE_STOP|POST_STOP
           type: string
       required:
       - commandTemplate
@@ -29374,11 +29402,11 @@ components:
         mountPath: /data
         serviceId: s-12345678
         storageVolumeConfigId: svc-12345678
-        token: x6
+        token: "8"
       properties:
         id:
           description: ID of a Storage Config
-          example: Quia neque quo voluptates culpa quaerat.
+          example: Non molestiae vitae.
           type: string
         mountPath:
           description: The path where the storage volume will be mounted
@@ -29390,11 +29418,11 @@ components:
           type: string
         storageVolumeConfigId:
           description: ID of a Storage Volume Config
-          example: Molestiae vitae fuga perspiciatis dolor consequatur ipsam.
+          example: Perspiciatis dolor consequatur ipsam ut quo officiis.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: "1"
+          example: 2ak
           minLength: 1
           type: string
       required:
@@ -30465,6 +30493,7 @@ components:
     ClusterEndpoint:
       example:
         endpoint: https://r-1234.instance-abcdefgh.region.aws.omnistrate.cloud
+        healthStatus: HEALTHY
         networkingType: PUBLIC
         openPorts:
         - 30000
@@ -30475,6 +30504,10 @@ components:
           default: ""
           description: The endpoint
           example: https://r-1234.instance-abcdefgh.region.aws.omnistrate.cloud
+          type: string
+        healthStatus:
+          description: The heath status of a resource
+          example: HEALTHY|UNHEALTHY|UNKNOWN|STOPPED|N/A
           type: string
         networkingType:
           description: The networking type for this resource
@@ -31350,7 +31383,7 @@ components:
         - region-12345678
         - region-abcd1234
         - region-3c3c3c3c
-        token: uw
+        token: v
       properties:
         description:
           description: A brief description of the deployment config
@@ -31369,12 +31402,12 @@ components:
           - region-3c3c3c3c
           items:
             description: ID of a Region
-            example: Fugit sint nihil velit temporibus odio.
+            example: Ipsum sit aut omnis in et optio.
             type: string
           type: array
         token:
           description: JWT token used to perform authorization
-          example: p
+          example: ym
           minLength: 1
           type: string
       required:
@@ -31492,7 +31525,7 @@ components:
         imageTag: latest
         serviceEnvironmentId: se-12345678
         serviceId: s-12345678
-        token: af
+        token: fm
       properties:
         customImageCommandsAndArgs:
           $ref: '#/components/schemas/CustomImageCommandsAndArgs'
@@ -31507,7 +31540,7 @@ components:
           type: string
         imageRegistryId:
           description: ID of an Image Registry
-          example: Aut architecto ut.
+          example: Itaque amet ut ullam ratione.
           type: string
         imageSignaturePublicKeyPEM:
           description: PEM-encoded Public key part of the key used to sign the container
@@ -31533,7 +31566,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: b0
+          example: wpz
           minLength: 1
           type: string
       required:
@@ -31608,7 +31641,7 @@ components:
         host: docker.io
         name: DockerHub
         password: mypassword
-        token: k8h
+        token: k
         username: myusername
       properties:
         description:
@@ -31629,7 +31662,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: fkw
+          example: noa
           minLength: 1
           type: string
         username:
@@ -31688,11 +31721,11 @@ components:
         serviceEnvironmentId: se-12345678
         serviceId: s-12345678
         storageConfigId: sc-12345678
-        token: xqm
+        token: xt
       properties:
         computeConfigId:
           description: ID of a Compute Config
-          example: Consequatur vitae cumque incidunt consequatur.
+          example: Sunt maxime atque numquam.
           type: string
         customTag:
           $ref: '#/components/schemas/CustomTag'
@@ -31706,7 +31739,7 @@ components:
           type: string
         networkConfigId:
           description: ID of a Network Config
-          example: Ut eaque animi dolorem.
+          example: Amet ut.
           type: string
         serviceEnvironmentId:
           description: ID of a Service Environment
@@ -31718,11 +31751,11 @@ components:
           type: string
         storageConfigId:
           description: ID of a Storage Config
-          example: Odit ullam vel iusto sit et.
+          example: Ipsa aspernatur quis consequatur assumenda et.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: "6"
+          example: kzx
           minLength: 1
           type: string
       required:
@@ -31782,7 +31815,7 @@ components:
         description: Quia sint accusamus non qui beatae.
         hasOptions: true
         isList: false
-        key: i
+        key: 6id
         labeledOptions:
           large: t3.xlarge
           medium: t3.large
@@ -31793,7 +31826,7 @@ components:
           min: Nihil hic sit.
           minLength: Incidunt quibusdam et atque quia sed.
         modifiable: true
-        name: cp
+        name: p
         options:
         - a
         - b
@@ -31802,7 +31835,7 @@ components:
         required: true
         resourceId: r-12345678
         serviceId: s-12345678
-        token: q
+        token: sl
         type: Boolean|Float64|String|Resource|Secret|Password
       properties:
         defaultValue:
@@ -31812,31 +31845,31 @@ components:
           type: string
         dependentResourceId:
           description: ID of a resource
-          example: Consequatur tempora illo ex ullam est.
+          example: Tempora illo ex.
           type: string
         description:
           description: A brief description of the input parameter
-          example: Veritatis tempora omnis voluptatem et at est.
+          example: Tempora omnis voluptatem et at.
           type: string
         hasOptions:
           default: false
           description: Marks the input parameter to be selectable from a list of values
-          example: true
+          example: false
           type: boolean
         isList:
           default: false
           description: Marks the input parameter as a list of values
-          example: false
+          example: true
           type: boolean
         key:
           description: Key of the input parameter
-          example: jie
+          example: x
           minLength: 1
           pattern: "^[a-zA-Z][a-zA-Z0-9_]*$"
           type: string
         labeledOptions:
           additionalProperties:
-            example: Vel illo veniam dolor quis.
+            example: Accusantium vel illo veniam dolor quis aspernatur.
             type: string
           description: "A map for labeled options. The key is the label and the value\
             \ is the option. When the option is selected, the label will be displayed\
@@ -31851,11 +31884,11 @@ components:
           $ref: '#/components/schemas/Limits'
         modifiable:
           description: Marks the input parameter as immutable
-          example: false
+          example: true
           type: boolean
         name:
           description: External name for the input parameter
-          example: pyh
+          example: "2"
           minLength: 1
           type: string
         options:
@@ -31867,7 +31900,7 @@ components:
           - c
           - default value
           items:
-            example: Excepturi quas voluptatem fuga ullam.
+            example: Ratione excepturi quas voluptatem fuga.
             type: string
           type: array
         required:
@@ -31876,7 +31909,7 @@ components:
           type: boolean
         resourceId:
           description: ID of a resource
-          example: Possimus ea distinctio rem nam adipisci.
+          example: Adipisci error.
           type: string
         serviceId:
           description: ID of a Service
@@ -31884,7 +31917,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: ob
+          example: hb
           minLength: 1
           type: string
         type:
@@ -32038,7 +32071,7 @@ components:
         serviceId: s-12345678
         stableEgressIP: true
         tlsTerminationPort: 443
-        token: 1z
+        token: sc
         zoneConfiguration: SINGLE_ZONE_OMNISTRATE_RECOMMENDED|SINGLE_ZONE_CUSTOMER_PROVIDED|MULTI_ZONE
       properties:
         description:
@@ -32064,7 +32097,7 @@ components:
           - 1299
           - 3306
           items:
-            example: 4409747066283176610
+            example: 8442504327180392586
             format: int64
             type: integer
           type: array
@@ -32087,7 +32120,7 @@ components:
           type: integer
         token:
           description: JWT token used to perform authorization
-          example: tlx
+          example: i3b
           minLength: 1
           type: string
         zoneConfiguration:
@@ -34059,7 +34092,7 @@ components:
         description: my-storage-config-description
         name: my-storage-config
         serviceId: s-12345678
-        token: l
+        token: zpx
       properties:
         description:
           description: Description of the storage config
@@ -34077,7 +34110,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: j8
+          example: l
           minLength: 1
           type: string
       required:
@@ -34555,7 +34588,7 @@ components:
           - -d
           - mysql
           items:
-            example: Quia molestias debitis.
+            example: Porro aut qui.
             type: string
           type: array
         commands:
@@ -34564,7 +34597,7 @@ components:
           - echo
           - "Hello, World!"
           items:
-            example: Non nostrum recusandae.
+            example: Ut itaque.
             type: string
           type: array
       type: object
@@ -34599,6 +34632,8 @@ components:
           gcpProjectID: my-project
           gcpProjectNumber: "123456789012"
           hostClusterID: hc-12345678
+        owningUserId: user-12345678
+        owningUserName: John Doe
       properties:
         cidr:
           default: 10.0.0.0/16
@@ -34642,9 +34677,27 @@ components:
             gcpProjectID: my-project
             gcpProjectNumber: "123456789012"
             hostClusterID: hc-12345678
+          - awsAccountID: "123456789012"
+            cloudProviderNativeNetworkId: vpc-12345678
+            gcpProjectID: my-project
+            gcpProjectNumber: "123456789012"
+            hostClusterID: hc-12345678
+          - awsAccountID: "123456789012"
+            cloudProviderNativeNetworkId: vpc-12345678
+            gcpProjectID: my-project
+            gcpProjectNumber: "123456789012"
+            hostClusterID: hc-12345678
           items:
             $ref: '#/components/schemas/CustomNetworkInstance'
           type: array
+        owningUserId:
+          description: ID of a User
+          example: Molestiae itaque cum.
+          type: string
+        owningUserName:
+          description: The name of the user that created and owns the custom network
+          example: John Doe
+          type: string
       required:
       - cloudProviderName
       - cloudProviderRegion
@@ -35184,15 +35237,15 @@ components:
     DeleteDeploymentConfigRequest:
       example:
         id: dc-12345678
-        token: "1"
+        token: 2tw
       properties:
         id:
           description: ID of a Deployment Config
-          example: Minima rerum non.
+          example: Autem et quia sunt non.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: "66"
+          example: 0iu
           minLength: 1
           type: string
       required:
@@ -35203,7 +35256,7 @@ components:
       example:
         chartName: my-chart
         chartVersion: 1.0.0
-        token: a94
+        token: w
       properties:
         chartName:
           description: The chart name of the Helm package to delete
@@ -35215,7 +35268,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: 2e
+          example: b0
           minLength: 1
           type: string
       required:
@@ -35246,11 +35299,11 @@ components:
       example:
         id: imgc-12345678
         serviceId: s-12345678
-        token: "5"
+        token: bu
       properties:
         id:
           description: ID of an Image Config
-          example: Quia hic ut.
+          example: Provident ratione omnis illo.
           type: string
         serviceId:
           description: ID of a Service
@@ -35258,7 +35311,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: 8z9
+          example: h
           minLength: 1
           type: string
       required:
@@ -35270,15 +35323,15 @@ components:
       description: Delete an HTTP API v2 Docker Image Registry
       example:
         id: ir-12345678
-        token: ihx
+        token: w0
       properties:
         id:
           description: ID of an Image Registry
-          example: Sint inventore est ut aut.
+          example: Odit ullam vel iusto sit et.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: e
+          example: yh
           minLength: 1
           type: string
       required:
@@ -35289,11 +35342,11 @@ components:
       example:
         id: ic-12345678
         serviceId: s-12345678
-        token: f
+        token: ts
       properties:
         id:
           description: ID of an Infra Config
-          example: Velit dolores soluta ullam fuga et sed.
+          example: Molestias modi error fugiat eaque non harum.
           type: string
         serviceId:
           description: ID of a Service
@@ -35301,7 +35354,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: "2"
+          example: kwa
           minLength: 1
           type: string
       required:
@@ -35349,7 +35402,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: a67
+          example: x
           minLength: 1
           type: string
       required:
@@ -35361,11 +35414,11 @@ components:
       example:
         id: nc-12345678
         serviceId: s-12345678
-        token: lgc
+        token: j8
       properties:
         id:
           description: ID of a Network Config
-          example: Explicabo sint molestias sapiente mollitia consectetur dolore.
+          example: Mollitia consectetur dolore ullam debitis maiores molestias.
           type: string
         serviceId:
           description: ID of a Service
@@ -35373,7 +35426,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: g9
+          example: w
           minLength: 1
           type: string
       required:
@@ -35524,7 +35577,7 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Et magni.
+          example: Aut doloremque ipsum et magni.
           type: string
         subscriptionId:
           description: The subscription ID
@@ -35532,7 +35585,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: a6
+          example: 1bx
           minLength: 1
           type: string
       required:
@@ -36294,12 +36347,12 @@ components:
         id: r-12345678
         scope: CLUSTER
         serviceId: s-12345678
-        token: t
+        token: ou
         type: ADD
       properties:
         id:
           description: ID of a resource
-          example: Aut beatae eos impedit.
+          example: Sit tempore eum omnis quibusdam.
           type: string
         scope:
           description: The scope of the hook
@@ -36311,12 +36364,12 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: q
+          example: qot
           minLength: 1
           type: string
         type:
           description: The type of hook to execute
-          example: INIT|ADD|REMOVE|PROMOTE|DEMOTE|HEALTH_CHECK|POST_START|POST_UPGRADE|PRE_STOP
+          example: INIT|ADD|REMOVE|PROMOTE|DEMOTE|HEALTH_CHECK|READINESS_CHECK|STARTUP_CHECK|PRE_START|POST_START|PRE_UPGRADE|POST_UPGRADE|PRE_STOP|POST_STOP
           type: string
       required:
       - id
@@ -36365,7 +36418,7 @@ components:
       example:
         awsAccountID: "123456789012"
         awsBootstrapRoleARN: arn:aws:iam::<ACCOUNT_ID>:role/<ROLE_NAME>
-        awsCloudFormationNoLBTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template-no-lb-policy.yaml
+        awsCloudFormationNoLBTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template.yaml&param_CreateLoadBalancerPolicy=false
         awsCloudFormationTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template.yaml
         byoaInstanceIDs:
         - instance-12345678
@@ -36389,7 +36442,7 @@ components:
         awsCloudFormationNoLBTemplateURL:
           description: The URL to the CloudFormation template (no LoadBalancer policy
             version)
-          example: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template-no-lb-policy.yaml
+          example: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template.yaml&param_CreateLoadBalancerPolicy=false
           type: string
         awsCloudFormationTemplateURL:
           description: The URL to the CloudFormation template
@@ -36558,6 +36611,7 @@ components:
         - instance-abcdefgh
         cloudProviderId: infra-12345678
         description: An AWS account hosting multiple dev environments
+        gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
         gcpProjectID: my-project
         gcpProjectNumber: "123456789012"
         gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -36600,6 +36654,10 @@ components:
         description:
           description: The description for the account
           example: An AWS account hosting multiple dev environments
+          type: string
+        gcpBootstrapShellCommand:
+          description: The GCP bootstrap shell command
+          example: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
           type: string
         gcpProjectID:
           description: The GCP project ID
@@ -37054,15 +37112,15 @@ components:
     DescribeCustomNetworkRequest:
       example:
         id: n-12345678
-        token: "2"
+        token: sel
       properties:
         id:
           description: ID of a custom network
-          example: Mollitia est mollitia ea eveniet earum.
+          example: Eveniet earum eum aperiam quasi qui et.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: sli
+          example: 8b3
           minLength: 1
           type: string
       required:
@@ -37072,7 +37130,7 @@ components:
     DescribeDeploymentConfigRequest:
       example:
         id: default
-        token: 1b1
+        token: zcj
       properties:
         id:
           description: The deployment configuration ID
@@ -37080,7 +37138,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: w
+          example: 2x
           minLength: 1
           type: string
       required:
@@ -37107,7 +37165,7 @@ components:
           type: string
         id:
           description: ID of a Deployment Config
-          example: Vel quo tempora tempore debitis.
+          example: Nesciunt recusandae cupiditate magnam occaecati non molestiae.
           type: string
         infraRollConfiguration:
           $ref: '#/components/schemas/InfraRollConfiguration'
@@ -37122,7 +37180,7 @@ components:
           - region-3c3c3c3c
           items:
             description: ID of a Region
-            example: Et assumenda.
+            example: Est molestiae.
             type: string
           type: array
       required:
@@ -37136,7 +37194,7 @@ components:
       example:
         chartName: my-chart
         chartVersion: 1.0.0
-        token: aq
+        token: a94
       properties:
         chartName:
           description: The chart name of the Helm package to describe
@@ -37148,7 +37206,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: qiw
+          example: 2e
           minLength: 1
           type: string
       required:
@@ -37212,23 +37270,23 @@ components:
       description: Describe an image configuration
       example:
         ProductTierId: Beatae beatae.
-        ProductTierVersion: Officiis reprehenderit hic id quo facilis perspiciatis.
+        ProductTierVersion: Velit ut voluptatem qui voluptatibus laudantium sit.
         id: imgc-12345678
         serviceId: s-12345678
-        token: z
+        token: ic3
       properties:
         ProductTierId:
           description: ID of a Product Tier
-          example: Ea non.
+          example: Rem cumque aut aut sunt magnam.
           type: string
         ProductTierVersion:
           description: "The product tier version of the infra config to describe.\
             \ If not specified, the latest version is described."
-          example: Ab tempore eos.
+          example: Illo sed reiciendis ut.
           type: string
         id:
           description: ID of an Image Config
-          example: In enim perspiciatis iusto.
+          example: Officiis reprehenderit hic id quo facilis perspiciatis.
           type: string
         serviceId:
           description: ID of a Service
@@ -37236,7 +37294,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: b
+          example: z
           minLength: 1
           type: string
       required:
@@ -37274,7 +37332,7 @@ components:
           type: string
         id:
           description: ID of an Image Config
-          example: Illo sed reiciendis ut.
+          example: Ut hic similique pariatur laborum quaerat.
           type: string
         imageName:
           description: Name of the container image
@@ -37283,7 +37341,7 @@ components:
           type: string
         imageRegistryId:
           description: ID of an Image Registry
-          example: Rem cumque aut aut sunt magnam.
+          example: Ipsa est est dolore sint.
           type: string
         imageSignaturePublicKeyPEM:
           description: PEM-encoded Public key part of the key used to sign the container
@@ -37321,15 +37379,15 @@ components:
       description: Describe an HTTP API v2 Docker Image Registry
       example:
         id: ir-12345678
-        token: h
+        token: f
       properties:
         id:
           description: ID of an Image Registry
-          example: Quidem provident ratione omnis illo ad illo.
+          example: Enim qui.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: 7dc
+          example: t
           minLength: 1
           type: string
       required:
@@ -37355,7 +37413,7 @@ components:
           type: string
         id:
           description: ID of an Image Registry
-          example: Accusantium ipsa eligendi.
+          example: Est ut aut sit.
           type: string
         name:
           description: Name of the Image Registry
@@ -37378,23 +37436,23 @@ components:
     DescribeInfraConfigRequest:
       example:
         ProductTierId: Beatae beatae.
-        ProductTierVersion: Voluptas aperiam non.
+        ProductTierVersion: Neque cum deleniti aliquid ducimus.
         id: ic-12345678
         serviceId: s-12345678
-        token: 9fo
+        token: jn
       properties:
         ProductTierId:
           description: ID of a Product Tier
-          example: Cumque voluptates ut quam recusandae.
+          example: Consequuntur vero.
           type: string
         ProductTierVersion:
           description: "The product tier version of the infra config to describe.\
             \ If not specified, the latest version is described."
-          example: Hic rem quod vel eum eos commodi.
+          example: Ratione qui odio et laboriosam.
           type: string
         id:
           description: ID of an Infra Config
-          example: Non maxime quia hic qui aliquid voluptas.
+          example: Sunt voluptas aperiam.
           type: string
         serviceId:
           description: ID of a Service
@@ -37402,7 +37460,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: 3qp
+          example: f
           minLength: 1
           type: string
       required:
@@ -37426,7 +37484,7 @@ components:
       properties:
         computeConfigId:
           description: ID of a Compute Config
-          example: Laboriosam rerum consequuntur vero deleniti eum.
+          example: Occaecati nisi deserunt molestiae.
           type: string
         customTag:
           $ref: '#/components/schemas/CustomTag'
@@ -37436,7 +37494,7 @@ components:
           type: string
         id:
           description: ID of an Infra Config
-          example: Qui odio.
+          example: Culpa dignissimos.
           type: string
         name:
           description: The name of the infra config
@@ -37444,7 +37502,7 @@ components:
           type: string
         networkConfigId:
           description: ID of a Network Config
-          example: Culpa dignissimos.
+          example: Debitis animi voluptates consequatur tempore ab.
           type: string
         serviceEnvironmentId:
           description: ID of a Service Environment
@@ -37456,7 +37514,7 @@ components:
           type: string
         storageConfigId:
           description: ID of a Storage Config
-          example: Et neque cum deleniti aliquid ducimus.
+          example: Ipsam praesentium.
           type: string
       required:
       - description
@@ -37625,7 +37683,7 @@ components:
       example:
         family: COMPUTE_INFRA
         key: MAX_VIRTUAL_CORES_PER_RESOURCE
-        token: s
+        token: nna
       properties:
         family:
           description: The limit family
@@ -37637,7 +37695,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: "51"
+          example: "y"
           minLength: 1
           type: string
       required:
@@ -37690,23 +37748,23 @@ components:
     DescribeNetworkConfigRequest:
       example:
         ProductTierId: Beatae beatae.
-        ProductTierVersion: Quam quis eaque.
+        ProductTierVersion: Perferendis ad quam aut.
         id: nc-12345678
         serviceId: s-12345678
-        token: d
+        token: p7
       properties:
         ProductTierId:
           description: ID of a Product Tier
-          example: Explicabo fuga sapiente magni in molestiae asperiores.
+          example: Quam quis eaque.
           type: string
         ProductTierVersion:
           description: "The product tier version of the infra config to describe.\
             \ If not specified, the latest version is described."
-          example: Repudiandae velit id.
+          example: Sapiente magni in molestiae asperiores molestiae aliquam.
           type: string
         id:
           description: ID of a Network Config
-          example: Eveniet ab.
+          example: Id aut explicabo.
           type: string
         serviceId:
           description: ID of a Service
@@ -37714,7 +37772,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: wx
+          example: rb4
           minLength: 1
           type: string
       required:
@@ -37760,7 +37818,7 @@ components:
           type: boolean
         id:
           description: ID of a Network Config
-          example: Aut libero.
+          example: Sint minus dolore minima vel.
           type: string
         infraConfigIDs:
           description: The list of infra config IDs associated with the compute config.
@@ -37769,7 +37827,7 @@ components:
           - ic-abcdefgh
           items:
             description: ID of an Infra Config
-            example: Ad quam aut quia sint.
+            example: Eveniet officia exercitationem ut nemo.
             type: string
           type: array
         internal:
@@ -37786,7 +37844,7 @@ components:
           - 1299
           - 3306
           items:
-            example: 2173366043960017716
+            example: 9016685337894619839
             format: int64
             type: integer
           type: array
@@ -38652,6 +38710,7 @@ components:
           METRICS:
             enabled: false
         region: us-east-1
+        resourceID: r-abcd1234
         result_params:
           param1: value1
           param2: value2
@@ -38779,6 +38838,10 @@ components:
         region:
           description: The region code
           example: us-east-1
+          type: string
+        resourceID:
+          description: ID of a resource
+          example: Quia sed corporis.
           type: string
         result_params:
           description: Custom result parameters
@@ -40303,7 +40366,7 @@ components:
           type: string
         id:
           description: ID of a Storage Config
-          example: Dignissimos unde sapiente exercitationem ad doloremque officia.
+          example: Ad doloremque officia.
           type: string
         serviceId:
           description: ID of a Service
@@ -40311,7 +40374,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: 6d6
+          example: 05o
           minLength: 1
           type: string
       required:
@@ -41156,30 +41219,6 @@ components:
       example:
         id: ic-12345678
         serviceId: s-12345678
-        token: u
-      properties:
-        id:
-          description: ID of an Infra Config
-          example: Non dolor qui non qui.
-          type: string
-        serviceId:
-          description: ID of a Service
-          example: s-123456
-          type: string
-        token:
-          description: JWT token used to perform authorization
-          example: 6s
-          minLength: 1
-          type: string
-      required:
-      - id
-      - serviceId
-      - token
-      type: object
-    DetachNetworkConfigRequest:
-      example:
-        id: ic-12345678
-        serviceId: s-12345678
         token: rf
       properties:
         id:
@@ -41200,15 +41239,15 @@ components:
       - serviceId
       - token
       type: object
-    DetachStorageConfigRequest:
+    DetachNetworkConfigRequest:
       example:
         id: ic-12345678
         serviceId: s-12345678
-        token: ipl
+        token: kk4
       properties:
         id:
           description: ID of an Infra Config
-          example: Libero illo inventore neque rerum officiis.
+          example: Voluptas quo cumque error.
           type: string
         serviceId:
           description: ID of a Service
@@ -41216,7 +41255,31 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: "6"
+          example: az
+          minLength: 1
+          type: string
+      required:
+      - id
+      - serviceId
+      - token
+      type: object
+    DetachStorageConfigRequest:
+      example:
+        id: ic-12345678
+        serviceId: s-12345678
+        token: t
+      properties:
+        id:
+          description: ID of an Infra Config
+          example: Dolores natus autem.
+          type: string
+        serviceId:
+          description: ID of a Service
+          example: s-123456
+          type: string
+        token:
+          description: JWT token used to perform authorization
+          example: y9a
           minLength: 1
           type: string
       required:
@@ -43614,6 +43677,7 @@ components:
           - instance-abcdefgh
           cloudProviderId: infra-12345678
           description: An AWS account hosting multiple dev environments
+          gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
           gcpProjectID: my-project
           gcpProjectNumber: "123456789012"
           gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -43630,6 +43694,7 @@ components:
           - instance-abcdefgh
           cloudProviderId: infra-12345678
           description: An AWS account hosting multiple dev environments
+          gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
           gcpProjectID: my-project
           gcpProjectNumber: "123456789012"
           gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -43646,6 +43711,7 @@ components:
           - instance-abcdefgh
           cloudProviderId: infra-12345678
           description: An AWS account hosting multiple dev environments
+          gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
           gcpProjectID: my-project
           gcpProjectNumber: "123456789012"
           gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -43671,6 +43737,7 @@ components:
             - instance-abcdefgh
             cloudProviderId: infra-12345678
             description: An AWS account hosting multiple dev environments
+            gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
             gcpProjectID: my-project
             gcpProjectNumber: "123456789012"
             gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -43687,6 +43754,7 @@ components:
             - instance-abcdefgh
             cloudProviderId: infra-12345678
             description: An AWS account hosting multiple dev environments
+            gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
             gcpProjectID: my-project
             gcpProjectNumber: "123456789012"
             gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -43703,6 +43771,7 @@ components:
             - instance-abcdefgh
             cloudProviderId: infra-12345678
             description: An AWS account hosting multiple dev environments
+            gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
             gcpProjectID: my-project
             gcpProjectNumber: "123456789012"
             gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -43732,11 +43801,11 @@ components:
       example:
         id: r-12345678
         serviceId: s-12345678
-        token: "4"
+        token: jie
       properties:
         id:
           description: ID of a resource
-          example: Omnis quibusdam nam mollitia.
+          example: Voluptatem labore.
           type: string
         serviceId:
           description: ID of a Service
@@ -43744,7 +43813,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: 3w
+          example: j5
           minLength: 1
           type: string
       required:
@@ -43776,17 +43845,17 @@ components:
           customImage: my-custom-image:latest
           scope: CLUSTER
           type: ADD
-        - commandTemplate: ZWNobyAiaGVsbG8gd29ybGQi
-          customCommand:
-          - /bin/sh
-          - -c
-          customImage: my-custom-image:latest
-          scope: CLUSTER
-          type: ADD
       properties:
         hooks:
           description: The list of action hooks
           example:
+          - commandTemplate: ZWNobyAiaGVsbG8gd29ybGQi
+            customCommand:
+            - /bin/sh
+            - -c
+            customImage: my-custom-image:latest
+            scope: CLUSTER
+            type: ADD
           - commandTemplate: ZWNobyAiaGVsbG8gd29ybGQi
             customCommand:
             - /bin/sh
@@ -43883,7 +43952,7 @@ components:
     ListAllResourceInstancesRequest:
       example:
         environmentType: DEV
-        token: 5q1
+        token: w
       properties:
         environmentType:
           description: The type of service environment
@@ -43891,7 +43960,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: w
+          example: j
           minLength: 1
           type: string
       required:
@@ -43964,6 +44033,7 @@ components:
             METRICS:
               enabled: false
           region: us-east-1
+          resourceID: r-abcd1234
           result_params:
             param1: value1
             param2: value2
@@ -44033,6 +44103,147 @@ components:
             METRICS:
               enabled: false
           region: us-east-1
+          resourceID: r-abcd1234
+          result_params:
+            param1: value1
+            param2: value2
+          serverlessEnabled: true
+          status: RUNNING
+          subscriptionId: sub-abcd1234
+        - active: true
+          autoscalingEnabled: true
+          awsAccountID: "123456789012"
+          backupStatus:
+            backupPeriodInHours: 2
+            backupRetentionInDays: 7
+            earliestRestoreTime: 2021-09-01T00:00:00Z
+            lastBackupTime: 2021-09-01T00:00:00Z
+          cloud_provider: aws
+          created_at: 2023-01-10T00:00:00Z
+          createdByUserId: user-12345678
+          createdByUserName: John Doe
+          currentReplicas: "2"
+          customNetworkDetail:
+            cidr: 10.177.0.0/16
+            id: n-12345678
+            name: Prod us-east-1
+          detailedNetworkTopology:
+            r-abcd1234:
+              allowedIPRanges:
+              - 0.0.0.0/0
+              clusterEndpoint: primary.instance-abcd1234.us-east-2.aws.omnistrate.cloud
+              clusterPorts:
+              - 3306
+              main: true
+              networkingType: PUBLIC
+              nodes:
+              - availabilityZone: us-east-2a
+                endpoint: primary-0.instance-abcd1234.us-east-2.aws.omnistrate.cloud
+                healthStatus: healthy
+                id: primary-0
+                ports:
+                - 3306
+                status: RUNNING
+              privateNetworkCIDR: 10.0.0.2/24
+              privateNetworkID: n-1234abcd
+              publiclyAccessible: true
+              resourceKey: primary
+              resourceName: Primary MySQL Instance
+          externalPayerId: external-payer-id-1234
+          gcpProjectID: my-project
+          highAvailability: true
+          id: instance-abcd1234
+          instanceLoadStatus: LOAD_NORMAL|LOAD_IDLE|LOAD_OVERLOADED|STOPPED|UNKNOWN|N/A
+          kubernetesDashboardEndpoint:
+            dashboardEndpoint: https://kubernetes-dashboard.hc-12345678.region.cloudprovider.f2e0a955bb84.cloud/#/pod?namespace=instance-abcdefgh
+            deploymentCellID: hc-12345678
+          last_modified_at: 2023-01-20T00:00:00Z
+          maxReplicas: "1"
+          minReplicas: "1"
+          network_type: PUBLIC
+          productTierFeatures:
+            BILLING:
+              enabled: false
+            LOGS:
+              auth:
+                password: px3c4d5f6g7h8i
+                username: abcd1234
+              enabled: true
+              websocketBaseUrl: wss://r-injectedobserve.instance-abcdefgh.us-east-2.aws.omnistrate.cloud/logs
+            METRICS:
+              enabled: false
+          region: us-east-1
+          resourceID: r-abcd1234
+          result_params:
+            param1: value1
+            param2: value2
+          serverlessEnabled: true
+          status: RUNNING
+          subscriptionId: sub-abcd1234
+        - active: true
+          autoscalingEnabled: true
+          awsAccountID: "123456789012"
+          backupStatus:
+            backupPeriodInHours: 2
+            backupRetentionInDays: 7
+            earliestRestoreTime: 2021-09-01T00:00:00Z
+            lastBackupTime: 2021-09-01T00:00:00Z
+          cloud_provider: aws
+          created_at: 2023-01-10T00:00:00Z
+          createdByUserId: user-12345678
+          createdByUserName: John Doe
+          currentReplicas: "2"
+          customNetworkDetail:
+            cidr: 10.177.0.0/16
+            id: n-12345678
+            name: Prod us-east-1
+          detailedNetworkTopology:
+            r-abcd1234:
+              allowedIPRanges:
+              - 0.0.0.0/0
+              clusterEndpoint: primary.instance-abcd1234.us-east-2.aws.omnistrate.cloud
+              clusterPorts:
+              - 3306
+              main: true
+              networkingType: PUBLIC
+              nodes:
+              - availabilityZone: us-east-2a
+                endpoint: primary-0.instance-abcd1234.us-east-2.aws.omnistrate.cloud
+                healthStatus: healthy
+                id: primary-0
+                ports:
+                - 3306
+                status: RUNNING
+              privateNetworkCIDR: 10.0.0.2/24
+              privateNetworkID: n-1234abcd
+              publiclyAccessible: true
+              resourceKey: primary
+              resourceName: Primary MySQL Instance
+          externalPayerId: external-payer-id-1234
+          gcpProjectID: my-project
+          highAvailability: true
+          id: instance-abcd1234
+          instanceLoadStatus: LOAD_NORMAL|LOAD_IDLE|LOAD_OVERLOADED|STOPPED|UNKNOWN|N/A
+          kubernetesDashboardEndpoint:
+            dashboardEndpoint: https://kubernetes-dashboard.hc-12345678.region.cloudprovider.f2e0a955bb84.cloud/#/pod?namespace=instance-abcdefgh
+            deploymentCellID: hc-12345678
+          last_modified_at: 2023-01-20T00:00:00Z
+          maxReplicas: "1"
+          minReplicas: "1"
+          network_type: PUBLIC
+          productTierFeatures:
+            BILLING:
+              enabled: false
+            LOGS:
+              auth:
+                password: px3c4d5f6g7h8i
+                username: abcd1234
+              enabled: true
+              websocketBaseUrl: wss://r-injectedobserve.instance-abcdefgh.us-east-2.aws.omnistrate.cloud/logs
+            METRICS:
+              enabled: false
+          region: us-east-1
+          resourceID: r-abcd1234
           result_params:
             param1: value1
             param2: value2
@@ -44110,6 +44321,7 @@ components:
               METRICS:
                 enabled: false
             region: us-east-1
+            resourceID: r-abcd1234
             result_params:
               param1: value1
               param2: value2
@@ -44179,6 +44391,7 @@ components:
               METRICS:
                 enabled: false
             region: us-east-1
+            resourceID: r-abcd1234
             result_params:
               param1: value1
               param2: value2
@@ -44248,6 +44461,7 @@ components:
               METRICS:
                 enabled: false
             region: us-east-1
+            resourceID: r-abcd1234
             result_params:
               param1: value1
               param2: value2
@@ -44317,6 +44531,7 @@ components:
               METRICS:
                 enabled: false
             region: us-east-1
+            resourceID: r-abcd1234
             result_params:
               param1: value1
               param2: value2
@@ -44371,11 +44586,11 @@ components:
       example:
         id: ic-12345678
         serviceId: s-12345678
-        token: 7ep
+        token: x3r
       properties:
         id:
           description: ID of an Infra Config
-          example: Deserunt molestiae ratione.
+          example: Eum rerum repudiandae iure doloremque sed.
           type: string
         serviceId:
           description: ID of a Service
@@ -44383,7 +44598,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: "9"
+          example: wy
           minLength: 1
           type: string
       required:
@@ -44401,7 +44616,7 @@ components:
       properties:
         id:
           description: ID of an Infra Config
-          example: Voluptates consequatur tempore ab.
+          example: Velit accusantium enim.
           type: string
         resourceIds:
           description: The resources associated with the infra config
@@ -44410,7 +44625,7 @@ components:
           - r-abcdefgh
           items:
             description: ID of a resource
-            example: Maxime quidem consequatur eum rerum repudiandae iure.
+            example: Neque sapiente.
             type: string
           type: array
         serviceId:
@@ -44753,6 +44968,7 @@ components:
           - instance-abcdefgh
           cloudProviderId: infra-12345678
           description: An AWS account hosting multiple dev environments
+          gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
           gcpProjectID: my-project
           gcpProjectNumber: "123456789012"
           gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -44769,6 +44985,7 @@ components:
           - instance-abcdefgh
           cloudProviderId: infra-12345678
           description: An AWS account hosting multiple dev environments
+          gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
           gcpProjectID: my-project
           gcpProjectNumber: "123456789012"
           gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -44785,6 +45002,7 @@ components:
           - instance-abcdefgh
           cloudProviderId: infra-12345678
           description: An AWS account hosting multiple dev environments
+          gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
           gcpProjectID: my-project
           gcpProjectNumber: "123456789012"
           gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -44801,6 +45019,7 @@ components:
           - instance-abcdefgh
           cloudProviderId: infra-12345678
           description: An AWS account hosting multiple dev environments
+          gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
           gcpProjectID: my-project
           gcpProjectNumber: "123456789012"
           gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -44826,6 +45045,7 @@ components:
             - instance-abcdefgh
             cloudProviderId: infra-12345678
             description: An AWS account hosting multiple dev environments
+            gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
             gcpProjectID: my-project
             gcpProjectNumber: "123456789012"
             gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -44842,6 +45062,7 @@ components:
             - instance-abcdefgh
             cloudProviderId: infra-12345678
             description: An AWS account hosting multiple dev environments
+            gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
             gcpProjectID: my-project
             gcpProjectNumber: "123456789012"
             gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -44858,6 +45079,7 @@ components:
             - instance-abcdefgh
             cloudProviderId: infra-12345678
             description: An AWS account hosting multiple dev environments
+            gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
             gcpProjectID: my-project
             gcpProjectNumber: "123456789012"
             gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -44874,6 +45096,7 @@ components:
             - instance-abcdefgh
             cloudProviderId: infra-12345678
             description: An AWS account hosting multiple dev environments
+            gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
             gcpProjectID: my-project
             gcpProjectNumber: "123456789012"
             gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
@@ -45140,7 +45363,7 @@ components:
         cloudProviderName: aws
         cloudProviderRegion: us-east-1
         customNetworksOnly: false
-        token: nxq
+        token: hs
       properties:
         cloudProviderName:
           description: Name of the Infra Provider
@@ -45158,7 +45381,7 @@ components:
           type: boolean
         token:
           description: JWT token used to perform authorization
-          example: tq
+          example: xqn
           minLength: 1
           type: string
       required:
@@ -45191,6 +45414,8 @@ components:
             gcpProjectID: my-project
             gcpProjectNumber: "123456789012"
             hostClusterID: hc-12345678
+          owningUserId: user-12345678
+          owningUserName: John Doe
         - cidr: 10.0.0.0/16
           cloudProviderName: aws
           cloudProviderRegion: us-east-1
@@ -45215,30 +45440,8 @@ components:
             gcpProjectID: my-project
             gcpProjectNumber: "123456789012"
             hostClusterID: hc-12345678
-        - cidr: 10.0.0.0/16
-          cloudProviderName: aws
-          cloudProviderRegion: us-east-1
-          id: n-12345678
-          name: Prod us-east-1
-          networkDefinitionType: Custom
-          networkFeaturesConfiguration:
-            isPrivateLinkEnabled: false
-          networkInstances:
-          - awsAccountID: "123456789012"
-            cloudProviderNativeNetworkId: vpc-12345678
-            gcpProjectID: my-project
-            gcpProjectNumber: "123456789012"
-            hostClusterID: hc-12345678
-          - awsAccountID: "123456789012"
-            cloudProviderNativeNetworkId: vpc-12345678
-            gcpProjectID: my-project
-            gcpProjectNumber: "123456789012"
-            hostClusterID: hc-12345678
-          - awsAccountID: "123456789012"
-            cloudProviderNativeNetworkId: vpc-12345678
-            gcpProjectID: my-project
-            gcpProjectNumber: "123456789012"
-            hostClusterID: hc-12345678
+          owningUserId: user-12345678
+          owningUserName: John Doe
       properties:
         customNetworks:
           description: List of custom networks
@@ -45267,6 +45470,8 @@ components:
               gcpProjectID: my-project
               gcpProjectNumber: "123456789012"
               hostClusterID: hc-12345678
+            owningUserId: user-12345678
+            owningUserName: John Doe
           - cidr: 10.0.0.0/16
             cloudProviderName: aws
             cloudProviderRegion: us-east-1
@@ -45291,54 +45496,8 @@ components:
               gcpProjectID: my-project
               gcpProjectNumber: "123456789012"
               hostClusterID: hc-12345678
-          - cidr: 10.0.0.0/16
-            cloudProviderName: aws
-            cloudProviderRegion: us-east-1
-            id: n-12345678
-            name: Prod us-east-1
-            networkDefinitionType: Custom
-            networkFeaturesConfiguration:
-              isPrivateLinkEnabled: false
-            networkInstances:
-            - awsAccountID: "123456789012"
-              cloudProviderNativeNetworkId: vpc-12345678
-              gcpProjectID: my-project
-              gcpProjectNumber: "123456789012"
-              hostClusterID: hc-12345678
-            - awsAccountID: "123456789012"
-              cloudProviderNativeNetworkId: vpc-12345678
-              gcpProjectID: my-project
-              gcpProjectNumber: "123456789012"
-              hostClusterID: hc-12345678
-            - awsAccountID: "123456789012"
-              cloudProviderNativeNetworkId: vpc-12345678
-              gcpProjectID: my-project
-              gcpProjectNumber: "123456789012"
-              hostClusterID: hc-12345678
-          - cidr: 10.0.0.0/16
-            cloudProviderName: aws
-            cloudProviderRegion: us-east-1
-            id: n-12345678
-            name: Prod us-east-1
-            networkDefinitionType: Custom
-            networkFeaturesConfiguration:
-              isPrivateLinkEnabled: false
-            networkInstances:
-            - awsAccountID: "123456789012"
-              cloudProviderNativeNetworkId: vpc-12345678
-              gcpProjectID: my-project
-              gcpProjectNumber: "123456789012"
-              hostClusterID: hc-12345678
-            - awsAccountID: "123456789012"
-              cloudProviderNativeNetworkId: vpc-12345678
-              gcpProjectID: my-project
-              gcpProjectNumber: "123456789012"
-              hostClusterID: hc-12345678
-            - awsAccountID: "123456789012"
-              cloudProviderNativeNetworkId: vpc-12345678
-              gcpProjectID: my-project
-              gcpProjectNumber: "123456789012"
-              hostClusterID: hc-12345678
+            owningUserId: user-12345678
+            owningUserName: John Doe
           items:
             $ref: '#/components/schemas/CustomNetwork'
           type: array
@@ -45407,11 +45566,11 @@ components:
       type: object
     ListDeploymentConfigsRequest:
       example:
-        token: hn
+        token: "8"
       properties:
         token:
           description: JWT token used to perform authorization
-          example: zdm
+          example: "76"
           minLength: 1
           type: string
       required:
@@ -45429,7 +45588,7 @@ components:
           - dc-12345678
           items:
             description: ID of a Deployment Config
-            example: Vero est molestiae et.
+            example: Rerum non beatae itaque sit.
             type: string
           type: array
         nextPageToken:
@@ -45632,7 +45791,7 @@ components:
     ListHelmPackagesRequest:
       example:
         chartName: my-chart
-        token: m2v
+        token: ac
       properties:
         chartName:
           description: The chart name of the Helm package to filter by
@@ -45640,7 +45799,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: twe
+          example: eu
           minLength: 1
           type: string
       required:
@@ -45685,10 +45844,34 @@ components:
           namespace: default
           password: my-password
           username: my-user
+        - chartName: my-chart
+          chartRepoName: my-repo
+          chartRepoUrl: https://my-repo.com
+          chartValues:
+            key1: value1
+            key2: 3
+            key3:
+              key4: value4
+          chartVersion: 1.0.0
+          namespace: default
+          password: my-password
+          username: my-user
       properties:
         helmPackages:
           description: List of Helm packages
           example:
+          - chartName: my-chart
+            chartRepoName: my-repo
+            chartRepoUrl: https://my-repo.com
+            chartValues:
+              key1: value1
+              key2: 3
+              key3:
+                key4: value4
+            chartVersion: 1.0.0
+            namespace: default
+            password: my-password
+            username: my-user
           - chartName: my-chart
             chartRepoName: my-repo
             chartRepoUrl: https://my-repo.com
@@ -45783,7 +45966,7 @@ components:
       example:
         serviceEnvironmentId: se-12345678
         serviceId: s-12345678
-        token: r5a
+        token: 8g
       properties:
         serviceEnvironmentId:
           description: ID of a Service Environment
@@ -45795,7 +45978,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: 1t
+          example: "97"
           minLength: 1
           type: string
       required:
@@ -45817,7 +46000,7 @@ components:
           - imgc-87654321
           items:
             description: ID of an Image Config
-            example: Quia ex repellat temporibus beatae.
+            example: Expedita et et et.
             type: string
           type: array
         nextPageToken:
@@ -45829,11 +46012,11 @@ components:
       type: object
     ListImageRegistryRequest:
       example:
-        token: dd
+        token: x
       properties:
         token:
           description: JWT token used to perform authorization
-          example: jxb
+          example: h
           minLength: 1
           type: string
       required:
@@ -45856,7 +46039,7 @@ components:
           - ir-abcd5678
           items:
             description: ID of an Image Registry
-            example: Delectus enim rerum doloribus explicabo repellendus.
+            example: Quo consequatur vitae.
             type: string
           type: array
         nextPageToken:
@@ -45871,7 +46054,7 @@ components:
         managed: false
         serviceEnvironmentId: se-12345678
         serviceId: s-12345678
-        token: x3r
+        token: 6jy
       properties:
         managed:
           description: Is infra config managed by omnistrate
@@ -45887,7 +46070,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: w
+          example: za
           minLength: 1
           type: string
       required:
@@ -45911,7 +46094,7 @@ components:
           - ic-1234efgh
           items:
             description: ID of an Infra Config
-            example: Velit accusantium enim.
+            example: Et non.
             type: string
           type: array
         nextPageToken:
@@ -46242,7 +46425,7 @@ components:
     ListLimitRequest:
       example:
         family: COMPUTE_INFRA
-        token: km
+        token: d
       properties:
         family:
           description: The limit family
@@ -46250,7 +46433,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: pts
+          example: "7"
           minLength: 1
           type: string
       required:
@@ -46279,7 +46462,7 @@ components:
           example:
           - MAX_VIRTUAL_CORES_PER_RESOURCE
           items:
-            example: Ipsa aut voluptatum asperiores itaque.
+            example: Consequuntur consequatur.
             type: string
           type: array
         nextPageToken:
@@ -46293,7 +46476,7 @@ components:
       example:
         managed: false
         serviceId: s-12345678
-        token: fds
+        token: q5q
       properties:
         managed:
           description: Is network config managed by omnistrate
@@ -46305,7 +46488,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: 8o
+          example: "5"
           minLength: 1
           type: string
       required:
@@ -46327,10 +46510,9 @@ components:
           - Deserunt dignissimos.
           - Deserunt dignissimos.
           - Deserunt dignissimos.
-          - Deserunt dignissimos.
           items:
             description: ID of a Network Config
-            example: Exercitationem ut nemo voluptatem rerum consequatur placeat.
+            example: Rerum harum.
             type: string
           type: array
         nextPageToken:
@@ -46920,7 +47102,7 @@ components:
         serviceModelKey: hosted
         serviceProviderId: omnistrate
         subscriptionId: sub-abcd1234
-        token: "0"
+        token: l
       properties:
         productTierKey:
           description: The product tier name
@@ -46948,7 +47130,7 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Dolor occaecati vel.
+          example: Vel vel.
           type: string
         subscriptionId:
           description: The subscription ID
@@ -46956,7 +47138,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: c32
+          example: "3"
           minLength: 1
           type: string
       required:
@@ -46982,7 +47164,7 @@ components:
           - instance-abcd1234
           - instance-abcd1235
           items:
-            example: Voluptas reprehenderit aperiam ut omnis quis optio.
+            example: Reprehenderit aperiam ut omnis.
             type: string
           type: array
         nextPageToken:
@@ -49670,15 +49852,14 @@ components:
         eventTypes:
         - UnhealthyInstance|FailedDeployment|ScaleOut|UserSignUp|UserSubscription
         - UnhealthyInstance|FailedDeployment|ScaleOut|UserSignUp|UserSubscription
-        - UnhealthyInstance|FailedDeployment|ScaleOut|UserSignUp|UserSubscription
-        - UnhealthyInstance|FailedDeployment|ScaleOut|UserSignUp|UserSubscription
         instanceID: instance-12345678
         nextPageToken: token
         pageSize: 10
+        productTierID: Beatae beatae.
         serviceEnvironmentID: se-123456
         serviceID: s-123456
         startDate: 2023-01-01T10:00:00Z
-        token: 0v4
+        token: wj
       properties:
         endDate:
           description: "End time of the window in ISO 8601 format. If omitted, the\
@@ -49713,6 +49894,10 @@ components:
           example: 10
           format: int64
           type: integer
+        productTierID:
+          description: ID of a Product Tier
+          example: Magni porro.
+          type: string
         serviceEnvironmentID:
           description: ID of a Service Environment
           example: se-123456
@@ -49742,8 +49927,8 @@ components:
           eventCategory: InstanceEvent
           eventID: e-123456
           eventPayload:
-            Doloremque perferendis esse reiciendis quibusdam libero nihil.: Rerum
-              eligendi.
+            Esse reiciendis.: Libero nihil.
+            Rerum eligendi.: Molestiae maxime aut.
           eventType: UnhealthyInstance
           expiryTime: 2023-01-10T00:00:00Z
           instanceID: instance-12345678
@@ -49760,8 +49945,8 @@ components:
           eventCategory: InstanceEvent
           eventID: e-123456
           eventPayload:
-            Doloremque perferendis esse reiciendis quibusdam libero nihil.: Rerum
-              eligendi.
+            Esse reiciendis.: Libero nihil.
+            Rerum eligendi.: Molestiae maxime aut.
           eventType: UnhealthyInstance
           expiryTime: 2023-01-10T00:00:00Z
           instanceID: instance-12345678
@@ -49778,8 +49963,8 @@ components:
           eventCategory: InstanceEvent
           eventID: e-123456
           eventPayload:
-            Doloremque perferendis esse reiciendis quibusdam libero nihil.: Rerum
-              eligendi.
+            Esse reiciendis.: Libero nihil.
+            Rerum eligendi.: Molestiae maxime aut.
           eventType: UnhealthyInstance
           expiryTime: 2023-01-10T00:00:00Z
           instanceID: instance-12345678
@@ -49796,8 +49981,8 @@ components:
           eventCategory: InstanceEvent
           eventID: e-123456
           eventPayload:
-            Doloremque perferendis esse reiciendis quibusdam libero nihil.: Rerum
-              eligendi.
+            Esse reiciendis.: Libero nihil.
+            Rerum eligendi.: Molestiae maxime aut.
           eventType: UnhealthyInstance
           expiryTime: 2023-01-10T00:00:00Z
           instanceID: instance-12345678
@@ -49823,8 +50008,8 @@ components:
             eventCategory: InstanceEvent
             eventID: e-123456
             eventPayload:
-              Doloremque perferendis esse reiciendis quibusdam libero nihil.: Rerum
-                eligendi.
+              Esse reiciendis.: Libero nihil.
+              Rerum eligendi.: Molestiae maxime aut.
             eventType: UnhealthyInstance
             expiryTime: 2023-01-10T00:00:00Z
             instanceID: instance-12345678
@@ -49841,8 +50026,8 @@ components:
             eventCategory: InstanceEvent
             eventID: e-123456
             eventPayload:
-              Doloremque perferendis esse reiciendis quibusdam libero nihil.: Rerum
-                eligendi.
+              Esse reiciendis.: Libero nihil.
+              Rerum eligendi.: Molestiae maxime aut.
             eventType: UnhealthyInstance
             expiryTime: 2023-01-10T00:00:00Z
             instanceID: instance-12345678
@@ -49859,8 +50044,26 @@ components:
             eventCategory: InstanceEvent
             eventID: e-123456
             eventPayload:
-              Doloremque perferendis esse reiciendis quibusdam libero nihil.: Rerum
-                eligendi.
+              Esse reiciendis.: Libero nihil.
+              Rerum eligendi.: Molestiae maxime aut.
+            eventType: UnhealthyInstance
+            expiryTime: 2023-01-10T00:00:00Z
+            instanceID: instance-12345678
+            planVersion: v1.0
+            priority: Critical
+            resourceName: Resource-123
+            scope: ServiceProvider
+            serviceEnvironmentID: se-123456
+            serviceID: s-123456
+            serviceName: Service-123
+            servicePlanName: Basic Plan
+            time: 2023-01-10T00:00:00Z
+          - alertType: Alarm
+            eventCategory: InstanceEvent
+            eventID: e-123456
+            eventPayload:
+              Esse reiciendis.: Libero nihil.
+              Rerum eligendi.: Molestiae maxime aut.
             eventType: UnhealthyInstance
             expiryTime: 2023-01-10T00:00:00Z
             instanceID: instance-12345678
@@ -52307,6 +52510,8 @@ components:
             targetGroupName: my-target-group
           - port: 80
             targetGroupName: my-target-group
+          - port: 80
+            targetGroupName: my-target-group
           items:
             $ref: '#/components/schemas/AWSPrivateLinkConfiguration'
           type: array
@@ -52591,7 +52796,7 @@ components:
         id: r-12345678
         scope: CLUSTER
         serviceId: s-12345678
-        token: ql
+        token: qz
         type: ADD
       properties:
         commandTemplate:
@@ -52604,7 +52809,7 @@ components:
           - /bin/sh
           - -c
           items:
-            example: Fugiat omnis velit.
+            example: Sunt at rem est.
             type: string
           type: array
         customImage:
@@ -52613,7 +52818,7 @@ components:
           type: string
         id:
           description: ID of a resource
-          example: Quis eveniet eveniet.
+          example: Omnis velit.
           type: string
         scope:
           description: The scope of the hook
@@ -52625,12 +52830,12 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: "2"
+          example: bq
           minLength: 1
           type: string
         type:
           description: The type of hook to execute
-          example: INIT|ADD|REMOVE|PROMOTE|DEMOTE|HEALTH_CHECK|POST_START|POST_UPGRADE|PRE_STOP
+          example: INIT|ADD|REMOVE|PROMOTE|DEMOTE|HEALTH_CHECK|READINESS_CHECK|STARTUP_CHECK|PRE_START|POST_START|PRE_UPGRADE|POST_UPGRADE|PRE_STOP|POST_STOP
           type: string
       required:
       - commandTemplate
@@ -52727,15 +52932,15 @@ components:
         id: imgc-12345678
         productTierId: pt-12345678
         serviceId: s-12345678
-        token: n9
+        token: r5a
       properties:
         id:
           description: ID of an Image Config
-          example: Velit ut voluptatem qui voluptatibus laudantium sit.
+          example: Neque omnis quos odio eius unde dolorem.
           type: string
         productTierId:
           description: ID of a Product Tier
-          example: Ut hic similique pariatur laborum quaerat.
+          example: Delectus dolores voluptatem corporis saepe.
           type: string
         serviceId:
           description: ID of a Service
@@ -52743,7 +52948,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: ic3
+          example: l4
           minLength: 1
           type: string
       required:
@@ -52765,15 +52970,15 @@ components:
         id: ic-12345678
         productTierId: pt-12345678
         serviceId: s-12345678
-        token: jm2
+        token: q
       properties:
         id:
           description: ID of an Infra Config
-          example: Dolores natus autem.
+          example: Consequatur vel sed qui dolores aspernatur omnis.
           type: string
         productTierId:
           description: ID of a Product Tier
-          example: Et quia omnis facilis.
+          example: Qui iusto.
           type: string
         serviceId:
           description: ID of a Service
@@ -52781,7 +52986,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: y9a
+          example: 85x
           minLength: 1
           type: string
       required:
@@ -53266,11 +53471,11 @@ components:
         mountPath: /data
         serviceId: s-12345678
         storageVolumeConfigId: svc-12345678
-        token: i
+        token: 6d6
       properties:
         id:
           description: ID of a Storage Config
-          example: Maxime adipisci quae deleniti et.
+          example: Et autem vitae fuga.
           type: string
         mountPath:
           description: "The specific mount path to remove. If not specified, all mount\
@@ -53283,11 +53488,11 @@ components:
           type: string
         storageVolumeConfigId:
           description: ID of a Storage Volume Config
-          example: Vitae fuga soluta explicabo.
+          example: Explicabo minima eum.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: "8"
+          example: dpf
           minLength: 1
           type: string
       required:
@@ -53664,12 +53869,14 @@ components:
         additionalEndpoints:
           admin:
             endpoint: https://admin.instance-abcdefgh.region.aws.omnistrate.cloud
+            healthStatus: HEALTHY
             networkingType: PRIVATE
             openPorts:
             - 30000
             primary: false
           cluster:
             endpoint: https://cluster.instance-abcdefgh.region.aws.omnistrate.cloud
+            healthStatus: HEALTHY
             networkingType: PUBLIC
             openPorts:
             - 443
@@ -53804,12 +54011,14 @@ components:
           example:
             admin:
               endpoint: https://admin.instance-abcdefgh.region.aws.omnistrate.cloud
+              healthStatus: HEALTHY
               networkingType: PRIVATE
               openPorts:
               - 30000
               primary: false
             cluster:
               endpoint: https://cluster.instance-abcdefgh.region.aws.omnistrate.cloud
+              healthStatus: HEALTHY
               networkingType: PUBLIC
               openPorts:
               - 443
@@ -54416,11 +54625,11 @@ components:
       example:
         id: imgc-12345678
         serviceId: s-12345678
-        token: j
+        token: 9jd
       properties:
         id:
           description: ID of an Image Config
-          example: Porro neque.
+          example: Temporibus beatae exercitationem sit.
           type: string
         serviceId:
           description: ID of a Service
@@ -54428,7 +54637,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: y5
+          example: k5
           minLength: 1
           type: string
       required:
@@ -54440,11 +54649,11 @@ components:
       example:
         id: imgc-12345678
         serviceId: s-12345678
-        token: ww
+        token: hf4
       properties:
         id:
           description: ID of an Image Config
-          example: Unde dolorem.
+          example: Et harum at odio ut hic.
           type: string
         serviceId:
           description: ID of a Service
@@ -54452,7 +54661,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: xr
+          example: b9
           minLength: 1
           type: string
       required:
@@ -54475,11 +54684,11 @@ components:
       example:
         id: ic-12345678
         serviceId: s-12345678
-        token: xic
+        token: k6
       properties:
         id:
           description: ID of an Infra Config
-          example: Deserunt voluptatem dolor.
+          example: Quia hic qui aliquid voluptas repellat hic.
           type: string
         serviceId:
           description: ID of a Service
@@ -54487,7 +54696,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: 5k
+          example: zu
           minLength: 1
           type: string
       required:
@@ -54499,11 +54708,11 @@ components:
       example:
         id: ic-12345678
         serviceId: s-12345678
-        token: a
+        token: w
       properties:
         id:
           description: ID of an Infra Config
-          example: Dolores aspernatur omnis.
+          example: Ab cumque voluptates ut quam.
           type: string
         serviceId:
           description: ID of a Service
@@ -54511,7 +54720,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: l
+          example: "5"
           minLength: 1
           type: string
       required:
@@ -54733,13 +54942,13 @@ components:
           namespace: default
           password: my-password
           username: my-user
-        token: u
+        token: gs
       properties:
         helmPackage:
           $ref: '#/components/schemas/HelmPackage'
         token:
           description: JWT token used to perform authorization
-          example: "80"
+          example: em2
           minLength: 1
           type: string
       required:
@@ -56343,7 +56552,7 @@ components:
         - region-12345678
         - region-abcd1234
         - region-3c3c3c3c
-        token: wgv
+        token: m
       properties:
         description:
           description: A brief description of the deployment config
@@ -56351,7 +56560,7 @@ components:
           type: string
         id:
           description: ID of a Deployment Config
-          example: In et optio ipsum et hic.
+          example: Nisi illum non animi ipsum nam eius.
           type: string
         infraRollConfiguration:
           $ref: '#/components/schemas/InfraRollConfiguration'
@@ -56366,12 +56575,12 @@ components:
           - region-3c3c3c3c
           items:
             description: ID of a Region
-            example: Molestiae nisi illum non animi.
+            example: Natus numquam eos earum facilis iusto.
             type: string
           type: array
         token:
           description: JWT token used to perform authorization
-          example: e
+          example: d
           minLength: 1
           type: string
       required:
@@ -56576,7 +56785,7 @@ components:
           -----END PUBLIC KEY-----
         imageTag: v1
         serviceId: s-12345678
-        token: fm
+        token: ty
       properties:
         customImageCommandsAndArgs:
           $ref: '#/components/schemas/CustomImageCommandsAndArgs'
@@ -56586,7 +56795,7 @@ components:
           type: string
         id:
           description: ID of an Image Config
-          example: Vero ut.
+          example: In enim perspiciatis iusto.
           type: string
         imageName:
           description: Name of the container image
@@ -56595,7 +56804,7 @@ components:
           type: string
         imageRegistryId:
           description: ID of an Image Registry
-          example: Itaque amet ut ullam ratione.
+          example: Ab tempore eos.
           type: string
         imageSignaturePublicKeyPEM:
           description: PEM-encoded Public key part of the key used to sign the container
@@ -56617,7 +56826,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: pw
+          example: b
           minLength: 1
           type: string
       required:
@@ -56682,7 +56891,7 @@ components:
         id: ir-12345678
         name: DockerHub
         password: mypassword
-        token: "53"
+        token: 2t9
         username: myusername
       properties:
         description:
@@ -56695,7 +56904,7 @@ components:
           type: string
         id:
           description: ID of an Image Registry
-          example: Vel autem amet id.
+          example: Magni rerum.
           type: string
         name:
           description: Name of the Image Registry
@@ -56707,7 +56916,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: "4"
+          example: xb
           minLength: 1
           type: string
         username:
@@ -56760,11 +56969,11 @@ components:
         networkConfigId: nc-12345678
         serviceId: s-12345678
         storageConfigId: sc-12345678
-        token: dlt
+        token: ipl
       properties:
         computeConfigId:
           description: ID of a Compute Config
-          example: Amet ut.
+          example: Nihil accusamus autem unde et.
           type: string
         customTag:
           $ref: '#/components/schemas/CustomTag'
@@ -56774,7 +56983,7 @@ components:
           type: string
         id:
           description: ID of an Infra Config
-          example: Rerum ipsa aspernatur quis consequatur assumenda et.
+          example: Debitis modi sunt et et.
           type: string
         name:
           description: The name of the infra config
@@ -56782,7 +56991,7 @@ components:
           type: string
         networkConfigId:
           description: ID of a Network Config
-          example: Autem qui fugiat debitis modi sunt.
+          example: Vel libero illo inventore neque rerum officiis.
           type: string
         serviceId:
           description: ID of a Service
@@ -56790,11 +56999,11 @@ components:
           type: string
         storageConfigId:
           description: ID of a Storage Config
-          example: Cupiditate consequatur.
+          example: Dolor qui non qui molestiae libero modi.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: x
+          example: "88"
           minLength: 1
           type: string
       required:
@@ -57068,7 +57277,7 @@ components:
         family: COMPUTE_INFRA
         key: MAX_VIRTUAL_CORES_PER_RESOURCE
         name: Premium Tier
-        token: tc
+        token: k
         value: 4
       properties:
         description:
@@ -57089,7 +57298,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: ekw
+          example: km
           minLength: 1
           type: string
         value:
@@ -57148,7 +57357,7 @@ components:
         serviceId: s-12345678
         stableEgressIP: true
         tlsTerminationPort: 443
-        token: fci
+        token: l
         zoneConfiguration: SINGLE_ZONE_OMNISTRATE_RECOMMENDED|SINGLE_ZONE_CUSTOMER_PROVIDED|MULTI_ZONE
       properties:
         description:
@@ -57161,7 +57370,7 @@ components:
           type: boolean
         id:
           description: ID of a Network Config
-          example: Tenetur aut labore quia veniam.
+          example: Ut deserunt odit.
           type: string
         internal:
           description: Restrict access to this network config to the internal network
@@ -57177,7 +57386,7 @@ components:
           - 1299
           - 3306
           items:
-            example: 4679766505388460681
+            example: 979399127402215232
             format: int64
             type: integer
           type: array
@@ -57201,7 +57410,7 @@ components:
           type: integer
         token:
           description: JWT token used to perform authorization
-          example: "3"
+          example: 9k
           minLength: 1
           type: string
         zoneConfiguration:
@@ -58873,7 +59082,7 @@ components:
         id: sc-12345678
         name: my-storage-config
         serviceId: s-12345678
-        token: "9"
+        token: 7g
       properties:
         description:
           description: Description of the storage config
@@ -58882,7 +59091,7 @@ components:
           type: string
         id:
           description: ID of a Storage Config
-          example: Laborum illo.
+          example: Provident dignissimos.
           type: string
         name:
           description: Name of the storage config
@@ -58895,7 +59104,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: zpx
+          example: mg
           minLength: 1
           type: string
       required:

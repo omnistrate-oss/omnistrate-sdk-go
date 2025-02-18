@@ -5,15 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ModifiedAt** | Pointer to **string** | The time the plan was last modified | [optional] 
-**NextChargeDate** | Pointer to **string** | The next day stripe will process a charge for this plan | [optional] 
 **PaymentConfigured** | Pointer to **bool** | Whether the customer has configured their payment information. | [optional] 
-**PaymentInfoPortalURL** | Pointer to **string** | The URL from Paigo to redirect users to so they can enter their payment information.  Only present when first adding payment information | [optional] 
+**PaymentInfoPortalURL** | Pointer to **string** | The URL from Stripe to configure payment information | [optional] 
 **PlanCoreHourCost** | Pointer to **float64** | The cost per core hour of this plan | [optional] 
 **PlanDescription** | Pointer to **string** | The description of the plan | [optional] 
 **PlanFrequency** | Pointer to **string** | This parameter tells you if the plan is charged monthly or yearly | [optional] 
 **PlanMonthlyCost** | Pointer to **float64** | The minimum monthly cost of this plan | [optional] 
 **PlanName** | **string** | This parameter is used to select the appropriate Product Plan | 
-**RemainingCredits** | Pointer to **string** | The credits remaining for the customer for the customer in Paigo | [optional] 
 **StartDate** | Pointer to **string** | The date that the plan starts | [optional] 
 
 ## Methods
@@ -59,31 +57,6 @@ SetModifiedAt sets ModifiedAt field to given value.
 `func (o *DescribePlanResult) HasModifiedAt() bool`
 
 HasModifiedAt returns a boolean if a field has been set.
-
-### GetNextChargeDate
-
-`func (o *DescribePlanResult) GetNextChargeDate() string`
-
-GetNextChargeDate returns the NextChargeDate field if non-nil, zero value otherwise.
-
-### GetNextChargeDateOk
-
-`func (o *DescribePlanResult) GetNextChargeDateOk() (*string, bool)`
-
-GetNextChargeDateOk returns a tuple with the NextChargeDate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNextChargeDate
-
-`func (o *DescribePlanResult) SetNextChargeDate(v string)`
-
-SetNextChargeDate sets NextChargeDate field to given value.
-
-### HasNextChargeDate
-
-`func (o *DescribePlanResult) HasNextChargeDate() bool`
-
-HasNextChargeDate returns a boolean if a field has been set.
 
 ### GetPaymentConfigured
 
@@ -254,31 +227,6 @@ and a boolean to check if the value has been set.
 
 SetPlanName sets PlanName field to given value.
 
-
-### GetRemainingCredits
-
-`func (o *DescribePlanResult) GetRemainingCredits() string`
-
-GetRemainingCredits returns the RemainingCredits field if non-nil, zero value otherwise.
-
-### GetRemainingCreditsOk
-
-`func (o *DescribePlanResult) GetRemainingCreditsOk() (*string, bool)`
-
-GetRemainingCreditsOk returns a tuple with the RemainingCredits field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRemainingCredits
-
-`func (o *DescribePlanResult) SetRemainingCredits(v string)`
-
-SetRemainingCredits sets RemainingCredits field to given value.
-
-### HasRemainingCredits
-
-`func (o *DescribePlanResult) HasRemainingCredits() bool`
-
-HasRemainingCredits returns a boolean if a field has been set.
 
 ### GetStartDate
 

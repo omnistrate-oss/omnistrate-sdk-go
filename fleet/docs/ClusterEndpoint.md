@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Endpoint** | Pointer to **string** | The endpoint | [optional] [default to ""]
+**HealthStatus** | Pointer to **string** | The heath status of a resource | [optional] 
 **NetworkingType** | Pointer to **string** | The networking type for this resource | [optional] 
 **OpenPorts** | Pointer to **[]int64** | The open ports | [optional] 
 **Primary** | Pointer to **bool** | Whether this is the primary endpoint | [optional] [default to false]
@@ -52,6 +53,31 @@ SetEndpoint sets Endpoint field to given value.
 `func (o *ClusterEndpoint) HasEndpoint() bool`
 
 HasEndpoint returns a boolean if a field has been set.
+
+### GetHealthStatus
+
+`func (o *ClusterEndpoint) GetHealthStatus() string`
+
+GetHealthStatus returns the HealthStatus field if non-nil, zero value otherwise.
+
+### GetHealthStatusOk
+
+`func (o *ClusterEndpoint) GetHealthStatusOk() (*string, bool)`
+
+GetHealthStatusOk returns a tuple with the HealthStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHealthStatus
+
+`func (o *ClusterEndpoint) SetHealthStatus(v string)`
+
+SetHealthStatus sets HealthStatus field to given value.
+
+### HasHealthStatus
+
+`func (o *ClusterEndpoint) HasHealthStatus() bool`
+
+HasHealthStatus returns a boolean if a field has been set.
 
 ### GetNetworkingType
 

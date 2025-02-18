@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ScheduledDate** | Pointer to **string** | The future date when the upgrade is planned to be executed. Empty for immediate upgrade. | [optional] 
 **SourceVersion** | **string** | The source version of the upgrade path. | 
 **TargetVersion** | **string** | The target version of the upgrade path. | 
 **UpgradeFilters** | **map[string][]string** | The filter to use to choose the instances to upgrade. | 
@@ -26,6 +27,31 @@ will change when the set of required properties is changed
 NewCreateUpgradePathRequest2WithDefaults instantiates a new CreateUpgradePathRequest2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetScheduledDate
+
+`func (o *CreateUpgradePathRequest2) GetScheduledDate() string`
+
+GetScheduledDate returns the ScheduledDate field if non-nil, zero value otherwise.
+
+### GetScheduledDateOk
+
+`func (o *CreateUpgradePathRequest2) GetScheduledDateOk() (*string, bool)`
+
+GetScheduledDateOk returns a tuple with the ScheduledDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScheduledDate
+
+`func (o *CreateUpgradePathRequest2) SetScheduledDate(v string)`
+
+SetScheduledDate sets ScheduledDate field to given value.
+
+### HasScheduledDate
+
+`func (o *CreateUpgradePathRequest2) HasScheduledDate() bool`
+
+HasScheduledDate returns a boolean if a field has been set.
 
 ### GetSourceVersion
 

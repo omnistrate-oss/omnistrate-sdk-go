@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **InstanceID** | Pointer to **string** | ID of a Resource Instance | [optional] 
 **NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
 **PageSize** | Pointer to **int64** | The number of resources to return per page | [optional] 
+**ProductTierID** | Pointer to **string** | ID of a Product Tier | [optional] 
 **ServiceEnvironmentID** | Pointer to **string** | ID of a Service Environment | [optional] 
 **ServiceID** | Pointer to **string** | ID of a Service | [optional] 
 **StartDate** | Pointer to **time.Time** | Start time of the window in ISO 8601 format. If omitted, the filter is open-ended at the start. | [optional] 
@@ -183,6 +184,31 @@ SetPageSize sets PageSize field to given value.
 `func (o *ListServiceProviderEvents) HasPageSize() bool`
 
 HasPageSize returns a boolean if a field has been set.
+
+### GetProductTierID
+
+`func (o *ListServiceProviderEvents) GetProductTierID() string`
+
+GetProductTierID returns the ProductTierID field if non-nil, zero value otherwise.
+
+### GetProductTierIDOk
+
+`func (o *ListServiceProviderEvents) GetProductTierIDOk() (*string, bool)`
+
+GetProductTierIDOk returns a tuple with the ProductTierID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductTierID
+
+`func (o *ListServiceProviderEvents) SetProductTierID(v string)`
+
+SetProductTierID sets ProductTierID field to given value.
+
+### HasProductTierID
+
+`func (o *ListServiceProviderEvents) HasProductTierID() bool`
+
+HasProductTierID returns a boolean if a field has been set.
 
 ### GetServiceEnvironmentID
 

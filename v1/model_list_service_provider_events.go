@@ -33,6 +33,8 @@ type ListServiceProviderEvents struct {
 	NextPageToken *string `json:"nextPageToken,omitempty"`
 	// The number of resources to return per page
 	PageSize *int64 `json:"pageSize,omitempty"`
+	// ID of a Product Tier
+	ProductTierID *string `json:"productTierID,omitempty"`
 	// ID of a Service Environment
 	ServiceEnvironmentID *string `json:"serviceEnvironmentID,omitempty"`
 	// ID of a Service
@@ -202,6 +204,29 @@ func (o *ListServiceProviderEvents) SetPageSize(v int64) {
 	o.PageSize = &v
 }
 
+// GetProductTierID returns the ProductTierID field value if set, zero value otherwise.
+func (o *ListServiceProviderEvents) GetProductTierID() string {
+	if o == nil || IsNil(o.ProductTierID) {
+		var ret string
+		return ret
+	}
+	return *o.ProductTierID
+}
+
+// GetProductTierIDOk returns a tuple with the ProductTierID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListServiceProviderEvents) GetProductTierIDOk() (*string, bool) {
+	if o == nil || IsNil(o.ProductTierID) {
+		return nil, false
+	}
+	return o.ProductTierID, true
+}
+
+// SetProductTierID gets a reference to the given string and assigns it to the ProductTierID field.
+func (o *ListServiceProviderEvents) SetProductTierID(v string) {
+	o.ProductTierID = &v
+}
+
 // GetServiceEnvironmentID returns the ServiceEnvironmentID field value if set, zero value otherwise.
 func (o *ListServiceProviderEvents) GetServiceEnvironmentID() string {
 	if o == nil || IsNil(o.ServiceEnvironmentID) {
@@ -323,6 +348,9 @@ func (o ListServiceProviderEvents) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PageSize) {
 		toSerialize["pageSize"] = o.PageSize
 	}
+	if !IsNil(o.ProductTierID) {
+		toSerialize["productTierID"] = o.ProductTierID
+	}
 	if !IsNil(o.ServiceEnvironmentID) {
 		toSerialize["serviceEnvironmentID"] = o.ServiceEnvironmentID
 	}
@@ -382,6 +410,7 @@ func (o *ListServiceProviderEvents) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "instanceID")
 		delete(additionalProperties, "nextPageToken")
 		delete(additionalProperties, "pageSize")
+		delete(additionalProperties, "productTierID")
 		delete(additionalProperties, "serviceEnvironmentID")
 		delete(additionalProperties, "serviceID")
 		delete(additionalProperties, "startDate")

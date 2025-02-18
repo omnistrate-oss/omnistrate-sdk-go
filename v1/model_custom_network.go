@@ -35,6 +35,10 @@ type CustomNetwork struct {
 	NetworkFeaturesConfiguration *NetworkFeaturesConfiguration `json:"networkFeaturesConfiguration,omitempty"`
 	// List of network instances created within this custom network
 	NetworkInstances []CustomNetworkInstance `json:"networkInstances,omitempty"`
+	// ID of a User
+	OwningUserId *string `json:"owningUserId,omitempty"`
+	// The name of the user that created and owns the custom network
+	OwningUserName *string `json:"owningUserName,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -251,6 +255,52 @@ func (o *CustomNetwork) SetNetworkInstances(v []CustomNetworkInstance) {
 	o.NetworkInstances = v
 }
 
+// GetOwningUserId returns the OwningUserId field value if set, zero value otherwise.
+func (o *CustomNetwork) GetOwningUserId() string {
+	if o == nil || IsNil(o.OwningUserId) {
+		var ret string
+		return ret
+	}
+	return *o.OwningUserId
+}
+
+// GetOwningUserIdOk returns a tuple with the OwningUserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomNetwork) GetOwningUserIdOk() (*string, bool) {
+	if o == nil || IsNil(o.OwningUserId) {
+		return nil, false
+	}
+	return o.OwningUserId, true
+}
+
+// SetOwningUserId gets a reference to the given string and assigns it to the OwningUserId field.
+func (o *CustomNetwork) SetOwningUserId(v string) {
+	o.OwningUserId = &v
+}
+
+// GetOwningUserName returns the OwningUserName field value if set, zero value otherwise.
+func (o *CustomNetwork) GetOwningUserName() string {
+	if o == nil || IsNil(o.OwningUserName) {
+		var ret string
+		return ret
+	}
+	return *o.OwningUserName
+}
+
+// GetOwningUserNameOk returns a tuple with the OwningUserName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomNetwork) GetOwningUserNameOk() (*string, bool) {
+	if o == nil || IsNil(o.OwningUserName) {
+		return nil, false
+	}
+	return o.OwningUserName, true
+}
+
+// SetOwningUserName gets a reference to the given string and assigns it to the OwningUserName field.
+func (o *CustomNetwork) SetOwningUserName(v string) {
+	o.OwningUserName = &v
+}
+
 func (o CustomNetwork) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -278,6 +328,12 @@ func (o CustomNetwork) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.NetworkInstances) {
 		toSerialize["networkInstances"] = o.NetworkInstances
+	}
+	if !IsNil(o.OwningUserId) {
+		toSerialize["owningUserId"] = o.OwningUserId
+	}
+	if !IsNil(o.OwningUserName) {
+		toSerialize["owningUserName"] = o.OwningUserName
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -332,6 +388,8 @@ func (o *CustomNetwork) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "networkDefinitionType")
 		delete(additionalProperties, "networkFeaturesConfiguration")
 		delete(additionalProperties, "networkInstances")
+		delete(additionalProperties, "owningUserId")
+		delete(additionalProperties, "owningUserName")
 		o.AdditionalProperties = additionalProperties
 	}
 

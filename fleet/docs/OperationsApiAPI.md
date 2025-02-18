@@ -107,7 +107,7 @@ func main() {
 	pageSize := int64(10) // int64 | The number of events to return per page (optional)
 	startDate := time.Now() // time.Time | Start date of the events (optional)
 	endDate := time.Now() // time.Time | End date of the events (optional)
-	productTierID := "Consequatur ipsa fugit minima repellendus." // string |  (optional)
+	productTierID := "Et et dolorem harum." // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

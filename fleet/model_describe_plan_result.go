@@ -22,11 +22,9 @@ var _ MappedNullable = &DescribePlanResult{}
 type DescribePlanResult struct {
 	// The time the plan was last modified
 	ModifiedAt *string `json:"modifiedAt,omitempty"`
-	// The next day stripe will process a charge for this plan
-	NextChargeDate *string `json:"nextChargeDate,omitempty"`
 	// Whether the customer has configured their payment information.
 	PaymentConfigured *bool `json:"paymentConfigured,omitempty"`
-	// The URL from Paigo to redirect users to so they can enter their payment information.  Only present when first adding payment information
+	// The URL from Stripe to configure payment information
 	PaymentInfoPortalURL *string `json:"paymentInfoPortalURL,omitempty"`
 	// The cost per core hour of this plan
 	PlanCoreHourCost *float64 `json:"planCoreHourCost,omitempty"`
@@ -38,8 +36,6 @@ type DescribePlanResult struct {
 	PlanMonthlyCost *float64 `json:"planMonthlyCost,omitempty"`
 	// This parameter is used to select the appropriate Product Plan
 	PlanName string `json:"planName"`
-	// The credits remaining for the customer for the customer in Paigo
-	RemainingCredits *string `json:"remainingCredits,omitempty"`
 	// The date that the plan starts
 	StartDate *string `json:"startDate,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -95,38 +91,6 @@ func (o *DescribePlanResult) HasModifiedAt() bool {
 // SetModifiedAt gets a reference to the given string and assigns it to the ModifiedAt field.
 func (o *DescribePlanResult) SetModifiedAt(v string) {
 	o.ModifiedAt = &v
-}
-
-// GetNextChargeDate returns the NextChargeDate field value if set, zero value otherwise.
-func (o *DescribePlanResult) GetNextChargeDate() string {
-	if o == nil || IsNil(o.NextChargeDate) {
-		var ret string
-		return ret
-	}
-	return *o.NextChargeDate
-}
-
-// GetNextChargeDateOk returns a tuple with the NextChargeDate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DescribePlanResult) GetNextChargeDateOk() (*string, bool) {
-	if o == nil || IsNil(o.NextChargeDate) {
-		return nil, false
-	}
-	return o.NextChargeDate, true
-}
-
-// HasNextChargeDate returns a boolean if a field has been set.
-func (o *DescribePlanResult) HasNextChargeDate() bool {
-	if o != nil && !IsNil(o.NextChargeDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetNextChargeDate gets a reference to the given string and assigns it to the NextChargeDate field.
-func (o *DescribePlanResult) SetNextChargeDate(v string) {
-	o.NextChargeDate = &v
 }
 
 // GetPaymentConfigured returns the PaymentConfigured field value if set, zero value otherwise.
@@ -345,38 +309,6 @@ func (o *DescribePlanResult) SetPlanName(v string) {
 	o.PlanName = v
 }
 
-// GetRemainingCredits returns the RemainingCredits field value if set, zero value otherwise.
-func (o *DescribePlanResult) GetRemainingCredits() string {
-	if o == nil || IsNil(o.RemainingCredits) {
-		var ret string
-		return ret
-	}
-	return *o.RemainingCredits
-}
-
-// GetRemainingCreditsOk returns a tuple with the RemainingCredits field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DescribePlanResult) GetRemainingCreditsOk() (*string, bool) {
-	if o == nil || IsNil(o.RemainingCredits) {
-		return nil, false
-	}
-	return o.RemainingCredits, true
-}
-
-// HasRemainingCredits returns a boolean if a field has been set.
-func (o *DescribePlanResult) HasRemainingCredits() bool {
-	if o != nil && !IsNil(o.RemainingCredits) {
-		return true
-	}
-
-	return false
-}
-
-// SetRemainingCredits gets a reference to the given string and assigns it to the RemainingCredits field.
-func (o *DescribePlanResult) SetRemainingCredits(v string) {
-	o.RemainingCredits = &v
-}
-
 // GetStartDate returns the StartDate field value if set, zero value otherwise.
 func (o *DescribePlanResult) GetStartDate() string {
 	if o == nil || IsNil(o.StartDate) {
@@ -422,9 +354,6 @@ func (o DescribePlanResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ModifiedAt) {
 		toSerialize["modifiedAt"] = o.ModifiedAt
 	}
-	if !IsNil(o.NextChargeDate) {
-		toSerialize["nextChargeDate"] = o.NextChargeDate
-	}
 	if !IsNil(o.PaymentConfigured) {
 		toSerialize["paymentConfigured"] = o.PaymentConfigured
 	}
@@ -444,9 +373,6 @@ func (o DescribePlanResult) ToMap() (map[string]interface{}, error) {
 		toSerialize["planMonthlyCost"] = o.PlanMonthlyCost
 	}
 	toSerialize["planName"] = o.PlanName
-	if !IsNil(o.RemainingCredits) {
-		toSerialize["remainingCredits"] = o.RemainingCredits
-	}
 	if !IsNil(o.StartDate) {
 		toSerialize["startDate"] = o.StartDate
 	}
@@ -494,7 +420,6 @@ func (o *DescribePlanResult) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "modifiedAt")
-		delete(additionalProperties, "nextChargeDate")
 		delete(additionalProperties, "paymentConfigured")
 		delete(additionalProperties, "paymentInfoPortalURL")
 		delete(additionalProperties, "planCoreHourCost")
@@ -502,7 +427,6 @@ func (o *DescribePlanResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "planFrequency")
 		delete(additionalProperties, "planMonthlyCost")
 		delete(additionalProperties, "planName")
-		delete(additionalProperties, "remainingCredits")
 		delete(additionalProperties, "startDate")
 		o.AdditionalProperties = additionalProperties
 	}

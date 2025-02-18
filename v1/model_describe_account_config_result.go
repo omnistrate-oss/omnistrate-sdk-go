@@ -34,6 +34,8 @@ type DescribeAccountConfigResult struct {
 	CloudProviderId string `json:"cloudProviderId"`
 	// The description for the account
 	Description string `json:"description"`
+	// The GCP bootstrap shell command
+	GcpBootstrapShellCommand *string `json:"gcpBootstrapShellCommand,omitempty"`
 	// The GCP project ID
 	GcpProjectID *string `json:"gcpProjectID,omitempty"`
 	// The GCP project number
@@ -239,6 +241,29 @@ func (o *DescribeAccountConfigResult) SetDescription(v string) {
 	o.Description = v
 }
 
+// GetGcpBootstrapShellCommand returns the GcpBootstrapShellCommand field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetGcpBootstrapShellCommand() string {
+	if o == nil || IsNil(o.GcpBootstrapShellCommand) {
+		var ret string
+		return ret
+	}
+	return *o.GcpBootstrapShellCommand
+}
+
+// GetGcpBootstrapShellCommandOk returns a tuple with the GcpBootstrapShellCommand field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetGcpBootstrapShellCommandOk() (*string, bool) {
+	if o == nil || IsNil(o.GcpBootstrapShellCommand) {
+		return nil, false
+	}
+	return o.GcpBootstrapShellCommand, true
+}
+
+// SetGcpBootstrapShellCommand gets a reference to the given string and assigns it to the GcpBootstrapShellCommand field.
+func (o *DescribeAccountConfigResult) SetGcpBootstrapShellCommand(v string) {
+	o.GcpBootstrapShellCommand = &v
+}
+
 // GetGcpProjectID returns the GcpProjectID field value if set, zero value otherwise.
 func (o *DescribeAccountConfigResult) GetGcpProjectID() string {
 	if o == nil || IsNil(o.GcpProjectID) {
@@ -431,6 +456,9 @@ func (o DescribeAccountConfigResult) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["cloudProviderId"] = o.CloudProviderId
 	toSerialize["description"] = o.Description
+	if !IsNil(o.GcpBootstrapShellCommand) {
+		toSerialize["gcpBootstrapShellCommand"] = o.GcpBootstrapShellCommand
+	}
 	if !IsNil(o.GcpProjectID) {
 		toSerialize["gcpProjectID"] = o.GcpProjectID
 	}
@@ -499,6 +527,7 @@ func (o *DescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "byoaInstanceIDs")
 		delete(additionalProperties, "cloudProviderId")
 		delete(additionalProperties, "description")
+		delete(additionalProperties, "gcpBootstrapShellCommand")
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "gcpProjectNumber")
 		delete(additionalProperties, "gcpServiceAccountEmail")

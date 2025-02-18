@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Dimension** | Pointer to **string** | Dimension of usage | [optional] 
+**EndTime** | Pointer to **string** | End timestamp of usage | [optional] 
+**StartTime** | Pointer to **string** | Start timestamp of usage | [optional] 
 **Total** | Pointer to **float64** | Total amount of usage during the period | [optional] 
 
 ## Methods
@@ -50,6 +52,56 @@ SetDimension sets Dimension field to given value.
 `func (o *UsagePerDimension) HasDimension() bool`
 
 HasDimension returns a boolean if a field has been set.
+
+### GetEndTime
+
+`func (o *UsagePerDimension) GetEndTime() string`
+
+GetEndTime returns the EndTime field if non-nil, zero value otherwise.
+
+### GetEndTimeOk
+
+`func (o *UsagePerDimension) GetEndTimeOk() (*string, bool)`
+
+GetEndTimeOk returns a tuple with the EndTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndTime
+
+`func (o *UsagePerDimension) SetEndTime(v string)`
+
+SetEndTime sets EndTime field to given value.
+
+### HasEndTime
+
+`func (o *UsagePerDimension) HasEndTime() bool`
+
+HasEndTime returns a boolean if a field has been set.
+
+### GetStartTime
+
+`func (o *UsagePerDimension) GetStartTime() string`
+
+GetStartTime returns the StartTime field if non-nil, zero value otherwise.
+
+### GetStartTimeOk
+
+`func (o *UsagePerDimension) GetStartTimeOk() (*string, bool)`
+
+GetStartTimeOk returns a tuple with the StartTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartTime
+
+`func (o *UsagePerDimension) SetStartTime(v string)`
+
+SetStartTime sets StartTime field to given value.
+
+### HasStartTime
+
+`func (o *UsagePerDimension) HasStartTime() bool`
+
+HasStartTime returns a boolean if a field has been set.
 
 ### GetTotal
 

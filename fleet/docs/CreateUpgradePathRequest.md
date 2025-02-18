@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ProductTierId** | **string** | ID of a Product Tier | 
+**ScheduledDate** | Pointer to **string** | The future date when the upgrade is planned to be executed. Empty for immediate upgrade. | [optional] 
 **ServiceId** | **string** | ID of a Service | 
 **SourceVersion** | **string** | The source version of the upgrade path. | 
 **TargetVersion** | **string** | The target version of the upgrade path. | 
@@ -49,6 +50,31 @@ and a boolean to check if the value has been set.
 
 SetProductTierId sets ProductTierId field to given value.
 
+
+### GetScheduledDate
+
+`func (o *CreateUpgradePathRequest) GetScheduledDate() string`
+
+GetScheduledDate returns the ScheduledDate field if non-nil, zero value otherwise.
+
+### GetScheduledDateOk
+
+`func (o *CreateUpgradePathRequest) GetScheduledDateOk() (*string, bool)`
+
+GetScheduledDateOk returns a tuple with the ScheduledDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScheduledDate
+
+`func (o *CreateUpgradePathRequest) SetScheduledDate(v string)`
+
+SetScheduledDate sets ScheduledDate field to given value.
+
+### HasScheduledDate
+
+`func (o *CreateUpgradePathRequest) HasScheduledDate() bool`
+
+HasScheduledDate returns a boolean if a field has been set.
 
 ### GetServiceId
 

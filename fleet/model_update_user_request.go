@@ -25,6 +25,8 @@ type UpdateUserRequest struct {
 	Id string `json:"id"`
 	// The name of the user
 	Name *string `json:"name,omitempty"`
+	// The cookie policy for the org that this user owns in an HTML format
+	OrgCookiePolicy *string `json:"orgCookiePolicy,omitempty"`
 	// The description of the org that this user owns
 	OrgDescription *string `json:"orgDescription,omitempty"`
 	// The favicon of the org that this user owns
@@ -153,6 +155,38 @@ func (o *UpdateUserRequest) HasName() bool {
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *UpdateUserRequest) SetName(v string) {
 	o.Name = &v
+}
+
+// GetOrgCookiePolicy returns the OrgCookiePolicy field value if set, zero value otherwise.
+func (o *UpdateUserRequest) GetOrgCookiePolicy() string {
+	if o == nil || IsNil(o.OrgCookiePolicy) {
+		var ret string
+		return ret
+	}
+	return *o.OrgCookiePolicy
+}
+
+// GetOrgCookiePolicyOk returns a tuple with the OrgCookiePolicy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateUserRequest) GetOrgCookiePolicyOk() (*string, bool) {
+	if o == nil || IsNil(o.OrgCookiePolicy) {
+		return nil, false
+	}
+	return o.OrgCookiePolicy, true
+}
+
+// HasOrgCookiePolicy returns a boolean if a field has been set.
+func (o *UpdateUserRequest) HasOrgCookiePolicy() bool {
+	if o != nil && !IsNil(o.OrgCookiePolicy) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgCookiePolicy gets a reference to the given string and assigns it to the OrgCookiePolicy field.
+func (o *UpdateUserRequest) SetOrgCookiePolicy(v string) {
+	o.OrgCookiePolicy = &v
 }
 
 // GetOrgDescription returns the OrgDescription field value if set, zero value otherwise.
@@ -452,6 +486,9 @@ func (o UpdateUserRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
+	if !IsNil(o.OrgCookiePolicy) {
+		toSerialize["orgCookiePolicy"] = o.OrgCookiePolicy
+	}
 	if !IsNil(o.OrgDescription) {
 		toSerialize["orgDescription"] = o.OrgDescription
 	}
@@ -524,6 +561,7 @@ func (o *UpdateUserRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "address")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "orgCookiePolicy")
 		delete(additionalProperties, "orgDescription")
 		delete(additionalProperties, "orgFavIconURL")
 		delete(additionalProperties, "orgLogoURL")

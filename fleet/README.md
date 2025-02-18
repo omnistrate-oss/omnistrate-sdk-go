@@ -114,6 +114,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiCreateResourceInstanceSnapshot**](docs/InventoryApiAPI.md#inventoryapicreateresourceinstancesnapshot) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/snapshot | CreateResourceInstanceSnapshot inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateServicesOrchestration**](docs/InventoryApiAPI.md#inventoryapicreateservicesorchestration) | **Post** /2022-09-01-00/fleet/services-orchestration | CreateServicesOrchestration inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateUpgradePath**](docs/InventoryApiAPI.md#inventoryapicreateupgradepath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path | CreateUpgradePath inventory-api
+*InventoryApiAPI* | [**InventoryApiDebugResourceInstance**](docs/InventoryApiAPI.md#inventoryapidebugresourceinstance) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/debug | DebugResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiDeleteProxyResourceInstance**](docs/InventoryApiAPI.md#inventoryapideleteproxyresourceinstance) | **Delete** /2022-09-01-00/fleet/proxy-resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{id} | DeleteProxyResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiDeleteResourceInstance**](docs/InventoryApiAPI.md#inventoryapideleteresourceinstance) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId} | DeleteResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiDeleteResourceInstanceSnapshot**](docs/InventoryApiAPI.md#inventoryapideleteresourceinstancesnapshot) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/snapshot/{snapshotId} | DeleteResourceInstanceSnapshot inventory-api
@@ -135,6 +136,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiDescribeSubscriptionRequest**](docs/InventoryApiAPI.md#inventoryapidescribesubscriptionrequest) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | DescribeSubscriptionRequest inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeUpgradePath**](docs/InventoryApiAPI.md#inventoryapidescribeupgradepath) | **Get** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId} | DescribeUpgradePath inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeUser**](docs/InventoryApiAPI.md#inventoryapidescribeuser) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/user/{userId} | DescribeUser inventory-api
+*InventoryApiAPI* | [**InventoryApiEnableResourceInstanceManualOverride**](docs/InventoryApiAPI.md#inventoryapienableresourceinstancemanualoverride) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/override | EnableResourceInstanceManualOverride inventory-api
 *InventoryApiAPI* | [**InventoryApiFailoverResourceInstance**](docs/InventoryApiAPI.md#inventoryapifailoverresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/failover | FailoverResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiGenerateTokenForHostClusterDashboard**](docs/InventoryApiAPI.md#inventoryapigeneratetokenforhostclusterdashboard) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard inventory-api
 *InventoryApiAPI* | [**InventoryApiListActiveOrganizations**](docs/InventoryApiAPI.md#inventoryapilistactiveorganizations) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/organizations | ListActiveOrganizations inventory-api
@@ -248,6 +250,9 @@ Class | Method | HTTP request | Description
  - [CustomerSigninRequest](docs/CustomerSigninRequest.md)
  - [CustomerSigninResult](docs/CustomerSigninResult.md)
  - [CustomerSignupRequest](docs/CustomerSignupRequest.md)
+ - [DebugResourceInstanceRequest](docs/DebugResourceInstanceRequest.md)
+ - [DebugResourceInstanceResult](docs/DebugResourceInstanceResult.md)
+ - [DebugResourceResult](docs/DebugResourceResult.md)
  - [DeleteCustomerOnboardingRequest](docs/DeleteCustomerOnboardingRequest.md)
  - [DeleteIdentityProviderRequest](docs/DeleteIdentityProviderRequest.md)
  - [DeleteNotificationChannelRequest](docs/DeleteNotificationChannelRequest.md)
@@ -387,6 +392,7 @@ Class | Method | HTTP request | Description
  - [FleetDescribeSubscriptionResult](docs/FleetDescribeSubscriptionResult.md)
  - [FleetDescribeUser](docs/FleetDescribeUser.md)
  - [FleetDescribeUserResult](docs/FleetDescribeUserResult.md)
+ - [FleetEnableResourceInstanceManualOverrideRequest](docs/FleetEnableResourceInstanceManualOverrideRequest.md)
  - [FleetFailoverResourceInstanceRequest](docs/FleetFailoverResourceInstanceRequest.md)
  - [FleetFailoverResourceInstanceRequest2](docs/FleetFailoverResourceInstanceRequest2.md)
  - [FleetFeature](docs/FleetFeature.md)
@@ -444,10 +450,11 @@ Class | Method | HTTP request | Description
  - [GetAvailabilityZoneByCodeRequest](docs/GetAvailabilityZoneByCodeRequest.md)
  - [GetCloudProviderByNameRequest](docs/GetCloudProviderByNameRequest.md)
  - [GetCurrentUsageRequest](docs/GetCurrentUsageRequest.md)
- - [GetCurrentUsageResult](docs/GetCurrentUsageResult.md)
  - [GetRegionByCodeRequest](docs/GetRegionByCodeRequest.md)
  - [GetServicePlanRequest](docs/GetServicePlanRequest.md)
  - [GetServicePlanResult](docs/GetServicePlanResult.md)
+ - [GetUsageRequest](docs/GetUsageRequest.md)
+ - [GetUsageResult](docs/GetUsageResult.md)
  - [GetWorkflowEventsRequest](docs/GetWorkflowEventsRequest.md)
  - [GetWorkflowEventsResult](docs/GetWorkflowEventsResult.md)
  - [HelmPackage](docs/HelmPackage.md)
@@ -550,6 +557,7 @@ Class | Method | HTTP request | Description
  - [LoginWithIdentityProviderRequest](docs/LoginWithIdentityProviderRequest.md)
  - [LoginWithIdentityProviderResult](docs/LoginWithIdentityProviderResult.md)
  - [LogoutRequest](docs/LogoutRequest.md)
+ - [ManualOverride](docs/ManualOverride.md)
  - [ModifyServicesOrchestrationRequest](docs/ModifyServicesOrchestrationRequest.md)
  - [NodeHealthSummary](docs/NodeHealthSummary.md)
  - [NodeNetworkTopologyResult](docs/NodeNetworkTopologyResult.md)

@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **NetworkType** | Pointer to **string** | The network type | [optional] 
 **ProductTierFeatures** | Pointer to **map[string]interface{}** | The product tier features | [optional] 
 **Region** | Pointer to **string** | The region code | [optional] 
+**ResourceID** | Pointer to **string** | ID of a resource | [optional] 
 **ResultParams** | Pointer to **interface{}** | Custom result parameters | [optional] 
 **ServerlessEnabled** | Pointer to **bool** | Whether the instance has serverless enabled | [optional] 
 **Status** | Pointer to **string** | The status of an operation | [optional] 
@@ -625,6 +626,31 @@ SetRegion sets Region field to given value.
 `func (o *DescribeResourceInstanceResult) HasRegion() bool`
 
 HasRegion returns a boolean if a field has been set.
+
+### GetResourceID
+
+`func (o *DescribeResourceInstanceResult) GetResourceID() string`
+
+GetResourceID returns the ResourceID field if non-nil, zero value otherwise.
+
+### GetResourceIDOk
+
+`func (o *DescribeResourceInstanceResult) GetResourceIDOk() (*string, bool)`
+
+GetResourceIDOk returns a tuple with the ResourceID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceID
+
+`func (o *DescribeResourceInstanceResult) SetResourceID(v string)`
+
+SetResourceID sets ResourceID field to given value.
+
+### HasResourceID
+
+`func (o *DescribeResourceInstanceResult) HasResourceID() bool`
+
+HasResourceID returns a boolean if a field has been set.
 
 ### GetResultParams
 

@@ -22,6 +22,8 @@ var _ MappedNullable = &CreateUpgradePathRequest{}
 type CreateUpgradePathRequest struct {
 	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
+	// The future date when the upgrade is planned to be executed. Empty for immediate upgrade.
+	ScheduledDate *string `json:"scheduledDate,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The source version of the upgrade path.
@@ -82,6 +84,38 @@ func (o *CreateUpgradePathRequest) GetProductTierIdOk() (*string, bool) {
 // SetProductTierId sets field value
 func (o *CreateUpgradePathRequest) SetProductTierId(v string) {
 	o.ProductTierId = v
+}
+
+// GetScheduledDate returns the ScheduledDate field value if set, zero value otherwise.
+func (o *CreateUpgradePathRequest) GetScheduledDate() string {
+	if o == nil || IsNil(o.ScheduledDate) {
+		var ret string
+		return ret
+	}
+	return *o.ScheduledDate
+}
+
+// GetScheduledDateOk returns a tuple with the ScheduledDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpgradePathRequest) GetScheduledDateOk() (*string, bool) {
+	if o == nil || IsNil(o.ScheduledDate) {
+		return nil, false
+	}
+	return o.ScheduledDate, true
+}
+
+// HasScheduledDate returns a boolean if a field has been set.
+func (o *CreateUpgradePathRequest) HasScheduledDate() bool {
+	if o != nil && !IsNil(o.ScheduledDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetScheduledDate gets a reference to the given string and assigns it to the ScheduledDate field.
+func (o *CreateUpgradePathRequest) SetScheduledDate(v string) {
+	o.ScheduledDate = &v
 }
 
 // GetServiceId returns the ServiceId field value
@@ -215,6 +249,9 @@ func (o CreateUpgradePathRequest) MarshalJSON() ([]byte, error) {
 func (o CreateUpgradePathRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["productTierId"] = o.ProductTierId
+	if !IsNil(o.ScheduledDate) {
+		toSerialize["scheduledDate"] = o.ScheduledDate
+	}
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["sourceVersion"] = o.SourceVersion
 	toSerialize["targetVersion"] = o.TargetVersion
@@ -269,6 +306,7 @@ func (o *CreateUpgradePathRequest) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "scheduledDate")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "sourceVersion")
 		delete(additionalProperties, "targetVersion")
