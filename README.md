@@ -1,5 +1,7 @@
 # Go API client for Omnistrate
 
+![CI](https://github.com/omnistrate-oss/omnistrate-sdk-go/actions/workflows/build.yml/badge.svg) 
+
 ## Overview
 
 [omnistrate-sdk-go](https://github.com/omnistrate-oss/omnistrate-sdk-go) is an API client to interact with Omnistrate APIs from Go applications and services
