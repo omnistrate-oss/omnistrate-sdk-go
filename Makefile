@@ -1,4 +1,3 @@
-PACKAGE_NAME=omnistrategosdk
 ORG_NAME=omnistrate-oss
 REPO_NAME=omnistrate-sdk-go
 OPEN_API_SPEC?=https://api.omnistrate.cloud/2022-09-01-00/openapi.yaml
