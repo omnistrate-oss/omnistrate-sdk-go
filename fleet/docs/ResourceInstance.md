@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **InputParams** | **interface{}** | Custom input parameters | 
 **InstanceDebugCommands** | **[]string** | The debug commands to access the instance | 
 **IntegrationsStatus** | [**[]IntegrationStatus**](IntegrationStatus.md) | List of individual integrations and their statuses for the instance | 
-**MaintenanceTasks** | Pointer to **map[string]string** | Pending actions or maintenance tasks for the resource instance, with action type as key and reference key as value. | [optional] 
+**MaintenanceTasks** | Pointer to **map[string]interface{}** | Pending actions or maintenance tasks for the resource instance, with action type as key and reference key as value. | [optional] 
 **ManagedResourceType** | Pointer to **string** | The managed resource type of instance | [optional] 
 **ManualOverride** | Pointer to [**ManualOverride**](ManualOverride.md) |  | [optional] 
 **OrganizationId** | **string** | ID of an Org | 
@@ -286,20 +286,20 @@ SetIntegrationsStatus sets IntegrationsStatus field to given value.
 
 ### GetMaintenanceTasks
 
-`func (o *ResourceInstance) GetMaintenanceTasks() map[string]string`
+`func (o *ResourceInstance) GetMaintenanceTasks() map[string]interface{}`
 
 GetMaintenanceTasks returns the MaintenanceTasks field if non-nil, zero value otherwise.
 
 ### GetMaintenanceTasksOk
 
-`func (o *ResourceInstance) GetMaintenanceTasksOk() (*map[string]string, bool)`
+`func (o *ResourceInstance) GetMaintenanceTasksOk() (*map[string]interface{}, bool)`
 
 GetMaintenanceTasksOk returns a tuple with the MaintenanceTasks field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMaintenanceTasks
 
-`func (o *ResourceInstance) SetMaintenanceTasks(v map[string]string)`
+`func (o *ResourceInstance) SetMaintenanceTasks(v map[string]interface{})`
 
 SetMaintenanceTasks sets MaintenanceTasks field to given value.
 
