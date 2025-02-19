@@ -40,7 +40,7 @@ type ResourceInstance struct {
 	// List of individual integrations and their statuses for the instance
 	IntegrationsStatus []IntegrationStatus `json:"integrationsStatus"`
 	// Pending actions or maintenance tasks for the resource instance, with action type as key and reference key as value.
-	MaintenanceTasks *map[string]string `json:"maintenanceTasks,omitempty"`
+	MaintenanceTasks map[string]interface{} `json:"maintenanceTasks,omitempty"`
 	// The managed resource type of instance
 	ManagedResourceType *string `json:"managedResourceType,omitempty"`
 	ManualOverride *ManualOverride `json:"manualOverride,omitempty"`
@@ -403,19 +403,19 @@ func (o *ResourceInstance) SetIntegrationsStatus(v []IntegrationStatus) {
 }
 
 // GetMaintenanceTasks returns the MaintenanceTasks field value if set, zero value otherwise.
-func (o *ResourceInstance) GetMaintenanceTasks() map[string]string {
+func (o *ResourceInstance) GetMaintenanceTasks() map[string]interface{} {
 	if o == nil || IsNil(o.MaintenanceTasks) {
-		var ret map[string]string
+		var ret map[string]interface{}
 		return ret
 	}
-	return *o.MaintenanceTasks
+	return o.MaintenanceTasks
 }
 
 // GetMaintenanceTasksOk returns a tuple with the MaintenanceTasks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ResourceInstance) GetMaintenanceTasksOk() (*map[string]string, bool) {
+func (o *ResourceInstance) GetMaintenanceTasksOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.MaintenanceTasks) {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
 	return o.MaintenanceTasks, true
 }
@@ -429,9 +429,9 @@ func (o *ResourceInstance) HasMaintenanceTasks() bool {
 	return false
 }
 
-// SetMaintenanceTasks gets a reference to the given map[string]string and assigns it to the MaintenanceTasks field.
-func (o *ResourceInstance) SetMaintenanceTasks(v map[string]string) {
-	o.MaintenanceTasks = &v
+// SetMaintenanceTasks gets a reference to the given map[string]interface{} and assigns it to the MaintenanceTasks field.
+func (o *ResourceInstance) SetMaintenanceTasks(v map[string]interface{}) {
+	o.MaintenanceTasks = v
 }
 
 // GetManagedResourceType returns the ManagedResourceType field value if set, zero value otherwise.

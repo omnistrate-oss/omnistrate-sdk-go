@@ -4653,8 +4653,10 @@ paths:
                   message: missing exporter secret configuration for gcp
                   scope: INTERNAL
                 maintenanceTasks:
-                  backup: ref-87654321
-                  upgrade: ref-12345678
+                  backup: ref-12345680
+                  upgrade_path:
+                  - ref-12345678
+                  - ref-12345679
                 managedResourceType: PortsBasedProxy
                 manualOverride:
                   setAt: 2020-01-01T00:00:00Z
@@ -5808,8 +5810,10 @@ paths:
                     message: missing exporter secret configuration for gcp
                     scope: INTERNAL
                   maintenanceTasks:
-                    backup: ref-87654321
-                    upgrade: ref-12345678
+                    backup: ref-12345680
+                    upgrade_path:
+                    - ref-12345678
+                    - ref-12345679
                   managedResourceType: PortsBasedProxy
                   manualOverride:
                     setAt: 2020-01-01T00:00:00Z
@@ -5994,8 +5998,10 @@ paths:
                     message: missing exporter secret configuration for gcp
                     scope: INTERNAL
                   maintenanceTasks:
-                    backup: ref-87654321
-                    upgrade: ref-12345678
+                    backup: ref-12345680
+                    upgrade_path:
+                    - ref-12345678
+                    - ref-12345679
                   managedResourceType: PortsBasedProxy
                   manualOverride:
                     setAt: 2020-01-01T00:00:00Z
@@ -6180,8 +6186,10 @@ paths:
                     message: missing exporter secret configuration for gcp
                     scope: INTERNAL
                   maintenanceTasks:
-                    backup: ref-87654321
-                    upgrade: ref-12345678
+                    backup: ref-12345680
+                    upgrade_path:
+                    - ref-12345678
+                    - ref-12345679
                   managedResourceType: PortsBasedProxy
                   manualOverride:
                     setAt: 2020-01-01T00:00:00Z
@@ -7447,8 +7455,10 @@ paths:
                     message: missing exporter secret configuration for gcp
                     scope: INTERNAL
                   maintenanceTasks:
-                    backup: ref-87654321
-                    upgrade: ref-12345678
+                    backup: ref-12345680
+                    upgrade_path:
+                    - ref-12345678
+                    - ref-12345679
                   managedResourceType: PortsBasedProxy
                   manualOverride:
                     setAt: 2020-01-01T00:00:00Z
@@ -7633,8 +7643,10 @@ paths:
                     message: missing exporter secret configuration for gcp
                     scope: INTERNAL
                   maintenanceTasks:
-                    backup: ref-87654321
-                    upgrade: ref-12345678
+                    backup: ref-12345680
+                    upgrade_path:
+                    - ref-12345678
+                    - ref-12345679
                   managedResourceType: PortsBasedProxy
                   manualOverride:
                     setAt: 2020-01-01T00:00:00Z
@@ -7819,8 +7831,10 @@ paths:
                     message: missing exporter secret configuration for gcp
                     scope: INTERNAL
                   maintenanceTasks:
-                    backup: ref-87654321
-                    upgrade: ref-12345678
+                    backup: ref-12345680
+                    upgrade_path:
+                    - ref-12345678
+                    - ref-12345679
                   managedResourceType: PortsBasedProxy
                   manualOverride:
                     setAt: 2020-01-01T00:00:00Z
@@ -8005,8 +8019,10 @@ paths:
                     message: missing exporter secret configuration for gcp
                     scope: INTERNAL
                   maintenanceTasks:
-                    backup: ref-87654321
-                    upgrade: ref-12345678
+                    backup: ref-12345680
+                    upgrade_path:
+                    - ref-12345678
+                    - ref-12345679
                   managedResourceType: PortsBasedProxy
                   manualOverride:
                     setAt: 2020-01-01T00:00:00Z
@@ -14523,7 +14539,7 @@ components:
         serviceModelKey: hosted
         serviceProviderId: omnistrate
         sourceResourceKey: mysql
-        token: ui2
+        token: pqz
       properties:
         cloud_provider:
           description: The cloud provider name
@@ -14560,7 +14576,7 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Et id.
+          example: Omnis error aut et.
           type: string
         sourceResourceKey:
           description: The serverless resource key
@@ -14568,7 +14584,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: 8p
+          example: ow
           minLength: 1
           type: string
       required:
@@ -15720,7 +15736,7 @@ components:
         serviceKey: service-orchestration
         serviceModelKey: hosted
         serviceProviderId: omnistrate
-        token: j3
+        token: tq
       properties:
         id:
           description: The instance ID
@@ -15748,11 +15764,11 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Sit expedita quia reiciendis neque quidem.
+          example: Ad aliquid aut.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: de
+          example: d
           minLength: 1
           type: string
       required:
@@ -17271,7 +17287,7 @@ components:
         environmentId: se-12345678
         instanceId: instance-12345678
         serviceId: s-12345678
-        token: cdj
+        token: p
       properties:
         environmentId:
           description: ID of a Service Environment
@@ -17287,7 +17303,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: q
+          example: e
           minLength: 1
           type: string
       required:
@@ -20491,7 +20507,7 @@ components:
         serviceModelKey: hosted
         serviceProviderId: omnistrate
         subscriptionId: sub-12345678
-        token: p
+        token: ab
       properties:
         cloud_provider:
           description: The cloud provider name
@@ -20544,15 +20560,15 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Amet harum quod.
+          example: Repellat voluptates molestiae.
           type: string
         subscriptionId:
           description: ID of a Subscription
-          example: Quia aspernatur omnis.
+          example: Quasi vel amet harum.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: l3
+          example: "n"
           minLength: 1
           type: string
       required:
@@ -21699,7 +21715,7 @@ components:
         environmentId: se-12345678
         instanceId: instance-12345678
         serviceId: s-12345678
-        token: usn
+        token: cdj
       properties:
         environmentId:
           description: ID of a Service Environment
@@ -21715,7 +21731,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: j
+          example: q
           minLength: 1
           type: string
       required:
@@ -22915,8 +22931,10 @@ components:
             message: missing exporter secret configuration for gcp
             scope: INTERNAL
           maintenanceTasks:
-            backup: ref-87654321
-            upgrade: ref-12345678
+            backup: ref-12345680
+            upgrade_path:
+            - ref-12345678
+            - ref-12345679
           managedResourceType: PortsBasedProxy
           manualOverride:
             setAt: 2020-01-01T00:00:00Z
@@ -23247,8 +23265,10 @@ components:
             message: missing exporter secret configuration for gcp
             scope: INTERNAL
           maintenanceTasks:
-            backup: ref-87654321
-            upgrade: ref-12345678
+            backup: ref-12345680
+            upgrade_path:
+            - ref-12345678
+            - ref-12345679
           managedResourceType: PortsBasedProxy
           manualOverride:
             setAt: 2020-01-01T00:00:00Z
@@ -23592,8 +23612,10 @@ components:
               message: missing exporter secret configuration for gcp
               scope: INTERNAL
             maintenanceTasks:
-              backup: ref-87654321
-              upgrade: ref-12345678
+              backup: ref-12345680
+              upgrade_path:
+              - ref-12345678
+              - ref-12345679
             managedResourceType: PortsBasedProxy
             manualOverride:
               setAt: 2020-01-01T00:00:00Z
@@ -23924,8 +23946,10 @@ components:
               message: missing exporter secret configuration for gcp
               scope: INTERNAL
             maintenanceTasks:
-              backup: ref-87654321
-              upgrade: ref-12345678
+              backup: ref-12345680
+              upgrade_path:
+              - ref-12345678
+              - ref-12345679
             managedResourceType: PortsBasedProxy
             manualOverride:
               setAt: 2020-01-01T00:00:00Z
@@ -24256,8 +24280,10 @@ components:
               message: missing exporter secret configuration for gcp
               scope: INTERNAL
             maintenanceTasks:
-              backup: ref-87654321
-              upgrade: ref-12345678
+              backup: ref-12345680
+              upgrade_path:
+              - ref-12345678
+              - ref-12345679
             managedResourceType: PortsBasedProxy
             manualOverride:
               setAt: 2020-01-01T00:00:00Z
@@ -28281,24 +28307,24 @@ components:
     ListFleetResourceInstancesRequest:
       example:
         ProductTierId: Et et dolorem harum.
-        ProductTierVersion: Corrupti vitae ullam eos.
+        ProductTierVersion: Molestias ab culpa at corrupti vitae ullam.
         SubscriptionId: Laboriosam dolorem dignissimos quasi ex totam expedita.
         environmentId: se-12345678
         serviceId: s-12345678
-        token: e
+        token: aaq
       properties:
         ProductTierId:
           description: ID of a Product Tier
-          example: Rerum molestiae pariatur deserunt praesentium.
+          example: Perspiciatis architecto et voluptate molestias.
           type: string
         ProductTierVersion:
           description: "The product tier version of the infra config to describe.\
             \ If not specified, the latest version is described."
-          example: Et voluptate.
+          example: Rerum in inventore veniam.
           type: string
         SubscriptionId:
           description: ID of a Subscription
-          example: Repellat sint molestias.
+          example: Molestiae pariatur.
           type: string
         environmentId:
           description: ID of a Service Environment
@@ -28310,7 +28336,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: zh
+          example: j
           minLength: 1
           type: string
       required:
@@ -28436,8 +28462,10 @@ components:
             message: missing exporter secret configuration for gcp
             scope: INTERNAL
           maintenanceTasks:
-            backup: ref-87654321
-            upgrade: ref-12345678
+            backup: ref-12345680
+            upgrade_path:
+            - ref-12345678
+            - ref-12345679
           managedResourceType: PortsBasedProxy
           manualOverride:
             setAt: 2020-01-01T00:00:00Z
@@ -28768,8 +28796,10 @@ components:
             message: missing exporter secret configuration for gcp
             scope: INTERNAL
           maintenanceTasks:
-            backup: ref-87654321
-            upgrade: ref-12345678
+            backup: ref-12345680
+            upgrade_path:
+            - ref-12345678
+            - ref-12345679
           managedResourceType: PortsBasedProxy
           manualOverride:
             setAt: 2020-01-01T00:00:00Z
@@ -29100,340 +29130,10 @@ components:
             message: missing exporter secret configuration for gcp
             scope: INTERNAL
           maintenanceTasks:
-            backup: ref-87654321
-            upgrade: ref-12345678
-          managedResourceType: PortsBasedProxy
-          manualOverride:
-            setAt: 2020-01-01T00:00:00Z
-            setterUserId: user-12345678
-            workflowId: wf-12345678
-          organizationId: org-12345678
-          organizationName: my-org
-          portsRegistrationStatus:
-            instance-123:
-            - 30000
-            - 30001
-            instance-456:
-            - 30002
-            - 30003
-          productTierId: pt-12345678
-          productTierName: premium
-          productTierType: OMNISTRATE_DEDICATED
-          proxyType: PortsBasedProxy
-          resourceVersionSummaries:
-          - capabilities:
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            externalResource: true
-            latestVersion: "2.0"
-            resourceId: r-12345678
-            resourceName: asserts-server
-            version: "1.0"
-          - capabilities:
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            externalResource: true
-            latestVersion: "2.0"
-            resourceId: r-12345678
-            resourceName: asserts-server
-            version: "1.0"
-          - capabilities:
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            externalResource: true
-            latestVersion: "2.0"
-            resourceId: r-12345678
-            resourceName: asserts-server
-            version: "1.0"
-          - capabilities:
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            - capability: SERVERLESS
-              configuration:
-                EnableAutoStop: true
-                MinimumNodesInPool: 5
-                PortsMappingProxyConfig:
-                  MaxNumberOfClustersPerProxyInstance: 50
-                  NumberOfPortsPerCluster: 4
-                ProxyId: r-123456
-                ReferenceProxyKey: resource-proxy
-                TargetPort: 5432
-            externalResource: true
-            latestVersion: "2.0"
-            resourceId: r-12345678
-            resourceName: asserts-server
-            version: "1.0"
-          serviceEnvName: dev
-          serviceId: s-12345678
-          serviceLogoURL: Explicabo blanditiis labore.
-          serviceModelId: sm-12345678
-          serviceModelName: hosted
-          serviceModelType: OMNISTRATE_HOSTED
-          serviceName: mysql
-          subscriptionId: sub-12345678
-          subscriptionOwnerName: John Doe
-          tierVersion: "1.0"
-          tierVersionReleasedAt: 2020-01-01T00:00:00Z
-          tierVersionReleasedByUserId: user-12345678
-          tierVersionReleasedByUserName: John Doe
-          tierVersionStatus: Preferred|Active|Deprecated|Pending
-        - awsAccountID: "123456789012"
-          cloudProvider: aws
-          consumptionResourceInstanceResult:
-            active: true
-            autoscalingEnabled: true
-            awsAccountID: "123456789012"
-            backupStatus:
-              backupPeriodInHours: 2
-              backupRetentionInDays: 7
-              earliestRestoreTime: 2021-09-01T00:00:00Z
-              lastBackupTime: 2021-09-01T00:00:00Z
-            cloud_provider: aws
-            created_at: 2023-01-10T00:00:00Z
-            createdByUserId: user-12345678
-            createdByUserName: John Doe
-            currentReplicas: "2"
-            customNetworkDetail:
-              cidr: 10.177.0.0/16
-              id: n-12345678
-              name: Prod us-east-1
-            detailedNetworkTopology:
-              r-abcd1234:
-                allowedIPRanges:
-                - 0.0.0.0/0
-                clusterEndpoint: primary.instance-abcd1234.us-east-2.aws.omnistrate.cloud
-                clusterPorts:
-                - 3306
-                main: true
-                networkingType: PUBLIC
-                nodes:
-                - availabilityZone: us-east-2a
-                  endpoint: primary-0.instance-abcd1234.us-east-2.aws.omnistrate.cloud
-                  healthStatus: healthy
-                  id: primary-0
-                  ports:
-                  - 3306
-                  status: RUNNING
-                privateNetworkCIDR: 10.0.0.2/24
-                privateNetworkID: n-1234abcd
-                publiclyAccessible: true
-                resourceKey: primary
-                resourceName: Primary MySQL Instance
-            externalPayerId: external-payer-id-1234
-            gcpProjectID: my-project
-            highAvailability: true
-            id: instance-abcd1234
-            instanceLoadStatus: LOAD_NORMAL|LOAD_IDLE|LOAD_OVERLOADED|STOPPED|UNKNOWN|N/A
-            kubernetesDashboardEndpoint:
-              dashboardEndpoint: https://kubernetes-dashboard.hc-12345678.region.cloudprovider.f2e0a955bb84.cloud/#/pod?namespace=instance-abcdefgh
-              deploymentCellID: hc-12345678
-            last_modified_at: 2023-01-20T00:00:00Z
-            maxReplicas: "1"
-            minReplicas: "1"
-            network_type: PUBLIC
-            productTierFeatures:
-              BILLING:
-                enabled: false
-              LOGS:
-                auth:
-                  password: px3c4d5f6g7h8i
-                  username: abcd1234
-                enabled: true
-                websocketBaseUrl: wss://r-injectedobserve.instance-abcdefgh.us-east-2.aws.omnistrate.cloud/logs
-              METRICS:
-                enabled: false
-            region: us-east-1
-            resourceID: r-abcd1234
-            result_params:
-              param1: value1
-              param2: value2
-            serverlessEnabled: true
-            status: RUNNING
-            subscriptionId: sub-abcd1234
-          defaultSubscription: true
-          deploymentCellID: hc-12345678
-          environmentId: se-12345678
-          gcpProjectID: my-project
-          input_params:
-            param1: value1
-            param2: value2
-          instanceDebugCommands:
-          - aws eks update-kubeconfig --name my-cluster --region us-west-2
-          - kubectl -n instance-12345678 get pods
-          integrationsStatus:
-          - Url: https://one.newrelic.com/data-exploration/data-explorer/explorer
-            configuration:
-              provider: native
-            healthStatus: UNHEALTHY
-            integrationType: LOGS
-            message: missing exporter secret configuration for gcp
-            scope: INTERNAL
-          - Url: https://one.newrelic.com/data-exploration/data-explorer/explorer
-            configuration:
-              provider: native
-            healthStatus: UNHEALTHY
-            integrationType: LOGS
-            message: missing exporter secret configuration for gcp
-            scope: INTERNAL
-          - Url: https://one.newrelic.com/data-exploration/data-explorer/explorer
-            configuration:
-              provider: native
-            healthStatus: UNHEALTHY
-            integrationType: LOGS
-            message: missing exporter secret configuration for gcp
-            scope: INTERNAL
-          - Url: https://one.newrelic.com/data-exploration/data-explorer/explorer
-            configuration:
-              provider: native
-            healthStatus: UNHEALTHY
-            integrationType: LOGS
-            message: missing exporter secret configuration for gcp
-            scope: INTERNAL
-          maintenanceTasks:
-            backup: ref-87654321
-            upgrade: ref-12345678
+            backup: ref-12345680
+            upgrade_path:
+            - ref-12345678
+            - ref-12345679
           managedResourceType: PortsBasedProxy
           manualOverride:
             setAt: 2020-01-01T00:00:00Z
@@ -29777,8 +29477,10 @@ components:
               message: missing exporter secret configuration for gcp
               scope: INTERNAL
             maintenanceTasks:
-              backup: ref-87654321
-              upgrade: ref-12345678
+              backup: ref-12345680
+              upgrade_path:
+              - ref-12345678
+              - ref-12345679
             managedResourceType: PortsBasedProxy
             manualOverride:
               setAt: 2020-01-01T00:00:00Z
@@ -30109,340 +29811,10 @@ components:
               message: missing exporter secret configuration for gcp
               scope: INTERNAL
             maintenanceTasks:
-              backup: ref-87654321
-              upgrade: ref-12345678
-            managedResourceType: PortsBasedProxy
-            manualOverride:
-              setAt: 2020-01-01T00:00:00Z
-              setterUserId: user-12345678
-              workflowId: wf-12345678
-            organizationId: org-12345678
-            organizationName: my-org
-            portsRegistrationStatus:
-              instance-123:
-              - 30000
-              - 30001
-              instance-456:
-              - 30002
-              - 30003
-            productTierId: pt-12345678
-            productTierName: premium
-            productTierType: OMNISTRATE_DEDICATED
-            proxyType: PortsBasedProxy
-            resourceVersionSummaries:
-            - capabilities:
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              externalResource: true
-              latestVersion: "2.0"
-              resourceId: r-12345678
-              resourceName: asserts-server
-              version: "1.0"
-            - capabilities:
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              externalResource: true
-              latestVersion: "2.0"
-              resourceId: r-12345678
-              resourceName: asserts-server
-              version: "1.0"
-            - capabilities:
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              externalResource: true
-              latestVersion: "2.0"
-              resourceId: r-12345678
-              resourceName: asserts-server
-              version: "1.0"
-            - capabilities:
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              - capability: SERVERLESS
-                configuration:
-                  EnableAutoStop: true
-                  MinimumNodesInPool: 5
-                  PortsMappingProxyConfig:
-                    MaxNumberOfClustersPerProxyInstance: 50
-                    NumberOfPortsPerCluster: 4
-                  ProxyId: r-123456
-                  ReferenceProxyKey: resource-proxy
-                  TargetPort: 5432
-              externalResource: true
-              latestVersion: "2.0"
-              resourceId: r-12345678
-              resourceName: asserts-server
-              version: "1.0"
-            serviceEnvName: dev
-            serviceId: s-12345678
-            serviceLogoURL: Explicabo blanditiis labore.
-            serviceModelId: sm-12345678
-            serviceModelName: hosted
-            serviceModelType: OMNISTRATE_HOSTED
-            serviceName: mysql
-            subscriptionId: sub-12345678
-            subscriptionOwnerName: John Doe
-            tierVersion: "1.0"
-            tierVersionReleasedAt: 2020-01-01T00:00:00Z
-            tierVersionReleasedByUserId: user-12345678
-            tierVersionReleasedByUserName: John Doe
-            tierVersionStatus: Preferred|Active|Deprecated|Pending
-          - awsAccountID: "123456789012"
-            cloudProvider: aws
-            consumptionResourceInstanceResult:
-              active: true
-              autoscalingEnabled: true
-              awsAccountID: "123456789012"
-              backupStatus:
-                backupPeriodInHours: 2
-                backupRetentionInDays: 7
-                earliestRestoreTime: 2021-09-01T00:00:00Z
-                lastBackupTime: 2021-09-01T00:00:00Z
-              cloud_provider: aws
-              created_at: 2023-01-10T00:00:00Z
-              createdByUserId: user-12345678
-              createdByUserName: John Doe
-              currentReplicas: "2"
-              customNetworkDetail:
-                cidr: 10.177.0.0/16
-                id: n-12345678
-                name: Prod us-east-1
-              detailedNetworkTopology:
-                r-abcd1234:
-                  allowedIPRanges:
-                  - 0.0.0.0/0
-                  clusterEndpoint: primary.instance-abcd1234.us-east-2.aws.omnistrate.cloud
-                  clusterPorts:
-                  - 3306
-                  main: true
-                  networkingType: PUBLIC
-                  nodes:
-                  - availabilityZone: us-east-2a
-                    endpoint: primary-0.instance-abcd1234.us-east-2.aws.omnistrate.cloud
-                    healthStatus: healthy
-                    id: primary-0
-                    ports:
-                    - 3306
-                    status: RUNNING
-                  privateNetworkCIDR: 10.0.0.2/24
-                  privateNetworkID: n-1234abcd
-                  publiclyAccessible: true
-                  resourceKey: primary
-                  resourceName: Primary MySQL Instance
-              externalPayerId: external-payer-id-1234
-              gcpProjectID: my-project
-              highAvailability: true
-              id: instance-abcd1234
-              instanceLoadStatus: LOAD_NORMAL|LOAD_IDLE|LOAD_OVERLOADED|STOPPED|UNKNOWN|N/A
-              kubernetesDashboardEndpoint:
-                dashboardEndpoint: https://kubernetes-dashboard.hc-12345678.region.cloudprovider.f2e0a955bb84.cloud/#/pod?namespace=instance-abcdefgh
-                deploymentCellID: hc-12345678
-              last_modified_at: 2023-01-20T00:00:00Z
-              maxReplicas: "1"
-              minReplicas: "1"
-              network_type: PUBLIC
-              productTierFeatures:
-                BILLING:
-                  enabled: false
-                LOGS:
-                  auth:
-                    password: px3c4d5f6g7h8i
-                    username: abcd1234
-                  enabled: true
-                  websocketBaseUrl: wss://r-injectedobserve.instance-abcdefgh.us-east-2.aws.omnistrate.cloud/logs
-                METRICS:
-                  enabled: false
-              region: us-east-1
-              resourceID: r-abcd1234
-              result_params:
-                param1: value1
-                param2: value2
-              serverlessEnabled: true
-              status: RUNNING
-              subscriptionId: sub-abcd1234
-            defaultSubscription: true
-            deploymentCellID: hc-12345678
-            environmentId: se-12345678
-            gcpProjectID: my-project
-            input_params:
-              param1: value1
-              param2: value2
-            instanceDebugCommands:
-            - aws eks update-kubeconfig --name my-cluster --region us-west-2
-            - kubectl -n instance-12345678 get pods
-            integrationsStatus:
-            - Url: https://one.newrelic.com/data-exploration/data-explorer/explorer
-              configuration:
-                provider: native
-              healthStatus: UNHEALTHY
-              integrationType: LOGS
-              message: missing exporter secret configuration for gcp
-              scope: INTERNAL
-            - Url: https://one.newrelic.com/data-exploration/data-explorer/explorer
-              configuration:
-                provider: native
-              healthStatus: UNHEALTHY
-              integrationType: LOGS
-              message: missing exporter secret configuration for gcp
-              scope: INTERNAL
-            - Url: https://one.newrelic.com/data-exploration/data-explorer/explorer
-              configuration:
-                provider: native
-              healthStatus: UNHEALTHY
-              integrationType: LOGS
-              message: missing exporter secret configuration for gcp
-              scope: INTERNAL
-            - Url: https://one.newrelic.com/data-exploration/data-explorer/explorer
-              configuration:
-                provider: native
-              healthStatus: UNHEALTHY
-              integrationType: LOGS
-              message: missing exporter secret configuration for gcp
-              scope: INTERNAL
-            maintenanceTasks:
-              backup: ref-87654321
-              upgrade: ref-12345678
+              backup: ref-12345680
+              upgrade_path:
+              - ref-12345678
+              - ref-12345679
             managedResourceType: PortsBasedProxy
             manualOverride:
               setAt: 2020-01-01T00:00:00Z
@@ -35149,7 +34521,7 @@ components:
           type: string
         resourceId:
           description: ID of a resource
-          example: Ratione placeat perspiciatis molestias tempora.
+          example: Atque ratione placeat perspiciatis molestias tempora.
           type: string
         serviceId:
           description: ID of a Service
@@ -35161,7 +34533,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: teq
+          example: wte
           minLength: 1
           type: string
       required:
@@ -36316,16 +35688,11 @@ components:
           integrationType: LOGS
           message: missing exporter secret configuration for gcp
           scope: INTERNAL
-        - Url: https://one.newrelic.com/data-exploration/data-explorer/explorer
-          configuration:
-            provider: native
-          healthStatus: UNHEALTHY
-          integrationType: LOGS
-          message: missing exporter secret configuration for gcp
-          scope: INTERNAL
         maintenanceTasks:
-          backup: ref-87654321
-          upgrade: ref-12345678
+          backup: ref-12345680
+          upgrade_path:
+          - ref-12345678
+          - ref-12345679
         managedResourceType: PortsBasedProxy
         manualOverride:
           setAt: 2020-01-01T00:00:00Z
@@ -36483,55 +35850,9 @@ components:
           resourceId: r-12345678
           resourceName: asserts-server
           version: "1.0"
-        - capabilities:
-          - capability: SERVERLESS
-            configuration:
-              EnableAutoStop: true
-              MinimumNodesInPool: 5
-              PortsMappingProxyConfig:
-                MaxNumberOfClustersPerProxyInstance: 50
-                NumberOfPortsPerCluster: 4
-              ProxyId: r-123456
-              ReferenceProxyKey: resource-proxy
-              TargetPort: 5432
-          - capability: SERVERLESS
-            configuration:
-              EnableAutoStop: true
-              MinimumNodesInPool: 5
-              PortsMappingProxyConfig:
-                MaxNumberOfClustersPerProxyInstance: 50
-                NumberOfPortsPerCluster: 4
-              ProxyId: r-123456
-              ReferenceProxyKey: resource-proxy
-              TargetPort: 5432
-          - capability: SERVERLESS
-            configuration:
-              EnableAutoStop: true
-              MinimumNodesInPool: 5
-              PortsMappingProxyConfig:
-                MaxNumberOfClustersPerProxyInstance: 50
-                NumberOfPortsPerCluster: 4
-              ProxyId: r-123456
-              ReferenceProxyKey: resource-proxy
-              TargetPort: 5432
-          - capability: SERVERLESS
-            configuration:
-              EnableAutoStop: true
-              MinimumNodesInPool: 5
-              PortsMappingProxyConfig:
-                MaxNumberOfClustersPerProxyInstance: 50
-                NumberOfPortsPerCluster: 4
-              ProxyId: r-123456
-              ReferenceProxyKey: resource-proxy
-              TargetPort: 5432
-          externalResource: true
-          latestVersion: "2.0"
-          resourceId: r-12345678
-          resourceName: asserts-server
-          version: "1.0"
         serviceEnvName: dev
         serviceId: s-12345678
-        serviceLogoURL: Voluptatem in.
+        serviceLogoURL: Consequatur nisi quasi voluptas porro necessitatibus dolore.
         serviceModelId: sm-12345678
         serviceModelName: hosted
         serviceModelType: OMNISTRATE_HOSTED
@@ -36606,14 +35927,14 @@ components:
             $ref: '#/components/schemas/IntegrationStatus'
           type: array
         maintenanceTasks:
-          additionalProperties:
-            example: Totam consequatur nisi quasi voluptas porro necessitatibus.
-            type: string
+          additionalProperties: true
           description: "Pending actions or maintenance tasks for the resource instance,\
             \ with action type as key and reference key as value."
           example:
-            backup: ref-87654321
-            upgrade: ref-12345678
+            backup: ref-12345680
+            upgrade_path:
+            - ref-12345678
+            - ref-12345679
           type: object
         managedResourceType:
           description: The managed resource type of instance
