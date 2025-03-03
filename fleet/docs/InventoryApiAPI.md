@@ -55,6 +55,7 @@ Method | HTTP request | Description
 [**InventoryApiListSubscriptionRequests**](InventoryApiAPI.md#InventoryApiListSubscriptionRequests) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request | ListSubscriptionRequests inventory-api
 [**InventoryApiListUpgradePaths**](InventoryApiAPI.md#InventoryApiListUpgradePaths) | **Get** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-paths | ListUpgradePaths inventory-api
 [**InventoryApiListUsers**](InventoryApiAPI.md#InventoryApiListUsers) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/users | ListUsers inventory-api
+[**InventoryApiManageUpgradePath**](InventoryApiAPI.md#InventoryApiManageUpgradePath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/manage-lifecycle | ManageUpgradePath inventory-api
 [**InventoryApiModifyServicesOrchestration**](InventoryApiAPI.md#InventoryApiModifyServicesOrchestration) | **Patch** /2022-09-01-00/fleet/services-orchestration/{id} | ModifyServicesOrchestration inventory-api
 [**InventoryApiRemoveCapacityFromResourceInstance**](InventoryApiAPI.md#InventoryApiRemoveCapacityFromResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/remove-capacity | RemoveCapacityFromResourceInstance inventory-api
 [**InventoryApiRemoveCustomDNSFromResourceInstance**](InventoryApiAPI.md#InventoryApiRemoveCustomDNSFromResourceInstance) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/{resourceKey}/instance/{instanceId}/custom-dns | RemoveCustomDNSFromResourceInstance inventory-api
@@ -704,7 +705,7 @@ import (
 )
 
 func main() {
-	fleetCreateServicesOrchestrationRequest2 := *openapiclient.NewFleetCreateServicesOrchestrationRequest2("Nobis cupiditate dicta.") // FleetCreateServicesOrchestrationRequest2 | 
+	fleetCreateServicesOrchestrationRequest2 := *openapiclient.NewFleetCreateServicesOrchestrationRequest2("Optio nihil inventore.") // FleetCreateServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -770,7 +771,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
-	createUpgradePathRequest2 := *openapiclient.NewCreateUpgradePathRequest2("1.0", "2.0", map[string][]string{"key": []string{"Occaecati sit."}}) // CreateUpgradePathRequest2 | 
+	createUpgradePathRequest2 := *openapiclient.NewCreateUpgradePathRequest2("1.0", "2.0", map[string][]string{"key": []string{"Laboriosam minus culpa harum nihil dolores aliquid."}}) // CreateUpgradePathRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3266,9 +3267,9 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	productTierVersion := "Ab nemo maiores voluptates." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
-	productTierId := "Et et dolorem harum." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
-	subscriptionId := "Laboriosam dolorem dignissimos quasi ex totam expedita." // string | Subscription id of the instance to describe. (optional)
+	productTierVersion := "Laboriosam temporibus et sed consectetur." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierId := "Tempora qui." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
+	subscriptionId := "Magnam voluptatibus quod aliquid sapiente fugiat." // string | Subscription id of the instance to describe. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3829,6 +3830,82 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## InventoryApiManageUpgradePath
+
+> UpgradePath InventoryApiManageUpgradePath(ctx, serviceId, productTierId, upgradePathId).ManageUpgradePathLifecycleRequest2(manageUpgradePathLifecycleRequest2).Execute()
+
+ManageUpgradePath inventory-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
+	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
+	upgradePathId := "up-12345678" // string | The upgrade path ID
+	manageUpgradePathLifecycleRequest2 := *openapiclient.NewManageUpgradePathLifecycleRequest2("Vel quo sapiente.") // ManageUpgradePathLifecycleRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiManageUpgradePath(context.Background(), serviceId, productTierId, upgradePathId).ManageUpgradePathLifecycleRequest2(manageUpgradePathLifecycleRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiManageUpgradePath``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InventoryApiManageUpgradePath`: UpgradePath
+	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiManageUpgradePath`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | The service ID this workflow belongs to. | 
+**productTierId** | **string** | The product tier ID that this upgrade path belongs to | 
+**upgradePathId** | **string** | The upgrade path ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInventoryApiManageUpgradePathRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **manageUpgradePathLifecycleRequest2** | [**ManageUpgradePathLifecycleRequest2**](ManageUpgradePathLifecycleRequest2.md) |  | 
+
+### Return type
+
+[**UpgradePath**](UpgradePath.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## InventoryApiModifyServicesOrchestration
 
 > InventoryApiModifyServicesOrchestration(ctx, id).FleetModifyServicesOrchestrationRequest2(fleetModifyServicesOrchestrationRequest2).Execute()
@@ -3849,7 +3926,7 @@ import (
 
 func main() {
 	id := "so-12345678" // string | The ID of the services orchestration
-	fleetModifyServicesOrchestrationRequest2 := *openapiclient.NewFleetModifyServicesOrchestrationRequest2("Voluptatem dolorem.") // FleetModifyServicesOrchestrationRequest2 | 
+	fleetModifyServicesOrchestrationRequest2 := *openapiclient.NewFleetModifyServicesOrchestrationRequest2("Enim et.") // FleetModifyServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

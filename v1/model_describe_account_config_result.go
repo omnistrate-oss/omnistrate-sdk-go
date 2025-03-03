@@ -28,6 +28,12 @@ type DescribeAccountConfigResult struct {
 	AwsCloudFormationNoLBTemplateURL *string `json:"awsCloudFormationNoLBTemplateURL,omitempty"`
 	// The URL to the CloudFormation template
 	AwsCloudFormationTemplateURL *string `json:"awsCloudFormationTemplateURL,omitempty"`
+	// The Azure bootstrap shell command
+	AzureBootstrapShellCommand *string `json:"azureBootstrapShellCommand,omitempty"`
+	// The Azure subscription ID
+	AzureSubscriptionID *string `json:"azureSubscriptionID,omitempty"`
+	// The Azure tenant ID
+	AzureTenantID *string `json:"azureTenantID,omitempty"`
 	// The BYOA instance IDs that this account config is tied to
 	ByoaInstanceIDs []string `json:"byoaInstanceIDs,omitempty"`
 	// ID of an CloudProvider
@@ -168,6 +174,75 @@ func (o *DescribeAccountConfigResult) GetAwsCloudFormationTemplateURLOk() (*stri
 // SetAwsCloudFormationTemplateURL gets a reference to the given string and assigns it to the AwsCloudFormationTemplateURL field.
 func (o *DescribeAccountConfigResult) SetAwsCloudFormationTemplateURL(v string) {
 	o.AwsCloudFormationTemplateURL = &v
+}
+
+// GetAzureBootstrapShellCommand returns the AzureBootstrapShellCommand field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetAzureBootstrapShellCommand() string {
+	if o == nil || IsNil(o.AzureBootstrapShellCommand) {
+		var ret string
+		return ret
+	}
+	return *o.AzureBootstrapShellCommand
+}
+
+// GetAzureBootstrapShellCommandOk returns a tuple with the AzureBootstrapShellCommand field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetAzureBootstrapShellCommandOk() (*string, bool) {
+	if o == nil || IsNil(o.AzureBootstrapShellCommand) {
+		return nil, false
+	}
+	return o.AzureBootstrapShellCommand, true
+}
+
+// SetAzureBootstrapShellCommand gets a reference to the given string and assigns it to the AzureBootstrapShellCommand field.
+func (o *DescribeAccountConfigResult) SetAzureBootstrapShellCommand(v string) {
+	o.AzureBootstrapShellCommand = &v
+}
+
+// GetAzureSubscriptionID returns the AzureSubscriptionID field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetAzureSubscriptionID() string {
+	if o == nil || IsNil(o.AzureSubscriptionID) {
+		var ret string
+		return ret
+	}
+	return *o.AzureSubscriptionID
+}
+
+// GetAzureSubscriptionIDOk returns a tuple with the AzureSubscriptionID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetAzureSubscriptionIDOk() (*string, bool) {
+	if o == nil || IsNil(o.AzureSubscriptionID) {
+		return nil, false
+	}
+	return o.AzureSubscriptionID, true
+}
+
+// SetAzureSubscriptionID gets a reference to the given string and assigns it to the AzureSubscriptionID field.
+func (o *DescribeAccountConfigResult) SetAzureSubscriptionID(v string) {
+	o.AzureSubscriptionID = &v
+}
+
+// GetAzureTenantID returns the AzureTenantID field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetAzureTenantID() string {
+	if o == nil || IsNil(o.AzureTenantID) {
+		var ret string
+		return ret
+	}
+	return *o.AzureTenantID
+}
+
+// GetAzureTenantIDOk returns a tuple with the AzureTenantID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetAzureTenantIDOk() (*string, bool) {
+	if o == nil || IsNil(o.AzureTenantID) {
+		return nil, false
+	}
+	return o.AzureTenantID, true
+}
+
+// SetAzureTenantID gets a reference to the given string and assigns it to the AzureTenantID field.
+func (o *DescribeAccountConfigResult) SetAzureTenantID(v string) {
+	o.AzureTenantID = &v
 }
 
 // GetByoaInstanceIDs returns the ByoaInstanceIDs field value if set, zero value otherwise.
@@ -451,6 +526,15 @@ func (o DescribeAccountConfigResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AwsCloudFormationTemplateURL) {
 		toSerialize["awsCloudFormationTemplateURL"] = o.AwsCloudFormationTemplateURL
 	}
+	if !IsNil(o.AzureBootstrapShellCommand) {
+		toSerialize["azureBootstrapShellCommand"] = o.AzureBootstrapShellCommand
+	}
+	if !IsNil(o.AzureSubscriptionID) {
+		toSerialize["azureSubscriptionID"] = o.AzureSubscriptionID
+	}
+	if !IsNil(o.AzureTenantID) {
+		toSerialize["azureTenantID"] = o.AzureTenantID
+	}
 	if !IsNil(o.ByoaInstanceIDs) {
 		toSerialize["byoaInstanceIDs"] = o.ByoaInstanceIDs
 	}
@@ -524,6 +608,9 @@ func (o *DescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "awsBootstrapRoleARN")
 		delete(additionalProperties, "awsCloudFormationNoLBTemplateURL")
 		delete(additionalProperties, "awsCloudFormationTemplateURL")
+		delete(additionalProperties, "azureBootstrapShellCommand")
+		delete(additionalProperties, "azureSubscriptionID")
+		delete(additionalProperties, "azureTenantID")
 		delete(additionalProperties, "byoaInstanceIDs")
 		delete(additionalProperties, "cloudProviderId")
 		delete(additionalProperties, "description")

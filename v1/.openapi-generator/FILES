@@ -102,7 +102,7 @@ docs/CloudProviderHealthSummary.md
 docs/ClusterEndpoint.md
 docs/ComposeGenApiAPI.md
 docs/ComputeConfigApiAPI.md
-docs/ComputePerformanceProfile.md
+docs/ComputeInstanceTypeConfigOverride.md
 docs/ConsumptionServiceAuthRequest.md
 docs/ConsumptionServiceAuthResult.md
 docs/ConsumptionUserApiAPI.md
@@ -240,6 +240,8 @@ docs/DeregisterActionHookRequest.md
 docs/DeregisterActionHookRequest2.md
 docs/DescribeAccountConfigByAWSAccountIDRequest.md
 docs/DescribeAccountConfigByAWSAccountIDResult.md
+docs/DescribeAccountConfigByAzureSubscriptionIDRequest.md
+docs/DescribeAccountConfigByAzureSubscriptionIDResult.md
 docs/DescribeAccountConfigByGCPProjectIDRequest.md
 docs/DescribeAccountConfigByGCPProjectIDResult.md
 docs/DescribeAccountConfigRequest.md
@@ -366,11 +368,12 @@ docs/GenerateTokenForDeploymentCellDashboardResult.md
 docs/GetAvailabilityZoneByCodeRequest.md
 docs/GetCloudProviderByNameRequest.md
 docs/GetCurrentUsageRequest.md
-docs/GetCurrentUsageResult.md
 docs/GetFileRequest.md
 docs/GetRegionByCodeRequest.md
 docs/GetServicePlanRequest.md
 docs/GetServicePlanResult.md
+docs/GetUsageRequest.md
+docs/GetUsageResult.md
 docs/GitConfiguration.md
 docs/GlobalApiAPI.md
 docs/HelmChartConfiguration.md
@@ -638,6 +641,7 @@ docs/StopResourceInstanceRequest.md
 docs/StorageConfigApiAPI.md
 docs/StorageVolumeConfigApiAPI.md
 docs/SubscriptionApiAPI.md
+docs/SubscriptionLicense.md
 docs/SubscriptionRequestApiAPI.md
 docs/SubscriptionUsers.md
 docs/TerraformConfiguration.md
@@ -763,7 +767,7 @@ model_check_if_container_image_accessible_request.go
 model_check_if_container_image_accessible_result.go
 model_cloud_provider_health_summary.go
 model_cluster_endpoint.go
-model_compute_performance_profile.go
+model_compute_instance_type_config_override.go
 model_consumption_service_auth_request.go
 model_consumption_service_auth_result.go
 model_contactus_request.go
@@ -895,6 +899,8 @@ model_deregister_action_hook_request.go
 model_deregister_action_hook_request2.go
 model_describe_account_config_by_aws_account_id_request.go
 model_describe_account_config_by_aws_account_id_result.go
+model_describe_account_config_by_azure_subscription_id_request.go
+model_describe_account_config_by_azure_subscription_id_result.go
 model_describe_account_config_by_gcp_project_id_request.go
 model_describe_account_config_by_gcp_project_id_result.go
 model_describe_account_config_request.go
@@ -1021,11 +1027,12 @@ model_generate_token_for_deployment_cell_dashboard_result.go
 model_get_availability_zone_by_code_request.go
 model_get_cloud_provider_by_name_request.go
 model_get_current_usage_request.go
-model_get_current_usage_result.go
 model_get_file_request.go
 model_get_region_by_code_request.go
 model_get_service_plan_request.go
 model_get_service_plan_result.go
+model_get_usage_request.go
+model_get_usage_result.go
 model_git_configuration.go
 model_helm_chart_configuration.go
 model_helm_package.go
@@ -1264,6 +1271,7 @@ model_signin_result.go
 model_signup_request.go
 model_start_resource_instance_request.go
 model_stop_resource_instance_request.go
+model_subscription_license.go
 model_subscription_users.go
 model_terraform_configuration.go
 model_terraform_output.go

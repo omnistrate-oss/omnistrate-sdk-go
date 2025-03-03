@@ -522,6 +522,21 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test InventoryApiAPIService InventoryApiEnableResourceInstanceManualOverride", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var environmentId string
+		var instanceId string
+
+		httpRes, err := apiClient.InventoryApiAPI.InventoryApiEnableResourceInstanceManualOverride(context.Background(), serviceId, environmentId, instanceId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test InventoryApiAPIService InventoryApiFailoverResourceInstance", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -784,6 +799,22 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 		var environmentId string
 
 		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiListUsers(context.Background(), serviceId, environmentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InventoryApiAPIService InventoryApiManageUpgradePath", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var productTierId string
+		var upgradePathId string
+
+		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiManageUpgradePath(context.Background(), serviceId, productTierId, upgradePathId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Address** | Pointer to [**Address**](Address.md) |  | [optional] 
 **Name** | Pointer to **string** | The name of the user | [optional] 
+**OrgCookiePolicy** | Pointer to **string** | The cookie policy for the org that this user owns in an HTML format | [optional] 
 **OrgDescription** | Pointer to **string** | The description of the org that this user owns | [optional] 
 **OrgFavIconURL** | Pointer to **string** | The favicon of the org that this user owns | [optional] 
 **OrgLogoURL** | Pointer to **string** | The logo of the org that this user owns | [optional] 
@@ -83,6 +84,31 @@ SetName sets Name field to given value.
 `func (o *UpdateUserRequest2) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetOrgCookiePolicy
+
+`func (o *UpdateUserRequest2) GetOrgCookiePolicy() string`
+
+GetOrgCookiePolicy returns the OrgCookiePolicy field if non-nil, zero value otherwise.
+
+### GetOrgCookiePolicyOk
+
+`func (o *UpdateUserRequest2) GetOrgCookiePolicyOk() (*string, bool)`
+
+GetOrgCookiePolicyOk returns a tuple with the OrgCookiePolicy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrgCookiePolicy
+
+`func (o *UpdateUserRequest2) SetOrgCookiePolicy(v string)`
+
+SetOrgCookiePolicy sets OrgCookiePolicy field to given value.
+
+### HasOrgCookiePolicy
+
+`func (o *UpdateUserRequest2) HasOrgCookiePolicy() bool`
+
+HasOrgCookiePolicy returns a boolean if a field has been set.
 
 ### GetOrgDescription
 

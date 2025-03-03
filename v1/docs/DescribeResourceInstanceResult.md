@@ -31,7 +31,9 @@ Name | Type | Description | Notes
 **ResultParams** | Pointer to **interface{}** | Custom result parameters | [optional] 
 **ServerlessEnabled** | Pointer to **bool** | Whether the instance has serverless enabled | [optional] 
 **Status** | Pointer to **string** | The status of an operation | [optional] 
-**SubscriptionId** | Pointer to **string** | The subscription ID | [optional] 
+**SubscriptionId** | Pointer to **string** | Subscription ID | [optional] 
+**SubscriptionLicense** | Pointer to [**SubscriptionLicense**](SubscriptionLicense.md) |  | [optional] 
+**SubscriptionStatus** | Pointer to **string** | Subscription Status | [optional] 
 
 ## Methods
 
@@ -761,6 +763,56 @@ SetSubscriptionId sets SubscriptionId field to given value.
 `func (o *DescribeResourceInstanceResult) HasSubscriptionId() bool`
 
 HasSubscriptionId returns a boolean if a field has been set.
+
+### GetSubscriptionLicense
+
+`func (o *DescribeResourceInstanceResult) GetSubscriptionLicense() SubscriptionLicense`
+
+GetSubscriptionLicense returns the SubscriptionLicense field if non-nil, zero value otherwise.
+
+### GetSubscriptionLicenseOk
+
+`func (o *DescribeResourceInstanceResult) GetSubscriptionLicenseOk() (*SubscriptionLicense, bool)`
+
+GetSubscriptionLicenseOk returns a tuple with the SubscriptionLicense field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscriptionLicense
+
+`func (o *DescribeResourceInstanceResult) SetSubscriptionLicense(v SubscriptionLicense)`
+
+SetSubscriptionLicense sets SubscriptionLicense field to given value.
+
+### HasSubscriptionLicense
+
+`func (o *DescribeResourceInstanceResult) HasSubscriptionLicense() bool`
+
+HasSubscriptionLicense returns a boolean if a field has been set.
+
+### GetSubscriptionStatus
+
+`func (o *DescribeResourceInstanceResult) GetSubscriptionStatus() string`
+
+GetSubscriptionStatus returns the SubscriptionStatus field if non-nil, zero value otherwise.
+
+### GetSubscriptionStatusOk
+
+`func (o *DescribeResourceInstanceResult) GetSubscriptionStatusOk() (*string, bool)`
+
+GetSubscriptionStatusOk returns a tuple with the SubscriptionStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscriptionStatus
+
+`func (o *DescribeResourceInstanceResult) SetSubscriptionStatus(v string)`
+
+SetSubscriptionStatus sets SubscriptionStatus field to given value.
+
+### HasSubscriptionStatus
+
+`func (o *DescribeResourceInstanceResult) HasSubscriptionStatus() bool`
+
+HasSubscriptionStatus returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

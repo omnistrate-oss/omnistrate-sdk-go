@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **AwsAccountID** | Pointer to **string** | The AWS account ID | [optional] 
 **AwsBootstrapRoleARN** | Pointer to **string** | The security role ARN or service account ARN that grants access to operate the infra | [optional] 
 **AwsSecretKey** | Pointer to **string** | The AWS secret key | [optional] 
+**AzureSubscriptionID** | Pointer to **string** | The Azure subscription ID | [optional] 
+**AzureTenantID** | Pointer to **string** | The Azure tenant ID | [optional] 
 **ByoaInstanceID** | Pointer to **string** | The BYOA instance ID that this account config is tied to | [optional] 
 **CloudProviderId** | **string** | Cloud Provider ID to operate on | 
 **Description** | **string** | The description for the account | 
@@ -135,6 +137,56 @@ SetAwsSecretKey sets AwsSecretKey field to given value.
 `func (o *CreateAccountConfigRequest2) HasAwsSecretKey() bool`
 
 HasAwsSecretKey returns a boolean if a field has been set.
+
+### GetAzureSubscriptionID
+
+`func (o *CreateAccountConfigRequest2) GetAzureSubscriptionID() string`
+
+GetAzureSubscriptionID returns the AzureSubscriptionID field if non-nil, zero value otherwise.
+
+### GetAzureSubscriptionIDOk
+
+`func (o *CreateAccountConfigRequest2) GetAzureSubscriptionIDOk() (*string, bool)`
+
+GetAzureSubscriptionIDOk returns a tuple with the AzureSubscriptionID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAzureSubscriptionID
+
+`func (o *CreateAccountConfigRequest2) SetAzureSubscriptionID(v string)`
+
+SetAzureSubscriptionID sets AzureSubscriptionID field to given value.
+
+### HasAzureSubscriptionID
+
+`func (o *CreateAccountConfigRequest2) HasAzureSubscriptionID() bool`
+
+HasAzureSubscriptionID returns a boolean if a field has been set.
+
+### GetAzureTenantID
+
+`func (o *CreateAccountConfigRequest2) GetAzureTenantID() string`
+
+GetAzureTenantID returns the AzureTenantID field if non-nil, zero value otherwise.
+
+### GetAzureTenantIDOk
+
+`func (o *CreateAccountConfigRequest2) GetAzureTenantIDOk() (*string, bool)`
+
+GetAzureTenantIDOk returns a tuple with the AzureTenantID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAzureTenantID
+
+`func (o *CreateAccountConfigRequest2) SetAzureTenantID(v string)`
+
+SetAzureTenantID sets AzureTenantID field to given value.
+
+### HasAzureTenantID
+
+`func (o *CreateAccountConfigRequest2) HasAzureTenantID() bool`
+
+HasAzureTenantID returns a boolean if a field has been set.
 
 ### GetByoaInstanceID
 

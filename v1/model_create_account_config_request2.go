@@ -28,6 +28,10 @@ type CreateAccountConfigRequest2 struct {
 	AwsBootstrapRoleARN *string `json:"awsBootstrapRoleARN,omitempty"`
 	// The AWS secret key
 	AwsSecretKey *string `json:"awsSecretKey,omitempty"`
+	// The Azure subscription ID
+	AzureSubscriptionID *string `json:"azureSubscriptionID,omitempty"`
+	// The Azure tenant ID
+	AzureTenantID *string `json:"azureTenantID,omitempty"`
 	// The BYOA instance ID that this account config is tied to
 	ByoaInstanceID *string `json:"byoaInstanceID,omitempty"`
 	// Cloud Provider ID to operate on
@@ -159,6 +163,52 @@ func (o *CreateAccountConfigRequest2) GetAwsSecretKeyOk() (*string, bool) {
 // SetAwsSecretKey gets a reference to the given string and assigns it to the AwsSecretKey field.
 func (o *CreateAccountConfigRequest2) SetAwsSecretKey(v string) {
 	o.AwsSecretKey = &v
+}
+
+// GetAzureSubscriptionID returns the AzureSubscriptionID field value if set, zero value otherwise.
+func (o *CreateAccountConfigRequest2) GetAzureSubscriptionID() string {
+	if o == nil || IsNil(o.AzureSubscriptionID) {
+		var ret string
+		return ret
+	}
+	return *o.AzureSubscriptionID
+}
+
+// GetAzureSubscriptionIDOk returns a tuple with the AzureSubscriptionID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateAccountConfigRequest2) GetAzureSubscriptionIDOk() (*string, bool) {
+	if o == nil || IsNil(o.AzureSubscriptionID) {
+		return nil, false
+	}
+	return o.AzureSubscriptionID, true
+}
+
+// SetAzureSubscriptionID gets a reference to the given string and assigns it to the AzureSubscriptionID field.
+func (o *CreateAccountConfigRequest2) SetAzureSubscriptionID(v string) {
+	o.AzureSubscriptionID = &v
+}
+
+// GetAzureTenantID returns the AzureTenantID field value if set, zero value otherwise.
+func (o *CreateAccountConfigRequest2) GetAzureTenantID() string {
+	if o == nil || IsNil(o.AzureTenantID) {
+		var ret string
+		return ret
+	}
+	return *o.AzureTenantID
+}
+
+// GetAzureTenantIDOk returns a tuple with the AzureTenantID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateAccountConfigRequest2) GetAzureTenantIDOk() (*string, bool) {
+	if o == nil || IsNil(o.AzureTenantID) {
+		return nil, false
+	}
+	return o.AzureTenantID, true
+}
+
+// SetAzureTenantID gets a reference to the given string and assigns it to the AzureTenantID field.
+func (o *CreateAccountConfigRequest2) SetAzureTenantID(v string) {
+	o.AzureTenantID = &v
 }
 
 // GetByoaInstanceID returns the ByoaInstanceID field value if set, zero value otherwise.
@@ -370,6 +420,12 @@ func (o CreateAccountConfigRequest2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AwsSecretKey) {
 		toSerialize["awsSecretKey"] = o.AwsSecretKey
 	}
+	if !IsNil(o.AzureSubscriptionID) {
+		toSerialize["azureSubscriptionID"] = o.AzureSubscriptionID
+	}
+	if !IsNil(o.AzureTenantID) {
+		toSerialize["azureTenantID"] = o.AzureTenantID
+	}
 	if !IsNil(o.ByoaInstanceID) {
 		toSerialize["byoaInstanceID"] = o.ByoaInstanceID
 	}
@@ -437,6 +493,8 @@ func (o *CreateAccountConfigRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "awsAccountID")
 		delete(additionalProperties, "awsBootstrapRoleARN")
 		delete(additionalProperties, "awsSecretKey")
+		delete(additionalProperties, "azureSubscriptionID")
+		delete(additionalProperties, "azureTenantID")
 		delete(additionalProperties, "byoaInstanceID")
 		delete(additionalProperties, "cloudProviderId")
 		delete(additionalProperties, "description")

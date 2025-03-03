@@ -24,6 +24,8 @@ type CopyProductTierRequest struct {
 	AutoApproveSubscription *bool `json:"autoApproveSubscription,omitempty"`
 	// The AWS regions that this product tier is available on
 	AwsRegions []string `json:"awsRegions,omitempty"`
+	// The Azure regions that this product tier is available on
+	AzureRegions []string `json:"azureRegions,omitempty"`
 	// A brief description of the product tier
 	Description string `json:"description"`
 	// Documentation
@@ -120,6 +122,29 @@ func (o *CopyProductTierRequest) GetAwsRegionsOk() ([]string, bool) {
 // SetAwsRegions gets a reference to the given []string and assigns it to the AwsRegions field.
 func (o *CopyProductTierRequest) SetAwsRegions(v []string) {
 	o.AwsRegions = v
+}
+
+// GetAzureRegions returns the AzureRegions field value if set, zero value otherwise.
+func (o *CopyProductTierRequest) GetAzureRegions() []string {
+	if o == nil || IsNil(o.AzureRegions) {
+		var ret []string
+		return ret
+	}
+	return o.AzureRegions
+}
+
+// GetAzureRegionsOk returns a tuple with the AzureRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CopyProductTierRequest) GetAzureRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.AzureRegions) {
+		return nil, false
+	}
+	return o.AzureRegions, true
+}
+
+// SetAzureRegions gets a reference to the given []string and assigns it to the AzureRegions field.
+func (o *CopyProductTierRequest) SetAzureRegions(v []string) {
+	o.AzureRegions = v
 }
 
 // GetDescription returns the Description field value
@@ -421,6 +446,9 @@ func (o CopyProductTierRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AwsRegions) {
 		toSerialize["awsRegions"] = o.AwsRegions
 	}
+	if !IsNil(o.AzureRegions) {
+		toSerialize["azureRegions"] = o.AzureRegions
+	}
 	toSerialize["description"] = o.Description
 	if !IsNil(o.Documentation) {
 		toSerialize["documentation"] = o.Documentation
@@ -495,6 +523,7 @@ func (o *CopyProductTierRequest) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "autoApproveSubscription")
 		delete(additionalProperties, "awsRegions")
+		delete(additionalProperties, "azureRegions")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "documentation")
 		delete(additionalProperties, "gcpRegions")

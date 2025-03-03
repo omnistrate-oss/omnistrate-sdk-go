@@ -22,6 +22,8 @@ type UpdateUserRequest2 struct {
 	Address *Address `json:"address,omitempty"`
 	// The name of the user
 	Name *string `json:"name,omitempty"`
+	// The cookie policy for the org that this user owns in an HTML format
+	OrgCookiePolicy *string `json:"orgCookiePolicy,omitempty"`
 	// The description of the org that this user owns
 	OrgDescription *string `json:"orgDescription,omitempty"`
 	// The favicon of the org that this user owns
@@ -104,6 +106,29 @@ func (o *UpdateUserRequest2) GetNameOk() (*string, bool) {
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *UpdateUserRequest2) SetName(v string) {
 	o.Name = &v
+}
+
+// GetOrgCookiePolicy returns the OrgCookiePolicy field value if set, zero value otherwise.
+func (o *UpdateUserRequest2) GetOrgCookiePolicy() string {
+	if o == nil || IsNil(o.OrgCookiePolicy) {
+		var ret string
+		return ret
+	}
+	return *o.OrgCookiePolicy
+}
+
+// GetOrgCookiePolicyOk returns a tuple with the OrgCookiePolicy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateUserRequest2) GetOrgCookiePolicyOk() (*string, bool) {
+	if o == nil || IsNil(o.OrgCookiePolicy) {
+		return nil, false
+	}
+	return o.OrgCookiePolicy, true
+}
+
+// SetOrgCookiePolicy gets a reference to the given string and assigns it to the OrgCookiePolicy field.
+func (o *UpdateUserRequest2) SetOrgCookiePolicy(v string) {
+	o.OrgCookiePolicy = &v
 }
 
 // GetOrgDescription returns the OrgDescription field value if set, zero value otherwise.
@@ -306,6 +331,9 @@ func (o UpdateUserRequest2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
+	if !IsNil(o.OrgCookiePolicy) {
+		toSerialize["orgCookiePolicy"] = o.OrgCookiePolicy
+	}
 	if !IsNil(o.OrgDescription) {
 		toSerialize["orgDescription"] = o.OrgDescription
 	}
@@ -354,6 +382,7 @@ func (o *UpdateUserRequest2) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "address")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "orgCookiePolicy")
 		delete(additionalProperties, "orgDescription")
 		delete(additionalProperties, "orgFavIconURL")
 		delete(additionalProperties, "orgLogoURL")

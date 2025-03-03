@@ -761,6 +761,21 @@ type InventoryApiAPI interface {
 	InventoryApiListUsersExecute(r ApiInventoryApiListUsersRequest) (*FleetListUsersResult, *http.Response, error)
 
 	/*
+	InventoryApiManageUpgradePath ManageUpgradePath inventory-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param productTierId The product tier ID that this upgrade path belongs to
+	@param upgradePathId The upgrade path ID
+	@return ApiInventoryApiManageUpgradePathRequest
+	*/
+	InventoryApiManageUpgradePath(ctx context.Context, serviceId string, productTierId string, upgradePathId string) ApiInventoryApiManageUpgradePathRequest
+
+	// InventoryApiManageUpgradePathExecute executes the request
+	//  @return UpgradePath
+	InventoryApiManageUpgradePathExecute(r ApiInventoryApiManageUpgradePathRequest) (*UpgradePath, *http.Response, error)
+
+	/*
 	InventoryApiModifyServicesOrchestration ModifyServicesOrchestration inventory-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -9912,6 +9927,191 @@ func (a *InventoryApiAPIService) InventoryApiListUsersExecute(r ApiInventoryApiL
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiInventoryApiManageUpgradePathRequest struct {
+	ctx context.Context
+	ApiService InventoryApiAPI
+	serviceId string
+	productTierId string
+	upgradePathId string
+	manageUpgradePathLifecycleRequest2 *ManageUpgradePathLifecycleRequest2
+}
+
+func (r ApiInventoryApiManageUpgradePathRequest) ManageUpgradePathLifecycleRequest2(manageUpgradePathLifecycleRequest2 ManageUpgradePathLifecycleRequest2) ApiInventoryApiManageUpgradePathRequest {
+	r.manageUpgradePathLifecycleRequest2 = &manageUpgradePathLifecycleRequest2
+	return r
+}
+
+func (r ApiInventoryApiManageUpgradePathRequest) Execute() (*UpgradePath, *http.Response, error) {
+	return r.ApiService.InventoryApiManageUpgradePathExecute(r)
+}
+
+/*
+InventoryApiManageUpgradePath ManageUpgradePath inventory-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serviceId The service ID this workflow belongs to.
+ @param productTierId The product tier ID that this upgrade path belongs to
+ @param upgradePathId The upgrade path ID
+ @return ApiInventoryApiManageUpgradePathRequest
+*/
+func (a *InventoryApiAPIService) InventoryApiManageUpgradePath(ctx context.Context, serviceId string, productTierId string, upgradePathId string) ApiInventoryApiManageUpgradePathRequest {
+	return ApiInventoryApiManageUpgradePathRequest{
+		ApiService: a,
+		ctx: ctx,
+		serviceId: serviceId,
+		productTierId: productTierId,
+		upgradePathId: upgradePathId,
+	}
+}
+
+// Execute executes the request
+//  @return UpgradePath
+func (a *InventoryApiAPIService) InventoryApiManageUpgradePathExecute(r ApiInventoryApiManageUpgradePathRequest) (*UpgradePath, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UpgradePath
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiManageUpgradePath")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/manage-lifecycle"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"productTierId"+"}", url.PathEscape(parameterValueToString(r.productTierId, "productTierId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"upgradePathId"+"}", url.PathEscape(parameterValueToString(r.upgradePathId, "upgradePathId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.manageUpgradePathLifecycleRequest2 == nil {
+		return localVarReturnValue, nil, reportError("manageUpgradePathLifecycleRequest2 is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.manageUpgradePathLifecycleRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ApiGroups** | Pointer to **map[string]interface{}** | The resources that belong to this service API bundle and their active versions | [optional] 
 **AutoApproveSubscription** | Pointer to **bool** | Auto approve subscription or not | [optional] 
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this product tier is available on | [optional] 
+**AzureRegions** | Pointer to **[]string** | The Azure regions that this product tier is available on | [optional] 
 **CloudProvidersConfigReadiness** | Pointer to **map[string]interface{}** | The readiness of the cloud providers configurations | [optional] 
 **Description** | **string** | A brief description of the product tier | 
 **Documentation** | **string** | Documentation | 
@@ -117,6 +118,31 @@ SetAwsRegions sets AwsRegions field to given value.
 `func (o *DescribeProductTierResult) HasAwsRegions() bool`
 
 HasAwsRegions returns a boolean if a field has been set.
+
+### GetAzureRegions
+
+`func (o *DescribeProductTierResult) GetAzureRegions() []string`
+
+GetAzureRegions returns the AzureRegions field if non-nil, zero value otherwise.
+
+### GetAzureRegionsOk
+
+`func (o *DescribeProductTierResult) GetAzureRegionsOk() (*[]string, bool)`
+
+GetAzureRegionsOk returns a tuple with the AzureRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAzureRegions
+
+`func (o *DescribeProductTierResult) SetAzureRegions(v []string)`
+
+SetAzureRegions sets AzureRegions field to given value.
+
+### HasAzureRegions
+
+`func (o *DescribeProductTierResult) HasAzureRegions() bool`
+
+HasAzureRegions returns a boolean if a field has been set.
 
 ### GetCloudProvidersConfigReadiness
 

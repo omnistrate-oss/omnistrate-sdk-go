@@ -25,6 +25,8 @@ type ServiceOffering struct {
 	Assets *ServiceAssets `json:"assets,omitempty"`
 	// The AWS regions that this service offering is available on
 	AwsRegions []string `json:"awsRegions,omitempty"`
+	// The Azure regions that this service offering is available on
+	AzureRegions []string `json:"azureRegions,omitempty"`
 	// List of billing plans for this product tier.
 	BillingPlans []OfferingBillingPlan `json:"billingPlans,omitempty"`
 	// List of supported cloud providers for this product tier.
@@ -214,6 +216,38 @@ func (o *ServiceOffering) HasAwsRegions() bool {
 // SetAwsRegions gets a reference to the given []string and assigns it to the AwsRegions field.
 func (o *ServiceOffering) SetAwsRegions(v []string) {
 	o.AwsRegions = v
+}
+
+// GetAzureRegions returns the AzureRegions field value if set, zero value otherwise.
+func (o *ServiceOffering) GetAzureRegions() []string {
+	if o == nil || IsNil(o.AzureRegions) {
+		var ret []string
+		return ret
+	}
+	return o.AzureRegions
+}
+
+// GetAzureRegionsOk returns a tuple with the AzureRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceOffering) GetAzureRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.AzureRegions) {
+		return nil, false
+	}
+	return o.AzureRegions, true
+}
+
+// HasAzureRegions returns a boolean if a field has been set.
+func (o *ServiceOffering) HasAzureRegions() bool {
+	if o != nil && !IsNil(o.AzureRegions) {
+		return true
+	}
+
+	return false
+}
+
+// SetAzureRegions gets a reference to the given []string and assigns it to the AzureRegions field.
+func (o *ServiceOffering) SetAzureRegions(v []string) {
+	o.AzureRegions = v
 }
 
 // GetBillingPlans returns the BillingPlans field value if set, zero value otherwise.
@@ -987,6 +1021,9 @@ func (o ServiceOffering) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AwsRegions) {
 		toSerialize["awsRegions"] = o.AwsRegions
 	}
+	if !IsNil(o.AzureRegions) {
+		toSerialize["azureRegions"] = o.AzureRegions
+	}
 	if !IsNil(o.BillingPlans) {
 		toSerialize["billingPlans"] = o.BillingPlans
 	}
@@ -1100,6 +1137,7 @@ func (o *ServiceOffering) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "AutoApproveSubscription")
 		delete(additionalProperties, "assets")
 		delete(additionalProperties, "awsRegions")
+		delete(additionalProperties, "azureRegions")
 		delete(additionalProperties, "billingPlans")
 		delete(additionalProperties, "cloudProviders")
 		delete(additionalProperties, "gcpRegions")
