@@ -30,6 +30,8 @@ type GetServicePlanResult struct {
 	ApiVersion string `json:"apiVersion"`
 	// The AWS regions that this service plan is available on
 	AwsRegions []string `json:"awsRegions,omitempty"`
+	// The Azure regions that this service plan is available on
+	AzureRegions []string `json:"azureRegions,omitempty"`
 	// ID of a Deployment Config
 	DeploymentConfigId string `json:"deploymentConfigId"`
 	// The GCP regions that this service plan is available on
@@ -238,6 +240,29 @@ func (o *GetServicePlanResult) GetAwsRegionsOk() ([]string, bool) {
 // SetAwsRegions gets a reference to the given []string and assigns it to the AwsRegions field.
 func (o *GetServicePlanResult) SetAwsRegions(v []string) {
 	o.AwsRegions = v
+}
+
+// GetAzureRegions returns the AzureRegions field value if set, zero value otherwise.
+func (o *GetServicePlanResult) GetAzureRegions() []string {
+	if o == nil || IsNil(o.AzureRegions) {
+		var ret []string
+		return ret
+	}
+	return o.AzureRegions
+}
+
+// GetAzureRegionsOk returns a tuple with the AzureRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetServicePlanResult) GetAzureRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.AzureRegions) {
+		return nil, false
+	}
+	return o.AzureRegions, true
+}
+
+// SetAzureRegions gets a reference to the given []string and assigns it to the AzureRegions field.
+func (o *GetServicePlanResult) SetAzureRegions(v []string) {
+	o.AzureRegions = v
 }
 
 // GetDeploymentConfigId returns the DeploymentConfigId field value
@@ -836,6 +861,9 @@ func (o GetServicePlanResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AwsRegions) {
 		toSerialize["awsRegions"] = o.AwsRegions
 	}
+	if !IsNil(o.AzureRegions) {
+		toSerialize["azureRegions"] = o.AzureRegions
+	}
 	toSerialize["deploymentConfigId"] = o.DeploymentConfigId
 	if !IsNil(o.GcpRegions) {
 		toSerialize["gcpRegions"] = o.GcpRegions
@@ -938,6 +966,7 @@ func (o *GetServicePlanResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "activeAccountConfigIds")
 		delete(additionalProperties, "apiVersion")
 		delete(additionalProperties, "awsRegions")
+		delete(additionalProperties, "azureRegions")
 		delete(additionalProperties, "deploymentConfigId")
 		delete(additionalProperties, "gcpRegions")
 		delete(additionalProperties, "hasPendingChanges")

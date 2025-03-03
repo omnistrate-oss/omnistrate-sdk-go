@@ -14,11 +14,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the GetCurrentUsageResult type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &GetCurrentUsageResult{}
+// checks if the GetUsageResult type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetUsageResult{}
 
-// GetCurrentUsageResult struct for GetCurrentUsageResult
-type GetCurrentUsageResult struct {
+// GetUsageResult struct for GetUsageResult
+type GetUsageResult struct {
 	// End timestamp of usage
 	EndTime *string `json:"endTime,omitempty"`
 	// This parameter is used to select the appropriate Product Plan
@@ -30,27 +30,27 @@ type GetCurrentUsageResult struct {
 	AdditionalProperties map[string]interface{}
 }
 
-type _GetCurrentUsageResult GetCurrentUsageResult
+type _GetUsageResult GetUsageResult
 
-// NewGetCurrentUsageResult instantiates a new GetCurrentUsageResult object
+// NewGetUsageResult instantiates a new GetUsageResult object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetCurrentUsageResult() *GetCurrentUsageResult {
-	this := GetCurrentUsageResult{}
+func NewGetUsageResult() *GetUsageResult {
+	this := GetUsageResult{}
 	return &this
 }
 
-// NewGetCurrentUsageResultWithDefaults instantiates a new GetCurrentUsageResult object
+// NewGetUsageResultWithDefaults instantiates a new GetUsageResult object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewGetCurrentUsageResultWithDefaults() *GetCurrentUsageResult {
-	this := GetCurrentUsageResult{}
+func NewGetUsageResultWithDefaults() *GetUsageResult {
+	this := GetUsageResult{}
 	return &this
 }
 
 // GetEndTime returns the EndTime field value if set, zero value otherwise.
-func (o *GetCurrentUsageResult) GetEndTime() string {
+func (o *GetUsageResult) GetEndTime() string {
 	if o == nil || IsNil(o.EndTime) {
 		var ret string
 		return ret
@@ -60,7 +60,7 @@ func (o *GetCurrentUsageResult) GetEndTime() string {
 
 // GetEndTimeOk returns a tuple with the EndTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetCurrentUsageResult) GetEndTimeOk() (*string, bool) {
+func (o *GetUsageResult) GetEndTimeOk() (*string, bool) {
 	if o == nil || IsNil(o.EndTime) {
 		return nil, false
 	}
@@ -68,12 +68,12 @@ func (o *GetCurrentUsageResult) GetEndTimeOk() (*string, bool) {
 }
 
 // SetEndTime gets a reference to the given string and assigns it to the EndTime field.
-func (o *GetCurrentUsageResult) SetEndTime(v string) {
+func (o *GetUsageResult) SetEndTime(v string) {
 	o.EndTime = &v
 }
 
 // GetPlanName returns the PlanName field value if set, zero value otherwise.
-func (o *GetCurrentUsageResult) GetPlanName() string {
+func (o *GetUsageResult) GetPlanName() string {
 	if o == nil || IsNil(o.PlanName) {
 		var ret string
 		return ret
@@ -83,7 +83,7 @@ func (o *GetCurrentUsageResult) GetPlanName() string {
 
 // GetPlanNameOk returns a tuple with the PlanName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetCurrentUsageResult) GetPlanNameOk() (*string, bool) {
+func (o *GetUsageResult) GetPlanNameOk() (*string, bool) {
 	if o == nil || IsNil(o.PlanName) {
 		return nil, false
 	}
@@ -91,12 +91,12 @@ func (o *GetCurrentUsageResult) GetPlanNameOk() (*string, bool) {
 }
 
 // SetPlanName gets a reference to the given string and assigns it to the PlanName field.
-func (o *GetCurrentUsageResult) SetPlanName(v string) {
+func (o *GetUsageResult) SetPlanName(v string) {
 	o.PlanName = &v
 }
 
 // GetStartTime returns the StartTime field value if set, zero value otherwise.
-func (o *GetCurrentUsageResult) GetStartTime() string {
+func (o *GetUsageResult) GetStartTime() string {
 	if o == nil || IsNil(o.StartTime) {
 		var ret string
 		return ret
@@ -106,7 +106,7 @@ func (o *GetCurrentUsageResult) GetStartTime() string {
 
 // GetStartTimeOk returns a tuple with the StartTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetCurrentUsageResult) GetStartTimeOk() (*string, bool) {
+func (o *GetUsageResult) GetStartTimeOk() (*string, bool) {
 	if o == nil || IsNil(o.StartTime) {
 		return nil, false
 	}
@@ -114,12 +114,12 @@ func (o *GetCurrentUsageResult) GetStartTimeOk() (*string, bool) {
 }
 
 // SetStartTime gets a reference to the given string and assigns it to the StartTime field.
-func (o *GetCurrentUsageResult) SetStartTime(v string) {
+func (o *GetUsageResult) SetStartTime(v string) {
 	o.StartTime = &v
 }
 
 // GetUsage returns the Usage field value if set, zero value otherwise.
-func (o *GetCurrentUsageResult) GetUsage() []UsagePerDimension {
+func (o *GetUsageResult) GetUsage() []UsagePerDimension {
 	if o == nil || IsNil(o.Usage) {
 		var ret []UsagePerDimension
 		return ret
@@ -129,7 +129,7 @@ func (o *GetCurrentUsageResult) GetUsage() []UsagePerDimension {
 
 // GetUsageOk returns a tuple with the Usage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetCurrentUsageResult) GetUsageOk() ([]UsagePerDimension, bool) {
+func (o *GetUsageResult) GetUsageOk() ([]UsagePerDimension, bool) {
 	if o == nil || IsNil(o.Usage) {
 		return nil, false
 	}
@@ -137,11 +137,11 @@ func (o *GetCurrentUsageResult) GetUsageOk() ([]UsagePerDimension, bool) {
 }
 
 // SetUsage gets a reference to the given []UsagePerDimension and assigns it to the Usage field.
-func (o *GetCurrentUsageResult) SetUsage(v []UsagePerDimension) {
+func (o *GetUsageResult) SetUsage(v []UsagePerDimension) {
 	o.Usage = v
 }
 
-func (o GetCurrentUsageResult) MarshalJSON() ([]byte, error) {
+func (o GetUsageResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -149,7 +149,7 @@ func (o GetCurrentUsageResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o GetCurrentUsageResult) ToMap() (map[string]interface{}, error) {
+func (o GetUsageResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.EndTime) {
 		toSerialize["endTime"] = o.EndTime
@@ -171,16 +171,16 @@ func (o GetCurrentUsageResult) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *GetCurrentUsageResult) UnmarshalJSON(data []byte) (err error) {
-	varGetCurrentUsageResult := _GetCurrentUsageResult{}
+func (o *GetUsageResult) UnmarshalJSON(data []byte) (err error) {
+	varGetUsageResult := _GetUsageResult{}
 
-	err = json.Unmarshal(data, &varGetCurrentUsageResult)
+	err = json.Unmarshal(data, &varGetUsageResult)
 
 	if err != nil {
 		return err
 	}
 
-	*o = GetCurrentUsageResult(varGetCurrentUsageResult)
+	*o = GetUsageResult(varGetUsageResult)
 
 	additionalProperties := make(map[string]interface{})
 
@@ -195,38 +195,38 @@ func (o *GetCurrentUsageResult) UnmarshalJSON(data []byte) (err error) {
 	return err
 }
 
-type NullableGetCurrentUsageResult struct {
-	value *GetCurrentUsageResult
+type NullableGetUsageResult struct {
+	value *GetUsageResult
 	isSet bool
 }
 
-func (v NullableGetCurrentUsageResult) Get() *GetCurrentUsageResult {
+func (v NullableGetUsageResult) Get() *GetUsageResult {
 	return v.value
 }
 
-func (v *NullableGetCurrentUsageResult) Set(val *GetCurrentUsageResult) {
+func (v *NullableGetUsageResult) Set(val *GetUsageResult) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableGetCurrentUsageResult) IsSet() bool {
+func (v NullableGetUsageResult) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableGetCurrentUsageResult) Unset() {
+func (v *NullableGetUsageResult) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableGetCurrentUsageResult(val *GetCurrentUsageResult) *NullableGetCurrentUsageResult {
-	return &NullableGetCurrentUsageResult{value: val, isSet: true}
+func NewNullableGetUsageResult(val *GetUsageResult) *NullableGetUsageResult {
+	return &NullableGetUsageResult{value: val, isSet: true}
 }
 
-func (v NullableGetCurrentUsageResult) MarshalJSON() ([]byte, error) {
+func (v NullableGetUsageResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableGetCurrentUsageResult) UnmarshalJSON(src []byte) error {
+func (v *NullableGetUsageResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

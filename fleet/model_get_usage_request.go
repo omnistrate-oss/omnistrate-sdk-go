@@ -21,9 +21,9 @@ var _ MappedNullable = &GetUsageRequest{}
 
 // GetUsageRequest struct for GetUsageRequest
 type GetUsageRequest struct {
-	// End time of the window in ISO 8601 format. If omitted, the filter is open-ended at the start.
+	// End time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start.
 	EndDate *time.Time `json:"endDate,omitempty"`
-	// Start time of the window in ISO 8601 format. If omitted, the filter is open-ended at the start.
+	// Start time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start.
 	StartDate *time.Time `json:"startDate,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`

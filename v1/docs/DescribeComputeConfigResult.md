@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AutoscalingPolicy** | Pointer to [**AutoscalingPolicy**](AutoscalingPolicy.md) |  | [optional] 
+**ComputeInstanceTypeConfigOverrides** | Pointer to **map[string]interface{}** | The compute instance type config overrides for this compute config | [optional] 
 **CpuArchitecture** | Pointer to **string** | Processor architecture | [optional] 
 **Description** | **string** | Description of the compute config | 
 **Id** | **string** | ID of a Compute Config | 
@@ -60,6 +61,31 @@ SetAutoscalingPolicy sets AutoscalingPolicy field to given value.
 `func (o *DescribeComputeConfigResult) HasAutoscalingPolicy() bool`
 
 HasAutoscalingPolicy returns a boolean if a field has been set.
+
+### GetComputeInstanceTypeConfigOverrides
+
+`func (o *DescribeComputeConfigResult) GetComputeInstanceTypeConfigOverrides() map[string]interface{}`
+
+GetComputeInstanceTypeConfigOverrides returns the ComputeInstanceTypeConfigOverrides field if non-nil, zero value otherwise.
+
+### GetComputeInstanceTypeConfigOverridesOk
+
+`func (o *DescribeComputeConfigResult) GetComputeInstanceTypeConfigOverridesOk() (*map[string]interface{}, bool)`
+
+GetComputeInstanceTypeConfigOverridesOk returns a tuple with the ComputeInstanceTypeConfigOverrides field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComputeInstanceTypeConfigOverrides
+
+`func (o *DescribeComputeConfigResult) SetComputeInstanceTypeConfigOverrides(v map[string]interface{})`
+
+SetComputeInstanceTypeConfigOverrides sets ComputeInstanceTypeConfigOverrides field to given value.
+
+### HasComputeInstanceTypeConfigOverrides
+
+`func (o *DescribeComputeConfigResult) HasComputeInstanceTypeConfigOverrides() bool`
+
+HasComputeInstanceTypeConfigOverrides returns a boolean if a field has been set.
 
 ### GetCpuArchitecture
 

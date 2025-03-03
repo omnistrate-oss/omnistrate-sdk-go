@@ -557,7 +557,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	productTierVersion := "Ut aut facilis enim." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Placeat ea est nostrum." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the resource to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -632,7 +632,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	productTierVersion := "Tempora quis illum accusantium vel molestiae natus." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Ut accusamus itaque rerum unde in repellat." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the resource to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -1144,7 +1144,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	productTierVersion := "Et voluptatem dolores." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Illo illum quia." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -1220,7 +1220,7 @@ func main() {
 	serviceId := "si-12345678" // string | The ID of the service to list resources for
 	productTierId := "pt-12345678" // string | The product tier ID
 	managed := false // bool | Is resource managed by omnistrate (optional)
-	productTierVersion := "Et cum." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Quia eligendi." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

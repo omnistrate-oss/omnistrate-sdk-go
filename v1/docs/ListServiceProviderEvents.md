@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EndDate** | Pointer to **time.Time** | End time of the window in ISO 8601 format. If omitted, the filter is open-ended at the start. | [optional] 
+**EndDate** | Pointer to **time.Time** | End time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start. | [optional] 
 **EnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
 **EventTypes** | Pointer to **[]string** | The event types to filter by | [optional] 
 **InstanceID** | Pointer to **string** | ID of a Resource Instance | [optional] 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **ProductTierID** | Pointer to **string** | ID of a Product Tier | [optional] 
 **ServiceEnvironmentID** | Pointer to **string** | ID of a Service Environment | [optional] 
 **ServiceID** | Pointer to **string** | ID of a Service | [optional] 
-**StartDate** | Pointer to **time.Time** | Start time of the window in ISO 8601 format. If omitted, the filter is open-ended at the start. | [optional] 
+**StartDate** | Pointer to **time.Time** | Start time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start. | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods

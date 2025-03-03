@@ -51,6 +51,8 @@ type APIClient struct {
 
 	AuditEventsApiAPI AuditEventsApiAPI
 
+	CostApiAPI CostApiAPI
+
 	CustomerOnboardingsApiAPI CustomerOnboardingsApiAPI
 
 	EventsApiAPI EventsApiAPI
@@ -91,6 +93,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 
 	// API Services
 	c.AuditEventsApiAPI = (*AuditEventsApiAPIService)(&c.common)
+	c.CostApiAPI = (*CostApiAPIService)(&c.common)
 	c.CustomerOnboardingsApiAPI = (*CustomerOnboardingsApiAPIService)(&c.common)
 	c.EventsApiAPI = (*EventsApiAPIService)(&c.common)
 	c.FleetCustomNetworkApiAPI = (*FleetCustomNetworkApiAPIService)(&c.common)

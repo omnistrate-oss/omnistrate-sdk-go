@@ -22,6 +22,7 @@ var _ MappedNullable = &AddComputeInstanceTypeRequest{}
 type AddComputeInstanceTypeRequest struct {
 	// Name of the Infra Provider
 	CloudProviderName string `json:"cloudProviderName"`
+	ConfigOverride *ComputeInstanceTypeConfigOverride `json:"configOverride,omitempty"`
 	// ID of a Compute Config
 	Id string `json:"id"`
 	// The instance type for this compute instance type config
@@ -79,6 +80,29 @@ func (o *AddComputeInstanceTypeRequest) GetCloudProviderNameOk() (*string, bool)
 // SetCloudProviderName sets field value
 func (o *AddComputeInstanceTypeRequest) SetCloudProviderName(v string) {
 	o.CloudProviderName = v
+}
+
+// GetConfigOverride returns the ConfigOverride field value if set, zero value otherwise.
+func (o *AddComputeInstanceTypeRequest) GetConfigOverride() ComputeInstanceTypeConfigOverride {
+	if o == nil || IsNil(o.ConfigOverride) {
+		var ret ComputeInstanceTypeConfigOverride
+		return ret
+	}
+	return *o.ConfigOverride
+}
+
+// GetConfigOverrideOk returns a tuple with the ConfigOverride field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AddComputeInstanceTypeRequest) GetConfigOverrideOk() (*ComputeInstanceTypeConfigOverride, bool) {
+	if o == nil || IsNil(o.ConfigOverride) {
+		return nil, false
+	}
+	return o.ConfigOverride, true
+}
+
+// SetConfigOverride gets a reference to the given ComputeInstanceTypeConfigOverride and assigns it to the ConfigOverride field.
+func (o *AddComputeInstanceTypeRequest) SetConfigOverride(v ComputeInstanceTypeConfigOverride) {
+	o.ConfigOverride = &v
 }
 
 // GetId returns the Id field value
@@ -188,6 +212,9 @@ func (o AddComputeInstanceTypeRequest) MarshalJSON() ([]byte, error) {
 func (o AddComputeInstanceTypeRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["cloudProviderName"] = o.CloudProviderName
+	if !IsNil(o.ConfigOverride) {
+		toSerialize["configOverride"] = o.ConfigOverride
+	}
 	toSerialize["id"] = o.Id
 	toSerialize["instanceType"] = o.InstanceType
 	toSerialize["serviceId"] = o.ServiceId
@@ -240,6 +267,7 @@ func (o *AddComputeInstanceTypeRequest) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "cloudProviderName")
+		delete(additionalProperties, "configOverride")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "instanceType")
 		delete(additionalProperties, "serviceId")

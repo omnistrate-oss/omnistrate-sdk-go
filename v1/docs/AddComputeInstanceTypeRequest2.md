@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudProviderName** | **string** | The cloud provider for this compute instance type config | 
+**ConfigOverride** | Pointer to [**ComputeInstanceTypeConfigOverride**](ComputeInstanceTypeConfigOverride.md) |  | [optional] 
 **InstanceType** | **string** | The instance type for this compute instance type config | 
 
 ## Methods
@@ -45,6 +46,31 @@ and a boolean to check if the value has been set.
 
 SetCloudProviderName sets CloudProviderName field to given value.
 
+
+### GetConfigOverride
+
+`func (o *AddComputeInstanceTypeRequest2) GetConfigOverride() ComputeInstanceTypeConfigOverride`
+
+GetConfigOverride returns the ConfigOverride field if non-nil, zero value otherwise.
+
+### GetConfigOverrideOk
+
+`func (o *AddComputeInstanceTypeRequest2) GetConfigOverrideOk() (*ComputeInstanceTypeConfigOverride, bool)`
+
+GetConfigOverrideOk returns a tuple with the ConfigOverride field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConfigOverride
+
+`func (o *AddComputeInstanceTypeRequest2) SetConfigOverride(v ComputeInstanceTypeConfigOverride)`
+
+SetConfigOverride sets ConfigOverride field to given value.
+
+### HasConfigOverride
+
+`func (o *AddComputeInstanceTypeRequest2) HasConfigOverride() bool`
+
+HasConfigOverride returns a boolean if a field has been set.
 
 ### GetInstanceType
 

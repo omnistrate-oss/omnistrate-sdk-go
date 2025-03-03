@@ -26,6 +26,8 @@ type DescribeProductTierResult struct {
 	AutoApproveSubscription *bool `json:"autoApproveSubscription,omitempty"`
 	// The AWS regions that this product tier is available on
 	AwsRegions []string `json:"awsRegions,omitempty"`
+	// The Azure regions that this product tier is available on
+	AzureRegions []string `json:"azureRegions,omitempty"`
 	// The readiness of the cloud providers configurations
 	CloudProvidersConfigReadiness map[string]interface{} `json:"cloudProvidersConfigReadiness,omitempty"`
 	// A brief description of the product tier
@@ -186,6 +188,38 @@ func (o *DescribeProductTierResult) HasAwsRegions() bool {
 // SetAwsRegions gets a reference to the given []string and assigns it to the AwsRegions field.
 func (o *DescribeProductTierResult) SetAwsRegions(v []string) {
 	o.AwsRegions = v
+}
+
+// GetAzureRegions returns the AzureRegions field value if set, zero value otherwise.
+func (o *DescribeProductTierResult) GetAzureRegions() []string {
+	if o == nil || IsNil(o.AzureRegions) {
+		var ret []string
+		return ret
+	}
+	return o.AzureRegions
+}
+
+// GetAzureRegionsOk returns a tuple with the AzureRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeProductTierResult) GetAzureRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.AzureRegions) {
+		return nil, false
+	}
+	return o.AzureRegions, true
+}
+
+// HasAzureRegions returns a boolean if a field has been set.
+func (o *DescribeProductTierResult) HasAzureRegions() bool {
+	if o != nil && !IsNil(o.AzureRegions) {
+		return true
+	}
+
+	return false
+}
+
+// SetAzureRegions gets a reference to the given []string and assigns it to the AzureRegions field.
+func (o *DescribeProductTierResult) SetAzureRegions(v []string) {
+	o.AzureRegions = v
 }
 
 // GetCloudProvidersConfigReadiness returns the CloudProvidersConfigReadiness field value if set, zero value otherwise.
@@ -625,6 +659,9 @@ func (o DescribeProductTierResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AwsRegions) {
 		toSerialize["awsRegions"] = o.AwsRegions
 	}
+	if !IsNil(o.AzureRegions) {
+		toSerialize["azureRegions"] = o.AzureRegions
+	}
 	if !IsNil(o.CloudProvidersConfigReadiness) {
 		toSerialize["cloudProvidersConfigReadiness"] = o.CloudProvidersConfigReadiness
 	}
@@ -708,6 +745,7 @@ func (o *DescribeProductTierResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "apiGroups")
 		delete(additionalProperties, "autoApproveSubscription")
 		delete(additionalProperties, "awsRegions")
+		delete(additionalProperties, "azureRegions")
 		delete(additionalProperties, "cloudProvidersConfigReadiness")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "documentation")

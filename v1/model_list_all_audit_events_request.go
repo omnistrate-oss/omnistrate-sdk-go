@@ -21,7 +21,7 @@ var _ MappedNullable = &ListAllAuditEventsRequest{}
 
 // ListAllAuditEventsRequest struct for ListAllAuditEventsRequest
 type ListAllAuditEventsRequest struct {
-	// End time of the window in ISO 8601 format. If omitted, the filter is open-ended at the start.
+	// End time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start.
 	EndDate *time.Time `json:"endDate,omitempty"`
 	// The type of service environment
 	EnvironmentType *string `json:"environmentType,omitempty"`
@@ -35,7 +35,7 @@ type ListAllAuditEventsRequest struct {
 	PageSize *int64 `json:"pageSize,omitempty"`
 	// ID of a Service
 	ServiceID *string `json:"serviceID,omitempty"`
-	// Start time of the window in ISO 8601 format. If omitted, the filter is open-ended at the start.
+	// Start time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start.
 	StartDate *time.Time `json:"startDate,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`

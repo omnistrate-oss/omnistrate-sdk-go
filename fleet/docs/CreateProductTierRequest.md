@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AutoApproveSubscription** | Pointer to **bool** | Auto approve subscription or not | [optional] 
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this product tier is available on | [optional] 
+**AzureRegions** | Pointer to **[]string** | The Azure regions that this product tier is available on | [optional] 
 **Description** | **string** | A brief description of the product tier | 
 **Documentation** | Pointer to **string** | Documentation | [optional] 
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this product tier is available on | [optional] 
@@ -87,6 +88,31 @@ SetAwsRegions sets AwsRegions field to given value.
 `func (o *CreateProductTierRequest) HasAwsRegions() bool`
 
 HasAwsRegions returns a boolean if a field has been set.
+
+### GetAzureRegions
+
+`func (o *CreateProductTierRequest) GetAzureRegions() []string`
+
+GetAzureRegions returns the AzureRegions field if non-nil, zero value otherwise.
+
+### GetAzureRegionsOk
+
+`func (o *CreateProductTierRequest) GetAzureRegionsOk() (*[]string, bool)`
+
+GetAzureRegionsOk returns a tuple with the AzureRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAzureRegions
+
+`func (o *CreateProductTierRequest) SetAzureRegions(v []string)`
+
+SetAzureRegions sets AzureRegions field to given value.
+
+### HasAzureRegions
+
+`func (o *CreateProductTierRequest) HasAzureRegions() bool`
+
+HasAzureRegions returns a boolean if a field has been set.
 
 ### GetDescription
 
