@@ -331,7 +331,7 @@ import (
 func main() {
 	serviceID := "s-123456" // string | The service ID to list events for (optional)
 	environmentType := "PROD|PRIVATE|CANARY|STAGING|QA|DEV" // string |  (optional)
-	eventSourceTypes := []string{"Eius laborum nihil tenetur nobis blanditiis consequatur."} // []string | The event types to filter by (optional)
+	eventSourceTypes := []string{"Quos qui quas quis vel similique."} // []string | The event types to filter by (optional)
 	instanceID := "instance-12345678" // string | The instance ID to list events for (optional)
 	nextPageToken := "token" // string | The next token to use for pagination (optional)
 	pageSize := int64(10) // int64 | The number of events to return per page (optional)

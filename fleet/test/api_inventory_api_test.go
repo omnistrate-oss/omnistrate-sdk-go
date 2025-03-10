@@ -11,10 +11,10 @@ package fleet
 
 import (
 	"context"
+	openapiclient "github.com/omnistrate
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
 )
 
 func Test_fleet_InventoryApiAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiAddCapacityToResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -39,7 +39,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiAddCustomDNSToResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -55,7 +55,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiApproveSubscriptionRequest", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -70,7 +70,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiCancelUpgradePath", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var productTierId string
@@ -86,7 +86,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiCreateConsumptionUser", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiCreateConsumptionUser(context.Background()).Execute()
 
@@ -98,7 +98,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiCreateProxyResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string
@@ -118,7 +118,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiCreateResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string
@@ -138,7 +138,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiCreateResourceInstanceSnapshot", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -154,7 +154,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiCreateServicesOrchestration", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiCreateServicesOrchestration(context.Background()).Execute()
 
@@ -166,7 +166,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiCreateUpgradePath", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var productTierId string
@@ -181,7 +181,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDebugResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -197,7 +197,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDeleteProxyResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string
@@ -216,7 +216,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDeleteResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -231,7 +231,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDeleteResourceInstanceSnapshot", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -247,7 +247,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDeleteServicesOrchestration", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -260,7 +260,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDeleteUser", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -273,7 +273,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDenySubscriptionRequest", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -288,7 +288,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDescribeHostCluster", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -304,7 +304,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDescribeInstanceEvent", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -321,7 +321,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDescribeInventorySummary", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -336,7 +336,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDescribeOrgUser", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -350,7 +350,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDescribeOrganization", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -366,7 +366,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDescribeResource", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -384,7 +384,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDescribeResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -400,7 +400,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDescribeResourceInstanceSnapshotFromTime", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -416,7 +416,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDescribeServiceOffering", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 
@@ -430,7 +430,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDescribeServiceOfferingResource", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var resourceId string
@@ -446,7 +446,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDescribeServicesOrchestration", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -460,7 +460,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDescribeSubscription", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -476,7 +476,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDescribeSubscriptionRequest", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -492,7 +492,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDescribeUpgradePath", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var productTierId string
@@ -508,7 +508,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiDescribeUser", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -522,24 +522,9 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test InventoryApiAPIService InventoryApiEnableResourceInstanceManualOverride", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var serviceId string
-		var environmentId string
-		var instanceId string
-
-		httpRes, err := apiClient.InventoryApiAPI.InventoryApiEnableResourceInstanceManualOverride(context.Background(), serviceId, environmentId, instanceId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test InventoryApiAPIService InventoryApiFailoverResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -554,7 +539,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiGenerateTokenForHostClusterDashboard", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -570,7 +555,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiListActiveOrganizations", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -585,7 +570,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiListAllUsers", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiListAllUsers(context.Background()).Execute()
 
@@ -597,7 +582,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiListDependentComponents", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -613,7 +598,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiListEligibleInstancesPerUpgrade", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var productTierId string
@@ -629,7 +614,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiListHostClusters", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -644,7 +629,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiListInstanceEvents", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -660,7 +645,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiListLinkedInstances", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -676,7 +661,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiListResourceInstanceSnapshots", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -692,7 +677,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiListResourceInstances", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -707,7 +692,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiListResources", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -724,7 +709,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiListServiceOfferings", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiListServiceOfferings(context.Background()).Execute()
 
@@ -736,7 +721,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiListServicesOrchestrations", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiListServicesOrchestrations(context.Background()).Execute()
 
@@ -748,7 +733,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiListSubscription", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -763,7 +748,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiListSubscriptionRequests", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -778,7 +763,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiListUpgradePaths", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var productTierId string
@@ -793,7 +778,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiListUsers", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -808,7 +793,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiManageUpgradePath", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var productTierId string
@@ -824,7 +809,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiModifyServicesOrchestration", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -837,7 +822,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiRemoveCapacityFromResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -852,7 +837,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiRemoveCustomDNSFromResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -868,7 +853,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiRestartResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -883,7 +868,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiRestoreResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -899,7 +884,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiRestoreResourceInstanceFromSnapshot", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -915,7 +900,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiResumeSubscription", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -930,7 +915,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiSearchInventory", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiSearchInventory(context.Background()).Execute()
 
@@ -942,7 +927,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiSearchServiceInventory", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -957,7 +942,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiStartResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -972,7 +957,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiStopResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -987,7 +972,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiSuspendSubscription", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -1002,7 +987,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiSuspendUser", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -1015,7 +1000,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiTerminateSubscription", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
@@ -1030,7 +1015,7 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	t.Run("Test InventoryApiAPIService InventoryApiUnsuspendUser", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -1041,15 +1026,44 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test InventoryApiAPIService InventoryApiUpdateAccountConfigResourceInstance", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var serviceId string
+		var instanceId string
+
+		httpRes, err := apiClient.InventoryApiAPI.InventoryApiUpdateAccountConfigResourceInstance(context.Background(), serviceId, instanceId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test InventoryApiAPIService InventoryApiUpdateResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceId string
 		var environmentId string
 		var instanceId string
 
 		httpRes, err := apiClient.InventoryApiAPI.InventoryApiUpdateResourceInstance(context.Background(), serviceId, environmentId, instanceId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InventoryApiAPIService InventoryApiUpdateResourceInstanceDebugMode", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var serviceId string
+		var environmentId string
+		var instanceId string
+
+		httpRes, err := apiClient.InventoryApiAPI.InventoryApiUpdateResourceInstanceDebugMode(context.Background(), serviceId, environmentId, instanceId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

@@ -43,6 +43,7 @@ api_signin_api.go
 api_signup_api.go
 api_storage_config_api.go
 api_storage_volume_config_api.go
+api_stripe_connect_api.go
 api_subscription_api.go
 api_subscription_request_api.go
 api_tier_version_set_api.go
@@ -100,6 +101,9 @@ docs/CheckIfContainerImageAccessibleResult.md
 docs/CloudProviderApiAPI.md
 docs/CloudProviderHealthSummary.md
 docs/ClusterEndpoint.md
+docs/CompleteOAuthConnectionRequest.md
+docs/CompleteOAuthConnectionRequest2.md
+docs/CompleteOAuthConnectionResult.md
 docs/ComposeGenApiAPI.md
 docs/ComputeConfigApiAPI.md
 docs/ComputeInstanceTypeConfigOverride.md
@@ -595,6 +599,7 @@ docs/RestoreResourceInstanceRequest.md
 docs/RestoreResourceInstanceRequest2.md
 docs/RevokeConsumptionUserRoleRequest.md
 docs/RevokeConsumptionUserRoleRequest2.md
+docs/RevokeOAuthAccessRequest.md
 docs/RevokeUserRoleRequest.md
 docs/RevokeUserRoleRequest2.md
 docs/RolloutFleetImageConfigRequest.md
@@ -640,6 +645,9 @@ docs/StartResourceInstanceRequest.md
 docs/StopResourceInstanceRequest.md
 docs/StorageConfigApiAPI.md
 docs/StorageVolumeConfigApiAPI.md
+docs/StripeAuthorizeURLRequest.md
+docs/StripeAuthorizeURLResult.md
+docs/StripeConnectApiAPI.md
 docs/SubscriptionApiAPI.md
 docs/SubscriptionLicense.md
 docs/SubscriptionRequestApiAPI.md
@@ -650,6 +658,8 @@ docs/TierVersionSet.md
 docs/TierVersionSetApiAPI.md
 docs/UnsetEnvironmentVariablesRequest.md
 docs/UnsetEnvironmentVariablesRequest2.md
+docs/UpdateAccountConfigResourceInstanceRequest.md
+docs/UpdateAccountConfigResourceInstanceRequest2.md
 docs/UpdateComputeConfigRequest.md
 docs/UpdateComputeConfigRequest2.md
 docs/UpdateCustomNetworkRequest.md
@@ -767,6 +777,9 @@ model_check_if_container_image_accessible_request.go
 model_check_if_container_image_accessible_result.go
 model_cloud_provider_health_summary.go
 model_cluster_endpoint.go
+model_complete_o_auth_connection_request.go
+model_complete_o_auth_connection_request2.go
+model_complete_o_auth_connection_result.go
 model_compute_instance_type_config_override.go
 model_consumption_service_auth_request.go
 model_consumption_service_auth_result.go
@@ -1238,6 +1251,7 @@ model_restore_resource_instance_request.go
 model_restore_resource_instance_request2.go
 model_revoke_consumption_user_role_request.go
 model_revoke_consumption_user_role_request2.go
+model_revoke_o_auth_access_request.go
 model_revoke_user_role_request.go
 model_revoke_user_role_request2.go
 model_rollout_fleet_image_config_request.go
@@ -1271,6 +1285,8 @@ model_signin_result.go
 model_signup_request.go
 model_start_resource_instance_request.go
 model_stop_resource_instance_request.go
+model_stripe_authorize_url_request.go
+model_stripe_authorize_url_result.go
 model_subscription_license.go
 model_subscription_users.go
 model_terraform_configuration.go
@@ -1278,6 +1294,8 @@ model_terraform_output.go
 model_tier_version_set.go
 model_unset_environment_variables_request.go
 model_unset_environment_variables_request2.go
+model_update_account_config_resource_instance_request.go
+model_update_account_config_resource_instance_request2.go
 model_update_compute_config_request.go
 model_update_compute_config_request2.go
 model_update_custom_network_request.go
@@ -1387,6 +1405,7 @@ test/api_signin_api_test.go
 test/api_signup_api_test.go
 test/api_storage_config_api_test.go
 test/api_storage_volume_config_api_test.go
+test/api_stripe_connect_api_test.go
 test/api_subscription_api_test.go
 test/api_subscription_request_api_test.go
 test/api_tier_version_set_api_test.go
