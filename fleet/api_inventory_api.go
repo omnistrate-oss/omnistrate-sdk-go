@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type InventoryApiAPI interface {
 
 	/*
-	InventoryApiAddCapacityToResourceInstance AddCapacityToResourceInstance inventory-api
+		InventoryApiAddCapacityToResourceInstance AddCapacityToResourceInstance inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiAddCapacityToResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiAddCapacityToResourceInstanceRequest
 	*/
 	InventoryApiAddCapacityToResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiAddCapacityToResourceInstanceRequest
 
@@ -37,14 +36,14 @@ type InventoryApiAPI interface {
 	InventoryApiAddCapacityToResourceInstanceExecute(r ApiInventoryApiAddCapacityToResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	InventoryApiAddCustomDNSToResourceInstance AddCustomDNSToResourceInstance inventory-api
+		InventoryApiAddCustomDNSToResourceInstance AddCustomDNSToResourceInstance inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param resourceKey The resource key
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiAddCustomDNSToResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param resourceKey The resource key
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiAddCustomDNSToResourceInstanceRequest
 	*/
 	InventoryApiAddCustomDNSToResourceInstance(ctx context.Context, serviceId string, environmentId string, resourceKey string, instanceId string) ApiInventoryApiAddCustomDNSToResourceInstanceRequest
 
@@ -52,13 +51,13 @@ type InventoryApiAPI interface {
 	InventoryApiAddCustomDNSToResourceInstanceExecute(r ApiInventoryApiAddCustomDNSToResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	InventoryApiApproveSubscriptionRequest ApproveSubscriptionRequest inventory-api
+		InventoryApiApproveSubscriptionRequest ApproveSubscriptionRequest inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param id The subscription ID
-	@return ApiInventoryApiApproveSubscriptionRequestRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param id The subscription ID
+		@return ApiInventoryApiApproveSubscriptionRequestRequest
 	*/
 	InventoryApiApproveSubscriptionRequest(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiApproveSubscriptionRequestRequest
 
@@ -66,13 +65,13 @@ type InventoryApiAPI interface {
 	InventoryApiApproveSubscriptionRequestExecute(r ApiInventoryApiApproveSubscriptionRequestRequest) (*http.Response, error)
 
 	/*
-	InventoryApiCancelUpgradePath CancelUpgradePath inventory-api
+		InventoryApiCancelUpgradePath CancelUpgradePath inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param productTierId The product tier ID that this upgrade path belongs to
-	@param upgradePathId The upgrade path ID
-	@return ApiInventoryApiCancelUpgradePathRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param productTierId The product tier ID that this upgrade path belongs to
+		@param upgradePathId The upgrade path ID
+		@return ApiInventoryApiCancelUpgradePathRequest
 	*/
 	InventoryApiCancelUpgradePath(ctx context.Context, serviceId string, productTierId string, upgradePathId string) ApiInventoryApiCancelUpgradePathRequest
 
@@ -81,10 +80,10 @@ type InventoryApiAPI interface {
 	InventoryApiCancelUpgradePathExecute(r ApiInventoryApiCancelUpgradePathRequest) (*UpgradePath, *http.Response, error)
 
 	/*
-	InventoryApiCreateConsumptionUser CreateConsumptionUser inventory-api
+		InventoryApiCreateConsumptionUser CreateConsumptionUser inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiInventoryApiCreateConsumptionUserRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiInventoryApiCreateConsumptionUserRequest
 	*/
 	InventoryApiCreateConsumptionUser(ctx context.Context) ApiInventoryApiCreateConsumptionUserRequest
 
@@ -93,17 +92,17 @@ type InventoryApiAPI interface {
 	InventoryApiCreateConsumptionUserExecute(r ApiInventoryApiCreateConsumptionUserRequest) (string, *http.Response, error)
 
 	/*
-	InventoryApiCreateProxyResourceInstance CreateProxyResourceInstance inventory-api
+		InventoryApiCreateProxyResourceInstance CreateProxyResourceInstance inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service name
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
-	@param sourceResourceKey The serverless resource key
-	@return ApiInventoryApiCreateProxyResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service name
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@param productTierKey The product tier name
+		@param sourceResourceKey The serverless resource key
+		@return ApiInventoryApiCreateProxyResourceInstanceRequest
 	*/
 	InventoryApiCreateProxyResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, sourceResourceKey string) ApiInventoryApiCreateProxyResourceInstanceRequest
 
@@ -112,17 +111,17 @@ type InventoryApiAPI interface {
 	InventoryApiCreateProxyResourceInstanceExecute(r ApiInventoryApiCreateProxyResourceInstanceRequest) (*CreateResourceInstanceResponseBody, *http.Response, error)
 
 	/*
-	InventoryApiCreateResourceInstance CreateResourceInstance inventory-api
+		InventoryApiCreateResourceInstance CreateResourceInstance inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service name
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
-	@param resourceKey The resource key
-	@return ApiInventoryApiCreateResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service name
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@param productTierKey The product tier name
+		@param resourceKey The resource key
+		@return ApiInventoryApiCreateResourceInstanceRequest
 	*/
 	InventoryApiCreateResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string) ApiInventoryApiCreateResourceInstanceRequest
 
@@ -131,13 +130,13 @@ type InventoryApiAPI interface {
 	InventoryApiCreateResourceInstanceExecute(r ApiInventoryApiCreateResourceInstanceRequest) (*CreateResourceInstanceResponseBody, *http.Response, error)
 
 	/*
-	InventoryApiCreateResourceInstanceSnapshot CreateResourceInstanceSnapshot inventory-api
+		InventoryApiCreateResourceInstanceSnapshot CreateResourceInstanceSnapshot inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiCreateResourceInstanceSnapshotRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiCreateResourceInstanceSnapshotRequest
 	*/
 	InventoryApiCreateResourceInstanceSnapshot(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiCreateResourceInstanceSnapshotRequest
 
@@ -146,10 +145,10 @@ type InventoryApiAPI interface {
 	InventoryApiCreateResourceInstanceSnapshotExecute(r ApiInventoryApiCreateResourceInstanceSnapshotRequest) (*FleetCreateInstanceSnapshotResult, *http.Response, error)
 
 	/*
-	InventoryApiCreateServicesOrchestration CreateServicesOrchestration inventory-api
+		InventoryApiCreateServicesOrchestration CreateServicesOrchestration inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiInventoryApiCreateServicesOrchestrationRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiInventoryApiCreateServicesOrchestrationRequest
 	*/
 	InventoryApiCreateServicesOrchestration(ctx context.Context) ApiInventoryApiCreateServicesOrchestrationRequest
 
@@ -158,12 +157,12 @@ type InventoryApiAPI interface {
 	InventoryApiCreateServicesOrchestrationExecute(r ApiInventoryApiCreateServicesOrchestrationRequest) (*CreateResourceInstanceResponseBody, *http.Response, error)
 
 	/*
-	InventoryApiCreateUpgradePath CreateUpgradePath inventory-api
+		InventoryApiCreateUpgradePath CreateUpgradePath inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param productTierId The product tier ID that this upgrade path belongs to
-	@return ApiInventoryApiCreateUpgradePathRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param productTierId The product tier ID that this upgrade path belongs to
+		@return ApiInventoryApiCreateUpgradePathRequest
 	*/
 	InventoryApiCreateUpgradePath(ctx context.Context, serviceId string, productTierId string) ApiInventoryApiCreateUpgradePathRequest
 
@@ -172,13 +171,13 @@ type InventoryApiAPI interface {
 	InventoryApiCreateUpgradePathExecute(r ApiInventoryApiCreateUpgradePathRequest) (*UpgradePath, *http.Response, error)
 
 	/*
-	InventoryApiDebugResourceInstance DebugResourceInstance inventory-api
+		InventoryApiDebugResourceInstance DebugResourceInstance inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiDebugResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiDebugResourceInstanceRequest
 	*/
 	InventoryApiDebugResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiDebugResourceInstanceRequest
 
@@ -187,17 +186,17 @@ type InventoryApiAPI interface {
 	InventoryApiDebugResourceInstanceExecute(r ApiInventoryApiDebugResourceInstanceRequest) (*DebugResourceInstanceResult, *http.Response, error)
 
 	/*
-	InventoryApiDeleteProxyResourceInstance DeleteProxyResourceInstance inventory-api
+		InventoryApiDeleteProxyResourceInstance DeleteProxyResourceInstance inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service name
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
-	@param id The instance ID
-	@return ApiInventoryApiDeleteProxyResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service name
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@param productTierKey The product tier name
+		@param id The instance ID
+		@return ApiInventoryApiDeleteProxyResourceInstanceRequest
 	*/
 	InventoryApiDeleteProxyResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, id string) ApiInventoryApiDeleteProxyResourceInstanceRequest
 
@@ -205,13 +204,13 @@ type InventoryApiAPI interface {
 	InventoryApiDeleteProxyResourceInstanceExecute(r ApiInventoryApiDeleteProxyResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	InventoryApiDeleteResourceInstance DeleteResourceInstance inventory-api
+		InventoryApiDeleteResourceInstance DeleteResourceInstance inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiDeleteResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiDeleteResourceInstanceRequest
 	*/
 	InventoryApiDeleteResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiDeleteResourceInstanceRequest
 
@@ -219,14 +218,14 @@ type InventoryApiAPI interface {
 	InventoryApiDeleteResourceInstanceExecute(r ApiInventoryApiDeleteResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	InventoryApiDeleteResourceInstanceSnapshot DeleteResourceInstanceSnapshot inventory-api
+		InventoryApiDeleteResourceInstanceSnapshot DeleteResourceInstanceSnapshot inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@param snapshotId The instance snapshot ID
-	@return ApiInventoryApiDeleteResourceInstanceSnapshotRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@param snapshotId The instance snapshot ID
+		@return ApiInventoryApiDeleteResourceInstanceSnapshotRequest
 	*/
 	InventoryApiDeleteResourceInstanceSnapshot(ctx context.Context, serviceId string, environmentId string, instanceId string, snapshotId string) ApiInventoryApiDeleteResourceInstanceSnapshotRequest
 
@@ -234,11 +233,11 @@ type InventoryApiAPI interface {
 	InventoryApiDeleteResourceInstanceSnapshotExecute(r ApiInventoryApiDeleteResourceInstanceSnapshotRequest) (*http.Response, error)
 
 	/*
-	InventoryApiDeleteServicesOrchestration DeleteServicesOrchestration inventory-api
+		InventoryApiDeleteServicesOrchestration DeleteServicesOrchestration inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id The ID of the services orchestration
-	@return ApiInventoryApiDeleteServicesOrchestrationRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id The ID of the services orchestration
+		@return ApiInventoryApiDeleteServicesOrchestrationRequest
 	*/
 	InventoryApiDeleteServicesOrchestration(ctx context.Context, id string) ApiInventoryApiDeleteServicesOrchestrationRequest
 
@@ -246,11 +245,11 @@ type InventoryApiAPI interface {
 	InventoryApiDeleteServicesOrchestrationExecute(r ApiInventoryApiDeleteServicesOrchestrationRequest) (*http.Response, error)
 
 	/*
-	InventoryApiDeleteUser DeleteUser inventory-api
+		InventoryApiDeleteUser DeleteUser inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The user ID
-	@return ApiInventoryApiDeleteUserRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The user ID
+		@return ApiInventoryApiDeleteUserRequest
 	*/
 	InventoryApiDeleteUser(ctx context.Context, userId string) ApiInventoryApiDeleteUserRequest
 
@@ -258,13 +257,13 @@ type InventoryApiAPI interface {
 	InventoryApiDeleteUserExecute(r ApiInventoryApiDeleteUserRequest) (*http.Response, error)
 
 	/*
-	InventoryApiDenySubscriptionRequest DenySubscriptionRequest inventory-api
+		InventoryApiDenySubscriptionRequest DenySubscriptionRequest inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param id The subscription ID
-	@return ApiInventoryApiDenySubscriptionRequestRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param id The subscription ID
+		@return ApiInventoryApiDenySubscriptionRequestRequest
 	*/
 	InventoryApiDenySubscriptionRequest(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiDenySubscriptionRequestRequest
 
@@ -272,13 +271,13 @@ type InventoryApiAPI interface {
 	InventoryApiDenySubscriptionRequestExecute(r ApiInventoryApiDenySubscriptionRequestRequest) (*http.Response, error)
 
 	/*
-	InventoryApiDescribeHostCluster DescribeHostCluster inventory-api
+		InventoryApiDescribeHostCluster DescribeHostCluster inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param id The host cluster ID
-	@return ApiInventoryApiDescribeHostClusterRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param id The host cluster ID
+		@return ApiInventoryApiDescribeHostClusterRequest
 	*/
 	InventoryApiDescribeHostCluster(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiDescribeHostClusterRequest
 
@@ -287,14 +286,14 @@ type InventoryApiAPI interface {
 	InventoryApiDescribeHostClusterExecute(r ApiInventoryApiDescribeHostClusterRequest) (*FleetDescribeHostClusterResult, *http.Response, error)
 
 	/*
-	InventoryApiDescribeInstanceEvent DescribeInstanceEvent inventory-api
+		InventoryApiDescribeInstanceEvent DescribeInstanceEvent inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@param id The ID of the event
-	@return ApiInventoryApiDescribeInstanceEventRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@param id The ID of the event
+		@return ApiInventoryApiDescribeInstanceEventRequest
 	*/
 	InventoryApiDescribeInstanceEvent(ctx context.Context, serviceId string, environmentId string, instanceId string, id string) ApiInventoryApiDescribeInstanceEventRequest
 
@@ -303,12 +302,12 @@ type InventoryApiAPI interface {
 	InventoryApiDescribeInstanceEventExecute(r ApiInventoryApiDescribeInstanceEventRequest) (*FleetDescribeEventResult, *http.Response, error)
 
 	/*
-	InventoryApiDescribeInventorySummary DescribeInventorySummary inventory-api
+		InventoryApiDescribeInventorySummary DescribeInventorySummary inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@return ApiInventoryApiDescribeInventorySummaryRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@return ApiInventoryApiDescribeInventorySummaryRequest
 	*/
 	InventoryApiDescribeInventorySummary(ctx context.Context, serviceId string, environmentId string) ApiInventoryApiDescribeInventorySummaryRequest
 
@@ -317,11 +316,11 @@ type InventoryApiAPI interface {
 	InventoryApiDescribeInventorySummaryExecute(r ApiInventoryApiDescribeInventorySummaryRequest) (*DescribeInventorySummaryResult, *http.Response, error)
 
 	/*
-	InventoryApiDescribeOrgUser DescribeOrgUser inventory-api
+		InventoryApiDescribeOrgUser DescribeOrgUser inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The user ID
-	@return ApiInventoryApiDescribeOrgUserRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The user ID
+		@return ApiInventoryApiDescribeOrgUserRequest
 	*/
 	InventoryApiDescribeOrgUser(ctx context.Context, userId string) ApiInventoryApiDescribeOrgUserRequest
 
@@ -330,13 +329,13 @@ type InventoryApiAPI interface {
 	InventoryApiDescribeOrgUserExecute(r ApiInventoryApiDescribeOrgUserRequest) (*FleetDescribeUserResult, *http.Response, error)
 
 	/*
-	InventoryApiDescribeOrganization DescribeOrganization inventory-api
+		InventoryApiDescribeOrganization DescribeOrganization inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param organizationId The organization ID.
-	@return ApiInventoryApiDescribeOrganizationRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param organizationId The organization ID.
+		@return ApiInventoryApiDescribeOrganizationRequest
 	*/
 	InventoryApiDescribeOrganization(ctx context.Context, serviceId string, environmentId string, organizationId string) ApiInventoryApiDescribeOrganizationRequest
 
@@ -345,15 +344,15 @@ type InventoryApiAPI interface {
 	InventoryApiDescribeOrganizationExecute(r ApiInventoryApiDescribeOrganizationRequest) (*Organization, *http.Response, error)
 
 	/*
-	InventoryApiDescribeResource DescribeResource inventory-api
+		InventoryApiDescribeResource DescribeResource inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param serviceModelId The service model ID.
-	@param productTierId The product tier ID.
-	@param resourceId The resource ID.
-	@return ApiInventoryApiDescribeResourceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param serviceModelId The service model ID.
+		@param productTierId The product tier ID.
+		@param resourceId The resource ID.
+		@return ApiInventoryApiDescribeResourceRequest
 	*/
 	InventoryApiDescribeResource(ctx context.Context, serviceId string, environmentId string, serviceModelId string, productTierId string, resourceId string) ApiInventoryApiDescribeResourceRequest
 
@@ -362,13 +361,13 @@ type InventoryApiAPI interface {
 	InventoryApiDescribeResourceExecute(r ApiInventoryApiDescribeResourceRequest) (*Resource, *http.Response, error)
 
 	/*
-	InventoryApiDescribeResourceInstance DescribeResourceInstance inventory-api
+		InventoryApiDescribeResourceInstance DescribeResourceInstance inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiDescribeResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiDescribeResourceInstanceRequest
 	*/
 	InventoryApiDescribeResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiDescribeResourceInstanceRequest
 
@@ -377,13 +376,13 @@ type InventoryApiAPI interface {
 	InventoryApiDescribeResourceInstanceExecute(r ApiInventoryApiDescribeResourceInstanceRequest) (*ResourceInstance, *http.Response, error)
 
 	/*
-	InventoryApiDescribeResourceInstanceSnapshotFromTime DescribeResourceInstanceSnapshotFromTime inventory-api
+		InventoryApiDescribeResourceInstanceSnapshotFromTime DescribeResourceInstanceSnapshotFromTime inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiDescribeResourceInstanceSnapshotFromTimeRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiDescribeResourceInstanceSnapshotFromTimeRequest
 	*/
 	InventoryApiDescribeResourceInstanceSnapshotFromTime(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiDescribeResourceInstanceSnapshotFromTimeRequest
 
@@ -392,11 +391,11 @@ type InventoryApiAPI interface {
 	InventoryApiDescribeResourceInstanceSnapshotFromTimeExecute(r ApiInventoryApiDescribeResourceInstanceSnapshotFromTimeRequest) (*FleetDescribeInstanceSnapshotFromTimeResult, *http.Response, error)
 
 	/*
-	InventoryApiDescribeServiceOffering DescribeServiceOffering inventory-api
+		InventoryApiDescribeServiceOffering DescribeServiceOffering inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID
-	@return ApiInventoryApiDescribeServiceOfferingRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID
+		@return ApiInventoryApiDescribeServiceOfferingRequest
 	*/
 	InventoryApiDescribeServiceOffering(ctx context.Context, serviceId string) ApiInventoryApiDescribeServiceOfferingRequest
 
@@ -405,13 +404,13 @@ type InventoryApiAPI interface {
 	InventoryApiDescribeServiceOfferingExecute(r ApiInventoryApiDescribeServiceOfferingRequest) (*InventoryDescribeServiceOfferingResult, *http.Response, error)
 
 	/*
-	InventoryApiDescribeServiceOfferingResource DescribeServiceOfferingResource inventory-api
+		InventoryApiDescribeServiceOfferingResource DescribeServiceOfferingResource inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID
-	@param resourceId The resource ID
-	@param instanceId The instance ID
-	@return ApiInventoryApiDescribeServiceOfferingResourceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID
+		@param resourceId The resource ID
+		@param instanceId The instance ID
+		@return ApiInventoryApiDescribeServiceOfferingResourceRequest
 	*/
 	InventoryApiDescribeServiceOfferingResource(ctx context.Context, serviceId string, resourceId string, instanceId string) ApiInventoryApiDescribeServiceOfferingResourceRequest
 
@@ -420,11 +419,11 @@ type InventoryApiAPI interface {
 	InventoryApiDescribeServiceOfferingResourceExecute(r ApiInventoryApiDescribeServiceOfferingResourceRequest) (*InventoryDescribeServiceOfferingResourceResult, *http.Response, error)
 
 	/*
-	InventoryApiDescribeServicesOrchestration DescribeServicesOrchestration inventory-api
+		InventoryApiDescribeServicesOrchestration DescribeServicesOrchestration inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id The ID of the services orchestration
-	@return ApiInventoryApiDescribeServicesOrchestrationRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id The ID of the services orchestration
+		@return ApiInventoryApiDescribeServicesOrchestrationRequest
 	*/
 	InventoryApiDescribeServicesOrchestration(ctx context.Context, id string) ApiInventoryApiDescribeServicesOrchestrationRequest
 
@@ -433,13 +432,13 @@ type InventoryApiAPI interface {
 	InventoryApiDescribeServicesOrchestrationExecute(r ApiInventoryApiDescribeServicesOrchestrationRequest) (*FleetDescribeServicesOrchestrationResult, *http.Response, error)
 
 	/*
-	InventoryApiDescribeSubscription DescribeSubscription inventory-api
+		InventoryApiDescribeSubscription DescribeSubscription inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param id The subscription ID
-	@return ApiInventoryApiDescribeSubscriptionRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param id The subscription ID
+		@return ApiInventoryApiDescribeSubscriptionRequest
 	*/
 	InventoryApiDescribeSubscription(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiDescribeSubscriptionRequest
 
@@ -448,13 +447,13 @@ type InventoryApiAPI interface {
 	InventoryApiDescribeSubscriptionExecute(r ApiInventoryApiDescribeSubscriptionRequest) (*FleetDescribeSubscriptionResult, *http.Response, error)
 
 	/*
-	InventoryApiDescribeSubscriptionRequest DescribeSubscriptionRequest inventory-api
+		InventoryApiDescribeSubscriptionRequest DescribeSubscriptionRequest inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param id The subscription ID
-	@return ApiInventoryApiDescribeSubscriptionRequestRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param id The subscription ID
+		@return ApiInventoryApiDescribeSubscriptionRequestRequest
 	*/
 	InventoryApiDescribeSubscriptionRequest(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiDescribeSubscriptionRequestRequest
 
@@ -463,13 +462,13 @@ type InventoryApiAPI interface {
 	InventoryApiDescribeSubscriptionRequestExecute(r ApiInventoryApiDescribeSubscriptionRequestRequest) (*DescribeSubscriptionRequestResult, *http.Response, error)
 
 	/*
-	InventoryApiDescribeUpgradePath DescribeUpgradePath inventory-api
+		InventoryApiDescribeUpgradePath DescribeUpgradePath inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param productTierId The product tier ID that this upgrade path belongs to
-	@param upgradePathId The upgrade path ID
-	@return ApiInventoryApiDescribeUpgradePathRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param productTierId The product tier ID that this upgrade path belongs to
+		@param upgradePathId The upgrade path ID
+		@return ApiInventoryApiDescribeUpgradePathRequest
 	*/
 	InventoryApiDescribeUpgradePath(ctx context.Context, serviceId string, productTierId string, upgradePathId string) ApiInventoryApiDescribeUpgradePathRequest
 
@@ -478,13 +477,13 @@ type InventoryApiAPI interface {
 	InventoryApiDescribeUpgradePathExecute(r ApiInventoryApiDescribeUpgradePathRequest) (*UpgradePath, *http.Response, error)
 
 	/*
-	InventoryApiDescribeUser DescribeUser inventory-api
+		InventoryApiDescribeUser DescribeUser inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param userId The user ID
-	@return ApiInventoryApiDescribeUserRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param userId The user ID
+		@return ApiInventoryApiDescribeUserRequest
 	*/
 	InventoryApiDescribeUser(ctx context.Context, serviceId string, environmentId string, userId string) ApiInventoryApiDescribeUserRequest
 
@@ -493,27 +492,13 @@ type InventoryApiAPI interface {
 	InventoryApiDescribeUserExecute(r ApiInventoryApiDescribeUserRequest) (*FleetDescribeUserResult, *http.Response, error)
 
 	/*
-	InventoryApiEnableResourceInstanceManualOverride EnableResourceInstanceManualOverride inventory-api
+		InventoryApiFailoverResourceInstance FailoverResourceInstance inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiEnableResourceInstanceManualOverrideRequest
-	*/
-	InventoryApiEnableResourceInstanceManualOverride(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiEnableResourceInstanceManualOverrideRequest
-
-	// InventoryApiEnableResourceInstanceManualOverrideExecute executes the request
-	InventoryApiEnableResourceInstanceManualOverrideExecute(r ApiInventoryApiEnableResourceInstanceManualOverrideRequest) (*http.Response, error)
-
-	/*
-	InventoryApiFailoverResourceInstance FailoverResourceInstance inventory-api
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiFailoverResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiFailoverResourceInstanceRequest
 	*/
 	InventoryApiFailoverResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiFailoverResourceInstanceRequest
 
@@ -521,13 +506,13 @@ type InventoryApiAPI interface {
 	InventoryApiFailoverResourceInstanceExecute(r ApiInventoryApiFailoverResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	InventoryApiGenerateTokenForHostClusterDashboard GenerateTokenForHostClusterDashboard inventory-api
+		InventoryApiGenerateTokenForHostClusterDashboard GenerateTokenForHostClusterDashboard inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param id The host cluster ID
-	@return ApiInventoryApiGenerateTokenForHostClusterDashboardRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param id The host cluster ID
+		@return ApiInventoryApiGenerateTokenForHostClusterDashboardRequest
 	*/
 	InventoryApiGenerateTokenForHostClusterDashboard(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiGenerateTokenForHostClusterDashboardRequest
 
@@ -536,12 +521,12 @@ type InventoryApiAPI interface {
 	InventoryApiGenerateTokenForHostClusterDashboardExecute(r ApiInventoryApiGenerateTokenForHostClusterDashboardRequest) (*FleetGenerateTokenForHostClusterDashboardResult, *http.Response, error)
 
 	/*
-	InventoryApiListActiveOrganizations ListActiveOrganizations inventory-api
+		InventoryApiListActiveOrganizations ListActiveOrganizations inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@return ApiInventoryApiListActiveOrganizationsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@return ApiInventoryApiListActiveOrganizationsRequest
 	*/
 	InventoryApiListActiveOrganizations(ctx context.Context, serviceId string, environmentId string) ApiInventoryApiListActiveOrganizationsRequest
 
@@ -550,10 +535,10 @@ type InventoryApiAPI interface {
 	InventoryApiListActiveOrganizationsExecute(r ApiInventoryApiListActiveOrganizationsRequest) (*ListOrganizationsResult, *http.Response, error)
 
 	/*
-	InventoryApiListAllUsers ListAllUsers inventory-api
+		InventoryApiListAllUsers ListAllUsers inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiInventoryApiListAllUsersRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiInventoryApiListAllUsersRequest
 	*/
 	InventoryApiListAllUsers(ctx context.Context) ApiInventoryApiListAllUsersRequest
 
@@ -562,13 +547,13 @@ type InventoryApiAPI interface {
 	InventoryApiListAllUsersExecute(r ApiInventoryApiListAllUsersRequest) (*FleetListAllUsersResult, *http.Response, error)
 
 	/*
-	InventoryApiListDependentComponents ListDependentComponents inventory-api
+		InventoryApiListDependentComponents ListDependentComponents inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiListDependentComponentsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiListDependentComponentsRequest
 	*/
 	InventoryApiListDependentComponents(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiListDependentComponentsRequest
 
@@ -577,13 +562,13 @@ type InventoryApiAPI interface {
 	InventoryApiListDependentComponentsExecute(r ApiInventoryApiListDependentComponentsRequest) (*FleetListDependentComponentsResult, *http.Response, error)
 
 	/*
-	InventoryApiListEligibleInstancesPerUpgrade ListEligibleInstancesPerUpgrade inventory-api
+		InventoryApiListEligibleInstancesPerUpgrade ListEligibleInstancesPerUpgrade inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param productTierId The product tier ID that this upgrade path belongs to
-	@param upgradePathId The upgrade path ID
-	@return ApiInventoryApiListEligibleInstancesPerUpgradeRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param productTierId The product tier ID that this upgrade path belongs to
+		@param upgradePathId The upgrade path ID
+		@return ApiInventoryApiListEligibleInstancesPerUpgradeRequest
 	*/
 	InventoryApiListEligibleInstancesPerUpgrade(ctx context.Context, serviceId string, productTierId string, upgradePathId string) ApiInventoryApiListEligibleInstancesPerUpgradeRequest
 
@@ -592,12 +577,12 @@ type InventoryApiAPI interface {
 	InventoryApiListEligibleInstancesPerUpgradeExecute(r ApiInventoryApiListEligibleInstancesPerUpgradeRequest) (*ListEligibleInstancesPerUpgradeResult, *http.Response, error)
 
 	/*
-	InventoryApiListHostClusters ListHostClusters inventory-api
+		InventoryApiListHostClusters ListHostClusters inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@return ApiInventoryApiListHostClustersRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@return ApiInventoryApiListHostClustersRequest
 	*/
 	InventoryApiListHostClusters(ctx context.Context, serviceId string, environmentId string) ApiInventoryApiListHostClustersRequest
 
@@ -606,13 +591,13 @@ type InventoryApiAPI interface {
 	InventoryApiListHostClustersExecute(r ApiInventoryApiListHostClustersRequest) (*FleetListHostClustersResult, *http.Response, error)
 
 	/*
-	InventoryApiListInstanceEvents ListInstanceEvents inventory-api
+		InventoryApiListInstanceEvents ListInstanceEvents inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiListInstanceEventsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiListInstanceEventsRequest
 	*/
 	InventoryApiListInstanceEvents(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiListInstanceEventsRequest
 
@@ -621,13 +606,13 @@ type InventoryApiAPI interface {
 	InventoryApiListInstanceEventsExecute(r ApiInventoryApiListInstanceEventsRequest) (*FleetListEventsResult, *http.Response, error)
 
 	/*
-	InventoryApiListLinkedInstances ListLinkedInstances inventory-api
+		InventoryApiListLinkedInstances ListLinkedInstances inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiListLinkedInstancesRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiListLinkedInstancesRequest
 	*/
 	InventoryApiListLinkedInstances(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiListLinkedInstancesRequest
 
@@ -636,13 +621,13 @@ type InventoryApiAPI interface {
 	InventoryApiListLinkedInstancesExecute(r ApiInventoryApiListLinkedInstancesRequest) (*FleetListLinkedInstancesResult, *http.Response, error)
 
 	/*
-	InventoryApiListResourceInstanceSnapshots ListResourceInstanceSnapshots inventory-api
+		InventoryApiListResourceInstanceSnapshots ListResourceInstanceSnapshots inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiListResourceInstanceSnapshotsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiListResourceInstanceSnapshotsRequest
 	*/
 	InventoryApiListResourceInstanceSnapshots(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiListResourceInstanceSnapshotsRequest
 
@@ -651,12 +636,12 @@ type InventoryApiAPI interface {
 	InventoryApiListResourceInstanceSnapshotsExecute(r ApiInventoryApiListResourceInstanceSnapshotsRequest) (*FleetListInstanceSnapshotResult, *http.Response, error)
 
 	/*
-	InventoryApiListResourceInstances ListResourceInstances inventory-api
+		InventoryApiListResourceInstances ListResourceInstances inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@return ApiInventoryApiListResourceInstancesRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@return ApiInventoryApiListResourceInstancesRequest
 	*/
 	InventoryApiListResourceInstances(ctx context.Context, serviceId string, environmentId string) ApiInventoryApiListResourceInstancesRequest
 
@@ -665,14 +650,14 @@ type InventoryApiAPI interface {
 	InventoryApiListResourceInstancesExecute(r ApiInventoryApiListResourceInstancesRequest) (*ListFleetResourceInstancesResultInternal, *http.Response, error)
 
 	/*
-	InventoryApiListResources ListResources inventory-api
+		InventoryApiListResources ListResources inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param serviceModelId The service model ID.
-	@param productTierId The product tier ID.
-	@return ApiInventoryApiListResourcesRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param serviceModelId The service model ID.
+		@param productTierId The product tier ID.
+		@return ApiInventoryApiListResourcesRequest
 	*/
 	InventoryApiListResources(ctx context.Context, serviceId string, environmentId string, serviceModelId string, productTierId string) ApiInventoryApiListResourcesRequest
 
@@ -681,10 +666,10 @@ type InventoryApiAPI interface {
 	InventoryApiListResourcesExecute(r ApiInventoryApiListResourcesRequest) (*ListResourcesResult, *http.Response, error)
 
 	/*
-	InventoryApiListServiceOfferings ListServiceOfferings inventory-api
+		InventoryApiListServiceOfferings ListServiceOfferings inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiInventoryApiListServiceOfferingsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiInventoryApiListServiceOfferingsRequest
 	*/
 	InventoryApiListServiceOfferings(ctx context.Context) ApiInventoryApiListServiceOfferingsRequest
 
@@ -693,10 +678,10 @@ type InventoryApiAPI interface {
 	InventoryApiListServiceOfferingsExecute(r ApiInventoryApiListServiceOfferingsRequest) (*InventoryListServiceOfferingsResult, *http.Response, error)
 
 	/*
-	InventoryApiListServicesOrchestrations ListServicesOrchestrations inventory-api
+		InventoryApiListServicesOrchestrations ListServicesOrchestrations inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiInventoryApiListServicesOrchestrationsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiInventoryApiListServicesOrchestrationsRequest
 	*/
 	InventoryApiListServicesOrchestrations(ctx context.Context) ApiInventoryApiListServicesOrchestrationsRequest
 
@@ -705,12 +690,12 @@ type InventoryApiAPI interface {
 	InventoryApiListServicesOrchestrationsExecute(r ApiInventoryApiListServicesOrchestrationsRequest) ([]FleetDescribeServicesOrchestrationResult, *http.Response, error)
 
 	/*
-	InventoryApiListSubscription ListSubscription inventory-api
+		InventoryApiListSubscription ListSubscription inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@return ApiInventoryApiListSubscriptionRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@return ApiInventoryApiListSubscriptionRequest
 	*/
 	InventoryApiListSubscription(ctx context.Context, serviceId string, environmentId string) ApiInventoryApiListSubscriptionRequest
 
@@ -719,12 +704,12 @@ type InventoryApiAPI interface {
 	InventoryApiListSubscriptionExecute(r ApiInventoryApiListSubscriptionRequest) (*FleetListSubscriptionsResult, *http.Response, error)
 
 	/*
-	InventoryApiListSubscriptionRequests ListSubscriptionRequests inventory-api
+		InventoryApiListSubscriptionRequests ListSubscriptionRequests inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@return ApiInventoryApiListSubscriptionRequestsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@return ApiInventoryApiListSubscriptionRequestsRequest
 	*/
 	InventoryApiListSubscriptionRequests(ctx context.Context, serviceId string, environmentId string) ApiInventoryApiListSubscriptionRequestsRequest
 
@@ -733,12 +718,12 @@ type InventoryApiAPI interface {
 	InventoryApiListSubscriptionRequestsExecute(r ApiInventoryApiListSubscriptionRequestsRequest) (*ListSubscriptionRequestsResult, *http.Response, error)
 
 	/*
-	InventoryApiListUpgradePaths ListUpgradePaths inventory-api
+		InventoryApiListUpgradePaths ListUpgradePaths inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param productTierId The product tier ID that this upgrade path belongs to
-	@return ApiInventoryApiListUpgradePathsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param productTierId The product tier ID that this upgrade path belongs to
+		@return ApiInventoryApiListUpgradePathsRequest
 	*/
 	InventoryApiListUpgradePaths(ctx context.Context, serviceId string, productTierId string) ApiInventoryApiListUpgradePathsRequest
 
@@ -747,12 +732,12 @@ type InventoryApiAPI interface {
 	InventoryApiListUpgradePathsExecute(r ApiInventoryApiListUpgradePathsRequest) (*ListUpgradePathsResult, *http.Response, error)
 
 	/*
-	InventoryApiListUsers ListUsers inventory-api
+		InventoryApiListUsers ListUsers inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@return ApiInventoryApiListUsersRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@return ApiInventoryApiListUsersRequest
 	*/
 	InventoryApiListUsers(ctx context.Context, serviceId string, environmentId string) ApiInventoryApiListUsersRequest
 
@@ -761,13 +746,13 @@ type InventoryApiAPI interface {
 	InventoryApiListUsersExecute(r ApiInventoryApiListUsersRequest) (*FleetListUsersResult, *http.Response, error)
 
 	/*
-	InventoryApiManageUpgradePath ManageUpgradePath inventory-api
+		InventoryApiManageUpgradePath ManageUpgradePath inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param productTierId The product tier ID that this upgrade path belongs to
-	@param upgradePathId The upgrade path ID
-	@return ApiInventoryApiManageUpgradePathRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param productTierId The product tier ID that this upgrade path belongs to
+		@param upgradePathId The upgrade path ID
+		@return ApiInventoryApiManageUpgradePathRequest
 	*/
 	InventoryApiManageUpgradePath(ctx context.Context, serviceId string, productTierId string, upgradePathId string) ApiInventoryApiManageUpgradePathRequest
 
@@ -776,11 +761,11 @@ type InventoryApiAPI interface {
 	InventoryApiManageUpgradePathExecute(r ApiInventoryApiManageUpgradePathRequest) (*UpgradePath, *http.Response, error)
 
 	/*
-	InventoryApiModifyServicesOrchestration ModifyServicesOrchestration inventory-api
+		InventoryApiModifyServicesOrchestration ModifyServicesOrchestration inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id The ID of the services orchestration
-	@return ApiInventoryApiModifyServicesOrchestrationRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id The ID of the services orchestration
+		@return ApiInventoryApiModifyServicesOrchestrationRequest
 	*/
 	InventoryApiModifyServicesOrchestration(ctx context.Context, id string) ApiInventoryApiModifyServicesOrchestrationRequest
 
@@ -788,13 +773,13 @@ type InventoryApiAPI interface {
 	InventoryApiModifyServicesOrchestrationExecute(r ApiInventoryApiModifyServicesOrchestrationRequest) (*http.Response, error)
 
 	/*
-	InventoryApiRemoveCapacityFromResourceInstance RemoveCapacityFromResourceInstance inventory-api
+		InventoryApiRemoveCapacityFromResourceInstance RemoveCapacityFromResourceInstance inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiRemoveCapacityFromResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiRemoveCapacityFromResourceInstanceRequest
 	*/
 	InventoryApiRemoveCapacityFromResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiRemoveCapacityFromResourceInstanceRequest
 
@@ -802,14 +787,14 @@ type InventoryApiAPI interface {
 	InventoryApiRemoveCapacityFromResourceInstanceExecute(r ApiInventoryApiRemoveCapacityFromResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	InventoryApiRemoveCustomDNSFromResourceInstance RemoveCustomDNSFromResourceInstance inventory-api
+		InventoryApiRemoveCustomDNSFromResourceInstance RemoveCustomDNSFromResourceInstance inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param resourceKey The resource key
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiRemoveCustomDNSFromResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param resourceKey The resource key
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiRemoveCustomDNSFromResourceInstanceRequest
 	*/
 	InventoryApiRemoveCustomDNSFromResourceInstance(ctx context.Context, serviceId string, environmentId string, resourceKey string, instanceId string) ApiInventoryApiRemoveCustomDNSFromResourceInstanceRequest
 
@@ -817,13 +802,13 @@ type InventoryApiAPI interface {
 	InventoryApiRemoveCustomDNSFromResourceInstanceExecute(r ApiInventoryApiRemoveCustomDNSFromResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	InventoryApiRestartResourceInstance RestartResourceInstance inventory-api
+		InventoryApiRestartResourceInstance RestartResourceInstance inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiRestartResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiRestartResourceInstanceRequest
 	*/
 	InventoryApiRestartResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiRestartResourceInstanceRequest
 
@@ -831,13 +816,13 @@ type InventoryApiAPI interface {
 	InventoryApiRestartResourceInstanceExecute(r ApiInventoryApiRestartResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	InventoryApiRestoreResourceInstance RestoreResourceInstance inventory-api
+		InventoryApiRestoreResourceInstance RestoreResourceInstance inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiRestoreResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiRestoreResourceInstanceRequest
 	*/
 	InventoryApiRestoreResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiRestoreResourceInstanceRequest
 
@@ -846,13 +831,13 @@ type InventoryApiAPI interface {
 	InventoryApiRestoreResourceInstanceExecute(r ApiInventoryApiRestoreResourceInstanceRequest) (*CreateResourceInstanceResponseBody, *http.Response, error)
 
 	/*
-	InventoryApiRestoreResourceInstanceFromSnapshot RestoreResourceInstanceFromSnapshot inventory-api
+		InventoryApiRestoreResourceInstanceFromSnapshot RestoreResourceInstanceFromSnapshot inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param snapshotId The snapshot ID
-	@return ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param snapshotId The snapshot ID
+		@return ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest
 	*/
 	InventoryApiRestoreResourceInstanceFromSnapshot(ctx context.Context, serviceId string, environmentId string, snapshotId string) ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest
 
@@ -861,13 +846,13 @@ type InventoryApiAPI interface {
 	InventoryApiRestoreResourceInstanceFromSnapshotExecute(r ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest) (*CreateResourceInstanceResponseBody, *http.Response, error)
 
 	/*
-	InventoryApiResumeSubscription ResumeSubscription inventory-api
+		InventoryApiResumeSubscription ResumeSubscription inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param id The subscription ID
-	@return ApiInventoryApiResumeSubscriptionRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param id The subscription ID
+		@return ApiInventoryApiResumeSubscriptionRequest
 	*/
 	InventoryApiResumeSubscription(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiResumeSubscriptionRequest
 
@@ -875,10 +860,10 @@ type InventoryApiAPI interface {
 	InventoryApiResumeSubscriptionExecute(r ApiInventoryApiResumeSubscriptionRequest) (*http.Response, error)
 
 	/*
-	InventoryApiSearchInventory SearchInventory inventory-api
+		InventoryApiSearchInventory SearchInventory inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiInventoryApiSearchInventoryRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiInventoryApiSearchInventoryRequest
 	*/
 	InventoryApiSearchInventory(ctx context.Context) ApiInventoryApiSearchInventoryRequest
 
@@ -887,12 +872,12 @@ type InventoryApiAPI interface {
 	InventoryApiSearchInventoryExecute(r ApiInventoryApiSearchInventoryRequest) (*SearchInventoryResult, *http.Response, error)
 
 	/*
-	InventoryApiSearchServiceInventory SearchServiceInventory inventory-api
+		InventoryApiSearchServiceInventory SearchServiceInventory inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@return ApiInventoryApiSearchServiceInventoryRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@return ApiInventoryApiSearchServiceInventoryRequest
 	*/
 	InventoryApiSearchServiceInventory(ctx context.Context, serviceId string, environmentId string) ApiInventoryApiSearchServiceInventoryRequest
 
@@ -901,13 +886,13 @@ type InventoryApiAPI interface {
 	InventoryApiSearchServiceInventoryExecute(r ApiInventoryApiSearchServiceInventoryRequest) (*SearchServiceInventoryResult, *http.Response, error)
 
 	/*
-	InventoryApiStartResourceInstance StartResourceInstance inventory-api
+		InventoryApiStartResourceInstance StartResourceInstance inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiStartResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiStartResourceInstanceRequest
 	*/
 	InventoryApiStartResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiStartResourceInstanceRequest
 
@@ -915,13 +900,13 @@ type InventoryApiAPI interface {
 	InventoryApiStartResourceInstanceExecute(r ApiInventoryApiStartResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	InventoryApiStopResourceInstance StopResourceInstance inventory-api
+		InventoryApiStopResourceInstance StopResourceInstance inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiStopResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiStopResourceInstanceRequest
 	*/
 	InventoryApiStopResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiStopResourceInstanceRequest
 
@@ -929,13 +914,13 @@ type InventoryApiAPI interface {
 	InventoryApiStopResourceInstanceExecute(r ApiInventoryApiStopResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	InventoryApiSuspendSubscription SuspendSubscription inventory-api
+		InventoryApiSuspendSubscription SuspendSubscription inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param id The subscription ID
-	@return ApiInventoryApiSuspendSubscriptionRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param id The subscription ID
+		@return ApiInventoryApiSuspendSubscriptionRequest
 	*/
 	InventoryApiSuspendSubscription(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiSuspendSubscriptionRequest
 
@@ -943,11 +928,11 @@ type InventoryApiAPI interface {
 	InventoryApiSuspendSubscriptionExecute(r ApiInventoryApiSuspendSubscriptionRequest) (*http.Response, error)
 
 	/*
-	InventoryApiSuspendUser SuspendUser inventory-api
+		InventoryApiSuspendUser SuspendUser inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The user ID
-	@return ApiInventoryApiSuspendUserRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The user ID
+		@return ApiInventoryApiSuspendUserRequest
 	*/
 	InventoryApiSuspendUser(ctx context.Context, userId string) ApiInventoryApiSuspendUserRequest
 
@@ -955,13 +940,13 @@ type InventoryApiAPI interface {
 	InventoryApiSuspendUserExecute(r ApiInventoryApiSuspendUserRequest) (*http.Response, error)
 
 	/*
-	InventoryApiTerminateSubscription TerminateSubscription inventory-api
+		InventoryApiTerminateSubscription TerminateSubscription inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param id The subscription ID
-	@return ApiInventoryApiTerminateSubscriptionRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param id The subscription ID
+		@return ApiInventoryApiTerminateSubscriptionRequest
 	*/
 	InventoryApiTerminateSubscription(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiTerminateSubscriptionRequest
 
@@ -969,11 +954,11 @@ type InventoryApiAPI interface {
 	InventoryApiTerminateSubscriptionExecute(r ApiInventoryApiTerminateSubscriptionRequest) (*http.Response, error)
 
 	/*
-	InventoryApiUnsuspendUser UnsuspendUser inventory-api
+		InventoryApiUnsuspendUser UnsuspendUser inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param userId The user ID
-	@return ApiInventoryApiUnsuspendUserRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userId The user ID
+		@return ApiInventoryApiUnsuspendUserRequest
 	*/
 	InventoryApiUnsuspendUser(ctx context.Context, userId string) ApiInventoryApiUnsuspendUserRequest
 
@@ -981,29 +966,56 @@ type InventoryApiAPI interface {
 	InventoryApiUnsuspendUserExecute(r ApiInventoryApiUnsuspendUserRequest) (*http.Response, error)
 
 	/*
-	InventoryApiUpdateResourceInstance UpdateResourceInstance inventory-api
+		InventoryApiUpdateAccountConfigResourceInstance UpdateAccountConfigResourceInstance inventory-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiUpdateResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiUpdateAccountConfigResourceInstanceRequest
+	*/
+	InventoryApiUpdateAccountConfigResourceInstance(ctx context.Context, serviceId string, instanceId string) ApiInventoryApiUpdateAccountConfigResourceInstanceRequest
+
+	// InventoryApiUpdateAccountConfigResourceInstanceExecute executes the request
+	InventoryApiUpdateAccountConfigResourceInstanceExecute(r ApiInventoryApiUpdateAccountConfigResourceInstanceRequest) (*http.Response, error)
+
+	/*
+		InventoryApiUpdateResourceInstance UpdateResourceInstance inventory-api
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiUpdateResourceInstanceRequest
 	*/
 	InventoryApiUpdateResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiUpdateResourceInstanceRequest
 
 	// InventoryApiUpdateResourceInstanceExecute executes the request
 	InventoryApiUpdateResourceInstanceExecute(r ApiInventoryApiUpdateResourceInstanceRequest) (*http.Response, error)
+
+	/*
+		InventoryApiUpdateResourceInstanceDebugMode UpdateResourceInstanceDebugMode inventory-api
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceId The service ID this workflow belongs to.
+		@param environmentId The service environment ID this workflow belongs to.
+		@param instanceId The resource instance ID.
+		@return ApiInventoryApiUpdateResourceInstanceDebugModeRequest
+	*/
+	InventoryApiUpdateResourceInstanceDebugMode(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiUpdateResourceInstanceDebugModeRequest
+
+	// InventoryApiUpdateResourceInstanceDebugModeExecute executes the request
+	InventoryApiUpdateResourceInstanceDebugModeExecute(r ApiInventoryApiUpdateResourceInstanceDebugModeRequest) (*http.Response, error)
 }
 
 // InventoryApiAPIService InventoryApiAPI service
 type InventoryApiAPIService service
 
 type ApiInventoryApiAddCapacityToResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
-	instanceId string
+	ctx                                        context.Context
+	ApiService                                 InventoryApiAPI
+	serviceId                                  string
+	environmentId                              string
+	instanceId                                 string
 	fleetAddCapacityToResourceInstanceRequest2 *FleetAddCapacityToResourceInstanceRequest2
 }
 
@@ -1019,28 +1031,28 @@ func (r ApiInventoryApiAddCapacityToResourceInstanceRequest) Execute() (*http.Re
 /*
 InventoryApiAddCapacityToResourceInstance AddCapacityToResourceInstance inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @return ApiInventoryApiAddCapacityToResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiAddCapacityToResourceInstanceRequest
 */
 func (a *InventoryApiAPIService) InventoryApiAddCapacityToResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiAddCapacityToResourceInstanceRequest {
 	return ApiInventoryApiAddCapacityToResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
+		instanceId:    instanceId,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiAddCapacityToResourceInstanceExecute(r ApiInventoryApiAddCapacityToResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiAddCapacityToResourceInstance")
@@ -1108,8 +1120,8 @@ func (a *InventoryApiAPIService) InventoryApiAddCapacityToResourceInstanceExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1119,8 +1131,8 @@ func (a *InventoryApiAPIService) InventoryApiAddCapacityToResourceInstanceExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1130,8 +1142,8 @@ func (a *InventoryApiAPIService) InventoryApiAddCapacityToResourceInstanceExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1141,8 +1153,8 @@ func (a *InventoryApiAPIService) InventoryApiAddCapacityToResourceInstanceExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1152,8 +1164,8 @@ func (a *InventoryApiAPIService) InventoryApiAddCapacityToResourceInstanceExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1163,8 +1175,8 @@ func (a *InventoryApiAPIService) InventoryApiAddCapacityToResourceInstanceExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1173,12 +1185,12 @@ func (a *InventoryApiAPIService) InventoryApiAddCapacityToResourceInstanceExecut
 }
 
 type ApiInventoryApiAddCustomDNSToResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
-	resourceKey string
-	instanceId string
+	ctx                                         context.Context
+	ApiService                                  InventoryApiAPI
+	serviceId                                   string
+	environmentId                               string
+	resourceKey                                 string
+	instanceId                                  string
 	fleetAddCustomDNSToResourceInstanceRequest2 *FleetAddCustomDNSToResourceInstanceRequest2
 }
 
@@ -1194,30 +1206,30 @@ func (r ApiInventoryApiAddCustomDNSToResourceInstanceRequest) Execute() (*http.R
 /*
 InventoryApiAddCustomDNSToResourceInstance AddCustomDNSToResourceInstance inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param resourceKey The resource key
- @param instanceId The resource instance ID.
- @return ApiInventoryApiAddCustomDNSToResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param resourceKey The resource key
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiAddCustomDNSToResourceInstanceRequest
 */
 func (a *InventoryApiAPIService) InventoryApiAddCustomDNSToResourceInstance(ctx context.Context, serviceId string, environmentId string, resourceKey string, instanceId string) ApiInventoryApiAddCustomDNSToResourceInstanceRequest {
 	return ApiInventoryApiAddCustomDNSToResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		resourceKey: resourceKey,
-		instanceId: instanceId,
+		resourceKey:   resourceKey,
+		instanceId:    instanceId,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiAddCustomDNSToResourceInstanceExecute(r ApiInventoryApiAddCustomDNSToResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiAddCustomDNSToResourceInstance")
@@ -1286,8 +1298,8 @@ func (a *InventoryApiAPIService) InventoryApiAddCustomDNSToResourceInstanceExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1297,8 +1309,8 @@ func (a *InventoryApiAPIService) InventoryApiAddCustomDNSToResourceInstanceExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1308,8 +1320,8 @@ func (a *InventoryApiAPIService) InventoryApiAddCustomDNSToResourceInstanceExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1319,8 +1331,8 @@ func (a *InventoryApiAPIService) InventoryApiAddCustomDNSToResourceInstanceExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1330,8 +1342,8 @@ func (a *InventoryApiAPIService) InventoryApiAddCustomDNSToResourceInstanceExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1341,8 +1353,8 @@ func (a *InventoryApiAPIService) InventoryApiAddCustomDNSToResourceInstanceExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1351,11 +1363,11 @@ func (a *InventoryApiAPIService) InventoryApiAddCustomDNSToResourceInstanceExecu
 }
 
 type ApiInventoryApiApproveSubscriptionRequestRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	id string
+	id            string
 }
 
 func (r ApiInventoryApiApproveSubscriptionRequestRequest) Execute() (*http.Response, error) {
@@ -1365,28 +1377,28 @@ func (r ApiInventoryApiApproveSubscriptionRequestRequest) Execute() (*http.Respo
 /*
 InventoryApiApproveSubscriptionRequest ApproveSubscriptionRequest inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param id The subscription ID
- @return ApiInventoryApiApproveSubscriptionRequestRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param id The subscription ID
+	@return ApiInventoryApiApproveSubscriptionRequestRequest
 */
 func (a *InventoryApiAPIService) InventoryApiApproveSubscriptionRequest(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiApproveSubscriptionRequestRequest {
 	return ApiInventoryApiApproveSubscriptionRequestRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		id: id,
+		id:            id,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiApproveSubscriptionRequestExecute(r ApiInventoryApiApproveSubscriptionRequestRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiApproveSubscriptionRequest")
@@ -1449,8 +1461,8 @@ func (a *InventoryApiAPIService) InventoryApiApproveSubscriptionRequestExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1460,8 +1472,8 @@ func (a *InventoryApiAPIService) InventoryApiApproveSubscriptionRequestExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1471,8 +1483,8 @@ func (a *InventoryApiAPIService) InventoryApiApproveSubscriptionRequestExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1482,8 +1494,8 @@ func (a *InventoryApiAPIService) InventoryApiApproveSubscriptionRequestExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1493,8 +1505,8 @@ func (a *InventoryApiAPIService) InventoryApiApproveSubscriptionRequestExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1504,8 +1516,8 @@ func (a *InventoryApiAPIService) InventoryApiApproveSubscriptionRequestExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1514,9 +1526,9 @@ func (a *InventoryApiAPIService) InventoryApiApproveSubscriptionRequestExecute(r
 }
 
 type ApiInventoryApiCancelUpgradePathRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	productTierId string
 	upgradePathId string
 }
@@ -1528,30 +1540,31 @@ func (r ApiInventoryApiCancelUpgradePathRequest) Execute() (*UpgradePath, *http.
 /*
 InventoryApiCancelUpgradePath CancelUpgradePath inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param productTierId The product tier ID that this upgrade path belongs to
- @param upgradePathId The upgrade path ID
- @return ApiInventoryApiCancelUpgradePathRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param productTierId The product tier ID that this upgrade path belongs to
+	@param upgradePathId The upgrade path ID
+	@return ApiInventoryApiCancelUpgradePathRequest
 */
 func (a *InventoryApiAPIService) InventoryApiCancelUpgradePath(ctx context.Context, serviceId string, productTierId string, upgradePathId string) ApiInventoryApiCancelUpgradePathRequest {
 	return ApiInventoryApiCancelUpgradePathRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		productTierId: productTierId,
 		upgradePathId: upgradePathId,
 	}
 }
 
 // Execute executes the request
-//  @return UpgradePath
+//
+//	@return UpgradePath
 func (a *InventoryApiAPIService) InventoryApiCancelUpgradePathExecute(r ApiInventoryApiCancelUpgradePathRequest) (*UpgradePath, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpgradePath
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpgradePath
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiCancelUpgradePath")
@@ -1614,8 +1627,8 @@ func (a *InventoryApiAPIService) InventoryApiCancelUpgradePathExecute(r ApiInven
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1625,8 +1638,8 @@ func (a *InventoryApiAPIService) InventoryApiCancelUpgradePathExecute(r ApiInven
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1636,8 +1649,8 @@ func (a *InventoryApiAPIService) InventoryApiCancelUpgradePathExecute(r ApiInven
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1647,8 +1660,8 @@ func (a *InventoryApiAPIService) InventoryApiCancelUpgradePathExecute(r ApiInven
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1658,8 +1671,8 @@ func (a *InventoryApiAPIService) InventoryApiCancelUpgradePathExecute(r ApiInven
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1669,8 +1682,8 @@ func (a *InventoryApiAPIService) InventoryApiCancelUpgradePathExecute(r ApiInven
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1688,8 +1701,8 @@ func (a *InventoryApiAPIService) InventoryApiCancelUpgradePathExecute(r ApiInven
 }
 
 type ApiInventoryApiCreateConsumptionUserRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
+	ctx                                context.Context
+	ApiService                         InventoryApiAPI
 	fleetCreateConsumptionUserRequest2 *FleetCreateConsumptionUserRequest2
 }
 
@@ -1705,24 +1718,25 @@ func (r ApiInventoryApiCreateConsumptionUserRequest) Execute() (string, *http.Re
 /*
 InventoryApiCreateConsumptionUser CreateConsumptionUser inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiInventoryApiCreateConsumptionUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiInventoryApiCreateConsumptionUserRequest
 */
 func (a *InventoryApiAPIService) InventoryApiCreateConsumptionUser(ctx context.Context) ApiInventoryApiCreateConsumptionUserRequest {
 	return ApiInventoryApiCreateConsumptionUserRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return string
+//
+//	@return string
 func (a *InventoryApiAPIService) InventoryApiCreateConsumptionUserExecute(r ApiInventoryApiCreateConsumptionUserRequest) (string, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  string
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiCreateConsumptionUser")
@@ -1787,8 +1801,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateConsumptionUserExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1798,8 +1812,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateConsumptionUserExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1809,8 +1823,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateConsumptionUserExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1820,8 +1834,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateConsumptionUserExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1831,8 +1845,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateConsumptionUserExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1842,8 +1856,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateConsumptionUserExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1861,15 +1875,15 @@ func (a *InventoryApiAPIService) InventoryApiCreateConsumptionUserExecute(r ApiI
 }
 
 type ApiInventoryApiCreateProxyResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
-	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
-	sourceResourceKey string
+	ctx                                 context.Context
+	ApiService                          InventoryApiAPI
+	serviceProviderId                   string
+	serviceKey                          string
+	serviceAPIVersion                   string
+	serviceEnvironmentKey               string
+	serviceModelKey                     string
+	productTierKey                      string
+	sourceResourceKey                   string
 	createProxyResourceInstanceRequest2 *CreateProxyResourceInstanceRequest2
 }
 
@@ -1885,38 +1899,39 @@ func (r ApiInventoryApiCreateProxyResourceInstanceRequest) Execute() (*CreateRes
 /*
 InventoryApiCreateProxyResourceInstance CreateProxyResourceInstance inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @param sourceResourceKey The serverless resource key
- @return ApiInventoryApiCreateProxyResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param sourceResourceKey The serverless resource key
+	@return ApiInventoryApiCreateProxyResourceInstanceRequest
 */
 func (a *InventoryApiAPIService) InventoryApiCreateProxyResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, sourceResourceKey string) ApiInventoryApiCreateProxyResourceInstanceRequest {
 	return ApiInventoryApiCreateProxyResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
-		sourceResourceKey: sourceResourceKey,
+		serviceModelKey:       serviceModelKey,
+		productTierKey:        productTierKey,
+		sourceResourceKey:     sourceResourceKey,
 	}
 }
 
 // Execute executes the request
-//  @return CreateResourceInstanceResponseBody
+//
+//	@return CreateResourceInstanceResponseBody
 func (a *InventoryApiAPIService) InventoryApiCreateProxyResourceInstanceExecute(r ApiInventoryApiCreateProxyResourceInstanceRequest) (*CreateResourceInstanceResponseBody, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CreateResourceInstanceResponseBody
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CreateResourceInstanceResponseBody
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiCreateProxyResourceInstance")
@@ -1988,8 +2003,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateProxyResourceInstanceExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1999,8 +2014,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateProxyResourceInstanceExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2010,8 +2025,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateProxyResourceInstanceExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2021,8 +2036,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateProxyResourceInstanceExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2032,8 +2047,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateProxyResourceInstanceExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2043,8 +2058,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateProxyResourceInstanceExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2062,15 +2077,15 @@ func (a *InventoryApiAPIService) InventoryApiCreateProxyResourceInstanceExecute(
 }
 
 type ApiInventoryApiCreateResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
-	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
-	resourceKey string
+	ctx                                 context.Context
+	ApiService                          InventoryApiAPI
+	serviceProviderId                   string
+	serviceKey                          string
+	serviceAPIVersion                   string
+	serviceEnvironmentKey               string
+	serviceModelKey                     string
+	productTierKey                      string
+	resourceKey                         string
 	fleetCreateResourceInstanceRequest2 *FleetCreateResourceInstanceRequest2
 }
 
@@ -2086,38 +2101,39 @@ func (r ApiInventoryApiCreateResourceInstanceRequest) Execute() (*CreateResource
 /*
 InventoryApiCreateResourceInstance CreateResourceInstance inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @param resourceKey The resource key
- @return ApiInventoryApiCreateResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@return ApiInventoryApiCreateResourceInstanceRequest
 */
 func (a *InventoryApiAPIService) InventoryApiCreateResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string) ApiInventoryApiCreateResourceInstanceRequest {
 	return ApiInventoryApiCreateResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
-		resourceKey: resourceKey,
+		serviceModelKey:       serviceModelKey,
+		productTierKey:        productTierKey,
+		resourceKey:           resourceKey,
 	}
 }
 
 // Execute executes the request
-//  @return CreateResourceInstanceResponseBody
+//
+//	@return CreateResourceInstanceResponseBody
 func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceExecute(r ApiInventoryApiCreateResourceInstanceRequest) (*CreateResourceInstanceResponseBody, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CreateResourceInstanceResponseBody
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CreateResourceInstanceResponseBody
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiCreateResourceInstance")
@@ -2189,8 +2205,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2200,8 +2216,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2211,8 +2227,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2222,8 +2238,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2233,8 +2249,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2244,8 +2260,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2263,11 +2279,11 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceExecute(r Api
 }
 
 type ApiInventoryApiCreateResourceInstanceSnapshotRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	instanceId string
+	instanceId    string
 }
 
 func (r ApiInventoryApiCreateResourceInstanceSnapshotRequest) Execute() (*FleetCreateInstanceSnapshotResult, *http.Response, error) {
@@ -2277,30 +2293,31 @@ func (r ApiInventoryApiCreateResourceInstanceSnapshotRequest) Execute() (*FleetC
 /*
 InventoryApiCreateResourceInstanceSnapshot CreateResourceInstanceSnapshot inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @return ApiInventoryApiCreateResourceInstanceSnapshotRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiCreateResourceInstanceSnapshotRequest
 */
 func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceSnapshot(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiCreateResourceInstanceSnapshotRequest {
 	return ApiInventoryApiCreateResourceInstanceSnapshotRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
+		instanceId:    instanceId,
 	}
 }
 
 // Execute executes the request
-//  @return FleetCreateInstanceSnapshotResult
+//
+//	@return FleetCreateInstanceSnapshotResult
 func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceSnapshotExecute(r ApiInventoryApiCreateResourceInstanceSnapshotRequest) (*FleetCreateInstanceSnapshotResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FleetCreateInstanceSnapshotResult
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FleetCreateInstanceSnapshotResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiCreateResourceInstanceSnapshot")
@@ -2363,8 +2380,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceSnapshotExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2374,8 +2391,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceSnapshotExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2385,8 +2402,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceSnapshotExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2396,8 +2413,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceSnapshotExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2407,8 +2424,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceSnapshotExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2418,8 +2435,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceSnapshotExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2437,8 +2454,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceSnapshotExecu
 }
 
 type ApiInventoryApiCreateServicesOrchestrationRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
+	ctx                                      context.Context
+	ApiService                               InventoryApiAPI
 	fleetCreateServicesOrchestrationRequest2 *FleetCreateServicesOrchestrationRequest2
 }
 
@@ -2454,24 +2471,25 @@ func (r ApiInventoryApiCreateServicesOrchestrationRequest) Execute() (*CreateRes
 /*
 InventoryApiCreateServicesOrchestration CreateServicesOrchestration inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiInventoryApiCreateServicesOrchestrationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiInventoryApiCreateServicesOrchestrationRequest
 */
 func (a *InventoryApiAPIService) InventoryApiCreateServicesOrchestration(ctx context.Context) ApiInventoryApiCreateServicesOrchestrationRequest {
 	return ApiInventoryApiCreateServicesOrchestrationRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CreateResourceInstanceResponseBody
+//
+//	@return CreateResourceInstanceResponseBody
 func (a *InventoryApiAPIService) InventoryApiCreateServicesOrchestrationExecute(r ApiInventoryApiCreateServicesOrchestrationRequest) (*CreateResourceInstanceResponseBody, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CreateResourceInstanceResponseBody
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CreateResourceInstanceResponseBody
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiCreateServicesOrchestration")
@@ -2536,8 +2554,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateServicesOrchestrationExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2547,8 +2565,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateServicesOrchestrationExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2558,8 +2576,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateServicesOrchestrationExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2569,8 +2587,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateServicesOrchestrationExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2580,8 +2598,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateServicesOrchestrationExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2591,8 +2609,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateServicesOrchestrationExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2610,10 +2628,10 @@ func (a *InventoryApiAPIService) InventoryApiCreateServicesOrchestrationExecute(
 }
 
 type ApiInventoryApiCreateUpgradePathRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	productTierId string
+	ctx                       context.Context
+	ApiService                InventoryApiAPI
+	serviceId                 string
+	productTierId             string
 	createUpgradePathRequest2 *CreateUpgradePathRequest2
 }
 
@@ -2629,28 +2647,29 @@ func (r ApiInventoryApiCreateUpgradePathRequest) Execute() (*UpgradePath, *http.
 /*
 InventoryApiCreateUpgradePath CreateUpgradePath inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param productTierId The product tier ID that this upgrade path belongs to
- @return ApiInventoryApiCreateUpgradePathRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param productTierId The product tier ID that this upgrade path belongs to
+	@return ApiInventoryApiCreateUpgradePathRequest
 */
 func (a *InventoryApiAPIService) InventoryApiCreateUpgradePath(ctx context.Context, serviceId string, productTierId string) ApiInventoryApiCreateUpgradePathRequest {
 	return ApiInventoryApiCreateUpgradePathRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		productTierId: productTierId,
 	}
 }
 
 // Execute executes the request
-//  @return UpgradePath
+//
+//	@return UpgradePath
 func (a *InventoryApiAPIService) InventoryApiCreateUpgradePathExecute(r ApiInventoryApiCreateUpgradePathRequest) (*UpgradePath, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpgradePath
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpgradePath
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiCreateUpgradePath")
@@ -2717,8 +2736,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateUpgradePathExecute(r ApiInven
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2728,8 +2747,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateUpgradePathExecute(r ApiInven
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2739,8 +2758,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateUpgradePathExecute(r ApiInven
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2750,8 +2769,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateUpgradePathExecute(r ApiInven
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2761,8 +2780,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateUpgradePathExecute(r ApiInven
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2772,8 +2791,8 @@ func (a *InventoryApiAPIService) InventoryApiCreateUpgradePathExecute(r ApiInven
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2791,11 +2810,11 @@ func (a *InventoryApiAPIService) InventoryApiCreateUpgradePathExecute(r ApiInven
 }
 
 type ApiInventoryApiDebugResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	instanceId string
+	instanceId    string
 }
 
 func (r ApiInventoryApiDebugResourceInstanceRequest) Execute() (*DebugResourceInstanceResult, *http.Response, error) {
@@ -2805,30 +2824,31 @@ func (r ApiInventoryApiDebugResourceInstanceRequest) Execute() (*DebugResourceIn
 /*
 InventoryApiDebugResourceInstance DebugResourceInstance inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @return ApiInventoryApiDebugResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiDebugResourceInstanceRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDebugResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiDebugResourceInstanceRequest {
 	return ApiInventoryApiDebugResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
+		instanceId:    instanceId,
 	}
 }
 
 // Execute executes the request
-//  @return DebugResourceInstanceResult
+//
+//	@return DebugResourceInstanceResult
 func (a *InventoryApiAPIService) InventoryApiDebugResourceInstanceExecute(r ApiInventoryApiDebugResourceInstanceRequest) (*DebugResourceInstanceResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DebugResourceInstanceResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DebugResourceInstanceResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDebugResourceInstance")
@@ -2891,8 +2911,8 @@ func (a *InventoryApiAPIService) InventoryApiDebugResourceInstanceExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2902,8 +2922,8 @@ func (a *InventoryApiAPIService) InventoryApiDebugResourceInstanceExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2913,8 +2933,8 @@ func (a *InventoryApiAPIService) InventoryApiDebugResourceInstanceExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2924,8 +2944,8 @@ func (a *InventoryApiAPIService) InventoryApiDebugResourceInstanceExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2935,8 +2955,8 @@ func (a *InventoryApiAPIService) InventoryApiDebugResourceInstanceExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2946,8 +2966,8 @@ func (a *InventoryApiAPIService) InventoryApiDebugResourceInstanceExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2965,15 +2985,15 @@ func (a *InventoryApiAPIService) InventoryApiDebugResourceInstanceExecute(r ApiI
 }
 
 type ApiInventoryApiDeleteProxyResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
+	ctx                   context.Context
+	ApiService            InventoryApiAPI
+	serviceProviderId     string
+	serviceKey            string
+	serviceAPIVersion     string
 	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
-	id string
+	serviceModelKey       string
+	productTierKey        string
+	id                    string
 }
 
 func (r ApiInventoryApiDeleteProxyResourceInstanceRequest) Execute() (*http.Response, error) {
@@ -2983,36 +3003,36 @@ func (r ApiInventoryApiDeleteProxyResourceInstanceRequest) Execute() (*http.Resp
 /*
 InventoryApiDeleteProxyResourceInstance DeleteProxyResourceInstance inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @param id The instance ID
- @return ApiInventoryApiDeleteProxyResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param id The instance ID
+	@return ApiInventoryApiDeleteProxyResourceInstanceRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDeleteProxyResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, id string) ApiInventoryApiDeleteProxyResourceInstanceRequest {
 	return ApiInventoryApiDeleteProxyResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
-		id: id,
+		serviceModelKey:       serviceModelKey,
+		productTierKey:        productTierKey,
+		id:                    id,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiDeleteProxyResourceInstanceExecute(r ApiInventoryApiDeleteProxyResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDeleteProxyResourceInstance")
@@ -3079,8 +3099,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteProxyResourceInstanceExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3090,8 +3110,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteProxyResourceInstanceExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3101,8 +3121,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteProxyResourceInstanceExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3112,8 +3132,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteProxyResourceInstanceExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3123,8 +3143,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteProxyResourceInstanceExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3134,8 +3154,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteProxyResourceInstanceExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3144,11 +3164,11 @@ func (a *InventoryApiAPIService) InventoryApiDeleteProxyResourceInstanceExecute(
 }
 
 type ApiInventoryApiDeleteResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
-	instanceId string
+	ctx                                 context.Context
+	ApiService                          InventoryApiAPI
+	serviceId                           string
+	environmentId                       string
+	instanceId                          string
 	fleetDeleteResourceInstanceRequest2 *FleetDeleteResourceInstanceRequest2
 }
 
@@ -3164,28 +3184,28 @@ func (r ApiInventoryApiDeleteResourceInstanceRequest) Execute() (*http.Response,
 /*
 InventoryApiDeleteResourceInstance DeleteResourceInstance inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @return ApiInventoryApiDeleteResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiDeleteResourceInstanceRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiDeleteResourceInstanceRequest {
 	return ApiInventoryApiDeleteResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
+		instanceId:    instanceId,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceExecute(r ApiInventoryApiDeleteResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDeleteResourceInstance")
@@ -3253,8 +3273,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3264,8 +3284,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3275,8 +3295,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3286,8 +3306,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3297,8 +3317,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3308,8 +3328,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3318,12 +3338,12 @@ func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceExecute(r Api
 }
 
 type ApiInventoryApiDeleteResourceInstanceSnapshotRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	instanceId string
-	snapshotId string
+	instanceId    string
+	snapshotId    string
 }
 
 func (r ApiInventoryApiDeleteResourceInstanceSnapshotRequest) Execute() (*http.Response, error) {
@@ -3333,30 +3353,30 @@ func (r ApiInventoryApiDeleteResourceInstanceSnapshotRequest) Execute() (*http.R
 /*
 InventoryApiDeleteResourceInstanceSnapshot DeleteResourceInstanceSnapshot inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @param snapshotId The instance snapshot ID
- @return ApiInventoryApiDeleteResourceInstanceSnapshotRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@param snapshotId The instance snapshot ID
+	@return ApiInventoryApiDeleteResourceInstanceSnapshotRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceSnapshot(ctx context.Context, serviceId string, environmentId string, instanceId string, snapshotId string) ApiInventoryApiDeleteResourceInstanceSnapshotRequest {
 	return ApiInventoryApiDeleteResourceInstanceSnapshotRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
-		snapshotId: snapshotId,
+		instanceId:    instanceId,
+		snapshotId:    snapshotId,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceSnapshotExecute(r ApiInventoryApiDeleteResourceInstanceSnapshotRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDeleteResourceInstanceSnapshot")
@@ -3420,8 +3440,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceSnapshotExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3431,8 +3451,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceSnapshotExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3442,8 +3462,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceSnapshotExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3453,8 +3473,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceSnapshotExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3464,8 +3484,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceSnapshotExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3475,8 +3495,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceSnapshotExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3485,9 +3505,9 @@ func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceSnapshotExecu
 }
 
 type ApiInventoryApiDeleteServicesOrchestrationRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService InventoryApiAPI
-	id string
+	id         string
 }
 
 func (r ApiInventoryApiDeleteServicesOrchestrationRequest) Execute() (*http.Response, error) {
@@ -3497,24 +3517,24 @@ func (r ApiInventoryApiDeleteServicesOrchestrationRequest) Execute() (*http.Resp
 /*
 InventoryApiDeleteServicesOrchestration DeleteServicesOrchestration inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the services orchestration
- @return ApiInventoryApiDeleteServicesOrchestrationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the services orchestration
+	@return ApiInventoryApiDeleteServicesOrchestrationRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDeleteServicesOrchestration(ctx context.Context, id string) ApiInventoryApiDeleteServicesOrchestrationRequest {
 	return ApiInventoryApiDeleteServicesOrchestrationRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiDeleteServicesOrchestrationExecute(r ApiInventoryApiDeleteServicesOrchestrationRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDeleteServicesOrchestration")
@@ -3575,8 +3595,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteServicesOrchestrationExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3586,8 +3606,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteServicesOrchestrationExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3597,8 +3617,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteServicesOrchestrationExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3608,8 +3628,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteServicesOrchestrationExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3619,8 +3639,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteServicesOrchestrationExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3630,8 +3650,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteServicesOrchestrationExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3640,9 +3660,9 @@ func (a *InventoryApiAPIService) InventoryApiDeleteServicesOrchestrationExecute(
 }
 
 type ApiInventoryApiDeleteUserRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService InventoryApiAPI
-	userId string
+	userId     string
 }
 
 func (r ApiInventoryApiDeleteUserRequest) Execute() (*http.Response, error) {
@@ -3652,24 +3672,24 @@ func (r ApiInventoryApiDeleteUserRequest) Execute() (*http.Response, error) {
 /*
 InventoryApiDeleteUser DeleteUser inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The user ID
- @return ApiInventoryApiDeleteUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The user ID
+	@return ApiInventoryApiDeleteUserRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDeleteUser(ctx context.Context, userId string) ApiInventoryApiDeleteUserRequest {
 	return ApiInventoryApiDeleteUserRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiDeleteUserExecute(r ApiInventoryApiDeleteUserRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDeleteUser")
@@ -3730,8 +3750,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteUserExecute(r ApiInventoryApi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3741,8 +3761,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteUserExecute(r ApiInventoryApi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3752,8 +3772,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteUserExecute(r ApiInventoryApi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3763,8 +3783,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteUserExecute(r ApiInventoryApi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3774,8 +3794,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteUserExecute(r ApiInventoryApi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3785,8 +3805,8 @@ func (a *InventoryApiAPIService) InventoryApiDeleteUserExecute(r ApiInventoryApi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3795,11 +3815,11 @@ func (a *InventoryApiAPIService) InventoryApiDeleteUserExecute(r ApiInventoryApi
 }
 
 type ApiInventoryApiDenySubscriptionRequestRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	id string
+	id            string
 }
 
 func (r ApiInventoryApiDenySubscriptionRequestRequest) Execute() (*http.Response, error) {
@@ -3809,28 +3829,28 @@ func (r ApiInventoryApiDenySubscriptionRequestRequest) Execute() (*http.Response
 /*
 InventoryApiDenySubscriptionRequest DenySubscriptionRequest inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param id The subscription ID
- @return ApiInventoryApiDenySubscriptionRequestRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param id The subscription ID
+	@return ApiInventoryApiDenySubscriptionRequestRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDenySubscriptionRequest(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiDenySubscriptionRequestRequest {
 	return ApiInventoryApiDenySubscriptionRequestRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		id: id,
+		id:            id,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiDenySubscriptionRequestExecute(r ApiInventoryApiDenySubscriptionRequestRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDenySubscriptionRequest")
@@ -3893,8 +3913,8 @@ func (a *InventoryApiAPIService) InventoryApiDenySubscriptionRequestExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3904,8 +3924,8 @@ func (a *InventoryApiAPIService) InventoryApiDenySubscriptionRequestExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3915,8 +3935,8 @@ func (a *InventoryApiAPIService) InventoryApiDenySubscriptionRequestExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3926,8 +3946,8 @@ func (a *InventoryApiAPIService) InventoryApiDenySubscriptionRequestExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3937,8 +3957,8 @@ func (a *InventoryApiAPIService) InventoryApiDenySubscriptionRequestExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3948,8 +3968,8 @@ func (a *InventoryApiAPIService) InventoryApiDenySubscriptionRequestExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3958,11 +3978,11 @@ func (a *InventoryApiAPIService) InventoryApiDenySubscriptionRequestExecute(r Ap
 }
 
 type ApiInventoryApiDescribeHostClusterRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	id string
+	id            string
 }
 
 func (r ApiInventoryApiDescribeHostClusterRequest) Execute() (*FleetDescribeHostClusterResult, *http.Response, error) {
@@ -3972,30 +3992,31 @@ func (r ApiInventoryApiDescribeHostClusterRequest) Execute() (*FleetDescribeHost
 /*
 InventoryApiDescribeHostCluster DescribeHostCluster inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param id The host cluster ID
- @return ApiInventoryApiDescribeHostClusterRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param id The host cluster ID
+	@return ApiInventoryApiDescribeHostClusterRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDescribeHostCluster(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiDescribeHostClusterRequest {
 	return ApiInventoryApiDescribeHostClusterRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		id: id,
+		id:            id,
 	}
 }
 
 // Execute executes the request
-//  @return FleetDescribeHostClusterResult
+//
+//	@return FleetDescribeHostClusterResult
 func (a *InventoryApiAPIService) InventoryApiDescribeHostClusterExecute(r ApiInventoryApiDescribeHostClusterRequest) (*FleetDescribeHostClusterResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FleetDescribeHostClusterResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FleetDescribeHostClusterResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDescribeHostCluster")
@@ -4058,8 +4079,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeHostClusterExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4069,8 +4090,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeHostClusterExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4080,8 +4101,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeHostClusterExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4091,8 +4112,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeHostClusterExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -4102,8 +4123,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeHostClusterExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4113,8 +4134,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeHostClusterExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4132,12 +4153,12 @@ func (a *InventoryApiAPIService) InventoryApiDescribeHostClusterExecute(r ApiInv
 }
 
 type ApiInventoryApiDescribeInstanceEventRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	instanceId string
-	id string
+	instanceId    string
+	id            string
 }
 
 func (r ApiInventoryApiDescribeInstanceEventRequest) Execute() (*FleetDescribeEventResult, *http.Response, error) {
@@ -4147,32 +4168,33 @@ func (r ApiInventoryApiDescribeInstanceEventRequest) Execute() (*FleetDescribeEv
 /*
 InventoryApiDescribeInstanceEvent DescribeInstanceEvent inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @param id The ID of the event
- @return ApiInventoryApiDescribeInstanceEventRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@param id The ID of the event
+	@return ApiInventoryApiDescribeInstanceEventRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDescribeInstanceEvent(ctx context.Context, serviceId string, environmentId string, instanceId string, id string) ApiInventoryApiDescribeInstanceEventRequest {
 	return ApiInventoryApiDescribeInstanceEventRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
-		id: id,
+		instanceId:    instanceId,
+		id:            id,
 	}
 }
 
 // Execute executes the request
-//  @return FleetDescribeEventResult
+//
+//	@return FleetDescribeEventResult
 func (a *InventoryApiAPIService) InventoryApiDescribeInstanceEventExecute(r ApiInventoryApiDescribeInstanceEventRequest) (*FleetDescribeEventResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FleetDescribeEventResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FleetDescribeEventResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDescribeInstanceEvent")
@@ -4236,8 +4258,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeInstanceEventExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4247,8 +4269,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeInstanceEventExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4258,8 +4280,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeInstanceEventExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4269,8 +4291,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeInstanceEventExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -4280,8 +4302,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeInstanceEventExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4291,8 +4313,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeInstanceEventExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4310,9 +4332,9 @@ func (a *InventoryApiAPIService) InventoryApiDescribeInstanceEventExecute(r ApiI
 }
 
 type ApiInventoryApiDescribeInventorySummaryRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
 }
 
@@ -4323,28 +4345,29 @@ func (r ApiInventoryApiDescribeInventorySummaryRequest) Execute() (*DescribeInve
 /*
 InventoryApiDescribeInventorySummary DescribeInventorySummary inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @return ApiInventoryApiDescribeInventorySummaryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@return ApiInventoryApiDescribeInventorySummaryRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDescribeInventorySummary(ctx context.Context, serviceId string, environmentId string) ApiInventoryApiDescribeInventorySummaryRequest {
 	return ApiInventoryApiDescribeInventorySummaryRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
 	}
 }
 
 // Execute executes the request
-//  @return DescribeInventorySummaryResult
+//
+//	@return DescribeInventorySummaryResult
 func (a *InventoryApiAPIService) InventoryApiDescribeInventorySummaryExecute(r ApiInventoryApiDescribeInventorySummaryRequest) (*DescribeInventorySummaryResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DescribeInventorySummaryResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DescribeInventorySummaryResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDescribeInventorySummary")
@@ -4406,8 +4429,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeInventorySummaryExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4417,8 +4440,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeInventorySummaryExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4428,8 +4451,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeInventorySummaryExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4439,8 +4462,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeInventorySummaryExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -4450,8 +4473,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeInventorySummaryExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4461,8 +4484,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeInventorySummaryExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4480,9 +4503,9 @@ func (a *InventoryApiAPIService) InventoryApiDescribeInventorySummaryExecute(r A
 }
 
 type ApiInventoryApiDescribeOrgUserRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService InventoryApiAPI
-	userId string
+	userId     string
 }
 
 func (r ApiInventoryApiDescribeOrgUserRequest) Execute() (*FleetDescribeUserResult, *http.Response, error) {
@@ -4492,26 +4515,27 @@ func (r ApiInventoryApiDescribeOrgUserRequest) Execute() (*FleetDescribeUserResu
 /*
 InventoryApiDescribeOrgUser DescribeOrgUser inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The user ID
- @return ApiInventoryApiDescribeOrgUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The user ID
+	@return ApiInventoryApiDescribeOrgUserRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDescribeOrgUser(ctx context.Context, userId string) ApiInventoryApiDescribeOrgUserRequest {
 	return ApiInventoryApiDescribeOrgUserRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return FleetDescribeUserResult
+//
+//	@return FleetDescribeUserResult
 func (a *InventoryApiAPIService) InventoryApiDescribeOrgUserExecute(r ApiInventoryApiDescribeOrgUserRequest) (*FleetDescribeUserResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FleetDescribeUserResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FleetDescribeUserResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDescribeOrgUser")
@@ -4572,8 +4596,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeOrgUserExecute(r ApiInvento
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4583,8 +4607,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeOrgUserExecute(r ApiInvento
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4594,8 +4618,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeOrgUserExecute(r ApiInvento
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4605,8 +4629,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeOrgUserExecute(r ApiInvento
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -4616,8 +4640,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeOrgUserExecute(r ApiInvento
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4627,8 +4651,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeOrgUserExecute(r ApiInvento
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4646,10 +4670,10 @@ func (a *InventoryApiAPIService) InventoryApiDescribeOrgUserExecute(r ApiInvento
 }
 
 type ApiInventoryApiDescribeOrganizationRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
+	ctx            context.Context
+	ApiService     InventoryApiAPI
+	serviceId      string
+	environmentId  string
 	organizationId string
 }
 
@@ -4660,30 +4684,31 @@ func (r ApiInventoryApiDescribeOrganizationRequest) Execute() (*Organization, *h
 /*
 InventoryApiDescribeOrganization DescribeOrganization inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param organizationId The organization ID.
- @return ApiInventoryApiDescribeOrganizationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param organizationId The organization ID.
+	@return ApiInventoryApiDescribeOrganizationRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDescribeOrganization(ctx context.Context, serviceId string, environmentId string, organizationId string) ApiInventoryApiDescribeOrganizationRequest {
 	return ApiInventoryApiDescribeOrganizationRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
-		environmentId: environmentId,
+		ApiService:     a,
+		ctx:            ctx,
+		serviceId:      serviceId,
+		environmentId:  environmentId,
 		organizationId: organizationId,
 	}
 }
 
 // Execute executes the request
-//  @return Organization
+//
+//	@return Organization
 func (a *InventoryApiAPIService) InventoryApiDescribeOrganizationExecute(r ApiInventoryApiDescribeOrganizationRequest) (*Organization, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Organization
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Organization
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDescribeOrganization")
@@ -4746,8 +4771,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeOrganizationExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4757,8 +4782,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeOrganizationExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4768,8 +4793,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeOrganizationExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4779,8 +4804,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeOrganizationExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -4790,8 +4815,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeOrganizationExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4801,8 +4826,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeOrganizationExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4820,13 +4845,13 @@ func (a *InventoryApiAPIService) InventoryApiDescribeOrganizationExecute(r ApiIn
 }
 
 type ApiInventoryApiDescribeResourceRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
+	ctx            context.Context
+	ApiService     InventoryApiAPI
+	serviceId      string
+	environmentId  string
 	serviceModelId string
-	productTierId string
-	resourceId string
+	productTierId  string
+	resourceId     string
 }
 
 func (r ApiInventoryApiDescribeResourceRequest) Execute() (*Resource, *http.Response, error) {
@@ -4836,34 +4861,35 @@ func (r ApiInventoryApiDescribeResourceRequest) Execute() (*Resource, *http.Resp
 /*
 InventoryApiDescribeResource DescribeResource inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param serviceModelId The service model ID.
- @param productTierId The product tier ID.
- @param resourceId The resource ID.
- @return ApiInventoryApiDescribeResourceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param serviceModelId The service model ID.
+	@param productTierId The product tier ID.
+	@param resourceId The resource ID.
+	@return ApiInventoryApiDescribeResourceRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDescribeResource(ctx context.Context, serviceId string, environmentId string, serviceModelId string, productTierId string, resourceId string) ApiInventoryApiDescribeResourceRequest {
 	return ApiInventoryApiDescribeResourceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
-		environmentId: environmentId,
+		ApiService:     a,
+		ctx:            ctx,
+		serviceId:      serviceId,
+		environmentId:  environmentId,
 		serviceModelId: serviceModelId,
-		productTierId: productTierId,
-		resourceId: resourceId,
+		productTierId:  productTierId,
+		resourceId:     resourceId,
 	}
 }
 
 // Execute executes the request
-//  @return Resource
+//
+//	@return Resource
 func (a *InventoryApiAPIService) InventoryApiDescribeResourceExecute(r ApiInventoryApiDescribeResourceRequest) (*Resource, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Resource
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Resource
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDescribeResource")
@@ -4928,8 +4954,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4939,8 +4965,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4950,8 +4976,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4961,8 +4987,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -4972,8 +4998,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4983,8 +5009,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5002,11 +5028,11 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceExecute(r ApiInvent
 }
 
 type ApiInventoryApiDescribeResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	instanceId string
+	instanceId    string
 }
 
 func (r ApiInventoryApiDescribeResourceInstanceRequest) Execute() (*ResourceInstance, *http.Response, error) {
@@ -5016,30 +5042,31 @@ func (r ApiInventoryApiDescribeResourceInstanceRequest) Execute() (*ResourceInst
 /*
 InventoryApiDescribeResourceInstance DescribeResourceInstance inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @return ApiInventoryApiDescribeResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiDescribeResourceInstanceRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiDescribeResourceInstanceRequest {
 	return ApiInventoryApiDescribeResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
+		instanceId:    instanceId,
 	}
 }
 
 // Execute executes the request
-//  @return ResourceInstance
+//
+//	@return ResourceInstance
 func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceExecute(r ApiInventoryApiDescribeResourceInstanceRequest) (*ResourceInstance, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ResourceInstance
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ResourceInstance
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDescribeResourceInstance")
@@ -5102,8 +5129,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5113,8 +5140,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5124,8 +5151,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5135,8 +5162,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -5146,8 +5173,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5157,8 +5184,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5176,11 +5203,11 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceExecute(r A
 }
 
 type ApiInventoryApiDescribeResourceInstanceSnapshotFromTimeRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
-	instanceId string
+	ctx                                           context.Context
+	ApiService                                    InventoryApiAPI
+	serviceId                                     string
+	environmentId                                 string
+	instanceId                                    string
 	fleetDescribeInstanceSnapshotFromTimeRequest2 *FleetDescribeInstanceSnapshotFromTimeRequest2
 }
 
@@ -5196,30 +5223,31 @@ func (r ApiInventoryApiDescribeResourceInstanceSnapshotFromTimeRequest) Execute(
 /*
 InventoryApiDescribeResourceInstanceSnapshotFromTime DescribeResourceInstanceSnapshotFromTime inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @return ApiInventoryApiDescribeResourceInstanceSnapshotFromTimeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiDescribeResourceInstanceSnapshotFromTimeRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceSnapshotFromTime(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiDescribeResourceInstanceSnapshotFromTimeRequest {
 	return ApiInventoryApiDescribeResourceInstanceSnapshotFromTimeRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
+		instanceId:    instanceId,
 	}
 }
 
 // Execute executes the request
-//  @return FleetDescribeInstanceSnapshotFromTimeResult
+//
+//	@return FleetDescribeInstanceSnapshotFromTimeResult
 func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceSnapshotFromTimeExecute(r ApiInventoryApiDescribeResourceInstanceSnapshotFromTimeRequest) (*FleetDescribeInstanceSnapshotFromTimeResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FleetDescribeInstanceSnapshotFromTimeResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FleetDescribeInstanceSnapshotFromTimeResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDescribeResourceInstanceSnapshotFromTime")
@@ -5287,8 +5315,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceSnapshotFro
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5298,8 +5326,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceSnapshotFro
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5309,8 +5337,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceSnapshotFro
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5320,8 +5348,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceSnapshotFro
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -5331,8 +5359,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceSnapshotFro
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5342,8 +5370,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceSnapshotFro
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5361,11 +5389,11 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceSnapshotFro
 }
 
 type ApiInventoryApiDescribeServiceOfferingRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	visibility *string
-	productTierId *string
+	ctx                context.Context
+	ApiService         InventoryApiAPI
+	serviceId          string
+	visibility         *string
+	productTierId      *string
 	productTierVersion *string
 }
 
@@ -5394,26 +5422,27 @@ func (r ApiInventoryApiDescribeServiceOfferingRequest) Execute() (*InventoryDesc
 /*
 InventoryApiDescribeServiceOffering DescribeServiceOffering inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID
- @return ApiInventoryApiDescribeServiceOfferingRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@return ApiInventoryApiDescribeServiceOfferingRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDescribeServiceOffering(ctx context.Context, serviceId string) ApiInventoryApiDescribeServiceOfferingRequest {
 	return ApiInventoryApiDescribeServiceOfferingRequest{
 		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ctx:        ctx,
+		serviceId:  serviceId,
 	}
 }
 
 // Execute executes the request
-//  @return InventoryDescribeServiceOfferingResult
+//
+//	@return InventoryDescribeServiceOfferingResult
 func (a *InventoryApiAPIService) InventoryApiDescribeServiceOfferingExecute(r ApiInventoryApiDescribeServiceOfferingRequest) (*InventoryDescribeServiceOfferingResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *InventoryDescribeServiceOfferingResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *InventoryDescribeServiceOfferingResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDescribeServiceOffering")
@@ -5483,8 +5512,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServiceOfferingExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5494,8 +5523,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServiceOfferingExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5505,8 +5534,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServiceOfferingExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5516,8 +5545,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServiceOfferingExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -5527,8 +5556,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServiceOfferingExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5538,8 +5567,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServiceOfferingExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5557,12 +5586,12 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServiceOfferingExecute(r Ap
 }
 
 type ApiInventoryApiDescribeServiceOfferingResourceRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	resourceId string
-	instanceId string
-	productTierId *string
+	ctx                context.Context
+	ApiService         InventoryApiAPI
+	serviceId          string
+	resourceId         string
+	instanceId         string
+	productTierId      *string
 	productTierVersion *string
 }
 
@@ -5585,30 +5614,31 @@ func (r ApiInventoryApiDescribeServiceOfferingResourceRequest) Execute() (*Inven
 /*
 InventoryApiDescribeServiceOfferingResource DescribeServiceOfferingResource inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID
- @param resourceId The resource ID
- @param instanceId The instance ID
- @return ApiInventoryApiDescribeServiceOfferingResourceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID
+	@param resourceId The resource ID
+	@param instanceId The instance ID
+	@return ApiInventoryApiDescribeServiceOfferingResourceRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDescribeServiceOfferingResource(ctx context.Context, serviceId string, resourceId string, instanceId string) ApiInventoryApiDescribeServiceOfferingResourceRequest {
 	return ApiInventoryApiDescribeServiceOfferingResourceRequest{
 		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ctx:        ctx,
+		serviceId:  serviceId,
 		resourceId: resourceId,
 		instanceId: instanceId,
 	}
 }
 
 // Execute executes the request
-//  @return InventoryDescribeServiceOfferingResourceResult
+//
+//	@return InventoryDescribeServiceOfferingResourceResult
 func (a *InventoryApiAPIService) InventoryApiDescribeServiceOfferingResourceExecute(r ApiInventoryApiDescribeServiceOfferingResourceRequest) (*InventoryDescribeServiceOfferingResourceResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *InventoryDescribeServiceOfferingResourceResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *InventoryDescribeServiceOfferingResourceResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDescribeServiceOfferingResource")
@@ -5677,8 +5707,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServiceOfferingResourceExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5688,8 +5718,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServiceOfferingResourceExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5699,8 +5729,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServiceOfferingResourceExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5710,8 +5740,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServiceOfferingResourceExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -5721,8 +5751,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServiceOfferingResourceExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5732,8 +5762,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServiceOfferingResourceExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5751,9 +5781,9 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServiceOfferingResourceExec
 }
 
 type ApiInventoryApiDescribeServicesOrchestrationRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService InventoryApiAPI
-	id string
+	id         string
 }
 
 func (r ApiInventoryApiDescribeServicesOrchestrationRequest) Execute() (*FleetDescribeServicesOrchestrationResult, *http.Response, error) {
@@ -5763,26 +5793,27 @@ func (r ApiInventoryApiDescribeServicesOrchestrationRequest) Execute() (*FleetDe
 /*
 InventoryApiDescribeServicesOrchestration DescribeServicesOrchestration inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the services orchestration
- @return ApiInventoryApiDescribeServicesOrchestrationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the services orchestration
+	@return ApiInventoryApiDescribeServicesOrchestrationRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDescribeServicesOrchestration(ctx context.Context, id string) ApiInventoryApiDescribeServicesOrchestrationRequest {
 	return ApiInventoryApiDescribeServicesOrchestrationRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return FleetDescribeServicesOrchestrationResult
+//
+//	@return FleetDescribeServicesOrchestrationResult
 func (a *InventoryApiAPIService) InventoryApiDescribeServicesOrchestrationExecute(r ApiInventoryApiDescribeServicesOrchestrationRequest) (*FleetDescribeServicesOrchestrationResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FleetDescribeServicesOrchestrationResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FleetDescribeServicesOrchestrationResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDescribeServicesOrchestration")
@@ -5843,8 +5874,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServicesOrchestrationExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5854,8 +5885,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServicesOrchestrationExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5865,8 +5896,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServicesOrchestrationExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5876,8 +5907,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServicesOrchestrationExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -5887,8 +5918,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServicesOrchestrationExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5898,8 +5929,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServicesOrchestrationExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5917,11 +5948,11 @@ func (a *InventoryApiAPIService) InventoryApiDescribeServicesOrchestrationExecut
 }
 
 type ApiInventoryApiDescribeSubscriptionRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	id string
+	id            string
 }
 
 func (r ApiInventoryApiDescribeSubscriptionRequest) Execute() (*FleetDescribeSubscriptionResult, *http.Response, error) {
@@ -5931,30 +5962,31 @@ func (r ApiInventoryApiDescribeSubscriptionRequest) Execute() (*FleetDescribeSub
 /*
 InventoryApiDescribeSubscription DescribeSubscription inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param id The subscription ID
- @return ApiInventoryApiDescribeSubscriptionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param id The subscription ID
+	@return ApiInventoryApiDescribeSubscriptionRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDescribeSubscription(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiDescribeSubscriptionRequest {
 	return ApiInventoryApiDescribeSubscriptionRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		id: id,
+		id:            id,
 	}
 }
 
 // Execute executes the request
-//  @return FleetDescribeSubscriptionResult
+//
+//	@return FleetDescribeSubscriptionResult
 func (a *InventoryApiAPIService) InventoryApiDescribeSubscriptionExecute(r ApiInventoryApiDescribeSubscriptionRequest) (*FleetDescribeSubscriptionResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FleetDescribeSubscriptionResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FleetDescribeSubscriptionResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDescribeSubscription")
@@ -6017,8 +6049,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeSubscriptionExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6028,8 +6060,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeSubscriptionExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6039,8 +6071,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeSubscriptionExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6050,8 +6082,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeSubscriptionExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -6061,8 +6093,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeSubscriptionExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6072,8 +6104,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeSubscriptionExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6091,11 +6123,11 @@ func (a *InventoryApiAPIService) InventoryApiDescribeSubscriptionExecute(r ApiIn
 }
 
 type ApiInventoryApiDescribeSubscriptionRequestRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	id string
+	id            string
 }
 
 func (r ApiInventoryApiDescribeSubscriptionRequestRequest) Execute() (*DescribeSubscriptionRequestResult, *http.Response, error) {
@@ -6105,30 +6137,31 @@ func (r ApiInventoryApiDescribeSubscriptionRequestRequest) Execute() (*DescribeS
 /*
 InventoryApiDescribeSubscriptionRequest DescribeSubscriptionRequest inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param id The subscription ID
- @return ApiInventoryApiDescribeSubscriptionRequestRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param id The subscription ID
+	@return ApiInventoryApiDescribeSubscriptionRequestRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDescribeSubscriptionRequest(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiDescribeSubscriptionRequestRequest {
 	return ApiInventoryApiDescribeSubscriptionRequestRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		id: id,
+		id:            id,
 	}
 }
 
 // Execute executes the request
-//  @return DescribeSubscriptionRequestResult
+//
+//	@return DescribeSubscriptionRequestResult
 func (a *InventoryApiAPIService) InventoryApiDescribeSubscriptionRequestExecute(r ApiInventoryApiDescribeSubscriptionRequestRequest) (*DescribeSubscriptionRequestResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DescribeSubscriptionRequestResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DescribeSubscriptionRequestResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDescribeSubscriptionRequest")
@@ -6191,8 +6224,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeSubscriptionRequestExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6202,8 +6235,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeSubscriptionRequestExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6213,8 +6246,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeSubscriptionRequestExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6224,8 +6257,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeSubscriptionRequestExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -6235,8 +6268,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeSubscriptionRequestExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6246,8 +6279,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeSubscriptionRequestExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6265,9 +6298,9 @@ func (a *InventoryApiAPIService) InventoryApiDescribeSubscriptionRequestExecute(
 }
 
 type ApiInventoryApiDescribeUpgradePathRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	productTierId string
 	upgradePathId string
 }
@@ -6279,30 +6312,31 @@ func (r ApiInventoryApiDescribeUpgradePathRequest) Execute() (*UpgradePath, *htt
 /*
 InventoryApiDescribeUpgradePath DescribeUpgradePath inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param productTierId The product tier ID that this upgrade path belongs to
- @param upgradePathId The upgrade path ID
- @return ApiInventoryApiDescribeUpgradePathRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param productTierId The product tier ID that this upgrade path belongs to
+	@param upgradePathId The upgrade path ID
+	@return ApiInventoryApiDescribeUpgradePathRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDescribeUpgradePath(ctx context.Context, serviceId string, productTierId string, upgradePathId string) ApiInventoryApiDescribeUpgradePathRequest {
 	return ApiInventoryApiDescribeUpgradePathRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		productTierId: productTierId,
 		upgradePathId: upgradePathId,
 	}
 }
 
 // Execute executes the request
-//  @return UpgradePath
+//
+//	@return UpgradePath
 func (a *InventoryApiAPIService) InventoryApiDescribeUpgradePathExecute(r ApiInventoryApiDescribeUpgradePathRequest) (*UpgradePath, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpgradePath
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpgradePath
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDescribeUpgradePath")
@@ -6365,8 +6399,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeUpgradePathExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6376,8 +6410,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeUpgradePathExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6387,8 +6421,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeUpgradePathExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6398,8 +6432,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeUpgradePathExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -6409,8 +6443,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeUpgradePathExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6420,8 +6454,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeUpgradePathExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6439,11 +6473,11 @@ func (a *InventoryApiAPIService) InventoryApiDescribeUpgradePathExecute(r ApiInv
 }
 
 type ApiInventoryApiDescribeUserRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	userId string
+	userId        string
 }
 
 func (r ApiInventoryApiDescribeUserRequest) Execute() (*FleetDescribeUserResult, *http.Response, error) {
@@ -6453,30 +6487,31 @@ func (r ApiInventoryApiDescribeUserRequest) Execute() (*FleetDescribeUserResult,
 /*
 InventoryApiDescribeUser DescribeUser inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param userId The user ID
- @return ApiInventoryApiDescribeUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param userId The user ID
+	@return ApiInventoryApiDescribeUserRequest
 */
 func (a *InventoryApiAPIService) InventoryApiDescribeUser(ctx context.Context, serviceId string, environmentId string, userId string) ApiInventoryApiDescribeUserRequest {
 	return ApiInventoryApiDescribeUserRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		userId: userId,
+		userId:        userId,
 	}
 }
 
 // Execute executes the request
-//  @return FleetDescribeUserResult
+//
+//	@return FleetDescribeUserResult
 func (a *InventoryApiAPIService) InventoryApiDescribeUserExecute(r ApiInventoryApiDescribeUserRequest) (*FleetDescribeUserResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FleetDescribeUserResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FleetDescribeUserResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiDescribeUser")
@@ -6539,8 +6574,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeUserExecute(r ApiInventoryA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6550,8 +6585,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeUserExecute(r ApiInventoryA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6561,8 +6596,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeUserExecute(r ApiInventoryA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6572,8 +6607,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeUserExecute(r ApiInventoryA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -6583,8 +6618,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeUserExecute(r ApiInventoryA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6594,8 +6629,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeUserExecute(r ApiInventoryA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6612,175 +6647,12 @@ func (a *InventoryApiAPIService) InventoryApiDescribeUserExecute(r ApiInventoryA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInventoryApiEnableResourceInstanceManualOverrideRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
-	instanceId string
-}
-
-func (r ApiInventoryApiEnableResourceInstanceManualOverrideRequest) Execute() (*http.Response, error) {
-	return r.ApiService.InventoryApiEnableResourceInstanceManualOverrideExecute(r)
-}
-
-/*
-InventoryApiEnableResourceInstanceManualOverride EnableResourceInstanceManualOverride inventory-api
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @return ApiInventoryApiEnableResourceInstanceManualOverrideRequest
-*/
-func (a *InventoryApiAPIService) InventoryApiEnableResourceInstanceManualOverride(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiEnableResourceInstanceManualOverrideRequest {
-	return ApiInventoryApiEnableResourceInstanceManualOverrideRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
-		environmentId: environmentId,
-		instanceId: instanceId,
-	}
-}
-
-// Execute executes the request
-func (a *InventoryApiAPIService) InventoryApiEnableResourceInstanceManualOverrideExecute(r ApiInventoryApiEnableResourceInstanceManualOverrideRequest) (*http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiEnableResourceInstanceManualOverride")
-	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/override"
-	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"environmentId"+"}", url.PathEscape(parameterValueToString(r.environmentId, "environmentId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/vnd.goa.error"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
 type ApiInventoryApiFailoverResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
-	instanceId string
+	ctx                                   context.Context
+	ApiService                            InventoryApiAPI
+	serviceId                             string
+	environmentId                         string
+	instanceId                            string
 	fleetFailoverResourceInstanceRequest2 *FleetFailoverResourceInstanceRequest2
 }
 
@@ -6796,28 +6668,28 @@ func (r ApiInventoryApiFailoverResourceInstanceRequest) Execute() (*http.Respons
 /*
 InventoryApiFailoverResourceInstance FailoverResourceInstance inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @return ApiInventoryApiFailoverResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiFailoverResourceInstanceRequest
 */
 func (a *InventoryApiAPIService) InventoryApiFailoverResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiFailoverResourceInstanceRequest {
 	return ApiInventoryApiFailoverResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
+		instanceId:    instanceId,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiFailoverResourceInstanceExecute(r ApiInventoryApiFailoverResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiFailoverResourceInstance")
@@ -6885,8 +6757,8 @@ func (a *InventoryApiAPIService) InventoryApiFailoverResourceInstanceExecute(r A
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6896,8 +6768,8 @@ func (a *InventoryApiAPIService) InventoryApiFailoverResourceInstanceExecute(r A
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6907,8 +6779,8 @@ func (a *InventoryApiAPIService) InventoryApiFailoverResourceInstanceExecute(r A
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6918,8 +6790,8 @@ func (a *InventoryApiAPIService) InventoryApiFailoverResourceInstanceExecute(r A
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -6929,8 +6801,8 @@ func (a *InventoryApiAPIService) InventoryApiFailoverResourceInstanceExecute(r A
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6940,8 +6812,8 @@ func (a *InventoryApiAPIService) InventoryApiFailoverResourceInstanceExecute(r A
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -6950,11 +6822,11 @@ func (a *InventoryApiAPIService) InventoryApiFailoverResourceInstanceExecute(r A
 }
 
 type ApiInventoryApiGenerateTokenForHostClusterDashboardRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	id string
+	id            string
 }
 
 func (r ApiInventoryApiGenerateTokenForHostClusterDashboardRequest) Execute() (*FleetGenerateTokenForHostClusterDashboardResult, *http.Response, error) {
@@ -6964,30 +6836,31 @@ func (r ApiInventoryApiGenerateTokenForHostClusterDashboardRequest) Execute() (*
 /*
 InventoryApiGenerateTokenForHostClusterDashboard GenerateTokenForHostClusterDashboard inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param id The host cluster ID
- @return ApiInventoryApiGenerateTokenForHostClusterDashboardRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param id The host cluster ID
+	@return ApiInventoryApiGenerateTokenForHostClusterDashboardRequest
 */
 func (a *InventoryApiAPIService) InventoryApiGenerateTokenForHostClusterDashboard(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiGenerateTokenForHostClusterDashboardRequest {
 	return ApiInventoryApiGenerateTokenForHostClusterDashboardRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		id: id,
+		id:            id,
 	}
 }
 
 // Execute executes the request
-//  @return FleetGenerateTokenForHostClusterDashboardResult
+//
+//	@return FleetGenerateTokenForHostClusterDashboardResult
 func (a *InventoryApiAPIService) InventoryApiGenerateTokenForHostClusterDashboardExecute(r ApiInventoryApiGenerateTokenForHostClusterDashboardRequest) (*FleetGenerateTokenForHostClusterDashboardResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FleetGenerateTokenForHostClusterDashboardResult
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FleetGenerateTokenForHostClusterDashboardResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiGenerateTokenForHostClusterDashboard")
@@ -7050,8 +6923,8 @@ func (a *InventoryApiAPIService) InventoryApiGenerateTokenForHostClusterDashboar
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7061,8 +6934,8 @@ func (a *InventoryApiAPIService) InventoryApiGenerateTokenForHostClusterDashboar
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7072,8 +6945,8 @@ func (a *InventoryApiAPIService) InventoryApiGenerateTokenForHostClusterDashboar
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7083,8 +6956,8 @@ func (a *InventoryApiAPIService) InventoryApiGenerateTokenForHostClusterDashboar
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -7094,8 +6967,8 @@ func (a *InventoryApiAPIService) InventoryApiGenerateTokenForHostClusterDashboar
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7105,8 +6978,8 @@ func (a *InventoryApiAPIService) InventoryApiGenerateTokenForHostClusterDashboar
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7124,9 +6997,9 @@ func (a *InventoryApiAPIService) InventoryApiGenerateTokenForHostClusterDashboar
 }
 
 type ApiInventoryApiListActiveOrganizationsRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
 }
 
@@ -7137,28 +7010,29 @@ func (r ApiInventoryApiListActiveOrganizationsRequest) Execute() (*ListOrganizat
 /*
 InventoryApiListActiveOrganizations ListActiveOrganizations inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @return ApiInventoryApiListActiveOrganizationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@return ApiInventoryApiListActiveOrganizationsRequest
 */
 func (a *InventoryApiAPIService) InventoryApiListActiveOrganizations(ctx context.Context, serviceId string, environmentId string) ApiInventoryApiListActiveOrganizationsRequest {
 	return ApiInventoryApiListActiveOrganizationsRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
 	}
 }
 
 // Execute executes the request
-//  @return ListOrganizationsResult
+//
+//	@return ListOrganizationsResult
 func (a *InventoryApiAPIService) InventoryApiListActiveOrganizationsExecute(r ApiInventoryApiListActiveOrganizationsRequest) (*ListOrganizationsResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ListOrganizationsResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ListOrganizationsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiListActiveOrganizations")
@@ -7220,8 +7094,8 @@ func (a *InventoryApiAPIService) InventoryApiListActiveOrganizationsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7231,8 +7105,8 @@ func (a *InventoryApiAPIService) InventoryApiListActiveOrganizationsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7242,8 +7116,8 @@ func (a *InventoryApiAPIService) InventoryApiListActiveOrganizationsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7253,8 +7127,8 @@ func (a *InventoryApiAPIService) InventoryApiListActiveOrganizationsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -7264,8 +7138,8 @@ func (a *InventoryApiAPIService) InventoryApiListActiveOrganizationsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7275,8 +7149,8 @@ func (a *InventoryApiAPIService) InventoryApiListActiveOrganizationsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7294,9 +7168,9 @@ func (a *InventoryApiAPIService) InventoryApiListActiveOrganizationsExecute(r Ap
 }
 
 type ApiInventoryApiListAllUsersRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService InventoryApiAPI
-	serviceId *string
+	serviceId  *string
 }
 
 // The service ID of the users
@@ -7312,24 +7186,25 @@ func (r ApiInventoryApiListAllUsersRequest) Execute() (*FleetListAllUsersResult,
 /*
 InventoryApiListAllUsers ListAllUsers inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiInventoryApiListAllUsersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiInventoryApiListAllUsersRequest
 */
 func (a *InventoryApiAPIService) InventoryApiListAllUsers(ctx context.Context) ApiInventoryApiListAllUsersRequest {
 	return ApiInventoryApiListAllUsersRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return FleetListAllUsersResult
+//
+//	@return FleetListAllUsersResult
 func (a *InventoryApiAPIService) InventoryApiListAllUsersExecute(r ApiInventoryApiListAllUsersRequest) (*FleetListAllUsersResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FleetListAllUsersResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FleetListAllUsersResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiListAllUsers")
@@ -7392,8 +7267,8 @@ func (a *InventoryApiAPIService) InventoryApiListAllUsersExecute(r ApiInventoryA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7403,8 +7278,8 @@ func (a *InventoryApiAPIService) InventoryApiListAllUsersExecute(r ApiInventoryA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7414,8 +7289,8 @@ func (a *InventoryApiAPIService) InventoryApiListAllUsersExecute(r ApiInventoryA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7425,8 +7300,8 @@ func (a *InventoryApiAPIService) InventoryApiListAllUsersExecute(r ApiInventoryA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -7436,8 +7311,8 @@ func (a *InventoryApiAPIService) InventoryApiListAllUsersExecute(r ApiInventoryA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7447,8 +7322,8 @@ func (a *InventoryApiAPIService) InventoryApiListAllUsersExecute(r ApiInventoryA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7466,11 +7341,11 @@ func (a *InventoryApiAPIService) InventoryApiListAllUsersExecute(r ApiInventoryA
 }
 
 type ApiInventoryApiListDependentComponentsRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	instanceId string
+	instanceId    string
 }
 
 func (r ApiInventoryApiListDependentComponentsRequest) Execute() (*FleetListDependentComponentsResult, *http.Response, error) {
@@ -7480,30 +7355,31 @@ func (r ApiInventoryApiListDependentComponentsRequest) Execute() (*FleetListDepe
 /*
 InventoryApiListDependentComponents ListDependentComponents inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @return ApiInventoryApiListDependentComponentsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiListDependentComponentsRequest
 */
 func (a *InventoryApiAPIService) InventoryApiListDependentComponents(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiListDependentComponentsRequest {
 	return ApiInventoryApiListDependentComponentsRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
+		instanceId:    instanceId,
 	}
 }
 
 // Execute executes the request
-//  @return FleetListDependentComponentsResult
+//
+//	@return FleetListDependentComponentsResult
 func (a *InventoryApiAPIService) InventoryApiListDependentComponentsExecute(r ApiInventoryApiListDependentComponentsRequest) (*FleetListDependentComponentsResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FleetListDependentComponentsResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FleetListDependentComponentsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiListDependentComponents")
@@ -7566,8 +7442,8 @@ func (a *InventoryApiAPIService) InventoryApiListDependentComponentsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7577,8 +7453,8 @@ func (a *InventoryApiAPIService) InventoryApiListDependentComponentsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7588,8 +7464,8 @@ func (a *InventoryApiAPIService) InventoryApiListDependentComponentsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7599,8 +7475,8 @@ func (a *InventoryApiAPIService) InventoryApiListDependentComponentsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -7610,8 +7486,8 @@ func (a *InventoryApiAPIService) InventoryApiListDependentComponentsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7621,8 +7497,8 @@ func (a *InventoryApiAPIService) InventoryApiListDependentComponentsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7640,9 +7516,9 @@ func (a *InventoryApiAPIService) InventoryApiListDependentComponentsExecute(r Ap
 }
 
 type ApiInventoryApiListEligibleInstancesPerUpgradeRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	productTierId string
 	upgradePathId string
 	nextPageToken *string
@@ -7661,30 +7537,31 @@ func (r ApiInventoryApiListEligibleInstancesPerUpgradeRequest) Execute() (*ListE
 /*
 InventoryApiListEligibleInstancesPerUpgrade ListEligibleInstancesPerUpgrade inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param productTierId The product tier ID that this upgrade path belongs to
- @param upgradePathId The upgrade path ID
- @return ApiInventoryApiListEligibleInstancesPerUpgradeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param productTierId The product tier ID that this upgrade path belongs to
+	@param upgradePathId The upgrade path ID
+	@return ApiInventoryApiListEligibleInstancesPerUpgradeRequest
 */
 func (a *InventoryApiAPIService) InventoryApiListEligibleInstancesPerUpgrade(ctx context.Context, serviceId string, productTierId string, upgradePathId string) ApiInventoryApiListEligibleInstancesPerUpgradeRequest {
 	return ApiInventoryApiListEligibleInstancesPerUpgradeRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		productTierId: productTierId,
 		upgradePathId: upgradePathId,
 	}
 }
 
 // Execute executes the request
-//  @return ListEligibleInstancesPerUpgradeResult
+//
+//	@return ListEligibleInstancesPerUpgradeResult
 func (a *InventoryApiAPIService) InventoryApiListEligibleInstancesPerUpgradeExecute(r ApiInventoryApiListEligibleInstancesPerUpgradeRequest) (*ListEligibleInstancesPerUpgradeResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ListEligibleInstancesPerUpgradeResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ListEligibleInstancesPerUpgradeResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiListEligibleInstancesPerUpgrade")
@@ -7750,8 +7627,8 @@ func (a *InventoryApiAPIService) InventoryApiListEligibleInstancesPerUpgradeExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7761,8 +7638,8 @@ func (a *InventoryApiAPIService) InventoryApiListEligibleInstancesPerUpgradeExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7772,8 +7649,8 @@ func (a *InventoryApiAPIService) InventoryApiListEligibleInstancesPerUpgradeExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7783,8 +7660,8 @@ func (a *InventoryApiAPIService) InventoryApiListEligibleInstancesPerUpgradeExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -7794,8 +7671,8 @@ func (a *InventoryApiAPIService) InventoryApiListEligibleInstancesPerUpgradeExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7805,8 +7682,8 @@ func (a *InventoryApiAPIService) InventoryApiListEligibleInstancesPerUpgradeExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7824,9 +7701,9 @@ func (a *InventoryApiAPIService) InventoryApiListEligibleInstancesPerUpgradeExec
 }
 
 type ApiInventoryApiListHostClustersRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
 }
 
@@ -7837,28 +7714,29 @@ func (r ApiInventoryApiListHostClustersRequest) Execute() (*FleetListHostCluster
 /*
 InventoryApiListHostClusters ListHostClusters inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @return ApiInventoryApiListHostClustersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@return ApiInventoryApiListHostClustersRequest
 */
 func (a *InventoryApiAPIService) InventoryApiListHostClusters(ctx context.Context, serviceId string, environmentId string) ApiInventoryApiListHostClustersRequest {
 	return ApiInventoryApiListHostClustersRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
 	}
 }
 
 // Execute executes the request
-//  @return FleetListHostClustersResult
+//
+//	@return FleetListHostClustersResult
 func (a *InventoryApiAPIService) InventoryApiListHostClustersExecute(r ApiInventoryApiListHostClustersRequest) (*FleetListHostClustersResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FleetListHostClustersResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FleetListHostClustersResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiListHostClusters")
@@ -7920,8 +7798,8 @@ func (a *InventoryApiAPIService) InventoryApiListHostClustersExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7931,8 +7809,8 @@ func (a *InventoryApiAPIService) InventoryApiListHostClustersExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7942,8 +7820,8 @@ func (a *InventoryApiAPIService) InventoryApiListHostClustersExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7953,8 +7831,8 @@ func (a *InventoryApiAPIService) InventoryApiListHostClustersExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -7964,8 +7842,8 @@ func (a *InventoryApiAPIService) InventoryApiListHostClustersExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7975,8 +7853,8 @@ func (a *InventoryApiAPIService) InventoryApiListHostClustersExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7994,13 +7872,13 @@ func (a *InventoryApiAPIService) InventoryApiListHostClustersExecute(r ApiInvent
 }
 
 type ApiInventoryApiListInstanceEventsRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	instanceId string
-	startTime *string
-	endTime *string
+	instanceId    string
+	startTime     *string
+	endTime       *string
 }
 
 // Filter events that occurred after this time
@@ -8022,30 +7900,31 @@ func (r ApiInventoryApiListInstanceEventsRequest) Execute() (*FleetListEventsRes
 /*
 InventoryApiListInstanceEvents ListInstanceEvents inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @return ApiInventoryApiListInstanceEventsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiListInstanceEventsRequest
 */
 func (a *InventoryApiAPIService) InventoryApiListInstanceEvents(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiListInstanceEventsRequest {
 	return ApiInventoryApiListInstanceEventsRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
+		instanceId:    instanceId,
 	}
 }
 
 // Execute executes the request
-//  @return FleetListEventsResult
+//
+//	@return FleetListEventsResult
 func (a *InventoryApiAPIService) InventoryApiListInstanceEventsExecute(r ApiInventoryApiListInstanceEventsRequest) (*FleetListEventsResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FleetListEventsResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FleetListEventsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiListInstanceEvents")
@@ -8114,8 +7993,8 @@ func (a *InventoryApiAPIService) InventoryApiListInstanceEventsExecute(r ApiInve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8125,8 +8004,8 @@ func (a *InventoryApiAPIService) InventoryApiListInstanceEventsExecute(r ApiInve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8136,8 +8015,8 @@ func (a *InventoryApiAPIService) InventoryApiListInstanceEventsExecute(r ApiInve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -8147,8 +8026,8 @@ func (a *InventoryApiAPIService) InventoryApiListInstanceEventsExecute(r ApiInve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -8158,8 +8037,8 @@ func (a *InventoryApiAPIService) InventoryApiListInstanceEventsExecute(r ApiInve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8169,8 +8048,8 @@ func (a *InventoryApiAPIService) InventoryApiListInstanceEventsExecute(r ApiInve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8188,11 +8067,11 @@ func (a *InventoryApiAPIService) InventoryApiListInstanceEventsExecute(r ApiInve
 }
 
 type ApiInventoryApiListLinkedInstancesRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	instanceId string
+	instanceId    string
 }
 
 func (r ApiInventoryApiListLinkedInstancesRequest) Execute() (*FleetListLinkedInstancesResult, *http.Response, error) {
@@ -8202,30 +8081,31 @@ func (r ApiInventoryApiListLinkedInstancesRequest) Execute() (*FleetListLinkedIn
 /*
 InventoryApiListLinkedInstances ListLinkedInstances inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @return ApiInventoryApiListLinkedInstancesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiListLinkedInstancesRequest
 */
 func (a *InventoryApiAPIService) InventoryApiListLinkedInstances(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiListLinkedInstancesRequest {
 	return ApiInventoryApiListLinkedInstancesRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
+		instanceId:    instanceId,
 	}
 }
 
 // Execute executes the request
-//  @return FleetListLinkedInstancesResult
+//
+//	@return FleetListLinkedInstancesResult
 func (a *InventoryApiAPIService) InventoryApiListLinkedInstancesExecute(r ApiInventoryApiListLinkedInstancesRequest) (*FleetListLinkedInstancesResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FleetListLinkedInstancesResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FleetListLinkedInstancesResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiListLinkedInstances")
@@ -8288,8 +8168,8 @@ func (a *InventoryApiAPIService) InventoryApiListLinkedInstancesExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8299,8 +8179,8 @@ func (a *InventoryApiAPIService) InventoryApiListLinkedInstancesExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8310,8 +8190,8 @@ func (a *InventoryApiAPIService) InventoryApiListLinkedInstancesExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -8321,8 +8201,8 @@ func (a *InventoryApiAPIService) InventoryApiListLinkedInstancesExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -8332,8 +8212,8 @@ func (a *InventoryApiAPIService) InventoryApiListLinkedInstancesExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8343,8 +8223,8 @@ func (a *InventoryApiAPIService) InventoryApiListLinkedInstancesExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8362,11 +8242,11 @@ func (a *InventoryApiAPIService) InventoryApiListLinkedInstancesExecute(r ApiInv
 }
 
 type ApiInventoryApiListResourceInstanceSnapshotsRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	instanceId string
+	instanceId    string
 }
 
 func (r ApiInventoryApiListResourceInstanceSnapshotsRequest) Execute() (*FleetListInstanceSnapshotResult, *http.Response, error) {
@@ -8376,30 +8256,31 @@ func (r ApiInventoryApiListResourceInstanceSnapshotsRequest) Execute() (*FleetLi
 /*
 InventoryApiListResourceInstanceSnapshots ListResourceInstanceSnapshots inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @return ApiInventoryApiListResourceInstanceSnapshotsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiListResourceInstanceSnapshotsRequest
 */
 func (a *InventoryApiAPIService) InventoryApiListResourceInstanceSnapshots(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiListResourceInstanceSnapshotsRequest {
 	return ApiInventoryApiListResourceInstanceSnapshotsRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
+		instanceId:    instanceId,
 	}
 }
 
 // Execute executes the request
-//  @return FleetListInstanceSnapshotResult
+//
+//	@return FleetListInstanceSnapshotResult
 func (a *InventoryApiAPIService) InventoryApiListResourceInstanceSnapshotsExecute(r ApiInventoryApiListResourceInstanceSnapshotsRequest) (*FleetListInstanceSnapshotResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FleetListInstanceSnapshotResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FleetListInstanceSnapshotResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiListResourceInstanceSnapshots")
@@ -8462,8 +8343,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstanceSnapshotsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8473,8 +8354,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstanceSnapshotsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8484,8 +8365,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstanceSnapshotsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -8495,8 +8376,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstanceSnapshotsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -8506,8 +8387,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstanceSnapshotsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8517,8 +8398,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstanceSnapshotsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8536,13 +8417,13 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstanceSnapshotsExecut
 }
 
 type ApiInventoryApiListResourceInstancesRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
+	ctx                context.Context
+	ApiService         InventoryApiAPI
+	serviceId          string
+	environmentId      string
 	productTierVersion *string
-	productTierId *string
-	subscriptionId *string
+	productTierId      *string
+	subscriptionId     *string
 }
 
 // Product tier version of the instance to describe. If not specified, the latest version is described.
@@ -8570,28 +8451,29 @@ func (r ApiInventoryApiListResourceInstancesRequest) Execute() (*ListFleetResour
 /*
 InventoryApiListResourceInstances ListResourceInstances inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @return ApiInventoryApiListResourceInstancesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@return ApiInventoryApiListResourceInstancesRequest
 */
 func (a *InventoryApiAPIService) InventoryApiListResourceInstances(ctx context.Context, serviceId string, environmentId string) ApiInventoryApiListResourceInstancesRequest {
 	return ApiInventoryApiListResourceInstancesRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
 	}
 }
 
 // Execute executes the request
-//  @return ListFleetResourceInstancesResultInternal
+//
+//	@return ListFleetResourceInstancesResultInternal
 func (a *InventoryApiAPIService) InventoryApiListResourceInstancesExecute(r ApiInventoryApiListResourceInstancesRequest) (*ListFleetResourceInstancesResultInternal, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ListFleetResourceInstancesResultInternal
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ListFleetResourceInstancesResultInternal
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiListResourceInstances")
@@ -8662,8 +8544,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstancesExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8673,8 +8555,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstancesExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8684,8 +8566,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstancesExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -8695,8 +8577,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstancesExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -8706,8 +8588,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstancesExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8717,8 +8599,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstancesExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8736,12 +8618,12 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstancesExecute(r ApiI
 }
 
 type ApiInventoryApiListResourcesRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
-	serviceModelId string
-	productTierId string
+	ctx                   context.Context
+	ApiService            InventoryApiAPI
+	serviceId             string
+	environmentId         string
+	serviceModelId        string
+	productTierId         string
 	listResourcesRequest2 *ListResourcesRequest2
 }
 
@@ -8757,32 +8639,33 @@ func (r ApiInventoryApiListResourcesRequest) Execute() (*ListResourcesResult, *h
 /*
 InventoryApiListResources ListResources inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param serviceModelId The service model ID.
- @param productTierId The product tier ID.
- @return ApiInventoryApiListResourcesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param serviceModelId The service model ID.
+	@param productTierId The product tier ID.
+	@return ApiInventoryApiListResourcesRequest
 */
 func (a *InventoryApiAPIService) InventoryApiListResources(ctx context.Context, serviceId string, environmentId string, serviceModelId string, productTierId string) ApiInventoryApiListResourcesRequest {
 	return ApiInventoryApiListResourcesRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
-		environmentId: environmentId,
+		ApiService:     a,
+		ctx:            ctx,
+		serviceId:      serviceId,
+		environmentId:  environmentId,
 		serviceModelId: serviceModelId,
-		productTierId: productTierId,
+		productTierId:  productTierId,
 	}
 }
 
 // Execute executes the request
-//  @return ListResourcesResult
+//
+//	@return ListResourcesResult
 func (a *InventoryApiAPIService) InventoryApiListResourcesExecute(r ApiInventoryApiListResourcesRequest) (*ListResourcesResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ListResourcesResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ListResourcesResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiListResources")
@@ -8851,8 +8734,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourcesExecute(r ApiInventory
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8862,8 +8745,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourcesExecute(r ApiInventory
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8873,8 +8756,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourcesExecute(r ApiInventory
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -8884,8 +8767,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourcesExecute(r ApiInventory
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -8895,8 +8778,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourcesExecute(r ApiInventory
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8906,8 +8789,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourcesExecute(r ApiInventory
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8925,9 +8808,9 @@ func (a *InventoryApiAPIService) InventoryApiListResourcesExecute(r ApiInventory
 }
 
 type ApiInventoryApiListServiceOfferingsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService InventoryApiAPI
-	orgId *string
+	orgId      *string
 	visibility *string
 }
 
@@ -8950,24 +8833,25 @@ func (r ApiInventoryApiListServiceOfferingsRequest) Execute() (*InventoryListSer
 /*
 InventoryApiListServiceOfferings ListServiceOfferings inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiInventoryApiListServiceOfferingsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiInventoryApiListServiceOfferingsRequest
 */
 func (a *InventoryApiAPIService) InventoryApiListServiceOfferings(ctx context.Context) ApiInventoryApiListServiceOfferingsRequest {
 	return ApiInventoryApiListServiceOfferingsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return InventoryListServiceOfferingsResult
+//
+//	@return InventoryListServiceOfferingsResult
 func (a *InventoryApiAPIService) InventoryApiListServiceOfferingsExecute(r ApiInventoryApiListServiceOfferingsRequest) (*InventoryListServiceOfferingsResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *InventoryListServiceOfferingsResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *InventoryListServiceOfferingsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiListServiceOfferings")
@@ -9033,8 +8917,8 @@ func (a *InventoryApiAPIService) InventoryApiListServiceOfferingsExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9044,8 +8928,8 @@ func (a *InventoryApiAPIService) InventoryApiListServiceOfferingsExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9055,8 +8939,8 @@ func (a *InventoryApiAPIService) InventoryApiListServiceOfferingsExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -9066,8 +8950,8 @@ func (a *InventoryApiAPIService) InventoryApiListServiceOfferingsExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -9077,8 +8961,8 @@ func (a *InventoryApiAPIService) InventoryApiListServiceOfferingsExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9088,8 +8972,8 @@ func (a *InventoryApiAPIService) InventoryApiListServiceOfferingsExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9107,8 +8991,8 @@ func (a *InventoryApiAPIService) InventoryApiListServiceOfferingsExecute(r ApiIn
 }
 
 type ApiInventoryApiListServicesOrchestrationsRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
+	ctx             context.Context
+	ApiService      InventoryApiAPI
 	environmentType *string
 }
 
@@ -9125,24 +9009,25 @@ func (r ApiInventoryApiListServicesOrchestrationsRequest) Execute() ([]FleetDesc
 /*
 InventoryApiListServicesOrchestrations ListServicesOrchestrations inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiInventoryApiListServicesOrchestrationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiInventoryApiListServicesOrchestrationsRequest
 */
 func (a *InventoryApiAPIService) InventoryApiListServicesOrchestrations(ctx context.Context) ApiInventoryApiListServicesOrchestrationsRequest {
 	return ApiInventoryApiListServicesOrchestrationsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []FleetDescribeServicesOrchestrationResult
+//
+//	@return []FleetDescribeServicesOrchestrationResult
 func (a *InventoryApiAPIService) InventoryApiListServicesOrchestrationsExecute(r ApiInventoryApiListServicesOrchestrationsRequest) ([]FleetDescribeServicesOrchestrationResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []FleetDescribeServicesOrchestrationResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []FleetDescribeServicesOrchestrationResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiListServicesOrchestrations")
@@ -9206,8 +9091,8 @@ func (a *InventoryApiAPIService) InventoryApiListServicesOrchestrationsExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9217,8 +9102,8 @@ func (a *InventoryApiAPIService) InventoryApiListServicesOrchestrationsExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9228,8 +9113,8 @@ func (a *InventoryApiAPIService) InventoryApiListServicesOrchestrationsExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -9239,8 +9124,8 @@ func (a *InventoryApiAPIService) InventoryApiListServicesOrchestrationsExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -9250,8 +9135,8 @@ func (a *InventoryApiAPIService) InventoryApiListServicesOrchestrationsExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9261,8 +9146,8 @@ func (a *InventoryApiAPIService) InventoryApiListServicesOrchestrationsExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9280,9 +9165,9 @@ func (a *InventoryApiAPIService) InventoryApiListServicesOrchestrationsExecute(r
 }
 
 type ApiInventoryApiListSubscriptionRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
 }
 
@@ -9293,28 +9178,29 @@ func (r ApiInventoryApiListSubscriptionRequest) Execute() (*FleetListSubscriptio
 /*
 InventoryApiListSubscription ListSubscription inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @return ApiInventoryApiListSubscriptionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@return ApiInventoryApiListSubscriptionRequest
 */
 func (a *InventoryApiAPIService) InventoryApiListSubscription(ctx context.Context, serviceId string, environmentId string) ApiInventoryApiListSubscriptionRequest {
 	return ApiInventoryApiListSubscriptionRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
 	}
 }
 
 // Execute executes the request
-//  @return FleetListSubscriptionsResult
+//
+//	@return FleetListSubscriptionsResult
 func (a *InventoryApiAPIService) InventoryApiListSubscriptionExecute(r ApiInventoryApiListSubscriptionRequest) (*FleetListSubscriptionsResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FleetListSubscriptionsResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FleetListSubscriptionsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiListSubscription")
@@ -9376,8 +9262,8 @@ func (a *InventoryApiAPIService) InventoryApiListSubscriptionExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9387,8 +9273,8 @@ func (a *InventoryApiAPIService) InventoryApiListSubscriptionExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9398,8 +9284,8 @@ func (a *InventoryApiAPIService) InventoryApiListSubscriptionExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -9409,8 +9295,8 @@ func (a *InventoryApiAPIService) InventoryApiListSubscriptionExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -9420,8 +9306,8 @@ func (a *InventoryApiAPIService) InventoryApiListSubscriptionExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9431,8 +9317,8 @@ func (a *InventoryApiAPIService) InventoryApiListSubscriptionExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9450,11 +9336,11 @@ func (a *InventoryApiAPIService) InventoryApiListSubscriptionExecute(r ApiInvent
 }
 
 type ApiInventoryApiListSubscriptionRequestsRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	status *string
+	status        *string
 }
 
 // The status of the subscription request to filter by
@@ -9470,28 +9356,29 @@ func (r ApiInventoryApiListSubscriptionRequestsRequest) Execute() (*ListSubscrip
 /*
 InventoryApiListSubscriptionRequests ListSubscriptionRequests inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @return ApiInventoryApiListSubscriptionRequestsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@return ApiInventoryApiListSubscriptionRequestsRequest
 */
 func (a *InventoryApiAPIService) InventoryApiListSubscriptionRequests(ctx context.Context, serviceId string, environmentId string) ApiInventoryApiListSubscriptionRequestsRequest {
 	return ApiInventoryApiListSubscriptionRequestsRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
 	}
 }
 
 // Execute executes the request
-//  @return ListSubscriptionRequestsResult
+//
+//	@return ListSubscriptionRequestsResult
 func (a *InventoryApiAPIService) InventoryApiListSubscriptionRequestsExecute(r ApiInventoryApiListSubscriptionRequestsRequest) (*ListSubscriptionRequestsResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ListSubscriptionRequestsResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ListSubscriptionRequestsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiListSubscriptionRequests")
@@ -9556,8 +9443,8 @@ func (a *InventoryApiAPIService) InventoryApiListSubscriptionRequestsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9567,8 +9454,8 @@ func (a *InventoryApiAPIService) InventoryApiListSubscriptionRequestsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9578,8 +9465,8 @@ func (a *InventoryApiAPIService) InventoryApiListSubscriptionRequestsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -9589,8 +9476,8 @@ func (a *InventoryApiAPIService) InventoryApiListSubscriptionRequestsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -9600,8 +9487,8 @@ func (a *InventoryApiAPIService) InventoryApiListSubscriptionRequestsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9611,8 +9498,8 @@ func (a *InventoryApiAPIService) InventoryApiListSubscriptionRequestsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9630,15 +9517,15 @@ func (a *InventoryApiAPIService) InventoryApiListSubscriptionRequestsExecute(r A
 }
 
 type ApiInventoryApiListUpgradePathsRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	productTierId string
+	ctx                      context.Context
+	ApiService               InventoryApiAPI
+	serviceId                string
+	productTierId            string
 	sourceProductTierVersion *string
 	targetProductTierVersion *string
-	status *string
-	type_ *string
-	nextPageToken *string
+	status                   *string
+	type_                    *string
+	nextPageToken            *string
 }
 
 // The source product tier version to list upgrade paths for
@@ -9678,28 +9565,29 @@ func (r ApiInventoryApiListUpgradePathsRequest) Execute() (*ListUpgradePathsResu
 /*
 InventoryApiListUpgradePaths ListUpgradePaths inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param productTierId The product tier ID that this upgrade path belongs to
- @return ApiInventoryApiListUpgradePathsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param productTierId The product tier ID that this upgrade path belongs to
+	@return ApiInventoryApiListUpgradePathsRequest
 */
 func (a *InventoryApiAPIService) InventoryApiListUpgradePaths(ctx context.Context, serviceId string, productTierId string) ApiInventoryApiListUpgradePathsRequest {
 	return ApiInventoryApiListUpgradePathsRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		productTierId: productTierId,
 	}
 }
 
 // Execute executes the request
-//  @return ListUpgradePathsResult
+//
+//	@return ListUpgradePathsResult
 func (a *InventoryApiAPIService) InventoryApiListUpgradePathsExecute(r ApiInventoryApiListUpgradePathsRequest) (*ListUpgradePathsResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ListUpgradePathsResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ListUpgradePathsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiListUpgradePaths")
@@ -9776,8 +9664,8 @@ func (a *InventoryApiAPIService) InventoryApiListUpgradePathsExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9787,8 +9675,8 @@ func (a *InventoryApiAPIService) InventoryApiListUpgradePathsExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9798,8 +9686,8 @@ func (a *InventoryApiAPIService) InventoryApiListUpgradePathsExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -9809,8 +9697,8 @@ func (a *InventoryApiAPIService) InventoryApiListUpgradePathsExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -9820,8 +9708,8 @@ func (a *InventoryApiAPIService) InventoryApiListUpgradePathsExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9831,8 +9719,8 @@ func (a *InventoryApiAPIService) InventoryApiListUpgradePathsExecute(r ApiInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9850,10 +9738,10 @@ func (a *InventoryApiAPIService) InventoryApiListUpgradePathsExecute(r ApiInvent
 }
 
 type ApiInventoryApiListUsersRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
+	ctx            context.Context
+	ApiService     InventoryApiAPI
+	serviceId      string
+	environmentId  string
 	subscriptionId *string
 }
 
@@ -9870,28 +9758,29 @@ func (r ApiInventoryApiListUsersRequest) Execute() (*FleetListUsersResult, *http
 /*
 InventoryApiListUsers ListUsers inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @return ApiInventoryApiListUsersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@return ApiInventoryApiListUsersRequest
 */
 func (a *InventoryApiAPIService) InventoryApiListUsers(ctx context.Context, serviceId string, environmentId string) ApiInventoryApiListUsersRequest {
 	return ApiInventoryApiListUsersRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
 	}
 }
 
 // Execute executes the request
-//  @return FleetListUsersResult
+//
+//	@return FleetListUsersResult
 func (a *InventoryApiAPIService) InventoryApiListUsersExecute(r ApiInventoryApiListUsersRequest) (*FleetListUsersResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FleetListUsersResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FleetListUsersResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiListUsers")
@@ -9956,8 +9845,8 @@ func (a *InventoryApiAPIService) InventoryApiListUsersExecute(r ApiInventoryApiL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9967,8 +9856,8 @@ func (a *InventoryApiAPIService) InventoryApiListUsersExecute(r ApiInventoryApiL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9978,8 +9867,8 @@ func (a *InventoryApiAPIService) InventoryApiListUsersExecute(r ApiInventoryApiL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -9989,8 +9878,8 @@ func (a *InventoryApiAPIService) InventoryApiListUsersExecute(r ApiInventoryApiL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -10000,8 +9889,8 @@ func (a *InventoryApiAPIService) InventoryApiListUsersExecute(r ApiInventoryApiL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10011,8 +9900,8 @@ func (a *InventoryApiAPIService) InventoryApiListUsersExecute(r ApiInventoryApiL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -10030,11 +9919,11 @@ func (a *InventoryApiAPIService) InventoryApiListUsersExecute(r ApiInventoryApiL
 }
 
 type ApiInventoryApiManageUpgradePathRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	productTierId string
-	upgradePathId string
+	ctx                                context.Context
+	ApiService                         InventoryApiAPI
+	serviceId                          string
+	productTierId                      string
+	upgradePathId                      string
 	manageUpgradePathLifecycleRequest2 *ManageUpgradePathLifecycleRequest2
 }
 
@@ -10050,30 +9939,31 @@ func (r ApiInventoryApiManageUpgradePathRequest) Execute() (*UpgradePath, *http.
 /*
 InventoryApiManageUpgradePath ManageUpgradePath inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param productTierId The product tier ID that this upgrade path belongs to
- @param upgradePathId The upgrade path ID
- @return ApiInventoryApiManageUpgradePathRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param productTierId The product tier ID that this upgrade path belongs to
+	@param upgradePathId The upgrade path ID
+	@return ApiInventoryApiManageUpgradePathRequest
 */
 func (a *InventoryApiAPIService) InventoryApiManageUpgradePath(ctx context.Context, serviceId string, productTierId string, upgradePathId string) ApiInventoryApiManageUpgradePathRequest {
 	return ApiInventoryApiManageUpgradePathRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		productTierId: productTierId,
 		upgradePathId: upgradePathId,
 	}
 }
 
 // Execute executes the request
-//  @return UpgradePath
+//
+//	@return UpgradePath
 func (a *InventoryApiAPIService) InventoryApiManageUpgradePathExecute(r ApiInventoryApiManageUpgradePathRequest) (*UpgradePath, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpgradePath
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpgradePath
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiManageUpgradePath")
@@ -10141,8 +10031,8 @@ func (a *InventoryApiAPIService) InventoryApiManageUpgradePathExecute(r ApiInven
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10152,8 +10042,8 @@ func (a *InventoryApiAPIService) InventoryApiManageUpgradePathExecute(r ApiInven
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10163,8 +10053,8 @@ func (a *InventoryApiAPIService) InventoryApiManageUpgradePathExecute(r ApiInven
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -10174,8 +10064,8 @@ func (a *InventoryApiAPIService) InventoryApiManageUpgradePathExecute(r ApiInven
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -10185,8 +10075,8 @@ func (a *InventoryApiAPIService) InventoryApiManageUpgradePathExecute(r ApiInven
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10196,8 +10086,8 @@ func (a *InventoryApiAPIService) InventoryApiManageUpgradePathExecute(r ApiInven
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -10215,9 +10105,9 @@ func (a *InventoryApiAPIService) InventoryApiManageUpgradePathExecute(r ApiInven
 }
 
 type ApiInventoryApiModifyServicesOrchestrationRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	id string
+	ctx                                      context.Context
+	ApiService                               InventoryApiAPI
+	id                                       string
 	fleetModifyServicesOrchestrationRequest2 *FleetModifyServicesOrchestrationRequest2
 }
 
@@ -10233,24 +10123,24 @@ func (r ApiInventoryApiModifyServicesOrchestrationRequest) Execute() (*http.Resp
 /*
 InventoryApiModifyServicesOrchestration ModifyServicesOrchestration inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the services orchestration
- @return ApiInventoryApiModifyServicesOrchestrationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the services orchestration
+	@return ApiInventoryApiModifyServicesOrchestrationRequest
 */
 func (a *InventoryApiAPIService) InventoryApiModifyServicesOrchestration(ctx context.Context, id string) ApiInventoryApiModifyServicesOrchestrationRequest {
 	return ApiInventoryApiModifyServicesOrchestrationRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiModifyServicesOrchestrationExecute(r ApiInventoryApiModifyServicesOrchestrationRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiModifyServicesOrchestration")
@@ -10316,8 +10206,8 @@ func (a *InventoryApiAPIService) InventoryApiModifyServicesOrchestrationExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10327,8 +10217,8 @@ func (a *InventoryApiAPIService) InventoryApiModifyServicesOrchestrationExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10338,8 +10228,8 @@ func (a *InventoryApiAPIService) InventoryApiModifyServicesOrchestrationExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -10349,8 +10239,8 @@ func (a *InventoryApiAPIService) InventoryApiModifyServicesOrchestrationExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -10360,8 +10250,8 @@ func (a *InventoryApiAPIService) InventoryApiModifyServicesOrchestrationExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10371,8 +10261,8 @@ func (a *InventoryApiAPIService) InventoryApiModifyServicesOrchestrationExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -10381,11 +10271,11 @@ func (a *InventoryApiAPIService) InventoryApiModifyServicesOrchestrationExecute(
 }
 
 type ApiInventoryApiRemoveCapacityFromResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
-	instanceId string
+	ctx                                             context.Context
+	ApiService                                      InventoryApiAPI
+	serviceId                                       string
+	environmentId                                   string
+	instanceId                                      string
 	fleetRemoveCapacityFromResourceInstanceRequest2 *FleetRemoveCapacityFromResourceInstanceRequest2
 }
 
@@ -10401,28 +10291,28 @@ func (r ApiInventoryApiRemoveCapacityFromResourceInstanceRequest) Execute() (*ht
 /*
 InventoryApiRemoveCapacityFromResourceInstance RemoveCapacityFromResourceInstance inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @return ApiInventoryApiRemoveCapacityFromResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiRemoveCapacityFromResourceInstanceRequest
 */
 func (a *InventoryApiAPIService) InventoryApiRemoveCapacityFromResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiRemoveCapacityFromResourceInstanceRequest {
 	return ApiInventoryApiRemoveCapacityFromResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
+		instanceId:    instanceId,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiRemoveCapacityFromResourceInstanceExecute(r ApiInventoryApiRemoveCapacityFromResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiRemoveCapacityFromResourceInstance")
@@ -10490,8 +10380,8 @@ func (a *InventoryApiAPIService) InventoryApiRemoveCapacityFromResourceInstanceE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10501,8 +10391,8 @@ func (a *InventoryApiAPIService) InventoryApiRemoveCapacityFromResourceInstanceE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10512,8 +10402,8 @@ func (a *InventoryApiAPIService) InventoryApiRemoveCapacityFromResourceInstanceE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -10523,8 +10413,8 @@ func (a *InventoryApiAPIService) InventoryApiRemoveCapacityFromResourceInstanceE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -10534,8 +10424,8 @@ func (a *InventoryApiAPIService) InventoryApiRemoveCapacityFromResourceInstanceE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10545,8 +10435,8 @@ func (a *InventoryApiAPIService) InventoryApiRemoveCapacityFromResourceInstanceE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -10555,12 +10445,12 @@ func (a *InventoryApiAPIService) InventoryApiRemoveCapacityFromResourceInstanceE
 }
 
 type ApiInventoryApiRemoveCustomDNSFromResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	resourceKey string
-	instanceId string
+	resourceKey   string
+	instanceId    string
 }
 
 func (r ApiInventoryApiRemoveCustomDNSFromResourceInstanceRequest) Execute() (*http.Response, error) {
@@ -10570,30 +10460,30 @@ func (r ApiInventoryApiRemoveCustomDNSFromResourceInstanceRequest) Execute() (*h
 /*
 InventoryApiRemoveCustomDNSFromResourceInstance RemoveCustomDNSFromResourceInstance inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param resourceKey The resource key
- @param instanceId The resource instance ID.
- @return ApiInventoryApiRemoveCustomDNSFromResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param resourceKey The resource key
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiRemoveCustomDNSFromResourceInstanceRequest
 */
 func (a *InventoryApiAPIService) InventoryApiRemoveCustomDNSFromResourceInstance(ctx context.Context, serviceId string, environmentId string, resourceKey string, instanceId string) ApiInventoryApiRemoveCustomDNSFromResourceInstanceRequest {
 	return ApiInventoryApiRemoveCustomDNSFromResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		resourceKey: resourceKey,
-		instanceId: instanceId,
+		resourceKey:   resourceKey,
+		instanceId:    instanceId,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiRemoveCustomDNSFromResourceInstanceExecute(r ApiInventoryApiRemoveCustomDNSFromResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiRemoveCustomDNSFromResourceInstance")
@@ -10657,8 +10547,8 @@ func (a *InventoryApiAPIService) InventoryApiRemoveCustomDNSFromResourceInstance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10668,8 +10558,8 @@ func (a *InventoryApiAPIService) InventoryApiRemoveCustomDNSFromResourceInstance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10679,8 +10569,8 @@ func (a *InventoryApiAPIService) InventoryApiRemoveCustomDNSFromResourceInstance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -10690,8 +10580,8 @@ func (a *InventoryApiAPIService) InventoryApiRemoveCustomDNSFromResourceInstance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -10701,8 +10591,8 @@ func (a *InventoryApiAPIService) InventoryApiRemoveCustomDNSFromResourceInstance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10712,8 +10602,8 @@ func (a *InventoryApiAPIService) InventoryApiRemoveCustomDNSFromResourceInstance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -10722,11 +10612,11 @@ func (a *InventoryApiAPIService) InventoryApiRemoveCustomDNSFromResourceInstance
 }
 
 type ApiInventoryApiRestartResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
-	instanceId string
+	ctx                                  context.Context
+	ApiService                           InventoryApiAPI
+	serviceId                            string
+	environmentId                        string
+	instanceId                           string
 	fleetRestartResourceInstanceRequest2 *FleetRestartResourceInstanceRequest2
 }
 
@@ -10742,28 +10632,28 @@ func (r ApiInventoryApiRestartResourceInstanceRequest) Execute() (*http.Response
 /*
 InventoryApiRestartResourceInstance RestartResourceInstance inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @return ApiInventoryApiRestartResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiRestartResourceInstanceRequest
 */
 func (a *InventoryApiAPIService) InventoryApiRestartResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiRestartResourceInstanceRequest {
 	return ApiInventoryApiRestartResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
+		instanceId:    instanceId,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiRestartResourceInstanceExecute(r ApiInventoryApiRestartResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiRestartResourceInstance")
@@ -10831,8 +10721,8 @@ func (a *InventoryApiAPIService) InventoryApiRestartResourceInstanceExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10842,8 +10732,8 @@ func (a *InventoryApiAPIService) InventoryApiRestartResourceInstanceExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10853,8 +10743,8 @@ func (a *InventoryApiAPIService) InventoryApiRestartResourceInstanceExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -10864,8 +10754,8 @@ func (a *InventoryApiAPIService) InventoryApiRestartResourceInstanceExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -10875,8 +10765,8 @@ func (a *InventoryApiAPIService) InventoryApiRestartResourceInstanceExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10886,8 +10776,8 @@ func (a *InventoryApiAPIService) InventoryApiRestartResourceInstanceExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -10896,11 +10786,11 @@ func (a *InventoryApiAPIService) InventoryApiRestartResourceInstanceExecute(r Ap
 }
 
 type ApiInventoryApiRestoreResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
-	instanceId string
+	ctx                                  context.Context
+	ApiService                           InventoryApiAPI
+	serviceId                            string
+	environmentId                        string
+	instanceId                           string
 	fleetRestoreResourceInstanceRequest2 *FleetRestoreResourceInstanceRequest2
 }
 
@@ -10916,30 +10806,31 @@ func (r ApiInventoryApiRestoreResourceInstanceRequest) Execute() (*CreateResourc
 /*
 InventoryApiRestoreResourceInstance RestoreResourceInstance inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @return ApiInventoryApiRestoreResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiRestoreResourceInstanceRequest
 */
 func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiRestoreResourceInstanceRequest {
 	return ApiInventoryApiRestoreResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
+		instanceId:    instanceId,
 	}
 }
 
 // Execute executes the request
-//  @return CreateResourceInstanceResponseBody
+//
+//	@return CreateResourceInstanceResponseBody
 func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceExecute(r ApiInventoryApiRestoreResourceInstanceRequest) (*CreateResourceInstanceResponseBody, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CreateResourceInstanceResponseBody
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CreateResourceInstanceResponseBody
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiRestoreResourceInstance")
@@ -11007,8 +10898,8 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11018,8 +10909,8 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11029,8 +10920,8 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -11040,8 +10931,8 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -11051,8 +10942,8 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -11062,8 +10953,8 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -11081,11 +10972,11 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceExecute(r Ap
 }
 
 type ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
-	snapshotId string
+	ctx                                              context.Context
+	ApiService                                       InventoryApiAPI
+	serviceId                                        string
+	environmentId                                    string
+	snapshotId                                       string
 	fleetRestoreResourceInstanceFromSnapshotRequest2 *FleetRestoreResourceInstanceFromSnapshotRequest2
 }
 
@@ -11101,30 +10992,31 @@ func (r ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest) Execute() (*C
 /*
 InventoryApiRestoreResourceInstanceFromSnapshot RestoreResourceInstanceFromSnapshot inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param snapshotId The snapshot ID
- @return ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param snapshotId The snapshot ID
+	@return ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest
 */
 func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceFromSnapshot(ctx context.Context, serviceId string, environmentId string, snapshotId string) ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest {
 	return ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		snapshotId: snapshotId,
+		snapshotId:    snapshotId,
 	}
 }
 
 // Execute executes the request
-//  @return CreateResourceInstanceResponseBody
+//
+//	@return CreateResourceInstanceResponseBody
 func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceFromSnapshotExecute(r ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest) (*CreateResourceInstanceResponseBody, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CreateResourceInstanceResponseBody
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CreateResourceInstanceResponseBody
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiRestoreResourceInstanceFromSnapshot")
@@ -11192,8 +11084,8 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceFromSnapshot
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11203,8 +11095,8 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceFromSnapshot
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11214,8 +11106,8 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceFromSnapshot
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -11225,8 +11117,8 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceFromSnapshot
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -11236,8 +11128,8 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceFromSnapshot
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -11247,8 +11139,8 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceFromSnapshot
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -11266,11 +11158,11 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceFromSnapshot
 }
 
 type ApiInventoryApiResumeSubscriptionRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	id string
+	id            string
 }
 
 func (r ApiInventoryApiResumeSubscriptionRequest) Execute() (*http.Response, error) {
@@ -11280,28 +11172,28 @@ func (r ApiInventoryApiResumeSubscriptionRequest) Execute() (*http.Response, err
 /*
 InventoryApiResumeSubscription ResumeSubscription inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param id The subscription ID
- @return ApiInventoryApiResumeSubscriptionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param id The subscription ID
+	@return ApiInventoryApiResumeSubscriptionRequest
 */
 func (a *InventoryApiAPIService) InventoryApiResumeSubscription(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiResumeSubscriptionRequest {
 	return ApiInventoryApiResumeSubscriptionRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		id: id,
+		id:            id,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiResumeSubscriptionExecute(r ApiInventoryApiResumeSubscriptionRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiResumeSubscription")
@@ -11364,8 +11256,8 @@ func (a *InventoryApiAPIService) InventoryApiResumeSubscriptionExecute(r ApiInve
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11375,8 +11267,8 @@ func (a *InventoryApiAPIService) InventoryApiResumeSubscriptionExecute(r ApiInve
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11386,8 +11278,8 @@ func (a *InventoryApiAPIService) InventoryApiResumeSubscriptionExecute(r ApiInve
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -11397,8 +11289,8 @@ func (a *InventoryApiAPIService) InventoryApiResumeSubscriptionExecute(r ApiInve
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -11408,8 +11300,8 @@ func (a *InventoryApiAPIService) InventoryApiResumeSubscriptionExecute(r ApiInve
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -11419,8 +11311,8 @@ func (a *InventoryApiAPIService) InventoryApiResumeSubscriptionExecute(r ApiInve
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -11429,8 +11321,8 @@ func (a *InventoryApiAPIService) InventoryApiResumeSubscriptionExecute(r ApiInve
 }
 
 type ApiInventoryApiSearchInventoryRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
+	ctx                     context.Context
+	ApiService              InventoryApiAPI
 	searchInventoryRequest2 *SearchInventoryRequest2
 }
 
@@ -11446,24 +11338,25 @@ func (r ApiInventoryApiSearchInventoryRequest) Execute() (*SearchInventoryResult
 /*
 InventoryApiSearchInventory SearchInventory inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiInventoryApiSearchInventoryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiInventoryApiSearchInventoryRequest
 */
 func (a *InventoryApiAPIService) InventoryApiSearchInventory(ctx context.Context) ApiInventoryApiSearchInventoryRequest {
 	return ApiInventoryApiSearchInventoryRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return SearchInventoryResult
+//
+//	@return SearchInventoryResult
 func (a *InventoryApiAPIService) InventoryApiSearchInventoryExecute(r ApiInventoryApiSearchInventoryRequest) (*SearchInventoryResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SearchInventoryResult
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SearchInventoryResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiSearchInventory")
@@ -11528,8 +11421,8 @@ func (a *InventoryApiAPIService) InventoryApiSearchInventoryExecute(r ApiInvento
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11539,8 +11432,8 @@ func (a *InventoryApiAPIService) InventoryApiSearchInventoryExecute(r ApiInvento
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11550,8 +11443,8 @@ func (a *InventoryApiAPIService) InventoryApiSearchInventoryExecute(r ApiInvento
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -11561,8 +11454,8 @@ func (a *InventoryApiAPIService) InventoryApiSearchInventoryExecute(r ApiInvento
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -11572,8 +11465,8 @@ func (a *InventoryApiAPIService) InventoryApiSearchInventoryExecute(r ApiInvento
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -11583,8 +11476,8 @@ func (a *InventoryApiAPIService) InventoryApiSearchInventoryExecute(r ApiInvento
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -11602,10 +11495,10 @@ func (a *InventoryApiAPIService) InventoryApiSearchInventoryExecute(r ApiInvento
 }
 
 type ApiInventoryApiSearchServiceInventoryRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
+	ctx                            context.Context
+	ApiService                     InventoryApiAPI
+	serviceId                      string
+	environmentId                  string
 	searchServiceInventoryRequest2 *SearchServiceInventoryRequest2
 }
 
@@ -11621,28 +11514,29 @@ func (r ApiInventoryApiSearchServiceInventoryRequest) Execute() (*SearchServiceI
 /*
 InventoryApiSearchServiceInventory SearchServiceInventory inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @return ApiInventoryApiSearchServiceInventoryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@return ApiInventoryApiSearchServiceInventoryRequest
 */
 func (a *InventoryApiAPIService) InventoryApiSearchServiceInventory(ctx context.Context, serviceId string, environmentId string) ApiInventoryApiSearchServiceInventoryRequest {
 	return ApiInventoryApiSearchServiceInventoryRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
 	}
 }
 
 // Execute executes the request
-//  @return SearchServiceInventoryResult
+//
+//	@return SearchServiceInventoryResult
 func (a *InventoryApiAPIService) InventoryApiSearchServiceInventoryExecute(r ApiInventoryApiSearchServiceInventoryRequest) (*SearchServiceInventoryResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SearchServiceInventoryResult
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SearchServiceInventoryResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiSearchServiceInventory")
@@ -11709,8 +11603,8 @@ func (a *InventoryApiAPIService) InventoryApiSearchServiceInventoryExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11720,8 +11614,8 @@ func (a *InventoryApiAPIService) InventoryApiSearchServiceInventoryExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11731,8 +11625,8 @@ func (a *InventoryApiAPIService) InventoryApiSearchServiceInventoryExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -11742,8 +11636,8 @@ func (a *InventoryApiAPIService) InventoryApiSearchServiceInventoryExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -11753,8 +11647,8 @@ func (a *InventoryApiAPIService) InventoryApiSearchServiceInventoryExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -11764,8 +11658,8 @@ func (a *InventoryApiAPIService) InventoryApiSearchServiceInventoryExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -11783,11 +11677,11 @@ func (a *InventoryApiAPIService) InventoryApiSearchServiceInventoryExecute(r Api
 }
 
 type ApiInventoryApiStartResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
-	instanceId string
+	ctx                                context.Context
+	ApiService                         InventoryApiAPI
+	serviceId                          string
+	environmentId                      string
+	instanceId                         string
 	fleetStartResourceInstanceRequest2 *FleetStartResourceInstanceRequest2
 }
 
@@ -11803,28 +11697,28 @@ func (r ApiInventoryApiStartResourceInstanceRequest) Execute() (*http.Response, 
 /*
 InventoryApiStartResourceInstance StartResourceInstance inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @return ApiInventoryApiStartResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiStartResourceInstanceRequest
 */
 func (a *InventoryApiAPIService) InventoryApiStartResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiStartResourceInstanceRequest {
 	return ApiInventoryApiStartResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
+		instanceId:    instanceId,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiStartResourceInstanceExecute(r ApiInventoryApiStartResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiStartResourceInstance")
@@ -11892,8 +11786,8 @@ func (a *InventoryApiAPIService) InventoryApiStartResourceInstanceExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11903,8 +11797,8 @@ func (a *InventoryApiAPIService) InventoryApiStartResourceInstanceExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11914,8 +11808,8 @@ func (a *InventoryApiAPIService) InventoryApiStartResourceInstanceExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -11925,8 +11819,8 @@ func (a *InventoryApiAPIService) InventoryApiStartResourceInstanceExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -11936,8 +11830,8 @@ func (a *InventoryApiAPIService) InventoryApiStartResourceInstanceExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -11947,8 +11841,8 @@ func (a *InventoryApiAPIService) InventoryApiStartResourceInstanceExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -11957,11 +11851,11 @@ func (a *InventoryApiAPIService) InventoryApiStartResourceInstanceExecute(r ApiI
 }
 
 type ApiInventoryApiStopResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
-	instanceId string
+	ctx                               context.Context
+	ApiService                        InventoryApiAPI
+	serviceId                         string
+	environmentId                     string
+	instanceId                        string
 	fleetStopResourceInstanceRequest2 *FleetStopResourceInstanceRequest2
 }
 
@@ -11977,28 +11871,28 @@ func (r ApiInventoryApiStopResourceInstanceRequest) Execute() (*http.Response, e
 /*
 InventoryApiStopResourceInstance StopResourceInstance inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @return ApiInventoryApiStopResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiStopResourceInstanceRequest
 */
 func (a *InventoryApiAPIService) InventoryApiStopResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiStopResourceInstanceRequest {
 	return ApiInventoryApiStopResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
+		instanceId:    instanceId,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiStopResourceInstanceExecute(r ApiInventoryApiStopResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiStopResourceInstance")
@@ -12066,8 +11960,8 @@ func (a *InventoryApiAPIService) InventoryApiStopResourceInstanceExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -12077,8 +11971,8 @@ func (a *InventoryApiAPIService) InventoryApiStopResourceInstanceExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -12088,8 +11982,8 @@ func (a *InventoryApiAPIService) InventoryApiStopResourceInstanceExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -12099,8 +11993,8 @@ func (a *InventoryApiAPIService) InventoryApiStopResourceInstanceExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -12110,8 +12004,8 @@ func (a *InventoryApiAPIService) InventoryApiStopResourceInstanceExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -12121,8 +12015,8 @@ func (a *InventoryApiAPIService) InventoryApiStopResourceInstanceExecute(r ApiIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -12131,11 +12025,11 @@ func (a *InventoryApiAPIService) InventoryApiStopResourceInstanceExecute(r ApiIn
 }
 
 type ApiInventoryApiSuspendSubscriptionRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	id string
+	id            string
 }
 
 func (r ApiInventoryApiSuspendSubscriptionRequest) Execute() (*http.Response, error) {
@@ -12145,28 +12039,28 @@ func (r ApiInventoryApiSuspendSubscriptionRequest) Execute() (*http.Response, er
 /*
 InventoryApiSuspendSubscription SuspendSubscription inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param id The subscription ID
- @return ApiInventoryApiSuspendSubscriptionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param id The subscription ID
+	@return ApiInventoryApiSuspendSubscriptionRequest
 */
 func (a *InventoryApiAPIService) InventoryApiSuspendSubscription(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiSuspendSubscriptionRequest {
 	return ApiInventoryApiSuspendSubscriptionRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		id: id,
+		id:            id,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiSuspendSubscriptionExecute(r ApiInventoryApiSuspendSubscriptionRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiSuspendSubscription")
@@ -12229,8 +12123,8 @@ func (a *InventoryApiAPIService) InventoryApiSuspendSubscriptionExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -12240,8 +12134,8 @@ func (a *InventoryApiAPIService) InventoryApiSuspendSubscriptionExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -12251,8 +12145,8 @@ func (a *InventoryApiAPIService) InventoryApiSuspendSubscriptionExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -12262,8 +12156,8 @@ func (a *InventoryApiAPIService) InventoryApiSuspendSubscriptionExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -12273,8 +12167,8 @@ func (a *InventoryApiAPIService) InventoryApiSuspendSubscriptionExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -12284,8 +12178,8 @@ func (a *InventoryApiAPIService) InventoryApiSuspendSubscriptionExecute(r ApiInv
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -12294,9 +12188,9 @@ func (a *InventoryApiAPIService) InventoryApiSuspendSubscriptionExecute(r ApiInv
 }
 
 type ApiInventoryApiSuspendUserRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService InventoryApiAPI
-	userId string
+	userId     string
 }
 
 func (r ApiInventoryApiSuspendUserRequest) Execute() (*http.Response, error) {
@@ -12306,24 +12200,24 @@ func (r ApiInventoryApiSuspendUserRequest) Execute() (*http.Response, error) {
 /*
 InventoryApiSuspendUser SuspendUser inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The user ID
- @return ApiInventoryApiSuspendUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The user ID
+	@return ApiInventoryApiSuspendUserRequest
 */
 func (a *InventoryApiAPIService) InventoryApiSuspendUser(ctx context.Context, userId string) ApiInventoryApiSuspendUserRequest {
 	return ApiInventoryApiSuspendUserRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiSuspendUserExecute(r ApiInventoryApiSuspendUserRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiSuspendUser")
@@ -12384,8 +12278,8 @@ func (a *InventoryApiAPIService) InventoryApiSuspendUserExecute(r ApiInventoryAp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -12395,8 +12289,8 @@ func (a *InventoryApiAPIService) InventoryApiSuspendUserExecute(r ApiInventoryAp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -12406,8 +12300,8 @@ func (a *InventoryApiAPIService) InventoryApiSuspendUserExecute(r ApiInventoryAp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -12417,8 +12311,8 @@ func (a *InventoryApiAPIService) InventoryApiSuspendUserExecute(r ApiInventoryAp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -12428,8 +12322,8 @@ func (a *InventoryApiAPIService) InventoryApiSuspendUserExecute(r ApiInventoryAp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -12439,8 +12333,8 @@ func (a *InventoryApiAPIService) InventoryApiSuspendUserExecute(r ApiInventoryAp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -12449,11 +12343,11 @@ func (a *InventoryApiAPIService) InventoryApiSuspendUserExecute(r ApiInventoryAp
 }
 
 type ApiInventoryApiTerminateSubscriptionRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
+	ctx           context.Context
+	ApiService    InventoryApiAPI
+	serviceId     string
 	environmentId string
-	id string
+	id            string
 }
 
 func (r ApiInventoryApiTerminateSubscriptionRequest) Execute() (*http.Response, error) {
@@ -12463,28 +12357,28 @@ func (r ApiInventoryApiTerminateSubscriptionRequest) Execute() (*http.Response, 
 /*
 InventoryApiTerminateSubscription TerminateSubscription inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param id The subscription ID
- @return ApiInventoryApiTerminateSubscriptionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param id The subscription ID
+	@return ApiInventoryApiTerminateSubscriptionRequest
 */
 func (a *InventoryApiAPIService) InventoryApiTerminateSubscription(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiTerminateSubscriptionRequest {
 	return ApiInventoryApiTerminateSubscriptionRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		id: id,
+		id:            id,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiTerminateSubscriptionExecute(r ApiInventoryApiTerminateSubscriptionRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiTerminateSubscription")
@@ -12547,8 +12441,8 @@ func (a *InventoryApiAPIService) InventoryApiTerminateSubscriptionExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -12558,8 +12452,8 @@ func (a *InventoryApiAPIService) InventoryApiTerminateSubscriptionExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -12569,8 +12463,8 @@ func (a *InventoryApiAPIService) InventoryApiTerminateSubscriptionExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -12580,8 +12474,8 @@ func (a *InventoryApiAPIService) InventoryApiTerminateSubscriptionExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -12591,8 +12485,8 @@ func (a *InventoryApiAPIService) InventoryApiTerminateSubscriptionExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -12602,8 +12496,8 @@ func (a *InventoryApiAPIService) InventoryApiTerminateSubscriptionExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -12612,9 +12506,9 @@ func (a *InventoryApiAPIService) InventoryApiTerminateSubscriptionExecute(r ApiI
 }
 
 type ApiInventoryApiUnsuspendUserRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService InventoryApiAPI
-	userId string
+	userId     string
 }
 
 func (r ApiInventoryApiUnsuspendUserRequest) Execute() (*http.Response, error) {
@@ -12624,24 +12518,24 @@ func (r ApiInventoryApiUnsuspendUserRequest) Execute() (*http.Response, error) {
 /*
 InventoryApiUnsuspendUser UnsuspendUser inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId The user ID
- @return ApiInventoryApiUnsuspendUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The user ID
+	@return ApiInventoryApiUnsuspendUserRequest
 */
 func (a *InventoryApiAPIService) InventoryApiUnsuspendUser(ctx context.Context, userId string) ApiInventoryApiUnsuspendUserRequest {
 	return ApiInventoryApiUnsuspendUserRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiUnsuspendUserExecute(r ApiInventoryApiUnsuspendUserRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiUnsuspendUser")
@@ -12702,8 +12596,8 @@ func (a *InventoryApiAPIService) InventoryApiUnsuspendUserExecute(r ApiInventory
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -12713,8 +12607,8 @@ func (a *InventoryApiAPIService) InventoryApiUnsuspendUserExecute(r ApiInventory
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -12724,8 +12618,8 @@ func (a *InventoryApiAPIService) InventoryApiUnsuspendUserExecute(r ApiInventory
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -12735,8 +12629,8 @@ func (a *InventoryApiAPIService) InventoryApiUnsuspendUserExecute(r ApiInventory
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -12746,8 +12640,8 @@ func (a *InventoryApiAPIService) InventoryApiUnsuspendUserExecute(r ApiInventory
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -12757,8 +12651,178 @@ func (a *InventoryApiAPIService) InventoryApiUnsuspendUserExecute(r ApiInventory
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiInventoryApiUpdateAccountConfigResourceInstanceRequest struct {
+	ctx                                              context.Context
+	ApiService                                       InventoryApiAPI
+	serviceId                                        string
+	instanceId                                       string
+	fleetUpdateAccountConfigResourceInstanceRequest2 *FleetUpdateAccountConfigResourceInstanceRequest2
+}
+
+func (r ApiInventoryApiUpdateAccountConfigResourceInstanceRequest) FleetUpdateAccountConfigResourceInstanceRequest2(fleetUpdateAccountConfigResourceInstanceRequest2 FleetUpdateAccountConfigResourceInstanceRequest2) ApiInventoryApiUpdateAccountConfigResourceInstanceRequest {
+	r.fleetUpdateAccountConfigResourceInstanceRequest2 = &fleetUpdateAccountConfigResourceInstanceRequest2
+	return r
+}
+
+func (r ApiInventoryApiUpdateAccountConfigResourceInstanceRequest) Execute() (*http.Response, error) {
+	return r.ApiService.InventoryApiUpdateAccountConfigResourceInstanceExecute(r)
+}
+
+/*
+InventoryApiUpdateAccountConfigResourceInstance UpdateAccountConfigResourceInstance inventory-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiUpdateAccountConfigResourceInstanceRequest
+*/
+func (a *InventoryApiAPIService) InventoryApiUpdateAccountConfigResourceInstance(ctx context.Context, serviceId string, instanceId string) ApiInventoryApiUpdateAccountConfigResourceInstanceRequest {
+	return ApiInventoryApiUpdateAccountConfigResourceInstanceRequest{
+		ApiService: a,
+		ctx:        ctx,
+		serviceId:  serviceId,
+		instanceId: instanceId,
+	}
+}
+
+// Execute executes the request
+func (a *InventoryApiAPIService) InventoryApiUpdateAccountConfigResourceInstanceExecute(r ApiInventoryApiUpdateAccountConfigResourceInstanceRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiUpdateAccountConfigResourceInstance")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/service/{serviceId}/account-config-instance/{instanceId}/"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.fleetUpdateAccountConfigResourceInstanceRequest2 == nil {
+		return nil, reportError("fleetUpdateAccountConfigResourceInstanceRequest2 is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.fleetUpdateAccountConfigResourceInstanceRequest2
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -12767,11 +12831,11 @@ func (a *InventoryApiAPIService) InventoryApiUnsuspendUserExecute(r ApiInventory
 }
 
 type ApiInventoryApiUpdateResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
-	instanceId string
+	ctx                                 context.Context
+	ApiService                          InventoryApiAPI
+	serviceId                           string
+	environmentId                       string
+	instanceId                          string
 	fleetUpdateResourceInstanceRequest2 *FleetUpdateResourceInstanceRequest2
 }
 
@@ -12787,28 +12851,28 @@ func (r ApiInventoryApiUpdateResourceInstanceRequest) Execute() (*http.Response,
 /*
 InventoryApiUpdateResourceInstance UpdateResourceInstance inventory-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @return ApiInventoryApiUpdateResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiUpdateResourceInstanceRequest
 */
 func (a *InventoryApiAPIService) InventoryApiUpdateResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiUpdateResourceInstanceRequest {
 	return ApiInventoryApiUpdateResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
+		instanceId:    instanceId,
 	}
 }
 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiUpdateResourceInstanceExecute(r ApiInventoryApiUpdateResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiUpdateResourceInstance")
@@ -12876,8 +12940,8 @@ func (a *InventoryApiAPIService) InventoryApiUpdateResourceInstanceExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -12887,8 +12951,8 @@ func (a *InventoryApiAPIService) InventoryApiUpdateResourceInstanceExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -12898,8 +12962,8 @@ func (a *InventoryApiAPIService) InventoryApiUpdateResourceInstanceExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -12909,8 +12973,8 @@ func (a *InventoryApiAPIService) InventoryApiUpdateResourceInstanceExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -12920,8 +12984,8 @@ func (a *InventoryApiAPIService) InventoryApiUpdateResourceInstanceExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -12931,8 +12995,182 @@ func (a *InventoryApiAPIService) InventoryApiUpdateResourceInstanceExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiInventoryApiUpdateResourceInstanceDebugModeRequest struct {
+	ctx                                          context.Context
+	ApiService                                   InventoryApiAPI
+	serviceId                                    string
+	environmentId                                string
+	instanceId                                   string
+	fleetUpdateResourceInstanceDebugModeRequest2 *FleetUpdateResourceInstanceDebugModeRequest2
+}
+
+func (r ApiInventoryApiUpdateResourceInstanceDebugModeRequest) FleetUpdateResourceInstanceDebugModeRequest2(fleetUpdateResourceInstanceDebugModeRequest2 FleetUpdateResourceInstanceDebugModeRequest2) ApiInventoryApiUpdateResourceInstanceDebugModeRequest {
+	r.fleetUpdateResourceInstanceDebugModeRequest2 = &fleetUpdateResourceInstanceDebugModeRequest2
+	return r
+}
+
+func (r ApiInventoryApiUpdateResourceInstanceDebugModeRequest) Execute() (*http.Response, error) {
+	return r.ApiService.InventoryApiUpdateResourceInstanceDebugModeExecute(r)
+}
+
+/*
+InventoryApiUpdateResourceInstanceDebugMode UpdateResourceInstanceDebugMode inventory-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiUpdateResourceInstanceDebugModeRequest
+*/
+func (a *InventoryApiAPIService) InventoryApiUpdateResourceInstanceDebugMode(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiUpdateResourceInstanceDebugModeRequest {
+	return ApiInventoryApiUpdateResourceInstanceDebugModeRequest{
+		ApiService:    a,
+		ctx:           ctx,
+		serviceId:     serviceId,
+		environmentId: environmentId,
+		instanceId:    instanceId,
+	}
+}
+
+// Execute executes the request
+func (a *InventoryApiAPIService) InventoryApiUpdateResourceInstanceDebugModeExecute(r ApiInventoryApiUpdateResourceInstanceDebugModeRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiUpdateResourceInstanceDebugMode")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/debug-mode"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentId"+"}", url.PathEscape(parameterValueToString(r.environmentId, "environmentId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.fleetUpdateResourceInstanceDebugModeRequest2 == nil {
+		return nil, reportError("fleetUpdateResourceInstanceDebugModeRequest2 is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.fleetUpdateResourceInstanceDebugModeRequest2
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

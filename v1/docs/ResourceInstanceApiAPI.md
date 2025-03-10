@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**ResourceInstanceApiRestoreResourceInstanceFromSnapshot**](ResourceInstanceApiAPI.md#ResourceInstanceApiRestoreResourceInstanceFromSnapshot) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/snapshot/{snapshotId}/restore | RestoreResourceInstanceFromSnapshot resource-instance-api
 [**ResourceInstanceApiStartResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiStartResourceInstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/start | StartResourceInstance resource-instance-api
 [**ResourceInstanceApiStopResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiStopResourceInstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/stop | StopResourceInstance resource-instance-api
+[**ResourceInstanceApiUpdateAccountConfigResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiUpdateAccountConfigResourceInstance) | **Patch** /2022-09-01-00/resource-instance/account-config/{id} | UpdateAccountConfigResourceInstance resource-instance-api
 [**ResourceInstanceApiUpdateResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiUpdateResourceInstance) | **Patch** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id} | UpdateResourceInstance resource-instance-api
 
 
@@ -1588,6 +1589,76 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ResourceInstanceApiUpdateAccountConfigResourceInstance
+
+> ResourceInstanceApiUpdateAccountConfigResourceInstance(ctx, id).UpdateAccountConfigResourceInstanceRequest2(updateAccountConfigResourceInstanceRequest2).SubscriptionId(subscriptionId).Execute()
+
+UpdateAccountConfigResourceInstance resource-instance-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	id := "instance-abcd1234" // string | The instance ID
+	updateAccountConfigResourceInstanceRequest2 := *openapiclient.NewUpdateAccountConfigResourceInstanceRequest2() // UpdateAccountConfigResourceInstanceRequest2 | 
+	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiUpdateAccountConfigResourceInstance(context.Background(), id).UpdateAccountConfigResourceInstanceRequest2(updateAccountConfigResourceInstanceRequest2).SubscriptionId(subscriptionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiUpdateAccountConfigResourceInstance``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The instance ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiResourceInstanceApiUpdateAccountConfigResourceInstanceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **updateAccountConfigResourceInstanceRequest2** | [**UpdateAccountConfigResourceInstanceRequest2**](UpdateAccountConfigResourceInstanceRequest2.md) |  | 
+ **subscriptionId** | **string** | Subscription Id | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

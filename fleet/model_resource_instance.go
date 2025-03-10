@@ -23,7 +23,7 @@ type ResourceInstance struct {
 	// The AWS account ID
 	AwsAccountID *string `json:"awsAccountID,omitempty"`
 	// Name of the Infra Provider
-	CloudProvider string `json:"cloudProvider"`
+	CloudProvider                     string                         `json:"cloudProvider"`
 	ConsumptionResourceInstanceResult DescribeResourceInstanceResult `json:"consumptionResourceInstanceResult"`
 	// Whether the subscription is the default subscription
 	DefaultSubscription bool `json:"defaultSubscription"`
@@ -42,8 +42,8 @@ type ResourceInstance struct {
 	// Pending actions or maintenance tasks for the resource instance, with action type as key and reference key as value.
 	MaintenanceTasks map[string]interface{} `json:"maintenanceTasks,omitempty"`
 	// The managed resource type of instance
-	ManagedResourceType *string `json:"managedResourceType,omitempty"`
-	ManualOverride *ManualOverride `json:"manualOverride,omitempty"`
+	ManagedResourceType *string         `json:"managedResourceType,omitempty"`
+	ManualOverride      *ManualOverride `json:"manualOverride,omitempty"`
 	// ID of an Org
 	OrganizationId string `json:"organizationId"`
 	// The organization name of the resource instance.
@@ -78,6 +78,8 @@ type ResourceInstance struct {
 	SubscriptionId string `json:"subscriptionId"`
 	// The subscription owner name
 	SubscriptionOwnerName string `json:"subscriptionOwnerName"`
+	// Subscription Status
+	SubscriptionStatus *string `json:"subscriptionStatus,omitempty"`
 	// The tier version of the resource instance.
 	TierVersion string `json:"tierVersion"`
 	// The timestamp when the version set was released.
@@ -87,7 +89,7 @@ type ResourceInstance struct {
 	// The name of the user who released the version set.
 	TierVersionReleasedByUserName string `json:"tierVersionReleasedByUserName"`
 	// The tier version set status.
-	TierVersionStatus string `json:"tierVersionStatus"`
+	TierVersionStatus    string `json:"tierVersionStatus"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -930,6 +932,38 @@ func (o *ResourceInstance) SetSubscriptionOwnerName(v string) {
 	o.SubscriptionOwnerName = v
 }
 
+// GetSubscriptionStatus returns the SubscriptionStatus field value if set, zero value otherwise.
+func (o *ResourceInstance) GetSubscriptionStatus() string {
+	if o == nil || IsNil(o.SubscriptionStatus) {
+		var ret string
+		return ret
+	}
+	return *o.SubscriptionStatus
+}
+
+// GetSubscriptionStatusOk returns a tuple with the SubscriptionStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceInstance) GetSubscriptionStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.SubscriptionStatus) {
+		return nil, false
+	}
+	return o.SubscriptionStatus, true
+}
+
+// HasSubscriptionStatus returns a boolean if a field has been set.
+func (o *ResourceInstance) HasSubscriptionStatus() bool {
+	if o != nil && !IsNil(o.SubscriptionStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionStatus gets a reference to the given string and assigns it to the SubscriptionStatus field.
+func (o *ResourceInstance) SetSubscriptionStatus(v string) {
+	o.SubscriptionStatus = &v
+}
+
 // GetTierVersion returns the TierVersion field value
 func (o *ResourceInstance) GetTierVersion() string {
 	if o == nil {
@@ -1051,7 +1085,7 @@ func (o *ResourceInstance) SetTierVersionStatus(v string) {
 }
 
 func (o ResourceInstance) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1110,6 +1144,9 @@ func (o ResourceInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize["serviceName"] = o.ServiceName
 	toSerialize["subscriptionId"] = o.SubscriptionId
 	toSerialize["subscriptionOwnerName"] = o.SubscriptionOwnerName
+	if !IsNil(o.SubscriptionStatus) {
+		toSerialize["subscriptionStatus"] = o.SubscriptionStatus
+	}
 	toSerialize["tierVersion"] = o.TierVersion
 	toSerialize["tierVersionReleasedAt"] = o.TierVersionReleasedAt
 	toSerialize["tierVersionReleasedByUserId"] = o.TierVersionReleasedByUserId
@@ -1161,10 +1198,10 @@ func (o *ResourceInstance) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -1213,6 +1250,7 @@ func (o *ResourceInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "serviceName")
 		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "subscriptionOwnerName")
+		delete(additionalProperties, "subscriptionStatus")
 		delete(additionalProperties, "tierVersion")
 		delete(additionalProperties, "tierVersionReleasedAt")
 		delete(additionalProperties, "tierVersionReleasedByUserId")
@@ -1259,5 +1297,3 @@ func (v *NullableResourceInstance) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
