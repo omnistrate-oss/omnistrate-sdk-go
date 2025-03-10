@@ -44,11 +44,16 @@ jobs:
 
       - name: Install and setup openapi-generator-cli
         run: |
-          npm install @openapitools/openapi-generator-cli -g
-          echo "$HOME/.npm/bin" >> $GITHUB_PATH
+          npm install -g @openapitools/openapi-generator-cli@2.7.0
+          npm link @openapitools/openapi-generator-cli
+          which openapi-generator-cli || true
+          ls -l $(npm bin -g)
+          export PATH="$(npm bin -g):$PATH"
           openapi-generator-cli version
 
       - name: Run make to update SDK and docs
+        env:
+          PATH: "$(npm bin -g):$PATH"
         run: make
         
       - name: Create branch and commit changes
