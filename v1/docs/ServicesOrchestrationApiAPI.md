@@ -31,7 +31,7 @@ import (
 )
 
 func main() {
-	createServicesOrchestrationRequest2 := *openapiclient.NewCreateServicesOrchestrationRequest2("Tenetur qui amet veniam tempora sed.") // CreateServicesOrchestrationRequest2 | 
+	createServicesOrchestrationRequest2 := *openapiclient.NewCreateServicesOrchestrationRequest2("Qui ipsum fuga illum omnis.") // CreateServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -289,7 +289,7 @@ import (
 
 func main() {
 	id := "so-12345678" // string | The ID of the services orchestration
-	modifyServicesOrchestrationRequest2 := *openapiclient.NewModifyServicesOrchestrationRequest2("Aut nihil.") // ModifyServicesOrchestrationRequest2 | 
+	modifyServicesOrchestrationRequest2 := *openapiclient.NewModifyServicesOrchestrationRequest2("Nam non maiores fugit vero eum doloremque.") // ModifyServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

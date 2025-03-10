@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **InstanceLoadStatus** | Pointer to **string** | The load status of a pod | [optional] 
 **KubernetesDashboardEndpoint** | Pointer to [**KubernetesDashboardEndpoint**](KubernetesDashboardEndpoint.md) |  | [optional] 
 **LastModifiedAt** | Pointer to **string** | The instance update time | [optional] 
+**MaintenanceTasks** | Pointer to **map[string]interface{}** | Pending actions or maintenance tasks for the resource instance, with action type as key and reference key as value. | [optional] 
 **MaxReplicas** | Pointer to **string** | The maximum number of replicas | [optional] 
 **MinReplicas** | Pointer to **string** | The minimum number of replicas | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
@@ -503,6 +504,31 @@ SetLastModifiedAt sets LastModifiedAt field to given value.
 `func (o *DescribeResourceInstanceResult) HasLastModifiedAt() bool`
 
 HasLastModifiedAt returns a boolean if a field has been set.
+
+### GetMaintenanceTasks
+
+`func (o *DescribeResourceInstanceResult) GetMaintenanceTasks() map[string]interface{}`
+
+GetMaintenanceTasks returns the MaintenanceTasks field if non-nil, zero value otherwise.
+
+### GetMaintenanceTasksOk
+
+`func (o *DescribeResourceInstanceResult) GetMaintenanceTasksOk() (*map[string]interface{}, bool)`
+
+GetMaintenanceTasksOk returns a tuple with the MaintenanceTasks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaintenanceTasks
+
+`func (o *DescribeResourceInstanceResult) SetMaintenanceTasks(v map[string]interface{})`
+
+SetMaintenanceTasks sets MaintenanceTasks field to given value.
+
+### HasMaintenanceTasks
+
+`func (o *DescribeResourceInstanceResult) HasMaintenanceTasks() bool`
+
+HasMaintenanceTasks returns a boolean if a field has been set.
 
 ### GetMaxReplicas
 
