@@ -20,7 +20,7 @@ var _ MappedNullable = &StripeAuthorizeURLResult{}
 // StripeAuthorizeURLResult struct for StripeAuthorizeURLResult
 type StripeAuthorizeURLResult struct {
 	// URL to authorize Stripe Connect
-	AuthorizeURL         *string `json:"authorizeURL,omitempty"`
+	AuthorizeURL *string `json:"authorizeURL,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -67,7 +67,7 @@ func (o *StripeAuthorizeURLResult) SetAuthorizeURL(v string) {
 }
 
 func (o StripeAuthorizeURLResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -143,3 +143,5 @@ func (v *NullableStripeAuthorizeURLResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

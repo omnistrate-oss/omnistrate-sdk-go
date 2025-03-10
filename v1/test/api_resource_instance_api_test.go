@@ -11,10 +11,10 @@ package v1
 
 import (
 	"context"
-	openapiclient "github.com/omnistrate
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
 )
 
 func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiAddCapacityToResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string
@@ -44,7 +44,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiAddCustomDNSToResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string
@@ -64,7 +64,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiCreateResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string
@@ -84,7 +84,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiDeleteResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string
@@ -104,7 +104,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiDescribeResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string
@@ -125,7 +125,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiFailoverResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string
@@ -145,7 +145,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiGenerateTokenForDeploymentCellDashboard", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var id string
 
@@ -159,7 +159,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiListAllResourceInstances", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiListAllResourceInstances(context.Background()).Execute()
 
@@ -171,7 +171,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiListResourceInstanceSnapshots", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string
@@ -192,7 +192,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiListResourceInstances", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string
@@ -212,7 +212,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiRemoveCapacityFromResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string
@@ -232,7 +232,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiRemoveCustomDNSFromResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string
@@ -252,7 +252,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiResourceInstanceProvisionerSetupKit", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string
@@ -269,7 +269,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiRestartResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string
@@ -289,7 +289,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiRestoreResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string
@@ -310,7 +310,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiRestoreResourceInstanceFromSnapshot", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string
@@ -331,7 +331,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiStartResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string
@@ -351,7 +351,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiStopResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string
@@ -371,7 +371,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiUpdateAccountConfigResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var id string
 
@@ -384,7 +384,7 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiUpdateResourceInstance", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var serviceProviderId string
 		var serviceKey string

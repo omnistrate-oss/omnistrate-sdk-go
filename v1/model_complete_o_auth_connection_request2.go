@@ -22,7 +22,7 @@ type CompleteOAuthConnectionRequest2 struct {
 	// Authorization code from Stripe
 	Code *string `json:"code,omitempty"`
 	// Random string used on the authorize URL
-	State                *string `json:"state,omitempty"`
+	State *string `json:"state,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -92,7 +92,7 @@ func (o *CompleteOAuthConnectionRequest2) SetState(v string) {
 }
 
 func (o CompleteOAuthConnectionRequest2) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -172,3 +172,5 @@ func (v *NullableCompleteOAuthConnectionRequest2) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -24,7 +24,7 @@ type DescribeResourceInstanceResult struct {
 	// Whether the instance has autoscaling enabled
 	AutoscalingEnabled *bool `json:"autoscalingEnabled,omitempty"`
 	// The AWS account ID
-	AwsAccountID *string       `json:"awsAccountID,omitempty"`
+	AwsAccountID *string `json:"awsAccountID,omitempty"`
 	BackupStatus *BackupStatus `json:"backupStatus,omitempty"`
 	// The cloud provider name
 	CloudProvider *string `json:"cloud_provider,omitempty"`
@@ -35,7 +35,7 @@ type DescribeResourceInstanceResult struct {
 	// The name of the user that created the resource instance
 	CreatedByUserName *string `json:"createdByUserName,omitempty"`
 	// The current number of replicas
-	CurrentReplicas     *string                      `json:"currentReplicas,omitempty"`
+	CurrentReplicas *string `json:"currentReplicas,omitempty"`
 	CustomNetworkDetail *CustomNetworkResourceDetail `json:"customNetworkDetail,omitempty"`
 	// The detailed network topology
 	DetailedNetworkTopology map[string]interface{} `json:"detailedNetworkTopology,omitempty"`
@@ -48,7 +48,7 @@ type DescribeResourceInstanceResult struct {
 	// The instance ID
 	Id *string `json:"id,omitempty"`
 	// The load status of a pod
-	InstanceLoadStatus          *string                      `json:"instanceLoadStatus,omitempty"`
+	InstanceLoadStatus *string `json:"instanceLoadStatus,omitempty"`
 	KubernetesDashboardEndpoint *KubernetesDashboardEndpoint `json:"kubernetesDashboardEndpoint,omitempty"`
 	// The instance update time
 	LastModifiedAt *string `json:"last_modified_at,omitempty"`
@@ -73,10 +73,10 @@ type DescribeResourceInstanceResult struct {
 	// The status of an operation
 	Status *string `json:"status,omitempty"`
 	// Subscription ID
-	SubscriptionId      *string              `json:"subscriptionId,omitempty"`
+	SubscriptionId *string `json:"subscriptionId,omitempty"`
 	SubscriptionLicense *SubscriptionLicense `json:"subscriptionLicense,omitempty"`
 	// Subscription Status
-	SubscriptionStatus   *string `json:"subscriptionStatus,omitempty"`
+	SubscriptionStatus *string `json:"subscriptionStatus,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -814,7 +814,7 @@ func (o *DescribeResourceInstanceResult) SetSubscriptionStatus(v string) {
 }
 
 func (o DescribeResourceInstanceResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1010,3 +1010,5 @@ func (v *NullableDescribeResourceInstanceResult) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

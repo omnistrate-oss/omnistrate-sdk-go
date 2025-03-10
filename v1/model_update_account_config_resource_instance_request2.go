@@ -20,7 +20,7 @@ var _ MappedNullable = &UpdateAccountConfigResourceInstanceRequest2{}
 // UpdateAccountConfigResourceInstanceRequest2 struct for UpdateAccountConfigResourceInstanceRequest2
 type UpdateAccountConfigResourceInstanceRequest2 struct {
 	// Whether the resource instance is disconnected
-	IsDisconnected       *bool `json:"isDisconnected,omitempty"`
+	IsDisconnected *bool `json:"isDisconnected,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -67,7 +67,7 @@ func (o *UpdateAccountConfigResourceInstanceRequest2) SetIsDisconnected(v bool) 
 }
 
 func (o UpdateAccountConfigResourceInstanceRequest2) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -143,3 +143,5 @@ func (v *NullableUpdateAccountConfigResourceInstanceRequest2) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+
