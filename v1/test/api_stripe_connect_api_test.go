@@ -11,7 +11,7 @@ package v1
 
 import (
 	"context"
-	openapiclient "github.com/omnistrate
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
