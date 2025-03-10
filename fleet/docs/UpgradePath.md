@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CompletedAt** | **string** | The timestamp when the upgrade path was completed. | 
+**CompletedAt** | Pointer to **string** | The timestamp when the upgrade path was completed. | [optional] 
 **CompletedCount** | **int64** | The number of instances that have completed the upgrade. | 
 **CreatedAt** | **string** | The timestamp when the upgrade path was created. | 
 **CreatedBy** | Pointer to **string** | The name of the user who created the upgrade path. | [optional] 
@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 ### NewUpgradePath
 
-`func NewUpgradePath(completedAt string, completedCount int64, createdAt string, failedCount int64, inProgressCount int64, pendingCount int64, productTierId string, releasedAt string, serviceId string, skippedCount int64, sourceVersion string, status string, targetVersion string, totalCount int64, type_ string, updatedAt string, upgradePathId string, ) *UpgradePath`
+`func NewUpgradePath(completedCount int64, createdAt string, failedCount int64, inProgressCount int64, pendingCount int64, productTierId string, releasedAt string, serviceId string, skippedCount int64, sourceVersion string, status string, targetVersion string, totalCount int64, type_ string, updatedAt string, upgradePathId string, ) *UpgradePath`
 
 NewUpgradePath instantiates a new UpgradePath object
 This constructor will assign default values to properties that have it defined,
@@ -65,6 +65,11 @@ and a boolean to check if the value has been set.
 
 SetCompletedAt sets CompletedAt field to given value.
 
+### HasCompletedAt
+
+`func (o *UpgradePath) HasCompletedAt() bool`
+
+HasCompletedAt returns a boolean if a field has been set.
 
 ### GetCompletedCount
 
