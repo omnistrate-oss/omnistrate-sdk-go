@@ -1,0 +1,48 @@
+name: SDK Update
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch-prefix:
+        description: 'Branch name prefix'
+        required: true
+        default: 'sdk-update'
+
+jobs:
+  update-sdk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
+
+      - name: Set branch name
+        run: echo "BRANCH_NAME=${{ github.event.inputs.branch-prefix }}-$(date +%Y%m%d-%H%M%S)" >> $GITHUB_ENV
+
+      - name: Set up Go
+        uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34 # v5
+        with:
+          go-version-file: 'go.mod'
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run make command
+        run: make
+        
+      - name: Create branch and commit changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git checkout -b ${{ env.BRANCH_NAME }}
+          git add .
+          git commit -m "chore: update SDK"
+          git push origin ${{ env.BRANCH_NAME }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          title: 'chore: SDK Update'
+          body: 'Automated SDK update via GitHub Actions'
+          branch: ${{ env.BRANCH_NAME }}
+          base: main
+          labels: |
+            automated-pr
+            sdk-update
