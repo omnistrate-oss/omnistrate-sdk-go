@@ -129,6 +129,8 @@ type APIClient struct {
 
 	StorageVolumeConfigApiAPI StorageVolumeConfigApiAPI
 
+	StripeConnectApiAPI StripeConnectApiAPI
+
 	SubscriptionApiAPI SubscriptionApiAPI
 
 	SubscriptionRequestApiAPI SubscriptionRequestApiAPI
@@ -198,6 +200,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.SignupApiAPI = (*SignupApiAPIService)(&c.common)
 	c.StorageConfigApiAPI = (*StorageConfigApiAPIService)(&c.common)
 	c.StorageVolumeConfigApiAPI = (*StorageVolumeConfigApiAPIService)(&c.common)
+	c.StripeConnectApiAPI = (*StripeConnectApiAPIService)(&c.common)
 	c.SubscriptionApiAPI = (*SubscriptionApiAPIService)(&c.common)
 	c.SubscriptionRequestApiAPI = (*SubscriptionRequestApiAPIService)(&c.common)
 	c.TierVersionSetApiAPI = (*TierVersionSetApiAPIService)(&c.common)

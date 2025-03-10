@@ -52,6 +52,8 @@ type DescribeResourceInstanceResult struct {
 	KubernetesDashboardEndpoint *KubernetesDashboardEndpoint `json:"kubernetesDashboardEndpoint,omitempty"`
 	// The instance update time
 	LastModifiedAt *string `json:"last_modified_at,omitempty"`
+	// Pending actions or maintenance tasks for the resource instance, with action type as key and reference key as value.
+	MaintenanceTasks map[string]interface{} `json:"maintenanceTasks,omitempty"`
 	// The maximum number of replicas
 	MaxReplicas *string `json:"maxReplicas,omitempty"`
 	// The minimum number of replicas
@@ -673,6 +675,38 @@ func (o *DescribeResourceInstanceResult) SetLastModifiedAt(v string) {
 	o.LastModifiedAt = &v
 }
 
+// GetMaintenanceTasks returns the MaintenanceTasks field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetMaintenanceTasks() map[string]interface{} {
+	if o == nil || IsNil(o.MaintenanceTasks) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.MaintenanceTasks
+}
+
+// GetMaintenanceTasksOk returns a tuple with the MaintenanceTasks field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetMaintenanceTasksOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.MaintenanceTasks) {
+		return map[string]interface{}{}, false
+	}
+	return o.MaintenanceTasks, true
+}
+
+// HasMaintenanceTasks returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasMaintenanceTasks() bool {
+	if o != nil && !IsNil(o.MaintenanceTasks) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaintenanceTasks gets a reference to the given map[string]interface{} and assigns it to the MaintenanceTasks field.
+func (o *DescribeResourceInstanceResult) SetMaintenanceTasks(v map[string]interface{}) {
+	o.MaintenanceTasks = v
+}
+
 // GetMaxReplicas returns the MaxReplicas field value if set, zero value otherwise.
 func (o *DescribeResourceInstanceResult) GetMaxReplicas() string {
 	if o == nil || IsNil(o.MaxReplicas) {
@@ -1122,6 +1156,9 @@ func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.LastModifiedAt) {
 		toSerialize["last_modified_at"] = o.LastModifiedAt
 	}
+	if !IsNil(o.MaintenanceTasks) {
+		toSerialize["maintenanceTasks"] = o.MaintenanceTasks
+	}
 	if !IsNil(o.MaxReplicas) {
 		toSerialize["maxReplicas"] = o.MaxReplicas
 	}
@@ -1198,6 +1235,7 @@ func (o *DescribeResourceInstanceResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "instanceLoadStatus")
 		delete(additionalProperties, "kubernetesDashboardEndpoint")
 		delete(additionalProperties, "last_modified_at")
+		delete(additionalProperties, "maintenanceTasks")
 		delete(additionalProperties, "maxReplicas")
 		delete(additionalProperties, "minReplicas")
 		delete(additionalProperties, "network_type")
