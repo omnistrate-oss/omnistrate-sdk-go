@@ -21,7 +21,7 @@ var _ MappedNullable = &UpgradePath{}
 // UpgradePath struct for UpgradePath
 type UpgradePath struct {
 	// The timestamp when the upgrade path was completed.
-	CompletedAt string `json:"completedAt"`
+	CompletedAt *string `json:"completedAt,omitempty"`
 	// The number of instances that have completed the upgrade.
 	CompletedCount int64 `json:"completedCount"`
 	// The timestamp when the upgrade path was created.
@@ -63,7 +63,7 @@ type UpgradePath struct {
 	// The timestamp when the upgrade path was updated.
 	UpdatedAt string `json:"updatedAt"`
 	// ID of an Upgrade Path
-	UpgradePathId string `json:"upgradePathId"`
+	UpgradePathId        string `json:"upgradePathId"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -73,9 +73,8 @@ type _UpgradePath UpgradePath
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpgradePath(completedAt string, completedCount int64, createdAt string, failedCount int64, inProgressCount int64, pendingCount int64, productTierId string, releasedAt string, serviceId string, skippedCount int64, sourceVersion string, status string, targetVersion string, totalCount int64, type_ string, updatedAt string, upgradePathId string) *UpgradePath {
+func NewUpgradePath(completedCount int64, createdAt string, failedCount int64, inProgressCount int64, pendingCount int64, productTierId string, releasedAt string, serviceId string, skippedCount int64, sourceVersion string, status string, targetVersion string, totalCount int64, type_ string, updatedAt string, upgradePathId string) *UpgradePath {
 	this := UpgradePath{}
-	this.CompletedAt = completedAt
 	this.CompletedCount = completedCount
 	this.CreatedAt = createdAt
 	this.FailedCount = failedCount
@@ -103,28 +102,36 @@ func NewUpgradePathWithDefaults() *UpgradePath {
 	return &this
 }
 
-// GetCompletedAt returns the CompletedAt field value
+// GetCompletedAt returns the CompletedAt field value if set, zero value otherwise.
 func (o *UpgradePath) GetCompletedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.CompletedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.CompletedAt
+	return *o.CompletedAt
 }
 
-// GetCompletedAtOk returns a tuple with the CompletedAt field value
+// GetCompletedAtOk returns a tuple with the CompletedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpgradePath) GetCompletedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CompletedAt) {
 		return nil, false
 	}
-	return &o.CompletedAt, true
+	return o.CompletedAt, true
 }
 
-// SetCompletedAt sets field value
+// HasCompletedAt returns a boolean if a field has been set.
+func (o *UpgradePath) HasCompletedAt() bool {
+	if o != nil && !IsNil(o.CompletedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCompletedAt gets a reference to the given string and assigns it to the CompletedAt field.
 func (o *UpgradePath) SetCompletedAt(v string) {
-	o.CompletedAt = v
+	o.CompletedAt = &v
 }
 
 // GetCompletedCount returns the CompletedCount field value
@@ -672,7 +679,7 @@ func (o *UpgradePath) SetUpgradePathId(v string) {
 }
 
 func (o UpgradePath) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -681,7 +688,9 @@ func (o UpgradePath) MarshalJSON() ([]byte, error) {
 
 func (o UpgradePath) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["completedAt"] = o.CompletedAt
+	if !IsNil(o.CompletedAt) {
+		toSerialize["completedAt"] = o.CompletedAt
+	}
 	toSerialize["completedCount"] = o.CompletedCount
 	toSerialize["createdAt"] = o.CreatedAt
 	if !IsNil(o.CreatedBy) {
@@ -726,7 +735,6 @@ func (o *UpgradePath) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"completedAt",
 		"completedCount",
 		"createdAt",
 		"failedCount",
@@ -750,10 +758,10 @@ func (o *UpgradePath) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -835,5 +843,3 @@ func (v *NullableUpgradePath) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

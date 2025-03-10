@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **EndTime** | Pointer to **string** | The time the workflow execution ended. | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **Id** | **string** | ID of the ServiceWorkflow | 
+**ManualOverride** | Pointer to [**ManualOverride**](ManualOverride.md) |  | [optional] 
 **OrgName** | **string** | The name of the instance owner organization. | 
 **ParentId** | Pointer to **string** | The parent workflow&#39;s id for the execution. | [optional] 
 **PlanType** | Pointer to **string** | The plan type of the instance owner organization. | [optional] 
@@ -248,6 +249,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetManualOverride
+
+`func (o *ServiceWorkflow) GetManualOverride() ManualOverride`
+
+GetManualOverride returns the ManualOverride field if non-nil, zero value otherwise.
+
+### GetManualOverrideOk
+
+`func (o *ServiceWorkflow) GetManualOverrideOk() (*ManualOverride, bool)`
+
+GetManualOverrideOk returns a tuple with the ManualOverride field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManualOverride
+
+`func (o *ServiceWorkflow) SetManualOverride(v ManualOverride)`
+
+SetManualOverride sets ManualOverride field to given value.
+
+### HasManualOverride
+
+`func (o *ServiceWorkflow) HasManualOverride() bool`
+
+HasManualOverride returns a boolean if a field has been set.
 
 ### GetOrgName
 

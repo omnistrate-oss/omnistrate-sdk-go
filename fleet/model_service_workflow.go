@@ -37,7 +37,8 @@ type ServiceWorkflow struct {
 	// The GCP project ID
 	GcpProjectID *string `json:"gcpProjectID,omitempty"`
 	// ID of the ServiceWorkflow
-	Id string `json:"id"`
+	Id             string          `json:"id"`
+	ManualOverride *ManualOverride `json:"manualOverride,omitempty"`
 	// The name of the instance owner organization.
 	OrgName string `json:"orgName"`
 	// The parent workflow's id for the execution.
@@ -49,7 +50,7 @@ type ServiceWorkflow struct {
 	// The time the workflow execution started.
 	StartTime string `json:"startTime"`
 	// The status of the workflow execution.
-	Status string `json:"status"`
+	Status               string `json:"status"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -342,6 +343,38 @@ func (o *ServiceWorkflow) SetId(v string) {
 	o.Id = v
 }
 
+// GetManualOverride returns the ManualOverride field value if set, zero value otherwise.
+func (o *ServiceWorkflow) GetManualOverride() ManualOverride {
+	if o == nil || IsNil(o.ManualOverride) {
+		var ret ManualOverride
+		return ret
+	}
+	return *o.ManualOverride
+}
+
+// GetManualOverrideOk returns a tuple with the ManualOverride field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceWorkflow) GetManualOverrideOk() (*ManualOverride, bool) {
+	if o == nil || IsNil(o.ManualOverride) {
+		return nil, false
+	}
+	return o.ManualOverride, true
+}
+
+// HasManualOverride returns a boolean if a field has been set.
+func (o *ServiceWorkflow) HasManualOverride() bool {
+	if o != nil && !IsNil(o.ManualOverride) {
+		return true
+	}
+
+	return false
+}
+
+// SetManualOverride gets a reference to the given ManualOverride and assigns it to the ManualOverride field.
+func (o *ServiceWorkflow) SetManualOverride(v ManualOverride) {
+	o.ManualOverride = &v
+}
+
 // GetOrgName returns the OrgName field value
 func (o *ServiceWorkflow) GetOrgName() string {
 	if o == nil {
@@ -511,7 +544,7 @@ func (o *ServiceWorkflow) SetStatus(v string) {
 }
 
 func (o ServiceWorkflow) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -541,6 +574,9 @@ func (o ServiceWorkflow) ToMap() (map[string]interface{}, error) {
 		toSerialize["gcpProjectID"] = o.GcpProjectID
 	}
 	toSerialize["id"] = o.Id
+	if !IsNil(o.ManualOverride) {
+		toSerialize["manualOverride"] = o.ManualOverride
+	}
 	toSerialize["orgName"] = o.OrgName
 	if !IsNil(o.ParentId) {
 		toSerialize["parentId"] = o.ParentId
@@ -579,10 +615,10 @@ func (o *ServiceWorkflow) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -610,6 +646,7 @@ func (o *ServiceWorkflow) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "endTime")
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "manualOverride")
 		delete(additionalProperties, "orgName")
 		delete(additionalProperties, "parentId")
 		delete(additionalProperties, "planType")
@@ -657,5 +694,3 @@ func (v *NullableServiceWorkflow) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

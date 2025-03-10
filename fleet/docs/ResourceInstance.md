@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **ServiceName** | **string** | The service name | 
 **SubscriptionId** | **string** | ID of a Subscription | 
 **SubscriptionOwnerName** | **string** | The subscription owner name | 
+**SubscriptionStatus** | Pointer to **string** | Subscription Status | [optional] 
 **TierVersion** | **string** | The tier version of the resource instance. | 
 **TierVersionReleasedAt** | **string** | The timestamp when the version set was released. | 
 **TierVersionReleasedByUserId** | **string** | ID of a User | 
@@ -713,6 +714,31 @@ and a boolean to check if the value has been set.
 
 SetSubscriptionOwnerName sets SubscriptionOwnerName field to given value.
 
+
+### GetSubscriptionStatus
+
+`func (o *ResourceInstance) GetSubscriptionStatus() string`
+
+GetSubscriptionStatus returns the SubscriptionStatus field if non-nil, zero value otherwise.
+
+### GetSubscriptionStatusOk
+
+`func (o *ResourceInstance) GetSubscriptionStatusOk() (*string, bool)`
+
+GetSubscriptionStatusOk returns a tuple with the SubscriptionStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscriptionStatus
+
+`func (o *ResourceInstance) SetSubscriptionStatus(v string)`
+
+SetSubscriptionStatus sets SubscriptionStatus field to given value.
+
+### HasSubscriptionStatus
+
+`func (o *ResourceInstance) HasSubscriptionStatus() bool`
+
+HasSubscriptionStatus returns a boolean if a field has been set.
 
 ### GetTierVersion
 
