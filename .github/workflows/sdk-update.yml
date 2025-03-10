@@ -7,7 +7,20 @@ on:
         description: 'Branch name prefix'
         required: true
         default: 'sdk-update'
+  pull_request:
+    branches: [ "main" ] 
+    
+env:  
+  GOMAXPROCS: 2
 
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+  
 jobs:
   update-sdk:
     runs-on: ubuntu-latest
