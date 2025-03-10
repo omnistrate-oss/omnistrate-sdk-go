@@ -42,8 +42,11 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install openapi-generator-cli
-        run: npm install @openapitools/openapi-generator-cli -g
+      - name: Install and setup openapi-generator-cli
+        run: |
+          npm install @openapitools/openapi-generator-cli -g
+          echo "$HOME/.npm/bin" >> $GITHUB_PATH
+          openapi-generator-cli version
 
       - name: Run make to update SDK and docs
         run: make
