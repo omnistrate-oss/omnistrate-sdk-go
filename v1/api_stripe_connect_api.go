@@ -18,14 +18,13 @@ import (
 	"net/url"
 )
 
-
 type StripeConnectApiAPI interface {
 
 	/*
-	StripeConnectApiCompleteOAuthConnection CompleteOAuthConnection stripe-connect-api
+		StripeConnectApiCompleteOAuthConnection CompleteOAuthConnection stripe-connect-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiStripeConnectApiCompleteOAuthConnectionRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiStripeConnectApiCompleteOAuthConnectionRequest
 	*/
 	StripeConnectApiCompleteOAuthConnection(ctx context.Context) ApiStripeConnectApiCompleteOAuthConnectionRequest
 
@@ -34,10 +33,10 @@ type StripeConnectApiAPI interface {
 	StripeConnectApiCompleteOAuthConnectionExecute(r ApiStripeConnectApiCompleteOAuthConnectionRequest) (*CompleteOAuthConnectionResult, *http.Response, error)
 
 	/*
-	StripeConnectApiGetStripeAuthorizeUrl GetStripeAuthorizeUrl stripe-connect-api
+		StripeConnectApiGetStripeAuthorizeUrl GetStripeAuthorizeUrl stripe-connect-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiStripeConnectApiGetStripeAuthorizeUrlRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiStripeConnectApiGetStripeAuthorizeUrlRequest
 	*/
 	StripeConnectApiGetStripeAuthorizeUrl(ctx context.Context) ApiStripeConnectApiGetStripeAuthorizeUrlRequest
 
@@ -46,10 +45,10 @@ type StripeConnectApiAPI interface {
 	StripeConnectApiGetStripeAuthorizeUrlExecute(r ApiStripeConnectApiGetStripeAuthorizeUrlRequest) (*StripeAuthorizeURLResult, *http.Response, error)
 
 	/*
-	StripeConnectApiRevokeOAuthAccess RevokeOAuthAccess stripe-connect-api
+		StripeConnectApiRevokeOAuthAccess RevokeOAuthAccess stripe-connect-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiStripeConnectApiRevokeOAuthAccessRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiStripeConnectApiRevokeOAuthAccessRequest
 	*/
 	StripeConnectApiRevokeOAuthAccess(ctx context.Context) ApiStripeConnectApiRevokeOAuthAccessRequest
 
@@ -61,8 +60,8 @@ type StripeConnectApiAPI interface {
 type StripeConnectApiAPIService service
 
 type ApiStripeConnectApiCompleteOAuthConnectionRequest struct {
-	ctx context.Context
-	ApiService StripeConnectApiAPI
+	ctx                             context.Context
+	ApiService                      StripeConnectApiAPI
 	completeOAuthConnectionRequest2 *CompleteOAuthConnectionRequest2
 }
 
@@ -78,24 +77,25 @@ func (r ApiStripeConnectApiCompleteOAuthConnectionRequest) Execute() (*CompleteO
 /*
 StripeConnectApiCompleteOAuthConnection CompleteOAuthConnection stripe-connect-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiStripeConnectApiCompleteOAuthConnectionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiStripeConnectApiCompleteOAuthConnectionRequest
 */
 func (a *StripeConnectApiAPIService) StripeConnectApiCompleteOAuthConnection(ctx context.Context) ApiStripeConnectApiCompleteOAuthConnectionRequest {
 	return ApiStripeConnectApiCompleteOAuthConnectionRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CompleteOAuthConnectionResult
+//
+//	@return CompleteOAuthConnectionResult
 func (a *StripeConnectApiAPIService) StripeConnectApiCompleteOAuthConnectionExecute(r ApiStripeConnectApiCompleteOAuthConnectionRequest) (*CompleteOAuthConnectionResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CompleteOAuthConnectionResult
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CompleteOAuthConnectionResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StripeConnectApiAPIService.StripeConnectApiCompleteOAuthConnection")
@@ -160,8 +160,8 @@ func (a *StripeConnectApiAPIService) StripeConnectApiCompleteOAuthConnectionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -171,8 +171,8 @@ func (a *StripeConnectApiAPIService) StripeConnectApiCompleteOAuthConnectionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -182,8 +182,8 @@ func (a *StripeConnectApiAPIService) StripeConnectApiCompleteOAuthConnectionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -193,8 +193,8 @@ func (a *StripeConnectApiAPIService) StripeConnectApiCompleteOAuthConnectionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -204,8 +204,8 @@ func (a *StripeConnectApiAPIService) StripeConnectApiCompleteOAuthConnectionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -215,8 +215,8 @@ func (a *StripeConnectApiAPIService) StripeConnectApiCompleteOAuthConnectionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -234,7 +234,7 @@ func (a *StripeConnectApiAPIService) StripeConnectApiCompleteOAuthConnectionExec
 }
 
 type ApiStripeConnectApiGetStripeAuthorizeUrlRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService StripeConnectApiAPI
 }
 
@@ -245,24 +245,25 @@ func (r ApiStripeConnectApiGetStripeAuthorizeUrlRequest) Execute() (*StripeAutho
 /*
 StripeConnectApiGetStripeAuthorizeUrl GetStripeAuthorizeUrl stripe-connect-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiStripeConnectApiGetStripeAuthorizeUrlRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiStripeConnectApiGetStripeAuthorizeUrlRequest
 */
 func (a *StripeConnectApiAPIService) StripeConnectApiGetStripeAuthorizeUrl(ctx context.Context) ApiStripeConnectApiGetStripeAuthorizeUrlRequest {
 	return ApiStripeConnectApiGetStripeAuthorizeUrlRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return StripeAuthorizeURLResult
+//
+//	@return StripeAuthorizeURLResult
 func (a *StripeConnectApiAPIService) StripeConnectApiGetStripeAuthorizeUrlExecute(r ApiStripeConnectApiGetStripeAuthorizeUrlRequest) (*StripeAuthorizeURLResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *StripeAuthorizeURLResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *StripeAuthorizeURLResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StripeConnectApiAPIService.StripeConnectApiGetStripeAuthorizeUrl")
@@ -322,8 +323,8 @@ func (a *StripeConnectApiAPIService) StripeConnectApiGetStripeAuthorizeUrlExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -333,8 +334,8 @@ func (a *StripeConnectApiAPIService) StripeConnectApiGetStripeAuthorizeUrlExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -344,8 +345,8 @@ func (a *StripeConnectApiAPIService) StripeConnectApiGetStripeAuthorizeUrlExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -355,8 +356,8 @@ func (a *StripeConnectApiAPIService) StripeConnectApiGetStripeAuthorizeUrlExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -366,8 +367,8 @@ func (a *StripeConnectApiAPIService) StripeConnectApiGetStripeAuthorizeUrlExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -377,8 +378,8 @@ func (a *StripeConnectApiAPIService) StripeConnectApiGetStripeAuthorizeUrlExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -396,7 +397,7 @@ func (a *StripeConnectApiAPIService) StripeConnectApiGetStripeAuthorizeUrlExecut
 }
 
 type ApiStripeConnectApiRevokeOAuthAccessRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService StripeConnectApiAPI
 }
 
@@ -407,22 +408,22 @@ func (r ApiStripeConnectApiRevokeOAuthAccessRequest) Execute() (*http.Response, 
 /*
 StripeConnectApiRevokeOAuthAccess RevokeOAuthAccess stripe-connect-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiStripeConnectApiRevokeOAuthAccessRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiStripeConnectApiRevokeOAuthAccessRequest
 */
 func (a *StripeConnectApiAPIService) StripeConnectApiRevokeOAuthAccess(ctx context.Context) ApiStripeConnectApiRevokeOAuthAccessRequest {
 	return ApiStripeConnectApiRevokeOAuthAccessRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *StripeConnectApiAPIService) StripeConnectApiRevokeOAuthAccessExecute(r ApiStripeConnectApiRevokeOAuthAccessRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StripeConnectApiAPIService.StripeConnectApiRevokeOAuthAccess")
@@ -482,8 +483,8 @@ func (a *StripeConnectApiAPIService) StripeConnectApiRevokeOAuthAccessExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -493,8 +494,8 @@ func (a *StripeConnectApiAPIService) StripeConnectApiRevokeOAuthAccessExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -504,8 +505,8 @@ func (a *StripeConnectApiAPIService) StripeConnectApiRevokeOAuthAccessExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -515,8 +516,8 @@ func (a *StripeConnectApiAPIService) StripeConnectApiRevokeOAuthAccessExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -526,8 +527,8 @@ func (a *StripeConnectApiAPIService) StripeConnectApiRevokeOAuthAccessExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -537,8 +538,8 @@ func (a *StripeConnectApiAPIService) StripeConnectApiRevokeOAuthAccessExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

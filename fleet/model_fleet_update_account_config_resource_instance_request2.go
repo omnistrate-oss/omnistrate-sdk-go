@@ -20,7 +20,7 @@ var _ MappedNullable = &FleetUpdateAccountConfigResourceInstanceRequest2{}
 // FleetUpdateAccountConfigResourceInstanceRequest2 struct for FleetUpdateAccountConfigResourceInstanceRequest2
 type FleetUpdateAccountConfigResourceInstanceRequest2 struct {
 	// Disconnect account config instance or not
-	Disconnect *bool `json:"disconnect,omitempty"`
+	Disconnect           *bool `json:"disconnect,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -76,7 +76,7 @@ func (o *FleetUpdateAccountConfigResourceInstanceRequest2) SetDisconnect(v bool)
 }
 
 func (o FleetUpdateAccountConfigResourceInstanceRequest2) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -152,5 +152,3 @@ func (v *NullableFleetUpdateAccountConfigResourceInstanceRequest2) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

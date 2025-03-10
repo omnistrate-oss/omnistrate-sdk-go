@@ -19,22 +19,21 @@ import (
 	"strings"
 )
 
-
 type ResourceInstanceApiAPI interface {
 
 	/*
-	ResourceInstanceApiAddCapacityToResourceInstance AddCapacityToResourceInstance resource-instance-api
+		ResourceInstanceApiAddCapacityToResourceInstance AddCapacityToResourceInstance resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service name
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
-	@param resourceKey The resource key
-	@param id The instance ID
-	@return ApiResourceInstanceApiAddCapacityToResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service name
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@param productTierKey The product tier name
+		@param resourceKey The resource key
+		@param id The instance ID
+		@return ApiResourceInstanceApiAddCapacityToResourceInstanceRequest
 	*/
 	ResourceInstanceApiAddCapacityToResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiAddCapacityToResourceInstanceRequest
 
@@ -42,18 +41,18 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiAddCapacityToResourceInstanceExecute(r ApiResourceInstanceApiAddCapacityToResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	ResourceInstanceApiAddCustomDNSToResourceInstance AddCustomDNSToResourceInstance resource-instance-api
+		ResourceInstanceApiAddCustomDNSToResourceInstance AddCustomDNSToResourceInstance resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service name
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
-	@param resourceKey The resource key
-	@param id The instance ID
-	@return ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service name
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@param productTierKey The product tier name
+		@param resourceKey The resource key
+		@param id The instance ID
+		@return ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest
 	*/
 	ResourceInstanceApiAddCustomDNSToResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest
 
@@ -61,17 +60,17 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiAddCustomDNSToResourceInstanceExecute(r ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	ResourceInstanceApiCreateResourceInstance CreateResourceInstance resource-instance-api
+		ResourceInstanceApiCreateResourceInstance CreateResourceInstance resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service name
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
-	@param resourceKey The resource key
-	@return ApiResourceInstanceApiCreateResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service name
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@param productTierKey The product tier name
+		@param resourceKey The resource key
+		@return ApiResourceInstanceApiCreateResourceInstanceRequest
 	*/
 	ResourceInstanceApiCreateResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string) ApiResourceInstanceApiCreateResourceInstanceRequest
 
@@ -80,18 +79,18 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiCreateResourceInstanceExecute(r ApiResourceInstanceApiCreateResourceInstanceRequest) (*CreateServicesOrchestrationResponseBody, *http.Response, error)
 
 	/*
-	ResourceInstanceApiDeleteResourceInstance DeleteResourceInstance resource-instance-api
+		ResourceInstanceApiDeleteResourceInstance DeleteResourceInstance resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service name
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
-	@param resourceKey The resource key
-	@param id The instance ID
-	@return ApiResourceInstanceApiDeleteResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service name
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@param productTierKey The product tier name
+		@param resourceKey The resource key
+		@param id The instance ID
+		@return ApiResourceInstanceApiDeleteResourceInstanceRequest
 	*/
 	ResourceInstanceApiDeleteResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiDeleteResourceInstanceRequest
 
@@ -99,18 +98,18 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiDeleteResourceInstanceExecute(r ApiResourceInstanceApiDeleteResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	ResourceInstanceApiDescribeResourceInstance DescribeResourceInstance resource-instance-api
+		ResourceInstanceApiDescribeResourceInstance DescribeResourceInstance resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service name
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
-	@param resourceKey The resource key
-	@param id The instance ID
-	@return ApiResourceInstanceApiDescribeResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service name
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@param productTierKey The product tier name
+		@param resourceKey The resource key
+		@param id The instance ID
+		@return ApiResourceInstanceApiDescribeResourceInstanceRequest
 	*/
 	ResourceInstanceApiDescribeResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiDescribeResourceInstanceRequest
 
@@ -119,18 +118,18 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiDescribeResourceInstanceExecute(r ApiResourceInstanceApiDescribeResourceInstanceRequest) (*DescribeResourceInstanceResult, *http.Response, error)
 
 	/*
-	ResourceInstanceApiFailoverResourceInstance FailoverResourceInstance resource-instance-api
+		ResourceInstanceApiFailoverResourceInstance FailoverResourceInstance resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service name
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
-	@param resourceKey The resource key
-	@param id The instance ID
-	@return ApiResourceInstanceApiFailoverResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service name
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@param productTierKey The product tier name
+		@param resourceKey The resource key
+		@param id The instance ID
+		@return ApiResourceInstanceApiFailoverResourceInstanceRequest
 	*/
 	ResourceInstanceApiFailoverResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiFailoverResourceInstanceRequest
 
@@ -138,11 +137,11 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiFailoverResourceInstanceExecute(r ApiResourceInstanceApiFailoverResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	ResourceInstanceApiGenerateTokenForDeploymentCellDashboard GenerateTokenForDeploymentCellDashboard resource-instance-api
+		ResourceInstanceApiGenerateTokenForDeploymentCellDashboard GenerateTokenForDeploymentCellDashboard resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id The instance ID whose deployment cell dashboard token is to be generated
-	@return ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id The instance ID whose deployment cell dashboard token is to be generated
+		@return ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest
 	*/
 	ResourceInstanceApiGenerateTokenForDeploymentCellDashboard(ctx context.Context, id string) ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest
 
@@ -151,10 +150,10 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiGenerateTokenForDeploymentCellDashboardExecute(r ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest) (*GenerateTokenForDeploymentCellDashboardResult, *http.Response, error)
 
 	/*
-	ResourceInstanceApiListAllResourceInstances ListAllResourceInstances resource-instance-api
+		ResourceInstanceApiListAllResourceInstances ListAllResourceInstances resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiResourceInstanceApiListAllResourceInstancesRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiResourceInstanceApiListAllResourceInstancesRequest
 	*/
 	ResourceInstanceApiListAllResourceInstances(ctx context.Context) ApiResourceInstanceApiListAllResourceInstancesRequest
 
@@ -163,18 +162,18 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiListAllResourceInstancesExecute(r ApiResourceInstanceApiListAllResourceInstancesRequest) (*ListAllResourceInstancesResult, *http.Response, error)
 
 	/*
-	ResourceInstanceApiListResourceInstanceSnapshots ListResourceInstanceSnapshots resource-instance-api
+		ResourceInstanceApiListResourceInstanceSnapshots ListResourceInstanceSnapshots resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service key
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
-	@param resourceKey The resource key
-	@param id The instance ID
-	@return ApiResourceInstanceApiListResourceInstanceSnapshotsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service key
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@param productTierKey The product tier name
+		@param resourceKey The resource key
+		@param id The instance ID
+		@return ApiResourceInstanceApiListResourceInstanceSnapshotsRequest
 	*/
 	ResourceInstanceApiListResourceInstanceSnapshots(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiListResourceInstanceSnapshotsRequest
 
@@ -183,17 +182,17 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiListResourceInstanceSnapshotsExecute(r ApiResourceInstanceApiListResourceInstanceSnapshotsRequest) (*ListResourceInstanceSnapshotsResult, *http.Response, error)
 
 	/*
-	ResourceInstanceApiListResourceInstances ListResourceInstances resource-instance-api
+		ResourceInstanceApiListResourceInstances ListResourceInstances resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service key
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
-	@param resourceKey The resource key
-	@return ApiResourceInstanceApiListResourceInstancesRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service key
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@param productTierKey The product tier name
+		@param resourceKey The resource key
+		@return ApiResourceInstanceApiListResourceInstancesRequest
 	*/
 	ResourceInstanceApiListResourceInstances(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string) ApiResourceInstanceApiListResourceInstancesRequest
 
@@ -202,18 +201,18 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiListResourceInstancesExecute(r ApiResourceInstanceApiListResourceInstancesRequest) (*ListResourceInstancesResult, *http.Response, error)
 
 	/*
-	ResourceInstanceApiRemoveCapacityFromResourceInstance RemoveCapacityFromResourceInstance resource-instance-api
+		ResourceInstanceApiRemoveCapacityFromResourceInstance RemoveCapacityFromResourceInstance resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service name
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
-	@param resourceKey The resource key
-	@param id The instance ID
-	@return ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service name
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@param productTierKey The product tier name
+		@param resourceKey The resource key
+		@param id The instance ID
+		@return ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest
 	*/
 	ResourceInstanceApiRemoveCapacityFromResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest
 
@@ -221,18 +220,18 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiRemoveCapacityFromResourceInstanceExecute(r ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	ResourceInstanceApiRemoveCustomDNSFromResourceInstance RemoveCustomDNSFromResourceInstance resource-instance-api
+		ResourceInstanceApiRemoveCustomDNSFromResourceInstance RemoveCustomDNSFromResourceInstance resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service name
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
-	@param resourceKey The resource key
-	@param id The instance ID
-	@return ApiResourceInstanceApiRemoveCustomDNSFromResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service name
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@param productTierKey The product tier name
+		@param resourceKey The resource key
+		@param id The instance ID
+		@return ApiResourceInstanceApiRemoveCustomDNSFromResourceInstanceRequest
 	*/
 	ResourceInstanceApiRemoveCustomDNSFromResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiRemoveCustomDNSFromResourceInstanceRequest
 
@@ -240,15 +239,15 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiRemoveCustomDNSFromResourceInstanceExecute(r ApiResourceInstanceApiRemoveCustomDNSFromResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	ResourceInstanceApiResourceInstanceProvisionerSetupKit ResourceInstanceProvisionerSetupKit resource-instance-api
+		ResourceInstanceApiResourceInstanceProvisionerSetupKit ResourceInstanceProvisionerSetupKit resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service name
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@return ApiResourceInstanceApiResourceInstanceProvisionerSetupKitRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service name
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@return ApiResourceInstanceApiResourceInstanceProvisionerSetupKitRequest
 	*/
 	ResourceInstanceApiResourceInstanceProvisionerSetupKit(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string) ApiResourceInstanceApiResourceInstanceProvisionerSetupKitRequest
 
@@ -256,18 +255,18 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiResourceInstanceProvisionerSetupKitExecute(r ApiResourceInstanceApiResourceInstanceProvisionerSetupKitRequest) (*http.Response, error)
 
 	/*
-	ResourceInstanceApiRestartResourceInstance RestartResourceInstance resource-instance-api
+		ResourceInstanceApiRestartResourceInstance RestartResourceInstance resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service name
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
-	@param resourceKey The resource key
-	@param id The instance ID
-	@return ApiResourceInstanceApiRestartResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service name
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@param productTierKey The product tier name
+		@param resourceKey The resource key
+		@param id The instance ID
+		@return ApiResourceInstanceApiRestartResourceInstanceRequest
 	*/
 	ResourceInstanceApiRestartResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiRestartResourceInstanceRequest
 
@@ -275,18 +274,18 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiRestartResourceInstanceExecute(r ApiResourceInstanceApiRestartResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	ResourceInstanceApiRestoreResourceInstance RestoreResourceInstance resource-instance-api
+		ResourceInstanceApiRestoreResourceInstance RestoreResourceInstance resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service name
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
-	@param resourceKey The resource key
-	@param id The instance ID
-	@return ApiResourceInstanceApiRestoreResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service name
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@param productTierKey The product tier name
+		@param resourceKey The resource key
+		@param id The instance ID
+		@return ApiResourceInstanceApiRestoreResourceInstanceRequest
 	*/
 	ResourceInstanceApiRestoreResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiRestoreResourceInstanceRequest
 
@@ -295,18 +294,18 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiRestoreResourceInstanceExecute(r ApiResourceInstanceApiRestoreResourceInstanceRequest) (*CreateServicesOrchestrationResponseBody, *http.Response, error)
 
 	/*
-	ResourceInstanceApiRestoreResourceInstanceFromSnapshot RestoreResourceInstanceFromSnapshot resource-instance-api
+		ResourceInstanceApiRestoreResourceInstanceFromSnapshot RestoreResourceInstanceFromSnapshot resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service name
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
-	@param resourceKey The resource key
-	@param snapshotId The snapshot ID
-	@return ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service name
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@param productTierKey The product tier name
+		@param resourceKey The resource key
+		@param snapshotId The snapshot ID
+		@return ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest
 	*/
 	ResourceInstanceApiRestoreResourceInstanceFromSnapshot(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, snapshotId string) ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest
 
@@ -315,18 +314,18 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiRestoreResourceInstanceFromSnapshotExecute(r ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest) (*CreateServicesOrchestrationResponseBody, *http.Response, error)
 
 	/*
-	ResourceInstanceApiStartResourceInstance StartResourceInstance resource-instance-api
+		ResourceInstanceApiStartResourceInstance StartResourceInstance resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service name
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
-	@param resourceKey The resource key
-	@param id The instance ID
-	@return ApiResourceInstanceApiStartResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service name
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@param productTierKey The product tier name
+		@param resourceKey The resource key
+		@param id The instance ID
+		@return ApiResourceInstanceApiStartResourceInstanceRequest
 	*/
 	ResourceInstanceApiStartResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiStartResourceInstanceRequest
 
@@ -334,18 +333,18 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiStartResourceInstanceExecute(r ApiResourceInstanceApiStartResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	ResourceInstanceApiStopResourceInstance StopResourceInstance resource-instance-api
+		ResourceInstanceApiStopResourceInstance StopResourceInstance resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service name
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
-	@param resourceKey The resource key
-	@param id The instance ID
-	@return ApiResourceInstanceApiStopResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service name
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@param productTierKey The product tier name
+		@param resourceKey The resource key
+		@param id The instance ID
+		@return ApiResourceInstanceApiStopResourceInstanceRequest
 	*/
 	ResourceInstanceApiStopResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiStopResourceInstanceRequest
 
@@ -353,11 +352,11 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiStopResourceInstanceExecute(r ApiResourceInstanceApiStopResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	ResourceInstanceApiUpdateAccountConfigResourceInstance UpdateAccountConfigResourceInstance resource-instance-api
+		ResourceInstanceApiUpdateAccountConfigResourceInstance UpdateAccountConfigResourceInstance resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id The instance ID
-	@return ApiResourceInstanceApiUpdateAccountConfigResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id The instance ID
+		@return ApiResourceInstanceApiUpdateAccountConfigResourceInstanceRequest
 	*/
 	ResourceInstanceApiUpdateAccountConfigResourceInstance(ctx context.Context, id string) ApiResourceInstanceApiUpdateAccountConfigResourceInstanceRequest
 
@@ -365,18 +364,18 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiUpdateAccountConfigResourceInstanceExecute(r ApiResourceInstanceApiUpdateAccountConfigResourceInstanceRequest) (*http.Response, error)
 
 	/*
-	ResourceInstanceApiUpdateResourceInstance UpdateResourceInstance resource-instance-api
+		ResourceInstanceApiUpdateResourceInstance UpdateResourceInstance resource-instance-api
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service name
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
-	@param resourceKey The resource key
-	@param id The instance ID
-	@return ApiResourceInstanceApiUpdateResourceInstanceRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceProviderId The service provider ID
+		@param serviceKey The service name
+		@param serviceAPIVersion The service API version
+		@param serviceEnvironmentKey The service environment name
+		@param serviceModelKey The service model name
+		@param productTierKey The product tier name
+		@param resourceKey The resource key
+		@param id The instance ID
+		@return ApiResourceInstanceApiUpdateResourceInstanceRequest
 	*/
 	ResourceInstanceApiUpdateResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiUpdateResourceInstanceRequest
 
@@ -388,18 +387,18 @@ type ResourceInstanceApiAPI interface {
 type ResourceInstanceApiAPIService service
 
 type ApiResourceInstanceApiAddCapacityToResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
-	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
-	resourceKey string
-	id string
+	ctx                                   context.Context
+	ApiService                            ResourceInstanceApiAPI
+	serviceProviderId                     string
+	serviceKey                            string
+	serviceAPIVersion                     string
+	serviceEnvironmentKey                 string
+	serviceModelKey                       string
+	productTierKey                        string
+	resourceKey                           string
+	id                                    string
 	addCapacityToResourceInstanceRequest2 *AddCapacityToResourceInstanceRequest2
-	subscriptionId *string
+	subscriptionId                        *string
 }
 
 func (r ApiResourceInstanceApiAddCapacityToResourceInstanceRequest) AddCapacityToResourceInstanceRequest2(addCapacityToResourceInstanceRequest2 AddCapacityToResourceInstanceRequest2) ApiResourceInstanceApiAddCapacityToResourceInstanceRequest {
@@ -420,38 +419,38 @@ func (r ApiResourceInstanceApiAddCapacityToResourceInstanceRequest) Execute() (*
 /*
 ResourceInstanceApiAddCapacityToResourceInstance AddCapacityToResourceInstance resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @param resourceKey The resource key
- @param id The instance ID
- @return ApiResourceInstanceApiAddCapacityToResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiAddCapacityToResourceInstanceRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCapacityToResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiAddCapacityToResourceInstanceRequest {
 	return ApiResourceInstanceApiAddCapacityToResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
-		resourceKey: resourceKey,
-		id: id,
+		serviceModelKey:       serviceModelKey,
+		productTierKey:        productTierKey,
+		resourceKey:           resourceKey,
+		id:                    id,
 	}
 }
 
 // Execute executes the request
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCapacityToResourceInstanceExecute(r ApiResourceInstanceApiAddCapacityToResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiAddCapacityToResourceInstance")
@@ -527,8 +526,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCapacityToResource
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -538,8 +537,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCapacityToResource
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -549,8 +548,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCapacityToResource
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -560,8 +559,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCapacityToResource
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -571,8 +570,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCapacityToResource
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -582,8 +581,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCapacityToResource
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -592,18 +591,18 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCapacityToResource
 }
 
 type ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
-	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
-	resourceKey string
-	id string
+	ctx                                    context.Context
+	ApiService                             ResourceInstanceApiAPI
+	serviceProviderId                      string
+	serviceKey                             string
+	serviceAPIVersion                      string
+	serviceEnvironmentKey                  string
+	serviceModelKey                        string
+	productTierKey                         string
+	resourceKey                            string
+	id                                     string
 	addCustomDNSToResourceInstanceRequest2 *AddCustomDNSToResourceInstanceRequest2
-	subscriptionId *string
+	subscriptionId                         *string
 }
 
 func (r ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest) AddCustomDNSToResourceInstanceRequest2(addCustomDNSToResourceInstanceRequest2 AddCustomDNSToResourceInstanceRequest2) ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest {
@@ -624,38 +623,38 @@ func (r ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest) Execute() (
 /*
 ResourceInstanceApiAddCustomDNSToResourceInstance AddCustomDNSToResourceInstance resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @param resourceKey The resource key
- @param id The instance ID
- @return ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCustomDNSToResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest {
 	return ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
-		resourceKey: resourceKey,
-		id: id,
+		serviceModelKey:       serviceModelKey,
+		productTierKey:        productTierKey,
+		resourceKey:           resourceKey,
+		id:                    id,
 	}
 }
 
 // Execute executes the request
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCustomDNSToResourceInstanceExecute(r ApiResourceInstanceApiAddCustomDNSToResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiAddCustomDNSToResourceInstance")
@@ -731,8 +730,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCustomDNSToResourc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -742,8 +741,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCustomDNSToResourc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -753,8 +752,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCustomDNSToResourc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -764,8 +763,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCustomDNSToResourc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -775,8 +774,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCustomDNSToResourc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -786,8 +785,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCustomDNSToResourc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -796,17 +795,17 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiAddCustomDNSToResourc
 }
 
 type ApiResourceInstanceApiCreateResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
-	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
-	resourceKey string
+	ctx                            context.Context
+	ApiService                     ResourceInstanceApiAPI
+	serviceProviderId              string
+	serviceKey                     string
+	serviceAPIVersion              string
+	serviceEnvironmentKey          string
+	serviceModelKey                string
+	productTierKey                 string
+	resourceKey                    string
 	createResourceInstanceRequest2 *CreateResourceInstanceRequest2
-	subscriptionId *string
+	subscriptionId                 *string
 }
 
 func (r ApiResourceInstanceApiCreateResourceInstanceRequest) CreateResourceInstanceRequest2(createResourceInstanceRequest2 CreateResourceInstanceRequest2) ApiResourceInstanceApiCreateResourceInstanceRequest {
@@ -827,38 +826,39 @@ func (r ApiResourceInstanceApiCreateResourceInstanceRequest) Execute() (*CreateS
 /*
 ResourceInstanceApiCreateResourceInstance CreateResourceInstance resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @param resourceKey The resource key
- @return ApiResourceInstanceApiCreateResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@return ApiResourceInstanceApiCreateResourceInstanceRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiCreateResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string) ApiResourceInstanceApiCreateResourceInstanceRequest {
 	return ApiResourceInstanceApiCreateResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
-		resourceKey: resourceKey,
+		serviceModelKey:       serviceModelKey,
+		productTierKey:        productTierKey,
+		resourceKey:           resourceKey,
 	}
 }
 
 // Execute executes the request
-//  @return CreateServicesOrchestrationResponseBody
+//
+//	@return CreateServicesOrchestrationResponseBody
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiCreateResourceInstanceExecute(r ApiResourceInstanceApiCreateResourceInstanceRequest) (*CreateServicesOrchestrationResponseBody, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CreateServicesOrchestrationResponseBody
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CreateServicesOrchestrationResponseBody
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiCreateResourceInstance")
@@ -933,8 +933,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiCreateResourceInstanc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -944,8 +944,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiCreateResourceInstanc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -955,8 +955,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiCreateResourceInstanc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -966,8 +966,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiCreateResourceInstanc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -977,8 +977,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiCreateResourceInstanc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -988,8 +988,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiCreateResourceInstanc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1007,17 +1007,17 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiCreateResourceInstanc
 }
 
 type ApiResourceInstanceApiDeleteResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
+	ctx                   context.Context
+	ApiService            ResourceInstanceApiAPI
+	serviceProviderId     string
+	serviceKey            string
+	serviceAPIVersion     string
 	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
-	resourceKey string
-	id string
-	subscriptionId *string
+	serviceModelKey       string
+	productTierKey        string
+	resourceKey           string
+	id                    string
+	subscriptionId        *string
 }
 
 // Subscription Id
@@ -1033,38 +1033,38 @@ func (r ApiResourceInstanceApiDeleteResourceInstanceRequest) Execute() (*http.Re
 /*
 ResourceInstanceApiDeleteResourceInstance DeleteResourceInstance resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @param resourceKey The resource key
- @param id The instance ID
- @return ApiResourceInstanceApiDeleteResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiDeleteResourceInstanceRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDeleteResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiDeleteResourceInstanceRequest {
 	return ApiResourceInstanceApiDeleteResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
-		resourceKey: resourceKey,
-		id: id,
+		serviceModelKey:       serviceModelKey,
+		productTierKey:        productTierKey,
+		resourceKey:           resourceKey,
+		id:                    id,
 	}
 }
 
 // Execute executes the request
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDeleteResourceInstanceExecute(r ApiResourceInstanceApiDeleteResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiDeleteResourceInstance")
@@ -1135,8 +1135,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDeleteResourceInstanc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1146,8 +1146,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDeleteResourceInstanc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1157,8 +1157,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDeleteResourceInstanc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1168,8 +1168,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDeleteResourceInstanc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1179,8 +1179,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDeleteResourceInstanc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1190,8 +1190,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDeleteResourceInstanc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1200,17 +1200,17 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDeleteResourceInstanc
 }
 
 type ApiResourceInstanceApiDescribeResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
+	ctx                   context.Context
+	ApiService            ResourceInstanceApiAPI
+	serviceProviderId     string
+	serviceKey            string
+	serviceAPIVersion     string
 	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
-	resourceKey string
-	id string
-	subscriptionId *string
+	serviceModelKey       string
+	productTierKey        string
+	resourceKey           string
+	id                    string
+	subscriptionId        *string
 }
 
 // Subscription Id
@@ -1226,40 +1226,41 @@ func (r ApiResourceInstanceApiDescribeResourceInstanceRequest) Execute() (*Descr
 /*
 ResourceInstanceApiDescribeResourceInstance DescribeResourceInstance resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @param resourceKey The resource key
- @param id The instance ID
- @return ApiResourceInstanceApiDescribeResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiDescribeResourceInstanceRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDescribeResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiDescribeResourceInstanceRequest {
 	return ApiResourceInstanceApiDescribeResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
-		resourceKey: resourceKey,
-		id: id,
+		serviceModelKey:       serviceModelKey,
+		productTierKey:        productTierKey,
+		resourceKey:           resourceKey,
+		id:                    id,
 	}
 }
 
 // Execute executes the request
-//  @return DescribeResourceInstanceResult
+//
+//	@return DescribeResourceInstanceResult
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDescribeResourceInstanceExecute(r ApiResourceInstanceApiDescribeResourceInstanceRequest) (*DescribeResourceInstanceResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DescribeResourceInstanceResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DescribeResourceInstanceResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiDescribeResourceInstance")
@@ -1330,8 +1331,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDescribeResourceInsta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1341,8 +1342,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDescribeResourceInsta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1352,8 +1353,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDescribeResourceInsta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1363,8 +1364,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDescribeResourceInsta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1374,8 +1375,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDescribeResourceInsta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1385,8 +1386,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDescribeResourceInsta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1404,18 +1405,18 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDescribeResourceInsta
 }
 
 type ApiResourceInstanceApiFailoverResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
-	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
-	resourceKey string
-	id string
+	ctx                              context.Context
+	ApiService                       ResourceInstanceApiAPI
+	serviceProviderId                string
+	serviceKey                       string
+	serviceAPIVersion                string
+	serviceEnvironmentKey            string
+	serviceModelKey                  string
+	productTierKey                   string
+	resourceKey                      string
+	id                               string
 	failoverResourceInstanceRequest2 *FailoverResourceInstanceRequest2
-	subscriptionId *string
+	subscriptionId                   *string
 }
 
 func (r ApiResourceInstanceApiFailoverResourceInstanceRequest) FailoverResourceInstanceRequest2(failoverResourceInstanceRequest2 FailoverResourceInstanceRequest2) ApiResourceInstanceApiFailoverResourceInstanceRequest {
@@ -1436,38 +1437,38 @@ func (r ApiResourceInstanceApiFailoverResourceInstanceRequest) Execute() (*http.
 /*
 ResourceInstanceApiFailoverResourceInstance FailoverResourceInstance resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @param resourceKey The resource key
- @param id The instance ID
- @return ApiResourceInstanceApiFailoverResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiFailoverResourceInstanceRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiFailoverResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiFailoverResourceInstanceRequest {
 	return ApiResourceInstanceApiFailoverResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
-		resourceKey: resourceKey,
-		id: id,
+		serviceModelKey:       serviceModelKey,
+		productTierKey:        productTierKey,
+		resourceKey:           resourceKey,
+		id:                    id,
 	}
 }
 
 // Execute executes the request
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiFailoverResourceInstanceExecute(r ApiResourceInstanceApiFailoverResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiFailoverResourceInstance")
@@ -1543,8 +1544,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiFailoverResourceInsta
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1554,8 +1555,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiFailoverResourceInsta
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1565,8 +1566,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiFailoverResourceInsta
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1576,8 +1577,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiFailoverResourceInsta
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1587,8 +1588,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiFailoverResourceInsta
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1598,8 +1599,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiFailoverResourceInsta
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1608,10 +1609,10 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiFailoverResourceInsta
 }
 
 type ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
+	ctx            context.Context
+	ApiService     ResourceInstanceApiAPI
 	subscriptionId *string
-	id string
+	id             string
 }
 
 // Subscription Id
@@ -1627,26 +1628,27 @@ func (r ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest) Ex
 /*
 ResourceInstanceApiGenerateTokenForDeploymentCellDashboard GenerateTokenForDeploymentCellDashboard resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The instance ID whose deployment cell dashboard token is to be generated
- @return ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The instance ID whose deployment cell dashboard token is to be generated
+	@return ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiGenerateTokenForDeploymentCellDashboard(ctx context.Context, id string) ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest {
 	return ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return GenerateTokenForDeploymentCellDashboardResult
+//
+//	@return GenerateTokenForDeploymentCellDashboardResult
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiGenerateTokenForDeploymentCellDashboardExecute(r ApiResourceInstanceApiGenerateTokenForDeploymentCellDashboardRequest) (*GenerateTokenForDeploymentCellDashboardResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GenerateTokenForDeploymentCellDashboardResult
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GenerateTokenForDeploymentCellDashboardResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiGenerateTokenForDeploymentCellDashboard")
@@ -1711,8 +1713,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiGenerateTokenForDeplo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1722,8 +1724,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiGenerateTokenForDeplo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1733,8 +1735,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiGenerateTokenForDeplo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1744,8 +1746,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiGenerateTokenForDeplo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1755,8 +1757,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiGenerateTokenForDeplo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1766,8 +1768,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiGenerateTokenForDeplo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1785,8 +1787,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiGenerateTokenForDeplo
 }
 
 type ApiResourceInstanceApiListAllResourceInstancesRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
+	ctx             context.Context
+	ApiService      ResourceInstanceApiAPI
 	environmentType *string
 }
 
@@ -1803,24 +1805,25 @@ func (r ApiResourceInstanceApiListAllResourceInstancesRequest) Execute() (*ListA
 /*
 ResourceInstanceApiListAllResourceInstances ListAllResourceInstances resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiResourceInstanceApiListAllResourceInstancesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiResourceInstanceApiListAllResourceInstancesRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListAllResourceInstances(ctx context.Context) ApiResourceInstanceApiListAllResourceInstancesRequest {
 	return ApiResourceInstanceApiListAllResourceInstancesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ListAllResourceInstancesResult
+//
+//	@return ListAllResourceInstancesResult
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListAllResourceInstancesExecute(r ApiResourceInstanceApiListAllResourceInstancesRequest) (*ListAllResourceInstancesResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ListAllResourceInstancesResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ListAllResourceInstancesResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiListAllResourceInstances")
@@ -1883,8 +1886,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListAllResourceInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1894,8 +1897,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListAllResourceInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1905,8 +1908,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListAllResourceInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1916,8 +1919,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListAllResourceInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1927,8 +1930,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListAllResourceInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1938,8 +1941,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListAllResourceInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1957,17 +1960,17 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListAllResourceInstan
 }
 
 type ApiResourceInstanceApiListResourceInstanceSnapshotsRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
+	ctx                   context.Context
+	ApiService            ResourceInstanceApiAPI
+	serviceProviderId     string
+	serviceKey            string
+	serviceAPIVersion     string
 	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
-	resourceKey string
-	id string
-	subscriptionId *string
+	serviceModelKey       string
+	productTierKey        string
+	resourceKey           string
+	id                    string
+	subscriptionId        *string
 }
 
 // Subscription Id
@@ -1983,40 +1986,41 @@ func (r ApiResourceInstanceApiListResourceInstanceSnapshotsRequest) Execute() (*
 /*
 ResourceInstanceApiListResourceInstanceSnapshots ListResourceInstanceSnapshots resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service key
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @param resourceKey The resource key
- @param id The instance ID
- @return ApiResourceInstanceApiListResourceInstanceSnapshotsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service key
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiListResourceInstanceSnapshotsRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstanceSnapshots(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiListResourceInstanceSnapshotsRequest {
 	return ApiResourceInstanceApiListResourceInstanceSnapshotsRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
-		resourceKey: resourceKey,
-		id: id,
+		serviceModelKey:       serviceModelKey,
+		productTierKey:        productTierKey,
+		resourceKey:           resourceKey,
+		id:                    id,
 	}
 }
 
 // Execute executes the request
-//  @return ListResourceInstanceSnapshotsResult
+//
+//	@return ListResourceInstanceSnapshotsResult
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstanceSnapshotsExecute(r ApiResourceInstanceApiListResourceInstanceSnapshotsRequest) (*ListResourceInstanceSnapshotsResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ListResourceInstanceSnapshotsResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ListResourceInstanceSnapshotsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiListResourceInstanceSnapshots")
@@ -2087,8 +2091,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstanceS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2098,8 +2102,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstanceS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2109,8 +2113,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstanceS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2120,8 +2124,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstanceS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2131,8 +2135,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstanceS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2150,16 +2154,16 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstanceS
 }
 
 type ApiResourceInstanceApiListResourceInstancesRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
+	ctx                   context.Context
+	ApiService            ResourceInstanceApiAPI
+	serviceProviderId     string
+	serviceKey            string
+	serviceAPIVersion     string
 	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
-	resourceKey string
-	subscriptionId *string
+	serviceModelKey       string
+	productTierKey        string
+	resourceKey           string
+	subscriptionId        *string
 }
 
 // Subscription Id
@@ -2175,38 +2179,39 @@ func (r ApiResourceInstanceApiListResourceInstancesRequest) Execute() (*ListReso
 /*
 ResourceInstanceApiListResourceInstances ListResourceInstances resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service key
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @param resourceKey The resource key
- @return ApiResourceInstanceApiListResourceInstancesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service key
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@return ApiResourceInstanceApiListResourceInstancesRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstances(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string) ApiResourceInstanceApiListResourceInstancesRequest {
 	return ApiResourceInstanceApiListResourceInstancesRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
-		resourceKey: resourceKey,
+		serviceModelKey:       serviceModelKey,
+		productTierKey:        productTierKey,
+		resourceKey:           resourceKey,
 	}
 }
 
 // Execute executes the request
-//  @return ListResourceInstancesResult
+//
+//	@return ListResourceInstancesResult
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstancesExecute(r ApiResourceInstanceApiListResourceInstancesRequest) (*ListResourceInstancesResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ListResourceInstancesResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ListResourceInstancesResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiListResourceInstances")
@@ -2276,8 +2281,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstances
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2287,8 +2292,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstances
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2298,8 +2303,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstances
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2309,8 +2314,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstances
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2320,8 +2325,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstances
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2331,8 +2336,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstances
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2350,18 +2355,18 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiListResourceInstances
 }
 
 type ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
-	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
-	resourceKey string
-	id string
+	ctx                                        context.Context
+	ApiService                                 ResourceInstanceApiAPI
+	serviceProviderId                          string
+	serviceKey                                 string
+	serviceAPIVersion                          string
+	serviceEnvironmentKey                      string
+	serviceModelKey                            string
+	productTierKey                             string
+	resourceKey                                string
+	id                                         string
 	removeCapacityFromResourceInstanceRequest2 *RemoveCapacityFromResourceInstanceRequest2
-	subscriptionId *string
+	subscriptionId                             *string
 }
 
 func (r ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest) RemoveCapacityFromResourceInstanceRequest2(removeCapacityFromResourceInstanceRequest2 RemoveCapacityFromResourceInstanceRequest2) ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest {
@@ -2382,38 +2387,38 @@ func (r ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest) Execute
 /*
 ResourceInstanceApiRemoveCapacityFromResourceInstance RemoveCapacityFromResourceInstance resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @param resourceKey The resource key
- @param id The instance ID
- @return ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCapacityFromResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest {
 	return ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
-		resourceKey: resourceKey,
-		id: id,
+		serviceModelKey:       serviceModelKey,
+		productTierKey:        productTierKey,
+		resourceKey:           resourceKey,
+		id:                    id,
 	}
 }
 
 // Execute executes the request
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCapacityFromResourceInstanceExecute(r ApiResourceInstanceApiRemoveCapacityFromResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiRemoveCapacityFromResourceInstance")
@@ -2489,8 +2494,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCapacityFromRes
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2500,8 +2505,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCapacityFromRes
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2511,8 +2516,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCapacityFromRes
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2522,8 +2527,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCapacityFromRes
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2533,8 +2538,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCapacityFromRes
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2544,8 +2549,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCapacityFromRes
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2554,17 +2559,17 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCapacityFromRes
 }
 
 type ApiResourceInstanceApiRemoveCustomDNSFromResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
+	ctx                   context.Context
+	ApiService            ResourceInstanceApiAPI
+	serviceProviderId     string
+	serviceKey            string
+	serviceAPIVersion     string
 	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
-	resourceKey string
-	id string
-	subscriptionId *string
+	serviceModelKey       string
+	productTierKey        string
+	resourceKey           string
+	id                    string
+	subscriptionId        *string
 }
 
 // Subscription Id
@@ -2580,38 +2585,38 @@ func (r ApiResourceInstanceApiRemoveCustomDNSFromResourceInstanceRequest) Execut
 /*
 ResourceInstanceApiRemoveCustomDNSFromResourceInstance RemoveCustomDNSFromResourceInstance resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @param resourceKey The resource key
- @param id The instance ID
- @return ApiResourceInstanceApiRemoveCustomDNSFromResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiRemoveCustomDNSFromResourceInstanceRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCustomDNSFromResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiRemoveCustomDNSFromResourceInstanceRequest {
 	return ApiResourceInstanceApiRemoveCustomDNSFromResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
-		resourceKey: resourceKey,
-		id: id,
+		serviceModelKey:       serviceModelKey,
+		productTierKey:        productTierKey,
+		resourceKey:           resourceKey,
+		id:                    id,
 	}
 }
 
 // Execute executes the request
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCustomDNSFromResourceInstanceExecute(r ApiResourceInstanceApiRemoveCustomDNSFromResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiRemoveCustomDNSFromResourceInstance")
@@ -2682,8 +2687,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCustomDNSFromRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2693,8 +2698,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCustomDNSFromRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2704,8 +2709,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCustomDNSFromRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2715,8 +2720,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCustomDNSFromRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2726,8 +2731,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCustomDNSFromRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2737,8 +2742,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCustomDNSFromRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2747,14 +2752,14 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCustomDNSFromRe
 }
 
 type ApiResourceInstanceApiResourceInstanceProvisionerSetupKitRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
+	ctx                   context.Context
+	ApiService            ResourceInstanceApiAPI
+	serviceProviderId     string
+	serviceKey            string
+	serviceAPIVersion     string
 	serviceEnvironmentKey string
-	serviceModelKey string
-	subscriptionId *string
+	serviceModelKey       string
+	subscriptionId        *string
 }
 
 // Subscription Id
@@ -2770,32 +2775,32 @@ func (r ApiResourceInstanceApiResourceInstanceProvisionerSetupKitRequest) Execut
 /*
 ResourceInstanceApiResourceInstanceProvisionerSetupKit ResourceInstanceProvisionerSetupKit resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @return ApiResourceInstanceApiResourceInstanceProvisionerSetupKitRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@return ApiResourceInstanceApiResourceInstanceProvisionerSetupKitRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiResourceInstanceProvisionerSetupKit(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string) ApiResourceInstanceApiResourceInstanceProvisionerSetupKitRequest {
 	return ApiResourceInstanceApiResourceInstanceProvisionerSetupKitRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
+		serviceModelKey:       serviceModelKey,
 	}
 }
 
 // Execute executes the request
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiResourceInstanceProvisionerSetupKitExecute(r ApiResourceInstanceApiResourceInstanceProvisionerSetupKitRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiResourceInstanceProvisionerSetupKit")
@@ -2863,8 +2868,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiResourceInstanceProvi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2874,8 +2879,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiResourceInstanceProvi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2885,8 +2890,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiResourceInstanceProvi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2896,8 +2901,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiResourceInstanceProvi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2907,8 +2912,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiResourceInstanceProvi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2918,8 +2923,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiResourceInstanceProvi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2928,17 +2933,17 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiResourceInstanceProvi
 }
 
 type ApiResourceInstanceApiRestartResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
+	ctx                   context.Context
+	ApiService            ResourceInstanceApiAPI
+	serviceProviderId     string
+	serviceKey            string
+	serviceAPIVersion     string
 	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
-	resourceKey string
-	id string
-	subscriptionId *string
+	serviceModelKey       string
+	productTierKey        string
+	resourceKey           string
+	id                    string
+	subscriptionId        *string
 }
 
 // Subscription Id
@@ -2954,38 +2959,38 @@ func (r ApiResourceInstanceApiRestartResourceInstanceRequest) Execute() (*http.R
 /*
 ResourceInstanceApiRestartResourceInstance RestartResourceInstance resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @param resourceKey The resource key
- @param id The instance ID
- @return ApiResourceInstanceApiRestartResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiRestartResourceInstanceRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestartResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiRestartResourceInstanceRequest {
 	return ApiResourceInstanceApiRestartResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
-		resourceKey: resourceKey,
-		id: id,
+		serviceModelKey:       serviceModelKey,
+		productTierKey:        productTierKey,
+		resourceKey:           resourceKey,
+		id:                    id,
 	}
 }
 
 // Execute executes the request
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestartResourceInstanceExecute(r ApiResourceInstanceApiRestartResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiRestartResourceInstance")
@@ -3056,8 +3061,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestartResourceInstan
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3067,8 +3072,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestartResourceInstan
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3078,8 +3083,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestartResourceInstan
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3089,8 +3094,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestartResourceInstan
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3100,8 +3105,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestartResourceInstan
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3111,8 +3116,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestartResourceInstan
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3121,18 +3126,18 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestartResourceInstan
 }
 
 type ApiResourceInstanceApiRestoreResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
-	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
-	resourceKey string
-	id string
+	ctx                             context.Context
+	ApiService                      ResourceInstanceApiAPI
+	serviceProviderId               string
+	serviceKey                      string
+	serviceAPIVersion               string
+	serviceEnvironmentKey           string
+	serviceModelKey                 string
+	productTierKey                  string
+	resourceKey                     string
+	id                              string
 	restoreResourceInstanceRequest2 *RestoreResourceInstanceRequest2
-	subscriptionId *string
+	subscriptionId                  *string
 }
 
 func (r ApiResourceInstanceApiRestoreResourceInstanceRequest) RestoreResourceInstanceRequest2(restoreResourceInstanceRequest2 RestoreResourceInstanceRequest2) ApiResourceInstanceApiRestoreResourceInstanceRequest {
@@ -3153,40 +3158,41 @@ func (r ApiResourceInstanceApiRestoreResourceInstanceRequest) Execute() (*Create
 /*
 ResourceInstanceApiRestoreResourceInstance RestoreResourceInstance resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @param resourceKey The resource key
- @param id The instance ID
- @return ApiResourceInstanceApiRestoreResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiRestoreResourceInstanceRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiRestoreResourceInstanceRequest {
 	return ApiResourceInstanceApiRestoreResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
-		resourceKey: resourceKey,
-		id: id,
+		serviceModelKey:       serviceModelKey,
+		productTierKey:        productTierKey,
+		resourceKey:           resourceKey,
+		id:                    id,
 	}
 }
 
 // Execute executes the request
-//  @return CreateServicesOrchestrationResponseBody
+//
+//	@return CreateServicesOrchestrationResponseBody
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstanceExecute(r ApiResourceInstanceApiRestoreResourceInstanceRequest) (*CreateServicesOrchestrationResponseBody, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CreateServicesOrchestrationResponseBody
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CreateServicesOrchestrationResponseBody
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiRestoreResourceInstance")
@@ -3262,8 +3268,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3273,8 +3279,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3284,8 +3290,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3295,8 +3301,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3306,8 +3312,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3317,8 +3323,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3336,18 +3342,18 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 }
 
 type ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
-	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
-	resourceKey string
-	snapshotId string
+	ctx                                         context.Context
+	ApiService                                  ResourceInstanceApiAPI
+	serviceProviderId                           string
+	serviceKey                                  string
+	serviceAPIVersion                           string
+	serviceEnvironmentKey                       string
+	serviceModelKey                             string
+	productTierKey                              string
+	resourceKey                                 string
+	snapshotId                                  string
 	restoreResourceInstanceFromSnapshotRequest2 *RestoreResourceInstanceFromSnapshotRequest2
-	subscriptionId *string
+	subscriptionId                              *string
 }
 
 func (r ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest) RestoreResourceInstanceFromSnapshotRequest2(restoreResourceInstanceFromSnapshotRequest2 RestoreResourceInstanceFromSnapshotRequest2) ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest {
@@ -3368,40 +3374,41 @@ func (r ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest) Execut
 /*
 ResourceInstanceApiRestoreResourceInstanceFromSnapshot RestoreResourceInstanceFromSnapshot resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @param resourceKey The resource key
- @param snapshotId The snapshot ID
- @return ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param snapshotId The snapshot ID
+	@return ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstanceFromSnapshot(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, snapshotId string) ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest {
 	return ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
-		resourceKey: resourceKey,
-		snapshotId: snapshotId,
+		serviceModelKey:       serviceModelKey,
+		productTierKey:        productTierKey,
+		resourceKey:           resourceKey,
+		snapshotId:            snapshotId,
 	}
 }
 
 // Execute executes the request
-//  @return CreateServicesOrchestrationResponseBody
+//
+//	@return CreateServicesOrchestrationResponseBody
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstanceFromSnapshotExecute(r ApiResourceInstanceApiRestoreResourceInstanceFromSnapshotRequest) (*CreateServicesOrchestrationResponseBody, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CreateServicesOrchestrationResponseBody
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CreateServicesOrchestrationResponseBody
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiRestoreResourceInstanceFromSnapshot")
@@ -3477,8 +3484,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3488,8 +3495,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3499,8 +3506,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3510,8 +3517,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3521,8 +3528,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3532,8 +3539,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3551,17 +3558,17 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRestoreResourceInstan
 }
 
 type ApiResourceInstanceApiStartResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
+	ctx                   context.Context
+	ApiService            ResourceInstanceApiAPI
+	serviceProviderId     string
+	serviceKey            string
+	serviceAPIVersion     string
 	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
-	resourceKey string
-	id string
-	subscriptionId *string
+	serviceModelKey       string
+	productTierKey        string
+	resourceKey           string
+	id                    string
+	subscriptionId        *string
 }
 
 // Subscription Id
@@ -3577,38 +3584,38 @@ func (r ApiResourceInstanceApiStartResourceInstanceRequest) Execute() (*http.Res
 /*
 ResourceInstanceApiStartResourceInstance StartResourceInstance resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @param resourceKey The resource key
- @param id The instance ID
- @return ApiResourceInstanceApiStartResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiStartResourceInstanceRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStartResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiStartResourceInstanceRequest {
 	return ApiResourceInstanceApiStartResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
-		resourceKey: resourceKey,
-		id: id,
+		serviceModelKey:       serviceModelKey,
+		productTierKey:        productTierKey,
+		resourceKey:           resourceKey,
+		id:                    id,
 	}
 }
 
 // Execute executes the request
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStartResourceInstanceExecute(r ApiResourceInstanceApiStartResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiStartResourceInstance")
@@ -3679,8 +3686,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStartResourceInstance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3690,8 +3697,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStartResourceInstance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3701,8 +3708,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStartResourceInstance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3712,8 +3719,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStartResourceInstance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3723,8 +3730,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStartResourceInstance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3734,8 +3741,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStartResourceInstance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3744,17 +3751,17 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStartResourceInstance
 }
 
 type ApiResourceInstanceApiStopResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
+	ctx                   context.Context
+	ApiService            ResourceInstanceApiAPI
+	serviceProviderId     string
+	serviceKey            string
+	serviceAPIVersion     string
 	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
-	resourceKey string
-	id string
-	subscriptionId *string
+	serviceModelKey       string
+	productTierKey        string
+	resourceKey           string
+	id                    string
+	subscriptionId        *string
 }
 
 // Subscription Id
@@ -3770,38 +3777,38 @@ func (r ApiResourceInstanceApiStopResourceInstanceRequest) Execute() (*http.Resp
 /*
 ResourceInstanceApiStopResourceInstance StopResourceInstance resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @param resourceKey The resource key
- @param id The instance ID
- @return ApiResourceInstanceApiStopResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiStopResourceInstanceRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStopResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiStopResourceInstanceRequest {
 	return ApiResourceInstanceApiStopResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
-		resourceKey: resourceKey,
-		id: id,
+		serviceModelKey:       serviceModelKey,
+		productTierKey:        productTierKey,
+		resourceKey:           resourceKey,
+		id:                    id,
 	}
 }
 
 // Execute executes the request
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStopResourceInstanceExecute(r ApiResourceInstanceApiStopResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiStopResourceInstance")
@@ -3872,8 +3879,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStopResourceInstanceE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3883,8 +3890,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStopResourceInstanceE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3894,8 +3901,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStopResourceInstanceE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3905,8 +3912,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStopResourceInstanceE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3916,8 +3923,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStopResourceInstanceE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3927,8 +3934,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStopResourceInstanceE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3937,11 +3944,11 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiStopResourceInstanceE
 }
 
 type ApiResourceInstanceApiUpdateAccountConfigResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
-	id string
+	ctx                                         context.Context
+	ApiService                                  ResourceInstanceApiAPI
+	id                                          string
 	updateAccountConfigResourceInstanceRequest2 *UpdateAccountConfigResourceInstanceRequest2
-	subscriptionId *string
+	subscriptionId                              *string
 }
 
 func (r ApiResourceInstanceApiUpdateAccountConfigResourceInstanceRequest) UpdateAccountConfigResourceInstanceRequest2(updateAccountConfigResourceInstanceRequest2 UpdateAccountConfigResourceInstanceRequest2) ApiResourceInstanceApiUpdateAccountConfigResourceInstanceRequest {
@@ -3962,24 +3969,24 @@ func (r ApiResourceInstanceApiUpdateAccountConfigResourceInstanceRequest) Execut
 /*
 ResourceInstanceApiUpdateAccountConfigResourceInstance UpdateAccountConfigResourceInstance resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The instance ID
- @return ApiResourceInstanceApiUpdateAccountConfigResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The instance ID
+	@return ApiResourceInstanceApiUpdateAccountConfigResourceInstanceRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiUpdateAccountConfigResourceInstance(ctx context.Context, id string) ApiResourceInstanceApiUpdateAccountConfigResourceInstanceRequest {
 	return ApiResourceInstanceApiUpdateAccountConfigResourceInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiUpdateAccountConfigResourceInstanceExecute(r ApiResourceInstanceApiUpdateAccountConfigResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiUpdateAccountConfigResourceInstance")
@@ -4048,8 +4055,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiUpdateAccountConfigRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4059,8 +4066,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiUpdateAccountConfigRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4070,8 +4077,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiUpdateAccountConfigRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4081,8 +4088,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiUpdateAccountConfigRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -4092,8 +4099,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiUpdateAccountConfigRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4103,8 +4110,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiUpdateAccountConfigRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -4113,18 +4120,18 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiUpdateAccountConfigRe
 }
 
 type ApiResourceInstanceApiUpdateResourceInstanceRequest struct {
-	ctx context.Context
-	ApiService ResourceInstanceApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
-	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
-	resourceKey string
-	id string
+	ctx                            context.Context
+	ApiService                     ResourceInstanceApiAPI
+	serviceProviderId              string
+	serviceKey                     string
+	serviceAPIVersion              string
+	serviceEnvironmentKey          string
+	serviceModelKey                string
+	productTierKey                 string
+	resourceKey                    string
+	id                             string
 	updateResourceInstanceRequest2 *UpdateResourceInstanceRequest2
-	subscriptionId *string
+	subscriptionId                 *string
 }
 
 func (r ApiResourceInstanceApiUpdateResourceInstanceRequest) UpdateResourceInstanceRequest2(updateResourceInstanceRequest2 UpdateResourceInstanceRequest2) ApiResourceInstanceApiUpdateResourceInstanceRequest {
@@ -4145,38 +4152,38 @@ func (r ApiResourceInstanceApiUpdateResourceInstanceRequest) Execute() (*http.Re
 /*
 ResourceInstanceApiUpdateResourceInstance UpdateResourceInstance resource-instance-api
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
- @param resourceKey The resource key
- @param id The instance ID
- @return ApiResourceInstanceApiUpdateResourceInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiUpdateResourceInstanceRequest
 */
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiUpdateResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiUpdateResourceInstanceRequest {
 	return ApiResourceInstanceApiUpdateResourceInstanceRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
+		ApiService:            a,
+		ctx:                   ctx,
+		serviceProviderId:     serviceProviderId,
+		serviceKey:            serviceKey,
+		serviceAPIVersion:     serviceAPIVersion,
 		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
-		resourceKey: resourceKey,
-		id: id,
+		serviceModelKey:       serviceModelKey,
+		productTierKey:        productTierKey,
+		resourceKey:           resourceKey,
+		id:                    id,
 	}
 }
 
 // Execute executes the request
 func (a *ResourceInstanceApiAPIService) ResourceInstanceApiUpdateResourceInstanceExecute(r ApiResourceInstanceApiUpdateResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiUpdateResourceInstance")
@@ -4252,8 +4259,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiUpdateResourceInstanc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4263,8 +4270,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiUpdateResourceInstanc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4274,8 +4281,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiUpdateResourceInstanc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4285,8 +4292,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiUpdateResourceInstanc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -4296,8 +4303,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiUpdateResourceInstanc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4307,8 +4314,8 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiUpdateResourceInstanc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
