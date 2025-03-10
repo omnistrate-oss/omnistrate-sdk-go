@@ -25,8 +25,6 @@ type DetailedNodeHealthResult struct {
 	DiskHealth *string `json:"DiskHealth,omitempty"`
 	IntegrationsHealth *IntegrationsHealth `json:"IntegrationsHealth,omitempty"`
 	// The load status of a pod
-	LoadHealth *string `json:"LoadHealth,omitempty"`
-	// The load status of a pod
 	LoadStatus *string `json:"LoadStatus,omitempty"`
 	// The heath status of a resource
 	NodeHealth *string `json:"NodeHealth,omitempty"`
@@ -123,29 +121,6 @@ func (o *DetailedNodeHealthResult) GetIntegrationsHealthOk() (*IntegrationsHealt
 // SetIntegrationsHealth gets a reference to the given IntegrationsHealth and assigns it to the IntegrationsHealth field.
 func (o *DetailedNodeHealthResult) SetIntegrationsHealth(v IntegrationsHealth) {
 	o.IntegrationsHealth = &v
-}
-
-// GetLoadHealth returns the LoadHealth field value if set, zero value otherwise.
-func (o *DetailedNodeHealthResult) GetLoadHealth() string {
-	if o == nil || IsNil(o.LoadHealth) {
-		var ret string
-		return ret
-	}
-	return *o.LoadHealth
-}
-
-// GetLoadHealthOk returns a tuple with the LoadHealth field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DetailedNodeHealthResult) GetLoadHealthOk() (*string, bool) {
-	if o == nil || IsNil(o.LoadHealth) {
-		return nil, false
-	}
-	return o.LoadHealth, true
-}
-
-// SetLoadHealth gets a reference to the given string and assigns it to the LoadHealth field.
-func (o *DetailedNodeHealthResult) SetLoadHealth(v string) {
-	o.LoadHealth = &v
 }
 
 // GetLoadStatus returns the LoadStatus field value if set, zero value otherwise.
@@ -259,9 +234,6 @@ func (o DetailedNodeHealthResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IntegrationsHealth) {
 		toSerialize["IntegrationsHealth"] = o.IntegrationsHealth
 	}
-	if !IsNil(o.LoadHealth) {
-		toSerialize["LoadHealth"] = o.LoadHealth
-	}
 	if !IsNil(o.LoadStatus) {
 		toSerialize["LoadStatus"] = o.LoadStatus
 	}
@@ -299,7 +271,6 @@ func (o *DetailedNodeHealthResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "ConnectivityStatus")
 		delete(additionalProperties, "DiskHealth")
 		delete(additionalProperties, "IntegrationsHealth")
-		delete(additionalProperties, "LoadHealth")
 		delete(additionalProperties, "LoadStatus")
 		delete(additionalProperties, "NodeHealth")
 		delete(additionalProperties, "ProcessHealth")

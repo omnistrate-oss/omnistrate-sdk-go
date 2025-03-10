@@ -493,20 +493,6 @@ type InventoryApiAPI interface {
 	InventoryApiDescribeUserExecute(r ApiInventoryApiDescribeUserRequest) (*FleetDescribeUserResult, *http.Response, error)
 
 	/*
-	InventoryApiEnableResourceInstanceManualOverride EnableResourceInstanceManualOverride inventory-api
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceId The service ID this workflow belongs to.
-	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
-	@return ApiInventoryApiEnableResourceInstanceManualOverrideRequest
-	*/
-	InventoryApiEnableResourceInstanceManualOverride(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiEnableResourceInstanceManualOverrideRequest
-
-	// InventoryApiEnableResourceInstanceManualOverrideExecute executes the request
-	InventoryApiEnableResourceInstanceManualOverrideExecute(r ApiInventoryApiEnableResourceInstanceManualOverrideRequest) (*http.Response, error)
-
-	/*
 	InventoryApiFailoverResourceInstance FailoverResourceInstance inventory-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -761,6 +747,21 @@ type InventoryApiAPI interface {
 	InventoryApiListUsersExecute(r ApiInventoryApiListUsersRequest) (*FleetListUsersResult, *http.Response, error)
 
 	/*
+	InventoryApiManageUpgradePath ManageUpgradePath inventory-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param productTierId The product tier ID that this upgrade path belongs to
+	@param upgradePathId The upgrade path ID
+	@return ApiInventoryApiManageUpgradePathRequest
+	*/
+	InventoryApiManageUpgradePath(ctx context.Context, serviceId string, productTierId string, upgradePathId string) ApiInventoryApiManageUpgradePathRequest
+
+	// InventoryApiManageUpgradePathExecute executes the request
+	//  @return UpgradePath
+	InventoryApiManageUpgradePathExecute(r ApiInventoryApiManageUpgradePathRequest) (*UpgradePath, *http.Response, error)
+
+	/*
 	InventoryApiModifyServicesOrchestration ModifyServicesOrchestration inventory-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -966,6 +967,19 @@ type InventoryApiAPI interface {
 	InventoryApiUnsuspendUserExecute(r ApiInventoryApiUnsuspendUserRequest) (*http.Response, error)
 
 	/*
+	InventoryApiUpdateAccountConfigResourceInstance UpdateAccountConfigResourceInstance inventory-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiUpdateAccountConfigResourceInstanceRequest
+	*/
+	InventoryApiUpdateAccountConfigResourceInstance(ctx context.Context, serviceId string, instanceId string) ApiInventoryApiUpdateAccountConfigResourceInstanceRequest
+
+	// InventoryApiUpdateAccountConfigResourceInstanceExecute executes the request
+	InventoryApiUpdateAccountConfigResourceInstanceExecute(r ApiInventoryApiUpdateAccountConfigResourceInstanceRequest) (*http.Response, error)
+
+	/*
 	InventoryApiUpdateResourceInstance UpdateResourceInstance inventory-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -978,6 +992,20 @@ type InventoryApiAPI interface {
 
 	// InventoryApiUpdateResourceInstanceExecute executes the request
 	InventoryApiUpdateResourceInstanceExecute(r ApiInventoryApiUpdateResourceInstanceRequest) (*http.Response, error)
+
+	/*
+	InventoryApiUpdateResourceInstanceDebugMode UpdateResourceInstanceDebugMode inventory-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiUpdateResourceInstanceDebugModeRequest
+	*/
+	InventoryApiUpdateResourceInstanceDebugMode(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiUpdateResourceInstanceDebugModeRequest
+
+	// InventoryApiUpdateResourceInstanceDebugModeExecute executes the request
+	InventoryApiUpdateResourceInstanceDebugModeExecute(r ApiInventoryApiUpdateResourceInstanceDebugModeRequest) (*http.Response, error)
 }
 
 // InventoryApiAPIService InventoryApiAPI service
@@ -6597,169 +6625,6 @@ func (a *InventoryApiAPIService) InventoryApiDescribeUserExecute(r ApiInventoryA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInventoryApiEnableResourceInstanceManualOverrideRequest struct {
-	ctx context.Context
-	ApiService InventoryApiAPI
-	serviceId string
-	environmentId string
-	instanceId string
-}
-
-func (r ApiInventoryApiEnableResourceInstanceManualOverrideRequest) Execute() (*http.Response, error) {
-	return r.ApiService.InventoryApiEnableResourceInstanceManualOverrideExecute(r)
-}
-
-/*
-InventoryApiEnableResourceInstanceManualOverride EnableResourceInstanceManualOverride inventory-api
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceId The service ID this workflow belongs to.
- @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
- @return ApiInventoryApiEnableResourceInstanceManualOverrideRequest
-*/
-func (a *InventoryApiAPIService) InventoryApiEnableResourceInstanceManualOverride(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiEnableResourceInstanceManualOverrideRequest {
-	return ApiInventoryApiEnableResourceInstanceManualOverrideRequest{
-		ApiService: a,
-		ctx: ctx,
-		serviceId: serviceId,
-		environmentId: environmentId,
-		instanceId: instanceId,
-	}
-}
-
-// Execute executes the request
-func (a *InventoryApiAPIService) InventoryApiEnableResourceInstanceManualOverrideExecute(r ApiInventoryApiEnableResourceInstanceManualOverrideRequest) (*http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiEnableResourceInstanceManualOverride")
-	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/override"
-	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"environmentId"+"}", url.PathEscape(parameterValueToString(r.environmentId, "environmentId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/vnd.goa.error"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
 type ApiInventoryApiFailoverResourceInstanceRequest struct {
 	ctx context.Context
 	ApiService InventoryApiAPI
@@ -10014,6 +9879,191 @@ func (a *InventoryApiAPIService) InventoryApiListUsersExecute(r ApiInventoryApiL
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiInventoryApiManageUpgradePathRequest struct {
+	ctx context.Context
+	ApiService InventoryApiAPI
+	serviceId string
+	productTierId string
+	upgradePathId string
+	manageUpgradePathLifecycleRequest2 *ManageUpgradePathLifecycleRequest2
+}
+
+func (r ApiInventoryApiManageUpgradePathRequest) ManageUpgradePathLifecycleRequest2(manageUpgradePathLifecycleRequest2 ManageUpgradePathLifecycleRequest2) ApiInventoryApiManageUpgradePathRequest {
+	r.manageUpgradePathLifecycleRequest2 = &manageUpgradePathLifecycleRequest2
+	return r
+}
+
+func (r ApiInventoryApiManageUpgradePathRequest) Execute() (*UpgradePath, *http.Response, error) {
+	return r.ApiService.InventoryApiManageUpgradePathExecute(r)
+}
+
+/*
+InventoryApiManageUpgradePath ManageUpgradePath inventory-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serviceId The service ID this workflow belongs to.
+ @param productTierId The product tier ID that this upgrade path belongs to
+ @param upgradePathId The upgrade path ID
+ @return ApiInventoryApiManageUpgradePathRequest
+*/
+func (a *InventoryApiAPIService) InventoryApiManageUpgradePath(ctx context.Context, serviceId string, productTierId string, upgradePathId string) ApiInventoryApiManageUpgradePathRequest {
+	return ApiInventoryApiManageUpgradePathRequest{
+		ApiService: a,
+		ctx: ctx,
+		serviceId: serviceId,
+		productTierId: productTierId,
+		upgradePathId: upgradePathId,
+	}
+}
+
+// Execute executes the request
+//  @return UpgradePath
+func (a *InventoryApiAPIService) InventoryApiManageUpgradePathExecute(r ApiInventoryApiManageUpgradePathRequest) (*UpgradePath, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UpgradePath
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiManageUpgradePath")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/manage-lifecycle"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"productTierId"+"}", url.PathEscape(parameterValueToString(r.productTierId, "productTierId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"upgradePathId"+"}", url.PathEscape(parameterValueToString(r.upgradePathId, "upgradePathId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.manageUpgradePathLifecycleRequest2 == nil {
+		return localVarReturnValue, nil, reportError("manageUpgradePathLifecycleRequest2 is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.manageUpgradePathLifecycleRequest2
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiInventoryApiModifyServicesOrchestrationRequest struct {
 	ctx context.Context
 	ApiService InventoryApiAPI
@@ -12566,6 +12616,176 @@ func (a *InventoryApiAPIService) InventoryApiUnsuspendUserExecute(r ApiInventory
 	return localVarHTTPResponse, nil
 }
 
+type ApiInventoryApiUpdateAccountConfigResourceInstanceRequest struct {
+	ctx context.Context
+	ApiService InventoryApiAPI
+	serviceId string
+	instanceId string
+	fleetUpdateAccountConfigResourceInstanceRequest2 *FleetUpdateAccountConfigResourceInstanceRequest2
+}
+
+func (r ApiInventoryApiUpdateAccountConfigResourceInstanceRequest) FleetUpdateAccountConfigResourceInstanceRequest2(fleetUpdateAccountConfigResourceInstanceRequest2 FleetUpdateAccountConfigResourceInstanceRequest2) ApiInventoryApiUpdateAccountConfigResourceInstanceRequest {
+	r.fleetUpdateAccountConfigResourceInstanceRequest2 = &fleetUpdateAccountConfigResourceInstanceRequest2
+	return r
+}
+
+func (r ApiInventoryApiUpdateAccountConfigResourceInstanceRequest) Execute() (*http.Response, error) {
+	return r.ApiService.InventoryApiUpdateAccountConfigResourceInstanceExecute(r)
+}
+
+/*
+InventoryApiUpdateAccountConfigResourceInstance UpdateAccountConfigResourceInstance inventory-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serviceId The service ID this workflow belongs to.
+ @param instanceId The resource instance ID.
+ @return ApiInventoryApiUpdateAccountConfigResourceInstanceRequest
+*/
+func (a *InventoryApiAPIService) InventoryApiUpdateAccountConfigResourceInstance(ctx context.Context, serviceId string, instanceId string) ApiInventoryApiUpdateAccountConfigResourceInstanceRequest {
+	return ApiInventoryApiUpdateAccountConfigResourceInstanceRequest{
+		ApiService: a,
+		ctx: ctx,
+		serviceId: serviceId,
+		instanceId: instanceId,
+	}
+}
+
+// Execute executes the request
+func (a *InventoryApiAPIService) InventoryApiUpdateAccountConfigResourceInstanceExecute(r ApiInventoryApiUpdateAccountConfigResourceInstanceRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiUpdateAccountConfigResourceInstance")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/service/{serviceId}/account-config-instance/{instanceId}/"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.fleetUpdateAccountConfigResourceInstanceRequest2 == nil {
+		return nil, reportError("fleetUpdateAccountConfigResourceInstanceRequest2 is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.fleetUpdateAccountConfigResourceInstanceRequest2
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiInventoryApiUpdateResourceInstanceRequest struct {
 	ctx context.Context
 	ApiService InventoryApiAPI
@@ -12647,6 +12867,180 @@ func (a *InventoryApiAPIService) InventoryApiUpdateResourceInstanceExecute(r Api
 	}
 	// body params
 	localVarPostBody = r.fleetUpdateResourceInstanceRequest2
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiInventoryApiUpdateResourceInstanceDebugModeRequest struct {
+	ctx context.Context
+	ApiService InventoryApiAPI
+	serviceId string
+	environmentId string
+	instanceId string
+	fleetUpdateResourceInstanceDebugModeRequest2 *FleetUpdateResourceInstanceDebugModeRequest2
+}
+
+func (r ApiInventoryApiUpdateResourceInstanceDebugModeRequest) FleetUpdateResourceInstanceDebugModeRequest2(fleetUpdateResourceInstanceDebugModeRequest2 FleetUpdateResourceInstanceDebugModeRequest2) ApiInventoryApiUpdateResourceInstanceDebugModeRequest {
+	r.fleetUpdateResourceInstanceDebugModeRequest2 = &fleetUpdateResourceInstanceDebugModeRequest2
+	return r
+}
+
+func (r ApiInventoryApiUpdateResourceInstanceDebugModeRequest) Execute() (*http.Response, error) {
+	return r.ApiService.InventoryApiUpdateResourceInstanceDebugModeExecute(r)
+}
+
+/*
+InventoryApiUpdateResourceInstanceDebugMode UpdateResourceInstanceDebugMode inventory-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serviceId The service ID this workflow belongs to.
+ @param environmentId The service environment ID this workflow belongs to.
+ @param instanceId The resource instance ID.
+ @return ApiInventoryApiUpdateResourceInstanceDebugModeRequest
+*/
+func (a *InventoryApiAPIService) InventoryApiUpdateResourceInstanceDebugMode(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiUpdateResourceInstanceDebugModeRequest {
+	return ApiInventoryApiUpdateResourceInstanceDebugModeRequest{
+		ApiService: a,
+		ctx: ctx,
+		serviceId: serviceId,
+		environmentId: environmentId,
+		instanceId: instanceId,
+	}
+}
+
+// Execute executes the request
+func (a *InventoryApiAPIService) InventoryApiUpdateResourceInstanceDebugModeExecute(r ApiInventoryApiUpdateResourceInstanceDebugModeRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiUpdateResourceInstanceDebugMode")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/debug-mode"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentId"+"}", url.PathEscape(parameterValueToString(r.environmentId, "environmentId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.fleetUpdateResourceInstanceDebugModeRequest2 == nil {
+		return nil, reportError("fleetUpdateResourceInstanceDebugModeRequest2 is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.fleetUpdateResourceInstanceDebugModeRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

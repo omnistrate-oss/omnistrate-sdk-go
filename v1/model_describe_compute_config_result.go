@@ -21,6 +21,8 @@ var _ MappedNullable = &DescribeComputeConfigResult{}
 // DescribeComputeConfigResult struct for DescribeComputeConfigResult
 type DescribeComputeConfigResult struct {
 	AutoscalingPolicy *AutoscalingPolicy `json:"autoscalingPolicy,omitempty"`
+	// The compute instance type config overrides for this compute config
+	ComputeInstanceTypeConfigOverrides map[string]interface{} `json:"computeInstanceTypeConfigOverrides,omitempty"`
 	// Processor architecture
 	CpuArchitecture *string `json:"cpuArchitecture,omitempty"`
 	// Description of the compute config
@@ -89,6 +91,29 @@ func (o *DescribeComputeConfigResult) GetAutoscalingPolicyOk() (*AutoscalingPoli
 // SetAutoscalingPolicy gets a reference to the given AutoscalingPolicy and assigns it to the AutoscalingPolicy field.
 func (o *DescribeComputeConfigResult) SetAutoscalingPolicy(v AutoscalingPolicy) {
 	o.AutoscalingPolicy = &v
+}
+
+// GetComputeInstanceTypeConfigOverrides returns the ComputeInstanceTypeConfigOverrides field value if set, zero value otherwise.
+func (o *DescribeComputeConfigResult) GetComputeInstanceTypeConfigOverrides() map[string]interface{} {
+	if o == nil || IsNil(o.ComputeInstanceTypeConfigOverrides) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.ComputeInstanceTypeConfigOverrides
+}
+
+// GetComputeInstanceTypeConfigOverridesOk returns a tuple with the ComputeInstanceTypeConfigOverrides field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeComputeConfigResult) GetComputeInstanceTypeConfigOverridesOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.ComputeInstanceTypeConfigOverrides) {
+		return map[string]interface{}{}, false
+	}
+	return o.ComputeInstanceTypeConfigOverrides, true
+}
+
+// SetComputeInstanceTypeConfigOverrides gets a reference to the given map[string]interface{} and assigns it to the ComputeInstanceTypeConfigOverrides field.
+func (o *DescribeComputeConfigResult) SetComputeInstanceTypeConfigOverrides(v map[string]interface{}) {
+	o.ComputeInstanceTypeConfigOverrides = v
 }
 
 // GetCpuArchitecture returns the CpuArchitecture field value if set, zero value otherwise.
@@ -362,6 +387,9 @@ func (o DescribeComputeConfigResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AutoscalingPolicy) {
 		toSerialize["autoscalingPolicy"] = o.AutoscalingPolicy
 	}
+	if !IsNil(o.ComputeInstanceTypeConfigOverrides) {
+		toSerialize["computeInstanceTypeConfigOverrides"] = o.ComputeInstanceTypeConfigOverrides
+	}
 	if !IsNil(o.CpuArchitecture) {
 		toSerialize["cpuArchitecture"] = o.CpuArchitecture
 	}
@@ -433,6 +461,7 @@ func (o *DescribeComputeConfigResult) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "autoscalingPolicy")
+		delete(additionalProperties, "computeInstanceTypeConfigOverrides")
 		delete(additionalProperties, "cpuArchitecture")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "id")

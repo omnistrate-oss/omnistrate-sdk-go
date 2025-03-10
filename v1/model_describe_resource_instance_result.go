@@ -70,8 +70,11 @@ type DescribeResourceInstanceResult struct {
 	ServerlessEnabled *bool `json:"serverlessEnabled,omitempty"`
 	// The status of an operation
 	Status *string `json:"status,omitempty"`
-	// The subscription ID
+	// Subscription ID
 	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	SubscriptionLicense *SubscriptionLicense `json:"subscriptionLicense,omitempty"`
+	// Subscription Status
+	SubscriptionStatus *string `json:"subscriptionStatus,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -739,6 +742,52 @@ func (o *DescribeResourceInstanceResult) SetSubscriptionId(v string) {
 	o.SubscriptionId = &v
 }
 
+// GetSubscriptionLicense returns the SubscriptionLicense field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetSubscriptionLicense() SubscriptionLicense {
+	if o == nil || IsNil(o.SubscriptionLicense) {
+		var ret SubscriptionLicense
+		return ret
+	}
+	return *o.SubscriptionLicense
+}
+
+// GetSubscriptionLicenseOk returns a tuple with the SubscriptionLicense field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetSubscriptionLicenseOk() (*SubscriptionLicense, bool) {
+	if o == nil || IsNil(o.SubscriptionLicense) {
+		return nil, false
+	}
+	return o.SubscriptionLicense, true
+}
+
+// SetSubscriptionLicense gets a reference to the given SubscriptionLicense and assigns it to the SubscriptionLicense field.
+func (o *DescribeResourceInstanceResult) SetSubscriptionLicense(v SubscriptionLicense) {
+	o.SubscriptionLicense = &v
+}
+
+// GetSubscriptionStatus returns the SubscriptionStatus field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetSubscriptionStatus() string {
+	if o == nil || IsNil(o.SubscriptionStatus) {
+		var ret string
+		return ret
+	}
+	return *o.SubscriptionStatus
+}
+
+// GetSubscriptionStatusOk returns a tuple with the SubscriptionStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetSubscriptionStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.SubscriptionStatus) {
+		return nil, false
+	}
+	return o.SubscriptionStatus, true
+}
+
+// SetSubscriptionStatus gets a reference to the given string and assigns it to the SubscriptionStatus field.
+func (o *DescribeResourceInstanceResult) SetSubscriptionStatus(v string) {
+	o.SubscriptionStatus = &v
+}
+
 func (o DescribeResourceInstanceResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -833,6 +882,12 @@ func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.SubscriptionId) {
 		toSerialize["subscriptionId"] = o.SubscriptionId
 	}
+	if !IsNil(o.SubscriptionLicense) {
+		toSerialize["subscriptionLicense"] = o.SubscriptionLicense
+	}
+	if !IsNil(o.SubscriptionStatus) {
+		toSerialize["subscriptionStatus"] = o.SubscriptionStatus
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -883,6 +938,8 @@ func (o *DescribeResourceInstanceResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "serverlessEnabled")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "subscriptionId")
+		delete(additionalProperties, "subscriptionLicense")
+		delete(additionalProperties, "subscriptionStatus")
 		o.AdditionalProperties = additionalProperties
 	}
 

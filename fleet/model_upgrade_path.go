@@ -21,7 +21,7 @@ var _ MappedNullable = &UpgradePath{}
 // UpgradePath struct for UpgradePath
 type UpgradePath struct {
 	// The timestamp when the upgrade path was completed.
-	CompletedAt string `json:"completedAt"`
+	CompletedAt *string `json:"completedAt,omitempty"`
 	// The number of instances that have completed the upgrade.
 	CompletedCount int64 `json:"completedCount"`
 	// The timestamp when the upgrade path was created.
@@ -32,6 +32,10 @@ type UpgradePath struct {
 	FailedCount int64 `json:"failedCount"`
 	// The number of instances that are in progress of the upgrade.
 	InProgressCount int64 `json:"inProgressCount"`
+	// The name of the user who created the upgrade path.
+	LastModifiedBy *string `json:"lastModifiedBy,omitempty"`
+	// The action to perform on an ongoing resource workflow
+	LastRequestedAction *string `json:"lastRequestedAction,omitempty"`
 	// The number of instances that are pending the upgrade.
 	PendingCount int64 `json:"pendingCount"`
 	// The date when the upgrade was/is planned to be executed.
@@ -44,6 +48,8 @@ type UpgradePath struct {
 	ScheduledCount *int64 `json:"scheduledCount,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
+	// The number of instances that are skipped the upgrade.
+	SkippedCount int64 `json:"skippedCount"`
 	// The source version of the upgrade path.
 	SourceVersion string `json:"sourceVersion"`
 	// The status of the upgrade path.
@@ -67,9 +73,8 @@ type _UpgradePath UpgradePath
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpgradePath(completedAt string, completedCount int64, createdAt string, failedCount int64, inProgressCount int64, pendingCount int64, productTierId string, releasedAt string, serviceId string, sourceVersion string, status string, targetVersion string, totalCount int64, type_ string, updatedAt string, upgradePathId string) *UpgradePath {
+func NewUpgradePath(completedCount int64, createdAt string, failedCount int64, inProgressCount int64, pendingCount int64, productTierId string, releasedAt string, serviceId string, skippedCount int64, sourceVersion string, status string, targetVersion string, totalCount int64, type_ string, updatedAt string, upgradePathId string) *UpgradePath {
 	this := UpgradePath{}
-	this.CompletedAt = completedAt
 	this.CompletedCount = completedCount
 	this.CreatedAt = createdAt
 	this.FailedCount = failedCount
@@ -78,6 +83,7 @@ func NewUpgradePath(completedAt string, completedCount int64, createdAt string, 
 	this.ProductTierId = productTierId
 	this.ReleasedAt = releasedAt
 	this.ServiceId = serviceId
+	this.SkippedCount = skippedCount
 	this.SourceVersion = sourceVersion
 	this.Status = status
 	this.TargetVersion = targetVersion
@@ -96,28 +102,36 @@ func NewUpgradePathWithDefaults() *UpgradePath {
 	return &this
 }
 
-// GetCompletedAt returns the CompletedAt field value
+// GetCompletedAt returns the CompletedAt field value if set, zero value otherwise.
 func (o *UpgradePath) GetCompletedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.CompletedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.CompletedAt
+	return *o.CompletedAt
 }
 
-// GetCompletedAtOk returns a tuple with the CompletedAt field value
+// GetCompletedAtOk returns a tuple with the CompletedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpgradePath) GetCompletedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CompletedAt) {
 		return nil, false
 	}
-	return &o.CompletedAt, true
+	return o.CompletedAt, true
 }
 
-// SetCompletedAt sets field value
+// HasCompletedAt returns a boolean if a field has been set.
+func (o *UpgradePath) HasCompletedAt() bool {
+	if o != nil && !IsNil(o.CompletedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCompletedAt gets a reference to the given string and assigns it to the CompletedAt field.
 func (o *UpgradePath) SetCompletedAt(v string) {
-	o.CompletedAt = v
+	o.CompletedAt = &v
 }
 
 // GetCompletedCount returns the CompletedCount field value
@@ -246,6 +260,70 @@ func (o *UpgradePath) GetInProgressCountOk() (*int64, bool) {
 // SetInProgressCount sets field value
 func (o *UpgradePath) SetInProgressCount(v int64) {
 	o.InProgressCount = v
+}
+
+// GetLastModifiedBy returns the LastModifiedBy field value if set, zero value otherwise.
+func (o *UpgradePath) GetLastModifiedBy() string {
+	if o == nil || IsNil(o.LastModifiedBy) {
+		var ret string
+		return ret
+	}
+	return *o.LastModifiedBy
+}
+
+// GetLastModifiedByOk returns a tuple with the LastModifiedBy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpgradePath) GetLastModifiedByOk() (*string, bool) {
+	if o == nil || IsNil(o.LastModifiedBy) {
+		return nil, false
+	}
+	return o.LastModifiedBy, true
+}
+
+// HasLastModifiedBy returns a boolean if a field has been set.
+func (o *UpgradePath) HasLastModifiedBy() bool {
+	if o != nil && !IsNil(o.LastModifiedBy) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastModifiedBy gets a reference to the given string and assigns it to the LastModifiedBy field.
+func (o *UpgradePath) SetLastModifiedBy(v string) {
+	o.LastModifiedBy = &v
+}
+
+// GetLastRequestedAction returns the LastRequestedAction field value if set, zero value otherwise.
+func (o *UpgradePath) GetLastRequestedAction() string {
+	if o == nil || IsNil(o.LastRequestedAction) {
+		var ret string
+		return ret
+	}
+	return *o.LastRequestedAction
+}
+
+// GetLastRequestedActionOk returns a tuple with the LastRequestedAction field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpgradePath) GetLastRequestedActionOk() (*string, bool) {
+	if o == nil || IsNil(o.LastRequestedAction) {
+		return nil, false
+	}
+	return o.LastRequestedAction, true
+}
+
+// HasLastRequestedAction returns a boolean if a field has been set.
+func (o *UpgradePath) HasLastRequestedAction() bool {
+	if o != nil && !IsNil(o.LastRequestedAction) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastRequestedAction gets a reference to the given string and assigns it to the LastRequestedAction field.
+func (o *UpgradePath) SetLastRequestedAction(v string) {
+	o.LastRequestedAction = &v
 }
 
 // GetPendingCount returns the PendingCount field value
@@ -406,6 +484,30 @@ func (o *UpgradePath) GetServiceIdOk() (*string, bool) {
 // SetServiceId sets field value
 func (o *UpgradePath) SetServiceId(v string) {
 	o.ServiceId = v
+}
+
+// GetSkippedCount returns the SkippedCount field value
+func (o *UpgradePath) GetSkippedCount() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.SkippedCount
+}
+
+// GetSkippedCountOk returns a tuple with the SkippedCount field value
+// and a boolean to check if the value has been set.
+func (o *UpgradePath) GetSkippedCountOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SkippedCount, true
+}
+
+// SetSkippedCount sets field value
+func (o *UpgradePath) SetSkippedCount(v int64) {
+	o.SkippedCount = v
 }
 
 // GetSourceVersion returns the SourceVersion field value
@@ -586,7 +688,9 @@ func (o UpgradePath) MarshalJSON() ([]byte, error) {
 
 func (o UpgradePath) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["completedAt"] = o.CompletedAt
+	if !IsNil(o.CompletedAt) {
+		toSerialize["completedAt"] = o.CompletedAt
+	}
 	toSerialize["completedCount"] = o.CompletedCount
 	toSerialize["createdAt"] = o.CreatedAt
 	if !IsNil(o.CreatedBy) {
@@ -594,6 +698,12 @@ func (o UpgradePath) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["failedCount"] = o.FailedCount
 	toSerialize["inProgressCount"] = o.InProgressCount
+	if !IsNil(o.LastModifiedBy) {
+		toSerialize["lastModifiedBy"] = o.LastModifiedBy
+	}
+	if !IsNil(o.LastRequestedAction) {
+		toSerialize["lastRequestedAction"] = o.LastRequestedAction
+	}
 	toSerialize["pendingCount"] = o.PendingCount
 	if !IsNil(o.PlannedExecutionDate) {
 		toSerialize["plannedExecutionDate"] = o.PlannedExecutionDate
@@ -604,6 +714,7 @@ func (o UpgradePath) ToMap() (map[string]interface{}, error) {
 		toSerialize["scheduledCount"] = o.ScheduledCount
 	}
 	toSerialize["serviceId"] = o.ServiceId
+	toSerialize["skippedCount"] = o.SkippedCount
 	toSerialize["sourceVersion"] = o.SourceVersion
 	toSerialize["status"] = o.Status
 	toSerialize["targetVersion"] = o.TargetVersion
@@ -624,7 +735,6 @@ func (o *UpgradePath) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"completedAt",
 		"completedCount",
 		"createdAt",
 		"failedCount",
@@ -633,6 +743,7 @@ func (o *UpgradePath) UnmarshalJSON(data []byte) (err error) {
 		"productTierId",
 		"releasedAt",
 		"serviceId",
+		"skippedCount",
 		"sourceVersion",
 		"status",
 		"targetVersion",
@@ -675,12 +786,15 @@ func (o *UpgradePath) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "createdBy")
 		delete(additionalProperties, "failedCount")
 		delete(additionalProperties, "inProgressCount")
+		delete(additionalProperties, "lastModifiedBy")
+		delete(additionalProperties, "lastRequestedAction")
 		delete(additionalProperties, "pendingCount")
 		delete(additionalProperties, "plannedExecutionDate")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "releasedAt")
 		delete(additionalProperties, "scheduledCount")
 		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "skippedCount")
 		delete(additionalProperties, "sourceVersion")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "targetVersion")

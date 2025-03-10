@@ -4,18 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CompletedAt** | **string** | The timestamp when the upgrade path was completed. | 
+**CompletedAt** | Pointer to **string** | The timestamp when the upgrade path was completed. | [optional] 
 **CompletedCount** | **int64** | The number of instances that have completed the upgrade. | 
 **CreatedAt** | **string** | The timestamp when the upgrade path was created. | 
 **CreatedBy** | Pointer to **string** | The name of the user who created the upgrade path. | [optional] 
 **FailedCount** | **int64** | The number of instances that have failed the upgrade. | 
 **InProgressCount** | **int64** | The number of instances that are in progress of the upgrade. | 
+**LastModifiedBy** | Pointer to **string** | The name of the user who created the upgrade path. | [optional] 
+**LastRequestedAction** | Pointer to **string** | The action to perform on an ongoing resource workflow | [optional] 
 **PendingCount** | **int64** | The number of instances that are pending the upgrade. | 
 **PlannedExecutionDate** | Pointer to **string** | The date when the upgrade was/is planned to be executed. | [optional] 
 **ProductTierId** | **string** | ID of a Product Tier | 
 **ReleasedAt** | **string** | The timestamp when the upgrade path was released. | 
 **ScheduledCount** | Pointer to **int64** | The number of instances that are scheduled to upgrade. | [optional] 
 **ServiceId** | **string** | ID of a Service | 
+**SkippedCount** | **int64** | The number of instances that are skipped the upgrade. | 
 **SourceVersion** | **string** | The source version of the upgrade path. | 
 **Status** | **string** | The status of the upgrade path. | 
 **TargetVersion** | **string** | The target version of the upgrade path. | 
@@ -28,7 +31,7 @@ Name | Type | Description | Notes
 
 ### NewUpgradePath
 
-`func NewUpgradePath(completedAt string, completedCount int64, createdAt string, failedCount int64, inProgressCount int64, pendingCount int64, productTierId string, releasedAt string, serviceId string, sourceVersion string, status string, targetVersion string, totalCount int64, type_ string, updatedAt string, upgradePathId string, ) *UpgradePath`
+`func NewUpgradePath(completedCount int64, createdAt string, failedCount int64, inProgressCount int64, pendingCount int64, productTierId string, releasedAt string, serviceId string, skippedCount int64, sourceVersion string, status string, targetVersion string, totalCount int64, type_ string, updatedAt string, upgradePathId string, ) *UpgradePath`
 
 NewUpgradePath instantiates a new UpgradePath object
 This constructor will assign default values to properties that have it defined,
@@ -62,6 +65,11 @@ and a boolean to check if the value has been set.
 
 SetCompletedAt sets CompletedAt field to given value.
 
+### HasCompletedAt
+
+`func (o *UpgradePath) HasCompletedAt() bool`
+
+HasCompletedAt returns a boolean if a field has been set.
 
 ### GetCompletedCount
 
@@ -167,6 +175,56 @@ and a boolean to check if the value has been set.
 
 SetInProgressCount sets InProgressCount field to given value.
 
+
+### GetLastModifiedBy
+
+`func (o *UpgradePath) GetLastModifiedBy() string`
+
+GetLastModifiedBy returns the LastModifiedBy field if non-nil, zero value otherwise.
+
+### GetLastModifiedByOk
+
+`func (o *UpgradePath) GetLastModifiedByOk() (*string, bool)`
+
+GetLastModifiedByOk returns a tuple with the LastModifiedBy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastModifiedBy
+
+`func (o *UpgradePath) SetLastModifiedBy(v string)`
+
+SetLastModifiedBy sets LastModifiedBy field to given value.
+
+### HasLastModifiedBy
+
+`func (o *UpgradePath) HasLastModifiedBy() bool`
+
+HasLastModifiedBy returns a boolean if a field has been set.
+
+### GetLastRequestedAction
+
+`func (o *UpgradePath) GetLastRequestedAction() string`
+
+GetLastRequestedAction returns the LastRequestedAction field if non-nil, zero value otherwise.
+
+### GetLastRequestedActionOk
+
+`func (o *UpgradePath) GetLastRequestedActionOk() (*string, bool)`
+
+GetLastRequestedActionOk returns a tuple with the LastRequestedAction field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastRequestedAction
+
+`func (o *UpgradePath) SetLastRequestedAction(v string)`
+
+SetLastRequestedAction sets LastRequestedAction field to given value.
+
+### HasLastRequestedAction
+
+`func (o *UpgradePath) HasLastRequestedAction() bool`
+
+HasLastRequestedAction returns a boolean if a field has been set.
 
 ### GetPendingCount
 
@@ -296,6 +354,26 @@ and a boolean to check if the value has been set.
 `func (o *UpgradePath) SetServiceId(v string)`
 
 SetServiceId sets ServiceId field to given value.
+
+
+### GetSkippedCount
+
+`func (o *UpgradePath) GetSkippedCount() int64`
+
+GetSkippedCount returns the SkippedCount field if non-nil, zero value otherwise.
+
+### GetSkippedCountOk
+
+`func (o *UpgradePath) GetSkippedCountOk() (*int64, bool)`
+
+GetSkippedCountOk returns a tuple with the SkippedCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSkippedCount
+
+`func (o *UpgradePath) SetSkippedCount(v int64)`
+
+SetSkippedCount sets SkippedCount field to given value.
 
 
 ### GetSourceVersion

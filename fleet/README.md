@@ -79,6 +79,10 @@ All URIs are relative to *https://api.omnistrate.cloud*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AuditEventsApiAPI* | [**AuditEventsApiAuditEvents**](docs/AuditEventsApiAPI.md#auditeventsapiauditevents) | **Get** /2022-09-01-00/fleet/audit-events | AuditEvents audit-events-api
+*CostApiAPI* | [**CostApiDescribeCloudProviderCost**](docs/CostApiAPI.md#costapidescribecloudprovidercost) | **Get** /2022-09-01-00/fleet/cost/cloud-provider | DescribeCloudProviderCost cost-api
+*CostApiAPI* | [**CostApiDescribeDeploymentCellCost**](docs/CostApiAPI.md#costapidescribedeploymentcellcost) | **Get** /2022-09-01-00/fleet/cost/deployment-cell | DescribeDeploymentCellCost cost-api
+*CostApiAPI* | [**CostApiDescribeRegionCost**](docs/CostApiAPI.md#costapidescriberegioncost) | **Get** /2022-09-01-00/fleet/cost/region | DescribeRegionCost cost-api
+*CostApiAPI* | [**CostApiDescribeUserCost**](docs/CostApiAPI.md#costapidescribeusercost) | **Get** /2022-09-01-00/fleet/cost/user | DescribeUserCost cost-api
 *CustomerOnboardingsApiAPI* | [**CustomerOnboardingsApiCreateCustomerOnboarding**](docs/CustomerOnboardingsApiAPI.md#customeronboardingsapicreatecustomeronboarding) | **Post** /2022-09-01-00/fleet/customer-onboarding | CreateCustomerOnboarding customer-onboardings-api
 *CustomerOnboardingsApiAPI* | [**CustomerOnboardingsApiDeleteCustomerOnboarding**](docs/CustomerOnboardingsApiAPI.md#customeronboardingsapideletecustomeronboarding) | **Delete** /2022-09-01-00/fleet/customer-onboarding/{id} | DeleteCustomerOnboarding customer-onboardings-api
 *CustomerOnboardingsApiAPI* | [**CustomerOnboardingsApiDescribeCustomerOnboarding**](docs/CustomerOnboardingsApiAPI.md#customeronboardingsapidescribecustomeronboarding) | **Get** /2022-09-01-00/fleet/customer-onboarding/{id} | DescribeCustomerOnboarding customer-onboardings-api
@@ -136,7 +140,6 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiDescribeSubscriptionRequest**](docs/InventoryApiAPI.md#inventoryapidescribesubscriptionrequest) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | DescribeSubscriptionRequest inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeUpgradePath**](docs/InventoryApiAPI.md#inventoryapidescribeupgradepath) | **Get** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId} | DescribeUpgradePath inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeUser**](docs/InventoryApiAPI.md#inventoryapidescribeuser) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/user/{userId} | DescribeUser inventory-api
-*InventoryApiAPI* | [**InventoryApiEnableResourceInstanceManualOverride**](docs/InventoryApiAPI.md#inventoryapienableresourceinstancemanualoverride) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/override | EnableResourceInstanceManualOverride inventory-api
 *InventoryApiAPI* | [**InventoryApiFailoverResourceInstance**](docs/InventoryApiAPI.md#inventoryapifailoverresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/failover | FailoverResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiGenerateTokenForHostClusterDashboard**](docs/InventoryApiAPI.md#inventoryapigeneratetokenforhostclusterdashboard) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard inventory-api
 *InventoryApiAPI* | [**InventoryApiListActiveOrganizations**](docs/InventoryApiAPI.md#inventoryapilistactiveorganizations) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/organizations | ListActiveOrganizations inventory-api
@@ -155,6 +158,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiListSubscriptionRequests**](docs/InventoryApiAPI.md#inventoryapilistsubscriptionrequests) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request | ListSubscriptionRequests inventory-api
 *InventoryApiAPI* | [**InventoryApiListUpgradePaths**](docs/InventoryApiAPI.md#inventoryapilistupgradepaths) | **Get** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-paths | ListUpgradePaths inventory-api
 *InventoryApiAPI* | [**InventoryApiListUsers**](docs/InventoryApiAPI.md#inventoryapilistusers) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/users | ListUsers inventory-api
+*InventoryApiAPI* | [**InventoryApiManageUpgradePath**](docs/InventoryApiAPI.md#inventoryapimanageupgradepath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/manage-lifecycle | ManageUpgradePath inventory-api
 *InventoryApiAPI* | [**InventoryApiModifyServicesOrchestration**](docs/InventoryApiAPI.md#inventoryapimodifyservicesorchestration) | **Patch** /2022-09-01-00/fleet/services-orchestration/{id} | ModifyServicesOrchestration inventory-api
 *InventoryApiAPI* | [**InventoryApiRemoveCapacityFromResourceInstance**](docs/InventoryApiAPI.md#inventoryapiremovecapacityfromresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/remove-capacity | RemoveCapacityFromResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiRemoveCustomDNSFromResourceInstance**](docs/InventoryApiAPI.md#inventoryapiremovecustomdnsfromresourceinstance) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/{resourceKey}/instance/{instanceId}/custom-dns | RemoveCustomDNSFromResourceInstance inventory-api
@@ -170,7 +174,9 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiSuspendUser**](docs/InventoryApiAPI.md#inventoryapisuspenduser) | **Put** /2022-09-01-00/fleet/user/{userId}/suspend | SuspendUser inventory-api
 *InventoryApiAPI* | [**InventoryApiTerminateSubscription**](docs/InventoryApiAPI.md#inventoryapiterminatesubscription) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/{id} | TerminateSubscription inventory-api
 *InventoryApiAPI* | [**InventoryApiUnsuspendUser**](docs/InventoryApiAPI.md#inventoryapiunsuspenduser) | **Put** /2022-09-01-00/fleet/user/{userId}/unsuspend | UnsuspendUser inventory-api
+*InventoryApiAPI* | [**InventoryApiUpdateAccountConfigResourceInstance**](docs/InventoryApiAPI.md#inventoryapiupdateaccountconfigresourceinstance) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/account-config-instance/{instanceId}/ | UpdateAccountConfigResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiUpdateResourceInstance**](docs/InventoryApiAPI.md#inventoryapiupdateresourceinstance) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId} | UpdateResourceInstance inventory-api
+*InventoryApiAPI* | [**InventoryApiUpdateResourceInstanceDebugMode**](docs/InventoryApiAPI.md#inventoryapiupdateresourceinstancedebugmode) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/debug-mode | UpdateResourceInstanceDebugMode inventory-api
 *NotificationsApiAPI* | [**NotificationsApiCreateNotificationChannel**](docs/NotificationsApiAPI.md#notificationsapicreatenotificationchannel) | **Post** /2022-09-01-00/fleet/notification-channel | CreateNotificationChannel notifications-api
 *NotificationsApiAPI* | [**NotificationsApiDeleteNotificationChannel**](docs/NotificationsApiAPI.md#notificationsapideletenotificationchannel) | **Delete** /2022-09-01-00/fleet/notification-channel/{id} | DeleteNotificationChannel notifications-api
 *NotificationsApiAPI* | [**NotificationsApiDescribeNotificationChannel**](docs/NotificationsApiAPI.md#notificationsapidescribenotificationchannel) | **Get** /2022-09-01-00/fleet/notification-channel/{id} | DescribeNotificationChannel notifications-api
@@ -211,11 +217,14 @@ Class | Method | HTTP request | Description
  - [CheckIfContainerImageAccessibleResult](docs/CheckIfContainerImageAccessibleResult.md)
  - [CloudProviderHealthSummary](docs/CloudProviderHealthSummary.md)
  - [ClusterEndpoint](docs/ClusterEndpoint.md)
+ - [CompleteOAuthConnectionRequest](docs/CompleteOAuthConnectionRequest.md)
+ - [CompleteOAuthConnectionResult](docs/CompleteOAuthConnectionResult.md)
  - [ConsumptionServiceAuthRequest](docs/ConsumptionServiceAuthRequest.md)
  - [ConsumptionServiceAuthResult](docs/ConsumptionServiceAuthResult.md)
  - [ContactusRequest](docs/ContactusRequest.md)
  - [CopyProductTierRequest](docs/CopyProductTierRequest.md)
  - [CopyServiceModelRequest](docs/CopyServiceModelRequest.md)
+ - [CostDataPerDate](docs/CostDataPerDate.md)
  - [CreateCustomerOnboardingRequest](docs/CreateCustomerOnboardingRequest.md)
  - [CreateCustomerOnboardingRequest2](docs/CreateCustomerOnboardingRequest2.md)
  - [CreateIdentityProviderRequest](docs/CreateIdentityProviderRequest.md)
@@ -276,10 +285,14 @@ Class | Method | HTTP request | Description
  - [DeploymentCellSearchRecord](docs/DeploymentCellSearchRecord.md)
  - [DescribeAvailabilityZoneRequest](docs/DescribeAvailabilityZoneRequest.md)
  - [DescribeAvailabilityZoneResult](docs/DescribeAvailabilityZoneResult.md)
+ - [DescribeCloudProviderCostRequest](docs/DescribeCloudProviderCostRequest.md)
+ - [DescribeCloudProviderCostResult](docs/DescribeCloudProviderCostResult.md)
  - [DescribeCloudProviderRequest](docs/DescribeCloudProviderRequest.md)
  - [DescribeCloudProviderResult](docs/DescribeCloudProviderResult.md)
  - [DescribeConsumptionUserBillingDetailsRequest](docs/DescribeConsumptionUserBillingDetailsRequest.md)
  - [DescribeCustomerOnboardingRequest](docs/DescribeCustomerOnboardingRequest.md)
+ - [DescribeDeploymentCellCostRequest](docs/DescribeDeploymentCellCostRequest.md)
+ - [DescribeDeploymentCellCostResult](docs/DescribeDeploymentCellCostResult.md)
  - [DescribeFleetFeatureRequest](docs/DescribeFleetFeatureRequest.md)
  - [DescribeIdentityProviderRequest](docs/DescribeIdentityProviderRequest.md)
  - [DescribeIdentityProviderResult](docs/DescribeIdentityProviderResult.md)
@@ -296,6 +309,8 @@ Class | Method | HTTP request | Description
  - [DescribeProductTierBillingPlanRequest](docs/DescribeProductTierBillingPlanRequest.md)
  - [DescribeProductTierRequest](docs/DescribeProductTierRequest.md)
  - [DescribeProductTierResult](docs/DescribeProductTierResult.md)
+ - [DescribeRegionCostRequest](docs/DescribeRegionCostRequest.md)
+ - [DescribeRegionCostResult](docs/DescribeRegionCostResult.md)
  - [DescribeRegionRequest](docs/DescribeRegionRequest.md)
  - [DescribeRegionResult](docs/DescribeRegionResult.md)
  - [DescribeResourceInstanceRequest](docs/DescribeResourceInstanceRequest.md)
@@ -324,6 +339,8 @@ Class | Method | HTTP request | Description
  - [DescribeSubscriptionResult](docs/DescribeSubscriptionResult.md)
  - [DescribeUpgradePathRequest](docs/DescribeUpgradePathRequest.md)
  - [DescribeUserBillingDetailsResult](docs/DescribeUserBillingDetailsResult.md)
+ - [DescribeUserCostRequest](docs/DescribeUserCostRequest.md)
+ - [DescribeUserCostResult](docs/DescribeUserCostResult.md)
  - [DescribeUserRequest](docs/DescribeUserRequest.md)
  - [DescribeUserResult](docs/DescribeUserResult.md)
  - [DescribeUsersByOrgRequest](docs/DescribeUsersByOrgRequest.md)
@@ -392,7 +409,6 @@ Class | Method | HTTP request | Description
  - [FleetDescribeSubscriptionResult](docs/FleetDescribeSubscriptionResult.md)
  - [FleetDescribeUser](docs/FleetDescribeUser.md)
  - [FleetDescribeUserResult](docs/FleetDescribeUserResult.md)
- - [FleetEnableResourceInstanceManualOverrideRequest](docs/FleetEnableResourceInstanceManualOverrideRequest.md)
  - [FleetFailoverResourceInstanceRequest](docs/FleetFailoverResourceInstanceRequest.md)
  - [FleetFailoverResourceInstanceRequest2](docs/FleetFailoverResourceInstanceRequest2.md)
  - [FleetFeature](docs/FleetFeature.md)
@@ -439,8 +455,12 @@ Class | Method | HTTP request | Description
  - [FleetSuspendUserRequest](docs/FleetSuspendUserRequest.md)
  - [FleetTerminateSubscriptionRequest](docs/FleetTerminateSubscriptionRequest.md)
  - [FleetUnsuspendUserRequest](docs/FleetUnsuspendUserRequest.md)
+ - [FleetUpdateAccountConfigResourceInstanceRequest](docs/FleetUpdateAccountConfigResourceInstanceRequest.md)
+ - [FleetUpdateAccountConfigResourceInstanceRequest2](docs/FleetUpdateAccountConfigResourceInstanceRequest2.md)
  - [FleetUpdateCustomNetworkRequest](docs/FleetUpdateCustomNetworkRequest.md)
  - [FleetUpdateCustomNetworkRequest2](docs/FleetUpdateCustomNetworkRequest2.md)
+ - [FleetUpdateResourceInstanceDebugModeRequest](docs/FleetUpdateResourceInstanceDebugModeRequest.md)
+ - [FleetUpdateResourceInstanceDebugModeRequest2](docs/FleetUpdateResourceInstanceDebugModeRequest2.md)
  - [FleetUpdateResourceInstanceRequest](docs/FleetUpdateResourceInstanceRequest.md)
  - [FleetUpdateResourceInstanceRequest2](docs/FleetUpdateResourceInstanceRequest2.md)
  - [GenerateComposeSpecFromContainerImageRequest](docs/GenerateComposeSpecFromContainerImageRequest.md)
@@ -557,6 +577,8 @@ Class | Method | HTTP request | Description
  - [LoginWithIdentityProviderRequest](docs/LoginWithIdentityProviderRequest.md)
  - [LoginWithIdentityProviderResult](docs/LoginWithIdentityProviderResult.md)
  - [LogoutRequest](docs/LogoutRequest.md)
+ - [ManageUpgradePathLifecycleRequest](docs/ManageUpgradePathLifecycleRequest.md)
+ - [ManageUpgradePathLifecycleRequest2](docs/ManageUpgradePathLifecycleRequest2.md)
  - [ManualOverride](docs/ManualOverride.md)
  - [ModifyServicesOrchestrationRequest](docs/ModifyServicesOrchestrationRequest.md)
  - [NodeHealthSummary](docs/NodeHealthSummary.md)
@@ -574,6 +596,11 @@ Class | Method | HTTP request | Description
  - [Organization](docs/Organization.md)
  - [OutputParameterEntity](docs/OutputParameterEntity.md)
  - [PagerDutyConfiguration](docs/PagerDutyConfiguration.md)
+ - [PerCloudProviderCost](docs/PerCloudProviderCost.md)
+ - [PerDeploymentCellCost](docs/PerDeploymentCellCost.md)
+ - [PerInstanceCost](docs/PerInstanceCost.md)
+ - [PerRegionCost](docs/PerRegionCost.md)
+ - [PerUserCost](docs/PerUserCost.md)
  - [ProductTierFeatureDetail](docs/ProductTierFeatureDetail.md)
  - [PromoteServiceEnvironmentRequest](docs/PromoteServiceEnvironmentRequest.md)
  - [PromoteServiceEnvironmentStatusRequest](docs/PromoteServiceEnvironmentStatusRequest.md)
@@ -606,6 +633,7 @@ Class | Method | HTTP request | Description
  - [RestoreResourceInstanceFromSnapshotRequest](docs/RestoreResourceInstanceFromSnapshotRequest.md)
  - [RestoreResourceInstanceRequest](docs/RestoreResourceInstanceRequest.md)
  - [RevokeConsumptionUserRoleRequest](docs/RevokeConsumptionUserRoleRequest.md)
+ - [RevokeOAuthAccessRequest](docs/RevokeOAuthAccessRequest.md)
  - [RevokeUserRoleRequest](docs/RevokeUserRoleRequest.md)
  - [SaaSPortal](docs/SaaSPortal.md)
  - [SaaSPortalEmailConfig](docs/SaaSPortalEmailConfig.md)
@@ -638,9 +666,13 @@ Class | Method | HTTP request | Description
  - [SlackConfiguration](docs/SlackConfiguration.md)
  - [StartResourceInstanceRequest](docs/StartResourceInstanceRequest.md)
  - [StopResourceInstanceRequest](docs/StopResourceInstanceRequest.md)
+ - [StripeAuthorizeURLRequest](docs/StripeAuthorizeURLRequest.md)
+ - [StripeAuthorizeURLResult](docs/StripeAuthorizeURLResult.md)
+ - [SubscriptionLicense](docs/SubscriptionLicense.md)
  - [SubscriptionSearchRecord](docs/SubscriptionSearchRecord.md)
  - [SubscriptionUsers](docs/SubscriptionUsers.md)
  - [TerminateServiceWorkflowRequest](docs/TerminateServiceWorkflowRequest.md)
+ - [UpdateAccountConfigResourceInstanceRequest](docs/UpdateAccountConfigResourceInstanceRequest.md)
  - [UpdateCustomerOnboardingRequest](docs/UpdateCustomerOnboardingRequest.md)
  - [UpdateCustomerOnboardingRequest2](docs/UpdateCustomerOnboardingRequest2.md)
  - [UpdateIdentityProviderRequest](docs/UpdateIdentityProviderRequest.md)

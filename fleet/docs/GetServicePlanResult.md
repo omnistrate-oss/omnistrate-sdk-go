@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **ActiveAccountConfigIds** | Pointer to **map[string]interface{}** | The active infrastructure account configuration IDs per cloud provider | [optional] 
 **ApiVersion** | **string** | The external version of the API | 
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this service plan is available on | [optional] 
+**AzureRegions** | Pointer to **[]string** | The Azure regions that this service plan is available on | [optional] 
 **DeploymentConfigId** | **string** | ID of a Deployment Config | 
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this service plan is available on | [optional] 
 **HasPendingChanges** | **bool** | Whether there are any pending changes for the product tier configuration | 
@@ -167,6 +168,31 @@ SetAwsRegions sets AwsRegions field to given value.
 `func (o *GetServicePlanResult) HasAwsRegions() bool`
 
 HasAwsRegions returns a boolean if a field has been set.
+
+### GetAzureRegions
+
+`func (o *GetServicePlanResult) GetAzureRegions() []string`
+
+GetAzureRegions returns the AzureRegions field if non-nil, zero value otherwise.
+
+### GetAzureRegionsOk
+
+`func (o *GetServicePlanResult) GetAzureRegionsOk() (*[]string, bool)`
+
+GetAzureRegionsOk returns a tuple with the AzureRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAzureRegions
+
+`func (o *GetServicePlanResult) SetAzureRegions(v []string)`
+
+SetAzureRegions sets AzureRegions field to given value.
+
+### HasAzureRegions
+
+`func (o *GetServicePlanResult) HasAzureRegions() bool`
+
+HasAzureRegions returns a boolean if a field has been set.
 
 ### GetDeploymentConfigId
 

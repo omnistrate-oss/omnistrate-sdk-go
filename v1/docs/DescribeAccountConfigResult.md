@@ -8,6 +8,9 @@ Name | Type | Description | Notes
 **AwsBootstrapRoleARN** | Pointer to **string** | The security role ARN or service account ARN that grants access to operate the infra | [optional] 
 **AwsCloudFormationNoLBTemplateURL** | Pointer to **string** | The URL to the CloudFormation template (no LoadBalancer policy version) | [optional] 
 **AwsCloudFormationTemplateURL** | Pointer to **string** | The URL to the CloudFormation template | [optional] 
+**AzureBootstrapShellCommand** | Pointer to **string** | The Azure bootstrap shell command | [optional] 
+**AzureSubscriptionID** | Pointer to **string** | The Azure subscription ID | [optional] 
+**AzureTenantID** | Pointer to **string** | The Azure tenant ID | [optional] 
 **ByoaInstanceIDs** | Pointer to **[]string** | The BYOA instance IDs that this account config is tied to | [optional] 
 **CloudProviderId** | **string** | ID of an CloudProvider | 
 **Description** | **string** | The description for the account | 
@@ -138,6 +141,81 @@ SetAwsCloudFormationTemplateURL sets AwsCloudFormationTemplateURL field to given
 `func (o *DescribeAccountConfigResult) HasAwsCloudFormationTemplateURL() bool`
 
 HasAwsCloudFormationTemplateURL returns a boolean if a field has been set.
+
+### GetAzureBootstrapShellCommand
+
+`func (o *DescribeAccountConfigResult) GetAzureBootstrapShellCommand() string`
+
+GetAzureBootstrapShellCommand returns the AzureBootstrapShellCommand field if non-nil, zero value otherwise.
+
+### GetAzureBootstrapShellCommandOk
+
+`func (o *DescribeAccountConfigResult) GetAzureBootstrapShellCommandOk() (*string, bool)`
+
+GetAzureBootstrapShellCommandOk returns a tuple with the AzureBootstrapShellCommand field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAzureBootstrapShellCommand
+
+`func (o *DescribeAccountConfigResult) SetAzureBootstrapShellCommand(v string)`
+
+SetAzureBootstrapShellCommand sets AzureBootstrapShellCommand field to given value.
+
+### HasAzureBootstrapShellCommand
+
+`func (o *DescribeAccountConfigResult) HasAzureBootstrapShellCommand() bool`
+
+HasAzureBootstrapShellCommand returns a boolean if a field has been set.
+
+### GetAzureSubscriptionID
+
+`func (o *DescribeAccountConfigResult) GetAzureSubscriptionID() string`
+
+GetAzureSubscriptionID returns the AzureSubscriptionID field if non-nil, zero value otherwise.
+
+### GetAzureSubscriptionIDOk
+
+`func (o *DescribeAccountConfigResult) GetAzureSubscriptionIDOk() (*string, bool)`
+
+GetAzureSubscriptionIDOk returns a tuple with the AzureSubscriptionID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAzureSubscriptionID
+
+`func (o *DescribeAccountConfigResult) SetAzureSubscriptionID(v string)`
+
+SetAzureSubscriptionID sets AzureSubscriptionID field to given value.
+
+### HasAzureSubscriptionID
+
+`func (o *DescribeAccountConfigResult) HasAzureSubscriptionID() bool`
+
+HasAzureSubscriptionID returns a boolean if a field has been set.
+
+### GetAzureTenantID
+
+`func (o *DescribeAccountConfigResult) GetAzureTenantID() string`
+
+GetAzureTenantID returns the AzureTenantID field if non-nil, zero value otherwise.
+
+### GetAzureTenantIDOk
+
+`func (o *DescribeAccountConfigResult) GetAzureTenantIDOk() (*string, bool)`
+
+GetAzureTenantIDOk returns a tuple with the AzureTenantID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAzureTenantID
+
+`func (o *DescribeAccountConfigResult) SetAzureTenantID(v string)`
+
+SetAzureTenantID sets AzureTenantID field to given value.
+
+### HasAzureTenantID
+
+`func (o *DescribeAccountConfigResult) HasAzureTenantID() bool`
+
+HasAzureTenantID returns a boolean if a field has been set.
 
 ### GetByoaInstanceIDs
 

@@ -27,8 +27,8 @@ import (
 )
 
 func main() {
-	id := "Dolore fugit rerum." // string | The unique id per producer.
-	body := "Et voluptatem." // string | The event data
+	id := "Qui est." // string | The unique id per producer.
+	body := "Neque saepe placeat iusto." // string | The event data
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

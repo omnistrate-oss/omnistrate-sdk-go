@@ -22,6 +22,8 @@ var _ MappedNullable = &ServiceDeploymentDetails{}
 type ServiceDeploymentDetails struct {
 	// The deployment keys that this deployment depends on
 	DependsOnDeployment []string `json:"dependsOnDeployment,omitempty"`
+	// The reason why the deployment failed
+	FailedReason *string `json:"failedReason,omitempty"`
 	// The instance deployment alias
 	InstanceDeploymentAlias string `json:"instanceDeploymentAlias"`
 	// ID of a Resource Instance
@@ -80,6 +82,29 @@ func (o *ServiceDeploymentDetails) GetDependsOnDeploymentOk() ([]string, bool) {
 // SetDependsOnDeployment gets a reference to the given []string and assigns it to the DependsOnDeployment field.
 func (o *ServiceDeploymentDetails) SetDependsOnDeployment(v []string) {
 	o.DependsOnDeployment = v
+}
+
+// GetFailedReason returns the FailedReason field value if set, zero value otherwise.
+func (o *ServiceDeploymentDetails) GetFailedReason() string {
+	if o == nil || IsNil(o.FailedReason) {
+		var ret string
+		return ret
+	}
+	return *o.FailedReason
+}
+
+// GetFailedReasonOk returns a tuple with the FailedReason field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceDeploymentDetails) GetFailedReasonOk() (*string, bool) {
+	if o == nil || IsNil(o.FailedReason) {
+		return nil, false
+	}
+	return o.FailedReason, true
+}
+
+// SetFailedReason gets a reference to the given string and assigns it to the FailedReason field.
+func (o *ServiceDeploymentDetails) SetFailedReason(v string) {
+	o.FailedReason = &v
 }
 
 // GetInstanceDeploymentAlias returns the InstanceDeploymentAlias field value
@@ -236,6 +261,9 @@ func (o ServiceDeploymentDetails) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DependsOnDeployment) {
 		toSerialize["dependsOnDeployment"] = o.DependsOnDeployment
 	}
+	if !IsNil(o.FailedReason) {
+		toSerialize["failedReason"] = o.FailedReason
+	}
 	toSerialize["instanceDeploymentAlias"] = o.InstanceDeploymentAlias
 	if !IsNil(o.InstanceId) {
 		toSerialize["instanceId"] = o.InstanceId
@@ -294,6 +322,7 @@ func (o *ServiceDeploymentDetails) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "dependsOnDeployment")
+		delete(additionalProperties, "failedReason")
 		delete(additionalProperties, "instanceDeploymentAlias")
 		delete(additionalProperties, "instanceId")
 		delete(additionalProperties, "serviceId")

@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **InstanceLoadStatus** | Pointer to **string** | The load status of a pod | [optional] 
 **KubernetesDashboardEndpoint** | Pointer to [**KubernetesDashboardEndpoint**](KubernetesDashboardEndpoint.md) |  | [optional] 
 **LastModifiedAt** | Pointer to **string** | The instance update time | [optional] 
+**MaintenanceTasks** | Pointer to **map[string]interface{}** | Pending actions or maintenance tasks for the resource instance, with action type as key and reference key as value. | [optional] 
 **MaxReplicas** | Pointer to **string** | The maximum number of replicas | [optional] 
 **MinReplicas** | Pointer to **string** | The minimum number of replicas | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
@@ -31,7 +32,9 @@ Name | Type | Description | Notes
 **ResultParams** | Pointer to **interface{}** | Custom result parameters | [optional] 
 **ServerlessEnabled** | Pointer to **bool** | Whether the instance has serverless enabled | [optional] 
 **Status** | Pointer to **string** | The status of an operation | [optional] 
-**SubscriptionId** | Pointer to **string** | The subscription ID | [optional] 
+**SubscriptionId** | Pointer to **string** | Subscription ID | [optional] 
+**SubscriptionLicense** | Pointer to [**SubscriptionLicense**](SubscriptionLicense.md) |  | [optional] 
+**SubscriptionStatus** | Pointer to **string** | Subscription Status | [optional] 
 
 ## Methods
 
@@ -502,6 +505,31 @@ SetLastModifiedAt sets LastModifiedAt field to given value.
 
 HasLastModifiedAt returns a boolean if a field has been set.
 
+### GetMaintenanceTasks
+
+`func (o *DescribeResourceInstanceResult) GetMaintenanceTasks() map[string]interface{}`
+
+GetMaintenanceTasks returns the MaintenanceTasks field if non-nil, zero value otherwise.
+
+### GetMaintenanceTasksOk
+
+`func (o *DescribeResourceInstanceResult) GetMaintenanceTasksOk() (*map[string]interface{}, bool)`
+
+GetMaintenanceTasksOk returns a tuple with the MaintenanceTasks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaintenanceTasks
+
+`func (o *DescribeResourceInstanceResult) SetMaintenanceTasks(v map[string]interface{})`
+
+SetMaintenanceTasks sets MaintenanceTasks field to given value.
+
+### HasMaintenanceTasks
+
+`func (o *DescribeResourceInstanceResult) HasMaintenanceTasks() bool`
+
+HasMaintenanceTasks returns a boolean if a field has been set.
+
 ### GetMaxReplicas
 
 `func (o *DescribeResourceInstanceResult) GetMaxReplicas() string`
@@ -761,6 +789,56 @@ SetSubscriptionId sets SubscriptionId field to given value.
 `func (o *DescribeResourceInstanceResult) HasSubscriptionId() bool`
 
 HasSubscriptionId returns a boolean if a field has been set.
+
+### GetSubscriptionLicense
+
+`func (o *DescribeResourceInstanceResult) GetSubscriptionLicense() SubscriptionLicense`
+
+GetSubscriptionLicense returns the SubscriptionLicense field if non-nil, zero value otherwise.
+
+### GetSubscriptionLicenseOk
+
+`func (o *DescribeResourceInstanceResult) GetSubscriptionLicenseOk() (*SubscriptionLicense, bool)`
+
+GetSubscriptionLicenseOk returns a tuple with the SubscriptionLicense field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscriptionLicense
+
+`func (o *DescribeResourceInstanceResult) SetSubscriptionLicense(v SubscriptionLicense)`
+
+SetSubscriptionLicense sets SubscriptionLicense field to given value.
+
+### HasSubscriptionLicense
+
+`func (o *DescribeResourceInstanceResult) HasSubscriptionLicense() bool`
+
+HasSubscriptionLicense returns a boolean if a field has been set.
+
+### GetSubscriptionStatus
+
+`func (o *DescribeResourceInstanceResult) GetSubscriptionStatus() string`
+
+GetSubscriptionStatus returns the SubscriptionStatus field if non-nil, zero value otherwise.
+
+### GetSubscriptionStatusOk
+
+`func (o *DescribeResourceInstanceResult) GetSubscriptionStatusOk() (*string, bool)`
+
+GetSubscriptionStatusOk returns a tuple with the SubscriptionStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscriptionStatus
+
+`func (o *DescribeResourceInstanceResult) SetSubscriptionStatus(v string)`
+
+SetSubscriptionStatus sets SubscriptionStatus field to given value.
+
+### HasSubscriptionStatus
+
+`func (o *DescribeResourceInstanceResult) HasSubscriptionStatus() bool`
+
+HasSubscriptionStatus returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

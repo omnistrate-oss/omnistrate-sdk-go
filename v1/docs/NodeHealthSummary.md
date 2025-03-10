@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Endpoint** | Pointer to **string** | The endpoint of the node | [optional] 
 **Events** | Pointer to **[]string** | The list of process events | [optional] 
 **IntegrationsHealth** | Pointer to [**IntegrationsHealth**](IntegrationsHealth.md) |  | [optional] 
-**LoadHealth** | Pointer to **string** | The load status of a pod | [optional] 
 **LoadStatus** | Pointer to **string** | The load status of a pod | [optional] 
 **NodeHealth** | Pointer to **string** | The heath status of a resource | [optional] 
 **NodeName** | Pointer to **string** | The name of the node | [optional] 
@@ -188,31 +187,6 @@ SetIntegrationsHealth sets IntegrationsHealth field to given value.
 `func (o *NodeHealthSummary) HasIntegrationsHealth() bool`
 
 HasIntegrationsHealth returns a boolean if a field has been set.
-
-### GetLoadHealth
-
-`func (o *NodeHealthSummary) GetLoadHealth() string`
-
-GetLoadHealth returns the LoadHealth field if non-nil, zero value otherwise.
-
-### GetLoadHealthOk
-
-`func (o *NodeHealthSummary) GetLoadHealthOk() (*string, bool)`
-
-GetLoadHealthOk returns a tuple with the LoadHealth field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLoadHealth
-
-`func (o *NodeHealthSummary) SetLoadHealth(v string)`
-
-SetLoadHealth sets LoadHealth field to given value.
-
-### HasLoadHealth
-
-`func (o *NodeHealthSummary) HasLoadHealth() bool`
-
-HasLoadHealth returns a boolean if a field has been set.
 
 ### GetLoadStatus
 

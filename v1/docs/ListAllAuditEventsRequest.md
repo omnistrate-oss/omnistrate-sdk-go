@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EndDate** | Pointer to **time.Time** | End time of the window in ISO 8601 format. If omitted, the filter is open-ended at the start. | [optional] 
+**EndDate** | Pointer to **time.Time** | End time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start. | [optional] 
 **EnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
 **EventSourceTypes** | Pointer to **[]string** | The event types to filter by | [optional] 
 **InstanceID** | Pointer to **string** | ID of a Resource Instance | [optional] 
 **NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
 **PageSize** | Pointer to **int64** | The number of resources to return per page | [optional] 
 **ServiceID** | Pointer to **string** | ID of a Service | [optional] 
-**StartDate** | Pointer to **time.Time** | Start time of the window in ISO 8601 format. If omitted, the filter is open-ended at the start. | [optional] 
+**StartDate** | Pointer to **time.Time** | Start time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start. | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods

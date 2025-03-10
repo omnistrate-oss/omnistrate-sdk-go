@@ -52,6 +52,8 @@ type DescribeResourceInstanceResult struct {
 	KubernetesDashboardEndpoint *KubernetesDashboardEndpoint `json:"kubernetesDashboardEndpoint,omitempty"`
 	// The instance update time
 	LastModifiedAt *string `json:"last_modified_at,omitempty"`
+	// Pending actions or maintenance tasks for the resource instance, with action type as key and reference key as value.
+	MaintenanceTasks map[string]interface{} `json:"maintenanceTasks,omitempty"`
 	// The maximum number of replicas
 	MaxReplicas *string `json:"maxReplicas,omitempty"`
 	// The minimum number of replicas
@@ -70,8 +72,11 @@ type DescribeResourceInstanceResult struct {
 	ServerlessEnabled *bool `json:"serverlessEnabled,omitempty"`
 	// The status of an operation
 	Status *string `json:"status,omitempty"`
-	// The subscription ID
+	// Subscription ID
 	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	SubscriptionLicense *SubscriptionLicense `json:"subscriptionLicense,omitempty"`
+	// Subscription Status
+	SubscriptionStatus *string `json:"subscriptionStatus,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -670,6 +675,38 @@ func (o *DescribeResourceInstanceResult) SetLastModifiedAt(v string) {
 	o.LastModifiedAt = &v
 }
 
+// GetMaintenanceTasks returns the MaintenanceTasks field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetMaintenanceTasks() map[string]interface{} {
+	if o == nil || IsNil(o.MaintenanceTasks) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.MaintenanceTasks
+}
+
+// GetMaintenanceTasksOk returns a tuple with the MaintenanceTasks field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetMaintenanceTasksOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.MaintenanceTasks) {
+		return map[string]interface{}{}, false
+	}
+	return o.MaintenanceTasks, true
+}
+
+// HasMaintenanceTasks returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasMaintenanceTasks() bool {
+	if o != nil && !IsNil(o.MaintenanceTasks) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaintenanceTasks gets a reference to the given map[string]interface{} and assigns it to the MaintenanceTasks field.
+func (o *DescribeResourceInstanceResult) SetMaintenanceTasks(v map[string]interface{}) {
+	o.MaintenanceTasks = v
+}
+
 // GetMaxReplicas returns the MaxReplicas field value if set, zero value otherwise.
 func (o *DescribeResourceInstanceResult) GetMaxReplicas() string {
 	if o == nil || IsNil(o.MaxReplicas) {
@@ -991,6 +1028,70 @@ func (o *DescribeResourceInstanceResult) SetSubscriptionId(v string) {
 	o.SubscriptionId = &v
 }
 
+// GetSubscriptionLicense returns the SubscriptionLicense field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetSubscriptionLicense() SubscriptionLicense {
+	if o == nil || IsNil(o.SubscriptionLicense) {
+		var ret SubscriptionLicense
+		return ret
+	}
+	return *o.SubscriptionLicense
+}
+
+// GetSubscriptionLicenseOk returns a tuple with the SubscriptionLicense field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetSubscriptionLicenseOk() (*SubscriptionLicense, bool) {
+	if o == nil || IsNil(o.SubscriptionLicense) {
+		return nil, false
+	}
+	return o.SubscriptionLicense, true
+}
+
+// HasSubscriptionLicense returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasSubscriptionLicense() bool {
+	if o != nil && !IsNil(o.SubscriptionLicense) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionLicense gets a reference to the given SubscriptionLicense and assigns it to the SubscriptionLicense field.
+func (o *DescribeResourceInstanceResult) SetSubscriptionLicense(v SubscriptionLicense) {
+	o.SubscriptionLicense = &v
+}
+
+// GetSubscriptionStatus returns the SubscriptionStatus field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetSubscriptionStatus() string {
+	if o == nil || IsNil(o.SubscriptionStatus) {
+		var ret string
+		return ret
+	}
+	return *o.SubscriptionStatus
+}
+
+// GetSubscriptionStatusOk returns a tuple with the SubscriptionStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetSubscriptionStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.SubscriptionStatus) {
+		return nil, false
+	}
+	return o.SubscriptionStatus, true
+}
+
+// HasSubscriptionStatus returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasSubscriptionStatus() bool {
+	if o != nil && !IsNil(o.SubscriptionStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionStatus gets a reference to the given string and assigns it to the SubscriptionStatus field.
+func (o *DescribeResourceInstanceResult) SetSubscriptionStatus(v string) {
+	o.SubscriptionStatus = &v
+}
+
 func (o DescribeResourceInstanceResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1055,6 +1156,9 @@ func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.LastModifiedAt) {
 		toSerialize["last_modified_at"] = o.LastModifiedAt
 	}
+	if !IsNil(o.MaintenanceTasks) {
+		toSerialize["maintenanceTasks"] = o.MaintenanceTasks
+	}
 	if !IsNil(o.MaxReplicas) {
 		toSerialize["maxReplicas"] = o.MaxReplicas
 	}
@@ -1084,6 +1188,12 @@ func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) 
 	}
 	if !IsNil(o.SubscriptionId) {
 		toSerialize["subscriptionId"] = o.SubscriptionId
+	}
+	if !IsNil(o.SubscriptionLicense) {
+		toSerialize["subscriptionLicense"] = o.SubscriptionLicense
+	}
+	if !IsNil(o.SubscriptionStatus) {
+		toSerialize["subscriptionStatus"] = o.SubscriptionStatus
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -1125,6 +1235,7 @@ func (o *DescribeResourceInstanceResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "instanceLoadStatus")
 		delete(additionalProperties, "kubernetesDashboardEndpoint")
 		delete(additionalProperties, "last_modified_at")
+		delete(additionalProperties, "maintenanceTasks")
 		delete(additionalProperties, "maxReplicas")
 		delete(additionalProperties, "minReplicas")
 		delete(additionalProperties, "network_type")
@@ -1135,6 +1246,8 @@ func (o *DescribeResourceInstanceResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "serverlessEnabled")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "subscriptionId")
+		delete(additionalProperties, "subscriptionLicense")
+		delete(additionalProperties, "subscriptionStatus")
 		o.AdditionalProperties = additionalProperties
 	}
 

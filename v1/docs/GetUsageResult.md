@@ -1,4 +1,4 @@
-# GetCurrentUsageResult
+# GetUsageResult
 
 ## Properties
 
@@ -11,120 +11,120 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewGetCurrentUsageResult
+### NewGetUsageResult
 
-`func NewGetCurrentUsageResult() *GetCurrentUsageResult`
+`func NewGetUsageResult() *GetUsageResult`
 
-NewGetCurrentUsageResult instantiates a new GetCurrentUsageResult object
+NewGetUsageResult instantiates a new GetUsageResult object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewGetCurrentUsageResultWithDefaults
+### NewGetUsageResultWithDefaults
 
-`func NewGetCurrentUsageResultWithDefaults() *GetCurrentUsageResult`
+`func NewGetUsageResultWithDefaults() *GetUsageResult`
 
-NewGetCurrentUsageResultWithDefaults instantiates a new GetCurrentUsageResult object
+NewGetUsageResultWithDefaults instantiates a new GetUsageResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetEndTime
 
-`func (o *GetCurrentUsageResult) GetEndTime() string`
+`func (o *GetUsageResult) GetEndTime() string`
 
 GetEndTime returns the EndTime field if non-nil, zero value otherwise.
 
 ### GetEndTimeOk
 
-`func (o *GetCurrentUsageResult) GetEndTimeOk() (*string, bool)`
+`func (o *GetUsageResult) GetEndTimeOk() (*string, bool)`
 
 GetEndTimeOk returns a tuple with the EndTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEndTime
 
-`func (o *GetCurrentUsageResult) SetEndTime(v string)`
+`func (o *GetUsageResult) SetEndTime(v string)`
 
 SetEndTime sets EndTime field to given value.
 
 ### HasEndTime
 
-`func (o *GetCurrentUsageResult) HasEndTime() bool`
+`func (o *GetUsageResult) HasEndTime() bool`
 
 HasEndTime returns a boolean if a field has been set.
 
 ### GetPlanName
 
-`func (o *GetCurrentUsageResult) GetPlanName() string`
+`func (o *GetUsageResult) GetPlanName() string`
 
 GetPlanName returns the PlanName field if non-nil, zero value otherwise.
 
 ### GetPlanNameOk
 
-`func (o *GetCurrentUsageResult) GetPlanNameOk() (*string, bool)`
+`func (o *GetUsageResult) GetPlanNameOk() (*string, bool)`
 
 GetPlanNameOk returns a tuple with the PlanName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPlanName
 
-`func (o *GetCurrentUsageResult) SetPlanName(v string)`
+`func (o *GetUsageResult) SetPlanName(v string)`
 
 SetPlanName sets PlanName field to given value.
 
 ### HasPlanName
 
-`func (o *GetCurrentUsageResult) HasPlanName() bool`
+`func (o *GetUsageResult) HasPlanName() bool`
 
 HasPlanName returns a boolean if a field has been set.
 
 ### GetStartTime
 
-`func (o *GetCurrentUsageResult) GetStartTime() string`
+`func (o *GetUsageResult) GetStartTime() string`
 
 GetStartTime returns the StartTime field if non-nil, zero value otherwise.
 
 ### GetStartTimeOk
 
-`func (o *GetCurrentUsageResult) GetStartTimeOk() (*string, bool)`
+`func (o *GetUsageResult) GetStartTimeOk() (*string, bool)`
 
 GetStartTimeOk returns a tuple with the StartTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStartTime
 
-`func (o *GetCurrentUsageResult) SetStartTime(v string)`
+`func (o *GetUsageResult) SetStartTime(v string)`
 
 SetStartTime sets StartTime field to given value.
 
 ### HasStartTime
 
-`func (o *GetCurrentUsageResult) HasStartTime() bool`
+`func (o *GetUsageResult) HasStartTime() bool`
 
 HasStartTime returns a boolean if a field has been set.
 
 ### GetUsage
 
-`func (o *GetCurrentUsageResult) GetUsage() []UsagePerDimension`
+`func (o *GetUsageResult) GetUsage() []UsagePerDimension`
 
 GetUsage returns the Usage field if non-nil, zero value otherwise.
 
 ### GetUsageOk
 
-`func (o *GetCurrentUsageResult) GetUsageOk() (*[]UsagePerDimension, bool)`
+`func (o *GetUsageResult) GetUsageOk() (*[]UsagePerDimension, bool)`
 
 GetUsageOk returns a tuple with the Usage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUsage
 
-`func (o *GetCurrentUsageResult) SetUsage(v []UsagePerDimension)`
+`func (o *GetUsageResult) SetUsage(v []UsagePerDimension)`
 
 SetUsage sets Usage field to given value.
 
 ### HasUsage
 
-`func (o *GetCurrentUsageResult) HasUsage() bool`
+`func (o *GetUsageResult) HasUsage() bool`
 
 HasUsage returns a boolean if a field has been set.
 
