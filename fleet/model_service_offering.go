@@ -27,12 +27,14 @@ type ServiceOffering struct {
 	AwsRegions []string `json:"awsRegions,omitempty"`
 	// The Azure regions that this service offering is available on
 	AzureRegions []string `json:"azureRegions,omitempty"`
-	// List of billing plans for this product tier.
+	// Deprecated. List of billing plans for this product tier.
 	BillingPlans []OfferingBillingPlan `json:"billingPlans,omitempty"`
 	// List of supported cloud providers for this product tier.
 	CloudProviders []string `json:"cloudProviders,omitempty"`
 	// The GCP regions that this service offering is available on
 	GcpRegions []string `json:"gcpRegions,omitempty"`
+	// Maximum number of instances
+	MaxNumberofInstances *int64 `json:"maxNumberofInstances,omitempty"`
 	// A brief description of the product tier
 	ProductTierDescription *string `json:"productTierDescription,omitempty"`
 	// Documentation
@@ -344,6 +346,38 @@ func (o *ServiceOffering) HasGcpRegions() bool {
 // SetGcpRegions gets a reference to the given []string and assigns it to the GcpRegions field.
 func (o *ServiceOffering) SetGcpRegions(v []string) {
 	o.GcpRegions = v
+}
+
+// GetMaxNumberofInstances returns the MaxNumberofInstances field value if set, zero value otherwise.
+func (o *ServiceOffering) GetMaxNumberofInstances() int64 {
+	if o == nil || IsNil(o.MaxNumberofInstances) {
+		var ret int64
+		return ret
+	}
+	return *o.MaxNumberofInstances
+}
+
+// GetMaxNumberofInstancesOk returns a tuple with the MaxNumberofInstances field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceOffering) GetMaxNumberofInstancesOk() (*int64, bool) {
+	if o == nil || IsNil(o.MaxNumberofInstances) {
+		return nil, false
+	}
+	return o.MaxNumberofInstances, true
+}
+
+// HasMaxNumberofInstances returns a boolean if a field has been set.
+func (o *ServiceOffering) HasMaxNumberofInstances() bool {
+	if o != nil && !IsNil(o.MaxNumberofInstances) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxNumberofInstances gets a reference to the given int64 and assigns it to the MaxNumberofInstances field.
+func (o *ServiceOffering) SetMaxNumberofInstances(v int64) {
+	o.MaxNumberofInstances = &v
 }
 
 // GetProductTierDescription returns the ProductTierDescription field value if set, zero value otherwise.
@@ -1033,6 +1067,9 @@ func (o ServiceOffering) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.GcpRegions) {
 		toSerialize["gcpRegions"] = o.GcpRegions
 	}
+	if !IsNil(o.MaxNumberofInstances) {
+		toSerialize["maxNumberofInstances"] = o.MaxNumberofInstances
+	}
 	if !IsNil(o.ProductTierDescription) {
 		toSerialize["productTierDescription"] = o.ProductTierDescription
 	}
@@ -1141,6 +1178,7 @@ func (o *ServiceOffering) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "billingPlans")
 		delete(additionalProperties, "cloudProviders")
 		delete(additionalProperties, "gcpRegions")
+		delete(additionalProperties, "maxNumberofInstances")
 		delete(additionalProperties, "productTierDescription")
 		delete(additionalProperties, "productTierDocumentation")
 		delete(additionalProperties, "productTierID")

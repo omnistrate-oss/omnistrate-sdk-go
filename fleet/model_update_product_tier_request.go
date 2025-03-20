@@ -20,6 +20,8 @@ var _ MappedNullable = &UpdateProductTierRequest{}
 
 // UpdateProductTierRequest struct for UpdateProductTierRequest
 type UpdateProductTierRequest struct {
+	// Allow creates when payment not configured
+	AllowCreatesWhenPaymentNotConfigured *bool `json:"allowCreatesWhenPaymentNotConfigured,omitempty"`
 	// Auto approve subscription or not
 	AutoApproveSubscription *bool `json:"autoApproveSubscription,omitempty"`
 	// The AWS regions that this product tier is available on
@@ -30,16 +32,24 @@ type UpdateProductTierRequest struct {
 	Description *string `json:"description,omitempty"`
 	// Documentation
 	Documentation *string `json:"documentation,omitempty"`
+	// Export usage metering data
+	ExportUsageMetering *bool `json:"exportUsageMetering,omitempty"`
+	// Export usage metering data configuration
+	ExportUsageMeteringConfig map[string]interface{} `json:"exportUsageMeteringConfig,omitempty"`
 	// The GCP regions that this product tier is available on
 	GcpRegions []string `json:"gcpRegions,omitempty"`
 	// ID of a Product Tier
 	Id string `json:"id"`
 	// Update the product tier's state as enabled/disabled. Enabling the product tier will let end-customers subscribe and use the service plan.
 	IsDisabled *bool `json:"isDisabled,omitempty"`
+	// Maximum number of instances
+	MaxNumberOfInstances *int64 `json:"maxNumberOfInstances,omitempty"`
 	// Name of the product tier
 	Name *string `json:"name,omitempty"`
 	// A brief description for the end user of the product tier
 	PlanDescription *string `json:"planDescription,omitempty"`
+	// Price per unit.
+	PricePerUnit map[string]interface{} `json:"pricePerUnit,omitempty"`
 	// Pricing
 	Pricing interface{} `json:"pricing,omitempty"`
 	// ID of a Service
@@ -73,6 +83,38 @@ func NewUpdateProductTierRequest(id string, serviceId string, token string) *Upd
 func NewUpdateProductTierRequestWithDefaults() *UpdateProductTierRequest {
 	this := UpdateProductTierRequest{}
 	return &this
+}
+
+// GetAllowCreatesWhenPaymentNotConfigured returns the AllowCreatesWhenPaymentNotConfigured field value if set, zero value otherwise.
+func (o *UpdateProductTierRequest) GetAllowCreatesWhenPaymentNotConfigured() bool {
+	if o == nil || IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
+		var ret bool
+		return ret
+	}
+	return *o.AllowCreatesWhenPaymentNotConfigured
+}
+
+// GetAllowCreatesWhenPaymentNotConfiguredOk returns a tuple with the AllowCreatesWhenPaymentNotConfigured field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateProductTierRequest) GetAllowCreatesWhenPaymentNotConfiguredOk() (*bool, bool) {
+	if o == nil || IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
+		return nil, false
+	}
+	return o.AllowCreatesWhenPaymentNotConfigured, true
+}
+
+// HasAllowCreatesWhenPaymentNotConfigured returns a boolean if a field has been set.
+func (o *UpdateProductTierRequest) HasAllowCreatesWhenPaymentNotConfigured() bool {
+	if o != nil && !IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
+		return true
+	}
+
+	return false
+}
+
+// SetAllowCreatesWhenPaymentNotConfigured gets a reference to the given bool and assigns it to the AllowCreatesWhenPaymentNotConfigured field.
+func (o *UpdateProductTierRequest) SetAllowCreatesWhenPaymentNotConfigured(v bool) {
+	o.AllowCreatesWhenPaymentNotConfigured = &v
 }
 
 // GetAutoApproveSubscription returns the AutoApproveSubscription field value if set, zero value otherwise.
@@ -235,6 +277,70 @@ func (o *UpdateProductTierRequest) SetDocumentation(v string) {
 	o.Documentation = &v
 }
 
+// GetExportUsageMetering returns the ExportUsageMetering field value if set, zero value otherwise.
+func (o *UpdateProductTierRequest) GetExportUsageMetering() bool {
+	if o == nil || IsNil(o.ExportUsageMetering) {
+		var ret bool
+		return ret
+	}
+	return *o.ExportUsageMetering
+}
+
+// GetExportUsageMeteringOk returns a tuple with the ExportUsageMetering field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateProductTierRequest) GetExportUsageMeteringOk() (*bool, bool) {
+	if o == nil || IsNil(o.ExportUsageMetering) {
+		return nil, false
+	}
+	return o.ExportUsageMetering, true
+}
+
+// HasExportUsageMetering returns a boolean if a field has been set.
+func (o *UpdateProductTierRequest) HasExportUsageMetering() bool {
+	if o != nil && !IsNil(o.ExportUsageMetering) {
+		return true
+	}
+
+	return false
+}
+
+// SetExportUsageMetering gets a reference to the given bool and assigns it to the ExportUsageMetering field.
+func (o *UpdateProductTierRequest) SetExportUsageMetering(v bool) {
+	o.ExportUsageMetering = &v
+}
+
+// GetExportUsageMeteringConfig returns the ExportUsageMeteringConfig field value if set, zero value otherwise.
+func (o *UpdateProductTierRequest) GetExportUsageMeteringConfig() map[string]interface{} {
+	if o == nil || IsNil(o.ExportUsageMeteringConfig) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.ExportUsageMeteringConfig
+}
+
+// GetExportUsageMeteringConfigOk returns a tuple with the ExportUsageMeteringConfig field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateProductTierRequest) GetExportUsageMeteringConfigOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.ExportUsageMeteringConfig) {
+		return map[string]interface{}{}, false
+	}
+	return o.ExportUsageMeteringConfig, true
+}
+
+// HasExportUsageMeteringConfig returns a boolean if a field has been set.
+func (o *UpdateProductTierRequest) HasExportUsageMeteringConfig() bool {
+	if o != nil && !IsNil(o.ExportUsageMeteringConfig) {
+		return true
+	}
+
+	return false
+}
+
+// SetExportUsageMeteringConfig gets a reference to the given map[string]interface{} and assigns it to the ExportUsageMeteringConfig field.
+func (o *UpdateProductTierRequest) SetExportUsageMeteringConfig(v map[string]interface{}) {
+	o.ExportUsageMeteringConfig = v
+}
+
 // GetGcpRegions returns the GcpRegions field value if set, zero value otherwise.
 func (o *UpdateProductTierRequest) GetGcpRegions() []string {
 	if o == nil || IsNil(o.GcpRegions) {
@@ -323,6 +429,38 @@ func (o *UpdateProductTierRequest) SetIsDisabled(v bool) {
 	o.IsDisabled = &v
 }
 
+// GetMaxNumberOfInstances returns the MaxNumberOfInstances field value if set, zero value otherwise.
+func (o *UpdateProductTierRequest) GetMaxNumberOfInstances() int64 {
+	if o == nil || IsNil(o.MaxNumberOfInstances) {
+		var ret int64
+		return ret
+	}
+	return *o.MaxNumberOfInstances
+}
+
+// GetMaxNumberOfInstancesOk returns a tuple with the MaxNumberOfInstances field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateProductTierRequest) GetMaxNumberOfInstancesOk() (*int64, bool) {
+	if o == nil || IsNil(o.MaxNumberOfInstances) {
+		return nil, false
+	}
+	return o.MaxNumberOfInstances, true
+}
+
+// HasMaxNumberOfInstances returns a boolean if a field has been set.
+func (o *UpdateProductTierRequest) HasMaxNumberOfInstances() bool {
+	if o != nil && !IsNil(o.MaxNumberOfInstances) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxNumberOfInstances gets a reference to the given int64 and assigns it to the MaxNumberOfInstances field.
+func (o *UpdateProductTierRequest) SetMaxNumberOfInstances(v int64) {
+	o.MaxNumberOfInstances = &v
+}
+
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *UpdateProductTierRequest) GetName() string {
 	if o == nil || IsNil(o.Name) {
@@ -385,6 +523,38 @@ func (o *UpdateProductTierRequest) HasPlanDescription() bool {
 // SetPlanDescription gets a reference to the given string and assigns it to the PlanDescription field.
 func (o *UpdateProductTierRequest) SetPlanDescription(v string) {
 	o.PlanDescription = &v
+}
+
+// GetPricePerUnit returns the PricePerUnit field value if set, zero value otherwise.
+func (o *UpdateProductTierRequest) GetPricePerUnit() map[string]interface{} {
+	if o == nil || IsNil(o.PricePerUnit) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.PricePerUnit
+}
+
+// GetPricePerUnitOk returns a tuple with the PricePerUnit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateProductTierRequest) GetPricePerUnitOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.PricePerUnit) {
+		return map[string]interface{}{}, false
+	}
+	return o.PricePerUnit, true
+}
+
+// HasPricePerUnit returns a boolean if a field has been set.
+func (o *UpdateProductTierRequest) HasPricePerUnit() bool {
+	if o != nil && !IsNil(o.PricePerUnit) {
+		return true
+	}
+
+	return false
+}
+
+// SetPricePerUnit gets a reference to the given map[string]interface{} and assigns it to the PricePerUnit field.
+func (o *UpdateProductTierRequest) SetPricePerUnit(v map[string]interface{}) {
+	o.PricePerUnit = v
 }
 
 // GetPricing returns the Pricing field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -542,6 +712,9 @@ func (o UpdateProductTierRequest) MarshalJSON() ([]byte, error) {
 
 func (o UpdateProductTierRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
+		toSerialize["allowCreatesWhenPaymentNotConfigured"] = o.AllowCreatesWhenPaymentNotConfigured
+	}
 	if !IsNil(o.AutoApproveSubscription) {
 		toSerialize["autoApproveSubscription"] = o.AutoApproveSubscription
 	}
@@ -557,6 +730,12 @@ func (o UpdateProductTierRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Documentation) {
 		toSerialize["documentation"] = o.Documentation
 	}
+	if !IsNil(o.ExportUsageMetering) {
+		toSerialize["exportUsageMetering"] = o.ExportUsageMetering
+	}
+	if !IsNil(o.ExportUsageMeteringConfig) {
+		toSerialize["exportUsageMeteringConfig"] = o.ExportUsageMeteringConfig
+	}
 	if !IsNil(o.GcpRegions) {
 		toSerialize["gcpRegions"] = o.GcpRegions
 	}
@@ -564,11 +743,17 @@ func (o UpdateProductTierRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsDisabled) {
 		toSerialize["isDisabled"] = o.IsDisabled
 	}
+	if !IsNil(o.MaxNumberOfInstances) {
+		toSerialize["maxNumberOfInstances"] = o.MaxNumberOfInstances
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
 	if !IsNil(o.PlanDescription) {
 		toSerialize["planDescription"] = o.PlanDescription
+	}
+	if !IsNil(o.PricePerUnit) {
+		toSerialize["pricePerUnit"] = o.PricePerUnit
 	}
 	if o.Pricing != nil {
 		toSerialize["pricing"] = o.Pricing
@@ -626,16 +811,21 @@ func (o *UpdateProductTierRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "allowCreatesWhenPaymentNotConfigured")
 		delete(additionalProperties, "autoApproveSubscription")
 		delete(additionalProperties, "awsRegions")
 		delete(additionalProperties, "azureRegions")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "documentation")
+		delete(additionalProperties, "exportUsageMetering")
+		delete(additionalProperties, "exportUsageMeteringConfig")
 		delete(additionalProperties, "gcpRegions")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "isDisabled")
+		delete(additionalProperties, "maxNumberOfInstances")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "planDescription")
+		delete(additionalProperties, "pricePerUnit")
 		delete(additionalProperties, "pricing")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "support")

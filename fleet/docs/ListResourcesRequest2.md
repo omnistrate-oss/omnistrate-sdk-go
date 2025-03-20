@@ -4,8 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**EnvironmentType** | Pointer to **string** | Filter resources by environment type. | [optional] 
 **NextPageToken** | Pointer to **string** | Token to use for the next request | [optional] 
+**OrgId** | Pointer to **string** | Filter resources by organization ID. | [optional] 
 **PageSize** | Pointer to **int64** | The number of resources to return per page. | [optional] 
+**UserId** | Pointer to **string** | Filter resources by user ID. | [optional] 
 
 ## Methods
 
@@ -25,6 +28,31 @@ will change when the set of required properties is changed
 NewListResourcesRequest2WithDefaults instantiates a new ListResourcesRequest2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetEnvironmentType
+
+`func (o *ListResourcesRequest2) GetEnvironmentType() string`
+
+GetEnvironmentType returns the EnvironmentType field if non-nil, zero value otherwise.
+
+### GetEnvironmentTypeOk
+
+`func (o *ListResourcesRequest2) GetEnvironmentTypeOk() (*string, bool)`
+
+GetEnvironmentTypeOk returns a tuple with the EnvironmentType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnvironmentType
+
+`func (o *ListResourcesRequest2) SetEnvironmentType(v string)`
+
+SetEnvironmentType sets EnvironmentType field to given value.
+
+### HasEnvironmentType
+
+`func (o *ListResourcesRequest2) HasEnvironmentType() bool`
+
+HasEnvironmentType returns a boolean if a field has been set.
 
 ### GetNextPageToken
 
@@ -51,6 +79,31 @@ SetNextPageToken sets NextPageToken field to given value.
 
 HasNextPageToken returns a boolean if a field has been set.
 
+### GetOrgId
+
+`func (o *ListResourcesRequest2) GetOrgId() string`
+
+GetOrgId returns the OrgId field if non-nil, zero value otherwise.
+
+### GetOrgIdOk
+
+`func (o *ListResourcesRequest2) GetOrgIdOk() (*string, bool)`
+
+GetOrgIdOk returns a tuple with the OrgId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrgId
+
+`func (o *ListResourcesRequest2) SetOrgId(v string)`
+
+SetOrgId sets OrgId field to given value.
+
+### HasOrgId
+
+`func (o *ListResourcesRequest2) HasOrgId() bool`
+
+HasOrgId returns a boolean if a field has been set.
+
 ### GetPageSize
 
 `func (o *ListResourcesRequest2) GetPageSize() int64`
@@ -75,6 +128,31 @@ SetPageSize sets PageSize field to given value.
 `func (o *ListResourcesRequest2) HasPageSize() bool`
 
 HasPageSize returns a boolean if a field has been set.
+
+### GetUserId
+
+`func (o *ListResourcesRequest2) GetUserId() string`
+
+GetUserId returns the UserId field if non-nil, zero value otherwise.
+
+### GetUserIdOk
+
+`func (o *ListResourcesRequest2) GetUserIdOk() (*string, bool)`
+
+GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserId
+
+`func (o *ListResourcesRequest2) SetUserId(v string)`
+
+SetUserId sets UserId field to given value.
+
+### HasUserId
+
+`func (o *ListResourcesRequest2) HasUserId() bool`
+
+HasUserId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **HelmChartConfiguration** | Pointer to [**HelmChartConfiguration**](HelmChartConfiguration.md) |  | [optional] 
 **ImageConfigId** | Pointer to **string** | The ID of the image configuration that this resource refers to | [optional] 
 **InfraConfigId** | Pointer to **string** | The ID of the infrastructure configuration that this resource refers to | [optional] 
+**JobConfig** | Pointer to [**JobConfig**](JobConfig.md) |  | [optional] 
 **KustomizeConfiguration** | Pointer to [**KustomizeConfiguration**](KustomizeConfiguration.md) |  | [optional] 
 **L4LoadBalancerConfiguration** | Pointer to [**L4LoadBalancerConfiguration**](L4LoadBalancerConfiguration.md) |  | [optional] 
 **L7LoadBalancerConfiguration** | Pointer to [**L7LoadBalancerConfiguration**](L7LoadBalancerConfiguration.md) |  | [optional] 
@@ -315,6 +316,31 @@ SetInfraConfigId sets InfraConfigId field to given value.
 `func (o *UpdateResourceRequest2) HasInfraConfigId() bool`
 
 HasInfraConfigId returns a boolean if a field has been set.
+
+### GetJobConfig
+
+`func (o *UpdateResourceRequest2) GetJobConfig() JobConfig`
+
+GetJobConfig returns the JobConfig field if non-nil, zero value otherwise.
+
+### GetJobConfigOk
+
+`func (o *UpdateResourceRequest2) GetJobConfigOk() (*JobConfig, bool)`
+
+GetJobConfigOk returns a tuple with the JobConfig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetJobConfig
+
+`func (o *UpdateResourceRequest2) SetJobConfig(v JobConfig)`
+
+SetJobConfig sets JobConfig field to given value.
+
+### HasJobConfig
+
+`func (o *UpdateResourceRequest2) HasJobConfig() bool`
+
+HasJobConfig returns a boolean if a field has been set.
 
 ### GetKustomizeConfiguration
 

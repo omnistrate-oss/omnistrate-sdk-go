@@ -22,6 +22,8 @@ var _ MappedNullable = &ManageUpgradePathLifecycleRequest2{}
 type ManageUpgradePathLifecycleRequest2 struct {
 	// The action to perform on the upgrade path.
 	Action string `json:"action"`
+	// The action payload to perform on the upgrade path.
+	ActionPayload map[string]interface{} `json:"actionPayload,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -69,6 +71,38 @@ func (o *ManageUpgradePathLifecycleRequest2) SetAction(v string) {
 	o.Action = v
 }
 
+// GetActionPayload returns the ActionPayload field value if set, zero value otherwise.
+func (o *ManageUpgradePathLifecycleRequest2) GetActionPayload() map[string]interface{} {
+	if o == nil || IsNil(o.ActionPayload) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.ActionPayload
+}
+
+// GetActionPayloadOk returns a tuple with the ActionPayload field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ManageUpgradePathLifecycleRequest2) GetActionPayloadOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.ActionPayload) {
+		return map[string]interface{}{}, false
+	}
+	return o.ActionPayload, true
+}
+
+// HasActionPayload returns a boolean if a field has been set.
+func (o *ManageUpgradePathLifecycleRequest2) HasActionPayload() bool {
+	if o != nil && !IsNil(o.ActionPayload) {
+		return true
+	}
+
+	return false
+}
+
+// SetActionPayload gets a reference to the given map[string]interface{} and assigns it to the ActionPayload field.
+func (o *ManageUpgradePathLifecycleRequest2) SetActionPayload(v map[string]interface{}) {
+	o.ActionPayload = v
+}
+
 func (o ManageUpgradePathLifecycleRequest2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -80,6 +114,9 @@ func (o ManageUpgradePathLifecycleRequest2) MarshalJSON() ([]byte, error) {
 func (o ManageUpgradePathLifecycleRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["action"] = o.Action
+	if !IsNil(o.ActionPayload) {
+		toSerialize["actionPayload"] = o.ActionPayload
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -124,6 +161,7 @@ func (o *ManageUpgradePathLifecycleRequest2) UnmarshalJSON(data []byte) (err err
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "action")
+		delete(additionalProperties, "actionPayload")
 		o.AdditionalProperties = additionalProperties
 	}
 

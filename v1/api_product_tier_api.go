@@ -52,6 +52,8 @@ type ProductTierApiAPI interface {
 	/*
 	ProductTierApiCreateProductTierBillingPlan CreateProductTierBillingPlan product-tier-api
 
+	Deprecated: Use UpdateProductTier instead.
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param serviceId Service ID
 	@param id Product tier ID
@@ -78,6 +80,8 @@ type ProductTierApiAPI interface {
 
 	/*
 	ProductTierApiDeleteProductTierBillingPlan DeleteProductTierBillingPlan product-tier-api
+
+	Deprecated: Use UpdateProductTier instead.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param serviceId Service ID
@@ -106,6 +110,8 @@ type ProductTierApiAPI interface {
 
 	/*
 	ProductTierApiDescribeProductTierBillingPlan DescribeProductTierBillingPlan product-tier-api
+
+	Deprecated: Use DescribeProductTier instead.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param serviceId Service ID
@@ -162,6 +168,8 @@ type ProductTierApiAPI interface {
 	/*
 	ProductTierApiListProductTierBillingPlan ListProductTierBillingPlan product-tier-api
 
+	Deprecated: Use DescribeProductTier instead.
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param serviceId Service ID
 	@param id Product tier ID
@@ -188,6 +196,8 @@ type ProductTierApiAPI interface {
 
 	/*
 	ProductTierApiUpdateProductTierBillingPlan UpdateProductTierBillingPlan product-tier-api
+
+	Deprecated: Use UpdateProductTier instead.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param serviceId Service ID
@@ -583,6 +593,8 @@ func (r ApiProductTierApiCreateProductTierBillingPlanRequest) Execute() (*Billin
 /*
 ProductTierApiCreateProductTierBillingPlan CreateProductTierBillingPlan product-tier-api
 
+Deprecated: Use UpdateProductTier instead.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param serviceId Service ID
  @param id Product tier ID
@@ -917,6 +929,8 @@ func (r ApiProductTierApiDeleteProductTierBillingPlanRequest) Execute() (*http.R
 
 /*
 ProductTierApiDeleteProductTierBillingPlan DeleteProductTierBillingPlan product-tier-api
+
+Deprecated: Use UpdateProductTier instead.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param serviceId Service ID
@@ -1260,6 +1274,8 @@ func (r ApiProductTierApiDescribeProductTierBillingPlanRequest) Execute() (*Bill
 
 /*
 ProductTierApiDescribeProductTierBillingPlan DescribeProductTierBillingPlan product-tier-api
+
+Deprecated: Use DescribeProductTier instead.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param serviceId Service ID
@@ -1944,6 +1960,8 @@ func (r ApiProductTierApiListProductTierBillingPlanRequest) Execute() (*ListProd
 /*
 ProductTierApiListProductTierBillingPlan ListProductTierBillingPlan product-tier-api
 
+Deprecated: Use DescribeProductTier instead.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param serviceId Service ID
  @param id Product tier ID
@@ -2290,6 +2308,8 @@ func (r ApiProductTierApiUpdateProductTierBillingPlanRequest) Execute() (*Billin
 
 /*
 ProductTierApiUpdateProductTierBillingPlan UpdateProductTierBillingPlan product-tier-api
+
+Deprecated: Use UpdateProductTier instead.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param serviceId Service ID

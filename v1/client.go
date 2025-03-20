@@ -61,6 +61,12 @@ type APIClient struct {
 
 	ComputeConfigApiAPI ComputeConfigApiAPI
 
+	ConsumptionBillingApiAPI ConsumptionBillingApiAPI
+
+	ConsumptionInvoiceApiAPI ConsumptionInvoiceApiAPI
+
+	ConsumptionUsageApiAPI ConsumptionUsageApiAPI
+
 	ConsumptionUserApiAPI ConsumptionUserApiAPI
 
 	ContactusApiAPI ContactusApiAPI
@@ -129,6 +135,8 @@ type APIClient struct {
 
 	StorageVolumeConfigApiAPI StorageVolumeConfigApiAPI
 
+	StripeConnectApiAPI StripeConnectApiAPI
+
 	SubscriptionApiAPI SubscriptionApiAPI
 
 	SubscriptionRequestApiAPI SubscriptionRequestApiAPI
@@ -164,6 +172,9 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.CloudProviderApiAPI = (*CloudProviderApiAPIService)(&c.common)
 	c.ComposeGenApiAPI = (*ComposeGenApiAPIService)(&c.common)
 	c.ComputeConfigApiAPI = (*ComputeConfigApiAPIService)(&c.common)
+	c.ConsumptionBillingApiAPI = (*ConsumptionBillingApiAPIService)(&c.common)
+	c.ConsumptionInvoiceApiAPI = (*ConsumptionInvoiceApiAPIService)(&c.common)
+	c.ConsumptionUsageApiAPI = (*ConsumptionUsageApiAPIService)(&c.common)
 	c.ConsumptionUserApiAPI = (*ConsumptionUserApiAPIService)(&c.common)
 	c.ContactusApiAPI = (*ContactusApiAPIService)(&c.common)
 	c.CustomDomainApiAPI = (*CustomDomainApiAPIService)(&c.common)
@@ -198,6 +209,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.SignupApiAPI = (*SignupApiAPIService)(&c.common)
 	c.StorageConfigApiAPI = (*StorageConfigApiAPIService)(&c.common)
 	c.StorageVolumeConfigApiAPI = (*StorageVolumeConfigApiAPIService)(&c.common)
+	c.StripeConnectApiAPI = (*StripeConnectApiAPIService)(&c.common)
 	c.SubscriptionApiAPI = (*SubscriptionApiAPIService)(&c.common)
 	c.SubscriptionRequestApiAPI = (*SubscriptionRequestApiAPIService)(&c.common)
 	c.TierVersionSetApiAPI = (*TierVersionSetApiAPIService)(&c.common)

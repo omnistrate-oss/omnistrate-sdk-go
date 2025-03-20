@@ -4,14 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AllowCreatesWhenPaymentNotConfigured** | Pointer to **bool** | Allow creates when payment not configured | [optional] 
 **AutoApproveSubscription** | Pointer to **bool** | Auto approve subscription or not | [optional] 
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this product tier is available on | [optional] 
 **AzureRegions** | Pointer to **[]string** | The Azure regions that this product tier is available on | [optional] 
 **Description** | **string** | A brief description of the product tier | 
 **Documentation** | Pointer to **string** | Documentation | [optional] 
+**ExportUsageMetering** | Pointer to **bool** | Export usage metering data | [optional] 
+**ExportUsageMeteringConfig** | Pointer to **map[string]interface{}** | Export usage metering data configuration | [optional] 
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this product tier is available on | [optional] 
+**MaxNumberOfInstances** | Pointer to **int64** | Maximum number of instances | [optional] 
 **Name** | **string** | Name of the product tier | 
 **PlanDescription** | Pointer to **string** | A brief description for the end user of the product tier | [optional] 
+**PricePerUnit** | Pointer to **map[string]interface{}** | Price per unit. | [optional] 
 **Pricing** | Pointer to **interface{}** | Pricing | [optional] 
 **ServiceId** | **string** | ID of a Service | 
 **ServiceModelId** | **string** | ID of a Service Model | 
@@ -38,6 +43,31 @@ will change when the set of required properties is changed
 NewCopyProductTierRequestWithDefaults instantiates a new CopyProductTierRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAllowCreatesWhenPaymentNotConfigured
+
+`func (o *CopyProductTierRequest) GetAllowCreatesWhenPaymentNotConfigured() bool`
+
+GetAllowCreatesWhenPaymentNotConfigured returns the AllowCreatesWhenPaymentNotConfigured field if non-nil, zero value otherwise.
+
+### GetAllowCreatesWhenPaymentNotConfiguredOk
+
+`func (o *CopyProductTierRequest) GetAllowCreatesWhenPaymentNotConfiguredOk() (*bool, bool)`
+
+GetAllowCreatesWhenPaymentNotConfiguredOk returns a tuple with the AllowCreatesWhenPaymentNotConfigured field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowCreatesWhenPaymentNotConfigured
+
+`func (o *CopyProductTierRequest) SetAllowCreatesWhenPaymentNotConfigured(v bool)`
+
+SetAllowCreatesWhenPaymentNotConfigured sets AllowCreatesWhenPaymentNotConfigured field to given value.
+
+### HasAllowCreatesWhenPaymentNotConfigured
+
+`func (o *CopyProductTierRequest) HasAllowCreatesWhenPaymentNotConfigured() bool`
+
+HasAllowCreatesWhenPaymentNotConfigured returns a boolean if a field has been set.
 
 ### GetAutoApproveSubscription
 
@@ -159,6 +189,56 @@ SetDocumentation sets Documentation field to given value.
 
 HasDocumentation returns a boolean if a field has been set.
 
+### GetExportUsageMetering
+
+`func (o *CopyProductTierRequest) GetExportUsageMetering() bool`
+
+GetExportUsageMetering returns the ExportUsageMetering field if non-nil, zero value otherwise.
+
+### GetExportUsageMeteringOk
+
+`func (o *CopyProductTierRequest) GetExportUsageMeteringOk() (*bool, bool)`
+
+GetExportUsageMeteringOk returns a tuple with the ExportUsageMetering field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExportUsageMetering
+
+`func (o *CopyProductTierRequest) SetExportUsageMetering(v bool)`
+
+SetExportUsageMetering sets ExportUsageMetering field to given value.
+
+### HasExportUsageMetering
+
+`func (o *CopyProductTierRequest) HasExportUsageMetering() bool`
+
+HasExportUsageMetering returns a boolean if a field has been set.
+
+### GetExportUsageMeteringConfig
+
+`func (o *CopyProductTierRequest) GetExportUsageMeteringConfig() map[string]interface{}`
+
+GetExportUsageMeteringConfig returns the ExportUsageMeteringConfig field if non-nil, zero value otherwise.
+
+### GetExportUsageMeteringConfigOk
+
+`func (o *CopyProductTierRequest) GetExportUsageMeteringConfigOk() (*map[string]interface{}, bool)`
+
+GetExportUsageMeteringConfigOk returns a tuple with the ExportUsageMeteringConfig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExportUsageMeteringConfig
+
+`func (o *CopyProductTierRequest) SetExportUsageMeteringConfig(v map[string]interface{})`
+
+SetExportUsageMeteringConfig sets ExportUsageMeteringConfig field to given value.
+
+### HasExportUsageMeteringConfig
+
+`func (o *CopyProductTierRequest) HasExportUsageMeteringConfig() bool`
+
+HasExportUsageMeteringConfig returns a boolean if a field has been set.
+
 ### GetGcpRegions
 
 `func (o *CopyProductTierRequest) GetGcpRegions() []string`
@@ -183,6 +263,31 @@ SetGcpRegions sets GcpRegions field to given value.
 `func (o *CopyProductTierRequest) HasGcpRegions() bool`
 
 HasGcpRegions returns a boolean if a field has been set.
+
+### GetMaxNumberOfInstances
+
+`func (o *CopyProductTierRequest) GetMaxNumberOfInstances() int64`
+
+GetMaxNumberOfInstances returns the MaxNumberOfInstances field if non-nil, zero value otherwise.
+
+### GetMaxNumberOfInstancesOk
+
+`func (o *CopyProductTierRequest) GetMaxNumberOfInstancesOk() (*int64, bool)`
+
+GetMaxNumberOfInstancesOk returns a tuple with the MaxNumberOfInstances field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxNumberOfInstances
+
+`func (o *CopyProductTierRequest) SetMaxNumberOfInstances(v int64)`
+
+SetMaxNumberOfInstances sets MaxNumberOfInstances field to given value.
+
+### HasMaxNumberOfInstances
+
+`func (o *CopyProductTierRequest) HasMaxNumberOfInstances() bool`
+
+HasMaxNumberOfInstances returns a boolean if a field has been set.
 
 ### GetName
 
@@ -228,6 +333,31 @@ SetPlanDescription sets PlanDescription field to given value.
 `func (o *CopyProductTierRequest) HasPlanDescription() bool`
 
 HasPlanDescription returns a boolean if a field has been set.
+
+### GetPricePerUnit
+
+`func (o *CopyProductTierRequest) GetPricePerUnit() map[string]interface{}`
+
+GetPricePerUnit returns the PricePerUnit field if non-nil, zero value otherwise.
+
+### GetPricePerUnitOk
+
+`func (o *CopyProductTierRequest) GetPricePerUnitOk() (*map[string]interface{}, bool)`
+
+GetPricePerUnitOk returns a tuple with the PricePerUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPricePerUnit
+
+`func (o *CopyProductTierRequest) SetPricePerUnit(v map[string]interface{})`
+
+SetPricePerUnit sets PricePerUnit field to given value.
+
+### HasPricePerUnit
+
+`func (o *CopyProductTierRequest) HasPricePerUnit() bool`
+
+HasPricePerUnit returns a boolean if a field has been set.
 
 ### GetPricing
 

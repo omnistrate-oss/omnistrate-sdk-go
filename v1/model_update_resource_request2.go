@@ -37,6 +37,7 @@ type UpdateResourceRequest2 struct {
 	ImageConfigId *string `json:"imageConfigId,omitempty"`
 	// The ID of the infrastructure configuration that this resource refers to
 	InfraConfigId *string `json:"infraConfigId,omitempty"`
+	JobConfig *JobConfig `json:"jobConfig,omitempty"`
 	KustomizeConfiguration *KustomizeConfiguration `json:"kustomizeConfiguration,omitempty"`
 	L4LoadBalancerConfiguration *L4LoadBalancerConfiguration `json:"l4LoadBalancerConfiguration,omitempty"`
 	L7LoadBalancerConfiguration *L7LoadBalancerConfiguration `json:"l7LoadBalancerConfiguration,omitempty"`
@@ -320,6 +321,29 @@ func (o *UpdateResourceRequest2) SetInfraConfigId(v string) {
 	o.InfraConfigId = &v
 }
 
+// GetJobConfig returns the JobConfig field value if set, zero value otherwise.
+func (o *UpdateResourceRequest2) GetJobConfig() JobConfig {
+	if o == nil || IsNil(o.JobConfig) {
+		var ret JobConfig
+		return ret
+	}
+	return *o.JobConfig
+}
+
+// GetJobConfigOk returns a tuple with the JobConfig field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateResourceRequest2) GetJobConfigOk() (*JobConfig, bool) {
+	if o == nil || IsNil(o.JobConfig) {
+		return nil, false
+	}
+	return o.JobConfig, true
+}
+
+// SetJobConfig gets a reference to the given JobConfig and assigns it to the JobConfig field.
+func (o *UpdateResourceRequest2) SetJobConfig(v JobConfig) {
+	o.JobConfig = &v
+}
+
 // GetKustomizeConfiguration returns the KustomizeConfiguration field value if set, zero value otherwise.
 func (o *UpdateResourceRequest2) GetKustomizeConfiguration() KustomizeConfiguration {
 	if o == nil || IsNil(o.KustomizeConfiguration) {
@@ -501,6 +525,9 @@ func (o UpdateResourceRequest2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.InfraConfigId) {
 		toSerialize["infraConfigId"] = o.InfraConfigId
 	}
+	if !IsNil(o.JobConfig) {
+		toSerialize["jobConfig"] = o.JobConfig
+	}
 	if !IsNil(o.KustomizeConfiguration) {
 		toSerialize["kustomizeConfiguration"] = o.KustomizeConfiguration
 	}
@@ -552,6 +579,7 @@ func (o *UpdateResourceRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "helmChartConfiguration")
 		delete(additionalProperties, "imageConfigId")
 		delete(additionalProperties, "infraConfigId")
+		delete(additionalProperties, "jobConfig")
 		delete(additionalProperties, "kustomizeConfiguration")
 		delete(additionalProperties, "l4LoadBalancerConfiguration")
 		delete(additionalProperties, "l7LoadBalancerConfiguration")

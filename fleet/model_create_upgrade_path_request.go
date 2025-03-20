@@ -20,6 +20,8 @@ var _ MappedNullable = &CreateUpgradePathRequest{}
 
 // CreateUpgradePathRequest struct for CreateUpgradePathRequest
 type CreateUpgradePathRequest struct {
+	// Whether to notify the end customer about the upgrade progress.
+	NotifyCustomer *bool `json:"notifyCustomer,omitempty"`
 	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// The future date when the upgrade is planned to be executed. Empty for immediate upgrade.
@@ -60,6 +62,38 @@ func NewCreateUpgradePathRequest(productTierId string, serviceId string, sourceV
 func NewCreateUpgradePathRequestWithDefaults() *CreateUpgradePathRequest {
 	this := CreateUpgradePathRequest{}
 	return &this
+}
+
+// GetNotifyCustomer returns the NotifyCustomer field value if set, zero value otherwise.
+func (o *CreateUpgradePathRequest) GetNotifyCustomer() bool {
+	if o == nil || IsNil(o.NotifyCustomer) {
+		var ret bool
+		return ret
+	}
+	return *o.NotifyCustomer
+}
+
+// GetNotifyCustomerOk returns a tuple with the NotifyCustomer field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpgradePathRequest) GetNotifyCustomerOk() (*bool, bool) {
+	if o == nil || IsNil(o.NotifyCustomer) {
+		return nil, false
+	}
+	return o.NotifyCustomer, true
+}
+
+// HasNotifyCustomer returns a boolean if a field has been set.
+func (o *CreateUpgradePathRequest) HasNotifyCustomer() bool {
+	if o != nil && !IsNil(o.NotifyCustomer) {
+		return true
+	}
+
+	return false
+}
+
+// SetNotifyCustomer gets a reference to the given bool and assigns it to the NotifyCustomer field.
+func (o *CreateUpgradePathRequest) SetNotifyCustomer(v bool) {
+	o.NotifyCustomer = &v
 }
 
 // GetProductTierId returns the ProductTierId field value
@@ -248,6 +282,9 @@ func (o CreateUpgradePathRequest) MarshalJSON() ([]byte, error) {
 
 func (o CreateUpgradePathRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.NotifyCustomer) {
+		toSerialize["notifyCustomer"] = o.NotifyCustomer
+	}
 	toSerialize["productTierId"] = o.ProductTierId
 	if !IsNil(o.ScheduledDate) {
 		toSerialize["scheduledDate"] = o.ScheduledDate
@@ -305,6 +342,7 @@ func (o *CreateUpgradePathRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "notifyCustomer")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "scheduledDate")
 		delete(additionalProperties, "serviceId")

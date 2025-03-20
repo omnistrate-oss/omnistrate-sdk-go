@@ -20,12 +20,12 @@ var _ MappedNullable = &FleetUpdateAccountConfigResourceInstanceRequest{}
 
 // FleetUpdateAccountConfigResourceInstanceRequest struct for FleetUpdateAccountConfigResourceInstanceRequest
 type FleetUpdateAccountConfigResourceInstanceRequest struct {
-	// Disconnect account config instance or not
-	Disconnect *bool `json:"disconnect,omitempty"`
 	// ID of a Resource Instance
 	InstanceId string `json:"instanceId"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
+	// set account config instance connection
+	SetConnection *bool `json:"setConnection,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -51,38 +51,6 @@ func NewFleetUpdateAccountConfigResourceInstanceRequest(instanceId string, servi
 func NewFleetUpdateAccountConfigResourceInstanceRequestWithDefaults() *FleetUpdateAccountConfigResourceInstanceRequest {
 	this := FleetUpdateAccountConfigResourceInstanceRequest{}
 	return &this
-}
-
-// GetDisconnect returns the Disconnect field value if set, zero value otherwise.
-func (o *FleetUpdateAccountConfigResourceInstanceRequest) GetDisconnect() bool {
-	if o == nil || IsNil(o.Disconnect) {
-		var ret bool
-		return ret
-	}
-	return *o.Disconnect
-}
-
-// GetDisconnectOk returns a tuple with the Disconnect field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FleetUpdateAccountConfigResourceInstanceRequest) GetDisconnectOk() (*bool, bool) {
-	if o == nil || IsNil(o.Disconnect) {
-		return nil, false
-	}
-	return o.Disconnect, true
-}
-
-// HasDisconnect returns a boolean if a field has been set.
-func (o *FleetUpdateAccountConfigResourceInstanceRequest) HasDisconnect() bool {
-	if o != nil && !IsNil(o.Disconnect) {
-		return true
-	}
-
-	return false
-}
-
-// SetDisconnect gets a reference to the given bool and assigns it to the Disconnect field.
-func (o *FleetUpdateAccountConfigResourceInstanceRequest) SetDisconnect(v bool) {
-	o.Disconnect = &v
 }
 
 // GetInstanceId returns the InstanceId field value
@@ -133,6 +101,38 @@ func (o *FleetUpdateAccountConfigResourceInstanceRequest) SetServiceId(v string)
 	o.ServiceId = v
 }
 
+// GetSetConnection returns the SetConnection field value if set, zero value otherwise.
+func (o *FleetUpdateAccountConfigResourceInstanceRequest) GetSetConnection() bool {
+	if o == nil || IsNil(o.SetConnection) {
+		var ret bool
+		return ret
+	}
+	return *o.SetConnection
+}
+
+// GetSetConnectionOk returns a tuple with the SetConnection field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetUpdateAccountConfigResourceInstanceRequest) GetSetConnectionOk() (*bool, bool) {
+	if o == nil || IsNil(o.SetConnection) {
+		return nil, false
+	}
+	return o.SetConnection, true
+}
+
+// HasSetConnection returns a boolean if a field has been set.
+func (o *FleetUpdateAccountConfigResourceInstanceRequest) HasSetConnection() bool {
+	if o != nil && !IsNil(o.SetConnection) {
+		return true
+	}
+
+	return false
+}
+
+// SetSetConnection gets a reference to the given bool and assigns it to the SetConnection field.
+func (o *FleetUpdateAccountConfigResourceInstanceRequest) SetSetConnection(v bool) {
+	o.SetConnection = &v
+}
+
 // GetToken returns the Token field value
 func (o *FleetUpdateAccountConfigResourceInstanceRequest) GetToken() string {
 	if o == nil {
@@ -167,11 +167,11 @@ func (o FleetUpdateAccountConfigResourceInstanceRequest) MarshalJSON() ([]byte, 
 
 func (o FleetUpdateAccountConfigResourceInstanceRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Disconnect) {
-		toSerialize["disconnect"] = o.Disconnect
-	}
 	toSerialize["instanceId"] = o.InstanceId
 	toSerialize["serviceId"] = o.ServiceId
+	if !IsNil(o.SetConnection) {
+		toSerialize["setConnection"] = o.SetConnection
+	}
 	toSerialize["token"] = o.Token
 
 	for key, value := range o.AdditionalProperties {
@@ -218,9 +218,9 @@ func (o *FleetUpdateAccountConfigResourceInstanceRequest) UnmarshalJSON(data []b
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "disconnect")
 		delete(additionalProperties, "instanceId")
 		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "setConnection")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

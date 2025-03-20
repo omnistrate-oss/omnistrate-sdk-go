@@ -25,8 +25,10 @@ type Invoice struct {
 	InvoiceDate *string `json:"invoiceDate,omitempty"`
 	// ID of the invoice
 	InvoiceId *string `json:"invoiceId,omitempty"`
-	// Invoice Payment Term
-	InvoicePaymentTerm *string `json:"invoicePaymentTerm,omitempty"`
+	// The invoice number
+	InvoiceNumber *string `json:"invoiceNumber,omitempty"`
+	// URL for the PDF of the invoice
+	InvoicePdf *string `json:"invoicePdf,omitempty"`
 	// This describes the status of the invoice and is set by the payment provider
 	InvoiceStatus *string `json:"invoiceStatus,omitempty"`
 	// URL for this invoice
@@ -128,27 +130,50 @@ func (o *Invoice) SetInvoiceId(v string) {
 	o.InvoiceId = &v
 }
 
-// GetInvoicePaymentTerm returns the InvoicePaymentTerm field value if set, zero value otherwise.
-func (o *Invoice) GetInvoicePaymentTerm() string {
-	if o == nil || IsNil(o.InvoicePaymentTerm) {
+// GetInvoiceNumber returns the InvoiceNumber field value if set, zero value otherwise.
+func (o *Invoice) GetInvoiceNumber() string {
+	if o == nil || IsNil(o.InvoiceNumber) {
 		var ret string
 		return ret
 	}
-	return *o.InvoicePaymentTerm
+	return *o.InvoiceNumber
 }
 
-// GetInvoicePaymentTermOk returns a tuple with the InvoicePaymentTerm field value if set, nil otherwise
+// GetInvoiceNumberOk returns a tuple with the InvoiceNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Invoice) GetInvoicePaymentTermOk() (*string, bool) {
-	if o == nil || IsNil(o.InvoicePaymentTerm) {
+func (o *Invoice) GetInvoiceNumberOk() (*string, bool) {
+	if o == nil || IsNil(o.InvoiceNumber) {
 		return nil, false
 	}
-	return o.InvoicePaymentTerm, true
+	return o.InvoiceNumber, true
 }
 
-// SetInvoicePaymentTerm gets a reference to the given string and assigns it to the InvoicePaymentTerm field.
-func (o *Invoice) SetInvoicePaymentTerm(v string) {
-	o.InvoicePaymentTerm = &v
+// SetInvoiceNumber gets a reference to the given string and assigns it to the InvoiceNumber field.
+func (o *Invoice) SetInvoiceNumber(v string) {
+	o.InvoiceNumber = &v
+}
+
+// GetInvoicePdf returns the InvoicePdf field value if set, zero value otherwise.
+func (o *Invoice) GetInvoicePdf() string {
+	if o == nil || IsNil(o.InvoicePdf) {
+		var ret string
+		return ret
+	}
+	return *o.InvoicePdf
+}
+
+// GetInvoicePdfOk returns a tuple with the InvoicePdf field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Invoice) GetInvoicePdfOk() (*string, bool) {
+	if o == nil || IsNil(o.InvoicePdf) {
+		return nil, false
+	}
+	return o.InvoicePdf, true
+}
+
+// SetInvoicePdf gets a reference to the given string and assigns it to the InvoicePdf field.
+func (o *Invoice) SetInvoicePdf(v string) {
+	o.InvoicePdf = &v
 }
 
 // GetInvoiceStatus returns the InvoiceStatus field value if set, zero value otherwise.
@@ -285,8 +310,11 @@ func (o Invoice) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.InvoiceId) {
 		toSerialize["invoiceId"] = o.InvoiceId
 	}
-	if !IsNil(o.InvoicePaymentTerm) {
-		toSerialize["invoicePaymentTerm"] = o.InvoicePaymentTerm
+	if !IsNil(o.InvoiceNumber) {
+		toSerialize["invoiceNumber"] = o.InvoiceNumber
+	}
+	if !IsNil(o.InvoicePdf) {
+		toSerialize["invoicePdf"] = o.InvoicePdf
 	}
 	if !IsNil(o.InvoiceStatus) {
 		toSerialize["invoiceStatus"] = o.InvoiceStatus
@@ -328,7 +356,8 @@ func (o *Invoice) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "currency")
 		delete(additionalProperties, "invoiceDate")
 		delete(additionalProperties, "invoiceId")
-		delete(additionalProperties, "invoicePaymentTerm")
+		delete(additionalProperties, "invoiceNumber")
+		delete(additionalProperties, "invoicePdf")
 		delete(additionalProperties, "invoiceStatus")
 		delete(additionalProperties, "invoiceUrl")
 		delete(additionalProperties, "taxAmount")
