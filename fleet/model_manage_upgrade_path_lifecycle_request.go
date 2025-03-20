@@ -22,6 +22,8 @@ var _ MappedNullable = &ManageUpgradePathLifecycleRequest{}
 type ManageUpgradePathLifecycleRequest struct {
 	// The action to perform on an ongoing resource workflow
 	Action string `json:"action"`
+	// The action payload to perform on the upgrade path.
+	ActionPayload map[string]interface{} `json:"actionPayload,omitempty"`
 	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// ID of a Service
@@ -79,6 +81,38 @@ func (o *ManageUpgradePathLifecycleRequest) GetActionOk() (*string, bool) {
 // SetAction sets field value
 func (o *ManageUpgradePathLifecycleRequest) SetAction(v string) {
 	o.Action = v
+}
+
+// GetActionPayload returns the ActionPayload field value if set, zero value otherwise.
+func (o *ManageUpgradePathLifecycleRequest) GetActionPayload() map[string]interface{} {
+	if o == nil || IsNil(o.ActionPayload) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.ActionPayload
+}
+
+// GetActionPayloadOk returns a tuple with the ActionPayload field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ManageUpgradePathLifecycleRequest) GetActionPayloadOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.ActionPayload) {
+		return map[string]interface{}{}, false
+	}
+	return o.ActionPayload, true
+}
+
+// HasActionPayload returns a boolean if a field has been set.
+func (o *ManageUpgradePathLifecycleRequest) HasActionPayload() bool {
+	if o != nil && !IsNil(o.ActionPayload) {
+		return true
+	}
+
+	return false
+}
+
+// SetActionPayload gets a reference to the given map[string]interface{} and assigns it to the ActionPayload field.
+func (o *ManageUpgradePathLifecycleRequest) SetActionPayload(v map[string]interface{}) {
+	o.ActionPayload = v
 }
 
 // GetProductTierId returns the ProductTierId field value
@@ -188,6 +222,9 @@ func (o ManageUpgradePathLifecycleRequest) MarshalJSON() ([]byte, error) {
 func (o ManageUpgradePathLifecycleRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["action"] = o.Action
+	if !IsNil(o.ActionPayload) {
+		toSerialize["actionPayload"] = o.ActionPayload
+	}
 	toSerialize["productTierId"] = o.ProductTierId
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["token"] = o.Token
@@ -240,6 +277,7 @@ func (o *ManageUpgradePathLifecycleRequest) UnmarshalJSON(data []byte) (err erro
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "action")
+		delete(additionalProperties, "actionPayload")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "token")

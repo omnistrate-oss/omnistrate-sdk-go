@@ -369,6 +369,19 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiUpdateAccountConfigResourceInstance", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		httpRes, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiUpdateAccountConfigResourceInstance(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiUpdateResourceInstance", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

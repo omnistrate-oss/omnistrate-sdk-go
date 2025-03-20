@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## ConsumptionUserApiDescribeUserBillingDetails
 
-> DescribeUserBillingDetailsResult ConsumptionUserApiDescribeUserBillingDetails(ctx, id).Execute()
+> DescribeConsumptionUserBillingDetailsResult ConsumptionUserApiDescribeUserBillingDetails(ctx, id).Execute()
 
 DescribeUserBillingDetails consumption-user-api
 
@@ -41,7 +41,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConsumptionUserApiAPI.ConsumptionUserApiDescribeUserBillingDetails``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ConsumptionUserApiDescribeUserBillingDetails`: DescribeUserBillingDetailsResult
+	// response from `ConsumptionUserApiDescribeUserBillingDetails`: DescribeConsumptionUserBillingDetailsResult
 	fmt.Fprintf(os.Stdout, "Response from `ConsumptionUserApiAPI.ConsumptionUserApiDescribeUserBillingDetails`: %v\n", resp)
 }
 ```
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DescribeUserBillingDetailsResult**](DescribeUserBillingDetailsResult.md)
+[**DescribeConsumptionUserBillingDetailsResult**](DescribeConsumptionUserBillingDetailsResult.md)
 
 ### Authorization
 

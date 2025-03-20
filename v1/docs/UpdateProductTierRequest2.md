@@ -4,15 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AllowCreatesWhenPaymentNotConfigured** | Pointer to **bool** | Allow creates when payment not configured | [optional] 
 **AutoApproveSubscription** | Pointer to **bool** | Auto approve subscription or not | [optional] 
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this product tier is available on | [optional] 
 **AzureRegions** | Pointer to **[]string** | The Azure regions that this product tier is available on | [optional] 
 **Description** | Pointer to **string** | A brief description of the product tier | [optional] 
 **Documentation** | Pointer to **string** | Documentation | [optional] 
+**ExportUsageMetering** | Pointer to **bool** | Export usage metering data | [optional] 
+**ExportUsageMeteringConfig** | Pointer to **map[string]interface{}** | Export usage metering data configuration | [optional] 
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this product tier is available on | [optional] 
 **IsDisabled** | Pointer to **bool** | Update the product tier&#39;s state as enabled/disabled. Enabling the product tier will let end-customers subscribe and use the service plan. | [optional] 
+**MaxNumberOfInstances** | Pointer to **int64** | Maximum number of instances | [optional] 
 **Name** | Pointer to **string** | Name of the product tier | [optional] 
 **PlanDescription** | Pointer to **string** | A brief description for the end user of the product tier | [optional] 
+**PricePerUnit** | Pointer to **map[string]interface{}** | Price per unit. | [optional] 
 **Pricing** | Pointer to **interface{}** | Pricing | [optional] 
 **Support** | Pointer to **string** | Support | [optional] 
 **TierType** | Pointer to **string** | Tier type | [optional] 
@@ -35,6 +40,31 @@ will change when the set of required properties is changed
 NewUpdateProductTierRequest2WithDefaults instantiates a new UpdateProductTierRequest2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAllowCreatesWhenPaymentNotConfigured
+
+`func (o *UpdateProductTierRequest2) GetAllowCreatesWhenPaymentNotConfigured() bool`
+
+GetAllowCreatesWhenPaymentNotConfigured returns the AllowCreatesWhenPaymentNotConfigured field if non-nil, zero value otherwise.
+
+### GetAllowCreatesWhenPaymentNotConfiguredOk
+
+`func (o *UpdateProductTierRequest2) GetAllowCreatesWhenPaymentNotConfiguredOk() (*bool, bool)`
+
+GetAllowCreatesWhenPaymentNotConfiguredOk returns a tuple with the AllowCreatesWhenPaymentNotConfigured field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowCreatesWhenPaymentNotConfigured
+
+`func (o *UpdateProductTierRequest2) SetAllowCreatesWhenPaymentNotConfigured(v bool)`
+
+SetAllowCreatesWhenPaymentNotConfigured sets AllowCreatesWhenPaymentNotConfigured field to given value.
+
+### HasAllowCreatesWhenPaymentNotConfigured
+
+`func (o *UpdateProductTierRequest2) HasAllowCreatesWhenPaymentNotConfigured() bool`
+
+HasAllowCreatesWhenPaymentNotConfigured returns a boolean if a field has been set.
 
 ### GetAutoApproveSubscription
 
@@ -161,6 +191,56 @@ SetDocumentation sets Documentation field to given value.
 
 HasDocumentation returns a boolean if a field has been set.
 
+### GetExportUsageMetering
+
+`func (o *UpdateProductTierRequest2) GetExportUsageMetering() bool`
+
+GetExportUsageMetering returns the ExportUsageMetering field if non-nil, zero value otherwise.
+
+### GetExportUsageMeteringOk
+
+`func (o *UpdateProductTierRequest2) GetExportUsageMeteringOk() (*bool, bool)`
+
+GetExportUsageMeteringOk returns a tuple with the ExportUsageMetering field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExportUsageMetering
+
+`func (o *UpdateProductTierRequest2) SetExportUsageMetering(v bool)`
+
+SetExportUsageMetering sets ExportUsageMetering field to given value.
+
+### HasExportUsageMetering
+
+`func (o *UpdateProductTierRequest2) HasExportUsageMetering() bool`
+
+HasExportUsageMetering returns a boolean if a field has been set.
+
+### GetExportUsageMeteringConfig
+
+`func (o *UpdateProductTierRequest2) GetExportUsageMeteringConfig() map[string]interface{}`
+
+GetExportUsageMeteringConfig returns the ExportUsageMeteringConfig field if non-nil, zero value otherwise.
+
+### GetExportUsageMeteringConfigOk
+
+`func (o *UpdateProductTierRequest2) GetExportUsageMeteringConfigOk() (*map[string]interface{}, bool)`
+
+GetExportUsageMeteringConfigOk returns a tuple with the ExportUsageMeteringConfig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExportUsageMeteringConfig
+
+`func (o *UpdateProductTierRequest2) SetExportUsageMeteringConfig(v map[string]interface{})`
+
+SetExportUsageMeteringConfig sets ExportUsageMeteringConfig field to given value.
+
+### HasExportUsageMeteringConfig
+
+`func (o *UpdateProductTierRequest2) HasExportUsageMeteringConfig() bool`
+
+HasExportUsageMeteringConfig returns a boolean if a field has been set.
+
 ### GetGcpRegions
 
 `func (o *UpdateProductTierRequest2) GetGcpRegions() []string`
@@ -211,6 +291,31 @@ SetIsDisabled sets IsDisabled field to given value.
 
 HasIsDisabled returns a boolean if a field has been set.
 
+### GetMaxNumberOfInstances
+
+`func (o *UpdateProductTierRequest2) GetMaxNumberOfInstances() int64`
+
+GetMaxNumberOfInstances returns the MaxNumberOfInstances field if non-nil, zero value otherwise.
+
+### GetMaxNumberOfInstancesOk
+
+`func (o *UpdateProductTierRequest2) GetMaxNumberOfInstancesOk() (*int64, bool)`
+
+GetMaxNumberOfInstancesOk returns a tuple with the MaxNumberOfInstances field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxNumberOfInstances
+
+`func (o *UpdateProductTierRequest2) SetMaxNumberOfInstances(v int64)`
+
+SetMaxNumberOfInstances sets MaxNumberOfInstances field to given value.
+
+### HasMaxNumberOfInstances
+
+`func (o *UpdateProductTierRequest2) HasMaxNumberOfInstances() bool`
+
+HasMaxNumberOfInstances returns a boolean if a field has been set.
+
 ### GetName
 
 `func (o *UpdateProductTierRequest2) GetName() string`
@@ -260,6 +365,31 @@ SetPlanDescription sets PlanDescription field to given value.
 `func (o *UpdateProductTierRequest2) HasPlanDescription() bool`
 
 HasPlanDescription returns a boolean if a field has been set.
+
+### GetPricePerUnit
+
+`func (o *UpdateProductTierRequest2) GetPricePerUnit() map[string]interface{}`
+
+GetPricePerUnit returns the PricePerUnit field if non-nil, zero value otherwise.
+
+### GetPricePerUnitOk
+
+`func (o *UpdateProductTierRequest2) GetPricePerUnitOk() (*map[string]interface{}, bool)`
+
+GetPricePerUnitOk returns a tuple with the PricePerUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPricePerUnit
+
+`func (o *UpdateProductTierRequest2) SetPricePerUnit(v map[string]interface{})`
+
+SetPricePerUnit sets PricePerUnit field to given value.
+
+### HasPricePerUnit
+
+`func (o *UpdateProductTierRequest2) HasPricePerUnit() bool`
+
+HasPricePerUnit returns a boolean if a field has been set.
 
 ### GetPricing
 

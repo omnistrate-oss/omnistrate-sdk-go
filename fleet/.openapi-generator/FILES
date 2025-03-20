@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -119,7 +120,12 @@ docs/DescribeCloudProviderCostRequest.md
 docs/DescribeCloudProviderCostResult.md
 docs/DescribeCloudProviderRequest.md
 docs/DescribeCloudProviderResult.md
+docs/DescribeConsumptionBillingDetailsRequest.md
+docs/DescribeConsumptionBillingDetailsResult.md
+docs/DescribeConsumptionBillingStatusRequest.md
+docs/DescribeConsumptionBillingStatusResult.md
 docs/DescribeConsumptionUserBillingDetailsRequest.md
+docs/DescribeConsumptionUserBillingDetailsResult.md
 docs/DescribeCustomerOnboardingRequest.md
 docs/DescribeDeploymentCellCostRequest.md
 docs/DescribeDeploymentCellCostResult.md
@@ -168,7 +174,6 @@ docs/DescribeSubscriptionRequestRequest.md
 docs/DescribeSubscriptionRequestResult.md
 docs/DescribeSubscriptionResult.md
 docs/DescribeUpgradePathRequest.md
-docs/DescribeUserBillingDetailsResult.md
 docs/DescribeUserCostRequest.md
 docs/DescribeUserCostResult.md
 docs/DescribeUserRequest.md
@@ -303,6 +308,9 @@ docs/GenerateTokenForDeploymentCellDashboardRequest.md
 docs/GenerateTokenForDeploymentCellDashboardResult.md
 docs/GetAvailabilityZoneByCodeRequest.md
 docs/GetCloudProviderByNameRequest.md
+docs/GetConsumptionUsageRequest.md
+docs/GetConsumptionUsageResult.md
+docs/GetCurrentConsumptionUsageRequest.md
 docs/GetCurrentUsageRequest.md
 docs/GetRegionByCodeRequest.md
 docs/GetServicePlanRequest.md
@@ -334,6 +342,7 @@ docs/InventoryListServiceOfferingsResult.md
 docs/InviteConsumptionUserRequest.md
 docs/InviteUserRequest.md
 docs/Invoice.md
+docs/JobMetric.md
 docs/KubernetesDashboardEndpoint.md
 docs/List.md
 docs/ListActiveOrganizationsRequest.md
@@ -645,7 +654,12 @@ model_describe_cloud_provider_cost_request.go
 model_describe_cloud_provider_cost_result.go
 model_describe_cloud_provider_request.go
 model_describe_cloud_provider_result.go
+model_describe_consumption_billing_details_request.go
+model_describe_consumption_billing_details_result.go
+model_describe_consumption_billing_status_request.go
+model_describe_consumption_billing_status_result.go
 model_describe_consumption_user_billing_details_request.go
+model_describe_consumption_user_billing_details_result.go
 model_describe_customer_onboarding_request.go
 model_describe_deployment_cell_cost_request.go
 model_describe_deployment_cell_cost_result.go
@@ -694,7 +708,6 @@ model_describe_subscription_request_request.go
 model_describe_subscription_request_result.go
 model_describe_subscription_result.go
 model_describe_upgrade_path_request.go
-model_describe_user_billing_details_result.go
 model_describe_user_cost_request.go
 model_describe_user_cost_result.go
 model_describe_user_request.go
@@ -825,6 +838,9 @@ model_generate_token_for_deployment_cell_dashboard_request.go
 model_generate_token_for_deployment_cell_dashboard_result.go
 model_get_availability_zone_by_code_request.go
 model_get_cloud_provider_by_name_request.go
+model_get_consumption_usage_request.go
+model_get_consumption_usage_result.go
+model_get_current_consumption_usage_request.go
 model_get_current_usage_request.go
 model_get_region_by_code_request.go
 model_get_service_plan_request.go
@@ -853,6 +869,7 @@ model_inventory_list_service_offerings_result.go
 model_invite_consumption_user_request.go
 model_invite_user_request.go
 model_invoice.go
+model_job_metric.go
 model_kubernetes_dashboard_endpoint.go
 model_list.go
 model_list_active_organizations_request.go
@@ -1062,4 +1079,17 @@ model_workflow_event.go
 model_workflow_failure.go
 model_workflow_search_record.go
 response.go
+test/api_audit_events_api_test.go
+test/api_cost_api_test.go
+test/api_customer_onboardings_api_test.go
+test/api_events_api_test.go
+test/api_fleet_custom_network_api_test.go
+test/api_fleet_features_api_test.go
+test/api_fleet_workflows_api_test.go
+test/api_helm_package_api_test.go
+test/api_hostcluster_api_test.go
+test/api_inventory_api_test.go
+test/api_notifications_api_test.go
+test/api_operations_api_test.go
+test/api_webhooks_api_test.go
 utils.go

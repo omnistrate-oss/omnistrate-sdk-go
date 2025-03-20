@@ -12653,7 +12653,7 @@ func (a *InventoryApiAPIService) InventoryApiUpdateAccountConfigResourceInstance
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiUpdateAccountConfigResourceInstanceExecute(r ApiInventoryApiUpdateAccountConfigResourceInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)

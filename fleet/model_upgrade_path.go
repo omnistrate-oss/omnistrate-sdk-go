@@ -36,6 +36,8 @@ type UpgradePath struct {
 	LastModifiedBy *string `json:"lastModifiedBy,omitempty"`
 	// The action to perform on an ongoing resource workflow
 	LastRequestedAction *string `json:"lastRequestedAction,omitempty"`
+	// Whether to notify the end customer about the upgrade progress.
+	NotifyCustomer *bool `json:"notifyCustomer,omitempty"`
 	// The number of instances that are pending the upgrade.
 	PendingCount int64 `json:"pendingCount"`
 	// The date when the upgrade was/is planned to be executed.
@@ -324,6 +326,38 @@ func (o *UpgradePath) HasLastRequestedAction() bool {
 // SetLastRequestedAction gets a reference to the given string and assigns it to the LastRequestedAction field.
 func (o *UpgradePath) SetLastRequestedAction(v string) {
 	o.LastRequestedAction = &v
+}
+
+// GetNotifyCustomer returns the NotifyCustomer field value if set, zero value otherwise.
+func (o *UpgradePath) GetNotifyCustomer() bool {
+	if o == nil || IsNil(o.NotifyCustomer) {
+		var ret bool
+		return ret
+	}
+	return *o.NotifyCustomer
+}
+
+// GetNotifyCustomerOk returns a tuple with the NotifyCustomer field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpgradePath) GetNotifyCustomerOk() (*bool, bool) {
+	if o == nil || IsNil(o.NotifyCustomer) {
+		return nil, false
+	}
+	return o.NotifyCustomer, true
+}
+
+// HasNotifyCustomer returns a boolean if a field has been set.
+func (o *UpgradePath) HasNotifyCustomer() bool {
+	if o != nil && !IsNil(o.NotifyCustomer) {
+		return true
+	}
+
+	return false
+}
+
+// SetNotifyCustomer gets a reference to the given bool and assigns it to the NotifyCustomer field.
+func (o *UpgradePath) SetNotifyCustomer(v bool) {
+	o.NotifyCustomer = &v
 }
 
 // GetPendingCount returns the PendingCount field value
@@ -704,6 +738,9 @@ func (o UpgradePath) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.LastRequestedAction) {
 		toSerialize["lastRequestedAction"] = o.LastRequestedAction
 	}
+	if !IsNil(o.NotifyCustomer) {
+		toSerialize["notifyCustomer"] = o.NotifyCustomer
+	}
 	toSerialize["pendingCount"] = o.PendingCount
 	if !IsNil(o.PlannedExecutionDate) {
 		toSerialize["plannedExecutionDate"] = o.PlannedExecutionDate
@@ -788,6 +825,7 @@ func (o *UpgradePath) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "inProgressCount")
 		delete(additionalProperties, "lastModifiedBy")
 		delete(additionalProperties, "lastRequestedAction")
+		delete(additionalProperties, "notifyCustomer")
 		delete(additionalProperties, "pendingCount")
 		delete(additionalProperties, "plannedExecutionDate")
 		delete(additionalProperties, "productTierId")
