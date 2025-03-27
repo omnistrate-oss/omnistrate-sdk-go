@@ -169,6 +169,8 @@ Name | Type | Description  | Notes
 
 CreateProductTierBillingPlan product-tier-api
 
+
+
 ### Example
 
 ```go
@@ -184,7 +186,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | Service ID
 	id := "pt-12345678" // string | Product tier ID
-	createProductTierBillingPlanRequest2 := *openapiclient.NewCreateProductTierBillingPlanRequest2(true, int64(5), "STARTER", interface{}({"cpuCoreHours":"0.001","memoryGiBHours":"0.0001","storageGiBHours":"0.0001"})) // CreateProductTierBillingPlanRequest2 | 
+	createProductTierBillingPlanRequest2 := *openapiclient.NewCreateProductTierBillingPlanRequest2(true, int64(5), "STARTER", interface{}({"cpuCoreHours":"0.001","memoryGBHours":"0.0001"})) // CreateProductTierBillingPlanRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -310,6 +312,8 @@ Name | Type | Description  | Notes
 > ProductTierApiDeleteProductTierBillingPlan(ctx, serviceId, productTierId, id).Execute()
 
 DeleteProductTierBillingPlan product-tier-api
+
+
 
 ### Example
 
@@ -455,6 +459,8 @@ Name | Type | Description  | Notes
 > BillingPlan ProductTierApiDescribeProductTierBillingPlan(ctx, serviceId, productTierId, id).Execute()
 
 DescribeProductTierBillingPlan product-tier-api
+
+
 
 ### Example
 
@@ -743,6 +749,8 @@ Name | Type | Description  | Notes
 
 ListProductTierBillingPlan product-tier-api
 
+
+
 ### Example
 
 ```go
@@ -884,6 +892,8 @@ Name | Type | Description  | Notes
 > BillingPlan ProductTierApiUpdateProductTierBillingPlan(ctx, serviceId, productTierId, id).UpdateProductTierBillingPlanRequest2(updateProductTierBillingPlanRequest2).Execute()
 
 UpdateProductTierBillingPlan product-tier-api
+
+
 
 ### Example
 

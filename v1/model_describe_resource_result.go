@@ -50,6 +50,7 @@ type DescribeResourceResult struct {
 	Internal bool `json:"internal"`
 	// Whether this resource is deprecated or not
 	IsDeprecated bool `json:"isDeprecated"`
+	JobConfig *JobConfig `json:"jobConfig,omitempty"`
 	// The key of the resource
 	Key string `json:"key"`
 	KustomizeConfiguration *KustomizeConfiguration `json:"kustomizeConfiguration,omitempty"`
@@ -521,6 +522,29 @@ func (o *DescribeResourceResult) SetIsDeprecated(v bool) {
 	o.IsDeprecated = v
 }
 
+// GetJobConfig returns the JobConfig field value if set, zero value otherwise.
+func (o *DescribeResourceResult) GetJobConfig() JobConfig {
+	if o == nil || IsNil(o.JobConfig) {
+		var ret JobConfig
+		return ret
+	}
+	return *o.JobConfig
+}
+
+// GetJobConfigOk returns a tuple with the JobConfig field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceResult) GetJobConfigOk() (*JobConfig, bool) {
+	if o == nil || IsNil(o.JobConfig) {
+		return nil, false
+	}
+	return o.JobConfig, true
+}
+
+// SetJobConfig gets a reference to the given JobConfig and assigns it to the JobConfig field.
+func (o *DescribeResourceResult) SetJobConfig(v JobConfig) {
+	o.JobConfig = &v
+}
+
 // GetKey returns the Key field value
 func (o *DescribeResourceResult) GetKey() string {
 	if o == nil {
@@ -835,6 +859,9 @@ func (o DescribeResourceResult) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["internal"] = o.Internal
 	toSerialize["isDeprecated"] = o.IsDeprecated
+	if !IsNil(o.JobConfig) {
+		toSerialize["jobConfig"] = o.JobConfig
+	}
 	toSerialize["key"] = o.Key
 	if !IsNil(o.KustomizeConfiguration) {
 		toSerialize["kustomizeConfiguration"] = o.KustomizeConfiguration
@@ -927,6 +954,7 @@ func (o *DescribeResourceResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "infraConfigId")
 		delete(additionalProperties, "internal")
 		delete(additionalProperties, "isDeprecated")
+		delete(additionalProperties, "jobConfig")
 		delete(additionalProperties, "key")
 		delete(additionalProperties, "kustomizeConfiguration")
 		delete(additionalProperties, "l4LoadBalancerConfiguration")

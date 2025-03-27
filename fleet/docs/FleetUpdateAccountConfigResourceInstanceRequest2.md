@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Disconnect** | Pointer to **bool** | Disconnect account config instance or not | [optional] 
+**SetConnection** | Pointer to **bool** | set account config instance connection | [optional] 
 
 ## Methods
 
@@ -25,30 +25,30 @@ NewFleetUpdateAccountConfigResourceInstanceRequest2WithDefaults instantiates a n
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetDisconnect
+### GetSetConnection
 
-`func (o *FleetUpdateAccountConfigResourceInstanceRequest2) GetDisconnect() bool`
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest2) GetSetConnection() bool`
 
-GetDisconnect returns the Disconnect field if non-nil, zero value otherwise.
+GetSetConnection returns the SetConnection field if non-nil, zero value otherwise.
 
-### GetDisconnectOk
+### GetSetConnectionOk
 
-`func (o *FleetUpdateAccountConfigResourceInstanceRequest2) GetDisconnectOk() (*bool, bool)`
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest2) GetSetConnectionOk() (*bool, bool)`
 
-GetDisconnectOk returns a tuple with the Disconnect field if it's non-nil, zero value otherwise
+GetSetConnectionOk returns a tuple with the SetConnection field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDisconnect
+### SetSetConnection
 
-`func (o *FleetUpdateAccountConfigResourceInstanceRequest2) SetDisconnect(v bool)`
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest2) SetSetConnection(v bool)`
 
-SetDisconnect sets Disconnect field to given value.
+SetSetConnection sets SetConnection field to given value.
 
-### HasDisconnect
+### HasSetConnection
 
-`func (o *FleetUpdateAccountConfigResourceInstanceRequest2) HasDisconnect() bool`
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest2) HasSetConnection() bool`
 
-HasDisconnect returns a boolean if a field has been set.
+HasSetConnection returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

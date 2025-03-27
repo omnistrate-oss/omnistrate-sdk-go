@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **InfraConfigId** | Pointer to **string** | ID of an Infra Config | [optional] 
 **Internal** | Pointer to **bool** | Whether this resource is internal or not | [optional] [default to false]
 **IsProxy** | Pointer to **bool** | Whether this resource is a proxy or not | [optional] [default to false]
+**JobConfig** | Pointer to [**JobConfig**](JobConfig.md) |  | [optional] 
 **Key** | Pointer to **string** | The key of the resource | [optional] 
 **KustomizeConfiguration** | Pointer to [**KustomizeConfiguration**](KustomizeConfiguration.md) |  | [optional] 
 **L4LoadBalancerConfiguration** | Pointer to [**L4LoadBalancerConfiguration**](L4LoadBalancerConfiguration.md) |  | [optional] 
@@ -395,6 +396,31 @@ SetIsProxy sets IsProxy field to given value.
 `func (o *CreateResourceRequest) HasIsProxy() bool`
 
 HasIsProxy returns a boolean if a field has been set.
+
+### GetJobConfig
+
+`func (o *CreateResourceRequest) GetJobConfig() JobConfig`
+
+GetJobConfig returns the JobConfig field if non-nil, zero value otherwise.
+
+### GetJobConfigOk
+
+`func (o *CreateResourceRequest) GetJobConfigOk() (*JobConfig, bool)`
+
+GetJobConfigOk returns a tuple with the JobConfig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetJobConfig
+
+`func (o *CreateResourceRequest) SetJobConfig(v JobConfig)`
+
+SetJobConfig sets JobConfig field to given value.
+
+### HasJobConfig
+
+`func (o *CreateResourceRequest) HasJobConfig() bool`
+
+HasJobConfig returns a boolean if a field has been set.
 
 ### GetKey
 

@@ -19,8 +19,8 @@ var _ MappedNullable = &FleetUpdateAccountConfigResourceInstanceRequest2{}
 
 // FleetUpdateAccountConfigResourceInstanceRequest2 struct for FleetUpdateAccountConfigResourceInstanceRequest2
 type FleetUpdateAccountConfigResourceInstanceRequest2 struct {
-	// Disconnect account config instance or not
-	Disconnect *bool `json:"disconnect,omitempty"`
+	// set account config instance connection
+	SetConnection *bool `json:"setConnection,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -43,36 +43,36 @@ func NewFleetUpdateAccountConfigResourceInstanceRequest2WithDefaults() *FleetUpd
 	return &this
 }
 
-// GetDisconnect returns the Disconnect field value if set, zero value otherwise.
-func (o *FleetUpdateAccountConfigResourceInstanceRequest2) GetDisconnect() bool {
-	if o == nil || IsNil(o.Disconnect) {
+// GetSetConnection returns the SetConnection field value if set, zero value otherwise.
+func (o *FleetUpdateAccountConfigResourceInstanceRequest2) GetSetConnection() bool {
+	if o == nil || IsNil(o.SetConnection) {
 		var ret bool
 		return ret
 	}
-	return *o.Disconnect
+	return *o.SetConnection
 }
 
-// GetDisconnectOk returns a tuple with the Disconnect field value if set, nil otherwise
+// GetSetConnectionOk returns a tuple with the SetConnection field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FleetUpdateAccountConfigResourceInstanceRequest2) GetDisconnectOk() (*bool, bool) {
-	if o == nil || IsNil(o.Disconnect) {
+func (o *FleetUpdateAccountConfigResourceInstanceRequest2) GetSetConnectionOk() (*bool, bool) {
+	if o == nil || IsNil(o.SetConnection) {
 		return nil, false
 	}
-	return o.Disconnect, true
+	return o.SetConnection, true
 }
 
-// HasDisconnect returns a boolean if a field has been set.
-func (o *FleetUpdateAccountConfigResourceInstanceRequest2) HasDisconnect() bool {
-	if o != nil && !IsNil(o.Disconnect) {
+// HasSetConnection returns a boolean if a field has been set.
+func (o *FleetUpdateAccountConfigResourceInstanceRequest2) HasSetConnection() bool {
+	if o != nil && !IsNil(o.SetConnection) {
 		return true
 	}
 
 	return false
 }
 
-// SetDisconnect gets a reference to the given bool and assigns it to the Disconnect field.
-func (o *FleetUpdateAccountConfigResourceInstanceRequest2) SetDisconnect(v bool) {
-	o.Disconnect = &v
+// SetSetConnection gets a reference to the given bool and assigns it to the SetConnection field.
+func (o *FleetUpdateAccountConfigResourceInstanceRequest2) SetSetConnection(v bool) {
+	o.SetConnection = &v
 }
 
 func (o FleetUpdateAccountConfigResourceInstanceRequest2) MarshalJSON() ([]byte, error) {
@@ -85,8 +85,8 @@ func (o FleetUpdateAccountConfigResourceInstanceRequest2) MarshalJSON() ([]byte,
 
 func (o FleetUpdateAccountConfigResourceInstanceRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Disconnect) {
-		toSerialize["disconnect"] = o.Disconnect
+	if !IsNil(o.SetConnection) {
+		toSerialize["setConnection"] = o.SetConnection
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -110,7 +110,7 @@ func (o *FleetUpdateAccountConfigResourceInstanceRequest2) UnmarshalJSON(data []
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "disconnect")
+		delete(additionalProperties, "setConnection")
 		o.AdditionalProperties = additionalProperties
 	}
 

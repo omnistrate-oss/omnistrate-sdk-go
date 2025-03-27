@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Disconnect** | Pointer to **bool** | Disconnect account config instance or not | [optional] 
 **InstanceId** | **string** | ID of a Resource Instance | 
 **ServiceId** | **string** | ID of a Service | 
+**SetConnection** | Pointer to **bool** | set account config instance connection | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
@@ -27,31 +27,6 @@ will change when the set of required properties is changed
 NewFleetUpdateAccountConfigResourceInstanceRequestWithDefaults instantiates a new FleetUpdateAccountConfigResourceInstanceRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetDisconnect
-
-`func (o *FleetUpdateAccountConfigResourceInstanceRequest) GetDisconnect() bool`
-
-GetDisconnect returns the Disconnect field if non-nil, zero value otherwise.
-
-### GetDisconnectOk
-
-`func (o *FleetUpdateAccountConfigResourceInstanceRequest) GetDisconnectOk() (*bool, bool)`
-
-GetDisconnectOk returns a tuple with the Disconnect field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDisconnect
-
-`func (o *FleetUpdateAccountConfigResourceInstanceRequest) SetDisconnect(v bool)`
-
-SetDisconnect sets Disconnect field to given value.
-
-### HasDisconnect
-
-`func (o *FleetUpdateAccountConfigResourceInstanceRequest) HasDisconnect() bool`
-
-HasDisconnect returns a boolean if a field has been set.
 
 ### GetInstanceId
 
@@ -92,6 +67,31 @@ and a boolean to check if the value has been set.
 
 SetServiceId sets ServiceId field to given value.
 
+
+### GetSetConnection
+
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest) GetSetConnection() bool`
+
+GetSetConnection returns the SetConnection field if non-nil, zero value otherwise.
+
+### GetSetConnectionOk
+
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest) GetSetConnectionOk() (*bool, bool)`
+
+GetSetConnectionOk returns a tuple with the SetConnection field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSetConnection
+
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest) SetSetConnection(v bool)`
+
+SetSetConnection sets SetConnection field to given value.
+
+### HasSetConnection
+
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest) HasSetConnection() bool`
+
+HasSetConnection returns a boolean if a field has been set.
 
 ### GetToken
 

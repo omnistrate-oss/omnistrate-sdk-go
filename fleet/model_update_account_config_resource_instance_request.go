@@ -20,14 +20,14 @@ var _ MappedNullable = &UpdateAccountConfigResourceInstanceRequest{}
 
 // UpdateAccountConfigResourceInstanceRequest struct for UpdateAccountConfigResourceInstanceRequest
 type UpdateAccountConfigResourceInstanceRequest struct {
-	// Disconnect account config instance or not
-	Disconnect *bool `json:"disconnect,omitempty"`
 	// The instance ID
 	Id string `json:"id"`
 	// The service ID
 	ServiceId string `json:"serviceId"`
+	// set account config instance connection
+	SetConnection *bool `json:"setConnection,omitempty"`
 	// The subscription ID
-	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	SubscriptionId string `json:"subscriptionId"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -39,10 +39,11 @@ type _UpdateAccountConfigResourceInstanceRequest UpdateAccountConfigResourceInst
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateAccountConfigResourceInstanceRequest(id string, serviceId string, token string) *UpdateAccountConfigResourceInstanceRequest {
+func NewUpdateAccountConfigResourceInstanceRequest(id string, serviceId string, subscriptionId string, token string) *UpdateAccountConfigResourceInstanceRequest {
 	this := UpdateAccountConfigResourceInstanceRequest{}
 	this.Id = id
 	this.ServiceId = serviceId
+	this.SubscriptionId = subscriptionId
 	this.Token = token
 	return &this
 }
@@ -53,38 +54,6 @@ func NewUpdateAccountConfigResourceInstanceRequest(id string, serviceId string, 
 func NewUpdateAccountConfigResourceInstanceRequestWithDefaults() *UpdateAccountConfigResourceInstanceRequest {
 	this := UpdateAccountConfigResourceInstanceRequest{}
 	return &this
-}
-
-// GetDisconnect returns the Disconnect field value if set, zero value otherwise.
-func (o *UpdateAccountConfigResourceInstanceRequest) GetDisconnect() bool {
-	if o == nil || IsNil(o.Disconnect) {
-		var ret bool
-		return ret
-	}
-	return *o.Disconnect
-}
-
-// GetDisconnectOk returns a tuple with the Disconnect field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *UpdateAccountConfigResourceInstanceRequest) GetDisconnectOk() (*bool, bool) {
-	if o == nil || IsNil(o.Disconnect) {
-		return nil, false
-	}
-	return o.Disconnect, true
-}
-
-// HasDisconnect returns a boolean if a field has been set.
-func (o *UpdateAccountConfigResourceInstanceRequest) HasDisconnect() bool {
-	if o != nil && !IsNil(o.Disconnect) {
-		return true
-	}
-
-	return false
-}
-
-// SetDisconnect gets a reference to the given bool and assigns it to the Disconnect field.
-func (o *UpdateAccountConfigResourceInstanceRequest) SetDisconnect(v bool) {
-	o.Disconnect = &v
 }
 
 // GetId returns the Id field value
@@ -135,36 +104,60 @@ func (o *UpdateAccountConfigResourceInstanceRequest) SetServiceId(v string) {
 	o.ServiceId = v
 }
 
-// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
-func (o *UpdateAccountConfigResourceInstanceRequest) GetSubscriptionId() string {
-	if o == nil || IsNil(o.SubscriptionId) {
-		var ret string
+// GetSetConnection returns the SetConnection field value if set, zero value otherwise.
+func (o *UpdateAccountConfigResourceInstanceRequest) GetSetConnection() bool {
+	if o == nil || IsNil(o.SetConnection) {
+		var ret bool
 		return ret
 	}
-	return *o.SubscriptionId
+	return *o.SetConnection
 }
 
-// GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
+// GetSetConnectionOk returns a tuple with the SetConnection field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdateAccountConfigResourceInstanceRequest) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SubscriptionId) {
+func (o *UpdateAccountConfigResourceInstanceRequest) GetSetConnectionOk() (*bool, bool) {
+	if o == nil || IsNil(o.SetConnection) {
 		return nil, false
 	}
-	return o.SubscriptionId, true
+	return o.SetConnection, true
 }
 
-// HasSubscriptionId returns a boolean if a field has been set.
-func (o *UpdateAccountConfigResourceInstanceRequest) HasSubscriptionId() bool {
-	if o != nil && !IsNil(o.SubscriptionId) {
+// HasSetConnection returns a boolean if a field has been set.
+func (o *UpdateAccountConfigResourceInstanceRequest) HasSetConnection() bool {
+	if o != nil && !IsNil(o.SetConnection) {
 		return true
 	}
 
 	return false
 }
 
-// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+// SetSetConnection gets a reference to the given bool and assigns it to the SetConnection field.
+func (o *UpdateAccountConfigResourceInstanceRequest) SetSetConnection(v bool) {
+	o.SetConnection = &v
+}
+
+// GetSubscriptionId returns the SubscriptionId field value
+func (o *UpdateAccountConfigResourceInstanceRequest) GetSubscriptionId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SubscriptionId
+}
+
+// GetSubscriptionIdOk returns a tuple with the SubscriptionId field value
+// and a boolean to check if the value has been set.
+func (o *UpdateAccountConfigResourceInstanceRequest) GetSubscriptionIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SubscriptionId, true
+}
+
+// SetSubscriptionId sets field value
 func (o *UpdateAccountConfigResourceInstanceRequest) SetSubscriptionId(v string) {
-	o.SubscriptionId = &v
+	o.SubscriptionId = v
 }
 
 // GetToken returns the Token field value
@@ -201,14 +194,12 @@ func (o UpdateAccountConfigResourceInstanceRequest) MarshalJSON() ([]byte, error
 
 func (o UpdateAccountConfigResourceInstanceRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Disconnect) {
-		toSerialize["disconnect"] = o.Disconnect
-	}
 	toSerialize["id"] = o.Id
 	toSerialize["serviceId"] = o.ServiceId
-	if !IsNil(o.SubscriptionId) {
-		toSerialize["subscriptionId"] = o.SubscriptionId
+	if !IsNil(o.SetConnection) {
+		toSerialize["setConnection"] = o.SetConnection
 	}
+	toSerialize["subscriptionId"] = o.SubscriptionId
 	toSerialize["token"] = o.Token
 
 	for key, value := range o.AdditionalProperties {
@@ -225,6 +216,7 @@ func (o *UpdateAccountConfigResourceInstanceRequest) UnmarshalJSON(data []byte) 
 	requiredProperties := []string{
 		"id",
 		"serviceId",
+		"subscriptionId",
 		"token",
 	}
 
@@ -255,9 +247,9 @@ func (o *UpdateAccountConfigResourceInstanceRequest) UnmarshalJSON(data []byte) 
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "disconnect")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "setConnection")
 		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties

@@ -32,8 +32,8 @@ type ConsumptionUserApiAPI interface {
 	ConsumptionUserApiDescribeUserBillingDetails(ctx context.Context, id string) ApiConsumptionUserApiDescribeUserBillingDetailsRequest
 
 	// ConsumptionUserApiDescribeUserBillingDetailsExecute executes the request
-	//  @return DescribeUserBillingDetailsResult
-	ConsumptionUserApiDescribeUserBillingDetailsExecute(r ApiConsumptionUserApiDescribeUserBillingDetailsRequest) (*DescribeUserBillingDetailsResult, *http.Response, error)
+	//  @return DescribeConsumptionUserBillingDetailsResult
+	ConsumptionUserApiDescribeUserBillingDetailsExecute(r ApiConsumptionUserApiDescribeUserBillingDetailsRequest) (*DescribeConsumptionUserBillingDetailsResult, *http.Response, error)
 
 	/*
 	ConsumptionUserApiDescribeUsersBySubscription DescribeUsersBySubscription consumption-user-api
@@ -106,7 +106,7 @@ type ApiConsumptionUserApiDescribeUserBillingDetailsRequest struct {
 	id string
 }
 
-func (r ApiConsumptionUserApiDescribeUserBillingDetailsRequest) Execute() (*DescribeUserBillingDetailsResult, *http.Response, error) {
+func (r ApiConsumptionUserApiDescribeUserBillingDetailsRequest) Execute() (*DescribeConsumptionUserBillingDetailsResult, *http.Response, error) {
 	return r.ApiService.ConsumptionUserApiDescribeUserBillingDetailsExecute(r)
 }
 
@@ -126,13 +126,13 @@ func (a *ConsumptionUserApiAPIService) ConsumptionUserApiDescribeUserBillingDeta
 }
 
 // Execute executes the request
-//  @return DescribeUserBillingDetailsResult
-func (a *ConsumptionUserApiAPIService) ConsumptionUserApiDescribeUserBillingDetailsExecute(r ApiConsumptionUserApiDescribeUserBillingDetailsRequest) (*DescribeUserBillingDetailsResult, *http.Response, error) {
+//  @return DescribeConsumptionUserBillingDetailsResult
+func (a *ConsumptionUserApiAPIService) ConsumptionUserApiDescribeUserBillingDetailsExecute(r ApiConsumptionUserApiDescribeUserBillingDetailsRequest) (*DescribeConsumptionUserBillingDetailsResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DescribeUserBillingDetailsResult
+		localVarReturnValue  *DescribeConsumptionUserBillingDetailsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConsumptionUserApiAPIService.ConsumptionUserApiDescribeUserBillingDetails")

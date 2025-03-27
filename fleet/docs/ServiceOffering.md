@@ -8,9 +8,10 @@ Name | Type | Description | Notes
 **Assets** | Pointer to [**ServiceAssets**](ServiceAssets.md) |  | [optional] 
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this service offering is available on | [optional] 
 **AzureRegions** | Pointer to **[]string** | The Azure regions that this service offering is available on | [optional] 
-**BillingPlans** | Pointer to [**[]OfferingBillingPlan**](OfferingBillingPlan.md) | List of billing plans for this product tier. | [optional] 
+**BillingPlans** | Pointer to [**[]OfferingBillingPlan**](OfferingBillingPlan.md) | Deprecated. List of billing plans for this product tier. | [optional] 
 **CloudProviders** | Pointer to **[]string** | List of supported cloud providers for this product tier. | [optional] 
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this service offering is available on | [optional] 
+**MaxNumberofInstances** | Pointer to **int64** | Maximum number of instances | [optional] 
 **ProductTierDescription** | Pointer to **string** | A brief description of the product tier | [optional] 
 **ProductTierDocumentation** | **string** | Documentation | 
 **ProductTierID** | **string** | ID of a Product Tier | 
@@ -226,6 +227,31 @@ SetGcpRegions sets GcpRegions field to given value.
 `func (o *ServiceOffering) HasGcpRegions() bool`
 
 HasGcpRegions returns a boolean if a field has been set.
+
+### GetMaxNumberofInstances
+
+`func (o *ServiceOffering) GetMaxNumberofInstances() int64`
+
+GetMaxNumberofInstances returns the MaxNumberofInstances field if non-nil, zero value otherwise.
+
+### GetMaxNumberofInstancesOk
+
+`func (o *ServiceOffering) GetMaxNumberofInstancesOk() (*int64, bool)`
+
+GetMaxNumberofInstancesOk returns a tuple with the MaxNumberofInstances field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxNumberofInstances
+
+`func (o *ServiceOffering) SetMaxNumberofInstances(v int64)`
+
+SetMaxNumberofInstances sets MaxNumberofInstances field to given value.
+
+### HasMaxNumberofInstances
+
+`func (o *ServiceOffering) HasMaxNumberofInstances() bool`
+
+HasMaxNumberofInstances returns a boolean if a field has been set.
 
 ### GetProductTierDescription
 

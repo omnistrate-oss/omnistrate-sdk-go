@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **InProgressCount** | **int64** | The number of instances that are in progress of the upgrade. | 
 **LastModifiedBy** | Pointer to **string** | The name of the user who created the upgrade path. | [optional] 
 **LastRequestedAction** | Pointer to **string** | The action to perform on an ongoing resource workflow | [optional] 
+**NotifyCustomer** | Pointer to **bool** | Whether to notify the end customer about the upgrade progress. | [optional] 
 **PendingCount** | **int64** | The number of instances that are pending the upgrade. | 
 **PlannedExecutionDate** | Pointer to **string** | The date when the upgrade was/is planned to be executed. | [optional] 
 **ProductTierId** | **string** | ID of a Product Tier | 
@@ -225,6 +226,31 @@ SetLastRequestedAction sets LastRequestedAction field to given value.
 `func (o *UpgradePath) HasLastRequestedAction() bool`
 
 HasLastRequestedAction returns a boolean if a field has been set.
+
+### GetNotifyCustomer
+
+`func (o *UpgradePath) GetNotifyCustomer() bool`
+
+GetNotifyCustomer returns the NotifyCustomer field if non-nil, zero value otherwise.
+
+### GetNotifyCustomerOk
+
+`func (o *UpgradePath) GetNotifyCustomerOk() (*bool, bool)`
+
+GetNotifyCustomerOk returns a tuple with the NotifyCustomer field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotifyCustomer
+
+`func (o *UpgradePath) SetNotifyCustomer(v bool)`
+
+SetNotifyCustomer sets NotifyCustomer field to given value.
+
+### HasNotifyCustomer
+
+`func (o *UpgradePath) HasNotifyCustomer() bool`
+
+HasNotifyCustomer returns a boolean if a field has been set.
 
 ### GetPendingCount
 

@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **InfraConfigId** | Pointer to **string** | ID of an Infra Config | [optional] 
 **Internal** | **bool** | Whether this resource is internal or not | [default to false]
 **IsDeprecated** | **bool** | Whether this resource is deprecated or not | [default to false]
+**JobConfig** | Pointer to [**JobConfig**](JobConfig.md) |  | [optional] 
 **Key** | **string** | The key of the resource | 
 **KustomizeConfiguration** | Pointer to [**KustomizeConfiguration**](KustomizeConfiguration.md) |  | [optional] 
 **L4LoadBalancerConfiguration** | Pointer to [**L4LoadBalancerConfiguration**](L4LoadBalancerConfiguration.md) |  | [optional] 
@@ -482,6 +483,31 @@ and a boolean to check if the value has been set.
 
 SetIsDeprecated sets IsDeprecated field to given value.
 
+
+### GetJobConfig
+
+`func (o *DescribeResourceResult) GetJobConfig() JobConfig`
+
+GetJobConfig returns the JobConfig field if non-nil, zero value otherwise.
+
+### GetJobConfigOk
+
+`func (o *DescribeResourceResult) GetJobConfigOk() (*JobConfig, bool)`
+
+GetJobConfigOk returns a tuple with the JobConfig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetJobConfig
+
+`func (o *DescribeResourceResult) SetJobConfig(v JobConfig)`
+
+SetJobConfig sets JobConfig field to given value.
+
+### HasJobConfig
+
+`func (o *DescribeResourceResult) HasJobConfig() bool`
+
+HasJobConfig returns a boolean if a field has been set.
 
 ### GetKey
 

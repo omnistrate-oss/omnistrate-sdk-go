@@ -31,6 +31,8 @@ type ResourceNetworkTopologyResult struct {
 	CustomDNSEndpoint *CustomDNSEndpoint `json:"customDNSEndpoint,omitempty"`
 	// Whether this resource has associated compute
 	HasCompute bool `json:"hasCompute"`
+	// The job metrics for this resource (if it's a job)
+	JobMetrics []JobMetric `json:"jobMetrics,omitempty"`
 	// Whether this is the main resource
 	Main bool `json:"main"`
 	// The networking type for this resource
@@ -222,6 +224,29 @@ func (o *ResourceNetworkTopologyResult) GetHasComputeOk() (*bool, bool) {
 // SetHasCompute sets field value
 func (o *ResourceNetworkTopologyResult) SetHasCompute(v bool) {
 	o.HasCompute = v
+}
+
+// GetJobMetrics returns the JobMetrics field value if set, zero value otherwise.
+func (o *ResourceNetworkTopologyResult) GetJobMetrics() []JobMetric {
+	if o == nil || IsNil(o.JobMetrics) {
+		var ret []JobMetric
+		return ret
+	}
+	return o.JobMetrics
+}
+
+// GetJobMetricsOk returns a tuple with the JobMetrics field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceNetworkTopologyResult) GetJobMetricsOk() ([]JobMetric, bool) {
+	if o == nil || IsNil(o.JobMetrics) {
+		return nil, false
+	}
+	return o.JobMetrics, true
+}
+
+// SetJobMetrics gets a reference to the given []JobMetric and assigns it to the JobMetrics field.
+func (o *ResourceNetworkTopologyResult) SetJobMetrics(v []JobMetric) {
+	o.JobMetrics = v
 }
 
 // GetMain returns the Main field value
@@ -528,6 +553,9 @@ func (o ResourceNetworkTopologyResult) ToMap() (map[string]interface{}, error) {
 		toSerialize["customDNSEndpoint"] = o.CustomDNSEndpoint
 	}
 	toSerialize["hasCompute"] = o.HasCompute
+	if !IsNil(o.JobMetrics) {
+		toSerialize["jobMetrics"] = o.JobMetrics
+	}
 	toSerialize["main"] = o.Main
 	toSerialize["networkingType"] = o.NetworkingType
 	if !IsNil(o.Nodes) {
@@ -610,6 +638,7 @@ func (o *ResourceNetworkTopologyResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "clusterPorts")
 		delete(additionalProperties, "customDNSEndpoint")
 		delete(additionalProperties, "hasCompute")
+		delete(additionalProperties, "jobMetrics")
 		delete(additionalProperties, "main")
 		delete(additionalProperties, "networkingType")
 		delete(additionalProperties, "nodes")

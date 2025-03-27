@@ -9,6 +9,9 @@ api_availability_zone_api.go
 api_cloud_provider_api.go
 api_compose_gen_api.go
 api_compute_config_api.go
+api_consumption_billing_api.go
+api_consumption_invoice_api.go
+api_consumption_usage_api.go
 api_consumption_user_api.go
 api_contactus_api.go
 api_custom_domain_api.go
@@ -43,6 +46,7 @@ api_signin_api.go
 api_signup_api.go
 api_storage_config_api.go
 api_storage_volume_config_api.go
+api_stripe_connect_api.go
 api_subscription_api.go
 api_subscription_request_api.go
 api_tier_version_set_api.go
@@ -100,11 +104,17 @@ docs/CheckIfContainerImageAccessibleResult.md
 docs/CloudProviderApiAPI.md
 docs/CloudProviderHealthSummary.md
 docs/ClusterEndpoint.md
+docs/CompleteOAuthConnectionRequest.md
+docs/CompleteOAuthConnectionRequest2.md
+docs/CompleteOAuthConnectionResult.md
 docs/ComposeGenApiAPI.md
 docs/ComputeConfigApiAPI.md
 docs/ComputeInstanceTypeConfigOverride.md
+docs/ConsumptionBillingApiAPI.md
+docs/ConsumptionInvoiceApiAPI.md
 docs/ConsumptionServiceAuthRequest.md
 docs/ConsumptionServiceAuthResult.md
+docs/ConsumptionUsageApiAPI.md
 docs/ConsumptionUserApiAPI.md
 docs/ContactusApiAPI.md
 docs/ContactusRequest.md
@@ -254,7 +264,12 @@ docs/DescribeCloudProviderRequest.md
 docs/DescribeCloudProviderResult.md
 docs/DescribeComputeConfigRequest.md
 docs/DescribeComputeConfigResult.md
+docs/DescribeConsumptionBillingDetailsRequest.md
+docs/DescribeConsumptionBillingDetailsResult.md
+docs/DescribeConsumptionBillingStatusRequest.md
+docs/DescribeConsumptionBillingStatusResult.md
 docs/DescribeConsumptionUserBillingDetailsRequest.md
+docs/DescribeConsumptionUserBillingDetailsResult.md
 docs/DescribeCustomDomainRequest.md
 docs/DescribeCustomDomainResult.md
 docs/DescribeCustomNetworkRequest.md
@@ -320,7 +335,6 @@ docs/DescribeSubscriptionResult.md
 docs/DescribeTierVersionSetRequest.md
 docs/DescribeUpgradePathRequest.md
 docs/DescribeUpgradePathResult.md
-docs/DescribeUserBillingDetailsResult.md
 docs/DescribeUserRequest.md
 docs/DescribeUserResult.md
 docs/DescribeUsersByOrgRequest.md
@@ -367,6 +381,9 @@ docs/GenerateTokenForDeploymentCellDashboardRequest.md
 docs/GenerateTokenForDeploymentCellDashboardResult.md
 docs/GetAvailabilityZoneByCodeRequest.md
 docs/GetCloudProviderByNameRequest.md
+docs/GetConsumptionUsageRequest.md
+docs/GetConsumptionUsageResult.md
+docs/GetCurrentConsumptionUsageRequest.md
 docs/GetCurrentUsageRequest.md
 docs/GetFileRequest.md
 docs/GetRegionByCodeRequest.md
@@ -398,6 +415,8 @@ docs/InviteUserRequest.md
 docs/InviteUserRequest2.md
 docs/Invoice.md
 docs/InvoiceApiAPI.md
+docs/JobConfig.md
+docs/JobMetric.md
 docs/KubernetesDashboardEndpoint.md
 docs/KustomizeConfiguration.md
 docs/L4LoadBalancerConfiguration.md
@@ -595,6 +614,7 @@ docs/RestoreResourceInstanceRequest.md
 docs/RestoreResourceInstanceRequest2.md
 docs/RevokeConsumptionUserRoleRequest.md
 docs/RevokeConsumptionUserRoleRequest2.md
+docs/RevokeOAuthAccessRequest.md
 docs/RevokeUserRoleRequest.md
 docs/RevokeUserRoleRequest2.md
 docs/RolloutFleetImageConfigRequest.md
@@ -640,6 +660,9 @@ docs/StartResourceInstanceRequest.md
 docs/StopResourceInstanceRequest.md
 docs/StorageConfigApiAPI.md
 docs/StorageVolumeConfigApiAPI.md
+docs/StripeAuthorizeURLRequest.md
+docs/StripeAuthorizeURLResult.md
+docs/StripeConnectApiAPI.md
 docs/SubscriptionApiAPI.md
 docs/SubscriptionLicense.md
 docs/SubscriptionRequestApiAPI.md
@@ -650,6 +673,8 @@ docs/TierVersionSet.md
 docs/TierVersionSetApiAPI.md
 docs/UnsetEnvironmentVariablesRequest.md
 docs/UnsetEnvironmentVariablesRequest2.md
+docs/UpdateAccountConfigResourceInstanceRequest.md
+docs/UpdateAccountConfigResourceInstanceRequest2.md
 docs/UpdateComputeConfigRequest.md
 docs/UpdateComputeConfigRequest2.md
 docs/UpdateCustomNetworkRequest.md
@@ -767,6 +792,9 @@ model_check_if_container_image_accessible_request.go
 model_check_if_container_image_accessible_result.go
 model_cloud_provider_health_summary.go
 model_cluster_endpoint.go
+model_complete_o_auth_connection_request.go
+model_complete_o_auth_connection_request2.go
+model_complete_o_auth_connection_result.go
 model_compute_instance_type_config_override.go
 model_consumption_service_auth_request.go
 model_consumption_service_auth_result.go
@@ -913,7 +941,12 @@ model_describe_cloud_provider_request.go
 model_describe_cloud_provider_result.go
 model_describe_compute_config_request.go
 model_describe_compute_config_result.go
+model_describe_consumption_billing_details_request.go
+model_describe_consumption_billing_details_result.go
+model_describe_consumption_billing_status_request.go
+model_describe_consumption_billing_status_result.go
 model_describe_consumption_user_billing_details_request.go
+model_describe_consumption_user_billing_details_result.go
 model_describe_custom_domain_request.go
 model_describe_custom_domain_result.go
 model_describe_custom_network_request.go
@@ -979,7 +1012,6 @@ model_describe_subscription_result.go
 model_describe_tier_version_set_request.go
 model_describe_upgrade_path_request.go
 model_describe_upgrade_path_result.go
-model_describe_user_billing_details_result.go
 model_describe_user_request.go
 model_describe_user_result.go
 model_describe_users_by_org_request.go
@@ -1026,6 +1058,9 @@ model_generate_token_for_deployment_cell_dashboard_request.go
 model_generate_token_for_deployment_cell_dashboard_result.go
 model_get_availability_zone_by_code_request.go
 model_get_cloud_provider_by_name_request.go
+model_get_consumption_usage_request.go
+model_get_consumption_usage_result.go
+model_get_current_consumption_usage_request.go
 model_get_current_usage_request.go
 model_get_file_request.go
 model_get_region_by_code_request.go
@@ -1049,6 +1084,8 @@ model_invite_consumption_user_request2.go
 model_invite_user_request.go
 model_invite_user_request2.go
 model_invoice.go
+model_job_config.go
+model_job_metric.go
 model_kubernetes_dashboard_endpoint.go
 model_kustomize_configuration.go
 model_l4_load_balancer_configuration.go
@@ -1238,6 +1275,7 @@ model_restore_resource_instance_request.go
 model_restore_resource_instance_request2.go
 model_revoke_consumption_user_role_request.go
 model_revoke_consumption_user_role_request2.go
+model_revoke_o_auth_access_request.go
 model_revoke_user_role_request.go
 model_revoke_user_role_request2.go
 model_rollout_fleet_image_config_request.go
@@ -1271,6 +1309,8 @@ model_signin_result.go
 model_signup_request.go
 model_start_resource_instance_request.go
 model_stop_resource_instance_request.go
+model_stripe_authorize_url_request.go
+model_stripe_authorize_url_result.go
 model_subscription_license.go
 model_subscription_users.go
 model_terraform_configuration.go
@@ -1278,6 +1318,8 @@ model_terraform_output.go
 model_tier_version_set.go
 model_unset_environment_variables_request.go
 model_unset_environment_variables_request2.go
+model_update_account_config_resource_instance_request.go
+model_update_account_config_resource_instance_request2.go
 model_update_compute_config_request.go
 model_update_compute_config_request2.go
 model_update_custom_network_request.go
@@ -1353,6 +1395,9 @@ test/api_availability_zone_api_test.go
 test/api_cloud_provider_api_test.go
 test/api_compose_gen_api_test.go
 test/api_compute_config_api_test.go
+test/api_consumption_billing_api_test.go
+test/api_consumption_invoice_api_test.go
+test/api_consumption_usage_api_test.go
 test/api_consumption_user_api_test.go
 test/api_contactus_api_test.go
 test/api_custom_domain_api_test.go
@@ -1387,6 +1432,7 @@ test/api_signin_api_test.go
 test/api_signup_api_test.go
 test/api_storage_config_api_test.go
 test/api_storage_volume_config_api_test.go
+test/api_stripe_connect_api_test.go
 test/api_subscription_api_test.go
 test/api_subscription_request_api_test.go
 test/api_tier_version_set_api_test.go

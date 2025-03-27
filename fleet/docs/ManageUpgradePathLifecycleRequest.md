@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | **string** | The action to perform on an ongoing resource workflow | 
+**ActionPayload** | Pointer to **map[string]interface{}** | The action payload to perform on the upgrade path. | [optional] 
 **ProductTierId** | **string** | ID of a Product Tier | 
 **ServiceId** | **string** | ID of a Service | 
 **Token** | **string** | JWT token used to perform authorization | 
@@ -48,6 +49,31 @@ and a boolean to check if the value has been set.
 
 SetAction sets Action field to given value.
 
+
+### GetActionPayload
+
+`func (o *ManageUpgradePathLifecycleRequest) GetActionPayload() map[string]interface{}`
+
+GetActionPayload returns the ActionPayload field if non-nil, zero value otherwise.
+
+### GetActionPayloadOk
+
+`func (o *ManageUpgradePathLifecycleRequest) GetActionPayloadOk() (*map[string]interface{}, bool)`
+
+GetActionPayloadOk returns a tuple with the ActionPayload field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActionPayload
+
+`func (o *ManageUpgradePathLifecycleRequest) SetActionPayload(v map[string]interface{})`
+
+SetActionPayload sets ActionPayload field to given value.
+
+### HasActionPayload
+
+`func (o *ManageUpgradePathLifecycleRequest) HasActionPayload() bool`
+
+HasActionPayload returns a boolean if a field has been set.
 
 ### GetProductTierId
 

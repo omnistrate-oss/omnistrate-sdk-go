@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**NotifyCustomer** | Pointer to **bool** | Whether to notify the end customer about the upgrade progress. | [optional] 
 **ScheduledDate** | Pointer to **string** | The future date when the upgrade is planned to be executed. Empty for immediate upgrade. | [optional] 
 **SourceVersion** | **string** | The source version of the upgrade path. | 
 **TargetVersion** | **string** | The target version of the upgrade path. | 
@@ -27,6 +28,31 @@ will change when the set of required properties is changed
 NewCreateUpgradePathRequest2WithDefaults instantiates a new CreateUpgradePathRequest2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetNotifyCustomer
+
+`func (o *CreateUpgradePathRequest2) GetNotifyCustomer() bool`
+
+GetNotifyCustomer returns the NotifyCustomer field if non-nil, zero value otherwise.
+
+### GetNotifyCustomerOk
+
+`func (o *CreateUpgradePathRequest2) GetNotifyCustomerOk() (*bool, bool)`
+
+GetNotifyCustomerOk returns a tuple with the NotifyCustomer field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotifyCustomer
+
+`func (o *CreateUpgradePathRequest2) SetNotifyCustomer(v bool)`
+
+SetNotifyCustomer sets NotifyCustomer field to given value.
+
+### HasNotifyCustomer
+
+`func (o *CreateUpgradePathRequest2) HasNotifyCustomer() bool`
+
+HasNotifyCustomer returns a boolean if a field has been set.
 
 ### GetScheduledDate
 

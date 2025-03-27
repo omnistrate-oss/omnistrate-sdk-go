@@ -5,12 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EnvironmentId** | **string** | ID of a Service Environment | 
+**EnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
 **NextPageToken** | Pointer to **string** | Token to use for the next request | [optional] 
+**OrgId** | Pointer to **string** | ID of an Org | [optional] 
 **PageSize** | Pointer to **int64** | The number of resources to return per page. | [optional] 
 **ProductTierId** | **string** | ID of a Product Tier | 
 **ServiceId** | **string** | ID of a Service | 
 **ServiceModelId** | **string** | ID of a Service Model | 
 **Token** | **string** | JWT token used to perform authorization | 
+**UserId** | Pointer to **string** | ID of a User | [optional] 
 
 ## Methods
 
@@ -51,6 +54,31 @@ and a boolean to check if the value has been set.
 SetEnvironmentId sets EnvironmentId field to given value.
 
 
+### GetEnvironmentType
+
+`func (o *ListResourcesRequest) GetEnvironmentType() string`
+
+GetEnvironmentType returns the EnvironmentType field if non-nil, zero value otherwise.
+
+### GetEnvironmentTypeOk
+
+`func (o *ListResourcesRequest) GetEnvironmentTypeOk() (*string, bool)`
+
+GetEnvironmentTypeOk returns a tuple with the EnvironmentType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnvironmentType
+
+`func (o *ListResourcesRequest) SetEnvironmentType(v string)`
+
+SetEnvironmentType sets EnvironmentType field to given value.
+
+### HasEnvironmentType
+
+`func (o *ListResourcesRequest) HasEnvironmentType() bool`
+
+HasEnvironmentType returns a boolean if a field has been set.
+
 ### GetNextPageToken
 
 `func (o *ListResourcesRequest) GetNextPageToken() string`
@@ -75,6 +103,31 @@ SetNextPageToken sets NextPageToken field to given value.
 `func (o *ListResourcesRequest) HasNextPageToken() bool`
 
 HasNextPageToken returns a boolean if a field has been set.
+
+### GetOrgId
+
+`func (o *ListResourcesRequest) GetOrgId() string`
+
+GetOrgId returns the OrgId field if non-nil, zero value otherwise.
+
+### GetOrgIdOk
+
+`func (o *ListResourcesRequest) GetOrgIdOk() (*string, bool)`
+
+GetOrgIdOk returns a tuple with the OrgId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrgId
+
+`func (o *ListResourcesRequest) SetOrgId(v string)`
+
+SetOrgId sets OrgId field to given value.
+
+### HasOrgId
+
+`func (o *ListResourcesRequest) HasOrgId() bool`
+
+HasOrgId returns a boolean if a field has been set.
 
 ### GetPageSize
 
@@ -180,6 +233,31 @@ and a boolean to check if the value has been set.
 
 SetToken sets Token field to given value.
 
+
+### GetUserId
+
+`func (o *ListResourcesRequest) GetUserId() string`
+
+GetUserId returns the UserId field if non-nil, zero value otherwise.
+
+### GetUserIdOk
+
+`func (o *ListResourcesRequest) GetUserIdOk() (*string, bool)`
+
+GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserId
+
+`func (o *ListResourcesRequest) SetUserId(v string)`
+
+SetUserId sets UserId field to given value.
+
+### HasUserId
+
+`func (o *ListResourcesRequest) HasUserId() bool`
+
+HasUserId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

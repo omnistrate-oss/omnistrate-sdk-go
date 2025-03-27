@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | **string** | The action to perform on the upgrade path. | 
+**ActionPayload** | Pointer to **map[string]interface{}** | The action payload to perform on the upgrade path. | [optional] 
 
 ## Methods
 
@@ -44,6 +45,31 @@ and a boolean to check if the value has been set.
 
 SetAction sets Action field to given value.
 
+
+### GetActionPayload
+
+`func (o *ManageUpgradePathLifecycleRequest2) GetActionPayload() map[string]interface{}`
+
+GetActionPayload returns the ActionPayload field if non-nil, zero value otherwise.
+
+### GetActionPayloadOk
+
+`func (o *ManageUpgradePathLifecycleRequest2) GetActionPayloadOk() (*map[string]interface{}, bool)`
+
+GetActionPayloadOk returns a tuple with the ActionPayload field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActionPayload
+
+`func (o *ManageUpgradePathLifecycleRequest2) SetActionPayload(v map[string]interface{})`
+
+SetActionPayload sets ActionPayload field to given value.
+
+### HasActionPayload
+
+`func (o *ManageUpgradePathLifecycleRequest2) HasActionPayload() bool`
+
+HasActionPayload returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -7,7 +7,8 @@ Name | Type | Description | Notes
 **Currency** | Pointer to **string** | The currency of the charge | [optional] 
 **InvoiceDate** | Pointer to **string** | Date of the invoice | [optional] 
 **InvoiceId** | Pointer to **string** | ID of the invoice | [optional] 
-**InvoicePaymentTerm** | Pointer to **string** | Invoice Payment Term | [optional] 
+**InvoiceNumber** | Pointer to **string** | The invoice number | [optional] 
+**InvoicePdf** | Pointer to **string** | URL for the PDF of the invoice | [optional] 
 **InvoiceStatus** | Pointer to **string** | This describes the status of the invoice and is set by the payment provider | [optional] 
 **InvoiceUrl** | Pointer to **string** | URL for this invoice | [optional] 
 **TaxAmount** | Pointer to **float64** | Amount of tax, if any | [optional] 
@@ -108,30 +109,55 @@ SetInvoiceId sets InvoiceId field to given value.
 
 HasInvoiceId returns a boolean if a field has been set.
 
-### GetInvoicePaymentTerm
+### GetInvoiceNumber
 
-`func (o *Invoice) GetInvoicePaymentTerm() string`
+`func (o *Invoice) GetInvoiceNumber() string`
 
-GetInvoicePaymentTerm returns the InvoicePaymentTerm field if non-nil, zero value otherwise.
+GetInvoiceNumber returns the InvoiceNumber field if non-nil, zero value otherwise.
 
-### GetInvoicePaymentTermOk
+### GetInvoiceNumberOk
 
-`func (o *Invoice) GetInvoicePaymentTermOk() (*string, bool)`
+`func (o *Invoice) GetInvoiceNumberOk() (*string, bool)`
 
-GetInvoicePaymentTermOk returns a tuple with the InvoicePaymentTerm field if it's non-nil, zero value otherwise
+GetInvoiceNumberOk returns a tuple with the InvoiceNumber field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetInvoicePaymentTerm
+### SetInvoiceNumber
 
-`func (o *Invoice) SetInvoicePaymentTerm(v string)`
+`func (o *Invoice) SetInvoiceNumber(v string)`
 
-SetInvoicePaymentTerm sets InvoicePaymentTerm field to given value.
+SetInvoiceNumber sets InvoiceNumber field to given value.
 
-### HasInvoicePaymentTerm
+### HasInvoiceNumber
 
-`func (o *Invoice) HasInvoicePaymentTerm() bool`
+`func (o *Invoice) HasInvoiceNumber() bool`
 
-HasInvoicePaymentTerm returns a boolean if a field has been set.
+HasInvoiceNumber returns a boolean if a field has been set.
+
+### GetInvoicePdf
+
+`func (o *Invoice) GetInvoicePdf() string`
+
+GetInvoicePdf returns the InvoicePdf field if non-nil, zero value otherwise.
+
+### GetInvoicePdfOk
+
+`func (o *Invoice) GetInvoicePdfOk() (*string, bool)`
+
+GetInvoicePdfOk returns a tuple with the InvoicePdf field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInvoicePdf
+
+`func (o *Invoice) SetInvoicePdf(v string)`
+
+SetInvoicePdf sets InvoicePdf field to given value.
+
+### HasInvoicePdf
+
+`func (o *Invoice) HasInvoicePdf() bool`
+
+HasInvoicePdf returns a boolean if a field has been set.
 
 ### GetInvoiceStatus
 

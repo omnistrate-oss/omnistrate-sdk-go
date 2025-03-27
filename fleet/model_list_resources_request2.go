@@ -19,10 +19,16 @@ var _ MappedNullable = &ListResourcesRequest2{}
 
 // ListResourcesRequest2 struct for ListResourcesRequest2
 type ListResourcesRequest2 struct {
+	// Filter resources by environment type.
+	EnvironmentType *string `json:"environmentType,omitempty"`
 	// Token to use for the next request
 	NextPageToken *string `json:"nextPageToken,omitempty"`
+	// Filter resources by organization ID.
+	OrgId *string `json:"orgId,omitempty"`
 	// The number of resources to return per page.
 	PageSize *int64 `json:"pageSize,omitempty"`
+	// Filter resources by user ID.
+	UserId *string `json:"userId,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -43,6 +49,38 @@ func NewListResourcesRequest2() *ListResourcesRequest2 {
 func NewListResourcesRequest2WithDefaults() *ListResourcesRequest2 {
 	this := ListResourcesRequest2{}
 	return &this
+}
+
+// GetEnvironmentType returns the EnvironmentType field value if set, zero value otherwise.
+func (o *ListResourcesRequest2) GetEnvironmentType() string {
+	if o == nil || IsNil(o.EnvironmentType) {
+		var ret string
+		return ret
+	}
+	return *o.EnvironmentType
+}
+
+// GetEnvironmentTypeOk returns a tuple with the EnvironmentType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListResourcesRequest2) GetEnvironmentTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.EnvironmentType) {
+		return nil, false
+	}
+	return o.EnvironmentType, true
+}
+
+// HasEnvironmentType returns a boolean if a field has been set.
+func (o *ListResourcesRequest2) HasEnvironmentType() bool {
+	if o != nil && !IsNil(o.EnvironmentType) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnvironmentType gets a reference to the given string and assigns it to the EnvironmentType field.
+func (o *ListResourcesRequest2) SetEnvironmentType(v string) {
+	o.EnvironmentType = &v
 }
 
 // GetNextPageToken returns the NextPageToken field value if set, zero value otherwise.
@@ -77,6 +115,38 @@ func (o *ListResourcesRequest2) SetNextPageToken(v string) {
 	o.NextPageToken = &v
 }
 
+// GetOrgId returns the OrgId field value if set, zero value otherwise.
+func (o *ListResourcesRequest2) GetOrgId() string {
+	if o == nil || IsNil(o.OrgId) {
+		var ret string
+		return ret
+	}
+	return *o.OrgId
+}
+
+// GetOrgIdOk returns a tuple with the OrgId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListResourcesRequest2) GetOrgIdOk() (*string, bool) {
+	if o == nil || IsNil(o.OrgId) {
+		return nil, false
+	}
+	return o.OrgId, true
+}
+
+// HasOrgId returns a boolean if a field has been set.
+func (o *ListResourcesRequest2) HasOrgId() bool {
+	if o != nil && !IsNil(o.OrgId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgId gets a reference to the given string and assigns it to the OrgId field.
+func (o *ListResourcesRequest2) SetOrgId(v string) {
+	o.OrgId = &v
+}
+
 // GetPageSize returns the PageSize field value if set, zero value otherwise.
 func (o *ListResourcesRequest2) GetPageSize() int64 {
 	if o == nil || IsNil(o.PageSize) {
@@ -109,6 +179,38 @@ func (o *ListResourcesRequest2) SetPageSize(v int64) {
 	o.PageSize = &v
 }
 
+// GetUserId returns the UserId field value if set, zero value otherwise.
+func (o *ListResourcesRequest2) GetUserId() string {
+	if o == nil || IsNil(o.UserId) {
+		var ret string
+		return ret
+	}
+	return *o.UserId
+}
+
+// GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListResourcesRequest2) GetUserIdOk() (*string, bool) {
+	if o == nil || IsNil(o.UserId) {
+		return nil, false
+	}
+	return o.UserId, true
+}
+
+// HasUserId returns a boolean if a field has been set.
+func (o *ListResourcesRequest2) HasUserId() bool {
+	if o != nil && !IsNil(o.UserId) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserId gets a reference to the given string and assigns it to the UserId field.
+func (o *ListResourcesRequest2) SetUserId(v string) {
+	o.UserId = &v
+}
+
 func (o ListResourcesRequest2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -119,11 +221,20 @@ func (o ListResourcesRequest2) MarshalJSON() ([]byte, error) {
 
 func (o ListResourcesRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.EnvironmentType) {
+		toSerialize["environmentType"] = o.EnvironmentType
+	}
 	if !IsNil(o.NextPageToken) {
 		toSerialize["nextPageToken"] = o.NextPageToken
 	}
+	if !IsNil(o.OrgId) {
+		toSerialize["orgId"] = o.OrgId
+	}
 	if !IsNil(o.PageSize) {
 		toSerialize["pageSize"] = o.PageSize
+	}
+	if !IsNil(o.UserId) {
+		toSerialize["userId"] = o.UserId
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -147,8 +258,11 @@ func (o *ListResourcesRequest2) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "environmentType")
 		delete(additionalProperties, "nextPageToken")
+		delete(additionalProperties, "orgId")
 		delete(additionalProperties, "pageSize")
+		delete(additionalProperties, "userId")
 		o.AdditionalProperties = additionalProperties
 	}
 

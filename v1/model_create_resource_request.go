@@ -43,6 +43,7 @@ type CreateResourceRequest struct {
 	Internal *bool `json:"internal,omitempty"`
 	// Whether this resource is a proxy or not
 	IsProxy *bool `json:"isProxy,omitempty"`
+	JobConfig *JobConfig `json:"jobConfig,omitempty"`
 	// The key of the resource
 	Key *string `json:"key,omitempty"`
 	KustomizeConfiguration *KustomizeConfiguration `json:"kustomizeConfiguration,omitempty"`
@@ -426,6 +427,29 @@ func (o *CreateResourceRequest) SetIsProxy(v bool) {
 	o.IsProxy = &v
 }
 
+// GetJobConfig returns the JobConfig field value if set, zero value otherwise.
+func (o *CreateResourceRequest) GetJobConfig() JobConfig {
+	if o == nil || IsNil(o.JobConfig) {
+		var ret JobConfig
+		return ret
+	}
+	return *o.JobConfig
+}
+
+// GetJobConfigOk returns a tuple with the JobConfig field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateResourceRequest) GetJobConfigOk() (*JobConfig, bool) {
+	if o == nil || IsNil(o.JobConfig) {
+		return nil, false
+	}
+	return o.JobConfig, true
+}
+
+// SetJobConfig gets a reference to the given JobConfig and assigns it to the JobConfig field.
+func (o *CreateResourceRequest) SetJobConfig(v JobConfig) {
+	o.JobConfig = &v
+}
+
 // GetKey returns the Key field value if set, zero value otherwise.
 func (o *CreateResourceRequest) GetKey() string {
 	if o == nil || IsNil(o.Key) {
@@ -779,6 +803,9 @@ func (o CreateResourceRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsProxy) {
 		toSerialize["isProxy"] = o.IsProxy
 	}
+	if !IsNil(o.JobConfig) {
+		toSerialize["jobConfig"] = o.JobConfig
+	}
 	if !IsNil(o.Key) {
 		toSerialize["key"] = o.Key
 	}
@@ -871,6 +898,7 @@ func (o *CreateResourceRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "infraConfigId")
 		delete(additionalProperties, "internal")
 		delete(additionalProperties, "isProxy")
+		delete(additionalProperties, "jobConfig")
 		delete(additionalProperties, "key")
 		delete(additionalProperties, "kustomizeConfiguration")
 		delete(additionalProperties, "l4LoadBalancerConfiguration")
