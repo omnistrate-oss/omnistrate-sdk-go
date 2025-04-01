@@ -38,7 +38,7 @@ jobs:
         run: make build
 
       - name: Create PR
-        uses: peter-evans/create-pull-request@dd2324fc52d5d43c699a5636bcf19fceaa70c284
+        uses: peter-evans/create-pull-request@4e1beaa7521e8b457b572c090b25bd3db56bf1c5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: 'chore: update SDK'
