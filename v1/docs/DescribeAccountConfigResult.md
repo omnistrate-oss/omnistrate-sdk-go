@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **CloudProviderId** | **string** | ID of an CloudProvider | 
 **Description** | **string** | The description for the account | 
 **GcpBootstrapShellCommand** | Pointer to **string** | The GCP bootstrap shell command | [optional] 
+**GcpDisconnectShellCommand** | Pointer to **string** | The GCP disconnect shell command | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **GcpProjectNumber** | Pointer to **string** | The GCP project number | [optional] 
 **GcpServiceAccountEmail** | Pointer to **string** | The GCP service account email | [optional] 
@@ -306,6 +307,31 @@ SetGcpBootstrapShellCommand sets GcpBootstrapShellCommand field to given value.
 `func (o *DescribeAccountConfigResult) HasGcpBootstrapShellCommand() bool`
 
 HasGcpBootstrapShellCommand returns a boolean if a field has been set.
+
+### GetGcpDisconnectShellCommand
+
+`func (o *DescribeAccountConfigResult) GetGcpDisconnectShellCommand() string`
+
+GetGcpDisconnectShellCommand returns the GcpDisconnectShellCommand field if non-nil, zero value otherwise.
+
+### GetGcpDisconnectShellCommandOk
+
+`func (o *DescribeAccountConfigResult) GetGcpDisconnectShellCommandOk() (*string, bool)`
+
+GetGcpDisconnectShellCommandOk returns a tuple with the GcpDisconnectShellCommand field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGcpDisconnectShellCommand
+
+`func (o *DescribeAccountConfigResult) SetGcpDisconnectShellCommand(v string)`
+
+SetGcpDisconnectShellCommand sets GcpDisconnectShellCommand field to given value.
+
+### HasGcpDisconnectShellCommand
+
+`func (o *DescribeAccountConfigResult) HasGcpDisconnectShellCommand() bool`
+
+HasGcpDisconnectShellCommand returns a boolean if a field has been set.
 
 ### GetGcpProjectID
 

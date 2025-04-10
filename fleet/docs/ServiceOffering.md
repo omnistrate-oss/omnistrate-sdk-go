@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AutoApproveSubscription** | **bool** | Auto approve subscription or not | 
+**AllowCreatesWhenPaymentNotConfigured** | Pointer to **bool** | Allow creates when payment not configured | [optional] 
 **Assets** | Pointer to [**ServiceAssets**](ServiceAssets.md) |  | [optional] 
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this service offering is available on | [optional] 
 **AzureRegions** | Pointer to **[]string** | The Azure regions that this service offering is available on | [optional] 
-**BillingPlans** | Pointer to [**[]OfferingBillingPlan**](OfferingBillingPlan.md) | Deprecated. List of billing plans for this product tier. | [optional] 
 **CloudProviders** | Pointer to **[]string** | List of supported cloud providers for this product tier. | [optional] 
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this service offering is available on | [optional] 
-**MaxNumberofInstances** | Pointer to **int64** | Maximum number of instances | [optional] 
+**MaxNumberOfInstances** | Pointer to **int64** | Maximum number of instances | [optional] 
 **ProductTierDescription** | Pointer to **string** | A brief description of the product tier | [optional] 
 **ProductTierDocumentation** | **string** | Documentation | 
 **ProductTierID** | **string** | ID of a Product Tier | 
@@ -77,6 +77,31 @@ and a boolean to check if the value has been set.
 
 SetAutoApproveSubscription sets AutoApproveSubscription field to given value.
 
+
+### GetAllowCreatesWhenPaymentNotConfigured
+
+`func (o *ServiceOffering) GetAllowCreatesWhenPaymentNotConfigured() bool`
+
+GetAllowCreatesWhenPaymentNotConfigured returns the AllowCreatesWhenPaymentNotConfigured field if non-nil, zero value otherwise.
+
+### GetAllowCreatesWhenPaymentNotConfiguredOk
+
+`func (o *ServiceOffering) GetAllowCreatesWhenPaymentNotConfiguredOk() (*bool, bool)`
+
+GetAllowCreatesWhenPaymentNotConfiguredOk returns a tuple with the AllowCreatesWhenPaymentNotConfigured field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowCreatesWhenPaymentNotConfigured
+
+`func (o *ServiceOffering) SetAllowCreatesWhenPaymentNotConfigured(v bool)`
+
+SetAllowCreatesWhenPaymentNotConfigured sets AllowCreatesWhenPaymentNotConfigured field to given value.
+
+### HasAllowCreatesWhenPaymentNotConfigured
+
+`func (o *ServiceOffering) HasAllowCreatesWhenPaymentNotConfigured() bool`
+
+HasAllowCreatesWhenPaymentNotConfigured returns a boolean if a field has been set.
 
 ### GetAssets
 
@@ -153,31 +178,6 @@ SetAzureRegions sets AzureRegions field to given value.
 
 HasAzureRegions returns a boolean if a field has been set.
 
-### GetBillingPlans
-
-`func (o *ServiceOffering) GetBillingPlans() []OfferingBillingPlan`
-
-GetBillingPlans returns the BillingPlans field if non-nil, zero value otherwise.
-
-### GetBillingPlansOk
-
-`func (o *ServiceOffering) GetBillingPlansOk() (*[]OfferingBillingPlan, bool)`
-
-GetBillingPlansOk returns a tuple with the BillingPlans field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBillingPlans
-
-`func (o *ServiceOffering) SetBillingPlans(v []OfferingBillingPlan)`
-
-SetBillingPlans sets BillingPlans field to given value.
-
-### HasBillingPlans
-
-`func (o *ServiceOffering) HasBillingPlans() bool`
-
-HasBillingPlans returns a boolean if a field has been set.
-
 ### GetCloudProviders
 
 `func (o *ServiceOffering) GetCloudProviders() []string`
@@ -228,30 +228,30 @@ SetGcpRegions sets GcpRegions field to given value.
 
 HasGcpRegions returns a boolean if a field has been set.
 
-### GetMaxNumberofInstances
+### GetMaxNumberOfInstances
 
-`func (o *ServiceOffering) GetMaxNumberofInstances() int64`
+`func (o *ServiceOffering) GetMaxNumberOfInstances() int64`
 
-GetMaxNumberofInstances returns the MaxNumberofInstances field if non-nil, zero value otherwise.
+GetMaxNumberOfInstances returns the MaxNumberOfInstances field if non-nil, zero value otherwise.
 
-### GetMaxNumberofInstancesOk
+### GetMaxNumberOfInstancesOk
 
-`func (o *ServiceOffering) GetMaxNumberofInstancesOk() (*int64, bool)`
+`func (o *ServiceOffering) GetMaxNumberOfInstancesOk() (*int64, bool)`
 
-GetMaxNumberofInstancesOk returns a tuple with the MaxNumberofInstances field if it's non-nil, zero value otherwise
+GetMaxNumberOfInstancesOk returns a tuple with the MaxNumberOfInstances field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMaxNumberofInstances
+### SetMaxNumberOfInstances
 
-`func (o *ServiceOffering) SetMaxNumberofInstances(v int64)`
+`func (o *ServiceOffering) SetMaxNumberOfInstances(v int64)`
 
-SetMaxNumberofInstances sets MaxNumberofInstances field to given value.
+SetMaxNumberOfInstances sets MaxNumberOfInstances field to given value.
 
-### HasMaxNumberofInstances
+### HasMaxNumberOfInstances
 
-`func (o *ServiceOffering) HasMaxNumberofInstances() bool`
+`func (o *ServiceOffering) HasMaxNumberOfInstances() bool`
 
-HasMaxNumberofInstances returns a boolean if a field has been set.
+HasMaxNumberOfInstances returns a boolean if a field has been set.
 
 ### GetProductTierDescription
 

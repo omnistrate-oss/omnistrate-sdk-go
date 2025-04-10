@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **ExportUsageMeteringConfig** | Pointer to **map[string]interface{}** | Export usage metering data configuration | [optional] 
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this product tier is available on | [optional] 
 **IsDisabled** | Pointer to **bool** | Update the product tier&#39;s state as enabled/disabled. Enabling the product tier will let end-customers subscribe and use the service plan. | [optional] 
-**MaxNumberOfInstances** | Pointer to **int64** | Maximum number of instances | [optional] 
+**MaxNumberOfInstances** | Pointer to **int64** | Maximum number of instances. Set to -1 for unlimited. | [optional] 
 **Name** | Pointer to **string** | Name of the product tier | [optional] 
 **PlanDescription** | Pointer to **string** | A brief description for the end user of the product tier | [optional] 
 **PricePerUnit** | Pointer to **map[string]interface{}** | Price per unit. | [optional] 

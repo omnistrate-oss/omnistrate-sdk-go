@@ -42,7 +42,7 @@ type UpdateProductTierRequest struct {
 	Id string `json:"id"`
 	// Update the product tier's state as enabled/disabled. Enabling the product tier will let end-customers subscribe and use the service plan.
 	IsDisabled *bool `json:"isDisabled,omitempty"`
-	// Maximum number of instances
+	// Maximum number of instances. Set to -1 for unlimited.
 	MaxNumberOfInstances *int64 `json:"maxNumberOfInstances,omitempty"`
 	// Name of the product tier
 	Name *string `json:"name,omitempty"`

@@ -21,16 +21,12 @@ var _ MappedNullable = &Organization{}
 type Organization struct {
 	// Email address to reach for support-related queries.
 	Email *string `json:"email,omitempty"`
-	// ID of a Service Environment
-	EnvironmentId *string `json:"environmentId,omitempty"`
 	// ID of an Org
 	OrgId *string `json:"orgId,omitempty"`
 	// The organization name.
 	OrgName *string `json:"orgName,omitempty"`
 	// The organization's URL.
 	OrgUrl *string `json:"orgUrl,omitempty"`
-	// ID of a Service
-	ServiceId *string `json:"serviceId,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -83,38 +79,6 @@ func (o *Organization) HasEmail() bool {
 // SetEmail gets a reference to the given string and assigns it to the Email field.
 func (o *Organization) SetEmail(v string) {
 	o.Email = &v
-}
-
-// GetEnvironmentId returns the EnvironmentId field value if set, zero value otherwise.
-func (o *Organization) GetEnvironmentId() string {
-	if o == nil || IsNil(o.EnvironmentId) {
-		var ret string
-		return ret
-	}
-	return *o.EnvironmentId
-}
-
-// GetEnvironmentIdOk returns a tuple with the EnvironmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Organization) GetEnvironmentIdOk() (*string, bool) {
-	if o == nil || IsNil(o.EnvironmentId) {
-		return nil, false
-	}
-	return o.EnvironmentId, true
-}
-
-// HasEnvironmentId returns a boolean if a field has been set.
-func (o *Organization) HasEnvironmentId() bool {
-	if o != nil && !IsNil(o.EnvironmentId) {
-		return true
-	}
-
-	return false
-}
-
-// SetEnvironmentId gets a reference to the given string and assigns it to the EnvironmentId field.
-func (o *Organization) SetEnvironmentId(v string) {
-	o.EnvironmentId = &v
 }
 
 // GetOrgId returns the OrgId field value if set, zero value otherwise.
@@ -213,38 +177,6 @@ func (o *Organization) SetOrgUrl(v string) {
 	o.OrgUrl = &v
 }
 
-// GetServiceId returns the ServiceId field value if set, zero value otherwise.
-func (o *Organization) GetServiceId() string {
-	if o == nil || IsNil(o.ServiceId) {
-		var ret string
-		return ret
-	}
-	return *o.ServiceId
-}
-
-// GetServiceIdOk returns a tuple with the ServiceId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Organization) GetServiceIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ServiceId) {
-		return nil, false
-	}
-	return o.ServiceId, true
-}
-
-// HasServiceId returns a boolean if a field has been set.
-func (o *Organization) HasServiceId() bool {
-	if o != nil && !IsNil(o.ServiceId) {
-		return true
-	}
-
-	return false
-}
-
-// SetServiceId gets a reference to the given string and assigns it to the ServiceId field.
-func (o *Organization) SetServiceId(v string) {
-	o.ServiceId = &v
-}
-
 func (o Organization) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -258,9 +190,6 @@ func (o Organization) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Email) {
 		toSerialize["email"] = o.Email
 	}
-	if !IsNil(o.EnvironmentId) {
-		toSerialize["environmentId"] = o.EnvironmentId
-	}
 	if !IsNil(o.OrgId) {
 		toSerialize["orgId"] = o.OrgId
 	}
@@ -269,9 +198,6 @@ func (o Organization) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.OrgUrl) {
 		toSerialize["orgUrl"] = o.OrgUrl
-	}
-	if !IsNil(o.ServiceId) {
-		toSerialize["serviceId"] = o.ServiceId
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -296,11 +222,9 @@ func (o *Organization) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "email")
-		delete(additionalProperties, "environmentId")
 		delete(additionalProperties, "orgId")
 		delete(additionalProperties, "orgName")
 		delete(additionalProperties, "orgUrl")
-		delete(additionalProperties, "serviceId")
 		o.AdditionalProperties = additionalProperties
 	}
 

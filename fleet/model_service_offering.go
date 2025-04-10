@@ -22,19 +22,19 @@ var _ MappedNullable = &ServiceOffering{}
 type ServiceOffering struct {
 	// Auto approve subscription or not
 	AutoApproveSubscription bool `json:"AutoApproveSubscription"`
+	// Allow creates when payment not configured
+	AllowCreatesWhenPaymentNotConfigured *bool `json:"allowCreatesWhenPaymentNotConfigured,omitempty"`
 	Assets *ServiceAssets `json:"assets,omitempty"`
 	// The AWS regions that this service offering is available on
 	AwsRegions []string `json:"awsRegions,omitempty"`
 	// The Azure regions that this service offering is available on
 	AzureRegions []string `json:"azureRegions,omitempty"`
-	// Deprecated. List of billing plans for this product tier.
-	BillingPlans []OfferingBillingPlan `json:"billingPlans,omitempty"`
 	// List of supported cloud providers for this product tier.
 	CloudProviders []string `json:"cloudProviders,omitempty"`
 	// The GCP regions that this service offering is available on
 	GcpRegions []string `json:"gcpRegions,omitempty"`
 	// Maximum number of instances
-	MaxNumberofInstances *int64 `json:"maxNumberofInstances,omitempty"`
+	MaxNumberOfInstances *int64 `json:"maxNumberOfInstances,omitempty"`
 	// A brief description of the product tier
 	ProductTierDescription *string `json:"productTierDescription,omitempty"`
 	// Documentation
@@ -156,6 +156,38 @@ func (o *ServiceOffering) SetAutoApproveSubscription(v bool) {
 	o.AutoApproveSubscription = v
 }
 
+// GetAllowCreatesWhenPaymentNotConfigured returns the AllowCreatesWhenPaymentNotConfigured field value if set, zero value otherwise.
+func (o *ServiceOffering) GetAllowCreatesWhenPaymentNotConfigured() bool {
+	if o == nil || IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
+		var ret bool
+		return ret
+	}
+	return *o.AllowCreatesWhenPaymentNotConfigured
+}
+
+// GetAllowCreatesWhenPaymentNotConfiguredOk returns a tuple with the AllowCreatesWhenPaymentNotConfigured field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceOffering) GetAllowCreatesWhenPaymentNotConfiguredOk() (*bool, bool) {
+	if o == nil || IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
+		return nil, false
+	}
+	return o.AllowCreatesWhenPaymentNotConfigured, true
+}
+
+// HasAllowCreatesWhenPaymentNotConfigured returns a boolean if a field has been set.
+func (o *ServiceOffering) HasAllowCreatesWhenPaymentNotConfigured() bool {
+	if o != nil && !IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
+		return true
+	}
+
+	return false
+}
+
+// SetAllowCreatesWhenPaymentNotConfigured gets a reference to the given bool and assigns it to the AllowCreatesWhenPaymentNotConfigured field.
+func (o *ServiceOffering) SetAllowCreatesWhenPaymentNotConfigured(v bool) {
+	o.AllowCreatesWhenPaymentNotConfigured = &v
+}
+
 // GetAssets returns the Assets field value if set, zero value otherwise.
 func (o *ServiceOffering) GetAssets() ServiceAssets {
 	if o == nil || IsNil(o.Assets) {
@@ -252,38 +284,6 @@ func (o *ServiceOffering) SetAzureRegions(v []string) {
 	o.AzureRegions = v
 }
 
-// GetBillingPlans returns the BillingPlans field value if set, zero value otherwise.
-func (o *ServiceOffering) GetBillingPlans() []OfferingBillingPlan {
-	if o == nil || IsNil(o.BillingPlans) {
-		var ret []OfferingBillingPlan
-		return ret
-	}
-	return o.BillingPlans
-}
-
-// GetBillingPlansOk returns a tuple with the BillingPlans field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ServiceOffering) GetBillingPlansOk() ([]OfferingBillingPlan, bool) {
-	if o == nil || IsNil(o.BillingPlans) {
-		return nil, false
-	}
-	return o.BillingPlans, true
-}
-
-// HasBillingPlans returns a boolean if a field has been set.
-func (o *ServiceOffering) HasBillingPlans() bool {
-	if o != nil && !IsNil(o.BillingPlans) {
-		return true
-	}
-
-	return false
-}
-
-// SetBillingPlans gets a reference to the given []OfferingBillingPlan and assigns it to the BillingPlans field.
-func (o *ServiceOffering) SetBillingPlans(v []OfferingBillingPlan) {
-	o.BillingPlans = v
-}
-
 // GetCloudProviders returns the CloudProviders field value if set, zero value otherwise.
 func (o *ServiceOffering) GetCloudProviders() []string {
 	if o == nil || IsNil(o.CloudProviders) {
@@ -348,36 +348,36 @@ func (o *ServiceOffering) SetGcpRegions(v []string) {
 	o.GcpRegions = v
 }
 
-// GetMaxNumberofInstances returns the MaxNumberofInstances field value if set, zero value otherwise.
-func (o *ServiceOffering) GetMaxNumberofInstances() int64 {
-	if o == nil || IsNil(o.MaxNumberofInstances) {
+// GetMaxNumberOfInstances returns the MaxNumberOfInstances field value if set, zero value otherwise.
+func (o *ServiceOffering) GetMaxNumberOfInstances() int64 {
+	if o == nil || IsNil(o.MaxNumberOfInstances) {
 		var ret int64
 		return ret
 	}
-	return *o.MaxNumberofInstances
+	return *o.MaxNumberOfInstances
 }
 
-// GetMaxNumberofInstancesOk returns a tuple with the MaxNumberofInstances field value if set, nil otherwise
+// GetMaxNumberOfInstancesOk returns a tuple with the MaxNumberOfInstances field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ServiceOffering) GetMaxNumberofInstancesOk() (*int64, bool) {
-	if o == nil || IsNil(o.MaxNumberofInstances) {
+func (o *ServiceOffering) GetMaxNumberOfInstancesOk() (*int64, bool) {
+	if o == nil || IsNil(o.MaxNumberOfInstances) {
 		return nil, false
 	}
-	return o.MaxNumberofInstances, true
+	return o.MaxNumberOfInstances, true
 }
 
-// HasMaxNumberofInstances returns a boolean if a field has been set.
-func (o *ServiceOffering) HasMaxNumberofInstances() bool {
-	if o != nil && !IsNil(o.MaxNumberofInstances) {
+// HasMaxNumberOfInstances returns a boolean if a field has been set.
+func (o *ServiceOffering) HasMaxNumberOfInstances() bool {
+	if o != nil && !IsNil(o.MaxNumberOfInstances) {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxNumberofInstances gets a reference to the given int64 and assigns it to the MaxNumberofInstances field.
-func (o *ServiceOffering) SetMaxNumberofInstances(v int64) {
-	o.MaxNumberofInstances = &v
+// SetMaxNumberOfInstances gets a reference to the given int64 and assigns it to the MaxNumberOfInstances field.
+func (o *ServiceOffering) SetMaxNumberOfInstances(v int64) {
+	o.MaxNumberOfInstances = &v
 }
 
 // GetProductTierDescription returns the ProductTierDescription field value if set, zero value otherwise.
@@ -1049,6 +1049,9 @@ func (o ServiceOffering) MarshalJSON() ([]byte, error) {
 func (o ServiceOffering) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["AutoApproveSubscription"] = o.AutoApproveSubscription
+	if !IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
+		toSerialize["allowCreatesWhenPaymentNotConfigured"] = o.AllowCreatesWhenPaymentNotConfigured
+	}
 	if !IsNil(o.Assets) {
 		toSerialize["assets"] = o.Assets
 	}
@@ -1058,17 +1061,14 @@ func (o ServiceOffering) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AzureRegions) {
 		toSerialize["azureRegions"] = o.AzureRegions
 	}
-	if !IsNil(o.BillingPlans) {
-		toSerialize["billingPlans"] = o.BillingPlans
-	}
 	if !IsNil(o.CloudProviders) {
 		toSerialize["cloudProviders"] = o.CloudProviders
 	}
 	if !IsNil(o.GcpRegions) {
 		toSerialize["gcpRegions"] = o.GcpRegions
 	}
-	if !IsNil(o.MaxNumberofInstances) {
-		toSerialize["maxNumberofInstances"] = o.MaxNumberofInstances
+	if !IsNil(o.MaxNumberOfInstances) {
+		toSerialize["maxNumberOfInstances"] = o.MaxNumberOfInstances
 	}
 	if !IsNil(o.ProductTierDescription) {
 		toSerialize["productTierDescription"] = o.ProductTierDescription
@@ -1172,13 +1172,13 @@ func (o *ServiceOffering) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "AutoApproveSubscription")
+		delete(additionalProperties, "allowCreatesWhenPaymentNotConfigured")
 		delete(additionalProperties, "assets")
 		delete(additionalProperties, "awsRegions")
 		delete(additionalProperties, "azureRegions")
-		delete(additionalProperties, "billingPlans")
 		delete(additionalProperties, "cloudProviders")
 		delete(additionalProperties, "gcpRegions")
-		delete(additionalProperties, "maxNumberofInstances")
+		delete(additionalProperties, "maxNumberOfInstances")
 		delete(additionalProperties, "productTierDescription")
 		delete(additionalProperties, "productTierDocumentation")
 		delete(additionalProperties, "productTierID")

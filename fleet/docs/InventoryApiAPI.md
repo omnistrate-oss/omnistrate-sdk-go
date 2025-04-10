@@ -39,6 +39,7 @@ Method | HTTP request | Description
 [**InventoryApiFailoverResourceInstance**](InventoryApiAPI.md#InventoryApiFailoverResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/failover | FailoverResourceInstance inventory-api
 [**InventoryApiGenerateTokenForHostClusterDashboard**](InventoryApiAPI.md#InventoryApiGenerateTokenForHostClusterDashboard) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard inventory-api
 [**InventoryApiListActiveOrganizations**](InventoryApiAPI.md#InventoryApiListActiveOrganizations) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/organizations | ListActiveOrganizations inventory-api
+[**InventoryApiListAllOrganizations**](InventoryApiAPI.md#InventoryApiListAllOrganizations) | **Get** /2022-09-01-00/fleet/organizations | ListAllOrganizations inventory-api
 [**InventoryApiListAllUsers**](InventoryApiAPI.md#InventoryApiListAllUsers) | **Get** /2022-09-01-00/fleet/users | ListAllUsers inventory-api
 [**InventoryApiListDependentComponents**](InventoryApiAPI.md#InventoryApiListDependentComponents) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/dependent-components | ListDependentComponents inventory-api
 [**InventoryApiListEligibleInstancesPerUpgrade**](InventoryApiAPI.md#InventoryApiListEligibleInstancesPerUpgrade) | **Get** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/eligible-instances | ListEligibleInstancesPerUpgrade inventory-api
@@ -70,7 +71,7 @@ Method | HTTP request | Description
 [**InventoryApiSuspendUser**](InventoryApiAPI.md#InventoryApiSuspendUser) | **Put** /2022-09-01-00/fleet/user/{userId}/suspend | SuspendUser inventory-api
 [**InventoryApiTerminateSubscription**](InventoryApiAPI.md#InventoryApiTerminateSubscription) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/{id} | TerminateSubscription inventory-api
 [**InventoryApiUnsuspendUser**](InventoryApiAPI.md#InventoryApiUnsuspendUser) | **Put** /2022-09-01-00/fleet/user/{userId}/unsuspend | UnsuspendUser inventory-api
-[**InventoryApiUpdateAccountConfigResourceInstance**](InventoryApiAPI.md#InventoryApiUpdateAccountConfigResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/account-config-instance/{instanceId}/ | UpdateAccountConfigResourceInstance inventory-api
+[**InventoryApiUpdateAccountConfigResourceInstance**](InventoryApiAPI.md#InventoryApiUpdateAccountConfigResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/account-config-instance/{instanceId} | UpdateAccountConfigResourceInstance inventory-api
 [**InventoryApiUpdateResourceInstance**](InventoryApiAPI.md#InventoryApiUpdateResourceInstance) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId} | UpdateResourceInstance inventory-api
 [**InventoryApiUpdateResourceInstanceDebugMode**](InventoryApiAPI.md#InventoryApiUpdateResourceInstanceDebugMode) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/debug-mode | UpdateResourceInstanceDebugMode inventory-api
 
@@ -392,7 +393,7 @@ import (
 )
 
 func main() {
-	fleetCreateConsumptionUserRequest2 := *openapiclient.NewFleetCreateConsumptionUserRequest2("abc@gmail.com", "mywebsite", "John Doe", "password") // FleetCreateConsumptionUserRequest2 | 
+	fleetCreateConsumptionUserRequest2 := *openapiclient.NewFleetCreateConsumptionUserRequest2("abc@gmail.com", true, "mywebsite", "John Doe", "password") // FleetCreateConsumptionUserRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -706,7 +707,7 @@ import (
 )
 
 func main() {
-	fleetCreateServicesOrchestrationRequest2 := *openapiclient.NewFleetCreateServicesOrchestrationRequest2("Veniam quia modi ea.") // FleetCreateServicesOrchestrationRequest2 | 
+	fleetCreateServicesOrchestrationRequest2 := *openapiclient.NewFleetCreateServicesOrchestrationRequest2("Nulla ipsum id consequuntur illo quas officia.") // FleetCreateServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -772,7 +773,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
-	createUpgradePathRequest2 := *openapiclient.NewCreateUpgradePathRequest2("1.0", "2.0", map[string][]string{"key": []string{"Sequi aut blanditiis rerum nihil quo."}}) // CreateUpgradePathRequest2 | 
+	createUpgradePathRequest2 := *openapiclient.NewCreateUpgradePathRequest2("1.0", "2.0", map[string][]string{"key": []string{"Quaerat quia natus rerum."}}) // CreateUpgradePathRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2664,6 +2665,77 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## InventoryApiListAllOrganizations
+
+> ListAllOrganizationsResult InventoryApiListAllOrganizations(ctx).HasInvoice(hasInvoice).HasInvoiceWithStatus(hasInvoiceWithStatus).HasInvoiceFromDate(hasInvoiceFromDate).HasInvoiceToDate(hasInvoiceToDate).Execute()
+
+ListAllOrganizations inventory-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	hasInvoice := false // bool | Filter for organizations with invoices (optional)
+	hasInvoiceWithStatus := "draft|open|paid|uncollectible|void" // string | Filter for organizations with invoices with a specific status (optional)
+	hasInvoiceFromDate := time.Now() // time.Time | Filter for organizations with invoices from a specific date (optional)
+	hasInvoiceToDate := time.Now() // time.Time | Filter for organizations with invoices to a specific date (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListAllOrganizations(context.Background()).HasInvoice(hasInvoice).HasInvoiceWithStatus(hasInvoiceWithStatus).HasInvoiceFromDate(hasInvoiceFromDate).HasInvoiceToDate(hasInvoiceToDate).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiListAllOrganizations``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InventoryApiListAllOrganizations`: ListAllOrganizationsResult
+	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiListAllOrganizations`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInventoryApiListAllOrganizationsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **hasInvoice** | **bool** | Filter for organizations with invoices | 
+ **hasInvoiceWithStatus** | **string** | Filter for organizations with invoices with a specific status | 
+ **hasInvoiceFromDate** | **time.Time** | Filter for organizations with invoices from a specific date | 
+ **hasInvoiceToDate** | **time.Time** | Filter for organizations with invoices to a specific date | 
+
+### Return type
+
+[**ListAllOrganizationsResult**](ListAllOrganizationsResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## InventoryApiListAllUsers
 
 > FleetListAllUsersResult InventoryApiListAllUsers(ctx).ServiceId(serviceId).Execute()
@@ -3177,7 +3249,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiListResourceInstances
 
-> ListFleetResourceInstancesResultInternal InventoryApiListResourceInstances(ctx, serviceId, environmentId).ProductTierVersion(productTierVersion).ProductTierId(productTierId).SubscriptionId(subscriptionId).Execute()
+> ListFleetResourceInstancesResultInternal InventoryApiListResourceInstances(ctx, serviceId, environmentId).ProductTierVersion(productTierVersion).ProductTierId(productTierId).SubscriptionId(subscriptionId).Filter(filter).Execute()
 
 ListResourceInstances inventory-api
 
@@ -3196,13 +3268,14 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	productTierVersion := "Dolores eos iure eos et reiciendis nisi." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
-	productTierId := "Tempora qui." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
-	subscriptionId := "Magnam voluptatibus quod aliquid sapiente fugiat." // string | Subscription id of the instance to describe. (optional)
+	productTierVersion := "Dignissimos labore numquam ducimus." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierId := "Eum officiis et." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
+	subscriptionId := "Quisquam officiis occaecati rerum iusto atque itaque." // string | Subscription id of the instance to describe. (optional)
+	filter := "onlyCloudAccounts" // string | Filter to apply to the list of instances. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListResourceInstances(context.Background(), serviceId, environmentId).ProductTierVersion(productTierVersion).ProductTierId(productTierId).SubscriptionId(subscriptionId).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListResourceInstances(context.Background(), serviceId, environmentId).ProductTierVersion(productTierVersion).ProductTierId(productTierId).SubscriptionId(subscriptionId).Filter(filter).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiListResourceInstances``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3233,6 +3306,7 @@ Name | Type | Description  | Notes
  **productTierVersion** | **string** | Product tier version of the instance to describe. If not specified, the latest version is described. | 
  **productTierId** | **string** | Product tier id of the instance to describe. Needs to specified in combination with the product tier version | 
  **subscriptionId** | **string** | Subscription id of the instance to describe. | 
+ **filter** | **string** | Filter to apply to the list of instances. | 
 
 ### Return type
 
@@ -3781,7 +3855,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
 	upgradePathId := "up-12345678" // string | The upgrade path ID
-	manageUpgradePathLifecycleRequest2 := *openapiclient.NewManageUpgradePathLifecycleRequest2("Aut consequatur deserunt quibusdam laboriosam.") // ManageUpgradePathLifecycleRequest2 | 
+	manageUpgradePathLifecycleRequest2 := *openapiclient.NewManageUpgradePathLifecycleRequest2("Qui et.") // ManageUpgradePathLifecycleRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3855,7 +3929,7 @@ import (
 
 func main() {
 	id := "so-12345678" // string | The ID of the services orchestration
-	fleetModifyServicesOrchestrationRequest2 := *openapiclient.NewFleetModifyServicesOrchestrationRequest2("Nesciunt magni pariatur sunt.") // FleetModifyServicesOrchestrationRequest2 | 
+	fleetModifyServicesOrchestrationRequest2 := *openapiclient.NewFleetModifyServicesOrchestrationRequest2("Aperiam quidem laboriosam quae quo animi.") // FleetModifyServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

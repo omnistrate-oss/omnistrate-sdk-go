@@ -20,6 +20,8 @@ var _ MappedNullable = &ListFleetResourceInstancesRequest{}
 
 // ListFleetResourceInstancesRequest struct for ListFleetResourceInstancesRequest
 type ListFleetResourceInstancesRequest struct {
+	// Filter to list resources.
+	Filter *string `json:"Filter,omitempty"`
 	// ID of a Product Tier
 	ProductTierId *string `json:"ProductTierId,omitempty"`
 	// The product tier version of the infra config to describe. If not specified, the latest version is described.
@@ -55,6 +57,38 @@ func NewListFleetResourceInstancesRequest(environmentId string, serviceId string
 func NewListFleetResourceInstancesRequestWithDefaults() *ListFleetResourceInstancesRequest {
 	this := ListFleetResourceInstancesRequest{}
 	return &this
+}
+
+// GetFilter returns the Filter field value if set, zero value otherwise.
+func (o *ListFleetResourceInstancesRequest) GetFilter() string {
+	if o == nil || IsNil(o.Filter) {
+		var ret string
+		return ret
+	}
+	return *o.Filter
+}
+
+// GetFilterOk returns a tuple with the Filter field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListFleetResourceInstancesRequest) GetFilterOk() (*string, bool) {
+	if o == nil || IsNil(o.Filter) {
+		return nil, false
+	}
+	return o.Filter, true
+}
+
+// HasFilter returns a boolean if a field has been set.
+func (o *ListFleetResourceInstancesRequest) HasFilter() bool {
+	if o != nil && !IsNil(o.Filter) {
+		return true
+	}
+
+	return false
+}
+
+// SetFilter gets a reference to the given string and assigns it to the Filter field.
+func (o *ListFleetResourceInstancesRequest) SetFilter(v string) {
+	o.Filter = &v
 }
 
 // GetProductTierId returns the ProductTierId field value if set, zero value otherwise.
@@ -235,6 +269,9 @@ func (o ListFleetResourceInstancesRequest) MarshalJSON() ([]byte, error) {
 
 func (o ListFleetResourceInstancesRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Filter) {
+		toSerialize["Filter"] = o.Filter
+	}
 	if !IsNil(o.ProductTierId) {
 		toSerialize["ProductTierId"] = o.ProductTierId
 	}
@@ -292,6 +329,7 @@ func (o *ListFleetResourceInstancesRequest) UnmarshalJSON(data []byte) (err erro
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "Filter")
 		delete(additionalProperties, "ProductTierId")
 		delete(additionalProperties, "ProductTierVersion")
 		delete(additionalProperties, "SubscriptionId")

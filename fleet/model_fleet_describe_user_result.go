@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the FleetDescribeUserResult type satisfies the MappedNullable interface at compile time
@@ -21,11 +20,33 @@ var _ MappedNullable = &FleetDescribeUserResult{}
 // FleetDescribeUserResult struct for FleetDescribeUserResult
 type FleetDescribeUserResult struct {
 	// The time the user was created.
-	CreatedAt string `json:"createdAt"`
-	// List of subscriptions associated with the user.
-	Subscriptions []UserSubscription `json:"subscriptions"`
+	CreatedAt *string `json:"createdAt,omitempty"`
+	// The user email.
+	Email *string `json:"email,omitempty"`
+	// Is the user enabled.
+	Enabled *bool `json:"enabled,omitempty"`
+	// The last modified time of the user.
+	LastModifiedAt *string `json:"lastModifiedAt,omitempty"`
 	// ID of a User
-	UserId string `json:"userId"`
+	LastModifiedByUserID *string `json:"lastModifiedByUserID,omitempty"`
+	// The user name of the last modifier.
+	LastModifiedByUserName *string `json:"lastModifiedByUserName,omitempty"`
+	// ID of an Org
+	OrgId *string `json:"orgId,omitempty"`
+	// The organization name.
+	OrgName *string `json:"orgName,omitempty"`
+	// The organization URL.
+	OrgUrl *string `json:"orgUrl,omitempty"`
+	// The status of the user.
+	Status *string `json:"status,omitempty"`
+	// List of subscriptions associated with the user.
+	Subscriptions []UserSubscription `json:"subscriptions,omitempty"`
+	// Token to validate the user, if the user is not enabled.
+	Token *string `json:"token,omitempty"`
+	// ID of a User
+	UserId *string `json:"userId,omitempty"`
+	// The user name.
+	UserName *string `json:"userName,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -35,11 +56,8 @@ type _FleetDescribeUserResult FleetDescribeUserResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFleetDescribeUserResult(createdAt string, subscriptions []UserSubscription, userId string) *FleetDescribeUserResult {
+func NewFleetDescribeUserResult() *FleetDescribeUserResult {
 	this := FleetDescribeUserResult{}
-	this.CreatedAt = createdAt
-	this.Subscriptions = subscriptions
-	this.UserId = userId
 	return &this
 }
 
@@ -51,76 +69,452 @@ func NewFleetDescribeUserResultWithDefaults() *FleetDescribeUserResult {
 	return &this
 }
 
-// GetCreatedAt returns the CreatedAt field value
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *FleetDescribeUserResult) GetCreatedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedAt
+	return *o.CreatedAt
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FleetDescribeUserResult) GetCreatedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
-	return &o.CreatedAt, true
+	return o.CreatedAt, true
 }
 
-// SetCreatedAt sets field value
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *FleetDescribeUserResult) HasCreatedAt() bool {
+	if o != nil && !IsNil(o.CreatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
 func (o *FleetDescribeUserResult) SetCreatedAt(v string) {
-	o.CreatedAt = v
+	o.CreatedAt = &v
 }
 
-// GetSubscriptions returns the Subscriptions field value
+// GetEmail returns the Email field value if set, zero value otherwise.
+func (o *FleetDescribeUserResult) GetEmail() string {
+	if o == nil || IsNil(o.Email) {
+		var ret string
+		return ret
+	}
+	return *o.Email
+}
+
+// GetEmailOk returns a tuple with the Email field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeUserResult) GetEmailOk() (*string, bool) {
+	if o == nil || IsNil(o.Email) {
+		return nil, false
+	}
+	return o.Email, true
+}
+
+// HasEmail returns a boolean if a field has been set.
+func (o *FleetDescribeUserResult) HasEmail() bool {
+	if o != nil && !IsNil(o.Email) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmail gets a reference to the given string and assigns it to the Email field.
+func (o *FleetDescribeUserResult) SetEmail(v string) {
+	o.Email = &v
+}
+
+// GetEnabled returns the Enabled field value if set, zero value otherwise.
+func (o *FleetDescribeUserResult) GetEnabled() bool {
+	if o == nil || IsNil(o.Enabled) {
+		var ret bool
+		return ret
+	}
+	return *o.Enabled
+}
+
+// GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeUserResult) GetEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.Enabled) {
+		return nil, false
+	}
+	return o.Enabled, true
+}
+
+// HasEnabled returns a boolean if a field has been set.
+func (o *FleetDescribeUserResult) HasEnabled() bool {
+	if o != nil && !IsNil(o.Enabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnabled gets a reference to the given bool and assigns it to the Enabled field.
+func (o *FleetDescribeUserResult) SetEnabled(v bool) {
+	o.Enabled = &v
+}
+
+// GetLastModifiedAt returns the LastModifiedAt field value if set, zero value otherwise.
+func (o *FleetDescribeUserResult) GetLastModifiedAt() string {
+	if o == nil || IsNil(o.LastModifiedAt) {
+		var ret string
+		return ret
+	}
+	return *o.LastModifiedAt
+}
+
+// GetLastModifiedAtOk returns a tuple with the LastModifiedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeUserResult) GetLastModifiedAtOk() (*string, bool) {
+	if o == nil || IsNil(o.LastModifiedAt) {
+		return nil, false
+	}
+	return o.LastModifiedAt, true
+}
+
+// HasLastModifiedAt returns a boolean if a field has been set.
+func (o *FleetDescribeUserResult) HasLastModifiedAt() bool {
+	if o != nil && !IsNil(o.LastModifiedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastModifiedAt gets a reference to the given string and assigns it to the LastModifiedAt field.
+func (o *FleetDescribeUserResult) SetLastModifiedAt(v string) {
+	o.LastModifiedAt = &v
+}
+
+// GetLastModifiedByUserID returns the LastModifiedByUserID field value if set, zero value otherwise.
+func (o *FleetDescribeUserResult) GetLastModifiedByUserID() string {
+	if o == nil || IsNil(o.LastModifiedByUserID) {
+		var ret string
+		return ret
+	}
+	return *o.LastModifiedByUserID
+}
+
+// GetLastModifiedByUserIDOk returns a tuple with the LastModifiedByUserID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeUserResult) GetLastModifiedByUserIDOk() (*string, bool) {
+	if o == nil || IsNil(o.LastModifiedByUserID) {
+		return nil, false
+	}
+	return o.LastModifiedByUserID, true
+}
+
+// HasLastModifiedByUserID returns a boolean if a field has been set.
+func (o *FleetDescribeUserResult) HasLastModifiedByUserID() bool {
+	if o != nil && !IsNil(o.LastModifiedByUserID) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastModifiedByUserID gets a reference to the given string and assigns it to the LastModifiedByUserID field.
+func (o *FleetDescribeUserResult) SetLastModifiedByUserID(v string) {
+	o.LastModifiedByUserID = &v
+}
+
+// GetLastModifiedByUserName returns the LastModifiedByUserName field value if set, zero value otherwise.
+func (o *FleetDescribeUserResult) GetLastModifiedByUserName() string {
+	if o == nil || IsNil(o.LastModifiedByUserName) {
+		var ret string
+		return ret
+	}
+	return *o.LastModifiedByUserName
+}
+
+// GetLastModifiedByUserNameOk returns a tuple with the LastModifiedByUserName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeUserResult) GetLastModifiedByUserNameOk() (*string, bool) {
+	if o == nil || IsNil(o.LastModifiedByUserName) {
+		return nil, false
+	}
+	return o.LastModifiedByUserName, true
+}
+
+// HasLastModifiedByUserName returns a boolean if a field has been set.
+func (o *FleetDescribeUserResult) HasLastModifiedByUserName() bool {
+	if o != nil && !IsNil(o.LastModifiedByUserName) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastModifiedByUserName gets a reference to the given string and assigns it to the LastModifiedByUserName field.
+func (o *FleetDescribeUserResult) SetLastModifiedByUserName(v string) {
+	o.LastModifiedByUserName = &v
+}
+
+// GetOrgId returns the OrgId field value if set, zero value otherwise.
+func (o *FleetDescribeUserResult) GetOrgId() string {
+	if o == nil || IsNil(o.OrgId) {
+		var ret string
+		return ret
+	}
+	return *o.OrgId
+}
+
+// GetOrgIdOk returns a tuple with the OrgId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeUserResult) GetOrgIdOk() (*string, bool) {
+	if o == nil || IsNil(o.OrgId) {
+		return nil, false
+	}
+	return o.OrgId, true
+}
+
+// HasOrgId returns a boolean if a field has been set.
+func (o *FleetDescribeUserResult) HasOrgId() bool {
+	if o != nil && !IsNil(o.OrgId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgId gets a reference to the given string and assigns it to the OrgId field.
+func (o *FleetDescribeUserResult) SetOrgId(v string) {
+	o.OrgId = &v
+}
+
+// GetOrgName returns the OrgName field value if set, zero value otherwise.
+func (o *FleetDescribeUserResult) GetOrgName() string {
+	if o == nil || IsNil(o.OrgName) {
+		var ret string
+		return ret
+	}
+	return *o.OrgName
+}
+
+// GetOrgNameOk returns a tuple with the OrgName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeUserResult) GetOrgNameOk() (*string, bool) {
+	if o == nil || IsNil(o.OrgName) {
+		return nil, false
+	}
+	return o.OrgName, true
+}
+
+// HasOrgName returns a boolean if a field has been set.
+func (o *FleetDescribeUserResult) HasOrgName() bool {
+	if o != nil && !IsNil(o.OrgName) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgName gets a reference to the given string and assigns it to the OrgName field.
+func (o *FleetDescribeUserResult) SetOrgName(v string) {
+	o.OrgName = &v
+}
+
+// GetOrgUrl returns the OrgUrl field value if set, zero value otherwise.
+func (o *FleetDescribeUserResult) GetOrgUrl() string {
+	if o == nil || IsNil(o.OrgUrl) {
+		var ret string
+		return ret
+	}
+	return *o.OrgUrl
+}
+
+// GetOrgUrlOk returns a tuple with the OrgUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeUserResult) GetOrgUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.OrgUrl) {
+		return nil, false
+	}
+	return o.OrgUrl, true
+}
+
+// HasOrgUrl returns a boolean if a field has been set.
+func (o *FleetDescribeUserResult) HasOrgUrl() bool {
+	if o != nil && !IsNil(o.OrgUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgUrl gets a reference to the given string and assigns it to the OrgUrl field.
+func (o *FleetDescribeUserResult) SetOrgUrl(v string) {
+	o.OrgUrl = &v
+}
+
+// GetStatus returns the Status field value if set, zero value otherwise.
+func (o *FleetDescribeUserResult) GetStatus() string {
+	if o == nil || IsNil(o.Status) {
+		var ret string
+		return ret
+	}
+	return *o.Status
+}
+
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeUserResult) GetStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.Status) {
+		return nil, false
+	}
+	return o.Status, true
+}
+
+// HasStatus returns a boolean if a field has been set.
+func (o *FleetDescribeUserResult) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
+func (o *FleetDescribeUserResult) SetStatus(v string) {
+	o.Status = &v
+}
+
+// GetSubscriptions returns the Subscriptions field value if set, zero value otherwise.
 func (o *FleetDescribeUserResult) GetSubscriptions() []UserSubscription {
-	if o == nil {
+	if o == nil || IsNil(o.Subscriptions) {
 		var ret []UserSubscription
 		return ret
 	}
-
 	return o.Subscriptions
 }
 
-// GetSubscriptionsOk returns a tuple with the Subscriptions field value
+// GetSubscriptionsOk returns a tuple with the Subscriptions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FleetDescribeUserResult) GetSubscriptionsOk() ([]UserSubscription, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Subscriptions) {
 		return nil, false
 	}
 	return o.Subscriptions, true
 }
 
-// SetSubscriptions sets field value
+// HasSubscriptions returns a boolean if a field has been set.
+func (o *FleetDescribeUserResult) HasSubscriptions() bool {
+	if o != nil && !IsNil(o.Subscriptions) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptions gets a reference to the given []UserSubscription and assigns it to the Subscriptions field.
 func (o *FleetDescribeUserResult) SetSubscriptions(v []UserSubscription) {
 	o.Subscriptions = v
 }
 
-// GetUserId returns the UserId field value
-func (o *FleetDescribeUserResult) GetUserId() string {
-	if o == nil {
+// GetToken returns the Token field value if set, zero value otherwise.
+func (o *FleetDescribeUserResult) GetToken() string {
+	if o == nil || IsNil(o.Token) {
 		var ret string
 		return ret
 	}
-
-	return o.UserId
+	return *o.Token
 }
 
-// GetUserIdOk returns a tuple with the UserId field value
+// GetTokenOk returns a tuple with the Token field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FleetDescribeUserResult) GetUserIdOk() (*string, bool) {
-	if o == nil {
+func (o *FleetDescribeUserResult) GetTokenOk() (*string, bool) {
+	if o == nil || IsNil(o.Token) {
 		return nil, false
 	}
-	return &o.UserId, true
+	return o.Token, true
 }
 
-// SetUserId sets field value
+// HasToken returns a boolean if a field has been set.
+func (o *FleetDescribeUserResult) HasToken() bool {
+	if o != nil && !IsNil(o.Token) {
+		return true
+	}
+
+	return false
+}
+
+// SetToken gets a reference to the given string and assigns it to the Token field.
+func (o *FleetDescribeUserResult) SetToken(v string) {
+	o.Token = &v
+}
+
+// GetUserId returns the UserId field value if set, zero value otherwise.
+func (o *FleetDescribeUserResult) GetUserId() string {
+	if o == nil || IsNil(o.UserId) {
+		var ret string
+		return ret
+	}
+	return *o.UserId
+}
+
+// GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeUserResult) GetUserIdOk() (*string, bool) {
+	if o == nil || IsNil(o.UserId) {
+		return nil, false
+	}
+	return o.UserId, true
+}
+
+// HasUserId returns a boolean if a field has been set.
+func (o *FleetDescribeUserResult) HasUserId() bool {
+	if o != nil && !IsNil(o.UserId) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserId gets a reference to the given string and assigns it to the UserId field.
 func (o *FleetDescribeUserResult) SetUserId(v string) {
-	o.UserId = v
+	o.UserId = &v
+}
+
+// GetUserName returns the UserName field value if set, zero value otherwise.
+func (o *FleetDescribeUserResult) GetUserName() string {
+	if o == nil || IsNil(o.UserName) {
+		var ret string
+		return ret
+	}
+	return *o.UserName
+}
+
+// GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeUserResult) GetUserNameOk() (*string, bool) {
+	if o == nil || IsNil(o.UserName) {
+		return nil, false
+	}
+	return o.UserName, true
+}
+
+// HasUserName returns a boolean if a field has been set.
+func (o *FleetDescribeUserResult) HasUserName() bool {
+	if o != nil && !IsNil(o.UserName) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserName gets a reference to the given string and assigns it to the UserName field.
+func (o *FleetDescribeUserResult) SetUserName(v string) {
+	o.UserName = &v
 }
 
 func (o FleetDescribeUserResult) MarshalJSON() ([]byte, error) {
@@ -133,9 +527,48 @@ func (o FleetDescribeUserResult) MarshalJSON() ([]byte, error) {
 
 func (o FleetDescribeUserResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["createdAt"] = o.CreatedAt
-	toSerialize["subscriptions"] = o.Subscriptions
-	toSerialize["userId"] = o.UserId
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
+	if !IsNil(o.Email) {
+		toSerialize["email"] = o.Email
+	}
+	if !IsNil(o.Enabled) {
+		toSerialize["enabled"] = o.Enabled
+	}
+	if !IsNil(o.LastModifiedAt) {
+		toSerialize["lastModifiedAt"] = o.LastModifiedAt
+	}
+	if !IsNil(o.LastModifiedByUserID) {
+		toSerialize["lastModifiedByUserID"] = o.LastModifiedByUserID
+	}
+	if !IsNil(o.LastModifiedByUserName) {
+		toSerialize["lastModifiedByUserName"] = o.LastModifiedByUserName
+	}
+	if !IsNil(o.OrgId) {
+		toSerialize["orgId"] = o.OrgId
+	}
+	if !IsNil(o.OrgName) {
+		toSerialize["orgName"] = o.OrgName
+	}
+	if !IsNil(o.OrgUrl) {
+		toSerialize["orgUrl"] = o.OrgUrl
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
+	if !IsNil(o.Subscriptions) {
+		toSerialize["subscriptions"] = o.Subscriptions
+	}
+	if !IsNil(o.Token) {
+		toSerialize["token"] = o.Token
+	}
+	if !IsNil(o.UserId) {
+		toSerialize["userId"] = o.UserId
+	}
+	if !IsNil(o.UserName) {
+		toSerialize["userName"] = o.UserName
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -145,29 +578,6 @@ func (o FleetDescribeUserResult) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *FleetDescribeUserResult) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"createdAt",
-		"subscriptions",
-		"userId",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varFleetDescribeUserResult := _FleetDescribeUserResult{}
 
 	err = json.Unmarshal(data, &varFleetDescribeUserResult)
@@ -182,8 +592,19 @@ func (o *FleetDescribeUserResult) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "enabled")
+		delete(additionalProperties, "lastModifiedAt")
+		delete(additionalProperties, "lastModifiedByUserID")
+		delete(additionalProperties, "lastModifiedByUserName")
+		delete(additionalProperties, "orgId")
+		delete(additionalProperties, "orgName")
+		delete(additionalProperties, "orgUrl")
+		delete(additionalProperties, "status")
 		delete(additionalProperties, "subscriptions")
+		delete(additionalProperties, "token")
 		delete(additionalProperties, "userId")
+		delete(additionalProperties, "userName")
 		o.AdditionalProperties = additionalProperties
 	}
 

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | ID of an Upgrade Path | 
+**NotifyCustomer** | **bool** | Whether to notify the end customer about the upgrade progress. | 
 **ProductTierID** | **string** | ID of a Product Tier | 
 **ProductTierName** | **string** | The product tier name of the upgrade path. | 
 **ServiceEnvironmentId** | **string** | ID of a Service Environment | 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewUpgradePathSearchRecord
 
-`func NewUpgradePathSearchRecord(id string, productTierID string, productTierName string, serviceEnvironmentId string, serviceEnvironmentName string, serviceId string, serviceName string, status string, ) *UpgradePathSearchRecord`
+`func NewUpgradePathSearchRecord(id string, notifyCustomer bool, productTierID string, productTierName string, serviceEnvironmentId string, serviceEnvironmentName string, serviceId string, serviceName string, status string, ) *UpgradePathSearchRecord`
 
 NewUpgradePathSearchRecord instantiates a new UpgradePathSearchRecord object
 This constructor will assign default values to properties that have it defined,
@@ -51,6 +52,26 @@ and a boolean to check if the value has been set.
 `func (o *UpgradePathSearchRecord) SetId(v string)`
 
 SetId sets Id field to given value.
+
+
+### GetNotifyCustomer
+
+`func (o *UpgradePathSearchRecord) GetNotifyCustomer() bool`
+
+GetNotifyCustomer returns the NotifyCustomer field if non-nil, zero value otherwise.
+
+### GetNotifyCustomerOk
+
+`func (o *UpgradePathSearchRecord) GetNotifyCustomerOk() (*bool, bool)`
+
+GetNotifyCustomerOk returns a tuple with the NotifyCustomer field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotifyCustomer
+
+`func (o *UpgradePathSearchRecord) SetNotifyCustomer(v bool)`
+
+SetNotifyCustomer sets NotifyCustomer field to given value.
 
 
 ### GetProductTierID

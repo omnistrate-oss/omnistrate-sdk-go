@@ -24,8 +24,6 @@ type JobMetric struct {
 	AdditionalData map[string]interface{} `json:"additionalData,omitempty"`
 	// When the job completed
 	EndTime *string `json:"endTime,omitempty"`
-	// Unique identifier for the job run
-	JobID string `json:"jobID"`
 	// Type of job metric being tracked
 	MetricType string `json:"metricType"`
 	// When the job started running
@@ -41,9 +39,8 @@ type _JobMetric JobMetric
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewJobMetric(jobID string, metricType string, startTime string, value float64) *JobMetric {
+func NewJobMetric(metricType string, startTime string, value float64) *JobMetric {
 	this := JobMetric{}
-	this.JobID = jobID
 	this.MetricType = metricType
 	this.StartTime = startTime
 	this.Value = value
@@ -120,30 +117,6 @@ func (o *JobMetric) HasEndTime() bool {
 // SetEndTime gets a reference to the given string and assigns it to the EndTime field.
 func (o *JobMetric) SetEndTime(v string) {
 	o.EndTime = &v
-}
-
-// GetJobID returns the JobID field value
-func (o *JobMetric) GetJobID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.JobID
-}
-
-// GetJobIDOk returns a tuple with the JobID field value
-// and a boolean to check if the value has been set.
-func (o *JobMetric) GetJobIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.JobID, true
-}
-
-// SetJobID sets field value
-func (o *JobMetric) SetJobID(v string) {
-	o.JobID = v
 }
 
 // GetMetricType returns the MetricType field value
@@ -234,7 +207,6 @@ func (o JobMetric) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EndTime) {
 		toSerialize["endTime"] = o.EndTime
 	}
-	toSerialize["jobID"] = o.JobID
 	toSerialize["metricType"] = o.MetricType
 	toSerialize["startTime"] = o.StartTime
 	toSerialize["value"] = o.Value
@@ -251,7 +223,6 @@ func (o *JobMetric) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"jobID",
 		"metricType",
 		"startTime",
 		"value",
@@ -286,7 +257,6 @@ func (o *JobMetric) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "additionalData")
 		delete(additionalProperties, "endTime")
-		delete(additionalProperties, "jobID")
 		delete(additionalProperties, "metricType")
 		delete(additionalProperties, "startTime")
 		delete(additionalProperties, "value")

@@ -5,29 +5,31 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Address** | Pointer to [**Address**](Address.md) |  | [optional] 
-**CreatedAt** | **string** | The user creation time | 
-**Email** | **string** | The email of the user | 
+**CreatedAt** | Pointer to **string** | The user creation time | [optional] 
+**Email** | Pointer to **string** | The email of the user | [optional] 
+**Enabled** | Pointer to **bool** | Is the user enabled. | [optional] 
 **Id** | **string** | The User ID | 
-**LastModifiedAt** | **string** | The user update time | 
-**Name** | **string** | The name of the user | 
+**LastModifiedAt** | Pointer to **string** | The user update time | [optional] 
+**Name** | Pointer to **string** | The name of the user | [optional] 
 **OrgCookiePolicy** | Pointer to **string** | The cookie policy for the org that this user owns | [optional] 
-**OrgDescription** | **string** | The description of the org that this user owns | 
-**OrgFavIconURL** | **string** | The favicon of the org that this user owns | 
-**OrgId** | **string** | The ID of the org that this user owns | 
-**OrgLogoURL** | **string** | The logo of the org that this user owns | 
-**OrgName** | **string** | The org name that this user owns | 
-**OrgPrivacyPolicy** | **string** | The privacy policy for the org that this user owns | 
-**OrgSupportEmail** | **string** | The support email of the org that this user owns | 
-**OrgTermsOfUse** | **string** | The terms of use for the org that this user owns | 
-**OrgURL** | **string** | The url of the org that this user owns | 
+**OrgDescription** | Pointer to **string** | The description of the org that this user owns | [optional] 
+**OrgFavIconURL** | Pointer to **string** | The favicon of the org that this user owns | [optional] 
+**OrgId** | Pointer to **string** | The ID of the org that this user owns | [optional] 
+**OrgLogoURL** | Pointer to **string** | The logo of the org that this user owns | [optional] 
+**OrgName** | Pointer to **string** | The org name that this user owns | [optional] 
+**OrgPrivacyPolicy** | Pointer to **string** | The privacy policy for the org that this user owns | [optional] 
+**OrgSupportEmail** | Pointer to **string** | The support email of the org that this user owns | [optional] 
+**OrgTermsOfUse** | Pointer to **string** | The terms of use for the org that this user owns | [optional] 
+**OrgURL** | Pointer to **string** | The url of the org that this user owns | [optional] 
 **PlanName** | Pointer to **string** | This parameter is used to select the appropriate Product Plan | [optional] 
-**RoleType** | **string** | Type of the role | 
+**RoleType** | Pointer to **string** | Type of the role | [optional] 
+**Status** | Pointer to **string** | The status of the user. | [optional] 
 
 ## Methods
 
 ### NewDescribeUserResult
 
-`func NewDescribeUserResult(createdAt string, email string, id string, lastModifiedAt string, name string, orgDescription string, orgFavIconURL string, orgId string, orgLogoURL string, orgName string, orgPrivacyPolicy string, orgSupportEmail string, orgTermsOfUse string, orgURL string, roleType string, ) *DescribeUserResult`
+`func NewDescribeUserResult(id string, ) *DescribeUserResult`
 
 NewDescribeUserResult instantiates a new DescribeUserResult object
 This constructor will assign default values to properties that have it defined,
@@ -86,6 +88,11 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
+### HasCreatedAt
+
+`func (o *DescribeUserResult) HasCreatedAt() bool`
+
+HasCreatedAt returns a boolean if a field has been set.
 
 ### GetEmail
 
@@ -106,6 +113,36 @@ and a boolean to check if the value has been set.
 
 SetEmail sets Email field to given value.
 
+### HasEmail
+
+`func (o *DescribeUserResult) HasEmail() bool`
+
+HasEmail returns a boolean if a field has been set.
+
+### GetEnabled
+
+`func (o *DescribeUserResult) GetEnabled() bool`
+
+GetEnabled returns the Enabled field if non-nil, zero value otherwise.
+
+### GetEnabledOk
+
+`func (o *DescribeUserResult) GetEnabledOk() (*bool, bool)`
+
+GetEnabledOk returns a tuple with the Enabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnabled
+
+`func (o *DescribeUserResult) SetEnabled(v bool)`
+
+SetEnabled sets Enabled field to given value.
+
+### HasEnabled
+
+`func (o *DescribeUserResult) HasEnabled() bool`
+
+HasEnabled returns a boolean if a field has been set.
 
 ### GetId
 
@@ -146,6 +183,11 @@ and a boolean to check if the value has been set.
 
 SetLastModifiedAt sets LastModifiedAt field to given value.
 
+### HasLastModifiedAt
+
+`func (o *DescribeUserResult) HasLastModifiedAt() bool`
+
+HasLastModifiedAt returns a boolean if a field has been set.
 
 ### GetName
 
@@ -166,6 +208,11 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
+
+`func (o *DescribeUserResult) HasName() bool`
+
+HasName returns a boolean if a field has been set.
 
 ### GetOrgCookiePolicy
 
@@ -211,6 +258,11 @@ and a boolean to check if the value has been set.
 
 SetOrgDescription sets OrgDescription field to given value.
 
+### HasOrgDescription
+
+`func (o *DescribeUserResult) HasOrgDescription() bool`
+
+HasOrgDescription returns a boolean if a field has been set.
 
 ### GetOrgFavIconURL
 
@@ -231,6 +283,11 @@ and a boolean to check if the value has been set.
 
 SetOrgFavIconURL sets OrgFavIconURL field to given value.
 
+### HasOrgFavIconURL
+
+`func (o *DescribeUserResult) HasOrgFavIconURL() bool`
+
+HasOrgFavIconURL returns a boolean if a field has been set.
 
 ### GetOrgId
 
@@ -251,6 +308,11 @@ and a boolean to check if the value has been set.
 
 SetOrgId sets OrgId field to given value.
 
+### HasOrgId
+
+`func (o *DescribeUserResult) HasOrgId() bool`
+
+HasOrgId returns a boolean if a field has been set.
 
 ### GetOrgLogoURL
 
@@ -271,6 +333,11 @@ and a boolean to check if the value has been set.
 
 SetOrgLogoURL sets OrgLogoURL field to given value.
 
+### HasOrgLogoURL
+
+`func (o *DescribeUserResult) HasOrgLogoURL() bool`
+
+HasOrgLogoURL returns a boolean if a field has been set.
 
 ### GetOrgName
 
@@ -291,6 +358,11 @@ and a boolean to check if the value has been set.
 
 SetOrgName sets OrgName field to given value.
 
+### HasOrgName
+
+`func (o *DescribeUserResult) HasOrgName() bool`
+
+HasOrgName returns a boolean if a field has been set.
 
 ### GetOrgPrivacyPolicy
 
@@ -311,6 +383,11 @@ and a boolean to check if the value has been set.
 
 SetOrgPrivacyPolicy sets OrgPrivacyPolicy field to given value.
 
+### HasOrgPrivacyPolicy
+
+`func (o *DescribeUserResult) HasOrgPrivacyPolicy() bool`
+
+HasOrgPrivacyPolicy returns a boolean if a field has been set.
 
 ### GetOrgSupportEmail
 
@@ -331,6 +408,11 @@ and a boolean to check if the value has been set.
 
 SetOrgSupportEmail sets OrgSupportEmail field to given value.
 
+### HasOrgSupportEmail
+
+`func (o *DescribeUserResult) HasOrgSupportEmail() bool`
+
+HasOrgSupportEmail returns a boolean if a field has been set.
 
 ### GetOrgTermsOfUse
 
@@ -351,6 +433,11 @@ and a boolean to check if the value has been set.
 
 SetOrgTermsOfUse sets OrgTermsOfUse field to given value.
 
+### HasOrgTermsOfUse
+
+`func (o *DescribeUserResult) HasOrgTermsOfUse() bool`
+
+HasOrgTermsOfUse returns a boolean if a field has been set.
 
 ### GetOrgURL
 
@@ -371,6 +458,11 @@ and a boolean to check if the value has been set.
 
 SetOrgURL sets OrgURL field to given value.
 
+### HasOrgURL
+
+`func (o *DescribeUserResult) HasOrgURL() bool`
+
+HasOrgURL returns a boolean if a field has been set.
 
 ### GetPlanName
 
@@ -416,6 +508,36 @@ and a boolean to check if the value has been set.
 
 SetRoleType sets RoleType field to given value.
 
+### HasRoleType
+
+`func (o *DescribeUserResult) HasRoleType() bool`
+
+HasRoleType returns a boolean if a field has been set.
+
+### GetStatus
+
+`func (o *DescribeUserResult) GetStatus() string`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *DescribeUserResult) GetStatusOk() (*string, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *DescribeUserResult) SetStatus(v string)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *DescribeUserResult) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

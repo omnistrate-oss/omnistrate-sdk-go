@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccessToken** | Pointer to **string** | The access token | [optional] 
+**CommitSHA** | Pointer to **string** | The commit SHA to checkout | [optional] 
 **ReferenceName** | **string** | The reference name of the repository | 
 **RepositoryUrl** | **string** | The URL of the repository | 
 **UserName** | Pointer to **string** | The name of github user | [optional] 
@@ -52,6 +53,31 @@ SetAccessToken sets AccessToken field to given value.
 `func (o *GitConfiguration) HasAccessToken() bool`
 
 HasAccessToken returns a boolean if a field has been set.
+
+### GetCommitSHA
+
+`func (o *GitConfiguration) GetCommitSHA() string`
+
+GetCommitSHA returns the CommitSHA field if non-nil, zero value otherwise.
+
+### GetCommitSHAOk
+
+`func (o *GitConfiguration) GetCommitSHAOk() (*string, bool)`
+
+GetCommitSHAOk returns a tuple with the CommitSHA field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCommitSHA
+
+`func (o *GitConfiguration) SetCommitSHA(v string)`
+
+SetCommitSHA sets CommitSHA field to given value.
+
+### HasCommitSHA
+
+`func (o *GitConfiguration) HasCommitSHA() bool`
+
+HasCommitSHA returns a boolean if a field has been set.
 
 ### GetReferenceName
 

@@ -22,6 +22,8 @@ var _ MappedNullable = &GitConfiguration{}
 type GitConfiguration struct {
 	// The access token
 	AccessToken *string `json:"accessToken,omitempty"`
+	// The commit SHA to checkout
+	CommitSHA *string `json:"commitSHA,omitempty"`
 	// The reference name of the repository
 	ReferenceName string `json:"referenceName"`
 	// The URL of the repository
@@ -73,6 +75,29 @@ func (o *GitConfiguration) GetAccessTokenOk() (*string, bool) {
 // SetAccessToken gets a reference to the given string and assigns it to the AccessToken field.
 func (o *GitConfiguration) SetAccessToken(v string) {
 	o.AccessToken = &v
+}
+
+// GetCommitSHA returns the CommitSHA field value if set, zero value otherwise.
+func (o *GitConfiguration) GetCommitSHA() string {
+	if o == nil || IsNil(o.CommitSHA) {
+		var ret string
+		return ret
+	}
+	return *o.CommitSHA
+}
+
+// GetCommitSHAOk returns a tuple with the CommitSHA field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GitConfiguration) GetCommitSHAOk() (*string, bool) {
+	if o == nil || IsNil(o.CommitSHA) {
+		return nil, false
+	}
+	return o.CommitSHA, true
+}
+
+// SetCommitSHA gets a reference to the given string and assigns it to the CommitSHA field.
+func (o *GitConfiguration) SetCommitSHA(v string) {
+	o.CommitSHA = &v
 }
 
 // GetReferenceName returns the ReferenceName field value
@@ -159,6 +184,9 @@ func (o GitConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AccessToken) {
 		toSerialize["accessToken"] = o.AccessToken
 	}
+	if !IsNil(o.CommitSHA) {
+		toSerialize["commitSHA"] = o.CommitSHA
+	}
 	toSerialize["referenceName"] = o.ReferenceName
 	toSerialize["repositoryUrl"] = o.RepositoryUrl
 	if !IsNil(o.UserName) {
@@ -209,6 +237,7 @@ func (o *GitConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "accessToken")
+		delete(additionalProperties, "commitSHA")
 		delete(additionalProperties, "referenceName")
 		delete(additionalProperties, "repositoryUrl")
 		delete(additionalProperties, "userName")

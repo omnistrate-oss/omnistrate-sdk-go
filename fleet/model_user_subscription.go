@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the UserSubscription type satisfies the MappedNullable interface at compile time
@@ -21,37 +20,37 @@ var _ MappedNullable = &UserSubscription{}
 // UserSubscription struct for UserSubscription
 type UserSubscription struct {
 	// List of cloud provider names
-	CloudProviderNames []string `json:"cloudProviderNames"`
+	CloudProviderNames []string `json:"cloudProviderNames,omitempty"`
 	// Whether this is the default subscription for the user
-	DefaultSubscription bool `json:"defaultSubscription"`
-	// The email of the user
-	Email string `json:"email"`
+	DefaultSubscription *bool `json:"defaultSubscription,omitempty"`
+	// [DEPRECATED] The email of the user
+	Email *string `json:"email,omitempty"`
 	// The number of active instances in the subscription
-	InstanceCount int64 `json:"instanceCount"`
-	// The name of the user
-	Name string `json:"name"`
+	InstanceCount *int64 `json:"instanceCount,omitempty"`
+	// [DEPRECATED] The name of the user
+	Name *string `json:"name,omitempty"`
 	// ID of a Product Tier
-	ProductTierId string `json:"productTierId"`
+	ProductTierId *string `json:"productTierId,omitempty"`
 	// The name of the product tier
-	ProductTierName string `json:"productTierName"`
+	ProductTierName *string `json:"productTierName,omitempty"`
 	// Type of the role
-	RoleType string `json:"roleType"`
+	RoleType *string `json:"roleType,omitempty"`
 	// ID of a Service Environment
-	ServiceEnvironmentId string `json:"serviceEnvironmentId"`
+	ServiceEnvironmentId *string `json:"serviceEnvironmentId,omitempty"`
 	// ID of a Service
-	ServiceId string `json:"serviceId"`
+	ServiceId *string `json:"serviceId,omitempty"`
 	// The logo for the service
 	ServiceLogoURL *string `json:"serviceLogoURL,omitempty"`
 	// The name of the service
-	ServiceName string `json:"serviceName"`
+	ServiceName *string `json:"serviceName,omitempty"`
 	// The date the user joined the subscription
-	SubscriptionDate string `json:"subscriptionDate"`
+	SubscriptionDate *string `json:"subscriptionDate,omitempty"`
 	// ID of a Subscription
-	SubscriptionId string `json:"subscriptionId"`
+	SubscriptionId *string `json:"subscriptionId,omitempty"`
 	// The name of the subscription owner user
-	SubscriptionOwnerName string `json:"subscriptionOwnerName"`
-	// The User ID
-	UserId string `json:"userId"`
+	SubscriptionOwnerName *string `json:"subscriptionOwnerName,omitempty"`
+	// [DEPRECATED] The User ID
+	UserId *string `json:"userId,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -61,23 +60,8 @@ type _UserSubscription UserSubscription
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserSubscription(cloudProviderNames []string, defaultSubscription bool, email string, instanceCount int64, name string, productTierId string, productTierName string, roleType string, serviceEnvironmentId string, serviceId string, serviceName string, subscriptionDate string, subscriptionId string, subscriptionOwnerName string, userId string) *UserSubscription {
+func NewUserSubscription() *UserSubscription {
 	this := UserSubscription{}
-	this.CloudProviderNames = cloudProviderNames
-	this.DefaultSubscription = defaultSubscription
-	this.Email = email
-	this.InstanceCount = instanceCount
-	this.Name = name
-	this.ProductTierId = productTierId
-	this.ProductTierName = productTierName
-	this.RoleType = roleType
-	this.ServiceEnvironmentId = serviceEnvironmentId
-	this.ServiceId = serviceId
-	this.ServiceName = serviceName
-	this.SubscriptionDate = subscriptionDate
-	this.SubscriptionId = subscriptionId
-	this.SubscriptionOwnerName = subscriptionOwnerName
-	this.UserId = userId
 	return &this
 }
 
@@ -89,244 +73,324 @@ func NewUserSubscriptionWithDefaults() *UserSubscription {
 	return &this
 }
 
-// GetCloudProviderNames returns the CloudProviderNames field value
+// GetCloudProviderNames returns the CloudProviderNames field value if set, zero value otherwise.
 func (o *UserSubscription) GetCloudProviderNames() []string {
-	if o == nil {
+	if o == nil || IsNil(o.CloudProviderNames) {
 		var ret []string
 		return ret
 	}
-
 	return o.CloudProviderNames
 }
 
-// GetCloudProviderNamesOk returns a tuple with the CloudProviderNames field value
+// GetCloudProviderNamesOk returns a tuple with the CloudProviderNames field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSubscription) GetCloudProviderNamesOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CloudProviderNames) {
 		return nil, false
 	}
 	return o.CloudProviderNames, true
 }
 
-// SetCloudProviderNames sets field value
+// HasCloudProviderNames returns a boolean if a field has been set.
+func (o *UserSubscription) HasCloudProviderNames() bool {
+	if o != nil && !IsNil(o.CloudProviderNames) {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudProviderNames gets a reference to the given []string and assigns it to the CloudProviderNames field.
 func (o *UserSubscription) SetCloudProviderNames(v []string) {
 	o.CloudProviderNames = v
 }
 
-// GetDefaultSubscription returns the DefaultSubscription field value
+// GetDefaultSubscription returns the DefaultSubscription field value if set, zero value otherwise.
 func (o *UserSubscription) GetDefaultSubscription() bool {
-	if o == nil {
+	if o == nil || IsNil(o.DefaultSubscription) {
 		var ret bool
 		return ret
 	}
-
-	return o.DefaultSubscription
+	return *o.DefaultSubscription
 }
 
-// GetDefaultSubscriptionOk returns a tuple with the DefaultSubscription field value
+// GetDefaultSubscriptionOk returns a tuple with the DefaultSubscription field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSubscription) GetDefaultSubscriptionOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DefaultSubscription) {
 		return nil, false
 	}
-	return &o.DefaultSubscription, true
+	return o.DefaultSubscription, true
 }
 
-// SetDefaultSubscription sets field value
+// HasDefaultSubscription returns a boolean if a field has been set.
+func (o *UserSubscription) HasDefaultSubscription() bool {
+	if o != nil && !IsNil(o.DefaultSubscription) {
+		return true
+	}
+
+	return false
+}
+
+// SetDefaultSubscription gets a reference to the given bool and assigns it to the DefaultSubscription field.
 func (o *UserSubscription) SetDefaultSubscription(v bool) {
-	o.DefaultSubscription = v
+	o.DefaultSubscription = &v
 }
 
-// GetEmail returns the Email field value
+// GetEmail returns the Email field value if set, zero value otherwise.
 func (o *UserSubscription) GetEmail() string {
-	if o == nil {
+	if o == nil || IsNil(o.Email) {
 		var ret string
 		return ret
 	}
-
-	return o.Email
+	return *o.Email
 }
 
-// GetEmailOk returns a tuple with the Email field value
+// GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSubscription) GetEmailOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Email) {
 		return nil, false
 	}
-	return &o.Email, true
+	return o.Email, true
 }
 
-// SetEmail sets field value
+// HasEmail returns a boolean if a field has been set.
+func (o *UserSubscription) HasEmail() bool {
+	if o != nil && !IsNil(o.Email) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmail gets a reference to the given string and assigns it to the Email field.
 func (o *UserSubscription) SetEmail(v string) {
-	o.Email = v
+	o.Email = &v
 }
 
-// GetInstanceCount returns the InstanceCount field value
+// GetInstanceCount returns the InstanceCount field value if set, zero value otherwise.
 func (o *UserSubscription) GetInstanceCount() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.InstanceCount) {
 		var ret int64
 		return ret
 	}
-
-	return o.InstanceCount
+	return *o.InstanceCount
 }
 
-// GetInstanceCountOk returns a tuple with the InstanceCount field value
+// GetInstanceCountOk returns a tuple with the InstanceCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSubscription) GetInstanceCountOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.InstanceCount) {
 		return nil, false
 	}
-	return &o.InstanceCount, true
+	return o.InstanceCount, true
 }
 
-// SetInstanceCount sets field value
+// HasInstanceCount returns a boolean if a field has been set.
+func (o *UserSubscription) HasInstanceCount() bool {
+	if o != nil && !IsNil(o.InstanceCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetInstanceCount gets a reference to the given int64 and assigns it to the InstanceCount field.
 func (o *UserSubscription) SetInstanceCount(v int64) {
-	o.InstanceCount = v
+	o.InstanceCount = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *UserSubscription) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSubscription) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *UserSubscription) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *UserSubscription) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
-// GetProductTierId returns the ProductTierId field value
+// GetProductTierId returns the ProductTierId field value if set, zero value otherwise.
 func (o *UserSubscription) GetProductTierId() string {
-	if o == nil {
+	if o == nil || IsNil(o.ProductTierId) {
 		var ret string
 		return ret
 	}
-
-	return o.ProductTierId
+	return *o.ProductTierId
 }
 
-// GetProductTierIdOk returns a tuple with the ProductTierId field value
+// GetProductTierIdOk returns a tuple with the ProductTierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSubscription) GetProductTierIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProductTierId) {
 		return nil, false
 	}
-	return &o.ProductTierId, true
+	return o.ProductTierId, true
 }
 
-// SetProductTierId sets field value
+// HasProductTierId returns a boolean if a field has been set.
+func (o *UserSubscription) HasProductTierId() bool {
+	if o != nil && !IsNil(o.ProductTierId) {
+		return true
+	}
+
+	return false
+}
+
+// SetProductTierId gets a reference to the given string and assigns it to the ProductTierId field.
 func (o *UserSubscription) SetProductTierId(v string) {
-	o.ProductTierId = v
+	o.ProductTierId = &v
 }
 
-// GetProductTierName returns the ProductTierName field value
+// GetProductTierName returns the ProductTierName field value if set, zero value otherwise.
 func (o *UserSubscription) GetProductTierName() string {
-	if o == nil {
+	if o == nil || IsNil(o.ProductTierName) {
 		var ret string
 		return ret
 	}
-
-	return o.ProductTierName
+	return *o.ProductTierName
 }
 
-// GetProductTierNameOk returns a tuple with the ProductTierName field value
+// GetProductTierNameOk returns a tuple with the ProductTierName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSubscription) GetProductTierNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProductTierName) {
 		return nil, false
 	}
-	return &o.ProductTierName, true
+	return o.ProductTierName, true
 }
 
-// SetProductTierName sets field value
+// HasProductTierName returns a boolean if a field has been set.
+func (o *UserSubscription) HasProductTierName() bool {
+	if o != nil && !IsNil(o.ProductTierName) {
+		return true
+	}
+
+	return false
+}
+
+// SetProductTierName gets a reference to the given string and assigns it to the ProductTierName field.
 func (o *UserSubscription) SetProductTierName(v string) {
-	o.ProductTierName = v
+	o.ProductTierName = &v
 }
 
-// GetRoleType returns the RoleType field value
+// GetRoleType returns the RoleType field value if set, zero value otherwise.
 func (o *UserSubscription) GetRoleType() string {
-	if o == nil {
+	if o == nil || IsNil(o.RoleType) {
 		var ret string
 		return ret
 	}
-
-	return o.RoleType
+	return *o.RoleType
 }
 
-// GetRoleTypeOk returns a tuple with the RoleType field value
+// GetRoleTypeOk returns a tuple with the RoleType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSubscription) GetRoleTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RoleType) {
 		return nil, false
 	}
-	return &o.RoleType, true
+	return o.RoleType, true
 }
 
-// SetRoleType sets field value
+// HasRoleType returns a boolean if a field has been set.
+func (o *UserSubscription) HasRoleType() bool {
+	if o != nil && !IsNil(o.RoleType) {
+		return true
+	}
+
+	return false
+}
+
+// SetRoleType gets a reference to the given string and assigns it to the RoleType field.
 func (o *UserSubscription) SetRoleType(v string) {
-	o.RoleType = v
+	o.RoleType = &v
 }
 
-// GetServiceEnvironmentId returns the ServiceEnvironmentId field value
+// GetServiceEnvironmentId returns the ServiceEnvironmentId field value if set, zero value otherwise.
 func (o *UserSubscription) GetServiceEnvironmentId() string {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceEnvironmentId) {
 		var ret string
 		return ret
 	}
-
-	return o.ServiceEnvironmentId
+	return *o.ServiceEnvironmentId
 }
 
-// GetServiceEnvironmentIdOk returns a tuple with the ServiceEnvironmentId field value
+// GetServiceEnvironmentIdOk returns a tuple with the ServiceEnvironmentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSubscription) GetServiceEnvironmentIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceEnvironmentId) {
 		return nil, false
 	}
-	return &o.ServiceEnvironmentId, true
+	return o.ServiceEnvironmentId, true
 }
 
-// SetServiceEnvironmentId sets field value
+// HasServiceEnvironmentId returns a boolean if a field has been set.
+func (o *UserSubscription) HasServiceEnvironmentId() bool {
+	if o != nil && !IsNil(o.ServiceEnvironmentId) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceEnvironmentId gets a reference to the given string and assigns it to the ServiceEnvironmentId field.
 func (o *UserSubscription) SetServiceEnvironmentId(v string) {
-	o.ServiceEnvironmentId = v
+	o.ServiceEnvironmentId = &v
 }
 
-// GetServiceId returns the ServiceId field value
+// GetServiceId returns the ServiceId field value if set, zero value otherwise.
 func (o *UserSubscription) GetServiceId() string {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceId) {
 		var ret string
 		return ret
 	}
-
-	return o.ServiceId
+	return *o.ServiceId
 }
 
-// GetServiceIdOk returns a tuple with the ServiceId field value
+// GetServiceIdOk returns a tuple with the ServiceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSubscription) GetServiceIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceId) {
 		return nil, false
 	}
-	return &o.ServiceId, true
+	return o.ServiceId, true
 }
 
-// SetServiceId sets field value
+// HasServiceId returns a boolean if a field has been set.
+func (o *UserSubscription) HasServiceId() bool {
+	if o != nil && !IsNil(o.ServiceId) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceId gets a reference to the given string and assigns it to the ServiceId field.
 func (o *UserSubscription) SetServiceId(v string) {
-	o.ServiceId = v
+	o.ServiceId = &v
 }
 
 // GetServiceLogoURL returns the ServiceLogoURL field value if set, zero value otherwise.
@@ -361,124 +425,164 @@ func (o *UserSubscription) SetServiceLogoURL(v string) {
 	o.ServiceLogoURL = &v
 }
 
-// GetServiceName returns the ServiceName field value
+// GetServiceName returns the ServiceName field value if set, zero value otherwise.
 func (o *UserSubscription) GetServiceName() string {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceName) {
 		var ret string
 		return ret
 	}
-
-	return o.ServiceName
+	return *o.ServiceName
 }
 
-// GetServiceNameOk returns a tuple with the ServiceName field value
+// GetServiceNameOk returns a tuple with the ServiceName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSubscription) GetServiceNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceName) {
 		return nil, false
 	}
-	return &o.ServiceName, true
+	return o.ServiceName, true
 }
 
-// SetServiceName sets field value
+// HasServiceName returns a boolean if a field has been set.
+func (o *UserSubscription) HasServiceName() bool {
+	if o != nil && !IsNil(o.ServiceName) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceName gets a reference to the given string and assigns it to the ServiceName field.
 func (o *UserSubscription) SetServiceName(v string) {
-	o.ServiceName = v
+	o.ServiceName = &v
 }
 
-// GetSubscriptionDate returns the SubscriptionDate field value
+// GetSubscriptionDate returns the SubscriptionDate field value if set, zero value otherwise.
 func (o *UserSubscription) GetSubscriptionDate() string {
-	if o == nil {
+	if o == nil || IsNil(o.SubscriptionDate) {
 		var ret string
 		return ret
 	}
-
-	return o.SubscriptionDate
+	return *o.SubscriptionDate
 }
 
-// GetSubscriptionDateOk returns a tuple with the SubscriptionDate field value
+// GetSubscriptionDateOk returns a tuple with the SubscriptionDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSubscription) GetSubscriptionDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SubscriptionDate) {
 		return nil, false
 	}
-	return &o.SubscriptionDate, true
+	return o.SubscriptionDate, true
 }
 
-// SetSubscriptionDate sets field value
+// HasSubscriptionDate returns a boolean if a field has been set.
+func (o *UserSubscription) HasSubscriptionDate() bool {
+	if o != nil && !IsNil(o.SubscriptionDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionDate gets a reference to the given string and assigns it to the SubscriptionDate field.
 func (o *UserSubscription) SetSubscriptionDate(v string) {
-	o.SubscriptionDate = v
+	o.SubscriptionDate = &v
 }
 
-// GetSubscriptionId returns the SubscriptionId field value
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
 func (o *UserSubscription) GetSubscriptionId() string {
-	if o == nil {
+	if o == nil || IsNil(o.SubscriptionId) {
 		var ret string
 		return ret
 	}
-
-	return o.SubscriptionId
+	return *o.SubscriptionId
 }
 
-// GetSubscriptionIdOk returns a tuple with the SubscriptionId field value
+// GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSubscription) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SubscriptionId) {
 		return nil, false
 	}
-	return &o.SubscriptionId, true
+	return o.SubscriptionId, true
 }
 
-// SetSubscriptionId sets field value
+// HasSubscriptionId returns a boolean if a field has been set.
+func (o *UserSubscription) HasSubscriptionId() bool {
+	if o != nil && !IsNil(o.SubscriptionId) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
 func (o *UserSubscription) SetSubscriptionId(v string) {
-	o.SubscriptionId = v
+	o.SubscriptionId = &v
 }
 
-// GetSubscriptionOwnerName returns the SubscriptionOwnerName field value
+// GetSubscriptionOwnerName returns the SubscriptionOwnerName field value if set, zero value otherwise.
 func (o *UserSubscription) GetSubscriptionOwnerName() string {
-	if o == nil {
+	if o == nil || IsNil(o.SubscriptionOwnerName) {
 		var ret string
 		return ret
 	}
-
-	return o.SubscriptionOwnerName
+	return *o.SubscriptionOwnerName
 }
 
-// GetSubscriptionOwnerNameOk returns a tuple with the SubscriptionOwnerName field value
+// GetSubscriptionOwnerNameOk returns a tuple with the SubscriptionOwnerName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSubscription) GetSubscriptionOwnerNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SubscriptionOwnerName) {
 		return nil, false
 	}
-	return &o.SubscriptionOwnerName, true
+	return o.SubscriptionOwnerName, true
 }
 
-// SetSubscriptionOwnerName sets field value
+// HasSubscriptionOwnerName returns a boolean if a field has been set.
+func (o *UserSubscription) HasSubscriptionOwnerName() bool {
+	if o != nil && !IsNil(o.SubscriptionOwnerName) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionOwnerName gets a reference to the given string and assigns it to the SubscriptionOwnerName field.
 func (o *UserSubscription) SetSubscriptionOwnerName(v string) {
-	o.SubscriptionOwnerName = v
+	o.SubscriptionOwnerName = &v
 }
 
-// GetUserId returns the UserId field value
+// GetUserId returns the UserId field value if set, zero value otherwise.
 func (o *UserSubscription) GetUserId() string {
-	if o == nil {
+	if o == nil || IsNil(o.UserId) {
 		var ret string
 		return ret
 	}
-
-	return o.UserId
+	return *o.UserId
 }
 
-// GetUserIdOk returns a tuple with the UserId field value
+// GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSubscription) GetUserIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UserId) {
 		return nil, false
 	}
-	return &o.UserId, true
+	return o.UserId, true
 }
 
-// SetUserId sets field value
+// HasUserId returns a boolean if a field has been set.
+func (o *UserSubscription) HasUserId() bool {
+	if o != nil && !IsNil(o.UserId) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserId gets a reference to the given string and assigns it to the UserId field.
 func (o *UserSubscription) SetUserId(v string) {
-	o.UserId = v
+	o.UserId = &v
 }
 
 func (o UserSubscription) MarshalJSON() ([]byte, error) {
@@ -491,24 +595,54 @@ func (o UserSubscription) MarshalJSON() ([]byte, error) {
 
 func (o UserSubscription) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["cloudProviderNames"] = o.CloudProviderNames
-	toSerialize["defaultSubscription"] = o.DefaultSubscription
-	toSerialize["email"] = o.Email
-	toSerialize["instanceCount"] = o.InstanceCount
-	toSerialize["name"] = o.Name
-	toSerialize["productTierId"] = o.ProductTierId
-	toSerialize["productTierName"] = o.ProductTierName
-	toSerialize["roleType"] = o.RoleType
-	toSerialize["serviceEnvironmentId"] = o.ServiceEnvironmentId
-	toSerialize["serviceId"] = o.ServiceId
+	if !IsNil(o.CloudProviderNames) {
+		toSerialize["cloudProviderNames"] = o.CloudProviderNames
+	}
+	if !IsNil(o.DefaultSubscription) {
+		toSerialize["defaultSubscription"] = o.DefaultSubscription
+	}
+	if !IsNil(o.Email) {
+		toSerialize["email"] = o.Email
+	}
+	if !IsNil(o.InstanceCount) {
+		toSerialize["instanceCount"] = o.InstanceCount
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.ProductTierId) {
+		toSerialize["productTierId"] = o.ProductTierId
+	}
+	if !IsNil(o.ProductTierName) {
+		toSerialize["productTierName"] = o.ProductTierName
+	}
+	if !IsNil(o.RoleType) {
+		toSerialize["roleType"] = o.RoleType
+	}
+	if !IsNil(o.ServiceEnvironmentId) {
+		toSerialize["serviceEnvironmentId"] = o.ServiceEnvironmentId
+	}
+	if !IsNil(o.ServiceId) {
+		toSerialize["serviceId"] = o.ServiceId
+	}
 	if !IsNil(o.ServiceLogoURL) {
 		toSerialize["serviceLogoURL"] = o.ServiceLogoURL
 	}
-	toSerialize["serviceName"] = o.ServiceName
-	toSerialize["subscriptionDate"] = o.SubscriptionDate
-	toSerialize["subscriptionId"] = o.SubscriptionId
-	toSerialize["subscriptionOwnerName"] = o.SubscriptionOwnerName
-	toSerialize["userId"] = o.UserId
+	if !IsNil(o.ServiceName) {
+		toSerialize["serviceName"] = o.ServiceName
+	}
+	if !IsNil(o.SubscriptionDate) {
+		toSerialize["subscriptionDate"] = o.SubscriptionDate
+	}
+	if !IsNil(o.SubscriptionId) {
+		toSerialize["subscriptionId"] = o.SubscriptionId
+	}
+	if !IsNil(o.SubscriptionOwnerName) {
+		toSerialize["subscriptionOwnerName"] = o.SubscriptionOwnerName
+	}
+	if !IsNil(o.UserId) {
+		toSerialize["userId"] = o.UserId
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -518,41 +652,6 @@ func (o UserSubscription) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *UserSubscription) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"cloudProviderNames",
-		"defaultSubscription",
-		"email",
-		"instanceCount",
-		"name",
-		"productTierId",
-		"productTierName",
-		"roleType",
-		"serviceEnvironmentId",
-		"serviceId",
-		"serviceName",
-		"subscriptionDate",
-		"subscriptionId",
-		"subscriptionOwnerName",
-		"userId",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varUserSubscription := _UserSubscription{}
 
 	err = json.Unmarshal(data, &varUserSubscription)

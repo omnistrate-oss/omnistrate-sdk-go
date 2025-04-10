@@ -42,6 +42,8 @@ type DescribeAccountConfigResult struct {
 	Description string `json:"description"`
 	// The GCP bootstrap shell command
 	GcpBootstrapShellCommand *string `json:"gcpBootstrapShellCommand,omitempty"`
+	// The GCP disconnect shell command
+	GcpDisconnectShellCommand *string `json:"gcpDisconnectShellCommand,omitempty"`
 	// The GCP project ID
 	GcpProjectID *string `json:"gcpProjectID,omitempty"`
 	// The GCP project number
@@ -339,6 +341,29 @@ func (o *DescribeAccountConfigResult) SetGcpBootstrapShellCommand(v string) {
 	o.GcpBootstrapShellCommand = &v
 }
 
+// GetGcpDisconnectShellCommand returns the GcpDisconnectShellCommand field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetGcpDisconnectShellCommand() string {
+	if o == nil || IsNil(o.GcpDisconnectShellCommand) {
+		var ret string
+		return ret
+	}
+	return *o.GcpDisconnectShellCommand
+}
+
+// GetGcpDisconnectShellCommandOk returns a tuple with the GcpDisconnectShellCommand field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetGcpDisconnectShellCommandOk() (*string, bool) {
+	if o == nil || IsNil(o.GcpDisconnectShellCommand) {
+		return nil, false
+	}
+	return o.GcpDisconnectShellCommand, true
+}
+
+// SetGcpDisconnectShellCommand gets a reference to the given string and assigns it to the GcpDisconnectShellCommand field.
+func (o *DescribeAccountConfigResult) SetGcpDisconnectShellCommand(v string) {
+	o.GcpDisconnectShellCommand = &v
+}
+
 // GetGcpProjectID returns the GcpProjectID field value if set, zero value otherwise.
 func (o *DescribeAccountConfigResult) GetGcpProjectID() string {
 	if o == nil || IsNil(o.GcpProjectID) {
@@ -543,6 +568,9 @@ func (o DescribeAccountConfigResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.GcpBootstrapShellCommand) {
 		toSerialize["gcpBootstrapShellCommand"] = o.GcpBootstrapShellCommand
 	}
+	if !IsNil(o.GcpDisconnectShellCommand) {
+		toSerialize["gcpDisconnectShellCommand"] = o.GcpDisconnectShellCommand
+	}
 	if !IsNil(o.GcpProjectID) {
 		toSerialize["gcpProjectID"] = o.GcpProjectID
 	}
@@ -615,6 +643,7 @@ func (o *DescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "cloudProviderId")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "gcpBootstrapShellCommand")
+		delete(additionalProperties, "gcpDisconnectShellCommand")
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "gcpProjectNumber")
 		delete(additionalProperties, "gcpServiceAccountEmail")

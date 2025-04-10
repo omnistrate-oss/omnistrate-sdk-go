@@ -17,6 +17,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"time"
 )
 
 
@@ -534,6 +535,18 @@ type InventoryApiAPI interface {
 	// InventoryApiListActiveOrganizationsExecute executes the request
 	//  @return ListOrganizationsResult
 	InventoryApiListActiveOrganizationsExecute(r ApiInventoryApiListActiveOrganizationsRequest) (*ListOrganizationsResult, *http.Response, error)
+
+	/*
+	InventoryApiListAllOrganizations ListAllOrganizations inventory-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiInventoryApiListAllOrganizationsRequest
+	*/
+	InventoryApiListAllOrganizations(ctx context.Context) ApiInventoryApiListAllOrganizationsRequest
+
+	// InventoryApiListAllOrganizationsExecute executes the request
+	//  @return ListAllOrganizationsResult
+	InventoryApiListAllOrganizationsExecute(r ApiInventoryApiListAllOrganizationsRequest) (*ListAllOrganizationsResult, *http.Response, error)
 
 	/*
 	InventoryApiListAllUsers ListAllUsers inventory-api
@@ -7143,6 +7156,208 @@ func (a *InventoryApiAPIService) InventoryApiListActiveOrganizationsExecute(r Ap
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiInventoryApiListAllOrganizationsRequest struct {
+	ctx context.Context
+	ApiService InventoryApiAPI
+	hasInvoice *bool
+	hasInvoiceWithStatus *string
+	hasInvoiceFromDate *time.Time
+	hasInvoiceToDate *time.Time
+}
+
+// Filter for organizations with invoices
+func (r ApiInventoryApiListAllOrganizationsRequest) HasInvoice(hasInvoice bool) ApiInventoryApiListAllOrganizationsRequest {
+	r.hasInvoice = &hasInvoice
+	return r
+}
+
+// Filter for organizations with invoices with a specific status
+func (r ApiInventoryApiListAllOrganizationsRequest) HasInvoiceWithStatus(hasInvoiceWithStatus string) ApiInventoryApiListAllOrganizationsRequest {
+	r.hasInvoiceWithStatus = &hasInvoiceWithStatus
+	return r
+}
+
+// Filter for organizations with invoices from a specific date
+func (r ApiInventoryApiListAllOrganizationsRequest) HasInvoiceFromDate(hasInvoiceFromDate time.Time) ApiInventoryApiListAllOrganizationsRequest {
+	r.hasInvoiceFromDate = &hasInvoiceFromDate
+	return r
+}
+
+// Filter for organizations with invoices to a specific date
+func (r ApiInventoryApiListAllOrganizationsRequest) HasInvoiceToDate(hasInvoiceToDate time.Time) ApiInventoryApiListAllOrganizationsRequest {
+	r.hasInvoiceToDate = &hasInvoiceToDate
+	return r
+}
+
+func (r ApiInventoryApiListAllOrganizationsRequest) Execute() (*ListAllOrganizationsResult, *http.Response, error) {
+	return r.ApiService.InventoryApiListAllOrganizationsExecute(r)
+}
+
+/*
+InventoryApiListAllOrganizations ListAllOrganizations inventory-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiInventoryApiListAllOrganizationsRequest
+*/
+func (a *InventoryApiAPIService) InventoryApiListAllOrganizations(ctx context.Context) ApiInventoryApiListAllOrganizationsRequest {
+	return ApiInventoryApiListAllOrganizationsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ListAllOrganizationsResult
+func (a *InventoryApiAPIService) InventoryApiListAllOrganizationsExecute(r ApiInventoryApiListAllOrganizationsRequest) (*ListAllOrganizationsResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListAllOrganizationsResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiListAllOrganizations")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/organizations"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.hasInvoice != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hasInvoice", r.hasInvoice, "form", "")
+	}
+	if r.hasInvoiceWithStatus != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hasInvoiceWithStatus", r.hasInvoiceWithStatus, "form", "")
+	}
+	if r.hasInvoiceFromDate != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hasInvoiceFromDate", r.hasInvoiceFromDate, "form", "")
+	}
+	if r.hasInvoiceToDate != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hasInvoiceToDate", r.hasInvoiceToDate, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiInventoryApiListAllUsersRequest struct {
 	ctx context.Context
 	ApiService InventoryApiAPI
@@ -8393,6 +8608,7 @@ type ApiInventoryApiListResourceInstancesRequest struct {
 	productTierVersion *string
 	productTierId *string
 	subscriptionId *string
+	filter *string
 }
 
 // Product tier version of the instance to describe. If not specified, the latest version is described.
@@ -8410,6 +8626,12 @@ func (r ApiInventoryApiListResourceInstancesRequest) ProductTierId(productTierId
 // Subscription id of the instance to describe.
 func (r ApiInventoryApiListResourceInstancesRequest) SubscriptionId(subscriptionId string) ApiInventoryApiListResourceInstancesRequest {
 	r.subscriptionId = &subscriptionId
+	return r
+}
+
+// Filter to apply to the list of instances.
+func (r ApiInventoryApiListResourceInstancesRequest) Filter(filter string) ApiInventoryApiListResourceInstancesRequest {
+	r.filter = &filter
 	return r
 }
 
@@ -8465,6 +8687,9 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstancesExecute(r ApiI
 	}
 	if r.subscriptionId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "SubscriptionId", r.subscriptionId, "form", "")
+	}
+	if r.filter != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Filter", r.filter, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -12663,7 +12888,7 @@ func (a *InventoryApiAPIService) InventoryApiUpdateAccountConfigResourceInstance
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2022-09-01-00/fleet/service/{serviceId}/account-config-instance/{instanceId}/"
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/service/{serviceId}/account-config-instance/{instanceId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
 

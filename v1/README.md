@@ -203,17 +203,12 @@ Class | Method | HTTP request | Description
 *PlanApiAPI* | [**PlanApiDescribePlan**](docs/PlanApiAPI.md#planapidescribeplan) | **Get** /2022-09-01-00/plan | DescribePlan plan-api
 *ProductTierApiAPI* | [**ProductTierApiCopyProductTier**](docs/ProductTierApiAPI.md#producttierapicopyproducttier) | **Post** /2022-09-01-00/service/{serviceId}/product-tier/copy/{sourceId} | CopyProductTier product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiCreateProductTier**](docs/ProductTierApiAPI.md#producttierapicreateproducttier) | **Post** /2022-09-01-00/service/{serviceId}/product-tier | CreateProductTier product-tier-api
-*ProductTierApiAPI* | [**ProductTierApiCreateProductTierBillingPlan**](docs/ProductTierApiAPI.md#producttierapicreateproducttierbillingplan) | **Post** /2022-09-01-00/service/{serviceId}/product-tier/{id}/billing-plan | CreateProductTierBillingPlan product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiDeleteProductTier**](docs/ProductTierApiAPI.md#producttierapideleteproducttier) | **Delete** /2022-09-01-00/service/{serviceId}/product-tier/{id} | DeleteProductTier product-tier-api
-*ProductTierApiAPI* | [**ProductTierApiDeleteProductTierBillingPlan**](docs/ProductTierApiAPI.md#producttierapideleteproducttierbillingplan) | **Delete** /2022-09-01-00/service/{serviceId}/product-tier/{productTierId}/billing-plan/{id} | DeleteProductTierBillingPlan product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiDescribeProductTier**](docs/ProductTierApiAPI.md#producttierapidescribeproducttier) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{id} | DescribeProductTier product-tier-api
-*ProductTierApiAPI* | [**ProductTierApiDescribeProductTierBillingPlan**](docs/ProductTierApiAPI.md#producttierapidescribeproducttierbillingplan) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{productTierId}/billing-plan/{id} | DescribeProductTierBillingPlan product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiDisableProductTierFeature**](docs/ProductTierApiAPI.md#producttierapidisableproducttierfeature) | **Delete** /2022-09-01-00/service/{serviceId}/product-tier/{id}/feature | DisableProductTierFeature product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiEnableProductTierFeature**](docs/ProductTierApiAPI.md#producttierapienableproducttierfeature) | **Put** /2022-09-01-00/service/{serviceId}/product-tier/{id}/feature | EnableProductTierFeature product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiListProductTier**](docs/ProductTierApiAPI.md#producttierapilistproducttier) | **Get** /2022-09-01-00/service/{serviceId}/model/{serviceModelId}/product-tier | ListProductTier product-tier-api
-*ProductTierApiAPI* | [**ProductTierApiListProductTierBillingPlan**](docs/ProductTierApiAPI.md#producttierapilistproducttierbillingplan) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{id}/billing-plan | ListProductTierBillingPlan product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiUpdateProductTier**](docs/ProductTierApiAPI.md#producttierapiupdateproducttier) | **Patch** /2022-09-01-00/service/{serviceId}/product-tier/{id} | UpdateProductTier product-tier-api
-*ProductTierApiAPI* | [**ProductTierApiUpdateProductTierBillingPlan**](docs/ProductTierApiAPI.md#producttierapiupdateproducttierbillingplan) | **Patch** /2022-09-01-00/service/{serviceId}/product-tier/{productTierId}/billing-plan/{id} | UpdateProductTierBillingPlan product-tier-api
 *RegionApiAPI* | [**RegionApiDescribeRegion**](docs/RegionApiAPI.md#regionapidescriberegion) | **Get** /2022-09-01-00/region/{id} | DescribeRegion region-api
 *RegionApiAPI* | [**RegionApiGetRegionByCode**](docs/RegionApiAPI.md#regionapigetregionbycode) | **Get** /2022-09-01-00/region/code/{code}/cloud-provider/{cloudProviderName} | GetRegionByCode region-api
 *RegionApiAPI* | [**RegionApiListRegion**](docs/RegionApiAPI.md#regionapilistregion) | **Get** /2022-09-01-00/region/cloudprovider/{cloudProviderName} | ListRegion region-api
@@ -403,7 +398,6 @@ Class | Method | HTTP request | Description
  - [BackendPortConfiguration](docs/BackendPortConfiguration.md)
  - [BackupConfiguration](docs/BackupConfiguration.md)
  - [BackupStatus](docs/BackupStatus.md)
- - [BillingPlan](docs/BillingPlan.md)
  - [BlobStorageConfiguration](docs/BlobStorageConfiguration.md)
  - [BuildServiceFromComposeSpecRequest](docs/BuildServiceFromComposeSpecRequest.md)
  - [BuildServiceFromComposeSpecRequest2](docs/BuildServiceFromComposeSpecRequest2.md)
@@ -458,8 +452,6 @@ Class | Method | HTTP request | Description
  - [CreateOutputParameterRequest](docs/CreateOutputParameterRequest.md)
  - [CreateOutputParameterRequest2](docs/CreateOutputParameterRequest2.md)
  - [CreatePipelineRequest](docs/CreatePipelineRequest.md)
- - [CreateProductTierBillingPlanRequest](docs/CreateProductTierBillingPlanRequest.md)
- - [CreateProductTierBillingPlanRequest2](docs/CreateProductTierBillingPlanRequest2.md)
  - [CreateProductTierRequest](docs/CreateProductTierRequest.md)
  - [CreateProductTierRequest2](docs/CreateProductTierRequest2.md)
  - [CreateResourceInstanceRequest](docs/CreateResourceInstanceRequest.md)
@@ -531,7 +523,6 @@ Class | Method | HTTP request | Description
  - [DeleteNetworkConfigRequest](docs/DeleteNetworkConfigRequest.md)
  - [DeleteOutputParameterRequest](docs/DeleteOutputParameterRequest.md)
  - [DeletePipelineRequest](docs/DeletePipelineRequest.md)
- - [DeleteProductTierBillingPlanRequest](docs/DeleteProductTierBillingPlanRequest.md)
  - [DeleteProductTierRequest](docs/DeleteProductTierRequest.md)
  - [DeleteResourceInstanceRequest](docs/DeleteResourceInstanceRequest.md)
  - [DeleteResourceRequest](docs/DeleteResourceRequest.md)
@@ -607,7 +598,6 @@ Class | Method | HTTP request | Description
  - [DescribePipelineResult](docs/DescribePipelineResult.md)
  - [DescribePlanRequest](docs/DescribePlanRequest.md)
  - [DescribePlanResult](docs/DescribePlanResult.md)
- - [DescribeProductTierBillingPlanRequest](docs/DescribeProductTierBillingPlanRequest.md)
  - [DescribeProductTierRequest](docs/DescribeProductTierRequest.md)
  - [DescribeProductTierResult](docs/DescribeProductTierResult.md)
  - [DescribeRegionRequest](docs/DescribeRegionRequest.md)
@@ -784,8 +774,6 @@ Class | Method | HTTP request | Description
  - [ListOutputParametersResult](docs/ListOutputParametersResult.md)
  - [ListPipelinesRequest](docs/ListPipelinesRequest.md)
  - [ListPipelinesResult](docs/ListPipelinesResult.md)
- - [ListProductTierBillingPlanRequest](docs/ListProductTierBillingPlanRequest.md)
- - [ListProductTierBillingPlanResult](docs/ListProductTierBillingPlanResult.md)
  - [ListProductTiersRequest](docs/ListProductTiersRequest.md)
  - [ListProductTiersResult](docs/ListProductTiersResult.md)
  - [ListRegionsRequest](docs/ListRegionsRequest.md)
@@ -841,7 +829,6 @@ Class | Method | HTTP request | Description
  - [NodeHealthSummary](docs/NodeHealthSummary.md)
  - [NodeNetworkTopologyResult](docs/NodeNetworkTopologyResult.md)
  - [NodeVMInfoResult](docs/NodeVMInfoResult.md)
- - [OfferingBillingPlan](docs/OfferingBillingPlan.md)
  - [OmnistrateError](docs/OmnistrateError.md)
  - [OmnistrateServiceHealthResult](docs/OmnistrateServiceHealthResult.md)
  - [OmnistrateServiceVersionResult](docs/OmnistrateServiceVersionResult.md)
@@ -980,8 +967,6 @@ Class | Method | HTTP request | Description
  - [UpdatePasswordRequest](docs/UpdatePasswordRequest.md)
  - [UpdatePasswordRequest2](docs/UpdatePasswordRequest2.md)
  - [UpdatePipelineRequest](docs/UpdatePipelineRequest.md)
- - [UpdateProductTierBillingPlanRequest](docs/UpdateProductTierBillingPlanRequest.md)
- - [UpdateProductTierBillingPlanRequest2](docs/UpdateProductTierBillingPlanRequest2.md)
  - [UpdateProductTierRequest](docs/UpdateProductTierRequest.md)
  - [UpdateProductTierRequest2](docs/UpdateProductTierRequest2.md)
  - [UpdateResourceInstanceRequest](docs/UpdateResourceInstanceRequest.md)

@@ -4,27 +4,27 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CreatedAt** | **string** | The time the user was created. | 
-**Email** | **string** | The user email. | 
-**Enabled** | **bool** | Is the user enabled. | 
-**InstanceCount** | **int64** | The number of active instances the user has. | 
-**LastModifiedAt** | **string** | The last modified time of the user. | 
+**CreatedAt** | Pointer to **string** | The time the user was created. | [optional] 
+**Email** | Pointer to **string** | The user email. | [optional] 
+**Enabled** | Pointer to **bool** | Is the user enabled. | [optional] 
+**InstanceCount** | Pointer to **int64** | The number of active instances the user has. | [optional] 
+**LastModifiedAt** | Pointer to **string** | The last modified time of the user. | [optional] 
 **LastModifiedByUserID** | Pointer to **string** | ID of a User | [optional] 
 **LastModifiedByUserName** | Pointer to **string** | The user name of the last modifier. | [optional] 
-**OrgId** | **string** | ID of an Org | 
-**OrgName** | **string** | The organization name. | 
+**OrgId** | Pointer to **string** | ID of an Org | [optional] 
+**OrgName** | Pointer to **string** | The organization name. | [optional] 
 **OrgUrl** | Pointer to **string** | The organization URL. | [optional] 
-**Status** | **string** | The status of the user. | 
-**SubscriptionCount** | **int64** | The number of subscriptions the user has. | 
+**Status** | Pointer to **string** | The status of the user. | [optional] 
+**SubscriptionCount** | Pointer to **int64** | The number of subscriptions the user has. | [optional] 
 **Token** | Pointer to **string** | Token to validate the user, if the user is not enabled. | [optional] 
-**UserId** | **string** | ID of a User | 
-**UserName** | **string** | The user name. | 
+**UserId** | Pointer to **string** | ID of a User | [optional] 
+**UserName** | Pointer to **string** | The user name. | [optional] 
 
 ## Methods
 
 ### NewAccessSideUser
 
-`func NewAccessSideUser(createdAt string, email string, enabled bool, instanceCount int64, lastModifiedAt string, orgId string, orgName string, status string, subscriptionCount int64, userId string, userName string, ) *AccessSideUser`
+`func NewAccessSideUser() *AccessSideUser`
 
 NewAccessSideUser instantiates a new AccessSideUser object
 This constructor will assign default values to properties that have it defined,
@@ -58,6 +58,11 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
+### HasCreatedAt
+
+`func (o *AccessSideUser) HasCreatedAt() bool`
+
+HasCreatedAt returns a boolean if a field has been set.
 
 ### GetEmail
 
@@ -78,6 +83,11 @@ and a boolean to check if the value has been set.
 
 SetEmail sets Email field to given value.
 
+### HasEmail
+
+`func (o *AccessSideUser) HasEmail() bool`
+
+HasEmail returns a boolean if a field has been set.
 
 ### GetEnabled
 
@@ -98,6 +108,11 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
+### HasEnabled
+
+`func (o *AccessSideUser) HasEnabled() bool`
+
+HasEnabled returns a boolean if a field has been set.
 
 ### GetInstanceCount
 
@@ -118,6 +133,11 @@ and a boolean to check if the value has been set.
 
 SetInstanceCount sets InstanceCount field to given value.
 
+### HasInstanceCount
+
+`func (o *AccessSideUser) HasInstanceCount() bool`
+
+HasInstanceCount returns a boolean if a field has been set.
 
 ### GetLastModifiedAt
 
@@ -138,6 +158,11 @@ and a boolean to check if the value has been set.
 
 SetLastModifiedAt sets LastModifiedAt field to given value.
 
+### HasLastModifiedAt
+
+`func (o *AccessSideUser) HasLastModifiedAt() bool`
+
+HasLastModifiedAt returns a boolean if a field has been set.
 
 ### GetLastModifiedByUserID
 
@@ -208,6 +233,11 @@ and a boolean to check if the value has been set.
 
 SetOrgId sets OrgId field to given value.
 
+### HasOrgId
+
+`func (o *AccessSideUser) HasOrgId() bool`
+
+HasOrgId returns a boolean if a field has been set.
 
 ### GetOrgName
 
@@ -228,6 +258,11 @@ and a boolean to check if the value has been set.
 
 SetOrgName sets OrgName field to given value.
 
+### HasOrgName
+
+`func (o *AccessSideUser) HasOrgName() bool`
+
+HasOrgName returns a boolean if a field has been set.
 
 ### GetOrgUrl
 
@@ -273,6 +308,11 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
+### HasStatus
+
+`func (o *AccessSideUser) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 ### GetSubscriptionCount
 
@@ -293,6 +333,11 @@ and a boolean to check if the value has been set.
 
 SetSubscriptionCount sets SubscriptionCount field to given value.
 
+### HasSubscriptionCount
+
+`func (o *AccessSideUser) HasSubscriptionCount() bool`
+
+HasSubscriptionCount returns a boolean if a field has been set.
 
 ### GetToken
 
@@ -338,6 +383,11 @@ and a boolean to check if the value has been set.
 
 SetUserId sets UserId field to given value.
 
+### HasUserId
+
+`func (o *AccessSideUser) HasUserId() bool`
+
+HasUserId returns a boolean if a field has been set.
 
 ### GetUserName
 
@@ -358,6 +408,11 @@ and a boolean to check if the value has been set.
 
 SetUserName sets UserName field to given value.
 
+### HasUserName
+
+`func (o *AccessSideUser) HasUserName() bool`
+
+HasUserName returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

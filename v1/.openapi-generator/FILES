@@ -84,7 +84,6 @@ docs/AvailabilityZoneApiAPI.md
 docs/BackendPortConfiguration.md
 docs/BackupConfiguration.md
 docs/BackupStatus.md
-docs/BillingPlan.md
 docs/BlobStorageConfiguration.md
 docs/BuildServiceFromComposeSpecRequest.md
 docs/BuildServiceFromComposeSpecRequest2.md
@@ -147,8 +146,6 @@ docs/CreateNetworkConfigRequest2.md
 docs/CreateOutputParameterRequest.md
 docs/CreateOutputParameterRequest2.md
 docs/CreatePipelineRequest.md
-docs/CreateProductTierBillingPlanRequest.md
-docs/CreateProductTierBillingPlanRequest2.md
 docs/CreateProductTierRequest.md
 docs/CreateProductTierRequest2.md
 docs/CreateResourceInstanceRequest.md
@@ -222,7 +219,6 @@ docs/DeleteLimitRequest.md
 docs/DeleteNetworkConfigRequest.md
 docs/DeleteOutputParameterRequest.md
 docs/DeletePipelineRequest.md
-docs/DeleteProductTierBillingPlanRequest.md
 docs/DeleteProductTierRequest.md
 docs/DeleteResourceInstanceRequest.md
 docs/DeleteResourceRequest.md
@@ -300,7 +296,6 @@ docs/DescribePipelineRequest.md
 docs/DescribePipelineResult.md
 docs/DescribePlanRequest.md
 docs/DescribePlanResult.md
-docs/DescribeProductTierBillingPlanRequest.md
 docs/DescribeProductTierRequest.md
 docs/DescribeProductTierResult.md
 docs/DescribeRegionRequest.md
@@ -486,8 +481,6 @@ docs/ListOutputParametersRequest.md
 docs/ListOutputParametersResult.md
 docs/ListPipelinesRequest.md
 docs/ListPipelinesResult.md
-docs/ListProductTierBillingPlanRequest.md
-docs/ListProductTierBillingPlanResult.md
 docs/ListProductTiersRequest.md
 docs/ListProductTiersResult.md
 docs/ListRegionsRequest.md
@@ -544,7 +537,6 @@ docs/NetworkFeaturesConfiguration.md
 docs/NodeHealthSummary.md
 docs/NodeNetworkTopologyResult.md
 docs/NodeVMInfoResult.md
-docs/OfferingBillingPlan.md
 docs/OmnistrateError.md
 docs/OmnistrateServiceHealthResult.md
 docs/OmnistrateServiceVersionResult.md
@@ -705,8 +697,6 @@ docs/UpdateOutputParameterRequest2.md
 docs/UpdatePasswordRequest.md
 docs/UpdatePasswordRequest2.md
 docs/UpdatePipelineRequest.md
-docs/UpdateProductTierBillingPlanRequest.md
-docs/UpdateProductTierBillingPlanRequest2.md
 docs/UpdateProductTierRequest.md
 docs/UpdateProductTierRequest2.md
 docs/UpdateResourceInstanceRequest.md
@@ -773,7 +763,6 @@ model_aws_private_link_configuration.go
 model_backend_port_configuration.go
 model_backup_configuration.go
 model_backup_status.go
-model_billing_plan.go
 model_blob_storage_configuration.go
 model_build_service_from_compose_spec_request.go
 model_build_service_from_compose_spec_request2.go
@@ -828,8 +817,6 @@ model_create_network_config_request2.go
 model_create_output_parameter_request.go
 model_create_output_parameter_request2.go
 model_create_pipeline_request.go
-model_create_product_tier_billing_plan_request.go
-model_create_product_tier_billing_plan_request2.go
 model_create_product_tier_request.go
 model_create_product_tier_request2.go
 model_create_resource_instance_request.go
@@ -901,7 +888,6 @@ model_delete_limit_request.go
 model_delete_network_config_request.go
 model_delete_output_parameter_request.go
 model_delete_pipeline_request.go
-model_delete_product_tier_billing_plan_request.go
 model_delete_product_tier_request.go
 model_delete_resource_instance_request.go
 model_delete_resource_request.go
@@ -977,7 +963,6 @@ model_describe_pipeline_request.go
 model_describe_pipeline_result.go
 model_describe_plan_request.go
 model_describe_plan_result.go
-model_describe_product_tier_billing_plan_request.go
 model_describe_product_tier_request.go
 model_describe_product_tier_result.go
 model_describe_region_request.go
@@ -1154,8 +1139,6 @@ model_list_output_parameters_request.go
 model_list_output_parameters_result.go
 model_list_pipelines_request.go
 model_list_pipelines_result.go
-model_list_product_tier_billing_plan_request.go
-model_list_product_tier_billing_plan_result.go
 model_list_product_tiers_request.go
 model_list_product_tiers_result.go
 model_list_regions_request.go
@@ -1211,7 +1194,6 @@ model_network_features_configuration.go
 model_node_health_summary.go
 model_node_network_topology_result.go
 model_node_vm_info_result.go
-model_offering_billing_plan.go
 model_omnistrate_error.go
 model_omnistrate_service_health_result.go
 model_omnistrate_service_version_result.go
@@ -1350,8 +1332,6 @@ model_update_output_parameter_request2.go
 model_update_password_request.go
 model_update_password_request2.go
 model_update_pipeline_request.go
-model_update_product_tier_billing_plan_request.go
-model_update_product_tier_billing_plan_request2.go
 model_update_product_tier_request.go
 model_update_product_tier_request2.go
 model_update_resource_instance_request.go

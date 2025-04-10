@@ -4,7 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CompanyUrl** | Pointer to **string** | Company URL of the user. | [optional] 
 **Email** | **string** | Email address of the user | 
+**EnableAutoVerification** | **bool** | Whether to enable auto verification for the user. | 
 **LegalCompanyName** | **string** | Legal company name of the user. | 
 **Name** | **string** | Name of the user | 
 **Password** | **string** | Password of the user | 
@@ -13,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewFleetCreateConsumptionUserRequest2
 
-`func NewFleetCreateConsumptionUserRequest2(email string, legalCompanyName string, name string, password string, ) *FleetCreateConsumptionUserRequest2`
+`func NewFleetCreateConsumptionUserRequest2(email string, enableAutoVerification bool, legalCompanyName string, name string, password string, ) *FleetCreateConsumptionUserRequest2`
 
 NewFleetCreateConsumptionUserRequest2 instantiates a new FleetCreateConsumptionUserRequest2 object
 This constructor will assign default values to properties that have it defined,
@@ -27,6 +29,31 @@ will change when the set of required properties is changed
 NewFleetCreateConsumptionUserRequest2WithDefaults instantiates a new FleetCreateConsumptionUserRequest2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCompanyUrl
+
+`func (o *FleetCreateConsumptionUserRequest2) GetCompanyUrl() string`
+
+GetCompanyUrl returns the CompanyUrl field if non-nil, zero value otherwise.
+
+### GetCompanyUrlOk
+
+`func (o *FleetCreateConsumptionUserRequest2) GetCompanyUrlOk() (*string, bool)`
+
+GetCompanyUrlOk returns a tuple with the CompanyUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCompanyUrl
+
+`func (o *FleetCreateConsumptionUserRequest2) SetCompanyUrl(v string)`
+
+SetCompanyUrl sets CompanyUrl field to given value.
+
+### HasCompanyUrl
+
+`func (o *FleetCreateConsumptionUserRequest2) HasCompanyUrl() bool`
+
+HasCompanyUrl returns a boolean if a field has been set.
 
 ### GetEmail
 
@@ -46,6 +73,26 @@ and a boolean to check if the value has been set.
 `func (o *FleetCreateConsumptionUserRequest2) SetEmail(v string)`
 
 SetEmail sets Email field to given value.
+
+
+### GetEnableAutoVerification
+
+`func (o *FleetCreateConsumptionUserRequest2) GetEnableAutoVerification() bool`
+
+GetEnableAutoVerification returns the EnableAutoVerification field if non-nil, zero value otherwise.
+
+### GetEnableAutoVerificationOk
+
+`func (o *FleetCreateConsumptionUserRequest2) GetEnableAutoVerificationOk() (*bool, bool)`
+
+GetEnableAutoVerificationOk returns a tuple with the EnableAutoVerification field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableAutoVerification
+
+`func (o *FleetCreateConsumptionUserRequest2) SetEnableAutoVerification(v bool)`
+
+SetEnableAutoVerification sets EnableAutoVerification field to given value.
 
 
 ### GetLegalCompanyName
