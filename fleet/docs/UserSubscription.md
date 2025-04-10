@@ -4,28 +4,28 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudProviderNames** | **[]string** | List of cloud provider names | 
-**DefaultSubscription** | **bool** | Whether this is the default subscription for the user | 
-**Email** | **string** | The email of the user | 
-**InstanceCount** | **int64** | The number of active instances in the subscription | 
-**Name** | **string** | The name of the user | 
-**ProductTierId** | **string** | ID of a Product Tier | 
-**ProductTierName** | **string** | The name of the product tier | 
-**RoleType** | **string** | Type of the role | 
-**ServiceEnvironmentId** | **string** | ID of a Service Environment | 
-**ServiceId** | **string** | ID of a Service | 
+**CloudProviderNames** | Pointer to **[]string** | List of cloud provider names | [optional] 
+**DefaultSubscription** | Pointer to **bool** | Whether this is the default subscription for the user | [optional] 
+**Email** | Pointer to **string** | [DEPRECATED] The email of the user | [optional] 
+**InstanceCount** | Pointer to **int64** | The number of active instances in the subscription | [optional] 
+**Name** | Pointer to **string** | [DEPRECATED] The name of the user | [optional] 
+**ProductTierId** | Pointer to **string** | ID of a Product Tier | [optional] 
+**ProductTierName** | Pointer to **string** | The name of the product tier | [optional] 
+**RoleType** | Pointer to **string** | Type of the role | [optional] 
+**ServiceEnvironmentId** | Pointer to **string** | ID of a Service Environment | [optional] 
+**ServiceId** | Pointer to **string** | ID of a Service | [optional] 
 **ServiceLogoURL** | Pointer to **string** | The logo for the service | [optional] 
-**ServiceName** | **string** | The name of the service | 
-**SubscriptionDate** | **string** | The date the user joined the subscription | 
-**SubscriptionId** | **string** | ID of a Subscription | 
-**SubscriptionOwnerName** | **string** | The name of the subscription owner user | 
-**UserId** | **string** | The User ID | 
+**ServiceName** | Pointer to **string** | The name of the service | [optional] 
+**SubscriptionDate** | Pointer to **string** | The date the user joined the subscription | [optional] 
+**SubscriptionId** | Pointer to **string** | ID of a Subscription | [optional] 
+**SubscriptionOwnerName** | Pointer to **string** | The name of the subscription owner user | [optional] 
+**UserId** | Pointer to **string** | [DEPRECATED] The User ID | [optional] 
 
 ## Methods
 
 ### NewUserSubscription
 
-`func NewUserSubscription(cloudProviderNames []string, defaultSubscription bool, email string, instanceCount int64, name string, productTierId string, productTierName string, roleType string, serviceEnvironmentId string, serviceId string, serviceName string, subscriptionDate string, subscriptionId string, subscriptionOwnerName string, userId string, ) *UserSubscription`
+`func NewUserSubscription() *UserSubscription`
 
 NewUserSubscription instantiates a new UserSubscription object
 This constructor will assign default values to properties that have it defined,
@@ -59,6 +59,11 @@ and a boolean to check if the value has been set.
 
 SetCloudProviderNames sets CloudProviderNames field to given value.
 
+### HasCloudProviderNames
+
+`func (o *UserSubscription) HasCloudProviderNames() bool`
+
+HasCloudProviderNames returns a boolean if a field has been set.
 
 ### GetDefaultSubscription
 
@@ -79,6 +84,11 @@ and a boolean to check if the value has been set.
 
 SetDefaultSubscription sets DefaultSubscription field to given value.
 
+### HasDefaultSubscription
+
+`func (o *UserSubscription) HasDefaultSubscription() bool`
+
+HasDefaultSubscription returns a boolean if a field has been set.
 
 ### GetEmail
 
@@ -99,6 +109,11 @@ and a boolean to check if the value has been set.
 
 SetEmail sets Email field to given value.
 
+### HasEmail
+
+`func (o *UserSubscription) HasEmail() bool`
+
+HasEmail returns a boolean if a field has been set.
 
 ### GetInstanceCount
 
@@ -119,6 +134,11 @@ and a boolean to check if the value has been set.
 
 SetInstanceCount sets InstanceCount field to given value.
 
+### HasInstanceCount
+
+`func (o *UserSubscription) HasInstanceCount() bool`
+
+HasInstanceCount returns a boolean if a field has been set.
 
 ### GetName
 
@@ -139,6 +159,11 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
+
+`func (o *UserSubscription) HasName() bool`
+
+HasName returns a boolean if a field has been set.
 
 ### GetProductTierId
 
@@ -159,6 +184,11 @@ and a boolean to check if the value has been set.
 
 SetProductTierId sets ProductTierId field to given value.
 
+### HasProductTierId
+
+`func (o *UserSubscription) HasProductTierId() bool`
+
+HasProductTierId returns a boolean if a field has been set.
 
 ### GetProductTierName
 
@@ -179,6 +209,11 @@ and a boolean to check if the value has been set.
 
 SetProductTierName sets ProductTierName field to given value.
 
+### HasProductTierName
+
+`func (o *UserSubscription) HasProductTierName() bool`
+
+HasProductTierName returns a boolean if a field has been set.
 
 ### GetRoleType
 
@@ -199,6 +234,11 @@ and a boolean to check if the value has been set.
 
 SetRoleType sets RoleType field to given value.
 
+### HasRoleType
+
+`func (o *UserSubscription) HasRoleType() bool`
+
+HasRoleType returns a boolean if a field has been set.
 
 ### GetServiceEnvironmentId
 
@@ -219,6 +259,11 @@ and a boolean to check if the value has been set.
 
 SetServiceEnvironmentId sets ServiceEnvironmentId field to given value.
 
+### HasServiceEnvironmentId
+
+`func (o *UserSubscription) HasServiceEnvironmentId() bool`
+
+HasServiceEnvironmentId returns a boolean if a field has been set.
 
 ### GetServiceId
 
@@ -239,6 +284,11 @@ and a boolean to check if the value has been set.
 
 SetServiceId sets ServiceId field to given value.
 
+### HasServiceId
+
+`func (o *UserSubscription) HasServiceId() bool`
+
+HasServiceId returns a boolean if a field has been set.
 
 ### GetServiceLogoURL
 
@@ -284,6 +334,11 @@ and a boolean to check if the value has been set.
 
 SetServiceName sets ServiceName field to given value.
 
+### HasServiceName
+
+`func (o *UserSubscription) HasServiceName() bool`
+
+HasServiceName returns a boolean if a field has been set.
 
 ### GetSubscriptionDate
 
@@ -304,6 +359,11 @@ and a boolean to check if the value has been set.
 
 SetSubscriptionDate sets SubscriptionDate field to given value.
 
+### HasSubscriptionDate
+
+`func (o *UserSubscription) HasSubscriptionDate() bool`
+
+HasSubscriptionDate returns a boolean if a field has been set.
 
 ### GetSubscriptionId
 
@@ -324,6 +384,11 @@ and a boolean to check if the value has been set.
 
 SetSubscriptionId sets SubscriptionId field to given value.
 
+### HasSubscriptionId
+
+`func (o *UserSubscription) HasSubscriptionId() bool`
+
+HasSubscriptionId returns a boolean if a field has been set.
 
 ### GetSubscriptionOwnerName
 
@@ -344,6 +409,11 @@ and a boolean to check if the value has been set.
 
 SetSubscriptionOwnerName sets SubscriptionOwnerName field to given value.
 
+### HasSubscriptionOwnerName
+
+`func (o *UserSubscription) HasSubscriptionOwnerName() bool`
+
+HasSubscriptionOwnerName returns a boolean if a field has been set.
 
 ### GetUserId
 
@@ -364,6 +434,11 @@ and a boolean to check if the value has been set.
 
 SetUserId sets UserId field to given value.
 
+### HasUserId
+
+`func (o *UserSubscription) HasUserId() bool`
+
+HasUserId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

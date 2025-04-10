@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AdditionalData** | Pointer to **map[string]interface{}** | Additional metadata about the job | [optional] 
 **EndTime** | Pointer to **string** | When the job completed | [optional] 
-**JobID** | **string** | Unique identifier for the job run | 
 **MetricType** | **string** | Type of job metric being tracked | 
 **StartTime** | **string** | When the job started running | 
 **Value** | **float64** | Value of the metric | 
@@ -15,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewJobMetric
 
-`func NewJobMetric(jobID string, metricType string, startTime string, value float64, ) *JobMetric`
+`func NewJobMetric(metricType string, startTime string, value float64, ) *JobMetric`
 
 NewJobMetric instantiates a new JobMetric object
 This constructor will assign default values to properties that have it defined,
@@ -79,26 +78,6 @@ SetEndTime sets EndTime field to given value.
 `func (o *JobMetric) HasEndTime() bool`
 
 HasEndTime returns a boolean if a field has been set.
-
-### GetJobID
-
-`func (o *JobMetric) GetJobID() string`
-
-GetJobID returns the JobID field if non-nil, zero value otherwise.
-
-### GetJobIDOk
-
-`func (o *JobMetric) GetJobIDOk() (*string, bool)`
-
-GetJobIDOk returns a tuple with the JobID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetJobID
-
-`func (o *JobMetric) SetJobID(v string)`
-
-SetJobID sets JobID field to given value.
-
 
 ### GetMetricType
 

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Filter** | Pointer to **string** | Filter to list resources. | [optional] 
 **ProductTierId** | Pointer to **string** | ID of a Product Tier | [optional] 
 **ProductTierVersion** | Pointer to **string** | The product tier version of the infra config to describe. If not specified, the latest version is described. | [optional] 
 **SubscriptionId** | Pointer to **string** | ID of a Subscription | [optional] 
@@ -29,6 +30,31 @@ will change when the set of required properties is changed
 NewListFleetResourceInstancesRequestWithDefaults instantiates a new ListFleetResourceInstancesRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetFilter
+
+`func (o *ListFleetResourceInstancesRequest) GetFilter() string`
+
+GetFilter returns the Filter field if non-nil, zero value otherwise.
+
+### GetFilterOk
+
+`func (o *ListFleetResourceInstancesRequest) GetFilterOk() (*string, bool)`
+
+GetFilterOk returns a tuple with the Filter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFilter
+
+`func (o *ListFleetResourceInstancesRequest) SetFilter(v string)`
+
+SetFilter sets Filter field to given value.
+
+### HasFilter
+
+`func (o *ListFleetResourceInstancesRequest) HasFilter() bool`
+
+HasFilter returns a boolean if a field has been set.
 
 ### GetProductTierId
 

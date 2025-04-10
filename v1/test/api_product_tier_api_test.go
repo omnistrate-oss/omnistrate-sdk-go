@@ -51,21 +51,6 @@ func Test_v1_ProductTierApiAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ProductTierApiAPIService ProductTierApiCreateProductTierBillingPlan", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var serviceId string
-		var id string
-
-		resp, httpRes, err := apiClient.ProductTierApiAPI.ProductTierApiCreateProductTierBillingPlan(context.Background(), serviceId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test ProductTierApiAPIService ProductTierApiDeleteProductTier", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -80,21 +65,6 @@ func Test_v1_ProductTierApiAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ProductTierApiAPIService ProductTierApiDeleteProductTierBillingPlan", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var serviceId string
-		var productTierId string
-		var id string
-
-		httpRes, err := apiClient.ProductTierApiAPI.ProductTierApiDeleteProductTierBillingPlan(context.Background(), serviceId, productTierId, id).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test ProductTierApiAPIService ProductTierApiDescribeProductTier", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -103,22 +73,6 @@ func Test_v1_ProductTierApiAPIService(t *testing.T) {
 		var id string
 
 		resp, httpRes, err := apiClient.ProductTierApiAPI.ProductTierApiDescribeProductTier(context.Background(), serviceId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ProductTierApiAPIService ProductTierApiDescribeProductTierBillingPlan", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var serviceId string
-		var productTierId string
-		var id string
-
-		resp, httpRes, err := apiClient.ProductTierApiAPI.ProductTierApiDescribeProductTierBillingPlan(context.Background(), serviceId, productTierId, id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -169,21 +123,6 @@ func Test_v1_ProductTierApiAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ProductTierApiAPIService ProductTierApiListProductTierBillingPlan", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var serviceId string
-		var id string
-
-		resp, httpRes, err := apiClient.ProductTierApiAPI.ProductTierApiListProductTierBillingPlan(context.Background(), serviceId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test ProductTierApiAPIService ProductTierApiUpdateProductTier", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -194,22 +133,6 @@ func Test_v1_ProductTierApiAPIService(t *testing.T) {
 		httpRes, err := apiClient.ProductTierApiAPI.ProductTierApiUpdateProductTier(context.Background(), serviceId, id).Execute()
 
 		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ProductTierApiAPIService ProductTierApiUpdateProductTierBillingPlan", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var serviceId string
-		var productTierId string
-		var id string
-
-		resp, httpRes, err := apiClient.ProductTierApiAPI.ProductTierApiUpdateProductTierBillingPlan(context.Background(), serviceId, productTierId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

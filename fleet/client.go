@@ -69,6 +69,8 @@ type APIClient struct {
 
 	InventoryApiAPI InventoryApiAPI
 
+	InvoiceApiAPI InvoiceApiAPI
+
 	NotificationsApiAPI NotificationsApiAPI
 
 	OperationsApiAPI OperationsApiAPI
@@ -102,6 +104,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.HelmPackageApiAPI = (*HelmPackageApiAPIService)(&c.common)
 	c.HostclusterApiAPI = (*HostclusterApiAPIService)(&c.common)
 	c.InventoryApiAPI = (*InventoryApiAPIService)(&c.common)
+	c.InvoiceApiAPI = (*InvoiceApiAPIService)(&c.common)
 	c.NotificationsApiAPI = (*NotificationsApiAPIService)(&c.common)
 	c.OperationsApiAPI = (*OperationsApiAPIService)(&c.common)
 	c.WebhooksApiAPI = (*WebhooksApiAPIService)(&c.common)

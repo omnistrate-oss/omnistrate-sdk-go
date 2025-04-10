@@ -30,9 +30,9 @@ import (
 func main() {
 	serviceID := "s-123456" // string | The service ID to list events for (optional)
 	environmentType := "PROD|PRIVATE|CANARY|STAGING|QA|DEV" // string |  (optional)
-	eventSourceTypes := []string{"Atque quia sunt neque dolor dolor tempore."} // []string | The event types to filter by (optional)
+	eventSourceTypes := []string{"Dolore ducimus sunt est reprehenderit dolore."} // []string | The event types to filter by (optional)
 	instanceID := "instance-12345678" // string | The instance ID to list events for (optional)
-	productTierID := "Tempora qui." // string |  (optional)
+	productTierID := "Eum officiis et." // string |  (optional)
 	nextPageToken := "token" // string | The next token to use for pagination (optional)
 	pageSize := int64(10) // int64 | The number of events to return per page (optional)
 	startDate := time.Now() // time.Time | Start date of the events (optional)

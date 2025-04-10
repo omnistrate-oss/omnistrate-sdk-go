@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the AccessSideUser type satisfies the MappedNullable interface at compile time
@@ -21,35 +20,35 @@ var _ MappedNullable = &AccessSideUser{}
 // AccessSideUser struct for AccessSideUser
 type AccessSideUser struct {
 	// The time the user was created.
-	CreatedAt string `json:"createdAt"`
+	CreatedAt *string `json:"createdAt,omitempty"`
 	// The user email.
-	Email string `json:"email"`
+	Email *string `json:"email,omitempty"`
 	// Is the user enabled.
-	Enabled bool `json:"enabled"`
+	Enabled *bool `json:"enabled,omitempty"`
 	// The number of active instances the user has.
-	InstanceCount int64 `json:"instanceCount"`
+	InstanceCount *int64 `json:"instanceCount,omitempty"`
 	// The last modified time of the user.
-	LastModifiedAt string `json:"lastModifiedAt"`
+	LastModifiedAt *string `json:"lastModifiedAt,omitempty"`
 	// ID of a User
 	LastModifiedByUserID *string `json:"lastModifiedByUserID,omitempty"`
 	// The user name of the last modifier.
 	LastModifiedByUserName *string `json:"lastModifiedByUserName,omitempty"`
 	// ID of an Org
-	OrgId string `json:"orgId"`
+	OrgId *string `json:"orgId,omitempty"`
 	// The organization name.
-	OrgName string `json:"orgName"`
+	OrgName *string `json:"orgName,omitempty"`
 	// The organization URL.
 	OrgUrl *string `json:"orgUrl,omitempty"`
 	// The status of the user.
-	Status string `json:"status"`
+	Status *string `json:"status,omitempty"`
 	// The number of subscriptions the user has.
-	SubscriptionCount int64 `json:"subscriptionCount"`
+	SubscriptionCount *int64 `json:"subscriptionCount,omitempty"`
 	// Token to validate the user, if the user is not enabled.
 	Token *string `json:"token,omitempty"`
 	// ID of a User
-	UserId string `json:"userId"`
+	UserId *string `json:"userId,omitempty"`
 	// The user name.
-	UserName string `json:"userName"`
+	UserName *string `json:"userName,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -59,19 +58,8 @@ type _AccessSideUser AccessSideUser
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAccessSideUser(createdAt string, email string, enabled bool, instanceCount int64, lastModifiedAt string, orgId string, orgName string, status string, subscriptionCount int64, userId string, userName string) *AccessSideUser {
+func NewAccessSideUser() *AccessSideUser {
 	this := AccessSideUser{}
-	this.CreatedAt = createdAt
-	this.Email = email
-	this.Enabled = enabled
-	this.InstanceCount = instanceCount
-	this.LastModifiedAt = lastModifiedAt
-	this.OrgId = orgId
-	this.OrgName = orgName
-	this.Status = status
-	this.SubscriptionCount = subscriptionCount
-	this.UserId = userId
-	this.UserName = userName
 	return &this
 }
 
@@ -83,124 +71,164 @@ func NewAccessSideUserWithDefaults() *AccessSideUser {
 	return &this
 }
 
-// GetCreatedAt returns the CreatedAt field value
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *AccessSideUser) GetCreatedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedAt
+	return *o.CreatedAt
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccessSideUser) GetCreatedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
-	return &o.CreatedAt, true
+	return o.CreatedAt, true
 }
 
-// SetCreatedAt sets field value
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *AccessSideUser) HasCreatedAt() bool {
+	if o != nil && !IsNil(o.CreatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
 func (o *AccessSideUser) SetCreatedAt(v string) {
-	o.CreatedAt = v
+	o.CreatedAt = &v
 }
 
-// GetEmail returns the Email field value
+// GetEmail returns the Email field value if set, zero value otherwise.
 func (o *AccessSideUser) GetEmail() string {
-	if o == nil {
+	if o == nil || IsNil(o.Email) {
 		var ret string
 		return ret
 	}
-
-	return o.Email
+	return *o.Email
 }
 
-// GetEmailOk returns a tuple with the Email field value
+// GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccessSideUser) GetEmailOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Email) {
 		return nil, false
 	}
-	return &o.Email, true
+	return o.Email, true
 }
 
-// SetEmail sets field value
+// HasEmail returns a boolean if a field has been set.
+func (o *AccessSideUser) HasEmail() bool {
+	if o != nil && !IsNil(o.Email) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmail gets a reference to the given string and assigns it to the Email field.
 func (o *AccessSideUser) SetEmail(v string) {
-	o.Email = v
+	o.Email = &v
 }
 
-// GetEnabled returns the Enabled field value
+// GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *AccessSideUser) GetEnabled() bool {
-	if o == nil {
+	if o == nil || IsNil(o.Enabled) {
 		var ret bool
 		return ret
 	}
-
-	return o.Enabled
+	return *o.Enabled
 }
 
-// GetEnabledOk returns a tuple with the Enabled field value
+// GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccessSideUser) GetEnabledOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Enabled) {
 		return nil, false
 	}
-	return &o.Enabled, true
+	return o.Enabled, true
 }
 
-// SetEnabled sets field value
+// HasEnabled returns a boolean if a field has been set.
+func (o *AccessSideUser) HasEnabled() bool {
+	if o != nil && !IsNil(o.Enabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnabled gets a reference to the given bool and assigns it to the Enabled field.
 func (o *AccessSideUser) SetEnabled(v bool) {
-	o.Enabled = v
+	o.Enabled = &v
 }
 
-// GetInstanceCount returns the InstanceCount field value
+// GetInstanceCount returns the InstanceCount field value if set, zero value otherwise.
 func (o *AccessSideUser) GetInstanceCount() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.InstanceCount) {
 		var ret int64
 		return ret
 	}
-
-	return o.InstanceCount
+	return *o.InstanceCount
 }
 
-// GetInstanceCountOk returns a tuple with the InstanceCount field value
+// GetInstanceCountOk returns a tuple with the InstanceCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccessSideUser) GetInstanceCountOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.InstanceCount) {
 		return nil, false
 	}
-	return &o.InstanceCount, true
+	return o.InstanceCount, true
 }
 
-// SetInstanceCount sets field value
+// HasInstanceCount returns a boolean if a field has been set.
+func (o *AccessSideUser) HasInstanceCount() bool {
+	if o != nil && !IsNil(o.InstanceCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetInstanceCount gets a reference to the given int64 and assigns it to the InstanceCount field.
 func (o *AccessSideUser) SetInstanceCount(v int64) {
-	o.InstanceCount = v
+	o.InstanceCount = &v
 }
 
-// GetLastModifiedAt returns the LastModifiedAt field value
+// GetLastModifiedAt returns the LastModifiedAt field value if set, zero value otherwise.
 func (o *AccessSideUser) GetLastModifiedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.LastModifiedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.LastModifiedAt
+	return *o.LastModifiedAt
 }
 
-// GetLastModifiedAtOk returns a tuple with the LastModifiedAt field value
+// GetLastModifiedAtOk returns a tuple with the LastModifiedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccessSideUser) GetLastModifiedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LastModifiedAt) {
 		return nil, false
 	}
-	return &o.LastModifiedAt, true
+	return o.LastModifiedAt, true
 }
 
-// SetLastModifiedAt sets field value
+// HasLastModifiedAt returns a boolean if a field has been set.
+func (o *AccessSideUser) HasLastModifiedAt() bool {
+	if o != nil && !IsNil(o.LastModifiedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastModifiedAt gets a reference to the given string and assigns it to the LastModifiedAt field.
 func (o *AccessSideUser) SetLastModifiedAt(v string) {
-	o.LastModifiedAt = v
+	o.LastModifiedAt = &v
 }
 
 // GetLastModifiedByUserID returns the LastModifiedByUserID field value if set, zero value otherwise.
@@ -267,52 +295,68 @@ func (o *AccessSideUser) SetLastModifiedByUserName(v string) {
 	o.LastModifiedByUserName = &v
 }
 
-// GetOrgId returns the OrgId field value
+// GetOrgId returns the OrgId field value if set, zero value otherwise.
 func (o *AccessSideUser) GetOrgId() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrgId) {
 		var ret string
 		return ret
 	}
-
-	return o.OrgId
+	return *o.OrgId
 }
 
-// GetOrgIdOk returns a tuple with the OrgId field value
+// GetOrgIdOk returns a tuple with the OrgId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccessSideUser) GetOrgIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgId) {
 		return nil, false
 	}
-	return &o.OrgId, true
+	return o.OrgId, true
 }
 
-// SetOrgId sets field value
+// HasOrgId returns a boolean if a field has been set.
+func (o *AccessSideUser) HasOrgId() bool {
+	if o != nil && !IsNil(o.OrgId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgId gets a reference to the given string and assigns it to the OrgId field.
 func (o *AccessSideUser) SetOrgId(v string) {
-	o.OrgId = v
+	o.OrgId = &v
 }
 
-// GetOrgName returns the OrgName field value
+// GetOrgName returns the OrgName field value if set, zero value otherwise.
 func (o *AccessSideUser) GetOrgName() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrgName) {
 		var ret string
 		return ret
 	}
-
-	return o.OrgName
+	return *o.OrgName
 }
 
-// GetOrgNameOk returns a tuple with the OrgName field value
+// GetOrgNameOk returns a tuple with the OrgName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccessSideUser) GetOrgNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgName) {
 		return nil, false
 	}
-	return &o.OrgName, true
+	return o.OrgName, true
 }
 
-// SetOrgName sets field value
+// HasOrgName returns a boolean if a field has been set.
+func (o *AccessSideUser) HasOrgName() bool {
+	if o != nil && !IsNil(o.OrgName) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgName gets a reference to the given string and assigns it to the OrgName field.
 func (o *AccessSideUser) SetOrgName(v string) {
-	o.OrgName = v
+	o.OrgName = &v
 }
 
 // GetOrgUrl returns the OrgUrl field value if set, zero value otherwise.
@@ -347,52 +391,68 @@ func (o *AccessSideUser) SetOrgUrl(v string) {
 	o.OrgUrl = &v
 }
 
-// GetStatus returns the Status field value
+// GetStatus returns the Status field value if set, zero value otherwise.
 func (o *AccessSideUser) GetStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
-
-	return o.Status
+	return *o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccessSideUser) GetStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return &o.Status, true
+	return o.Status, true
 }
 
-// SetStatus sets field value
+// HasStatus returns a boolean if a field has been set.
+func (o *AccessSideUser) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
 func (o *AccessSideUser) SetStatus(v string) {
-	o.Status = v
+	o.Status = &v
 }
 
-// GetSubscriptionCount returns the SubscriptionCount field value
+// GetSubscriptionCount returns the SubscriptionCount field value if set, zero value otherwise.
 func (o *AccessSideUser) GetSubscriptionCount() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.SubscriptionCount) {
 		var ret int64
 		return ret
 	}
-
-	return o.SubscriptionCount
+	return *o.SubscriptionCount
 }
 
-// GetSubscriptionCountOk returns a tuple with the SubscriptionCount field value
+// GetSubscriptionCountOk returns a tuple with the SubscriptionCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccessSideUser) GetSubscriptionCountOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SubscriptionCount) {
 		return nil, false
 	}
-	return &o.SubscriptionCount, true
+	return o.SubscriptionCount, true
 }
 
-// SetSubscriptionCount sets field value
+// HasSubscriptionCount returns a boolean if a field has been set.
+func (o *AccessSideUser) HasSubscriptionCount() bool {
+	if o != nil && !IsNil(o.SubscriptionCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionCount gets a reference to the given int64 and assigns it to the SubscriptionCount field.
 func (o *AccessSideUser) SetSubscriptionCount(v int64) {
-	o.SubscriptionCount = v
+	o.SubscriptionCount = &v
 }
 
 // GetToken returns the Token field value if set, zero value otherwise.
@@ -427,52 +487,68 @@ func (o *AccessSideUser) SetToken(v string) {
 	o.Token = &v
 }
 
-// GetUserId returns the UserId field value
+// GetUserId returns the UserId field value if set, zero value otherwise.
 func (o *AccessSideUser) GetUserId() string {
-	if o == nil {
+	if o == nil || IsNil(o.UserId) {
 		var ret string
 		return ret
 	}
-
-	return o.UserId
+	return *o.UserId
 }
 
-// GetUserIdOk returns a tuple with the UserId field value
+// GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccessSideUser) GetUserIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UserId) {
 		return nil, false
 	}
-	return &o.UserId, true
+	return o.UserId, true
 }
 
-// SetUserId sets field value
+// HasUserId returns a boolean if a field has been set.
+func (o *AccessSideUser) HasUserId() bool {
+	if o != nil && !IsNil(o.UserId) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserId gets a reference to the given string and assigns it to the UserId field.
 func (o *AccessSideUser) SetUserId(v string) {
-	o.UserId = v
+	o.UserId = &v
 }
 
-// GetUserName returns the UserName field value
+// GetUserName returns the UserName field value if set, zero value otherwise.
 func (o *AccessSideUser) GetUserName() string {
-	if o == nil {
+	if o == nil || IsNil(o.UserName) {
 		var ret string
 		return ret
 	}
-
-	return o.UserName
+	return *o.UserName
 }
 
-// GetUserNameOk returns a tuple with the UserName field value
+// GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AccessSideUser) GetUserNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UserName) {
 		return nil, false
 	}
-	return &o.UserName, true
+	return o.UserName, true
 }
 
-// SetUserName sets field value
+// HasUserName returns a boolean if a field has been set.
+func (o *AccessSideUser) HasUserName() bool {
+	if o != nil && !IsNil(o.UserName) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserName gets a reference to the given string and assigns it to the UserName field.
 func (o *AccessSideUser) SetUserName(v string) {
-	o.UserName = v
+	o.UserName = &v
 }
 
 func (o AccessSideUser) MarshalJSON() ([]byte, error) {
@@ -485,29 +561,51 @@ func (o AccessSideUser) MarshalJSON() ([]byte, error) {
 
 func (o AccessSideUser) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["createdAt"] = o.CreatedAt
-	toSerialize["email"] = o.Email
-	toSerialize["enabled"] = o.Enabled
-	toSerialize["instanceCount"] = o.InstanceCount
-	toSerialize["lastModifiedAt"] = o.LastModifiedAt
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
+	if !IsNil(o.Email) {
+		toSerialize["email"] = o.Email
+	}
+	if !IsNil(o.Enabled) {
+		toSerialize["enabled"] = o.Enabled
+	}
+	if !IsNil(o.InstanceCount) {
+		toSerialize["instanceCount"] = o.InstanceCount
+	}
+	if !IsNil(o.LastModifiedAt) {
+		toSerialize["lastModifiedAt"] = o.LastModifiedAt
+	}
 	if !IsNil(o.LastModifiedByUserID) {
 		toSerialize["lastModifiedByUserID"] = o.LastModifiedByUserID
 	}
 	if !IsNil(o.LastModifiedByUserName) {
 		toSerialize["lastModifiedByUserName"] = o.LastModifiedByUserName
 	}
-	toSerialize["orgId"] = o.OrgId
-	toSerialize["orgName"] = o.OrgName
+	if !IsNil(o.OrgId) {
+		toSerialize["orgId"] = o.OrgId
+	}
+	if !IsNil(o.OrgName) {
+		toSerialize["orgName"] = o.OrgName
+	}
 	if !IsNil(o.OrgUrl) {
 		toSerialize["orgUrl"] = o.OrgUrl
 	}
-	toSerialize["status"] = o.Status
-	toSerialize["subscriptionCount"] = o.SubscriptionCount
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
+	if !IsNil(o.SubscriptionCount) {
+		toSerialize["subscriptionCount"] = o.SubscriptionCount
+	}
 	if !IsNil(o.Token) {
 		toSerialize["token"] = o.Token
 	}
-	toSerialize["userId"] = o.UserId
-	toSerialize["userName"] = o.UserName
+	if !IsNil(o.UserId) {
+		toSerialize["userId"] = o.UserId
+	}
+	if !IsNil(o.UserName) {
+		toSerialize["userName"] = o.UserName
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -517,37 +615,6 @@ func (o AccessSideUser) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *AccessSideUser) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"createdAt",
-		"email",
-		"enabled",
-		"instanceCount",
-		"lastModifiedAt",
-		"orgId",
-		"orgName",
-		"status",
-		"subscriptionCount",
-		"userId",
-		"userName",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varAccessSideUser := _AccessSideUser{}
 
 	err = json.Unmarshal(data, &varAccessSideUser)

@@ -5,11 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Email** | Pointer to **string** | Email address to reach for support-related queries. | [optional] 
-**EnvironmentId** | Pointer to **string** | ID of a Service Environment | [optional] 
 **OrgId** | Pointer to **string** | ID of an Org | [optional] 
 **OrgName** | Pointer to **string** | The organization name. | [optional] 
 **OrgUrl** | Pointer to **string** | The organization&#39;s URL. | [optional] 
-**ServiceId** | Pointer to **string** | ID of a Service | [optional] 
 
 ## Methods
 
@@ -54,31 +52,6 @@ SetEmail sets Email field to given value.
 `func (o *Organization) HasEmail() bool`
 
 HasEmail returns a boolean if a field has been set.
-
-### GetEnvironmentId
-
-`func (o *Organization) GetEnvironmentId() string`
-
-GetEnvironmentId returns the EnvironmentId field if non-nil, zero value otherwise.
-
-### GetEnvironmentIdOk
-
-`func (o *Organization) GetEnvironmentIdOk() (*string, bool)`
-
-GetEnvironmentIdOk returns a tuple with the EnvironmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnvironmentId
-
-`func (o *Organization) SetEnvironmentId(v string)`
-
-SetEnvironmentId sets EnvironmentId field to given value.
-
-### HasEnvironmentId
-
-`func (o *Organization) HasEnvironmentId() bool`
-
-HasEnvironmentId returns a boolean if a field has been set.
 
 ### GetOrgId
 
@@ -154,31 +127,6 @@ SetOrgUrl sets OrgUrl field to given value.
 `func (o *Organization) HasOrgUrl() bool`
 
 HasOrgUrl returns a boolean if a field has been set.
-
-### GetServiceId
-
-`func (o *Organization) GetServiceId() string`
-
-GetServiceId returns the ServiceId field if non-nil, zero value otherwise.
-
-### GetServiceIdOk
-
-`func (o *Organization) GetServiceIdOk() (*string, bool)`
-
-GetServiceIdOk returns a tuple with the ServiceId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetServiceId
-
-`func (o *Organization) SetServiceId(v string)`
-
-SetServiceId sets ServiceId field to given value.
-
-### HasServiceId
-
-`func (o *Organization) HasServiceId() bool`
-
-HasServiceId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

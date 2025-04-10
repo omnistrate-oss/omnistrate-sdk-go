@@ -13,6 +13,7 @@ api_fleet_workflows_api.go
 api_helm_package_api.go
 api_hostcluster_api.go
 api_inventory_api.go
+api_invoice_api.go
 api_notifications_api.go
 api_operations_api.go
 api_webhooks_api.go
@@ -28,7 +29,6 @@ docs/Address.md
 docs/ApproveSubscriptionRequestRequest.md
 docs/AuditEventsApiAPI.md
 docs/BackupStatus.md
-docs/BillingPlan.md
 docs/BuildServiceFromComposeSpecRequest.md
 docs/BuildServiceFromComposeSpecResult.md
 docs/BuildServiceFromServicePlanSpecRequest.md
@@ -61,7 +61,6 @@ docs/CreateIdentityProviderRequest.md
 docs/CreateNotificationChannelRequest.md
 docs/CreateNotificationChannelRequest2.md
 docs/CreatePipelineRequest.md
-docs/CreateProductTierBillingPlanRequest.md
 docs/CreateProductTierRequest.md
 docs/CreateProxyResourceInstanceRequest.md
 docs/CreateProxyResourceInstanceRequest2.md
@@ -97,7 +96,6 @@ docs/DeleteCustomerOnboardingRequest.md
 docs/DeleteIdentityProviderRequest.md
 docs/DeleteNotificationChannelRequest.md
 docs/DeletePipelineRequest.md
-docs/DeleteProductTierBillingPlanRequest.md
 docs/DeleteProductTierRequest.md
 docs/DeleteProxyResourceInstanceRequest.md
 docs/DeleteResourceInstanceRequest.md
@@ -142,7 +140,6 @@ docs/DescribePipelineRequest.md
 docs/DescribePipelineResult.md
 docs/DescribePlanRequest.md
 docs/DescribePlanResult.md
-docs/DescribeProductTierBillingPlanRequest.md
 docs/DescribeProductTierRequest.md
 docs/DescribeProductTierResult.md
 docs/DescribeRegionCostRequest.md
@@ -207,6 +204,7 @@ docs/FleetAddCapacityToResourceInstanceRequest.md
 docs/FleetAddCapacityToResourceInstanceRequest2.md
 docs/FleetAddCustomDNSToResourceInstanceRequest.md
 docs/FleetAddCustomDNSToResourceInstanceRequest2.md
+docs/FleetApproveInvoiceRequest.md
 docs/FleetAuditEvent.md
 docs/FleetAuditEventsRequest.md
 docs/FleetAuditEventsResult.md
@@ -225,6 +223,7 @@ docs/FleetCustomNetworkApiAPI.md
 docs/FleetCustomNetworkInstance.md
 docs/FleetDeleteCustomNetworkRequest.md
 docs/FleetDeleteInstanceSnapshotRequest.md
+docs/FleetDeleteInvoiceRequest.md
 docs/FleetDeleteResourceInstanceRequest.md
 docs/FleetDeleteResourceInstanceRequest2.md
 docs/FleetDeleteServicesOrchestrationRequest.md
@@ -252,6 +251,7 @@ docs/FleetFeature.md
 docs/FleetFeaturesApiAPI.md
 docs/FleetGenerateTokenForHostClusterDashboardRequest.md
 docs/FleetGenerateTokenForHostClusterDashboardResult.md
+docs/FleetInvoice.md
 docs/FleetListAllUsers.md
 docs/FleetListAllUsersResult.md
 docs/FleetListCustomNetworksRequest.md
@@ -264,6 +264,8 @@ docs/FleetListHostClustersRequest.md
 docs/FleetListHostClustersResult.md
 docs/FleetListInstanceSnapshotRequest.md
 docs/FleetListInstanceSnapshotResult.md
+docs/FleetListInvoicesRequest.md
+docs/FleetListInvoicesResult.md
 docs/FleetListLinkedInstancesRequest.md
 docs/FleetListLinkedInstancesResult.md
 docs/FleetListServicesOrchestrationsRequest.md
@@ -278,6 +280,7 @@ docs/FleetNetworkFeaturesConfiguration.md
 docs/FleetRemoveCapacityFromResourceInstanceRequest.md
 docs/FleetRemoveCapacityFromResourceInstanceRequest2.md
 docs/FleetRemoveCustomDNSFromResourceInstanceRequest.md
+docs/FleetResendInvoiceRequest.md
 docs/FleetRestartResourceInstanceRequest.md
 docs/FleetRestartResourceInstanceRequest2.md
 docs/FleetRestoreResourceInstanceFromSnapshotRequest.md
@@ -301,6 +304,7 @@ docs/FleetUpdateResourceInstanceDebugModeRequest.md
 docs/FleetUpdateResourceInstanceDebugModeRequest2.md
 docs/FleetUpdateResourceInstanceRequest.md
 docs/FleetUpdateResourceInstanceRequest2.md
+docs/FleetVoidInvoiceRequest.md
 docs/FleetWorkflowsApiAPI.md
 docs/GenerateComposeSpecFromContainerImageRequest.md
 docs/GenerateComposeSpecFromContainerImageResult.md
@@ -342,10 +346,13 @@ docs/InventoryListServiceOfferingsResult.md
 docs/InviteConsumptionUserRequest.md
 docs/InviteUserRequest.md
 docs/Invoice.md
+docs/InvoiceApiAPI.md
 docs/JobMetric.md
 docs/KubernetesDashboardEndpoint.md
 docs/List.md
 docs/ListActiveOrganizationsRequest.md
+docs/ListAllOrganizationsRequest.md
+docs/ListAllOrganizationsResult.md
 docs/ListAllResourceInstancesRequest.md
 docs/ListAllResourceInstancesResult.md
 docs/ListAllSubscriptionUsersRequest.md
@@ -381,8 +388,6 @@ docs/ListNotificationChannelsResult.md
 docs/ListOrganizationsResult.md
 docs/ListPipelinesRequest.md
 docs/ListPipelinesResult.md
-docs/ListProductTierBillingPlanRequest.md
-docs/ListProductTierBillingPlanResult.md
 docs/ListProductTiersRequest.md
 docs/ListProductTiersResult.md
 docs/ListRegionsRequest.md
@@ -432,7 +437,6 @@ docs/NodeNetworkTopologyResult.md
 docs/NodeVMInfoResult.md
 docs/NotificationSearchRecord.md
 docs/NotificationsApiAPI.md
-docs/OfferingBillingPlan.md
 docs/OmnistrateError.md
 docs/OmnistrateServiceHealthResult.md
 docs/OmnistrateServiceVersionResult.md
@@ -528,7 +532,6 @@ docs/UpdateNotificationChannelRequest.md
 docs/UpdateNotificationChannelRequest2.md
 docs/UpdatePasswordRequest.md
 docs/UpdatePipelineRequest.md
-docs/UpdateProductTierBillingPlanRequest.md
 docs/UpdateProductTierRequest.md
 docs/UpdateResourceInstanceRequest.md
 docs/UpdateSaaSPortalCustomDomainRequest.md
@@ -564,7 +567,6 @@ model_address.go
 model_api_entity.go
 model_approve_subscription_request_request.go
 model_backup_status.go
-model_billing_plan.go
 model_build_service_from_compose_spec_request.go
 model_build_service_from_compose_spec_result.go
 model_build_service_from_service_plan_spec_request.go
@@ -596,7 +598,6 @@ model_create_identity_provider_request.go
 model_create_notification_channel_request.go
 model_create_notification_channel_request2.go
 model_create_pipeline_request.go
-model_create_product_tier_billing_plan_request.go
 model_create_product_tier_request.go
 model_create_proxy_resource_instance_request.go
 model_create_proxy_resource_instance_request2.go
@@ -631,7 +632,6 @@ model_delete_customer_onboarding_request.go
 model_delete_identity_provider_request.go
 model_delete_notification_channel_request.go
 model_delete_pipeline_request.go
-model_delete_product_tier_billing_plan_request.go
 model_delete_product_tier_request.go
 model_delete_proxy_resource_instance_request.go
 model_delete_resource_instance_request.go
@@ -676,7 +676,6 @@ model_describe_pipeline_request.go
 model_describe_pipeline_result.go
 model_describe_plan_request.go
 model_describe_plan_result.go
-model_describe_product_tier_billing_plan_request.go
 model_describe_product_tier_request.go
 model_describe_product_tier_result.go
 model_describe_region_cost_request.go
@@ -740,6 +739,7 @@ model_fleet_add_capacity_to_resource_instance_request.go
 model_fleet_add_capacity_to_resource_instance_request2.go
 model_fleet_add_custom_dnsto_resource_instance_request.go
 model_fleet_add_custom_dnsto_resource_instance_request2.go
+model_fleet_approve_invoice_request.go
 model_fleet_audit_event.go
 model_fleet_audit_events_request.go
 model_fleet_audit_events_result.go
@@ -757,6 +757,7 @@ model_fleet_custom_network.go
 model_fleet_custom_network_instance.go
 model_fleet_delete_custom_network_request.go
 model_fleet_delete_instance_snapshot_request.go
+model_fleet_delete_invoice_request.go
 model_fleet_delete_resource_instance_request.go
 model_fleet_delete_resource_instance_request2.go
 model_fleet_delete_services_orchestration_request.go
@@ -783,6 +784,7 @@ model_fleet_failover_resource_instance_request2.go
 model_fleet_feature.go
 model_fleet_generate_token_for_host_cluster_dashboard_request.go
 model_fleet_generate_token_for_host_cluster_dashboard_result.go
+model_fleet_invoice.go
 model_fleet_list_all_users.go
 model_fleet_list_all_users_result.go
 model_fleet_list_custom_networks_request.go
@@ -795,6 +797,8 @@ model_fleet_list_host_clusters_request.go
 model_fleet_list_host_clusters_result.go
 model_fleet_list_instance_snapshot_request.go
 model_fleet_list_instance_snapshot_result.go
+model_fleet_list_invoices_request.go
+model_fleet_list_invoices_result.go
 model_fleet_list_linked_instances_request.go
 model_fleet_list_linked_instances_result.go
 model_fleet_list_services_orchestrations_request.go
@@ -809,6 +813,7 @@ model_fleet_network_features_configuration.go
 model_fleet_remove_capacity_from_resource_instance_request.go
 model_fleet_remove_capacity_from_resource_instance_request2.go
 model_fleet_remove_custom_dns_from_resource_instance_request.go
+model_fleet_resend_invoice_request.go
 model_fleet_restart_resource_instance_request.go
 model_fleet_restart_resource_instance_request2.go
 model_fleet_restore_resource_instance_from_snapshot_request.go
@@ -832,6 +837,7 @@ model_fleet_update_resource_instance_debug_mode_request.go
 model_fleet_update_resource_instance_debug_mode_request2.go
 model_fleet_update_resource_instance_request.go
 model_fleet_update_resource_instance_request2.go
+model_fleet_void_invoice_request.go
 model_generate_compose_spec_from_container_image_request.go
 model_generate_compose_spec_from_container_image_result.go
 model_generate_token_for_deployment_cell_dashboard_request.go
@@ -873,6 +879,8 @@ model_job_metric.go
 model_kubernetes_dashboard_endpoint.go
 model_list.go
 model_list_active_organizations_request.go
+model_list_all_organizations_request.go
+model_list_all_organizations_result.go
 model_list_all_resource_instances_request.go
 model_list_all_resource_instances_result.go
 model_list_all_subscription_users_request.go
@@ -908,8 +916,6 @@ model_list_notification_channels_result.go
 model_list_organizations_result.go
 model_list_pipelines_request.go
 model_list_pipelines_result.go
-model_list_product_tier_billing_plan_request.go
-model_list_product_tier_billing_plan_result.go
 model_list_product_tiers_request.go
 model_list_product_tiers_result.go
 model_list_regions_request.go
@@ -958,7 +964,6 @@ model_node_health_summary.go
 model_node_network_topology_result.go
 model_node_vm_info_result.go
 model_notification_search_record.go
-model_offering_billing_plan.go
 model_omnistrate_error.go
 model_omnistrate_service_health_result.go
 model_omnistrate_service_version_result.go
@@ -1053,7 +1058,6 @@ model_update_notification_channel_request.go
 model_update_notification_channel_request2.go
 model_update_password_request.go
 model_update_pipeline_request.go
-model_update_product_tier_billing_plan_request.go
 model_update_product_tier_request.go
 model_update_resource_instance_request.go
 model_update_saa_s_portal_custom_domain_request.go
@@ -1089,6 +1093,7 @@ test/api_fleet_workflows_api_test.go
 test/api_helm_package_api_test.go
 test/api_hostcluster_api_test.go
 test/api_inventory_api_test.go
+test/api_invoice_api_test.go
 test/api_notifications_api_test.go
 test/api_operations_api_test.go
 test/api_webhooks_api_test.go

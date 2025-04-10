@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **ClusterPorts** | Pointer to **[]int64** | The ports that the whole cluster exposes | [optional] 
 **CustomDNSEndpoint** | Pointer to [**CustomDNSEndpoint**](CustomDNSEndpoint.md) |  | [optional] 
 **HasCompute** | **bool** | Whether this resource has associated compute | 
+**IsJob** | Pointer to **bool** | Whether this resource is a job | [optional] [default to false]
 **JobMetrics** | Pointer to [**[]JobMetric**](JobMetric.md) | The job metrics for this resource (if it&#39;s a job) | [optional] 
 **Main** | **bool** | Whether this is the main resource | 
 **NetworkingType** | **string** | The networking type for this resource | 
@@ -177,6 +178,31 @@ and a boolean to check if the value has been set.
 
 SetHasCompute sets HasCompute field to given value.
 
+
+### GetIsJob
+
+`func (o *ResourceNetworkTopologyResult) GetIsJob() bool`
+
+GetIsJob returns the IsJob field if non-nil, zero value otherwise.
+
+### GetIsJobOk
+
+`func (o *ResourceNetworkTopologyResult) GetIsJobOk() (*bool, bool)`
+
+GetIsJobOk returns a tuple with the IsJob field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsJob
+
+`func (o *ResourceNetworkTopologyResult) SetIsJob(v bool)`
+
+SetIsJob sets IsJob field to given value.
+
+### HasIsJob
+
+`func (o *ResourceNetworkTopologyResult) HasIsJob() bool`
+
+HasIsJob returns a boolean if a field has been set.
 
 ### GetJobMetrics
 

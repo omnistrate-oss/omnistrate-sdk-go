@@ -31,6 +31,8 @@ type ResourceNetworkTopologyResult struct {
 	CustomDNSEndpoint *CustomDNSEndpoint `json:"customDNSEndpoint,omitempty"`
 	// Whether this resource has associated compute
 	HasCompute bool `json:"hasCompute"`
+	// Whether this resource is a job
+	IsJob *bool `json:"isJob,omitempty"`
 	// The job metrics for this resource (if it's a job)
 	JobMetrics []JobMetric `json:"jobMetrics,omitempty"`
 	// Whether this is the main resource
@@ -69,6 +71,8 @@ func NewResourceNetworkTopologyResult(allowedIPRanges []string, clusterEndpoint 
 	this.AllowedIPRanges = allowedIPRanges
 	this.ClusterEndpoint = clusterEndpoint
 	this.HasCompute = hasCompute
+	var isJob bool = false
+	this.IsJob = &isJob
 	this.Main = main
 	this.NetworkingType = networkingType
 	this.PubliclyAccessible = publiclyAccessible
@@ -82,6 +86,8 @@ func NewResourceNetworkTopologyResult(allowedIPRanges []string, clusterEndpoint 
 // but it doesn't guarantee that properties required by API are set
 func NewResourceNetworkTopologyResultWithDefaults() *ResourceNetworkTopologyResult {
 	this := ResourceNetworkTopologyResult{}
+	var isJob bool = false
+	this.IsJob = &isJob
 	return &this
 }
 
@@ -251,6 +257,38 @@ func (o *ResourceNetworkTopologyResult) GetHasComputeOk() (*bool, bool) {
 // SetHasCompute sets field value
 func (o *ResourceNetworkTopologyResult) SetHasCompute(v bool) {
 	o.HasCompute = v
+}
+
+// GetIsJob returns the IsJob field value if set, zero value otherwise.
+func (o *ResourceNetworkTopologyResult) GetIsJob() bool {
+	if o == nil || IsNil(o.IsJob) {
+		var ret bool
+		return ret
+	}
+	return *o.IsJob
+}
+
+// GetIsJobOk returns a tuple with the IsJob field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceNetworkTopologyResult) GetIsJobOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsJob) {
+		return nil, false
+	}
+	return o.IsJob, true
+}
+
+// HasIsJob returns a boolean if a field has been set.
+func (o *ResourceNetworkTopologyResult) HasIsJob() bool {
+	if o != nil && !IsNil(o.IsJob) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsJob gets a reference to the given bool and assigns it to the IsJob field.
+func (o *ResourceNetworkTopologyResult) SetIsJob(v bool) {
+	o.IsJob = &v
 }
 
 // GetJobMetrics returns the JobMetrics field value if set, zero value otherwise.
@@ -652,6 +690,9 @@ func (o ResourceNetworkTopologyResult) ToMap() (map[string]interface{}, error) {
 		toSerialize["customDNSEndpoint"] = o.CustomDNSEndpoint
 	}
 	toSerialize["hasCompute"] = o.HasCompute
+	if !IsNil(o.IsJob) {
+		toSerialize["isJob"] = o.IsJob
+	}
 	if !IsNil(o.JobMetrics) {
 		toSerialize["jobMetrics"] = o.JobMetrics
 	}
@@ -737,6 +778,7 @@ func (o *ResourceNetworkTopologyResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "clusterPorts")
 		delete(additionalProperties, "customDNSEndpoint")
 		delete(additionalProperties, "hasCompute")
+		delete(additionalProperties, "isJob")
 		delete(additionalProperties, "jobMetrics")
 		delete(additionalProperties, "main")
 		delete(additionalProperties, "networkingType")

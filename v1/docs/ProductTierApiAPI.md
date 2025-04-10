@@ -6,17 +6,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ProductTierApiCopyProductTier**](ProductTierApiAPI.md#ProductTierApiCopyProductTier) | **Post** /2022-09-01-00/service/{serviceId}/product-tier/copy/{sourceId} | CopyProductTier product-tier-api
 [**ProductTierApiCreateProductTier**](ProductTierApiAPI.md#ProductTierApiCreateProductTier) | **Post** /2022-09-01-00/service/{serviceId}/product-tier | CreateProductTier product-tier-api
-[**ProductTierApiCreateProductTierBillingPlan**](ProductTierApiAPI.md#ProductTierApiCreateProductTierBillingPlan) | **Post** /2022-09-01-00/service/{serviceId}/product-tier/{id}/billing-plan | CreateProductTierBillingPlan product-tier-api
 [**ProductTierApiDeleteProductTier**](ProductTierApiAPI.md#ProductTierApiDeleteProductTier) | **Delete** /2022-09-01-00/service/{serviceId}/product-tier/{id} | DeleteProductTier product-tier-api
-[**ProductTierApiDeleteProductTierBillingPlan**](ProductTierApiAPI.md#ProductTierApiDeleteProductTierBillingPlan) | **Delete** /2022-09-01-00/service/{serviceId}/product-tier/{productTierId}/billing-plan/{id} | DeleteProductTierBillingPlan product-tier-api
 [**ProductTierApiDescribeProductTier**](ProductTierApiAPI.md#ProductTierApiDescribeProductTier) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{id} | DescribeProductTier product-tier-api
-[**ProductTierApiDescribeProductTierBillingPlan**](ProductTierApiAPI.md#ProductTierApiDescribeProductTierBillingPlan) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{productTierId}/billing-plan/{id} | DescribeProductTierBillingPlan product-tier-api
 [**ProductTierApiDisableProductTierFeature**](ProductTierApiAPI.md#ProductTierApiDisableProductTierFeature) | **Delete** /2022-09-01-00/service/{serviceId}/product-tier/{id}/feature | DisableProductTierFeature product-tier-api
 [**ProductTierApiEnableProductTierFeature**](ProductTierApiAPI.md#ProductTierApiEnableProductTierFeature) | **Put** /2022-09-01-00/service/{serviceId}/product-tier/{id}/feature | EnableProductTierFeature product-tier-api
 [**ProductTierApiListProductTier**](ProductTierApiAPI.md#ProductTierApiListProductTier) | **Get** /2022-09-01-00/service/{serviceId}/model/{serviceModelId}/product-tier | ListProductTier product-tier-api
-[**ProductTierApiListProductTierBillingPlan**](ProductTierApiAPI.md#ProductTierApiListProductTierBillingPlan) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{id}/billing-plan | ListProductTierBillingPlan product-tier-api
 [**ProductTierApiUpdateProductTier**](ProductTierApiAPI.md#ProductTierApiUpdateProductTier) | **Patch** /2022-09-01-00/service/{serviceId}/product-tier/{id} | UpdateProductTier product-tier-api
-[**ProductTierApiUpdateProductTierBillingPlan**](ProductTierApiAPI.md#ProductTierApiUpdateProductTierBillingPlan) | **Patch** /2022-09-01-00/service/{serviceId}/product-tier/{productTierId}/billing-plan/{id} | UpdateProductTierBillingPlan product-tier-api
 
 
 
@@ -163,81 +158,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ProductTierApiCreateProductTierBillingPlan
-
-> BillingPlan ProductTierApiCreateProductTierBillingPlan(ctx, serviceId, id).CreateProductTierBillingPlanRequest2(createProductTierBillingPlanRequest2).Execute()
-
-CreateProductTierBillingPlan product-tier-api
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
-)
-
-func main() {
-	serviceId := "s-12345678" // string | Service ID
-	id := "pt-12345678" // string | Product tier ID
-	createProductTierBillingPlanRequest2 := *openapiclient.NewCreateProductTierBillingPlanRequest2(true, int64(5), "STARTER", interface{}({"cpuCoreHours":"0.001","memoryGBHours":"0.0001"})) // CreateProductTierBillingPlanRequest2 | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProductTierApiAPI.ProductTierApiCreateProductTierBillingPlan(context.Background(), serviceId, id).CreateProductTierBillingPlanRequest2(createProductTierBillingPlanRequest2).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProductTierApiAPI.ProductTierApiCreateProductTierBillingPlan``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ProductTierApiCreateProductTierBillingPlan`: BillingPlan
-	fmt.Fprintf(os.Stdout, "Response from `ProductTierApiAPI.ProductTierApiCreateProductTierBillingPlan`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**serviceId** | **string** | Service ID | 
-**id** | **string** | Product tier ID | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiProductTierApiCreateProductTierBillingPlanRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **createProductTierBillingPlanRequest2** | [**CreateProductTierBillingPlanRequest2**](CreateProductTierBillingPlanRequest2.md) |  | 
-
-### Return type
-
-[**BillingPlan**](BillingPlan.md)
-
-### Authorization
-
-[api_key_header_Authorization](../README.md#api_key_header_Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json, application/vnd.goa.error
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## ProductTierApiDeleteProductTier
 
 > ProductTierApiDeleteProductTier(ctx, serviceId, id).Execute()
@@ -286,80 +206,6 @@ Other parameters are passed through a pointer to a apiProductTierApiDeleteProduc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[api_key_header_Authorization](../README.md#api_key_header_Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/vnd.goa.error
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ProductTierApiDeleteProductTierBillingPlan
-
-> ProductTierApiDeleteProductTierBillingPlan(ctx, serviceId, productTierId, id).Execute()
-
-DeleteProductTierBillingPlan product-tier-api
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
-)
-
-func main() {
-	serviceId := "s-12345678" // string | Service ID
-	productTierId := "pt-12345678" // string | Product tier ID
-	id := "bp-12345678" // string | Product tier billing plan ID
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ProductTierApiAPI.ProductTierApiDeleteProductTierBillingPlan(context.Background(), serviceId, productTierId, id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProductTierApiAPI.ProductTierApiDeleteProductTierBillingPlan``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**serviceId** | **string** | Service ID | 
-**productTierId** | **string** | Product tier ID | 
-**id** | **string** | Product tier billing plan ID | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiProductTierApiDeleteProductTierBillingPlanRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
 
 
 
@@ -439,82 +285,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DescribeProductTierResult**](DescribeProductTierResult.md)
-
-### Authorization
-
-[api_key_header_Authorization](../README.md#api_key_header_Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/vnd.goa.error
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ProductTierApiDescribeProductTierBillingPlan
-
-> BillingPlan ProductTierApiDescribeProductTierBillingPlan(ctx, serviceId, productTierId, id).Execute()
-
-DescribeProductTierBillingPlan product-tier-api
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
-)
-
-func main() {
-	serviceId := "s-12345678" // string | Service ID
-	productTierId := "pt-12345678" // string | Product tier ID
-	id := "bp-12345678" // string | Product tier billing plan ID
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProductTierApiAPI.ProductTierApiDescribeProductTierBillingPlan(context.Background(), serviceId, productTierId, id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProductTierApiAPI.ProductTierApiDescribeProductTierBillingPlan``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ProductTierApiDescribeProductTierBillingPlan`: BillingPlan
-	fmt.Fprintf(os.Stdout, "Response from `ProductTierApiAPI.ProductTierApiDescribeProductTierBillingPlan`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**serviceId** | **string** | Service ID | 
-**productTierId** | **string** | Product tier ID | 
-**id** | **string** | Product tier billing plan ID | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiProductTierApiDescribeProductTierBillingPlanRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-
-### Return type
-
-[**BillingPlan**](BillingPlan.md)
 
 ### Authorization
 
@@ -743,79 +513,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ProductTierApiListProductTierBillingPlan
-
-> ListProductTierBillingPlanResult ProductTierApiListProductTierBillingPlan(ctx, serviceId, id).Execute()
-
-ListProductTierBillingPlan product-tier-api
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
-)
-
-func main() {
-	serviceId := "s-12345678" // string | Service ID
-	id := "pt-12345678" // string | Product tier ID
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProductTierApiAPI.ProductTierApiListProductTierBillingPlan(context.Background(), serviceId, id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProductTierApiAPI.ProductTierApiListProductTierBillingPlan``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ProductTierApiListProductTierBillingPlan`: ListProductTierBillingPlanResult
-	fmt.Fprintf(os.Stdout, "Response from `ProductTierApiAPI.ProductTierApiListProductTierBillingPlan`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**serviceId** | **string** | Service ID | 
-**id** | **string** | Product tier ID | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiProductTierApiListProductTierBillingPlanRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-### Return type
-
-[**ListProductTierBillingPlanResult**](ListProductTierBillingPlanResult.md)
-
-### Authorization
-
-[api_key_header_Authorization](../README.md#api_key_header_Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/vnd.goa.error
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## ProductTierApiUpdateProductTier
 
 > ProductTierApiUpdateProductTier(ctx, serviceId, id).UpdateProductTierRequest2(updateProductTierRequest2).Execute()
@@ -881,84 +578,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/vnd.goa.error
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ProductTierApiUpdateProductTierBillingPlan
-
-> BillingPlan ProductTierApiUpdateProductTierBillingPlan(ctx, serviceId, productTierId, id).UpdateProductTierBillingPlanRequest2(updateProductTierBillingPlanRequest2).Execute()
-
-UpdateProductTierBillingPlan product-tier-api
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
-)
-
-func main() {
-	serviceId := "s-12345678" // string | Service ID
-	productTierId := "pt-12345678" // string | Product tier ID
-	id := "bp-12345678" // string | Product tier billing plan ID
-	updateProductTierBillingPlanRequest2 := *openapiclient.NewUpdateProductTierBillingPlanRequest2() // UpdateProductTierBillingPlanRequest2 | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProductTierApiAPI.ProductTierApiUpdateProductTierBillingPlan(context.Background(), serviceId, productTierId, id).UpdateProductTierBillingPlanRequest2(updateProductTierBillingPlanRequest2).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProductTierApiAPI.ProductTierApiUpdateProductTierBillingPlan``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ProductTierApiUpdateProductTierBillingPlan`: BillingPlan
-	fmt.Fprintf(os.Stdout, "Response from `ProductTierApiAPI.ProductTierApiUpdateProductTierBillingPlan`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**serviceId** | **string** | Service ID | 
-**productTierId** | **string** | Product tier ID | 
-**id** | **string** | Product tier billing plan ID | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiProductTierApiUpdateProductTierBillingPlanRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
- **updateProductTierBillingPlanRequest2** | [**UpdateProductTierBillingPlanRequest2**](UpdateProductTierBillingPlanRequest2.md) |  | 
-
-### Return type
-
-[**BillingPlan**](BillingPlan.md)
-
-### Authorization
-
-[api_key_header_Authorization](../README.md#api_key_header_Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

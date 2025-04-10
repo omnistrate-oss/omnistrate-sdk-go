@@ -21,6 +21,8 @@ var _ MappedNullable = &Invoice{}
 type Invoice struct {
 	// The currency of the charge
 	Currency *string `json:"currency,omitempty"`
+	// Due date in ISO 8601 format
+	DueDate *string `json:"dueDate,omitempty"`
 	// Date of the invoice
 	InvoiceDate *string `json:"invoiceDate,omitempty"`
 	// ID of the invoice
@@ -33,6 +35,8 @@ type Invoice struct {
 	InvoiceStatus *string `json:"invoiceStatus,omitempty"`
 	// URL for this invoice
 	InvoiceUrl *string `json:"invoiceUrl,omitempty"`
+	// Payment terms of the invoice
+	PaymentTerms *string `json:"paymentTerms,omitempty"`
 	// Amount of tax, if any
 	TaxAmount *float64 `json:"taxAmount,omitempty"`
 	// Amount of Invoice
@@ -82,6 +86,29 @@ func (o *Invoice) GetCurrencyOk() (*string, bool) {
 // SetCurrency gets a reference to the given string and assigns it to the Currency field.
 func (o *Invoice) SetCurrency(v string) {
 	o.Currency = &v
+}
+
+// GetDueDate returns the DueDate field value if set, zero value otherwise.
+func (o *Invoice) GetDueDate() string {
+	if o == nil || IsNil(o.DueDate) {
+		var ret string
+		return ret
+	}
+	return *o.DueDate
+}
+
+// GetDueDateOk returns a tuple with the DueDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Invoice) GetDueDateOk() (*string, bool) {
+	if o == nil || IsNil(o.DueDate) {
+		return nil, false
+	}
+	return o.DueDate, true
+}
+
+// SetDueDate gets a reference to the given string and assigns it to the DueDate field.
+func (o *Invoice) SetDueDate(v string) {
+	o.DueDate = &v
 }
 
 // GetInvoiceDate returns the InvoiceDate field value if set, zero value otherwise.
@@ -222,6 +249,29 @@ func (o *Invoice) SetInvoiceUrl(v string) {
 	o.InvoiceUrl = &v
 }
 
+// GetPaymentTerms returns the PaymentTerms field value if set, zero value otherwise.
+func (o *Invoice) GetPaymentTerms() string {
+	if o == nil || IsNil(o.PaymentTerms) {
+		var ret string
+		return ret
+	}
+	return *o.PaymentTerms
+}
+
+// GetPaymentTermsOk returns a tuple with the PaymentTerms field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Invoice) GetPaymentTermsOk() (*string, bool) {
+	if o == nil || IsNil(o.PaymentTerms) {
+		return nil, false
+	}
+	return o.PaymentTerms, true
+}
+
+// SetPaymentTerms gets a reference to the given string and assigns it to the PaymentTerms field.
+func (o *Invoice) SetPaymentTerms(v string) {
+	o.PaymentTerms = &v
+}
+
 // GetTaxAmount returns the TaxAmount field value if set, zero value otherwise.
 func (o *Invoice) GetTaxAmount() float64 {
 	if o == nil || IsNil(o.TaxAmount) {
@@ -304,6 +354,9 @@ func (o Invoice) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Currency) {
 		toSerialize["currency"] = o.Currency
 	}
+	if !IsNil(o.DueDate) {
+		toSerialize["dueDate"] = o.DueDate
+	}
 	if !IsNil(o.InvoiceDate) {
 		toSerialize["invoiceDate"] = o.InvoiceDate
 	}
@@ -321,6 +374,9 @@ func (o Invoice) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.InvoiceUrl) {
 		toSerialize["invoiceUrl"] = o.InvoiceUrl
+	}
+	if !IsNil(o.PaymentTerms) {
+		toSerialize["paymentTerms"] = o.PaymentTerms
 	}
 	if !IsNil(o.TaxAmount) {
 		toSerialize["taxAmount"] = o.TaxAmount
@@ -354,12 +410,14 @@ func (o *Invoice) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "currency")
+		delete(additionalProperties, "dueDate")
 		delete(additionalProperties, "invoiceDate")
 		delete(additionalProperties, "invoiceId")
 		delete(additionalProperties, "invoiceNumber")
 		delete(additionalProperties, "invoicePdf")
 		delete(additionalProperties, "invoiceStatus")
 		delete(additionalProperties, "invoiceUrl")
+		delete(additionalProperties, "paymentTerms")
 		delete(additionalProperties, "taxAmount")
 		delete(additionalProperties, "totalAmount")
 		delete(additionalProperties, "totalAmountWithoutTax")

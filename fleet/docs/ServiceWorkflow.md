@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **UpdatedReason** | Pointer to **string** | The reason the workflow execution was terminated. | [optional] 
 **WorkflowType** | **string** | The type of workflow execution. | 
 **AwsAccountID** | Pointer to **string** | The AWS account ID | [optional] 
+**AzureSubscriptionID** | Pointer to **string** | The Azure subscription ID | [optional] 
 **CloudProvider** | **string** | Name of the Infra Provider | 
 **EndTime** | Pointer to **string** | The time the workflow execution ended. | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
@@ -159,6 +160,31 @@ SetAwsAccountID sets AwsAccountID field to given value.
 `func (o *ServiceWorkflow) HasAwsAccountID() bool`
 
 HasAwsAccountID returns a boolean if a field has been set.
+
+### GetAzureSubscriptionID
+
+`func (o *ServiceWorkflow) GetAzureSubscriptionID() string`
+
+GetAzureSubscriptionID returns the AzureSubscriptionID field if non-nil, zero value otherwise.
+
+### GetAzureSubscriptionIDOk
+
+`func (o *ServiceWorkflow) GetAzureSubscriptionIDOk() (*string, bool)`
+
+GetAzureSubscriptionIDOk returns a tuple with the AzureSubscriptionID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAzureSubscriptionID
+
+`func (o *ServiceWorkflow) SetAzureSubscriptionID(v string)`
+
+SetAzureSubscriptionID sets AzureSubscriptionID field to given value.
+
+### HasAzureSubscriptionID
+
+`func (o *ServiceWorkflow) HasAzureSubscriptionID() bool`
+
+HasAzureSubscriptionID returns a boolean if a field has been set.
 
 ### GetCloudProvider
 

@@ -22,39 +22,43 @@ var _ MappedNullable = &DescribeUserResult{}
 type DescribeUserResult struct {
 	Address *Address `json:"address,omitempty"`
 	// The user creation time
-	CreatedAt string `json:"createdAt"`
+	CreatedAt *string `json:"createdAt,omitempty"`
 	// The email of the user
-	Email string `json:"email"`
+	Email *string `json:"email,omitempty"`
+	// Is the user enabled.
+	Enabled *bool `json:"enabled,omitempty"`
 	// The User ID
 	Id string `json:"id"`
 	// The user update time
-	LastModifiedAt string `json:"lastModifiedAt"`
+	LastModifiedAt *string `json:"lastModifiedAt,omitempty"`
 	// The name of the user
-	Name string `json:"name"`
+	Name *string `json:"name,omitempty"`
 	// The cookie policy for the org that this user owns
 	OrgCookiePolicy *string `json:"orgCookiePolicy,omitempty"`
 	// The description of the org that this user owns
-	OrgDescription string `json:"orgDescription"`
+	OrgDescription *string `json:"orgDescription,omitempty"`
 	// The favicon of the org that this user owns
-	OrgFavIconURL string `json:"orgFavIconURL"`
+	OrgFavIconURL *string `json:"orgFavIconURL,omitempty"`
 	// The ID of the org that this user owns
-	OrgId string `json:"orgId"`
+	OrgId *string `json:"orgId,omitempty"`
 	// The logo of the org that this user owns
-	OrgLogoURL string `json:"orgLogoURL"`
+	OrgLogoURL *string `json:"orgLogoURL,omitempty"`
 	// The org name that this user owns
-	OrgName string `json:"orgName"`
+	OrgName *string `json:"orgName,omitempty"`
 	// The privacy policy for the org that this user owns
-	OrgPrivacyPolicy string `json:"orgPrivacyPolicy"`
+	OrgPrivacyPolicy *string `json:"orgPrivacyPolicy,omitempty"`
 	// The support email of the org that this user owns
-	OrgSupportEmail string `json:"orgSupportEmail"`
+	OrgSupportEmail *string `json:"orgSupportEmail,omitempty"`
 	// The terms of use for the org that this user owns
-	OrgTermsOfUse string `json:"orgTermsOfUse"`
+	OrgTermsOfUse *string `json:"orgTermsOfUse,omitempty"`
 	// The url of the org that this user owns
-	OrgURL string `json:"orgURL"`
+	OrgURL *string `json:"orgURL,omitempty"`
 	// This parameter is used to select the appropriate Product Plan
 	PlanName *string `json:"planName,omitempty"`
 	// Type of the role
-	RoleType string `json:"roleType"`
+	RoleType *string `json:"roleType,omitempty"`
+	// The status of the user.
+	Status *string `json:"status,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -64,23 +68,9 @@ type _DescribeUserResult DescribeUserResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDescribeUserResult(createdAt string, email string, id string, lastModifiedAt string, name string, orgDescription string, orgFavIconURL string, orgId string, orgLogoURL string, orgName string, orgPrivacyPolicy string, orgSupportEmail string, orgTermsOfUse string, orgURL string, roleType string) *DescribeUserResult {
+func NewDescribeUserResult(id string) *DescribeUserResult {
 	this := DescribeUserResult{}
-	this.CreatedAt = createdAt
-	this.Email = email
 	this.Id = id
-	this.LastModifiedAt = lastModifiedAt
-	this.Name = name
-	this.OrgDescription = orgDescription
-	this.OrgFavIconURL = orgFavIconURL
-	this.OrgId = orgId
-	this.OrgLogoURL = orgLogoURL
-	this.OrgName = orgName
-	this.OrgPrivacyPolicy = orgPrivacyPolicy
-	this.OrgSupportEmail = orgSupportEmail
-	this.OrgTermsOfUse = orgTermsOfUse
-	this.OrgURL = orgURL
-	this.RoleType = roleType
 	return &this
 }
 
@@ -115,52 +105,73 @@ func (o *DescribeUserResult) SetAddress(v Address) {
 	o.Address = &v
 }
 
-// GetCreatedAt returns the CreatedAt field value
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *DescribeUserResult) GetCreatedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedAt
+	return *o.CreatedAt
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeUserResult) GetCreatedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
-	return &o.CreatedAt, true
+	return o.CreatedAt, true
 }
 
-// SetCreatedAt sets field value
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
 func (o *DescribeUserResult) SetCreatedAt(v string) {
-	o.CreatedAt = v
+	o.CreatedAt = &v
 }
 
-// GetEmail returns the Email field value
+// GetEmail returns the Email field value if set, zero value otherwise.
 func (o *DescribeUserResult) GetEmail() string {
-	if o == nil {
+	if o == nil || IsNil(o.Email) {
 		var ret string
 		return ret
 	}
-
-	return o.Email
+	return *o.Email
 }
 
-// GetEmailOk returns a tuple with the Email field value
+// GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeUserResult) GetEmailOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Email) {
 		return nil, false
 	}
-	return &o.Email, true
+	return o.Email, true
 }
 
-// SetEmail sets field value
+// SetEmail gets a reference to the given string and assigns it to the Email field.
 func (o *DescribeUserResult) SetEmail(v string) {
-	o.Email = v
+	o.Email = &v
+}
+
+// GetEnabled returns the Enabled field value if set, zero value otherwise.
+func (o *DescribeUserResult) GetEnabled() bool {
+	if o == nil || IsNil(o.Enabled) {
+		var ret bool
+		return ret
+	}
+	return *o.Enabled
+}
+
+// GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeUserResult) GetEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.Enabled) {
+		return nil, false
+	}
+	return o.Enabled, true
+}
+
+// SetEnabled gets a reference to the given bool and assigns it to the Enabled field.
+func (o *DescribeUserResult) SetEnabled(v bool) {
+	o.Enabled = &v
 }
 
 // GetId returns the Id field value
@@ -187,52 +198,50 @@ func (o *DescribeUserResult) SetId(v string) {
 	o.Id = v
 }
 
-// GetLastModifiedAt returns the LastModifiedAt field value
+// GetLastModifiedAt returns the LastModifiedAt field value if set, zero value otherwise.
 func (o *DescribeUserResult) GetLastModifiedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.LastModifiedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.LastModifiedAt
+	return *o.LastModifiedAt
 }
 
-// GetLastModifiedAtOk returns a tuple with the LastModifiedAt field value
+// GetLastModifiedAtOk returns a tuple with the LastModifiedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeUserResult) GetLastModifiedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LastModifiedAt) {
 		return nil, false
 	}
-	return &o.LastModifiedAt, true
+	return o.LastModifiedAt, true
 }
 
-// SetLastModifiedAt sets field value
+// SetLastModifiedAt gets a reference to the given string and assigns it to the LastModifiedAt field.
 func (o *DescribeUserResult) SetLastModifiedAt(v string) {
-	o.LastModifiedAt = v
+	o.LastModifiedAt = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *DescribeUserResult) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeUserResult) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *DescribeUserResult) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
 // GetOrgCookiePolicy returns the OrgCookiePolicy field value if set, zero value otherwise.
@@ -258,220 +267,211 @@ func (o *DescribeUserResult) SetOrgCookiePolicy(v string) {
 	o.OrgCookiePolicy = &v
 }
 
-// GetOrgDescription returns the OrgDescription field value
+// GetOrgDescription returns the OrgDescription field value if set, zero value otherwise.
 func (o *DescribeUserResult) GetOrgDescription() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrgDescription) {
 		var ret string
 		return ret
 	}
-
-	return o.OrgDescription
+	return *o.OrgDescription
 }
 
-// GetOrgDescriptionOk returns a tuple with the OrgDescription field value
+// GetOrgDescriptionOk returns a tuple with the OrgDescription field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeUserResult) GetOrgDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgDescription) {
 		return nil, false
 	}
-	return &o.OrgDescription, true
+	return o.OrgDescription, true
 }
 
-// SetOrgDescription sets field value
+// SetOrgDescription gets a reference to the given string and assigns it to the OrgDescription field.
 func (o *DescribeUserResult) SetOrgDescription(v string) {
-	o.OrgDescription = v
+	o.OrgDescription = &v
 }
 
-// GetOrgFavIconURL returns the OrgFavIconURL field value
+// GetOrgFavIconURL returns the OrgFavIconURL field value if set, zero value otherwise.
 func (o *DescribeUserResult) GetOrgFavIconURL() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrgFavIconURL) {
 		var ret string
 		return ret
 	}
-
-	return o.OrgFavIconURL
+	return *o.OrgFavIconURL
 }
 
-// GetOrgFavIconURLOk returns a tuple with the OrgFavIconURL field value
+// GetOrgFavIconURLOk returns a tuple with the OrgFavIconURL field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeUserResult) GetOrgFavIconURLOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgFavIconURL) {
 		return nil, false
 	}
-	return &o.OrgFavIconURL, true
+	return o.OrgFavIconURL, true
 }
 
-// SetOrgFavIconURL sets field value
+// SetOrgFavIconURL gets a reference to the given string and assigns it to the OrgFavIconURL field.
 func (o *DescribeUserResult) SetOrgFavIconURL(v string) {
-	o.OrgFavIconURL = v
+	o.OrgFavIconURL = &v
 }
 
-// GetOrgId returns the OrgId field value
+// GetOrgId returns the OrgId field value if set, zero value otherwise.
 func (o *DescribeUserResult) GetOrgId() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrgId) {
 		var ret string
 		return ret
 	}
-
-	return o.OrgId
+	return *o.OrgId
 }
 
-// GetOrgIdOk returns a tuple with the OrgId field value
+// GetOrgIdOk returns a tuple with the OrgId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeUserResult) GetOrgIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgId) {
 		return nil, false
 	}
-	return &o.OrgId, true
+	return o.OrgId, true
 }
 
-// SetOrgId sets field value
+// SetOrgId gets a reference to the given string and assigns it to the OrgId field.
 func (o *DescribeUserResult) SetOrgId(v string) {
-	o.OrgId = v
+	o.OrgId = &v
 }
 
-// GetOrgLogoURL returns the OrgLogoURL field value
+// GetOrgLogoURL returns the OrgLogoURL field value if set, zero value otherwise.
 func (o *DescribeUserResult) GetOrgLogoURL() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrgLogoURL) {
 		var ret string
 		return ret
 	}
-
-	return o.OrgLogoURL
+	return *o.OrgLogoURL
 }
 
-// GetOrgLogoURLOk returns a tuple with the OrgLogoURL field value
+// GetOrgLogoURLOk returns a tuple with the OrgLogoURL field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeUserResult) GetOrgLogoURLOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgLogoURL) {
 		return nil, false
 	}
-	return &o.OrgLogoURL, true
+	return o.OrgLogoURL, true
 }
 
-// SetOrgLogoURL sets field value
+// SetOrgLogoURL gets a reference to the given string and assigns it to the OrgLogoURL field.
 func (o *DescribeUserResult) SetOrgLogoURL(v string) {
-	o.OrgLogoURL = v
+	o.OrgLogoURL = &v
 }
 
-// GetOrgName returns the OrgName field value
+// GetOrgName returns the OrgName field value if set, zero value otherwise.
 func (o *DescribeUserResult) GetOrgName() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrgName) {
 		var ret string
 		return ret
 	}
-
-	return o.OrgName
+	return *o.OrgName
 }
 
-// GetOrgNameOk returns a tuple with the OrgName field value
+// GetOrgNameOk returns a tuple with the OrgName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeUserResult) GetOrgNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgName) {
 		return nil, false
 	}
-	return &o.OrgName, true
+	return o.OrgName, true
 }
 
-// SetOrgName sets field value
+// SetOrgName gets a reference to the given string and assigns it to the OrgName field.
 func (o *DescribeUserResult) SetOrgName(v string) {
-	o.OrgName = v
+	o.OrgName = &v
 }
 
-// GetOrgPrivacyPolicy returns the OrgPrivacyPolicy field value
+// GetOrgPrivacyPolicy returns the OrgPrivacyPolicy field value if set, zero value otherwise.
 func (o *DescribeUserResult) GetOrgPrivacyPolicy() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrgPrivacyPolicy) {
 		var ret string
 		return ret
 	}
-
-	return o.OrgPrivacyPolicy
+	return *o.OrgPrivacyPolicy
 }
 
-// GetOrgPrivacyPolicyOk returns a tuple with the OrgPrivacyPolicy field value
+// GetOrgPrivacyPolicyOk returns a tuple with the OrgPrivacyPolicy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeUserResult) GetOrgPrivacyPolicyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgPrivacyPolicy) {
 		return nil, false
 	}
-	return &o.OrgPrivacyPolicy, true
+	return o.OrgPrivacyPolicy, true
 }
 
-// SetOrgPrivacyPolicy sets field value
+// SetOrgPrivacyPolicy gets a reference to the given string and assigns it to the OrgPrivacyPolicy field.
 func (o *DescribeUserResult) SetOrgPrivacyPolicy(v string) {
-	o.OrgPrivacyPolicy = v
+	o.OrgPrivacyPolicy = &v
 }
 
-// GetOrgSupportEmail returns the OrgSupportEmail field value
+// GetOrgSupportEmail returns the OrgSupportEmail field value if set, zero value otherwise.
 func (o *DescribeUserResult) GetOrgSupportEmail() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrgSupportEmail) {
 		var ret string
 		return ret
 	}
-
-	return o.OrgSupportEmail
+	return *o.OrgSupportEmail
 }
 
-// GetOrgSupportEmailOk returns a tuple with the OrgSupportEmail field value
+// GetOrgSupportEmailOk returns a tuple with the OrgSupportEmail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeUserResult) GetOrgSupportEmailOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgSupportEmail) {
 		return nil, false
 	}
-	return &o.OrgSupportEmail, true
+	return o.OrgSupportEmail, true
 }
 
-// SetOrgSupportEmail sets field value
+// SetOrgSupportEmail gets a reference to the given string and assigns it to the OrgSupportEmail field.
 func (o *DescribeUserResult) SetOrgSupportEmail(v string) {
-	o.OrgSupportEmail = v
+	o.OrgSupportEmail = &v
 }
 
-// GetOrgTermsOfUse returns the OrgTermsOfUse field value
+// GetOrgTermsOfUse returns the OrgTermsOfUse field value if set, zero value otherwise.
 func (o *DescribeUserResult) GetOrgTermsOfUse() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrgTermsOfUse) {
 		var ret string
 		return ret
 	}
-
-	return o.OrgTermsOfUse
+	return *o.OrgTermsOfUse
 }
 
-// GetOrgTermsOfUseOk returns a tuple with the OrgTermsOfUse field value
+// GetOrgTermsOfUseOk returns a tuple with the OrgTermsOfUse field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeUserResult) GetOrgTermsOfUseOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgTermsOfUse) {
 		return nil, false
 	}
-	return &o.OrgTermsOfUse, true
+	return o.OrgTermsOfUse, true
 }
 
-// SetOrgTermsOfUse sets field value
+// SetOrgTermsOfUse gets a reference to the given string and assigns it to the OrgTermsOfUse field.
 func (o *DescribeUserResult) SetOrgTermsOfUse(v string) {
-	o.OrgTermsOfUse = v
+	o.OrgTermsOfUse = &v
 }
 
-// GetOrgURL returns the OrgURL field value
+// GetOrgURL returns the OrgURL field value if set, zero value otherwise.
 func (o *DescribeUserResult) GetOrgURL() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrgURL) {
 		var ret string
 		return ret
 	}
-
-	return o.OrgURL
+	return *o.OrgURL
 }
 
-// GetOrgURLOk returns a tuple with the OrgURL field value
+// GetOrgURLOk returns a tuple with the OrgURL field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeUserResult) GetOrgURLOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgURL) {
 		return nil, false
 	}
-	return &o.OrgURL, true
+	return o.OrgURL, true
 }
 
-// SetOrgURL sets field value
+// SetOrgURL gets a reference to the given string and assigns it to the OrgURL field.
 func (o *DescribeUserResult) SetOrgURL(v string) {
-	o.OrgURL = v
+	o.OrgURL = &v
 }
 
 // GetPlanName returns the PlanName field value if set, zero value otherwise.
@@ -497,28 +497,50 @@ func (o *DescribeUserResult) SetPlanName(v string) {
 	o.PlanName = &v
 }
 
-// GetRoleType returns the RoleType field value
+// GetRoleType returns the RoleType field value if set, zero value otherwise.
 func (o *DescribeUserResult) GetRoleType() string {
-	if o == nil {
+	if o == nil || IsNil(o.RoleType) {
 		var ret string
 		return ret
 	}
-
-	return o.RoleType
+	return *o.RoleType
 }
 
-// GetRoleTypeOk returns a tuple with the RoleType field value
+// GetRoleTypeOk returns a tuple with the RoleType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeUserResult) GetRoleTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RoleType) {
 		return nil, false
 	}
-	return &o.RoleType, true
+	return o.RoleType, true
 }
 
-// SetRoleType sets field value
+// SetRoleType gets a reference to the given string and assigns it to the RoleType field.
 func (o *DescribeUserResult) SetRoleType(v string) {
-	o.RoleType = v
+	o.RoleType = &v
+}
+
+// GetStatus returns the Status field value if set, zero value otherwise.
+func (o *DescribeUserResult) GetStatus() string {
+	if o == nil || IsNil(o.Status) {
+		var ret string
+		return ret
+	}
+	return *o.Status
+}
+
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeUserResult) GetStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.Status) {
+		return nil, false
+	}
+	return o.Status, true
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
+func (o *DescribeUserResult) SetStatus(v string) {
+	o.Status = &v
 }
 
 func (o DescribeUserResult) MarshalJSON() ([]byte, error) {
@@ -534,27 +556,61 @@ func (o DescribeUserResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Address) {
 		toSerialize["address"] = o.Address
 	}
-	toSerialize["createdAt"] = o.CreatedAt
-	toSerialize["email"] = o.Email
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
+	if !IsNil(o.Email) {
+		toSerialize["email"] = o.Email
+	}
+	if !IsNil(o.Enabled) {
+		toSerialize["enabled"] = o.Enabled
+	}
 	toSerialize["id"] = o.Id
-	toSerialize["lastModifiedAt"] = o.LastModifiedAt
-	toSerialize["name"] = o.Name
+	if !IsNil(o.LastModifiedAt) {
+		toSerialize["lastModifiedAt"] = o.LastModifiedAt
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
 	if !IsNil(o.OrgCookiePolicy) {
 		toSerialize["orgCookiePolicy"] = o.OrgCookiePolicy
 	}
-	toSerialize["orgDescription"] = o.OrgDescription
-	toSerialize["orgFavIconURL"] = o.OrgFavIconURL
-	toSerialize["orgId"] = o.OrgId
-	toSerialize["orgLogoURL"] = o.OrgLogoURL
-	toSerialize["orgName"] = o.OrgName
-	toSerialize["orgPrivacyPolicy"] = o.OrgPrivacyPolicy
-	toSerialize["orgSupportEmail"] = o.OrgSupportEmail
-	toSerialize["orgTermsOfUse"] = o.OrgTermsOfUse
-	toSerialize["orgURL"] = o.OrgURL
+	if !IsNil(o.OrgDescription) {
+		toSerialize["orgDescription"] = o.OrgDescription
+	}
+	if !IsNil(o.OrgFavIconURL) {
+		toSerialize["orgFavIconURL"] = o.OrgFavIconURL
+	}
+	if !IsNil(o.OrgId) {
+		toSerialize["orgId"] = o.OrgId
+	}
+	if !IsNil(o.OrgLogoURL) {
+		toSerialize["orgLogoURL"] = o.OrgLogoURL
+	}
+	if !IsNil(o.OrgName) {
+		toSerialize["orgName"] = o.OrgName
+	}
+	if !IsNil(o.OrgPrivacyPolicy) {
+		toSerialize["orgPrivacyPolicy"] = o.OrgPrivacyPolicy
+	}
+	if !IsNil(o.OrgSupportEmail) {
+		toSerialize["orgSupportEmail"] = o.OrgSupportEmail
+	}
+	if !IsNil(o.OrgTermsOfUse) {
+		toSerialize["orgTermsOfUse"] = o.OrgTermsOfUse
+	}
+	if !IsNil(o.OrgURL) {
+		toSerialize["orgURL"] = o.OrgURL
+	}
 	if !IsNil(o.PlanName) {
 		toSerialize["planName"] = o.PlanName
 	}
-	toSerialize["roleType"] = o.RoleType
+	if !IsNil(o.RoleType) {
+		toSerialize["roleType"] = o.RoleType
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -568,21 +624,7 @@ func (o *DescribeUserResult) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"createdAt",
-		"email",
 		"id",
-		"lastModifiedAt",
-		"name",
-		"orgDescription",
-		"orgFavIconURL",
-		"orgId",
-		"orgLogoURL",
-		"orgName",
-		"orgPrivacyPolicy",
-		"orgSupportEmail",
-		"orgTermsOfUse",
-		"orgURL",
-		"roleType",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -615,6 +657,7 @@ func (o *DescribeUserResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "address")
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "email")
+		delete(additionalProperties, "enabled")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "lastModifiedAt")
 		delete(additionalProperties, "name")
@@ -630,6 +673,7 @@ func (o *DescribeUserResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "orgURL")
 		delete(additionalProperties, "planName")
 		delete(additionalProperties, "roleType")
+		delete(additionalProperties, "status")
 		o.AdditionalProperties = additionalProperties
 	}
 

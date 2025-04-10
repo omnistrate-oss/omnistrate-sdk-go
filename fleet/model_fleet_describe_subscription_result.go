@@ -36,6 +36,8 @@ type FleetDescribeSubscriptionResult struct {
 	RootUserId string `json:"rootUserId"`
 	// The name of the user that owns the subscription
 	RootUserName string `json:"rootUserName"`
+	// ID of an Org
+	RootUserOrgId *string `json:"rootUserOrgId,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The logo for the service
@@ -50,6 +52,8 @@ type FleetDescribeSubscriptionResult struct {
 	UpdatedByUserId string `json:"updatedByUserId"`
 	// The name of the user that last updated the subscription
 	UpdatedByUserName string `json:"updatedByUserName"`
+	// ID of an Org
+	UpdatedByUserOrgId *string `json:"updatedByUserOrgId,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -278,6 +282,38 @@ func (o *FleetDescribeSubscriptionResult) SetRootUserName(v string) {
 	o.RootUserName = v
 }
 
+// GetRootUserOrgId returns the RootUserOrgId field value if set, zero value otherwise.
+func (o *FleetDescribeSubscriptionResult) GetRootUserOrgId() string {
+	if o == nil || IsNil(o.RootUserOrgId) {
+		var ret string
+		return ret
+	}
+	return *o.RootUserOrgId
+}
+
+// GetRootUserOrgIdOk returns a tuple with the RootUserOrgId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeSubscriptionResult) GetRootUserOrgIdOk() (*string, bool) {
+	if o == nil || IsNil(o.RootUserOrgId) {
+		return nil, false
+	}
+	return o.RootUserOrgId, true
+}
+
+// HasRootUserOrgId returns a boolean if a field has been set.
+func (o *FleetDescribeSubscriptionResult) HasRootUserOrgId() bool {
+	if o != nil && !IsNil(o.RootUserOrgId) {
+		return true
+	}
+
+	return false
+}
+
+// SetRootUserOrgId gets a reference to the given string and assigns it to the RootUserOrgId field.
+func (o *FleetDescribeSubscriptionResult) SetRootUserOrgId(v string) {
+	o.RootUserOrgId = &v
+}
+
 // GetServiceId returns the ServiceId field value
 func (o *FleetDescribeSubscriptionResult) GetServiceId() string {
 	if o == nil {
@@ -454,6 +490,38 @@ func (o *FleetDescribeSubscriptionResult) SetUpdatedByUserName(v string) {
 	o.UpdatedByUserName = v
 }
 
+// GetUpdatedByUserOrgId returns the UpdatedByUserOrgId field value if set, zero value otherwise.
+func (o *FleetDescribeSubscriptionResult) GetUpdatedByUserOrgId() string {
+	if o == nil || IsNil(o.UpdatedByUserOrgId) {
+		var ret string
+		return ret
+	}
+	return *o.UpdatedByUserOrgId
+}
+
+// GetUpdatedByUserOrgIdOk returns a tuple with the UpdatedByUserOrgId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeSubscriptionResult) GetUpdatedByUserOrgIdOk() (*string, bool) {
+	if o == nil || IsNil(o.UpdatedByUserOrgId) {
+		return nil, false
+	}
+	return o.UpdatedByUserOrgId, true
+}
+
+// HasUpdatedByUserOrgId returns a boolean if a field has been set.
+func (o *FleetDescribeSubscriptionResult) HasUpdatedByUserOrgId() bool {
+	if o != nil && !IsNil(o.UpdatedByUserOrgId) {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedByUserOrgId gets a reference to the given string and assigns it to the UpdatedByUserOrgId field.
+func (o *FleetDescribeSubscriptionResult) SetUpdatedByUserOrgId(v string) {
+	o.UpdatedByUserOrgId = &v
+}
+
 func (o FleetDescribeSubscriptionResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -472,6 +540,9 @@ func (o FleetDescribeSubscriptionResult) ToMap() (map[string]interface{}, error)
 	toSerialize["rootUserEmail"] = o.RootUserEmail
 	toSerialize["rootUserId"] = o.RootUserId
 	toSerialize["rootUserName"] = o.RootUserName
+	if !IsNil(o.RootUserOrgId) {
+		toSerialize["rootUserOrgId"] = o.RootUserOrgId
+	}
 	toSerialize["serviceId"] = o.ServiceId
 	if !IsNil(o.ServiceLogoURL) {
 		toSerialize["serviceLogoURL"] = o.ServiceLogoURL
@@ -481,6 +552,9 @@ func (o FleetDescribeSubscriptionResult) ToMap() (map[string]interface{}, error)
 	toSerialize["updatedAt"] = o.UpdatedAt
 	toSerialize["updatedByUserId"] = o.UpdatedByUserId
 	toSerialize["updatedByUserName"] = o.UpdatedByUserName
+	if !IsNil(o.UpdatedByUserOrgId) {
+		toSerialize["updatedByUserOrgId"] = o.UpdatedByUserOrgId
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -545,6 +619,7 @@ func (o *FleetDescribeSubscriptionResult) UnmarshalJSON(data []byte) (err error)
 		delete(additionalProperties, "rootUserEmail")
 		delete(additionalProperties, "rootUserId")
 		delete(additionalProperties, "rootUserName")
+		delete(additionalProperties, "rootUserOrgId")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "serviceLogoURL")
 		delete(additionalProperties, "serviceName")
@@ -552,6 +627,7 @@ func (o *FleetDescribeSubscriptionResult) UnmarshalJSON(data []byte) (err error)
 		delete(additionalProperties, "updatedAt")
 		delete(additionalProperties, "updatedByUserId")
 		delete(additionalProperties, "updatedByUserName")
+		delete(additionalProperties, "updatedByUserOrgId")
 		o.AdditionalProperties = additionalProperties
 	}
 

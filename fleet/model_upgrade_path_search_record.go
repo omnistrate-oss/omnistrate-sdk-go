@@ -22,6 +22,8 @@ var _ MappedNullable = &UpgradePathSearchRecord{}
 type UpgradePathSearchRecord struct {
 	// ID of an Upgrade Path
 	Id string `json:"id"`
+	// Whether to notify the end customer about the upgrade progress.
+	NotifyCustomer bool `json:"notifyCustomer"`
 	// ID of a Product Tier
 	ProductTierID string `json:"productTierID"`
 	// The product tier name of the upgrade path.
@@ -47,9 +49,10 @@ type _UpgradePathSearchRecord UpgradePathSearchRecord
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpgradePathSearchRecord(id string, productTierID string, productTierName string, serviceEnvironmentId string, serviceEnvironmentName string, serviceId string, serviceName string, status string) *UpgradePathSearchRecord {
+func NewUpgradePathSearchRecord(id string, notifyCustomer bool, productTierID string, productTierName string, serviceEnvironmentId string, serviceEnvironmentName string, serviceId string, serviceName string, status string) *UpgradePathSearchRecord {
 	this := UpgradePathSearchRecord{}
 	this.Id = id
+	this.NotifyCustomer = notifyCustomer
 	this.ProductTierID = productTierID
 	this.ProductTierName = productTierName
 	this.ServiceEnvironmentId = serviceEnvironmentId
@@ -90,6 +93,30 @@ func (o *UpgradePathSearchRecord) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *UpgradePathSearchRecord) SetId(v string) {
 	o.Id = v
+}
+
+// GetNotifyCustomer returns the NotifyCustomer field value
+func (o *UpgradePathSearchRecord) GetNotifyCustomer() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.NotifyCustomer
+}
+
+// GetNotifyCustomerOk returns a tuple with the NotifyCustomer field value
+// and a boolean to check if the value has been set.
+func (o *UpgradePathSearchRecord) GetNotifyCustomerOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NotifyCustomer, true
+}
+
+// SetNotifyCustomer sets field value
+func (o *UpgradePathSearchRecord) SetNotifyCustomer(v bool) {
+	o.NotifyCustomer = v
 }
 
 // GetProductTierID returns the ProductTierID field value
@@ -303,6 +330,7 @@ func (o UpgradePathSearchRecord) MarshalJSON() ([]byte, error) {
 func (o UpgradePathSearchRecord) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
+	toSerialize["notifyCustomer"] = o.NotifyCustomer
 	toSerialize["productTierID"] = o.ProductTierID
 	toSerialize["productTierName"] = o.ProductTierName
 	toSerialize["serviceEnvironmentId"] = o.ServiceEnvironmentId
@@ -327,6 +355,7 @@ func (o *UpgradePathSearchRecord) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"id",
+		"notifyCustomer",
 		"productTierID",
 		"productTierName",
 		"serviceEnvironmentId",
@@ -364,6 +393,7 @@ func (o *UpgradePathSearchRecord) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "notifyCustomer")
 		delete(additionalProperties, "productTierID")
 		delete(additionalProperties, "productTierName")
 		delete(additionalProperties, "serviceEnvironmentId")

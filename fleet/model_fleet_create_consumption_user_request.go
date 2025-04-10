@@ -20,8 +20,12 @@ var _ MappedNullable = &FleetCreateConsumptionUserRequest{}
 
 // FleetCreateConsumptionUserRequest struct for FleetCreateConsumptionUserRequest
 type FleetCreateConsumptionUserRequest struct {
+	// Company URL of the user.
+	CompanyUrl *string `json:"companyUrl,omitempty"`
 	// Email address of the user
 	Email string `json:"email"`
+	// Whether to enable auto verification for the user.
+	EnableAutoVerification bool `json:"enableAutoVerification"`
 	// Legal company name of the user.
 	LegalCompanyName string `json:"legalCompanyName"`
 	// Name of the user
@@ -39,9 +43,10 @@ type _FleetCreateConsumptionUserRequest FleetCreateConsumptionUserRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFleetCreateConsumptionUserRequest(email string, legalCompanyName string, name string, password string, token string) *FleetCreateConsumptionUserRequest {
+func NewFleetCreateConsumptionUserRequest(email string, enableAutoVerification bool, legalCompanyName string, name string, password string, token string) *FleetCreateConsumptionUserRequest {
 	this := FleetCreateConsumptionUserRequest{}
 	this.Email = email
+	this.EnableAutoVerification = enableAutoVerification
 	this.LegalCompanyName = legalCompanyName
 	this.Name = name
 	this.Password = password
@@ -55,6 +60,38 @@ func NewFleetCreateConsumptionUserRequest(email string, legalCompanyName string,
 func NewFleetCreateConsumptionUserRequestWithDefaults() *FleetCreateConsumptionUserRequest {
 	this := FleetCreateConsumptionUserRequest{}
 	return &this
+}
+
+// GetCompanyUrl returns the CompanyUrl field value if set, zero value otherwise.
+func (o *FleetCreateConsumptionUserRequest) GetCompanyUrl() string {
+	if o == nil || IsNil(o.CompanyUrl) {
+		var ret string
+		return ret
+	}
+	return *o.CompanyUrl
+}
+
+// GetCompanyUrlOk returns a tuple with the CompanyUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCreateConsumptionUserRequest) GetCompanyUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.CompanyUrl) {
+		return nil, false
+	}
+	return o.CompanyUrl, true
+}
+
+// HasCompanyUrl returns a boolean if a field has been set.
+func (o *FleetCreateConsumptionUserRequest) HasCompanyUrl() bool {
+	if o != nil && !IsNil(o.CompanyUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetCompanyUrl gets a reference to the given string and assigns it to the CompanyUrl field.
+func (o *FleetCreateConsumptionUserRequest) SetCompanyUrl(v string) {
+	o.CompanyUrl = &v
 }
 
 // GetEmail returns the Email field value
@@ -79,6 +116,30 @@ func (o *FleetCreateConsumptionUserRequest) GetEmailOk() (*string, bool) {
 // SetEmail sets field value
 func (o *FleetCreateConsumptionUserRequest) SetEmail(v string) {
 	o.Email = v
+}
+
+// GetEnableAutoVerification returns the EnableAutoVerification field value
+func (o *FleetCreateConsumptionUserRequest) GetEnableAutoVerification() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.EnableAutoVerification
+}
+
+// GetEnableAutoVerificationOk returns a tuple with the EnableAutoVerification field value
+// and a boolean to check if the value has been set.
+func (o *FleetCreateConsumptionUserRequest) GetEnableAutoVerificationOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EnableAutoVerification, true
+}
+
+// SetEnableAutoVerification sets field value
+func (o *FleetCreateConsumptionUserRequest) SetEnableAutoVerification(v bool) {
+	o.EnableAutoVerification = v
 }
 
 // GetLegalCompanyName returns the LegalCompanyName field value
@@ -187,7 +248,11 @@ func (o FleetCreateConsumptionUserRequest) MarshalJSON() ([]byte, error) {
 
 func (o FleetCreateConsumptionUserRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CompanyUrl) {
+		toSerialize["companyUrl"] = o.CompanyUrl
+	}
 	toSerialize["email"] = o.Email
+	toSerialize["enableAutoVerification"] = o.EnableAutoVerification
 	toSerialize["legalCompanyName"] = o.LegalCompanyName
 	toSerialize["name"] = o.Name
 	toSerialize["password"] = o.Password
@@ -206,6 +271,7 @@ func (o *FleetCreateConsumptionUserRequest) UnmarshalJSON(data []byte) (err erro
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"email",
+		"enableAutoVerification",
 		"legalCompanyName",
 		"name",
 		"password",
@@ -239,7 +305,9 @@ func (o *FleetCreateConsumptionUserRequest) UnmarshalJSON(data []byte) (err erro
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "companyUrl")
 		delete(additionalProperties, "email")
+		delete(additionalProperties, "enableAutoVerification")
 		delete(additionalProperties, "legalCompanyName")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "password")

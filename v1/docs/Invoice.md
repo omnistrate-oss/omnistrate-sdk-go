@@ -5,12 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Currency** | Pointer to **string** | The currency of the charge | [optional] 
+**DueDate** | Pointer to **string** | Due date in ISO 8601 format | [optional] 
 **InvoiceDate** | Pointer to **string** | Date of the invoice | [optional] 
 **InvoiceId** | Pointer to **string** | ID of the invoice | [optional] 
 **InvoiceNumber** | Pointer to **string** | The invoice number | [optional] 
 **InvoicePdf** | Pointer to **string** | URL for the PDF of the invoice | [optional] 
 **InvoiceStatus** | Pointer to **string** | This describes the status of the invoice and is set by the payment provider | [optional] 
 **InvoiceUrl** | Pointer to **string** | URL for this invoice | [optional] 
+**PaymentTerms** | Pointer to **string** | Payment terms of the invoice | [optional] 
 **TaxAmount** | Pointer to **float64** | Amount of tax, if any | [optional] 
 **TotalAmount** | Pointer to **float64** | Amount of Invoice | [optional] 
 **TotalAmountWithoutTax** | Pointer to **float64** | Amount of Invoice without tax | [optional] 
@@ -58,6 +60,31 @@ SetCurrency sets Currency field to given value.
 `func (o *Invoice) HasCurrency() bool`
 
 HasCurrency returns a boolean if a field has been set.
+
+### GetDueDate
+
+`func (o *Invoice) GetDueDate() string`
+
+GetDueDate returns the DueDate field if non-nil, zero value otherwise.
+
+### GetDueDateOk
+
+`func (o *Invoice) GetDueDateOk() (*string, bool)`
+
+GetDueDateOk returns a tuple with the DueDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDueDate
+
+`func (o *Invoice) SetDueDate(v string)`
+
+SetDueDate sets DueDate field to given value.
+
+### HasDueDate
+
+`func (o *Invoice) HasDueDate() bool`
+
+HasDueDate returns a boolean if a field has been set.
 
 ### GetInvoiceDate
 
@@ -208,6 +235,31 @@ SetInvoiceUrl sets InvoiceUrl field to given value.
 `func (o *Invoice) HasInvoiceUrl() bool`
 
 HasInvoiceUrl returns a boolean if a field has been set.
+
+### GetPaymentTerms
+
+`func (o *Invoice) GetPaymentTerms() string`
+
+GetPaymentTerms returns the PaymentTerms field if non-nil, zero value otherwise.
+
+### GetPaymentTermsOk
+
+`func (o *Invoice) GetPaymentTermsOk() (*string, bool)`
+
+GetPaymentTermsOk returns a tuple with the PaymentTerms field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentTerms
+
+`func (o *Invoice) SetPaymentTerms(v string)`
+
+SetPaymentTerms sets PaymentTerms field to given value.
+
+### HasPaymentTerms
+
+`func (o *Invoice) HasPaymentTerms() bool`
+
+HasPaymentTerms returns a boolean if a field has been set.
 
 ### GetTaxAmount
 
