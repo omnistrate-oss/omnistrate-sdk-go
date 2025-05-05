@@ -30,6 +30,8 @@ type DescribeProductTierResult struct {
 	AwsRegions []string `json:"awsRegions,omitempty"`
 	// The Azure regions that this product tier is available on
 	AzureRegions []string `json:"azureRegions,omitempty"`
+	// Optional billing product ID for tax purposes
+	BillingProductID *string `json:"billingProductID,omitempty"`
 	// The readiness of the cloud providers configurations
 	CloudProvidersConfigReadiness map[string]interface{} `json:"cloudProvidersConfigReadiness,omitempty"`
 	// A brief description of the product tier
@@ -262,6 +264,38 @@ func (o *DescribeProductTierResult) HasAzureRegions() bool {
 // SetAzureRegions gets a reference to the given []string and assigns it to the AzureRegions field.
 func (o *DescribeProductTierResult) SetAzureRegions(v []string) {
 	o.AzureRegions = v
+}
+
+// GetBillingProductID returns the BillingProductID field value if set, zero value otherwise.
+func (o *DescribeProductTierResult) GetBillingProductID() string {
+	if o == nil || IsNil(o.BillingProductID) {
+		var ret string
+		return ret
+	}
+	return *o.BillingProductID
+}
+
+// GetBillingProductIDOk returns a tuple with the BillingProductID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeProductTierResult) GetBillingProductIDOk() (*string, bool) {
+	if o == nil || IsNil(o.BillingProductID) {
+		return nil, false
+	}
+	return o.BillingProductID, true
+}
+
+// HasBillingProductID returns a boolean if a field has been set.
+func (o *DescribeProductTierResult) HasBillingProductID() bool {
+	if o != nil && !IsNil(o.BillingProductID) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingProductID gets a reference to the given string and assigns it to the BillingProductID field.
+func (o *DescribeProductTierResult) SetBillingProductID(v string) {
+	o.BillingProductID = &v
 }
 
 // GetCloudProvidersConfigReadiness returns the CloudProvidersConfigReadiness field value if set, zero value otherwise.
@@ -835,6 +869,9 @@ func (o DescribeProductTierResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AzureRegions) {
 		toSerialize["azureRegions"] = o.AzureRegions
 	}
+	if !IsNil(o.BillingProductID) {
+		toSerialize["billingProductID"] = o.BillingProductID
+	}
 	if !IsNil(o.CloudProvidersConfigReadiness) {
 		toSerialize["cloudProvidersConfigReadiness"] = o.CloudProvidersConfigReadiness
 	}
@@ -932,6 +969,7 @@ func (o *DescribeProductTierResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "autoApproveSubscription")
 		delete(additionalProperties, "awsRegions")
 		delete(additionalProperties, "azureRegions")
+		delete(additionalProperties, "billingProductID")
 		delete(additionalProperties, "cloudProvidersConfigReadiness")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "documentation")

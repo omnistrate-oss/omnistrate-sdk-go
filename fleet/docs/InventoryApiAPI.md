@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**InventoryApiCreateResourceInstance**](InventoryApiAPI.md#InventoryApiCreateResourceInstance) | **Post** /2022-09-01-00/fleet/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey} | CreateResourceInstance inventory-api
 [**InventoryApiCreateResourceInstanceSnapshot**](InventoryApiAPI.md#InventoryApiCreateResourceInstanceSnapshot) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/snapshot | CreateResourceInstanceSnapshot inventory-api
 [**InventoryApiCreateServicesOrchestration**](InventoryApiAPI.md#InventoryApiCreateServicesOrchestration) | **Post** /2022-09-01-00/fleet/services-orchestration | CreateServicesOrchestration inventory-api
+[**InventoryApiCreateSubscriptionOnBehalfOfCustomer**](InventoryApiAPI.md#InventoryApiCreateSubscriptionOnBehalfOfCustomer) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription | CreateSubscriptionOnBehalfOfCustomer inventory-api
 [**InventoryApiCreateUpgradePath**](InventoryApiAPI.md#InventoryApiCreateUpgradePath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path | CreateUpgradePath inventory-api
 [**InventoryApiDebugResourceInstance**](InventoryApiAPI.md#InventoryApiDebugResourceInstance) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/debug | DebugResourceInstance inventory-api
 [**InventoryApiDeleteProxyResourceInstance**](InventoryApiAPI.md#InventoryApiDeleteProxyResourceInstance) | **Delete** /2022-09-01-00/fleet/proxy-resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{id} | DeleteProxyResourceInstance inventory-api
@@ -440,7 +441,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiCreateProxyResourceInstance
 
-> CreateResourceInstanceResponseBody InventoryApiCreateProxyResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, sourceResourceKey).CreateProxyResourceInstanceRequest2(createProxyResourceInstanceRequest2).Execute()
+> FleetCreateSubscriptionOnBehalfOfCustomerResult InventoryApiCreateProxyResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, sourceResourceKey).CreateProxyResourceInstanceRequest2(createProxyResourceInstanceRequest2).Execute()
 
 CreateProxyResourceInstance inventory-api
 
@@ -473,7 +474,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiCreateProxyResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `InventoryApiCreateProxyResourceInstance`: CreateResourceInstanceResponseBody
+	// response from `InventoryApiCreateProxyResourceInstance`: FleetCreateSubscriptionOnBehalfOfCustomerResult
 	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiCreateProxyResourceInstance`: %v\n", resp)
 }
 ```
@@ -510,7 +511,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateResourceInstanceResponseBody**](CreateResourceInstanceResponseBody.md)
+[**FleetCreateSubscriptionOnBehalfOfCustomerResult**](FleetCreateSubscriptionOnBehalfOfCustomerResult.md)
 
 ### Authorization
 
@@ -528,7 +529,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiCreateResourceInstance
 
-> CreateResourceInstanceResponseBody InventoryApiCreateResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey).FleetCreateResourceInstanceRequest2(fleetCreateResourceInstanceRequest2).Execute()
+> FleetCreateSubscriptionOnBehalfOfCustomerResult InventoryApiCreateResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey).FleetCreateResourceInstanceRequest2(fleetCreateResourceInstanceRequest2).Execute()
 
 CreateResourceInstance inventory-api
 
@@ -561,7 +562,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiCreateResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `InventoryApiCreateResourceInstance`: CreateResourceInstanceResponseBody
+	// response from `InventoryApiCreateResourceInstance`: FleetCreateSubscriptionOnBehalfOfCustomerResult
 	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiCreateResourceInstance`: %v\n", resp)
 }
 ```
@@ -598,7 +599,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateResourceInstanceResponseBody**](CreateResourceInstanceResponseBody.md)
+[**FleetCreateSubscriptionOnBehalfOfCustomerResult**](FleetCreateSubscriptionOnBehalfOfCustomerResult.md)
 
 ### Authorization
 
@@ -690,7 +691,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiCreateServicesOrchestration
 
-> CreateResourceInstanceResponseBody InventoryApiCreateServicesOrchestration(ctx).FleetCreateServicesOrchestrationRequest2(fleetCreateServicesOrchestrationRequest2).Execute()
+> FleetCreateSubscriptionOnBehalfOfCustomerResult InventoryApiCreateServicesOrchestration(ctx).FleetCreateServicesOrchestrationRequest2(fleetCreateServicesOrchestrationRequest2).Execute()
 
 CreateServicesOrchestration inventory-api
 
@@ -707,7 +708,7 @@ import (
 )
 
 func main() {
-	fleetCreateServicesOrchestrationRequest2 := *openapiclient.NewFleetCreateServicesOrchestrationRequest2("Nulla ipsum id consequuntur illo quas officia.") // FleetCreateServicesOrchestrationRequest2 | 
+	fleetCreateServicesOrchestrationRequest2 := *openapiclient.NewFleetCreateServicesOrchestrationRequest2("Ab et labore cupiditate omnis.") // FleetCreateServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -716,7 +717,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiCreateServicesOrchestration``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `InventoryApiCreateServicesOrchestration`: CreateResourceInstanceResponseBody
+	// response from `InventoryApiCreateServicesOrchestration`: FleetCreateSubscriptionOnBehalfOfCustomerResult
 	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiCreateServicesOrchestration`: %v\n", resp)
 }
 ```
@@ -736,7 +737,80 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateResourceInstanceResponseBody**](CreateResourceInstanceResponseBody.md)
+[**FleetCreateSubscriptionOnBehalfOfCustomerResult**](FleetCreateSubscriptionOnBehalfOfCustomerResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InventoryApiCreateSubscriptionOnBehalfOfCustomer
+
+> FleetCreateSubscriptionOnBehalfOfCustomerResult InventoryApiCreateSubscriptionOnBehalfOfCustomer(ctx, serviceId, environmentId).FleetCreateSubscriptionOnBehalfOfCustomerRequest2(fleetCreateSubscriptionOnBehalfOfCustomerRequest2).Execute()
+
+CreateSubscriptionOnBehalfOfCustomer inventory-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
+	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
+	fleetCreateSubscriptionOnBehalfOfCustomerRequest2 := *openapiclient.NewFleetCreateSubscriptionOnBehalfOfCustomerRequest2("user-12345678", "prod-12345678") // FleetCreateSubscriptionOnBehalfOfCustomerRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiCreateSubscriptionOnBehalfOfCustomer(context.Background(), serviceId, environmentId).FleetCreateSubscriptionOnBehalfOfCustomerRequest2(fleetCreateSubscriptionOnBehalfOfCustomerRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiCreateSubscriptionOnBehalfOfCustomer``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InventoryApiCreateSubscriptionOnBehalfOfCustomer`: FleetCreateSubscriptionOnBehalfOfCustomerResult
+	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiCreateSubscriptionOnBehalfOfCustomer`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | The service ID this workflow belongs to. | 
+**environmentId** | **string** | The service environment ID this workflow belongs to. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInventoryApiCreateSubscriptionOnBehalfOfCustomerRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **fleetCreateSubscriptionOnBehalfOfCustomerRequest2** | [**FleetCreateSubscriptionOnBehalfOfCustomerRequest2**](FleetCreateSubscriptionOnBehalfOfCustomerRequest2.md) |  | 
+
+### Return type
+
+[**FleetCreateSubscriptionOnBehalfOfCustomerResult**](FleetCreateSubscriptionOnBehalfOfCustomerResult.md)
 
 ### Authorization
 
@@ -773,7 +847,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
-	createUpgradePathRequest2 := *openapiclient.NewCreateUpgradePathRequest2("1.0", "2.0", map[string][]string{"key": []string{"Quaerat quia natus rerum."}}) // CreateUpgradePathRequest2 | 
+	createUpgradePathRequest2 := *openapiclient.NewCreateUpgradePathRequest2("1.0", "2.0", map[string][]string{"key": []string{"Labore ducimus rem aliquam debitis animi id."}}) // CreateUpgradePathRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2685,7 +2759,7 @@ import (
 )
 
 func main() {
-	hasInvoice := false // bool | Filter for organizations with invoices (optional)
+	hasInvoice := true // bool | Filter for organizations with invoices (optional)
 	hasInvoiceWithStatus := "draft|open|paid|uncollectible|void" // string | Filter for organizations with invoices with a specific status (optional)
 	hasInvoiceFromDate := time.Now() // time.Time | Filter for organizations with invoices from a specific date (optional)
 	hasInvoiceToDate := time.Now() // time.Time | Filter for organizations with invoices to a specific date (optional)
@@ -3268,7 +3342,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	productTierVersion := "Dignissimos labore numquam ducimus." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Perspiciatis qui." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Eum officiis et." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
 	subscriptionId := "Quisquam officiis occaecati rerum iusto atque itaque." // string | Subscription id of the instance to describe. (optional)
 	filter := "onlyCloudAccounts" // string | Filter to apply to the list of instances. (optional)
@@ -3537,7 +3611,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiListSubscription
 
-> FleetListSubscriptionsResult InventoryApiListSubscription(ctx, serviceId, environmentId).Execute()
+> FleetListSubscriptionsResult InventoryApiListSubscription(ctx, serviceId, environmentId).ProductTierId(productTierId).Execute()
 
 ListSubscription inventory-api
 
@@ -3556,10 +3630,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
+	productTierId := "pt-12345678" // string | The product tier Id (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListSubscription(context.Background(), serviceId, environmentId).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListSubscription(context.Background(), serviceId, environmentId).ProductTierId(productTierId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiListSubscription``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3587,6 +3662,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+ **productTierId** | **string** | The product tier Id | 
 
 ### Return type
 
@@ -3855,7 +3931,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
 	upgradePathId := "up-12345678" // string | The upgrade path ID
-	manageUpgradePathLifecycleRequest2 := *openapiclient.NewManageUpgradePathLifecycleRequest2("Qui et.") // ManageUpgradePathLifecycleRequest2 | 
+	manageUpgradePathLifecycleRequest2 := *openapiclient.NewManageUpgradePathLifecycleRequest2("Earum voluptas.") // ManageUpgradePathLifecycleRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3929,7 +4005,7 @@ import (
 
 func main() {
 	id := "so-12345678" // string | The ID of the services orchestration
-	fleetModifyServicesOrchestrationRequest2 := *openapiclient.NewFleetModifyServicesOrchestrationRequest2("Aperiam quidem laboriosam quae quo animi.") // FleetModifyServicesOrchestrationRequest2 | 
+	fleetModifyServicesOrchestrationRequest2 := *openapiclient.NewFleetModifyServicesOrchestrationRequest2("Rem culpa quaerat autem delectus.") // FleetModifyServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -4202,7 +4278,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiRestoreResourceInstance
 
-> CreateResourceInstanceResponseBody InventoryApiRestoreResourceInstance(ctx, serviceId, environmentId, instanceId).FleetRestoreResourceInstanceRequest2(fleetRestoreResourceInstanceRequest2).Execute()
+> FleetCreateSubscriptionOnBehalfOfCustomerResult InventoryApiRestoreResourceInstance(ctx, serviceId, environmentId, instanceId).FleetRestoreResourceInstanceRequest2(fleetRestoreResourceInstanceRequest2).Execute()
 
 RestoreResourceInstance inventory-api
 
@@ -4231,7 +4307,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiRestoreResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `InventoryApiRestoreResourceInstance`: CreateResourceInstanceResponseBody
+	// response from `InventoryApiRestoreResourceInstance`: FleetCreateSubscriptionOnBehalfOfCustomerResult
 	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiRestoreResourceInstance`: %v\n", resp)
 }
 ```
@@ -4260,7 +4336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateResourceInstanceResponseBody**](CreateResourceInstanceResponseBody.md)
+[**FleetCreateSubscriptionOnBehalfOfCustomerResult**](FleetCreateSubscriptionOnBehalfOfCustomerResult.md)
 
 ### Authorization
 
@@ -4278,7 +4354,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiRestoreResourceInstanceFromSnapshot
 
-> CreateResourceInstanceResponseBody InventoryApiRestoreResourceInstanceFromSnapshot(ctx, serviceId, environmentId, snapshotId).FleetRestoreResourceInstanceFromSnapshotRequest2(fleetRestoreResourceInstanceFromSnapshotRequest2).Execute()
+> FleetCreateSubscriptionOnBehalfOfCustomerResult InventoryApiRestoreResourceInstanceFromSnapshot(ctx, serviceId, environmentId, snapshotId).FleetRestoreResourceInstanceFromSnapshotRequest2(fleetRestoreResourceInstanceFromSnapshotRequest2).Execute()
 
 RestoreResourceInstanceFromSnapshot inventory-api
 
@@ -4307,7 +4383,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiRestoreResourceInstanceFromSnapshot``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `InventoryApiRestoreResourceInstanceFromSnapshot`: CreateResourceInstanceResponseBody
+	// response from `InventoryApiRestoreResourceInstanceFromSnapshot`: FleetCreateSubscriptionOnBehalfOfCustomerResult
 	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiRestoreResourceInstanceFromSnapshot`: %v\n", resp)
 }
 ```
@@ -4336,7 +4412,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateResourceInstanceResponseBody**](CreateResourceInstanceResponseBody.md)
+[**FleetCreateSubscriptionOnBehalfOfCustomerResult**](FleetCreateSubscriptionOnBehalfOfCustomerResult.md)
 
 ### Authorization
 

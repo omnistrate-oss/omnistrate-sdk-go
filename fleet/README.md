@@ -117,6 +117,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiCreateResourceInstance**](docs/InventoryApiAPI.md#inventoryapicreateresourceinstance) | **Post** /2022-09-01-00/fleet/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey} | CreateResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateResourceInstanceSnapshot**](docs/InventoryApiAPI.md#inventoryapicreateresourceinstancesnapshot) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/snapshot | CreateResourceInstanceSnapshot inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateServicesOrchestration**](docs/InventoryApiAPI.md#inventoryapicreateservicesorchestration) | **Post** /2022-09-01-00/fleet/services-orchestration | CreateServicesOrchestration inventory-api
+*InventoryApiAPI* | [**InventoryApiCreateSubscriptionOnBehalfOfCustomer**](docs/InventoryApiAPI.md#inventoryapicreatesubscriptiononbehalfofcustomer) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription | CreateSubscriptionOnBehalfOfCustomer inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateUpgradePath**](docs/InventoryApiAPI.md#inventoryapicreateupgradepath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path | CreateUpgradePath inventory-api
 *InventoryApiAPI* | [**InventoryApiDebugResourceInstance**](docs/InventoryApiAPI.md#inventoryapidebugresourceinstance) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/debug | DebugResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiDeleteProxyResourceInstance**](docs/InventoryApiAPI.md#inventoryapideleteproxyresourceinstance) | **Delete** /2022-09-01-00/fleet/proxy-resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{id} | DeleteProxyResourceInstance inventory-api
@@ -240,7 +241,6 @@ Class | Method | HTTP request | Description
  - [CreateProxyResourceInstanceRequest](docs/CreateProxyResourceInstanceRequest.md)
  - [CreateProxyResourceInstanceRequest2](docs/CreateProxyResourceInstanceRequest2.md)
  - [CreateResourceInstanceRequest](docs/CreateResourceInstanceRequest.md)
- - [CreateResourceInstanceResponseBody](docs/CreateResourceInstanceResponseBody.md)
  - [CreateSaaSPortalCustomDomainRequest](docs/CreateSaaSPortalCustomDomainRequest.md)
  - [CreateServiceEnvironmentRequest](docs/CreateServiceEnvironmentRequest.md)
  - [CreateServiceFromComposeSpecRequest](docs/CreateServiceFromComposeSpecRequest.md)
@@ -255,6 +255,7 @@ Class | Method | HTTP request | Description
  - [CustomDomain](docs/CustomDomain.md)
  - [CustomNetworkFleetDetail](docs/CustomNetworkFleetDetail.md)
  - [CustomNetworkResourceDetail](docs/CustomNetworkResourceDetail.md)
+ - [CustomerDeleteUserRequest](docs/CustomerDeleteUserRequest.md)
  - [CustomerInviteUserRequest](docs/CustomerInviteUserRequest.md)
  - [CustomerLoginWithIdentityProviderRequest](docs/CustomerLoginWithIdentityProviderRequest.md)
  - [CustomerLoginWithIdentityProviderResult](docs/CustomerLoginWithIdentityProviderResult.md)
@@ -391,6 +392,9 @@ Class | Method | HTTP request | Description
  - [FleetCreateResourceInstanceRequest2](docs/FleetCreateResourceInstanceRequest2.md)
  - [FleetCreateServicesOrchestrationRequest](docs/FleetCreateServicesOrchestrationRequest.md)
  - [FleetCreateServicesOrchestrationRequest2](docs/FleetCreateServicesOrchestrationRequest2.md)
+ - [FleetCreateSubscriptionOnBehalfOfCustomerRequest](docs/FleetCreateSubscriptionOnBehalfOfCustomerRequest.md)
+ - [FleetCreateSubscriptionOnBehalfOfCustomerRequest2](docs/FleetCreateSubscriptionOnBehalfOfCustomerRequest2.md)
+ - [FleetCreateSubscriptionOnBehalfOfCustomerResult](docs/FleetCreateSubscriptionOnBehalfOfCustomerResult.md)
  - [FleetCustomNetwork](docs/FleetCustomNetwork.md)
  - [FleetCustomNetworkInstance](docs/FleetCustomNetworkInstance.md)
  - [FleetDeleteCustomNetworkRequest](docs/FleetDeleteCustomNetworkRequest.md)

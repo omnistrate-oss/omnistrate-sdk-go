@@ -21,6 +21,10 @@ var _ MappedNullable = &FleetCustomNetworkInstance{}
 type FleetCustomNetworkInstance struct {
 	// The AWS account ID
 	AwsAccountID *string `json:"awsAccountID,omitempty"`
+	// The Azure subscription ID
+	AzureSubscriptionID *string `json:"azureSubscriptionID,omitempty"`
+	// The Azure tenant ID
+	AzureTenantID *string `json:"azureTenantID,omitempty"`
 	// The ID of the network within cloud provider account
 	CloudProviderNativeNetworkId *string `json:"cloudProviderNativeNetworkId,omitempty"`
 	// The GCP project ID
@@ -81,6 +85,70 @@ func (o *FleetCustomNetworkInstance) HasAwsAccountID() bool {
 // SetAwsAccountID gets a reference to the given string and assigns it to the AwsAccountID field.
 func (o *FleetCustomNetworkInstance) SetAwsAccountID(v string) {
 	o.AwsAccountID = &v
+}
+
+// GetAzureSubscriptionID returns the AzureSubscriptionID field value if set, zero value otherwise.
+func (o *FleetCustomNetworkInstance) GetAzureSubscriptionID() string {
+	if o == nil || IsNil(o.AzureSubscriptionID) {
+		var ret string
+		return ret
+	}
+	return *o.AzureSubscriptionID
+}
+
+// GetAzureSubscriptionIDOk returns a tuple with the AzureSubscriptionID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCustomNetworkInstance) GetAzureSubscriptionIDOk() (*string, bool) {
+	if o == nil || IsNil(o.AzureSubscriptionID) {
+		return nil, false
+	}
+	return o.AzureSubscriptionID, true
+}
+
+// HasAzureSubscriptionID returns a boolean if a field has been set.
+func (o *FleetCustomNetworkInstance) HasAzureSubscriptionID() bool {
+	if o != nil && !IsNil(o.AzureSubscriptionID) {
+		return true
+	}
+
+	return false
+}
+
+// SetAzureSubscriptionID gets a reference to the given string and assigns it to the AzureSubscriptionID field.
+func (o *FleetCustomNetworkInstance) SetAzureSubscriptionID(v string) {
+	o.AzureSubscriptionID = &v
+}
+
+// GetAzureTenantID returns the AzureTenantID field value if set, zero value otherwise.
+func (o *FleetCustomNetworkInstance) GetAzureTenantID() string {
+	if o == nil || IsNil(o.AzureTenantID) {
+		var ret string
+		return ret
+	}
+	return *o.AzureTenantID
+}
+
+// GetAzureTenantIDOk returns a tuple with the AzureTenantID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCustomNetworkInstance) GetAzureTenantIDOk() (*string, bool) {
+	if o == nil || IsNil(o.AzureTenantID) {
+		return nil, false
+	}
+	return o.AzureTenantID, true
+}
+
+// HasAzureTenantID returns a boolean if a field has been set.
+func (o *FleetCustomNetworkInstance) HasAzureTenantID() bool {
+	if o != nil && !IsNil(o.AzureTenantID) {
+		return true
+	}
+
+	return false
+}
+
+// SetAzureTenantID gets a reference to the given string and assigns it to the AzureTenantID field.
+func (o *FleetCustomNetworkInstance) SetAzureTenantID(v string) {
+	o.AzureTenantID = &v
 }
 
 // GetCloudProviderNativeNetworkId returns the CloudProviderNativeNetworkId field value if set, zero value otherwise.
@@ -224,6 +292,12 @@ func (o FleetCustomNetworkInstance) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AwsAccountID) {
 		toSerialize["awsAccountID"] = o.AwsAccountID
 	}
+	if !IsNil(o.AzureSubscriptionID) {
+		toSerialize["azureSubscriptionID"] = o.AzureSubscriptionID
+	}
+	if !IsNil(o.AzureTenantID) {
+		toSerialize["azureTenantID"] = o.AzureTenantID
+	}
 	if !IsNil(o.CloudProviderNativeNetworkId) {
 		toSerialize["cloudProviderNativeNetworkId"] = o.CloudProviderNativeNetworkId
 	}
@@ -259,6 +333,8 @@ func (o *FleetCustomNetworkInstance) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "awsAccountID")
+		delete(additionalProperties, "azureSubscriptionID")
+		delete(additionalProperties, "azureTenantID")
 		delete(additionalProperties, "cloudProviderNativeNetworkId")
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "gcpProjectNumber")

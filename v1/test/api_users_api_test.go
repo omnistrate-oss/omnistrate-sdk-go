@@ -22,6 +22,17 @@ func Test_v1_UsersApiAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test UsersApiAPIService UsersApiCustomerDeleteUser", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.UsersApiAPI.UsersApiCustomerDeleteUser(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test UsersApiAPIService UsersApiCustomerInviteUser", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

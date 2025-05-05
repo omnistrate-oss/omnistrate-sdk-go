@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **AutoApproveSubscription** | Pointer to **bool** | Auto approve subscription or not | [optional] 
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this product tier is available on | [optional] 
 **AzureRegions** | Pointer to **[]string** | The Azure regions that this product tier is available on | [optional] 
+**BillingProductID** | Pointer to **string** | Optional billing product ID for tax purposes | [optional] 
 **Description** | **string** | A brief description of the product tier | 
 **Documentation** | Pointer to **string** | Documentation | [optional] 
 **ExportUsageMetering** | Pointer to **bool** | Export usage metering data | [optional] 
@@ -143,6 +144,31 @@ SetAzureRegions sets AzureRegions field to given value.
 `func (o *CreateProductTierRequest) HasAzureRegions() bool`
 
 HasAzureRegions returns a boolean if a field has been set.
+
+### GetBillingProductID
+
+`func (o *CreateProductTierRequest) GetBillingProductID() string`
+
+GetBillingProductID returns the BillingProductID field if non-nil, zero value otherwise.
+
+### GetBillingProductIDOk
+
+`func (o *CreateProductTierRequest) GetBillingProductIDOk() (*string, bool)`
+
+GetBillingProductIDOk returns a tuple with the BillingProductID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBillingProductID
+
+`func (o *CreateProductTierRequest) SetBillingProductID(v string)`
+
+SetBillingProductID sets BillingProductID field to given value.
+
+### HasBillingProductID
+
+`func (o *CreateProductTierRequest) HasBillingProductID() bool`
+
+HasBillingProductID returns a boolean if a field has been set.
 
 ### GetDescription
 

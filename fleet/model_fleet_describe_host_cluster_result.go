@@ -22,6 +22,8 @@ var _ MappedNullable = &FleetDescribeHostClusterResult{}
 type FleetDescribeHostClusterResult struct {
 	// The AWS account ID
 	AwsAccountID *string `json:"awsAccountID,omitempty"`
+	// The Azure subscription ID
+	AzureSubscriptionID *string `json:"azureSubscriptionID,omitempty"`
 	// Name of the Infra Provider
 	CloudProvider string `json:"cloudProvider"`
 	// The endpoint to access the dashboard
@@ -95,6 +97,38 @@ func (o *FleetDescribeHostClusterResult) HasAwsAccountID() bool {
 // SetAwsAccountID gets a reference to the given string and assigns it to the AwsAccountID field.
 func (o *FleetDescribeHostClusterResult) SetAwsAccountID(v string) {
 	o.AwsAccountID = &v
+}
+
+// GetAzureSubscriptionID returns the AzureSubscriptionID field value if set, zero value otherwise.
+func (o *FleetDescribeHostClusterResult) GetAzureSubscriptionID() string {
+	if o == nil || IsNil(o.AzureSubscriptionID) {
+		var ret string
+		return ret
+	}
+	return *o.AzureSubscriptionID
+}
+
+// GetAzureSubscriptionIDOk returns a tuple with the AzureSubscriptionID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeHostClusterResult) GetAzureSubscriptionIDOk() (*string, bool) {
+	if o == nil || IsNil(o.AzureSubscriptionID) {
+		return nil, false
+	}
+	return o.AzureSubscriptionID, true
+}
+
+// HasAzureSubscriptionID returns a boolean if a field has been set.
+func (o *FleetDescribeHostClusterResult) HasAzureSubscriptionID() bool {
+	if o != nil && !IsNil(o.AzureSubscriptionID) {
+		return true
+	}
+
+	return false
+}
+
+// SetAzureSubscriptionID gets a reference to the given string and assigns it to the AzureSubscriptionID field.
+func (o *FleetDescribeHostClusterResult) SetAzureSubscriptionID(v string) {
+	o.AzureSubscriptionID = &v
 }
 
 // GetCloudProvider returns the CloudProvider field value
@@ -318,6 +352,9 @@ func (o FleetDescribeHostClusterResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.AwsAccountID) {
 		toSerialize["awsAccountID"] = o.AwsAccountID
 	}
+	if !IsNil(o.AzureSubscriptionID) {
+		toSerialize["azureSubscriptionID"] = o.AzureSubscriptionID
+	}
 	toSerialize["cloudProvider"] = o.CloudProvider
 	if !IsNil(o.DashboardEndpoint) {
 		toSerialize["dashboardEndpoint"] = o.DashboardEndpoint
@@ -379,6 +416,7 @@ func (o *FleetDescribeHostClusterResult) UnmarshalJSON(data []byte) (err error) 
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "awsAccountID")
+		delete(additionalProperties, "azureSubscriptionID")
 		delete(additionalProperties, "cloudProvider")
 		delete(additionalProperties, "dashboardEndpoint")
 		delete(additionalProperties, "gcpProjectID")

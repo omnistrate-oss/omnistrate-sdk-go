@@ -22,6 +22,8 @@ var _ MappedNullable = &ResourceInstance{}
 type ResourceInstance struct {
 	// The AWS account ID
 	AwsAccountID *string `json:"awsAccountID,omitempty"`
+	// The Azure subscription ID
+	AzureSubscriptionID *string `json:"azureSubscriptionID,omitempty"`
 	// Name of the Infra Provider
 	CloudProvider string `json:"cloudProvider"`
 	ConsumptionResourceInstanceResult DescribeResourceInstanceResult `json:"consumptionResourceInstanceResult"`
@@ -168,6 +170,38 @@ func (o *ResourceInstance) HasAwsAccountID() bool {
 // SetAwsAccountID gets a reference to the given string and assigns it to the AwsAccountID field.
 func (o *ResourceInstance) SetAwsAccountID(v string) {
 	o.AwsAccountID = &v
+}
+
+// GetAzureSubscriptionID returns the AzureSubscriptionID field value if set, zero value otherwise.
+func (o *ResourceInstance) GetAzureSubscriptionID() string {
+	if o == nil || IsNil(o.AzureSubscriptionID) {
+		var ret string
+		return ret
+	}
+	return *o.AzureSubscriptionID
+}
+
+// GetAzureSubscriptionIDOk returns a tuple with the AzureSubscriptionID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceInstance) GetAzureSubscriptionIDOk() (*string, bool) {
+	if o == nil || IsNil(o.AzureSubscriptionID) {
+		return nil, false
+	}
+	return o.AzureSubscriptionID, true
+}
+
+// HasAzureSubscriptionID returns a boolean if a field has been set.
+func (o *ResourceInstance) HasAzureSubscriptionID() bool {
+	if o != nil && !IsNil(o.AzureSubscriptionID) {
+		return true
+	}
+
+	return false
+}
+
+// SetAzureSubscriptionID gets a reference to the given string and assigns it to the AzureSubscriptionID field.
+func (o *ResourceInstance) SetAzureSubscriptionID(v string) {
+	o.AzureSubscriptionID = &v
 }
 
 // GetCloudProvider returns the CloudProvider field value
@@ -1097,6 +1131,9 @@ func (o ResourceInstance) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AwsAccountID) {
 		toSerialize["awsAccountID"] = o.AwsAccountID
 	}
+	if !IsNil(o.AzureSubscriptionID) {
+		toSerialize["azureSubscriptionID"] = o.AzureSubscriptionID
+	}
 	toSerialize["cloudProvider"] = o.CloudProvider
 	toSerialize["consumptionResourceInstanceResult"] = o.ConsumptionResourceInstanceResult
 	toSerialize["defaultSubscription"] = o.DefaultSubscription
@@ -1221,6 +1258,7 @@ func (o *ResourceInstance) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "awsAccountID")
+		delete(additionalProperties, "azureSubscriptionID")
 		delete(additionalProperties, "cloudProvider")
 		delete(additionalProperties, "consumptionResourceInstanceResult")
 		delete(additionalProperties, "defaultSubscription")
