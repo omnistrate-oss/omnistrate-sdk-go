@@ -65,7 +65,6 @@ docs/CreateProductTierRequest.md
 docs/CreateProxyResourceInstanceRequest.md
 docs/CreateProxyResourceInstanceRequest2.md
 docs/CreateResourceInstanceRequest.md
-docs/CreateResourceInstanceResponseBody.md
 docs/CreateSaaSPortalCustomDomainRequest.md
 docs/CreateServiceEnvironmentRequest.md
 docs/CreateServiceFromComposeSpecRequest.md
@@ -80,6 +79,7 @@ docs/CustomDNSEndpoint.md
 docs/CustomDomain.md
 docs/CustomNetworkFleetDetail.md
 docs/CustomNetworkResourceDetail.md
+docs/CustomerDeleteUserRequest.md
 docs/CustomerInviteUserRequest.md
 docs/CustomerLoginWithIdentityProviderRequest.md
 docs/CustomerLoginWithIdentityProviderResult.md
@@ -218,6 +218,9 @@ docs/FleetCreateResourceInstanceRequest.md
 docs/FleetCreateResourceInstanceRequest2.md
 docs/FleetCreateServicesOrchestrationRequest.md
 docs/FleetCreateServicesOrchestrationRequest2.md
+docs/FleetCreateSubscriptionOnBehalfOfCustomerRequest.md
+docs/FleetCreateSubscriptionOnBehalfOfCustomerRequest2.md
+docs/FleetCreateSubscriptionOnBehalfOfCustomerResult.md
 docs/FleetCustomNetwork.md
 docs/FleetCustomNetworkApiAPI.md
 docs/FleetCustomNetworkInstance.md
@@ -602,7 +605,6 @@ model_create_product_tier_request.go
 model_create_proxy_resource_instance_request.go
 model_create_proxy_resource_instance_request2.go
 model_create_resource_instance_request.go
-model_create_resource_instance_response_body.go
 model_create_saa_s_portal_custom_domain_request.go
 model_create_service_environment_request.go
 model_create_service_from_compose_spec_request.go
@@ -617,6 +619,7 @@ model_custom_dns_endpoint.go
 model_custom_domain.go
 model_custom_network_fleet_detail.go
 model_custom_network_resource_detail.go
+model_customer_delete_user_request.go
 model_customer_invite_user_request.go
 model_customer_login_with_identity_provider_request.go
 model_customer_login_with_identity_provider_result.go
@@ -753,6 +756,9 @@ model_fleet_create_resource_instance_request.go
 model_fleet_create_resource_instance_request2.go
 model_fleet_create_services_orchestration_request.go
 model_fleet_create_services_orchestration_request2.go
+model_fleet_create_subscription_on_behalf_of_customer_request.go
+model_fleet_create_subscription_on_behalf_of_customer_request2.go
+model_fleet_create_subscription_on_behalf_of_customer_result.go
 model_fleet_custom_network.go
 model_fleet_custom_network_instance.go
 model_fleet_delete_custom_network_request.go

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EnvironmentId** | **string** | ID of a Service Environment | 
+**ProductTierId** | Pointer to **string** | ID of a Product Tier | [optional] 
 **ServiceId** | **string** | ID of a Service | 
 **Token** | **string** | JWT token used to perform authorization | 
 
@@ -46,6 +47,31 @@ and a boolean to check if the value has been set.
 
 SetEnvironmentId sets EnvironmentId field to given value.
 
+
+### GetProductTierId
+
+`func (o *FleetListSubscriptionsRequest) GetProductTierId() string`
+
+GetProductTierId returns the ProductTierId field if non-nil, zero value otherwise.
+
+### GetProductTierIdOk
+
+`func (o *FleetListSubscriptionsRequest) GetProductTierIdOk() (*string, bool)`
+
+GetProductTierIdOk returns a tuple with the ProductTierId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductTierId
+
+`func (o *FleetListSubscriptionsRequest) SetProductTierId(v string)`
+
+SetProductTierId sets ProductTierId field to given value.
+
+### HasProductTierId
+
+`func (o *FleetListSubscriptionsRequest) HasProductTierId() bool`
+
+HasProductTierId returns a boolean if a field has been set.
 
 ### GetServiceId
 

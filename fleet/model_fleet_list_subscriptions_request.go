@@ -22,6 +22,8 @@ var _ MappedNullable = &FleetListSubscriptionsRequest{}
 type FleetListSubscriptionsRequest struct {
 	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
+	// ID of a Product Tier
+	ProductTierId *string `json:"productTierId,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// JWT token used to perform authorization
@@ -73,6 +75,38 @@ func (o *FleetListSubscriptionsRequest) GetEnvironmentIdOk() (*string, bool) {
 // SetEnvironmentId sets field value
 func (o *FleetListSubscriptionsRequest) SetEnvironmentId(v string) {
 	o.EnvironmentId = v
+}
+
+// GetProductTierId returns the ProductTierId field value if set, zero value otherwise.
+func (o *FleetListSubscriptionsRequest) GetProductTierId() string {
+	if o == nil || IsNil(o.ProductTierId) {
+		var ret string
+		return ret
+	}
+	return *o.ProductTierId
+}
+
+// GetProductTierIdOk returns a tuple with the ProductTierId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetListSubscriptionsRequest) GetProductTierIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ProductTierId) {
+		return nil, false
+	}
+	return o.ProductTierId, true
+}
+
+// HasProductTierId returns a boolean if a field has been set.
+func (o *FleetListSubscriptionsRequest) HasProductTierId() bool {
+	if o != nil && !IsNil(o.ProductTierId) {
+		return true
+	}
+
+	return false
+}
+
+// SetProductTierId gets a reference to the given string and assigns it to the ProductTierId field.
+func (o *FleetListSubscriptionsRequest) SetProductTierId(v string) {
+	o.ProductTierId = &v
 }
 
 // GetServiceId returns the ServiceId field value
@@ -134,6 +168,9 @@ func (o FleetListSubscriptionsRequest) MarshalJSON() ([]byte, error) {
 func (o FleetListSubscriptionsRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["environmentId"] = o.EnvironmentId
+	if !IsNil(o.ProductTierId) {
+		toSerialize["productTierId"] = o.ProductTierId
+	}
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["token"] = o.Token
 
@@ -182,6 +219,7 @@ func (o *FleetListSubscriptionsRequest) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties

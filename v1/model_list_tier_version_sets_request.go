@@ -24,6 +24,10 @@ type ListTierVersionSetsRequest struct {
 	LatestIncrementalVersionForMajorVersion *string `json:"latestIncrementalVersionForMajorVersion,omitempty"`
 	// Indicates whether to return only the latest version set. The parameter needs to be specified in isolation.
 	LatestMajorVersionOnly *bool `json:"latestMajorVersionOnly,omitempty"`
+	// The next token to use for pagination
+	NextPageToken *string `json:"nextPageToken,omitempty"`
+	// The number of resources to return per page
+	PageSize *int64 `json:"pageSize,omitempty"`
 	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// ID of a Service
@@ -99,6 +103,52 @@ func (o *ListTierVersionSetsRequest) GetLatestMajorVersionOnlyOk() (*bool, bool)
 // SetLatestMajorVersionOnly gets a reference to the given bool and assigns it to the LatestMajorVersionOnly field.
 func (o *ListTierVersionSetsRequest) SetLatestMajorVersionOnly(v bool) {
 	o.LatestMajorVersionOnly = &v
+}
+
+// GetNextPageToken returns the NextPageToken field value if set, zero value otherwise.
+func (o *ListTierVersionSetsRequest) GetNextPageToken() string {
+	if o == nil || IsNil(o.NextPageToken) {
+		var ret string
+		return ret
+	}
+	return *o.NextPageToken
+}
+
+// GetNextPageTokenOk returns a tuple with the NextPageToken field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListTierVersionSetsRequest) GetNextPageTokenOk() (*string, bool) {
+	if o == nil || IsNil(o.NextPageToken) {
+		return nil, false
+	}
+	return o.NextPageToken, true
+}
+
+// SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.
+func (o *ListTierVersionSetsRequest) SetNextPageToken(v string) {
+	o.NextPageToken = &v
+}
+
+// GetPageSize returns the PageSize field value if set, zero value otherwise.
+func (o *ListTierVersionSetsRequest) GetPageSize() int64 {
+	if o == nil || IsNil(o.PageSize) {
+		var ret int64
+		return ret
+	}
+	return *o.PageSize
+}
+
+// GetPageSizeOk returns a tuple with the PageSize field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListTierVersionSetsRequest) GetPageSizeOk() (*int64, bool) {
+	if o == nil || IsNil(o.PageSize) {
+		return nil, false
+	}
+	return o.PageSize, true
+}
+
+// SetPageSize gets a reference to the given int64 and assigns it to the PageSize field.
+func (o *ListTierVersionSetsRequest) SetPageSize(v int64) {
+	o.PageSize = &v
 }
 
 // GetProductTierId returns the ProductTierId field value
@@ -189,6 +239,12 @@ func (o ListTierVersionSetsRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.LatestMajorVersionOnly) {
 		toSerialize["latestMajorVersionOnly"] = o.LatestMajorVersionOnly
 	}
+	if !IsNil(o.NextPageToken) {
+		toSerialize["nextPageToken"] = o.NextPageToken
+	}
+	if !IsNil(o.PageSize) {
+		toSerialize["pageSize"] = o.PageSize
+	}
 	toSerialize["productTierId"] = o.ProductTierId
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["token"] = o.Token
@@ -239,6 +295,8 @@ func (o *ListTierVersionSetsRequest) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "latestIncrementalVersionForMajorVersion")
 		delete(additionalProperties, "latestMajorVersionOnly")
+		delete(additionalProperties, "nextPageToken")
+		delete(additionalProperties, "pageSize")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "token")

@@ -191,6 +191,7 @@ docs/CustomNetworkInstance.md
 docs/CustomNetworkResourceDetail.md
 docs/CustomTag.md
 docs/CustomULimits.md
+docs/CustomerDeleteUserRequest.md
 docs/CustomerInviteUserRequest.md
 docs/CustomerInviteUserRequest2.md
 docs/CustomerLoginWithIdentityProviderRequest.md
@@ -860,6 +861,7 @@ model_custom_network_instance.go
 model_custom_network_resource_detail.go
 model_custom_tag.go
 model_custom_u_limits.go
+model_customer_delete_user_request.go
 model_customer_invite_user_request.go
 model_customer_invite_user_request2.go
 model_customer_login_with_identity_provider_request.go

@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **LatestIncrementalVersionForMajorVersion** | Pointer to **string** | Returns the latest incremental version for the given major version. The parameter needs to be specified in isolation | [optional] 
 **LatestMajorVersionOnly** | Pointer to **bool** | Indicates whether to return only the latest version set. The parameter needs to be specified in isolation. | [optional] 
+**NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
+**PageSize** | Pointer to **int64** | The number of resources to return per page | [optional] 
 **ProductTierId** | **string** | ID of a Product Tier | 
 **ServiceId** | **string** | ID of a Service | 
 **Token** | **string** | JWT token used to perform authorization | 
@@ -78,6 +80,56 @@ SetLatestMajorVersionOnly sets LatestMajorVersionOnly field to given value.
 `func (o *ListTierVersionSetsRequest) HasLatestMajorVersionOnly() bool`
 
 HasLatestMajorVersionOnly returns a boolean if a field has been set.
+
+### GetNextPageToken
+
+`func (o *ListTierVersionSetsRequest) GetNextPageToken() string`
+
+GetNextPageToken returns the NextPageToken field if non-nil, zero value otherwise.
+
+### GetNextPageTokenOk
+
+`func (o *ListTierVersionSetsRequest) GetNextPageTokenOk() (*string, bool)`
+
+GetNextPageTokenOk returns a tuple with the NextPageToken field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNextPageToken
+
+`func (o *ListTierVersionSetsRequest) SetNextPageToken(v string)`
+
+SetNextPageToken sets NextPageToken field to given value.
+
+### HasNextPageToken
+
+`func (o *ListTierVersionSetsRequest) HasNextPageToken() bool`
+
+HasNextPageToken returns a boolean if a field has been set.
+
+### GetPageSize
+
+`func (o *ListTierVersionSetsRequest) GetPageSize() int64`
+
+GetPageSize returns the PageSize field if non-nil, zero value otherwise.
+
+### GetPageSizeOk
+
+`func (o *ListTierVersionSetsRequest) GetPageSizeOk() (*int64, bool)`
+
+GetPageSizeOk returns a tuple with the PageSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPageSize
+
+`func (o *ListTierVersionSetsRequest) SetPageSize(v int64)`
+
+SetPageSize sets PageSize field to given value.
+
+### HasPageSize
+
+`func (o *ListTierVersionSetsRequest) HasPageSize() bool`
+
+HasPageSize returns a boolean if a field has been set.
 
 ### GetProductTierId
 

@@ -352,6 +352,7 @@ Class | Method | HTTP request | Description
 *TierVersionSetApiAPI* | [**TierVersionSetApiReleaseTierVersionSet**](docs/TierVersionSetApiAPI.md#tierversionsetapireleasetierversionset) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/release | ReleaseTierVersionSet tier-version-set-api
 *UsageApiAPI* | [**UsageApiGetCurrentUsage**](docs/UsageApiAPI.md#usageapigetcurrentusage) | **Get** /2022-09-01-00/usage | GetCurrentUsage usage-api
 *UsageApiAPI* | [**UsageApiGetUsagePerDay**](docs/UsageApiAPI.md#usageapigetusageperday) | **Get** /2022-09-01-00/usage-per-day | GetUsagePerDay usage-api
+*UsersApiAPI* | [**UsersApiCustomerDeleteUser**](docs/UsersApiAPI.md#usersapicustomerdeleteuser) | **Delete** /2022-09-01-00/customer-delete-user | CustomerDeleteUser users-api
 *UsersApiAPI* | [**UsersApiCustomerInviteUser**](docs/UsersApiAPI.md#usersapicustomerinviteuser) | **Post** /2022-09-01-00/customer-invite-user | CustomerInviteUser users-api
 *UsersApiAPI* | [**UsersApiCustomerLoginWithIdentityProvider**](docs/UsersApiAPI.md#usersapicustomerloginwithidentityprovider) | **Post** /2022-09-01-00/customer-login-with-identity-provider | CustomerLoginWithIdentityProvider users-api
 *UsersApiAPI* | [**UsersApiCustomerResetPassword**](docs/UsersApiAPI.md#usersapicustomerresetpassword) | **Post** /2022-09-01-00/customer-reset-password | CustomerResetPassword users-api
@@ -495,6 +496,7 @@ Class | Method | HTTP request | Description
  - [CustomNetworkResourceDetail](docs/CustomNetworkResourceDetail.md)
  - [CustomTag](docs/CustomTag.md)
  - [CustomULimits](docs/CustomULimits.md)
+ - [CustomerDeleteUserRequest](docs/CustomerDeleteUserRequest.md)
  - [CustomerInviteUserRequest](docs/CustomerInviteUserRequest.md)
  - [CustomerInviteUserRequest2](docs/CustomerInviteUserRequest2.md)
  - [CustomerLoginWithIdentityProviderRequest](docs/CustomerLoginWithIdentityProviderRequest.md)

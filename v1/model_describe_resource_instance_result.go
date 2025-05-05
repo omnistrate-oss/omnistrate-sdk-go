@@ -25,6 +25,8 @@ type DescribeResourceInstanceResult struct {
 	AutoscalingEnabled *bool `json:"autoscalingEnabled,omitempty"`
 	// The AWS account ID
 	AwsAccountID *string `json:"awsAccountID,omitempty"`
+	// The Azure subscription ID
+	AzureSubscriptionID *string `json:"azureSubscriptionID,omitempty"`
 	BackupStatus *BackupStatus `json:"backupStatus,omitempty"`
 	// The cloud provider name
 	CloudProvider *string `json:"cloud_provider,omitempty"`
@@ -166,6 +168,29 @@ func (o *DescribeResourceInstanceResult) GetAwsAccountIDOk() (*string, bool) {
 // SetAwsAccountID gets a reference to the given string and assigns it to the AwsAccountID field.
 func (o *DescribeResourceInstanceResult) SetAwsAccountID(v string) {
 	o.AwsAccountID = &v
+}
+
+// GetAzureSubscriptionID returns the AzureSubscriptionID field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetAzureSubscriptionID() string {
+	if o == nil || IsNil(o.AzureSubscriptionID) {
+		var ret string
+		return ret
+	}
+	return *o.AzureSubscriptionID
+}
+
+// GetAzureSubscriptionIDOk returns a tuple with the AzureSubscriptionID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetAzureSubscriptionIDOk() (*string, bool) {
+	if o == nil || IsNil(o.AzureSubscriptionID) {
+		return nil, false
+	}
+	return o.AzureSubscriptionID, true
+}
+
+// SetAzureSubscriptionID gets a reference to the given string and assigns it to the AzureSubscriptionID field.
+func (o *DescribeResourceInstanceResult) SetAzureSubscriptionID(v string) {
+	o.AzureSubscriptionID = &v
 }
 
 // GetBackupStatus returns the BackupStatus field value if set, zero value otherwise.
@@ -832,6 +857,9 @@ func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.AwsAccountID) {
 		toSerialize["awsAccountID"] = o.AwsAccountID
 	}
+	if !IsNil(o.AzureSubscriptionID) {
+		toSerialize["azureSubscriptionID"] = o.AzureSubscriptionID
+	}
 	if !IsNil(o.BackupStatus) {
 		toSerialize["backupStatus"] = o.BackupStatus
 	}
@@ -941,6 +969,7 @@ func (o *DescribeResourceInstanceResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "active")
 		delete(additionalProperties, "autoscalingEnabled")
 		delete(additionalProperties, "awsAccountID")
+		delete(additionalProperties, "azureSubscriptionID")
 		delete(additionalProperties, "backupStatus")
 		delete(additionalProperties, "cloud_provider")
 		delete(additionalProperties, "created_at")

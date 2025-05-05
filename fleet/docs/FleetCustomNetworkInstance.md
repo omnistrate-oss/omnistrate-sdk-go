@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AwsAccountID** | Pointer to **string** | The AWS account ID | [optional] 
+**AzureSubscriptionID** | Pointer to **string** | The Azure subscription ID | [optional] 
+**AzureTenantID** | Pointer to **string** | The Azure tenant ID | [optional] 
 **CloudProviderNativeNetworkId** | Pointer to **string** | The ID of the network within cloud provider account | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **GcpProjectNumber** | Pointer to **string** | The GCP project number | [optional] 
@@ -53,6 +55,56 @@ SetAwsAccountID sets AwsAccountID field to given value.
 `func (o *FleetCustomNetworkInstance) HasAwsAccountID() bool`
 
 HasAwsAccountID returns a boolean if a field has been set.
+
+### GetAzureSubscriptionID
+
+`func (o *FleetCustomNetworkInstance) GetAzureSubscriptionID() string`
+
+GetAzureSubscriptionID returns the AzureSubscriptionID field if non-nil, zero value otherwise.
+
+### GetAzureSubscriptionIDOk
+
+`func (o *FleetCustomNetworkInstance) GetAzureSubscriptionIDOk() (*string, bool)`
+
+GetAzureSubscriptionIDOk returns a tuple with the AzureSubscriptionID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAzureSubscriptionID
+
+`func (o *FleetCustomNetworkInstance) SetAzureSubscriptionID(v string)`
+
+SetAzureSubscriptionID sets AzureSubscriptionID field to given value.
+
+### HasAzureSubscriptionID
+
+`func (o *FleetCustomNetworkInstance) HasAzureSubscriptionID() bool`
+
+HasAzureSubscriptionID returns a boolean if a field has been set.
+
+### GetAzureTenantID
+
+`func (o *FleetCustomNetworkInstance) GetAzureTenantID() string`
+
+GetAzureTenantID returns the AzureTenantID field if non-nil, zero value otherwise.
+
+### GetAzureTenantIDOk
+
+`func (o *FleetCustomNetworkInstance) GetAzureTenantIDOk() (*string, bool)`
+
+GetAzureTenantIDOk returns a tuple with the AzureTenantID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAzureTenantID
+
+`func (o *FleetCustomNetworkInstance) SetAzureTenantID(v string)`
+
+SetAzureTenantID sets AzureTenantID field to given value.
+
+### HasAzureTenantID
+
+`func (o *FleetCustomNetworkInstance) HasAzureTenantID() bool`
+
+HasAzureTenantID returns a boolean if a field has been set.
 
 ### GetCloudProviderNativeNetworkId
 

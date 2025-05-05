@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 
 ## TierVersionSetApiListTierVersionSets
 
-> ListTierVersionSetsResult TierVersionSetApiListTierVersionSets(ctx, serviceId, productTierId).LatestMajorVersionOnly(latestMajorVersionOnly).LatestIncrementalVersionForMajorVersion(latestIncrementalVersionForMajorVersion).Execute()
+> ListTierVersionSetsResult TierVersionSetApiListTierVersionSets(ctx, serviceId, productTierId).LatestMajorVersionOnly(latestMajorVersionOnly).LatestIncrementalVersionForMajorVersion(latestIncrementalVersionForMajorVersion).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
 
 ListTierVersionSets tier-version-set-api
 
@@ -335,10 +335,12 @@ func main() {
 	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
 	latestMajorVersionOnly := true // bool | If true, the latest major version is returned. The parameter needs to be specified in isolation. (optional)
 	latestIncrementalVersionForMajorVersion := "3.0" // string | Returns the latest incremental version for the given major version. The paramenter needs to be specified in isolation. (optional)
+	nextPageToken := "token" // string | The next token to use for pagination (optional)
+	pageSize := int64(10) // int64 | The number of resources to return per page (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiListTierVersionSets(context.Background(), serviceId, productTierId).LatestMajorVersionOnly(latestMajorVersionOnly).LatestIncrementalVersionForMajorVersion(latestIncrementalVersionForMajorVersion).Execute()
+	resp, r, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiListTierVersionSets(context.Background(), serviceId, productTierId).LatestMajorVersionOnly(latestMajorVersionOnly).LatestIncrementalVersionForMajorVersion(latestIncrementalVersionForMajorVersion).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TierVersionSetApiAPI.TierVersionSetApiListTierVersionSets``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -368,6 +370,8 @@ Name | Type | Description  | Notes
 
  **latestMajorVersionOnly** | **bool** | If true, the latest major version is returned. The parameter needs to be specified in isolation. | 
  **latestIncrementalVersionForMajorVersion** | **string** | Returns the latest incremental version for the given major version. The paramenter needs to be specified in isolation. | 
+ **nextPageToken** | **string** | The next token to use for pagination | 
+ **pageSize** | **int64** | The number of resources to return per page | 
 
 ### Return type
 

@@ -844,6 +844,8 @@ type ApiTierVersionSetApiListTierVersionSetsRequest struct {
 	productTierId string
 	latestMajorVersionOnly *bool
 	latestIncrementalVersionForMajorVersion *string
+	nextPageToken *string
+	pageSize *int64
 }
 
 // If true, the latest major version is returned. The parameter needs to be specified in isolation.
@@ -855,6 +857,18 @@ func (r ApiTierVersionSetApiListTierVersionSetsRequest) LatestMajorVersionOnly(l
 // Returns the latest incremental version for the given major version. The paramenter needs to be specified in isolation.
 func (r ApiTierVersionSetApiListTierVersionSetsRequest) LatestIncrementalVersionForMajorVersion(latestIncrementalVersionForMajorVersion string) ApiTierVersionSetApiListTierVersionSetsRequest {
 	r.latestIncrementalVersionForMajorVersion = &latestIncrementalVersionForMajorVersion
+	return r
+}
+
+// The next token to use for pagination
+func (r ApiTierVersionSetApiListTierVersionSetsRequest) NextPageToken(nextPageToken string) ApiTierVersionSetApiListTierVersionSetsRequest {
+	r.nextPageToken = &nextPageToken
+	return r
+}
+
+// The number of resources to return per page
+func (r ApiTierVersionSetApiListTierVersionSetsRequest) PageSize(pageSize int64) ApiTierVersionSetApiListTierVersionSetsRequest {
+	r.pageSize = &pageSize
 	return r
 }
 
@@ -907,6 +921,12 @@ func (a *TierVersionSetApiAPIService) TierVersionSetApiListTierVersionSetsExecut
 	}
 	if r.latestIncrementalVersionForMajorVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "latestIncrementalVersionForMajorVersion", r.latestIncrementalVersionForMajorVersion, "form", "")
+	}
+	if r.nextPageToken != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")
+	}
+	if r.pageSize != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

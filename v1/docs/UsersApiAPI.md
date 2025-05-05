@@ -4,6 +4,7 @@ All URIs are relative to *https://api.omnistrate.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**UsersApiCustomerDeleteUser**](UsersApiAPI.md#UsersApiCustomerDeleteUser) | **Delete** /2022-09-01-00/customer-delete-user | CustomerDeleteUser users-api
 [**UsersApiCustomerInviteUser**](UsersApiAPI.md#UsersApiCustomerInviteUser) | **Post** /2022-09-01-00/customer-invite-user | CustomerInviteUser users-api
 [**UsersApiCustomerLoginWithIdentityProvider**](UsersApiAPI.md#UsersApiCustomerLoginWithIdentityProvider) | **Post** /2022-09-01-00/customer-login-with-identity-provider | CustomerLoginWithIdentityProvider users-api
 [**UsersApiCustomerResetPassword**](UsersApiAPI.md#UsersApiCustomerResetPassword) | **Post** /2022-09-01-00/customer-reset-password | CustomerResetPassword users-api
@@ -18,6 +19,63 @@ Method | HTTP request | Description
 [**UsersApiUpdatePassword**](UsersApiAPI.md#UsersApiUpdatePassword) | **Post** /2022-09-01-00/update-password | UpdatePassword users-api
 [**UsersApiUpdateUser**](UsersApiAPI.md#UsersApiUpdateUser) | **Patch** /2022-09-01-00/user/{id} | UpdateUser users-api
 
+
+
+## UsersApiCustomerDeleteUser
+
+> UsersApiCustomerDeleteUser(ctx).Execute()
+
+CustomerDeleteUser users-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.UsersApiAPI.UsersApiCustomerDeleteUser(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersApiAPI.UsersApiCustomerDeleteUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUsersApiCustomerDeleteUserRequest struct via the builder pattern
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## UsersApiCustomerInviteUser
