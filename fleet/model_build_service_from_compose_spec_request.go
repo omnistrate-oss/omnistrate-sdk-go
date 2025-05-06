@@ -24,6 +24,8 @@ type BuildServiceFromComposeSpecRequest struct {
 	Configs *map[string]string `json:"configs,omitempty"`
 	// A brief description of the service
 	Description *string `json:"description,omitempty"`
+	// If set to true, performs a dry run of the build operation without making any changes
+	Dryrun *bool `json:"dryrun,omitempty"`
 	// The environment to build the service in
 	Environment *string `json:"environment,omitempty"`
 	// The type of service environment
@@ -131,6 +133,38 @@ func (o *BuildServiceFromComposeSpecRequest) HasDescription() bool {
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *BuildServiceFromComposeSpecRequest) SetDescription(v string) {
 	o.Description = &v
+}
+
+// GetDryrun returns the Dryrun field value if set, zero value otherwise.
+func (o *BuildServiceFromComposeSpecRequest) GetDryrun() bool {
+	if o == nil || IsNil(o.Dryrun) {
+		var ret bool
+		return ret
+	}
+	return *o.Dryrun
+}
+
+// GetDryrunOk returns a tuple with the Dryrun field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BuildServiceFromComposeSpecRequest) GetDryrunOk() (*bool, bool) {
+	if o == nil || IsNil(o.Dryrun) {
+		return nil, false
+	}
+	return o.Dryrun, true
+}
+
+// HasDryrun returns a boolean if a field has been set.
+func (o *BuildServiceFromComposeSpecRequest) HasDryrun() bool {
+	if o != nil && !IsNil(o.Dryrun) {
+		return true
+	}
+
+	return false
+}
+
+// SetDryrun gets a reference to the given bool and assigns it to the Dryrun field.
+func (o *BuildServiceFromComposeSpecRequest) SetDryrun(v bool) {
+	o.Dryrun = &v
 }
 
 // GetEnvironment returns the Environment field value if set, zero value otherwise.
@@ -445,6 +479,9 @@ func (o BuildServiceFromComposeSpecRequest) ToMap() (map[string]interface{}, err
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
+	if !IsNil(o.Dryrun) {
+		toSerialize["dryrun"] = o.Dryrun
+	}
 	if !IsNil(o.Environment) {
 		toSerialize["environment"] = o.Environment
 	}
@@ -516,6 +553,7 @@ func (o *BuildServiceFromComposeSpecRequest) UnmarshalJSON(data []byte) (err err
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "configs")
 		delete(additionalProperties, "description")
+		delete(additionalProperties, "dryrun")
 		delete(additionalProperties, "environment")
 		delete(additionalProperties, "environmentType")
 		delete(additionalProperties, "fileContent")

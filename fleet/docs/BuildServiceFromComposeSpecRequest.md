@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Configs** | Pointer to **map[string]string** | Configs for the service. Key is the compose spec name of the config and value is base64 encoded config content | [optional] 
 **Description** | Pointer to **string** | A brief description of the service | [optional] 
+**Dryrun** | Pointer to **bool** | If set to true, performs a dry run of the build operation without making any changes | [optional] 
 **Environment** | Pointer to **string** | The environment to build the service in | [optional] 
 **EnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
 **FileContent** | **string** | Base64 encoded Compose Spec YAML in docker compose format | 
@@ -85,6 +86,31 @@ SetDescription sets Description field to given value.
 `func (o *BuildServiceFromComposeSpecRequest) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
+
+### GetDryrun
+
+`func (o *BuildServiceFromComposeSpecRequest) GetDryrun() bool`
+
+GetDryrun returns the Dryrun field if non-nil, zero value otherwise.
+
+### GetDryrunOk
+
+`func (o *BuildServiceFromComposeSpecRequest) GetDryrunOk() (*bool, bool)`
+
+GetDryrunOk returns a tuple with the Dryrun field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDryrun
+
+`func (o *BuildServiceFromComposeSpecRequest) SetDryrun(v bool)`
+
+SetDryrun sets Dryrun field to given value.
+
+### HasDryrun
+
+`func (o *BuildServiceFromComposeSpecRequest) HasDryrun() bool`
+
+HasDryrun returns a boolean if a field has been set.
 
 ### GetEnvironment
 
