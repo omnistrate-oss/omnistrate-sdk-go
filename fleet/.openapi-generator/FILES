@@ -63,6 +63,7 @@ docs/CreatePipelineRequest.md
 docs/CreateProductTierRequest.md
 docs/CreateProxyResourceInstanceRequest.md
 docs/CreateProxyResourceInstanceRequest2.md
+docs/CreateProxyResourceInstanceResult.md
 docs/CreateResourceInstanceRequest.md
 docs/CreateSaaSPortalCustomDomainRequest.md
 docs/CreateServiceEnvironmentRequest.md
@@ -217,6 +218,7 @@ docs/FleetCreateInstanceSnapshotRequest.md
 docs/FleetCreateInstanceSnapshotResult.md
 docs/FleetCreateResourceInstanceRequest.md
 docs/FleetCreateResourceInstanceRequest2.md
+docs/FleetCreateResourceInstanceResult.md
 docs/FleetCreateServicesOrchestrationRequest.md
 docs/FleetCreateServicesOrchestrationRequest2.md
 docs/FleetCreateSubscriptionOnBehalfOfCustomerRequest.md
@@ -309,6 +311,8 @@ docs/FleetUpdateResourceInstanceDebugModeRequest.md
 docs/FleetUpdateResourceInstanceDebugModeRequest2.md
 docs/FleetUpdateResourceInstanceRequest.md
 docs/FleetUpdateResourceInstanceRequest2.md
+docs/FleetUpdateSubscriptionRequest.md
+docs/FleetUpdateSubscriptionRequest2.md
 docs/FleetVoidInvoiceRequest.md
 docs/FleetWorkflowsApiAPI.md
 docs/GenerateComposeSpecFromContainerImageRequest.md
@@ -331,6 +335,7 @@ docs/GetWorkflowEventsResult.md
 docs/HelmPackage.md
 docs/HelmPackageApiAPI.md
 docs/HelmPackageInstallations.md
+docs/HistorySubscriptionPricing.md
 docs/HostCluster.md
 docs/HostclusterApiAPI.md
 docs/ImageConfigChangeSummary.md
@@ -606,6 +611,7 @@ model_create_pipeline_request.go
 model_create_product_tier_request.go
 model_create_proxy_resource_instance_request.go
 model_create_proxy_resource_instance_request2.go
+model_create_proxy_resource_instance_result.go
 model_create_resource_instance_request.go
 model_create_saa_s_portal_custom_domain_request.go
 model_create_service_environment_request.go
@@ -758,6 +764,7 @@ model_fleet_create_instance_snapshot_request.go
 model_fleet_create_instance_snapshot_result.go
 model_fleet_create_resource_instance_request.go
 model_fleet_create_resource_instance_request2.go
+model_fleet_create_resource_instance_result.go
 model_fleet_create_services_orchestration_request.go
 model_fleet_create_services_orchestration_request2.go
 model_fleet_create_subscription_on_behalf_of_customer_request.go
@@ -848,6 +855,8 @@ model_fleet_update_resource_instance_debug_mode_request.go
 model_fleet_update_resource_instance_debug_mode_request2.go
 model_fleet_update_resource_instance_request.go
 model_fleet_update_resource_instance_request2.go
+model_fleet_update_subscription_request.go
+model_fleet_update_subscription_request2.go
 model_fleet_void_invoice_request.go
 model_generate_compose_spec_from_container_image_request.go
 model_generate_compose_spec_from_container_image_result.go
@@ -868,6 +877,7 @@ model_get_workflow_events_request.go
 model_get_workflow_events_result.go
 model_helm_package.go
 model_helm_package_installations.go
+model_history_subscription_pricing.go
 model_host_cluster.go
 model_image_config_change_summary.go
 model_infra_config_change_summary.go

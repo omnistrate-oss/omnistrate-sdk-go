@@ -4,7 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**InheritServicePlanPricing** | Pointer to **bool** | Whether to inherit the service plan pricing | [optional] 
 **OnBehalfOfCustomerUserId** | **string** | The user ID of the customer that this subscription is on behalf of | 
+**PricingEffectiveDate** | Pointer to **string** | The effective date of the pricing, truncated to the first day of the month. Only the current or future months may be specified. | [optional] 
+**PricingPerUnit** | Pointer to **map[string]interface{}** | If inheritServicePlanPricing is false, provide the pricing per unit for the subscription here. | [optional] 
 **ProductTierId** | **string** | The product tier ID | 
 
 ## Methods
@@ -26,6 +29,31 @@ NewFleetCreateSubscriptionOnBehalfOfCustomerRequest2WithDefaults instantiates a 
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetInheritServicePlanPricing
+
+`func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) GetInheritServicePlanPricing() bool`
+
+GetInheritServicePlanPricing returns the InheritServicePlanPricing field if non-nil, zero value otherwise.
+
+### GetInheritServicePlanPricingOk
+
+`func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) GetInheritServicePlanPricingOk() (*bool, bool)`
+
+GetInheritServicePlanPricingOk returns a tuple with the InheritServicePlanPricing field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInheritServicePlanPricing
+
+`func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) SetInheritServicePlanPricing(v bool)`
+
+SetInheritServicePlanPricing sets InheritServicePlanPricing field to given value.
+
+### HasInheritServicePlanPricing
+
+`func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) HasInheritServicePlanPricing() bool`
+
+HasInheritServicePlanPricing returns a boolean if a field has been set.
+
 ### GetOnBehalfOfCustomerUserId
 
 `func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) GetOnBehalfOfCustomerUserId() string`
@@ -45,6 +73,56 @@ and a boolean to check if the value has been set.
 
 SetOnBehalfOfCustomerUserId sets OnBehalfOfCustomerUserId field to given value.
 
+
+### GetPricingEffectiveDate
+
+`func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) GetPricingEffectiveDate() string`
+
+GetPricingEffectiveDate returns the PricingEffectiveDate field if non-nil, zero value otherwise.
+
+### GetPricingEffectiveDateOk
+
+`func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) GetPricingEffectiveDateOk() (*string, bool)`
+
+GetPricingEffectiveDateOk returns a tuple with the PricingEffectiveDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPricingEffectiveDate
+
+`func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) SetPricingEffectiveDate(v string)`
+
+SetPricingEffectiveDate sets PricingEffectiveDate field to given value.
+
+### HasPricingEffectiveDate
+
+`func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) HasPricingEffectiveDate() bool`
+
+HasPricingEffectiveDate returns a boolean if a field has been set.
+
+### GetPricingPerUnit
+
+`func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) GetPricingPerUnit() map[string]interface{}`
+
+GetPricingPerUnit returns the PricingPerUnit field if non-nil, zero value otherwise.
+
+### GetPricingPerUnitOk
+
+`func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) GetPricingPerUnitOk() (*map[string]interface{}, bool)`
+
+GetPricingPerUnitOk returns a tuple with the PricingPerUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPricingPerUnit
+
+`func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) SetPricingPerUnit(v map[string]interface{})`
+
+SetPricingPerUnit sets PricingPerUnit field to given value.
+
+### HasPricingPerUnit
+
+`func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) HasPricingPerUnit() bool`
+
+HasPricingPerUnit returns a boolean if a field has been set.
 
 ### GetProductTierId
 
