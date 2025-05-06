@@ -22,6 +22,8 @@ var _ MappedNullable = &FleetRestoreResourceInstanceFromSnapshotRequest{}
 type FleetRestoreResourceInstanceFromSnapshotRequest struct {
 	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
+	// Custom input parameters override
+	InputParametersOverride interface{} `json:"inputParametersOverride,omitempty"`
 	// The network type
 	NetworkType *string `json:"network_type,omitempty"`
 	// ID of a Service
@@ -78,6 +80,39 @@ func (o *FleetRestoreResourceInstanceFromSnapshotRequest) GetEnvironmentIdOk() (
 // SetEnvironmentId sets field value
 func (o *FleetRestoreResourceInstanceFromSnapshotRequest) SetEnvironmentId(v string) {
 	o.EnvironmentId = v
+}
+
+// GetInputParametersOverride returns the InputParametersOverride field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest) GetInputParametersOverride() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.InputParametersOverride
+}
+
+// GetInputParametersOverrideOk returns a tuple with the InputParametersOverride field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest) GetInputParametersOverrideOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.InputParametersOverride) {
+		return nil, false
+	}
+	return &o.InputParametersOverride, true
+}
+
+// HasInputParametersOverride returns a boolean if a field has been set.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest) HasInputParametersOverride() bool {
+	if o != nil && !IsNil(o.InputParametersOverride) {
+		return true
+	}
+
+	return false
+}
+
+// SetInputParametersOverride gets a reference to the given interface{} and assigns it to the InputParametersOverride field.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest) SetInputParametersOverride(v interface{}) {
+	o.InputParametersOverride = v
 }
 
 // GetNetworkType returns the NetworkType field value if set, zero value otherwise.
@@ -195,6 +230,9 @@ func (o FleetRestoreResourceInstanceFromSnapshotRequest) MarshalJSON() ([]byte, 
 func (o FleetRestoreResourceInstanceFromSnapshotRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["environmentId"] = o.EnvironmentId
+	if o.InputParametersOverride != nil {
+		toSerialize["inputParametersOverride"] = o.InputParametersOverride
+	}
 	if !IsNil(o.NetworkType) {
 		toSerialize["network_type"] = o.NetworkType
 	}
@@ -248,6 +286,7 @@ func (o *FleetRestoreResourceInstanceFromSnapshotRequest) UnmarshalJSON(data []b
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "inputParametersOverride")
 		delete(additionalProperties, "network_type")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "snapshotId")

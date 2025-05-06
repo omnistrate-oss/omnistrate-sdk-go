@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EnvironmentId** | **string** | ID of a Service Environment | 
+**InputParametersOverride** | Pointer to **interface{}** | Custom input parameters override | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
 **ServiceId** | **string** | ID of a Service | 
 **SnapshotId** | **string** | ID of a Resource Instance Snapshot | 
@@ -49,6 +50,41 @@ and a boolean to check if the value has been set.
 SetEnvironmentId sets EnvironmentId field to given value.
 
 
+### GetInputParametersOverride
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest) GetInputParametersOverride() interface{}`
+
+GetInputParametersOverride returns the InputParametersOverride field if non-nil, zero value otherwise.
+
+### GetInputParametersOverrideOk
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest) GetInputParametersOverrideOk() (*interface{}, bool)`
+
+GetInputParametersOverrideOk returns a tuple with the InputParametersOverride field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInputParametersOverride
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest) SetInputParametersOverride(v interface{})`
+
+SetInputParametersOverride sets InputParametersOverride field to given value.
+
+### HasInputParametersOverride
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest) HasInputParametersOverride() bool`
+
+HasInputParametersOverride returns a boolean if a field has been set.
+
+### SetInputParametersOverrideNil
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest) SetInputParametersOverrideNil(b bool)`
+
+ SetInputParametersOverrideNil sets the value for InputParametersOverride to be an explicit nil
+
+### UnsetInputParametersOverride
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest) UnsetInputParametersOverride()`
+
+UnsetInputParametersOverride ensures that no value is present for InputParametersOverride, not even an explicit nil
 ### GetNetworkType
 
 `func (o *FleetRestoreResourceInstanceFromSnapshotRequest) GetNetworkType() string`

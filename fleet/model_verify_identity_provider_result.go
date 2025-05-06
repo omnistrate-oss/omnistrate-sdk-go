@@ -28,6 +28,8 @@ type VerifyIdentityProviderResult struct {
 	Id string `json:"id"`
 	// The name of the identity provider
 	IdentityProviderName string `json:"identityProviderName"`
+	// The name of the Identity Provider
+	Name *string `json:"name,omitempty"`
 	// The status of an operation
 	Status string `json:"status"`
 	AdditionalProperties map[string]interface{}
@@ -160,6 +162,38 @@ func (o *VerifyIdentityProviderResult) SetIdentityProviderName(v string) {
 	o.IdentityProviderName = v
 }
 
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *VerifyIdentityProviderResult) GetName() string {
+	if o == nil || IsNil(o.Name) {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VerifyIdentityProviderResult) GetNameOk() (*string, bool) {
+	if o == nil || IsNil(o.Name) {
+		return nil, false
+	}
+	return o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *VerifyIdentityProviderResult) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *VerifyIdentityProviderResult) SetName(v string) {
+	o.Name = &v
+}
+
 // GetStatus returns the Status field value
 func (o *VerifyIdentityProviderResult) GetStatus() string {
 	if o == nil {
@@ -200,6 +234,9 @@ func (o VerifyIdentityProviderResult) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["id"] = o.Id
 	toSerialize["identityProviderName"] = o.IdentityProviderName
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
 	toSerialize["status"] = o.Status
 
 	for key, value := range o.AdditionalProperties {
@@ -251,6 +288,7 @@ func (o *VerifyIdentityProviderResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "clientSecret")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "identityProviderName")
+		delete(additionalProperties, "name")
 		delete(additionalProperties, "status")
 		o.AdditionalProperties = additionalProperties
 	}
