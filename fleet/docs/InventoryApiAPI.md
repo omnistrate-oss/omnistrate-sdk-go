@@ -694,7 +694,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiCreateServicesOrchestration
 
-> CreateProxyResourceInstanceResult InventoryApiCreateServicesOrchestration(ctx).FleetCreateServicesOrchestrationRequest2(fleetCreateServicesOrchestrationRequest2).Execute()
+> FleetCreateServicesOrchestrationResult InventoryApiCreateServicesOrchestration(ctx).FleetCreateServicesOrchestrationRequest2(fleetCreateServicesOrchestrationRequest2).Execute()
 
 CreateServicesOrchestration inventory-api
 
@@ -711,7 +711,7 @@ import (
 )
 
 func main() {
-	fleetCreateServicesOrchestrationRequest2 := *openapiclient.NewFleetCreateServicesOrchestrationRequest2("Unde necessitatibus et assumenda beatae.") // FleetCreateServicesOrchestrationRequest2 | 
+	fleetCreateServicesOrchestrationRequest2 := *openapiclient.NewFleetCreateServicesOrchestrationRequest2("Et illum veritatis mollitia.") // FleetCreateServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -720,7 +720,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiCreateServicesOrchestration``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `InventoryApiCreateServicesOrchestration`: CreateProxyResourceInstanceResult
+	// response from `InventoryApiCreateServicesOrchestration`: FleetCreateServicesOrchestrationResult
 	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiCreateServicesOrchestration`: %v\n", resp)
 }
 ```
@@ -740,7 +740,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateProxyResourceInstanceResult**](CreateProxyResourceInstanceResult.md)
+[**FleetCreateServicesOrchestrationResult**](FleetCreateServicesOrchestrationResult.md)
 
 ### Authorization
 
@@ -850,7 +850,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
-	createUpgradePathRequest2 := *openapiclient.NewCreateUpgradePathRequest2("1.0", "2.0", map[string][]string{"key": []string{"Omnis est aut aspernatur saepe eius."}}) // CreateUpgradePathRequest2 | 
+	createUpgradePathRequest2 := *openapiclient.NewCreateUpgradePathRequest2("1.0", "2.0", map[string][]string{"key": []string{"Unde necessitatibus et assumenda beatae."}}) // CreateUpgradePathRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3422,7 +3422,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	productTierVersion := "Qui aspernatur accusantium sint consequatur dolor." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "At totam excepturi quia." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Eum officiis et." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
 	subscriptionId := "Quisquam officiis occaecati rerum iusto atque itaque." // string | Subscription id of the instance to describe. (optional)
 	filter := "onlyCloudAccounts" // string | Filter to apply to the list of instances. (optional)
@@ -4011,7 +4011,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
 	upgradePathId := "up-12345678" // string | The upgrade path ID
-	manageUpgradePathLifecycleRequest2 := *openapiclient.NewManageUpgradePathLifecycleRequest2("Officia accusamus distinctio et eveniet sunt pariatur.") // ManageUpgradePathLifecycleRequest2 | 
+	manageUpgradePathLifecycleRequest2 := *openapiclient.NewManageUpgradePathLifecycleRequest2("Culpa id aut pariatur ut.") // ManageUpgradePathLifecycleRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -4085,7 +4085,7 @@ import (
 
 func main() {
 	id := "so-12345678" // string | The ID of the services orchestration
-	fleetModifyServicesOrchestrationRequest2 := *openapiclient.NewFleetModifyServicesOrchestrationRequest2("Quia est accusantium ratione maxime mollitia.") // FleetModifyServicesOrchestrationRequest2 | 
+	fleetModifyServicesOrchestrationRequest2 := *openapiclient.NewFleetModifyServicesOrchestrationRequest2("Dolorum fuga dignissimos.") // FleetModifyServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -4358,7 +4358,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiRestoreResourceInstance
 
-> CreateProxyResourceInstanceResult InventoryApiRestoreResourceInstance(ctx, serviceId, environmentId, instanceId).FleetRestoreResourceInstanceRequest2(fleetRestoreResourceInstanceRequest2).Execute()
+> FleetRestoreResourceInstanceResult InventoryApiRestoreResourceInstance(ctx, serviceId, environmentId, instanceId).FleetRestoreResourceInstanceRequest2(fleetRestoreResourceInstanceRequest2).Execute()
 
 RestoreResourceInstance inventory-api
 
@@ -4387,7 +4387,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiRestoreResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `InventoryApiRestoreResourceInstance`: CreateProxyResourceInstanceResult
+	// response from `InventoryApiRestoreResourceInstance`: FleetRestoreResourceInstanceResult
 	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiRestoreResourceInstance`: %v\n", resp)
 }
 ```
@@ -4416,7 +4416,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateProxyResourceInstanceResult**](CreateProxyResourceInstanceResult.md)
+[**FleetRestoreResourceInstanceResult**](FleetRestoreResourceInstanceResult.md)
 
 ### Authorization
 
@@ -4434,7 +4434,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiRestoreResourceInstanceFromSnapshot
 
-> CreateProxyResourceInstanceResult InventoryApiRestoreResourceInstanceFromSnapshot(ctx, serviceId, environmentId, snapshotId).FleetRestoreResourceInstanceFromSnapshotRequest2(fleetRestoreResourceInstanceFromSnapshotRequest2).Execute()
+> FleetRestoreResourceInstanceResult InventoryApiRestoreResourceInstanceFromSnapshot(ctx, serviceId, environmentId, snapshotId).FleetRestoreResourceInstanceFromSnapshotRequest2(fleetRestoreResourceInstanceFromSnapshotRequest2).Execute()
 
 RestoreResourceInstanceFromSnapshot inventory-api
 
@@ -4463,7 +4463,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiRestoreResourceInstanceFromSnapshot``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `InventoryApiRestoreResourceInstanceFromSnapshot`: CreateProxyResourceInstanceResult
+	// response from `InventoryApiRestoreResourceInstanceFromSnapshot`: FleetRestoreResourceInstanceResult
 	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiRestoreResourceInstanceFromSnapshot`: %v\n", resp)
 }
 ```
@@ -4492,7 +4492,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateProxyResourceInstanceResult**](CreateProxyResourceInstanceResult.md)
+[**FleetRestoreResourceInstanceResult**](FleetRestoreResourceInstanceResult.md)
 
 ### Authorization
 

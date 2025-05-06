@@ -30,7 +30,7 @@ import (
 func main() {
 	serviceID := "s-123456" // string | The service ID to list events for (optional)
 	environmentType := "PROD|PRIVATE|CANARY|STAGING|QA|DEV" // string |  (optional)
-	eventSourceTypes := []string{"Odio sed qui labore consequatur neque."} // []string | The event types to filter by (optional)
+	eventSourceTypes := []string{"Dolorem quia."} // []string | The event types to filter by (optional)
 	instanceID := "instance-12345678" // string | The instance ID to list events for (optional)
 	productTierID := "Eum officiis et." // string |  (optional)
 	nextPageToken := "token" // string | The next token to use for pagination (optional)

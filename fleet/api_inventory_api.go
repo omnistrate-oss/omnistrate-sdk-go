@@ -155,8 +155,8 @@ type InventoryApiAPI interface {
 	InventoryApiCreateServicesOrchestration(ctx context.Context) ApiInventoryApiCreateServicesOrchestrationRequest
 
 	// InventoryApiCreateServicesOrchestrationExecute executes the request
-	//  @return CreateProxyResourceInstanceResult
-	InventoryApiCreateServicesOrchestrationExecute(r ApiInventoryApiCreateServicesOrchestrationRequest) (*CreateProxyResourceInstanceResult, *http.Response, error)
+	//  @return FleetCreateServicesOrchestrationResult
+	InventoryApiCreateServicesOrchestrationExecute(r ApiInventoryApiCreateServicesOrchestrationRequest) (*FleetCreateServicesOrchestrationResult, *http.Response, error)
 
 	/*
 	InventoryApiCreateSubscriptionOnBehalfOfCustomer CreateSubscriptionOnBehalfOfCustomer inventory-api
@@ -871,8 +871,8 @@ type InventoryApiAPI interface {
 	InventoryApiRestoreResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiRestoreResourceInstanceRequest
 
 	// InventoryApiRestoreResourceInstanceExecute executes the request
-	//  @return CreateProxyResourceInstanceResult
-	InventoryApiRestoreResourceInstanceExecute(r ApiInventoryApiRestoreResourceInstanceRequest) (*CreateProxyResourceInstanceResult, *http.Response, error)
+	//  @return FleetRestoreResourceInstanceResult
+	InventoryApiRestoreResourceInstanceExecute(r ApiInventoryApiRestoreResourceInstanceRequest) (*FleetRestoreResourceInstanceResult, *http.Response, error)
 
 	/*
 	InventoryApiRestoreResourceInstanceFromSnapshot RestoreResourceInstanceFromSnapshot inventory-api
@@ -886,8 +886,8 @@ type InventoryApiAPI interface {
 	InventoryApiRestoreResourceInstanceFromSnapshot(ctx context.Context, serviceId string, environmentId string, snapshotId string) ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest
 
 	// InventoryApiRestoreResourceInstanceFromSnapshotExecute executes the request
-	//  @return CreateProxyResourceInstanceResult
-	InventoryApiRestoreResourceInstanceFromSnapshotExecute(r ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest) (*CreateProxyResourceInstanceResult, *http.Response, error)
+	//  @return FleetRestoreResourceInstanceResult
+	InventoryApiRestoreResourceInstanceFromSnapshotExecute(r ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest) (*FleetRestoreResourceInstanceResult, *http.Response, error)
 
 	/*
 	InventoryApiResumeSubscription ResumeSubscription inventory-api
@@ -2532,7 +2532,7 @@ func (r ApiInventoryApiCreateServicesOrchestrationRequest) FleetCreateServicesOr
 	return r
 }
 
-func (r ApiInventoryApiCreateServicesOrchestrationRequest) Execute() (*CreateProxyResourceInstanceResult, *http.Response, error) {
+func (r ApiInventoryApiCreateServicesOrchestrationRequest) Execute() (*FleetCreateServicesOrchestrationResult, *http.Response, error) {
 	return r.ApiService.InventoryApiCreateServicesOrchestrationExecute(r)
 }
 
@@ -2550,13 +2550,13 @@ func (a *InventoryApiAPIService) InventoryApiCreateServicesOrchestration(ctx con
 }
 
 // Execute executes the request
-//  @return CreateProxyResourceInstanceResult
-func (a *InventoryApiAPIService) InventoryApiCreateServicesOrchestrationExecute(r ApiInventoryApiCreateServicesOrchestrationRequest) (*CreateProxyResourceInstanceResult, *http.Response, error) {
+//  @return FleetCreateServicesOrchestrationResult
+func (a *InventoryApiAPIService) InventoryApiCreateServicesOrchestrationExecute(r ApiInventoryApiCreateServicesOrchestrationRequest) (*FleetCreateServicesOrchestrationResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateProxyResourceInstanceResult
+		localVarReturnValue  *FleetCreateServicesOrchestrationResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiCreateServicesOrchestration")
@@ -11412,7 +11412,7 @@ func (r ApiInventoryApiRestoreResourceInstanceRequest) FleetRestoreResourceInsta
 	return r
 }
 
-func (r ApiInventoryApiRestoreResourceInstanceRequest) Execute() (*CreateProxyResourceInstanceResult, *http.Response, error) {
+func (r ApiInventoryApiRestoreResourceInstanceRequest) Execute() (*FleetRestoreResourceInstanceResult, *http.Response, error) {
 	return r.ApiService.InventoryApiRestoreResourceInstanceExecute(r)
 }
 
@@ -11436,13 +11436,13 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstance(ctx context
 }
 
 // Execute executes the request
-//  @return CreateProxyResourceInstanceResult
-func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceExecute(r ApiInventoryApiRestoreResourceInstanceRequest) (*CreateProxyResourceInstanceResult, *http.Response, error) {
+//  @return FleetRestoreResourceInstanceResult
+func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceExecute(r ApiInventoryApiRestoreResourceInstanceRequest) (*FleetRestoreResourceInstanceResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateProxyResourceInstanceResult
+		localVarReturnValue  *FleetRestoreResourceInstanceResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiRestoreResourceInstance")
@@ -11597,7 +11597,7 @@ func (r ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest) FleetRestoreR
 	return r
 }
 
-func (r ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest) Execute() (*CreateProxyResourceInstanceResult, *http.Response, error) {
+func (r ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest) Execute() (*FleetRestoreResourceInstanceResult, *http.Response, error) {
 	return r.ApiService.InventoryApiRestoreResourceInstanceFromSnapshotExecute(r)
 }
 
@@ -11621,13 +11621,13 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceFromSnapshot
 }
 
 // Execute executes the request
-//  @return CreateProxyResourceInstanceResult
-func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceFromSnapshotExecute(r ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest) (*CreateProxyResourceInstanceResult, *http.Response, error) {
+//  @return FleetRestoreResourceInstanceResult
+func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceFromSnapshotExecute(r ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest) (*FleetRestoreResourceInstanceResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateProxyResourceInstanceResult
+		localVarReturnValue  *FleetRestoreResourceInstanceResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiRestoreResourceInstanceFromSnapshot")
