@@ -181,6 +181,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiUpdateAccountConfigResourceInstance**](docs/InventoryApiAPI.md#inventoryapiupdateaccountconfigresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/account-config-instance/{instanceId} | UpdateAccountConfigResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiUpdateResourceInstance**](docs/InventoryApiAPI.md#inventoryapiupdateresourceinstance) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId} | UpdateResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiUpdateResourceInstanceDebugMode**](docs/InventoryApiAPI.md#inventoryapiupdateresourceinstancedebugmode) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/debug-mode | UpdateResourceInstanceDebugMode inventory-api
+*InventoryApiAPI* | [**InventoryApiUpdateSubscription**](docs/InventoryApiAPI.md#inventoryapiupdatesubscription) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/{id} | UpdateSubscription inventory-api
 *InvoiceApiAPI* | [**InvoiceApiApproveInvoice**](docs/InvoiceApiAPI.md#invoiceapiapproveinvoice) | **Post** /2022-09-01-00/fleet/invoice/{id}/approve | ApproveInvoice invoice-api
 *InvoiceApiAPI* | [**InvoiceApiDeleteInvoice**](docs/InvoiceApiAPI.md#invoiceapideleteinvoice) | **Delete** /2022-09-01-00/fleet/invoice/{id} | DeleteInvoice invoice-api
 *InvoiceApiAPI* | [**InvoiceApiListInvoices**](docs/InvoiceApiAPI.md#invoiceapilistinvoices) | **Get** /2022-09-01-00/fleet/invoices | ListInvoices invoice-api
@@ -242,6 +243,7 @@ Class | Method | HTTP request | Description
  - [CreateProductTierRequest](docs/CreateProductTierRequest.md)
  - [CreateProxyResourceInstanceRequest](docs/CreateProxyResourceInstanceRequest.md)
  - [CreateProxyResourceInstanceRequest2](docs/CreateProxyResourceInstanceRequest2.md)
+ - [CreateProxyResourceInstanceResult](docs/CreateProxyResourceInstanceResult.md)
  - [CreateResourceInstanceRequest](docs/CreateResourceInstanceRequest.md)
  - [CreateSaaSPortalCustomDomainRequest](docs/CreateSaaSPortalCustomDomainRequest.md)
  - [CreateServiceEnvironmentRequest](docs/CreateServiceEnvironmentRequest.md)
@@ -394,6 +396,7 @@ Class | Method | HTTP request | Description
  - [FleetCreateInstanceSnapshotResult](docs/FleetCreateInstanceSnapshotResult.md)
  - [FleetCreateResourceInstanceRequest](docs/FleetCreateResourceInstanceRequest.md)
  - [FleetCreateResourceInstanceRequest2](docs/FleetCreateResourceInstanceRequest2.md)
+ - [FleetCreateResourceInstanceResult](docs/FleetCreateResourceInstanceResult.md)
  - [FleetCreateServicesOrchestrationRequest](docs/FleetCreateServicesOrchestrationRequest.md)
  - [FleetCreateServicesOrchestrationRequest2](docs/FleetCreateServicesOrchestrationRequest2.md)
  - [FleetCreateSubscriptionOnBehalfOfCustomerRequest](docs/FleetCreateSubscriptionOnBehalfOfCustomerRequest.md)
@@ -484,6 +487,8 @@ Class | Method | HTTP request | Description
  - [FleetUpdateResourceInstanceDebugModeRequest2](docs/FleetUpdateResourceInstanceDebugModeRequest2.md)
  - [FleetUpdateResourceInstanceRequest](docs/FleetUpdateResourceInstanceRequest.md)
  - [FleetUpdateResourceInstanceRequest2](docs/FleetUpdateResourceInstanceRequest2.md)
+ - [FleetUpdateSubscriptionRequest](docs/FleetUpdateSubscriptionRequest.md)
+ - [FleetUpdateSubscriptionRequest2](docs/FleetUpdateSubscriptionRequest2.md)
  - [FleetVoidInvoiceRequest](docs/FleetVoidInvoiceRequest.md)
  - [GenerateComposeSpecFromContainerImageRequest](docs/GenerateComposeSpecFromContainerImageRequest.md)
  - [GenerateComposeSpecFromContainerImageResult](docs/GenerateComposeSpecFromContainerImageResult.md)
@@ -504,6 +509,7 @@ Class | Method | HTTP request | Description
  - [GetWorkflowEventsResult](docs/GetWorkflowEventsResult.md)
  - [HelmPackage](docs/HelmPackage.md)
  - [HelmPackageInstallations](docs/HelmPackageInstallations.md)
+ - [HistorySubscriptionPricing](docs/HistorySubscriptionPricing.md)
  - [HostCluster](docs/HostCluster.md)
  - [ImageConfigChangeSummary](docs/ImageConfigChangeSummary.md)
  - [InfraConfigChangeSummary](docs/InfraConfigChangeSummary.md)

@@ -15,23 +15,21 @@ import (
 	"fmt"
 )
 
-// checks if the FleetCreateSubscriptionOnBehalfOfCustomerRequest type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &FleetCreateSubscriptionOnBehalfOfCustomerRequest{}
+// checks if the FleetUpdateSubscriptionRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &FleetUpdateSubscriptionRequest{}
 
-// FleetCreateSubscriptionOnBehalfOfCustomerRequest struct for FleetCreateSubscriptionOnBehalfOfCustomerRequest
-type FleetCreateSubscriptionOnBehalfOfCustomerRequest struct {
+// FleetUpdateSubscriptionRequest struct for FleetUpdateSubscriptionRequest
+type FleetUpdateSubscriptionRequest struct {
 	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
+	// ID of a Subscription
+	Id string `json:"id"`
 	// Whether to inherit the service plan pricing
 	InheritServicePlanPricing *bool `json:"inheritServicePlanPricing,omitempty"`
-	// ID of a User
-	OnBehalfOfCustomerUserId string `json:"onBehalfOfCustomerUserId"`
 	// The effective date of the pricing, truncated to the first day of the month. Only the current or future months may be specified.
 	PricingEffectiveDate *string `json:"pricingEffectiveDate,omitempty"`
 	// If inheritServicePlanPricing is false, provide the pricing per unit for the subscription here.
 	PricingPerUnit map[string]interface{} `json:"pricingPerUnit,omitempty"`
-	// ID of a Product Tier
-	ProductTierId string `json:"productTierId"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// JWT token used to perform authorization
@@ -39,32 +37,31 @@ type FleetCreateSubscriptionOnBehalfOfCustomerRequest struct {
 	AdditionalProperties map[string]interface{}
 }
 
-type _FleetCreateSubscriptionOnBehalfOfCustomerRequest FleetCreateSubscriptionOnBehalfOfCustomerRequest
+type _FleetUpdateSubscriptionRequest FleetUpdateSubscriptionRequest
 
-// NewFleetCreateSubscriptionOnBehalfOfCustomerRequest instantiates a new FleetCreateSubscriptionOnBehalfOfCustomerRequest object
+// NewFleetUpdateSubscriptionRequest instantiates a new FleetUpdateSubscriptionRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFleetCreateSubscriptionOnBehalfOfCustomerRequest(environmentId string, onBehalfOfCustomerUserId string, productTierId string, serviceId string, token string) *FleetCreateSubscriptionOnBehalfOfCustomerRequest {
-	this := FleetCreateSubscriptionOnBehalfOfCustomerRequest{}
+func NewFleetUpdateSubscriptionRequest(environmentId string, id string, serviceId string, token string) *FleetUpdateSubscriptionRequest {
+	this := FleetUpdateSubscriptionRequest{}
 	this.EnvironmentId = environmentId
-	this.OnBehalfOfCustomerUserId = onBehalfOfCustomerUserId
-	this.ProductTierId = productTierId
+	this.Id = id
 	this.ServiceId = serviceId
 	this.Token = token
 	return &this
 }
 
-// NewFleetCreateSubscriptionOnBehalfOfCustomerRequestWithDefaults instantiates a new FleetCreateSubscriptionOnBehalfOfCustomerRequest object
+// NewFleetUpdateSubscriptionRequestWithDefaults instantiates a new FleetUpdateSubscriptionRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewFleetCreateSubscriptionOnBehalfOfCustomerRequestWithDefaults() *FleetCreateSubscriptionOnBehalfOfCustomerRequest {
-	this := FleetCreateSubscriptionOnBehalfOfCustomerRequest{}
+func NewFleetUpdateSubscriptionRequestWithDefaults() *FleetUpdateSubscriptionRequest {
+	this := FleetUpdateSubscriptionRequest{}
 	return &this
 }
 
 // GetEnvironmentId returns the EnvironmentId field value
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetEnvironmentId() string {
+func (o *FleetUpdateSubscriptionRequest) GetEnvironmentId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -75,7 +72,7 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetEnvironmentId() st
 
 // GetEnvironmentIdOk returns a tuple with the EnvironmentId field value
 // and a boolean to check if the value has been set.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetEnvironmentIdOk() (*string, bool) {
+func (o *FleetUpdateSubscriptionRequest) GetEnvironmentIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -83,12 +80,36 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetEnvironmentIdOk() 
 }
 
 // SetEnvironmentId sets field value
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) SetEnvironmentId(v string) {
+func (o *FleetUpdateSubscriptionRequest) SetEnvironmentId(v string) {
 	o.EnvironmentId = v
 }
 
+// GetId returns the Id field value
+func (o *FleetUpdateSubscriptionRequest) GetId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value
+// and a boolean to check if the value has been set.
+func (o *FleetUpdateSubscriptionRequest) GetIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Id, true
+}
+
+// SetId sets field value
+func (o *FleetUpdateSubscriptionRequest) SetId(v string) {
+	o.Id = v
+}
+
 // GetInheritServicePlanPricing returns the InheritServicePlanPricing field value if set, zero value otherwise.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetInheritServicePlanPricing() bool {
+func (o *FleetUpdateSubscriptionRequest) GetInheritServicePlanPricing() bool {
 	if o == nil || IsNil(o.InheritServicePlanPricing) {
 		var ret bool
 		return ret
@@ -98,7 +119,7 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetInheritServicePlan
 
 // GetInheritServicePlanPricingOk returns a tuple with the InheritServicePlanPricing field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetInheritServicePlanPricingOk() (*bool, bool) {
+func (o *FleetUpdateSubscriptionRequest) GetInheritServicePlanPricingOk() (*bool, bool) {
 	if o == nil || IsNil(o.InheritServicePlanPricing) {
 		return nil, false
 	}
@@ -106,7 +127,7 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetInheritServicePlan
 }
 
 // HasInheritServicePlanPricing returns a boolean if a field has been set.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) HasInheritServicePlanPricing() bool {
+func (o *FleetUpdateSubscriptionRequest) HasInheritServicePlanPricing() bool {
 	if o != nil && !IsNil(o.InheritServicePlanPricing) {
 		return true
 	}
@@ -115,36 +136,12 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) HasInheritServicePlan
 }
 
 // SetInheritServicePlanPricing gets a reference to the given bool and assigns it to the InheritServicePlanPricing field.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) SetInheritServicePlanPricing(v bool) {
+func (o *FleetUpdateSubscriptionRequest) SetInheritServicePlanPricing(v bool) {
 	o.InheritServicePlanPricing = &v
 }
 
-// GetOnBehalfOfCustomerUserId returns the OnBehalfOfCustomerUserId field value
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetOnBehalfOfCustomerUserId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.OnBehalfOfCustomerUserId
-}
-
-// GetOnBehalfOfCustomerUserIdOk returns a tuple with the OnBehalfOfCustomerUserId field value
-// and a boolean to check if the value has been set.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetOnBehalfOfCustomerUserIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.OnBehalfOfCustomerUserId, true
-}
-
-// SetOnBehalfOfCustomerUserId sets field value
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) SetOnBehalfOfCustomerUserId(v string) {
-	o.OnBehalfOfCustomerUserId = v
-}
-
 // GetPricingEffectiveDate returns the PricingEffectiveDate field value if set, zero value otherwise.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetPricingEffectiveDate() string {
+func (o *FleetUpdateSubscriptionRequest) GetPricingEffectiveDate() string {
 	if o == nil || IsNil(o.PricingEffectiveDate) {
 		var ret string
 		return ret
@@ -154,7 +151,7 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetPricingEffectiveDa
 
 // GetPricingEffectiveDateOk returns a tuple with the PricingEffectiveDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetPricingEffectiveDateOk() (*string, bool) {
+func (o *FleetUpdateSubscriptionRequest) GetPricingEffectiveDateOk() (*string, bool) {
 	if o == nil || IsNil(o.PricingEffectiveDate) {
 		return nil, false
 	}
@@ -162,7 +159,7 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetPricingEffectiveDa
 }
 
 // HasPricingEffectiveDate returns a boolean if a field has been set.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) HasPricingEffectiveDate() bool {
+func (o *FleetUpdateSubscriptionRequest) HasPricingEffectiveDate() bool {
 	if o != nil && !IsNil(o.PricingEffectiveDate) {
 		return true
 	}
@@ -171,12 +168,12 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) HasPricingEffectiveDa
 }
 
 // SetPricingEffectiveDate gets a reference to the given string and assigns it to the PricingEffectiveDate field.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) SetPricingEffectiveDate(v string) {
+func (o *FleetUpdateSubscriptionRequest) SetPricingEffectiveDate(v string) {
 	o.PricingEffectiveDate = &v
 }
 
 // GetPricingPerUnit returns the PricingPerUnit field value if set, zero value otherwise.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetPricingPerUnit() map[string]interface{} {
+func (o *FleetUpdateSubscriptionRequest) GetPricingPerUnit() map[string]interface{} {
 	if o == nil || IsNil(o.PricingPerUnit) {
 		var ret map[string]interface{}
 		return ret
@@ -186,7 +183,7 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetPricingPerUnit() m
 
 // GetPricingPerUnitOk returns a tuple with the PricingPerUnit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetPricingPerUnitOk() (map[string]interface{}, bool) {
+func (o *FleetUpdateSubscriptionRequest) GetPricingPerUnitOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.PricingPerUnit) {
 		return map[string]interface{}{}, false
 	}
@@ -194,7 +191,7 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetPricingPerUnitOk()
 }
 
 // HasPricingPerUnit returns a boolean if a field has been set.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) HasPricingPerUnit() bool {
+func (o *FleetUpdateSubscriptionRequest) HasPricingPerUnit() bool {
 	if o != nil && !IsNil(o.PricingPerUnit) {
 		return true
 	}
@@ -203,36 +200,12 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) HasPricingPerUnit() b
 }
 
 // SetPricingPerUnit gets a reference to the given map[string]interface{} and assigns it to the PricingPerUnit field.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) SetPricingPerUnit(v map[string]interface{}) {
+func (o *FleetUpdateSubscriptionRequest) SetPricingPerUnit(v map[string]interface{}) {
 	o.PricingPerUnit = v
 }
 
-// GetProductTierId returns the ProductTierId field value
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetProductTierId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ProductTierId
-}
-
-// GetProductTierIdOk returns a tuple with the ProductTierId field value
-// and a boolean to check if the value has been set.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetProductTierIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ProductTierId, true
-}
-
-// SetProductTierId sets field value
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) SetProductTierId(v string) {
-	o.ProductTierId = v
-}
-
 // GetServiceId returns the ServiceId field value
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetServiceId() string {
+func (o *FleetUpdateSubscriptionRequest) GetServiceId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -243,7 +216,7 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetServiceId() string
 
 // GetServiceIdOk returns a tuple with the ServiceId field value
 // and a boolean to check if the value has been set.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetServiceIdOk() (*string, bool) {
+func (o *FleetUpdateSubscriptionRequest) GetServiceIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -251,12 +224,12 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetServiceIdOk() (*st
 }
 
 // SetServiceId sets field value
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) SetServiceId(v string) {
+func (o *FleetUpdateSubscriptionRequest) SetServiceId(v string) {
 	o.ServiceId = v
 }
 
 // GetToken returns the Token field value
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetToken() string {
+func (o *FleetUpdateSubscriptionRequest) GetToken() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -267,7 +240,7 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetToken() string {
 
 // GetTokenOk returns a tuple with the Token field value
 // and a boolean to check if the value has been set.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetTokenOk() (*string, bool) {
+func (o *FleetUpdateSubscriptionRequest) GetTokenOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -275,11 +248,11 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetTokenOk() (*string
 }
 
 // SetToken sets field value
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) SetToken(v string) {
+func (o *FleetUpdateSubscriptionRequest) SetToken(v string) {
 	o.Token = v
 }
 
-func (o FleetCreateSubscriptionOnBehalfOfCustomerRequest) MarshalJSON() ([]byte, error) {
+func (o FleetUpdateSubscriptionRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -287,20 +260,19 @@ func (o FleetCreateSubscriptionOnBehalfOfCustomerRequest) MarshalJSON() ([]byte,
 	return json.Marshal(toSerialize)
 }
 
-func (o FleetCreateSubscriptionOnBehalfOfCustomerRequest) ToMap() (map[string]interface{}, error) {
+func (o FleetUpdateSubscriptionRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["environmentId"] = o.EnvironmentId
+	toSerialize["id"] = o.Id
 	if !IsNil(o.InheritServicePlanPricing) {
 		toSerialize["inheritServicePlanPricing"] = o.InheritServicePlanPricing
 	}
-	toSerialize["onBehalfOfCustomerUserId"] = o.OnBehalfOfCustomerUserId
 	if !IsNil(o.PricingEffectiveDate) {
 		toSerialize["pricingEffectiveDate"] = o.PricingEffectiveDate
 	}
 	if !IsNil(o.PricingPerUnit) {
 		toSerialize["pricingPerUnit"] = o.PricingPerUnit
 	}
-	toSerialize["productTierId"] = o.ProductTierId
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["token"] = o.Token
 
@@ -311,14 +283,13 @@ func (o FleetCreateSubscriptionOnBehalfOfCustomerRequest) ToMap() (map[string]in
 	return toSerialize, nil
 }
 
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) UnmarshalJSON(data []byte) (err error) {
+func (o *FleetUpdateSubscriptionRequest) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"environmentId",
-		"onBehalfOfCustomerUserId",
-		"productTierId",
+		"id",
 		"serviceId",
 		"token",
 	}
@@ -337,25 +308,24 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) UnmarshalJSON(data []
 		}
 	}
 
-	varFleetCreateSubscriptionOnBehalfOfCustomerRequest := _FleetCreateSubscriptionOnBehalfOfCustomerRequest{}
+	varFleetUpdateSubscriptionRequest := _FleetUpdateSubscriptionRequest{}
 
-	err = json.Unmarshal(data, &varFleetCreateSubscriptionOnBehalfOfCustomerRequest)
+	err = json.Unmarshal(data, &varFleetUpdateSubscriptionRequest)
 
 	if err != nil {
 		return err
 	}
 
-	*o = FleetCreateSubscriptionOnBehalfOfCustomerRequest(varFleetCreateSubscriptionOnBehalfOfCustomerRequest)
+	*o = FleetUpdateSubscriptionRequest(varFleetUpdateSubscriptionRequest)
 
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "id")
 		delete(additionalProperties, "inheritServicePlanPricing")
-		delete(additionalProperties, "onBehalfOfCustomerUserId")
 		delete(additionalProperties, "pricingEffectiveDate")
 		delete(additionalProperties, "pricingPerUnit")
-		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
@@ -364,38 +334,38 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) UnmarshalJSON(data []
 	return err
 }
 
-type NullableFleetCreateSubscriptionOnBehalfOfCustomerRequest struct {
-	value *FleetCreateSubscriptionOnBehalfOfCustomerRequest
+type NullableFleetUpdateSubscriptionRequest struct {
+	value *FleetUpdateSubscriptionRequest
 	isSet bool
 }
 
-func (v NullableFleetCreateSubscriptionOnBehalfOfCustomerRequest) Get() *FleetCreateSubscriptionOnBehalfOfCustomerRequest {
+func (v NullableFleetUpdateSubscriptionRequest) Get() *FleetUpdateSubscriptionRequest {
 	return v.value
 }
 
-func (v *NullableFleetCreateSubscriptionOnBehalfOfCustomerRequest) Set(val *FleetCreateSubscriptionOnBehalfOfCustomerRequest) {
+func (v *NullableFleetUpdateSubscriptionRequest) Set(val *FleetUpdateSubscriptionRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableFleetCreateSubscriptionOnBehalfOfCustomerRequest) IsSet() bool {
+func (v NullableFleetUpdateSubscriptionRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableFleetCreateSubscriptionOnBehalfOfCustomerRequest) Unset() {
+func (v *NullableFleetUpdateSubscriptionRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableFleetCreateSubscriptionOnBehalfOfCustomerRequest(val *FleetCreateSubscriptionOnBehalfOfCustomerRequest) *NullableFleetCreateSubscriptionOnBehalfOfCustomerRequest {
-	return &NullableFleetCreateSubscriptionOnBehalfOfCustomerRequest{value: val, isSet: true}
+func NewNullableFleetUpdateSubscriptionRequest(val *FleetUpdateSubscriptionRequest) *NullableFleetUpdateSubscriptionRequest {
+	return &NullableFleetUpdateSubscriptionRequest{value: val, isSet: true}
 }
 
-func (v NullableFleetCreateSubscriptionOnBehalfOfCustomerRequest) MarshalJSON() ([]byte, error) {
+func (v NullableFleetUpdateSubscriptionRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableFleetCreateSubscriptionOnBehalfOfCustomerRequest) UnmarshalJSON(src []byte) error {
+func (v *NullableFleetUpdateSubscriptionRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

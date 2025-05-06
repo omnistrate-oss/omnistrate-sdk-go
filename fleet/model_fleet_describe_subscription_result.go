@@ -20,10 +20,16 @@ var _ MappedNullable = &FleetDescribeSubscriptionResult{}
 
 // FleetDescribeSubscriptionResult struct for FleetDescribeSubscriptionResult
 type FleetDescribeSubscriptionResult struct {
+	// The active pricing for the subscription at the time of the request.
+	ActiveSubscriptionPricing map[string]interface{} `json:"activeSubscriptionPricing,omitempty"`
 	// The time that this subscription was created
 	CreatedAt string `json:"createdAt"`
+	// The history pricing for the subscription.
+	HistorySubscriptionPricing []HistorySubscriptionPricing `json:"historySubscriptionPricing,omitempty"`
 	// ID of a Subscription
 	Id string `json:"id"`
+	// Whether to inherit the service plan pricing
+	InheritServicePlanPricing *bool `json:"inheritServicePlanPricing,omitempty"`
 	// The number of active instances in the subscription
 	InstanceCount int64 `json:"instanceCount"`
 	// ID of a Product Tier
@@ -90,6 +96,38 @@ func NewFleetDescribeSubscriptionResultWithDefaults() *FleetDescribeSubscription
 	return &this
 }
 
+// GetActiveSubscriptionPricing returns the ActiveSubscriptionPricing field value if set, zero value otherwise.
+func (o *FleetDescribeSubscriptionResult) GetActiveSubscriptionPricing() map[string]interface{} {
+	if o == nil || IsNil(o.ActiveSubscriptionPricing) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.ActiveSubscriptionPricing
+}
+
+// GetActiveSubscriptionPricingOk returns a tuple with the ActiveSubscriptionPricing field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeSubscriptionResult) GetActiveSubscriptionPricingOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.ActiveSubscriptionPricing) {
+		return map[string]interface{}{}, false
+	}
+	return o.ActiveSubscriptionPricing, true
+}
+
+// HasActiveSubscriptionPricing returns a boolean if a field has been set.
+func (o *FleetDescribeSubscriptionResult) HasActiveSubscriptionPricing() bool {
+	if o != nil && !IsNil(o.ActiveSubscriptionPricing) {
+		return true
+	}
+
+	return false
+}
+
+// SetActiveSubscriptionPricing gets a reference to the given map[string]interface{} and assigns it to the ActiveSubscriptionPricing field.
+func (o *FleetDescribeSubscriptionResult) SetActiveSubscriptionPricing(v map[string]interface{}) {
+	o.ActiveSubscriptionPricing = v
+}
+
 // GetCreatedAt returns the CreatedAt field value
 func (o *FleetDescribeSubscriptionResult) GetCreatedAt() string {
 	if o == nil {
@@ -114,6 +152,38 @@ func (o *FleetDescribeSubscriptionResult) SetCreatedAt(v string) {
 	o.CreatedAt = v
 }
 
+// GetHistorySubscriptionPricing returns the HistorySubscriptionPricing field value if set, zero value otherwise.
+func (o *FleetDescribeSubscriptionResult) GetHistorySubscriptionPricing() []HistorySubscriptionPricing {
+	if o == nil || IsNil(o.HistorySubscriptionPricing) {
+		var ret []HistorySubscriptionPricing
+		return ret
+	}
+	return o.HistorySubscriptionPricing
+}
+
+// GetHistorySubscriptionPricingOk returns a tuple with the HistorySubscriptionPricing field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeSubscriptionResult) GetHistorySubscriptionPricingOk() ([]HistorySubscriptionPricing, bool) {
+	if o == nil || IsNil(o.HistorySubscriptionPricing) {
+		return nil, false
+	}
+	return o.HistorySubscriptionPricing, true
+}
+
+// HasHistorySubscriptionPricing returns a boolean if a field has been set.
+func (o *FleetDescribeSubscriptionResult) HasHistorySubscriptionPricing() bool {
+	if o != nil && !IsNil(o.HistorySubscriptionPricing) {
+		return true
+	}
+
+	return false
+}
+
+// SetHistorySubscriptionPricing gets a reference to the given []HistorySubscriptionPricing and assigns it to the HistorySubscriptionPricing field.
+func (o *FleetDescribeSubscriptionResult) SetHistorySubscriptionPricing(v []HistorySubscriptionPricing) {
+	o.HistorySubscriptionPricing = v
+}
+
 // GetId returns the Id field value
 func (o *FleetDescribeSubscriptionResult) GetId() string {
 	if o == nil {
@@ -136,6 +206,38 @@ func (o *FleetDescribeSubscriptionResult) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *FleetDescribeSubscriptionResult) SetId(v string) {
 	o.Id = v
+}
+
+// GetInheritServicePlanPricing returns the InheritServicePlanPricing field value if set, zero value otherwise.
+func (o *FleetDescribeSubscriptionResult) GetInheritServicePlanPricing() bool {
+	if o == nil || IsNil(o.InheritServicePlanPricing) {
+		var ret bool
+		return ret
+	}
+	return *o.InheritServicePlanPricing
+}
+
+// GetInheritServicePlanPricingOk returns a tuple with the InheritServicePlanPricing field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeSubscriptionResult) GetInheritServicePlanPricingOk() (*bool, bool) {
+	if o == nil || IsNil(o.InheritServicePlanPricing) {
+		return nil, false
+	}
+	return o.InheritServicePlanPricing, true
+}
+
+// HasInheritServicePlanPricing returns a boolean if a field has been set.
+func (o *FleetDescribeSubscriptionResult) HasInheritServicePlanPricing() bool {
+	if o != nil && !IsNil(o.InheritServicePlanPricing) {
+		return true
+	}
+
+	return false
+}
+
+// SetInheritServicePlanPricing gets a reference to the given bool and assigns it to the InheritServicePlanPricing field.
+func (o *FleetDescribeSubscriptionResult) SetInheritServicePlanPricing(v bool) {
+	o.InheritServicePlanPricing = &v
 }
 
 // GetInstanceCount returns the InstanceCount field value
@@ -532,8 +634,17 @@ func (o FleetDescribeSubscriptionResult) MarshalJSON() ([]byte, error) {
 
 func (o FleetDescribeSubscriptionResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ActiveSubscriptionPricing) {
+		toSerialize["activeSubscriptionPricing"] = o.ActiveSubscriptionPricing
+	}
 	toSerialize["createdAt"] = o.CreatedAt
+	if !IsNil(o.HistorySubscriptionPricing) {
+		toSerialize["historySubscriptionPricing"] = o.HistorySubscriptionPricing
+	}
 	toSerialize["id"] = o.Id
+	if !IsNil(o.InheritServicePlanPricing) {
+		toSerialize["inheritServicePlanPricing"] = o.InheritServicePlanPricing
+	}
 	toSerialize["instanceCount"] = o.InstanceCount
 	toSerialize["productTierId"] = o.ProductTierId
 	toSerialize["productTierName"] = o.ProductTierName
@@ -611,8 +722,11 @@ func (o *FleetDescribeSubscriptionResult) UnmarshalJSON(data []byte) (err error)
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "activeSubscriptionPricing")
 		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "historySubscriptionPricing")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "inheritServicePlanPricing")
 		delete(additionalProperties, "instanceCount")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "productTierName")

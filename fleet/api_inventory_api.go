@@ -109,8 +109,8 @@ type InventoryApiAPI interface {
 	InventoryApiCreateProxyResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, sourceResourceKey string) ApiInventoryApiCreateProxyResourceInstanceRequest
 
 	// InventoryApiCreateProxyResourceInstanceExecute executes the request
-	//  @return FleetCreateSubscriptionOnBehalfOfCustomerResult
-	InventoryApiCreateProxyResourceInstanceExecute(r ApiInventoryApiCreateProxyResourceInstanceRequest) (*FleetCreateSubscriptionOnBehalfOfCustomerResult, *http.Response, error)
+	//  @return CreateProxyResourceInstanceResult
+	InventoryApiCreateProxyResourceInstanceExecute(r ApiInventoryApiCreateProxyResourceInstanceRequest) (*CreateProxyResourceInstanceResult, *http.Response, error)
 
 	/*
 	InventoryApiCreateResourceInstance CreateResourceInstance inventory-api
@@ -128,8 +128,8 @@ type InventoryApiAPI interface {
 	InventoryApiCreateResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string) ApiInventoryApiCreateResourceInstanceRequest
 
 	// InventoryApiCreateResourceInstanceExecute executes the request
-	//  @return FleetCreateSubscriptionOnBehalfOfCustomerResult
-	InventoryApiCreateResourceInstanceExecute(r ApiInventoryApiCreateResourceInstanceRequest) (*FleetCreateSubscriptionOnBehalfOfCustomerResult, *http.Response, error)
+	//  @return FleetCreateResourceInstanceResult
+	InventoryApiCreateResourceInstanceExecute(r ApiInventoryApiCreateResourceInstanceRequest) (*FleetCreateResourceInstanceResult, *http.Response, error)
 
 	/*
 	InventoryApiCreateResourceInstanceSnapshot CreateResourceInstanceSnapshot inventory-api
@@ -155,8 +155,8 @@ type InventoryApiAPI interface {
 	InventoryApiCreateServicesOrchestration(ctx context.Context) ApiInventoryApiCreateServicesOrchestrationRequest
 
 	// InventoryApiCreateServicesOrchestrationExecute executes the request
-	//  @return FleetCreateSubscriptionOnBehalfOfCustomerResult
-	InventoryApiCreateServicesOrchestrationExecute(r ApiInventoryApiCreateServicesOrchestrationRequest) (*FleetCreateSubscriptionOnBehalfOfCustomerResult, *http.Response, error)
+	//  @return CreateProxyResourceInstanceResult
+	InventoryApiCreateServicesOrchestrationExecute(r ApiInventoryApiCreateServicesOrchestrationRequest) (*CreateProxyResourceInstanceResult, *http.Response, error)
 
 	/*
 	InventoryApiCreateSubscriptionOnBehalfOfCustomer CreateSubscriptionOnBehalfOfCustomer inventory-api
@@ -871,8 +871,8 @@ type InventoryApiAPI interface {
 	InventoryApiRestoreResourceInstance(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiRestoreResourceInstanceRequest
 
 	// InventoryApiRestoreResourceInstanceExecute executes the request
-	//  @return FleetCreateSubscriptionOnBehalfOfCustomerResult
-	InventoryApiRestoreResourceInstanceExecute(r ApiInventoryApiRestoreResourceInstanceRequest) (*FleetCreateSubscriptionOnBehalfOfCustomerResult, *http.Response, error)
+	//  @return CreateProxyResourceInstanceResult
+	InventoryApiRestoreResourceInstanceExecute(r ApiInventoryApiRestoreResourceInstanceRequest) (*CreateProxyResourceInstanceResult, *http.Response, error)
 
 	/*
 	InventoryApiRestoreResourceInstanceFromSnapshot RestoreResourceInstanceFromSnapshot inventory-api
@@ -886,8 +886,8 @@ type InventoryApiAPI interface {
 	InventoryApiRestoreResourceInstanceFromSnapshot(ctx context.Context, serviceId string, environmentId string, snapshotId string) ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest
 
 	// InventoryApiRestoreResourceInstanceFromSnapshotExecute executes the request
-	//  @return FleetCreateSubscriptionOnBehalfOfCustomerResult
-	InventoryApiRestoreResourceInstanceFromSnapshotExecute(r ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest) (*FleetCreateSubscriptionOnBehalfOfCustomerResult, *http.Response, error)
+	//  @return CreateProxyResourceInstanceResult
+	InventoryApiRestoreResourceInstanceFromSnapshotExecute(r ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest) (*CreateProxyResourceInstanceResult, *http.Response, error)
 
 	/*
 	InventoryApiResumeSubscription ResumeSubscription inventory-api
@@ -1064,6 +1064,20 @@ type InventoryApiAPI interface {
 
 	// InventoryApiUpdateResourceInstanceDebugModeExecute executes the request
 	InventoryApiUpdateResourceInstanceDebugModeExecute(r ApiInventoryApiUpdateResourceInstanceDebugModeRequest) (*http.Response, error)
+
+	/*
+	InventoryApiUpdateSubscription UpdateSubscription inventory-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param id The subscription ID
+	@return ApiInventoryApiUpdateSubscriptionRequest
+	*/
+	InventoryApiUpdateSubscription(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiUpdateSubscriptionRequest
+
+	// InventoryApiUpdateSubscriptionExecute executes the request
+	InventoryApiUpdateSubscriptionExecute(r ApiInventoryApiUpdateSubscriptionRequest) (*http.Response, error)
 }
 
 // InventoryApiAPIService InventoryApiAPI service
@@ -1949,7 +1963,7 @@ func (r ApiInventoryApiCreateProxyResourceInstanceRequest) CreateProxyResourceIn
 	return r
 }
 
-func (r ApiInventoryApiCreateProxyResourceInstanceRequest) Execute() (*FleetCreateSubscriptionOnBehalfOfCustomerResult, *http.Response, error) {
+func (r ApiInventoryApiCreateProxyResourceInstanceRequest) Execute() (*CreateProxyResourceInstanceResult, *http.Response, error) {
 	return r.ApiService.InventoryApiCreateProxyResourceInstanceExecute(r)
 }
 
@@ -1981,13 +1995,13 @@ func (a *InventoryApiAPIService) InventoryApiCreateProxyResourceInstance(ctx con
 }
 
 // Execute executes the request
-//  @return FleetCreateSubscriptionOnBehalfOfCustomerResult
-func (a *InventoryApiAPIService) InventoryApiCreateProxyResourceInstanceExecute(r ApiInventoryApiCreateProxyResourceInstanceRequest) (*FleetCreateSubscriptionOnBehalfOfCustomerResult, *http.Response, error) {
+//  @return CreateProxyResourceInstanceResult
+func (a *InventoryApiAPIService) InventoryApiCreateProxyResourceInstanceExecute(r ApiInventoryApiCreateProxyResourceInstanceRequest) (*CreateProxyResourceInstanceResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *FleetCreateSubscriptionOnBehalfOfCustomerResult
+		localVarReturnValue  *CreateProxyResourceInstanceResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiCreateProxyResourceInstance")
@@ -2150,7 +2164,7 @@ func (r ApiInventoryApiCreateResourceInstanceRequest) FleetCreateResourceInstanc
 	return r
 }
 
-func (r ApiInventoryApiCreateResourceInstanceRequest) Execute() (*FleetCreateSubscriptionOnBehalfOfCustomerResult, *http.Response, error) {
+func (r ApiInventoryApiCreateResourceInstanceRequest) Execute() (*FleetCreateResourceInstanceResult, *http.Response, error) {
 	return r.ApiService.InventoryApiCreateResourceInstanceExecute(r)
 }
 
@@ -2182,13 +2196,13 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstance(ctx context.
 }
 
 // Execute executes the request
-//  @return FleetCreateSubscriptionOnBehalfOfCustomerResult
-func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceExecute(r ApiInventoryApiCreateResourceInstanceRequest) (*FleetCreateSubscriptionOnBehalfOfCustomerResult, *http.Response, error) {
+//  @return FleetCreateResourceInstanceResult
+func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceExecute(r ApiInventoryApiCreateResourceInstanceRequest) (*FleetCreateResourceInstanceResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *FleetCreateSubscriptionOnBehalfOfCustomerResult
+		localVarReturnValue  *FleetCreateResourceInstanceResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiCreateResourceInstance")
@@ -2518,7 +2532,7 @@ func (r ApiInventoryApiCreateServicesOrchestrationRequest) FleetCreateServicesOr
 	return r
 }
 
-func (r ApiInventoryApiCreateServicesOrchestrationRequest) Execute() (*FleetCreateSubscriptionOnBehalfOfCustomerResult, *http.Response, error) {
+func (r ApiInventoryApiCreateServicesOrchestrationRequest) Execute() (*CreateProxyResourceInstanceResult, *http.Response, error) {
 	return r.ApiService.InventoryApiCreateServicesOrchestrationExecute(r)
 }
 
@@ -2536,13 +2550,13 @@ func (a *InventoryApiAPIService) InventoryApiCreateServicesOrchestration(ctx con
 }
 
 // Execute executes the request
-//  @return FleetCreateSubscriptionOnBehalfOfCustomerResult
-func (a *InventoryApiAPIService) InventoryApiCreateServicesOrchestrationExecute(r ApiInventoryApiCreateServicesOrchestrationRequest) (*FleetCreateSubscriptionOnBehalfOfCustomerResult, *http.Response, error) {
+//  @return CreateProxyResourceInstanceResult
+func (a *InventoryApiAPIService) InventoryApiCreateServicesOrchestrationExecute(r ApiInventoryApiCreateServicesOrchestrationRequest) (*CreateProxyResourceInstanceResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *FleetCreateSubscriptionOnBehalfOfCustomerResult
+		localVarReturnValue  *CreateProxyResourceInstanceResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiCreateServicesOrchestration")
@@ -11398,7 +11412,7 @@ func (r ApiInventoryApiRestoreResourceInstanceRequest) FleetRestoreResourceInsta
 	return r
 }
 
-func (r ApiInventoryApiRestoreResourceInstanceRequest) Execute() (*FleetCreateSubscriptionOnBehalfOfCustomerResult, *http.Response, error) {
+func (r ApiInventoryApiRestoreResourceInstanceRequest) Execute() (*CreateProxyResourceInstanceResult, *http.Response, error) {
 	return r.ApiService.InventoryApiRestoreResourceInstanceExecute(r)
 }
 
@@ -11422,13 +11436,13 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstance(ctx context
 }
 
 // Execute executes the request
-//  @return FleetCreateSubscriptionOnBehalfOfCustomerResult
-func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceExecute(r ApiInventoryApiRestoreResourceInstanceRequest) (*FleetCreateSubscriptionOnBehalfOfCustomerResult, *http.Response, error) {
+//  @return CreateProxyResourceInstanceResult
+func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceExecute(r ApiInventoryApiRestoreResourceInstanceRequest) (*CreateProxyResourceInstanceResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *FleetCreateSubscriptionOnBehalfOfCustomerResult
+		localVarReturnValue  *CreateProxyResourceInstanceResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiRestoreResourceInstance")
@@ -11583,7 +11597,7 @@ func (r ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest) FleetRestoreR
 	return r
 }
 
-func (r ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest) Execute() (*FleetCreateSubscriptionOnBehalfOfCustomerResult, *http.Response, error) {
+func (r ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest) Execute() (*CreateProxyResourceInstanceResult, *http.Response, error) {
 	return r.ApiService.InventoryApiRestoreResourceInstanceFromSnapshotExecute(r)
 }
 
@@ -11607,13 +11621,13 @@ func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceFromSnapshot
 }
 
 // Execute executes the request
-//  @return FleetCreateSubscriptionOnBehalfOfCustomerResult
-func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceFromSnapshotExecute(r ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest) (*FleetCreateSubscriptionOnBehalfOfCustomerResult, *http.Response, error) {
+//  @return CreateProxyResourceInstanceResult
+func (a *InventoryApiAPIService) InventoryApiRestoreResourceInstanceFromSnapshotExecute(r ApiInventoryApiRestoreResourceInstanceFromSnapshotRequest) (*CreateProxyResourceInstanceResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *FleetCreateSubscriptionOnBehalfOfCustomerResult
+		localVarReturnValue  *CreateProxyResourceInstanceResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiRestoreResourceInstanceFromSnapshot")
@@ -13854,6 +13868,180 @@ func (a *InventoryApiAPIService) InventoryApiUpdateResourceInstanceDebugModeExec
 	}
 	// body params
 	localVarPostBody = r.fleetUpdateResourceInstanceDebugModeRequest2
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiInventoryApiUpdateSubscriptionRequest struct {
+	ctx context.Context
+	ApiService InventoryApiAPI
+	serviceId string
+	environmentId string
+	id string
+	fleetUpdateSubscriptionRequest2 *FleetUpdateSubscriptionRequest2
+}
+
+func (r ApiInventoryApiUpdateSubscriptionRequest) FleetUpdateSubscriptionRequest2(fleetUpdateSubscriptionRequest2 FleetUpdateSubscriptionRequest2) ApiInventoryApiUpdateSubscriptionRequest {
+	r.fleetUpdateSubscriptionRequest2 = &fleetUpdateSubscriptionRequest2
+	return r
+}
+
+func (r ApiInventoryApiUpdateSubscriptionRequest) Execute() (*http.Response, error) {
+	return r.ApiService.InventoryApiUpdateSubscriptionExecute(r)
+}
+
+/*
+InventoryApiUpdateSubscription UpdateSubscription inventory-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serviceId The service ID this workflow belongs to.
+ @param environmentId The service environment ID this workflow belongs to.
+ @param id The subscription ID
+ @return ApiInventoryApiUpdateSubscriptionRequest
+*/
+func (a *InventoryApiAPIService) InventoryApiUpdateSubscription(ctx context.Context, serviceId string, environmentId string, id string) ApiInventoryApiUpdateSubscriptionRequest {
+	return ApiInventoryApiUpdateSubscriptionRequest{
+		ApiService: a,
+		ctx: ctx,
+		serviceId: serviceId,
+		environmentId: environmentId,
+		id: id,
+	}
+}
+
+// Execute executes the request
+func (a *InventoryApiAPIService) InventoryApiUpdateSubscriptionExecute(r ApiInventoryApiUpdateSubscriptionRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiUpdateSubscription")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentId"+"}", url.PathEscape(parameterValueToString(r.environmentId, "environmentId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.fleetUpdateSubscriptionRequest2 == nil {
+		return nil, reportError("fleetUpdateSubscriptionRequest2 is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.fleetUpdateSubscriptionRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

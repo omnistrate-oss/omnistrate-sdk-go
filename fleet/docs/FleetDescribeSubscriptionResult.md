@@ -4,8 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ActiveSubscriptionPricing** | Pointer to **map[string]interface{}** | The active pricing for the subscription at the time of the request. | [optional] 
 **CreatedAt** | **string** | The time that this subscription was created | 
+**HistorySubscriptionPricing** | Pointer to [**[]HistorySubscriptionPricing**](HistorySubscriptionPricing.md) | The history pricing for the subscription. | [optional] 
 **Id** | **string** | ID of a Subscription | 
+**InheritServicePlanPricing** | Pointer to **bool** | Whether to inherit the service plan pricing | [optional] 
 **InstanceCount** | **int64** | The number of active instances in the subscription | 
 **ProductTierId** | **string** | ID of a Product Tier | 
 **ProductTierName** | **string** | The name of the product tier | 
@@ -41,6 +44,31 @@ NewFleetDescribeSubscriptionResultWithDefaults instantiates a new FleetDescribeS
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetActiveSubscriptionPricing
+
+`func (o *FleetDescribeSubscriptionResult) GetActiveSubscriptionPricing() map[string]interface{}`
+
+GetActiveSubscriptionPricing returns the ActiveSubscriptionPricing field if non-nil, zero value otherwise.
+
+### GetActiveSubscriptionPricingOk
+
+`func (o *FleetDescribeSubscriptionResult) GetActiveSubscriptionPricingOk() (*map[string]interface{}, bool)`
+
+GetActiveSubscriptionPricingOk returns a tuple with the ActiveSubscriptionPricing field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActiveSubscriptionPricing
+
+`func (o *FleetDescribeSubscriptionResult) SetActiveSubscriptionPricing(v map[string]interface{})`
+
+SetActiveSubscriptionPricing sets ActiveSubscriptionPricing field to given value.
+
+### HasActiveSubscriptionPricing
+
+`func (o *FleetDescribeSubscriptionResult) HasActiveSubscriptionPricing() bool`
+
+HasActiveSubscriptionPricing returns a boolean if a field has been set.
+
 ### GetCreatedAt
 
 `func (o *FleetDescribeSubscriptionResult) GetCreatedAt() string`
@@ -61,6 +89,31 @@ and a boolean to check if the value has been set.
 SetCreatedAt sets CreatedAt field to given value.
 
 
+### GetHistorySubscriptionPricing
+
+`func (o *FleetDescribeSubscriptionResult) GetHistorySubscriptionPricing() []HistorySubscriptionPricing`
+
+GetHistorySubscriptionPricing returns the HistorySubscriptionPricing field if non-nil, zero value otherwise.
+
+### GetHistorySubscriptionPricingOk
+
+`func (o *FleetDescribeSubscriptionResult) GetHistorySubscriptionPricingOk() (*[]HistorySubscriptionPricing, bool)`
+
+GetHistorySubscriptionPricingOk returns a tuple with the HistorySubscriptionPricing field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHistorySubscriptionPricing
+
+`func (o *FleetDescribeSubscriptionResult) SetHistorySubscriptionPricing(v []HistorySubscriptionPricing)`
+
+SetHistorySubscriptionPricing sets HistorySubscriptionPricing field to given value.
+
+### HasHistorySubscriptionPricing
+
+`func (o *FleetDescribeSubscriptionResult) HasHistorySubscriptionPricing() bool`
+
+HasHistorySubscriptionPricing returns a boolean if a field has been set.
+
 ### GetId
 
 `func (o *FleetDescribeSubscriptionResult) GetId() string`
@@ -80,6 +133,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetInheritServicePlanPricing
+
+`func (o *FleetDescribeSubscriptionResult) GetInheritServicePlanPricing() bool`
+
+GetInheritServicePlanPricing returns the InheritServicePlanPricing field if non-nil, zero value otherwise.
+
+### GetInheritServicePlanPricingOk
+
+`func (o *FleetDescribeSubscriptionResult) GetInheritServicePlanPricingOk() (*bool, bool)`
+
+GetInheritServicePlanPricingOk returns a tuple with the InheritServicePlanPricing field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInheritServicePlanPricing
+
+`func (o *FleetDescribeSubscriptionResult) SetInheritServicePlanPricing(v bool)`
+
+SetInheritServicePlanPricing sets InheritServicePlanPricing field to given value.
+
+### HasInheritServicePlanPricing
+
+`func (o *FleetDescribeSubscriptionResult) HasInheritServicePlanPricing() bool`
+
+HasInheritServicePlanPricing returns a boolean if a field has been set.
 
 ### GetInstanceCount
 
