@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **ClientSecret** | Pointer to **string** | The Client Secret of the Identity Provider | [optional] 
 **Id** | **string** | ID of an Identity Provider | 
 **IdentityProviderName** | **string** | The name of the identity provider | 
+**Name** | Pointer to **string** | The name of the Identity Provider | [optional] 
 **Status** | **string** | The status of an operation | 
 
 ## Methods
@@ -113,6 +114,31 @@ and a boolean to check if the value has been set.
 
 SetIdentityProviderName sets IdentityProviderName field to given value.
 
+
+### GetName
+
+`func (o *VerifyIdentityProviderResult) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *VerifyIdentityProviderResult) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *VerifyIdentityProviderResult) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *VerifyIdentityProviderResult) HasName() bool`
+
+HasName returns a boolean if a field has been set.
 
 ### GetStatus
 

@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -208,6 +207,8 @@ docs/FleetApproveInvoiceRequest.md
 docs/FleetAuditEvent.md
 docs/FleetAuditEventsRequest.md
 docs/FleetAuditEventsResult.md
+docs/FleetAutomaticInstanceSnapshotCreationRequest.md
+docs/FleetAutomaticInstanceSnapshotCreationResult.md
 docs/FleetCreateConsumptionUserRequest.md
 docs/FleetCreateConsumptionUserRequest2.md
 docs/FleetCreateCustomNetworkRequest.md
@@ -239,6 +240,7 @@ docs/FleetDescribeHostClusterResult.md
 docs/FleetDescribeInstanceSnapshotFromTimeRequest.md
 docs/FleetDescribeInstanceSnapshotFromTimeRequest2.md
 docs/FleetDescribeInstanceSnapshotFromTimeResult.md
+docs/FleetDescribeInstanceSnapshotRequest.md
 docs/FleetDescribeInstanceSnapshotResult.md
 docs/FleetDescribeOrgUser.md
 docs/FleetDescribeServicesOrchestrationRequest.md
@@ -746,6 +748,8 @@ model_fleet_approve_invoice_request.go
 model_fleet_audit_event.go
 model_fleet_audit_events_request.go
 model_fleet_audit_events_result.go
+model_fleet_automatic_instance_snapshot_creation_request.go
+model_fleet_automatic_instance_snapshot_creation_result.go
 model_fleet_create_consumption_user_request.go
 model_fleet_create_consumption_user_request2.go
 model_fleet_create_custom_network_request.go
@@ -776,6 +780,7 @@ model_fleet_describe_host_cluster_result.go
 model_fleet_describe_instance_snapshot_from_time_request.go
 model_fleet_describe_instance_snapshot_from_time_request2.go
 model_fleet_describe_instance_snapshot_from_time_result.go
+model_fleet_describe_instance_snapshot_request.go
 model_fleet_describe_instance_snapshot_result.go
 model_fleet_describe_org_user.go
 model_fleet_describe_services_orchestration_request.go
@@ -1089,18 +1094,4 @@ model_workflow_event.go
 model_workflow_failure.go
 model_workflow_search_record.go
 response.go
-test/api_audit_events_api_test.go
-test/api_cost_api_test.go
-test/api_customer_onboardings_api_test.go
-test/api_events_api_test.go
-test/api_fleet_custom_network_api_test.go
-test/api_fleet_features_api_test.go
-test/api_fleet_workflows_api_test.go
-test/api_helm_package_api_test.go
-test/api_hostcluster_api_test.go
-test/api_inventory_api_test.go
-test/api_invoice_api_test.go
-test/api_notifications_api_test.go
-test/api_operations_api_test.go
-test/api_webhooks_api_test.go
 utils.go

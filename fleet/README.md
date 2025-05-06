@@ -133,6 +133,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiDescribeOrganization**](docs/InventoryApiAPI.md#inventoryapidescribeorganization) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/organization/{organizationId} | DescribeOrganization inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeResource**](docs/InventoryApiAPI.md#inventoryapidescriberesource) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/model/{serviceModelId}/productTier/{productTierId}/resource/{resourceId} | DescribeResource inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeResourceInstance**](docs/InventoryApiAPI.md#inventoryapidescriberesourceinstance) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId} | DescribeResourceInstance inventory-api
+*InventoryApiAPI* | [**InventoryApiDescribeResourceInstanceSnapshot**](docs/InventoryApiAPI.md#inventoryapidescriberesourceinstancesnapshot) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/snapshot/{snapshotId} | DescribeResourceInstanceSnapshot inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeResourceInstanceSnapshotFromTime**](docs/InventoryApiAPI.md#inventoryapidescriberesourceinstancesnapshotfromtime) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/restore | DescribeResourceInstanceSnapshotFromTime inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeServiceOffering**](docs/InventoryApiAPI.md#inventoryapidescribeserviceoffering) | **Get** /2022-09-01-00/fleet/service-offering/{serviceId} | DescribeServiceOffering inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeServiceOfferingResource**](docs/InventoryApiAPI.md#inventoryapidescribeserviceofferingresource) | **Get** /2022-09-01-00/fleet/service-offering/{serviceId}/resource/{resourceId}/instance/{instanceId} | DescribeServiceOfferingResource inventory-api
@@ -175,6 +176,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiSuspendSubscription**](docs/InventoryApiAPI.md#inventoryapisuspendsubscription) | **Put** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/{id}/suspend | SuspendSubscription inventory-api
 *InventoryApiAPI* | [**InventoryApiSuspendUser**](docs/InventoryApiAPI.md#inventoryapisuspenduser) | **Put** /2022-09-01-00/fleet/user/{userId}/suspend | SuspendUser inventory-api
 *InventoryApiAPI* | [**InventoryApiTerminateSubscription**](docs/InventoryApiAPI.md#inventoryapiterminatesubscription) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/{id} | TerminateSubscription inventory-api
+*InventoryApiAPI* | [**InventoryApiTriggerAutomaticResourceInstanceSnapshotCreation**](docs/InventoryApiAPI.md#inventoryapitriggerautomaticresourceinstancesnapshotcreation) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/autosnapshot | TriggerAutomaticResourceInstanceSnapshotCreation inventory-api
 *InventoryApiAPI* | [**InventoryApiUnsuspendUser**](docs/InventoryApiAPI.md#inventoryapiunsuspenduser) | **Put** /2022-09-01-00/fleet/user/{userId}/unsuspend | UnsuspendUser inventory-api
 *InventoryApiAPI* | [**InventoryApiUpdateAccountConfigResourceInstance**](docs/InventoryApiAPI.md#inventoryapiupdateaccountconfigresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/account-config-instance/{instanceId} | UpdateAccountConfigResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiUpdateResourceInstance**](docs/InventoryApiAPI.md#inventoryapiupdateresourceinstance) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId} | UpdateResourceInstance inventory-api
@@ -382,6 +384,8 @@ Class | Method | HTTP request | Description
  - [FleetAuditEvent](docs/FleetAuditEvent.md)
  - [FleetAuditEventsRequest](docs/FleetAuditEventsRequest.md)
  - [FleetAuditEventsResult](docs/FleetAuditEventsResult.md)
+ - [FleetAutomaticInstanceSnapshotCreationRequest](docs/FleetAutomaticInstanceSnapshotCreationRequest.md)
+ - [FleetAutomaticInstanceSnapshotCreationResult](docs/FleetAutomaticInstanceSnapshotCreationResult.md)
  - [FleetCreateConsumptionUserRequest](docs/FleetCreateConsumptionUserRequest.md)
  - [FleetCreateConsumptionUserRequest2](docs/FleetCreateConsumptionUserRequest2.md)
  - [FleetCreateCustomNetworkRequest](docs/FleetCreateCustomNetworkRequest.md)
@@ -412,6 +416,7 @@ Class | Method | HTTP request | Description
  - [FleetDescribeInstanceSnapshotFromTimeRequest](docs/FleetDescribeInstanceSnapshotFromTimeRequest.md)
  - [FleetDescribeInstanceSnapshotFromTimeRequest2](docs/FleetDescribeInstanceSnapshotFromTimeRequest2.md)
  - [FleetDescribeInstanceSnapshotFromTimeResult](docs/FleetDescribeInstanceSnapshotFromTimeResult.md)
+ - [FleetDescribeInstanceSnapshotRequest](docs/FleetDescribeInstanceSnapshotRequest.md)
  - [FleetDescribeInstanceSnapshotResult](docs/FleetDescribeInstanceSnapshotResult.md)
  - [FleetDescribeOrgUser](docs/FleetDescribeOrgUser.md)
  - [FleetDescribeServicesOrchestrationRequest](docs/FleetDescribeServicesOrchestrationRequest.md)

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **CustomDomain** | Pointer to **string** | The custom domain of the SaaS portal | [optional] 
 **CustomDomainStatus** | Pointer to **string** | The status of an operation | [optional] 
 **DetailedNetworkTopology** | Pointer to **map[string]interface{}** | The detailed network topology of the SaaS portal | [optional] 
+**DisablePasswordLogin** | Pointer to **bool** | Whether to disable password login for the SaaS portal | [optional] 
 **EmailConfig** | Pointer to [**SaaSPortalEmailConfig**](SaaSPortalEmailConfig.md) |  | [optional] 
 **Endpoint** | Pointer to **string** | The endpoint of the SaaS portal for this environment type | [optional] 
 **EnvironmentType** | **string** | The type of service environment | 
@@ -107,6 +108,31 @@ SetDetailedNetworkTopology sets DetailedNetworkTopology field to given value.
 `func (o *SaaSPortal) HasDetailedNetworkTopology() bool`
 
 HasDetailedNetworkTopology returns a boolean if a field has been set.
+
+### GetDisablePasswordLogin
+
+`func (o *SaaSPortal) GetDisablePasswordLogin() bool`
+
+GetDisablePasswordLogin returns the DisablePasswordLogin field if non-nil, zero value otherwise.
+
+### GetDisablePasswordLoginOk
+
+`func (o *SaaSPortal) GetDisablePasswordLoginOk() (*bool, bool)`
+
+GetDisablePasswordLoginOk returns a tuple with the DisablePasswordLogin field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisablePasswordLogin
+
+`func (o *SaaSPortal) SetDisablePasswordLogin(v bool)`
+
+SetDisablePasswordLogin sets DisablePasswordLogin field to given value.
+
+### HasDisablePasswordLogin
+
+`func (o *SaaSPortal) HasDisablePasswordLogin() bool`
+
+HasDisablePasswordLogin returns a boolean if a field has been set.
 
 ### GetEmailConfig
 

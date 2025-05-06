@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CustomDomain** | Pointer to **string** | The custom domain for the SaaS portal | [optional] 
+**DisablePasswordLogin** | Pointer to **bool** | Whether to disable password login for the SaaS portal | [optional] 
 **EmailConfig** | Pointer to [**SaaSPortalEmailConfig**](SaaSPortalEmailConfig.md) |  | [optional] 
 **EnvironmentType** | **string** | The type of service environment | 
 **GoogleAnalyticsTagID** | Pointer to **string** | The Google Analytics tag ID for the SaaS portal | [optional] 
@@ -54,6 +55,31 @@ SetCustomDomain sets CustomDomain field to given value.
 `func (o *UpdateSaaSPortalRequest) HasCustomDomain() bool`
 
 HasCustomDomain returns a boolean if a field has been set.
+
+### GetDisablePasswordLogin
+
+`func (o *UpdateSaaSPortalRequest) GetDisablePasswordLogin() bool`
+
+GetDisablePasswordLogin returns the DisablePasswordLogin field if non-nil, zero value otherwise.
+
+### GetDisablePasswordLoginOk
+
+`func (o *UpdateSaaSPortalRequest) GetDisablePasswordLoginOk() (*bool, bool)`
+
+GetDisablePasswordLoginOk returns a tuple with the DisablePasswordLogin field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisablePasswordLogin
+
+`func (o *UpdateSaaSPortalRequest) SetDisablePasswordLogin(v bool)`
+
+SetDisablePasswordLogin sets DisablePasswordLogin field to given value.
+
+### HasDisablePasswordLogin
+
+`func (o *UpdateSaaSPortalRequest) HasDisablePasswordLogin() bool`
+
+HasDisablePasswordLogin returns a boolean if a field has been set.
 
 ### GetEmailConfig
 

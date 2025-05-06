@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**InputParametersOverride** | Pointer to **interface{}** | Custom input parameters override | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
 
 ## Methods
@@ -25,6 +26,41 @@ NewFleetRestoreResourceInstanceFromSnapshotRequest2WithDefaults instantiates a n
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetInputParametersOverride
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) GetInputParametersOverride() interface{}`
+
+GetInputParametersOverride returns the InputParametersOverride field if non-nil, zero value otherwise.
+
+### GetInputParametersOverrideOk
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) GetInputParametersOverrideOk() (*interface{}, bool)`
+
+GetInputParametersOverrideOk returns a tuple with the InputParametersOverride field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInputParametersOverride
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) SetInputParametersOverride(v interface{})`
+
+SetInputParametersOverride sets InputParametersOverride field to given value.
+
+### HasInputParametersOverride
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) HasInputParametersOverride() bool`
+
+HasInputParametersOverride returns a boolean if a field has been set.
+
+### SetInputParametersOverrideNil
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) SetInputParametersOverrideNil(b bool)`
+
+ SetInputParametersOverrideNil sets the value for InputParametersOverride to be an explicit nil
+
+### UnsetInputParametersOverride
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) UnsetInputParametersOverride()`
+
+UnsetInputParametersOverride ensures that no value is present for InputParametersOverride, not even an explicit nil
 ### GetNetworkType
 
 `func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) GetNetworkType() string`

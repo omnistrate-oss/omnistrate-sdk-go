@@ -26,6 +26,8 @@ type SaaSPortal struct {
 	CustomDomainStatus *string `json:"customDomainStatus,omitempty"`
 	// The detailed network topology of the SaaS portal
 	DetailedNetworkTopology map[string]interface{} `json:"detailedNetworkTopology,omitempty"`
+	// Whether to disable password login for the SaaS portal
+	DisablePasswordLogin *bool `json:"disablePasswordLogin,omitempty"`
 	EmailConfig *SaaSPortalEmailConfig `json:"emailConfig,omitempty"`
 	// The endpoint of the SaaS portal for this environment type
 	Endpoint *string `json:"endpoint,omitempty"`
@@ -154,6 +156,38 @@ func (o *SaaSPortal) HasDetailedNetworkTopology() bool {
 // SetDetailedNetworkTopology gets a reference to the given map[string]interface{} and assigns it to the DetailedNetworkTopology field.
 func (o *SaaSPortal) SetDetailedNetworkTopology(v map[string]interface{}) {
 	o.DetailedNetworkTopology = v
+}
+
+// GetDisablePasswordLogin returns the DisablePasswordLogin field value if set, zero value otherwise.
+func (o *SaaSPortal) GetDisablePasswordLogin() bool {
+	if o == nil || IsNil(o.DisablePasswordLogin) {
+		var ret bool
+		return ret
+	}
+	return *o.DisablePasswordLogin
+}
+
+// GetDisablePasswordLoginOk returns a tuple with the DisablePasswordLogin field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SaaSPortal) GetDisablePasswordLoginOk() (*bool, bool) {
+	if o == nil || IsNil(o.DisablePasswordLogin) {
+		return nil, false
+	}
+	return o.DisablePasswordLogin, true
+}
+
+// HasDisablePasswordLogin returns a boolean if a field has been set.
+func (o *SaaSPortal) HasDisablePasswordLogin() bool {
+	if o != nil && !IsNil(o.DisablePasswordLogin) {
+		return true
+	}
+
+	return false
+}
+
+// SetDisablePasswordLogin gets a reference to the given bool and assigns it to the DisablePasswordLogin field.
+func (o *SaaSPortal) SetDisablePasswordLogin(v bool) {
+	o.DisablePasswordLogin = &v
 }
 
 // GetEmailConfig returns the EmailConfig field value if set, zero value otherwise.
@@ -351,6 +385,9 @@ func (o SaaSPortal) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DetailedNetworkTopology) {
 		toSerialize["detailedNetworkTopology"] = o.DetailedNetworkTopology
 	}
+	if !IsNil(o.DisablePasswordLogin) {
+		toSerialize["disablePasswordLogin"] = o.DisablePasswordLogin
+	}
 	if !IsNil(o.EmailConfig) {
 		toSerialize["emailConfig"] = o.EmailConfig
 	}
@@ -412,6 +449,7 @@ func (o *SaaSPortal) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "customDomain")
 		delete(additionalProperties, "customDomainStatus")
 		delete(additionalProperties, "detailedNetworkTopology")
+		delete(additionalProperties, "disablePasswordLogin")
 		delete(additionalProperties, "emailConfig")
 		delete(additionalProperties, "endpoint")
 		delete(additionalProperties, "environmentType")
