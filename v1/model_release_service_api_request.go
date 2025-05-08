@@ -20,6 +20,8 @@ var _ MappedNullable = &ReleaseServiceAPIRequest{}
 
 // ReleaseServiceAPIRequest struct for ReleaseServiceAPIRequest
 type ReleaseServiceAPIRequest struct {
+	// When true, performs a dry run of the release operation without making any actual changes to the current pending changes and the service API.
+	DryRun *bool `json:"dryRun,omitempty"`
 	// ID of a Service API
 	Id string `json:"id"`
 	// Indicates whether this version set is preferred.
@@ -45,6 +47,8 @@ type _ReleaseServiceAPIRequest ReleaseServiceAPIRequest
 // will change when the set of required properties is changed
 func NewReleaseServiceAPIRequest(id string, serviceId string, token string) *ReleaseServiceAPIRequest {
 	this := ReleaseServiceAPIRequest{}
+	var dryRun bool = false
+	this.DryRun = &dryRun
 	this.Id = id
 	var isPreferred bool = false
 	this.IsPreferred = &isPreferred
@@ -58,9 +62,34 @@ func NewReleaseServiceAPIRequest(id string, serviceId string, token string) *Rel
 // but it doesn't guarantee that properties required by API are set
 func NewReleaseServiceAPIRequestWithDefaults() *ReleaseServiceAPIRequest {
 	this := ReleaseServiceAPIRequest{}
+	var dryRun bool = false
+	this.DryRun = &dryRun
 	var isPreferred bool = false
 	this.IsPreferred = &isPreferred
 	return &this
+}
+
+// GetDryRun returns the DryRun field value if set, zero value otherwise.
+func (o *ReleaseServiceAPIRequest) GetDryRun() bool {
+	if o == nil || IsNil(o.DryRun) {
+		var ret bool
+		return ret
+	}
+	return *o.DryRun
+}
+
+// GetDryRunOk returns a tuple with the DryRun field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ReleaseServiceAPIRequest) GetDryRunOk() (*bool, bool) {
+	if o == nil || IsNil(o.DryRun) {
+		return nil, false
+	}
+	return o.DryRun, true
+}
+
+// SetDryRun gets a reference to the given bool and assigns it to the DryRun field.
+func (o *ReleaseServiceAPIRequest) SetDryRun(v bool) {
+	o.DryRun = &v
 }
 
 // GetId returns the Id field value
@@ -237,6 +266,9 @@ func (o ReleaseServiceAPIRequest) MarshalJSON() ([]byte, error) {
 
 func (o ReleaseServiceAPIRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.DryRun) {
+		toSerialize["dryRun"] = o.DryRun
+	}
 	toSerialize["id"] = o.Id
 	if !IsNil(o.IsPreferred) {
 		toSerialize["isPreferred"] = o.IsPreferred
@@ -297,6 +329,7 @@ func (o *ReleaseServiceAPIRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "dryRun")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "isPreferred")
 		delete(additionalProperties, "productTierId")

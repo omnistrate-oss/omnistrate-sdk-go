@@ -6,10 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CreatedAt** | Pointer to **string** | The time that this pricing was created | [optional] 
 **CreatedByUserId** | Pointer to **string** | ID of a User | [optional] 
-**CreatedByUserName** | Pointer to **string** | The name of the user that created the pricing | [optional] 
-**EndDate** | Pointer to **string** | The end date of the pricing | [optional] 
-**PricingPerUnit** | Pointer to **map[string]interface{}** | The pricing per unit for the subscription | [optional] 
-**StartDate** | Pointer to **string** | The start date of the pricing | [optional] 
+**CreatedByUserName** | Pointer to **string** | The name of the user that created the price | [optional] 
+**EndDate** | Pointer to **string** | The end date of the price | [optional] 
+**InheritServicePlanPrice** | Pointer to **bool** | Whether this price inherits the service plan price | [optional] 
+**PricePerUnit** | Pointer to **map[string]interface{}** | The price per unit for the subscription | [optional] 
+**StartDate** | Pointer to **string** | The start date of the price | [optional] 
 
 ## Methods
 
@@ -130,30 +131,55 @@ SetEndDate sets EndDate field to given value.
 
 HasEndDate returns a boolean if a field has been set.
 
-### GetPricingPerUnit
+### GetInheritServicePlanPrice
 
-`func (o *HistorySubscriptionPricing) GetPricingPerUnit() map[string]interface{}`
+`func (o *HistorySubscriptionPricing) GetInheritServicePlanPrice() bool`
 
-GetPricingPerUnit returns the PricingPerUnit field if non-nil, zero value otherwise.
+GetInheritServicePlanPrice returns the InheritServicePlanPrice field if non-nil, zero value otherwise.
 
-### GetPricingPerUnitOk
+### GetInheritServicePlanPriceOk
 
-`func (o *HistorySubscriptionPricing) GetPricingPerUnitOk() (*map[string]interface{}, bool)`
+`func (o *HistorySubscriptionPricing) GetInheritServicePlanPriceOk() (*bool, bool)`
 
-GetPricingPerUnitOk returns a tuple with the PricingPerUnit field if it's non-nil, zero value otherwise
+GetInheritServicePlanPriceOk returns a tuple with the InheritServicePlanPrice field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPricingPerUnit
+### SetInheritServicePlanPrice
 
-`func (o *HistorySubscriptionPricing) SetPricingPerUnit(v map[string]interface{})`
+`func (o *HistorySubscriptionPricing) SetInheritServicePlanPrice(v bool)`
 
-SetPricingPerUnit sets PricingPerUnit field to given value.
+SetInheritServicePlanPrice sets InheritServicePlanPrice field to given value.
 
-### HasPricingPerUnit
+### HasInheritServicePlanPrice
 
-`func (o *HistorySubscriptionPricing) HasPricingPerUnit() bool`
+`func (o *HistorySubscriptionPricing) HasInheritServicePlanPrice() bool`
 
-HasPricingPerUnit returns a boolean if a field has been set.
+HasInheritServicePlanPrice returns a boolean if a field has been set.
+
+### GetPricePerUnit
+
+`func (o *HistorySubscriptionPricing) GetPricePerUnit() map[string]interface{}`
+
+GetPricePerUnit returns the PricePerUnit field if non-nil, zero value otherwise.
+
+### GetPricePerUnitOk
+
+`func (o *HistorySubscriptionPricing) GetPricePerUnitOk() (*map[string]interface{}, bool)`
+
+GetPricePerUnitOk returns a tuple with the PricePerUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPricePerUnit
+
+`func (o *HistorySubscriptionPricing) SetPricePerUnit(v map[string]interface{})`
+
+SetPricePerUnit sets PricePerUnit field to given value.
+
+### HasPricePerUnit
+
+`func (o *HistorySubscriptionPricing) HasPricePerUnit() bool`
+
+HasPricePerUnit returns a boolean if a field has been set.
 
 ### GetStartDate
 

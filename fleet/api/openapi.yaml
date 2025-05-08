@@ -11560,8 +11560,10 @@ paths:
                       currency: USD
                   createdAt: 2019-01-01T00:00:00Z
                   historySubscriptionPricing:
-                  - endDate: 2019-01-01T00:00:00Z
-                    pricingPerUnit:
+                  - createdAt: 2019-01-03T00:00:00Z
+                    endDate: 2019-01-01T00:00:00Z
+                    inheritServicePlanPrice: true
+                    pricePerUnit:
                       CPU core hours:
                         amount: 0.001
                         currency: USD
@@ -11571,7 +11573,11 @@ paths:
                       Storage GiB hours:
                         amount: 1.0E-4
                         currency: USD
-                  - pricingPerUnit:
+                  - createdAt: 2019-01-04T00:00:00Z
+                    createdByUserId: user-12345678
+                    createdByUserName: John Doe
+                    inheritServicePlanPrice: false
+                    pricePerUnit:
                       CPU core hours:
                         amount: 0.01
                         currency: USD
@@ -11583,7 +11589,7 @@ paths:
                         currency: USD
                     startDate: 2019-01-01T00:00:00Z
                   id: sub-12345678
-                  inheritServicePlanPricing: true
+                  inheritServicePlanPrice: true
                   instanceCount: 3
                   productTierId: pt-12345678
                   productTierName: Omnistrate Multi Tenancy
@@ -11611,8 +11617,10 @@ paths:
                       currency: USD
                   createdAt: 2019-01-01T00:00:00Z
                   historySubscriptionPricing:
-                  - endDate: 2019-01-01T00:00:00Z
-                    pricingPerUnit:
+                  - createdAt: 2019-01-03T00:00:00Z
+                    endDate: 2019-01-01T00:00:00Z
+                    inheritServicePlanPrice: true
+                    pricePerUnit:
                       CPU core hours:
                         amount: 0.001
                         currency: USD
@@ -11622,7 +11630,11 @@ paths:
                       Storage GiB hours:
                         amount: 1.0E-4
                         currency: USD
-                  - pricingPerUnit:
+                  - createdAt: 2019-01-04T00:00:00Z
+                    createdByUserId: user-12345678
+                    createdByUserName: John Doe
+                    inheritServicePlanPrice: false
+                    pricePerUnit:
                       CPU core hours:
                         amount: 0.01
                         currency: USD
@@ -11634,7 +11646,7 @@ paths:
                         currency: USD
                     startDate: 2019-01-01T00:00:00Z
                   id: sub-12345678
-                  inheritServicePlanPricing: true
+                  inheritServicePlanPrice: true
                   instanceCount: 3
                   productTierId: pt-12345678
                   productTierName: Omnistrate Multi Tenancy
@@ -11725,10 +11737,10 @@ paths:
         content:
           application/json:
             example:
-              inheritServicePlanPricing: true
+              inheritServicePlanPrice: true
               onBehalfOfCustomerUserId: user-12345678
-              pricingEffectiveDate: 2019-01-01T00:00:00Z
-              pricingPerUnit:
+              priceEffectiveDate: 2019-01-01T00:00:00Z
+              pricePerUnit:
                 CPU core hours:
                   amount: 0.001
                   currency: USD
@@ -11930,8 +11942,10 @@ paths:
                     currency: USD
                 createdAt: 2019-01-01T00:00:00Z
                 historySubscriptionPricing:
-                - endDate: 2019-01-01T00:00:00Z
-                  pricingPerUnit:
+                - createdAt: 2019-01-03T00:00:00Z
+                  endDate: 2019-01-01T00:00:00Z
+                  inheritServicePlanPrice: true
+                  pricePerUnit:
                     CPU core hours:
                       amount: 0.001
                       currency: USD
@@ -11941,7 +11955,11 @@ paths:
                     Storage GiB hours:
                       amount: 1.0E-4
                       currency: USD
-                - pricingPerUnit:
+                - createdAt: 2019-01-04T00:00:00Z
+                  createdByUserId: user-12345678
+                  createdByUserName: John Doe
+                  inheritServicePlanPrice: false
+                  pricePerUnit:
                     CPU core hours:
                       amount: 0.01
                       currency: USD
@@ -11953,7 +11971,7 @@ paths:
                       currency: USD
                   startDate: 2019-01-01T00:00:00Z
                 id: sub-12345678
-                inheritServicePlanPricing: true
+                inheritServicePlanPrice: true
                 instanceCount: 3
                 productTierId: pt-12345678
                 productTierName: Omnistrate Multi Tenancy
@@ -12055,9 +12073,9 @@ paths:
         content:
           application/json:
             example:
-              inheritServicePlanPricing: true
-              pricingEffectiveDate: 2019-01-01T00:00:00Z
-              pricingPerUnit:
+              inheritServicePlanPrice: true
+              priceEffectiveDate: 2019-01-01T00:00:00Z
+              pricePerUnit:
                 CPU core hours:
                   amount: 0.001
                   currency: USD
@@ -22080,12 +22098,23 @@ components:
     DescribeSubscriptionResult:
       example:
         accountConfigIdentityId: org-12345678
+        activeSubscriptionPricing:
+          CPU core hours:
+            amount: 0.001
+            currency: USD
+          Memory GiB hours:
+            amount: 1.0E-4
+            currency: USD
+          Storage GiB hours:
+            amount: 1.0E-4
+            currency: USD
         cloudProviderNames:
         - aws
         - gcp
         createdAt: 2019-01-01T00:00:00Z
         defaultSubscription: true
         id: sub-12345678
+        inheritServicePlanPrice: true
         productTierId: pt-12345678
         productTierName: Omnistrate Multi Tenancy
         roleType: root
@@ -22102,6 +22131,21 @@ components:
           description: ID of an Org
           example: Eligendi sunt minus.
           type: string
+        activeSubscriptionPricing:
+          additionalProperties: true
+          description: The active pricing for the subscription at the time of the
+            request.
+          example:
+            CPU core hours:
+              amount: 0.001
+              currency: USD
+            Memory GiB hours:
+              amount: 1.0E-4
+              currency: USD
+            Storage GiB hours:
+              amount: 1.0E-4
+              currency: USD
+          type: object
         cloudProviderNames:
           description: List of cloud provider names
           example:
@@ -22123,6 +22167,10 @@ components:
           description: ID of a Subscription
           example: Rerum minus alias aut omnis.
           type: string
+        inheritServicePlanPrice:
+          description: Whether to inherit the service plan price
+          example: true
+          type: boolean
         productTierId:
           description: ID of a Product Tier
           example: Dolor aut quia consequatur.
@@ -24186,10 +24234,10 @@ components:
     FleetCreateSubscriptionOnBehalfOfCustomerRequest:
       example:
         environmentId: se-12345678
-        inheritServicePlanPricing: true
+        inheritServicePlanPrice: true
         onBehalfOfCustomerUserId: user-12345678
-        pricingEffectiveDate: 2019-01-01T00:00:00Z
-        pricingPerUnit:
+        priceEffectiveDate: 2019-01-01T00:00:00Z
+        pricePerUnit:
           CPU core hours:
             amount: 0.001
             currency: USD
@@ -24207,23 +24255,23 @@ components:
           description: ID of a Service Environment
           example: se-123456
           type: string
-        inheritServicePlanPricing:
-          description: Whether to inherit the service plan pricing
+        inheritServicePlanPrice:
+          description: Whether to inherit the service plan price
           example: true
           type: boolean
         onBehalfOfCustomerUserId:
           description: ID of a User
           example: Sapiente maiores labore ducimus rem aliquam debitis.
           type: string
-        pricingEffectiveDate:
-          description: "The effective date of the pricing, truncated to the first\
-            \ day of the month. Only the current or future months may be specified."
+        priceEffectiveDate:
+          description: "The effective date of the price, truncated to the first day\
+            \ of the month. Only the current or future months may be specified."
           example: 2019-01-01T00:00:00Z
           type: string
-        pricingPerUnit:
+        pricePerUnit:
           additionalProperties: true
-          description: "If inheritServicePlanPricing is false, provide the pricing\
-            \ per unit for the subscription here."
+          description: "If inheritServicePlanPrice is false, provide the price per\
+            \ unit for the subscription here."
           example:
             CPU core hours:
               amount: 0.001
@@ -24257,10 +24305,10 @@ components:
       type: object
     FleetCreateSubscriptionOnBehalfOfCustomerRequest2:
       example:
-        inheritServicePlanPricing: true
+        inheritServicePlanPrice: true
         onBehalfOfCustomerUserId: user-12345678
-        pricingEffectiveDate: 2019-01-01T00:00:00Z
-        pricingPerUnit:
+        priceEffectiveDate: 2019-01-01T00:00:00Z
+        pricePerUnit:
           CPU core hours:
             amount: 0.001
             currency: USD
@@ -24272,8 +24320,8 @@ components:
             currency: USD
         productTierId: prod-12345678
       properties:
-        inheritServicePlanPricing:
-          description: Whether to inherit the service plan pricing
+        inheritServicePlanPrice:
+          description: Whether to inherit the service plan price
           example: true
           type: boolean
         onBehalfOfCustomerUserId:
@@ -24281,15 +24329,15 @@ components:
             of
           example: user-12345678
           type: string
-        pricingEffectiveDate:
-          description: "The effective date of the pricing, truncated to the first\
-            \ day of the month. Only the current or future months may be specified."
+        priceEffectiveDate:
+          description: "The effective date of the price, truncated to the first day\
+            \ of the month. Only the current or future months may be specified."
           example: 2019-01-01T00:00:00Z
           type: string
-        pricingPerUnit:
+        pricePerUnit:
           additionalProperties: true
-          description: "If inheritServicePlanPricing is false, provide the pricing\
-            \ per unit for the subscription here."
+          description: "If inheritServicePlanPrice is false, provide the price per\
+            \ unit for the subscription here."
           example:
             CPU core hours:
               amount: 0.001
@@ -25223,8 +25271,10 @@ components:
             currency: USD
         createdAt: 2019-01-01T00:00:00Z
         historySubscriptionPricing:
-        - endDate: 2019-01-01T00:00:00Z
-          pricingPerUnit:
+        - createdAt: 2019-01-03T00:00:00Z
+          endDate: 2019-01-01T00:00:00Z
+          inheritServicePlanPrice: true
+          pricePerUnit:
             CPU core hours:
               amount: 0.001
               currency: USD
@@ -25234,7 +25284,11 @@ components:
             Storage GiB hours:
               amount: 1.0E-4
               currency: USD
-        - pricingPerUnit:
+        - createdAt: 2019-01-04T00:00:00Z
+          createdByUserId: user-12345678
+          createdByUserName: John Doe
+          inheritServicePlanPrice: false
+          pricePerUnit:
             CPU core hours:
               amount: 0.01
               currency: USD
@@ -25246,7 +25300,7 @@ components:
               currency: USD
           startDate: 2019-01-01T00:00:00Z
         id: sub-12345678
-        inheritServicePlanPricing: true
+        inheritServicePlanPrice: true
         instanceCount: 3
         productTierId: pt-12345678
         productTierName: Omnistrate Multi Tenancy
@@ -25285,8 +25339,10 @@ components:
         historySubscriptionPricing:
           description: The history pricing for the subscription.
           example:
-          - endDate: 2019-01-01T00:00:00Z
-            pricingPerUnit:
+          - createdAt: 2019-01-03T00:00:00Z
+            endDate: 2019-01-01T00:00:00Z
+            inheritServicePlanPrice: true
+            pricePerUnit:
               CPU core hours:
                 amount: 0.001
                 currency: USD
@@ -25296,7 +25352,11 @@ components:
               Storage GiB hours:
                 amount: 1.0E-4
                 currency: USD
-          - pricingPerUnit:
+          - createdAt: 2019-01-04T00:00:00Z
+            createdByUserId: user-12345678
+            createdByUserName: John Doe
+            inheritServicePlanPrice: false
+            pricePerUnit:
               CPU core hours:
                 amount: 0.01
                 currency: USD
@@ -25314,8 +25374,8 @@ components:
           description: ID of a Subscription
           example: Cupiditate numquam aut enim error alias veniam.
           type: string
-        inheritServicePlanPricing:
-          description: Whether to inherit the service plan pricing
+        inheritServicePlanPrice:
+          description: Whether to inherit the service plan price
           example: true
           type: boolean
         instanceCount:
@@ -29019,8 +29079,10 @@ components:
               currency: USD
           createdAt: 2019-01-01T00:00:00Z
           historySubscriptionPricing:
-          - endDate: 2019-01-01T00:00:00Z
-            pricingPerUnit:
+          - createdAt: 2019-01-03T00:00:00Z
+            endDate: 2019-01-01T00:00:00Z
+            inheritServicePlanPrice: true
+            pricePerUnit:
               CPU core hours:
                 amount: 0.001
                 currency: USD
@@ -29030,7 +29092,11 @@ components:
               Storage GiB hours:
                 amount: 1.0E-4
                 currency: USD
-          - pricingPerUnit:
+          - createdAt: 2019-01-04T00:00:00Z
+            createdByUserId: user-12345678
+            createdByUserName: John Doe
+            inheritServicePlanPrice: false
+            pricePerUnit:
               CPU core hours:
                 amount: 0.01
                 currency: USD
@@ -29042,7 +29108,7 @@ components:
                 currency: USD
             startDate: 2019-01-01T00:00:00Z
           id: sub-12345678
-          inheritServicePlanPricing: true
+          inheritServicePlanPrice: true
           instanceCount: 3
           productTierId: pt-12345678
           productTierName: Omnistrate Multi Tenancy
@@ -29070,8 +29136,10 @@ components:
               currency: USD
           createdAt: 2019-01-01T00:00:00Z
           historySubscriptionPricing:
-          - endDate: 2019-01-01T00:00:00Z
-            pricingPerUnit:
+          - createdAt: 2019-01-03T00:00:00Z
+            endDate: 2019-01-01T00:00:00Z
+            inheritServicePlanPrice: true
+            pricePerUnit:
               CPU core hours:
                 amount: 0.001
                 currency: USD
@@ -29081,7 +29149,11 @@ components:
               Storage GiB hours:
                 amount: 1.0E-4
                 currency: USD
-          - pricingPerUnit:
+          - createdAt: 2019-01-04T00:00:00Z
+            createdByUserId: user-12345678
+            createdByUserName: John Doe
+            inheritServicePlanPrice: false
+            pricePerUnit:
               CPU core hours:
                 amount: 0.01
                 currency: USD
@@ -29093,7 +29165,7 @@ components:
                 currency: USD
             startDate: 2019-01-01T00:00:00Z
           id: sub-12345678
-          inheritServicePlanPricing: true
+          inheritServicePlanPrice: true
           instanceCount: 3
           productTierId: pt-12345678
           productTierName: Omnistrate Multi Tenancy
@@ -29140,8 +29212,10 @@ components:
                 currency: USD
             createdAt: 2019-01-01T00:00:00Z
             historySubscriptionPricing:
-            - endDate: 2019-01-01T00:00:00Z
-              pricingPerUnit:
+            - createdAt: 2019-01-03T00:00:00Z
+              endDate: 2019-01-01T00:00:00Z
+              inheritServicePlanPrice: true
+              pricePerUnit:
                 CPU core hours:
                   amount: 0.001
                   currency: USD
@@ -29151,7 +29225,11 @@ components:
                 Storage GiB hours:
                   amount: 1.0E-4
                   currency: USD
-            - pricingPerUnit:
+            - createdAt: 2019-01-04T00:00:00Z
+              createdByUserId: user-12345678
+              createdByUserName: John Doe
+              inheritServicePlanPrice: false
+              pricePerUnit:
                 CPU core hours:
                   amount: 0.01
                   currency: USD
@@ -29163,7 +29241,7 @@ components:
                   currency: USD
               startDate: 2019-01-01T00:00:00Z
             id: sub-12345678
-            inheritServicePlanPricing: true
+            inheritServicePlanPrice: true
             instanceCount: 3
             productTierId: pt-12345678
             productTierName: Omnistrate Multi Tenancy
@@ -29191,8 +29269,10 @@ components:
                 currency: USD
             createdAt: 2019-01-01T00:00:00Z
             historySubscriptionPricing:
-            - endDate: 2019-01-01T00:00:00Z
-              pricingPerUnit:
+            - createdAt: 2019-01-03T00:00:00Z
+              endDate: 2019-01-01T00:00:00Z
+              inheritServicePlanPrice: true
+              pricePerUnit:
                 CPU core hours:
                   amount: 0.001
                   currency: USD
@@ -29202,7 +29282,11 @@ components:
                 Storage GiB hours:
                   amount: 1.0E-4
                   currency: USD
-            - pricingPerUnit:
+            - createdAt: 2019-01-04T00:00:00Z
+              createdByUserId: user-12345678
+              createdByUserName: John Doe
+              inheritServicePlanPrice: false
+              pricePerUnit:
                 CPU core hours:
                   amount: 0.01
                   currency: USD
@@ -29214,7 +29298,7 @@ components:
                   currency: USD
               startDate: 2019-01-01T00:00:00Z
             id: sub-12345678
-            inheritServicePlanPricing: true
+            inheritServicePlanPrice: true
             instanceCount: 3
             productTierId: pt-12345678
             productTierName: Omnistrate Multi Tenancy
@@ -29242,8 +29326,10 @@ components:
                 currency: USD
             createdAt: 2019-01-01T00:00:00Z
             historySubscriptionPricing:
-            - endDate: 2019-01-01T00:00:00Z
-              pricingPerUnit:
+            - createdAt: 2019-01-03T00:00:00Z
+              endDate: 2019-01-01T00:00:00Z
+              inheritServicePlanPrice: true
+              pricePerUnit:
                 CPU core hours:
                   amount: 0.001
                   currency: USD
@@ -29253,7 +29339,11 @@ components:
                 Storage GiB hours:
                   amount: 1.0E-4
                   currency: USD
-            - pricingPerUnit:
+            - createdAt: 2019-01-04T00:00:00Z
+              createdByUserId: user-12345678
+              createdByUserName: John Doe
+              inheritServicePlanPrice: false
+              pricePerUnit:
                 CPU core hours:
                   amount: 0.01
                   currency: USD
@@ -29265,7 +29355,7 @@ components:
                   currency: USD
               startDate: 2019-01-01T00:00:00Z
             id: sub-12345678
-            inheritServicePlanPricing: true
+            inheritServicePlanPrice: true
             instanceCount: 3
             productTierId: pt-12345678
             productTierName: Omnistrate Multi Tenancy
@@ -29293,8 +29383,10 @@ components:
                 currency: USD
             createdAt: 2019-01-01T00:00:00Z
             historySubscriptionPricing:
-            - endDate: 2019-01-01T00:00:00Z
-              pricingPerUnit:
+            - createdAt: 2019-01-03T00:00:00Z
+              endDate: 2019-01-01T00:00:00Z
+              inheritServicePlanPrice: true
+              pricePerUnit:
                 CPU core hours:
                   amount: 0.001
                   currency: USD
@@ -29304,7 +29396,11 @@ components:
                 Storage GiB hours:
                   amount: 1.0E-4
                   currency: USD
-            - pricingPerUnit:
+            - createdAt: 2019-01-04T00:00:00Z
+              createdByUserId: user-12345678
+              createdByUserName: John Doe
+              inheritServicePlanPrice: false
+              pricePerUnit:
                 CPU core hours:
                   amount: 0.01
                   currency: USD
@@ -29316,7 +29412,7 @@ components:
                   currency: USD
               startDate: 2019-01-01T00:00:00Z
             id: sub-12345678
-            inheritServicePlanPricing: true
+            inheritServicePlanPrice: true
             instanceCount: 3
             productTierId: pt-12345678
             productTierName: Omnistrate Multi Tenancy
@@ -30257,9 +30353,9 @@ components:
       example:
         environmentId: se-12345678
         id: sub-12345678
-        inheritServicePlanPricing: true
-        pricingEffectiveDate: 2019-01-01T00:00:00Z
-        pricingPerUnit:
+        inheritServicePlanPrice: true
+        priceEffectiveDate: 2019-01-01T00:00:00Z
+        pricePerUnit:
           CPU core hours:
             amount: 0.001
             currency: USD
@@ -30280,19 +30376,19 @@ components:
           description: ID of a Subscription
           example: Iusto veritatis est facere error aliquid.
           type: string
-        inheritServicePlanPricing:
-          description: Whether to inherit the service plan pricing
+        inheritServicePlanPrice:
+          description: Whether to inherit the service plan price
           example: true
           type: boolean
-        pricingEffectiveDate:
-          description: "The effective date of the pricing, truncated to the first\
-            \ day of the month. Only the current or future months may be specified."
+        priceEffectiveDate:
+          description: "The effective date of the price, truncated to the first day\
+            \ of the month. Only the current or future months may be specified."
           example: 2019-01-01T00:00:00Z
           type: string
-        pricingPerUnit:
+        pricePerUnit:
           additionalProperties: true
-          description: "If inheritServicePlanPricing is false, provide the pricing\
-            \ per unit for the subscription here."
+          description: "If inheritServicePlanPrice is false, provide the price per\
+            \ unit for the subscription here."
           example:
             CPU core hours:
               amount: 0.001
@@ -30321,9 +30417,9 @@ components:
       type: object
     FleetUpdateSubscriptionRequest2:
       example:
-        inheritServicePlanPricing: true
-        pricingEffectiveDate: 2019-01-01T00:00:00Z
-        pricingPerUnit:
+        inheritServicePlanPrice: true
+        priceEffectiveDate: 2019-01-01T00:00:00Z
+        pricePerUnit:
           CPU core hours:
             amount: 0.001
             currency: USD
@@ -30334,19 +30430,19 @@ components:
             amount: 1.0E-4
             currency: USD
       properties:
-        inheritServicePlanPricing:
-          description: Whether to inherit the service plan pricing
+        inheritServicePlanPrice:
+          description: Whether to inherit the service plan price
           example: true
           type: boolean
-        pricingEffectiveDate:
-          description: "The effective date of the pricing, truncated to the first\
-            \ day of the month. Only the current or future months may be specified."
+        priceEffectiveDate:
+          description: "The effective date of the price, truncated to the first day\
+            \ of the month. Only the current or future months may be specified."
           example: 2019-01-01T00:00:00Z
           type: string
-        pricingPerUnit:
+        pricePerUnit:
           additionalProperties: true
-          description: "If inheritServicePlanPricing is false, provide the pricing\
-            \ per unit for the subscription here."
+          description: "If inheritServicePlanPrice is false, provide the price per\
+            \ unit for the subscription here."
           example:
             CPU core hours:
               amount: 0.001
@@ -31162,7 +31258,8 @@ components:
         createdByUserId: user-12345678
         createdByUserName: John Doe
         endDate: 2019-01-01T00:00:00Z
-        pricingPerUnit:
+        inheritServicePlanPrice: true
+        pricePerUnit:
           CPU core hours:
             amount: 0.001
             currency: USD
@@ -31183,16 +31280,20 @@ components:
           example: Illo et et.
           type: string
         createdByUserName:
-          description: The name of the user that created the pricing
+          description: The name of the user that created the price
           example: John Doe
           type: string
         endDate:
-          description: The end date of the pricing
+          description: The end date of the price
           example: 2019-01-01T00:00:00Z
           type: string
-        pricingPerUnit:
+        inheritServicePlanPrice:
+          description: Whether this price inherits the service plan price
+          example: true
+          type: boolean
+        pricePerUnit:
           additionalProperties: true
-          description: The pricing per unit for the subscription
+          description: The price per unit for the subscription
           example:
             CPU core hours:
               amount: 0.001
@@ -31205,7 +31306,7 @@ components:
               currency: USD
           type: object
         startDate:
-          description: The start date of the pricing
+          description: The start date of the price
           example: 2019-01-01T00:00:00Z
           type: string
       type: object
@@ -39549,12 +39650,23 @@ components:
         nextPageToken: next-token
         subscriptions:
         - accountConfigIdentityId: org-12345678
+          activeSubscriptionPricing:
+            CPU core hours:
+              amount: 0.001
+              currency: USD
+            Memory GiB hours:
+              amount: 1.0E-4
+              currency: USD
+            Storage GiB hours:
+              amount: 1.0E-4
+              currency: USD
           cloudProviderNames:
           - aws
           - gcp
           createdAt: 2019-01-01T00:00:00Z
           defaultSubscription: true
           id: sub-12345678
+          inheritServicePlanPrice: true
           productTierId: pt-12345678
           productTierName: Omnistrate Multi Tenancy
           roleType: root
@@ -39567,12 +39679,23 @@ components:
           status: ACTIVE
           subscriptionOwnerName: John Doe
         - accountConfigIdentityId: org-12345678
+          activeSubscriptionPricing:
+            CPU core hours:
+              amount: 0.001
+              currency: USD
+            Memory GiB hours:
+              amount: 1.0E-4
+              currency: USD
+            Storage GiB hours:
+              amount: 1.0E-4
+              currency: USD
           cloudProviderNames:
           - aws
           - gcp
           createdAt: 2019-01-01T00:00:00Z
           defaultSubscription: true
           id: sub-12345678
+          inheritServicePlanPrice: true
           productTierId: pt-12345678
           productTierName: Omnistrate Multi Tenancy
           roleType: root
@@ -39585,12 +39708,23 @@ components:
           status: ACTIVE
           subscriptionOwnerName: John Doe
         - accountConfigIdentityId: org-12345678
+          activeSubscriptionPricing:
+            CPU core hours:
+              amount: 0.001
+              currency: USD
+            Memory GiB hours:
+              amount: 1.0E-4
+              currency: USD
+            Storage GiB hours:
+              amount: 1.0E-4
+              currency: USD
           cloudProviderNames:
           - aws
           - gcp
           createdAt: 2019-01-01T00:00:00Z
           defaultSubscription: true
           id: sub-12345678
+          inheritServicePlanPrice: true
           productTierId: pt-12345678
           productTierName: Omnistrate Multi Tenancy
           roleType: root
@@ -39603,12 +39737,23 @@ components:
           status: ACTIVE
           subscriptionOwnerName: John Doe
         - accountConfigIdentityId: org-12345678
+          activeSubscriptionPricing:
+            CPU core hours:
+              amount: 0.001
+              currency: USD
+            Memory GiB hours:
+              amount: 1.0E-4
+              currency: USD
+            Storage GiB hours:
+              amount: 1.0E-4
+              currency: USD
           cloudProviderNames:
           - aws
           - gcp
           createdAt: 2019-01-01T00:00:00Z
           defaultSubscription: true
           id: sub-12345678
+          inheritServicePlanPrice: true
           productTierId: pt-12345678
           productTierName: Omnistrate Multi Tenancy
           roleType: root
@@ -39640,12 +39785,23 @@ components:
           description: List of subscriptions
           example:
           - accountConfigIdentityId: org-12345678
+            activeSubscriptionPricing:
+              CPU core hours:
+                amount: 0.001
+                currency: USD
+              Memory GiB hours:
+                amount: 1.0E-4
+                currency: USD
+              Storage GiB hours:
+                amount: 1.0E-4
+                currency: USD
             cloudProviderNames:
             - aws
             - gcp
             createdAt: 2019-01-01T00:00:00Z
             defaultSubscription: true
             id: sub-12345678
+            inheritServicePlanPrice: true
             productTierId: pt-12345678
             productTierName: Omnistrate Multi Tenancy
             roleType: root
@@ -39658,12 +39814,23 @@ components:
             status: ACTIVE
             subscriptionOwnerName: John Doe
           - accountConfigIdentityId: org-12345678
+            activeSubscriptionPricing:
+              CPU core hours:
+                amount: 0.001
+                currency: USD
+              Memory GiB hours:
+                amount: 1.0E-4
+                currency: USD
+              Storage GiB hours:
+                amount: 1.0E-4
+                currency: USD
             cloudProviderNames:
             - aws
             - gcp
             createdAt: 2019-01-01T00:00:00Z
             defaultSubscription: true
             id: sub-12345678
+            inheritServicePlanPrice: true
             productTierId: pt-12345678
             productTierName: Omnistrate Multi Tenancy
             roleType: root
@@ -46493,6 +46660,7 @@ components:
     UpdateResourceInstanceRequest:
       example:
         id: instance-abcd1234
+        network_type: PUBLIC
         productTierKey: premium
         requestParams:
           param1: value1
@@ -46509,6 +46677,10 @@ components:
         id:
           description: The instance ID
           example: instance-abcd1234
+          type: string
+        network_type:
+          description: The network type
+          example: PUBLIC
           type: string
         productTierKey:
           description: The product tier name

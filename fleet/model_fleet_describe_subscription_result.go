@@ -28,8 +28,8 @@ type FleetDescribeSubscriptionResult struct {
 	HistorySubscriptionPricing []HistorySubscriptionPricing `json:"historySubscriptionPricing,omitempty"`
 	// ID of a Subscription
 	Id string `json:"id"`
-	// Whether to inherit the service plan pricing
-	InheritServicePlanPricing *bool `json:"inheritServicePlanPricing,omitempty"`
+	// Whether to inherit the service plan price
+	InheritServicePlanPrice *bool `json:"inheritServicePlanPrice,omitempty"`
 	// The number of active instances in the subscription
 	InstanceCount int64 `json:"instanceCount"`
 	// ID of a Product Tier
@@ -208,36 +208,36 @@ func (o *FleetDescribeSubscriptionResult) SetId(v string) {
 	o.Id = v
 }
 
-// GetInheritServicePlanPricing returns the InheritServicePlanPricing field value if set, zero value otherwise.
-func (o *FleetDescribeSubscriptionResult) GetInheritServicePlanPricing() bool {
-	if o == nil || IsNil(o.InheritServicePlanPricing) {
+// GetInheritServicePlanPrice returns the InheritServicePlanPrice field value if set, zero value otherwise.
+func (o *FleetDescribeSubscriptionResult) GetInheritServicePlanPrice() bool {
+	if o == nil || IsNil(o.InheritServicePlanPrice) {
 		var ret bool
 		return ret
 	}
-	return *o.InheritServicePlanPricing
+	return *o.InheritServicePlanPrice
 }
 
-// GetInheritServicePlanPricingOk returns a tuple with the InheritServicePlanPricing field value if set, nil otherwise
+// GetInheritServicePlanPriceOk returns a tuple with the InheritServicePlanPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FleetDescribeSubscriptionResult) GetInheritServicePlanPricingOk() (*bool, bool) {
-	if o == nil || IsNil(o.InheritServicePlanPricing) {
+func (o *FleetDescribeSubscriptionResult) GetInheritServicePlanPriceOk() (*bool, bool) {
+	if o == nil || IsNil(o.InheritServicePlanPrice) {
 		return nil, false
 	}
-	return o.InheritServicePlanPricing, true
+	return o.InheritServicePlanPrice, true
 }
 
-// HasInheritServicePlanPricing returns a boolean if a field has been set.
-func (o *FleetDescribeSubscriptionResult) HasInheritServicePlanPricing() bool {
-	if o != nil && !IsNil(o.InheritServicePlanPricing) {
+// HasInheritServicePlanPrice returns a boolean if a field has been set.
+func (o *FleetDescribeSubscriptionResult) HasInheritServicePlanPrice() bool {
+	if o != nil && !IsNil(o.InheritServicePlanPrice) {
 		return true
 	}
 
 	return false
 }
 
-// SetInheritServicePlanPricing gets a reference to the given bool and assigns it to the InheritServicePlanPricing field.
-func (o *FleetDescribeSubscriptionResult) SetInheritServicePlanPricing(v bool) {
-	o.InheritServicePlanPricing = &v
+// SetInheritServicePlanPrice gets a reference to the given bool and assigns it to the InheritServicePlanPrice field.
+func (o *FleetDescribeSubscriptionResult) SetInheritServicePlanPrice(v bool) {
+	o.InheritServicePlanPrice = &v
 }
 
 // GetInstanceCount returns the InstanceCount field value
@@ -642,8 +642,8 @@ func (o FleetDescribeSubscriptionResult) ToMap() (map[string]interface{}, error)
 		toSerialize["historySubscriptionPricing"] = o.HistorySubscriptionPricing
 	}
 	toSerialize["id"] = o.Id
-	if !IsNil(o.InheritServicePlanPricing) {
-		toSerialize["inheritServicePlanPricing"] = o.InheritServicePlanPricing
+	if !IsNil(o.InheritServicePlanPrice) {
+		toSerialize["inheritServicePlanPrice"] = o.InheritServicePlanPrice
 	}
 	toSerialize["instanceCount"] = o.InstanceCount
 	toSerialize["productTierId"] = o.ProductTierId
@@ -726,7 +726,7 @@ func (o *FleetDescribeSubscriptionResult) UnmarshalJSON(data []byte) (err error)
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "historySubscriptionPricing")
 		delete(additionalProperties, "id")
-		delete(additionalProperties, "inheritServicePlanPricing")
+		delete(additionalProperties, "inheritServicePlanPrice")
 		delete(additionalProperties, "instanceCount")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "productTierName")

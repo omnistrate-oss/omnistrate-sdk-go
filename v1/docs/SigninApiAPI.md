@@ -28,7 +28,7 @@ import (
 )
 
 func main() {
-	loginWithIdentityProviderRequest := *openapiclient.NewLoginWithIdentityProviderRequest("Google|GitHub|Google for CTL|GitHub for CTL") // LoginWithIdentityProviderRequest | 
+	loginWithIdentityProviderRequest := *openapiclient.NewLoginWithIdentityProviderRequest("Google|GitHub|Microsoft Entra|Amazon Cognito|Okta|Auth0|Keycloak|OIDC") // LoginWithIdentityProviderRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **CreatedAt** | **string** | The time that this subscription was created | 
 **HistorySubscriptionPricing** | Pointer to [**[]HistorySubscriptionPricing**](HistorySubscriptionPricing.md) | The history pricing for the subscription. | [optional] 
 **Id** | **string** | ID of a Subscription | 
-**InheritServicePlanPricing** | Pointer to **bool** | Whether to inherit the service plan pricing | [optional] 
+**InheritServicePlanPrice** | Pointer to **bool** | Whether to inherit the service plan price | [optional] 
 **InstanceCount** | **int64** | The number of active instances in the subscription | 
 **ProductTierId** | **string** | ID of a Product Tier | 
 **ProductTierName** | **string** | The name of the product tier | 
@@ -134,30 +134,30 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
-### GetInheritServicePlanPricing
+### GetInheritServicePlanPrice
 
-`func (o *FleetDescribeSubscriptionResult) GetInheritServicePlanPricing() bool`
+`func (o *FleetDescribeSubscriptionResult) GetInheritServicePlanPrice() bool`
 
-GetInheritServicePlanPricing returns the InheritServicePlanPricing field if non-nil, zero value otherwise.
+GetInheritServicePlanPrice returns the InheritServicePlanPrice field if non-nil, zero value otherwise.
 
-### GetInheritServicePlanPricingOk
+### GetInheritServicePlanPriceOk
 
-`func (o *FleetDescribeSubscriptionResult) GetInheritServicePlanPricingOk() (*bool, bool)`
+`func (o *FleetDescribeSubscriptionResult) GetInheritServicePlanPriceOk() (*bool, bool)`
 
-GetInheritServicePlanPricingOk returns a tuple with the InheritServicePlanPricing field if it's non-nil, zero value otherwise
+GetInheritServicePlanPriceOk returns a tuple with the InheritServicePlanPrice field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetInheritServicePlanPricing
+### SetInheritServicePlanPrice
 
-`func (o *FleetDescribeSubscriptionResult) SetInheritServicePlanPricing(v bool)`
+`func (o *FleetDescribeSubscriptionResult) SetInheritServicePlanPrice(v bool)`
 
-SetInheritServicePlanPricing sets InheritServicePlanPricing field to given value.
+SetInheritServicePlanPrice sets InheritServicePlanPrice field to given value.
 
-### HasInheritServicePlanPricing
+### HasInheritServicePlanPrice
 
-`func (o *FleetDescribeSubscriptionResult) HasInheritServicePlanPricing() bool`
+`func (o *FleetDescribeSubscriptionResult) HasInheritServicePlanPrice() bool`
 
-HasInheritServicePlanPricing returns a boolean if a field has been set.
+HasInheritServicePlanPrice returns a boolean if a field has been set.
 
 ### GetInstanceCount
 

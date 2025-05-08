@@ -22,6 +22,8 @@ var _ MappedNullable = &UpdateResourceInstanceRequest{}
 type UpdateResourceInstanceRequest struct {
 	// The instance ID
 	Id string `json:"id"`
+	// The network type
+	NetworkType *string `json:"network_type,omitempty"`
 	// The product tier name
 	ProductTierKey string `json:"productTierKey"`
 	// The request parameters
@@ -95,6 +97,38 @@ func (o *UpdateResourceInstanceRequest) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *UpdateResourceInstanceRequest) SetId(v string) {
 	o.Id = v
+}
+
+// GetNetworkType returns the NetworkType field value if set, zero value otherwise.
+func (o *UpdateResourceInstanceRequest) GetNetworkType() string {
+	if o == nil || IsNil(o.NetworkType) {
+		var ret string
+		return ret
+	}
+	return *o.NetworkType
+}
+
+// GetNetworkTypeOk returns a tuple with the NetworkType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateResourceInstanceRequest) GetNetworkTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.NetworkType) {
+		return nil, false
+	}
+	return o.NetworkType, true
+}
+
+// HasNetworkType returns a boolean if a field has been set.
+func (o *UpdateResourceInstanceRequest) HasNetworkType() bool {
+	if o != nil && !IsNil(o.NetworkType) {
+		return true
+	}
+
+	return false
+}
+
+// SetNetworkType gets a reference to the given string and assigns it to the NetworkType field.
+func (o *UpdateResourceInstanceRequest) SetNetworkType(v string) {
+	o.NetworkType = &v
 }
 
 // GetProductTierKey returns the ProductTierKey field value
@@ -365,6 +399,9 @@ func (o UpdateResourceInstanceRequest) MarshalJSON() ([]byte, error) {
 func (o UpdateResourceInstanceRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
+	if !IsNil(o.NetworkType) {
+		toSerialize["network_type"] = o.NetworkType
+	}
 	toSerialize["productTierKey"] = o.ProductTierKey
 	if o.RequestParams != nil {
 		toSerialize["requestParams"] = o.RequestParams
@@ -431,6 +468,7 @@ func (o *UpdateResourceInstanceRequest) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "network_type")
 		delete(additionalProperties, "productTierKey")
 		delete(additionalProperties, "requestParams")
 		delete(additionalProperties, "resourceKey")

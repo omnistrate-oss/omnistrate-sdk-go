@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**DryRun** | Pointer to **bool** | When true, performs a dry run of the release operation without making any actual changes to the current pending changes and the service API. | [optional] [default to false]
 **Id** | **string** | ID of a Service API | 
 **IsPreferred** | Pointer to **bool** | Indicates whether this version set is preferred. | [optional] [default to false]
 **ProductTierId** | Pointer to **string** | ID of a Product Tier | [optional] 
@@ -30,6 +31,31 @@ will change when the set of required properties is changed
 NewReleaseServiceAPIRequestWithDefaults instantiates a new ReleaseServiceAPIRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetDryRun
+
+`func (o *ReleaseServiceAPIRequest) GetDryRun() bool`
+
+GetDryRun returns the DryRun field if non-nil, zero value otherwise.
+
+### GetDryRunOk
+
+`func (o *ReleaseServiceAPIRequest) GetDryRunOk() (*bool, bool)`
+
+GetDryRunOk returns a tuple with the DryRun field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDryRun
+
+`func (o *ReleaseServiceAPIRequest) SetDryRun(v bool)`
+
+SetDryRun sets DryRun field to given value.
+
+### HasDryRun
+
+`func (o *ReleaseServiceAPIRequest) HasDryRun() bool`
+
+HasDryRun returns a boolean if a field has been set.
 
 ### GetId
 

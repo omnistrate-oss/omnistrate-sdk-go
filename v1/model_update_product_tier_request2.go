@@ -27,6 +27,8 @@ type UpdateProductTierRequest2 struct {
 	AwsRegions []string `json:"awsRegions,omitempty"`
 	// The Azure regions that this product tier is available on
 	AzureRegions []string `json:"azureRegions,omitempty"`
+	// Optional billing product ID for tax purposes
+	BillingProductID *string `json:"billingProductID,omitempty"`
 	// A brief description of the product tier
 	Description *string `json:"description,omitempty"`
 	// Documentation
@@ -165,6 +167,29 @@ func (o *UpdateProductTierRequest2) GetAzureRegionsOk() ([]string, bool) {
 // SetAzureRegions gets a reference to the given []string and assigns it to the AzureRegions field.
 func (o *UpdateProductTierRequest2) SetAzureRegions(v []string) {
 	o.AzureRegions = v
+}
+
+// GetBillingProductID returns the BillingProductID field value if set, zero value otherwise.
+func (o *UpdateProductTierRequest2) GetBillingProductID() string {
+	if o == nil || IsNil(o.BillingProductID) {
+		var ret string
+		return ret
+	}
+	return *o.BillingProductID
+}
+
+// GetBillingProductIDOk returns a tuple with the BillingProductID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateProductTierRequest2) GetBillingProductIDOk() (*string, bool) {
+	if o == nil || IsNil(o.BillingProductID) {
+		return nil, false
+	}
+	return o.BillingProductID, true
+}
+
+// SetBillingProductID gets a reference to the given string and assigns it to the BillingProductID field.
+func (o *UpdateProductTierRequest2) SetBillingProductID(v string) {
+	o.BillingProductID = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -489,6 +514,9 @@ func (o UpdateProductTierRequest2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AzureRegions) {
 		toSerialize["azureRegions"] = o.AzureRegions
 	}
+	if !IsNil(o.BillingProductID) {
+		toSerialize["billingProductID"] = o.BillingProductID
+	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
@@ -554,6 +582,7 @@ func (o *UpdateProductTierRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "autoApproveSubscription")
 		delete(additionalProperties, "awsRegions")
 		delete(additionalProperties, "azureRegions")
+		delete(additionalProperties, "billingProductID")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "documentation")
 		delete(additionalProperties, "exportUsageMetering")

@@ -21,6 +21,8 @@ var _ MappedNullable = &UpdateSaaSPortalRequest2{}
 type UpdateSaaSPortalRequest2 struct {
 	// The custom domain for the SaaS portal
 	CustomDomain *string `json:"customDomain,omitempty"`
+	// Whether to disable password login for the SaaS portal
+	DisablePasswordLogin *bool `json:"disablePasswordLogin,omitempty"`
 	EmailConfig *SaaSPortalEmailConfig `json:"emailConfig,omitempty"`
 	// The Google Analytics tag ID for the SaaS portal
 	GoogleAnalyticsTagID *string `json:"googleAnalyticsTagID,omitempty"`
@@ -68,6 +70,29 @@ func (o *UpdateSaaSPortalRequest2) GetCustomDomainOk() (*string, bool) {
 // SetCustomDomain gets a reference to the given string and assigns it to the CustomDomain field.
 func (o *UpdateSaaSPortalRequest2) SetCustomDomain(v string) {
 	o.CustomDomain = &v
+}
+
+// GetDisablePasswordLogin returns the DisablePasswordLogin field value if set, zero value otherwise.
+func (o *UpdateSaaSPortalRequest2) GetDisablePasswordLogin() bool {
+	if o == nil || IsNil(o.DisablePasswordLogin) {
+		var ret bool
+		return ret
+	}
+	return *o.DisablePasswordLogin
+}
+
+// GetDisablePasswordLoginOk returns a tuple with the DisablePasswordLogin field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateSaaSPortalRequest2) GetDisablePasswordLoginOk() (*bool, bool) {
+	if o == nil || IsNil(o.DisablePasswordLogin) {
+		return nil, false
+	}
+	return o.DisablePasswordLogin, true
+}
+
+// SetDisablePasswordLogin gets a reference to the given bool and assigns it to the DisablePasswordLogin field.
+func (o *UpdateSaaSPortalRequest2) SetDisablePasswordLogin(v bool) {
+	o.DisablePasswordLogin = &v
 }
 
 // GetEmailConfig returns the EmailConfig field value if set, zero value otherwise.
@@ -152,6 +177,9 @@ func (o UpdateSaaSPortalRequest2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CustomDomain) {
 		toSerialize["customDomain"] = o.CustomDomain
 	}
+	if !IsNil(o.DisablePasswordLogin) {
+		toSerialize["disablePasswordLogin"] = o.DisablePasswordLogin
+	}
 	if !IsNil(o.EmailConfig) {
 		toSerialize["emailConfig"] = o.EmailConfig
 	}
@@ -184,6 +212,7 @@ func (o *UpdateSaaSPortalRequest2) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "customDomain")
+		delete(additionalProperties, "disablePasswordLogin")
 		delete(additionalProperties, "emailConfig")
 		delete(additionalProperties, "googleAnalyticsTagID")
 		delete(additionalProperties, "imageConfig")

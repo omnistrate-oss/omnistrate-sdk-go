@@ -413,6 +413,23 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test InventoryApiAPIService InventoryApiDescribeResourceInstanceSnapshot", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var environmentId string
+		var instanceId string
+		var snapshotId string
+
+		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiDescribeResourceInstanceSnapshot(context.Background(), serviceId, environmentId, instanceId, snapshotId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test InventoryApiAPIService InventoryApiDescribeResourceInstanceSnapshotFromTime", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -1040,6 +1057,22 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test InventoryApiAPIService InventoryApiTriggerAutomaticResourceInstanceSnapshotCreation", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var environmentId string
+		var instanceId string
+
+		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiTriggerAutomaticResourceInstanceSnapshotCreation(context.Background(), serviceId, environmentId, instanceId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test InventoryApiAPIService InventoryApiUnsuspendUser", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -1091,6 +1124,21 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 		var instanceId string
 
 		httpRes, err := apiClient.InventoryApiAPI.InventoryApiUpdateResourceInstanceDebugMode(context.Background(), serviceId, environmentId, instanceId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InventoryApiAPIService InventoryApiUpdateSubscription", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var environmentId string
+		var id string
+
+		httpRes, err := apiClient.InventoryApiAPI.InventoryApiUpdateSubscription(context.Background(), serviceId, environmentId, id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

@@ -24,12 +24,12 @@ type FleetUpdateSubscriptionRequest struct {
 	EnvironmentId string `json:"environmentId"`
 	// ID of a Subscription
 	Id string `json:"id"`
-	// Whether to inherit the service plan pricing
-	InheritServicePlanPricing *bool `json:"inheritServicePlanPricing,omitempty"`
-	// The effective date of the pricing, truncated to the first day of the month. Only the current or future months may be specified.
-	PricingEffectiveDate *string `json:"pricingEffectiveDate,omitempty"`
-	// If inheritServicePlanPricing is false, provide the pricing per unit for the subscription here.
-	PricingPerUnit map[string]interface{} `json:"pricingPerUnit,omitempty"`
+	// Whether to inherit the service plan price
+	InheritServicePlanPrice *bool `json:"inheritServicePlanPrice,omitempty"`
+	// The effective date of the price, truncated to the first day of the month. Only the current or future months may be specified.
+	PriceEffectiveDate *string `json:"priceEffectiveDate,omitempty"`
+	// If inheritServicePlanPrice is false, provide the price per unit for the subscription here.
+	PricePerUnit map[string]interface{} `json:"pricePerUnit,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// JWT token used to perform authorization
@@ -108,100 +108,100 @@ func (o *FleetUpdateSubscriptionRequest) SetId(v string) {
 	o.Id = v
 }
 
-// GetInheritServicePlanPricing returns the InheritServicePlanPricing field value if set, zero value otherwise.
-func (o *FleetUpdateSubscriptionRequest) GetInheritServicePlanPricing() bool {
-	if o == nil || IsNil(o.InheritServicePlanPricing) {
+// GetInheritServicePlanPrice returns the InheritServicePlanPrice field value if set, zero value otherwise.
+func (o *FleetUpdateSubscriptionRequest) GetInheritServicePlanPrice() bool {
+	if o == nil || IsNil(o.InheritServicePlanPrice) {
 		var ret bool
 		return ret
 	}
-	return *o.InheritServicePlanPricing
+	return *o.InheritServicePlanPrice
 }
 
-// GetInheritServicePlanPricingOk returns a tuple with the InheritServicePlanPricing field value if set, nil otherwise
+// GetInheritServicePlanPriceOk returns a tuple with the InheritServicePlanPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FleetUpdateSubscriptionRequest) GetInheritServicePlanPricingOk() (*bool, bool) {
-	if o == nil || IsNil(o.InheritServicePlanPricing) {
+func (o *FleetUpdateSubscriptionRequest) GetInheritServicePlanPriceOk() (*bool, bool) {
+	if o == nil || IsNil(o.InheritServicePlanPrice) {
 		return nil, false
 	}
-	return o.InheritServicePlanPricing, true
+	return o.InheritServicePlanPrice, true
 }
 
-// HasInheritServicePlanPricing returns a boolean if a field has been set.
-func (o *FleetUpdateSubscriptionRequest) HasInheritServicePlanPricing() bool {
-	if o != nil && !IsNil(o.InheritServicePlanPricing) {
+// HasInheritServicePlanPrice returns a boolean if a field has been set.
+func (o *FleetUpdateSubscriptionRequest) HasInheritServicePlanPrice() bool {
+	if o != nil && !IsNil(o.InheritServicePlanPrice) {
 		return true
 	}
 
 	return false
 }
 
-// SetInheritServicePlanPricing gets a reference to the given bool and assigns it to the InheritServicePlanPricing field.
-func (o *FleetUpdateSubscriptionRequest) SetInheritServicePlanPricing(v bool) {
-	o.InheritServicePlanPricing = &v
+// SetInheritServicePlanPrice gets a reference to the given bool and assigns it to the InheritServicePlanPrice field.
+func (o *FleetUpdateSubscriptionRequest) SetInheritServicePlanPrice(v bool) {
+	o.InheritServicePlanPrice = &v
 }
 
-// GetPricingEffectiveDate returns the PricingEffectiveDate field value if set, zero value otherwise.
-func (o *FleetUpdateSubscriptionRequest) GetPricingEffectiveDate() string {
-	if o == nil || IsNil(o.PricingEffectiveDate) {
+// GetPriceEffectiveDate returns the PriceEffectiveDate field value if set, zero value otherwise.
+func (o *FleetUpdateSubscriptionRequest) GetPriceEffectiveDate() string {
+	if o == nil || IsNil(o.PriceEffectiveDate) {
 		var ret string
 		return ret
 	}
-	return *o.PricingEffectiveDate
+	return *o.PriceEffectiveDate
 }
 
-// GetPricingEffectiveDateOk returns a tuple with the PricingEffectiveDate field value if set, nil otherwise
+// GetPriceEffectiveDateOk returns a tuple with the PriceEffectiveDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FleetUpdateSubscriptionRequest) GetPricingEffectiveDateOk() (*string, bool) {
-	if o == nil || IsNil(o.PricingEffectiveDate) {
+func (o *FleetUpdateSubscriptionRequest) GetPriceEffectiveDateOk() (*string, bool) {
+	if o == nil || IsNil(o.PriceEffectiveDate) {
 		return nil, false
 	}
-	return o.PricingEffectiveDate, true
+	return o.PriceEffectiveDate, true
 }
 
-// HasPricingEffectiveDate returns a boolean if a field has been set.
-func (o *FleetUpdateSubscriptionRequest) HasPricingEffectiveDate() bool {
-	if o != nil && !IsNil(o.PricingEffectiveDate) {
+// HasPriceEffectiveDate returns a boolean if a field has been set.
+func (o *FleetUpdateSubscriptionRequest) HasPriceEffectiveDate() bool {
+	if o != nil && !IsNil(o.PriceEffectiveDate) {
 		return true
 	}
 
 	return false
 }
 
-// SetPricingEffectiveDate gets a reference to the given string and assigns it to the PricingEffectiveDate field.
-func (o *FleetUpdateSubscriptionRequest) SetPricingEffectiveDate(v string) {
-	o.PricingEffectiveDate = &v
+// SetPriceEffectiveDate gets a reference to the given string and assigns it to the PriceEffectiveDate field.
+func (o *FleetUpdateSubscriptionRequest) SetPriceEffectiveDate(v string) {
+	o.PriceEffectiveDate = &v
 }
 
-// GetPricingPerUnit returns the PricingPerUnit field value if set, zero value otherwise.
-func (o *FleetUpdateSubscriptionRequest) GetPricingPerUnit() map[string]interface{} {
-	if o == nil || IsNil(o.PricingPerUnit) {
+// GetPricePerUnit returns the PricePerUnit field value if set, zero value otherwise.
+func (o *FleetUpdateSubscriptionRequest) GetPricePerUnit() map[string]interface{} {
+	if o == nil || IsNil(o.PricePerUnit) {
 		var ret map[string]interface{}
 		return ret
 	}
-	return o.PricingPerUnit
+	return o.PricePerUnit
 }
 
-// GetPricingPerUnitOk returns a tuple with the PricingPerUnit field value if set, nil otherwise
+// GetPricePerUnitOk returns a tuple with the PricePerUnit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FleetUpdateSubscriptionRequest) GetPricingPerUnitOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.PricingPerUnit) {
+func (o *FleetUpdateSubscriptionRequest) GetPricePerUnitOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.PricePerUnit) {
 		return map[string]interface{}{}, false
 	}
-	return o.PricingPerUnit, true
+	return o.PricePerUnit, true
 }
 
-// HasPricingPerUnit returns a boolean if a field has been set.
-func (o *FleetUpdateSubscriptionRequest) HasPricingPerUnit() bool {
-	if o != nil && !IsNil(o.PricingPerUnit) {
+// HasPricePerUnit returns a boolean if a field has been set.
+func (o *FleetUpdateSubscriptionRequest) HasPricePerUnit() bool {
+	if o != nil && !IsNil(o.PricePerUnit) {
 		return true
 	}
 
 	return false
 }
 
-// SetPricingPerUnit gets a reference to the given map[string]interface{} and assigns it to the PricingPerUnit field.
-func (o *FleetUpdateSubscriptionRequest) SetPricingPerUnit(v map[string]interface{}) {
-	o.PricingPerUnit = v
+// SetPricePerUnit gets a reference to the given map[string]interface{} and assigns it to the PricePerUnit field.
+func (o *FleetUpdateSubscriptionRequest) SetPricePerUnit(v map[string]interface{}) {
+	o.PricePerUnit = v
 }
 
 // GetServiceId returns the ServiceId field value
@@ -264,14 +264,14 @@ func (o FleetUpdateSubscriptionRequest) ToMap() (map[string]interface{}, error) 
 	toSerialize := map[string]interface{}{}
 	toSerialize["environmentId"] = o.EnvironmentId
 	toSerialize["id"] = o.Id
-	if !IsNil(o.InheritServicePlanPricing) {
-		toSerialize["inheritServicePlanPricing"] = o.InheritServicePlanPricing
+	if !IsNil(o.InheritServicePlanPrice) {
+		toSerialize["inheritServicePlanPrice"] = o.InheritServicePlanPrice
 	}
-	if !IsNil(o.PricingEffectiveDate) {
-		toSerialize["pricingEffectiveDate"] = o.PricingEffectiveDate
+	if !IsNil(o.PriceEffectiveDate) {
+		toSerialize["priceEffectiveDate"] = o.PriceEffectiveDate
 	}
-	if !IsNil(o.PricingPerUnit) {
-		toSerialize["pricingPerUnit"] = o.PricingPerUnit
+	if !IsNil(o.PricePerUnit) {
+		toSerialize["pricePerUnit"] = o.PricePerUnit
 	}
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["token"] = o.Token
@@ -323,9 +323,9 @@ func (o *FleetUpdateSubscriptionRequest) UnmarshalJSON(data []byte) (err error) 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "environmentId")
 		delete(additionalProperties, "id")
-		delete(additionalProperties, "inheritServicePlanPricing")
-		delete(additionalProperties, "pricingEffectiveDate")
-		delete(additionalProperties, "pricingPerUnit")
+		delete(additionalProperties, "inheritServicePlanPrice")
+		delete(additionalProperties, "priceEffectiveDate")
+		delete(additionalProperties, "pricePerUnit")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
