@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InheritServicePlanPricing** | Pointer to **bool** | Whether to inherit the service plan pricing | [optional] 
-**PricingEffectiveDate** | Pointer to **string** | The effective date of the pricing, truncated to the first day of the month. Only the current or future months may be specified. | [optional] 
-**PricingPerUnit** | Pointer to **map[string]interface{}** | If inheritServicePlanPricing is false, provide the pricing per unit for the subscription here. | [optional] 
+**InheritServicePlanPrice** | Pointer to **bool** | Whether to inherit the service plan price | [optional] 
+**PriceEffectiveDate** | Pointer to **string** | The effective date of the price, truncated to the first day of the month. Only the current or future months may be specified. | [optional] 
+**PricePerUnit** | Pointer to **map[string]interface{}** | If inheritServicePlanPrice is false, provide the price per unit for the subscription here. | [optional] 
 
 ## Methods
 
@@ -27,80 +27,80 @@ NewFleetUpdateSubscriptionRequest2WithDefaults instantiates a new FleetUpdateSub
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetInheritServicePlanPricing
+### GetInheritServicePlanPrice
 
-`func (o *FleetUpdateSubscriptionRequest2) GetInheritServicePlanPricing() bool`
+`func (o *FleetUpdateSubscriptionRequest2) GetInheritServicePlanPrice() bool`
 
-GetInheritServicePlanPricing returns the InheritServicePlanPricing field if non-nil, zero value otherwise.
+GetInheritServicePlanPrice returns the InheritServicePlanPrice field if non-nil, zero value otherwise.
 
-### GetInheritServicePlanPricingOk
+### GetInheritServicePlanPriceOk
 
-`func (o *FleetUpdateSubscriptionRequest2) GetInheritServicePlanPricingOk() (*bool, bool)`
+`func (o *FleetUpdateSubscriptionRequest2) GetInheritServicePlanPriceOk() (*bool, bool)`
 
-GetInheritServicePlanPricingOk returns a tuple with the InheritServicePlanPricing field if it's non-nil, zero value otherwise
+GetInheritServicePlanPriceOk returns a tuple with the InheritServicePlanPrice field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetInheritServicePlanPricing
+### SetInheritServicePlanPrice
 
-`func (o *FleetUpdateSubscriptionRequest2) SetInheritServicePlanPricing(v bool)`
+`func (o *FleetUpdateSubscriptionRequest2) SetInheritServicePlanPrice(v bool)`
 
-SetInheritServicePlanPricing sets InheritServicePlanPricing field to given value.
+SetInheritServicePlanPrice sets InheritServicePlanPrice field to given value.
 
-### HasInheritServicePlanPricing
+### HasInheritServicePlanPrice
 
-`func (o *FleetUpdateSubscriptionRequest2) HasInheritServicePlanPricing() bool`
+`func (o *FleetUpdateSubscriptionRequest2) HasInheritServicePlanPrice() bool`
 
-HasInheritServicePlanPricing returns a boolean if a field has been set.
+HasInheritServicePlanPrice returns a boolean if a field has been set.
 
-### GetPricingEffectiveDate
+### GetPriceEffectiveDate
 
-`func (o *FleetUpdateSubscriptionRequest2) GetPricingEffectiveDate() string`
+`func (o *FleetUpdateSubscriptionRequest2) GetPriceEffectiveDate() string`
 
-GetPricingEffectiveDate returns the PricingEffectiveDate field if non-nil, zero value otherwise.
+GetPriceEffectiveDate returns the PriceEffectiveDate field if non-nil, zero value otherwise.
 
-### GetPricingEffectiveDateOk
+### GetPriceEffectiveDateOk
 
-`func (o *FleetUpdateSubscriptionRequest2) GetPricingEffectiveDateOk() (*string, bool)`
+`func (o *FleetUpdateSubscriptionRequest2) GetPriceEffectiveDateOk() (*string, bool)`
 
-GetPricingEffectiveDateOk returns a tuple with the PricingEffectiveDate field if it's non-nil, zero value otherwise
+GetPriceEffectiveDateOk returns a tuple with the PriceEffectiveDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPricingEffectiveDate
+### SetPriceEffectiveDate
 
-`func (o *FleetUpdateSubscriptionRequest2) SetPricingEffectiveDate(v string)`
+`func (o *FleetUpdateSubscriptionRequest2) SetPriceEffectiveDate(v string)`
 
-SetPricingEffectiveDate sets PricingEffectiveDate field to given value.
+SetPriceEffectiveDate sets PriceEffectiveDate field to given value.
 
-### HasPricingEffectiveDate
+### HasPriceEffectiveDate
 
-`func (o *FleetUpdateSubscriptionRequest2) HasPricingEffectiveDate() bool`
+`func (o *FleetUpdateSubscriptionRequest2) HasPriceEffectiveDate() bool`
 
-HasPricingEffectiveDate returns a boolean if a field has been set.
+HasPriceEffectiveDate returns a boolean if a field has been set.
 
-### GetPricingPerUnit
+### GetPricePerUnit
 
-`func (o *FleetUpdateSubscriptionRequest2) GetPricingPerUnit() map[string]interface{}`
+`func (o *FleetUpdateSubscriptionRequest2) GetPricePerUnit() map[string]interface{}`
 
-GetPricingPerUnit returns the PricingPerUnit field if non-nil, zero value otherwise.
+GetPricePerUnit returns the PricePerUnit field if non-nil, zero value otherwise.
 
-### GetPricingPerUnitOk
+### GetPricePerUnitOk
 
-`func (o *FleetUpdateSubscriptionRequest2) GetPricingPerUnitOk() (*map[string]interface{}, bool)`
+`func (o *FleetUpdateSubscriptionRequest2) GetPricePerUnitOk() (*map[string]interface{}, bool)`
 
-GetPricingPerUnitOk returns a tuple with the PricingPerUnit field if it's non-nil, zero value otherwise
+GetPricePerUnitOk returns a tuple with the PricePerUnit field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPricingPerUnit
+### SetPricePerUnit
 
-`func (o *FleetUpdateSubscriptionRequest2) SetPricingPerUnit(v map[string]interface{})`
+`func (o *FleetUpdateSubscriptionRequest2) SetPricePerUnit(v map[string]interface{})`
 
-SetPricingPerUnit sets PricingPerUnit field to given value.
+SetPricePerUnit sets PricePerUnit field to given value.
 
-### HasPricingPerUnit
+### HasPricePerUnit
 
-`func (o *FleetUpdateSubscriptionRequest2) HasPricingPerUnit() bool`
+`func (o *FleetUpdateSubscriptionRequest2) HasPricePerUnit() bool`
 
-HasPricingPerUnit returns a boolean if a field has been set.
+HasPricePerUnit returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

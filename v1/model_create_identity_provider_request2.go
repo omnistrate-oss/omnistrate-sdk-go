@@ -20,12 +20,32 @@ var _ MappedNullable = &CreateIdentityProviderRequest2{}
 
 // CreateIdentityProviderRequest2 struct for CreateIdentityProviderRequest2
 type CreateIdentityProviderRequest2 struct {
+	// The authorization endpoint of the Identity Provider
+	AuthorizationEndpoint *string `json:"authorizationEndpoint,omitempty"`
 	// The Client ID of the Identity Provider
 	ClientId string `json:"clientId"`
 	// The Client Secret of the Identity Provider
 	ClientSecret string `json:"clientSecret"`
+	// Whether the Identity Provider is disabled
+	Disabled *bool `json:"disabled,omitempty"`
+	// The email identifiers to use for the Identity Provider
+	EmailIdentifiers *string `json:"emailIdentifiers,omitempty"`
+	// The type of environment to filter costs by
+	EnvironmentType *string `json:"environmentType,omitempty"`
 	// The name of the Identity Provider
 	IdentityProviderName string `json:"identityProviderName"`
+	// The URL of the icon to use for the login button
+	LoginButtonIconUrl *string `json:"loginButtonIconUrl,omitempty"`
+	// The text to use for the login button
+	LoginButtonText *string `json:"loginButtonText,omitempty"`
+	// The name of the Identity Provider
+	Name *string `json:"name,omitempty"`
+	// The scopes to request from the Identity Provider
+	Scopes []string `json:"scopes,omitempty"`
+	// The token endpoint of the Identity Provider
+	TokenEndpoint *string `json:"tokenEndpoint,omitempty"`
+	// The user info endpoint of the Identity Provider
+	UserInfoEndpoint *string `json:"userInfoEndpoint,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -49,6 +69,29 @@ func NewCreateIdentityProviderRequest2(clientId string, clientSecret string, ide
 func NewCreateIdentityProviderRequest2WithDefaults() *CreateIdentityProviderRequest2 {
 	this := CreateIdentityProviderRequest2{}
 	return &this
+}
+
+// GetAuthorizationEndpoint returns the AuthorizationEndpoint field value if set, zero value otherwise.
+func (o *CreateIdentityProviderRequest2) GetAuthorizationEndpoint() string {
+	if o == nil || IsNil(o.AuthorizationEndpoint) {
+		var ret string
+		return ret
+	}
+	return *o.AuthorizationEndpoint
+}
+
+// GetAuthorizationEndpointOk returns a tuple with the AuthorizationEndpoint field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateIdentityProviderRequest2) GetAuthorizationEndpointOk() (*string, bool) {
+	if o == nil || IsNil(o.AuthorizationEndpoint) {
+		return nil, false
+	}
+	return o.AuthorizationEndpoint, true
+}
+
+// SetAuthorizationEndpoint gets a reference to the given string and assigns it to the AuthorizationEndpoint field.
+func (o *CreateIdentityProviderRequest2) SetAuthorizationEndpoint(v string) {
+	o.AuthorizationEndpoint = &v
 }
 
 // GetClientId returns the ClientId field value
@@ -99,6 +142,75 @@ func (o *CreateIdentityProviderRequest2) SetClientSecret(v string) {
 	o.ClientSecret = v
 }
 
+// GetDisabled returns the Disabled field value if set, zero value otherwise.
+func (o *CreateIdentityProviderRequest2) GetDisabled() bool {
+	if o == nil || IsNil(o.Disabled) {
+		var ret bool
+		return ret
+	}
+	return *o.Disabled
+}
+
+// GetDisabledOk returns a tuple with the Disabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateIdentityProviderRequest2) GetDisabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.Disabled) {
+		return nil, false
+	}
+	return o.Disabled, true
+}
+
+// SetDisabled gets a reference to the given bool and assigns it to the Disabled field.
+func (o *CreateIdentityProviderRequest2) SetDisabled(v bool) {
+	o.Disabled = &v
+}
+
+// GetEmailIdentifiers returns the EmailIdentifiers field value if set, zero value otherwise.
+func (o *CreateIdentityProviderRequest2) GetEmailIdentifiers() string {
+	if o == nil || IsNil(o.EmailIdentifiers) {
+		var ret string
+		return ret
+	}
+	return *o.EmailIdentifiers
+}
+
+// GetEmailIdentifiersOk returns a tuple with the EmailIdentifiers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateIdentityProviderRequest2) GetEmailIdentifiersOk() (*string, bool) {
+	if o == nil || IsNil(o.EmailIdentifiers) {
+		return nil, false
+	}
+	return o.EmailIdentifiers, true
+}
+
+// SetEmailIdentifiers gets a reference to the given string and assigns it to the EmailIdentifiers field.
+func (o *CreateIdentityProviderRequest2) SetEmailIdentifiers(v string) {
+	o.EmailIdentifiers = &v
+}
+
+// GetEnvironmentType returns the EnvironmentType field value if set, zero value otherwise.
+func (o *CreateIdentityProviderRequest2) GetEnvironmentType() string {
+	if o == nil || IsNil(o.EnvironmentType) {
+		var ret string
+		return ret
+	}
+	return *o.EnvironmentType
+}
+
+// GetEnvironmentTypeOk returns a tuple with the EnvironmentType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateIdentityProviderRequest2) GetEnvironmentTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.EnvironmentType) {
+		return nil, false
+	}
+	return o.EnvironmentType, true
+}
+
+// SetEnvironmentType gets a reference to the given string and assigns it to the EnvironmentType field.
+func (o *CreateIdentityProviderRequest2) SetEnvironmentType(v string) {
+	o.EnvironmentType = &v
+}
+
 // GetIdentityProviderName returns the IdentityProviderName field value
 func (o *CreateIdentityProviderRequest2) GetIdentityProviderName() string {
 	if o == nil {
@@ -123,6 +235,144 @@ func (o *CreateIdentityProviderRequest2) SetIdentityProviderName(v string) {
 	o.IdentityProviderName = v
 }
 
+// GetLoginButtonIconUrl returns the LoginButtonIconUrl field value if set, zero value otherwise.
+func (o *CreateIdentityProviderRequest2) GetLoginButtonIconUrl() string {
+	if o == nil || IsNil(o.LoginButtonIconUrl) {
+		var ret string
+		return ret
+	}
+	return *o.LoginButtonIconUrl
+}
+
+// GetLoginButtonIconUrlOk returns a tuple with the LoginButtonIconUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateIdentityProviderRequest2) GetLoginButtonIconUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.LoginButtonIconUrl) {
+		return nil, false
+	}
+	return o.LoginButtonIconUrl, true
+}
+
+// SetLoginButtonIconUrl gets a reference to the given string and assigns it to the LoginButtonIconUrl field.
+func (o *CreateIdentityProviderRequest2) SetLoginButtonIconUrl(v string) {
+	o.LoginButtonIconUrl = &v
+}
+
+// GetLoginButtonText returns the LoginButtonText field value if set, zero value otherwise.
+func (o *CreateIdentityProviderRequest2) GetLoginButtonText() string {
+	if o == nil || IsNil(o.LoginButtonText) {
+		var ret string
+		return ret
+	}
+	return *o.LoginButtonText
+}
+
+// GetLoginButtonTextOk returns a tuple with the LoginButtonText field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateIdentityProviderRequest2) GetLoginButtonTextOk() (*string, bool) {
+	if o == nil || IsNil(o.LoginButtonText) {
+		return nil, false
+	}
+	return o.LoginButtonText, true
+}
+
+// SetLoginButtonText gets a reference to the given string and assigns it to the LoginButtonText field.
+func (o *CreateIdentityProviderRequest2) SetLoginButtonText(v string) {
+	o.LoginButtonText = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *CreateIdentityProviderRequest2) GetName() string {
+	if o == nil || IsNil(o.Name) {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateIdentityProviderRequest2) GetNameOk() (*string, bool) {
+	if o == nil || IsNil(o.Name) {
+		return nil, false
+	}
+	return o.Name, true
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *CreateIdentityProviderRequest2) SetName(v string) {
+	o.Name = &v
+}
+
+// GetScopes returns the Scopes field value if set, zero value otherwise.
+func (o *CreateIdentityProviderRequest2) GetScopes() []string {
+	if o == nil || IsNil(o.Scopes) {
+		var ret []string
+		return ret
+	}
+	return o.Scopes
+}
+
+// GetScopesOk returns a tuple with the Scopes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateIdentityProviderRequest2) GetScopesOk() ([]string, bool) {
+	if o == nil || IsNil(o.Scopes) {
+		return nil, false
+	}
+	return o.Scopes, true
+}
+
+// SetScopes gets a reference to the given []string and assigns it to the Scopes field.
+func (o *CreateIdentityProviderRequest2) SetScopes(v []string) {
+	o.Scopes = v
+}
+
+// GetTokenEndpoint returns the TokenEndpoint field value if set, zero value otherwise.
+func (o *CreateIdentityProviderRequest2) GetTokenEndpoint() string {
+	if o == nil || IsNil(o.TokenEndpoint) {
+		var ret string
+		return ret
+	}
+	return *o.TokenEndpoint
+}
+
+// GetTokenEndpointOk returns a tuple with the TokenEndpoint field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateIdentityProviderRequest2) GetTokenEndpointOk() (*string, bool) {
+	if o == nil || IsNil(o.TokenEndpoint) {
+		return nil, false
+	}
+	return o.TokenEndpoint, true
+}
+
+// SetTokenEndpoint gets a reference to the given string and assigns it to the TokenEndpoint field.
+func (o *CreateIdentityProviderRequest2) SetTokenEndpoint(v string) {
+	o.TokenEndpoint = &v
+}
+
+// GetUserInfoEndpoint returns the UserInfoEndpoint field value if set, zero value otherwise.
+func (o *CreateIdentityProviderRequest2) GetUserInfoEndpoint() string {
+	if o == nil || IsNil(o.UserInfoEndpoint) {
+		var ret string
+		return ret
+	}
+	return *o.UserInfoEndpoint
+}
+
+// GetUserInfoEndpointOk returns a tuple with the UserInfoEndpoint field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateIdentityProviderRequest2) GetUserInfoEndpointOk() (*string, bool) {
+	if o == nil || IsNil(o.UserInfoEndpoint) {
+		return nil, false
+	}
+	return o.UserInfoEndpoint, true
+}
+
+// SetUserInfoEndpoint gets a reference to the given string and assigns it to the UserInfoEndpoint field.
+func (o *CreateIdentityProviderRequest2) SetUserInfoEndpoint(v string) {
+	o.UserInfoEndpoint = &v
+}
+
 func (o CreateIdentityProviderRequest2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -133,9 +383,39 @@ func (o CreateIdentityProviderRequest2) MarshalJSON() ([]byte, error) {
 
 func (o CreateIdentityProviderRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AuthorizationEndpoint) {
+		toSerialize["authorizationEndpoint"] = o.AuthorizationEndpoint
+	}
 	toSerialize["clientId"] = o.ClientId
 	toSerialize["clientSecret"] = o.ClientSecret
+	if !IsNil(o.Disabled) {
+		toSerialize["disabled"] = o.Disabled
+	}
+	if !IsNil(o.EmailIdentifiers) {
+		toSerialize["emailIdentifiers"] = o.EmailIdentifiers
+	}
+	if !IsNil(o.EnvironmentType) {
+		toSerialize["environmentType"] = o.EnvironmentType
+	}
 	toSerialize["identityProviderName"] = o.IdentityProviderName
+	if !IsNil(o.LoginButtonIconUrl) {
+		toSerialize["loginButtonIconUrl"] = o.LoginButtonIconUrl
+	}
+	if !IsNil(o.LoginButtonText) {
+		toSerialize["loginButtonText"] = o.LoginButtonText
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Scopes) {
+		toSerialize["scopes"] = o.Scopes
+	}
+	if !IsNil(o.TokenEndpoint) {
+		toSerialize["tokenEndpoint"] = o.TokenEndpoint
+	}
+	if !IsNil(o.UserInfoEndpoint) {
+		toSerialize["userInfoEndpoint"] = o.UserInfoEndpoint
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -181,9 +461,19 @@ func (o *CreateIdentityProviderRequest2) UnmarshalJSON(data []byte) (err error) 
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "authorizationEndpoint")
 		delete(additionalProperties, "clientId")
 		delete(additionalProperties, "clientSecret")
+		delete(additionalProperties, "disabled")
+		delete(additionalProperties, "emailIdentifiers")
+		delete(additionalProperties, "environmentType")
 		delete(additionalProperties, "identityProviderName")
+		delete(additionalProperties, "loginButtonIconUrl")
+		delete(additionalProperties, "loginButtonText")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "scopes")
+		delete(additionalProperties, "tokenEndpoint")
+		delete(additionalProperties, "userInfoEndpoint")
 		o.AdditionalProperties = additionalProperties
 	}
 

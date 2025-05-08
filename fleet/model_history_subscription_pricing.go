@@ -23,13 +23,15 @@ type HistorySubscriptionPricing struct {
 	CreatedAt *string `json:"createdAt,omitempty"`
 	// ID of a User
 	CreatedByUserId *string `json:"createdByUserId,omitempty"`
-	// The name of the user that created the pricing
+	// The name of the user that created the price
 	CreatedByUserName *string `json:"createdByUserName,omitempty"`
-	// The end date of the pricing
+	// The end date of the price
 	EndDate *string `json:"endDate,omitempty"`
-	// The pricing per unit for the subscription
-	PricingPerUnit map[string]interface{} `json:"pricingPerUnit,omitempty"`
-	// The start date of the pricing
+	// Whether this price inherits the service plan price
+	InheritServicePlanPrice *bool `json:"inheritServicePlanPrice,omitempty"`
+	// The price per unit for the subscription
+	PricePerUnit map[string]interface{} `json:"pricePerUnit,omitempty"`
+	// The start date of the price
 	StartDate *string `json:"startDate,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -181,36 +183,68 @@ func (o *HistorySubscriptionPricing) SetEndDate(v string) {
 	o.EndDate = &v
 }
 
-// GetPricingPerUnit returns the PricingPerUnit field value if set, zero value otherwise.
-func (o *HistorySubscriptionPricing) GetPricingPerUnit() map[string]interface{} {
-	if o == nil || IsNil(o.PricingPerUnit) {
-		var ret map[string]interface{}
+// GetInheritServicePlanPrice returns the InheritServicePlanPrice field value if set, zero value otherwise.
+func (o *HistorySubscriptionPricing) GetInheritServicePlanPrice() bool {
+	if o == nil || IsNil(o.InheritServicePlanPrice) {
+		var ret bool
 		return ret
 	}
-	return o.PricingPerUnit
+	return *o.InheritServicePlanPrice
 }
 
-// GetPricingPerUnitOk returns a tuple with the PricingPerUnit field value if set, nil otherwise
+// GetInheritServicePlanPriceOk returns a tuple with the InheritServicePlanPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *HistorySubscriptionPricing) GetPricingPerUnitOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.PricingPerUnit) {
-		return map[string]interface{}{}, false
+func (o *HistorySubscriptionPricing) GetInheritServicePlanPriceOk() (*bool, bool) {
+	if o == nil || IsNil(o.InheritServicePlanPrice) {
+		return nil, false
 	}
-	return o.PricingPerUnit, true
+	return o.InheritServicePlanPrice, true
 }
 
-// HasPricingPerUnit returns a boolean if a field has been set.
-func (o *HistorySubscriptionPricing) HasPricingPerUnit() bool {
-	if o != nil && !IsNil(o.PricingPerUnit) {
+// HasInheritServicePlanPrice returns a boolean if a field has been set.
+func (o *HistorySubscriptionPricing) HasInheritServicePlanPrice() bool {
+	if o != nil && !IsNil(o.InheritServicePlanPrice) {
 		return true
 	}
 
 	return false
 }
 
-// SetPricingPerUnit gets a reference to the given map[string]interface{} and assigns it to the PricingPerUnit field.
-func (o *HistorySubscriptionPricing) SetPricingPerUnit(v map[string]interface{}) {
-	o.PricingPerUnit = v
+// SetInheritServicePlanPrice gets a reference to the given bool and assigns it to the InheritServicePlanPrice field.
+func (o *HistorySubscriptionPricing) SetInheritServicePlanPrice(v bool) {
+	o.InheritServicePlanPrice = &v
+}
+
+// GetPricePerUnit returns the PricePerUnit field value if set, zero value otherwise.
+func (o *HistorySubscriptionPricing) GetPricePerUnit() map[string]interface{} {
+	if o == nil || IsNil(o.PricePerUnit) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.PricePerUnit
+}
+
+// GetPricePerUnitOk returns a tuple with the PricePerUnit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HistorySubscriptionPricing) GetPricePerUnitOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.PricePerUnit) {
+		return map[string]interface{}{}, false
+	}
+	return o.PricePerUnit, true
+}
+
+// HasPricePerUnit returns a boolean if a field has been set.
+func (o *HistorySubscriptionPricing) HasPricePerUnit() bool {
+	if o != nil && !IsNil(o.PricePerUnit) {
+		return true
+	}
+
+	return false
+}
+
+// SetPricePerUnit gets a reference to the given map[string]interface{} and assigns it to the PricePerUnit field.
+func (o *HistorySubscriptionPricing) SetPricePerUnit(v map[string]interface{}) {
+	o.PricePerUnit = v
 }
 
 // GetStartDate returns the StartDate field value if set, zero value otherwise.
@@ -267,8 +301,11 @@ func (o HistorySubscriptionPricing) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EndDate) {
 		toSerialize["endDate"] = o.EndDate
 	}
-	if !IsNil(o.PricingPerUnit) {
-		toSerialize["pricingPerUnit"] = o.PricingPerUnit
+	if !IsNil(o.InheritServicePlanPrice) {
+		toSerialize["inheritServicePlanPrice"] = o.InheritServicePlanPrice
+	}
+	if !IsNil(o.PricePerUnit) {
+		toSerialize["pricePerUnit"] = o.PricePerUnit
 	}
 	if !IsNil(o.StartDate) {
 		toSerialize["startDate"] = o.StartDate
@@ -299,7 +336,8 @@ func (o *HistorySubscriptionPricing) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "createdByUserId")
 		delete(additionalProperties, "createdByUserName")
 		delete(additionalProperties, "endDate")
-		delete(additionalProperties, "pricingPerUnit")
+		delete(additionalProperties, "inheritServicePlanPrice")
+		delete(additionalProperties, "pricePerUnit")
 		delete(additionalProperties, "startDate")
 		o.AdditionalProperties = additionalProperties
 	}

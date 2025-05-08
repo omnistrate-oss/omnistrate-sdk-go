@@ -22,14 +22,14 @@ var _ MappedNullable = &FleetCreateSubscriptionOnBehalfOfCustomerRequest{}
 type FleetCreateSubscriptionOnBehalfOfCustomerRequest struct {
 	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
-	// Whether to inherit the service plan pricing
-	InheritServicePlanPricing *bool `json:"inheritServicePlanPricing,omitempty"`
+	// Whether to inherit the service plan price
+	InheritServicePlanPrice *bool `json:"inheritServicePlanPrice,omitempty"`
 	// ID of a User
 	OnBehalfOfCustomerUserId string `json:"onBehalfOfCustomerUserId"`
-	// The effective date of the pricing, truncated to the first day of the month. Only the current or future months may be specified.
-	PricingEffectiveDate *string `json:"pricingEffectiveDate,omitempty"`
-	// If inheritServicePlanPricing is false, provide the pricing per unit for the subscription here.
-	PricingPerUnit map[string]interface{} `json:"pricingPerUnit,omitempty"`
+	// The effective date of the price, truncated to the first day of the month. Only the current or future months may be specified.
+	PriceEffectiveDate *string `json:"priceEffectiveDate,omitempty"`
+	// If inheritServicePlanPrice is false, provide the price per unit for the subscription here.
+	PricePerUnit map[string]interface{} `json:"pricePerUnit,omitempty"`
 	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// ID of a Service
@@ -87,36 +87,36 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) SetEnvironmentId(v st
 	o.EnvironmentId = v
 }
 
-// GetInheritServicePlanPricing returns the InheritServicePlanPricing field value if set, zero value otherwise.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetInheritServicePlanPricing() bool {
-	if o == nil || IsNil(o.InheritServicePlanPricing) {
+// GetInheritServicePlanPrice returns the InheritServicePlanPrice field value if set, zero value otherwise.
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetInheritServicePlanPrice() bool {
+	if o == nil || IsNil(o.InheritServicePlanPrice) {
 		var ret bool
 		return ret
 	}
-	return *o.InheritServicePlanPricing
+	return *o.InheritServicePlanPrice
 }
 
-// GetInheritServicePlanPricingOk returns a tuple with the InheritServicePlanPricing field value if set, nil otherwise
+// GetInheritServicePlanPriceOk returns a tuple with the InheritServicePlanPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetInheritServicePlanPricingOk() (*bool, bool) {
-	if o == nil || IsNil(o.InheritServicePlanPricing) {
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetInheritServicePlanPriceOk() (*bool, bool) {
+	if o == nil || IsNil(o.InheritServicePlanPrice) {
 		return nil, false
 	}
-	return o.InheritServicePlanPricing, true
+	return o.InheritServicePlanPrice, true
 }
 
-// HasInheritServicePlanPricing returns a boolean if a field has been set.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) HasInheritServicePlanPricing() bool {
-	if o != nil && !IsNil(o.InheritServicePlanPricing) {
+// HasInheritServicePlanPrice returns a boolean if a field has been set.
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) HasInheritServicePlanPrice() bool {
+	if o != nil && !IsNil(o.InheritServicePlanPrice) {
 		return true
 	}
 
 	return false
 }
 
-// SetInheritServicePlanPricing gets a reference to the given bool and assigns it to the InheritServicePlanPricing field.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) SetInheritServicePlanPricing(v bool) {
-	o.InheritServicePlanPricing = &v
+// SetInheritServicePlanPrice gets a reference to the given bool and assigns it to the InheritServicePlanPrice field.
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) SetInheritServicePlanPrice(v bool) {
+	o.InheritServicePlanPrice = &v
 }
 
 // GetOnBehalfOfCustomerUserId returns the OnBehalfOfCustomerUserId field value
@@ -143,68 +143,68 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) SetOnBehalfOfCustomer
 	o.OnBehalfOfCustomerUserId = v
 }
 
-// GetPricingEffectiveDate returns the PricingEffectiveDate field value if set, zero value otherwise.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetPricingEffectiveDate() string {
-	if o == nil || IsNil(o.PricingEffectiveDate) {
+// GetPriceEffectiveDate returns the PriceEffectiveDate field value if set, zero value otherwise.
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetPriceEffectiveDate() string {
+	if o == nil || IsNil(o.PriceEffectiveDate) {
 		var ret string
 		return ret
 	}
-	return *o.PricingEffectiveDate
+	return *o.PriceEffectiveDate
 }
 
-// GetPricingEffectiveDateOk returns a tuple with the PricingEffectiveDate field value if set, nil otherwise
+// GetPriceEffectiveDateOk returns a tuple with the PriceEffectiveDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetPricingEffectiveDateOk() (*string, bool) {
-	if o == nil || IsNil(o.PricingEffectiveDate) {
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetPriceEffectiveDateOk() (*string, bool) {
+	if o == nil || IsNil(o.PriceEffectiveDate) {
 		return nil, false
 	}
-	return o.PricingEffectiveDate, true
+	return o.PriceEffectiveDate, true
 }
 
-// HasPricingEffectiveDate returns a boolean if a field has been set.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) HasPricingEffectiveDate() bool {
-	if o != nil && !IsNil(o.PricingEffectiveDate) {
+// HasPriceEffectiveDate returns a boolean if a field has been set.
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) HasPriceEffectiveDate() bool {
+	if o != nil && !IsNil(o.PriceEffectiveDate) {
 		return true
 	}
 
 	return false
 }
 
-// SetPricingEffectiveDate gets a reference to the given string and assigns it to the PricingEffectiveDate field.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) SetPricingEffectiveDate(v string) {
-	o.PricingEffectiveDate = &v
+// SetPriceEffectiveDate gets a reference to the given string and assigns it to the PriceEffectiveDate field.
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) SetPriceEffectiveDate(v string) {
+	o.PriceEffectiveDate = &v
 }
 
-// GetPricingPerUnit returns the PricingPerUnit field value if set, zero value otherwise.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetPricingPerUnit() map[string]interface{} {
-	if o == nil || IsNil(o.PricingPerUnit) {
+// GetPricePerUnit returns the PricePerUnit field value if set, zero value otherwise.
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetPricePerUnit() map[string]interface{} {
+	if o == nil || IsNil(o.PricePerUnit) {
 		var ret map[string]interface{}
 		return ret
 	}
-	return o.PricingPerUnit
+	return o.PricePerUnit
 }
 
-// GetPricingPerUnitOk returns a tuple with the PricingPerUnit field value if set, nil otherwise
+// GetPricePerUnitOk returns a tuple with the PricePerUnit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetPricingPerUnitOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.PricingPerUnit) {
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetPricePerUnitOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.PricePerUnit) {
 		return map[string]interface{}{}, false
 	}
-	return o.PricingPerUnit, true
+	return o.PricePerUnit, true
 }
 
-// HasPricingPerUnit returns a boolean if a field has been set.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) HasPricingPerUnit() bool {
-	if o != nil && !IsNil(o.PricingPerUnit) {
+// HasPricePerUnit returns a boolean if a field has been set.
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) HasPricePerUnit() bool {
+	if o != nil && !IsNil(o.PricePerUnit) {
 		return true
 	}
 
 	return false
 }
 
-// SetPricingPerUnit gets a reference to the given map[string]interface{} and assigns it to the PricingPerUnit field.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) SetPricingPerUnit(v map[string]interface{}) {
-	o.PricingPerUnit = v
+// SetPricePerUnit gets a reference to the given map[string]interface{} and assigns it to the PricePerUnit field.
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) SetPricePerUnit(v map[string]interface{}) {
+	o.PricePerUnit = v
 }
 
 // GetProductTierId returns the ProductTierId field value
@@ -290,15 +290,15 @@ func (o FleetCreateSubscriptionOnBehalfOfCustomerRequest) MarshalJSON() ([]byte,
 func (o FleetCreateSubscriptionOnBehalfOfCustomerRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["environmentId"] = o.EnvironmentId
-	if !IsNil(o.InheritServicePlanPricing) {
-		toSerialize["inheritServicePlanPricing"] = o.InheritServicePlanPricing
+	if !IsNil(o.InheritServicePlanPrice) {
+		toSerialize["inheritServicePlanPrice"] = o.InheritServicePlanPrice
 	}
 	toSerialize["onBehalfOfCustomerUserId"] = o.OnBehalfOfCustomerUserId
-	if !IsNil(o.PricingEffectiveDate) {
-		toSerialize["pricingEffectiveDate"] = o.PricingEffectiveDate
+	if !IsNil(o.PriceEffectiveDate) {
+		toSerialize["priceEffectiveDate"] = o.PriceEffectiveDate
 	}
-	if !IsNil(o.PricingPerUnit) {
-		toSerialize["pricingPerUnit"] = o.PricingPerUnit
+	if !IsNil(o.PricePerUnit) {
+		toSerialize["pricePerUnit"] = o.PricePerUnit
 	}
 	toSerialize["productTierId"] = o.ProductTierId
 	toSerialize["serviceId"] = o.ServiceId
@@ -351,10 +351,10 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) UnmarshalJSON(data []
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "environmentId")
-		delete(additionalProperties, "inheritServicePlanPricing")
+		delete(additionalProperties, "inheritServicePlanPrice")
 		delete(additionalProperties, "onBehalfOfCustomerUserId")
-		delete(additionalProperties, "pricingEffectiveDate")
-		delete(additionalProperties, "pricingPerUnit")
+		delete(additionalProperties, "priceEffectiveDate")
+		delete(additionalProperties, "pricePerUnit")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "token")
