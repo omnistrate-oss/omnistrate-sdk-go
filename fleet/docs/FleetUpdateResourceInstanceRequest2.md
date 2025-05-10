@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**NetworkType** | Pointer to **string** | The network type | [optional] 
 **RequestParams** | Pointer to **interface{}** | The request parameters | [optional] 
 **ResourceId** | **string** | The resource ID. | 
 
@@ -25,6 +26,31 @@ will change when the set of required properties is changed
 NewFleetUpdateResourceInstanceRequest2WithDefaults instantiates a new FleetUpdateResourceInstanceRequest2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetNetworkType
+
+`func (o *FleetUpdateResourceInstanceRequest2) GetNetworkType() string`
+
+GetNetworkType returns the NetworkType field if non-nil, zero value otherwise.
+
+### GetNetworkTypeOk
+
+`func (o *FleetUpdateResourceInstanceRequest2) GetNetworkTypeOk() (*string, bool)`
+
+GetNetworkTypeOk returns a tuple with the NetworkType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkType
+
+`func (o *FleetUpdateResourceInstanceRequest2) SetNetworkType(v string)`
+
+SetNetworkType sets NetworkType field to given value.
+
+### HasNetworkType
+
+`func (o *FleetUpdateResourceInstanceRequest2) HasNetworkType() bool`
+
+HasNetworkType returns a boolean if a field has been set.
 
 ### GetRequestParams
 

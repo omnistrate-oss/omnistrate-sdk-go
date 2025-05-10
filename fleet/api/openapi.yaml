@@ -4403,7 +4403,8 @@ paths:
             example:
               cloud_provider: aws
               custom_network_id: n-1234567890
-              network_type: PUBLIC|PRIVATE_VPC_PEERING|PRIVATE_LINK|INTERNAL
+              externalPayerId: external-billing-id-1234
+              network_type: PUBLIC|INTERNAL
               productTierVersion: "1.0"
               region: us-east-1
               requestParams:
@@ -6012,7 +6013,7 @@ paths:
                       labore.
                   maxReplicas: "1"
                   minReplicas: "1"
-                  network_type: PUBLIC
+                  network_type: PUBLIC|INTERNAL
                   productTierFeatures:
                     LOGS:
                       auth:
@@ -6292,6 +6293,7 @@ paths:
         content:
           application/json:
             example:
+              network_type: PUBLIC|INTERNAL
               requestParams:
                 param1: value1
                 param2: value2
@@ -7349,7 +7351,7 @@ paths:
                         labore.
                     maxReplicas: "1"
                     minReplicas: "1"
-                    network_type: PUBLIC
+                    network_type: PUBLIC|INTERNAL
                     productTierFeatures:
                       LOGS:
                         auth:
@@ -7654,7 +7656,7 @@ paths:
                         labore.
                     maxReplicas: "1"
                     minReplicas: "1"
-                    network_type: PUBLIC
+                    network_type: PUBLIC|INTERNAL
                     productTierFeatures:
                       LOGS:
                         auth:
@@ -8260,7 +8262,7 @@ paths:
         content:
           application/json:
             example:
-              network_type: PUBLIC|PRIVATE_VPC_PEERING|PRIVATE_LINK|INTERNAL
+              network_type: PUBLIC|INTERNAL
               targetRestoreTime: 2021-09-01T00:00:00Z
             schema:
               $ref: '#/components/schemas/FleetRestoreResourceInstanceRequest2'
@@ -9080,7 +9082,7 @@ paths:
                         labore.
                     maxReplicas: "1"
                     minReplicas: "1"
-                    network_type: PUBLIC
+                    network_type: PUBLIC|INTERNAL
                     productTierFeatures:
                       LOGS:
                         auth:
@@ -9385,7 +9387,7 @@ paths:
                         labore.
                     maxReplicas: "1"
                     minReplicas: "1"
-                    network_type: PUBLIC
+                    network_type: PUBLIC|INTERNAL
                     productTierFeatures:
                       LOGS:
                         auth:
@@ -9690,7 +9692,7 @@ paths:
                         labore.
                     maxReplicas: "1"
                     minReplicas: "1"
-                    network_type: PUBLIC
+                    network_type: PUBLIC|INTERNAL
                     productTierFeatures:
                       LOGS:
                         auth:
@@ -11442,7 +11444,8 @@ paths:
               inputParametersOverride:
                 param1: value1
                 param2: value2
-              network_type: PUBLIC|PRIVATE_VPC_PEERING|PRIVATE_LINK|INTERNAL
+              network_type: PUBLIC|INTERNAL
+              productTierVersionOverride: "1.0"
             schema:
               $ref: '#/components/schemas/FleetRestoreResourceInstanceFromSnapshotRequest2'
         required: true
@@ -11559,6 +11562,7 @@ paths:
                       amount: 1.0E-4
                       currency: USD
                   createdAt: 2019-01-01T00:00:00Z
+                  externalPayerId: a3df-sdf9-gfn3-4g3f
                   historySubscriptionPricing:
                   - createdAt: 2019-01-03T00:00:00Z
                     endDate: 2019-01-01T00:00:00Z
@@ -11616,6 +11620,7 @@ paths:
                       amount: 1.0E-4
                       currency: USD
                   createdAt: 2019-01-01T00:00:00Z
+                  externalPayerId: a3df-sdf9-gfn3-4g3f
                   historySubscriptionPricing:
                   - createdAt: 2019-01-03T00:00:00Z
                     endDate: 2019-01-01T00:00:00Z
@@ -11737,6 +11742,7 @@ paths:
         content:
           application/json:
             example:
+              externalPayerId: a3df-sdf9-gfn3-4g3f
               inheritServicePlanPrice: true
               onBehalfOfCustomerUserId: user-12345678
               priceEffectiveDate: 2019-01-01T00:00:00Z
@@ -11941,6 +11947,7 @@ paths:
                     amount: 1.0E-4
                     currency: USD
                 createdAt: 2019-01-01T00:00:00Z
+                externalPayerId: a3df-sdf9-gfn3-4g3f
                 historySubscriptionPricing:
                 - createdAt: 2019-01-03T00:00:00Z
                   endDate: 2019-01-01T00:00:00Z
@@ -12073,6 +12080,7 @@ paths:
         content:
           application/json:
             example:
+              externalPayerId: a3df-sdf9-gfn3-4g3f
               inheritServicePlanPrice: true
               priceEffectiveDate: 2019-01-01T00:00:00Z
               pricePerUnit:
@@ -15179,7 +15187,7 @@ components:
         serviceModelKey: hosted
         serviceProviderId: omnistrate
         subscriptionId: sub-abcd1234
-        token: is
+        token: qs
       properties:
         capacityToBeAdded:
           description: Number of replicas to be added
@@ -15216,7 +15224,7 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Non perferendis voluptatem perferendis quasi molestiae sunt.
+          example: Incidunt quia quam quis est.
           type: string
         subscriptionId:
           description: The subscription ID
@@ -15224,7 +15232,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: cfw
+          example: nhg
           minLength: 1
           type: string
       required:
@@ -15252,7 +15260,7 @@ components:
         serviceProviderId: omnistrate
         subscriptionId: sub-abcd1234
         targetPort: 8080
-        token: o2n
+        token: 3n
       properties:
         customDNS:
           description: The custom DNS to add
@@ -15288,7 +15296,7 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Quia recusandae repellendus est.
+          example: Unde voluptatem et et fugiat necessitatibus suscipit.
           type: string
         subscriptionId:
           description: The subscription ID
@@ -15301,7 +15309,7 @@ components:
           type: integer
         token:
           description: JWT token used to perform authorization
-          example: 9l8
+          example: v
           minLength: 1
           type: string
       required:
@@ -15655,15 +15663,15 @@ components:
     CancelSubscriptionRequestRequest:
       example:
         id: subr-12345678
-        token: t
+        token: "3"
       properties:
         id:
           description: ID of a Subscription Request
-          example: Nihil provident ut.
+          example: Esse vel laboriosam non recusandae quas qui.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: w0y
+          example: "83"
           minLength: 1
           type: string
       required:
@@ -15755,7 +15763,7 @@ components:
     ChangePlanRequest:
       example:
         planName: STARTER
-        token: up1
+        token: a
       properties:
         planName:
           description: This parameter is used to select the appropriate Product Plan
@@ -15763,7 +15771,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: 4j
+          example: kl
           minLength: 1
           type: string
       required:
@@ -16304,7 +16312,7 @@ components:
           - 30000
           - 30001
           items:
-            example: 3450606014945121609
+            example: 3495127481955356019
             format: int64
             type: integer
           type: array
@@ -16318,7 +16326,7 @@ components:
       example:
         code: ac_12345678
         state: "12345678"
-        token: hf
+        token: 8f
       properties:
         code:
           description: Authorization code from Stripe
@@ -16330,7 +16338,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: mc
+          example: 1b
           minLength: 1
           type: string
       required:
@@ -16347,14 +16355,14 @@ components:
       type: object
     ConsumptionServiceAuthRequest:
       example:
-        password: Praesentium consequatur aut dolor magni.
-        username: Occaecati voluptatem ea fuga.
+        password: Error occaecati.
+        username: Itaque odio perspiciatis a ut libero sed.
       properties:
         password:
-          example: A ut libero sed et.
+          example: Est et rerum et cum dolor ex.
           type: string
         username:
-          example: Repudiandae itaque odio.
+          example: Id dignissimos doloribus quo voluptatem voluptas.
           type: string
       required:
       - password
@@ -16362,11 +16370,11 @@ components:
       type: object
     ConsumptionServiceAuthResult:
       example:
-        token: q
+        token: sp
       properties:
         token:
           description: JWT token used to perform authorization
-          example: vm
+          example: hy3
           minLength: 1
           type: string
       required:
@@ -16705,16 +16713,13 @@ components:
         clientSecret: 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
         disabled: false
         emailIdentifiers: company.com
-        environmentType: Quia nobis hic.
+        environmentType: Voluptatum ut.
         identityProviderName: Google
         loginButtonIconUrl: https://example.com/icon.png
         loginButtonText: Login with Google
         name: Google for my company
-        scopes:
-        - openid
-        - email
-        - profile
-        token: ghk
+        scopes: openid email profile
+        token: ie
         tokenEndpoint: https://oauth2.googleapis.com/token
         userInfoEndpoint: https://www.googleapis.com/oauth2/v3/userinfo
       properties:
@@ -16740,7 +16745,7 @@ components:
           type: string
         environmentType:
           description: The type of environment to filter costs by
-          example: Eius maiores tenetur voluptatum ut.
+          example: Veritatis voluptatem ex assumenda est qui.
           type: string
         identityProviderName:
           description: The name of the identity provider
@@ -16760,17 +16765,11 @@ components:
           type: string
         scopes:
           description: The scopes to request from the Identity Provider
-          example:
-          - openid
-          - email
-          - profile
-          items:
-            example: Quasi ad.
-            type: string
-          type: array
+          example: openid email profile
+          type: string
         token:
           description: JWT token used to perform authorization
-          example: "0"
+          example: "n"
           minLength: 1
           type: string
         tokenEndpoint:
@@ -17208,7 +17207,7 @@ components:
         cloud_provider: aws
         custom_network_id: n-1234567890
         externalBillingId: external-billing-id-1234
-        network_type: PUBLIC
+        network_type: PUBLIC|INTERNAL
         productTierKey: premium
         region: us-east-1
         requestParams:
@@ -17221,7 +17220,7 @@ components:
         serviceModelKey: hosted
         serviceProviderId: omnistrate
         subscriptionId: sub-abcd1234
-        token: "873"
+        token: f
       properties:
         cloud_provider:
           description: The cloud provider name
@@ -17232,13 +17231,13 @@ components:
           example: n-1234567890
           type: string
         externalBillingId:
-          description: The external billing id to record which customer should pay
-            for this resource instance
+          description: This externalBillingId is deprecated and will be removed in
+            the future
           example: external-billing-id-1234
           type: string
         network_type:
           description: The network type
-          example: PUBLIC
+          example: PUBLIC|INTERNAL
           type: string
         productTierKey:
           description: The product tier name
@@ -17275,7 +17274,7 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Et et fugiat.
+          example: Sequi nemo ducimus.
           type: string
         subscriptionId:
           description: The subscription ID
@@ -17283,7 +17282,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: c5
+          example: f0j
           minLength: 1
           type: string
       required:
@@ -17302,7 +17301,7 @@ components:
         description: My custom domain description
         environmentType: DEV
         name: MyCustomDomain
-        token: x
+        token: dus
       properties:
         customDomain:
           description: The custom domain
@@ -17322,7 +17321,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: wrj
+          example: lq
           minLength: 1
           type: string
       required:
@@ -17568,16 +17567,16 @@ components:
       type: object
     CreateServicesOrchestrationRequest:
       example:
-        orchestrationCreateDSL: Distinctio possimus quam et nam modi et.
-        token: qb
+        orchestrationCreateDSL: In qui.
+        token: jt
       properties:
         orchestrationCreateDSL:
           description: base64 encoded content of service orchestration create DSL
-          example: Qui minima neque amet.
+          example: Ea eaque quae tempore molestiae in.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: t8
+          example: xf0
           minLength: 1
           type: string
       required:
@@ -17588,11 +17587,11 @@ components:
       example:
         productTierId: pt-12345678
         serviceId: s-12345678
-        token: 8e
+        token: "7"
       properties:
         productTierId:
           description: ID of a Product Tier
-          example: Nobis aut nihil laboriosam asperiores optio modi.
+          example: Voluptatem quod.
           type: string
         serviceId:
           description: ID of a Service
@@ -17600,7 +17599,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: "2"
+          example: sk
           minLength: 1
           type: string
       required:
@@ -17612,11 +17611,11 @@ components:
       example:
         productTierId: pt-12345678
         serviceId: s-12345678
-        token: vg6
+        token: 7b
       properties:
         productTierId:
           description: ID of a Product Tier
-          example: Dolorum et qui dolorum.
+          example: Omnis quae quasi et.
           type: string
         serviceId:
           description: ID of a Service
@@ -17624,7 +17623,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: r
+          example: cj
           minLength: 1
           type: string
       required:
@@ -17857,7 +17856,7 @@ components:
           type: string
         id:
           description: ID of a custom network
-          example: Et repellat sapiente vel.
+          example: Mollitia et.
           type: string
         name:
           description: User friendly network name
@@ -18223,15 +18222,15 @@ components:
     DeleteIdentityProviderRequest:
       example:
         id: idp-12345678
-        token: lxq
+        token: r
       properties:
         id:
           description: ID of an Identity Provider
-          example: Molestiae ipsam ut excepturi rem ducimus omnis.
+          example: Voluptates expedita architecto illum molestiae.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: ea4
+          example: dml
           minLength: 1
           type: string
       required:
@@ -18367,7 +18366,7 @@ components:
         serviceModelKey: hosted
         serviceProviderId: omnistrate
         subscriptionId: sub-abcd1234
-        token: 4it
+        token: "8"
       properties:
         id:
           description: The instance ID
@@ -18399,7 +18398,7 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Quia asperiores sit nihil sit quia rerum.
+          example: Est sunt ipsa repellat sed ipsa.
           type: string
         subscriptionId:
           description: The subscription ID
@@ -18407,7 +18406,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: s
+          example: x
           minLength: 1
           type: string
       required:
@@ -18424,7 +18423,7 @@ components:
     DeleteSaaSPortalCustomDomainRequest:
       example:
         environmentType: DEV
-        token: e
+        token: f
       properties:
         environmentType:
           description: The type of service environment
@@ -18432,7 +18431,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: dz
+          example: "9"
           minLength: 1
           type: string
       required:
@@ -18508,15 +18507,15 @@ components:
     DeleteServicesOrchestrationRequest:
       example:
         id: so-12345678
-        token: ob
+        token: rk
       properties:
         id:
           description: ID of a Services Orchestration
-          example: Sunt quaerat accusantium id quasi maxime et.
+          example: Quas voluptatem aut distinctio possimus.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: jg
+          example: k3
           minLength: 1
           type: string
       required:
@@ -18526,15 +18525,15 @@ components:
     DeleteSubscriptionRequest:
       example:
         id: sub-12345678
-        token: na
+        token: tf
       properties:
         id:
           description: ID of a Subscription
-          example: Et odit.
+          example: Rem dolorem.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: lr9
+          example: id
           minLength: 1
           type: string
       required:
@@ -19192,15 +19191,15 @@ components:
     DescribeCloudProviderRequest:
       example:
         id: infra-12345678
-        token: l4q
+        token: uah
       properties:
         id:
           description: ID of an CloudProvider
-          example: Nulla qui debitis in vitae consequatur.
+          example: Debitis accusamus.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: 4s
+          example: "y"
           minLength: 1
           type: string
       required:
@@ -19219,7 +19218,7 @@ components:
           type: string
         id:
           description: ID of an CloudProvider
-          example: Libero temporibus consequatur quis qui debitis.
+          example: Nobis delectus natus nulla.
           type: string
         name:
           description: Name of the CloudProvider
@@ -19543,16 +19542,13 @@ components:
         clientSecret: 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
         disabled: false
         emailIdentifiers: company.com
-        environmentType: Magnam expedita.
+        environmentType: Accusamus quam distinctio nisi.
         id: idp-12345678
         identityProviderName: Google
         loginButtonIconUrl: https://example.com/icon.png
         loginButtonText: Login with Google
         name: Google for my company
-        scopes:
-        - openid
-        - email
-        - profile
+        scopes: openid email profile
         status: Ready
         tokenEndpoint: https://oauth2.googleapis.com/token
         userInfoEndpoint: https://www.googleapis.com/oauth2/v3/userinfo
@@ -19579,11 +19575,11 @@ components:
           type: string
         environmentType:
           description: The type of environment to filter costs by
-          example: Aut quos ipsum impedit voluptatem iusto.
+          example: Voluptatem quam aspernatur a quia nobis.
           type: string
         id:
           description: ID of an Identity Provider
-          example: Quam distinctio.
+          example: Quasi ad.
           type: string
         identityProviderName:
           description: The name of the identity provider
@@ -19603,14 +19599,8 @@ components:
           type: string
         scopes:
           description: The scopes to request from the Identity Provider
-          example:
-          - openid
-          - email
-          - profile
-          items:
-            example: Iusto provident aut quia.
-            type: string
-          type: array
+          example: openid email profile
+          type: string
         status:
           description: The status of an operation
           example: FAILED|CANCELLED|PENDING_DEPENDENCY|PENDING|RUNNING|DEPLOYING|READY|SUCCESS|COMPLETE|DELETING|DELETED|UNKNOWN|DISCONNECTED|DISCONNECTING|CONNECTING|DEACTIVATED
@@ -19886,11 +19876,11 @@ components:
       type: object
     DescribePlanRequest:
       example:
-        token: 5s9
+        token: jv
       properties:
         token:
           description: JWT token used to perform authorization
-          example: w
+          example: y9
           minLength: 1
           type: string
       required:
@@ -20319,15 +20309,15 @@ components:
     DescribeRegionRequest:
       example:
         id: region-12345678
-        token: h
+        token: "n"
       properties:
         id:
           description: ID of a Region
-          example: Perferendis harum inventore explicabo.
+          example: Minus reiciendis voluptatem dolorum omnis aut.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: vt
+          example: 1x
           minLength: 1
           type: string
       required:
@@ -20344,7 +20334,7 @@ components:
       properties:
         cloudProviderId:
           description: ID of an CloudProvider
-          example: Asperiores doloribus excepturi reiciendis enim.
+          example: Esse et voluptatem officia perferendis harum inventore.
           type: string
         cloudProviderName:
           description: Name of the Infra Provider
@@ -20362,7 +20352,7 @@ components:
           type: string
         id:
           description: ID of a Region
-          example: Cupiditate perferendis.
+          example: Dolores modi.
           type: string
       required:
       - cloudProviderId
@@ -20382,7 +20372,7 @@ components:
         serviceModelKey: hosted
         serviceProviderId: omnistrate
         subscriptionId: sub-abcd1234
-        token: "5"
+        token: g2
       properties:
         id:
           description: The instance ID
@@ -20414,7 +20404,7 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Voluptatem magnam.
+          example: Pariatur voluptas eius.
           type: string
         subscriptionId:
           description: The subscription ID
@@ -20422,7 +20412,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: "y"
+          example: 1o3
           minLength: 1
           type: string
       required:
@@ -20547,7 +20537,7 @@ components:
             upgrade_path_status: SCHEDULED
         maxReplicas: "1"
         minReplicas: "1"
-        network_type: PUBLIC
+        network_type: PUBLIC|INTERNAL
         productTierFeatures:
           LOGS:
             auth:
@@ -20600,7 +20590,7 @@ components:
           type: string
         createdByUserId:
           description: ID of a User
-          example: Asperiores omnis praesentium vel.
+          example: Aut quia.
           type: string
         createdByUserName:
           description: The name of the user that created the resource instance
@@ -20708,7 +20698,7 @@ components:
           type: string
         network_type:
           description: The network type
-          example: PUBLIC
+          example: PUBLIC|INTERNAL
           type: string
         productTierFeatures:
           additionalProperties: true
@@ -20729,7 +20719,7 @@ components:
           type: string
         resourceID:
           description: ID of a resource
-          example: Hic veniam praesentium nobis.
+          example: Sunt magni quidem ipsum voluptatem dolorem iure.
           type: string
         result_params:
           description: Custom result parameters
@@ -21059,7 +21049,7 @@ components:
       example:
         environmentType: DEV
         serviceId: s-12345678
-        token: l
+        token: e
         visibility: PRIVATE
       properties:
         environmentType:
@@ -21072,7 +21062,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: nxf
+          example: qbp
           minLength: 1
           type: string
         visibility:
@@ -21089,7 +21079,7 @@ components:
         instanceId: instance-12345678
         resourceId: r-12345678
         serviceId: s-12345678
-        token: si
+        token: pd
       properties:
         instanceId:
           default: none
@@ -21098,7 +21088,7 @@ components:
           type: string
         resourceId:
           description: ID of a resource
-          example: Ut ea.
+          example: Id esse id.
           type: string
         serviceId:
           description: ID of a Service
@@ -21106,7 +21096,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: xsp
+          example: q
           minLength: 1
           type: string
       required:
@@ -21343,7 +21333,7 @@ components:
           type: string
         serviceOrgId:
           description: ID of an Org
-          example: Eaque quae tempore molestiae.
+          example: Eligendi omnis aut.
           type: string
         serviceProviderId:
           description: The id of the service provider
@@ -21847,15 +21837,15 @@ components:
     DescribeServicesOrchestrationRequest:
       example:
         id: so-12345678
-        token: k
+        token: "9"
       properties:
         id:
           description: ID of a Services Orchestration
-          example: Officiis voluptatem et.
+          example: Aspernatur dicta qui esse officia tempora autem.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: "4"
+          example: "3"
           minLength: 1
           type: string
       required:
@@ -21917,26 +21907,6 @@ components:
             status: PENDING
             statusMessage: Creating deployment
             subscriptionId: Quisquam officiis occaecati rerum iusto atque itaque.
-          - dependsOnDeployment:
-            - instanceDeploymentAlias1
-            - instanceDeploymentAlias2
-            failedReason: Invalid inputs
-            instanceDeploymentAlias: instanceDeploymentAlias
-            instanceId: i-12345678
-            serviceId: s-12345678
-            status: PENDING
-            statusMessage: Creating deployment
-            subscriptionId: Quisquam officiis occaecati rerum iusto atque itaque.
-          - dependsOnDeployment:
-            - instanceDeploymentAlias1
-            - instanceDeploymentAlias2
-            failedReason: Invalid inputs
-            instanceDeploymentAlias: instanceDeploymentAlias
-            instanceId: i-12345678
-            serviceId: s-12345678
-            status: PENDING
-            statusMessage: Creating deployment
-            subscriptionId: Quisquam officiis occaecati rerum iusto atque itaque.
           items:
             $ref: '#/components/schemas/ServiceDeploymentDetails'
           type: array
@@ -21946,7 +21916,7 @@ components:
           type: string
         id:
           description: ID of a Services Orchestration
-          example: Enim vel delectus iste aut debitis rerum.
+          example: Aliquid deleniti fuga doloribus ad.
           type: string
         orchestrationFailedReason:
           description: The reason why the orchestration failed
@@ -21974,15 +21944,15 @@ components:
     DescribeSubscriptionRequest:
       example:
         id: sub-12345678
-        token: re0
+        token: "2"
       properties:
         id:
           description: ID of a Subscription
-          example: Vel sed beatae.
+          example: Omnis et vero exercitationem ut et occaecati.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: fb
+          example: cy
           minLength: 1
           type: string
       required:
@@ -21992,15 +21962,15 @@ components:
     DescribeSubscriptionRequestRequest:
       example:
         id: subr-12345678
-        token: x
+        token: "1"
       properties:
         id:
           description: ID of a Subscription Request
-          example: Nisi impedit dignissimos.
+          example: Ea ex ad ipsam et.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: ik
+          example: ok
           minLength: 1
           type: string
       required:
@@ -22017,7 +21987,7 @@ components:
         rootUserId: org-12345678
         rootUserName: John Doe
         serviceId: s-12345678
-        serviceLogoURL: Eos incidunt.
+        serviceLogoURL: Vero non.
         serviceName: MySQL multi-writer service
         status: PENDING
         updatedAt: 2019-01-01T00:00:00Z
@@ -22030,11 +22000,11 @@ components:
           type: string
         id:
           description: ID of a Subscription Request
-          example: Possimus delectus et atque.
+          example: Sint nesciunt quo qui dolorum et.
           type: string
         productTierId:
           description: ID of a Product Tier
-          example: Vero non.
+          example: Officia vel nisi impedit.
           type: string
         productTierName:
           description: The name of the product tier
@@ -22046,7 +22016,7 @@ components:
           type: string
         rootUserId:
           description: ID of a User
-          example: Doloremque minus quod.
+          example: Corrupti illum omnis possimus delectus et atque.
           type: string
         rootUserName:
           description: The name of the user that issued the subscription request
@@ -22058,7 +22028,7 @@ components:
           type: string
         serviceLogoURL:
           description: The logo for the service
-          example: Adipisci provident.
+          example: Dolorum sequi est magnam sit assumenda.
           type: string
         serviceName:
           description: The name of the service
@@ -22074,7 +22044,7 @@ components:
           type: string
         updatedByUserId:
           description: ID of a User
-          example: Assumenda sunt et.
+          example: Adipisci provident.
           type: string
         updatedByUserName:
           description: The user that last updated the subscription request
@@ -22120,7 +22090,7 @@ components:
         roleType: root
         rootUserId: user-12345678
         serviceId: s-12345678
-        serviceLogoURL: Dolore fugit rerum.
+        serviceLogoURL: Fugit iste sint id et quae ut.
         serviceName: MySQL multi-writer service
         serviceOrgId: org-12345678
         serviceOrgName: Omnistrate
@@ -22129,7 +22099,7 @@ components:
       properties:
         accountConfigIdentityId:
           description: ID of an Org
-          example: Eligendi sunt minus.
+          example: Consequatur esse.
           type: string
         activeSubscriptionPricing:
           additionalProperties: true
@@ -22152,7 +22122,7 @@ components:
           - aws
           - gcp
           items:
-            example: Et voluptatem.
+            example: Reprehenderit maiores dolor aut.
             type: string
           type: array
         createdAt:
@@ -22165,7 +22135,7 @@ components:
           type: boolean
         id:
           description: ID of a Subscription
-          example: Rerum minus alias aut omnis.
+          example: Nobis aut nihil laboriosam asperiores optio modi.
           type: string
         inheritServicePlanPrice:
           description: Whether to inherit the service plan price
@@ -22173,7 +22143,7 @@ components:
           type: boolean
         productTierId:
           description: ID of a Product Tier
-          example: Dolor aut quia consequatur.
+          example: Vel sed beatae.
           type: string
         productTierName:
           description: The name of the product tier
@@ -22185,7 +22155,7 @@ components:
           type: string
         rootUserId:
           description: ID of a User
-          example: Odit reprehenderit.
+          example: Temporibus ipsa ullam quo error.
           type: string
         serviceId:
           description: ID of a Service
@@ -22193,7 +22163,7 @@ components:
           type: string
         serviceLogoURL:
           description: The logo for the service
-          example: Ut enim amet adipisci tempora provident omnis.
+          example: Omnis aliquid.
           type: string
         serviceName:
           description: The name of the service
@@ -22201,7 +22171,7 @@ components:
           type: string
         serviceOrgId:
           description: ID of an Org
-          example: Aut fugit iste sint id et.
+          example: Accusantium quo voluptatum et rerum minus alias.
           type: string
         serviceOrgName:
           description: The name of the org that owns the service
@@ -22383,11 +22353,11 @@ components:
       type: object
     DescribeUserRequest:
       example:
-        token: 3v9
+        token: 8z5
       properties:
         token:
           description: JWT token used to perform authorization
-          example: pw
+          example: "7"
           minLength: 1
           type: string
       required:
@@ -22409,15 +22379,15 @@ components:
         id: user-abcd1234
         lastModifiedAt: 2023-01-20T00:00:00Z
         name: John Dae
-        orgCookiePolicy: Omnis ipsum.
+        orgCookiePolicy: Debitis mollitia et similique nihil similique quod.
         orgDescription: ACME Inc.
-        orgFavIconURL: Ut sunt ut eligendi error.
+        orgFavIconURL: Adipisci nihil ut mollitia deleniti voluptatibus.
         orgId: org-aKQ8G13QeR
-        orgLogoURL: Adipisci nihil ut mollitia deleniti voluptatibus.
+        orgLogoURL: Incidunt minus delectus amet quis nihil voluptates.
         orgName: ACME
-        orgPrivacyPolicy: Debitis mollitia et similique nihil similique quod.
+        orgPrivacyPolicy: Architecto inventore recusandae et.
         orgSupportEmail: support@example.com
-        orgTermsOfUse: Architecto inventore recusandae et.
+        orgTermsOfUse: Ut sunt ut eligendi error.
         orgURL: something.acme
         planName: STARTER
         roleType: reader
@@ -22451,7 +22421,7 @@ components:
           type: string
         orgCookiePolicy:
           description: The cookie policy for the org that this user owns
-          example: Incidunt minus delectus amet quis nihil voluptates.
+          example: Ratione est.
           type: string
         orgDescription:
           description: The description of the org that this user owns
@@ -22459,7 +22429,7 @@ components:
           type: string
         orgFavIconURL:
           description: The favicon of the org that this user owns
-          example: Ea iste velit qui totam ducimus optio.
+          example: Odio vitae doloremque voluptas corrupti provident dignissimos.
           type: string
         orgId:
           description: The ID of the org that this user owns
@@ -22467,7 +22437,7 @@ components:
           type: string
         orgLogoURL:
           description: The logo of the org that this user owns
-          example: Vitae doloremque voluptas corrupti provident dignissimos.
+          example: Natus non placeat qui quia ratione voluptas.
           type: string
         orgName:
           description: The org name that this user owns
@@ -22475,7 +22445,7 @@ components:
           type: string
         orgPrivacyPolicy:
           description: The privacy policy for the org that this user owns
-          example: Ratione est.
+          example: Tempore aut veritatis recusandae.
           type: string
         orgSupportEmail:
           description: The support email of the org that this user owns
@@ -22483,7 +22453,7 @@ components:
           type: string
         orgTermsOfUse:
           description: The terms of use for the org that this user owns
-          example: Tempore aut veritatis recusandae.
+          example: Ea iste velit qui totam ducimus optio.
           type: string
         orgURL:
           description: The url of the org that this user owns
@@ -22506,11 +22476,11 @@ components:
       type: object
     DescribeUsersByOrgRequest:
       example:
-        token: vd
+        token: pw
       properties:
         token:
           description: JWT token used to perform authorization
-          example: f
+          example: j
           minLength: 1
           type: string
       required:
@@ -23211,7 +23181,7 @@ components:
         serviceModelKey: hosted
         serviceProviderId: omnistrate
         subscriptionId: sub-abcd1234
-        token: qs
+        token: phl
       properties:
         failedReplicaAction:
           description: The action to take for the replica that has failed
@@ -23251,7 +23221,7 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Incidunt quia quam quis est.
+          example: Et sapiente distinctio et praesentium sequi sit.
           type: string
         subscriptionId:
           description: The subscription ID
@@ -23259,7 +23229,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: nhg
+          example: z
           minLength: 1
           type: string
       required:
@@ -24054,7 +24024,8 @@ components:
       example:
         cloud_provider: aws
         custom_network_id: n-1234567890
-        network_type: PUBLIC|PRIVATE_VPC_PEERING|PRIVATE_LINK|INTERNAL
+        externalPayerId: external-billing-id-1234
+        network_type: PUBLIC|INTERNAL
         productTierKey: premium
         productTierVersion: "1.0"
         region: us-east-1
@@ -24078,9 +24049,15 @@ components:
           description: Custom network for resource
           example: n-1234567890
           type: string
+        externalPayerId:
+          description: The external payer id to record which customer should pay for
+            this resource instance. This will override the subscription level external
+            payer id if set.
+          example: external-billing-id-1234
+          type: string
         network_type:
           description: The network type
-          example: PUBLIC|PRIVATE_VPC_PEERING|PRIVATE_LINK|INTERNAL
+          example: PUBLIC|INTERNAL
           type: string
         productTierKey:
           description: The product tier name
@@ -24146,7 +24123,8 @@ components:
       example:
         cloud_provider: aws
         custom_network_id: n-1234567890
-        network_type: PUBLIC|PRIVATE_VPC_PEERING|PRIVATE_LINK|INTERNAL
+        externalPayerId: external-billing-id-1234
+        network_type: PUBLIC|INTERNAL
         productTierVersion: "1.0"
         region: us-east-1
         requestParams:
@@ -24162,9 +24140,15 @@ components:
           description: Custom network for resource
           example: n-1234567890
           type: string
+        externalPayerId:
+          description: The external payer id to record which customer should pay for
+            this resource instance. This will override the subscription level external
+            payer id if set.
+          example: external-billing-id-1234
+          type: string
         network_type:
           description: The network type
-          example: PUBLIC|PRIVATE_VPC_PEERING|PRIVATE_LINK|INTERNAL
+          example: PUBLIC|INTERNAL
           type: string
         productTierVersion:
           description: The product tier version
@@ -24234,6 +24218,7 @@ components:
     FleetCreateSubscriptionOnBehalfOfCustomerRequest:
       example:
         environmentId: se-12345678
+        externalPayerId: a3df-sdf9-gfn3-4g3f
         inheritServicePlanPrice: true
         onBehalfOfCustomerUserId: user-12345678
         priceEffectiveDate: 2019-01-01T00:00:00Z
@@ -24254,6 +24239,11 @@ components:
         environmentId:
           description: ID of a Service Environment
           example: se-123456
+          type: string
+        externalPayerId:
+          description: The external payer ID to record which customer should pay for
+            this subscription
+          example: a3df-sdf9-gfn3-4g3f
           type: string
         inheritServicePlanPrice:
           description: Whether to inherit the service plan price
@@ -24305,6 +24295,7 @@ components:
       type: object
     FleetCreateSubscriptionOnBehalfOfCustomerRequest2:
       example:
+        externalPayerId: a3df-sdf9-gfn3-4g3f
         inheritServicePlanPrice: true
         onBehalfOfCustomerUserId: user-12345678
         priceEffectiveDate: 2019-01-01T00:00:00Z
@@ -24320,6 +24311,11 @@ components:
             currency: USD
         productTierId: prod-12345678
       properties:
+        externalPayerId:
+          description: The external payer ID to record which customer should pay for
+            this subscription
+          example: a3df-sdf9-gfn3-4g3f
+          type: string
         inheritServicePlanPrice:
           description: Whether to inherit the service plan price
           example: true
@@ -25270,6 +25266,7 @@ components:
             amount: 1.0E-4
             currency: USD
         createdAt: 2019-01-01T00:00:00Z
+        externalPayerId: a3df-sdf9-gfn3-4g3f
         historySubscriptionPricing:
         - createdAt: 2019-01-03T00:00:00Z
           endDate: 2019-01-01T00:00:00Z
@@ -25335,6 +25332,11 @@ components:
         createdAt:
           description: The time that this subscription was created
           example: 2019-01-01T00:00:00Z
+          type: string
+        externalPayerId:
+          description: The external payer ID to record which customer should pay for
+            this subscription
+          example: a3df-sdf9-gfn3-4g3f
           type: string
         historySubscriptionPricing:
           description: The history pricing for the subscription.
@@ -27114,7 +27116,7 @@ components:
                 upgrade_path_status: SCHEDULED
             maxReplicas: "1"
             minReplicas: "1"
-            network_type: PUBLIC
+            network_type: PUBLIC|INTERNAL
             productTierFeatures:
               LOGS:
                 auth:
@@ -27377,7 +27379,7 @@ components:
                 upgrade_path_status: SCHEDULED
             maxReplicas: "1"
             minReplicas: "1"
-            network_type: PUBLIC
+            network_type: PUBLIC|INTERNAL
             productTierFeatures:
               LOGS:
                 auth:
@@ -27640,7 +27642,7 @@ components:
                 upgrade_path_status: SCHEDULED
             maxReplicas: "1"
             minReplicas: "1"
-            network_type: PUBLIC
+            network_type: PUBLIC|INTERNAL
             productTierFeatures:
               LOGS:
                 auth:
@@ -27903,7 +27905,7 @@ components:
                 upgrade_path_status: SCHEDULED
             maxReplicas: "1"
             minReplicas: "1"
-            network_type: PUBLIC
+            network_type: PUBLIC|INTERNAL
             productTierFeatures:
               LOGS:
                 auth:
@@ -28179,7 +28181,7 @@ components:
                   upgrade_path_status: SCHEDULED
               maxReplicas: "1"
               minReplicas: "1"
-              network_type: PUBLIC
+              network_type: PUBLIC|INTERNAL
               productTierFeatures:
                 LOGS:
                   auth:
@@ -28442,7 +28444,7 @@ components:
                   upgrade_path_status: SCHEDULED
               maxReplicas: "1"
               minReplicas: "1"
-              network_type: PUBLIC
+              network_type: PUBLIC|INTERNAL
               productTierFeatures:
                 LOGS:
                   auth:
@@ -28705,7 +28707,7 @@ components:
                   upgrade_path_status: SCHEDULED
               maxReplicas: "1"
               minReplicas: "1"
-              network_type: PUBLIC
+              network_type: PUBLIC|INTERNAL
               productTierFeatures:
                 LOGS:
                   auth:
@@ -29078,6 +29080,7 @@ components:
               amount: 1.0E-4
               currency: USD
           createdAt: 2019-01-01T00:00:00Z
+          externalPayerId: a3df-sdf9-gfn3-4g3f
           historySubscriptionPricing:
           - createdAt: 2019-01-03T00:00:00Z
             endDate: 2019-01-01T00:00:00Z
@@ -29135,6 +29138,7 @@ components:
               amount: 1.0E-4
               currency: USD
           createdAt: 2019-01-01T00:00:00Z
+          externalPayerId: a3df-sdf9-gfn3-4g3f
           historySubscriptionPricing:
           - createdAt: 2019-01-03T00:00:00Z
             endDate: 2019-01-01T00:00:00Z
@@ -29211,6 +29215,7 @@ components:
                 amount: 1.0E-4
                 currency: USD
             createdAt: 2019-01-01T00:00:00Z
+            externalPayerId: a3df-sdf9-gfn3-4g3f
             historySubscriptionPricing:
             - createdAt: 2019-01-03T00:00:00Z
               endDate: 2019-01-01T00:00:00Z
@@ -29268,6 +29273,7 @@ components:
                 amount: 1.0E-4
                 currency: USD
             createdAt: 2019-01-01T00:00:00Z
+            externalPayerId: a3df-sdf9-gfn3-4g3f
             historySubscriptionPricing:
             - createdAt: 2019-01-03T00:00:00Z
               endDate: 2019-01-01T00:00:00Z
@@ -29325,6 +29331,7 @@ components:
                 amount: 1.0E-4
                 currency: USD
             createdAt: 2019-01-01T00:00:00Z
+            externalPayerId: a3df-sdf9-gfn3-4g3f
             historySubscriptionPricing:
             - createdAt: 2019-01-03T00:00:00Z
               endDate: 2019-01-01T00:00:00Z
@@ -29382,6 +29389,7 @@ components:
                 amount: 1.0E-4
                 currency: USD
             createdAt: 2019-01-01T00:00:00Z
+            externalPayerId: a3df-sdf9-gfn3-4g3f
             historySubscriptionPricing:
             - createdAt: 2019-01-03T00:00:00Z
               endDate: 2019-01-01T00:00:00Z
@@ -29827,7 +29835,8 @@ components:
         inputParametersOverride:
           param1: value1
           param2: value2
-        network_type: PUBLIC|PRIVATE_VPC_PEERING|PRIVATE_LINK|INTERNAL
+        network_type: PUBLIC|INTERNAL
+        productTierVersionOverride: "1.0"
         serviceId: s-12345678
         snapshotId: instance-ss-12345678
         token: 5x
@@ -29843,7 +29852,11 @@ components:
             param2: value2
         network_type:
           description: The network type
-          example: PUBLIC|PRIVATE_VPC_PEERING|PRIVATE_LINK|INTERNAL
+          example: PUBLIC|INTERNAL
+          type: string
+        productTierVersionOverride:
+          description: The product tier version
+          example: "1.0"
           type: string
         serviceId:
           description: ID of a Service
@@ -29869,7 +29882,8 @@ components:
         inputParametersOverride:
           param1: value1
           param2: value2
-        network_type: PUBLIC|PRIVATE_VPC_PEERING|PRIVATE_LINK|INTERNAL
+        network_type: PUBLIC|INTERNAL
+        productTierVersionOverride: "1.0"
       properties:
         inputParametersOverride:
           description: Custom input parameters override
@@ -29878,14 +29892,18 @@ components:
             param2: value2
         network_type:
           description: The network type
-          example: PUBLIC|PRIVATE_VPC_PEERING|PRIVATE_LINK|INTERNAL
+          example: PUBLIC|INTERNAL
+          type: string
+        productTierVersionOverride:
+          description: The product tier version
+          example: "1.0"
           type: string
       type: object
     FleetRestoreResourceInstanceRequest:
       example:
         environmentId: se-12345678
         instanceId: instance-12345678
-        network_type: PUBLIC|PRIVATE_VPC_PEERING|PRIVATE_LINK|INTERNAL
+        network_type: PUBLIC|INTERNAL
         serviceId: s-12345678
         targetRestoreTime: 2021-09-01T00:00:00Z
         token: c
@@ -29900,7 +29918,7 @@ components:
           type: string
         network_type:
           description: The network type
-          example: PUBLIC|PRIVATE_VPC_PEERING|PRIVATE_LINK|INTERNAL
+          example: PUBLIC|INTERNAL
           type: string
         serviceId:
           description: ID of a Service
@@ -29924,12 +29942,12 @@ components:
       type: object
     FleetRestoreResourceInstanceRequest2:
       example:
-        network_type: PUBLIC|PRIVATE_VPC_PEERING|PRIVATE_LINK|INTERNAL
+        network_type: PUBLIC|INTERNAL
         targetRestoreTime: 2021-09-01T00:00:00Z
       properties:
         network_type:
           description: The network type
-          example: PUBLIC|PRIVATE_VPC_PEERING|PRIVATE_LINK|INTERNAL
+          example: PUBLIC|INTERNAL
           type: string
         targetRestoreTime:
           description: The target restore time
@@ -30290,6 +30308,7 @@ components:
       example:
         environmentId: se-12345678
         instanceId: instance-12345678
+        network_type: PUBLIC|INTERNAL
         requestParams:
           param1: value1
           param2: value2
@@ -30304,6 +30323,10 @@ components:
         instanceId:
           description: ID of a Resource Instance
           example: instance-12345678
+          type: string
+        network_type:
+          description: The network type
+          example: PUBLIC|INTERNAL
           type: string
         requestParams:
           description: The request parameters
@@ -30332,11 +30355,16 @@ components:
       type: object
     FleetUpdateResourceInstanceRequest2:
       example:
+        network_type: PUBLIC|INTERNAL
         requestParams:
           param1: value1
           param2: value2
         resourceId: r-12345678
       properties:
+        network_type:
+          description: The network type
+          example: PUBLIC|INTERNAL
+          type: string
         requestParams:
           description: The request parameters
           example:
@@ -30352,6 +30380,7 @@ components:
     FleetUpdateSubscriptionRequest:
       example:
         environmentId: se-12345678
+        externalPayerId: a3df-sdf9-gfn3-4g3f
         id: sub-12345678
         inheritServicePlanPrice: true
         priceEffectiveDate: 2019-01-01T00:00:00Z
@@ -30371,6 +30400,11 @@ components:
         environmentId:
           description: ID of a Service Environment
           example: se-123456
+          type: string
+        externalPayerId:
+          description: The external payer ID to record which customer should pay for
+            this subscription.
+          example: a3df-sdf9-gfn3-4g3f
           type: string
         id:
           description: ID of a Subscription
@@ -30417,6 +30451,7 @@ components:
       type: object
     FleetUpdateSubscriptionRequest2:
       example:
+        externalPayerId: a3df-sdf9-gfn3-4g3f
         inheritServicePlanPrice: true
         priceEffectiveDate: 2019-01-01T00:00:00Z
         pricePerUnit:
@@ -30430,6 +30465,11 @@ components:
             amount: 1.0E-4
             currency: USD
       properties:
+        externalPayerId:
+          description: The external payer ID to record which customer should pay for
+            this subscription.
+          example: a3df-sdf9-gfn3-4g3f
+          type: string
         inheritServicePlanPrice:
           description: Whether to inherit the service plan price
           example: true
@@ -30534,7 +30574,7 @@ components:
       example:
         id: instance-abcd1234
         subscriptionId: sub-abcd1234
-        token: "1"
+        token: "5"
       properties:
         id:
           description: ID of a Resource Instance
@@ -30546,7 +30586,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: n6
+          example: w
           minLength: 1
           type: string
       required:
@@ -30604,7 +30644,7 @@ components:
     GetCloudProviderByNameRequest:
       example:
         name: aws
-        token: df
+        token: i
       properties:
         name:
           description: Name of the CloudProvider
@@ -30613,7 +30653,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: m
+          example: "4"
           minLength: 1
           type: string
       required:
@@ -30699,11 +30739,11 @@ components:
       type: object
     GetCurrentUsageRequest:
       example:
-        token: l80
+        token: ac2
       properties:
         token:
           description: JWT token used to perform authorization
-          example: b
+          example: w0y
           minLength: 1
           type: string
       required:
@@ -30713,7 +30753,7 @@ components:
       example:
         cloudProviderName: aws
         code: us-east-1
-        token: 32v
+        token: 8u
       properties:
         cloudProviderName:
           description: Name of the Infra Provider
@@ -30726,7 +30766,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: zln
+          example: ay4
           minLength: 1
           type: string
       required:
@@ -30999,7 +31039,7 @@ components:
       example:
         endDate: 2024-01-01T10:00:00Z
         startDate: 2023-01-01T10:00:00Z
-        token: "7"
+        token: b
       properties:
         endDate:
           description: "End time of the window in RFC 3339 format. If omitted, the\
@@ -31015,7 +31055,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: m0
+          example: t
           minLength: 1
           type: string
       required:
@@ -31491,7 +31531,7 @@ components:
           - option1
           - option2
           items:
-            example: Enim sequi ad ullam expedita quis est.
+            example: Dolor aut rerum officiis.
             type: string
           type: array
         required:
@@ -31773,7 +31813,7 @@ components:
           type: integer
         snapshotId:
           description: ID of a Resource Instance Snapshot
-          example: Amet ut nulla et quo nobis.
+          example: Eligendi iure accusantium occaecati sit ut inventore.
           type: string
         status:
           description: The snapshot status
@@ -32320,7 +32360,7 @@ components:
       example:
         email: abc@gmail.com
         roleType: reader
-        token: j
+        token: m0
       properties:
         email:
           example: abc@gmail.com
@@ -32333,7 +32373,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: 8z5
+          example: l80
           minLength: 1
           type: string
       required:
@@ -32588,7 +32628,7 @@ components:
     ListAllResourceInstancesRequest:
       example:
         environmentType: DEV
-        token: "1"
+        token: yr
       properties:
         environmentType:
           description: The type of service environment
@@ -32596,7 +32636,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: a9
+          example: ej1
           minLength: 1
           type: string
       required:
@@ -32685,7 +32725,7 @@ components:
               upgrade_path_status: SCHEDULED
           maxReplicas: "1"
           minReplicas: "1"
-          network_type: PUBLIC
+          network_type: PUBLIC|INTERNAL
           productTierFeatures:
             LOGS:
               auth:
@@ -32787,7 +32827,7 @@ components:
               upgrade_path_status: SCHEDULED
           maxReplicas: "1"
           minReplicas: "1"
-          network_type: PUBLIC
+          network_type: PUBLIC|INTERNAL
           productTierFeatures:
             LOGS:
               auth:
@@ -32889,7 +32929,109 @@ components:
               upgrade_path_status: SCHEDULED
           maxReplicas: "1"
           minReplicas: "1"
-          network_type: PUBLIC
+          network_type: PUBLIC|INTERNAL
+          productTierFeatures:
+            LOGS:
+              auth:
+                password: px3c4d5f6g7h8i
+                username: abcd1234
+              enabled: true
+              websocketBaseUrl: wss://r-injectedobserve.instance-abcdefgh.us-east-2.aws.omnistrate.cloud/logs
+            METRICS:
+              enabled: false
+          region: us-east-1
+          resourceID: r-abcd1234
+          result_params:
+            param1: value1
+            param2: value2
+          serverlessEnabled: true
+          status: RUNNING
+          subscriptionId: sub-abcd1234
+          subscriptionLicense:
+            certificateBase64: public-cert
+            expirationDate: 2024-01-01T10:00:00Z
+            licenseBase64: license-file
+          subscriptionStatus: ACTIVE
+        - active: true
+          autoscalingEnabled: true
+          awsAccountID: "123456789012"
+          azureSubscriptionID: 0fa05079-dd73-4b88-babc-05537817604a
+          backupStatus:
+            backupPeriodInHours: 2
+            backupRetentionInDays: 7
+            earliestRestoreTime: 2021-09-01T00:00:00Z
+            lastBackupTime: 2021-09-01T00:00:00Z
+          cloud_provider: aws
+          created_at: 2023-01-10T00:00:00Z
+          createdByUserId: user-12345678
+          createdByUserName: John Doe
+          currentReplicas: "2"
+          customNetworkDetail:
+            cidr: 10.177.0.0/16
+            id: n-12345678
+            name: Prod us-east-1
+          detailedNetworkTopology:
+            r-abcd1234:
+              allowedIPRanges:
+              - 0.0.0.0/0
+              clusterEndpoint: primary.instance-abcd1234.us-east-2.aws.omnistrate.cloud
+              clusterPorts:
+              - 3306
+              isJob: false
+              jobMetrics:
+              - additionalData:
+                  exitCode: 0
+                  status: Succeeded
+                endTime: 2023-01-01T10:05:00Z
+                metricType: cpu_core_seconds
+                startTime: 2023-01-01T10:00:00Z
+                value: 120.5
+              - additionalData:
+                  peakMemoryUsage: 512MB
+                endTime: 2023-01-01T10:05:00Z
+                metricType: memory_mb_seconds
+                startTime: 2023-01-01T10:00:00Z
+                value: 2560
+              main: true
+              networkingType: PUBLIC
+              nodes:
+              - availabilityZone: us-east-2a
+                endpoint: primary-0.instance-abcd1234.us-east-2.aws.omnistrate.cloud
+                healthStatus: healthy
+                id: primary-0
+                ports:
+                - 3306
+                status: RUNNING
+              privateNetworkCIDR: 10.0.0.2/24
+              privateNetworkID: n-1234abcd
+              publiclyAccessible: true
+              resourceKey: primary
+              resourceName: Primary MySQL Instance
+          externalPayerId: external-payer-id-1234
+          gcpProjectID: my-project
+          highAvailability: true
+          id: instance-abcd1234
+          instanceLoadStatus: LOAD_NORMAL|LOAD_IDLE|LOAD_OVERLOADED|STOPPED|UNKNOWN|N/A
+          kubernetesDashboardEndpoint:
+            dashboardEndpoint: https://kubernetes-dashboard.hc-12345678.region.cloudprovider.f2e0a955bb84.cloud/#/pod?namespace=instance-abcdefgh
+            deploymentCellID: hc-12345678
+          last_modified_at: 2023-01-20T00:00:00Z
+          maintenanceTasks:
+            backups:
+            - backup_id: bk-12345678
+            upgrade_paths:
+            - upgrade_path_id: up-9876543
+              upgrade_path_instance_status: PENDING
+              upgrade_path_scheduled_at: 2023-01-01T10:00:00Z
+              upgrade_path_status: IN_PROGRESS
+            - upgrade_path_id: up-12345548
+              upgrade_path_instance_status: PENDING
+              upgrade_path_released_at: 2023-01-01T09:00:00Z
+              upgrade_path_scheduled_at: 2023-01-01T10:00:00Z
+              upgrade_path_status: SCHEDULED
+          maxReplicas: "1"
+          minReplicas: "1"
+          network_type: PUBLIC|INTERNAL
           productTierFeatures:
             LOGS:
               auth:
@@ -32999,7 +33141,7 @@ components:
                 upgrade_path_status: SCHEDULED
             maxReplicas: "1"
             minReplicas: "1"
-            network_type: PUBLIC
+            network_type: PUBLIC|INTERNAL
             productTierFeatures:
               LOGS:
                 auth:
@@ -33101,7 +33243,211 @@ components:
                 upgrade_path_status: SCHEDULED
             maxReplicas: "1"
             minReplicas: "1"
-            network_type: PUBLIC
+            network_type: PUBLIC|INTERNAL
+            productTierFeatures:
+              LOGS:
+                auth:
+                  password: px3c4d5f6g7h8i
+                  username: abcd1234
+                enabled: true
+                websocketBaseUrl: wss://r-injectedobserve.instance-abcdefgh.us-east-2.aws.omnistrate.cloud/logs
+              METRICS:
+                enabled: false
+            region: us-east-1
+            resourceID: r-abcd1234
+            result_params:
+              param1: value1
+              param2: value2
+            serverlessEnabled: true
+            status: RUNNING
+            subscriptionId: sub-abcd1234
+            subscriptionLicense:
+              certificateBase64: public-cert
+              expirationDate: 2024-01-01T10:00:00Z
+              licenseBase64: license-file
+            subscriptionStatus: ACTIVE
+          - active: true
+            autoscalingEnabled: true
+            awsAccountID: "123456789012"
+            azureSubscriptionID: 0fa05079-dd73-4b88-babc-05537817604a
+            backupStatus:
+              backupPeriodInHours: 2
+              backupRetentionInDays: 7
+              earliestRestoreTime: 2021-09-01T00:00:00Z
+              lastBackupTime: 2021-09-01T00:00:00Z
+            cloud_provider: aws
+            created_at: 2023-01-10T00:00:00Z
+            createdByUserId: user-12345678
+            createdByUserName: John Doe
+            currentReplicas: "2"
+            customNetworkDetail:
+              cidr: 10.177.0.0/16
+              id: n-12345678
+              name: Prod us-east-1
+            detailedNetworkTopology:
+              r-abcd1234:
+                allowedIPRanges:
+                - 0.0.0.0/0
+                clusterEndpoint: primary.instance-abcd1234.us-east-2.aws.omnistrate.cloud
+                clusterPorts:
+                - 3306
+                isJob: false
+                jobMetrics:
+                - additionalData:
+                    exitCode: 0
+                    status: Succeeded
+                  endTime: 2023-01-01T10:05:00Z
+                  metricType: cpu_core_seconds
+                  startTime: 2023-01-01T10:00:00Z
+                  value: 120.5
+                - additionalData:
+                    peakMemoryUsage: 512MB
+                  endTime: 2023-01-01T10:05:00Z
+                  metricType: memory_mb_seconds
+                  startTime: 2023-01-01T10:00:00Z
+                  value: 2560
+                main: true
+                networkingType: PUBLIC
+                nodes:
+                - availabilityZone: us-east-2a
+                  endpoint: primary-0.instance-abcd1234.us-east-2.aws.omnistrate.cloud
+                  healthStatus: healthy
+                  id: primary-0
+                  ports:
+                  - 3306
+                  status: RUNNING
+                privateNetworkCIDR: 10.0.0.2/24
+                privateNetworkID: n-1234abcd
+                publiclyAccessible: true
+                resourceKey: primary
+                resourceName: Primary MySQL Instance
+            externalPayerId: external-payer-id-1234
+            gcpProjectID: my-project
+            highAvailability: true
+            id: instance-abcd1234
+            instanceLoadStatus: LOAD_NORMAL|LOAD_IDLE|LOAD_OVERLOADED|STOPPED|UNKNOWN|N/A
+            kubernetesDashboardEndpoint:
+              dashboardEndpoint: https://kubernetes-dashboard.hc-12345678.region.cloudprovider.f2e0a955bb84.cloud/#/pod?namespace=instance-abcdefgh
+              deploymentCellID: hc-12345678
+            last_modified_at: 2023-01-20T00:00:00Z
+            maintenanceTasks:
+              backups:
+              - backup_id: bk-12345678
+              upgrade_paths:
+              - upgrade_path_id: up-9876543
+                upgrade_path_instance_status: PENDING
+                upgrade_path_scheduled_at: 2023-01-01T10:00:00Z
+                upgrade_path_status: IN_PROGRESS
+              - upgrade_path_id: up-12345548
+                upgrade_path_instance_status: PENDING
+                upgrade_path_released_at: 2023-01-01T09:00:00Z
+                upgrade_path_scheduled_at: 2023-01-01T10:00:00Z
+                upgrade_path_status: SCHEDULED
+            maxReplicas: "1"
+            minReplicas: "1"
+            network_type: PUBLIC|INTERNAL
+            productTierFeatures:
+              LOGS:
+                auth:
+                  password: px3c4d5f6g7h8i
+                  username: abcd1234
+                enabled: true
+                websocketBaseUrl: wss://r-injectedobserve.instance-abcdefgh.us-east-2.aws.omnistrate.cloud/logs
+              METRICS:
+                enabled: false
+            region: us-east-1
+            resourceID: r-abcd1234
+            result_params:
+              param1: value1
+              param2: value2
+            serverlessEnabled: true
+            status: RUNNING
+            subscriptionId: sub-abcd1234
+            subscriptionLicense:
+              certificateBase64: public-cert
+              expirationDate: 2024-01-01T10:00:00Z
+              licenseBase64: license-file
+            subscriptionStatus: ACTIVE
+          - active: true
+            autoscalingEnabled: true
+            awsAccountID: "123456789012"
+            azureSubscriptionID: 0fa05079-dd73-4b88-babc-05537817604a
+            backupStatus:
+              backupPeriodInHours: 2
+              backupRetentionInDays: 7
+              earliestRestoreTime: 2021-09-01T00:00:00Z
+              lastBackupTime: 2021-09-01T00:00:00Z
+            cloud_provider: aws
+            created_at: 2023-01-10T00:00:00Z
+            createdByUserId: user-12345678
+            createdByUserName: John Doe
+            currentReplicas: "2"
+            customNetworkDetail:
+              cidr: 10.177.0.0/16
+              id: n-12345678
+              name: Prod us-east-1
+            detailedNetworkTopology:
+              r-abcd1234:
+                allowedIPRanges:
+                - 0.0.0.0/0
+                clusterEndpoint: primary.instance-abcd1234.us-east-2.aws.omnistrate.cloud
+                clusterPorts:
+                - 3306
+                isJob: false
+                jobMetrics:
+                - additionalData:
+                    exitCode: 0
+                    status: Succeeded
+                  endTime: 2023-01-01T10:05:00Z
+                  metricType: cpu_core_seconds
+                  startTime: 2023-01-01T10:00:00Z
+                  value: 120.5
+                - additionalData:
+                    peakMemoryUsage: 512MB
+                  endTime: 2023-01-01T10:05:00Z
+                  metricType: memory_mb_seconds
+                  startTime: 2023-01-01T10:00:00Z
+                  value: 2560
+                main: true
+                networkingType: PUBLIC
+                nodes:
+                - availabilityZone: us-east-2a
+                  endpoint: primary-0.instance-abcd1234.us-east-2.aws.omnistrate.cloud
+                  healthStatus: healthy
+                  id: primary-0
+                  ports:
+                  - 3306
+                  status: RUNNING
+                privateNetworkCIDR: 10.0.0.2/24
+                privateNetworkID: n-1234abcd
+                publiclyAccessible: true
+                resourceKey: primary
+                resourceName: Primary MySQL Instance
+            externalPayerId: external-payer-id-1234
+            gcpProjectID: my-project
+            highAvailability: true
+            id: instance-abcd1234
+            instanceLoadStatus: LOAD_NORMAL|LOAD_IDLE|LOAD_OVERLOADED|STOPPED|UNKNOWN|N/A
+            kubernetesDashboardEndpoint:
+              dashboardEndpoint: https://kubernetes-dashboard.hc-12345678.region.cloudprovider.f2e0a955bb84.cloud/#/pod?namespace=instance-abcdefgh
+              deploymentCellID: hc-12345678
+            last_modified_at: 2023-01-20T00:00:00Z
+            maintenanceTasks:
+              backups:
+              - backup_id: bk-12345678
+              upgrade_paths:
+              - upgrade_path_id: up-9876543
+                upgrade_path_instance_status: PENDING
+                upgrade_path_scheduled_at: 2023-01-01T10:00:00Z
+                upgrade_path_status: IN_PROGRESS
+              - upgrade_path_id: up-12345548
+                upgrade_path_instance_status: PENDING
+                upgrade_path_released_at: 2023-01-01T09:00:00Z
+                upgrade_path_scheduled_at: 2023-01-01T10:00:00Z
+                upgrade_path_status: SCHEDULED
+            maxReplicas: "1"
+            minReplicas: "1"
+            network_type: PUBLIC|INTERNAL
             productTierFeatures:
               LOGS:
                 auth:
@@ -33260,11 +33606,11 @@ components:
         productTierId: pt-12345678
         serviceId: s-12345678
         serviceModelId: sm-12345678
-        token: lq
+        token: bu5
       properties:
         productTierId:
           description: ID of a Product Tier
-          example: Id dignissimos doloribus quo voluptatem voluptas.
+          example: Debitis voluptatum omnis voluptas pariatur aliquid.
           type: string
         serviceId:
           description: ID of a Service
@@ -33272,11 +33618,11 @@ components:
           type: string
         serviceModelId:
           description: ID of a Service Model
-          example: Soluta tempore ut.
+          example: Officia voluptatibus libero temporibus consequatur quis.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: bu5
+          example: 8l
           minLength: 1
           type: string
       required:
@@ -33295,7 +33641,7 @@ components:
           - infra-87654321
           items:
             description: ID of an CloudProvider
-            example: Et cum dolor.
+            example: Soluta tempore ut.
             type: string
           type: array
         nextPageToken:
@@ -33837,7 +34183,7 @@ components:
                 upgrade_path_status: SCHEDULED
             maxReplicas: "1"
             minReplicas: "1"
-            network_type: PUBLIC
+            network_type: PUBLIC|INTERNAL
             productTierFeatures:
               LOGS:
                 auth:
@@ -34100,7 +34446,7 @@ components:
                 upgrade_path_status: SCHEDULED
             maxReplicas: "1"
             minReplicas: "1"
-            network_type: PUBLIC
+            network_type: PUBLIC|INTERNAL
             productTierFeatures:
               LOGS:
                 auth:
@@ -34363,7 +34709,7 @@ components:
                 upgrade_path_status: SCHEDULED
             maxReplicas: "1"
             minReplicas: "1"
-            network_type: PUBLIC
+            network_type: PUBLIC|INTERNAL
             productTierFeatures:
               LOGS:
                 auth:
@@ -34626,7 +34972,7 @@ components:
                 upgrade_path_status: SCHEDULED
             maxReplicas: "1"
             minReplicas: "1"
-            network_type: PUBLIC
+            network_type: PUBLIC|INTERNAL
             productTierFeatures:
               LOGS:
                 auth:
@@ -34902,7 +35248,7 @@ components:
                   upgrade_path_status: SCHEDULED
               maxReplicas: "1"
               minReplicas: "1"
-              network_type: PUBLIC
+              network_type: PUBLIC|INTERNAL
               productTierFeatures:
                 LOGS:
                   auth:
@@ -35165,7 +35511,7 @@ components:
                   upgrade_path_status: SCHEDULED
               maxReplicas: "1"
               minReplicas: "1"
-              network_type: PUBLIC
+              network_type: PUBLIC|INTERNAL
               productTierFeatures:
                 LOGS:
                   auth:
@@ -35428,7 +35774,7 @@ components:
                   upgrade_path_status: SCHEDULED
               maxReplicas: "1"
               minReplicas: "1"
-              network_type: PUBLIC
+              network_type: PUBLIC|INTERNAL
               productTierFeatures:
                 LOGS:
                   auth:
@@ -35691,7 +36037,7 @@ components:
                   upgrade_path_status: SCHEDULED
               maxReplicas: "1"
               minReplicas: "1"
-              network_type: PUBLIC
+              network_type: PUBLIC|INTERNAL
               productTierFeatures:
                 LOGS:
                   auth:
@@ -36093,16 +36439,13 @@ components:
           clientSecret: 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
           disabled: false
           emailIdentifiers: company.com
-          environmentType: Debitis accusamus.
+          environmentType: Ipsum impedit voluptatem iusto.
           id: idp-12345678
           identityProviderName: Google
           loginButtonIconUrl: https://example.com/icon.png
           loginButtonText: Login with Google
           name: Google for my company
-          scopes:
-          - openid
-          - email
-          - profile
+          scopes: openid email profile
           status: Ready
           tokenEndpoint: https://oauth2.googleapis.com/token
           userInfoEndpoint: https://www.googleapis.com/oauth2/v3/userinfo
@@ -36111,52 +36454,13 @@ components:
           clientSecret: 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
           disabled: false
           emailIdentifiers: company.com
-          environmentType: Debitis accusamus.
+          environmentType: Ipsum impedit voluptatem iusto.
           id: idp-12345678
           identityProviderName: Google
           loginButtonIconUrl: https://example.com/icon.png
           loginButtonText: Login with Google
           name: Google for my company
-          scopes:
-          - openid
-          - email
-          - profile
-          status: Ready
-          tokenEndpoint: https://oauth2.googleapis.com/token
-          userInfoEndpoint: https://www.googleapis.com/oauth2/v3/userinfo
-        - authorizationEndpoint: https://accounts.google.com/o/oauth2/auth
-          clientId: 205376496935-vtfpdnseqmjhsynlh0bsufl38k0test.apps.googleusercontent.com
-          clientSecret: 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
-          disabled: false
-          emailIdentifiers: company.com
-          environmentType: Debitis accusamus.
-          id: idp-12345678
-          identityProviderName: Google
-          loginButtonIconUrl: https://example.com/icon.png
-          loginButtonText: Login with Google
-          name: Google for my company
-          scopes:
-          - openid
-          - email
-          - profile
-          status: Ready
-          tokenEndpoint: https://oauth2.googleapis.com/token
-          userInfoEndpoint: https://www.googleapis.com/oauth2/v3/userinfo
-        - authorizationEndpoint: https://accounts.google.com/o/oauth2/auth
-          clientId: 205376496935-vtfpdnseqmjhsynlh0bsufl38k0test.apps.googleusercontent.com
-          clientSecret: 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
-          disabled: false
-          emailIdentifiers: company.com
-          environmentType: Debitis accusamus.
-          id: idp-12345678
-          identityProviderName: Google
-          loginButtonIconUrl: https://example.com/icon.png
-          loginButtonText: Login with Google
-          name: Google for my company
-          scopes:
-          - openid
-          - email
-          - profile
+          scopes: openid email profile
           status: Ready
           tokenEndpoint: https://oauth2.googleapis.com/token
           userInfoEndpoint: https://www.googleapis.com/oauth2/v3/userinfo
@@ -36169,16 +36473,13 @@ components:
             clientSecret: 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
             disabled: false
             emailIdentifiers: company.com
-            environmentType: Debitis accusamus.
+            environmentType: Ipsum impedit voluptatem iusto.
             id: idp-12345678
             identityProviderName: Google
             loginButtonIconUrl: https://example.com/icon.png
             loginButtonText: Login with Google
             name: Google for my company
-            scopes:
-            - openid
-            - email
-            - profile
+            scopes: openid email profile
             status: Ready
             tokenEndpoint: https://oauth2.googleapis.com/token
             userInfoEndpoint: https://www.googleapis.com/oauth2/v3/userinfo
@@ -36187,16 +36488,13 @@ components:
             clientSecret: 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
             disabled: false
             emailIdentifiers: company.com
-            environmentType: Debitis accusamus.
+            environmentType: Ipsum impedit voluptatem iusto.
             id: idp-12345678
             identityProviderName: Google
             loginButtonIconUrl: https://example.com/icon.png
             loginButtonText: Login with Google
             name: Google for my company
-            scopes:
-            - openid
-            - email
-            - profile
+            scopes: openid email profile
             status: Ready
             tokenEndpoint: https://oauth2.googleapis.com/token
             userInfoEndpoint: https://www.googleapis.com/oauth2/v3/userinfo
@@ -36205,16 +36503,28 @@ components:
             clientSecret: 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
             disabled: false
             emailIdentifiers: company.com
-            environmentType: Debitis accusamus.
+            environmentType: Ipsum impedit voluptatem iusto.
             id: idp-12345678
             identityProviderName: Google
             loginButtonIconUrl: https://example.com/icon.png
             loginButtonText: Login with Google
             name: Google for my company
-            scopes:
-            - openid
-            - email
-            - profile
+            scopes: openid email profile
+            status: Ready
+            tokenEndpoint: https://oauth2.googleapis.com/token
+            userInfoEndpoint: https://www.googleapis.com/oauth2/v3/userinfo
+          - authorizationEndpoint: https://accounts.google.com/o/oauth2/auth
+            clientId: 205376496935-vtfpdnseqmjhsynlh0bsufl38k0test.apps.googleusercontent.com
+            clientSecret: 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
+            disabled: false
+            emailIdentifiers: company.com
+            environmentType: Ipsum impedit voluptatem iusto.
+            id: idp-12345678
+            identityProviderName: Google
+            loginButtonIconUrl: https://example.com/icon.png
+            loginButtonText: Login with Google
+            name: Google for my company
+            scopes: openid email profile
             status: Ready
             tokenEndpoint: https://oauth2.googleapis.com/token
             userInfoEndpoint: https://www.googleapis.com/oauth2/v3/userinfo
@@ -36226,11 +36536,11 @@ components:
       type: object
     ListInvoicesRequest:
       example:
-        token: jv
+        token: 0we
       properties:
         token:
           description: JWT token used to perform authorization
-          example: y9
+          example: aq
           minLength: 1
           type: string
       required:
@@ -36239,6 +36549,18 @@ components:
     ListInvoicesResult:
       example:
         invoices:
+        - currency: USD
+          dueDate: 2023-10-01T00:00:00Z
+          invoiceDate: 2021-01-01T00:00:00.000Z
+          invoiceId: in_1234568
+          invoiceNumber: 2021-01-01-1234567890
+          invoicePdf: https://pay.stripe.com/invoice/acct_1M2JTkLkdIwHu7ix/test_YWNjdF8xTTJKVGtMa2RJd0h1N2l4LF9OZVp3dVBYNnF0dGlvdXRubGVjSXVOOWhiVWpmUktPLDcxMTgyMTA10200x7P2wMSm/pdf?s=ap
+          invoiceStatus: Open
+          invoiceUrl: https://invoice.stripe.com/i/acct_1M2JTkLkdIwHu7ix/test_YWNjdF8xTTJKVGtMa2RJd0h1N2l4LF9OZVp3dVBYNnF0dGlvdXRubGVjSXVOOWhiVWpmUktPLDcxMTgyMTA10200x7P2wMSm?s=ap
+          paymentTerms: Net 30
+          taxAmount: 10
+          totalAmount: 110
+          totalAmountWithoutTax: 100
         - currency: USD
           dueDate: 2023-10-01T00:00:00Z
           invoiceDate: 2021-01-01T00:00:00.000Z
@@ -36527,7 +36849,7 @@ components:
         productTierId: pt-12345678
         serviceId: s-12345678
         serviceModelId: sm-12345678
-        token: us
+        token: ft
       properties:
         cloudProviderName:
           description: Name of the Infra Provider
@@ -36539,7 +36861,7 @@ components:
           type: string
         productTierId:
           description: ID of a Product Tier
-          example: Similique asperiores sunt.
+          example: Aut asperiores doloribus excepturi reiciendis.
           type: string
         serviceId:
           description: ID of a Service
@@ -36547,11 +36869,11 @@ components:
           type: string
         serviceModelId:
           description: ID of a Service Model
-          example: Omnis quidem voluptate neque.
+          example: Ipsum cupiditate.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: t
+          example: c
           minLength: 1
           type: string
       required:
@@ -36571,7 +36893,7 @@ components:
           - region-87654321
           items:
             description: ID of a Region
-            example: Optio odio excepturi modi.
+            example: Omnis quidem voluptate neque.
             type: string
           type: array
         nextPageToken:
@@ -36592,7 +36914,7 @@ components:
         serviceModelKey: hosted
         serviceProviderId: omnistrate
         subscriptionId: sub-abcd1234
-        token: "38"
+        token: "y"
       properties:
         id:
           description: The instance ID
@@ -36624,7 +36946,7 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Ut inventore.
+          example: Sed dolores ut aut provident.
           type: string
         subscriptionId:
           description: The subscription ID
@@ -36632,7 +36954,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: pa
+          example: r0n
           minLength: 1
           type: string
       required:
@@ -36679,7 +37001,7 @@ components:
         serviceModelKey: hosted
         serviceProviderId: omnistrate
         subscriptionId: sub-abcd1234
-        token: d
+        token: tyt
       properties:
         productTierKey:
           description: The product tier name
@@ -36707,7 +37029,7 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Alias ea natus voluptates et id delectus.
+          example: Assumenda eveniet id.
           type: string
         subscriptionId:
           description: The subscription ID
@@ -36715,7 +37037,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: zc5
+          example: n6
           minLength: 1
           type: string
       required:
@@ -36741,7 +37063,7 @@ components:
           - instance-abcd1234
           - instance-abcd1235
           items:
-            example: Ipsa repellat sed ipsa et eveniet.
+            example: Et recusandae et.
             type: string
           type: array
         nextPageToken:
@@ -36943,11 +37265,11 @@ components:
       type: object
     ListSaaSPortalCustomDomainsRequest:
       example:
-        token: 99c
+        token: x
       properties:
         token:
           description: JWT token used to perform authorization
-          example: 0y6
+          example: j
           minLength: 1
           type: string
       required:
@@ -36956,12 +37278,6 @@ components:
     ListSaaSPortalCustomDomainsResult:
       example:
         customDomains:
-        - clusterEndpoint: example.com
-          customDomain: mycustomdomain.com
-          description: My custom domain description
-          environmentType: DEV
-          name: MyCustomDomain
-          status: READY
         - clusterEndpoint: example.com
           customDomain: mycustomdomain.com
           description: My custom domain description
@@ -36998,11 +37314,11 @@ components:
       type: object
     ListSaaSPortalsRequest:
       example:
-        token: k
+        token: "4"
       properties:
         token:
           description: JWT token used to perform authorization
-          example: "0"
+          example: pg
           minLength: 1
           type: string
       required:
@@ -37288,6 +37604,45 @@ components:
               imageRegistry: ghcr.io
               imageTag: latest
             status: READY
+          - customDomain: mycustomdomain.com
+            customDomainStatus: READY
+            detailedNetworkTopology:
+              r-abcd1234:
+                allowedIPRanges:
+                - 0.0.0.0/0
+                clusterEndpoint: primary.instance-abcd1234.us-east-2.aws.omnistrate.cloud
+                clusterPorts:
+                - 3306
+                main: true
+                networkingType: PUBLIC
+                nodes:
+                - availabilityZone: us-east-2a
+                  endpoint: primary-0.instance-abcd1234.us-east-2.aws.omnistrate.cloud
+                  healthStatus: healthy
+                  id: primary-0
+                  ports:
+                  - 3306
+                  status: RUNNING
+                privateNetworkCIDR: 10.0.0.2/24
+                privateNetworkID: n-1234abcd
+                publiclyAccessible: true
+                resourceKey: saasportal
+                resourceName: SaaS Portal
+            disablePasswordLogin: false
+            emailConfig:
+              smtpFromEmail: example@gmail.com
+              smtpHost: smtp.gmail.com
+              smtpPassword: password
+              smtpPort: 587
+              smtpUsername: username
+            endpoint: https://saas-portal.example.com
+            environmentType: DEV
+            googleAnalyticsTagID: G-123456789
+            imageConfig:
+              imageName: myimage
+              imageRegistry: ghcr.io
+              imageTag: latest
+            status: READY
           items:
             $ref: '#/components/schemas/SaaSPortal'
           type: array
@@ -37388,7 +37743,7 @@ components:
       example:
         environmentType: DEV
         orgId: org-12345678
-        token: 51z
+        token: j0
         visibility: PRIVATE
       properties:
         environmentType:
@@ -37397,11 +37752,11 @@ components:
           type: string
         orgId:
           description: ID of an Org
-          example: Et id nulla qui ducimus consequuntur.
+          example: In quisquam consectetur praesentium quo.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: j0
+          example: hq
           minLength: 1
           type: string
         visibility:
@@ -37419,6 +37774,49 @@ components:
         - s-12345678
         - s-abcdefgh
         services:
+        - createdAt: 2019-01-01T00:00:00Z
+          isDeprecated: false
+          offerings:
+          - allowCreatesWhenPaymentNotConfigured: true
+            assets:
+              cloudFormationURL: https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/omnistrate-cloudformation-dev/org-EUVvex3bVm/account-config-setup-template.yaml&stackName=AccountConfigSetup&param_AccountConfigIdentityId=org-EUVvex3bVm&param_OIDCIssuerURLWithoutPrefix=oidc.eks.us-east-2.amazonaws.com/id/C339DC3726AD36506FB7ABE55754784F&param_OIDCIssuerThumbprintList=9e99a48a9960b14926bb7f3b02e22da2b0ab7280&param_ServiceAccount=bootstrap-sa
+              cloudFormationURLNoLB: https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/omnistrate-cloudformation-dev/org-EUVvex3bVm/account-config-setup-template.yaml&stackName=AccountConfigSetup&param_AccountConfigIdentityId=org-EUVvex3bVm&param_OIDCIssuerURLWithoutPrefix=oidc.eks.us-east-2.amazonaws.com/id/C339DC3726AD36506FB7ABE55754784F&param_OIDCIssuerThumbprintList=9e99a48a9960b14926bb7f3b02e22da2b0ab7280&param_ServiceAccount=bootstrap-sa&param_CreateLoadBalancerPolicy=false
+            maxNumberOfInstances: 4
+            productTierName: Premium
+            productTierURLKey: premium
+            resourceParameters:
+            - name: MySQL
+              urlKey: mysql
+            - name: Redis
+              urlKey: redis
+            serviceAPIID: sa-12345678
+            serviceAPIVersion: v1
+            serviceEnvironmentName: Production
+            serviceEnvironmentURLKey: prod
+            serviceEnvironmentVisibility: PRIVATE
+            serviceModelName: Bring Your Own Account
+            serviceModelURLKey: byoa
+          - productTierName: Basic
+            productTierURLKey: basic
+            resourceParameters:
+            - name: MySQL
+              urlKey: mysql
+            - name: Redis
+              urlKey: redis
+            serviceAPIID: sa-abcdefgh
+            serviceAPIVersion: v1
+            serviceEnvironmentName: Production
+            serviceEnvironmentURLKey: prod
+            serviceEnvironmentVisibility: PUBLIC
+            serviceModelName: Hosted
+            serviceModelURLKey: hosted
+          serviceDescription: MySQL is a relational database
+          serviceId: s-12345678
+          serviceName: MySQL
+          serviceOrgId: org-12345678
+          serviceProviderId: sp-9zrg9W8Are
+          serviceProviderName: "Omnistrate, Inc."
+          serviceURLKey: mysql
         - createdAt: 2019-01-01T00:00:00Z
           isDeprecated: false
           offerings:
@@ -37566,6 +37964,49 @@ components:
         services:
           description: List of services
           example:
+          - createdAt: 2019-01-01T00:00:00Z
+            isDeprecated: false
+            offerings:
+            - allowCreatesWhenPaymentNotConfigured: true
+              assets:
+                cloudFormationURL: https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/omnistrate-cloudformation-dev/org-EUVvex3bVm/account-config-setup-template.yaml&stackName=AccountConfigSetup&param_AccountConfigIdentityId=org-EUVvex3bVm&param_OIDCIssuerURLWithoutPrefix=oidc.eks.us-east-2.amazonaws.com/id/C339DC3726AD36506FB7ABE55754784F&param_OIDCIssuerThumbprintList=9e99a48a9960b14926bb7f3b02e22da2b0ab7280&param_ServiceAccount=bootstrap-sa
+                cloudFormationURLNoLB: https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/omnistrate-cloudformation-dev/org-EUVvex3bVm/account-config-setup-template.yaml&stackName=AccountConfigSetup&param_AccountConfigIdentityId=org-EUVvex3bVm&param_OIDCIssuerURLWithoutPrefix=oidc.eks.us-east-2.amazonaws.com/id/C339DC3726AD36506FB7ABE55754784F&param_OIDCIssuerThumbprintList=9e99a48a9960b14926bb7f3b02e22da2b0ab7280&param_ServiceAccount=bootstrap-sa&param_CreateLoadBalancerPolicy=false
+              maxNumberOfInstances: 4
+              productTierName: Premium
+              productTierURLKey: premium
+              resourceParameters:
+              - name: MySQL
+                urlKey: mysql
+              - name: Redis
+                urlKey: redis
+              serviceAPIID: sa-12345678
+              serviceAPIVersion: v1
+              serviceEnvironmentName: Production
+              serviceEnvironmentURLKey: prod
+              serviceEnvironmentVisibility: PRIVATE
+              serviceModelName: Bring Your Own Account
+              serviceModelURLKey: byoa
+            - productTierName: Basic
+              productTierURLKey: basic
+              resourceParameters:
+              - name: MySQL
+                urlKey: mysql
+              - name: Redis
+                urlKey: redis
+              serviceAPIID: sa-abcdefgh
+              serviceAPIVersion: v1
+              serviceEnvironmentName: Production
+              serviceEnvironmentURLKey: prod
+              serviceEnvironmentVisibility: PUBLIC
+              serviceModelName: Hosted
+              serviceModelURLKey: hosted
+            serviceDescription: MySQL is a relational database
+            serviceId: s-12345678
+            serviceName: MySQL
+            serviceOrgId: org-12345678
+            serviceProviderId: sp-9zrg9W8Are
+            serviceProviderName: "Omnistrate, Inc."
+            serviceURLKey: mysql
           - createdAt: 2019-01-01T00:00:00Z
             isDeprecated: false
             offerings:
@@ -39380,11 +39821,11 @@ components:
       type: object
     ListServicesOrchestrationsRequest:
       example:
-        token: o
+        token: "3"
       properties:
         token:
           description: JWT token used to perform authorization
-          example: v
+          example: "7"
           minLength: 1
           type: string
       required:
@@ -39510,13 +39951,52 @@ components:
           param2: value2
         status: PENDING
         updatedAt: 2021-01-01T00:00:00Z
+      - ServicesTopology:
+        - dependsOnDeployment:
+          - instanceDeploymentAlias1
+          - instanceDeploymentAlias2
+          failedReason: Invalid inputs
+          instanceDeploymentAlias: instanceDeploymentAlias
+          instanceId: i-12345678
+          serviceId: s-12345678
+          status: PENDING
+          statusMessage: Creating deployment
+          subscriptionId: Quisquam officiis occaecati rerum iusto atque itaque.
+        - dependsOnDeployment:
+          - instanceDeploymentAlias1
+          - instanceDeploymentAlias2
+          failedReason: Invalid inputs
+          instanceDeploymentAlias: instanceDeploymentAlias
+          instanceId: i-12345678
+          serviceId: s-12345678
+          status: PENDING
+          statusMessage: Creating deployment
+          subscriptionId: Quisquam officiis occaecati rerum iusto atque itaque.
+        - dependsOnDeployment:
+          - instanceDeploymentAlias1
+          - instanceDeploymentAlias2
+          failedReason: Invalid inputs
+          instanceDeploymentAlias: instanceDeploymentAlias
+          instanceId: i-12345678
+          serviceId: s-12345678
+          status: PENDING
+          statusMessage: Creating deployment
+          subscriptionId: Quisquam officiis occaecati rerum iusto atque itaque.
+        createdAt: 2021-01-01T00:00:00Z
+        id: so-12345678
+        orchestrationFailedReason: Invalid DSL
+        resultParams:
+          param1: value1
+          param2: value2
+        status: PENDING
+        updatedAt: 2021-01-01T00:00:00Z
       items:
         $ref: '#/components/schemas/DescribeServicesOrchestrationResult'
       type: array
     ListSubscriptionRequestsRequest:
       example:
         status: PENDING
-        token: z
+        token: sot
       properties:
         status:
           description: The status of the subscription request
@@ -39524,7 +40004,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: "18"
+          example: vv
           minLength: 1
           type: string
       required:
@@ -39566,6 +40046,20 @@ components:
           updatedAt: 2019-01-01T00:00:00Z
           updatedByUserId: user-12345678
           updatedByUserName: John Doe
+        - createdAt: 2019-01-01T00:00:00Z
+          id: subr-12345678
+          productTierId: pt-12345678
+          productTierName: Omnistrate Multi Tenancy
+          rootUserEmail: abc@gmail.com
+          rootUserId: org-12345678
+          rootUserName: John Doe
+          serviceId: s-12345678
+          serviceLogoURL: Eum ipsa aspernatur.
+          serviceName: MySQL multi-writer service
+          status: PENDING
+          updatedAt: 2019-01-01T00:00:00Z
+          updatedByUserId: user-12345678
+          updatedByUserName: John Doe
       properties:
         ids:
           description: List of subscription request IDs
@@ -39575,7 +40069,7 @@ components:
           - subr-1234efgh
           items:
             description: ID of a Subscription Request
-            example: Vel laboriosam non recusandae quas qui.
+            example: Architecto eos.
             type: string
           type: array
         nextPageToken:
@@ -39585,6 +40079,34 @@ components:
         subscriptionRequests:
           description: List of subscription requests
           example:
+          - createdAt: 2019-01-01T00:00:00Z
+            id: subr-12345678
+            productTierId: pt-12345678
+            productTierName: Omnistrate Multi Tenancy
+            rootUserEmail: abc@gmail.com
+            rootUserId: org-12345678
+            rootUserName: John Doe
+            serviceId: s-12345678
+            serviceLogoURL: Eum ipsa aspernatur.
+            serviceName: MySQL multi-writer service
+            status: PENDING
+            updatedAt: 2019-01-01T00:00:00Z
+            updatedByUserId: user-12345678
+            updatedByUserName: John Doe
+          - createdAt: 2019-01-01T00:00:00Z
+            id: subr-12345678
+            productTierId: pt-12345678
+            productTierName: Omnistrate Multi Tenancy
+            rootUserEmail: abc@gmail.com
+            rootUserId: org-12345678
+            rootUserName: John Doe
+            serviceId: s-12345678
+            serviceLogoURL: Eum ipsa aspernatur.
+            serviceName: MySQL multi-writer service
+            status: PENDING
+            updatedAt: 2019-01-01T00:00:00Z
+            updatedByUserId: user-12345678
+            updatedByUserName: John Doe
           - createdAt: 2019-01-01T00:00:00Z
             id: subr-12345678
             productTierId: pt-12345678
@@ -39623,7 +40145,7 @@ components:
       example:
         environmentType: DEV
         serviceId: service-12345678
-        token: 9i
+        token: zxu
       properties:
         environmentType:
           description: The type of service environment
@@ -39635,7 +40157,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: si
+          example: c
           minLength: 1
           type: string
       required:
@@ -39672,7 +40194,7 @@ components:
           roleType: root
           rootUserId: user-12345678
           serviceId: s-12345678
-          serviceLogoURL: Quasi et rerum eum aut ab ratione.
+          serviceLogoURL: Sunt minus quaerat dolore fugit rerum.
           serviceName: MySQL multi-writer service
           serviceOrgId: org-12345678
           serviceOrgName: Omnistrate
@@ -39701,7 +40223,7 @@ components:
           roleType: root
           rootUserId: user-12345678
           serviceId: s-12345678
-          serviceLogoURL: Quasi et rerum eum aut ab ratione.
+          serviceLogoURL: Sunt minus quaerat dolore fugit rerum.
           serviceName: MySQL multi-writer service
           serviceOrgId: org-12345678
           serviceOrgName: Omnistrate
@@ -39730,36 +40252,7 @@ components:
           roleType: root
           rootUserId: user-12345678
           serviceId: s-12345678
-          serviceLogoURL: Quasi et rerum eum aut ab ratione.
-          serviceName: MySQL multi-writer service
-          serviceOrgId: org-12345678
-          serviceOrgName: Omnistrate
-          status: ACTIVE
-          subscriptionOwnerName: John Doe
-        - accountConfigIdentityId: org-12345678
-          activeSubscriptionPricing:
-            CPU core hours:
-              amount: 0.001
-              currency: USD
-            Memory GiB hours:
-              amount: 1.0E-4
-              currency: USD
-            Storage GiB hours:
-              amount: 1.0E-4
-              currency: USD
-          cloudProviderNames:
-          - aws
-          - gcp
-          createdAt: 2019-01-01T00:00:00Z
-          defaultSubscription: true
-          id: sub-12345678
-          inheritServicePlanPrice: true
-          productTierId: pt-12345678
-          productTierName: Omnistrate Multi Tenancy
-          roleType: root
-          rootUserId: user-12345678
-          serviceId: s-12345678
-          serviceLogoURL: Quasi et rerum eum aut ab ratione.
+          serviceLogoURL: Sunt minus quaerat dolore fugit rerum.
           serviceName: MySQL multi-writer service
           serviceOrgId: org-12345678
           serviceOrgName: Omnistrate
@@ -39774,7 +40267,7 @@ components:
           - sub-1234efgh
           items:
             description: ID of a Subscription
-            example: Voluptate excepturi natus saepe facilis animi quas.
+            example: Et voluptatem.
             type: string
           type: array
         nextPageToken:
@@ -39807,7 +40300,7 @@ components:
             roleType: root
             rootUserId: user-12345678
             serviceId: s-12345678
-            serviceLogoURL: Quasi et rerum eum aut ab ratione.
+            serviceLogoURL: Sunt minus quaerat dolore fugit rerum.
             serviceName: MySQL multi-writer service
             serviceOrgId: org-12345678
             serviceOrgName: Omnistrate
@@ -39836,7 +40329,36 @@ components:
             roleType: root
             rootUserId: user-12345678
             serviceId: s-12345678
-            serviceLogoURL: Quasi et rerum eum aut ab ratione.
+            serviceLogoURL: Sunt minus quaerat dolore fugit rerum.
+            serviceName: MySQL multi-writer service
+            serviceOrgId: org-12345678
+            serviceOrgName: Omnistrate
+            status: ACTIVE
+            subscriptionOwnerName: John Doe
+          - accountConfigIdentityId: org-12345678
+            activeSubscriptionPricing:
+              CPU core hours:
+                amount: 0.001
+                currency: USD
+              Memory GiB hours:
+                amount: 1.0E-4
+                currency: USD
+              Storage GiB hours:
+                amount: 1.0E-4
+                currency: USD
+            cloudProviderNames:
+            - aws
+            - gcp
+            createdAt: 2019-01-01T00:00:00Z
+            defaultSubscription: true
+            id: sub-12345678
+            inheritServicePlanPrice: true
+            productTierId: pt-12345678
+            productTierName: Omnistrate Multi Tenancy
+            roleType: root
+            rootUserId: user-12345678
+            serviceId: s-12345678
+            serviceLogoURL: Sunt minus quaerat dolore fugit rerum.
             serviceName: MySQL multi-writer service
             serviceOrgId: org-12345678
             serviceOrgName: Omnistrate
@@ -40250,20 +40772,20 @@ components:
     ModifyServicesOrchestrationRequest:
       example:
         id: so-12345678
-        orchestrationModifyDSL: Aut expedita nostrum.
-        token: "9"
+        orchestrationModifyDSL: Aut tempore repellendus.
+        token: "3"
       properties:
         id:
           description: ID of a Services Orchestration
-          example: Molestiae aut tempore repellendus totam ipsa.
+          example: Recusandae error sunt quaerat accusantium id quasi.
           type: string
         orchestrationModifyDSL:
           description: base64 encoded content of services orchestration modify DSL
-          example: Aspernatur dicta qui esse officia tempora autem.
+          example: Et ut voluptatum voluptatem quod molestiae molestiae.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: lbr
+          example: gs
           minLength: 1
           type: string
       required:
@@ -40420,7 +40942,7 @@ components:
           - 80
           - 443
           items:
-            example: 8624007245363858783
+            example: 3495294689606027745
             format: int64
             type: integer
           type: array
@@ -41327,7 +41849,7 @@ components:
           - "30000"
           - "30001"
           items:
-            example: Id quo qui aut molestiae voluptatibus.
+            example: Et repellat sapiente vel.
             type: string
           type: array
         proxyEndpoint:
@@ -41657,7 +42179,7 @@ components:
         serviceModelKey: hosted
         serviceProviderId: omnistrate
         subscriptionId: sub-abcd1234
-        token: g2
+        token: is
       properties:
         capacityToBeRemoved:
           description: Number of replicas to be removed
@@ -41694,7 +42216,7 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Pariatur voluptas eius.
+          example: Non perferendis voluptatem perferendis quasi molestiae sunt.
           type: string
         subscriptionId:
           description: The subscription ID
@@ -41702,7 +42224,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: 1o3
+          example: cfw
           minLength: 1
           type: string
       required:
@@ -41728,7 +42250,7 @@ components:
         serviceModelKey: hosted
         serviceProviderId: omnistrate
         subscriptionId: sub-abcd1234
-        token: "6"
+        token: o2n
       properties:
         id:
           description: The instance ID
@@ -41760,7 +42282,7 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Aut natus sit voluptas id quibusdam enim.
+          example: Hic quia recusandae repellendus est.
           type: string
         subscriptionId:
           description: The subscription ID
@@ -41768,7 +42290,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: x9y
+          example: l
           minLength: 1
           type: string
       required:
@@ -42044,7 +42566,7 @@ components:
           type: string
         resourceId:
           description: ID of a resource
-          example: Quidem voluptatem.
+          example: Et exercitationem enim enim.
           type: string
         resourceType:
           description: The resource type
@@ -42303,7 +42825,7 @@ components:
               upgrade_path_status: SCHEDULED
           maxReplicas: "1"
           minReplicas: "1"
-          network_type: PUBLIC
+          network_type: PUBLIC|INTERNAL
           productTierFeatures:
             LOGS:
               auth:
@@ -42785,7 +43307,7 @@ components:
         serviceModelKey: hosted
         serviceProviderId: omnistrate
         subscriptionId: sub-abcd1234
-        token: f
+        token: 1ga
       properties:
         serviceAPIVersion:
           description: The service API version
@@ -42805,7 +43327,7 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Repudiandae ipsa.
+          example: Dolores et repudiandae sed.
           type: string
         subscriptionId:
           description: The subscription ID
@@ -42813,7 +43335,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: m
+          example: a9
           minLength: 1
           type: string
       required:
@@ -43167,7 +43689,7 @@ components:
           example:
           - 0.0.0.0/0
           items:
-            example: Quia magnam sunt magni.
+            example: Et amet.
             type: string
           type: array
         clusterEndpoint:
@@ -43180,7 +43702,7 @@ components:
           example:
           - 443
           items:
-            example: 1391606048962445633
+            example: 1244926296849449631
             format: int64
             type: integer
           type: array
@@ -43327,7 +43849,7 @@ components:
           type: string
         privateNetworkID:
           description: ID of a Network
-          example: Ipsum voluptatem dolorem iure non et mollitia.
+          example: Nulla et quo nobis.
           type: string
         proxyEndpoint:
           $ref: '#/components/schemas/ProxyEndpoint'
@@ -43572,7 +44094,7 @@ components:
         serviceModelKey: hosted
         serviceProviderId: omnistrate
         subscriptionId: sub-abcd1234
-        token: phl
+        token: 8k
       properties:
         id:
           description: The instance ID
@@ -43604,7 +44126,7 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Et sapiente distinctio et praesentium sequi sit.
+          example: Reprehenderit sit fugiat facilis omnis.
           type: string
         subscriptionId:
           description: The subscription ID
@@ -43612,7 +44134,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: z
+          example: c
           minLength: 1
           type: string
       required:
@@ -43628,7 +44150,7 @@ components:
       type: object
     RestoreResourceInstanceFromSnapshotRequest:
       example:
-        network_type: PUBLIC
+        network_type: PUBLIC|INTERNAL
         productTierKey: premium
         resourceKey: mysql
         serviceAPIVersion: v1
@@ -43638,11 +44160,11 @@ components:
         serviceProviderId: omnistrate
         snapshotId: instance-ss-abcd1234
         subscriptionId: sub-abcd1234
-        token: ff9
+        token: "5"
       properties:
         network_type:
           description: The network type
-          example: PUBLIC
+          example: PUBLIC|INTERNAL
           type: string
         productTierKey:
           description: The product tier name
@@ -43670,11 +44192,11 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Vel rerum tempora.
+          example: Dicta officia voluptas magnam eveniet.
           type: string
         snapshotId:
           description: ID of a Resource Instance Snapshot
-          example: Cumque harum sequi nemo.
+          example: Qui nihil eligendi repudiandae voluptatem vitae velit.
           type: string
         subscriptionId:
           description: The subscription ID
@@ -43682,7 +44204,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: t4
+          example: fnm
           minLength: 1
           type: string
       required:
@@ -43699,7 +44221,7 @@ components:
     RestoreResourceInstanceRequest:
       example:
         id: instance-abcd1234
-        network_type: PUBLIC
+        network_type: PUBLIC|INTERNAL
         productTierKey: premium
         resourceKey: mysql
         serviceAPIVersion: v1
@@ -43709,7 +44231,7 @@ components:
         serviceProviderId: omnistrate
         subscriptionId: sub-abcd1234
         targetRestoreTime: 2021-09-01T00:00:00Z
-        token: rnm
+        token: pp
       properties:
         id:
           description: The instance ID
@@ -43717,7 +44239,7 @@ components:
           type: string
         network_type:
           description: The network type
-          example: PUBLIC
+          example: PUBLIC|INTERNAL
           type: string
         productTierKey:
           description: The product tier name
@@ -43745,7 +44267,7 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Voluptas magnam eveniet sed.
+          example: Et quo et.
           type: string
         subscriptionId:
           description: The subscription ID
@@ -43757,7 +44279,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: m3a
+          example: qb6
           minLength: 1
           type: string
       required:
@@ -43805,11 +44327,11 @@ components:
       type: object
     RevokeOAuthAccessRequest:
       example:
-        token: f4v
+        token: o
       properties:
         token:
           description: JWT token used to perform authorization
-          example: p
+          example: v
           minLength: 1
           type: string
       required:
@@ -44722,7 +45244,7 @@ components:
           - instanceDeploymentAlias1
           - instanceDeploymentAlias2
           items:
-            example: Autem distinctio autem ut aut.
+            example: Corrupti voluptatem officiis voluptatem.
             type: string
           type: array
         failedReason:
@@ -44751,7 +45273,7 @@ components:
           type: string
         subscriptionId:
           description: ID of a Subscription
-          example: Doloribus ad consequatur reprehenderit.
+          example: Aut expedita nostrum.
           type: string
       required:
       - instanceDeploymentAlias
@@ -45138,7 +45660,7 @@ components:
         serviceEnvironmentType: DEV
         serviceEnvironmentURLKey: dev
         serviceEnvironmentVisibility: PRIVATE
-        serviceLogoURL: Quisquam consectetur praesentium quo.
+        serviceLogoURL: Repudiandae corporis aut molestiae tenetur quo.
         serviceModelFeatures:
         - configuration:
             status: "ON"
@@ -45175,7 +45697,7 @@ components:
           - us-east-2
           - ca-central-1
           items:
-            example: Beatae iste aperiam ut et nam est.
+            example: Autem eum at.
             type: string
           type: array
         azureRegions:
@@ -45183,7 +45705,7 @@ components:
           example:
           - northcentralus
           items:
-            example: Sunt repudiandae corporis aut molestiae tenetur.
+            example: Aperiam ut et nam est.
             type: string
           type: array
         cloudProviders:
@@ -45193,7 +45715,7 @@ components:
           - GCP
           - Azure
           items:
-            example: Saepe amet quia.
+            example: Ab nemo maiores voluptates.
             type: string
           type: array
         gcpRegions:
@@ -45201,7 +45723,7 @@ components:
           example:
           - us-central1
           items:
-            example: Ab nemo maiores voluptates.
+            example: Velit velit laboriosam quia eum beatae.
             type: string
           type: array
         maxNumberOfInstances:
@@ -45219,7 +45741,7 @@ components:
           type: string
         productTierID:
           description: ID of a Product Tier
-          example: Eum at aut velit velit laboriosam quia.
+          example: Commodi ut libero nostrum iste nostrum earum.
           type: string
         productTierName:
           description: The product tier name
@@ -45263,7 +45785,7 @@ components:
           type: array
         serviceAPIID:
           description: ID of a Service API
-          example: Mollitia qui aliquam ducimus.
+          example: Ad ullam expedita quis est est accusamus.
           type: string
         serviceAPIVersion:
           description: The service API version
@@ -45292,14 +45814,11 @@ components:
           type: string
         serviceLogoURL:
           description: The logo for the service
-          example: Earum unde.
+          example: Voluptatem voluptatem mollitia qui aliquam ducimus repellendus.
           type: string
         serviceModelFeatures:
           description: Enabled service model features
           example:
-          - configuration:
-              status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
           - configuration:
               status: "ON"
             feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
@@ -45311,7 +45830,7 @@ components:
           type: array
         serviceModelID:
           description: ID of a Service Model
-          example: Explicabo commodi ut libero nostrum.
+          example: Itaque ipsam ut ea quia labore dignissimos.
           type: string
         serviceModelName:
           description: The service model name
@@ -45843,6 +46362,71 @@ components:
         serviceModelKey: hosted
         serviceProviderId: omnistrate
         subscriptionId: sub-abcd1234
+        token: fl
+      properties:
+        id:
+          description: The instance ID
+          example: instance-abcd1234
+          type: string
+        productTierKey:
+          description: The product tier name
+          example: premium
+          type: string
+        resourceKey:
+          description: The resource key
+          example: mysql
+          type: string
+        serviceAPIVersion:
+          description: The service API version
+          example: v1
+          type: string
+        serviceEnvironmentKey:
+          description: The service environment name
+          example: dev
+          type: string
+        serviceKey:
+          description: The service name
+          example: service-orchestration
+          type: string
+        serviceModelKey:
+          description: The service model name
+          example: hosted
+          type: string
+        serviceProviderId:
+          description: ID of a Service Provider
+          example: Eos unde sapiente aut quis.
+          type: string
+        subscriptionId:
+          description: The subscription ID
+          example: sub-abcd1234
+          type: string
+        token:
+          description: JWT token used to perform authorization
+          example: s
+          minLength: 1
+          type: string
+      required:
+      - id
+      - productTierKey
+      - resourceKey
+      - serviceAPIVersion
+      - serviceEnvironmentKey
+      - serviceKey
+      - serviceModelKey
+      - serviceProviderId
+      - token
+      type: object
+    StopResourceInstanceRequest:
+      example:
+        id: instance-abcd1234
+        productTierKey: premium
+        resourceKey: mysql
+        serviceAPIVersion: v1
+        serviceEnvironmentKey: dev
+        serviceKey: service-orchestration
+        serviceModelKey: hosted
+        serviceProviderId: omnistrate
+        subscriptionId: sub-abcd1234
         token: a
       properties:
         id:
@@ -45897,78 +46481,13 @@ components:
       - serviceProviderId
       - token
       type: object
-    StopResourceInstanceRequest:
-      example:
-        id: instance-abcd1234
-        productTierKey: premium
-        resourceKey: mysql
-        serviceAPIVersion: v1
-        serviceEnvironmentKey: dev
-        serviceKey: service-orchestration
-        serviceModelKey: hosted
-        serviceProviderId: omnistrate
-        subscriptionId: sub-abcd1234
-        token: 8k
-      properties:
-        id:
-          description: The instance ID
-          example: instance-abcd1234
-          type: string
-        productTierKey:
-          description: The product tier name
-          example: premium
-          type: string
-        resourceKey:
-          description: The resource key
-          example: mysql
-          type: string
-        serviceAPIVersion:
-          description: The service API version
-          example: v1
-          type: string
-        serviceEnvironmentKey:
-          description: The service environment name
-          example: dev
-          type: string
-        serviceKey:
-          description: The service name
-          example: service-orchestration
-          type: string
-        serviceModelKey:
-          description: The service model name
-          example: hosted
-          type: string
-        serviceProviderId:
-          description: ID of a Service Provider
-          example: Reprehenderit sit fugiat facilis omnis.
-          type: string
-        subscriptionId:
-          description: The subscription ID
-          example: sub-abcd1234
-          type: string
-        token:
-          description: JWT token used to perform authorization
-          example: c
-          minLength: 1
-          type: string
-      required:
-      - id
-      - productTierKey
-      - resourceKey
-      - serviceAPIVersion
-      - serviceEnvironmentKey
-      - serviceKey
-      - serviceModelKey
-      - serviceProviderId
-      - token
-      type: object
     StripeAuthorizeURLRequest:
       example:
-        token: 5i
+        token: j
       properties:
         token:
           description: JWT token used to perform authorization
-          example: kh
+          example: bs
           minLength: 1
           type: string
       required:
@@ -45985,14 +46504,14 @@ components:
       type: object
     SubscriptionLicense:
       example:
-        certificateBase64: Qui porro quibusdam deleniti.
+        certificateBase64: Qui nihil.
         expirationDate: 2024-01-01T10:00:00Z
-        licenseBase64: Et quo et.
+        licenseBase64: Ab a et.
       properties:
         certificateBase64:
           default: ""
           description: Public certificate used to sign the license in Base 64 format
-          example: Omnis qui nihil maiores occaecati eligendi labore.
+          example: Qui omnis quos et quia.
           type: string
         expirationDate:
           description: Current expiration of the license in RFC 3339 format. The license
@@ -46003,7 +46522,7 @@ components:
         licenseBase64:
           default: ""
           description: License file in Base 64 format
-          example: Quos et quia quod ab a.
+          example: Quaerat similique eligendi quos.
           type: string
       type: object
     SubscriptionSearchRecord:
@@ -46159,7 +46678,7 @@ components:
         serviceId: service-1234
         setConnection: true
         subscriptionId: sub-abcd1234
-        token: u6s
+        token: v
       properties:
         id:
           description: The instance ID
@@ -46179,7 +46698,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: awy
+          example: x9y
           minLength: 1
           type: string
       required:
@@ -46237,16 +46756,13 @@ components:
         clientSecret: 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
         disabled: false
         emailIdentifiers: company.com
-        environmentType: Aperiam est est.
+        environmentType: Autem sint distinctio.
         id: idp-12345678
         loginButtonIconUrl: https://example.com/icon.png
         loginButtonText: Login with Google
         name: Google for my company
-        scopes:
-        - openid
-        - email
-        - profile
-        token: x
+        scopes: openid email profile
+        token: aa8
         tokenEndpoint: https://oauth2.googleapis.com/token
         userInfoEndpoint: https://www.googleapis.com/oauth2/v3/userinfo
       properties:
@@ -46292,14 +46808,8 @@ components:
           type: string
         scopes:
           description: The scopes to request from the Identity Provider
-          example:
-          - openid
-          - email
-          - profile
-          items:
-            example: Ut amet quaerat consequatur autem.
-            type: string
-          type: array
+          example: openid email profile
+          type: string
         token:
           description: JWT token used to perform authorization
           example: "9"
@@ -46660,7 +47170,7 @@ components:
     UpdateResourceInstanceRequest:
       example:
         id: instance-abcd1234
-        network_type: PUBLIC
+        network_type: PUBLIC|INTERNAL
         productTierKey: premium
         requestParams:
           param1: value1
@@ -46672,7 +47182,7 @@ components:
         serviceModelKey: hosted
         serviceProviderId: omnistrate
         subscriptionId: sub-abcd1234
-        token: l
+        token: ybu
       properties:
         id:
           description: The instance ID
@@ -46680,7 +47190,7 @@ components:
           type: string
         network_type:
           description: The network type
-          example: PUBLIC
+          example: PUBLIC|INTERNAL
           type: string
         productTierKey:
           description: The product tier name
@@ -46713,7 +47223,7 @@ components:
           type: string
         serviceProviderId:
           description: ID of a Service Provider
-          example: Quis est.
+          example: Id quibusdam enim sed nobis quia totam.
           type: string
         subscriptionId:
           description: The subscription ID
@@ -46721,7 +47231,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: xh4
+          example: m
           minLength: 1
           type: string
       required:
@@ -46741,7 +47251,7 @@ components:
         description: My custom domain description
         environmentType: DEV
         name: MyCustomDomain
-        token: 7x
+        token: 8b
       properties:
         customDomain:
           description: The custom domain
@@ -46761,7 +47271,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: z
+          example: k
           minLength: 1
           type: string
       required:
@@ -46784,7 +47294,7 @@ components:
           imageName: myimage
           imageRegistry: ghcr.io
           imageTag: latest
-        token: d
+        token: b
       properties:
         customDomain:
           description: The custom domain for the SaaS portal
@@ -46808,7 +47318,7 @@ components:
           $ref: '#/components/schemas/SaaSPortalImageConfig'
         token:
           description: JWT token used to perform authorization
-          example: ooa
+          example: "y"
           minLength: 1
           type: string
       required:
@@ -47045,12 +47555,12 @@ components:
           type: string
         orgFavIconURL:
           description: The favicon of the org that this user owns
-          example: http://kiehn.name/dante_bechtelar
+          example: http://grady.biz/saige_walker
           format: uri
           type: string
         orgLogoURL:
           description: The logo of the org that this user owns
-          example: http://fritschschinner.com/blaise
+          example: http://reilly.org/blaise_hayes
           format: uri
           type: string
         orgName:
@@ -47060,7 +47570,7 @@ components:
         orgPrivacyPolicy:
           description: The privacy policy for the org that this user owns in an HTML
             format
-          example: Quo dignissimos culpa.
+          example: Dignissimos culpa.
           type: string
         orgSupportEmail:
           description: The support email of the org that this user owns
@@ -47069,7 +47579,7 @@ components:
         orgTermsOfUse:
           description: The terms of use for the org that this user owns in an HTML
             format
-          example: Culpa debitis.
+          example: Omnis ipsam culpa debitis velit.
           type: string
         orgURL:
           description: The url of the org that this user owns
@@ -47077,7 +47587,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: ys
+          example: "23"
           minLength: 1
           type: string
       required:
@@ -47589,15 +48099,15 @@ components:
     VerifyIdentityProviderRequest:
       example:
         id: idp-12345678
-        token: "3"
+        token: "y"
       properties:
         id:
           description: ID of an Identity Provider
-          example: Architecto id et veritatis voluptatem.
+          example: Qui officia maxime sunt.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: "3"
+          example: 2sn
           minLength: 1
           type: string
       required:
@@ -47623,7 +48133,7 @@ components:
           type: string
         id:
           description: ID of an Identity Provider
-          example: Quas nihil.
+          example: Provident aut quia quia magnam.
           type: string
         identityProviderName:
           description: The name of the identity provider

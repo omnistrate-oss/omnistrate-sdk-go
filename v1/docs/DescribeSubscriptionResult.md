@@ -5,10 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountConfigIdentityId** | **string** | ID of an Org | 
+**ActiveSubscriptionPricing** | Pointer to **map[string]interface{}** | The active pricing for the subscription at the time of the request. | [optional] 
 **CloudProviderNames** | **[]string** | List of cloud provider names | 
 **CreatedAt** | **string** | The time that this subscription was created | 
 **DefaultSubscription** | **bool** | Whether this is the default subscription for the user | 
 **Id** | **string** | ID of a Subscription | 
+**InheritServicePlanPrice** | Pointer to **bool** | Whether to inherit the service plan price | [optional] 
 **ProductTierId** | **string** | ID of a Product Tier | 
 **ProductTierName** | **string** | The name of the product tier | 
 **RoleType** | **string** | Type of the role | 
@@ -59,6 +61,31 @@ and a boolean to check if the value has been set.
 
 SetAccountConfigIdentityId sets AccountConfigIdentityId field to given value.
 
+
+### GetActiveSubscriptionPricing
+
+`func (o *DescribeSubscriptionResult) GetActiveSubscriptionPricing() map[string]interface{}`
+
+GetActiveSubscriptionPricing returns the ActiveSubscriptionPricing field if non-nil, zero value otherwise.
+
+### GetActiveSubscriptionPricingOk
+
+`func (o *DescribeSubscriptionResult) GetActiveSubscriptionPricingOk() (*map[string]interface{}, bool)`
+
+GetActiveSubscriptionPricingOk returns a tuple with the ActiveSubscriptionPricing field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActiveSubscriptionPricing
+
+`func (o *DescribeSubscriptionResult) SetActiveSubscriptionPricing(v map[string]interface{})`
+
+SetActiveSubscriptionPricing sets ActiveSubscriptionPricing field to given value.
+
+### HasActiveSubscriptionPricing
+
+`func (o *DescribeSubscriptionResult) HasActiveSubscriptionPricing() bool`
+
+HasActiveSubscriptionPricing returns a boolean if a field has been set.
 
 ### GetCloudProviderNames
 
@@ -139,6 +166,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetInheritServicePlanPrice
+
+`func (o *DescribeSubscriptionResult) GetInheritServicePlanPrice() bool`
+
+GetInheritServicePlanPrice returns the InheritServicePlanPrice field if non-nil, zero value otherwise.
+
+### GetInheritServicePlanPriceOk
+
+`func (o *DescribeSubscriptionResult) GetInheritServicePlanPriceOk() (*bool, bool)`
+
+GetInheritServicePlanPriceOk returns a tuple with the InheritServicePlanPrice field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInheritServicePlanPrice
+
+`func (o *DescribeSubscriptionResult) SetInheritServicePlanPrice(v bool)`
+
+SetInheritServicePlanPrice sets InheritServicePlanPrice field to given value.
+
+### HasInheritServicePlanPrice
+
+`func (o *DescribeSubscriptionResult) HasInheritServicePlanPrice() bool`
+
+HasInheritServicePlanPrice returns a boolean if a field has been set.
 
 ### GetProductTierId
 

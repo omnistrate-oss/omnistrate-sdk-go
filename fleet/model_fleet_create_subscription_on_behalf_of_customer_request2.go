@@ -20,6 +20,8 @@ var _ MappedNullable = &FleetCreateSubscriptionOnBehalfOfCustomerRequest2{}
 
 // FleetCreateSubscriptionOnBehalfOfCustomerRequest2 struct for FleetCreateSubscriptionOnBehalfOfCustomerRequest2
 type FleetCreateSubscriptionOnBehalfOfCustomerRequest2 struct {
+	// The external payer ID to record which customer should pay for this subscription
+	ExternalPayerId *string `json:"externalPayerId,omitempty"`
 	// Whether to inherit the service plan price
 	InheritServicePlanPrice *bool `json:"inheritServicePlanPrice,omitempty"`
 	// The user ID of the customer that this subscription is on behalf of
@@ -52,6 +54,38 @@ func NewFleetCreateSubscriptionOnBehalfOfCustomerRequest2(onBehalfOfCustomerUser
 func NewFleetCreateSubscriptionOnBehalfOfCustomerRequest2WithDefaults() *FleetCreateSubscriptionOnBehalfOfCustomerRequest2 {
 	this := FleetCreateSubscriptionOnBehalfOfCustomerRequest2{}
 	return &this
+}
+
+// GetExternalPayerId returns the ExternalPayerId field value if set, zero value otherwise.
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) GetExternalPayerId() string {
+	if o == nil || IsNil(o.ExternalPayerId) {
+		var ret string
+		return ret
+	}
+	return *o.ExternalPayerId
+}
+
+// GetExternalPayerIdOk returns a tuple with the ExternalPayerId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) GetExternalPayerIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ExternalPayerId) {
+		return nil, false
+	}
+	return o.ExternalPayerId, true
+}
+
+// HasExternalPayerId returns a boolean if a field has been set.
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) HasExternalPayerId() bool {
+	if o != nil && !IsNil(o.ExternalPayerId) {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalPayerId gets a reference to the given string and assigns it to the ExternalPayerId field.
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) SetExternalPayerId(v string) {
+	o.ExternalPayerId = &v
 }
 
 // GetInheritServicePlanPrice returns the InheritServicePlanPrice field value if set, zero value otherwise.
@@ -208,6 +242,9 @@ func (o FleetCreateSubscriptionOnBehalfOfCustomerRequest2) MarshalJSON() ([]byte
 
 func (o FleetCreateSubscriptionOnBehalfOfCustomerRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ExternalPayerId) {
+		toSerialize["externalPayerId"] = o.ExternalPayerId
+	}
 	if !IsNil(o.InheritServicePlanPrice) {
 		toSerialize["inheritServicePlanPrice"] = o.InheritServicePlanPrice
 	}
@@ -263,6 +300,7 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) UnmarshalJSON(data [
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "externalPayerId")
 		delete(additionalProperties, "inheritServicePlanPrice")
 		delete(additionalProperties, "onBehalfOfCustomerUserId")
 		delete(additionalProperties, "priceEffectiveDate")

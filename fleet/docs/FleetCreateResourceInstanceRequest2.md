@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudProvider** | Pointer to **string** | The cloud provider name | [optional] 
 **CustomNetworkId** | Pointer to **string** | Custom network for resource | [optional] 
+**ExternalPayerId** | Pointer to **string** | The external payer id to record which customer should pay for this resource instance. This will override the subscription level external payer id if set. | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
 **ProductTierVersion** | Pointer to **string** | The product tier version | [optional] 
 **Region** | Pointer to **string** | The region code | [optional] 
@@ -80,6 +81,31 @@ SetCustomNetworkId sets CustomNetworkId field to given value.
 `func (o *FleetCreateResourceInstanceRequest2) HasCustomNetworkId() bool`
 
 HasCustomNetworkId returns a boolean if a field has been set.
+
+### GetExternalPayerId
+
+`func (o *FleetCreateResourceInstanceRequest2) GetExternalPayerId() string`
+
+GetExternalPayerId returns the ExternalPayerId field if non-nil, zero value otherwise.
+
+### GetExternalPayerIdOk
+
+`func (o *FleetCreateResourceInstanceRequest2) GetExternalPayerIdOk() (*string, bool)`
+
+GetExternalPayerIdOk returns a tuple with the ExternalPayerId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalPayerId
+
+`func (o *FleetCreateResourceInstanceRequest2) SetExternalPayerId(v string)`
+
+SetExternalPayerId sets ExternalPayerId field to given value.
+
+### HasExternalPayerId
+
+`func (o *FleetCreateResourceInstanceRequest2) HasExternalPayerId() bool`
+
+HasExternalPayerId returns a boolean if a field has been set.
 
 ### GetNetworkType
 

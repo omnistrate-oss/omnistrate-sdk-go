@@ -22,6 +22,8 @@ var _ MappedNullable = &FleetCreateSubscriptionOnBehalfOfCustomerRequest{}
 type FleetCreateSubscriptionOnBehalfOfCustomerRequest struct {
 	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
+	// The external payer ID to record which customer should pay for this subscription
+	ExternalPayerId *string `json:"externalPayerId,omitempty"`
 	// Whether to inherit the service plan price
 	InheritServicePlanPrice *bool `json:"inheritServicePlanPrice,omitempty"`
 	// ID of a User
@@ -85,6 +87,38 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetEnvironmentIdOk() 
 // SetEnvironmentId sets field value
 func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) SetEnvironmentId(v string) {
 	o.EnvironmentId = v
+}
+
+// GetExternalPayerId returns the ExternalPayerId field value if set, zero value otherwise.
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetExternalPayerId() string {
+	if o == nil || IsNil(o.ExternalPayerId) {
+		var ret string
+		return ret
+	}
+	return *o.ExternalPayerId
+}
+
+// GetExternalPayerIdOk returns a tuple with the ExternalPayerId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) GetExternalPayerIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ExternalPayerId) {
+		return nil, false
+	}
+	return o.ExternalPayerId, true
+}
+
+// HasExternalPayerId returns a boolean if a field has been set.
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) HasExternalPayerId() bool {
+	if o != nil && !IsNil(o.ExternalPayerId) {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalPayerId gets a reference to the given string and assigns it to the ExternalPayerId field.
+func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) SetExternalPayerId(v string) {
+	o.ExternalPayerId = &v
 }
 
 // GetInheritServicePlanPrice returns the InheritServicePlanPrice field value if set, zero value otherwise.
@@ -290,6 +324,9 @@ func (o FleetCreateSubscriptionOnBehalfOfCustomerRequest) MarshalJSON() ([]byte,
 func (o FleetCreateSubscriptionOnBehalfOfCustomerRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["environmentId"] = o.EnvironmentId
+	if !IsNil(o.ExternalPayerId) {
+		toSerialize["externalPayerId"] = o.ExternalPayerId
+	}
 	if !IsNil(o.InheritServicePlanPrice) {
 		toSerialize["inheritServicePlanPrice"] = o.InheritServicePlanPrice
 	}
@@ -351,6 +388,7 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest) UnmarshalJSON(data []
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "externalPayerId")
 		delete(additionalProperties, "inheritServicePlanPrice")
 		delete(additionalProperties, "onBehalfOfCustomerUserId")
 		delete(additionalProperties, "priceEffectiveDate")

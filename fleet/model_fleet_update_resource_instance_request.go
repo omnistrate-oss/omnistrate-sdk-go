@@ -24,6 +24,8 @@ type FleetUpdateResourceInstanceRequest struct {
 	EnvironmentId string `json:"environmentId"`
 	// ID of a Resource Instance
 	InstanceId string `json:"instanceId"`
+	// The network type
+	NetworkType *string `json:"network_type,omitempty"`
 	// The request parameters
 	RequestParams interface{} `json:"requestParams,omitempty"`
 	// ID of a resource
@@ -105,6 +107,38 @@ func (o *FleetUpdateResourceInstanceRequest) GetInstanceIdOk() (*string, bool) {
 // SetInstanceId sets field value
 func (o *FleetUpdateResourceInstanceRequest) SetInstanceId(v string) {
 	o.InstanceId = v
+}
+
+// GetNetworkType returns the NetworkType field value if set, zero value otherwise.
+func (o *FleetUpdateResourceInstanceRequest) GetNetworkType() string {
+	if o == nil || IsNil(o.NetworkType) {
+		var ret string
+		return ret
+	}
+	return *o.NetworkType
+}
+
+// GetNetworkTypeOk returns a tuple with the NetworkType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetUpdateResourceInstanceRequest) GetNetworkTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.NetworkType) {
+		return nil, false
+	}
+	return o.NetworkType, true
+}
+
+// HasNetworkType returns a boolean if a field has been set.
+func (o *FleetUpdateResourceInstanceRequest) HasNetworkType() bool {
+	if o != nil && !IsNil(o.NetworkType) {
+		return true
+	}
+
+	return false
+}
+
+// SetNetworkType gets a reference to the given string and assigns it to the NetworkType field.
+func (o *FleetUpdateResourceInstanceRequest) SetNetworkType(v string) {
+	o.NetworkType = &v
 }
 
 // GetRequestParams returns the RequestParams field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -224,6 +258,9 @@ func (o FleetUpdateResourceInstanceRequest) ToMap() (map[string]interface{}, err
 	toSerialize := map[string]interface{}{}
 	toSerialize["environmentId"] = o.EnvironmentId
 	toSerialize["instanceId"] = o.InstanceId
+	if !IsNil(o.NetworkType) {
+		toSerialize["network_type"] = o.NetworkType
+	}
 	if o.RequestParams != nil {
 		toSerialize["requestParams"] = o.RequestParams
 	}
@@ -279,6 +316,7 @@ func (o *FleetUpdateResourceInstanceRequest) UnmarshalJSON(data []byte) (err err
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "environmentId")
 		delete(additionalProperties, "instanceId")
+		delete(additionalProperties, "network_type")
 		delete(additionalProperties, "requestParams")
 		delete(additionalProperties, "resourceId")
 		delete(additionalProperties, "serviceId")

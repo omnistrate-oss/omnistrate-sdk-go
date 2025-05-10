@@ -20,6 +20,8 @@ var _ MappedNullable = &FleetUpdateResourceInstanceRequest2{}
 
 // FleetUpdateResourceInstanceRequest2 struct for FleetUpdateResourceInstanceRequest2
 type FleetUpdateResourceInstanceRequest2 struct {
+	// The network type
+	NetworkType *string `json:"network_type,omitempty"`
 	// The request parameters
 	RequestParams interface{} `json:"requestParams,omitempty"`
 	// The resource ID.
@@ -45,6 +47,38 @@ func NewFleetUpdateResourceInstanceRequest2(resourceId string) *FleetUpdateResou
 func NewFleetUpdateResourceInstanceRequest2WithDefaults() *FleetUpdateResourceInstanceRequest2 {
 	this := FleetUpdateResourceInstanceRequest2{}
 	return &this
+}
+
+// GetNetworkType returns the NetworkType field value if set, zero value otherwise.
+func (o *FleetUpdateResourceInstanceRequest2) GetNetworkType() string {
+	if o == nil || IsNil(o.NetworkType) {
+		var ret string
+		return ret
+	}
+	return *o.NetworkType
+}
+
+// GetNetworkTypeOk returns a tuple with the NetworkType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetUpdateResourceInstanceRequest2) GetNetworkTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.NetworkType) {
+		return nil, false
+	}
+	return o.NetworkType, true
+}
+
+// HasNetworkType returns a boolean if a field has been set.
+func (o *FleetUpdateResourceInstanceRequest2) HasNetworkType() bool {
+	if o != nil && !IsNil(o.NetworkType) {
+		return true
+	}
+
+	return false
+}
+
+// SetNetworkType gets a reference to the given string and assigns it to the NetworkType field.
+func (o *FleetUpdateResourceInstanceRequest2) SetNetworkType(v string) {
+	o.NetworkType = &v
 }
 
 // GetRequestParams returns the RequestParams field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -114,6 +148,9 @@ func (o FleetUpdateResourceInstanceRequest2) MarshalJSON() ([]byte, error) {
 
 func (o FleetUpdateResourceInstanceRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.NetworkType) {
+		toSerialize["network_type"] = o.NetworkType
+	}
 	if o.RequestParams != nil {
 		toSerialize["requestParams"] = o.RequestParams
 	}
@@ -161,6 +198,7 @@ func (o *FleetUpdateResourceInstanceRequest2) UnmarshalJSON(data []byte) (err er
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "network_type")
 		delete(additionalProperties, "requestParams")
 		delete(additionalProperties, "resourceId")
 		o.AdditionalProperties = additionalProperties

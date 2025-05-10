@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **CompanyDescription** | Pointer to **string** |  | [optional] 
 **CompanyUrl** | Pointer to **string** |  | [optional] 
 **EnvironmentType** | Pointer to **string** | The environment type of the portal that the customer is signing in to | [optional] 
-**IdentityProviderName** | **string** | The name of the Identity Provider | 
+**IdentityProviderName** | **string** | The type of the Identity Provider | 
 **InvitedEmail** | Pointer to **string** | Email address that the user was invited with | [optional] 
 **LegalCompanyName** | Pointer to **string** |  | [optional] 
 **RedirectUri** | Pointer to **string** | The redirect URI used to get the authorization code | [optional] 

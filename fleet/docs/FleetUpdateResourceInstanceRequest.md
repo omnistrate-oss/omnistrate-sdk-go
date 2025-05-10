@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EnvironmentId** | **string** | ID of a Service Environment | 
 **InstanceId** | **string** | ID of a Resource Instance | 
+**NetworkType** | Pointer to **string** | The network type | [optional] 
 **RequestParams** | Pointer to **interface{}** | The request parameters | [optional] 
 **ResourceId** | **string** | ID of a resource | 
 **ServiceId** | **string** | ID of a Service | 
@@ -69,6 +70,31 @@ and a boolean to check if the value has been set.
 
 SetInstanceId sets InstanceId field to given value.
 
+
+### GetNetworkType
+
+`func (o *FleetUpdateResourceInstanceRequest) GetNetworkType() string`
+
+GetNetworkType returns the NetworkType field if non-nil, zero value otherwise.
+
+### GetNetworkTypeOk
+
+`func (o *FleetUpdateResourceInstanceRequest) GetNetworkTypeOk() (*string, bool)`
+
+GetNetworkTypeOk returns a tuple with the NetworkType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkType
+
+`func (o *FleetUpdateResourceInstanceRequest) SetNetworkType(v string)`
+
+SetNetworkType sets NetworkType field to given value.
+
+### HasNetworkType
+
+`func (o *FleetUpdateResourceInstanceRequest) HasNetworkType() bool`
+
+HasNetworkType returns a boolean if a field has been set.
 
 ### GetRequestParams
 

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | The instance ID | 
+**NetworkType** | Pointer to **string** | The network type | [optional] 
 **ProductTierKey** | **string** | The product tier name | 
 **RequestParams** | Pointer to **interface{}** | The request parameters | [optional] 
 **ResourceKey** | **string** | The resource key | 
@@ -54,6 +55,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetNetworkType
+
+`func (o *UpdateResourceInstanceRequest) GetNetworkType() string`
+
+GetNetworkType returns the NetworkType field if non-nil, zero value otherwise.
+
+### GetNetworkTypeOk
+
+`func (o *UpdateResourceInstanceRequest) GetNetworkTypeOk() (*string, bool)`
+
+GetNetworkTypeOk returns a tuple with the NetworkType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkType
+
+`func (o *UpdateResourceInstanceRequest) SetNetworkType(v string)`
+
+SetNetworkType sets NetworkType field to given value.
+
+### HasNetworkType
+
+`func (o *UpdateResourceInstanceRequest) HasNetworkType() bool`
+
+HasNetworkType returns a boolean if a field has been set.
 
 ### GetProductTierKey
 

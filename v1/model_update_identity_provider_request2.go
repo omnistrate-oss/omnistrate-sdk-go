@@ -38,7 +38,7 @@ type UpdateIdentityProviderRequest2 struct {
 	// The name of the Identity Provider
 	Name *string `json:"name,omitempty"`
 	// The scopes to request from the Identity Provider
-	Scopes []string `json:"scopes,omitempty"`
+	Scopes *string `json:"scopes,omitempty"`
 	// The token endpoint of the Identity Provider
 	TokenEndpoint *string `json:"tokenEndpoint,omitempty"`
 	// The user info endpoint of the Identity Provider
@@ -273,26 +273,26 @@ func (o *UpdateIdentityProviderRequest2) SetName(v string) {
 }
 
 // GetScopes returns the Scopes field value if set, zero value otherwise.
-func (o *UpdateIdentityProviderRequest2) GetScopes() []string {
+func (o *UpdateIdentityProviderRequest2) GetScopes() string {
 	if o == nil || IsNil(o.Scopes) {
-		var ret []string
+		var ret string
 		return ret
 	}
-	return o.Scopes
+	return *o.Scopes
 }
 
 // GetScopesOk returns a tuple with the Scopes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdateIdentityProviderRequest2) GetScopesOk() ([]string, bool) {
+func (o *UpdateIdentityProviderRequest2) GetScopesOk() (*string, bool) {
 	if o == nil || IsNil(o.Scopes) {
 		return nil, false
 	}
 	return o.Scopes, true
 }
 
-// SetScopes gets a reference to the given []string and assigns it to the Scopes field.
-func (o *UpdateIdentityProviderRequest2) SetScopes(v []string) {
-	o.Scopes = v
+// SetScopes gets a reference to the given string and assigns it to the Scopes field.
+func (o *UpdateIdentityProviderRequest2) SetScopes(v string) {
+	o.Scopes = &v
 }
 
 // GetTokenEndpoint returns the TokenEndpoint field value if set, zero value otherwise.

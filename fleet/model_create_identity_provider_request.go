@@ -41,7 +41,7 @@ type CreateIdentityProviderRequest struct {
 	// The name of the Identity Provider
 	Name *string `json:"name,omitempty"`
 	// The scopes to request from the Identity Provider
-	Scopes []string `json:"scopes,omitempty"`
+	Scopes *string `json:"scopes,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	// The token endpoint of the Identity Provider
@@ -371,17 +371,17 @@ func (o *CreateIdentityProviderRequest) SetName(v string) {
 }
 
 // GetScopes returns the Scopes field value if set, zero value otherwise.
-func (o *CreateIdentityProviderRequest) GetScopes() []string {
+func (o *CreateIdentityProviderRequest) GetScopes() string {
 	if o == nil || IsNil(o.Scopes) {
-		var ret []string
+		var ret string
 		return ret
 	}
-	return o.Scopes
+	return *o.Scopes
 }
 
 // GetScopesOk returns a tuple with the Scopes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateIdentityProviderRequest) GetScopesOk() ([]string, bool) {
+func (o *CreateIdentityProviderRequest) GetScopesOk() (*string, bool) {
 	if o == nil || IsNil(o.Scopes) {
 		return nil, false
 	}
@@ -397,9 +397,9 @@ func (o *CreateIdentityProviderRequest) HasScopes() bool {
 	return false
 }
 
-// SetScopes gets a reference to the given []string and assigns it to the Scopes field.
-func (o *CreateIdentityProviderRequest) SetScopes(v []string) {
-	o.Scopes = v
+// SetScopes gets a reference to the given string and assigns it to the Scopes field.
+func (o *CreateIdentityProviderRequest) SetScopes(v string) {
+	o.Scopes = &v
 }
 
 // GetToken returns the Token field value

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ExternalPayerId** | Pointer to **string** | The external payer ID to record which customer should pay for this subscription | [optional] 
 **InheritServicePlanPrice** | Pointer to **bool** | Whether to inherit the service plan price | [optional] 
 **OnBehalfOfCustomerUserId** | **string** | The user ID of the customer that this subscription is on behalf of | 
 **PriceEffectiveDate** | Pointer to **string** | The effective date of the price, truncated to the first day of the month. Only the current or future months may be specified. | [optional] 
@@ -28,6 +29,31 @@ will change when the set of required properties is changed
 NewFleetCreateSubscriptionOnBehalfOfCustomerRequest2WithDefaults instantiates a new FleetCreateSubscriptionOnBehalfOfCustomerRequest2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetExternalPayerId
+
+`func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) GetExternalPayerId() string`
+
+GetExternalPayerId returns the ExternalPayerId field if non-nil, zero value otherwise.
+
+### GetExternalPayerIdOk
+
+`func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) GetExternalPayerIdOk() (*string, bool)`
+
+GetExternalPayerIdOk returns a tuple with the ExternalPayerId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalPayerId
+
+`func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) SetExternalPayerId(v string)`
+
+SetExternalPayerId sets ExternalPayerId field to given value.
+
+### HasExternalPayerId
+
+`func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) HasExternalPayerId() bool`
+
+HasExternalPayerId returns a boolean if a field has been set.
 
 ### GetInheritServicePlanPrice
 

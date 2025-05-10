@@ -26,6 +26,8 @@ type FleetRestoreResourceInstanceFromSnapshotRequest struct {
 	InputParametersOverride interface{} `json:"inputParametersOverride,omitempty"`
 	// The network type
 	NetworkType *string `json:"network_type,omitempty"`
+	// The product tier version
+	ProductTierVersionOverride *string `json:"productTierVersionOverride,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// ID of a Resource Instance Snapshot
@@ -147,6 +149,38 @@ func (o *FleetRestoreResourceInstanceFromSnapshotRequest) SetNetworkType(v strin
 	o.NetworkType = &v
 }
 
+// GetProductTierVersionOverride returns the ProductTierVersionOverride field value if set, zero value otherwise.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest) GetProductTierVersionOverride() string {
+	if o == nil || IsNil(o.ProductTierVersionOverride) {
+		var ret string
+		return ret
+	}
+	return *o.ProductTierVersionOverride
+}
+
+// GetProductTierVersionOverrideOk returns a tuple with the ProductTierVersionOverride field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest) GetProductTierVersionOverrideOk() (*string, bool) {
+	if o == nil || IsNil(o.ProductTierVersionOverride) {
+		return nil, false
+	}
+	return o.ProductTierVersionOverride, true
+}
+
+// HasProductTierVersionOverride returns a boolean if a field has been set.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest) HasProductTierVersionOverride() bool {
+	if o != nil && !IsNil(o.ProductTierVersionOverride) {
+		return true
+	}
+
+	return false
+}
+
+// SetProductTierVersionOverride gets a reference to the given string and assigns it to the ProductTierVersionOverride field.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest) SetProductTierVersionOverride(v string) {
+	o.ProductTierVersionOverride = &v
+}
+
 // GetServiceId returns the ServiceId field value
 func (o *FleetRestoreResourceInstanceFromSnapshotRequest) GetServiceId() string {
 	if o == nil {
@@ -236,6 +270,9 @@ func (o FleetRestoreResourceInstanceFromSnapshotRequest) ToMap() (map[string]int
 	if !IsNil(o.NetworkType) {
 		toSerialize["network_type"] = o.NetworkType
 	}
+	if !IsNil(o.ProductTierVersionOverride) {
+		toSerialize["productTierVersionOverride"] = o.ProductTierVersionOverride
+	}
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["snapshotId"] = o.SnapshotId
 	toSerialize["token"] = o.Token
@@ -288,6 +325,7 @@ func (o *FleetRestoreResourceInstanceFromSnapshotRequest) UnmarshalJSON(data []b
 		delete(additionalProperties, "environmentId")
 		delete(additionalProperties, "inputParametersOverride")
 		delete(additionalProperties, "network_type")
+		delete(additionalProperties, "productTierVersionOverride")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "snapshotId")
 		delete(additionalProperties, "token")

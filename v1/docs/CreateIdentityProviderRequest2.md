@@ -10,11 +10,11 @@ Name | Type | Description | Notes
 **Disabled** | Pointer to **bool** | Whether the Identity Provider is disabled | [optional] 
 **EmailIdentifiers** | Pointer to **string** | The email identifiers to use for the Identity Provider | [optional] 
 **EnvironmentType** | Pointer to **string** | The type of environment to filter costs by | [optional] 
-**IdentityProviderName** | **string** | The name of the Identity Provider | 
+**IdentityProviderName** | **string** | The type of the Identity Provider | 
 **LoginButtonIconUrl** | Pointer to **string** | The URL of the icon to use for the login button | [optional] 
 **LoginButtonText** | Pointer to **string** | The text to use for the login button | [optional] 
 **Name** | Pointer to **string** | The name of the Identity Provider | [optional] 
-**Scopes** | Pointer to **[]string** | The scopes to request from the Identity Provider | [optional] 
+**Scopes** | Pointer to **string** | The scopes to request from the Identity Provider | [optional] 
 **TokenEndpoint** | Pointer to **string** | The token endpoint of the Identity Provider | [optional] 
 **UserInfoEndpoint** | Pointer to **string** | The user info endpoint of the Identity Provider | [optional] 
 
@@ -274,20 +274,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetScopes
 
-`func (o *CreateIdentityProviderRequest2) GetScopes() []string`
+`func (o *CreateIdentityProviderRequest2) GetScopes() string`
 
 GetScopes returns the Scopes field if non-nil, zero value otherwise.
 
 ### GetScopesOk
 
-`func (o *CreateIdentityProviderRequest2) GetScopesOk() (*[]string, bool)`
+`func (o *CreateIdentityProviderRequest2) GetScopesOk() (*string, bool)`
 
 GetScopesOk returns a tuple with the Scopes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetScopes
 
-`func (o *CreateIdentityProviderRequest2) SetScopes(v []string)`
+`func (o *CreateIdentityProviderRequest2) SetScopes(v string)`
 
 SetScopes sets Scopes field to given value.
 
