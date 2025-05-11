@@ -32,7 +32,7 @@ type CreateIdentityProviderRequest2 struct {
 	EmailIdentifiers *string `json:"emailIdentifiers,omitempty"`
 	// The type of environment to filter costs by
 	EnvironmentType *string `json:"environmentType,omitempty"`
-	// The name of the Identity Provider
+	// The type of the Identity Provider
 	IdentityProviderName string `json:"identityProviderName"`
 	// The URL of the icon to use for the login button
 	LoginButtonIconUrl *string `json:"loginButtonIconUrl,omitempty"`
@@ -41,7 +41,7 @@ type CreateIdentityProviderRequest2 struct {
 	// The name of the Identity Provider
 	Name *string `json:"name,omitempty"`
 	// The scopes to request from the Identity Provider
-	Scopes []string `json:"scopes,omitempty"`
+	Scopes *string `json:"scopes,omitempty"`
 	// The token endpoint of the Identity Provider
 	TokenEndpoint *string `json:"tokenEndpoint,omitempty"`
 	// The user info endpoint of the Identity Provider
@@ -305,26 +305,26 @@ func (o *CreateIdentityProviderRequest2) SetName(v string) {
 }
 
 // GetScopes returns the Scopes field value if set, zero value otherwise.
-func (o *CreateIdentityProviderRequest2) GetScopes() []string {
+func (o *CreateIdentityProviderRequest2) GetScopes() string {
 	if o == nil || IsNil(o.Scopes) {
-		var ret []string
+		var ret string
 		return ret
 	}
-	return o.Scopes
+	return *o.Scopes
 }
 
 // GetScopesOk returns a tuple with the Scopes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateIdentityProviderRequest2) GetScopesOk() ([]string, bool) {
+func (o *CreateIdentityProviderRequest2) GetScopesOk() (*string, bool) {
 	if o == nil || IsNil(o.Scopes) {
 		return nil, false
 	}
 	return o.Scopes, true
 }
 
-// SetScopes gets a reference to the given []string and assigns it to the Scopes field.
-func (o *CreateIdentityProviderRequest2) SetScopes(v []string) {
-	o.Scopes = v
+// SetScopes gets a reference to the given string and assigns it to the Scopes field.
+func (o *CreateIdentityProviderRequest2) SetScopes(v string) {
+	o.Scopes = &v
 }
 
 // GetTokenEndpoint returns the TokenEndpoint field value if set, zero value otherwise.

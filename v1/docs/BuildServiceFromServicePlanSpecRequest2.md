@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | Pointer to **string** | A brief description of the service | [optional] 
+**Dryrun** | Pointer to **bool** | If set to true, performs a dry run of the build operation without making any changes | [optional] 
 **Environment** | Pointer to **string** | The environment to build the service in | [optional] 
 **EnvironmentType** | Pointer to **string** | The type of the environment | [optional] 
 **FileContent** | **string** | Base64 encoded Compose Spec YAML in service plan configuration format | 
@@ -57,6 +58,31 @@ SetDescription sets Description field to given value.
 `func (o *BuildServiceFromServicePlanSpecRequest2) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
+
+### GetDryrun
+
+`func (o *BuildServiceFromServicePlanSpecRequest2) GetDryrun() bool`
+
+GetDryrun returns the Dryrun field if non-nil, zero value otherwise.
+
+### GetDryrunOk
+
+`func (o *BuildServiceFromServicePlanSpecRequest2) GetDryrunOk() (*bool, bool)`
+
+GetDryrunOk returns a tuple with the Dryrun field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDryrun
+
+`func (o *BuildServiceFromServicePlanSpecRequest2) SetDryrun(v bool)`
+
+SetDryrun sets Dryrun field to given value.
+
+### HasDryrun
+
+`func (o *BuildServiceFromServicePlanSpecRequest2) HasDryrun() bool`
+
+HasDryrun returns a boolean if a field has been set.
 
 ### GetEnvironment
 

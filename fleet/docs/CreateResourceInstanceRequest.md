@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudProvider** | Pointer to **string** | The cloud provider name | [optional] 
 **CustomNetworkId** | Pointer to **string** | Custom network for resource | [optional] 
-**ExternalBillingId** | Pointer to **string** | The external billing id to record which customer should pay for this resource instance | [optional] 
+**ExternalBillingId** | Pointer to **string** | This externalBillingId is deprecated and will be removed in the future | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
 **ProductTierKey** | **string** | The product tier name | 
 **Region** | Pointer to **string** | The region code | [optional] 

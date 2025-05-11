@@ -19,6 +19,8 @@ var _ MappedNullable = &UpdateResourceInstanceRequest2{}
 
 // UpdateResourceInstanceRequest2 struct for UpdateResourceInstanceRequest2
 type UpdateResourceInstanceRequest2 struct {
+	// The network type
+	NetworkType *string `json:"network_type,omitempty"`
 	// The request parameters
 	RequestParams interface{} `json:"requestParams,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -41,6 +43,29 @@ func NewUpdateResourceInstanceRequest2() *UpdateResourceInstanceRequest2 {
 func NewUpdateResourceInstanceRequest2WithDefaults() *UpdateResourceInstanceRequest2 {
 	this := UpdateResourceInstanceRequest2{}
 	return &this
+}
+
+// GetNetworkType returns the NetworkType field value if set, zero value otherwise.
+func (o *UpdateResourceInstanceRequest2) GetNetworkType() string {
+	if o == nil || IsNil(o.NetworkType) {
+		var ret string
+		return ret
+	}
+	return *o.NetworkType
+}
+
+// GetNetworkTypeOk returns a tuple with the NetworkType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateResourceInstanceRequest2) GetNetworkTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.NetworkType) {
+		return nil, false
+	}
+	return o.NetworkType, true
+}
+
+// SetNetworkType gets a reference to the given string and assigns it to the NetworkType field.
+func (o *UpdateResourceInstanceRequest2) SetNetworkType(v string) {
+	o.NetworkType = &v
 }
 
 // GetRequestParams returns the RequestParams field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -77,6 +102,9 @@ func (o UpdateResourceInstanceRequest2) MarshalJSON() ([]byte, error) {
 
 func (o UpdateResourceInstanceRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.NetworkType) {
+		toSerialize["network_type"] = o.NetworkType
+	}
 	if o.RequestParams != nil {
 		toSerialize["requestParams"] = o.RequestParams
 	}
@@ -102,6 +130,7 @@ func (o *UpdateResourceInstanceRequest2) UnmarshalJSON(data []byte) (err error) 
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "network_type")
 		delete(additionalProperties, "requestParams")
 		o.AdditionalProperties = additionalProperties
 	}

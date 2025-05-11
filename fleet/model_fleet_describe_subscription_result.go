@@ -24,6 +24,8 @@ type FleetDescribeSubscriptionResult struct {
 	ActiveSubscriptionPricing map[string]interface{} `json:"activeSubscriptionPricing,omitempty"`
 	// The time that this subscription was created
 	CreatedAt string `json:"createdAt"`
+	// The external payer ID to record which customer should pay for this subscription
+	ExternalPayerId *string `json:"externalPayerId,omitempty"`
 	// The history pricing for the subscription.
 	HistorySubscriptionPricing []HistorySubscriptionPricing `json:"historySubscriptionPricing,omitempty"`
 	// ID of a Subscription
@@ -150,6 +152,38 @@ func (o *FleetDescribeSubscriptionResult) GetCreatedAtOk() (*string, bool) {
 // SetCreatedAt sets field value
 func (o *FleetDescribeSubscriptionResult) SetCreatedAt(v string) {
 	o.CreatedAt = v
+}
+
+// GetExternalPayerId returns the ExternalPayerId field value if set, zero value otherwise.
+func (o *FleetDescribeSubscriptionResult) GetExternalPayerId() string {
+	if o == nil || IsNil(o.ExternalPayerId) {
+		var ret string
+		return ret
+	}
+	return *o.ExternalPayerId
+}
+
+// GetExternalPayerIdOk returns a tuple with the ExternalPayerId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeSubscriptionResult) GetExternalPayerIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ExternalPayerId) {
+		return nil, false
+	}
+	return o.ExternalPayerId, true
+}
+
+// HasExternalPayerId returns a boolean if a field has been set.
+func (o *FleetDescribeSubscriptionResult) HasExternalPayerId() bool {
+	if o != nil && !IsNil(o.ExternalPayerId) {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalPayerId gets a reference to the given string and assigns it to the ExternalPayerId field.
+func (o *FleetDescribeSubscriptionResult) SetExternalPayerId(v string) {
+	o.ExternalPayerId = &v
 }
 
 // GetHistorySubscriptionPricing returns the HistorySubscriptionPricing field value if set, zero value otherwise.
@@ -638,6 +672,9 @@ func (o FleetDescribeSubscriptionResult) ToMap() (map[string]interface{}, error)
 		toSerialize["activeSubscriptionPricing"] = o.ActiveSubscriptionPricing
 	}
 	toSerialize["createdAt"] = o.CreatedAt
+	if !IsNil(o.ExternalPayerId) {
+		toSerialize["externalPayerId"] = o.ExternalPayerId
+	}
 	if !IsNil(o.HistorySubscriptionPricing) {
 		toSerialize["historySubscriptionPricing"] = o.HistorySubscriptionPricing
 	}
@@ -724,6 +761,7 @@ func (o *FleetDescribeSubscriptionResult) UnmarshalJSON(data []byte) (err error)
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "activeSubscriptionPricing")
 		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "externalPayerId")
 		delete(additionalProperties, "historySubscriptionPricing")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "inheritServicePlanPrice")

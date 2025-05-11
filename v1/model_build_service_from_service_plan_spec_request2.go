@@ -22,6 +22,8 @@ var _ MappedNullable = &BuildServiceFromServicePlanSpecRequest2{}
 type BuildServiceFromServicePlanSpecRequest2 struct {
 	// A brief description of the service
 	Description *string `json:"description,omitempty"`
+	// If set to true, performs a dry run of the build operation without making any changes
+	Dryrun *bool `json:"dryrun,omitempty"`
 	// The environment to build the service in
 	Environment *string `json:"environment,omitempty"`
 	// The type of the environment
@@ -83,6 +85,29 @@ func (o *BuildServiceFromServicePlanSpecRequest2) GetDescriptionOk() (*string, b
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *BuildServiceFromServicePlanSpecRequest2) SetDescription(v string) {
 	o.Description = &v
+}
+
+// GetDryrun returns the Dryrun field value if set, zero value otherwise.
+func (o *BuildServiceFromServicePlanSpecRequest2) GetDryrun() bool {
+	if o == nil || IsNil(o.Dryrun) {
+		var ret bool
+		return ret
+	}
+	return *o.Dryrun
+}
+
+// GetDryrunOk returns a tuple with the Dryrun field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BuildServiceFromServicePlanSpecRequest2) GetDryrunOk() (*bool, bool) {
+	if o == nil || IsNil(o.Dryrun) {
+		return nil, false
+	}
+	return o.Dryrun, true
+}
+
+// SetDryrun gets a reference to the given bool and assigns it to the Dryrun field.
+func (o *BuildServiceFromServicePlanSpecRequest2) SetDryrun(v bool) {
+	o.Dryrun = &v
 }
 
 // GetEnvironment returns the Environment field value if set, zero value otherwise.
@@ -284,6 +309,9 @@ func (o BuildServiceFromServicePlanSpecRequest2) ToMap() (map[string]interface{}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
+	if !IsNil(o.Dryrun) {
+		toSerialize["dryrun"] = o.Dryrun
+	}
 	if !IsNil(o.Environment) {
 		toSerialize["environment"] = o.Environment
 	}
@@ -349,6 +377,7 @@ func (o *BuildServiceFromServicePlanSpecRequest2) UnmarshalJSON(data []byte) (er
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "description")
+		delete(additionalProperties, "dryrun")
 		delete(additionalProperties, "environment")
 		delete(additionalProperties, "environmentType")
 		delete(additionalProperties, "fileContent")

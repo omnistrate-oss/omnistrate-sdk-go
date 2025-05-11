@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ActiveSubscriptionPricing** | Pointer to **map[string]interface{}** | The active pricing for the subscription at the time of the request. | [optional] 
 **CreatedAt** | **string** | The time that this subscription was created | 
+**ExternalPayerId** | Pointer to **string** | The external payer ID to record which customer should pay for this subscription | [optional] 
 **HistorySubscriptionPricing** | Pointer to [**[]HistorySubscriptionPricing**](HistorySubscriptionPricing.md) | The history pricing for the subscription. | [optional] 
 **Id** | **string** | ID of a Subscription | 
 **InheritServicePlanPrice** | Pointer to **bool** | Whether to inherit the service plan price | [optional] 
@@ -88,6 +89,31 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
+
+### GetExternalPayerId
+
+`func (o *FleetDescribeSubscriptionResult) GetExternalPayerId() string`
+
+GetExternalPayerId returns the ExternalPayerId field if non-nil, zero value otherwise.
+
+### GetExternalPayerIdOk
+
+`func (o *FleetDescribeSubscriptionResult) GetExternalPayerIdOk() (*string, bool)`
+
+GetExternalPayerIdOk returns a tuple with the ExternalPayerId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalPayerId
+
+`func (o *FleetDescribeSubscriptionResult) SetExternalPayerId(v string)`
+
+SetExternalPayerId sets ExternalPayerId field to given value.
+
+### HasExternalPayerId
+
+`func (o *FleetDescribeSubscriptionResult) HasExternalPayerId() bool`
+
+HasExternalPayerId returns a boolean if a field has been set.
 
 ### GetHistorySubscriptionPricing
 

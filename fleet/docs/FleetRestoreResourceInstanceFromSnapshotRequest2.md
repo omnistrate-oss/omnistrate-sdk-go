@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InputParametersOverride** | Pointer to **interface{}** | Custom input parameters override | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
+**ProductTierVersionOverride** | Pointer to **string** | The product tier version | [optional] 
 
 ## Methods
 
@@ -85,6 +86,31 @@ SetNetworkType sets NetworkType field to given value.
 `func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) HasNetworkType() bool`
 
 HasNetworkType returns a boolean if a field has been set.
+
+### GetProductTierVersionOverride
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) GetProductTierVersionOverride() string`
+
+GetProductTierVersionOverride returns the ProductTierVersionOverride field if non-nil, zero value otherwise.
+
+### GetProductTierVersionOverrideOk
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) GetProductTierVersionOverrideOk() (*string, bool)`
+
+GetProductTierVersionOverrideOk returns a tuple with the ProductTierVersionOverride field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductTierVersionOverride
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) SetProductTierVersionOverride(v string)`
+
+SetProductTierVersionOverride sets ProductTierVersionOverride field to given value.
+
+### HasProductTierVersionOverride
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) HasProductTierVersionOverride() bool`
+
+HasProductTierVersionOverride returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

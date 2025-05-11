@@ -26,7 +26,7 @@ type CustomerLoginWithIdentityProviderRequest2 struct {
 	CompanyUrl *string `json:"companyUrl,omitempty"`
 	// The environment type of the portal that the customer is signing in to
 	EnvironmentType *string `json:"environmentType,omitempty"`
-	// The name of the Identity Provider
+	// The type of the Identity Provider
 	IdentityProviderName string `json:"identityProviderName"`
 	// Email address that the user was invited with
 	InvitedEmail *string `json:"invitedEmail,omitempty"`
