@@ -109,6 +109,7 @@ Class | Method | HTTP request | Description
 *HelmPackageApiAPI* | [**HelmPackageApiListHelmPackageInstallations**](docs/HelmPackageApiAPI.md#helmpackageapilisthelmpackageinstallations) | **Get** /2022-09-01-00/fleet/helm-package-installations | ListHelmPackageInstallations helm-package-api
 *HostclusterApiAPI* | [**HostclusterApiAdoptHostCluster**](docs/HostclusterApiAPI.md#hostclusterapiadopthostcluster) | **Post** /2022-09-01-00/fleet/host-cluster/adopt | AdoptHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiDeleteHostCluster**](docs/HostclusterApiAPI.md#hostclusterapideletehostcluster) | **Delete** /2022-09-01-00/fleet/host-cluster/{id} | DeleteHostCluster hostcluster-api
+*HostclusterApiAPI* | [**HostclusterApiDescribeHostCluster**](docs/HostclusterApiAPI.md#hostclusterapidescribehostcluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id} | DescribeHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiGenerateTokenForHostClusterDashboard**](docs/HostclusterApiAPI.md#hostclusterapigeneratetokenforhostclusterdashboard) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiListHostClusters**](docs/HostclusterApiAPI.md#hostclusterapilisthostclusters) | **Get** /2022-09-01-00/fleet/host-clusters | ListHostClusters hostcluster-api
 *InventoryApiAPI* | [**InventoryApiAddCapacityToResourceInstance**](docs/InventoryApiAPI.md#inventoryapiaddcapacitytoresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/add-capacity | AddCapacityToResourceInstance inventory-api
@@ -322,6 +323,7 @@ Class | Method | HTTP request | Description
  - [DescribeDeploymentCellCostRequest](docs/DescribeDeploymentCellCostRequest.md)
  - [DescribeDeploymentCellCostResult](docs/DescribeDeploymentCellCostResult.md)
  - [DescribeFleetFeatureRequest](docs/DescribeFleetFeatureRequest.md)
+ - [DescribeHostClusterRequest](docs/DescribeHostClusterRequest.md)
  - [DescribeIdentityProviderRequest](docs/DescribeIdentityProviderRequest.md)
  - [DescribeIdentityProviderResult](docs/DescribeIdentityProviderResult.md)
  - [DescribeIdentityProviderTypeResult](docs/DescribeIdentityProviderTypeResult.md)

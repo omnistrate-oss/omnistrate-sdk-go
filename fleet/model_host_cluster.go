@@ -30,7 +30,7 @@ type HostCluster struct {
 	CurrentNumberOfDeployments int64 `json:"currentNumberOfDeployments"`
 	CustomNetworkDetail *CustomNetworkFleetDetail `json:"customNetworkDetail,omitempty"`
 	Description string `json:"description"`
-	HealthStatus HostClusterHealthStatus `json:"healthStatus"`
+	HealthStatus *HostClusterHealthStatus `json:"healthStatus,omitempty"`
 	// Helm packages installed on the host cluster
 	HelmPackages []HelmPackage `json:"helmPackages,omitempty"`
 	// ID of a Host Cluster
@@ -59,14 +59,13 @@ type _HostCluster HostCluster
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHostCluster(accountConfigId string, accountID string, cloudProvider string, currentNumberOfDeployments int64, description string, healthStatus HostClusterHealthStatus, id string, isCustomDeployment bool, region string, regionId string, status string, type_ string) *HostCluster {
+func NewHostCluster(accountConfigId string, accountID string, cloudProvider string, currentNumberOfDeployments int64, description string, id string, isCustomDeployment bool, region string, regionId string, status string, type_ string) *HostCluster {
 	this := HostCluster{}
 	this.AccountConfigId = accountConfigId
 	this.AccountID = accountID
 	this.CloudProvider = cloudProvider
 	this.CurrentNumberOfDeployments = currentNumberOfDeployments
 	this.Description = description
-	this.HealthStatus = healthStatus
 	this.Id = id
 	this.IsCustomDeployment = isCustomDeployment
 	this.Region = region
@@ -236,28 +235,36 @@ func (o *HostCluster) SetDescription(v string) {
 	o.Description = v
 }
 
-// GetHealthStatus returns the HealthStatus field value
+// GetHealthStatus returns the HealthStatus field value if set, zero value otherwise.
 func (o *HostCluster) GetHealthStatus() HostClusterHealthStatus {
-	if o == nil {
+	if o == nil || IsNil(o.HealthStatus) {
 		var ret HostClusterHealthStatus
 		return ret
 	}
-
-	return o.HealthStatus
+	return *o.HealthStatus
 }
 
-// GetHealthStatusOk returns a tuple with the HealthStatus field value
+// GetHealthStatusOk returns a tuple with the HealthStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HostCluster) GetHealthStatusOk() (*HostClusterHealthStatus, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HealthStatus) {
 		return nil, false
 	}
-	return &o.HealthStatus, true
+	return o.HealthStatus, true
 }
 
-// SetHealthStatus sets field value
+// HasHealthStatus returns a boolean if a field has been set.
+func (o *HostCluster) HasHealthStatus() bool {
+	if o != nil && !IsNil(o.HealthStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetHealthStatus gets a reference to the given HostClusterHealthStatus and assigns it to the HealthStatus field.
 func (o *HostCluster) SetHealthStatus(v HostClusterHealthStatus) {
-	o.HealthStatus = v
+	o.HealthStatus = &v
 }
 
 // GetHelmPackages returns the HelmPackages field value if set, zero value otherwise.
@@ -550,7 +557,9 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 		toSerialize["customNetworkDetail"] = o.CustomNetworkDetail
 	}
 	toSerialize["description"] = o.Description
-	toSerialize["healthStatus"] = o.HealthStatus
+	if !IsNil(o.HealthStatus) {
+		toSerialize["healthStatus"] = o.HealthStatus
+	}
 	if !IsNil(o.HelmPackages) {
 		toSerialize["helmPackages"] = o.HelmPackages
 	}
@@ -587,7 +596,6 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 		"cloudProvider",
 		"currentNumberOfDeployments",
 		"description",
-		"healthStatus",
 		"id",
 		"isCustomDeployment",
 		"region",

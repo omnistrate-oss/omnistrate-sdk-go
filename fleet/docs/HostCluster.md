@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **CurrentNumberOfDeployments** | **int64** | The current number of deployments on the host cluster | 
 **CustomNetworkDetail** | Pointer to [**CustomNetworkFleetDetail**](CustomNetworkFleetDetail.md) |  | [optional] 
 **Description** | **string** |  | 
-**HealthStatus** | [**HostClusterHealthStatus**](HostClusterHealthStatus.md) |  | 
+**HealthStatus** | Pointer to [**HostClusterHealthStatus**](HostClusterHealthStatus.md) |  | [optional] 
 **HelmPackages** | Pointer to [**[]HelmPackage**](HelmPackage.md) | Helm packages installed on the host cluster | [optional] 
 **Id** | **string** | ID of a Host Cluster | 
 **IsCustomDeployment** | **bool** | Indicates if the host cluster is a custom deployment | 
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewHostCluster
 
-`func NewHostCluster(accountConfigId string, accountID string, cloudProvider string, currentNumberOfDeployments int64, description string, healthStatus HostClusterHealthStatus, id string, isCustomDeployment bool, region string, regionId string, status string, type_ string, ) *HostCluster`
+`func NewHostCluster(accountConfigId string, accountID string, cloudProvider string, currentNumberOfDeployments int64, description string, id string, isCustomDeployment bool, region string, regionId string, status string, type_ string, ) *HostCluster`
 
 NewHostCluster instantiates a new HostCluster object
 This constructor will assign default values to properties that have it defined,
@@ -185,6 +185,11 @@ and a boolean to check if the value has been set.
 
 SetHealthStatus sets HealthStatus field to given value.
 
+### HasHealthStatus
+
+`func (o *HostCluster) HasHealthStatus() bool`
+
+HasHealthStatus returns a boolean if a field has been set.
 
 ### GetHelmPackages
 
