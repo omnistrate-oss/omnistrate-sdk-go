@@ -637,26 +637,24 @@ type ApiFleetWorkflowsApiListServiceWorkflowsRequest struct {
 	ApiService FleetWorkflowsApiAPI
 	serviceId string
 	environmentId string
-	instanceId *string
 	nextPageToken *string
 	pageSize *int64
+	instanceId *string
 }
 
-// The instance ID of the workflow
-func (r ApiFleetWorkflowsApiListServiceWorkflowsRequest) InstanceId(instanceId string) ApiFleetWorkflowsApiListServiceWorkflowsRequest {
-	r.instanceId = &instanceId
-	return r
-}
-
-// The next token to use for pagination
 func (r ApiFleetWorkflowsApiListServiceWorkflowsRequest) NextPageToken(nextPageToken string) ApiFleetWorkflowsApiListServiceWorkflowsRequest {
 	r.nextPageToken = &nextPageToken
 	return r
 }
 
-// The number of resources to return per page
 func (r ApiFleetWorkflowsApiListServiceWorkflowsRequest) PageSize(pageSize int64) ApiFleetWorkflowsApiListServiceWorkflowsRequest {
 	r.pageSize = &pageSize
+	return r
+}
+
+// The instance ID of the workflow
+func (r ApiFleetWorkflowsApiListServiceWorkflowsRequest) InstanceId(instanceId string) ApiFleetWorkflowsApiListServiceWorkflowsRequest {
+	r.instanceId = &instanceId
 	return r
 }
 
@@ -704,14 +702,14 @@ func (a *FleetWorkflowsApiAPIService) FleetWorkflowsApiListServiceWorkflowsExecu
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.instanceId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "instanceId", r.instanceId, "form", "")
-	}
 	if r.nextPageToken != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")
 	}
 	if r.pageSize != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "form", "")
+	}
+	if r.instanceId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "instanceId", r.instanceId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

@@ -19,14 +19,22 @@ var _ MappedNullable = &FleetUpdateSubscriptionRequest2{}
 
 // FleetUpdateSubscriptionRequest2 struct for FleetUpdateSubscriptionRequest2
 type FleetUpdateSubscriptionRequest2 struct {
+	// Whether to allow creating instances when payment is not configured.
+	AllowCreatesWhenPaymentNotConfigured *bool `json:"allowCreatesWhenPaymentNotConfigured,omitempty"`
+	// The billing provider for this subscription
+	BillingProvider *string `json:"billingProvider,omitempty"`
+	// Whether to use a custom price for this subscription
+	CustomPrice *bool `json:"customPrice,omitempty"`
+	// If custom price is true, provide the price per unit for the subscription here.
+	CustomPricePerUnit map[string]interface{} `json:"customPricePerUnit,omitempty"`
 	// The external payer ID to record which customer should pay for this subscription.
 	ExternalPayerId *string `json:"externalPayerId,omitempty"`
-	// Whether to inherit the service plan price
-	InheritServicePlanPrice *bool `json:"inheritServicePlanPrice,omitempty"`
+	// The maximum number of instances that can be created for this subscription. Use -1 to unset this restriction.
+	MaxNumberOfInstances *int64 `json:"maxNumberOfInstances,omitempty"`
+	// Deprecated: Use billingProvider instead.
+	PaymentChannelType *string `json:"paymentChannelType,omitempty"`
 	// The effective date of the price, truncated to the first day of the month. Only the current or future months may be specified.
 	PriceEffectiveDate *string `json:"priceEffectiveDate,omitempty"`
-	// If inheritServicePlanPrice is false, provide the price per unit for the subscription here.
-	PricePerUnit map[string]interface{} `json:"pricePerUnit,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -47,6 +55,134 @@ func NewFleetUpdateSubscriptionRequest2() *FleetUpdateSubscriptionRequest2 {
 func NewFleetUpdateSubscriptionRequest2WithDefaults() *FleetUpdateSubscriptionRequest2 {
 	this := FleetUpdateSubscriptionRequest2{}
 	return &this
+}
+
+// GetAllowCreatesWhenPaymentNotConfigured returns the AllowCreatesWhenPaymentNotConfigured field value if set, zero value otherwise.
+func (o *FleetUpdateSubscriptionRequest2) GetAllowCreatesWhenPaymentNotConfigured() bool {
+	if o == nil || IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
+		var ret bool
+		return ret
+	}
+	return *o.AllowCreatesWhenPaymentNotConfigured
+}
+
+// GetAllowCreatesWhenPaymentNotConfiguredOk returns a tuple with the AllowCreatesWhenPaymentNotConfigured field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetUpdateSubscriptionRequest2) GetAllowCreatesWhenPaymentNotConfiguredOk() (*bool, bool) {
+	if o == nil || IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
+		return nil, false
+	}
+	return o.AllowCreatesWhenPaymentNotConfigured, true
+}
+
+// HasAllowCreatesWhenPaymentNotConfigured returns a boolean if a field has been set.
+func (o *FleetUpdateSubscriptionRequest2) HasAllowCreatesWhenPaymentNotConfigured() bool {
+	if o != nil && !IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
+		return true
+	}
+
+	return false
+}
+
+// SetAllowCreatesWhenPaymentNotConfigured gets a reference to the given bool and assigns it to the AllowCreatesWhenPaymentNotConfigured field.
+func (o *FleetUpdateSubscriptionRequest2) SetAllowCreatesWhenPaymentNotConfigured(v bool) {
+	o.AllowCreatesWhenPaymentNotConfigured = &v
+}
+
+// GetBillingProvider returns the BillingProvider field value if set, zero value otherwise.
+func (o *FleetUpdateSubscriptionRequest2) GetBillingProvider() string {
+	if o == nil || IsNil(o.BillingProvider) {
+		var ret string
+		return ret
+	}
+	return *o.BillingProvider
+}
+
+// GetBillingProviderOk returns a tuple with the BillingProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetUpdateSubscriptionRequest2) GetBillingProviderOk() (*string, bool) {
+	if o == nil || IsNil(o.BillingProvider) {
+		return nil, false
+	}
+	return o.BillingProvider, true
+}
+
+// HasBillingProvider returns a boolean if a field has been set.
+func (o *FleetUpdateSubscriptionRequest2) HasBillingProvider() bool {
+	if o != nil && !IsNil(o.BillingProvider) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingProvider gets a reference to the given string and assigns it to the BillingProvider field.
+func (o *FleetUpdateSubscriptionRequest2) SetBillingProvider(v string) {
+	o.BillingProvider = &v
+}
+
+// GetCustomPrice returns the CustomPrice field value if set, zero value otherwise.
+func (o *FleetUpdateSubscriptionRequest2) GetCustomPrice() bool {
+	if o == nil || IsNil(o.CustomPrice) {
+		var ret bool
+		return ret
+	}
+	return *o.CustomPrice
+}
+
+// GetCustomPriceOk returns a tuple with the CustomPrice field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetUpdateSubscriptionRequest2) GetCustomPriceOk() (*bool, bool) {
+	if o == nil || IsNil(o.CustomPrice) {
+		return nil, false
+	}
+	return o.CustomPrice, true
+}
+
+// HasCustomPrice returns a boolean if a field has been set.
+func (o *FleetUpdateSubscriptionRequest2) HasCustomPrice() bool {
+	if o != nil && !IsNil(o.CustomPrice) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomPrice gets a reference to the given bool and assigns it to the CustomPrice field.
+func (o *FleetUpdateSubscriptionRequest2) SetCustomPrice(v bool) {
+	o.CustomPrice = &v
+}
+
+// GetCustomPricePerUnit returns the CustomPricePerUnit field value if set, zero value otherwise.
+func (o *FleetUpdateSubscriptionRequest2) GetCustomPricePerUnit() map[string]interface{} {
+	if o == nil || IsNil(o.CustomPricePerUnit) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.CustomPricePerUnit
+}
+
+// GetCustomPricePerUnitOk returns a tuple with the CustomPricePerUnit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetUpdateSubscriptionRequest2) GetCustomPricePerUnitOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.CustomPricePerUnit) {
+		return map[string]interface{}{}, false
+	}
+	return o.CustomPricePerUnit, true
+}
+
+// HasCustomPricePerUnit returns a boolean if a field has been set.
+func (o *FleetUpdateSubscriptionRequest2) HasCustomPricePerUnit() bool {
+	if o != nil && !IsNil(o.CustomPricePerUnit) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomPricePerUnit gets a reference to the given map[string]interface{} and assigns it to the CustomPricePerUnit field.
+func (o *FleetUpdateSubscriptionRequest2) SetCustomPricePerUnit(v map[string]interface{}) {
+	o.CustomPricePerUnit = v
 }
 
 // GetExternalPayerId returns the ExternalPayerId field value if set, zero value otherwise.
@@ -81,36 +217,68 @@ func (o *FleetUpdateSubscriptionRequest2) SetExternalPayerId(v string) {
 	o.ExternalPayerId = &v
 }
 
-// GetInheritServicePlanPrice returns the InheritServicePlanPrice field value if set, zero value otherwise.
-func (o *FleetUpdateSubscriptionRequest2) GetInheritServicePlanPrice() bool {
-	if o == nil || IsNil(o.InheritServicePlanPrice) {
-		var ret bool
+// GetMaxNumberOfInstances returns the MaxNumberOfInstances field value if set, zero value otherwise.
+func (o *FleetUpdateSubscriptionRequest2) GetMaxNumberOfInstances() int64 {
+	if o == nil || IsNil(o.MaxNumberOfInstances) {
+		var ret int64
 		return ret
 	}
-	return *o.InheritServicePlanPrice
+	return *o.MaxNumberOfInstances
 }
 
-// GetInheritServicePlanPriceOk returns a tuple with the InheritServicePlanPrice field value if set, nil otherwise
+// GetMaxNumberOfInstancesOk returns a tuple with the MaxNumberOfInstances field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FleetUpdateSubscriptionRequest2) GetInheritServicePlanPriceOk() (*bool, bool) {
-	if o == nil || IsNil(o.InheritServicePlanPrice) {
+func (o *FleetUpdateSubscriptionRequest2) GetMaxNumberOfInstancesOk() (*int64, bool) {
+	if o == nil || IsNil(o.MaxNumberOfInstances) {
 		return nil, false
 	}
-	return o.InheritServicePlanPrice, true
+	return o.MaxNumberOfInstances, true
 }
 
-// HasInheritServicePlanPrice returns a boolean if a field has been set.
-func (o *FleetUpdateSubscriptionRequest2) HasInheritServicePlanPrice() bool {
-	if o != nil && !IsNil(o.InheritServicePlanPrice) {
+// HasMaxNumberOfInstances returns a boolean if a field has been set.
+func (o *FleetUpdateSubscriptionRequest2) HasMaxNumberOfInstances() bool {
+	if o != nil && !IsNil(o.MaxNumberOfInstances) {
 		return true
 	}
 
 	return false
 }
 
-// SetInheritServicePlanPrice gets a reference to the given bool and assigns it to the InheritServicePlanPrice field.
-func (o *FleetUpdateSubscriptionRequest2) SetInheritServicePlanPrice(v bool) {
-	o.InheritServicePlanPrice = &v
+// SetMaxNumberOfInstances gets a reference to the given int64 and assigns it to the MaxNumberOfInstances field.
+func (o *FleetUpdateSubscriptionRequest2) SetMaxNumberOfInstances(v int64) {
+	o.MaxNumberOfInstances = &v
+}
+
+// GetPaymentChannelType returns the PaymentChannelType field value if set, zero value otherwise.
+func (o *FleetUpdateSubscriptionRequest2) GetPaymentChannelType() string {
+	if o == nil || IsNil(o.PaymentChannelType) {
+		var ret string
+		return ret
+	}
+	return *o.PaymentChannelType
+}
+
+// GetPaymentChannelTypeOk returns a tuple with the PaymentChannelType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetUpdateSubscriptionRequest2) GetPaymentChannelTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.PaymentChannelType) {
+		return nil, false
+	}
+	return o.PaymentChannelType, true
+}
+
+// HasPaymentChannelType returns a boolean if a field has been set.
+func (o *FleetUpdateSubscriptionRequest2) HasPaymentChannelType() bool {
+	if o != nil && !IsNil(o.PaymentChannelType) {
+		return true
+	}
+
+	return false
+}
+
+// SetPaymentChannelType gets a reference to the given string and assigns it to the PaymentChannelType field.
+func (o *FleetUpdateSubscriptionRequest2) SetPaymentChannelType(v string) {
+	o.PaymentChannelType = &v
 }
 
 // GetPriceEffectiveDate returns the PriceEffectiveDate field value if set, zero value otherwise.
@@ -145,38 +313,6 @@ func (o *FleetUpdateSubscriptionRequest2) SetPriceEffectiveDate(v string) {
 	o.PriceEffectiveDate = &v
 }
 
-// GetPricePerUnit returns the PricePerUnit field value if set, zero value otherwise.
-func (o *FleetUpdateSubscriptionRequest2) GetPricePerUnit() map[string]interface{} {
-	if o == nil || IsNil(o.PricePerUnit) {
-		var ret map[string]interface{}
-		return ret
-	}
-	return o.PricePerUnit
-}
-
-// GetPricePerUnitOk returns a tuple with the PricePerUnit field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FleetUpdateSubscriptionRequest2) GetPricePerUnitOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.PricePerUnit) {
-		return map[string]interface{}{}, false
-	}
-	return o.PricePerUnit, true
-}
-
-// HasPricePerUnit returns a boolean if a field has been set.
-func (o *FleetUpdateSubscriptionRequest2) HasPricePerUnit() bool {
-	if o != nil && !IsNil(o.PricePerUnit) {
-		return true
-	}
-
-	return false
-}
-
-// SetPricePerUnit gets a reference to the given map[string]interface{} and assigns it to the PricePerUnit field.
-func (o *FleetUpdateSubscriptionRequest2) SetPricePerUnit(v map[string]interface{}) {
-	o.PricePerUnit = v
-}
-
 func (o FleetUpdateSubscriptionRequest2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -187,17 +323,29 @@ func (o FleetUpdateSubscriptionRequest2) MarshalJSON() ([]byte, error) {
 
 func (o FleetUpdateSubscriptionRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
+		toSerialize["allowCreatesWhenPaymentNotConfigured"] = o.AllowCreatesWhenPaymentNotConfigured
+	}
+	if !IsNil(o.BillingProvider) {
+		toSerialize["billingProvider"] = o.BillingProvider
+	}
+	if !IsNil(o.CustomPrice) {
+		toSerialize["customPrice"] = o.CustomPrice
+	}
+	if !IsNil(o.CustomPricePerUnit) {
+		toSerialize["customPricePerUnit"] = o.CustomPricePerUnit
+	}
 	if !IsNil(o.ExternalPayerId) {
 		toSerialize["externalPayerId"] = o.ExternalPayerId
 	}
-	if !IsNil(o.InheritServicePlanPrice) {
-		toSerialize["inheritServicePlanPrice"] = o.InheritServicePlanPrice
+	if !IsNil(o.MaxNumberOfInstances) {
+		toSerialize["maxNumberOfInstances"] = o.MaxNumberOfInstances
+	}
+	if !IsNil(o.PaymentChannelType) {
+		toSerialize["paymentChannelType"] = o.PaymentChannelType
 	}
 	if !IsNil(o.PriceEffectiveDate) {
 		toSerialize["priceEffectiveDate"] = o.PriceEffectiveDate
-	}
-	if !IsNil(o.PricePerUnit) {
-		toSerialize["pricePerUnit"] = o.PricePerUnit
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -221,10 +369,14 @@ func (o *FleetUpdateSubscriptionRequest2) UnmarshalJSON(data []byte) (err error)
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "allowCreatesWhenPaymentNotConfigured")
+		delete(additionalProperties, "billingProvider")
+		delete(additionalProperties, "customPrice")
+		delete(additionalProperties, "customPricePerUnit")
 		delete(additionalProperties, "externalPayerId")
-		delete(additionalProperties, "inheritServicePlanPrice")
+		delete(additionalProperties, "maxNumberOfInstances")
+		delete(additionalProperties, "paymentChannelType")
 		delete(additionalProperties, "priceEffectiveDate")
-		delete(additionalProperties, "pricePerUnit")
 		o.AdditionalProperties = additionalProperties
 	}
 

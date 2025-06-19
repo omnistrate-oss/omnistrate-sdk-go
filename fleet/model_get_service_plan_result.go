@@ -37,7 +37,7 @@ type GetServicePlanResult struct {
 	// The GCP regions that this service plan is available on
 	GcpRegions []string `json:"gcpRegions,omitempty"`
 	// Whether there are any pending changes for the product tier configuration
-	HasPendingChanges bool `json:"hasPendingChanges"`
+	HasPendingChanges *bool `json:"hasPendingChanges,omitempty"`
 	// Whether the product tier is disabled
 	IsProductTierDisabled bool `json:"isProductTierDisabled"`
 	// The version number for the latest major version set.
@@ -89,12 +89,11 @@ type _GetServicePlanResult GetServicePlanResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetServicePlanResult(autoApproveSubscription bool, apiVersion string, deploymentConfigId string, hasPendingChanges bool, isProductTierDisabled bool, latestMajorVersion string, modelType string, productTierDescription string, productTierDocumentation string, productTierId string, productTierKey string, productTierName string, productTierPlanDescription string, productTierPricing interface{}, productTierSupport string, serviceApiDescription string, serviceApiId string, serviceEnvironmentId string, serviceModelDescription string, serviceModelId string, serviceModelName string, tierType string, versionSetStatus string) *GetServicePlanResult {
+func NewGetServicePlanResult(autoApproveSubscription bool, apiVersion string, deploymentConfigId string, isProductTierDisabled bool, latestMajorVersion string, modelType string, productTierDescription string, productTierDocumentation string, productTierId string, productTierKey string, productTierName string, productTierPlanDescription string, productTierPricing interface{}, productTierSupport string, serviceApiDescription string, serviceApiId string, serviceEnvironmentId string, serviceModelDescription string, serviceModelId string, serviceModelName string, tierType string, versionSetStatus string) *GetServicePlanResult {
 	this := GetServicePlanResult{}
 	this.AutoApproveSubscription = autoApproveSubscription
 	this.ApiVersion = apiVersion
 	this.DeploymentConfigId = deploymentConfigId
-	this.HasPendingChanges = hasPendingChanges
 	this.IsProductTierDisabled = isProductTierDisabled
 	this.LatestMajorVersion = latestMajorVersion
 	this.ModelType = modelType
@@ -357,28 +356,36 @@ func (o *GetServicePlanResult) SetGcpRegions(v []string) {
 	o.GcpRegions = v
 }
 
-// GetHasPendingChanges returns the HasPendingChanges field value
+// GetHasPendingChanges returns the HasPendingChanges field value if set, zero value otherwise.
 func (o *GetServicePlanResult) GetHasPendingChanges() bool {
-	if o == nil {
+	if o == nil || IsNil(o.HasPendingChanges) {
 		var ret bool
 		return ret
 	}
-
-	return o.HasPendingChanges
+	return *o.HasPendingChanges
 }
 
-// GetHasPendingChangesOk returns a tuple with the HasPendingChanges field value
+// GetHasPendingChangesOk returns a tuple with the HasPendingChanges field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetServicePlanResult) GetHasPendingChangesOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HasPendingChanges) {
 		return nil, false
 	}
-	return &o.HasPendingChanges, true
+	return o.HasPendingChanges, true
 }
 
-// SetHasPendingChanges sets field value
+// HasHasPendingChanges returns a boolean if a field has been set.
+func (o *GetServicePlanResult) HasHasPendingChanges() bool {
+	if o != nil && !IsNil(o.HasPendingChanges) {
+		return true
+	}
+
+	return false
+}
+
+// SetHasPendingChanges gets a reference to the given bool and assigns it to the HasPendingChanges field.
 func (o *GetServicePlanResult) SetHasPendingChanges(v bool) {
-	o.HasPendingChanges = v
+	o.HasPendingChanges = &v
 }
 
 // GetIsProductTierDisabled returns the IsProductTierDisabled field value
@@ -931,7 +938,9 @@ func (o GetServicePlanResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.GcpRegions) {
 		toSerialize["gcpRegions"] = o.GcpRegions
 	}
-	toSerialize["hasPendingChanges"] = o.HasPendingChanges
+	if !IsNil(o.HasPendingChanges) {
+		toSerialize["hasPendingChanges"] = o.HasPendingChanges
+	}
 	toSerialize["isProductTierDisabled"] = o.IsProductTierDisabled
 	toSerialize["latestMajorVersion"] = o.LatestMajorVersion
 	toSerialize["modelType"] = o.ModelType
@@ -975,7 +984,6 @@ func (o *GetServicePlanResult) UnmarshalJSON(data []byte) (err error) {
 		"AutoApproveSubscription",
 		"apiVersion",
 		"deploymentConfigId",
-		"hasPendingChanges",
 		"isProductTierDisabled",
 		"latestMajorVersion",
 		"modelType",

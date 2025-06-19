@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **Required** | **bool** | Enforces the input parameter as a required parameter | 
 **ResourceId** | **string** | ID of a resource | 
 **ServiceId** | **string** | ID of a Service | 
+**TabIndex** | Pointer to **int64** | Index for parameter ordering in the SaaS portal | [optional] [default to 0]
 **Type** | **string** | Type of the variable encoding the value | 
 
 ## Methods
@@ -369,6 +370,31 @@ and a boolean to check if the value has been set.
 
 SetServiceId sets ServiceId field to given value.
 
+
+### GetTabIndex
+
+`func (o *DescribeInputParameterResult) GetTabIndex() int64`
+
+GetTabIndex returns the TabIndex field if non-nil, zero value otherwise.
+
+### GetTabIndexOk
+
+`func (o *DescribeInputParameterResult) GetTabIndexOk() (*int64, bool)`
+
+GetTabIndexOk returns a tuple with the TabIndex field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTabIndex
+
+`func (o *DescribeInputParameterResult) SetTabIndex(v int64)`
+
+SetTabIndex sets TabIndex field to given value.
+
+### HasTabIndex
+
+`func (o *DescribeInputParameterResult) HasTabIndex() bool`
+
+HasTabIndex returns a boolean if a field has been set.
 
 ### GetType
 

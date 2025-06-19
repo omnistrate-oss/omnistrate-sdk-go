@@ -5,13 +5,19 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountConfigId** | **string** | ID of an Account Config | 
+**AccountID** | **string** | The actual account ID (AWS Account ID, GCP Project ID, Azure Subscription ID) or &#39;Omnistrate Hosted&#39; for managed accounts | 
+**CloudProvider** | **string** | Name of the Infra Provider | 
+**CurrentNumberOfDeployments** | **int64** | The current number of deployments on the host cluster | 
 **CustomNetworkDetail** | Pointer to [**CustomNetworkFleetDetail**](CustomNetworkFleetDetail.md) |  | [optional] 
 **Description** | **string** |  | 
+**HealthStatus** | [**HostClusterHealthStatus**](HostClusterHealthStatus.md) |  | 
 **HelmPackages** | Pointer to [**[]HelmPackage**](HelmPackage.md) | Helm packages installed on the host cluster | [optional] 
 **Id** | **string** | ID of a Host Cluster | 
+**IsCustomDeployment** | **bool** | Indicates if the host cluster is a custom deployment | 
 **KubernetesDashboardEndpoint** | Pointer to **string** | Endpoint of the Kubernetes dashboard | [optional] 
 **ModelType** | Pointer to **string** | The model type encapsulating this service | [optional] 
-**RegionId** | Pointer to **string** | ID of a Region | [optional] 
+**Region** | **string** | The actual region name of the host cluster | 
+**RegionId** | **string** | ID of a Region | 
 **Role** | Pointer to **string** |  | [optional] 
 **Status** | **string** | The status of an operation | 
 **Type** | **string** | Type of the host cluster | 
@@ -20,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewHostCluster
 
-`func NewHostCluster(accountConfigId string, description string, id string, status string, type_ string, ) *HostCluster`
+`func NewHostCluster(accountConfigId string, accountID string, cloudProvider string, currentNumberOfDeployments int64, description string, healthStatus HostClusterHealthStatus, id string, isCustomDeployment bool, region string, regionId string, status string, type_ string, ) *HostCluster`
 
 NewHostCluster instantiates a new HostCluster object
 This constructor will assign default values to properties that have it defined,
@@ -53,6 +59,66 @@ and a boolean to check if the value has been set.
 `func (o *HostCluster) SetAccountConfigId(v string)`
 
 SetAccountConfigId sets AccountConfigId field to given value.
+
+
+### GetAccountID
+
+`func (o *HostCluster) GetAccountID() string`
+
+GetAccountID returns the AccountID field if non-nil, zero value otherwise.
+
+### GetAccountIDOk
+
+`func (o *HostCluster) GetAccountIDOk() (*string, bool)`
+
+GetAccountIDOk returns a tuple with the AccountID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccountID
+
+`func (o *HostCluster) SetAccountID(v string)`
+
+SetAccountID sets AccountID field to given value.
+
+
+### GetCloudProvider
+
+`func (o *HostCluster) GetCloudProvider() string`
+
+GetCloudProvider returns the CloudProvider field if non-nil, zero value otherwise.
+
+### GetCloudProviderOk
+
+`func (o *HostCluster) GetCloudProviderOk() (*string, bool)`
+
+GetCloudProviderOk returns a tuple with the CloudProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudProvider
+
+`func (o *HostCluster) SetCloudProvider(v string)`
+
+SetCloudProvider sets CloudProvider field to given value.
+
+
+### GetCurrentNumberOfDeployments
+
+`func (o *HostCluster) GetCurrentNumberOfDeployments() int64`
+
+GetCurrentNumberOfDeployments returns the CurrentNumberOfDeployments field if non-nil, zero value otherwise.
+
+### GetCurrentNumberOfDeploymentsOk
+
+`func (o *HostCluster) GetCurrentNumberOfDeploymentsOk() (*int64, bool)`
+
+GetCurrentNumberOfDeploymentsOk returns a tuple with the CurrentNumberOfDeployments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrentNumberOfDeployments
+
+`func (o *HostCluster) SetCurrentNumberOfDeployments(v int64)`
+
+SetCurrentNumberOfDeployments sets CurrentNumberOfDeployments field to given value.
 
 
 ### GetCustomNetworkDetail
@@ -100,6 +166,26 @@ and a boolean to check if the value has been set.
 SetDescription sets Description field to given value.
 
 
+### GetHealthStatus
+
+`func (o *HostCluster) GetHealthStatus() HostClusterHealthStatus`
+
+GetHealthStatus returns the HealthStatus field if non-nil, zero value otherwise.
+
+### GetHealthStatusOk
+
+`func (o *HostCluster) GetHealthStatusOk() (*HostClusterHealthStatus, bool)`
+
+GetHealthStatusOk returns a tuple with the HealthStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHealthStatus
+
+`func (o *HostCluster) SetHealthStatus(v HostClusterHealthStatus)`
+
+SetHealthStatus sets HealthStatus field to given value.
+
+
 ### GetHelmPackages
 
 `func (o *HostCluster) GetHelmPackages() []HelmPackage`
@@ -143,6 +229,26 @@ and a boolean to check if the value has been set.
 `func (o *HostCluster) SetId(v string)`
 
 SetId sets Id field to given value.
+
+
+### GetIsCustomDeployment
+
+`func (o *HostCluster) GetIsCustomDeployment() bool`
+
+GetIsCustomDeployment returns the IsCustomDeployment field if non-nil, zero value otherwise.
+
+### GetIsCustomDeploymentOk
+
+`func (o *HostCluster) GetIsCustomDeploymentOk() (*bool, bool)`
+
+GetIsCustomDeploymentOk returns a tuple with the IsCustomDeployment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsCustomDeployment
+
+`func (o *HostCluster) SetIsCustomDeployment(v bool)`
+
+SetIsCustomDeployment sets IsCustomDeployment field to given value.
 
 
 ### GetKubernetesDashboardEndpoint
@@ -195,6 +301,26 @@ SetModelType sets ModelType field to given value.
 
 HasModelType returns a boolean if a field has been set.
 
+### GetRegion
+
+`func (o *HostCluster) GetRegion() string`
+
+GetRegion returns the Region field if non-nil, zero value otherwise.
+
+### GetRegionOk
+
+`func (o *HostCluster) GetRegionOk() (*string, bool)`
+
+GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegion
+
+`func (o *HostCluster) SetRegion(v string)`
+
+SetRegion sets Region field to given value.
+
+
 ### GetRegionId
 
 `func (o *HostCluster) GetRegionId() string`
@@ -214,11 +340,6 @@ and a boolean to check if the value has been set.
 
 SetRegionId sets RegionId field to given value.
 
-### HasRegionId
-
-`func (o *HostCluster) HasRegionId() bool`
-
-HasRegionId returns a boolean if a field has been set.
 
 ### GetRole
 

@@ -10,7 +10,9 @@ Name | Type | Description | Notes
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this product tier is available on | [optional] 
 **AzureRegions** | Pointer to **[]string** | The Azure regions that this product tier is available on | [optional] 
 **BillingProductID** | Pointer to **string** | Optional billing product ID for tax purposes | [optional] 
+**BillingProviders** | Pointer to **[]string** | List of billing providers to be used for the product tier | [optional] 
 **CloudProvidersConfigReadiness** | Pointer to **map[string]interface{}** | The readiness of the cloud providers configurations | [optional] 
+**DefaultBillingProvider** | Pointer to **string** | The billing provider type | [optional] 
 **Description** | **string** | A brief description of the product tier | 
 **Documentation** | **string** | Documentation | 
 **EnabledFeatures** | Pointer to [**[]ProductTierFeatureDetail**](ProductTierFeatureDetail.md) | The features that are enabled for this product tier, including scope details and configuration | [optional] 
@@ -200,6 +202,31 @@ SetBillingProductID sets BillingProductID field to given value.
 
 HasBillingProductID returns a boolean if a field has been set.
 
+### GetBillingProviders
+
+`func (o *DescribeProductTierResult) GetBillingProviders() []string`
+
+GetBillingProviders returns the BillingProviders field if non-nil, zero value otherwise.
+
+### GetBillingProvidersOk
+
+`func (o *DescribeProductTierResult) GetBillingProvidersOk() (*[]string, bool)`
+
+GetBillingProvidersOk returns a tuple with the BillingProviders field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBillingProviders
+
+`func (o *DescribeProductTierResult) SetBillingProviders(v []string)`
+
+SetBillingProviders sets BillingProviders field to given value.
+
+### HasBillingProviders
+
+`func (o *DescribeProductTierResult) HasBillingProviders() bool`
+
+HasBillingProviders returns a boolean if a field has been set.
+
 ### GetCloudProvidersConfigReadiness
 
 `func (o *DescribeProductTierResult) GetCloudProvidersConfigReadiness() map[string]interface{}`
@@ -224,6 +251,31 @@ SetCloudProvidersConfigReadiness sets CloudProvidersConfigReadiness field to giv
 `func (o *DescribeProductTierResult) HasCloudProvidersConfigReadiness() bool`
 
 HasCloudProvidersConfigReadiness returns a boolean if a field has been set.
+
+### GetDefaultBillingProvider
+
+`func (o *DescribeProductTierResult) GetDefaultBillingProvider() string`
+
+GetDefaultBillingProvider returns the DefaultBillingProvider field if non-nil, zero value otherwise.
+
+### GetDefaultBillingProviderOk
+
+`func (o *DescribeProductTierResult) GetDefaultBillingProviderOk() (*string, bool)`
+
+GetDefaultBillingProviderOk returns a tuple with the DefaultBillingProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDefaultBillingProvider
+
+`func (o *DescribeProductTierResult) SetDefaultBillingProvider(v string)`
+
+SetDefaultBillingProvider sets DefaultBillingProvider field to given value.
+
+### HasDefaultBillingProvider
+
+`func (o *DescribeProductTierResult) HasDefaultBillingProvider() bool`
+
+HasDefaultBillingProvider returns a boolean if a field has been set.
 
 ### GetDescription
 

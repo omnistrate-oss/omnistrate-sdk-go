@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 ## FleetWorkflowsApiListServiceWorkflows
 
-> ListServiceWorkflowsResult FleetWorkflowsApiListServiceWorkflows(ctx, serviceId, environmentId).InstanceId(instanceId).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
+> ListServiceWorkflowsResult FleetWorkflowsApiListServiceWorkflows(ctx, serviceId, environmentId).NextPageToken(nextPageToken).PageSize(pageSize).InstanceId(instanceId).Execute()
 
 ListServiceWorkflows fleet-workflows-api
 
@@ -253,13 +253,13 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
+	nextPageToken := "token" // string |  (optional)
+	pageSize := int64(10) // int64 |  (optional)
 	instanceId := "instance-12345678" // string | The instance ID of the workflow (optional)
-	nextPageToken := "token" // string | The next token to use for pagination (optional)
-	pageSize := int64(10) // int64 | The number of resources to return per page (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FleetWorkflowsApiAPI.FleetWorkflowsApiListServiceWorkflows(context.Background(), serviceId, environmentId).InstanceId(instanceId).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
+	resp, r, err := apiClient.FleetWorkflowsApiAPI.FleetWorkflowsApiListServiceWorkflows(context.Background(), serviceId, environmentId).NextPageToken(nextPageToken).PageSize(pageSize).InstanceId(instanceId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FleetWorkflowsApiAPI.FleetWorkflowsApiListServiceWorkflows``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -287,9 +287,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+ **nextPageToken** | **string** |  | 
+ **pageSize** | **int64** |  | 
  **instanceId** | **string** | The instance ID of the workflow | 
- **nextPageToken** | **string** | The next token to use for pagination | 
- **pageSize** | **int64** | The number of resources to return per page | 
 
 ### Return type
 

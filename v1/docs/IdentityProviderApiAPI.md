@@ -7,7 +7,9 @@ Method | HTTP request | Description
 [**IdentityProviderApiCreateIdentityProvider**](IdentityProviderApiAPI.md#IdentityProviderApiCreateIdentityProvider) | **Post** /2022-09-01-00/identity-provider | CreateIdentityProvider identity-provider-api
 [**IdentityProviderApiDeleteIdentityProvider**](IdentityProviderApiAPI.md#IdentityProviderApiDeleteIdentityProvider) | **Delete** /2022-09-01-00/identity-provider/{id} | DeleteIdentityProvider identity-provider-api
 [**IdentityProviderApiDescribeIdentityProvider**](IdentityProviderApiAPI.md#IdentityProviderApiDescribeIdentityProvider) | **Get** /2022-09-01-00/identity-provider/{id} | DescribeIdentityProvider identity-provider-api
+[**IdentityProviderApiListIdentityProviderTypes**](IdentityProviderApiAPI.md#IdentityProviderApiListIdentityProviderTypes) | **Get** /2022-09-01-00/identity-provider-types | ListIdentityProviderTypes identity-provider-api
 [**IdentityProviderApiListIdentityProviders**](IdentityProviderApiAPI.md#IdentityProviderApiListIdentityProviders) | **Get** /2022-09-01-00/identity-provider | ListIdentityProviders identity-provider-api
+[**IdentityProviderApiRenderIdentityProviders**](IdentityProviderApiAPI.md#IdentityProviderApiRenderIdentityProviders) | **Get** /2022-09-01-00/identity-provider-render | RenderIdentityProviders identity-provider-api
 [**IdentityProviderApiUpdateIdentityProvider**](IdentityProviderApiAPI.md#IdentityProviderApiUpdateIdentityProvider) | **Patch** /2022-09-01-00/identity-provider/{id} | UpdateIdentityProvider identity-provider-api
 [**IdentityProviderApiVerifyIdentityProvider**](IdentityProviderApiAPI.md#IdentityProviderApiVerifyIdentityProvider) | **Post** /2022-09-01-00/identity-provider/{id} | VerifyIdentityProvider identity-provider-api
 
@@ -211,6 +213,65 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## IdentityProviderApiListIdentityProviderTypes
+
+> ListIdentityProviderTypesResult IdentityProviderApiListIdentityProviderTypes(ctx).Execute()
+
+ListIdentityProviderTypes identity-provider-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityProviderApiAPI.IdentityProviderApiListIdentityProviderTypes(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProviderApiAPI.IdentityProviderApiListIdentityProviderTypes``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityProviderApiListIdentityProviderTypes`: ListIdentityProviderTypesResult
+	fmt.Fprintf(os.Stdout, "Response from `IdentityProviderApiAPI.IdentityProviderApiListIdentityProviderTypes`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIdentityProviderApiListIdentityProviderTypesRequest struct via the builder pattern
+
+
+### Return type
+
+[**ListIdentityProviderTypesResult**](ListIdentityProviderTypesResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## IdentityProviderApiListIdentityProviders
 
 > ListIdentityProvidersResult IdentityProviderApiListIdentityProviders(ctx).Execute()
@@ -255,6 +316,74 @@ Other parameters are passed through a pointer to a apiIdentityProviderApiListIde
 ### Return type
 
 [**ListIdentityProvidersResult**](ListIdentityProvidersResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IdentityProviderApiRenderIdentityProviders
+
+> RenderIdentityProvidersResult IdentityProviderApiRenderIdentityProviders(ctx).EnvironmentType(environmentType).RedirectUrl(redirectUrl).LoginHint(loginHint).Execute()
+
+RenderIdentityProviders identity-provider-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	environmentType := "production" // string | The environment type to render the identity provider for (optional)
+	redirectUrl := "https://example.com/redirect" // string | The URL to redirect to after successful authentication (optional)
+	loginHint := "user@domain.com" // string | Login hint to pre-fill the identity provider login form (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityProviderApiAPI.IdentityProviderApiRenderIdentityProviders(context.Background()).EnvironmentType(environmentType).RedirectUrl(redirectUrl).LoginHint(loginHint).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProviderApiAPI.IdentityProviderApiRenderIdentityProviders``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityProviderApiRenderIdentityProviders`: RenderIdentityProvidersResult
+	fmt.Fprintf(os.Stdout, "Response from `IdentityProviderApiAPI.IdentityProviderApiRenderIdentityProviders`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIdentityProviderApiRenderIdentityProvidersRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **environmentType** | **string** | The environment type to render the identity provider for | 
+ **redirectUrl** | **string** | The URL to redirect to after successful authentication | 
+ **loginHint** | **string** | Login hint to pre-fill the identity provider login form | 
+
+### Return type
+
+[**RenderIdentityProvidersResult**](RenderIdentityProvidersResult.md)
 
 ### Authorization
 

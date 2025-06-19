@@ -49,6 +49,8 @@ type DescribeInputParameterResult struct {
 	ResourceId string `json:"resourceId"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
+	// Index for parameter ordering in the SaaS portal
+	TabIndex *int64 `json:"tabIndex,omitempty"`
 	// Type of the variable encoding the value
 	Type string `json:"type"`
 	AdditionalProperties map[string]interface{}
@@ -73,6 +75,8 @@ func NewDescribeInputParameterResult(description string, id string, isList bool,
 	this.Required = required
 	this.ResourceId = resourceId
 	this.ServiceId = serviceId
+	var tabIndex int64 = 0
+	this.TabIndex = &tabIndex
 	this.Type = type_
 	return &this
 }
@@ -86,6 +90,8 @@ func NewDescribeInputParameterResultWithDefaults() *DescribeInputParameterResult
 	this.HasOptions = &hasOptions
 	var isList bool = false
 	this.IsList = isList
+	var tabIndex int64 = 0
+	this.TabIndex = &tabIndex
 	return &this
 }
 
@@ -443,6 +449,29 @@ func (o *DescribeInputParameterResult) SetServiceId(v string) {
 	o.ServiceId = v
 }
 
+// GetTabIndex returns the TabIndex field value if set, zero value otherwise.
+func (o *DescribeInputParameterResult) GetTabIndex() int64 {
+	if o == nil || IsNil(o.TabIndex) {
+		var ret int64
+		return ret
+	}
+	return *o.TabIndex
+}
+
+// GetTabIndexOk returns a tuple with the TabIndex field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeInputParameterResult) GetTabIndexOk() (*int64, bool) {
+	if o == nil || IsNil(o.TabIndex) {
+		return nil, false
+	}
+	return o.TabIndex, true
+}
+
+// SetTabIndex gets a reference to the given int64 and assigns it to the TabIndex field.
+func (o *DescribeInputParameterResult) SetTabIndex(v int64) {
+	o.TabIndex = &v
+}
+
 // GetType returns the Type field value
 func (o *DescribeInputParameterResult) GetType() string {
 	if o == nil {
@@ -504,6 +533,9 @@ func (o DescribeInputParameterResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["required"] = o.Required
 	toSerialize["resourceId"] = o.ResourceId
 	toSerialize["serviceId"] = o.ServiceId
+	if !IsNil(o.TabIndex) {
+		toSerialize["tabIndex"] = o.TabIndex
+	}
 	toSerialize["type"] = o.Type
 
 	for key, value := range o.AdditionalProperties {
@@ -572,6 +604,7 @@ func (o *DescribeInputParameterResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "required")
 		delete(additionalProperties, "resourceId")
 		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "tabIndex")
 		delete(additionalProperties, "type")
 		o.AdditionalProperties = additionalProperties
 	}

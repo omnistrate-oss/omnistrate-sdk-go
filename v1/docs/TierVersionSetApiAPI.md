@@ -335,8 +335,8 @@ func main() {
 	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
 	latestMajorVersionOnly := true // bool | If true, the latest major version is returned. The parameter needs to be specified in isolation. (optional)
 	latestIncrementalVersionForMajorVersion := "3.0" // string | Returns the latest incremental version for the given major version. The paramenter needs to be specified in isolation. (optional)
-	nextPageToken := "token" // string | The next token to use for pagination (optional)
-	pageSize := int64(10) // int64 | The number of resources to return per page (optional)
+	nextPageToken := "token" // string |  (optional)
+	pageSize := int64(10) // int64 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -370,8 +370,8 @@ Name | Type | Description  | Notes
 
  **latestMajorVersionOnly** | **bool** | If true, the latest major version is returned. The parameter needs to be specified in isolation. | 
  **latestIncrementalVersionForMajorVersion** | **string** | Returns the latest incremental version for the given major version. The paramenter needs to be specified in isolation. | 
- **nextPageToken** | **string** | The next token to use for pagination | 
- **pageSize** | **int64** | The number of resources to return per page | 
+ **nextPageToken** | **string** |  | 
+ **pageSize** | **int64** |  | 
 
 ### Return type
 

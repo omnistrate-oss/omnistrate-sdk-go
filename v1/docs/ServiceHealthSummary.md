@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudProviderHealthSummary** | **map[string]interface{}** | The summary of health by cloud provider | 
-**DeployingInstances** | **int64** | The number of instances currently deploying | 
 **HealthyInstances** | **int64** | The number of healthy instances in the region | 
 **Message** | **string** | The status message | 
 **ServiceEnvironmentID** | **string** | ID of a Service Environment | 
@@ -19,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewServiceHealthSummary
 
-`func NewServiceHealthSummary(cloudProviderHealthSummary map[string]interface{}, deployingInstances int64, healthyInstances int64, message string, serviceEnvironmentID string, serviceID string, status string, totalInstances int64, unhealthyInstances int64, ) *ServiceHealthSummary`
+`func NewServiceHealthSummary(cloudProviderHealthSummary map[string]interface{}, healthyInstances int64, message string, serviceEnvironmentID string, serviceID string, status string, totalInstances int64, unhealthyInstances int64, ) *ServiceHealthSummary`
 
 NewServiceHealthSummary instantiates a new ServiceHealthSummary object
 This constructor will assign default values to properties that have it defined,
@@ -52,26 +51,6 @@ and a boolean to check if the value has been set.
 `func (o *ServiceHealthSummary) SetCloudProviderHealthSummary(v map[string]interface{})`
 
 SetCloudProviderHealthSummary sets CloudProviderHealthSummary field to given value.
-
-
-### GetDeployingInstances
-
-`func (o *ServiceHealthSummary) GetDeployingInstances() int64`
-
-GetDeployingInstances returns the DeployingInstances field if non-nil, zero value otherwise.
-
-### GetDeployingInstancesOk
-
-`func (o *ServiceHealthSummary) GetDeployingInstancesOk() (*int64, bool)`
-
-GetDeployingInstancesOk returns a tuple with the DeployingInstances field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDeployingInstances
-
-`func (o *ServiceHealthSummary) SetDeployingInstances(v int64)`
-
-SetDeployingInstances sets DeployingInstances field to given value.
 
 
 ### GetHealthyInstances

@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this product tier is available on | [optional] 
 **AzureRegions** | Pointer to **[]string** | The Azure regions that this product tier is available on | [optional] 
 **BillingProductID** | Pointer to **string** | Optional billing product ID for tax purposes | [optional] 
+**BillingProviders** | Pointer to **[]string** | List of billing providers to be used for the product tier | [optional] 
+**DefaultBillingProvider** | Pointer to **string** | The billing provider type | [optional] 
 **Description** | **string** | A brief description of the product tier | 
 **Documentation** | Pointer to **string** | Documentation | [optional] 
 **ExportUsageMetering** | Pointer to **bool** | Export usage metering data | [optional] 
@@ -169,6 +171,56 @@ SetBillingProductID sets BillingProductID field to given value.
 `func (o *CreateProductTierRequest) HasBillingProductID() bool`
 
 HasBillingProductID returns a boolean if a field has been set.
+
+### GetBillingProviders
+
+`func (o *CreateProductTierRequest) GetBillingProviders() []string`
+
+GetBillingProviders returns the BillingProviders field if non-nil, zero value otherwise.
+
+### GetBillingProvidersOk
+
+`func (o *CreateProductTierRequest) GetBillingProvidersOk() (*[]string, bool)`
+
+GetBillingProvidersOk returns a tuple with the BillingProviders field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBillingProviders
+
+`func (o *CreateProductTierRequest) SetBillingProviders(v []string)`
+
+SetBillingProviders sets BillingProviders field to given value.
+
+### HasBillingProviders
+
+`func (o *CreateProductTierRequest) HasBillingProviders() bool`
+
+HasBillingProviders returns a boolean if a field has been set.
+
+### GetDefaultBillingProvider
+
+`func (o *CreateProductTierRequest) GetDefaultBillingProvider() string`
+
+GetDefaultBillingProvider returns the DefaultBillingProvider field if non-nil, zero value otherwise.
+
+### GetDefaultBillingProviderOk
+
+`func (o *CreateProductTierRequest) GetDefaultBillingProviderOk() (*string, bool)`
+
+GetDefaultBillingProviderOk returns a tuple with the DefaultBillingProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDefaultBillingProvider
+
+`func (o *CreateProductTierRequest) SetDefaultBillingProvider(v string)`
+
+SetDefaultBillingProvider sets DefaultBillingProvider field to given value.
+
+### HasDefaultBillingProvider
+
+`func (o *CreateProductTierRequest) HasDefaultBillingProvider() bool`
+
+HasDefaultBillingProvider returns a boolean if a field has been set.
 
 ### GetDescription
 

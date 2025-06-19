@@ -22,6 +22,10 @@ var _ MappedNullable = &FleetListHostClustersRequest{}
 type FleetListHostClustersRequest struct {
 	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
+	// The next token to use for pagination
+	NextPageToken *string `json:"nextPageToken,omitempty"`
+	// The number of resources to return per page
+	PageSize *int64 `json:"pageSize,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// JWT token used to perform authorization
@@ -73,6 +77,70 @@ func (o *FleetListHostClustersRequest) GetEnvironmentIdOk() (*string, bool) {
 // SetEnvironmentId sets field value
 func (o *FleetListHostClustersRequest) SetEnvironmentId(v string) {
 	o.EnvironmentId = v
+}
+
+// GetNextPageToken returns the NextPageToken field value if set, zero value otherwise.
+func (o *FleetListHostClustersRequest) GetNextPageToken() string {
+	if o == nil || IsNil(o.NextPageToken) {
+		var ret string
+		return ret
+	}
+	return *o.NextPageToken
+}
+
+// GetNextPageTokenOk returns a tuple with the NextPageToken field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetListHostClustersRequest) GetNextPageTokenOk() (*string, bool) {
+	if o == nil || IsNil(o.NextPageToken) {
+		return nil, false
+	}
+	return o.NextPageToken, true
+}
+
+// HasNextPageToken returns a boolean if a field has been set.
+func (o *FleetListHostClustersRequest) HasNextPageToken() bool {
+	if o != nil && !IsNil(o.NextPageToken) {
+		return true
+	}
+
+	return false
+}
+
+// SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.
+func (o *FleetListHostClustersRequest) SetNextPageToken(v string) {
+	o.NextPageToken = &v
+}
+
+// GetPageSize returns the PageSize field value if set, zero value otherwise.
+func (o *FleetListHostClustersRequest) GetPageSize() int64 {
+	if o == nil || IsNil(o.PageSize) {
+		var ret int64
+		return ret
+	}
+	return *o.PageSize
+}
+
+// GetPageSizeOk returns a tuple with the PageSize field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetListHostClustersRequest) GetPageSizeOk() (*int64, bool) {
+	if o == nil || IsNil(o.PageSize) {
+		return nil, false
+	}
+	return o.PageSize, true
+}
+
+// HasPageSize returns a boolean if a field has been set.
+func (o *FleetListHostClustersRequest) HasPageSize() bool {
+	if o != nil && !IsNil(o.PageSize) {
+		return true
+	}
+
+	return false
+}
+
+// SetPageSize gets a reference to the given int64 and assigns it to the PageSize field.
+func (o *FleetListHostClustersRequest) SetPageSize(v int64) {
+	o.PageSize = &v
 }
 
 // GetServiceId returns the ServiceId field value
@@ -134,6 +202,12 @@ func (o FleetListHostClustersRequest) MarshalJSON() ([]byte, error) {
 func (o FleetListHostClustersRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["environmentId"] = o.EnvironmentId
+	if !IsNil(o.NextPageToken) {
+		toSerialize["nextPageToken"] = o.NextPageToken
+	}
+	if !IsNil(o.PageSize) {
+		toSerialize["pageSize"] = o.PageSize
+	}
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["token"] = o.Token
 
@@ -182,6 +256,8 @@ func (o *FleetListHostClustersRequest) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "nextPageToken")
+		delete(additionalProperties, "pageSize")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties

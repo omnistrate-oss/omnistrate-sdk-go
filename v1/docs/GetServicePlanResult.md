@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **AzureRegions** | Pointer to **[]string** | The Azure regions that this service plan is available on | [optional] 
 **DeploymentConfigId** | **string** | ID of a Deployment Config | 
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this service plan is available on | [optional] 
-**HasPendingChanges** | **bool** | Whether there are any pending changes for the product tier configuration | 
+**HasPendingChanges** | Pointer to **bool** | Whether there are any pending changes for the product tier configuration | [optional] 
 **IsProductTierDisabled** | **bool** | Whether the product tier is disabled | 
 **LatestMajorVersion** | **string** | The version number for the latest major version set. | 
 **ModelType** | **string** | The model type encapsulating this service | 
@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 
 ### NewGetServicePlanResult
 
-`func NewGetServicePlanResult(autoApproveSubscription bool, apiVersion string, deploymentConfigId string, hasPendingChanges bool, isProductTierDisabled bool, latestMajorVersion string, modelType string, productTierDescription string, productTierDocumentation string, productTierId string, productTierKey string, productTierName string, productTierPlanDescription string, productTierPricing interface{}, productTierSupport string, serviceApiDescription string, serviceApiId string, serviceEnvironmentId string, serviceModelDescription string, serviceModelId string, serviceModelName string, tierType string, versionSetStatus string, ) *GetServicePlanResult`
+`func NewGetServicePlanResult(autoApproveSubscription bool, apiVersion string, deploymentConfigId string, isProductTierDisabled bool, latestMajorVersion string, modelType string, productTierDescription string, productTierDocumentation string, productTierId string, productTierKey string, productTierName string, productTierPlanDescription string, productTierPricing interface{}, productTierSupport string, serviceApiDescription string, serviceApiId string, serviceEnvironmentId string, serviceModelDescription string, serviceModelId string, serviceModelName string, tierType string, versionSetStatus string, ) *GetServicePlanResult`
 
 NewGetServicePlanResult instantiates a new GetServicePlanResult object
 This constructor will assign default values to properties that have it defined,
@@ -258,6 +258,11 @@ and a boolean to check if the value has been set.
 
 SetHasPendingChanges sets HasPendingChanges field to given value.
 
+### HasHasPendingChanges
+
+`func (o *GetServicePlanResult) HasHasPendingChanges() bool`
+
+HasHasPendingChanges returns a boolean if a field has been set.
 
 ### GetIsProductTierDisabled
 

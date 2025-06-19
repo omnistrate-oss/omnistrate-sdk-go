@@ -21,6 +21,8 @@ var _ MappedNullable = &FleetListInvoicesRequest{}
 
 // FleetListInvoicesRequest struct for FleetListInvoicesRequest
 type FleetListInvoicesRequest struct {
+	// The billing provider type
+	BillingProvider *string `json:"billingProvider,omitempty"`
 	// ID of the customer
 	CustomerId *string `json:"customerId,omitempty"`
 	// End time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start.
@@ -52,6 +54,38 @@ func NewFleetListInvoicesRequest(token string) *FleetListInvoicesRequest {
 func NewFleetListInvoicesRequestWithDefaults() *FleetListInvoicesRequest {
 	this := FleetListInvoicesRequest{}
 	return &this
+}
+
+// GetBillingProvider returns the BillingProvider field value if set, zero value otherwise.
+func (o *FleetListInvoicesRequest) GetBillingProvider() string {
+	if o == nil || IsNil(o.BillingProvider) {
+		var ret string
+		return ret
+	}
+	return *o.BillingProvider
+}
+
+// GetBillingProviderOk returns a tuple with the BillingProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetListInvoicesRequest) GetBillingProviderOk() (*string, bool) {
+	if o == nil || IsNil(o.BillingProvider) {
+		return nil, false
+	}
+	return o.BillingProvider, true
+}
+
+// HasBillingProvider returns a boolean if a field has been set.
+func (o *FleetListInvoicesRequest) HasBillingProvider() bool {
+	if o != nil && !IsNil(o.BillingProvider) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingProvider gets a reference to the given string and assigns it to the BillingProvider field.
+func (o *FleetListInvoicesRequest) SetBillingProvider(v string) {
+	o.BillingProvider = &v
 }
 
 // GetCustomerId returns the CustomerId field value if set, zero value otherwise.
@@ -216,6 +250,9 @@ func (o FleetListInvoicesRequest) MarshalJSON() ([]byte, error) {
 
 func (o FleetListInvoicesRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.BillingProvider) {
+		toSerialize["billingProvider"] = o.BillingProvider
+	}
 	if !IsNil(o.CustomerId) {
 		toSerialize["customerId"] = o.CustomerId
 	}
@@ -272,6 +309,7 @@ func (o *FleetListInvoicesRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "billingProvider")
 		delete(additionalProperties, "customerId")
 		delete(additionalProperties, "endDate")
 		delete(additionalProperties, "startDate")

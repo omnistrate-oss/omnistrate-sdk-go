@@ -860,13 +860,11 @@ func (r ApiTierVersionSetApiListTierVersionSetsRequest) LatestIncrementalVersion
 	return r
 }
 
-// The next token to use for pagination
 func (r ApiTierVersionSetApiListTierVersionSetsRequest) NextPageToken(nextPageToken string) ApiTierVersionSetApiListTierVersionSetsRequest {
 	r.nextPageToken = &nextPageToken
 	return r
 }
 
-// The number of resources to return per page
 func (r ApiTierVersionSetApiListTierVersionSetsRequest) PageSize(pageSize int64) ApiTierVersionSetApiListTierVersionSetsRequest {
 	r.pageSize = &pageSize
 	return r

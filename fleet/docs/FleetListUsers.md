@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EnvironmentId** | Pointer to **string** | ID of a Service Environment | [optional] 
+**NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
+**PageSize** | Pointer to **int64** | The number of resources to return per page | [optional] 
 **ServiceId** | Pointer to **string** | ID of a Service | [optional] 
 **SubscriptionId** | Pointer to **string** | ID of a Subscription | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
@@ -52,6 +54,56 @@ SetEnvironmentId sets EnvironmentId field to given value.
 `func (o *FleetListUsers) HasEnvironmentId() bool`
 
 HasEnvironmentId returns a boolean if a field has been set.
+
+### GetNextPageToken
+
+`func (o *FleetListUsers) GetNextPageToken() string`
+
+GetNextPageToken returns the NextPageToken field if non-nil, zero value otherwise.
+
+### GetNextPageTokenOk
+
+`func (o *FleetListUsers) GetNextPageTokenOk() (*string, bool)`
+
+GetNextPageTokenOk returns a tuple with the NextPageToken field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNextPageToken
+
+`func (o *FleetListUsers) SetNextPageToken(v string)`
+
+SetNextPageToken sets NextPageToken field to given value.
+
+### HasNextPageToken
+
+`func (o *FleetListUsers) HasNextPageToken() bool`
+
+HasNextPageToken returns a boolean if a field has been set.
+
+### GetPageSize
+
+`func (o *FleetListUsers) GetPageSize() int64`
+
+GetPageSize returns the PageSize field if non-nil, zero value otherwise.
+
+### GetPageSizeOk
+
+`func (o *FleetListUsers) GetPageSizeOk() (*int64, bool)`
+
+GetPageSizeOk returns a tuple with the PageSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPageSize
+
+`func (o *FleetListUsers) SetPageSize(v int64)`
+
+SetPageSize sets PageSize field to given value.
+
+### HasPageSize
+
+`func (o *FleetListUsers) HasPageSize() bool`
+
+HasPageSize returns a boolean if a field has been set.
 
 ### GetServiceId
 

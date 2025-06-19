@@ -30,6 +30,8 @@ type DescribeAccountConfigResult struct {
 	AwsCloudFormationTemplateURL *string `json:"awsCloudFormationTemplateURL,omitempty"`
 	// The Azure bootstrap shell command
 	AzureBootstrapShellCommand *string `json:"azureBootstrapShellCommand,omitempty"`
+	// The Azure disconnect shell command
+	AzureDisconnectShellCommand *string `json:"azureDisconnectShellCommand,omitempty"`
 	// The Azure subscription ID
 	AzureSubscriptionID *string `json:"azureSubscriptionID,omitempty"`
 	// The Azure tenant ID
@@ -199,6 +201,29 @@ func (o *DescribeAccountConfigResult) GetAzureBootstrapShellCommandOk() (*string
 // SetAzureBootstrapShellCommand gets a reference to the given string and assigns it to the AzureBootstrapShellCommand field.
 func (o *DescribeAccountConfigResult) SetAzureBootstrapShellCommand(v string) {
 	o.AzureBootstrapShellCommand = &v
+}
+
+// GetAzureDisconnectShellCommand returns the AzureDisconnectShellCommand field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetAzureDisconnectShellCommand() string {
+	if o == nil || IsNil(o.AzureDisconnectShellCommand) {
+		var ret string
+		return ret
+	}
+	return *o.AzureDisconnectShellCommand
+}
+
+// GetAzureDisconnectShellCommandOk returns a tuple with the AzureDisconnectShellCommand field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetAzureDisconnectShellCommandOk() (*string, bool) {
+	if o == nil || IsNil(o.AzureDisconnectShellCommand) {
+		return nil, false
+	}
+	return o.AzureDisconnectShellCommand, true
+}
+
+// SetAzureDisconnectShellCommand gets a reference to the given string and assigns it to the AzureDisconnectShellCommand field.
+func (o *DescribeAccountConfigResult) SetAzureDisconnectShellCommand(v string) {
+	o.AzureDisconnectShellCommand = &v
 }
 
 // GetAzureSubscriptionID returns the AzureSubscriptionID field value if set, zero value otherwise.
@@ -554,6 +579,9 @@ func (o DescribeAccountConfigResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AzureBootstrapShellCommand) {
 		toSerialize["azureBootstrapShellCommand"] = o.AzureBootstrapShellCommand
 	}
+	if !IsNil(o.AzureDisconnectShellCommand) {
+		toSerialize["azureDisconnectShellCommand"] = o.AzureDisconnectShellCommand
+	}
 	if !IsNil(o.AzureSubscriptionID) {
 		toSerialize["azureSubscriptionID"] = o.AzureSubscriptionID
 	}
@@ -637,6 +665,7 @@ func (o *DescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "awsCloudFormationNoLBTemplateURL")
 		delete(additionalProperties, "awsCloudFormationTemplateURL")
 		delete(additionalProperties, "azureBootstrapShellCommand")
+		delete(additionalProperties, "azureDisconnectShellCommand")
 		delete(additionalProperties, "azureSubscriptionID")
 		delete(additionalProperties, "azureTenantID")
 		delete(additionalProperties, "byoaInstanceIDs")

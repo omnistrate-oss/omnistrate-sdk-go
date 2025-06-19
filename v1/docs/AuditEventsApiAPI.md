@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 
 ## AuditEventsApiListAllAuditEvents
 
-> ListAuditEventsResult AuditEventsApiListAllAuditEvents(ctx).ServiceID(serviceID).EnvironmentType(environmentType).EventSourceTypes(eventSourceTypes).InstanceID(instanceID).NextPageToken(nextPageToken).PageSize(pageSize).StartDate(startDate).EndDate(endDate).Execute()
+> ListAuditEventsResult AuditEventsApiListAllAuditEvents(ctx).NextPageToken(nextPageToken).PageSize(pageSize).ServiceID(serviceID).EnvironmentType(environmentType).EventSourceTypes(eventSourceTypes).InstanceID(instanceID).StartDate(startDate).EndDate(endDate).Execute()
 
 ListAllAuditEvents audit-events-api
 
@@ -329,18 +329,18 @@ import (
 )
 
 func main() {
+	nextPageToken := "token" // string |  (optional)
+	pageSize := int64(10) // int64 |  (optional)
 	serviceID := "s-123456" // string | The service ID to list events for (optional)
 	environmentType := "PROD|PRIVATE|CANARY|STAGING|QA|DEV" // string |  (optional)
-	eventSourceTypes := []string{"Eaque praesentium vel minus accusamus pariatur nihil."} // []string | The event types to filter by (optional)
+	eventSourceTypes := []string{"Veniam esse veniam nulla sint distinctio veritatis."} // []string | The event types to filter by (optional)
 	instanceID := "instance-12345678" // string | The instance ID to list events for (optional)
-	nextPageToken := "token" // string | The next token to use for pagination (optional)
-	pageSize := int64(10) // int64 | The number of events to return per page (optional)
 	startDate := time.Now() // time.Time | Start date of the events (optional)
 	endDate := time.Now() // time.Time | End date of the events (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AuditEventsApiAPI.AuditEventsApiListAllAuditEvents(context.Background()).ServiceID(serviceID).EnvironmentType(environmentType).EventSourceTypes(eventSourceTypes).InstanceID(instanceID).NextPageToken(nextPageToken).PageSize(pageSize).StartDate(startDate).EndDate(endDate).Execute()
+	resp, r, err := apiClient.AuditEventsApiAPI.AuditEventsApiListAllAuditEvents(context.Background()).NextPageToken(nextPageToken).PageSize(pageSize).ServiceID(serviceID).EnvironmentType(environmentType).EventSourceTypes(eventSourceTypes).InstanceID(instanceID).StartDate(startDate).EndDate(endDate).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AuditEventsApiAPI.AuditEventsApiListAllAuditEvents``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -361,12 +361,12 @@ Other parameters are passed through a pointer to a apiAuditEventsApiListAllAudit
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **nextPageToken** | **string** |  | 
+ **pageSize** | **int64** |  | 
  **serviceID** | **string** | The service ID to list events for | 
  **environmentType** | **string** |  | 
  **eventSourceTypes** | **[]string** | The event types to filter by | 
  **instanceID** | **string** | The instance ID to list events for | 
- **nextPageToken** | **string** | The next token to use for pagination | 
- **pageSize** | **int64** | The number of events to return per page | 
  **startDate** | **time.Time** | Start date of the events | 
  **endDate** | **time.Time** | End date of the events | 
 

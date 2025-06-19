@@ -30,7 +30,7 @@ type DescribeIdentityProviderResult struct {
 	Disabled *bool `json:"disabled,omitempty"`
 	// The email identifiers to use for the Identity Provider
 	EmailIdentifiers *string `json:"emailIdentifiers,omitempty"`
-	// The type of environment to filter costs by
+	// The type of environment for the Identity Provider
 	EnvironmentType *string `json:"environmentType,omitempty"`
 	// ID of an Identity Provider
 	Id string `json:"id"`

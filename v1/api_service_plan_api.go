@@ -229,6 +229,25 @@ type ApiServicePlanApiListServicePlansRequest struct {
 	ApiService ServicePlanApiAPI
 	serviceId string
 	serviceEnvironmentId string
+	nextPageToken *string
+	pageSize *int64
+	skipHasPendingChangesCheck *bool
+}
+
+func (r ApiServicePlanApiListServicePlansRequest) NextPageToken(nextPageToken string) ApiServicePlanApiListServicePlansRequest {
+	r.nextPageToken = &nextPageToken
+	return r
+}
+
+func (r ApiServicePlanApiListServicePlansRequest) PageSize(pageSize int64) ApiServicePlanApiListServicePlansRequest {
+	r.pageSize = &pageSize
+	return r
+}
+
+// Skip the check for pending changes in the service plans
+func (r ApiServicePlanApiListServicePlansRequest) SkipHasPendingChangesCheck(skipHasPendingChangesCheck bool) ApiServicePlanApiListServicePlansRequest {
+	r.skipHasPendingChangesCheck = &skipHasPendingChangesCheck
+	return r
 }
 
 func (r ApiServicePlanApiListServicePlansRequest) Execute() (*ListServicePlansResult, *http.Response, error) {
@@ -275,6 +294,15 @@ func (a *ServicePlanApiAPIService) ServicePlanApiListServicePlansExecute(r ApiSe
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.nextPageToken != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")
+	}
+	if r.pageSize != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "form", "")
+	}
+	if r.skipHasPendingChangesCheck != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "skipHasPendingChangesCheck", r.skipHasPendingChangesCheck, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

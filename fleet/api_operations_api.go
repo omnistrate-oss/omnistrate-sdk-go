@@ -258,16 +258,26 @@ func (a *OperationsApiAPIService) OperationsApiDeploymentCellHealthExecute(r Api
 type ApiOperationsApiListEventsRequest struct {
 	ctx context.Context
 	ApiService OperationsApiAPI
+	nextPageToken *string
+	pageSize *int64
 	environmentType *string
 	eventTypes *[]string
 	serviceID *string
 	serviceEnvironmentID *string
 	instanceID *string
-	nextPageToken *string
-	pageSize *int64
 	startDate *time.Time
 	endDate *time.Time
 	productTierID *string
+}
+
+func (r ApiOperationsApiListEventsRequest) NextPageToken(nextPageToken string) ApiOperationsApiListEventsRequest {
+	r.nextPageToken = &nextPageToken
+	return r
+}
+
+func (r ApiOperationsApiListEventsRequest) PageSize(pageSize int64) ApiOperationsApiListEventsRequest {
+	r.pageSize = &pageSize
+	return r
 }
 
 func (r ApiOperationsApiListEventsRequest) EnvironmentType(environmentType string) ApiOperationsApiListEventsRequest {
@@ -296,18 +306,6 @@ func (r ApiOperationsApiListEventsRequest) ServiceEnvironmentID(serviceEnvironme
 // The instance ID to list events for
 func (r ApiOperationsApiListEventsRequest) InstanceID(instanceID string) ApiOperationsApiListEventsRequest {
 	r.instanceID = &instanceID
-	return r
-}
-
-// The next token to use for pagination
-func (r ApiOperationsApiListEventsRequest) NextPageToken(nextPageToken string) ApiOperationsApiListEventsRequest {
-	r.nextPageToken = &nextPageToken
-	return r
-}
-
-// The number of events to return per page
-func (r ApiOperationsApiListEventsRequest) PageSize(pageSize int64) ApiOperationsApiListEventsRequest {
-	r.pageSize = &pageSize
 	return r
 }
 
@@ -366,6 +364,12 @@ func (a *OperationsApiAPIService) OperationsApiListEventsExecute(r ApiOperations
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.nextPageToken != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")
+	}
+	if r.pageSize != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "form", "")
+	}
 	if r.environmentType != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "environmentType", r.environmentType, "form", "")
 	}
@@ -388,12 +392,6 @@ func (a *OperationsApiAPIService) OperationsApiListEventsExecute(r ApiOperations
 	}
 	if r.instanceID != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "instanceID", r.instanceID, "form", "")
-	}
-	if r.nextPageToken != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")
-	}
-	if r.pageSize != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "form", "")
 	}
 	if r.startDate != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "startDate", r.startDate, "form", "")

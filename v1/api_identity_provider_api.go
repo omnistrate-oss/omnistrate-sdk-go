@@ -60,6 +60,18 @@ type IdentityProviderApiAPI interface {
 	IdentityProviderApiDescribeIdentityProviderExecute(r ApiIdentityProviderApiDescribeIdentityProviderRequest) (*DescribeIdentityProviderResult, *http.Response, error)
 
 	/*
+	IdentityProviderApiListIdentityProviderTypes ListIdentityProviderTypes identity-provider-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIdentityProviderApiListIdentityProviderTypesRequest
+	*/
+	IdentityProviderApiListIdentityProviderTypes(ctx context.Context) ApiIdentityProviderApiListIdentityProviderTypesRequest
+
+	// IdentityProviderApiListIdentityProviderTypesExecute executes the request
+	//  @return ListIdentityProviderTypesResult
+	IdentityProviderApiListIdentityProviderTypesExecute(r ApiIdentityProviderApiListIdentityProviderTypesRequest) (*ListIdentityProviderTypesResult, *http.Response, error)
+
+	/*
 	IdentityProviderApiListIdentityProviders ListIdentityProviders identity-provider-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -70,6 +82,18 @@ type IdentityProviderApiAPI interface {
 	// IdentityProviderApiListIdentityProvidersExecute executes the request
 	//  @return ListIdentityProvidersResult
 	IdentityProviderApiListIdentityProvidersExecute(r ApiIdentityProviderApiListIdentityProvidersRequest) (*ListIdentityProvidersResult, *http.Response, error)
+
+	/*
+	IdentityProviderApiRenderIdentityProviders RenderIdentityProviders identity-provider-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIdentityProviderApiRenderIdentityProvidersRequest
+	*/
+	IdentityProviderApiRenderIdentityProviders(ctx context.Context) ApiIdentityProviderApiRenderIdentityProvidersRequest
+
+	// IdentityProviderApiRenderIdentityProvidersExecute executes the request
+	//  @return RenderIdentityProvidersResult
+	IdentityProviderApiRenderIdentityProvidersExecute(r ApiIdentityProviderApiRenderIdentityProvidersRequest) (*RenderIdentityProvidersResult, *http.Response, error)
 
 	/*
 	IdentityProviderApiUpdateIdentityProvider UpdateIdentityProvider identity-provider-api
@@ -572,6 +596,157 @@ func (a *IdentityProviderApiAPIService) IdentityProviderApiDescribeIdentityProvi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiIdentityProviderApiListIdentityProviderTypesRequest struct {
+	ctx context.Context
+	ApiService IdentityProviderApiAPI
+}
+
+func (r ApiIdentityProviderApiListIdentityProviderTypesRequest) Execute() (*ListIdentityProviderTypesResult, *http.Response, error) {
+	return r.ApiService.IdentityProviderApiListIdentityProviderTypesExecute(r)
+}
+
+/*
+IdentityProviderApiListIdentityProviderTypes ListIdentityProviderTypes identity-provider-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiIdentityProviderApiListIdentityProviderTypesRequest
+*/
+func (a *IdentityProviderApiAPIService) IdentityProviderApiListIdentityProviderTypes(ctx context.Context) ApiIdentityProviderApiListIdentityProviderTypesRequest {
+	return ApiIdentityProviderApiListIdentityProviderTypesRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ListIdentityProviderTypesResult
+func (a *IdentityProviderApiAPIService) IdentityProviderApiListIdentityProviderTypesExecute(r ApiIdentityProviderApiListIdentityProviderTypesRequest) (*ListIdentityProviderTypesResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListIdentityProviderTypesResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProviderApiAPIService.IdentityProviderApiListIdentityProviderTypes")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/identity-provider-types"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiIdentityProviderApiListIdentityProvidersRequest struct {
 	ctx context.Context
 	ApiService IdentityProviderApiAPI
@@ -615,6 +790,187 @@ func (a *IdentityProviderApiAPIService) IdentityProviderApiListIdentityProviders
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiIdentityProviderApiRenderIdentityProvidersRequest struct {
+	ctx context.Context
+	ApiService IdentityProviderApiAPI
+	environmentType *string
+	redirectUrl *string
+	loginHint *string
+}
+
+// The environment type to render the identity provider for
+func (r ApiIdentityProviderApiRenderIdentityProvidersRequest) EnvironmentType(environmentType string) ApiIdentityProviderApiRenderIdentityProvidersRequest {
+	r.environmentType = &environmentType
+	return r
+}
+
+// The URL to redirect to after successful authentication
+func (r ApiIdentityProviderApiRenderIdentityProvidersRequest) RedirectUrl(redirectUrl string) ApiIdentityProviderApiRenderIdentityProvidersRequest {
+	r.redirectUrl = &redirectUrl
+	return r
+}
+
+// Login hint to pre-fill the identity provider login form
+func (r ApiIdentityProviderApiRenderIdentityProvidersRequest) LoginHint(loginHint string) ApiIdentityProviderApiRenderIdentityProvidersRequest {
+	r.loginHint = &loginHint
+	return r
+}
+
+func (r ApiIdentityProviderApiRenderIdentityProvidersRequest) Execute() (*RenderIdentityProvidersResult, *http.Response, error) {
+	return r.ApiService.IdentityProviderApiRenderIdentityProvidersExecute(r)
+}
+
+/*
+IdentityProviderApiRenderIdentityProviders RenderIdentityProviders identity-provider-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiIdentityProviderApiRenderIdentityProvidersRequest
+*/
+func (a *IdentityProviderApiAPIService) IdentityProviderApiRenderIdentityProviders(ctx context.Context) ApiIdentityProviderApiRenderIdentityProvidersRequest {
+	return ApiIdentityProviderApiRenderIdentityProvidersRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return RenderIdentityProvidersResult
+func (a *IdentityProviderApiAPIService) IdentityProviderApiRenderIdentityProvidersExecute(r ApiIdentityProviderApiRenderIdentityProvidersRequest) (*RenderIdentityProvidersResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *RenderIdentityProvidersResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProviderApiAPIService.IdentityProviderApiRenderIdentityProviders")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/identity-provider-render"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.environmentType != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "environmentType", r.environmentType, "form", "")
+	}
+	if r.redirectUrl != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "redirectUrl", r.redirectUrl, "form", "")
+	}
+	if r.loginHint != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "loginHint", r.loginHint, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

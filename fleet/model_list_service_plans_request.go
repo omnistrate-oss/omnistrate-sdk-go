@@ -20,10 +20,16 @@ var _ MappedNullable = &ListServicePlansRequest{}
 
 // ListServicePlansRequest struct for ListServicePlansRequest
 type ListServicePlansRequest struct {
+	// The next token to use for pagination
+	NextPageToken *string `json:"nextPageToken,omitempty"`
+	// The number of resources to return per page
+	PageSize *int64 `json:"pageSize,omitempty"`
 	// ID of a Service Environment
 	ServiceEnvironmentId string `json:"serviceEnvironmentId"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
+	// Whether to skip the check for pending changes in the service plans
+	SkipHasPendingChangesCheck *bool `json:"skipHasPendingChangesCheck,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -49,6 +55,70 @@ func NewListServicePlansRequest(serviceEnvironmentId string, serviceId string, t
 func NewListServicePlansRequestWithDefaults() *ListServicePlansRequest {
 	this := ListServicePlansRequest{}
 	return &this
+}
+
+// GetNextPageToken returns the NextPageToken field value if set, zero value otherwise.
+func (o *ListServicePlansRequest) GetNextPageToken() string {
+	if o == nil || IsNil(o.NextPageToken) {
+		var ret string
+		return ret
+	}
+	return *o.NextPageToken
+}
+
+// GetNextPageTokenOk returns a tuple with the NextPageToken field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListServicePlansRequest) GetNextPageTokenOk() (*string, bool) {
+	if o == nil || IsNil(o.NextPageToken) {
+		return nil, false
+	}
+	return o.NextPageToken, true
+}
+
+// HasNextPageToken returns a boolean if a field has been set.
+func (o *ListServicePlansRequest) HasNextPageToken() bool {
+	if o != nil && !IsNil(o.NextPageToken) {
+		return true
+	}
+
+	return false
+}
+
+// SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.
+func (o *ListServicePlansRequest) SetNextPageToken(v string) {
+	o.NextPageToken = &v
+}
+
+// GetPageSize returns the PageSize field value if set, zero value otherwise.
+func (o *ListServicePlansRequest) GetPageSize() int64 {
+	if o == nil || IsNil(o.PageSize) {
+		var ret int64
+		return ret
+	}
+	return *o.PageSize
+}
+
+// GetPageSizeOk returns a tuple with the PageSize field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListServicePlansRequest) GetPageSizeOk() (*int64, bool) {
+	if o == nil || IsNil(o.PageSize) {
+		return nil, false
+	}
+	return o.PageSize, true
+}
+
+// HasPageSize returns a boolean if a field has been set.
+func (o *ListServicePlansRequest) HasPageSize() bool {
+	if o != nil && !IsNil(o.PageSize) {
+		return true
+	}
+
+	return false
+}
+
+// SetPageSize gets a reference to the given int64 and assigns it to the PageSize field.
+func (o *ListServicePlansRequest) SetPageSize(v int64) {
+	o.PageSize = &v
 }
 
 // GetServiceEnvironmentId returns the ServiceEnvironmentId field value
@@ -99,6 +169,38 @@ func (o *ListServicePlansRequest) SetServiceId(v string) {
 	o.ServiceId = v
 }
 
+// GetSkipHasPendingChangesCheck returns the SkipHasPendingChangesCheck field value if set, zero value otherwise.
+func (o *ListServicePlansRequest) GetSkipHasPendingChangesCheck() bool {
+	if o == nil || IsNil(o.SkipHasPendingChangesCheck) {
+		var ret bool
+		return ret
+	}
+	return *o.SkipHasPendingChangesCheck
+}
+
+// GetSkipHasPendingChangesCheckOk returns a tuple with the SkipHasPendingChangesCheck field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListServicePlansRequest) GetSkipHasPendingChangesCheckOk() (*bool, bool) {
+	if o == nil || IsNil(o.SkipHasPendingChangesCheck) {
+		return nil, false
+	}
+	return o.SkipHasPendingChangesCheck, true
+}
+
+// HasSkipHasPendingChangesCheck returns a boolean if a field has been set.
+func (o *ListServicePlansRequest) HasSkipHasPendingChangesCheck() bool {
+	if o != nil && !IsNil(o.SkipHasPendingChangesCheck) {
+		return true
+	}
+
+	return false
+}
+
+// SetSkipHasPendingChangesCheck gets a reference to the given bool and assigns it to the SkipHasPendingChangesCheck field.
+func (o *ListServicePlansRequest) SetSkipHasPendingChangesCheck(v bool) {
+	o.SkipHasPendingChangesCheck = &v
+}
+
 // GetToken returns the Token field value
 func (o *ListServicePlansRequest) GetToken() string {
 	if o == nil {
@@ -133,8 +235,17 @@ func (o ListServicePlansRequest) MarshalJSON() ([]byte, error) {
 
 func (o ListServicePlansRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.NextPageToken) {
+		toSerialize["nextPageToken"] = o.NextPageToken
+	}
+	if !IsNil(o.PageSize) {
+		toSerialize["pageSize"] = o.PageSize
+	}
 	toSerialize["serviceEnvironmentId"] = o.ServiceEnvironmentId
 	toSerialize["serviceId"] = o.ServiceId
+	if !IsNil(o.SkipHasPendingChangesCheck) {
+		toSerialize["skipHasPendingChangesCheck"] = o.SkipHasPendingChangesCheck
+	}
 	toSerialize["token"] = o.Token
 
 	for key, value := range o.AdditionalProperties {
@@ -181,8 +292,11 @@ func (o *ListServicePlansRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "nextPageToken")
+		delete(additionalProperties, "pageSize")
 		delete(additionalProperties, "serviceEnvironmentId")
 		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "skipHasPendingChangesCheck")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

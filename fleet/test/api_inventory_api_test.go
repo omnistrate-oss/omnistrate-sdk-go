@@ -53,6 +53,25 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test InventoryApiAPIService InventoryApiAdoptResourceInstance", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceProviderId string
+		var serviceKey string
+		var serviceAPIVersion string
+		var serviceEnvironmentKey string
+		var serviceModelKey string
+		var productTierKey string
+
+		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiAdoptResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test InventoryApiAPIService InventoryApiApproveSubscriptionRequest", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -600,6 +619,20 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test InventoryApiAPIService InventoryApiListAllInstancesInHostCluster", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var hostClusterId string
+
+		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiListAllInstancesInHostCluster(context.Background(), hostClusterId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test InventoryApiAPIService InventoryApiListAllOrganizations", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -1139,6 +1172,20 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 		var id string
 
 		httpRes, err := apiClient.InventoryApiAPI.InventoryApiUpdateSubscription(context.Background(), serviceId, environmentId, id).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InventoryApiAPIService InventoryApiUpdateSubscriptions", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var environmentId string
+
+		httpRes, err := apiClient.InventoryApiAPI.InventoryApiUpdateSubscriptions(context.Background(), serviceId, environmentId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

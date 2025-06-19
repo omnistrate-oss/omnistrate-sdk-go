@@ -22,8 +22,6 @@ var _ MappedNullable = &ServiceHealthSummary{}
 type ServiceHealthSummary struct {
 	// The summary of health by cloud provider
 	CloudProviderHealthSummary map[string]interface{} `json:"cloudProviderHealthSummary"`
-	// The number of instances currently deploying
-	DeployingInstances int64 `json:"deployingInstances"`
 	// The number of healthy instances in the region
 	HealthyInstances int64 `json:"healthyInstances"`
 	// The status message
@@ -49,10 +47,9 @@ type _ServiceHealthSummary ServiceHealthSummary
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewServiceHealthSummary(cloudProviderHealthSummary map[string]interface{}, deployingInstances int64, healthyInstances int64, message string, serviceEnvironmentID string, serviceID string, status string, totalInstances int64, unhealthyInstances int64) *ServiceHealthSummary {
+func NewServiceHealthSummary(cloudProviderHealthSummary map[string]interface{}, healthyInstances int64, message string, serviceEnvironmentID string, serviceID string, status string, totalInstances int64, unhealthyInstances int64) *ServiceHealthSummary {
 	this := ServiceHealthSummary{}
 	this.CloudProviderHealthSummary = cloudProviderHealthSummary
-	this.DeployingInstances = deployingInstances
 	this.HealthyInstances = healthyInstances
 	this.Message = message
 	this.ServiceEnvironmentID = serviceEnvironmentID
@@ -93,30 +90,6 @@ func (o *ServiceHealthSummary) GetCloudProviderHealthSummaryOk() (map[string]int
 // SetCloudProviderHealthSummary sets field value
 func (o *ServiceHealthSummary) SetCloudProviderHealthSummary(v map[string]interface{}) {
 	o.CloudProviderHealthSummary = v
-}
-
-// GetDeployingInstances returns the DeployingInstances field value
-func (o *ServiceHealthSummary) GetDeployingInstances() int64 {
-	if o == nil {
-		var ret int64
-		return ret
-	}
-
-	return o.DeployingInstances
-}
-
-// GetDeployingInstancesOk returns a tuple with the DeployingInstances field value
-// and a boolean to check if the value has been set.
-func (o *ServiceHealthSummary) GetDeployingInstancesOk() (*int64, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.DeployingInstances, true
-}
-
-// SetDeployingInstances sets field value
-func (o *ServiceHealthSummary) SetDeployingInstances(v int64) {
-	o.DeployingInstances = v
 }
 
 // GetHealthyInstances returns the HealthyInstances field value
@@ -321,7 +294,6 @@ func (o ServiceHealthSummary) MarshalJSON() ([]byte, error) {
 func (o ServiceHealthSummary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["cloudProviderHealthSummary"] = o.CloudProviderHealthSummary
-	toSerialize["deployingInstances"] = o.DeployingInstances
 	toSerialize["healthyInstances"] = o.HealthyInstances
 	toSerialize["message"] = o.Message
 	toSerialize["serviceEnvironmentID"] = o.ServiceEnvironmentID
@@ -346,7 +318,6 @@ func (o *ServiceHealthSummary) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"cloudProviderHealthSummary",
-		"deployingInstances",
 		"healthyInstances",
 		"message",
 		"serviceEnvironmentID",
@@ -384,7 +355,6 @@ func (o *ServiceHealthSummary) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "cloudProviderHealthSummary")
-		delete(additionalProperties, "deployingInstances")
 		delete(additionalProperties, "healthyInstances")
 		delete(additionalProperties, "message")
 		delete(additionalProperties, "serviceEnvironmentID")

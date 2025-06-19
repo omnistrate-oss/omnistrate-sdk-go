@@ -20,6 +20,8 @@ var _ MappedNullable = &CreateUpgradePathRequest{}
 
 // CreateUpgradePathRequest struct for CreateUpgradePathRequest
 type CreateUpgradePathRequest struct {
+	// Configuration overrides for the upgrade path per adopted instance ID. This currently only includes custom Helm chart values and Helm runtime configurations.
+	ConfigurationOverrides map[string]interface{} `json:"configurationOverrides,omitempty"`
 	// Whether to notify the end customer about the upgrade progress.
 	NotifyCustomer *bool `json:"notifyCustomer,omitempty"`
 	// ID of a Product Tier
@@ -62,6 +64,38 @@ func NewCreateUpgradePathRequest(productTierId string, serviceId string, sourceV
 func NewCreateUpgradePathRequestWithDefaults() *CreateUpgradePathRequest {
 	this := CreateUpgradePathRequest{}
 	return &this
+}
+
+// GetConfigurationOverrides returns the ConfigurationOverrides field value if set, zero value otherwise.
+func (o *CreateUpgradePathRequest) GetConfigurationOverrides() map[string]interface{} {
+	if o == nil || IsNil(o.ConfigurationOverrides) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.ConfigurationOverrides
+}
+
+// GetConfigurationOverridesOk returns a tuple with the ConfigurationOverrides field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpgradePathRequest) GetConfigurationOverridesOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.ConfigurationOverrides) {
+		return map[string]interface{}{}, false
+	}
+	return o.ConfigurationOverrides, true
+}
+
+// HasConfigurationOverrides returns a boolean if a field has been set.
+func (o *CreateUpgradePathRequest) HasConfigurationOverrides() bool {
+	if o != nil && !IsNil(o.ConfigurationOverrides) {
+		return true
+	}
+
+	return false
+}
+
+// SetConfigurationOverrides gets a reference to the given map[string]interface{} and assigns it to the ConfigurationOverrides field.
+func (o *CreateUpgradePathRequest) SetConfigurationOverrides(v map[string]interface{}) {
+	o.ConfigurationOverrides = v
 }
 
 // GetNotifyCustomer returns the NotifyCustomer field value if set, zero value otherwise.
@@ -282,6 +316,9 @@ func (o CreateUpgradePathRequest) MarshalJSON() ([]byte, error) {
 
 func (o CreateUpgradePathRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ConfigurationOverrides) {
+		toSerialize["configurationOverrides"] = o.ConfigurationOverrides
+	}
 	if !IsNil(o.NotifyCustomer) {
 		toSerialize["notifyCustomer"] = o.NotifyCustomer
 	}
@@ -342,6 +379,7 @@ func (o *CreateUpgradePathRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "configurationOverrides")
 		delete(additionalProperties, "notifyCustomer")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "scheduledDate")

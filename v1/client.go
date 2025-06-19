@@ -113,6 +113,8 @@ type APIClient struct {
 
 	SaasPortalApiAPI SaasPortalApiAPI
 
+	SecretsApiAPI SecretsApiAPI
+
 	ServiceApiAPI ServiceApiAPI
 
 	ServiceApiApiAPI ServiceApiApiAPI
@@ -140,6 +142,8 @@ type APIClient struct {
 	SubscriptionApiAPI SubscriptionApiAPI
 
 	SubscriptionRequestApiAPI SubscriptionRequestApiAPI
+
+	TenantBillingApiAPI TenantBillingApiAPI
 
 	TierVersionSetApiAPI TierVersionSetApiAPI
 
@@ -198,6 +202,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ResourceApiAPI = (*ResourceApiAPIService)(&c.common)
 	c.ResourceInstanceApiAPI = (*ResourceInstanceApiAPIService)(&c.common)
 	c.SaasPortalApiAPI = (*SaasPortalApiAPIService)(&c.common)
+	c.SecretsApiAPI = (*SecretsApiAPIService)(&c.common)
 	c.ServiceApiAPI = (*ServiceApiAPIService)(&c.common)
 	c.ServiceApiApiAPI = (*ServiceApiApiAPIService)(&c.common)
 	c.ServiceEnvironmentApiAPI = (*ServiceEnvironmentApiAPIService)(&c.common)
@@ -212,6 +217,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.StripeConnectApiAPI = (*StripeConnectApiAPIService)(&c.common)
 	c.SubscriptionApiAPI = (*SubscriptionApiAPIService)(&c.common)
 	c.SubscriptionRequestApiAPI = (*SubscriptionRequestApiAPIService)(&c.common)
+	c.TenantBillingApiAPI = (*TenantBillingApiAPIService)(&c.common)
 	c.TierVersionSetApiAPI = (*TierVersionSetApiAPIService)(&c.common)
 	c.UsageApiAPI = (*UsageApiAPIService)(&c.common)
 	c.UsersApiAPI = (*UsersApiAPIService)(&c.common)

@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PaymentConfigured** | **bool** | Whether the customer has configured their payment information. | 
-**PaymentInfoPortalURL** | Pointer to **string** | The URL from the billing provide to redirect users to so they can enter their payment information.  Only present when first adding payment information | [optional] 
+**BillingProviders** | Pointer to [**[]CustomerBillingProvider**](CustomerBillingProvider.md) | The billing providers available for the customer. | [optional] 
+**PaymentConfigured** | **bool** | Deprecated. Whether the customer has configured their payment information. | 
+**PaymentInfoPortalURL** | Pointer to **string** | Deprecated. The URL from the billing provide to redirect users to so they can enter their payment information.  Only present when first adding payment information | [optional] 
 
 ## Methods
 
@@ -25,6 +26,31 @@ will change when the set of required properties is changed
 NewDescribeConsumptionBillingDetailsResultWithDefaults instantiates a new DescribeConsumptionBillingDetailsResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetBillingProviders
+
+`func (o *DescribeConsumptionBillingDetailsResult) GetBillingProviders() []CustomerBillingProvider`
+
+GetBillingProviders returns the BillingProviders field if non-nil, zero value otherwise.
+
+### GetBillingProvidersOk
+
+`func (o *DescribeConsumptionBillingDetailsResult) GetBillingProvidersOk() (*[]CustomerBillingProvider, bool)`
+
+GetBillingProvidersOk returns a tuple with the BillingProviders field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBillingProviders
+
+`func (o *DescribeConsumptionBillingDetailsResult) SetBillingProviders(v []CustomerBillingProvider)`
+
+SetBillingProviders sets BillingProviders field to given value.
+
+### HasBillingProviders
+
+`func (o *DescribeConsumptionBillingDetailsResult) HasBillingProviders() bool`
+
+HasBillingProviders returns a boolean if a field has been set.
 
 ### GetPaymentConfigured
 

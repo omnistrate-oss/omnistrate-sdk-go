@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**InventoryApiAddCapacityToResourceInstance**](InventoryApiAPI.md#InventoryApiAddCapacityToResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/add-capacity | AddCapacityToResourceInstance inventory-api
 [**InventoryApiAddCustomDNSToResourceInstance**](InventoryApiAPI.md#InventoryApiAddCustomDNSToResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/{resourceKey}/instance/{instanceId}/custom-dns | AddCustomDNSToResourceInstance inventory-api
+[**InventoryApiAdoptResourceInstance**](InventoryApiAPI.md#InventoryApiAdoptResourceInstance) | **Post** /2022-09-01-00/fleet/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/adopt | AdoptResourceInstance inventory-api
 [**InventoryApiApproveSubscriptionRequest**](InventoryApiAPI.md#InventoryApiApproveSubscriptionRequest) | **Put** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | ApproveSubscriptionRequest inventory-api
 [**InventoryApiCancelUpgradePath**](InventoryApiAPI.md#InventoryApiCancelUpgradePath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/cancel | CancelUpgradePath inventory-api
 [**InventoryApiCreateConsumptionUser**](InventoryApiAPI.md#InventoryApiCreateConsumptionUser) | **Post** /2022-09-01-00/fleet/user | CreateConsumptionUser inventory-api
@@ -41,6 +42,7 @@ Method | HTTP request | Description
 [**InventoryApiFailoverResourceInstance**](InventoryApiAPI.md#InventoryApiFailoverResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/failover | FailoverResourceInstance inventory-api
 [**InventoryApiGenerateTokenForHostClusterDashboard**](InventoryApiAPI.md#InventoryApiGenerateTokenForHostClusterDashboard) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard inventory-api
 [**InventoryApiListActiveOrganizations**](InventoryApiAPI.md#InventoryApiListActiveOrganizations) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/organizations | ListActiveOrganizations inventory-api
+[**InventoryApiListAllInstancesInHostCluster**](InventoryApiAPI.md#InventoryApiListAllInstancesInHostCluster) | **Get** /2022-09-01-00/fleet/host-clusters/{hostClusterId}/instances | ListAllInstancesInHostCluster inventory-api
 [**InventoryApiListAllOrganizations**](InventoryApiAPI.md#InventoryApiListAllOrganizations) | **Get** /2022-09-01-00/fleet/organizations | ListAllOrganizations inventory-api
 [**InventoryApiListAllUsers**](InventoryApiAPI.md#InventoryApiListAllUsers) | **Get** /2022-09-01-00/fleet/users | ListAllUsers inventory-api
 [**InventoryApiListDependentComponents**](InventoryApiAPI.md#InventoryApiListDependentComponents) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/dependent-components | ListDependentComponents inventory-api
@@ -78,6 +80,7 @@ Method | HTTP request | Description
 [**InventoryApiUpdateResourceInstance**](InventoryApiAPI.md#InventoryApiUpdateResourceInstance) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId} | UpdateResourceInstance inventory-api
 [**InventoryApiUpdateResourceInstanceDebugMode**](InventoryApiAPI.md#InventoryApiUpdateResourceInstanceDebugMode) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/debug-mode | UpdateResourceInstanceDebugMode inventory-api
 [**InventoryApiUpdateSubscription**](InventoryApiAPI.md#InventoryApiUpdateSubscription) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/{id} | UpdateSubscription inventory-api
+[**InventoryApiUpdateSubscriptions**](InventoryApiAPI.md#InventoryApiUpdateSubscriptions) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscriptions | UpdateSubscriptions inventory-api
 
 
 
@@ -226,6 +229,91 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InventoryApiAdoptResourceInstance
+
+> FleetCreateResourceInstanceResult InventoryApiAdoptResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey).AdoptResourceInstanceRequest2(adoptResourceInstanceRequest2).Execute()
+
+AdoptResourceInstance inventory-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	serviceProviderId := "omnistrate" // string | The service provider ID
+	serviceKey := "service-orchestration" // string | The service name
+	serviceAPIVersion := "v1" // string | The service API version
+	serviceEnvironmentKey := "dev" // string | The service environment name
+	serviceModelKey := "hosted" // string | The service model name
+	productTierKey := "premium" // string | The product tier name
+	adoptResourceInstanceRequest2 := *openapiclient.NewAdoptResourceInstanceRequest2() // AdoptResourceInstanceRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiAdoptResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey).AdoptResourceInstanceRequest2(adoptResourceInstanceRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiAdoptResourceInstance``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InventoryApiAdoptResourceInstance`: FleetCreateResourceInstanceResult
+	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiAdoptResourceInstance`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceProviderId** | **string** | The service provider ID | 
+**serviceKey** | **string** | The service name | 
+**serviceAPIVersion** | **string** | The service API version | 
+**serviceEnvironmentKey** | **string** | The service environment name | 
+**serviceModelKey** | **string** | The service model name | 
+**productTierKey** | **string** | The product tier name | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInventoryApiAdoptResourceInstanceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+
+
+ **adoptResourceInstanceRequest2** | [**AdoptResourceInstanceRequest2**](AdoptResourceInstanceRequest2.md) |  | 
+
+### Return type
+
+[**FleetCreateResourceInstanceResult**](FleetCreateResourceInstanceResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -711,7 +799,7 @@ import (
 )
 
 func main() {
-	fleetCreateServicesOrchestrationRequest2 := *openapiclient.NewFleetCreateServicesOrchestrationRequest2("Et illum veritatis mollitia.") // FleetCreateServicesOrchestrationRequest2 | 
+	fleetCreateServicesOrchestrationRequest2 := *openapiclient.NewFleetCreateServicesOrchestrationRequest2("Asperiores pariatur.") // FleetCreateServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -850,7 +938,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
-	createUpgradePathRequest2 := *openapiclient.NewCreateUpgradePathRequest2("1.0", "2.0", map[string][]string{"key": []string{"Unde necessitatibus et assumenda beatae."}}) // CreateUpgradePathRequest2 | 
+	createUpgradePathRequest2 := *openapiclient.NewCreateUpgradePathRequest2("1.0", "2.0", map[string][]string{"key": []string{"Omnis nisi."}}) // CreateUpgradePathRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2819,6 +2907,80 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## InventoryApiListAllInstancesInHostCluster
+
+> ListAllInstancesInHostClusterResult InventoryApiListAllInstancesInHostCluster(ctx, hostClusterId).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
+
+ListAllInstancesInHostCluster inventory-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	hostClusterId := "hc-12345678" // string | ID of the host cluster to list instances for
+	nextPageToken := "token" // string |  (optional)
+	pageSize := int64(10) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListAllInstancesInHostCluster(context.Background(), hostClusterId).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiListAllInstancesInHostCluster``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InventoryApiListAllInstancesInHostCluster`: ListAllInstancesInHostClusterResult
+	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiListAllInstancesInHostCluster`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**hostClusterId** | **string** | ID of the host cluster to list instances for | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInventoryApiListAllInstancesInHostClusterRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **nextPageToken** | **string** |  | 
+ **pageSize** | **int64** |  | 
+
+### Return type
+
+[**ListAllInstancesInHostClusterResult**](ListAllInstancesInHostClusterResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## InventoryApiListAllOrganizations
 
 > ListAllOrganizationsResult InventoryApiListAllOrganizations(ctx).HasInvoice(hasInvoice).HasInvoiceWithStatus(hasInvoiceWithStatus).HasInvoiceFromDate(hasInvoiceFromDate).HasInvoiceToDate(hasInvoiceToDate).Execute()
@@ -2892,7 +3054,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiListAllUsers
 
-> FleetListAllUsersResult InventoryApiListAllUsers(ctx).ServiceId(serviceId).Execute()
+> FleetListAllUsersResult InventoryApiListAllUsers(ctx).NextPageToken(nextPageToken).PageSize(pageSize).ServiceId(serviceId).Execute()
 
 ListAllUsers inventory-api
 
@@ -2909,11 +3071,13 @@ import (
 )
 
 func main() {
+	nextPageToken := "token" // string |  (optional)
+	pageSize := int64(10) // int64 |  (optional)
 	serviceId := "s-12345678" // string | The service ID of the users (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListAllUsers(context.Background()).ServiceId(serviceId).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListAllUsers(context.Background()).NextPageToken(nextPageToken).PageSize(pageSize).ServiceId(serviceId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiListAllUsers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2934,6 +3098,8 @@ Other parameters are passed through a pointer to a apiInventoryApiListAllUsersRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **nextPageToken** | **string** |  | 
+ **pageSize** | **int64** |  | 
  **serviceId** | **string** | The service ID of the users | 
 
 ### Return type
@@ -3030,7 +3196,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiListEligibleInstancesPerUpgrade
 
-> ListEligibleInstancesPerUpgradeResult InventoryApiListEligibleInstancesPerUpgrade(ctx, serviceId, productTierId, upgradePathId).NextPageToken(nextPageToken).Execute()
+> ListEligibleInstancesPerUpgradeResult InventoryApiListEligibleInstancesPerUpgrade(ctx, serviceId, productTierId, upgradePathId).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
 
 ListEligibleInstancesPerUpgrade inventory-api
 
@@ -3050,11 +3216,12 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
 	upgradePathId := "up-12345678" // string | The upgrade path ID
-	nextPageToken := "next-token" // string | The next page token to use for pagination (optional)
+	nextPageToken := "token" // string |  (optional)
+	pageSize := int64(10) // int64 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListEligibleInstancesPerUpgrade(context.Background(), serviceId, productTierId, upgradePathId).NextPageToken(nextPageToken).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListEligibleInstancesPerUpgrade(context.Background(), serviceId, productTierId, upgradePathId).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiListEligibleInstancesPerUpgrade``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3084,7 +3251,8 @@ Name | Type | Description  | Notes
 
 
 
- **nextPageToken** | **string** | The next page token to use for pagination | 
+ **nextPageToken** | **string** |  | 
+ **pageSize** | **int64** |  | 
 
 ### Return type
 
@@ -3106,7 +3274,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiListHostClusters
 
-> FleetListHostClustersResult InventoryApiListHostClusters(ctx, serviceId, environmentId).Execute()
+> FleetListHostClustersResult InventoryApiListHostClusters(ctx, serviceId, environmentId).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
 
 ListHostClusters inventory-api
 
@@ -3125,10 +3293,12 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
+	nextPageToken := "token" // string |  (optional)
+	pageSize := int64(10) // int64 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListHostClusters(context.Background(), serviceId, environmentId).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListHostClusters(context.Background(), serviceId, environmentId).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiListHostClusters``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3156,6 +3326,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+ **nextPageToken** | **string** |  | 
+ **pageSize** | **int64** |  | 
 
 ### Return type
 
@@ -3403,7 +3575,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiListResourceInstances
 
-> ListFleetResourceInstancesResultInternal InventoryApiListResourceInstances(ctx, serviceId, environmentId).ProductTierVersion(productTierVersion).ProductTierId(productTierId).SubscriptionId(subscriptionId).Filter(filter).Execute()
+> ListFleetResourceInstancesResultInternal InventoryApiListResourceInstances(ctx, serviceId, environmentId).ProductTierVersion(productTierVersion).ProductTierId(productTierId).SubscriptionId(subscriptionId).Filter(filter).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
 
 ListResourceInstances inventory-api
 
@@ -3422,14 +3594,16 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	productTierVersion := "At totam excepturi quia." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Animi cumque animi." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Eum officiis et." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
 	subscriptionId := "Quisquam officiis occaecati rerum iusto atque itaque." // string | Subscription id of the instance to describe. (optional)
 	filter := "onlyCloudAccounts" // string | Filter to apply to the list of instances. (optional)
+	nextPageToken := "token" // string |  (optional)
+	pageSize := int64(10) // int64 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListResourceInstances(context.Background(), serviceId, environmentId).ProductTierVersion(productTierVersion).ProductTierId(productTierId).SubscriptionId(subscriptionId).Filter(filter).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListResourceInstances(context.Background(), serviceId, environmentId).ProductTierVersion(productTierVersion).ProductTierId(productTierId).SubscriptionId(subscriptionId).Filter(filter).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiListResourceInstances``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3461,6 +3635,8 @@ Name | Type | Description  | Notes
  **productTierId** | **string** | Product tier id of the instance to describe. Needs to specified in combination with the product tier version | 
  **subscriptionId** | **string** | Subscription id of the instance to describe. | 
  **filter** | **string** | Filter to apply to the list of instances. | 
+ **nextPageToken** | **string** |  | 
+ **pageSize** | **int64** |  | 
 
 ### Return type
 
@@ -3691,7 +3867,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiListSubscription
 
-> FleetListSubscriptionsResult InventoryApiListSubscription(ctx, serviceId, environmentId).ProductTierId(productTierId).Execute()
+> FleetListSubscriptionsResult InventoryApiListSubscription(ctx, serviceId, environmentId).ProductTierId(productTierId).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
 
 ListSubscription inventory-api
 
@@ -3711,10 +3887,12 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier Id (optional)
+	nextPageToken := "token" // string |  (optional)
+	pageSize := int64(10) // int64 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListSubscription(context.Background(), serviceId, environmentId).ProductTierId(productTierId).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListSubscription(context.Background(), serviceId, environmentId).ProductTierId(productTierId).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiListSubscription``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3743,6 +3921,8 @@ Name | Type | Description  | Notes
 
 
  **productTierId** | **string** | The product tier Id | 
+ **nextPageToken** | **string** |  | 
+ **pageSize** | **int64** |  | 
 
 ### Return type
 
@@ -3837,7 +4017,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiListUpgradePaths
 
-> ListUpgradePathsResult InventoryApiListUpgradePaths(ctx, serviceId, productTierId).SourceProductTierVersion(sourceProductTierVersion).TargetProductTierVersion(targetProductTierVersion).Status(status).Type_(type_).NextPageToken(nextPageToken).Execute()
+> ListUpgradePathsResult InventoryApiListUpgradePaths(ctx, serviceId, productTierId).SourceProductTierVersion(sourceProductTierVersion).TargetProductTierVersion(targetProductTierVersion).Status(status).Type_(type_).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
 
 ListUpgradePaths inventory-api
 
@@ -3860,11 +4040,12 @@ func main() {
 	targetProductTierVersion := "2.0" // string | The target product tier version to list upgrade paths for (optional)
 	status := "COMPLETE" // string | The status of the upgrade path to filter by (optional)
 	type_ := "Major" // string | The type of the upgrade path to filter by (optional)
-	nextPageToken := "next-token" // string | The next page token to use for pagination (optional)
+	nextPageToken := "token" // string |  (optional)
+	pageSize := int64(10) // int64 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListUpgradePaths(context.Background(), serviceId, productTierId).SourceProductTierVersion(sourceProductTierVersion).TargetProductTierVersion(targetProductTierVersion).Status(status).Type_(type_).NextPageToken(nextPageToken).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListUpgradePaths(context.Background(), serviceId, productTierId).SourceProductTierVersion(sourceProductTierVersion).TargetProductTierVersion(targetProductTierVersion).Status(status).Type_(type_).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiListUpgradePaths``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3896,7 +4077,8 @@ Name | Type | Description  | Notes
  **targetProductTierVersion** | **string** | The target product tier version to list upgrade paths for | 
  **status** | **string** | The status of the upgrade path to filter by | 
  **type_** | **string** | The type of the upgrade path to filter by | 
- **nextPageToken** | **string** | The next page token to use for pagination | 
+ **nextPageToken** | **string** |  | 
+ **pageSize** | **int64** |  | 
 
 ### Return type
 
@@ -3918,7 +4100,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiListUsers
 
-> FleetListUsersResult InventoryApiListUsers(ctx, serviceId, environmentId).SubscriptionId(subscriptionId).Execute()
+> FleetListUsersResult InventoryApiListUsers(ctx, serviceId, environmentId).NextPageToken(nextPageToken).PageSize(pageSize).SubscriptionId(subscriptionId).Execute()
 
 ListUsers inventory-api
 
@@ -3937,11 +4119,13 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
+	nextPageToken := "token" // string |  (optional)
+	pageSize := int64(10) // int64 |  (optional)
 	subscriptionId := "sub-12345678" // string | The subscription ID of the user (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListUsers(context.Background(), serviceId, environmentId).SubscriptionId(subscriptionId).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListUsers(context.Background(), serviceId, environmentId).NextPageToken(nextPageToken).PageSize(pageSize).SubscriptionId(subscriptionId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiListUsers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3969,6 +4153,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+ **nextPageToken** | **string** |  | 
+ **pageSize** | **int64** |  | 
  **subscriptionId** | **string** | The subscription ID of the user | 
 
 ### Return type
@@ -4011,7 +4197,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
 	upgradePathId := "up-12345678" // string | The upgrade path ID
-	manageUpgradePathLifecycleRequest2 := *openapiclient.NewManageUpgradePathLifecycleRequest2("Culpa id aut pariatur ut.") // ManageUpgradePathLifecycleRequest2 | 
+	manageUpgradePathLifecycleRequest2 := *openapiclient.NewManageUpgradePathLifecycleRequest2("Quos voluptate ea.") // ManageUpgradePathLifecycleRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -4085,7 +4271,7 @@ import (
 
 func main() {
 	id := "so-12345678" // string | The ID of the services orchestration
-	fleetModifyServicesOrchestrationRequest2 := *openapiclient.NewFleetModifyServicesOrchestrationRequest2("Dolorum fuga dignissimos.") // FleetModifyServicesOrchestrationRequest2 | 
+	fleetModifyServicesOrchestrationRequest2 := *openapiclient.NewFleetModifyServicesOrchestrationRequest2("Ex architecto voluptatum incidunt voluptatibus ipsum.") // FleetModifyServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -5489,6 +5675,77 @@ Name | Type | Description  | Notes
 
 
  **fleetUpdateSubscriptionRequest2** | [**FleetUpdateSubscriptionRequest2**](FleetUpdateSubscriptionRequest2.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InventoryApiUpdateSubscriptions
+
+> InventoryApiUpdateSubscriptions(ctx, serviceId, environmentId).FleetUpdateSubscriptionsRequest2(fleetUpdateSubscriptionsRequest2).Execute()
+
+UpdateSubscriptions inventory-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
+	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
+	fleetUpdateSubscriptionsRequest2 := *openapiclient.NewFleetUpdateSubscriptionsRequest2([]string{"Recusandae distinctio accusantium expedita aut velit."}) // FleetUpdateSubscriptionsRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.InventoryApiAPI.InventoryApiUpdateSubscriptions(context.Background(), serviceId, environmentId).FleetUpdateSubscriptionsRequest2(fleetUpdateSubscriptionsRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiUpdateSubscriptions``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | The service ID this workflow belongs to. | 
+**environmentId** | **string** | The service environment ID this workflow belongs to. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInventoryApiUpdateSubscriptionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **fleetUpdateSubscriptionsRequest2** | [**FleetUpdateSubscriptionsRequest2**](FleetUpdateSubscriptionsRequest2.md) |  | 
 
 ### Return type
 

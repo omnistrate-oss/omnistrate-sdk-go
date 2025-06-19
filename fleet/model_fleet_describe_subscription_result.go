@@ -20,20 +20,24 @@ var _ MappedNullable = &FleetDescribeSubscriptionResult{}
 
 // FleetDescribeSubscriptionResult struct for FleetDescribeSubscriptionResult
 type FleetDescribeSubscriptionResult struct {
-	// The active pricing for the subscription at the time of the request.
-	ActiveSubscriptionPricing map[string]interface{} `json:"activeSubscriptionPricing,omitempty"`
+	// Whether to allow creating instances when payment is not configured.
+	AllowCreatesWhenPaymentNotConfigured *bool `json:"allowCreatesWhenPaymentNotConfigured,omitempty"`
+	// The billing provider type
+	BillingProvider *string `json:"billingProvider,omitempty"`
 	// The time that this subscription was created
 	CreatedAt string `json:"createdAt"`
+	// The active pricing for the subscription at the time of the request.
+	CurrentActivePricePerUnit map[string]interface{} `json:"currentActivePricePerUnit,omitempty"`
+	// Whether this subscription has a custom price
+	CustomPrice *bool `json:"customPrice,omitempty"`
 	// The external payer ID to record which customer should pay for this subscription
 	ExternalPayerId *string `json:"externalPayerId,omitempty"`
-	// The history pricing for the subscription.
-	HistorySubscriptionPricing []HistorySubscriptionPricing `json:"historySubscriptionPricing,omitempty"`
 	// ID of a Subscription
 	Id string `json:"id"`
-	// Whether to inherit the service plan price
-	InheritServicePlanPrice *bool `json:"inheritServicePlanPrice,omitempty"`
 	// The number of active instances in the subscription
 	InstanceCount int64 `json:"instanceCount"`
+	// The maximum number of instances that can be created for this subscription.
+	MaxNumberOfInstances *int64 `json:"maxNumberOfInstances,omitempty"`
 	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// The name of the product tier
@@ -46,6 +50,8 @@ type FleetDescribeSubscriptionResult struct {
 	RootUserName string `json:"rootUserName"`
 	// ID of an Org
 	RootUserOrgId *string `json:"rootUserOrgId,omitempty"`
+	// Includes the past, current, and future scheduled pricing for this subscription.
+	ScheduledSubscriptionPricingList []SubscriptionPricing `json:"scheduledSubscriptionPricingList,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The logo for the service
@@ -54,6 +60,8 @@ type FleetDescribeSubscriptionResult struct {
 	ServiceName string `json:"serviceName"`
 	// Subscription Status
 	Status string `json:"status"`
+	// The full audit logs of pricing change for this subscription.
+	SubscriptionPricingAuditLogs []SubscriptionPricing `json:"subscriptionPricingAuditLogs,omitempty"`
 	// The time that this subscription was last updated
 	UpdatedAt string `json:"updatedAt"`
 	// ID of a User
@@ -98,36 +106,68 @@ func NewFleetDescribeSubscriptionResultWithDefaults() *FleetDescribeSubscription
 	return &this
 }
 
-// GetActiveSubscriptionPricing returns the ActiveSubscriptionPricing field value if set, zero value otherwise.
-func (o *FleetDescribeSubscriptionResult) GetActiveSubscriptionPricing() map[string]interface{} {
-	if o == nil || IsNil(o.ActiveSubscriptionPricing) {
-		var ret map[string]interface{}
+// GetAllowCreatesWhenPaymentNotConfigured returns the AllowCreatesWhenPaymentNotConfigured field value if set, zero value otherwise.
+func (o *FleetDescribeSubscriptionResult) GetAllowCreatesWhenPaymentNotConfigured() bool {
+	if o == nil || IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
+		var ret bool
 		return ret
 	}
-	return o.ActiveSubscriptionPricing
+	return *o.AllowCreatesWhenPaymentNotConfigured
 }
 
-// GetActiveSubscriptionPricingOk returns a tuple with the ActiveSubscriptionPricing field value if set, nil otherwise
+// GetAllowCreatesWhenPaymentNotConfiguredOk returns a tuple with the AllowCreatesWhenPaymentNotConfigured field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FleetDescribeSubscriptionResult) GetActiveSubscriptionPricingOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.ActiveSubscriptionPricing) {
-		return map[string]interface{}{}, false
+func (o *FleetDescribeSubscriptionResult) GetAllowCreatesWhenPaymentNotConfiguredOk() (*bool, bool) {
+	if o == nil || IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
+		return nil, false
 	}
-	return o.ActiveSubscriptionPricing, true
+	return o.AllowCreatesWhenPaymentNotConfigured, true
 }
 
-// HasActiveSubscriptionPricing returns a boolean if a field has been set.
-func (o *FleetDescribeSubscriptionResult) HasActiveSubscriptionPricing() bool {
-	if o != nil && !IsNil(o.ActiveSubscriptionPricing) {
+// HasAllowCreatesWhenPaymentNotConfigured returns a boolean if a field has been set.
+func (o *FleetDescribeSubscriptionResult) HasAllowCreatesWhenPaymentNotConfigured() bool {
+	if o != nil && !IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
 		return true
 	}
 
 	return false
 }
 
-// SetActiveSubscriptionPricing gets a reference to the given map[string]interface{} and assigns it to the ActiveSubscriptionPricing field.
-func (o *FleetDescribeSubscriptionResult) SetActiveSubscriptionPricing(v map[string]interface{}) {
-	o.ActiveSubscriptionPricing = v
+// SetAllowCreatesWhenPaymentNotConfigured gets a reference to the given bool and assigns it to the AllowCreatesWhenPaymentNotConfigured field.
+func (o *FleetDescribeSubscriptionResult) SetAllowCreatesWhenPaymentNotConfigured(v bool) {
+	o.AllowCreatesWhenPaymentNotConfigured = &v
+}
+
+// GetBillingProvider returns the BillingProvider field value if set, zero value otherwise.
+func (o *FleetDescribeSubscriptionResult) GetBillingProvider() string {
+	if o == nil || IsNil(o.BillingProvider) {
+		var ret string
+		return ret
+	}
+	return *o.BillingProvider
+}
+
+// GetBillingProviderOk returns a tuple with the BillingProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeSubscriptionResult) GetBillingProviderOk() (*string, bool) {
+	if o == nil || IsNil(o.BillingProvider) {
+		return nil, false
+	}
+	return o.BillingProvider, true
+}
+
+// HasBillingProvider returns a boolean if a field has been set.
+func (o *FleetDescribeSubscriptionResult) HasBillingProvider() bool {
+	if o != nil && !IsNil(o.BillingProvider) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingProvider gets a reference to the given string and assigns it to the BillingProvider field.
+func (o *FleetDescribeSubscriptionResult) SetBillingProvider(v string) {
+	o.BillingProvider = &v
 }
 
 // GetCreatedAt returns the CreatedAt field value
@@ -152,6 +192,70 @@ func (o *FleetDescribeSubscriptionResult) GetCreatedAtOk() (*string, bool) {
 // SetCreatedAt sets field value
 func (o *FleetDescribeSubscriptionResult) SetCreatedAt(v string) {
 	o.CreatedAt = v
+}
+
+// GetCurrentActivePricePerUnit returns the CurrentActivePricePerUnit field value if set, zero value otherwise.
+func (o *FleetDescribeSubscriptionResult) GetCurrentActivePricePerUnit() map[string]interface{} {
+	if o == nil || IsNil(o.CurrentActivePricePerUnit) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.CurrentActivePricePerUnit
+}
+
+// GetCurrentActivePricePerUnitOk returns a tuple with the CurrentActivePricePerUnit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeSubscriptionResult) GetCurrentActivePricePerUnitOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.CurrentActivePricePerUnit) {
+		return map[string]interface{}{}, false
+	}
+	return o.CurrentActivePricePerUnit, true
+}
+
+// HasCurrentActivePricePerUnit returns a boolean if a field has been set.
+func (o *FleetDescribeSubscriptionResult) HasCurrentActivePricePerUnit() bool {
+	if o != nil && !IsNil(o.CurrentActivePricePerUnit) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrentActivePricePerUnit gets a reference to the given map[string]interface{} and assigns it to the CurrentActivePricePerUnit field.
+func (o *FleetDescribeSubscriptionResult) SetCurrentActivePricePerUnit(v map[string]interface{}) {
+	o.CurrentActivePricePerUnit = v
+}
+
+// GetCustomPrice returns the CustomPrice field value if set, zero value otherwise.
+func (o *FleetDescribeSubscriptionResult) GetCustomPrice() bool {
+	if o == nil || IsNil(o.CustomPrice) {
+		var ret bool
+		return ret
+	}
+	return *o.CustomPrice
+}
+
+// GetCustomPriceOk returns a tuple with the CustomPrice field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeSubscriptionResult) GetCustomPriceOk() (*bool, bool) {
+	if o == nil || IsNil(o.CustomPrice) {
+		return nil, false
+	}
+	return o.CustomPrice, true
+}
+
+// HasCustomPrice returns a boolean if a field has been set.
+func (o *FleetDescribeSubscriptionResult) HasCustomPrice() bool {
+	if o != nil && !IsNil(o.CustomPrice) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomPrice gets a reference to the given bool and assigns it to the CustomPrice field.
+func (o *FleetDescribeSubscriptionResult) SetCustomPrice(v bool) {
+	o.CustomPrice = &v
 }
 
 // GetExternalPayerId returns the ExternalPayerId field value if set, zero value otherwise.
@@ -186,38 +290,6 @@ func (o *FleetDescribeSubscriptionResult) SetExternalPayerId(v string) {
 	o.ExternalPayerId = &v
 }
 
-// GetHistorySubscriptionPricing returns the HistorySubscriptionPricing field value if set, zero value otherwise.
-func (o *FleetDescribeSubscriptionResult) GetHistorySubscriptionPricing() []HistorySubscriptionPricing {
-	if o == nil || IsNil(o.HistorySubscriptionPricing) {
-		var ret []HistorySubscriptionPricing
-		return ret
-	}
-	return o.HistorySubscriptionPricing
-}
-
-// GetHistorySubscriptionPricingOk returns a tuple with the HistorySubscriptionPricing field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FleetDescribeSubscriptionResult) GetHistorySubscriptionPricingOk() ([]HistorySubscriptionPricing, bool) {
-	if o == nil || IsNil(o.HistorySubscriptionPricing) {
-		return nil, false
-	}
-	return o.HistorySubscriptionPricing, true
-}
-
-// HasHistorySubscriptionPricing returns a boolean if a field has been set.
-func (o *FleetDescribeSubscriptionResult) HasHistorySubscriptionPricing() bool {
-	if o != nil && !IsNil(o.HistorySubscriptionPricing) {
-		return true
-	}
-
-	return false
-}
-
-// SetHistorySubscriptionPricing gets a reference to the given []HistorySubscriptionPricing and assigns it to the HistorySubscriptionPricing field.
-func (o *FleetDescribeSubscriptionResult) SetHistorySubscriptionPricing(v []HistorySubscriptionPricing) {
-	o.HistorySubscriptionPricing = v
-}
-
 // GetId returns the Id field value
 func (o *FleetDescribeSubscriptionResult) GetId() string {
 	if o == nil {
@@ -242,38 +314,6 @@ func (o *FleetDescribeSubscriptionResult) SetId(v string) {
 	o.Id = v
 }
 
-// GetInheritServicePlanPrice returns the InheritServicePlanPrice field value if set, zero value otherwise.
-func (o *FleetDescribeSubscriptionResult) GetInheritServicePlanPrice() bool {
-	if o == nil || IsNil(o.InheritServicePlanPrice) {
-		var ret bool
-		return ret
-	}
-	return *o.InheritServicePlanPrice
-}
-
-// GetInheritServicePlanPriceOk returns a tuple with the InheritServicePlanPrice field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FleetDescribeSubscriptionResult) GetInheritServicePlanPriceOk() (*bool, bool) {
-	if o == nil || IsNil(o.InheritServicePlanPrice) {
-		return nil, false
-	}
-	return o.InheritServicePlanPrice, true
-}
-
-// HasInheritServicePlanPrice returns a boolean if a field has been set.
-func (o *FleetDescribeSubscriptionResult) HasInheritServicePlanPrice() bool {
-	if o != nil && !IsNil(o.InheritServicePlanPrice) {
-		return true
-	}
-
-	return false
-}
-
-// SetInheritServicePlanPrice gets a reference to the given bool and assigns it to the InheritServicePlanPrice field.
-func (o *FleetDescribeSubscriptionResult) SetInheritServicePlanPrice(v bool) {
-	o.InheritServicePlanPrice = &v
-}
-
 // GetInstanceCount returns the InstanceCount field value
 func (o *FleetDescribeSubscriptionResult) GetInstanceCount() int64 {
 	if o == nil {
@@ -296,6 +336,38 @@ func (o *FleetDescribeSubscriptionResult) GetInstanceCountOk() (*int64, bool) {
 // SetInstanceCount sets field value
 func (o *FleetDescribeSubscriptionResult) SetInstanceCount(v int64) {
 	o.InstanceCount = v
+}
+
+// GetMaxNumberOfInstances returns the MaxNumberOfInstances field value if set, zero value otherwise.
+func (o *FleetDescribeSubscriptionResult) GetMaxNumberOfInstances() int64 {
+	if o == nil || IsNil(o.MaxNumberOfInstances) {
+		var ret int64
+		return ret
+	}
+	return *o.MaxNumberOfInstances
+}
+
+// GetMaxNumberOfInstancesOk returns a tuple with the MaxNumberOfInstances field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeSubscriptionResult) GetMaxNumberOfInstancesOk() (*int64, bool) {
+	if o == nil || IsNil(o.MaxNumberOfInstances) {
+		return nil, false
+	}
+	return o.MaxNumberOfInstances, true
+}
+
+// HasMaxNumberOfInstances returns a boolean if a field has been set.
+func (o *FleetDescribeSubscriptionResult) HasMaxNumberOfInstances() bool {
+	if o != nil && !IsNil(o.MaxNumberOfInstances) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxNumberOfInstances gets a reference to the given int64 and assigns it to the MaxNumberOfInstances field.
+func (o *FleetDescribeSubscriptionResult) SetMaxNumberOfInstances(v int64) {
+	o.MaxNumberOfInstances = &v
 }
 
 // GetProductTierId returns the ProductTierId field value
@@ -450,6 +522,38 @@ func (o *FleetDescribeSubscriptionResult) SetRootUserOrgId(v string) {
 	o.RootUserOrgId = &v
 }
 
+// GetScheduledSubscriptionPricingList returns the ScheduledSubscriptionPricingList field value if set, zero value otherwise.
+func (o *FleetDescribeSubscriptionResult) GetScheduledSubscriptionPricingList() []SubscriptionPricing {
+	if o == nil || IsNil(o.ScheduledSubscriptionPricingList) {
+		var ret []SubscriptionPricing
+		return ret
+	}
+	return o.ScheduledSubscriptionPricingList
+}
+
+// GetScheduledSubscriptionPricingListOk returns a tuple with the ScheduledSubscriptionPricingList field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeSubscriptionResult) GetScheduledSubscriptionPricingListOk() ([]SubscriptionPricing, bool) {
+	if o == nil || IsNil(o.ScheduledSubscriptionPricingList) {
+		return nil, false
+	}
+	return o.ScheduledSubscriptionPricingList, true
+}
+
+// HasScheduledSubscriptionPricingList returns a boolean if a field has been set.
+func (o *FleetDescribeSubscriptionResult) HasScheduledSubscriptionPricingList() bool {
+	if o != nil && !IsNil(o.ScheduledSubscriptionPricingList) {
+		return true
+	}
+
+	return false
+}
+
+// SetScheduledSubscriptionPricingList gets a reference to the given []SubscriptionPricing and assigns it to the ScheduledSubscriptionPricingList field.
+func (o *FleetDescribeSubscriptionResult) SetScheduledSubscriptionPricingList(v []SubscriptionPricing) {
+	o.ScheduledSubscriptionPricingList = v
+}
+
 // GetServiceId returns the ServiceId field value
 func (o *FleetDescribeSubscriptionResult) GetServiceId() string {
 	if o == nil {
@@ -552,6 +656,38 @@ func (o *FleetDescribeSubscriptionResult) GetStatusOk() (*string, bool) {
 // SetStatus sets field value
 func (o *FleetDescribeSubscriptionResult) SetStatus(v string) {
 	o.Status = v
+}
+
+// GetSubscriptionPricingAuditLogs returns the SubscriptionPricingAuditLogs field value if set, zero value otherwise.
+func (o *FleetDescribeSubscriptionResult) GetSubscriptionPricingAuditLogs() []SubscriptionPricing {
+	if o == nil || IsNil(o.SubscriptionPricingAuditLogs) {
+		var ret []SubscriptionPricing
+		return ret
+	}
+	return o.SubscriptionPricingAuditLogs
+}
+
+// GetSubscriptionPricingAuditLogsOk returns a tuple with the SubscriptionPricingAuditLogs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeSubscriptionResult) GetSubscriptionPricingAuditLogsOk() ([]SubscriptionPricing, bool) {
+	if o == nil || IsNil(o.SubscriptionPricingAuditLogs) {
+		return nil, false
+	}
+	return o.SubscriptionPricingAuditLogs, true
+}
+
+// HasSubscriptionPricingAuditLogs returns a boolean if a field has been set.
+func (o *FleetDescribeSubscriptionResult) HasSubscriptionPricingAuditLogs() bool {
+	if o != nil && !IsNil(o.SubscriptionPricingAuditLogs) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionPricingAuditLogs gets a reference to the given []SubscriptionPricing and assigns it to the SubscriptionPricingAuditLogs field.
+func (o *FleetDescribeSubscriptionResult) SetSubscriptionPricingAuditLogs(v []SubscriptionPricing) {
+	o.SubscriptionPricingAuditLogs = v
 }
 
 // GetUpdatedAt returns the UpdatedAt field value
@@ -668,21 +804,27 @@ func (o FleetDescribeSubscriptionResult) MarshalJSON() ([]byte, error) {
 
 func (o FleetDescribeSubscriptionResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ActiveSubscriptionPricing) {
-		toSerialize["activeSubscriptionPricing"] = o.ActiveSubscriptionPricing
+	if !IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
+		toSerialize["allowCreatesWhenPaymentNotConfigured"] = o.AllowCreatesWhenPaymentNotConfigured
+	}
+	if !IsNil(o.BillingProvider) {
+		toSerialize["billingProvider"] = o.BillingProvider
 	}
 	toSerialize["createdAt"] = o.CreatedAt
+	if !IsNil(o.CurrentActivePricePerUnit) {
+		toSerialize["currentActivePricePerUnit"] = o.CurrentActivePricePerUnit
+	}
+	if !IsNil(o.CustomPrice) {
+		toSerialize["customPrice"] = o.CustomPrice
+	}
 	if !IsNil(o.ExternalPayerId) {
 		toSerialize["externalPayerId"] = o.ExternalPayerId
 	}
-	if !IsNil(o.HistorySubscriptionPricing) {
-		toSerialize["historySubscriptionPricing"] = o.HistorySubscriptionPricing
-	}
 	toSerialize["id"] = o.Id
-	if !IsNil(o.InheritServicePlanPrice) {
-		toSerialize["inheritServicePlanPrice"] = o.InheritServicePlanPrice
-	}
 	toSerialize["instanceCount"] = o.InstanceCount
+	if !IsNil(o.MaxNumberOfInstances) {
+		toSerialize["maxNumberOfInstances"] = o.MaxNumberOfInstances
+	}
 	toSerialize["productTierId"] = o.ProductTierId
 	toSerialize["productTierName"] = o.ProductTierName
 	toSerialize["rootUserEmail"] = o.RootUserEmail
@@ -691,12 +833,18 @@ func (o FleetDescribeSubscriptionResult) ToMap() (map[string]interface{}, error)
 	if !IsNil(o.RootUserOrgId) {
 		toSerialize["rootUserOrgId"] = o.RootUserOrgId
 	}
+	if !IsNil(o.ScheduledSubscriptionPricingList) {
+		toSerialize["scheduledSubscriptionPricingList"] = o.ScheduledSubscriptionPricingList
+	}
 	toSerialize["serviceId"] = o.ServiceId
 	if !IsNil(o.ServiceLogoURL) {
 		toSerialize["serviceLogoURL"] = o.ServiceLogoURL
 	}
 	toSerialize["serviceName"] = o.ServiceName
 	toSerialize["status"] = o.Status
+	if !IsNil(o.SubscriptionPricingAuditLogs) {
+		toSerialize["subscriptionPricingAuditLogs"] = o.SubscriptionPricingAuditLogs
+	}
 	toSerialize["updatedAt"] = o.UpdatedAt
 	toSerialize["updatedByUserId"] = o.UpdatedByUserId
 	toSerialize["updatedByUserName"] = o.UpdatedByUserName
@@ -759,23 +907,27 @@ func (o *FleetDescribeSubscriptionResult) UnmarshalJSON(data []byte) (err error)
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "activeSubscriptionPricing")
+		delete(additionalProperties, "allowCreatesWhenPaymentNotConfigured")
+		delete(additionalProperties, "billingProvider")
 		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "currentActivePricePerUnit")
+		delete(additionalProperties, "customPrice")
 		delete(additionalProperties, "externalPayerId")
-		delete(additionalProperties, "historySubscriptionPricing")
 		delete(additionalProperties, "id")
-		delete(additionalProperties, "inheritServicePlanPrice")
 		delete(additionalProperties, "instanceCount")
+		delete(additionalProperties, "maxNumberOfInstances")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "productTierName")
 		delete(additionalProperties, "rootUserEmail")
 		delete(additionalProperties, "rootUserId")
 		delete(additionalProperties, "rootUserName")
 		delete(additionalProperties, "rootUserOrgId")
+		delete(additionalProperties, "scheduledSubscriptionPricingList")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "serviceLogoURL")
 		delete(additionalProperties, "serviceName")
 		delete(additionalProperties, "status")
+		delete(additionalProperties, "subscriptionPricingAuditLogs")
 		delete(additionalProperties, "updatedAt")
 		delete(additionalProperties, "updatedByUserId")
 		delete(additionalProperties, "updatedByUserName")

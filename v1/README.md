@@ -151,7 +151,9 @@ Class | Method | HTTP request | Description
 *IdentityProviderApiAPI* | [**IdentityProviderApiCreateIdentityProvider**](docs/IdentityProviderApiAPI.md#identityproviderapicreateidentityprovider) | **Post** /2022-09-01-00/identity-provider | CreateIdentityProvider identity-provider-api
 *IdentityProviderApiAPI* | [**IdentityProviderApiDeleteIdentityProvider**](docs/IdentityProviderApiAPI.md#identityproviderapideleteidentityprovider) | **Delete** /2022-09-01-00/identity-provider/{id} | DeleteIdentityProvider identity-provider-api
 *IdentityProviderApiAPI* | [**IdentityProviderApiDescribeIdentityProvider**](docs/IdentityProviderApiAPI.md#identityproviderapidescribeidentityprovider) | **Get** /2022-09-01-00/identity-provider/{id} | DescribeIdentityProvider identity-provider-api
+*IdentityProviderApiAPI* | [**IdentityProviderApiListIdentityProviderTypes**](docs/IdentityProviderApiAPI.md#identityproviderapilistidentityprovidertypes) | **Get** /2022-09-01-00/identity-provider-types | ListIdentityProviderTypes identity-provider-api
 *IdentityProviderApiAPI* | [**IdentityProviderApiListIdentityProviders**](docs/IdentityProviderApiAPI.md#identityproviderapilistidentityproviders) | **Get** /2022-09-01-00/identity-provider | ListIdentityProviders identity-provider-api
+*IdentityProviderApiAPI* | [**IdentityProviderApiRenderIdentityProviders**](docs/IdentityProviderApiAPI.md#identityproviderapirenderidentityproviders) | **Get** /2022-09-01-00/identity-provider-render | RenderIdentityProviders identity-provider-api
 *IdentityProviderApiAPI* | [**IdentityProviderApiUpdateIdentityProvider**](docs/IdentityProviderApiAPI.md#identityproviderapiupdateidentityprovider) | **Patch** /2022-09-01-00/identity-provider/{id} | UpdateIdentityProvider identity-provider-api
 *IdentityProviderApiAPI* | [**IdentityProviderApiVerifyIdentityProvider**](docs/IdentityProviderApiAPI.md#identityproviderapiverifyidentityprovider) | **Post** /2022-09-01-00/identity-provider/{id} | VerifyIdentityProvider identity-provider-api
 *ImageConfigApiAPI* | [**ImageConfigApiCreateImageConfig**](docs/ImageConfigApiAPI.md#imageconfigapicreateimageconfig) | **Post** /2022-09-01-00/service/{serviceId}/image-config | CreateImageConfig image-config-api
@@ -264,6 +266,10 @@ Class | Method | HTTP request | Description
 *SaasPortalApiAPI* | [**SaasPortalApiListSaaSPortals**](docs/SaasPortalApiAPI.md#saasportalapilistsaasportals) | **Get** /2022-09-01-00/saas-portal | ListSaaSPortals saas-portal-api
 *SaasPortalApiAPI* | [**SaasPortalApiUpdateSaaSPortal**](docs/SaasPortalApiAPI.md#saasportalapiupdatesaasportal) | **Patch** /2022-09-01-00/saas-portal/{environmentType} | UpdateSaaSPortal saas-portal-api
 *SaasPortalApiAPI* | [**SaasPortalApiUpdateSaaSPortalCustomDomain**](docs/SaasPortalApiAPI.md#saasportalapiupdatesaasportalcustomdomain) | **Patch** /2022-09-01-00/saas-portal-custom-domain/{environmentType} | UpdateSaaSPortalCustomDomain saas-portal-api
+*SecretsApiAPI* | [**SecretsApiDeleteSecret**](docs/SecretsApiAPI.md#secretsapideletesecret) | **Delete** /2022-09-01-00/environmentType/{environmentType}/secret/{name} | DeleteSecret secrets-api
+*SecretsApiAPI* | [**SecretsApiGetSecret**](docs/SecretsApiAPI.md#secretsapigetsecret) | **Get** /2022-09-01-00/environmentType/{environmentType}/secret/{name} | GetSecret secrets-api
+*SecretsApiAPI* | [**SecretsApiListSecrets**](docs/SecretsApiAPI.md#secretsapilistsecrets) | **Get** /2022-09-01-00/environmentType/{environmentType}/secrets | ListSecrets secrets-api
+*SecretsApiAPI* | [**SecretsApiSetSecret**](docs/SecretsApiAPI.md#secretsapisetsecret) | **Put** /2022-09-01-00/environmentType/{environmentType}/secret/{name} | SetSecret secrets-api
 *ServiceApiAPI* | [**ServiceApiBuildServiceFromComposeSpec**](docs/ServiceApiAPI.md#serviceapibuildservicefromcomposespec) | **Put** /2022-09-01-00/service/composespec | BuildServiceFromComposeSpec service-api
 *ServiceApiAPI* | [**ServiceApiBuildServiceFromServicePlanSpec**](docs/ServiceApiAPI.md#serviceapibuildservicefromserviceplanspec) | **Put** /2022-09-01-00/service/serviceplanspec | BuildServiceFromServicePlanSpec service-api
 *ServiceApiAPI* | [**ServiceApiCreateService**](docs/ServiceApiAPI.md#serviceapicreateservice) | **Post** /2022-09-01-00/service | CreateService service-api
@@ -343,6 +349,11 @@ Class | Method | HTTP request | Description
 *SubscriptionRequestApiAPI* | [**SubscriptionRequestApiCreateSubscriptionRequest**](docs/SubscriptionRequestApiAPI.md#subscriptionrequestapicreatesubscriptionrequest) | **Post** /2022-09-01-00/subscription/request | CreateSubscriptionRequest subscription-request-api
 *SubscriptionRequestApiAPI* | [**SubscriptionRequestApiDescribeSubscriptionRequest**](docs/SubscriptionRequestApiAPI.md#subscriptionrequestapidescribesubscriptionrequest) | **Get** /2022-09-01-00/subscription/request/{id} | DescribeSubscriptionRequest subscription-request-api
 *SubscriptionRequestApiAPI* | [**SubscriptionRequestApiListSubscriptionRequests**](docs/SubscriptionRequestApiAPI.md#subscriptionrequestapilistsubscriptionrequests) | **Get** /2022-09-01-00/subscription/request | ListSubscriptionRequests subscription-request-api
+*TenantBillingApiAPI* | [**TenantBillingApiDisableBillingProvider**](docs/TenantBillingApiAPI.md#tenantbillingapidisablebillingprovider) | **Delete** /2022-09-01-00/tenant-billing/disable/{billingProviderType} | DisableBillingProvider tenant-billing-api
+*TenantBillingApiAPI* | [**TenantBillingApiDisableTenantBilling**](docs/TenantBillingApiAPI.md#tenantbillingapidisabletenantbilling) | **Delete** /2022-09-01-00/tenant-billing/disable | DisableTenantBilling tenant-billing-api
+*TenantBillingApiAPI* | [**TenantBillingApiEnableBillingProvider**](docs/TenantBillingApiAPI.md#tenantbillingapienablebillingprovider) | **Post** /2022-09-01-00/tenant-billing/enable/{billingProviderType} | EnableBillingProvider tenant-billing-api
+*TenantBillingApiAPI* | [**TenantBillingApiEnableTenantBilling**](docs/TenantBillingApiAPI.md#tenantbillingapienabletenantbilling) | **Post** /2022-09-01-00/tenant-billing/enable | EnableTenantBilling tenant-billing-api
+*TenantBillingApiAPI* | [**TenantBillingApiGetTenantBillingStatus**](docs/TenantBillingApiAPI.md#tenantbillingapigettenantbillingstatus) | **Get** /2022-09-01-00/tenant-billing | GetTenantBillingStatus tenant-billing-api
 *TierVersionSetApiAPI* | [**TierVersionSetApiCreateTierVersionSet**](docs/TierVersionSetApiAPI.md#tierversionsetapicreatetierversionset) | **Post** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set | CreateTierVersionSet tier-version-set-api
 *TierVersionSetApiAPI* | [**TierVersionSetApiDeprecateTierVersionSet**](docs/TierVersionSetApiAPI.md#tierversionsetapideprecatetierversionset) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/deprecate | DeprecateTierVersionSet tier-version-set-api
 *TierVersionSetApiAPI* | [**TierVersionSetApiDescribeTierVersionSet**](docs/TierVersionSetApiAPI.md#tierversionsetapidescribetierversionset) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version} | DescribeTierVersionSet tier-version-set-api
@@ -375,6 +386,7 @@ Class | Method | HTTP request | Description
 
  - [APIEntity](docs/APIEntity.md)
  - [AWSPrivateLinkConfiguration](docs/AWSPrivateLinkConfiguration.md)
+ - [AcceleratorConfiguration](docs/AcceleratorConfiguration.md)
  - [AccountConfigIdentityIDRequest](docs/AccountConfigIdentityIDRequest.md)
  - [AccountConfigIdentityIDResult](docs/AccountConfigIdentityIDResult.md)
  - [AcknowledgeEventRequest](docs/AcknowledgeEventRequest.md)
@@ -399,6 +411,7 @@ Class | Method | HTTP request | Description
  - [BackendPortConfiguration](docs/BackendPortConfiguration.md)
  - [BackupConfiguration](docs/BackupConfiguration.md)
  - [BackupStatus](docs/BackupStatus.md)
+ - [BillingProvider](docs/BillingProvider.md)
  - [BlobStorageConfiguration](docs/BlobStorageConfiguration.md)
  - [BuildServiceFromComposeSpecRequest](docs/BuildServiceFromComposeSpecRequest.md)
  - [BuildServiceFromComposeSpecRequest2](docs/BuildServiceFromComposeSpecRequest2.md)
@@ -496,6 +509,7 @@ Class | Method | HTTP request | Description
  - [CustomNetworkResourceDetail](docs/CustomNetworkResourceDetail.md)
  - [CustomTag](docs/CustomTag.md)
  - [CustomULimits](docs/CustomULimits.md)
+ - [CustomerBillingProvider](docs/CustomerBillingProvider.md)
  - [CustomerDeleteUserRequest](docs/CustomerDeleteUserRequest.md)
  - [CustomerInviteUserRequest](docs/CustomerInviteUserRequest.md)
  - [CustomerInviteUserRequest2](docs/CustomerInviteUserRequest2.md)
@@ -529,6 +543,7 @@ Class | Method | HTTP request | Description
  - [DeleteResourceInstanceRequest](docs/DeleteResourceInstanceRequest.md)
  - [DeleteResourceRequest](docs/DeleteResourceRequest.md)
  - [DeleteSaaSPortalCustomDomainRequest](docs/DeleteSaaSPortalCustomDomainRequest.md)
+ - [DeleteSecretRequest](docs/DeleteSecretRequest.md)
  - [DeleteServiceAPIRequest](docs/DeleteServiceAPIRequest.md)
  - [DeleteServiceEnvironmentRequest](docs/DeleteServiceEnvironmentRequest.md)
  - [DeleteServiceModelRequest](docs/DeleteServiceModelRequest.md)
@@ -578,6 +593,7 @@ Class | Method | HTTP request | Description
  - [DescribeHelmPackageRequest](docs/DescribeHelmPackageRequest.md)
  - [DescribeIdentityProviderRequest](docs/DescribeIdentityProviderRequest.md)
  - [DescribeIdentityProviderResult](docs/DescribeIdentityProviderResult.md)
+ - [DescribeIdentityProviderTypeResult](docs/DescribeIdentityProviderTypeResult.md)
  - [DescribeImageConfigRequest](docs/DescribeImageConfigRequest.md)
  - [DescribeImageConfigResult](docs/DescribeImageConfigResult.md)
  - [DescribeImageRegistryRequest](docs/DescribeImageRegistryRequest.md)
@@ -649,20 +665,25 @@ Class | Method | HTTP request | Description
  - [DetailedNodeHealthResult](docs/DetailedNodeHealthResult.md)
  - [DiffTierVersionSetsRequest](docs/DiffTierVersionSetsRequest.md)
  - [DiffTierVersionSetsResult](docs/DiffTierVersionSetsResult.md)
+ - [DisableBillingProviderRequest](docs/DisableBillingProviderRequest.md)
  - [DisableProductTierFeatureRequest](docs/DisableProductTierFeatureRequest.md)
  - [DisableProductTierFeatureRequest2](docs/DisableProductTierFeatureRequest2.md)
  - [DisableResourceCapabilityRequest](docs/DisableResourceCapabilityRequest.md)
  - [DisableResourceCapabilityRequest2](docs/DisableResourceCapabilityRequest2.md)
  - [DisableServiceModelFeatureRequest](docs/DisableServiceModelFeatureRequest.md)
  - [DisableServiceModelFeatureRequest2](docs/DisableServiceModelFeatureRequest2.md)
+ - [DisableTenantBillingRequest](docs/DisableTenantBillingRequest.md)
  - [DiscardPendingChangesRequest](docs/DiscardPendingChangesRequest.md)
  - [EFSFileSystemConfiguration](docs/EFSFileSystemConfiguration.md)
+ - [EnableBillingProviderRequest](docs/EnableBillingProviderRequest.md)
+ - [EnableBillingProviderRequest2](docs/EnableBillingProviderRequest2.md)
  - [EnableProductTierFeatureRequest](docs/EnableProductTierFeatureRequest.md)
  - [EnableProductTierFeatureRequest2](docs/EnableProductTierFeatureRequest2.md)
  - [EnableResourceCapabilityRequest](docs/EnableResourceCapabilityRequest.md)
  - [EnableResourceCapabilityRequest2](docs/EnableResourceCapabilityRequest2.md)
  - [EnableServiceModelFeatureRequest](docs/EnableServiceModelFeatureRequest.md)
  - [EnableServiceModelFeatureRequest2](docs/EnableServiceModelFeatureRequest2.md)
+ - [EnableTenantBillingRequest](docs/EnableTenantBillingRequest.md)
  - [EndCustomerEvent](docs/EndCustomerEvent.md)
  - [Endpoint](docs/Endpoint.md)
  - [EnvironmentHealthReport](docs/EnvironmentHealthReport.md)
@@ -686,8 +707,12 @@ Class | Method | HTTP request | Description
  - [GetCurrentUsageRequest](docs/GetCurrentUsageRequest.md)
  - [GetFileRequest](docs/GetFileRequest.md)
  - [GetRegionByCodeRequest](docs/GetRegionByCodeRequest.md)
+ - [GetSecretRequest](docs/GetSecretRequest.md)
+ - [GetSecretResult](docs/GetSecretResult.md)
  - [GetServicePlanRequest](docs/GetServicePlanRequest.md)
  - [GetServicePlanResult](docs/GetServicePlanResult.md)
+ - [GetTenantBillingStatusRequest](docs/GetTenantBillingStatusRequest.md)
+ - [GetTenantBillingStatusResult](docs/GetTenantBillingStatusResult.md)
  - [GetUsageRequest](docs/GetUsageRequest.md)
  - [GetUsageResult](docs/GetUsageResult.md)
  - [GitConfiguration](docs/GitConfiguration.md)
@@ -755,6 +780,8 @@ Class | Method | HTTP request | Description
  - [ListFilesResult](docs/ListFilesResult.md)
  - [ListHelmPackagesRequest](docs/ListHelmPackagesRequest.md)
  - [ListHelmPackagesResult](docs/ListHelmPackagesResult.md)
+ - [ListIdentityProviderTypesRequest](docs/ListIdentityProviderTypesRequest.md)
+ - [ListIdentityProviderTypesResult](docs/ListIdentityProviderTypesResult.md)
  - [ListIdentityProvidersRequest](docs/ListIdentityProvidersRequest.md)
  - [ListIdentityProvidersResult](docs/ListIdentityProvidersResult.md)
  - [ListImageConfigsRequest](docs/ListImageConfigsRequest.md)
@@ -792,6 +819,8 @@ Class | Method | HTTP request | Description
  - [ListSaaSPortalCustomDomainsResult](docs/ListSaaSPortalCustomDomainsResult.md)
  - [ListSaaSPortalsRequest](docs/ListSaaSPortalsRequest.md)
  - [ListSaaSPortalsResult](docs/ListSaaSPortalsResult.md)
+ - [ListSecretsRequest](docs/ListSecretsRequest.md)
+ - [ListSecretsResult](docs/ListSecretsResult.md)
  - [ListServiceAPIsRequest](docs/ListServiceAPIsRequest.md)
  - [ListServiceAPIsResult](docs/ListServiceAPIsResult.md)
  - [ListServiceEnvironmentsRequest](docs/ListServiceEnvironmentsRequest.md)
@@ -874,6 +903,9 @@ Class | Method | HTTP request | Description
  - [RemoveResourceDependencyRequest](docs/RemoveResourceDependencyRequest.md)
  - [RemoveStorageVolumeConfigRequest](docs/RemoveStorageVolumeConfigRequest.md)
  - [RemoveStorageVolumeConfigRequest2](docs/RemoveStorageVolumeConfigRequest2.md)
+ - [RenderIdentityProvidersRequest](docs/RenderIdentityProvidersRequest.md)
+ - [RenderIdentityProvidersResult](docs/RenderIdentityProvidersResult.md)
+ - [RenderedIdentityProviderResult](docs/RenderedIdentityProviderResult.md)
  - [ReportHealthRequest](docs/ReportHealthRequest.md)
  - [ReportHealthResult](docs/ReportHealthResult.md)
  - [ResetPasswordRequest](docs/ResetPasswordRequest.md)
@@ -910,6 +942,7 @@ Class | Method | HTTP request | Description
  - [SaaSPortalImageConfig](docs/SaaSPortalImageConfig.md)
  - [SaveHelmPackageRequest](docs/SaveHelmPackageRequest.md)
  - [SaveHelmPackageRequest2](docs/SaveHelmPackageRequest2.md)
+ - [Secret](docs/Secret.md)
  - [ServiceAssets](docs/ServiceAssets.md)
  - [ServiceDeploymentDetails](docs/ServiceDeploymentDetails.md)
  - [ServiceEnvironment](docs/ServiceEnvironment.md)
@@ -923,6 +956,8 @@ Class | Method | HTTP request | Description
  - [SetActiveAccountConfigRequest](docs/SetActiveAccountConfigRequest.md)
  - [SetEnvironmentVariablesRequest](docs/SetEnvironmentVariablesRequest.md)
  - [SetEnvironmentVariablesRequest2](docs/SetEnvironmentVariablesRequest2.md)
+ - [SetSecretRequest](docs/SetSecretRequest.md)
+ - [SetSecretRequest2](docs/SetSecretRequest2.md)
  - [SigninRequest](docs/SigninRequest.md)
  - [SigninResult](docs/SigninResult.md)
  - [SignupRequest](docs/SignupRequest.md)
@@ -932,6 +967,7 @@ Class | Method | HTTP request | Description
  - [StripeAuthorizeURLResult](docs/StripeAuthorizeURLResult.md)
  - [SubscriptionLicense](docs/SubscriptionLicense.md)
  - [SubscriptionUsers](docs/SubscriptionUsers.md)
+ - [TaintConfiguration](docs/TaintConfiguration.md)
  - [TerraformConfiguration](docs/TerraformConfiguration.md)
  - [TerraformOutput](docs/TerraformOutput.md)
  - [TierVersionSet](docs/TierVersionSet.md)

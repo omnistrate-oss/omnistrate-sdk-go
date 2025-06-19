@@ -20,6 +20,10 @@ var _ MappedNullable = &ResourceInstance{}
 
 // ResourceInstance struct for ResourceInstance
 type ResourceInstance struct {
+	// Whether the resource instance is adopted.
+	Adopted bool `json:"adopted"`
+	// The adoption configuration overrides for the resource instance.
+	AdoptionConfiguration map[string]interface{} `json:"adoptionConfiguration,omitempty"`
 	// The AWS account ID
 	AwsAccountID *string `json:"awsAccountID,omitempty"`
 	// The Azure subscription ID
@@ -101,8 +105,9 @@ type _ResourceInstance ResourceInstance
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewResourceInstance(cloudProvider string, consumptionResourceInstanceResult DescribeResourceInstanceResult, defaultSubscription bool, environmentId string, inputParams interface{}, instanceDebugCommands []string, integrationsStatus []IntegrationStatus, organizationId string, organizationName string, productTierId string, productTierName string, productTierType string, resourceVersionSummaries []ResourceVersionSummary, serviceEnvName string, serviceId string, serviceModelId string, serviceModelName string, serviceModelType string, serviceName string, subscriptionId string, subscriptionOwnerName string, tierVersion string, tierVersionReleasedAt string, tierVersionReleasedByUserId string, tierVersionReleasedByUserName string, tierVersionStatus string) *ResourceInstance {
+func NewResourceInstance(adopted bool, cloudProvider string, consumptionResourceInstanceResult DescribeResourceInstanceResult, defaultSubscription bool, environmentId string, inputParams interface{}, instanceDebugCommands []string, integrationsStatus []IntegrationStatus, organizationId string, organizationName string, productTierId string, productTierName string, productTierType string, resourceVersionSummaries []ResourceVersionSummary, serviceEnvName string, serviceId string, serviceModelId string, serviceModelName string, serviceModelType string, serviceName string, subscriptionId string, subscriptionOwnerName string, tierVersion string, tierVersionReleasedAt string, tierVersionReleasedByUserId string, tierVersionReleasedByUserName string, tierVersionStatus string) *ResourceInstance {
 	this := ResourceInstance{}
+	this.Adopted = adopted
 	this.CloudProvider = cloudProvider
 	this.ConsumptionResourceInstanceResult = consumptionResourceInstanceResult
 	this.DefaultSubscription = defaultSubscription
@@ -138,6 +143,62 @@ func NewResourceInstance(cloudProvider string, consumptionResourceInstanceResult
 func NewResourceInstanceWithDefaults() *ResourceInstance {
 	this := ResourceInstance{}
 	return &this
+}
+
+// GetAdopted returns the Adopted field value
+func (o *ResourceInstance) GetAdopted() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.Adopted
+}
+
+// GetAdoptedOk returns a tuple with the Adopted field value
+// and a boolean to check if the value has been set.
+func (o *ResourceInstance) GetAdoptedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Adopted, true
+}
+
+// SetAdopted sets field value
+func (o *ResourceInstance) SetAdopted(v bool) {
+	o.Adopted = v
+}
+
+// GetAdoptionConfiguration returns the AdoptionConfiguration field value if set, zero value otherwise.
+func (o *ResourceInstance) GetAdoptionConfiguration() map[string]interface{} {
+	if o == nil || IsNil(o.AdoptionConfiguration) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.AdoptionConfiguration
+}
+
+// GetAdoptionConfigurationOk returns a tuple with the AdoptionConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceInstance) GetAdoptionConfigurationOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.AdoptionConfiguration) {
+		return map[string]interface{}{}, false
+	}
+	return o.AdoptionConfiguration, true
+}
+
+// HasAdoptionConfiguration returns a boolean if a field has been set.
+func (o *ResourceInstance) HasAdoptionConfiguration() bool {
+	if o != nil && !IsNil(o.AdoptionConfiguration) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdoptionConfiguration gets a reference to the given map[string]interface{} and assigns it to the AdoptionConfiguration field.
+func (o *ResourceInstance) SetAdoptionConfiguration(v map[string]interface{}) {
+	o.AdoptionConfiguration = v
 }
 
 // GetAwsAccountID returns the AwsAccountID field value if set, zero value otherwise.
@@ -1128,6 +1189,10 @@ func (o ResourceInstance) MarshalJSON() ([]byte, error) {
 
 func (o ResourceInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["adopted"] = o.Adopted
+	if !IsNil(o.AdoptionConfiguration) {
+		toSerialize["adoptionConfiguration"] = o.AdoptionConfiguration
+	}
 	if !IsNil(o.AwsAccountID) {
 		toSerialize["awsAccountID"] = o.AwsAccountID
 	}
@@ -1202,6 +1267,7 @@ func (o *ResourceInstance) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"adopted",
 		"cloudProvider",
 		"consumptionResourceInstanceResult",
 		"defaultSubscription",
@@ -1257,6 +1323,8 @@ func (o *ResourceInstance) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "adopted")
+		delete(additionalProperties, "adoptionConfiguration")
 		delete(additionalProperties, "awsAccountID")
 		delete(additionalProperties, "azureSubscriptionID")
 		delete(additionalProperties, "cloudProvider")

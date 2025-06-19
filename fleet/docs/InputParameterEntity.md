@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Modifiable** | **bool** | Whether the parameter is modifiable | 
 **Options** | Pointer to **[]string** | The parameter options | [optional] 
 **Required** | **bool** | Whether the parameter is required | 
+**TabIndex** | Pointer to **int64** | Index for parameter ordering in the SaaS portal | [optional] [default to 0]
 **Type** | **string** | The parameter type | 
 
 ## Methods
@@ -249,6 +250,31 @@ and a boolean to check if the value has been set.
 
 SetRequired sets Required field to given value.
 
+
+### GetTabIndex
+
+`func (o *InputParameterEntity) GetTabIndex() int64`
+
+GetTabIndex returns the TabIndex field if non-nil, zero value otherwise.
+
+### GetTabIndexOk
+
+`func (o *InputParameterEntity) GetTabIndexOk() (*int64, bool)`
+
+GetTabIndexOk returns a tuple with the TabIndex field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTabIndex
+
+`func (o *InputParameterEntity) SetTabIndex(v int64)`
+
+SetTabIndex sets TabIndex field to given value.
+
+### HasTabIndex
+
+`func (o *InputParameterEntity) HasTabIndex() bool`
+
+HasTabIndex returns a boolean if a field has been set.
 
 ### GetType
 

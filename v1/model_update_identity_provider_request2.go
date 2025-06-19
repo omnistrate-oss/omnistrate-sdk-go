@@ -29,7 +29,7 @@ type UpdateIdentityProviderRequest2 struct {
 	Disabled *bool `json:"disabled,omitempty"`
 	// The email identifiers to use for the Identity Provider
 	EmailIdentifiers *string `json:"emailIdentifiers,omitempty"`
-	// The type of environment to filter costs by
+	// The type of environment for the Identity Provider
 	EnvironmentType *string `json:"environmentType,omitempty"`
 	// The URL of the icon to use for the login button
 	LoginButtonIconUrl *string `json:"loginButtonIconUrl,omitempty"`

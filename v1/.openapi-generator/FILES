@@ -35,6 +35,7 @@ api_region_api.go
 api_resource_api.go
 api_resource_instance_api.go
 api_saas_portal_api.go
+api_secrets_api.go
 api_service_api.go
 api_service_api_api.go
 api_service_environment_api.go
@@ -49,6 +50,7 @@ api_storage_volume_config_api.go
 api_stripe_connect_api.go
 api_subscription_api.go
 api_subscription_request_api.go
+api_tenant_billing_api.go
 api_tier_version_set_api.go
 api_usage_api.go
 api_users_api.go
@@ -57,6 +59,7 @@ client.go
 configuration.go
 docs/APIEntity.md
 docs/AWSPrivateLinkConfiguration.md
+docs/AcceleratorConfiguration.md
 docs/AccountConfigApiAPI.md
 docs/AccountConfigIdentityIDRequest.md
 docs/AccountConfigIdentityIDResult.md
@@ -84,6 +87,7 @@ docs/AvailabilityZoneApiAPI.md
 docs/BackendPortConfiguration.md
 docs/BackupConfiguration.md
 docs/BackupStatus.md
+docs/BillingProvider.md
 docs/BlobStorageConfiguration.md
 docs/BuildServiceFromComposeSpecRequest.md
 docs/BuildServiceFromComposeSpecRequest2.md
@@ -191,6 +195,7 @@ docs/CustomNetworkInstance.md
 docs/CustomNetworkResourceDetail.md
 docs/CustomTag.md
 docs/CustomULimits.md
+docs/CustomerBillingProvider.md
 docs/CustomerDeleteUserRequest.md
 docs/CustomerInviteUserRequest.md
 docs/CustomerInviteUserRequest2.md
@@ -224,6 +229,7 @@ docs/DeleteProductTierRequest.md
 docs/DeleteResourceInstanceRequest.md
 docs/DeleteResourceRequest.md
 docs/DeleteSaaSPortalCustomDomainRequest.md
+docs/DeleteSecretRequest.md
 docs/DeleteServiceAPIRequest.md
 docs/DeleteServiceEnvironmentRequest.md
 docs/DeleteServiceModelRequest.md
@@ -275,6 +281,7 @@ docs/DescribeDeploymentConfigResult.md
 docs/DescribeHelmPackageRequest.md
 docs/DescribeIdentityProviderRequest.md
 docs/DescribeIdentityProviderResult.md
+docs/DescribeIdentityProviderTypeResult.md
 docs/DescribeImageConfigRequest.md
 docs/DescribeImageConfigResult.md
 docs/DescribeImageRegistryRequest.md
@@ -346,20 +353,25 @@ docs/DetachStorageConfigRequest.md
 docs/DetailedNodeHealthResult.md
 docs/DiffTierVersionSetsRequest.md
 docs/DiffTierVersionSetsResult.md
+docs/DisableBillingProviderRequest.md
 docs/DisableProductTierFeatureRequest.md
 docs/DisableProductTierFeatureRequest2.md
 docs/DisableResourceCapabilityRequest.md
 docs/DisableResourceCapabilityRequest2.md
 docs/DisableServiceModelFeatureRequest.md
 docs/DisableServiceModelFeatureRequest2.md
+docs/DisableTenantBillingRequest.md
 docs/DiscardPendingChangesRequest.md
 docs/EFSFileSystemConfiguration.md
+docs/EnableBillingProviderRequest.md
+docs/EnableBillingProviderRequest2.md
 docs/EnableProductTierFeatureRequest.md
 docs/EnableProductTierFeatureRequest2.md
 docs/EnableResourceCapabilityRequest.md
 docs/EnableResourceCapabilityRequest2.md
 docs/EnableServiceModelFeatureRequest.md
 docs/EnableServiceModelFeatureRequest2.md
+docs/EnableTenantBillingRequest.md
 docs/EndCustomerEvent.md
 docs/Endpoint.md
 docs/EnvironmentHealthReport.md
@@ -383,8 +395,12 @@ docs/GetCurrentConsumptionUsageRequest.md
 docs/GetCurrentUsageRequest.md
 docs/GetFileRequest.md
 docs/GetRegionByCodeRequest.md
+docs/GetSecretRequest.md
+docs/GetSecretResult.md
 docs/GetServicePlanRequest.md
 docs/GetServicePlanResult.md
+docs/GetTenantBillingStatusRequest.md
+docs/GetTenantBillingStatusResult.md
 docs/GetUsageRequest.md
 docs/GetUsageResult.md
 docs/GitConfiguration.md
@@ -461,6 +477,8 @@ docs/ListFilesRequest.md
 docs/ListFilesResult.md
 docs/ListHelmPackagesRequest.md
 docs/ListHelmPackagesResult.md
+docs/ListIdentityProviderTypesRequest.md
+docs/ListIdentityProviderTypesResult.md
 docs/ListIdentityProvidersRequest.md
 docs/ListIdentityProvidersResult.md
 docs/ListImageConfigsRequest.md
@@ -498,6 +516,8 @@ docs/ListSaaSPortalCustomDomainsRequest.md
 docs/ListSaaSPortalCustomDomainsResult.md
 docs/ListSaaSPortalsRequest.md
 docs/ListSaaSPortalsResult.md
+docs/ListSecretsRequest.md
+docs/ListSecretsResult.md
 docs/ListServiceAPIsRequest.md
 docs/ListServiceAPIsResult.md
 docs/ListServiceEnvironmentsRequest.md
@@ -585,6 +605,9 @@ docs/RemoveFileRequest.md
 docs/RemoveResourceDependencyRequest.md
 docs/RemoveStorageVolumeConfigRequest.md
 docs/RemoveStorageVolumeConfigRequest2.md
+docs/RenderIdentityProvidersRequest.md
+docs/RenderIdentityProvidersResult.md
+docs/RenderedIdentityProviderResult.md
 docs/ReportHealthRequest.md
 docs/ReportHealthResult.md
 docs/ResetPasswordRequest.md
@@ -624,6 +647,8 @@ docs/SaaSPortalImageConfig.md
 docs/SaasPortalApiAPI.md
 docs/SaveHelmPackageRequest.md
 docs/SaveHelmPackageRequest2.md
+docs/Secret.md
+docs/SecretsApiAPI.md
 docs/ServiceApiAPI.md
 docs/ServiceApiApiAPI.md
 docs/ServiceAssets.md
@@ -644,6 +669,8 @@ docs/ServicesOrchestrationApiAPI.md
 docs/SetActiveAccountConfigRequest.md
 docs/SetEnvironmentVariablesRequest.md
 docs/SetEnvironmentVariablesRequest2.md
+docs/SetSecretRequest.md
+docs/SetSecretRequest2.md
 docs/SigninApiAPI.md
 docs/SigninRequest.md
 docs/SigninResult.md
@@ -660,6 +687,8 @@ docs/SubscriptionApiAPI.md
 docs/SubscriptionLicense.md
 docs/SubscriptionRequestApiAPI.md
 docs/SubscriptionUsers.md
+docs/TaintConfiguration.md
+docs/TenantBillingApiAPI.md
 docs/TerraformConfiguration.md
 docs/TerraformOutput.md
 docs/TierVersionSet.md
@@ -738,6 +767,7 @@ docs/VunitApiAPI.md
 docs/WarmPoolConfiguration.md
 docs/WorkflowFailure.md
 git_push.sh
+model_accelerator_configuration.go
 model_account_config_identity_id_request.go
 model_account_config_identity_id_result.go
 model_acknowledge_event_request.go
@@ -764,6 +794,7 @@ model_aws_private_link_configuration.go
 model_backend_port_configuration.go
 model_backup_configuration.go
 model_backup_status.go
+model_billing_provider.go
 model_blob_storage_configuration.go
 model_build_service_from_compose_spec_request.go
 model_build_service_from_compose_spec_request2.go
@@ -861,6 +892,7 @@ model_custom_network_instance.go
 model_custom_network_resource_detail.go
 model_custom_tag.go
 model_custom_u_limits.go
+model_customer_billing_provider.go
 model_customer_delete_user_request.go
 model_customer_invite_user_request.go
 model_customer_invite_user_request2.go
@@ -894,6 +926,7 @@ model_delete_product_tier_request.go
 model_delete_resource_instance_request.go
 model_delete_resource_request.go
 model_delete_saa_s_portal_custom_domain_request.go
+model_delete_secret_request.go
 model_delete_service_api_request.go
 model_delete_service_environment_request.go
 model_delete_service_model_request.go
@@ -943,6 +976,7 @@ model_describe_deployment_config_result.go
 model_describe_helm_package_request.go
 model_describe_identity_provider_request.go
 model_describe_identity_provider_result.go
+model_describe_identity_provider_type_result.go
 model_describe_image_config_request.go
 model_describe_image_config_result.go
 model_describe_image_registry_request.go
@@ -1014,20 +1048,25 @@ model_detach_storage_config_request.go
 model_detailed_node_health_result.go
 model_diff_tier_version_sets_request.go
 model_diff_tier_version_sets_result.go
+model_disable_billing_provider_request.go
 model_disable_product_tier_feature_request.go
 model_disable_product_tier_feature_request2.go
 model_disable_resource_capability_request.go
 model_disable_resource_capability_request2.go
 model_disable_service_model_feature_request.go
 model_disable_service_model_feature_request2.go
+model_disable_tenant_billing_request.go
 model_discard_pending_changes_request.go
 model_efs_file_system_configuration.go
+model_enable_billing_provider_request.go
+model_enable_billing_provider_request2.go
 model_enable_product_tier_feature_request.go
 model_enable_product_tier_feature_request2.go
 model_enable_resource_capability_request.go
 model_enable_resource_capability_request2.go
 model_enable_service_model_feature_request.go
 model_enable_service_model_feature_request2.go
+model_enable_tenant_billing_request.go
 model_end_customer_event.go
 model_endpoint.go
 model_environment_health_report.go
@@ -1051,8 +1090,12 @@ model_get_current_consumption_usage_request.go
 model_get_current_usage_request.go
 model_get_file_request.go
 model_get_region_by_code_request.go
+model_get_secret_request.go
+model_get_secret_result.go
 model_get_service_plan_request.go
 model_get_service_plan_result.go
+model_get_tenant_billing_status_request.go
+model_get_tenant_billing_status_result.go
 model_get_usage_request.go
 model_get_usage_result.go
 model_git_configuration.go
@@ -1120,6 +1163,8 @@ model_list_files_request.go
 model_list_files_result.go
 model_list_helm_packages_request.go
 model_list_helm_packages_result.go
+model_list_identity_provider_types_request.go
+model_list_identity_provider_types_result.go
 model_list_identity_providers_request.go
 model_list_identity_providers_result.go
 model_list_image_configs_request.go
@@ -1157,6 +1202,8 @@ model_list_saa_s_portal_custom_domains_request.go
 model_list_saa_s_portal_custom_domains_result.go
 model_list_saa_s_portals_request.go
 model_list_saa_s_portals_result.go
+model_list_secrets_request.go
+model_list_secrets_result.go
 model_list_service_apis_request.go
 model_list_service_apis_result.go
 model_list_service_environments_request.go
@@ -1239,6 +1286,9 @@ model_remove_file_request.go
 model_remove_resource_dependency_request.go
 model_remove_storage_volume_config_request.go
 model_remove_storage_volume_config_request2.go
+model_render_identity_providers_request.go
+model_render_identity_providers_result.go
+model_rendered_identity_provider_result.go
 model_report_health_request.go
 model_report_health_result.go
 model_reset_password_request.go
@@ -1275,6 +1325,7 @@ model_saa_s_portal_email_config.go
 model_saa_s_portal_image_config.go
 model_save_helm_package_request.go
 model_save_helm_package_request2.go
+model_secret.go
 model_service_assets.go
 model_service_deployment_details.go
 model_service_environment.go
@@ -1288,6 +1339,8 @@ model_service_provider_event_summary.go
 model_set_active_account_config_request.go
 model_set_environment_variables_request.go
 model_set_environment_variables_request2.go
+model_set_secret_request.go
+model_set_secret_request2.go
 model_signin_request.go
 model_signin_result.go
 model_signup_request.go
@@ -1297,6 +1350,7 @@ model_stripe_authorize_url_request.go
 model_stripe_authorize_url_result.go
 model_subscription_license.go
 model_subscription_users.go
+model_taint_configuration.go
 model_terraform_configuration.go
 model_terraform_output.go
 model_tier_version_set.go
@@ -1403,6 +1457,7 @@ test/api_region_api_test.go
 test/api_resource_api_test.go
 test/api_resource_instance_api_test.go
 test/api_saas_portal_api_test.go
+test/api_secrets_api_test.go
 test/api_service_api_api_test.go
 test/api_service_api_test.go
 test/api_service_environment_api_test.go
@@ -1417,6 +1472,7 @@ test/api_storage_volume_config_api_test.go
 test/api_stripe_connect_api_test.go
 test/api_subscription_api_test.go
 test/api_subscription_request_api_test.go
+test/api_tenant_billing_api_test.go
 test/api_tier_version_set_api_test.go
 test/api_usage_api_test.go
 test/api_users_api_test.go

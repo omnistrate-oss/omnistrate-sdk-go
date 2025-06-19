@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Instances** | [**[]InstanceUpgrade**](InstanceUpgrade.md) | The list of instances that are in the upgrade path | 
+**NextPageToken** | Pointer to **string** | Token to use for the next request | [optional] 
 **ProductTierId** | **string** | ID of a Product Tier | 
 **ServiceId** | **string** | ID of a Service | 
 **UpgradePathId** | **string** | ID of an Upgrade Path | 
@@ -47,6 +48,31 @@ and a boolean to check if the value has been set.
 
 SetInstances sets Instances field to given value.
 
+
+### GetNextPageToken
+
+`func (o *ListEligibleInstancesPerUpgradeResult) GetNextPageToken() string`
+
+GetNextPageToken returns the NextPageToken field if non-nil, zero value otherwise.
+
+### GetNextPageTokenOk
+
+`func (o *ListEligibleInstancesPerUpgradeResult) GetNextPageTokenOk() (*string, bool)`
+
+GetNextPageTokenOk returns a tuple with the NextPageToken field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNextPageToken
+
+`func (o *ListEligibleInstancesPerUpgradeResult) SetNextPageToken(v string)`
+
+SetNextPageToken sets NextPageToken field to given value.
+
+### HasNextPageToken
+
+`func (o *ListEligibleInstancesPerUpgradeResult) HasNextPageToken() bool`
+
+HasNextPageToken returns a boolean if a field has been set.
 
 ### GetProductTierId
 

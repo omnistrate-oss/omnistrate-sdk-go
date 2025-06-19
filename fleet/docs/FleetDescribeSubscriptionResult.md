@@ -4,23 +4,27 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ActiveSubscriptionPricing** | Pointer to **map[string]interface{}** | The active pricing for the subscription at the time of the request. | [optional] 
+**AllowCreatesWhenPaymentNotConfigured** | Pointer to **bool** | Whether to allow creating instances when payment is not configured. | [optional] 
+**BillingProvider** | Pointer to **string** | The billing provider type | [optional] 
 **CreatedAt** | **string** | The time that this subscription was created | 
+**CurrentActivePricePerUnit** | Pointer to **map[string]interface{}** | The active pricing for the subscription at the time of the request. | [optional] 
+**CustomPrice** | Pointer to **bool** | Whether this subscription has a custom price | [optional] 
 **ExternalPayerId** | Pointer to **string** | The external payer ID to record which customer should pay for this subscription | [optional] 
-**HistorySubscriptionPricing** | Pointer to [**[]HistorySubscriptionPricing**](HistorySubscriptionPricing.md) | The history pricing for the subscription. | [optional] 
 **Id** | **string** | ID of a Subscription | 
-**InheritServicePlanPrice** | Pointer to **bool** | Whether to inherit the service plan price | [optional] 
 **InstanceCount** | **int64** | The number of active instances in the subscription | 
+**MaxNumberOfInstances** | Pointer to **int64** | The maximum number of instances that can be created for this subscription. | [optional] 
 **ProductTierId** | **string** | ID of a Product Tier | 
 **ProductTierName** | **string** | The name of the product tier | 
 **RootUserEmail** | **string** | The email of the user that owns the subscription | 
 **RootUserId** | **string** | ID of a User | 
 **RootUserName** | **string** | The name of the user that owns the subscription | 
 **RootUserOrgId** | Pointer to **string** | ID of an Org | [optional] 
+**ScheduledSubscriptionPricingList** | Pointer to [**[]SubscriptionPricing**](SubscriptionPricing.md) | Includes the past, current, and future scheduled pricing for this subscription. | [optional] 
 **ServiceId** | **string** | ID of a Service | 
 **ServiceLogoURL** | Pointer to **string** | The logo for the service | [optional] 
 **ServiceName** | **string** | The name of the service | 
 **Status** | **string** | Subscription Status | 
+**SubscriptionPricingAuditLogs** | Pointer to [**[]SubscriptionPricing**](SubscriptionPricing.md) | The full audit logs of pricing change for this subscription. | [optional] 
 **UpdatedAt** | **string** | The time that this subscription was last updated | 
 **UpdatedByUserId** | **string** | ID of a User | 
 **UpdatedByUserName** | **string** | The name of the user that last updated the subscription | 
@@ -45,30 +49,55 @@ NewFleetDescribeSubscriptionResultWithDefaults instantiates a new FleetDescribeS
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetActiveSubscriptionPricing
+### GetAllowCreatesWhenPaymentNotConfigured
 
-`func (o *FleetDescribeSubscriptionResult) GetActiveSubscriptionPricing() map[string]interface{}`
+`func (o *FleetDescribeSubscriptionResult) GetAllowCreatesWhenPaymentNotConfigured() bool`
 
-GetActiveSubscriptionPricing returns the ActiveSubscriptionPricing field if non-nil, zero value otherwise.
+GetAllowCreatesWhenPaymentNotConfigured returns the AllowCreatesWhenPaymentNotConfigured field if non-nil, zero value otherwise.
 
-### GetActiveSubscriptionPricingOk
+### GetAllowCreatesWhenPaymentNotConfiguredOk
 
-`func (o *FleetDescribeSubscriptionResult) GetActiveSubscriptionPricingOk() (*map[string]interface{}, bool)`
+`func (o *FleetDescribeSubscriptionResult) GetAllowCreatesWhenPaymentNotConfiguredOk() (*bool, bool)`
 
-GetActiveSubscriptionPricingOk returns a tuple with the ActiveSubscriptionPricing field if it's non-nil, zero value otherwise
+GetAllowCreatesWhenPaymentNotConfiguredOk returns a tuple with the AllowCreatesWhenPaymentNotConfigured field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetActiveSubscriptionPricing
+### SetAllowCreatesWhenPaymentNotConfigured
 
-`func (o *FleetDescribeSubscriptionResult) SetActiveSubscriptionPricing(v map[string]interface{})`
+`func (o *FleetDescribeSubscriptionResult) SetAllowCreatesWhenPaymentNotConfigured(v bool)`
 
-SetActiveSubscriptionPricing sets ActiveSubscriptionPricing field to given value.
+SetAllowCreatesWhenPaymentNotConfigured sets AllowCreatesWhenPaymentNotConfigured field to given value.
 
-### HasActiveSubscriptionPricing
+### HasAllowCreatesWhenPaymentNotConfigured
 
-`func (o *FleetDescribeSubscriptionResult) HasActiveSubscriptionPricing() bool`
+`func (o *FleetDescribeSubscriptionResult) HasAllowCreatesWhenPaymentNotConfigured() bool`
 
-HasActiveSubscriptionPricing returns a boolean if a field has been set.
+HasAllowCreatesWhenPaymentNotConfigured returns a boolean if a field has been set.
+
+### GetBillingProvider
+
+`func (o *FleetDescribeSubscriptionResult) GetBillingProvider() string`
+
+GetBillingProvider returns the BillingProvider field if non-nil, zero value otherwise.
+
+### GetBillingProviderOk
+
+`func (o *FleetDescribeSubscriptionResult) GetBillingProviderOk() (*string, bool)`
+
+GetBillingProviderOk returns a tuple with the BillingProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBillingProvider
+
+`func (o *FleetDescribeSubscriptionResult) SetBillingProvider(v string)`
+
+SetBillingProvider sets BillingProvider field to given value.
+
+### HasBillingProvider
+
+`func (o *FleetDescribeSubscriptionResult) HasBillingProvider() bool`
+
+HasBillingProvider returns a boolean if a field has been set.
 
 ### GetCreatedAt
 
@@ -89,6 +118,56 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
+
+### GetCurrentActivePricePerUnit
+
+`func (o *FleetDescribeSubscriptionResult) GetCurrentActivePricePerUnit() map[string]interface{}`
+
+GetCurrentActivePricePerUnit returns the CurrentActivePricePerUnit field if non-nil, zero value otherwise.
+
+### GetCurrentActivePricePerUnitOk
+
+`func (o *FleetDescribeSubscriptionResult) GetCurrentActivePricePerUnitOk() (*map[string]interface{}, bool)`
+
+GetCurrentActivePricePerUnitOk returns a tuple with the CurrentActivePricePerUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrentActivePricePerUnit
+
+`func (o *FleetDescribeSubscriptionResult) SetCurrentActivePricePerUnit(v map[string]interface{})`
+
+SetCurrentActivePricePerUnit sets CurrentActivePricePerUnit field to given value.
+
+### HasCurrentActivePricePerUnit
+
+`func (o *FleetDescribeSubscriptionResult) HasCurrentActivePricePerUnit() bool`
+
+HasCurrentActivePricePerUnit returns a boolean if a field has been set.
+
+### GetCustomPrice
+
+`func (o *FleetDescribeSubscriptionResult) GetCustomPrice() bool`
+
+GetCustomPrice returns the CustomPrice field if non-nil, zero value otherwise.
+
+### GetCustomPriceOk
+
+`func (o *FleetDescribeSubscriptionResult) GetCustomPriceOk() (*bool, bool)`
+
+GetCustomPriceOk returns a tuple with the CustomPrice field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomPrice
+
+`func (o *FleetDescribeSubscriptionResult) SetCustomPrice(v bool)`
+
+SetCustomPrice sets CustomPrice field to given value.
+
+### HasCustomPrice
+
+`func (o *FleetDescribeSubscriptionResult) HasCustomPrice() bool`
+
+HasCustomPrice returns a boolean if a field has been set.
 
 ### GetExternalPayerId
 
@@ -115,31 +194,6 @@ SetExternalPayerId sets ExternalPayerId field to given value.
 
 HasExternalPayerId returns a boolean if a field has been set.
 
-### GetHistorySubscriptionPricing
-
-`func (o *FleetDescribeSubscriptionResult) GetHistorySubscriptionPricing() []HistorySubscriptionPricing`
-
-GetHistorySubscriptionPricing returns the HistorySubscriptionPricing field if non-nil, zero value otherwise.
-
-### GetHistorySubscriptionPricingOk
-
-`func (o *FleetDescribeSubscriptionResult) GetHistorySubscriptionPricingOk() (*[]HistorySubscriptionPricing, bool)`
-
-GetHistorySubscriptionPricingOk returns a tuple with the HistorySubscriptionPricing field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHistorySubscriptionPricing
-
-`func (o *FleetDescribeSubscriptionResult) SetHistorySubscriptionPricing(v []HistorySubscriptionPricing)`
-
-SetHistorySubscriptionPricing sets HistorySubscriptionPricing field to given value.
-
-### HasHistorySubscriptionPricing
-
-`func (o *FleetDescribeSubscriptionResult) HasHistorySubscriptionPricing() bool`
-
-HasHistorySubscriptionPricing returns a boolean if a field has been set.
-
 ### GetId
 
 `func (o *FleetDescribeSubscriptionResult) GetId() string`
@@ -160,31 +214,6 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
-### GetInheritServicePlanPrice
-
-`func (o *FleetDescribeSubscriptionResult) GetInheritServicePlanPrice() bool`
-
-GetInheritServicePlanPrice returns the InheritServicePlanPrice field if non-nil, zero value otherwise.
-
-### GetInheritServicePlanPriceOk
-
-`func (o *FleetDescribeSubscriptionResult) GetInheritServicePlanPriceOk() (*bool, bool)`
-
-GetInheritServicePlanPriceOk returns a tuple with the InheritServicePlanPrice field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetInheritServicePlanPrice
-
-`func (o *FleetDescribeSubscriptionResult) SetInheritServicePlanPrice(v bool)`
-
-SetInheritServicePlanPrice sets InheritServicePlanPrice field to given value.
-
-### HasInheritServicePlanPrice
-
-`func (o *FleetDescribeSubscriptionResult) HasInheritServicePlanPrice() bool`
-
-HasInheritServicePlanPrice returns a boolean if a field has been set.
-
 ### GetInstanceCount
 
 `func (o *FleetDescribeSubscriptionResult) GetInstanceCount() int64`
@@ -204,6 +233,31 @@ and a boolean to check if the value has been set.
 
 SetInstanceCount sets InstanceCount field to given value.
 
+
+### GetMaxNumberOfInstances
+
+`func (o *FleetDescribeSubscriptionResult) GetMaxNumberOfInstances() int64`
+
+GetMaxNumberOfInstances returns the MaxNumberOfInstances field if non-nil, zero value otherwise.
+
+### GetMaxNumberOfInstancesOk
+
+`func (o *FleetDescribeSubscriptionResult) GetMaxNumberOfInstancesOk() (*int64, bool)`
+
+GetMaxNumberOfInstancesOk returns a tuple with the MaxNumberOfInstances field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxNumberOfInstances
+
+`func (o *FleetDescribeSubscriptionResult) SetMaxNumberOfInstances(v int64)`
+
+SetMaxNumberOfInstances sets MaxNumberOfInstances field to given value.
+
+### HasMaxNumberOfInstances
+
+`func (o *FleetDescribeSubscriptionResult) HasMaxNumberOfInstances() bool`
+
+HasMaxNumberOfInstances returns a boolean if a field has been set.
 
 ### GetProductTierId
 
@@ -330,6 +384,31 @@ SetRootUserOrgId sets RootUserOrgId field to given value.
 
 HasRootUserOrgId returns a boolean if a field has been set.
 
+### GetScheduledSubscriptionPricingList
+
+`func (o *FleetDescribeSubscriptionResult) GetScheduledSubscriptionPricingList() []SubscriptionPricing`
+
+GetScheduledSubscriptionPricingList returns the ScheduledSubscriptionPricingList field if non-nil, zero value otherwise.
+
+### GetScheduledSubscriptionPricingListOk
+
+`func (o *FleetDescribeSubscriptionResult) GetScheduledSubscriptionPricingListOk() (*[]SubscriptionPricing, bool)`
+
+GetScheduledSubscriptionPricingListOk returns a tuple with the ScheduledSubscriptionPricingList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScheduledSubscriptionPricingList
+
+`func (o *FleetDescribeSubscriptionResult) SetScheduledSubscriptionPricingList(v []SubscriptionPricing)`
+
+SetScheduledSubscriptionPricingList sets ScheduledSubscriptionPricingList field to given value.
+
+### HasScheduledSubscriptionPricingList
+
+`func (o *FleetDescribeSubscriptionResult) HasScheduledSubscriptionPricingList() bool`
+
+HasScheduledSubscriptionPricingList returns a boolean if a field has been set.
+
 ### GetServiceId
 
 `func (o *FleetDescribeSubscriptionResult) GetServiceId() string`
@@ -414,6 +493,31 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
+
+### GetSubscriptionPricingAuditLogs
+
+`func (o *FleetDescribeSubscriptionResult) GetSubscriptionPricingAuditLogs() []SubscriptionPricing`
+
+GetSubscriptionPricingAuditLogs returns the SubscriptionPricingAuditLogs field if non-nil, zero value otherwise.
+
+### GetSubscriptionPricingAuditLogsOk
+
+`func (o *FleetDescribeSubscriptionResult) GetSubscriptionPricingAuditLogsOk() (*[]SubscriptionPricing, bool)`
+
+GetSubscriptionPricingAuditLogsOk returns a tuple with the SubscriptionPricingAuditLogs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscriptionPricingAuditLogs
+
+`func (o *FleetDescribeSubscriptionResult) SetSubscriptionPricingAuditLogs(v []SubscriptionPricing)`
+
+SetSubscriptionPricingAuditLogs sets SubscriptionPricingAuditLogs field to given value.
+
+### HasSubscriptionPricingAuditLogs
+
+`func (o *FleetDescribeSubscriptionResult) HasSubscriptionPricingAuditLogs() bool`
+
+HasSubscriptionPricingAuditLogs returns a boolean if a field has been set.
 
 ### GetUpdatedAt
 

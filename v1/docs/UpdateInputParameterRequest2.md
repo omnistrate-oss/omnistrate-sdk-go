@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** | External name for the input parameter | [optional] 
 **Options** | Pointer to **[]string** | A list of options to restrict the value of the input parameter to (represented as a string) | [optional] 
 **Required** | Pointer to **bool** | Enforces the input parameter as a required parameter | [optional] 
+**TabIndex** | Pointer to **int64** | Index for parameter ordering in the SaaS portal | [optional] [default to 0]
 
 ## Methods
 
@@ -257,6 +258,31 @@ SetRequired sets Required field to given value.
 `func (o *UpdateInputParameterRequest2) HasRequired() bool`
 
 HasRequired returns a boolean if a field has been set.
+
+### GetTabIndex
+
+`func (o *UpdateInputParameterRequest2) GetTabIndex() int64`
+
+GetTabIndex returns the TabIndex field if non-nil, zero value otherwise.
+
+### GetTabIndexOk
+
+`func (o *UpdateInputParameterRequest2) GetTabIndexOk() (*int64, bool)`
+
+GetTabIndexOk returns a tuple with the TabIndex field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTabIndex
+
+`func (o *UpdateInputParameterRequest2) SetTabIndex(v int64)`
+
+SetTabIndex sets TabIndex field to given value.
+
+### HasTabIndex
+
+`func (o *UpdateInputParameterRequest2) HasTabIndex() bool`
+
+HasTabIndex returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## ConsumptionInvoiceApiListConsumptionInvoices
 
-> ListInvoicesResult ConsumptionInvoiceApiListConsumptionInvoices(ctx).Execute()
+> ListInvoicesResult ConsumptionInvoiceApiListConsumptionInvoices(ctx).BillingProvider(billingProvider).Execute()
 
 ListConsumptionInvoices consumption-invoice-api
 
@@ -27,10 +27,11 @@ import (
 )
 
 func main() {
+	billingProvider := "STRIPE" // string | Billing provider. If specified, list invoices for the specified billing provider. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ConsumptionInvoiceApiAPI.ConsumptionInvoiceApiListConsumptionInvoices(context.Background()).Execute()
+	resp, r, err := apiClient.ConsumptionInvoiceApiAPI.ConsumptionInvoiceApiListConsumptionInvoices(context.Background()).BillingProvider(billingProvider).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConsumptionInvoiceApiAPI.ConsumptionInvoiceApiListConsumptionInvoices``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -42,12 +43,16 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiConsumptionInvoiceApiListConsumptionInvoicesRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **billingProvider** | **string** | Billing provider. If specified, list invoices for the specified billing provider. | 
 
 ### Return type
 

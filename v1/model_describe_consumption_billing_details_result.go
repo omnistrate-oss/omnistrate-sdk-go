@@ -20,9 +20,11 @@ var _ MappedNullable = &DescribeConsumptionBillingDetailsResult{}
 
 // DescribeConsumptionBillingDetailsResult struct for DescribeConsumptionBillingDetailsResult
 type DescribeConsumptionBillingDetailsResult struct {
-	// Whether the customer has configured their payment information.
+	// The billing providers available for the customer.
+	BillingProviders []CustomerBillingProvider `json:"billingProviders,omitempty"`
+	// Deprecated. Whether the customer has configured their payment information.
 	PaymentConfigured bool `json:"paymentConfigured"`
-	// The URL from the billing provide to redirect users to so they can enter their payment information.  Only present when first adding payment information
+	// Deprecated. The URL from the billing provide to redirect users to so they can enter their payment information.  Only present when first adding payment information
 	PaymentInfoPortalURL *string `json:"paymentInfoPortalURL,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -45,6 +47,29 @@ func NewDescribeConsumptionBillingDetailsResult(paymentConfigured bool) *Describ
 func NewDescribeConsumptionBillingDetailsResultWithDefaults() *DescribeConsumptionBillingDetailsResult {
 	this := DescribeConsumptionBillingDetailsResult{}
 	return &this
+}
+
+// GetBillingProviders returns the BillingProviders field value if set, zero value otherwise.
+func (o *DescribeConsumptionBillingDetailsResult) GetBillingProviders() []CustomerBillingProvider {
+	if o == nil || IsNil(o.BillingProviders) {
+		var ret []CustomerBillingProvider
+		return ret
+	}
+	return o.BillingProviders
+}
+
+// GetBillingProvidersOk returns a tuple with the BillingProviders field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeConsumptionBillingDetailsResult) GetBillingProvidersOk() ([]CustomerBillingProvider, bool) {
+	if o == nil || IsNil(o.BillingProviders) {
+		return nil, false
+	}
+	return o.BillingProviders, true
+}
+
+// SetBillingProviders gets a reference to the given []CustomerBillingProvider and assigns it to the BillingProviders field.
+func (o *DescribeConsumptionBillingDetailsResult) SetBillingProviders(v []CustomerBillingProvider) {
+	o.BillingProviders = v
 }
 
 // GetPaymentConfigured returns the PaymentConfigured field value
@@ -104,6 +129,9 @@ func (o DescribeConsumptionBillingDetailsResult) MarshalJSON() ([]byte, error) {
 
 func (o DescribeConsumptionBillingDetailsResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.BillingProviders) {
+		toSerialize["billingProviders"] = o.BillingProviders
+	}
 	toSerialize["paymentConfigured"] = o.PaymentConfigured
 	if !IsNil(o.PaymentInfoPortalURL) {
 		toSerialize["paymentInfoPortalURL"] = o.PaymentInfoPortalURL
@@ -151,6 +179,7 @@ func (o *DescribeConsumptionBillingDetailsResult) UnmarshalJSON(data []byte) (er
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "billingProviders")
 		delete(additionalProperties, "paymentConfigured")
 		delete(additionalProperties, "paymentInfoPortalURL")
 		o.AdditionalProperties = additionalProperties

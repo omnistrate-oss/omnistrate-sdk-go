@@ -24,7 +24,7 @@ type CreateResourceInstanceRequest struct {
 	CloudProvider *string `json:"cloud_provider,omitempty"`
 	// Custom network for resource
 	CustomNetworkId *string `json:"custom_network_id,omitempty"`
-	// The external billing id to record which customer should pay for this resource instance
+	// This externalBillingId is deprecated and will be removed in the future
 	ExternalBillingId *string `json:"externalBillingId,omitempty"`
 	// The network type
 	NetworkType *string `json:"network_type,omitempty"`

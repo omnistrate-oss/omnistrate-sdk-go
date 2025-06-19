@@ -4,6 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**BillIssuedToUserEmail** | Pointer to **string** | Email of the user that this invoice is issued to | [optional] 
+**BillIssuedToUserID** | Pointer to **string** | ID of the user that this invoice is issued to | [optional] 
+**BillIssuedToUserName** | Pointer to **string** | Name of the user that this invoice is issued to | [optional] 
 **Currency** | Pointer to **string** | Currency of the invoice | [optional] 
 **CustomerId** | Pointer to **string** | ID of an Org | [optional] 
 **CustomerName** | Pointer to **string** | Organization name of the customer | [optional] 
@@ -35,6 +38,81 @@ will change when the set of required properties is changed
 NewFleetInvoiceWithDefaults instantiates a new FleetInvoice object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetBillIssuedToUserEmail
+
+`func (o *FleetInvoice) GetBillIssuedToUserEmail() string`
+
+GetBillIssuedToUserEmail returns the BillIssuedToUserEmail field if non-nil, zero value otherwise.
+
+### GetBillIssuedToUserEmailOk
+
+`func (o *FleetInvoice) GetBillIssuedToUserEmailOk() (*string, bool)`
+
+GetBillIssuedToUserEmailOk returns a tuple with the BillIssuedToUserEmail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBillIssuedToUserEmail
+
+`func (o *FleetInvoice) SetBillIssuedToUserEmail(v string)`
+
+SetBillIssuedToUserEmail sets BillIssuedToUserEmail field to given value.
+
+### HasBillIssuedToUserEmail
+
+`func (o *FleetInvoice) HasBillIssuedToUserEmail() bool`
+
+HasBillIssuedToUserEmail returns a boolean if a field has been set.
+
+### GetBillIssuedToUserID
+
+`func (o *FleetInvoice) GetBillIssuedToUserID() string`
+
+GetBillIssuedToUserID returns the BillIssuedToUserID field if non-nil, zero value otherwise.
+
+### GetBillIssuedToUserIDOk
+
+`func (o *FleetInvoice) GetBillIssuedToUserIDOk() (*string, bool)`
+
+GetBillIssuedToUserIDOk returns a tuple with the BillIssuedToUserID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBillIssuedToUserID
+
+`func (o *FleetInvoice) SetBillIssuedToUserID(v string)`
+
+SetBillIssuedToUserID sets BillIssuedToUserID field to given value.
+
+### HasBillIssuedToUserID
+
+`func (o *FleetInvoice) HasBillIssuedToUserID() bool`
+
+HasBillIssuedToUserID returns a boolean if a field has been set.
+
+### GetBillIssuedToUserName
+
+`func (o *FleetInvoice) GetBillIssuedToUserName() string`
+
+GetBillIssuedToUserName returns the BillIssuedToUserName field if non-nil, zero value otherwise.
+
+### GetBillIssuedToUserNameOk
+
+`func (o *FleetInvoice) GetBillIssuedToUserNameOk() (*string, bool)`
+
+GetBillIssuedToUserNameOk returns a tuple with the BillIssuedToUserName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBillIssuedToUserName
+
+`func (o *FleetInvoice) SetBillIssuedToUserName(v string)`
+
+SetBillIssuedToUserName sets BillIssuedToUserName field to given value.
+
+### HasBillIssuedToUserName
+
+`func (o *FleetInvoice) HasBillIssuedToUserName() bool`
+
+HasBillIssuedToUserName returns a boolean if a field has been set.
 
 ### GetCurrency
 

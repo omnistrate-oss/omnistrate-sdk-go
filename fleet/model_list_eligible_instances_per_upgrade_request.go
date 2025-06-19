@@ -20,8 +20,10 @@ var _ MappedNullable = &ListEligibleInstancesPerUpgradeRequest{}
 
 // ListEligibleInstancesPerUpgradeRequest struct for ListEligibleInstancesPerUpgradeRequest
 type ListEligibleInstancesPerUpgradeRequest struct {
-	// The next token to use for pagination.
+	// The next token to use for pagination
 	NextPageToken *string `json:"nextPageToken,omitempty"`
+	// The number of resources to return per page
+	PageSize *int64 `json:"pageSize,omitempty"`
 	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// ID of a Service
@@ -86,6 +88,38 @@ func (o *ListEligibleInstancesPerUpgradeRequest) HasNextPageToken() bool {
 // SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.
 func (o *ListEligibleInstancesPerUpgradeRequest) SetNextPageToken(v string) {
 	o.NextPageToken = &v
+}
+
+// GetPageSize returns the PageSize field value if set, zero value otherwise.
+func (o *ListEligibleInstancesPerUpgradeRequest) GetPageSize() int64 {
+	if o == nil || IsNil(o.PageSize) {
+		var ret int64
+		return ret
+	}
+	return *o.PageSize
+}
+
+// GetPageSizeOk returns a tuple with the PageSize field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListEligibleInstancesPerUpgradeRequest) GetPageSizeOk() (*int64, bool) {
+	if o == nil || IsNil(o.PageSize) {
+		return nil, false
+	}
+	return o.PageSize, true
+}
+
+// HasPageSize returns a boolean if a field has been set.
+func (o *ListEligibleInstancesPerUpgradeRequest) HasPageSize() bool {
+	if o != nil && !IsNil(o.PageSize) {
+		return true
+	}
+
+	return false
+}
+
+// SetPageSize gets a reference to the given int64 and assigns it to the PageSize field.
+func (o *ListEligibleInstancesPerUpgradeRequest) SetPageSize(v int64) {
+	o.PageSize = &v
 }
 
 // GetProductTierId returns the ProductTierId field value
@@ -197,6 +231,9 @@ func (o ListEligibleInstancesPerUpgradeRequest) ToMap() (map[string]interface{},
 	if !IsNil(o.NextPageToken) {
 		toSerialize["nextPageToken"] = o.NextPageToken
 	}
+	if !IsNil(o.PageSize) {
+		toSerialize["pageSize"] = o.PageSize
+	}
 	toSerialize["productTierId"] = o.ProductTierId
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["token"] = o.Token
@@ -248,6 +285,7 @@ func (o *ListEligibleInstancesPerUpgradeRequest) UnmarshalJSON(data []byte) (err
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "nextPageToken")
+		delete(additionalProperties, "pageSize")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "token")
