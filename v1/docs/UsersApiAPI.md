@@ -159,7 +159,7 @@ import (
 )
 
 func main() {
-	customerLoginWithIdentityProviderRequest2 := *openapiclient.NewCustomerLoginWithIdentityProviderRequest2("4/P7q7W91a-oMsCeLvIaQm6bTrgtp7&", "Google") // CustomerLoginWithIdentityProviderRequest2 | 
+	customerLoginWithIdentityProviderRequest2 := *openapiclient.NewCustomerLoginWithIdentityProviderRequest2("4/P7q7W91a-oMsCeLvIaQm6bTrgtp7&") // CustomerLoginWithIdentityProviderRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

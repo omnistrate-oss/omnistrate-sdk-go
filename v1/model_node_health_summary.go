@@ -27,8 +27,6 @@ type NodeHealthSummary struct {
 	DiskHealth *string `json:"diskHealth,omitempty"`
 	// The endpoint of the node
 	Endpoint *string `json:"endpoint,omitempty"`
-	// The list of process events
-	Events []string `json:"events,omitempty"`
 	IntegrationsHealth *IntegrationsHealth `json:"integrationsHealth,omitempty"`
 	// The load status of a pod
 	LoadStatus *string `json:"loadStatus,omitempty"`
@@ -42,8 +40,6 @@ type NodeHealthSummary struct {
 	ProcessHealth *string `json:"processHealth,omitempty"`
 	// The heath status of a resource
 	ProcessLiveness *string `json:"processLiveness,omitempty"`
-	// The recent logs of the process
-	RecentLogs *string `json:"recentLogs,omitempty"`
 	// The heath status of a resource
 	Status *string `json:"status,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -158,29 +154,6 @@ func (o *NodeHealthSummary) GetEndpointOk() (*string, bool) {
 // SetEndpoint gets a reference to the given string and assigns it to the Endpoint field.
 func (o *NodeHealthSummary) SetEndpoint(v string) {
 	o.Endpoint = &v
-}
-
-// GetEvents returns the Events field value if set, zero value otherwise.
-func (o *NodeHealthSummary) GetEvents() []string {
-	if o == nil || IsNil(o.Events) {
-		var ret []string
-		return ret
-	}
-	return o.Events
-}
-
-// GetEventsOk returns a tuple with the Events field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *NodeHealthSummary) GetEventsOk() ([]string, bool) {
-	if o == nil || IsNil(o.Events) {
-		return nil, false
-	}
-	return o.Events, true
-}
-
-// SetEvents gets a reference to the given []string and assigns it to the Events field.
-func (o *NodeHealthSummary) SetEvents(v []string) {
-	o.Events = v
 }
 
 // GetIntegrationsHealth returns the IntegrationsHealth field value if set, zero value otherwise.
@@ -344,29 +317,6 @@ func (o *NodeHealthSummary) SetProcessLiveness(v string) {
 	o.ProcessLiveness = &v
 }
 
-// GetRecentLogs returns the RecentLogs field value if set, zero value otherwise.
-func (o *NodeHealthSummary) GetRecentLogs() string {
-	if o == nil || IsNil(o.RecentLogs) {
-		var ret string
-		return ret
-	}
-	return *o.RecentLogs
-}
-
-// GetRecentLogsOk returns a tuple with the RecentLogs field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *NodeHealthSummary) GetRecentLogsOk() (*string, bool) {
-	if o == nil || IsNil(o.RecentLogs) {
-		return nil, false
-	}
-	return o.RecentLogs, true
-}
-
-// SetRecentLogs gets a reference to the given string and assigns it to the RecentLogs field.
-func (o *NodeHealthSummary) SetRecentLogs(v string) {
-	o.RecentLogs = &v
-}
-
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *NodeHealthSummary) GetStatus() string {
 	if o == nil || IsNil(o.Status) {
@@ -412,9 +362,6 @@ func (o NodeHealthSummary) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Endpoint) {
 		toSerialize["endpoint"] = o.Endpoint
 	}
-	if !IsNil(o.Events) {
-		toSerialize["events"] = o.Events
-	}
 	if !IsNil(o.IntegrationsHealth) {
 		toSerialize["integrationsHealth"] = o.IntegrationsHealth
 	}
@@ -435,9 +382,6 @@ func (o NodeHealthSummary) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ProcessLiveness) {
 		toSerialize["processLiveness"] = o.ProcessLiveness
-	}
-	if !IsNil(o.RecentLogs) {
-		toSerialize["recentLogs"] = o.RecentLogs
 	}
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
@@ -468,7 +412,6 @@ func (o *NodeHealthSummary) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "connectivityStatus")
 		delete(additionalProperties, "diskHealth")
 		delete(additionalProperties, "endpoint")
-		delete(additionalProperties, "events")
 		delete(additionalProperties, "integrationsHealth")
 		delete(additionalProperties, "loadStatus")
 		delete(additionalProperties, "nodeHealth")
@@ -476,7 +419,6 @@ func (o *NodeHealthSummary) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "ports")
 		delete(additionalProperties, "processHealth")
 		delete(additionalProperties, "processLiveness")
-		delete(additionalProperties, "recentLogs")
 		delete(additionalProperties, "status")
 		o.AdditionalProperties = additionalProperties
 	}

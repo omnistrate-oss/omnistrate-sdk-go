@@ -32,8 +32,12 @@ type DescribeProductTierResult struct {
 	AzureRegions []string `json:"azureRegions,omitempty"`
 	// Optional billing product ID for tax purposes
 	BillingProductID *string `json:"billingProductID,omitempty"`
+	// List of billing providers to be used for the product tier
+	BillingProviders []string `json:"billingProviders,omitempty"`
 	// The readiness of the cloud providers configurations
 	CloudProvidersConfigReadiness map[string]interface{} `json:"cloudProvidersConfigReadiness,omitempty"`
+	// The billing provider type
+	DefaultBillingProvider *string `json:"defaultBillingProvider,omitempty"`
 	// A brief description of the product tier
 	Description string `json:"description"`
 	// Documentation
@@ -244,6 +248,29 @@ func (o *DescribeProductTierResult) SetBillingProductID(v string) {
 	o.BillingProductID = &v
 }
 
+// GetBillingProviders returns the BillingProviders field value if set, zero value otherwise.
+func (o *DescribeProductTierResult) GetBillingProviders() []string {
+	if o == nil || IsNil(o.BillingProviders) {
+		var ret []string
+		return ret
+	}
+	return o.BillingProviders
+}
+
+// GetBillingProvidersOk returns a tuple with the BillingProviders field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeProductTierResult) GetBillingProvidersOk() ([]string, bool) {
+	if o == nil || IsNil(o.BillingProviders) {
+		return nil, false
+	}
+	return o.BillingProviders, true
+}
+
+// SetBillingProviders gets a reference to the given []string and assigns it to the BillingProviders field.
+func (o *DescribeProductTierResult) SetBillingProviders(v []string) {
+	o.BillingProviders = v
+}
+
 // GetCloudProvidersConfigReadiness returns the CloudProvidersConfigReadiness field value if set, zero value otherwise.
 func (o *DescribeProductTierResult) GetCloudProvidersConfigReadiness() map[string]interface{} {
 	if o == nil || IsNil(o.CloudProvidersConfigReadiness) {
@@ -265,6 +292,29 @@ func (o *DescribeProductTierResult) GetCloudProvidersConfigReadinessOk() (map[st
 // SetCloudProvidersConfigReadiness gets a reference to the given map[string]interface{} and assigns it to the CloudProvidersConfigReadiness field.
 func (o *DescribeProductTierResult) SetCloudProvidersConfigReadiness(v map[string]interface{}) {
 	o.CloudProvidersConfigReadiness = v
+}
+
+// GetDefaultBillingProvider returns the DefaultBillingProvider field value if set, zero value otherwise.
+func (o *DescribeProductTierResult) GetDefaultBillingProvider() string {
+	if o == nil || IsNil(o.DefaultBillingProvider) {
+		var ret string
+		return ret
+	}
+	return *o.DefaultBillingProvider
+}
+
+// GetDefaultBillingProviderOk returns a tuple with the DefaultBillingProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeProductTierResult) GetDefaultBillingProviderOk() (*string, bool) {
+	if o == nil || IsNil(o.DefaultBillingProvider) {
+		return nil, false
+	}
+	return o.DefaultBillingProvider, true
+}
+
+// SetDefaultBillingProvider gets a reference to the given string and assigns it to the DefaultBillingProvider field.
+func (o *DescribeProductTierResult) SetDefaultBillingProvider(v string) {
+	o.DefaultBillingProvider = &v
 }
 
 // GetDescription returns the Description field value
@@ -746,8 +796,14 @@ func (o DescribeProductTierResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.BillingProductID) {
 		toSerialize["billingProductID"] = o.BillingProductID
 	}
+	if !IsNil(o.BillingProviders) {
+		toSerialize["billingProviders"] = o.BillingProviders
+	}
 	if !IsNil(o.CloudProvidersConfigReadiness) {
 		toSerialize["cloudProvidersConfigReadiness"] = o.CloudProvidersConfigReadiness
+	}
+	if !IsNil(o.DefaultBillingProvider) {
+		toSerialize["defaultBillingProvider"] = o.DefaultBillingProvider
 	}
 	toSerialize["description"] = o.Description
 	toSerialize["documentation"] = o.Documentation
@@ -844,7 +900,9 @@ func (o *DescribeProductTierResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "awsRegions")
 		delete(additionalProperties, "azureRegions")
 		delete(additionalProperties, "billingProductID")
+		delete(additionalProperties, "billingProviders")
 		delete(additionalProperties, "cloudProvidersConfigReadiness")
+		delete(additionalProperties, "defaultBillingProvider")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "documentation")
 		delete(additionalProperties, "enabledFeatures")

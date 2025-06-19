@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ## ServicePlanApiListServicePlans
 
-> ListServicePlansResult ServicePlanApiListServicePlans(ctx, serviceId, serviceEnvironmentId).Execute()
+> ListServicePlansResult ServicePlanApiListServicePlans(ctx, serviceId, serviceEnvironmentId).NextPageToken(nextPageToken).PageSize(pageSize).SkipHasPendingChangesCheck(skipHasPendingChangesCheck).Execute()
 
 ListServicePlans service-plan-api
 
@@ -101,10 +101,13 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | Service ID
 	serviceEnvironmentId := "se-12345678" // string | Service environment ID
+	nextPageToken := "token" // string |  (optional)
+	pageSize := int64(10) // int64 |  (optional)
+	skipHasPendingChangesCheck := false // bool | Skip the check for pending changes in the service plans (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServicePlanApiAPI.ServicePlanApiListServicePlans(context.Background(), serviceId, serviceEnvironmentId).Execute()
+	resp, r, err := apiClient.ServicePlanApiAPI.ServicePlanApiListServicePlans(context.Background(), serviceId, serviceEnvironmentId).NextPageToken(nextPageToken).PageSize(pageSize).SkipHasPendingChangesCheck(skipHasPendingChangesCheck).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServicePlanApiAPI.ServicePlanApiListServicePlans``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -132,6 +135,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+ **nextPageToken** | **string** |  | 
+ **pageSize** | **int64** |  | 
+ **skipHasPendingChangesCheck** | **bool** | Skip the check for pending changes in the service plans | 
 
 ### Return type
 

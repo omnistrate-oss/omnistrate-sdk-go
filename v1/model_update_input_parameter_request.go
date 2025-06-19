@@ -41,6 +41,8 @@ type UpdateInputParameterRequest struct {
 	Required *bool `json:"required,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
+	// Index for parameter ordering in the SaaS portal
+	TabIndex *int64 `json:"tabIndex,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -56,6 +58,8 @@ func NewUpdateInputParameterRequest(id string, serviceId string, token string) *
 	this := UpdateInputParameterRequest{}
 	this.Id = id
 	this.ServiceId = serviceId
+	var tabIndex int64 = 0
+	this.TabIndex = &tabIndex
 	this.Token = token
 	return &this
 }
@@ -65,6 +69,8 @@ func NewUpdateInputParameterRequest(id string, serviceId string, token string) *
 // but it doesn't guarantee that properties required by API are set
 func NewUpdateInputParameterRequestWithDefaults() *UpdateInputParameterRequest {
 	this := UpdateInputParameterRequest{}
+	var tabIndex int64 = 0
+	this.TabIndex = &tabIndex
 	return &this
 }
 
@@ -323,6 +329,29 @@ func (o *UpdateInputParameterRequest) SetServiceId(v string) {
 	o.ServiceId = v
 }
 
+// GetTabIndex returns the TabIndex field value if set, zero value otherwise.
+func (o *UpdateInputParameterRequest) GetTabIndex() int64 {
+	if o == nil || IsNil(o.TabIndex) {
+		var ret int64
+		return ret
+	}
+	return *o.TabIndex
+}
+
+// GetTabIndexOk returns a tuple with the TabIndex field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateInputParameterRequest) GetTabIndexOk() (*int64, bool) {
+	if o == nil || IsNil(o.TabIndex) {
+		return nil, false
+	}
+	return o.TabIndex, true
+}
+
+// SetTabIndex gets a reference to the given int64 and assigns it to the TabIndex field.
+func (o *UpdateInputParameterRequest) SetTabIndex(v int64) {
+	o.TabIndex = &v
+}
+
 // GetToken returns the Token field value
 func (o *UpdateInputParameterRequest) GetToken() string {
 	if o == nil {
@@ -386,6 +415,9 @@ func (o UpdateInputParameterRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["required"] = o.Required
 	}
 	toSerialize["serviceId"] = o.ServiceId
+	if !IsNil(o.TabIndex) {
+		toSerialize["tabIndex"] = o.TabIndex
+	}
 	toSerialize["token"] = o.Token
 
 	for key, value := range o.AdditionalProperties {
@@ -443,6 +475,7 @@ func (o *UpdateInputParameterRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "options")
 		delete(additionalProperties, "required")
 		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "tabIndex")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

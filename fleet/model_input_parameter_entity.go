@@ -40,6 +40,8 @@ type InputParameterEntity struct {
 	Options []string `json:"options,omitempty"`
 	// Whether the parameter is required
 	Required bool `json:"required"`
+	// Index for parameter ordering in the SaaS portal
+	TabIndex *int64 `json:"tabIndex,omitempty"`
 	// The parameter type
 	Type string `json:"type"`
 	AdditionalProperties map[string]interface{}
@@ -60,6 +62,8 @@ func NewInputParameterEntity(custom bool, description string, displayName string
 	this.Key = key
 	this.Modifiable = modifiable
 	this.Required = required
+	var tabIndex int64 = 0
+	this.TabIndex = &tabIndex
 	this.Type = type_
 	return &this
 }
@@ -69,6 +73,8 @@ func NewInputParameterEntity(custom bool, description string, displayName string
 // but it doesn't guarantee that properties required by API are set
 func NewInputParameterEntityWithDefaults() *InputParameterEntity {
 	this := InputParameterEntity{}
+	var tabIndex int64 = 0
+	this.TabIndex = &tabIndex
 	return &this
 }
 
@@ -336,6 +342,38 @@ func (o *InputParameterEntity) SetRequired(v bool) {
 	o.Required = v
 }
 
+// GetTabIndex returns the TabIndex field value if set, zero value otherwise.
+func (o *InputParameterEntity) GetTabIndex() int64 {
+	if o == nil || IsNil(o.TabIndex) {
+		var ret int64
+		return ret
+	}
+	return *o.TabIndex
+}
+
+// GetTabIndexOk returns a tuple with the TabIndex field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InputParameterEntity) GetTabIndexOk() (*int64, bool) {
+	if o == nil || IsNil(o.TabIndex) {
+		return nil, false
+	}
+	return o.TabIndex, true
+}
+
+// HasTabIndex returns a boolean if a field has been set.
+func (o *InputParameterEntity) HasTabIndex() bool {
+	if o != nil && !IsNil(o.TabIndex) {
+		return true
+	}
+
+	return false
+}
+
+// SetTabIndex gets a reference to the given int64 and assigns it to the TabIndex field.
+func (o *InputParameterEntity) SetTabIndex(v int64) {
+	o.TabIndex = &v
+}
+
 // GetType returns the Type field value
 func (o *InputParameterEntity) GetType() string {
 	if o == nil {
@@ -386,6 +424,9 @@ func (o InputParameterEntity) ToMap() (map[string]interface{}, error) {
 		toSerialize["options"] = o.Options
 	}
 	toSerialize["required"] = o.Required
+	if !IsNil(o.TabIndex) {
+		toSerialize["tabIndex"] = o.TabIndex
+	}
 	toSerialize["type"] = o.Type
 
 	for key, value := range o.AdditionalProperties {
@@ -447,6 +488,7 @@ func (o *InputParameterEntity) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "modifiable")
 		delete(additionalProperties, "options")
 		delete(additionalProperties, "required")
+		delete(additionalProperties, "tabIndex")
 		delete(additionalProperties, "type")
 		o.AdditionalProperties = additionalProperties
 	}

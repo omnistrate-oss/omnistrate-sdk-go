@@ -22,6 +22,8 @@ var _ MappedNullable = &ListEligibleInstancesPerUpgradeResult{}
 type ListEligibleInstancesPerUpgradeResult struct {
 	// The list of instances that are in the upgrade path
 	Instances []InstanceUpgrade `json:"instances"`
+	// Token to use for the next request
+	NextPageToken *string `json:"nextPageToken,omitempty"`
 	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// ID of a Service
@@ -76,6 +78,38 @@ func (o *ListEligibleInstancesPerUpgradeResult) GetInstancesOk() ([]InstanceUpgr
 // SetInstances sets field value
 func (o *ListEligibleInstancesPerUpgradeResult) SetInstances(v []InstanceUpgrade) {
 	o.Instances = v
+}
+
+// GetNextPageToken returns the NextPageToken field value if set, zero value otherwise.
+func (o *ListEligibleInstancesPerUpgradeResult) GetNextPageToken() string {
+	if o == nil || IsNil(o.NextPageToken) {
+		var ret string
+		return ret
+	}
+	return *o.NextPageToken
+}
+
+// GetNextPageTokenOk returns a tuple with the NextPageToken field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListEligibleInstancesPerUpgradeResult) GetNextPageTokenOk() (*string, bool) {
+	if o == nil || IsNil(o.NextPageToken) {
+		return nil, false
+	}
+	return o.NextPageToken, true
+}
+
+// HasNextPageToken returns a boolean if a field has been set.
+func (o *ListEligibleInstancesPerUpgradeResult) HasNextPageToken() bool {
+	if o != nil && !IsNil(o.NextPageToken) {
+		return true
+	}
+
+	return false
+}
+
+// SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.
+func (o *ListEligibleInstancesPerUpgradeResult) SetNextPageToken(v string) {
+	o.NextPageToken = &v
 }
 
 // GetProductTierId returns the ProductTierId field value
@@ -161,6 +195,9 @@ func (o ListEligibleInstancesPerUpgradeResult) MarshalJSON() ([]byte, error) {
 func (o ListEligibleInstancesPerUpgradeResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["instances"] = o.Instances
+	if !IsNil(o.NextPageToken) {
+		toSerialize["nextPageToken"] = o.NextPageToken
+	}
 	toSerialize["productTierId"] = o.ProductTierId
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["upgradePathId"] = o.UpgradePathId
@@ -211,6 +248,7 @@ func (o *ListEligibleInstancesPerUpgradeResult) UnmarshalJSON(data []byte) (err 
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "instances")
+		delete(additionalProperties, "nextPageToken")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "upgradePathId")

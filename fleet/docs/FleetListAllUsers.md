@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
+**PageSize** | Pointer to **int64** | The number of resources to return per page | [optional] 
 **ServiceId** | Pointer to **string** | ID of a Service | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
@@ -25,6 +27,56 @@ will change when the set of required properties is changed
 NewFleetListAllUsersWithDefaults instantiates a new FleetListAllUsers object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetNextPageToken
+
+`func (o *FleetListAllUsers) GetNextPageToken() string`
+
+GetNextPageToken returns the NextPageToken field if non-nil, zero value otherwise.
+
+### GetNextPageTokenOk
+
+`func (o *FleetListAllUsers) GetNextPageTokenOk() (*string, bool)`
+
+GetNextPageTokenOk returns a tuple with the NextPageToken field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNextPageToken
+
+`func (o *FleetListAllUsers) SetNextPageToken(v string)`
+
+SetNextPageToken sets NextPageToken field to given value.
+
+### HasNextPageToken
+
+`func (o *FleetListAllUsers) HasNextPageToken() bool`
+
+HasNextPageToken returns a boolean if a field has been set.
+
+### GetPageSize
+
+`func (o *FleetListAllUsers) GetPageSize() int64`
+
+GetPageSize returns the PageSize field if non-nil, zero value otherwise.
+
+### GetPageSizeOk
+
+`func (o *FleetListAllUsers) GetPageSizeOk() (*int64, bool)`
+
+GetPageSizeOk returns a tuple with the PageSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPageSize
+
+`func (o *FleetListAllUsers) SetPageSize(v int64)`
+
+SetPageSize sets PageSize field to given value.
+
+### HasPageSize
+
+`func (o *FleetListAllUsers) HasPageSize() bool`
+
+HasPageSize returns a boolean if a field has been set.
 
 ### GetServiceId
 

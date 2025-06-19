@@ -394,7 +394,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this model belongs to
 	id := "sm-12345678" // string | The service model ID
-	disableServiceModelFeatureRequest2 := *openapiclient.NewDisableServiceModelFeatureRequest2("In quaerat eos dicta nulla optio.") // DisableServiceModelFeatureRequest2 | 
+	disableServiceModelFeatureRequest2 := *openapiclient.NewDisableServiceModelFeatureRequest2("Debitis impedit in et et cumque voluptates.") // DisableServiceModelFeatureRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -465,7 +465,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this model belongs to
 	id := "sm-12345678" // string | The service model ID
-	enableServiceModelFeatureRequest2 := *openapiclient.NewEnableServiceModelFeatureRequest2(map[string]interface{}{"key": interface{}(123)}, "Cupiditate tempora quisquam voluptatem officia est.") // EnableServiceModelFeatureRequest2 | 
+	enableServiceModelFeatureRequest2 := *openapiclient.NewEnableServiceModelFeatureRequest2(map[string]interface{}{"key": interface{}(123)}, "Necessitatibus ullam et tenetur vel laboriosam.") // EnableServiceModelFeatureRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

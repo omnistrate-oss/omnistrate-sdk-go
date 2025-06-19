@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Adopted** | **bool** | Whether the resource instance is adopted. | 
+**AdoptionConfiguration** | Pointer to **map[string]interface{}** | The adoption configuration overrides for the resource instance. | [optional] 
 **AwsAccountID** | Pointer to **string** | The AWS account ID | [optional] 
 **AzureSubscriptionID** | Pointer to **string** | The Azure subscription ID | [optional] 
 **CloudProvider** | **string** | Name of the Infra Provider | 
@@ -46,7 +48,7 @@ Name | Type | Description | Notes
 
 ### NewResourceInstance
 
-`func NewResourceInstance(cloudProvider string, consumptionResourceInstanceResult DescribeResourceInstanceResult, defaultSubscription bool, environmentId string, inputParams interface{}, instanceDebugCommands []string, integrationsStatus []IntegrationStatus, organizationId string, organizationName string, productTierId string, productTierName string, productTierType string, resourceVersionSummaries []ResourceVersionSummary, serviceEnvName string, serviceId string, serviceModelId string, serviceModelName string, serviceModelType string, serviceName string, subscriptionId string, subscriptionOwnerName string, tierVersion string, tierVersionReleasedAt string, tierVersionReleasedByUserId string, tierVersionReleasedByUserName string, tierVersionStatus string, ) *ResourceInstance`
+`func NewResourceInstance(adopted bool, cloudProvider string, consumptionResourceInstanceResult DescribeResourceInstanceResult, defaultSubscription bool, environmentId string, inputParams interface{}, instanceDebugCommands []string, integrationsStatus []IntegrationStatus, organizationId string, organizationName string, productTierId string, productTierName string, productTierType string, resourceVersionSummaries []ResourceVersionSummary, serviceEnvName string, serviceId string, serviceModelId string, serviceModelName string, serviceModelType string, serviceName string, subscriptionId string, subscriptionOwnerName string, tierVersion string, tierVersionReleasedAt string, tierVersionReleasedByUserId string, tierVersionReleasedByUserName string, tierVersionStatus string, ) *ResourceInstance`
 
 NewResourceInstance instantiates a new ResourceInstance object
 This constructor will assign default values to properties that have it defined,
@@ -60,6 +62,51 @@ will change when the set of required properties is changed
 NewResourceInstanceWithDefaults instantiates a new ResourceInstance object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAdopted
+
+`func (o *ResourceInstance) GetAdopted() bool`
+
+GetAdopted returns the Adopted field if non-nil, zero value otherwise.
+
+### GetAdoptedOk
+
+`func (o *ResourceInstance) GetAdoptedOk() (*bool, bool)`
+
+GetAdoptedOk returns a tuple with the Adopted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdopted
+
+`func (o *ResourceInstance) SetAdopted(v bool)`
+
+SetAdopted sets Adopted field to given value.
+
+
+### GetAdoptionConfiguration
+
+`func (o *ResourceInstance) GetAdoptionConfiguration() map[string]interface{}`
+
+GetAdoptionConfiguration returns the AdoptionConfiguration field if non-nil, zero value otherwise.
+
+### GetAdoptionConfigurationOk
+
+`func (o *ResourceInstance) GetAdoptionConfigurationOk() (*map[string]interface{}, bool)`
+
+GetAdoptionConfigurationOk returns a tuple with the AdoptionConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdoptionConfiguration
+
+`func (o *ResourceInstance) SetAdoptionConfiguration(v map[string]interface{})`
+
+SetAdoptionConfiguration sets AdoptionConfiguration field to given value.
+
+### HasAdoptionConfiguration
+
+`func (o *ResourceInstance) HasAdoptionConfiguration() bool`
+
+HasAdoptionConfiguration returns a boolean if a field has been set.
 
 ### GetAwsAccountID
 

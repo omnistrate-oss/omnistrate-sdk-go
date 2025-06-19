@@ -404,6 +404,7 @@ type ApiInvoiceApiListInvoicesRequest struct {
 	endDate *time.Time
 	status *string
 	customerId *string
+	billingProvider *string
 }
 
 // Start date for filtering invoices
@@ -427,6 +428,12 @@ func (r ApiInvoiceApiListInvoicesRequest) Status(status string) ApiInvoiceApiLis
 // Filter by customer ID
 func (r ApiInvoiceApiListInvoicesRequest) CustomerId(customerId string) ApiInvoiceApiListInvoicesRequest {
 	r.customerId = &customerId
+	return r
+}
+
+// Filter by billing provider
+func (r ApiInvoiceApiListInvoicesRequest) BillingProvider(billingProvider string) ApiInvoiceApiListInvoicesRequest {
+	r.billingProvider = &billingProvider
 	return r
 }
 
@@ -479,6 +486,9 @@ func (a *InvoiceApiAPIService) InvoiceApiListInvoicesExecute(r ApiInvoiceApiList
 	}
 	if r.customerId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "customerId", r.customerId, "form", "")
+	}
+	if r.billingProvider != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "billingProvider", r.billingProvider, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

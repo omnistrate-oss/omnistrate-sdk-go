@@ -14,21 +14,23 @@ import (
 	"encoding/json"
 )
 
-// checks if the HistorySubscriptionPricing type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &HistorySubscriptionPricing{}
+// checks if the SubscriptionPricing type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SubscriptionPricing{}
 
-// HistorySubscriptionPricing struct for HistorySubscriptionPricing
-type HistorySubscriptionPricing struct {
+// SubscriptionPricing struct for SubscriptionPricing
+type SubscriptionPricing struct {
 	// The time that this pricing was created
 	CreatedAt *string `json:"createdAt,omitempty"`
 	// ID of a User
 	CreatedByUserId *string `json:"createdByUserId,omitempty"`
 	// The name of the user that created the price
 	CreatedByUserName *string `json:"createdByUserName,omitempty"`
+	// Whether this price is a custom price
+	CustomPrice *bool `json:"customPrice,omitempty"`
 	// The end date of the price
 	EndDate *string `json:"endDate,omitempty"`
-	// Whether this price inherits the service plan price
-	InheritServicePlanPrice *bool `json:"inheritServicePlanPrice,omitempty"`
+	// Whether this price should be used for billing
+	IsActiveBillingPrice *bool `json:"isActiveBillingPrice,omitempty"`
 	// The price per unit for the subscription
 	PricePerUnit map[string]interface{} `json:"pricePerUnit,omitempty"`
 	// The start date of the price
@@ -36,27 +38,27 @@ type HistorySubscriptionPricing struct {
 	AdditionalProperties map[string]interface{}
 }
 
-type _HistorySubscriptionPricing HistorySubscriptionPricing
+type _SubscriptionPricing SubscriptionPricing
 
-// NewHistorySubscriptionPricing instantiates a new HistorySubscriptionPricing object
+// NewSubscriptionPricing instantiates a new SubscriptionPricing object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHistorySubscriptionPricing() *HistorySubscriptionPricing {
-	this := HistorySubscriptionPricing{}
+func NewSubscriptionPricing() *SubscriptionPricing {
+	this := SubscriptionPricing{}
 	return &this
 }
 
-// NewHistorySubscriptionPricingWithDefaults instantiates a new HistorySubscriptionPricing object
+// NewSubscriptionPricingWithDefaults instantiates a new SubscriptionPricing object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewHistorySubscriptionPricingWithDefaults() *HistorySubscriptionPricing {
-	this := HistorySubscriptionPricing{}
+func NewSubscriptionPricingWithDefaults() *SubscriptionPricing {
+	this := SubscriptionPricing{}
 	return &this
 }
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
-func (o *HistorySubscriptionPricing) GetCreatedAt() string {
+func (o *SubscriptionPricing) GetCreatedAt() string {
 	if o == nil || IsNil(o.CreatedAt) {
 		var ret string
 		return ret
@@ -66,7 +68,7 @@ func (o *HistorySubscriptionPricing) GetCreatedAt() string {
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *HistorySubscriptionPricing) GetCreatedAtOk() (*string, bool) {
+func (o *SubscriptionPricing) GetCreatedAtOk() (*string, bool) {
 	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
@@ -74,7 +76,7 @@ func (o *HistorySubscriptionPricing) GetCreatedAtOk() (*string, bool) {
 }
 
 // HasCreatedAt returns a boolean if a field has been set.
-func (o *HistorySubscriptionPricing) HasCreatedAt() bool {
+func (o *SubscriptionPricing) HasCreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -83,12 +85,12 @@ func (o *HistorySubscriptionPricing) HasCreatedAt() bool {
 }
 
 // SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
-func (o *HistorySubscriptionPricing) SetCreatedAt(v string) {
+func (o *SubscriptionPricing) SetCreatedAt(v string) {
 	o.CreatedAt = &v
 }
 
 // GetCreatedByUserId returns the CreatedByUserId field value if set, zero value otherwise.
-func (o *HistorySubscriptionPricing) GetCreatedByUserId() string {
+func (o *SubscriptionPricing) GetCreatedByUserId() string {
 	if o == nil || IsNil(o.CreatedByUserId) {
 		var ret string
 		return ret
@@ -98,7 +100,7 @@ func (o *HistorySubscriptionPricing) GetCreatedByUserId() string {
 
 // GetCreatedByUserIdOk returns a tuple with the CreatedByUserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *HistorySubscriptionPricing) GetCreatedByUserIdOk() (*string, bool) {
+func (o *SubscriptionPricing) GetCreatedByUserIdOk() (*string, bool) {
 	if o == nil || IsNil(o.CreatedByUserId) {
 		return nil, false
 	}
@@ -106,7 +108,7 @@ func (o *HistorySubscriptionPricing) GetCreatedByUserIdOk() (*string, bool) {
 }
 
 // HasCreatedByUserId returns a boolean if a field has been set.
-func (o *HistorySubscriptionPricing) HasCreatedByUserId() bool {
+func (o *SubscriptionPricing) HasCreatedByUserId() bool {
 	if o != nil && !IsNil(o.CreatedByUserId) {
 		return true
 	}
@@ -115,12 +117,12 @@ func (o *HistorySubscriptionPricing) HasCreatedByUserId() bool {
 }
 
 // SetCreatedByUserId gets a reference to the given string and assigns it to the CreatedByUserId field.
-func (o *HistorySubscriptionPricing) SetCreatedByUserId(v string) {
+func (o *SubscriptionPricing) SetCreatedByUserId(v string) {
 	o.CreatedByUserId = &v
 }
 
 // GetCreatedByUserName returns the CreatedByUserName field value if set, zero value otherwise.
-func (o *HistorySubscriptionPricing) GetCreatedByUserName() string {
+func (o *SubscriptionPricing) GetCreatedByUserName() string {
 	if o == nil || IsNil(o.CreatedByUserName) {
 		var ret string
 		return ret
@@ -130,7 +132,7 @@ func (o *HistorySubscriptionPricing) GetCreatedByUserName() string {
 
 // GetCreatedByUserNameOk returns a tuple with the CreatedByUserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *HistorySubscriptionPricing) GetCreatedByUserNameOk() (*string, bool) {
+func (o *SubscriptionPricing) GetCreatedByUserNameOk() (*string, bool) {
 	if o == nil || IsNil(o.CreatedByUserName) {
 		return nil, false
 	}
@@ -138,7 +140,7 @@ func (o *HistorySubscriptionPricing) GetCreatedByUserNameOk() (*string, bool) {
 }
 
 // HasCreatedByUserName returns a boolean if a field has been set.
-func (o *HistorySubscriptionPricing) HasCreatedByUserName() bool {
+func (o *SubscriptionPricing) HasCreatedByUserName() bool {
 	if o != nil && !IsNil(o.CreatedByUserName) {
 		return true
 	}
@@ -147,12 +149,44 @@ func (o *HistorySubscriptionPricing) HasCreatedByUserName() bool {
 }
 
 // SetCreatedByUserName gets a reference to the given string and assigns it to the CreatedByUserName field.
-func (o *HistorySubscriptionPricing) SetCreatedByUserName(v string) {
+func (o *SubscriptionPricing) SetCreatedByUserName(v string) {
 	o.CreatedByUserName = &v
 }
 
+// GetCustomPrice returns the CustomPrice field value if set, zero value otherwise.
+func (o *SubscriptionPricing) GetCustomPrice() bool {
+	if o == nil || IsNil(o.CustomPrice) {
+		var ret bool
+		return ret
+	}
+	return *o.CustomPrice
+}
+
+// GetCustomPriceOk returns a tuple with the CustomPrice field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SubscriptionPricing) GetCustomPriceOk() (*bool, bool) {
+	if o == nil || IsNil(o.CustomPrice) {
+		return nil, false
+	}
+	return o.CustomPrice, true
+}
+
+// HasCustomPrice returns a boolean if a field has been set.
+func (o *SubscriptionPricing) HasCustomPrice() bool {
+	if o != nil && !IsNil(o.CustomPrice) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomPrice gets a reference to the given bool and assigns it to the CustomPrice field.
+func (o *SubscriptionPricing) SetCustomPrice(v bool) {
+	o.CustomPrice = &v
+}
+
 // GetEndDate returns the EndDate field value if set, zero value otherwise.
-func (o *HistorySubscriptionPricing) GetEndDate() string {
+func (o *SubscriptionPricing) GetEndDate() string {
 	if o == nil || IsNil(o.EndDate) {
 		var ret string
 		return ret
@@ -162,7 +196,7 @@ func (o *HistorySubscriptionPricing) GetEndDate() string {
 
 // GetEndDateOk returns a tuple with the EndDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *HistorySubscriptionPricing) GetEndDateOk() (*string, bool) {
+func (o *SubscriptionPricing) GetEndDateOk() (*string, bool) {
 	if o == nil || IsNil(o.EndDate) {
 		return nil, false
 	}
@@ -170,7 +204,7 @@ func (o *HistorySubscriptionPricing) GetEndDateOk() (*string, bool) {
 }
 
 // HasEndDate returns a boolean if a field has been set.
-func (o *HistorySubscriptionPricing) HasEndDate() bool {
+func (o *SubscriptionPricing) HasEndDate() bool {
 	if o != nil && !IsNil(o.EndDate) {
 		return true
 	}
@@ -179,44 +213,44 @@ func (o *HistorySubscriptionPricing) HasEndDate() bool {
 }
 
 // SetEndDate gets a reference to the given string and assigns it to the EndDate field.
-func (o *HistorySubscriptionPricing) SetEndDate(v string) {
+func (o *SubscriptionPricing) SetEndDate(v string) {
 	o.EndDate = &v
 }
 
-// GetInheritServicePlanPrice returns the InheritServicePlanPrice field value if set, zero value otherwise.
-func (o *HistorySubscriptionPricing) GetInheritServicePlanPrice() bool {
-	if o == nil || IsNil(o.InheritServicePlanPrice) {
+// GetIsActiveBillingPrice returns the IsActiveBillingPrice field value if set, zero value otherwise.
+func (o *SubscriptionPricing) GetIsActiveBillingPrice() bool {
+	if o == nil || IsNil(o.IsActiveBillingPrice) {
 		var ret bool
 		return ret
 	}
-	return *o.InheritServicePlanPrice
+	return *o.IsActiveBillingPrice
 }
 
-// GetInheritServicePlanPriceOk returns a tuple with the InheritServicePlanPrice field value if set, nil otherwise
+// GetIsActiveBillingPriceOk returns a tuple with the IsActiveBillingPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *HistorySubscriptionPricing) GetInheritServicePlanPriceOk() (*bool, bool) {
-	if o == nil || IsNil(o.InheritServicePlanPrice) {
+func (o *SubscriptionPricing) GetIsActiveBillingPriceOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsActiveBillingPrice) {
 		return nil, false
 	}
-	return o.InheritServicePlanPrice, true
+	return o.IsActiveBillingPrice, true
 }
 
-// HasInheritServicePlanPrice returns a boolean if a field has been set.
-func (o *HistorySubscriptionPricing) HasInheritServicePlanPrice() bool {
-	if o != nil && !IsNil(o.InheritServicePlanPrice) {
+// HasIsActiveBillingPrice returns a boolean if a field has been set.
+func (o *SubscriptionPricing) HasIsActiveBillingPrice() bool {
+	if o != nil && !IsNil(o.IsActiveBillingPrice) {
 		return true
 	}
 
 	return false
 }
 
-// SetInheritServicePlanPrice gets a reference to the given bool and assigns it to the InheritServicePlanPrice field.
-func (o *HistorySubscriptionPricing) SetInheritServicePlanPrice(v bool) {
-	o.InheritServicePlanPrice = &v
+// SetIsActiveBillingPrice gets a reference to the given bool and assigns it to the IsActiveBillingPrice field.
+func (o *SubscriptionPricing) SetIsActiveBillingPrice(v bool) {
+	o.IsActiveBillingPrice = &v
 }
 
 // GetPricePerUnit returns the PricePerUnit field value if set, zero value otherwise.
-func (o *HistorySubscriptionPricing) GetPricePerUnit() map[string]interface{} {
+func (o *SubscriptionPricing) GetPricePerUnit() map[string]interface{} {
 	if o == nil || IsNil(o.PricePerUnit) {
 		var ret map[string]interface{}
 		return ret
@@ -226,7 +260,7 @@ func (o *HistorySubscriptionPricing) GetPricePerUnit() map[string]interface{} {
 
 // GetPricePerUnitOk returns a tuple with the PricePerUnit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *HistorySubscriptionPricing) GetPricePerUnitOk() (map[string]interface{}, bool) {
+func (o *SubscriptionPricing) GetPricePerUnitOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.PricePerUnit) {
 		return map[string]interface{}{}, false
 	}
@@ -234,7 +268,7 @@ func (o *HistorySubscriptionPricing) GetPricePerUnitOk() (map[string]interface{}
 }
 
 // HasPricePerUnit returns a boolean if a field has been set.
-func (o *HistorySubscriptionPricing) HasPricePerUnit() bool {
+func (o *SubscriptionPricing) HasPricePerUnit() bool {
 	if o != nil && !IsNil(o.PricePerUnit) {
 		return true
 	}
@@ -243,12 +277,12 @@ func (o *HistorySubscriptionPricing) HasPricePerUnit() bool {
 }
 
 // SetPricePerUnit gets a reference to the given map[string]interface{} and assigns it to the PricePerUnit field.
-func (o *HistorySubscriptionPricing) SetPricePerUnit(v map[string]interface{}) {
+func (o *SubscriptionPricing) SetPricePerUnit(v map[string]interface{}) {
 	o.PricePerUnit = v
 }
 
 // GetStartDate returns the StartDate field value if set, zero value otherwise.
-func (o *HistorySubscriptionPricing) GetStartDate() string {
+func (o *SubscriptionPricing) GetStartDate() string {
 	if o == nil || IsNil(o.StartDate) {
 		var ret string
 		return ret
@@ -258,7 +292,7 @@ func (o *HistorySubscriptionPricing) GetStartDate() string {
 
 // GetStartDateOk returns a tuple with the StartDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *HistorySubscriptionPricing) GetStartDateOk() (*string, bool) {
+func (o *SubscriptionPricing) GetStartDateOk() (*string, bool) {
 	if o == nil || IsNil(o.StartDate) {
 		return nil, false
 	}
@@ -266,7 +300,7 @@ func (o *HistorySubscriptionPricing) GetStartDateOk() (*string, bool) {
 }
 
 // HasStartDate returns a boolean if a field has been set.
-func (o *HistorySubscriptionPricing) HasStartDate() bool {
+func (o *SubscriptionPricing) HasStartDate() bool {
 	if o != nil && !IsNil(o.StartDate) {
 		return true
 	}
@@ -275,11 +309,11 @@ func (o *HistorySubscriptionPricing) HasStartDate() bool {
 }
 
 // SetStartDate gets a reference to the given string and assigns it to the StartDate field.
-func (o *HistorySubscriptionPricing) SetStartDate(v string) {
+func (o *SubscriptionPricing) SetStartDate(v string) {
 	o.StartDate = &v
 }
 
-func (o HistorySubscriptionPricing) MarshalJSON() ([]byte, error) {
+func (o SubscriptionPricing) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -287,7 +321,7 @@ func (o HistorySubscriptionPricing) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o HistorySubscriptionPricing) ToMap() (map[string]interface{}, error) {
+func (o SubscriptionPricing) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.CreatedAt) {
 		toSerialize["createdAt"] = o.CreatedAt
@@ -298,11 +332,14 @@ func (o HistorySubscriptionPricing) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CreatedByUserName) {
 		toSerialize["createdByUserName"] = o.CreatedByUserName
 	}
+	if !IsNil(o.CustomPrice) {
+		toSerialize["customPrice"] = o.CustomPrice
+	}
 	if !IsNil(o.EndDate) {
 		toSerialize["endDate"] = o.EndDate
 	}
-	if !IsNil(o.InheritServicePlanPrice) {
-		toSerialize["inheritServicePlanPrice"] = o.InheritServicePlanPrice
+	if !IsNil(o.IsActiveBillingPrice) {
+		toSerialize["isActiveBillingPrice"] = o.IsActiveBillingPrice
 	}
 	if !IsNil(o.PricePerUnit) {
 		toSerialize["pricePerUnit"] = o.PricePerUnit
@@ -318,16 +355,16 @@ func (o HistorySubscriptionPricing) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *HistorySubscriptionPricing) UnmarshalJSON(data []byte) (err error) {
-	varHistorySubscriptionPricing := _HistorySubscriptionPricing{}
+func (o *SubscriptionPricing) UnmarshalJSON(data []byte) (err error) {
+	varSubscriptionPricing := _SubscriptionPricing{}
 
-	err = json.Unmarshal(data, &varHistorySubscriptionPricing)
+	err = json.Unmarshal(data, &varSubscriptionPricing)
 
 	if err != nil {
 		return err
 	}
 
-	*o = HistorySubscriptionPricing(varHistorySubscriptionPricing)
+	*o = SubscriptionPricing(varSubscriptionPricing)
 
 	additionalProperties := make(map[string]interface{})
 
@@ -335,8 +372,9 @@ func (o *HistorySubscriptionPricing) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "createdByUserId")
 		delete(additionalProperties, "createdByUserName")
+		delete(additionalProperties, "customPrice")
 		delete(additionalProperties, "endDate")
-		delete(additionalProperties, "inheritServicePlanPrice")
+		delete(additionalProperties, "isActiveBillingPrice")
 		delete(additionalProperties, "pricePerUnit")
 		delete(additionalProperties, "startDate")
 		o.AdditionalProperties = additionalProperties
@@ -345,38 +383,38 @@ func (o *HistorySubscriptionPricing) UnmarshalJSON(data []byte) (err error) {
 	return err
 }
 
-type NullableHistorySubscriptionPricing struct {
-	value *HistorySubscriptionPricing
+type NullableSubscriptionPricing struct {
+	value *SubscriptionPricing
 	isSet bool
 }
 
-func (v NullableHistorySubscriptionPricing) Get() *HistorySubscriptionPricing {
+func (v NullableSubscriptionPricing) Get() *SubscriptionPricing {
 	return v.value
 }
 
-func (v *NullableHistorySubscriptionPricing) Set(val *HistorySubscriptionPricing) {
+func (v *NullableSubscriptionPricing) Set(val *SubscriptionPricing) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableHistorySubscriptionPricing) IsSet() bool {
+func (v NullableSubscriptionPricing) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableHistorySubscriptionPricing) Unset() {
+func (v *NullableSubscriptionPricing) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableHistorySubscriptionPricing(val *HistorySubscriptionPricing) *NullableHistorySubscriptionPricing {
-	return &NullableHistorySubscriptionPricing{value: val, isSet: true}
+func NewNullableSubscriptionPricing(val *SubscriptionPricing) *NullableSubscriptionPricing {
+	return &NullableSubscriptionPricing{value: val, isSet: true}
 }
 
-func (v NullableHistorySubscriptionPricing) MarshalJSON() ([]byte, error) {
+func (v NullableSubscriptionPricing) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableHistorySubscriptionPricing) UnmarshalJSON(src []byte) error {
+func (v *NullableSubscriptionPricing) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

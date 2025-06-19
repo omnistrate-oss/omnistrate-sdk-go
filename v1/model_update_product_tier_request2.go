@@ -29,6 +29,10 @@ type UpdateProductTierRequest2 struct {
 	AzureRegions []string `json:"azureRegions,omitempty"`
 	// Optional billing product ID for tax purposes
 	BillingProductID *string `json:"billingProductID,omitempty"`
+	// List of billing providers to be used for the product tier
+	BillingProviders []string `json:"billingProviders,omitempty"`
+	// The default billing provider to be used for the product tier
+	DefaultBillingProvider *string `json:"defaultBillingProvider,omitempty"`
 	// A brief description of the product tier
 	Description *string `json:"description,omitempty"`
 	// Documentation
@@ -190,6 +194,52 @@ func (o *UpdateProductTierRequest2) GetBillingProductIDOk() (*string, bool) {
 // SetBillingProductID gets a reference to the given string and assigns it to the BillingProductID field.
 func (o *UpdateProductTierRequest2) SetBillingProductID(v string) {
 	o.BillingProductID = &v
+}
+
+// GetBillingProviders returns the BillingProviders field value if set, zero value otherwise.
+func (o *UpdateProductTierRequest2) GetBillingProviders() []string {
+	if o == nil || IsNil(o.BillingProviders) {
+		var ret []string
+		return ret
+	}
+	return o.BillingProviders
+}
+
+// GetBillingProvidersOk returns a tuple with the BillingProviders field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateProductTierRequest2) GetBillingProvidersOk() ([]string, bool) {
+	if o == nil || IsNil(o.BillingProviders) {
+		return nil, false
+	}
+	return o.BillingProviders, true
+}
+
+// SetBillingProviders gets a reference to the given []string and assigns it to the BillingProviders field.
+func (o *UpdateProductTierRequest2) SetBillingProviders(v []string) {
+	o.BillingProviders = v
+}
+
+// GetDefaultBillingProvider returns the DefaultBillingProvider field value if set, zero value otherwise.
+func (o *UpdateProductTierRequest2) GetDefaultBillingProvider() string {
+	if o == nil || IsNil(o.DefaultBillingProvider) {
+		var ret string
+		return ret
+	}
+	return *o.DefaultBillingProvider
+}
+
+// GetDefaultBillingProviderOk returns a tuple with the DefaultBillingProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateProductTierRequest2) GetDefaultBillingProviderOk() (*string, bool) {
+	if o == nil || IsNil(o.DefaultBillingProvider) {
+		return nil, false
+	}
+	return o.DefaultBillingProvider, true
+}
+
+// SetDefaultBillingProvider gets a reference to the given string and assigns it to the DefaultBillingProvider field.
+func (o *UpdateProductTierRequest2) SetDefaultBillingProvider(v string) {
+	o.DefaultBillingProvider = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -517,6 +567,12 @@ func (o UpdateProductTierRequest2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.BillingProductID) {
 		toSerialize["billingProductID"] = o.BillingProductID
 	}
+	if !IsNil(o.BillingProviders) {
+		toSerialize["billingProviders"] = o.BillingProviders
+	}
+	if !IsNil(o.DefaultBillingProvider) {
+		toSerialize["defaultBillingProvider"] = o.DefaultBillingProvider
+	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
@@ -583,6 +639,8 @@ func (o *UpdateProductTierRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "awsRegions")
 		delete(additionalProperties, "azureRegions")
 		delete(additionalProperties, "billingProductID")
+		delete(additionalProperties, "billingProviders")
+		delete(additionalProperties, "defaultBillingProvider")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "documentation")
 		delete(additionalProperties, "exportUsageMetering")

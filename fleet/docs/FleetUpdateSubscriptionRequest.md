@@ -4,12 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AllowCreatesWhenPaymentNotConfigured** | Pointer to **bool** | Whether to allow creating instances when payment is not configured. | [optional] 
+**BillingProvider** | Pointer to **string** | The billing provider type | [optional] 
+**CustomPrice** | Pointer to **bool** | Whether to use a custom price for this subscription | [optional] 
+**CustomPricePerUnit** | Pointer to **map[string]interface{}** | If custom price is true, provide the price per unit for the subscription here. | [optional] 
 **EnvironmentId** | **string** | ID of a Service Environment | 
 **ExternalPayerId** | Pointer to **string** | The external payer ID to record which customer should pay for this subscription. | [optional] 
 **Id** | **string** | ID of a Subscription | 
-**InheritServicePlanPrice** | Pointer to **bool** | Whether to inherit the service plan price | [optional] 
+**MaxNumberOfInstances** | Pointer to **int64** | The maximum number of instances that can be created for this subscription. Use -1 to unset this restriction. | [optional] 
+**PaymentChannelType** | Pointer to **string** | The payment channel type used for the subscription. | [optional] 
 **PriceEffectiveDate** | Pointer to **string** | The effective date of the price, truncated to the first day of the month. Only the current or future months may be specified. | [optional] 
-**PricePerUnit** | Pointer to **map[string]interface{}** | If inheritServicePlanPrice is false, provide the price per unit for the subscription here. | [optional] 
 **ServiceId** | **string** | ID of a Service | 
 **Token** | **string** | JWT token used to perform authorization | 
 
@@ -31,6 +35,106 @@ will change when the set of required properties is changed
 NewFleetUpdateSubscriptionRequestWithDefaults instantiates a new FleetUpdateSubscriptionRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAllowCreatesWhenPaymentNotConfigured
+
+`func (o *FleetUpdateSubscriptionRequest) GetAllowCreatesWhenPaymentNotConfigured() bool`
+
+GetAllowCreatesWhenPaymentNotConfigured returns the AllowCreatesWhenPaymentNotConfigured field if non-nil, zero value otherwise.
+
+### GetAllowCreatesWhenPaymentNotConfiguredOk
+
+`func (o *FleetUpdateSubscriptionRequest) GetAllowCreatesWhenPaymentNotConfiguredOk() (*bool, bool)`
+
+GetAllowCreatesWhenPaymentNotConfiguredOk returns a tuple with the AllowCreatesWhenPaymentNotConfigured field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowCreatesWhenPaymentNotConfigured
+
+`func (o *FleetUpdateSubscriptionRequest) SetAllowCreatesWhenPaymentNotConfigured(v bool)`
+
+SetAllowCreatesWhenPaymentNotConfigured sets AllowCreatesWhenPaymentNotConfigured field to given value.
+
+### HasAllowCreatesWhenPaymentNotConfigured
+
+`func (o *FleetUpdateSubscriptionRequest) HasAllowCreatesWhenPaymentNotConfigured() bool`
+
+HasAllowCreatesWhenPaymentNotConfigured returns a boolean if a field has been set.
+
+### GetBillingProvider
+
+`func (o *FleetUpdateSubscriptionRequest) GetBillingProvider() string`
+
+GetBillingProvider returns the BillingProvider field if non-nil, zero value otherwise.
+
+### GetBillingProviderOk
+
+`func (o *FleetUpdateSubscriptionRequest) GetBillingProviderOk() (*string, bool)`
+
+GetBillingProviderOk returns a tuple with the BillingProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBillingProvider
+
+`func (o *FleetUpdateSubscriptionRequest) SetBillingProvider(v string)`
+
+SetBillingProvider sets BillingProvider field to given value.
+
+### HasBillingProvider
+
+`func (o *FleetUpdateSubscriptionRequest) HasBillingProvider() bool`
+
+HasBillingProvider returns a boolean if a field has been set.
+
+### GetCustomPrice
+
+`func (o *FleetUpdateSubscriptionRequest) GetCustomPrice() bool`
+
+GetCustomPrice returns the CustomPrice field if non-nil, zero value otherwise.
+
+### GetCustomPriceOk
+
+`func (o *FleetUpdateSubscriptionRequest) GetCustomPriceOk() (*bool, bool)`
+
+GetCustomPriceOk returns a tuple with the CustomPrice field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomPrice
+
+`func (o *FleetUpdateSubscriptionRequest) SetCustomPrice(v bool)`
+
+SetCustomPrice sets CustomPrice field to given value.
+
+### HasCustomPrice
+
+`func (o *FleetUpdateSubscriptionRequest) HasCustomPrice() bool`
+
+HasCustomPrice returns a boolean if a field has been set.
+
+### GetCustomPricePerUnit
+
+`func (o *FleetUpdateSubscriptionRequest) GetCustomPricePerUnit() map[string]interface{}`
+
+GetCustomPricePerUnit returns the CustomPricePerUnit field if non-nil, zero value otherwise.
+
+### GetCustomPricePerUnitOk
+
+`func (o *FleetUpdateSubscriptionRequest) GetCustomPricePerUnitOk() (*map[string]interface{}, bool)`
+
+GetCustomPricePerUnitOk returns a tuple with the CustomPricePerUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomPricePerUnit
+
+`func (o *FleetUpdateSubscriptionRequest) SetCustomPricePerUnit(v map[string]interface{})`
+
+SetCustomPricePerUnit sets CustomPricePerUnit field to given value.
+
+### HasCustomPricePerUnit
+
+`func (o *FleetUpdateSubscriptionRequest) HasCustomPricePerUnit() bool`
+
+HasCustomPricePerUnit returns a boolean if a field has been set.
 
 ### GetEnvironmentId
 
@@ -97,30 +201,55 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
-### GetInheritServicePlanPrice
+### GetMaxNumberOfInstances
 
-`func (o *FleetUpdateSubscriptionRequest) GetInheritServicePlanPrice() bool`
+`func (o *FleetUpdateSubscriptionRequest) GetMaxNumberOfInstances() int64`
 
-GetInheritServicePlanPrice returns the InheritServicePlanPrice field if non-nil, zero value otherwise.
+GetMaxNumberOfInstances returns the MaxNumberOfInstances field if non-nil, zero value otherwise.
 
-### GetInheritServicePlanPriceOk
+### GetMaxNumberOfInstancesOk
 
-`func (o *FleetUpdateSubscriptionRequest) GetInheritServicePlanPriceOk() (*bool, bool)`
+`func (o *FleetUpdateSubscriptionRequest) GetMaxNumberOfInstancesOk() (*int64, bool)`
 
-GetInheritServicePlanPriceOk returns a tuple with the InheritServicePlanPrice field if it's non-nil, zero value otherwise
+GetMaxNumberOfInstancesOk returns a tuple with the MaxNumberOfInstances field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetInheritServicePlanPrice
+### SetMaxNumberOfInstances
 
-`func (o *FleetUpdateSubscriptionRequest) SetInheritServicePlanPrice(v bool)`
+`func (o *FleetUpdateSubscriptionRequest) SetMaxNumberOfInstances(v int64)`
 
-SetInheritServicePlanPrice sets InheritServicePlanPrice field to given value.
+SetMaxNumberOfInstances sets MaxNumberOfInstances field to given value.
 
-### HasInheritServicePlanPrice
+### HasMaxNumberOfInstances
 
-`func (o *FleetUpdateSubscriptionRequest) HasInheritServicePlanPrice() bool`
+`func (o *FleetUpdateSubscriptionRequest) HasMaxNumberOfInstances() bool`
 
-HasInheritServicePlanPrice returns a boolean if a field has been set.
+HasMaxNumberOfInstances returns a boolean if a field has been set.
+
+### GetPaymentChannelType
+
+`func (o *FleetUpdateSubscriptionRequest) GetPaymentChannelType() string`
+
+GetPaymentChannelType returns the PaymentChannelType field if non-nil, zero value otherwise.
+
+### GetPaymentChannelTypeOk
+
+`func (o *FleetUpdateSubscriptionRequest) GetPaymentChannelTypeOk() (*string, bool)`
+
+GetPaymentChannelTypeOk returns a tuple with the PaymentChannelType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentChannelType
+
+`func (o *FleetUpdateSubscriptionRequest) SetPaymentChannelType(v string)`
+
+SetPaymentChannelType sets PaymentChannelType field to given value.
+
+### HasPaymentChannelType
+
+`func (o *FleetUpdateSubscriptionRequest) HasPaymentChannelType() bool`
+
+HasPaymentChannelType returns a boolean if a field has been set.
 
 ### GetPriceEffectiveDate
 
@@ -146,31 +275,6 @@ SetPriceEffectiveDate sets PriceEffectiveDate field to given value.
 `func (o *FleetUpdateSubscriptionRequest) HasPriceEffectiveDate() bool`
 
 HasPriceEffectiveDate returns a boolean if a field has been set.
-
-### GetPricePerUnit
-
-`func (o *FleetUpdateSubscriptionRequest) GetPricePerUnit() map[string]interface{}`
-
-GetPricePerUnit returns the PricePerUnit field if non-nil, zero value otherwise.
-
-### GetPricePerUnitOk
-
-`func (o *FleetUpdateSubscriptionRequest) GetPricePerUnitOk() (*map[string]interface{}, bool)`
-
-GetPricePerUnitOk returns a tuple with the PricePerUnit field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPricePerUnit
-
-`func (o *FleetUpdateSubscriptionRequest) SetPricePerUnit(v map[string]interface{})`
-
-SetPricePerUnit sets PricePerUnit field to given value.
-
-### HasPricePerUnit
-
-`func (o *FleetUpdateSubscriptionRequest) HasPricePerUnit() bool`
-
-HasPricePerUnit returns a boolean if a field has been set.
 
 ### GetServiceId
 

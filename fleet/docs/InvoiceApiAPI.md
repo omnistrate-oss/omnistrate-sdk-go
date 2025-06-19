@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 ## InvoiceApiListInvoices
 
-> FleetListInvoicesResult InvoiceApiListInvoices(ctx).StartDate(startDate).EndDate(endDate).Status(status).CustomerId(customerId).Execute()
+> FleetListInvoicesResult InvoiceApiListInvoices(ctx).StartDate(startDate).EndDate(endDate).Status(status).CustomerId(customerId).BillingProvider(billingProvider).Execute()
 
 ListInvoices invoice-api
 
@@ -168,10 +168,11 @@ func main() {
 	endDate := time.Now() // time.Time | End date for filtering invoices (optional)
 	status := "open" // string | Filter by invoice status (optional)
 	customerId := "customer-1234568" // string | Filter by customer ID (optional)
+	billingProvider := "STRIPE" // string | Filter by billing provider (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoiceApiAPI.InvoiceApiListInvoices(context.Background()).StartDate(startDate).EndDate(endDate).Status(status).CustomerId(customerId).Execute()
+	resp, r, err := apiClient.InvoiceApiAPI.InvoiceApiListInvoices(context.Background()).StartDate(startDate).EndDate(endDate).Status(status).CustomerId(customerId).BillingProvider(billingProvider).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InvoiceApiAPI.InvoiceApiListInvoices``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -196,6 +197,7 @@ Name | Type | Description  | Notes
  **endDate** | **time.Time** | End date for filtering invoices | 
  **status** | **string** | Filter by invoice status | 
  **customerId** | **string** | Filter by customer ID | 
+ **billingProvider** | **string** | Filter by billing provider | 
 
 ### Return type
 

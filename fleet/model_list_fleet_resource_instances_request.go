@@ -30,6 +30,10 @@ type ListFleetResourceInstancesRequest struct {
 	SubscriptionId *string `json:"SubscriptionId,omitempty"`
 	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
+	// The next token to use for pagination
+	NextPageToken *string `json:"nextPageToken,omitempty"`
+	// The number of resources to return per page
+	PageSize *int64 `json:"pageSize,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// JWT token used to perform authorization
@@ -211,6 +215,70 @@ func (o *ListFleetResourceInstancesRequest) SetEnvironmentId(v string) {
 	o.EnvironmentId = v
 }
 
+// GetNextPageToken returns the NextPageToken field value if set, zero value otherwise.
+func (o *ListFleetResourceInstancesRequest) GetNextPageToken() string {
+	if o == nil || IsNil(o.NextPageToken) {
+		var ret string
+		return ret
+	}
+	return *o.NextPageToken
+}
+
+// GetNextPageTokenOk returns a tuple with the NextPageToken field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListFleetResourceInstancesRequest) GetNextPageTokenOk() (*string, bool) {
+	if o == nil || IsNil(o.NextPageToken) {
+		return nil, false
+	}
+	return o.NextPageToken, true
+}
+
+// HasNextPageToken returns a boolean if a field has been set.
+func (o *ListFleetResourceInstancesRequest) HasNextPageToken() bool {
+	if o != nil && !IsNil(o.NextPageToken) {
+		return true
+	}
+
+	return false
+}
+
+// SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.
+func (o *ListFleetResourceInstancesRequest) SetNextPageToken(v string) {
+	o.NextPageToken = &v
+}
+
+// GetPageSize returns the PageSize field value if set, zero value otherwise.
+func (o *ListFleetResourceInstancesRequest) GetPageSize() int64 {
+	if o == nil || IsNil(o.PageSize) {
+		var ret int64
+		return ret
+	}
+	return *o.PageSize
+}
+
+// GetPageSizeOk returns a tuple with the PageSize field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListFleetResourceInstancesRequest) GetPageSizeOk() (*int64, bool) {
+	if o == nil || IsNil(o.PageSize) {
+		return nil, false
+	}
+	return o.PageSize, true
+}
+
+// HasPageSize returns a boolean if a field has been set.
+func (o *ListFleetResourceInstancesRequest) HasPageSize() bool {
+	if o != nil && !IsNil(o.PageSize) {
+		return true
+	}
+
+	return false
+}
+
+// SetPageSize gets a reference to the given int64 and assigns it to the PageSize field.
+func (o *ListFleetResourceInstancesRequest) SetPageSize(v int64) {
+	o.PageSize = &v
+}
+
 // GetServiceId returns the ServiceId field value
 func (o *ListFleetResourceInstancesRequest) GetServiceId() string {
 	if o == nil {
@@ -282,6 +350,12 @@ func (o ListFleetResourceInstancesRequest) ToMap() (map[string]interface{}, erro
 		toSerialize["SubscriptionId"] = o.SubscriptionId
 	}
 	toSerialize["environmentId"] = o.EnvironmentId
+	if !IsNil(o.NextPageToken) {
+		toSerialize["nextPageToken"] = o.NextPageToken
+	}
+	if !IsNil(o.PageSize) {
+		toSerialize["pageSize"] = o.PageSize
+	}
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["token"] = o.Token
 
@@ -334,6 +408,8 @@ func (o *ListFleetResourceInstancesRequest) UnmarshalJSON(data []byte) (err erro
 		delete(additionalProperties, "ProductTierVersion")
 		delete(additionalProperties, "SubscriptionId")
 		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "nextPageToken")
+		delete(additionalProperties, "pageSize")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties

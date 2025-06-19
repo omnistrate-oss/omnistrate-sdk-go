@@ -40,6 +40,13 @@ type InvoiceApiAPIService service
 type ApiInvoiceApiListInvoicesRequest struct {
 	ctx context.Context
 	ApiService InvoiceApiAPI
+	billingProvider *string
+}
+
+// Billing provider. If specified, list invoices for the specified billing provider.
+func (r ApiInvoiceApiListInvoicesRequest) BillingProvider(billingProvider string) ApiInvoiceApiListInvoicesRequest {
+	r.billingProvider = &billingProvider
+	return r
 }
 
 func (r ApiInvoiceApiListInvoicesRequest) Execute() (*ListInvoicesResult, *http.Response, error) {
@@ -80,6 +87,9 @@ func (a *InvoiceApiAPIService) InvoiceApiListInvoicesExecute(r ApiInvoiceApiList
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.billingProvider != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "billingProvider", r.billingProvider, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

@@ -8,16 +8,17 @@ Name | Type | Description | Notes
 **CompanyDescription** | Pointer to **string** |  | [optional] 
 **CompanyUrl** | Pointer to **string** |  | [optional] 
 **EnvironmentType** | Pointer to **string** | The environment type of the portal that the customer is signing in to | [optional] 
-**IdentityProviderName** | **string** | The type of the Identity Provider | 
+**IdentityProviderName** | Pointer to **string** | The name or type of the Identity Provider | [optional] 
 **InvitedEmail** | Pointer to **string** | Email address that the user was invited with | [optional] 
 **LegalCompanyName** | Pointer to **string** |  | [optional] 
 **RedirectUri** | Pointer to **string** | The redirect URI used to get the authorization code | [optional] 
+**State** | Pointer to **string** | The state parameter used to prevent CSRF attacks | [optional] 
 
 ## Methods
 
 ### NewCustomerLoginWithIdentityProviderRequest2
 
-`func NewCustomerLoginWithIdentityProviderRequest2(authorizationCode string, identityProviderName string, ) *CustomerLoginWithIdentityProviderRequest2`
+`func NewCustomerLoginWithIdentityProviderRequest2(authorizationCode string, ) *CustomerLoginWithIdentityProviderRequest2`
 
 NewCustomerLoginWithIdentityProviderRequest2 instantiates a new CustomerLoginWithIdentityProviderRequest2 object
 This constructor will assign default values to properties that have it defined,
@@ -146,6 +147,11 @@ and a boolean to check if the value has been set.
 
 SetIdentityProviderName sets IdentityProviderName field to given value.
 
+### HasIdentityProviderName
+
+`func (o *CustomerLoginWithIdentityProviderRequest2) HasIdentityProviderName() bool`
+
+HasIdentityProviderName returns a boolean if a field has been set.
 
 ### GetInvitedEmail
 
@@ -221,6 +227,31 @@ SetRedirectUri sets RedirectUri field to given value.
 `func (o *CustomerLoginWithIdentityProviderRequest2) HasRedirectUri() bool`
 
 HasRedirectUri returns a boolean if a field has been set.
+
+### GetState
+
+`func (o *CustomerLoginWithIdentityProviderRequest2) GetState() string`
+
+GetState returns the State field if non-nil, zero value otherwise.
+
+### GetStateOk
+
+`func (o *CustomerLoginWithIdentityProviderRequest2) GetStateOk() (*string, bool)`
+
+GetStateOk returns a tuple with the State field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetState
+
+`func (o *CustomerLoginWithIdentityProviderRequest2) SetState(v string)`
+
+SetState sets State field to given value.
+
+### HasState
+
+`func (o *CustomerLoginWithIdentityProviderRequest2) HasState() bool`
+
+HasState returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

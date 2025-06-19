@@ -855,14 +855,24 @@ func (a *AuditEventsApiAPIService) AuditEventsApiDescribeAuditEventExecute(r Api
 type ApiAuditEventsApiListAllAuditEventsRequest struct {
 	ctx context.Context
 	ApiService AuditEventsApiAPI
+	nextPageToken *string
+	pageSize *int64
 	serviceID *string
 	environmentType *string
 	eventSourceTypes *[]string
 	instanceID *string
-	nextPageToken *string
-	pageSize *int64
 	startDate *time.Time
 	endDate *time.Time
+}
+
+func (r ApiAuditEventsApiListAllAuditEventsRequest) NextPageToken(nextPageToken string) ApiAuditEventsApiListAllAuditEventsRequest {
+	r.nextPageToken = &nextPageToken
+	return r
+}
+
+func (r ApiAuditEventsApiListAllAuditEventsRequest) PageSize(pageSize int64) ApiAuditEventsApiListAllAuditEventsRequest {
+	r.pageSize = &pageSize
+	return r
 }
 
 // The service ID to list events for
@@ -885,18 +895,6 @@ func (r ApiAuditEventsApiListAllAuditEventsRequest) EventSourceTypes(eventSource
 // The instance ID to list events for
 func (r ApiAuditEventsApiListAllAuditEventsRequest) InstanceID(instanceID string) ApiAuditEventsApiListAllAuditEventsRequest {
 	r.instanceID = &instanceID
-	return r
-}
-
-// The next token to use for pagination
-func (r ApiAuditEventsApiListAllAuditEventsRequest) NextPageToken(nextPageToken string) ApiAuditEventsApiListAllAuditEventsRequest {
-	r.nextPageToken = &nextPageToken
-	return r
-}
-
-// The number of events to return per page
-func (r ApiAuditEventsApiListAllAuditEventsRequest) PageSize(pageSize int64) ApiAuditEventsApiListAllAuditEventsRequest {
-	r.pageSize = &pageSize
 	return r
 }
 
@@ -950,6 +948,12 @@ func (a *AuditEventsApiAPIService) AuditEventsApiListAllAuditEventsExecute(r Api
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.nextPageToken != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")
+	}
+	if r.pageSize != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "form", "")
+	}
 	if r.serviceID != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "serviceID", r.serviceID, "form", "")
 	}
@@ -969,12 +973,6 @@ func (a *AuditEventsApiAPIService) AuditEventsApiListAllAuditEventsExecute(r Api
 	}
 	if r.instanceID != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "instanceID", r.instanceID, "form", "")
-	}
-	if r.nextPageToken != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")
-	}
-	if r.pageSize != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "form", "")
 	}
 	if r.startDate != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "startDate", r.startDate, "form", "")

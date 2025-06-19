@@ -20,6 +20,8 @@ var _ MappedNullable = &ListUpgradePathsResult{}
 
 // ListUpgradePathsResult struct for ListUpgradePathsResult
 type ListUpgradePathsResult struct {
+	// Token to use for the next request
+	NextPageToken *string `json:"nextPageToken,omitempty"`
 	// The list of upgrade paths.
 	UpgradePaths []UpgradePath `json:"upgradePaths"`
 	AdditionalProperties map[string]interface{}
@@ -43,6 +45,38 @@ func NewListUpgradePathsResult(upgradePaths []UpgradePath) *ListUpgradePathsResu
 func NewListUpgradePathsResultWithDefaults() *ListUpgradePathsResult {
 	this := ListUpgradePathsResult{}
 	return &this
+}
+
+// GetNextPageToken returns the NextPageToken field value if set, zero value otherwise.
+func (o *ListUpgradePathsResult) GetNextPageToken() string {
+	if o == nil || IsNil(o.NextPageToken) {
+		var ret string
+		return ret
+	}
+	return *o.NextPageToken
+}
+
+// GetNextPageTokenOk returns a tuple with the NextPageToken field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListUpgradePathsResult) GetNextPageTokenOk() (*string, bool) {
+	if o == nil || IsNil(o.NextPageToken) {
+		return nil, false
+	}
+	return o.NextPageToken, true
+}
+
+// HasNextPageToken returns a boolean if a field has been set.
+func (o *ListUpgradePathsResult) HasNextPageToken() bool {
+	if o != nil && !IsNil(o.NextPageToken) {
+		return true
+	}
+
+	return false
+}
+
+// SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.
+func (o *ListUpgradePathsResult) SetNextPageToken(v string) {
+	o.NextPageToken = &v
 }
 
 // GetUpgradePaths returns the UpgradePaths field value
@@ -79,6 +113,9 @@ func (o ListUpgradePathsResult) MarshalJSON() ([]byte, error) {
 
 func (o ListUpgradePathsResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.NextPageToken) {
+		toSerialize["nextPageToken"] = o.NextPageToken
+	}
 	toSerialize["upgradePaths"] = o.UpgradePaths
 
 	for key, value := range o.AdditionalProperties {
@@ -123,6 +160,7 @@ func (o *ListUpgradePathsResult) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "nextPageToken")
 		delete(additionalProperties, "upgradePaths")
 		o.AdditionalProperties = additionalProperties
 	}

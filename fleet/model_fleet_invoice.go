@@ -19,6 +19,12 @@ var _ MappedNullable = &FleetInvoice{}
 
 // FleetInvoice struct for FleetInvoice
 type FleetInvoice struct {
+	// Email of the user that this invoice is issued to
+	BillIssuedToUserEmail *string `json:"billIssuedToUserEmail,omitempty"`
+	// ID of the user that this invoice is issued to
+	BillIssuedToUserID *string `json:"billIssuedToUserID,omitempty"`
+	// Name of the user that this invoice is issued to
+	BillIssuedToUserName *string `json:"billIssuedToUserName,omitempty"`
 	// Currency of the invoice
 	Currency *string `json:"currency,omitempty"`
 	// ID of an Org
@@ -63,6 +69,102 @@ func NewFleetInvoice() *FleetInvoice {
 func NewFleetInvoiceWithDefaults() *FleetInvoice {
 	this := FleetInvoice{}
 	return &this
+}
+
+// GetBillIssuedToUserEmail returns the BillIssuedToUserEmail field value if set, zero value otherwise.
+func (o *FleetInvoice) GetBillIssuedToUserEmail() string {
+	if o == nil || IsNil(o.BillIssuedToUserEmail) {
+		var ret string
+		return ret
+	}
+	return *o.BillIssuedToUserEmail
+}
+
+// GetBillIssuedToUserEmailOk returns a tuple with the BillIssuedToUserEmail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetInvoice) GetBillIssuedToUserEmailOk() (*string, bool) {
+	if o == nil || IsNil(o.BillIssuedToUserEmail) {
+		return nil, false
+	}
+	return o.BillIssuedToUserEmail, true
+}
+
+// HasBillIssuedToUserEmail returns a boolean if a field has been set.
+func (o *FleetInvoice) HasBillIssuedToUserEmail() bool {
+	if o != nil && !IsNil(o.BillIssuedToUserEmail) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillIssuedToUserEmail gets a reference to the given string and assigns it to the BillIssuedToUserEmail field.
+func (o *FleetInvoice) SetBillIssuedToUserEmail(v string) {
+	o.BillIssuedToUserEmail = &v
+}
+
+// GetBillIssuedToUserID returns the BillIssuedToUserID field value if set, zero value otherwise.
+func (o *FleetInvoice) GetBillIssuedToUserID() string {
+	if o == nil || IsNil(o.BillIssuedToUserID) {
+		var ret string
+		return ret
+	}
+	return *o.BillIssuedToUserID
+}
+
+// GetBillIssuedToUserIDOk returns a tuple with the BillIssuedToUserID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetInvoice) GetBillIssuedToUserIDOk() (*string, bool) {
+	if o == nil || IsNil(o.BillIssuedToUserID) {
+		return nil, false
+	}
+	return o.BillIssuedToUserID, true
+}
+
+// HasBillIssuedToUserID returns a boolean if a field has been set.
+func (o *FleetInvoice) HasBillIssuedToUserID() bool {
+	if o != nil && !IsNil(o.BillIssuedToUserID) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillIssuedToUserID gets a reference to the given string and assigns it to the BillIssuedToUserID field.
+func (o *FleetInvoice) SetBillIssuedToUserID(v string) {
+	o.BillIssuedToUserID = &v
+}
+
+// GetBillIssuedToUserName returns the BillIssuedToUserName field value if set, zero value otherwise.
+func (o *FleetInvoice) GetBillIssuedToUserName() string {
+	if o == nil || IsNil(o.BillIssuedToUserName) {
+		var ret string
+		return ret
+	}
+	return *o.BillIssuedToUserName
+}
+
+// GetBillIssuedToUserNameOk returns a tuple with the BillIssuedToUserName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetInvoice) GetBillIssuedToUserNameOk() (*string, bool) {
+	if o == nil || IsNil(o.BillIssuedToUserName) {
+		return nil, false
+	}
+	return o.BillIssuedToUserName, true
+}
+
+// HasBillIssuedToUserName returns a boolean if a field has been set.
+func (o *FleetInvoice) HasBillIssuedToUserName() bool {
+	if o != nil && !IsNil(o.BillIssuedToUserName) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillIssuedToUserName gets a reference to the given string and assigns it to the BillIssuedToUserName field.
+func (o *FleetInvoice) SetBillIssuedToUserName(v string) {
+	o.BillIssuedToUserName = &v
 }
 
 // GetCurrency returns the Currency field value if set, zero value otherwise.
@@ -459,6 +561,15 @@ func (o FleetInvoice) MarshalJSON() ([]byte, error) {
 
 func (o FleetInvoice) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.BillIssuedToUserEmail) {
+		toSerialize["billIssuedToUserEmail"] = o.BillIssuedToUserEmail
+	}
+	if !IsNil(o.BillIssuedToUserID) {
+		toSerialize["billIssuedToUserID"] = o.BillIssuedToUserID
+	}
+	if !IsNil(o.BillIssuedToUserName) {
+		toSerialize["billIssuedToUserName"] = o.BillIssuedToUserName
+	}
 	if !IsNil(o.Currency) {
 		toSerialize["currency"] = o.Currency
 	}
@@ -517,6 +628,9 @@ func (o *FleetInvoice) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "billIssuedToUserEmail")
+		delete(additionalProperties, "billIssuedToUserID")
+		delete(additionalProperties, "billIssuedToUserName")
 		delete(additionalProperties, "currency")
 		delete(additionalProperties, "customerId")
 		delete(additionalProperties, "customerName")

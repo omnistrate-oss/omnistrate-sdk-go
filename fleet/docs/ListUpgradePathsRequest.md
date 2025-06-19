@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NextPageToken** | Pointer to **string** | The next token to use for pagination. | [optional] 
+**NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
+**PageSize** | Pointer to **int64** | The number of resources to return per page | [optional] 
 **ProductTierId** | **string** | ID of a Product Tier | 
 **ServiceId** | **string** | ID of a Service | 
 **SourceProductTierVersion** | Pointer to **string** | The source product tier version of the upgrade path. | [optional] 
@@ -56,6 +57,31 @@ SetNextPageToken sets NextPageToken field to given value.
 `func (o *ListUpgradePathsRequest) HasNextPageToken() bool`
 
 HasNextPageToken returns a boolean if a field has been set.
+
+### GetPageSize
+
+`func (o *ListUpgradePathsRequest) GetPageSize() int64`
+
+GetPageSize returns the PageSize field if non-nil, zero value otherwise.
+
+### GetPageSizeOk
+
+`func (o *ListUpgradePathsRequest) GetPageSizeOk() (*int64, bool)`
+
+GetPageSizeOk returns a tuple with the PageSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPageSize
+
+`func (o *ListUpgradePathsRequest) SetPageSize(v int64)`
+
+SetPageSize sets PageSize field to given value.
+
+### HasPageSize
+
+`func (o *ListUpgradePathsRequest) HasPageSize() bool`
+
+HasPageSize returns a boolean if a field has been set.
 
 ### GetProductTierId
 

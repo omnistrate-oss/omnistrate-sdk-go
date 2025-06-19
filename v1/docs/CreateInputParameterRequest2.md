@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **Options** | Pointer to **[]string** | A list of options to restrict the value of the input parameter to (represented as a string) | [optional] 
 **Required** | **bool** | Enforces the input parameter as a required parameter | 
 **ResourceId** | **string** | The ID of the resource that this input parameter belongs to | 
+**TabIndex** | Pointer to **int64** | Index for parameter ordering in the SaaS portal | [optional] [default to 0]
 **Type** | **string** |  | 
 
 ## Methods
@@ -332,6 +333,31 @@ and a boolean to check if the value has been set.
 
 SetResourceId sets ResourceId field to given value.
 
+
+### GetTabIndex
+
+`func (o *CreateInputParameterRequest2) GetTabIndex() int64`
+
+GetTabIndex returns the TabIndex field if non-nil, zero value otherwise.
+
+### GetTabIndexOk
+
+`func (o *CreateInputParameterRequest2) GetTabIndexOk() (*int64, bool)`
+
+GetTabIndexOk returns a tuple with the TabIndex field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTabIndex
+
+`func (o *CreateInputParameterRequest2) SetTabIndex(v int64)`
+
+SetTabIndex sets TabIndex field to given value.
+
+### HasTabIndex
+
+`func (o *CreateInputParameterRequest2) HasTabIndex() bool`
+
+HasTabIndex returns a boolean if a field has been set.
 
 ### GetType
 

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ConfigurationOverrides** | Pointer to **map[string]interface{}** | Configuration overrides for the upgrade path per adopted instance ID. This currently only includes custom Helm chart values and Helm runtime configurations. | [optional] 
 **NotifyCustomer** | Pointer to **bool** | Whether to notify the end customer about the upgrade progress. | [optional] 
 **ScheduledDate** | Pointer to **string** | The future date when the upgrade is planned to be executed. Empty for immediate upgrade. | [optional] 
 **SourceVersion** | **string** | The source version of the upgrade path. | 
@@ -28,6 +29,31 @@ will change when the set of required properties is changed
 NewCreateUpgradePathRequest2WithDefaults instantiates a new CreateUpgradePathRequest2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetConfigurationOverrides
+
+`func (o *CreateUpgradePathRequest2) GetConfigurationOverrides() map[string]interface{}`
+
+GetConfigurationOverrides returns the ConfigurationOverrides field if non-nil, zero value otherwise.
+
+### GetConfigurationOverridesOk
+
+`func (o *CreateUpgradePathRequest2) GetConfigurationOverridesOk() (*map[string]interface{}, bool)`
+
+GetConfigurationOverridesOk returns a tuple with the ConfigurationOverrides field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConfigurationOverrides
+
+`func (o *CreateUpgradePathRequest2) SetConfigurationOverrides(v map[string]interface{})`
+
+SetConfigurationOverrides sets ConfigurationOverrides field to given value.
+
+### HasConfigurationOverrides
+
+`func (o *CreateUpgradePathRequest2) HasConfigurationOverrides() bool`
+
+HasConfigurationOverrides returns a boolean if a field has been set.
 
 ### GetNotifyCustomer
 

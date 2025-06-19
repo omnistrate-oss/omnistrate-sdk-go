@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **AwsCloudFormationNoLBTemplateURL** | Pointer to **string** | The URL to the CloudFormation template (no LoadBalancer policy version) | [optional] 
 **AwsCloudFormationTemplateURL** | Pointer to **string** | The URL to the CloudFormation template | [optional] 
 **AzureBootstrapShellCommand** | Pointer to **string** | The Azure bootstrap shell command | [optional] 
+**AzureDisconnectShellCommand** | Pointer to **string** | The Azure disconnect shell command | [optional] 
 **AzureSubscriptionID** | Pointer to **string** | The Azure subscription ID | [optional] 
 **AzureTenantID** | Pointer to **string** | The Azure tenant ID | [optional] 
 **ByoaInstanceIDs** | Pointer to **[]string** | The BYOA instance IDs that this account config is tied to | [optional] 
@@ -167,6 +168,31 @@ SetAzureBootstrapShellCommand sets AzureBootstrapShellCommand field to given val
 `func (o *DescribeAccountConfigResult) HasAzureBootstrapShellCommand() bool`
 
 HasAzureBootstrapShellCommand returns a boolean if a field has been set.
+
+### GetAzureDisconnectShellCommand
+
+`func (o *DescribeAccountConfigResult) GetAzureDisconnectShellCommand() string`
+
+GetAzureDisconnectShellCommand returns the AzureDisconnectShellCommand field if non-nil, zero value otherwise.
+
+### GetAzureDisconnectShellCommandOk
+
+`func (o *DescribeAccountConfigResult) GetAzureDisconnectShellCommandOk() (*string, bool)`
+
+GetAzureDisconnectShellCommandOk returns a tuple with the AzureDisconnectShellCommand field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAzureDisconnectShellCommand
+
+`func (o *DescribeAccountConfigResult) SetAzureDisconnectShellCommand(v string)`
+
+SetAzureDisconnectShellCommand sets AzureDisconnectShellCommand field to given value.
+
+### HasAzureDisconnectShellCommand
+
+`func (o *DescribeAccountConfigResult) HasAzureDisconnectShellCommand() bool`
+
+HasAzureDisconnectShellCommand returns a boolean if a field has been set.
 
 ### GetAzureSubscriptionID
 

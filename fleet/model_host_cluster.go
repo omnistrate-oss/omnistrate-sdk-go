@@ -22,18 +22,29 @@ var _ MappedNullable = &HostCluster{}
 type HostCluster struct {
 	// ID of an Account Config
 	AccountConfigId string `json:"accountConfigId"`
+	// The actual account ID (AWS Account ID, GCP Project ID, Azure Subscription ID) or 'Omnistrate Hosted' for managed accounts
+	AccountID string `json:"accountID"`
+	// Name of the Infra Provider
+	CloudProvider string `json:"cloudProvider"`
+	// The current number of deployments on the host cluster
+	CurrentNumberOfDeployments int64 `json:"currentNumberOfDeployments"`
 	CustomNetworkDetail *CustomNetworkFleetDetail `json:"customNetworkDetail,omitempty"`
 	Description string `json:"description"`
+	HealthStatus HostClusterHealthStatus `json:"healthStatus"`
 	// Helm packages installed on the host cluster
 	HelmPackages []HelmPackage `json:"helmPackages,omitempty"`
 	// ID of a Host Cluster
 	Id string `json:"id"`
+	// Indicates if the host cluster is a custom deployment
+	IsCustomDeployment bool `json:"isCustomDeployment"`
 	// Endpoint of the Kubernetes dashboard
 	KubernetesDashboardEndpoint *string `json:"kubernetesDashboardEndpoint,omitempty"`
 	// The model type encapsulating this service
 	ModelType *string `json:"modelType,omitempty"`
+	// The actual region name of the host cluster
+	Region string `json:"region"`
 	// ID of a Region
-	RegionId *string `json:"regionId,omitempty"`
+	RegionId string `json:"regionId"`
 	Role *string `json:"role,omitempty"`
 	// The status of an operation
 	Status string `json:"status"`
@@ -48,11 +59,18 @@ type _HostCluster HostCluster
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHostCluster(accountConfigId string, description string, id string, status string, type_ string) *HostCluster {
+func NewHostCluster(accountConfigId string, accountID string, cloudProvider string, currentNumberOfDeployments int64, description string, healthStatus HostClusterHealthStatus, id string, isCustomDeployment bool, region string, regionId string, status string, type_ string) *HostCluster {
 	this := HostCluster{}
 	this.AccountConfigId = accountConfigId
+	this.AccountID = accountID
+	this.CloudProvider = cloudProvider
+	this.CurrentNumberOfDeployments = currentNumberOfDeployments
 	this.Description = description
+	this.HealthStatus = healthStatus
 	this.Id = id
+	this.IsCustomDeployment = isCustomDeployment
+	this.Region = region
+	this.RegionId = regionId
 	this.Status = status
 	this.Type = type_
 	return &this
@@ -88,6 +106,78 @@ func (o *HostCluster) GetAccountConfigIdOk() (*string, bool) {
 // SetAccountConfigId sets field value
 func (o *HostCluster) SetAccountConfigId(v string) {
 	o.AccountConfigId = v
+}
+
+// GetAccountID returns the AccountID field value
+func (o *HostCluster) GetAccountID() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.AccountID
+}
+
+// GetAccountIDOk returns a tuple with the AccountID field value
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetAccountIDOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AccountID, true
+}
+
+// SetAccountID sets field value
+func (o *HostCluster) SetAccountID(v string) {
+	o.AccountID = v
+}
+
+// GetCloudProvider returns the CloudProvider field value
+func (o *HostCluster) GetCloudProvider() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CloudProvider
+}
+
+// GetCloudProviderOk returns a tuple with the CloudProvider field value
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetCloudProviderOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CloudProvider, true
+}
+
+// SetCloudProvider sets field value
+func (o *HostCluster) SetCloudProvider(v string) {
+	o.CloudProvider = v
+}
+
+// GetCurrentNumberOfDeployments returns the CurrentNumberOfDeployments field value
+func (o *HostCluster) GetCurrentNumberOfDeployments() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.CurrentNumberOfDeployments
+}
+
+// GetCurrentNumberOfDeploymentsOk returns a tuple with the CurrentNumberOfDeployments field value
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetCurrentNumberOfDeploymentsOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CurrentNumberOfDeployments, true
+}
+
+// SetCurrentNumberOfDeployments sets field value
+func (o *HostCluster) SetCurrentNumberOfDeployments(v int64) {
+	o.CurrentNumberOfDeployments = v
 }
 
 // GetCustomNetworkDetail returns the CustomNetworkDetail field value if set, zero value otherwise.
@@ -146,6 +236,30 @@ func (o *HostCluster) SetDescription(v string) {
 	o.Description = v
 }
 
+// GetHealthStatus returns the HealthStatus field value
+func (o *HostCluster) GetHealthStatus() HostClusterHealthStatus {
+	if o == nil {
+		var ret HostClusterHealthStatus
+		return ret
+	}
+
+	return o.HealthStatus
+}
+
+// GetHealthStatusOk returns a tuple with the HealthStatus field value
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetHealthStatusOk() (*HostClusterHealthStatus, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.HealthStatus, true
+}
+
+// SetHealthStatus sets field value
+func (o *HostCluster) SetHealthStatus(v HostClusterHealthStatus) {
+	o.HealthStatus = v
+}
+
 // GetHelmPackages returns the HelmPackages field value if set, zero value otherwise.
 func (o *HostCluster) GetHelmPackages() []HelmPackage {
 	if o == nil || IsNil(o.HelmPackages) {
@@ -200,6 +314,30 @@ func (o *HostCluster) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *HostCluster) SetId(v string) {
 	o.Id = v
+}
+
+// GetIsCustomDeployment returns the IsCustomDeployment field value
+func (o *HostCluster) GetIsCustomDeployment() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsCustomDeployment
+}
+
+// GetIsCustomDeploymentOk returns a tuple with the IsCustomDeployment field value
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetIsCustomDeploymentOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsCustomDeployment, true
+}
+
+// SetIsCustomDeployment sets field value
+func (o *HostCluster) SetIsCustomDeployment(v bool) {
+	o.IsCustomDeployment = v
 }
 
 // GetKubernetesDashboardEndpoint returns the KubernetesDashboardEndpoint field value if set, zero value otherwise.
@@ -266,36 +404,52 @@ func (o *HostCluster) SetModelType(v string) {
 	o.ModelType = &v
 }
 
-// GetRegionId returns the RegionId field value if set, zero value otherwise.
-func (o *HostCluster) GetRegionId() string {
-	if o == nil || IsNil(o.RegionId) {
+// GetRegion returns the Region field value
+func (o *HostCluster) GetRegion() string {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.RegionId
+
+	return o.Region
 }
 
-// GetRegionIdOk returns a tuple with the RegionId field value if set, nil otherwise
+// GetRegionOk returns a tuple with the Region field value
 // and a boolean to check if the value has been set.
-func (o *HostCluster) GetRegionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.RegionId) {
+func (o *HostCluster) GetRegionOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RegionId, true
+	return &o.Region, true
 }
 
-// HasRegionId returns a boolean if a field has been set.
-func (o *HostCluster) HasRegionId() bool {
-	if o != nil && !IsNil(o.RegionId) {
-		return true
+// SetRegion sets field value
+func (o *HostCluster) SetRegion(v string) {
+	o.Region = v
+}
+
+// GetRegionId returns the RegionId field value
+func (o *HostCluster) GetRegionId() string {
+	if o == nil {
+		var ret string
+		return ret
 	}
 
-	return false
+	return o.RegionId
 }
 
-// SetRegionId gets a reference to the given string and assigns it to the RegionId field.
+// GetRegionIdOk returns a tuple with the RegionId field value
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetRegionIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RegionId, true
+}
+
+// SetRegionId sets field value
 func (o *HostCluster) SetRegionId(v string) {
-	o.RegionId = &v
+	o.RegionId = v
 }
 
 // GetRole returns the Role field value if set, zero value otherwise.
@@ -389,23 +543,27 @@ func (o HostCluster) MarshalJSON() ([]byte, error) {
 func (o HostCluster) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["accountConfigId"] = o.AccountConfigId
+	toSerialize["accountID"] = o.AccountID
+	toSerialize["cloudProvider"] = o.CloudProvider
+	toSerialize["currentNumberOfDeployments"] = o.CurrentNumberOfDeployments
 	if !IsNil(o.CustomNetworkDetail) {
 		toSerialize["customNetworkDetail"] = o.CustomNetworkDetail
 	}
 	toSerialize["description"] = o.Description
+	toSerialize["healthStatus"] = o.HealthStatus
 	if !IsNil(o.HelmPackages) {
 		toSerialize["helmPackages"] = o.HelmPackages
 	}
 	toSerialize["id"] = o.Id
+	toSerialize["isCustomDeployment"] = o.IsCustomDeployment
 	if !IsNil(o.KubernetesDashboardEndpoint) {
 		toSerialize["kubernetesDashboardEndpoint"] = o.KubernetesDashboardEndpoint
 	}
 	if !IsNil(o.ModelType) {
 		toSerialize["modelType"] = o.ModelType
 	}
-	if !IsNil(o.RegionId) {
-		toSerialize["regionId"] = o.RegionId
-	}
+	toSerialize["region"] = o.Region
+	toSerialize["regionId"] = o.RegionId
 	if !IsNil(o.Role) {
 		toSerialize["role"] = o.Role
 	}
@@ -425,8 +583,15 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"accountConfigId",
+		"accountID",
+		"cloudProvider",
+		"currentNumberOfDeployments",
 		"description",
+		"healthStatus",
 		"id",
+		"isCustomDeployment",
+		"region",
+		"regionId",
 		"status",
 		"type",
 	}
@@ -459,12 +624,18 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "accountConfigId")
+		delete(additionalProperties, "accountID")
+		delete(additionalProperties, "cloudProvider")
+		delete(additionalProperties, "currentNumberOfDeployments")
 		delete(additionalProperties, "customNetworkDetail")
 		delete(additionalProperties, "description")
+		delete(additionalProperties, "healthStatus")
 		delete(additionalProperties, "helmPackages")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "isCustomDeployment")
 		delete(additionalProperties, "kubernetesDashboardEndpoint")
 		delete(additionalProperties, "modelType")
+		delete(additionalProperties, "region")
 		delete(additionalProperties, "regionId")
 		delete(additionalProperties, "role")
 		delete(additionalProperties, "status")

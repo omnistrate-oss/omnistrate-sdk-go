@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **ConnectivityStatus** | Pointer to **string** | The heath status of a resource | [optional] 
 **DiskHealth** | Pointer to **string** | The heath status of a resource | [optional] 
 **Endpoint** | Pointer to **string** | The endpoint of the node | [optional] 
-**Events** | Pointer to **[]string** | The list of process events | [optional] 
 **IntegrationsHealth** | Pointer to [**IntegrationsHealth**](IntegrationsHealth.md) |  | [optional] 
 **LoadStatus** | Pointer to **string** | The load status of a pod | [optional] 
 **NodeHealth** | Pointer to **string** | The heath status of a resource | [optional] 
@@ -16,7 +15,6 @@ Name | Type | Description | Notes
 **Ports** | Pointer to **[]int64** | The ports that this node exposes | [optional] 
 **ProcessHealth** | Pointer to **string** | The heath status of a resource | [optional] 
 **ProcessLiveness** | Pointer to **string** | The heath status of a resource | [optional] 
-**RecentLogs** | Pointer to **string** | The recent logs of the process | [optional] 
 **Status** | Pointer to **string** | The heath status of a resource | [optional] 
 
 ## Methods
@@ -137,31 +135,6 @@ SetEndpoint sets Endpoint field to given value.
 `func (o *NodeHealthSummary) HasEndpoint() bool`
 
 HasEndpoint returns a boolean if a field has been set.
-
-### GetEvents
-
-`func (o *NodeHealthSummary) GetEvents() []string`
-
-GetEvents returns the Events field if non-nil, zero value otherwise.
-
-### GetEventsOk
-
-`func (o *NodeHealthSummary) GetEventsOk() (*[]string, bool)`
-
-GetEventsOk returns a tuple with the Events field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEvents
-
-`func (o *NodeHealthSummary) SetEvents(v []string)`
-
-SetEvents sets Events field to given value.
-
-### HasEvents
-
-`func (o *NodeHealthSummary) HasEvents() bool`
-
-HasEvents returns a boolean if a field has been set.
 
 ### GetIntegrationsHealth
 
@@ -337,31 +310,6 @@ SetProcessLiveness sets ProcessLiveness field to given value.
 `func (o *NodeHealthSummary) HasProcessLiveness() bool`
 
 HasProcessLiveness returns a boolean if a field has been set.
-
-### GetRecentLogs
-
-`func (o *NodeHealthSummary) GetRecentLogs() string`
-
-GetRecentLogs returns the RecentLogs field if non-nil, zero value otherwise.
-
-### GetRecentLogsOk
-
-`func (o *NodeHealthSummary) GetRecentLogsOk() (*string, bool)`
-
-GetRecentLogsOk returns a tuple with the RecentLogs field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRecentLogs
-
-`func (o *NodeHealthSummary) SetRecentLogs(v string)`
-
-SetRecentLogs sets RecentLogs field to given value.
-
-### HasRecentLogs
-
-`func (o *NodeHealthSummary) HasRecentLogs() bool`
-
-HasRecentLogs returns a boolean if a field has been set.
 
 ### GetStatus
 

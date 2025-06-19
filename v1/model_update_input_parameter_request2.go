@@ -36,6 +36,8 @@ type UpdateInputParameterRequest2 struct {
 	Options []string `json:"options,omitempty"`
 	// Enforces the input parameter as a required parameter
 	Required *bool `json:"required,omitempty"`
+	// Index for parameter ordering in the SaaS portal
+	TabIndex *int64 `json:"tabIndex,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -47,6 +49,8 @@ type _UpdateInputParameterRequest2 UpdateInputParameterRequest2
 // will change when the set of required properties is changed
 func NewUpdateInputParameterRequest2() *UpdateInputParameterRequest2 {
 	this := UpdateInputParameterRequest2{}
+	var tabIndex int64 = 0
+	this.TabIndex = &tabIndex
 	return &this
 }
 
@@ -55,6 +59,8 @@ func NewUpdateInputParameterRequest2() *UpdateInputParameterRequest2 {
 // but it doesn't guarantee that properties required by API are set
 func NewUpdateInputParameterRequest2WithDefaults() *UpdateInputParameterRequest2 {
 	this := UpdateInputParameterRequest2{}
+	var tabIndex int64 = 0
+	this.TabIndex = &tabIndex
 	return &this
 }
 
@@ -265,6 +271,29 @@ func (o *UpdateInputParameterRequest2) SetRequired(v bool) {
 	o.Required = &v
 }
 
+// GetTabIndex returns the TabIndex field value if set, zero value otherwise.
+func (o *UpdateInputParameterRequest2) GetTabIndex() int64 {
+	if o == nil || IsNil(o.TabIndex) {
+		var ret int64
+		return ret
+	}
+	return *o.TabIndex
+}
+
+// GetTabIndexOk returns a tuple with the TabIndex field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateInputParameterRequest2) GetTabIndexOk() (*int64, bool) {
+	if o == nil || IsNil(o.TabIndex) {
+		return nil, false
+	}
+	return o.TabIndex, true
+}
+
+// SetTabIndex gets a reference to the given int64 and assigns it to the TabIndex field.
+func (o *UpdateInputParameterRequest2) SetTabIndex(v int64) {
+	o.TabIndex = &v
+}
+
 func (o UpdateInputParameterRequest2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -302,6 +331,9 @@ func (o UpdateInputParameterRequest2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Required) {
 		toSerialize["required"] = o.Required
 	}
+	if !IsNil(o.TabIndex) {
+		toSerialize["tabIndex"] = o.TabIndex
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -333,6 +365,7 @@ func (o *UpdateInputParameterRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "options")
 		delete(additionalProperties, "required")
+		delete(additionalProperties, "tabIndex")
 		o.AdditionalProperties = additionalProperties
 	}
 

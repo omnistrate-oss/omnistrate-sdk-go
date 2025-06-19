@@ -20,6 +20,8 @@ var _ MappedNullable = &ListInvoicesRequest{}
 
 // ListInvoicesRequest struct for ListInvoicesRequest
 type ListInvoicesRequest struct {
+	// The billing provider type
+	BillingProvider *string `json:"billingProvider,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -43,6 +45,38 @@ func NewListInvoicesRequest(token string) *ListInvoicesRequest {
 func NewListInvoicesRequestWithDefaults() *ListInvoicesRequest {
 	this := ListInvoicesRequest{}
 	return &this
+}
+
+// GetBillingProvider returns the BillingProvider field value if set, zero value otherwise.
+func (o *ListInvoicesRequest) GetBillingProvider() string {
+	if o == nil || IsNil(o.BillingProvider) {
+		var ret string
+		return ret
+	}
+	return *o.BillingProvider
+}
+
+// GetBillingProviderOk returns a tuple with the BillingProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListInvoicesRequest) GetBillingProviderOk() (*string, bool) {
+	if o == nil || IsNil(o.BillingProvider) {
+		return nil, false
+	}
+	return o.BillingProvider, true
+}
+
+// HasBillingProvider returns a boolean if a field has been set.
+func (o *ListInvoicesRequest) HasBillingProvider() bool {
+	if o != nil && !IsNil(o.BillingProvider) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingProvider gets a reference to the given string and assigns it to the BillingProvider field.
+func (o *ListInvoicesRequest) SetBillingProvider(v string) {
+	o.BillingProvider = &v
 }
 
 // GetToken returns the Token field value
@@ -79,6 +113,9 @@ func (o ListInvoicesRequest) MarshalJSON() ([]byte, error) {
 
 func (o ListInvoicesRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.BillingProvider) {
+		toSerialize["billingProvider"] = o.BillingProvider
+	}
 	toSerialize["token"] = o.Token
 
 	for key, value := range o.AdditionalProperties {
@@ -123,6 +160,7 @@ func (o *ListInvoicesRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "billingProvider")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

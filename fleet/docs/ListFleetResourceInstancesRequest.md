@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **ProductTierVersion** | Pointer to **string** | The product tier version of the infra config to describe. If not specified, the latest version is described. | [optional] 
 **SubscriptionId** | Pointer to **string** | ID of a Subscription | [optional] 
 **EnvironmentId** | **string** | ID of a Service Environment | 
+**NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
+**PageSize** | Pointer to **int64** | The number of resources to return per page | [optional] 
 **ServiceId** | **string** | ID of a Service | 
 **Token** | **string** | JWT token used to perform authorization | 
 
@@ -150,6 +152,56 @@ and a boolean to check if the value has been set.
 
 SetEnvironmentId sets EnvironmentId field to given value.
 
+
+### GetNextPageToken
+
+`func (o *ListFleetResourceInstancesRequest) GetNextPageToken() string`
+
+GetNextPageToken returns the NextPageToken field if non-nil, zero value otherwise.
+
+### GetNextPageTokenOk
+
+`func (o *ListFleetResourceInstancesRequest) GetNextPageTokenOk() (*string, bool)`
+
+GetNextPageTokenOk returns a tuple with the NextPageToken field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNextPageToken
+
+`func (o *ListFleetResourceInstancesRequest) SetNextPageToken(v string)`
+
+SetNextPageToken sets NextPageToken field to given value.
+
+### HasNextPageToken
+
+`func (o *ListFleetResourceInstancesRequest) HasNextPageToken() bool`
+
+HasNextPageToken returns a boolean if a field has been set.
+
+### GetPageSize
+
+`func (o *ListFleetResourceInstancesRequest) GetPageSize() int64`
+
+GetPageSize returns the PageSize field if non-nil, zero value otherwise.
+
+### GetPageSizeOk
+
+`func (o *ListFleetResourceInstancesRequest) GetPageSizeOk() (*int64, bool)`
+
+GetPageSizeOk returns a tuple with the PageSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPageSize
+
+`func (o *ListFleetResourceInstancesRequest) SetPageSize(v int64)`
+
+SetPageSize sets PageSize field to given value.
+
+### HasPageSize
+
+`func (o *ListFleetResourceInstancesRequest) HasPageSize() bool`
+
+HasPageSize returns a boolean if a field has been set.
 
 ### GetServiceId
 

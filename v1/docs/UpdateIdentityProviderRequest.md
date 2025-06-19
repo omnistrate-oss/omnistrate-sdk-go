@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **ClientSecret** | Pointer to **string** | The Client Secret of the Identity Provider | [optional] 
 **Disabled** | Pointer to **bool** | Whether the Identity Provider is disabled | [optional] 
 **EmailIdentifiers** | Pointer to **string** | The email identifiers to use for the Identity Provider | [optional] 
-**EnvironmentType** | Pointer to **string** | The type of environment to filter costs by | [optional] 
+**EnvironmentType** | Pointer to **string** | The type of environment for the Identity Provider | [optional] 
 **Id** | **string** | ID of an Identity Provider | 
 **LoginButtonIconUrl** | Pointer to **string** | The URL of the icon to use for the login button | [optional] 
 **LoginButtonText** | Pointer to **string** | The text to use for the login button | [optional] 

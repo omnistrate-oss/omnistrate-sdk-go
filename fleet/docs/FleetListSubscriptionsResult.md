@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Ids** | **[]string** | List of subscription IDs | 
-**NextPageToken** | Pointer to **string** | The next token to use when listing subscriptions | [optional] 
+**NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
 **Subscriptions** | Pointer to [**[]FleetDescribeSubscriptionResult**](FleetDescribeSubscriptionResult.md) | List of subscriptions | [optional] 
 
 ## Methods

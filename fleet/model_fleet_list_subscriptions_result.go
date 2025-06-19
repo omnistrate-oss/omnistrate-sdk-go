@@ -22,7 +22,7 @@ var _ MappedNullable = &FleetListSubscriptionsResult{}
 type FleetListSubscriptionsResult struct {
 	// List of subscription IDs
 	Ids []string `json:"ids"`
-	// The next token to use when listing subscriptions
+	// The next token to use for pagination
 	NextPageToken *string `json:"nextPageToken,omitempty"`
 	// List of subscriptions
 	Subscriptions []FleetDescribeSubscriptionResult `json:"subscriptions,omitempty"`

@@ -19,10 +19,17 @@ var _ MappedNullable = &ComputeInstanceTypeConfigOverride{}
 
 // ComputeInstanceTypeConfigOverride struct for ComputeInstanceTypeConfigOverride
 type ComputeInstanceTypeConfigOverride struct {
+	AcceleratorConfiguration *AcceleratorConfiguration `json:"acceleratorConfiguration,omitempty"`
 	// The instance life cycle type for this compute instance type config
 	InstanceLifeCycleType *string `json:"instanceLifeCycleType,omitempty"`
+	// Labels for the compute instance type config
+	Labels *map[string]string `json:"labels,omitempty"`
 	// Size of the root volume in Gi
 	RootVolumeSizeGi *int64 `json:"rootVolumeSizeGi,omitempty"`
+	// Size of the root volume in Gi as a string
+	RootVolumeSizeGiAPIParam *string `json:"rootVolumeSizeGiAPIParam,omitempty"`
+	// Taints for the compute instance type config
+	Taints []TaintConfiguration `json:"taints,omitempty"`
 	WarmPoolConfiguration *WarmPoolConfiguration `json:"warmPoolConfiguration,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -44,6 +51,29 @@ func NewComputeInstanceTypeConfigOverride() *ComputeInstanceTypeConfigOverride {
 func NewComputeInstanceTypeConfigOverrideWithDefaults() *ComputeInstanceTypeConfigOverride {
 	this := ComputeInstanceTypeConfigOverride{}
 	return &this
+}
+
+// GetAcceleratorConfiguration returns the AcceleratorConfiguration field value if set, zero value otherwise.
+func (o *ComputeInstanceTypeConfigOverride) GetAcceleratorConfiguration() AcceleratorConfiguration {
+	if o == nil || IsNil(o.AcceleratorConfiguration) {
+		var ret AcceleratorConfiguration
+		return ret
+	}
+	return *o.AcceleratorConfiguration
+}
+
+// GetAcceleratorConfigurationOk returns a tuple with the AcceleratorConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeInstanceTypeConfigOverride) GetAcceleratorConfigurationOk() (*AcceleratorConfiguration, bool) {
+	if o == nil || IsNil(o.AcceleratorConfiguration) {
+		return nil, false
+	}
+	return o.AcceleratorConfiguration, true
+}
+
+// SetAcceleratorConfiguration gets a reference to the given AcceleratorConfiguration and assigns it to the AcceleratorConfiguration field.
+func (o *ComputeInstanceTypeConfigOverride) SetAcceleratorConfiguration(v AcceleratorConfiguration) {
+	o.AcceleratorConfiguration = &v
 }
 
 // GetInstanceLifeCycleType returns the InstanceLifeCycleType field value if set, zero value otherwise.
@@ -69,6 +99,29 @@ func (o *ComputeInstanceTypeConfigOverride) SetInstanceLifeCycleType(v string) {
 	o.InstanceLifeCycleType = &v
 }
 
+// GetLabels returns the Labels field value if set, zero value otherwise.
+func (o *ComputeInstanceTypeConfigOverride) GetLabels() map[string]string {
+	if o == nil || IsNil(o.Labels) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.Labels
+}
+
+// GetLabelsOk returns a tuple with the Labels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeInstanceTypeConfigOverride) GetLabelsOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.Labels) {
+		return nil, false
+	}
+	return o.Labels, true
+}
+
+// SetLabels gets a reference to the given map[string]string and assigns it to the Labels field.
+func (o *ComputeInstanceTypeConfigOverride) SetLabels(v map[string]string) {
+	o.Labels = &v
+}
+
 // GetRootVolumeSizeGi returns the RootVolumeSizeGi field value if set, zero value otherwise.
 func (o *ComputeInstanceTypeConfigOverride) GetRootVolumeSizeGi() int64 {
 	if o == nil || IsNil(o.RootVolumeSizeGi) {
@@ -90,6 +143,52 @@ func (o *ComputeInstanceTypeConfigOverride) GetRootVolumeSizeGiOk() (*int64, boo
 // SetRootVolumeSizeGi gets a reference to the given int64 and assigns it to the RootVolumeSizeGi field.
 func (o *ComputeInstanceTypeConfigOverride) SetRootVolumeSizeGi(v int64) {
 	o.RootVolumeSizeGi = &v
+}
+
+// GetRootVolumeSizeGiAPIParam returns the RootVolumeSizeGiAPIParam field value if set, zero value otherwise.
+func (o *ComputeInstanceTypeConfigOverride) GetRootVolumeSizeGiAPIParam() string {
+	if o == nil || IsNil(o.RootVolumeSizeGiAPIParam) {
+		var ret string
+		return ret
+	}
+	return *o.RootVolumeSizeGiAPIParam
+}
+
+// GetRootVolumeSizeGiAPIParamOk returns a tuple with the RootVolumeSizeGiAPIParam field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeInstanceTypeConfigOverride) GetRootVolumeSizeGiAPIParamOk() (*string, bool) {
+	if o == nil || IsNil(o.RootVolumeSizeGiAPIParam) {
+		return nil, false
+	}
+	return o.RootVolumeSizeGiAPIParam, true
+}
+
+// SetRootVolumeSizeGiAPIParam gets a reference to the given string and assigns it to the RootVolumeSizeGiAPIParam field.
+func (o *ComputeInstanceTypeConfigOverride) SetRootVolumeSizeGiAPIParam(v string) {
+	o.RootVolumeSizeGiAPIParam = &v
+}
+
+// GetTaints returns the Taints field value if set, zero value otherwise.
+func (o *ComputeInstanceTypeConfigOverride) GetTaints() []TaintConfiguration {
+	if o == nil || IsNil(o.Taints) {
+		var ret []TaintConfiguration
+		return ret
+	}
+	return o.Taints
+}
+
+// GetTaintsOk returns a tuple with the Taints field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeInstanceTypeConfigOverride) GetTaintsOk() ([]TaintConfiguration, bool) {
+	if o == nil || IsNil(o.Taints) {
+		return nil, false
+	}
+	return o.Taints, true
+}
+
+// SetTaints gets a reference to the given []TaintConfiguration and assigns it to the Taints field.
+func (o *ComputeInstanceTypeConfigOverride) SetTaints(v []TaintConfiguration) {
+	o.Taints = v
 }
 
 // GetWarmPoolConfiguration returns the WarmPoolConfiguration field value if set, zero value otherwise.
@@ -125,11 +224,23 @@ func (o ComputeInstanceTypeConfigOverride) MarshalJSON() ([]byte, error) {
 
 func (o ComputeInstanceTypeConfigOverride) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AcceleratorConfiguration) {
+		toSerialize["acceleratorConfiguration"] = o.AcceleratorConfiguration
+	}
 	if !IsNil(o.InstanceLifeCycleType) {
 		toSerialize["instanceLifeCycleType"] = o.InstanceLifeCycleType
 	}
+	if !IsNil(o.Labels) {
+		toSerialize["labels"] = o.Labels
+	}
 	if !IsNil(o.RootVolumeSizeGi) {
 		toSerialize["rootVolumeSizeGi"] = o.RootVolumeSizeGi
+	}
+	if !IsNil(o.RootVolumeSizeGiAPIParam) {
+		toSerialize["rootVolumeSizeGiAPIParam"] = o.RootVolumeSizeGiAPIParam
+	}
+	if !IsNil(o.Taints) {
+		toSerialize["taints"] = o.Taints
 	}
 	if !IsNil(o.WarmPoolConfiguration) {
 		toSerialize["warmPoolConfiguration"] = o.WarmPoolConfiguration
@@ -156,8 +267,12 @@ func (o *ComputeInstanceTypeConfigOverride) UnmarshalJSON(data []byte) (err erro
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "acceleratorConfiguration")
 		delete(additionalProperties, "instanceLifeCycleType")
+		delete(additionalProperties, "labels")
 		delete(additionalProperties, "rootVolumeSizeGi")
+		delete(additionalProperties, "rootVolumeSizeGiAPIParam")
+		delete(additionalProperties, "taints")
 		delete(additionalProperties, "warmPoolConfiguration")
 		o.AdditionalProperties = additionalProperties
 	}

@@ -26,13 +26,15 @@ type CustomerLoginWithIdentityProviderRequest2 struct {
 	CompanyUrl *string `json:"companyUrl,omitempty"`
 	// The environment type of the portal that the customer is signing in to
 	EnvironmentType *string `json:"environmentType,omitempty"`
-	// The type of the Identity Provider
-	IdentityProviderName string `json:"identityProviderName"`
+	// The name or type of the Identity Provider
+	IdentityProviderName *string `json:"identityProviderName,omitempty"`
 	// Email address that the user was invited with
 	InvitedEmail *string `json:"invitedEmail,omitempty"`
 	LegalCompanyName *string `json:"legalCompanyName,omitempty"`
 	// The redirect URI used to get the authorization code
 	RedirectUri *string `json:"redirectUri,omitempty"`
+	// The state parameter used to prevent CSRF attacks
+	State *string `json:"state,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -42,10 +44,9 @@ type _CustomerLoginWithIdentityProviderRequest2 CustomerLoginWithIdentityProvide
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomerLoginWithIdentityProviderRequest2(authorizationCode string, identityProviderName string) *CustomerLoginWithIdentityProviderRequest2 {
+func NewCustomerLoginWithIdentityProviderRequest2(authorizationCode string) *CustomerLoginWithIdentityProviderRequest2 {
 	this := CustomerLoginWithIdentityProviderRequest2{}
 	this.AuthorizationCode = authorizationCode
-	this.IdentityProviderName = identityProviderName
 	return &this
 }
 
@@ -150,28 +151,27 @@ func (o *CustomerLoginWithIdentityProviderRequest2) SetEnvironmentType(v string)
 	o.EnvironmentType = &v
 }
 
-// GetIdentityProviderName returns the IdentityProviderName field value
+// GetIdentityProviderName returns the IdentityProviderName field value if set, zero value otherwise.
 func (o *CustomerLoginWithIdentityProviderRequest2) GetIdentityProviderName() string {
-	if o == nil {
+	if o == nil || IsNil(o.IdentityProviderName) {
 		var ret string
 		return ret
 	}
-
-	return o.IdentityProviderName
+	return *o.IdentityProviderName
 }
 
-// GetIdentityProviderNameOk returns a tuple with the IdentityProviderName field value
+// GetIdentityProviderNameOk returns a tuple with the IdentityProviderName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomerLoginWithIdentityProviderRequest2) GetIdentityProviderNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IdentityProviderName) {
 		return nil, false
 	}
-	return &o.IdentityProviderName, true
+	return o.IdentityProviderName, true
 }
 
-// SetIdentityProviderName sets field value
+// SetIdentityProviderName gets a reference to the given string and assigns it to the IdentityProviderName field.
 func (o *CustomerLoginWithIdentityProviderRequest2) SetIdentityProviderName(v string) {
-	o.IdentityProviderName = v
+	o.IdentityProviderName = &v
 }
 
 // GetInvitedEmail returns the InvitedEmail field value if set, zero value otherwise.
@@ -243,6 +243,29 @@ func (o *CustomerLoginWithIdentityProviderRequest2) SetRedirectUri(v string) {
 	o.RedirectUri = &v
 }
 
+// GetState returns the State field value if set, zero value otherwise.
+func (o *CustomerLoginWithIdentityProviderRequest2) GetState() string {
+	if o == nil || IsNil(o.State) {
+		var ret string
+		return ret
+	}
+	return *o.State
+}
+
+// GetStateOk returns a tuple with the State field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomerLoginWithIdentityProviderRequest2) GetStateOk() (*string, bool) {
+	if o == nil || IsNil(o.State) {
+		return nil, false
+	}
+	return o.State, true
+}
+
+// SetState gets a reference to the given string and assigns it to the State field.
+func (o *CustomerLoginWithIdentityProviderRequest2) SetState(v string) {
+	o.State = &v
+}
+
 func (o CustomerLoginWithIdentityProviderRequest2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -263,7 +286,9 @@ func (o CustomerLoginWithIdentityProviderRequest2) ToMap() (map[string]interface
 	if !IsNil(o.EnvironmentType) {
 		toSerialize["environmentType"] = o.EnvironmentType
 	}
-	toSerialize["identityProviderName"] = o.IdentityProviderName
+	if !IsNil(o.IdentityProviderName) {
+		toSerialize["identityProviderName"] = o.IdentityProviderName
+	}
 	if !IsNil(o.InvitedEmail) {
 		toSerialize["invitedEmail"] = o.InvitedEmail
 	}
@@ -272,6 +297,9 @@ func (o CustomerLoginWithIdentityProviderRequest2) ToMap() (map[string]interface
 	}
 	if !IsNil(o.RedirectUri) {
 		toSerialize["redirectUri"] = o.RedirectUri
+	}
+	if !IsNil(o.State) {
+		toSerialize["state"] = o.State
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -287,7 +315,6 @@ func (o *CustomerLoginWithIdentityProviderRequest2) UnmarshalJSON(data []byte) (
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"authorizationCode",
-		"identityProviderName",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -325,6 +352,7 @@ func (o *CustomerLoginWithIdentityProviderRequest2) UnmarshalJSON(data []byte) (
 		delete(additionalProperties, "invitedEmail")
 		delete(additionalProperties, "legalCompanyName")
 		delete(additionalProperties, "redirectUri")
+		delete(additionalProperties, "state")
 		o.AdditionalProperties = additionalProperties
 	}
 
