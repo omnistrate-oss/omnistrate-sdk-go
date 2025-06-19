@@ -138,6 +138,7 @@ docs/DescribeCustomerOnboardingRequest.md
 docs/DescribeDeploymentCellCostRequest.md
 docs/DescribeDeploymentCellCostResult.md
 docs/DescribeFleetFeatureRequest.md
+docs/DescribeHostClusterRequest.md
 docs/DescribeIdentityProviderRequest.md
 docs/DescribeIdentityProviderResult.md
 docs/DescribeIdentityProviderTypeResult.md
@@ -722,6 +723,7 @@ model_describe_customer_onboarding_request.go
 model_describe_deployment_cell_cost_request.go
 model_describe_deployment_cell_cost_result.go
 model_describe_fleet_feature_request.go
+model_describe_host_cluster_request.go
 model_describe_identity_provider_request.go
 model_describe_identity_provider_result.go
 model_describe_identity_provider_type_result.go

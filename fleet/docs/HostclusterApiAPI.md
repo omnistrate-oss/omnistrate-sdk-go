@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**HostclusterApiAdoptHostCluster**](HostclusterApiAPI.md#HostclusterApiAdoptHostCluster) | **Post** /2022-09-01-00/fleet/host-cluster/adopt | AdoptHostCluster hostcluster-api
 [**HostclusterApiDeleteHostCluster**](HostclusterApiAPI.md#HostclusterApiDeleteHostCluster) | **Delete** /2022-09-01-00/fleet/host-cluster/{id} | DeleteHostCluster hostcluster-api
+[**HostclusterApiDescribeHostCluster**](HostclusterApiAPI.md#HostclusterApiDescribeHostCluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id} | DescribeHostCluster hostcluster-api
 [**HostclusterApiGenerateTokenForHostClusterDashboard**](HostclusterApiAPI.md#HostclusterApiGenerateTokenForHostClusterDashboard) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard hostcluster-api
 [**HostclusterApiListHostClusters**](HostclusterApiAPI.md#HostclusterApiListHostClusters) | **Get** /2022-09-01-00/fleet/host-clusters | ListHostClusters hostcluster-api
 
@@ -139,6 +140,74 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## HostclusterApiDescribeHostCluster
+
+> HostCluster HostclusterApiDescribeHostCluster(ctx, id).Execute()
+
+DescribeHostCluster hostcluster-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	id := "hc-12345678" // string | ID of the host cluster to describe
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.HostclusterApiAPI.HostclusterApiDescribeHostCluster(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `HostclusterApiAPI.HostclusterApiDescribeHostCluster``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `HostclusterApiDescribeHostCluster`: HostCluster
+	fmt.Fprintf(os.Stdout, "Response from `HostclusterApiAPI.HostclusterApiDescribeHostCluster`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | ID of the host cluster to describe | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiHostclusterApiDescribeHostClusterRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**HostCluster**](HostCluster.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

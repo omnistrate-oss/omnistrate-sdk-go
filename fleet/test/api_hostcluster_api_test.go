@@ -47,6 +47,20 @@ func Test_fleet_HostclusterApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test HostclusterApiAPIService HostclusterApiDescribeHostCluster", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		resp, httpRes, err := apiClient.HostclusterApiAPI.HostclusterApiDescribeHostCluster(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test HostclusterApiAPIService HostclusterApiGenerateTokenForHostClusterDashboard", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
