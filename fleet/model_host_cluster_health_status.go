@@ -22,6 +22,8 @@ var _ MappedNullable = &HostClusterHealthStatus{}
 type HostClusterHealthStatus struct {
 	// List of entities that have failed health checks
 	FailedEntities []EntityHealth `json:"failedEntities,omitempty"`
+	// Version of the Kubernetes control plane running in the host cluster
+	KubernetesControlPlaneVersion string `json:"kubernetesControlPlaneVersion"`
 	// The heath status of a resource
 	OverallStatus string `json:"overallStatus"`
 	// Detailed message about the health status of the host cluster
@@ -47,8 +49,9 @@ type _HostClusterHealthStatus HostClusterHealthStatus
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHostClusterHealthStatus(overallStatus string, totalNumberOfEntities int64, totalNumberOfEntitiesByType map[string]int64, totalNumberOfFailedEntities int64, totalNumberOfFailedEntitiesByType map[string]int64, totalNumberOfHealthyEntities int64, totalNumberOfHealthyEntitiesByType map[string]int64) *HostClusterHealthStatus {
+func NewHostClusterHealthStatus(kubernetesControlPlaneVersion string, overallStatus string, totalNumberOfEntities int64, totalNumberOfEntitiesByType map[string]int64, totalNumberOfFailedEntities int64, totalNumberOfFailedEntitiesByType map[string]int64, totalNumberOfHealthyEntities int64, totalNumberOfHealthyEntitiesByType map[string]int64) *HostClusterHealthStatus {
 	this := HostClusterHealthStatus{}
+	this.KubernetesControlPlaneVersion = kubernetesControlPlaneVersion
 	this.OverallStatus = overallStatus
 	this.TotalNumberOfEntities = totalNumberOfEntities
 	this.TotalNumberOfEntitiesByType = totalNumberOfEntitiesByType
@@ -97,6 +100,30 @@ func (o *HostClusterHealthStatus) HasFailedEntities() bool {
 // SetFailedEntities gets a reference to the given []EntityHealth and assigns it to the FailedEntities field.
 func (o *HostClusterHealthStatus) SetFailedEntities(v []EntityHealth) {
 	o.FailedEntities = v
+}
+
+// GetKubernetesControlPlaneVersion returns the KubernetesControlPlaneVersion field value
+func (o *HostClusterHealthStatus) GetKubernetesControlPlaneVersion() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.KubernetesControlPlaneVersion
+}
+
+// GetKubernetesControlPlaneVersionOk returns a tuple with the KubernetesControlPlaneVersion field value
+// and a boolean to check if the value has been set.
+func (o *HostClusterHealthStatus) GetKubernetesControlPlaneVersionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.KubernetesControlPlaneVersion, true
+}
+
+// SetKubernetesControlPlaneVersion sets field value
+func (o *HostClusterHealthStatus) SetKubernetesControlPlaneVersion(v string) {
+	o.KubernetesControlPlaneVersion = v
 }
 
 // GetOverallStatus returns the OverallStatus field value
@@ -312,6 +339,7 @@ func (o HostClusterHealthStatus) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.FailedEntities) {
 		toSerialize["failedEntities"] = o.FailedEntities
 	}
+	toSerialize["kubernetesControlPlaneVersion"] = o.KubernetesControlPlaneVersion
 	toSerialize["overallStatus"] = o.OverallStatus
 	if !IsNil(o.StatusMessage) {
 		toSerialize["statusMessage"] = o.StatusMessage
@@ -335,6 +363,7 @@ func (o *HostClusterHealthStatus) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"kubernetesControlPlaneVersion",
 		"overallStatus",
 		"totalNumberOfEntities",
 		"totalNumberOfEntitiesByType",
@@ -372,6 +401,7 @@ func (o *HostClusterHealthStatus) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "failedEntities")
+		delete(additionalProperties, "kubernetesControlPlaneVersion")
 		delete(additionalProperties, "overallStatus")
 		delete(additionalProperties, "statusMessage")
 		delete(additionalProperties, "totalNumberOfEntities")

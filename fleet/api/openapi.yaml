@@ -2645,10 +2645,10 @@ paths:
           application/json:
             example:
               cloudProviderId: infra-12345678
+              customerEmail: mycustomer@example.com
               description: My Adopted Host Cluster
               id: hc-12345678
               regionId: region-12345678
-              subscriptionId: sub-12345678
             schema:
               $ref: '#/components/schemas/AdoptHostClusterRequest2'
         required: true
@@ -17371,15 +17371,20 @@ components:
     AdoptHostClusterRequest:
       example:
         cloudProviderId: infra-12345678
+        customerEmail: mycustomer@example.com
         description: My Adopted Host Cluster
         id: hc-12345678
         regionId: region-12345678
-        subscriptionId: sub-12345678
-        token: "11"
+        token: w
       properties:
         cloudProviderId:
           description: ID of an CloudProvider
           example: Assumenda non.
+          type: string
+        customerEmail:
+          description: Email of the customer who owns the host cluster in case this
+            is a BYOA host cluster
+          example: mycustomer@example.com
           type: string
         description:
           description: Description of the host cluster
@@ -17393,10 +17398,6 @@ components:
         regionId:
           description: ID of a Region
           example: Optio et.
-          type: string
-        subscriptionId:
-          description: ID of a Subscription
-          example: Deserunt voluptatem modi.
           type: string
         token:
           description: JWT token used to perform authorization
@@ -17413,13 +17414,18 @@ components:
     AdoptHostClusterRequest2:
       example:
         cloudProviderId: infra-12345678
+        customerEmail: mycustomer@example.com
         description: My Adopted Host Cluster
         id: hc-12345678
         regionId: region-12345678
-        subscriptionId: sub-12345678
       properties:
         cloudProviderId:
           example: infra-12345678
+          type: string
+        customerEmail:
+          description: Email of the customer who owns the host cluster in case this
+            is a BYOA host cluster
+          example: mycustomer@example.com
           type: string
         description:
           description: Description of the host cluster
@@ -17433,10 +17439,6 @@ components:
         regionId:
           description: ID of the region where the host cluster is located
           example: region-12345678
-          type: string
-        subscriptionId:
-          description: The subscription ID
-          example: sub-12345678
           type: string
       required:
       - cloudProviderId
@@ -20645,11 +20647,11 @@ components:
       properties:
         id:
           description: ID of a Host Cluster
-          example: Tempora aut.
+          example: Sed quo non dolores tempora aut.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: vb
+          example: zs1
           minLength: 1
           type: string
       required:
@@ -34946,6 +34948,7 @@ components:
           identifier: service-67890
           syncStatus: FAILED
           type: SERVICE
+        kubernetesControlPlaneVersion: 1.32.0
         overallStatus: HEALTHY
         statusMessage: All systems operational
         totalNumberOfEntities: 10
@@ -34978,6 +34981,11 @@ components:
           items:
             $ref: '#/components/schemas/EntityHealth'
           type: array
+        kubernetesControlPlaneVersion:
+          description: Version of the Kubernetes control plane running in the host
+            cluster
+          example: 1.32.0
+          type: string
         overallStatus:
           description: The heath status of a resource
           example: HEALTHY|UNHEALTHY|UNKNOWN|STOPPED|PENDING_ADOPTION|N/A
@@ -35036,6 +35044,7 @@ components:
             SERVICE: 3
           type: object
       required:
+      - kubernetesControlPlaneVersion
       - overallStatus
       - totalNumberOfEntities
       - totalNumberOfEntitiesByType
