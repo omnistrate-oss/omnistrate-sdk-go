@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudProviderId** | **string** |  | 
+**CustomerEmail** | Pointer to **string** | Email of the customer who owns the host cluster in case this is a BYOA host cluster | [optional] 
 **Description** | **string** | Description of the host cluster | 
 **Id** | **string** | ID of the host cluster to adopt | 
 **RegionId** | **string** | ID of the region where the host cluster is located | 
-**SubscriptionId** | Pointer to **string** | The subscription ID | [optional] 
 
 ## Methods
 
@@ -48,6 +48,31 @@ and a boolean to check if the value has been set.
 
 SetCloudProviderId sets CloudProviderId field to given value.
 
+
+### GetCustomerEmail
+
+`func (o *AdoptHostClusterRequest2) GetCustomerEmail() string`
+
+GetCustomerEmail returns the CustomerEmail field if non-nil, zero value otherwise.
+
+### GetCustomerEmailOk
+
+`func (o *AdoptHostClusterRequest2) GetCustomerEmailOk() (*string, bool)`
+
+GetCustomerEmailOk returns a tuple with the CustomerEmail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomerEmail
+
+`func (o *AdoptHostClusterRequest2) SetCustomerEmail(v string)`
+
+SetCustomerEmail sets CustomerEmail field to given value.
+
+### HasCustomerEmail
+
+`func (o *AdoptHostClusterRequest2) HasCustomerEmail() bool`
+
+HasCustomerEmail returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -108,31 +133,6 @@ and a boolean to check if the value has been set.
 
 SetRegionId sets RegionId field to given value.
 
-
-### GetSubscriptionId
-
-`func (o *AdoptHostClusterRequest2) GetSubscriptionId() string`
-
-GetSubscriptionId returns the SubscriptionId field if non-nil, zero value otherwise.
-
-### GetSubscriptionIdOk
-
-`func (o *AdoptHostClusterRequest2) GetSubscriptionIdOk() (*string, bool)`
-
-GetSubscriptionIdOk returns a tuple with the SubscriptionId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSubscriptionId
-
-`func (o *AdoptHostClusterRequest2) SetSubscriptionId(v string)`
-
-SetSubscriptionId sets SubscriptionId field to given value.
-
-### HasSubscriptionId
-
-`func (o *AdoptHostClusterRequest2) HasSubscriptionId() bool`
-
-HasSubscriptionId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -21,14 +21,14 @@ var _ MappedNullable = &AdoptHostClusterRequest2{}
 // AdoptHostClusterRequest2 struct for AdoptHostClusterRequest2
 type AdoptHostClusterRequest2 struct {
 	CloudProviderId string `json:"cloudProviderId"`
+	// Email of the customer who owns the host cluster in case this is a BYOA host cluster
+	CustomerEmail *string `json:"customerEmail,omitempty"`
 	// Description of the host cluster
 	Description string `json:"description"`
 	// ID of the host cluster to adopt
 	Id string `json:"id"`
 	// ID of the region where the host cluster is located
 	RegionId string `json:"regionId"`
-	// The subscription ID
-	SubscriptionId *string `json:"subscriptionId,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -77,6 +77,38 @@ func (o *AdoptHostClusterRequest2) GetCloudProviderIdOk() (*string, bool) {
 // SetCloudProviderId sets field value
 func (o *AdoptHostClusterRequest2) SetCloudProviderId(v string) {
 	o.CloudProviderId = v
+}
+
+// GetCustomerEmail returns the CustomerEmail field value if set, zero value otherwise.
+func (o *AdoptHostClusterRequest2) GetCustomerEmail() string {
+	if o == nil || IsNil(o.CustomerEmail) {
+		var ret string
+		return ret
+	}
+	return *o.CustomerEmail
+}
+
+// GetCustomerEmailOk returns a tuple with the CustomerEmail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AdoptHostClusterRequest2) GetCustomerEmailOk() (*string, bool) {
+	if o == nil || IsNil(o.CustomerEmail) {
+		return nil, false
+	}
+	return o.CustomerEmail, true
+}
+
+// HasCustomerEmail returns a boolean if a field has been set.
+func (o *AdoptHostClusterRequest2) HasCustomerEmail() bool {
+	if o != nil && !IsNil(o.CustomerEmail) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomerEmail gets a reference to the given string and assigns it to the CustomerEmail field.
+func (o *AdoptHostClusterRequest2) SetCustomerEmail(v string) {
+	o.CustomerEmail = &v
 }
 
 // GetDescription returns the Description field value
@@ -151,38 +183,6 @@ func (o *AdoptHostClusterRequest2) SetRegionId(v string) {
 	o.RegionId = v
 }
 
-// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
-func (o *AdoptHostClusterRequest2) GetSubscriptionId() string {
-	if o == nil || IsNil(o.SubscriptionId) {
-		var ret string
-		return ret
-	}
-	return *o.SubscriptionId
-}
-
-// GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AdoptHostClusterRequest2) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SubscriptionId) {
-		return nil, false
-	}
-	return o.SubscriptionId, true
-}
-
-// HasSubscriptionId returns a boolean if a field has been set.
-func (o *AdoptHostClusterRequest2) HasSubscriptionId() bool {
-	if o != nil && !IsNil(o.SubscriptionId) {
-		return true
-	}
-
-	return false
-}
-
-// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
-func (o *AdoptHostClusterRequest2) SetSubscriptionId(v string) {
-	o.SubscriptionId = &v
-}
-
 func (o AdoptHostClusterRequest2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -194,12 +194,12 @@ func (o AdoptHostClusterRequest2) MarshalJSON() ([]byte, error) {
 func (o AdoptHostClusterRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["cloudProviderId"] = o.CloudProviderId
+	if !IsNil(o.CustomerEmail) {
+		toSerialize["customerEmail"] = o.CustomerEmail
+	}
 	toSerialize["description"] = o.Description
 	toSerialize["id"] = o.Id
 	toSerialize["regionId"] = o.RegionId
-	if !IsNil(o.SubscriptionId) {
-		toSerialize["subscriptionId"] = o.SubscriptionId
-	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -247,10 +247,10 @@ func (o *AdoptHostClusterRequest2) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "cloudProviderId")
+		delete(additionalProperties, "customerEmail")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "regionId")
-		delete(additionalProperties, "subscriptionId")
 		o.AdditionalProperties = additionalProperties
 	}
 
