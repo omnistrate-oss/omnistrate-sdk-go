@@ -762,6 +762,7 @@ type ApiHostclusterApiListHostClustersRequest struct {
 	accountConfigId *string
 	regionId *string
 	includeProvisionerClusters *bool
+	customerEmail *string
 }
 
 // The account config ID of the host cluster
@@ -779,6 +780,12 @@ func (r ApiHostclusterApiListHostClustersRequest) RegionId(regionId string) ApiH
 // Whether to include provisioner clusters in the response
 func (r ApiHostclusterApiListHostClustersRequest) IncludeProvisionerClusters(includeProvisionerClusters bool) ApiHostclusterApiListHostClustersRequest {
 	r.includeProvisionerClusters = &includeProvisionerClusters
+	return r
+}
+
+// The email of the customer to filter host clusters by
+func (r ApiHostclusterApiListHostClustersRequest) CustomerEmail(customerEmail string) ApiHostclusterApiListHostClustersRequest {
+	r.customerEmail = &customerEmail
 	return r
 }
 
@@ -828,6 +835,9 @@ func (a *HostclusterApiAPIService) HostclusterApiListHostClustersExecute(r ApiHo
 	}
 	if r.includeProvisionerClusters != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includeProvisionerClusters", r.includeProvisionerClusters, "form", "")
+	}
+	if r.customerEmail != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "customerEmail", r.customerEmail, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

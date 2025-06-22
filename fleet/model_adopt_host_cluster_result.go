@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"os"
 	"fmt"
 )
 
@@ -23,8 +22,8 @@ var _ MappedNullable = &AdoptHostClusterResult{}
 type AdoptHostClusterResult struct {
 	// The status of an operation
 	AdoptionStatus string `json:"adoptionStatus"`
-	// The TAR archive containing the agent installation kit
-	AgentInstallationKit *os.File `json:"agentInstallationKit"`
+	// The base64 encoded TAR archive containing the agent installation kit
+	AgentInstallationKit string `json:"agentInstallationKit"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -34,7 +33,7 @@ type _AdoptHostClusterResult AdoptHostClusterResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAdoptHostClusterResult(adoptionStatus string, agentInstallationKit *os.File) *AdoptHostClusterResult {
+func NewAdoptHostClusterResult(adoptionStatus string, agentInstallationKit string) *AdoptHostClusterResult {
 	this := AdoptHostClusterResult{}
 	this.AdoptionStatus = adoptionStatus
 	this.AgentInstallationKit = agentInstallationKit
@@ -74,9 +73,9 @@ func (o *AdoptHostClusterResult) SetAdoptionStatus(v string) {
 }
 
 // GetAgentInstallationKit returns the AgentInstallationKit field value
-func (o *AdoptHostClusterResult) GetAgentInstallationKit() *os.File {
+func (o *AdoptHostClusterResult) GetAgentInstallationKit() string {
 	if o == nil {
-		var ret *os.File
+		var ret string
 		return ret
 	}
 
@@ -85,7 +84,7 @@ func (o *AdoptHostClusterResult) GetAgentInstallationKit() *os.File {
 
 // GetAgentInstallationKitOk returns a tuple with the AgentInstallationKit field value
 // and a boolean to check if the value has been set.
-func (o *AdoptHostClusterResult) GetAgentInstallationKitOk() (**os.File, bool) {
+func (o *AdoptHostClusterResult) GetAgentInstallationKitOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -93,7 +92,7 @@ func (o *AdoptHostClusterResult) GetAgentInstallationKitOk() (**os.File, bool) {
 }
 
 // SetAgentInstallationKit sets field value
-func (o *AdoptHostClusterResult) SetAgentInstallationKit(v *os.File) {
+func (o *AdoptHostClusterResult) SetAgentInstallationKit(v string) {
 	o.AgentInstallationKit = v
 }
 

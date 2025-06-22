@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountConfigId** | Pointer to **string** | ID of an Account Config | [optional] 
+**CustomerEmail** | Pointer to **string** | Email of the customer to filter host clusters by (optional) | [optional] 
 **IncludeProvisionerClusters** | Pointer to **bool** | Include provisioner clusters in the response | [optional] 
 **RegionId** | Pointer to **string** | ID of a Region | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
@@ -52,6 +53,31 @@ SetAccountConfigId sets AccountConfigId field to given value.
 `func (o *ListHostClustersRequest) HasAccountConfigId() bool`
 
 HasAccountConfigId returns a boolean if a field has been set.
+
+### GetCustomerEmail
+
+`func (o *ListHostClustersRequest) GetCustomerEmail() string`
+
+GetCustomerEmail returns the CustomerEmail field if non-nil, zero value otherwise.
+
+### GetCustomerEmailOk
+
+`func (o *ListHostClustersRequest) GetCustomerEmailOk() (*string, bool)`
+
+GetCustomerEmailOk returns a tuple with the CustomerEmail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomerEmail
+
+`func (o *ListHostClustersRequest) SetCustomerEmail(v string)`
+
+SetCustomerEmail sets CustomerEmail field to given value.
+
+### HasCustomerEmail
+
+`func (o *ListHostClustersRequest) HasCustomerEmail() bool`
+
+HasCustomerEmail returns a boolean if a field has been set.
 
 ### GetIncludeProvisionerClusters
 

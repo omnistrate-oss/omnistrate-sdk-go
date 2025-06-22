@@ -20,16 +20,16 @@ var _ MappedNullable = &AdoptHostClusterRequest{}
 
 // AdoptHostClusterRequest struct for AdoptHostClusterRequest
 type AdoptHostClusterRequest struct {
-	// ID of an CloudProvider
-	CloudProviderId string `json:"cloudProviderId"`
+	// Name of the Infra Provider
+	CloudProvider string `json:"cloudProvider"`
 	// Email of the customer who owns the host cluster in case this is a BYOA host cluster
 	CustomerEmail *string `json:"customerEmail,omitempty"`
 	// Description of the host cluster
 	Description string `json:"description"`
 	// ID of a Host Cluster
 	Id string `json:"id"`
-	// ID of a Region
-	RegionId string `json:"regionId"`
+	// The actual region name of the host cluster
+	Region string `json:"region"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -41,12 +41,12 @@ type _AdoptHostClusterRequest AdoptHostClusterRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAdoptHostClusterRequest(cloudProviderId string, description string, id string, regionId string, token string) *AdoptHostClusterRequest {
+func NewAdoptHostClusterRequest(cloudProvider string, description string, id string, region string, token string) *AdoptHostClusterRequest {
 	this := AdoptHostClusterRequest{}
-	this.CloudProviderId = cloudProviderId
+	this.CloudProvider = cloudProvider
 	this.Description = description
 	this.Id = id
-	this.RegionId = regionId
+	this.Region = region
 	this.Token = token
 	return &this
 }
@@ -59,28 +59,28 @@ func NewAdoptHostClusterRequestWithDefaults() *AdoptHostClusterRequest {
 	return &this
 }
 
-// GetCloudProviderId returns the CloudProviderId field value
-func (o *AdoptHostClusterRequest) GetCloudProviderId() string {
+// GetCloudProvider returns the CloudProvider field value
+func (o *AdoptHostClusterRequest) GetCloudProvider() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.CloudProviderId
+	return o.CloudProvider
 }
 
-// GetCloudProviderIdOk returns a tuple with the CloudProviderId field value
+// GetCloudProviderOk returns a tuple with the CloudProvider field value
 // and a boolean to check if the value has been set.
-func (o *AdoptHostClusterRequest) GetCloudProviderIdOk() (*string, bool) {
+func (o *AdoptHostClusterRequest) GetCloudProviderOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.CloudProviderId, true
+	return &o.CloudProvider, true
 }
 
-// SetCloudProviderId sets field value
-func (o *AdoptHostClusterRequest) SetCloudProviderId(v string) {
-	o.CloudProviderId = v
+// SetCloudProvider sets field value
+func (o *AdoptHostClusterRequest) SetCloudProvider(v string) {
+	o.CloudProvider = v
 }
 
 // GetCustomerEmail returns the CustomerEmail field value if set, zero value otherwise.
@@ -163,28 +163,28 @@ func (o *AdoptHostClusterRequest) SetId(v string) {
 	o.Id = v
 }
 
-// GetRegionId returns the RegionId field value
-func (o *AdoptHostClusterRequest) GetRegionId() string {
+// GetRegion returns the Region field value
+func (o *AdoptHostClusterRequest) GetRegion() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.RegionId
+	return o.Region
 }
 
-// GetRegionIdOk returns a tuple with the RegionId field value
+// GetRegionOk returns a tuple with the Region field value
 // and a boolean to check if the value has been set.
-func (o *AdoptHostClusterRequest) GetRegionIdOk() (*string, bool) {
+func (o *AdoptHostClusterRequest) GetRegionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.RegionId, true
+	return &o.Region, true
 }
 
-// SetRegionId sets field value
-func (o *AdoptHostClusterRequest) SetRegionId(v string) {
-	o.RegionId = v
+// SetRegion sets field value
+func (o *AdoptHostClusterRequest) SetRegion(v string) {
+	o.Region = v
 }
 
 // GetToken returns the Token field value
@@ -221,13 +221,13 @@ func (o AdoptHostClusterRequest) MarshalJSON() ([]byte, error) {
 
 func (o AdoptHostClusterRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["cloudProviderId"] = o.CloudProviderId
+	toSerialize["cloudProvider"] = o.CloudProvider
 	if !IsNil(o.CustomerEmail) {
 		toSerialize["customerEmail"] = o.CustomerEmail
 	}
 	toSerialize["description"] = o.Description
 	toSerialize["id"] = o.Id
-	toSerialize["regionId"] = o.RegionId
+	toSerialize["region"] = o.Region
 	toSerialize["token"] = o.Token
 
 	for key, value := range o.AdditionalProperties {
@@ -242,10 +242,10 @@ func (o *AdoptHostClusterRequest) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"cloudProviderId",
+		"cloudProvider",
 		"description",
 		"id",
-		"regionId",
+		"region",
 		"token",
 	}
 
@@ -276,11 +276,11 @@ func (o *AdoptHostClusterRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "cloudProviderId")
+		delete(additionalProperties, "cloudProvider")
 		delete(additionalProperties, "customerEmail")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "id")
-		delete(additionalProperties, "regionId")
+		delete(additionalProperties, "region")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}
