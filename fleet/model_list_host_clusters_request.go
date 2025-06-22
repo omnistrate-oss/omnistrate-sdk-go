@@ -22,6 +22,8 @@ var _ MappedNullable = &ListHostClustersRequest{}
 type ListHostClustersRequest struct {
 	// ID of an Account Config
 	AccountConfigId *string `json:"accountConfigId,omitempty"`
+	// Email of the customer to filter host clusters by (optional)
+	CustomerEmail *string `json:"customerEmail,omitempty"`
 	// Include provisioner clusters in the response
 	IncludeProvisionerClusters *bool `json:"includeProvisionerClusters,omitempty"`
 	// ID of a Region
@@ -81,6 +83,38 @@ func (o *ListHostClustersRequest) HasAccountConfigId() bool {
 // SetAccountConfigId gets a reference to the given string and assigns it to the AccountConfigId field.
 func (o *ListHostClustersRequest) SetAccountConfigId(v string) {
 	o.AccountConfigId = &v
+}
+
+// GetCustomerEmail returns the CustomerEmail field value if set, zero value otherwise.
+func (o *ListHostClustersRequest) GetCustomerEmail() string {
+	if o == nil || IsNil(o.CustomerEmail) {
+		var ret string
+		return ret
+	}
+	return *o.CustomerEmail
+}
+
+// GetCustomerEmailOk returns a tuple with the CustomerEmail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListHostClustersRequest) GetCustomerEmailOk() (*string, bool) {
+	if o == nil || IsNil(o.CustomerEmail) {
+		return nil, false
+	}
+	return o.CustomerEmail, true
+}
+
+// HasCustomerEmail returns a boolean if a field has been set.
+func (o *ListHostClustersRequest) HasCustomerEmail() bool {
+	if o != nil && !IsNil(o.CustomerEmail) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomerEmail gets a reference to the given string and assigns it to the CustomerEmail field.
+func (o *ListHostClustersRequest) SetCustomerEmail(v string) {
+	o.CustomerEmail = &v
 }
 
 // GetIncludeProvisionerClusters returns the IncludeProvisionerClusters field value if set, zero value otherwise.
@@ -184,6 +218,9 @@ func (o ListHostClustersRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AccountConfigId) {
 		toSerialize["accountConfigId"] = o.AccountConfigId
 	}
+	if !IsNil(o.CustomerEmail) {
+		toSerialize["customerEmail"] = o.CustomerEmail
+	}
 	if !IsNil(o.IncludeProvisionerClusters) {
 		toSerialize["includeProvisionerClusters"] = o.IncludeProvisionerClusters
 	}
@@ -235,6 +272,7 @@ func (o *ListHostClustersRequest) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "accountConfigId")
+		delete(additionalProperties, "customerEmail")
 		delete(additionalProperties, "includeProvisionerClusters")
 		delete(additionalProperties, "regionId")
 		delete(additionalProperties, "token")

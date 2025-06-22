@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AdoptionStatus** | **string** | The status of an operation | 
-**AgentInstallationKit** | ***os.File** | The TAR archive containing the agent installation kit | 
+**AgentInstallationKit** | **string** | The base64 encoded TAR archive containing the agent installation kit | 
 
 ## Methods
 
 ### NewAdoptHostClusterResult
 
-`func NewAdoptHostClusterResult(adoptionStatus string, agentInstallationKit *os.File, ) *AdoptHostClusterResult`
+`func NewAdoptHostClusterResult(adoptionStatus string, agentInstallationKit string, ) *AdoptHostClusterResult`
 
 NewAdoptHostClusterResult instantiates a new AdoptHostClusterResult object
 This constructor will assign default values to properties that have it defined,
@@ -48,20 +48,20 @@ SetAdoptionStatus sets AdoptionStatus field to given value.
 
 ### GetAgentInstallationKit
 
-`func (o *AdoptHostClusterResult) GetAgentInstallationKit() *os.File`
+`func (o *AdoptHostClusterResult) GetAgentInstallationKit() string`
 
 GetAgentInstallationKit returns the AgentInstallationKit field if non-nil, zero value otherwise.
 
 ### GetAgentInstallationKitOk
 
-`func (o *AdoptHostClusterResult) GetAgentInstallationKitOk() (**os.File, bool)`
+`func (o *AdoptHostClusterResult) GetAgentInstallationKitOk() (*string, bool)`
 
 GetAgentInstallationKitOk returns a tuple with the AgentInstallationKit field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAgentInstallationKit
 
-`func (o *AdoptHostClusterResult) SetAgentInstallationKit(v *os.File)`
+`func (o *AdoptHostClusterResult) SetAgentInstallationKit(v string)`
 
 SetAgentInstallationKit sets AgentInstallationKit field to given value.
 

@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudProviderId** | **string** | ID of an CloudProvider | 
+**CloudProvider** | **string** | Name of the Infra Provider | 
+**CustomerEmail** | Pointer to **string** | Email of the customer who owns the host cluster in case this is a BYOA host cluster | [optional] 
 **Description** | **string** | Description of the host cluster | 
 **Id** | **string** | ID of a Host Cluster | 
-**RegionId** | **string** | ID of a Region | 
-**SubscriptionId** | Pointer to **string** | ID of a Subscription | [optional] 
+**Region** | **string** | The actual region name of the host cluster | 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
 
 ### NewAdoptHostClusterRequest
 
-`func NewAdoptHostClusterRequest(cloudProviderId string, description string, id string, regionId string, token string, ) *AdoptHostClusterRequest`
+`func NewAdoptHostClusterRequest(cloudProvider string, description string, id string, region string, token string, ) *AdoptHostClusterRequest`
 
 NewAdoptHostClusterRequest instantiates a new AdoptHostClusterRequest object
 This constructor will assign default values to properties that have it defined,
@@ -30,25 +30,50 @@ NewAdoptHostClusterRequestWithDefaults instantiates a new AdoptHostClusterReques
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetCloudProviderId
+### GetCloudProvider
 
-`func (o *AdoptHostClusterRequest) GetCloudProviderId() string`
+`func (o *AdoptHostClusterRequest) GetCloudProvider() string`
 
-GetCloudProviderId returns the CloudProviderId field if non-nil, zero value otherwise.
+GetCloudProvider returns the CloudProvider field if non-nil, zero value otherwise.
 
-### GetCloudProviderIdOk
+### GetCloudProviderOk
 
-`func (o *AdoptHostClusterRequest) GetCloudProviderIdOk() (*string, bool)`
+`func (o *AdoptHostClusterRequest) GetCloudProviderOk() (*string, bool)`
 
-GetCloudProviderIdOk returns a tuple with the CloudProviderId field if it's non-nil, zero value otherwise
+GetCloudProviderOk returns a tuple with the CloudProvider field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCloudProviderId
+### SetCloudProvider
 
-`func (o *AdoptHostClusterRequest) SetCloudProviderId(v string)`
+`func (o *AdoptHostClusterRequest) SetCloudProvider(v string)`
 
-SetCloudProviderId sets CloudProviderId field to given value.
+SetCloudProvider sets CloudProvider field to given value.
 
+
+### GetCustomerEmail
+
+`func (o *AdoptHostClusterRequest) GetCustomerEmail() string`
+
+GetCustomerEmail returns the CustomerEmail field if non-nil, zero value otherwise.
+
+### GetCustomerEmailOk
+
+`func (o *AdoptHostClusterRequest) GetCustomerEmailOk() (*string, bool)`
+
+GetCustomerEmailOk returns a tuple with the CustomerEmail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomerEmail
+
+`func (o *AdoptHostClusterRequest) SetCustomerEmail(v string)`
+
+SetCustomerEmail sets CustomerEmail field to given value.
+
+### HasCustomerEmail
+
+`func (o *AdoptHostClusterRequest) HasCustomerEmail() bool`
+
+HasCustomerEmail returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -90,50 +115,25 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
-### GetRegionId
+### GetRegion
 
-`func (o *AdoptHostClusterRequest) GetRegionId() string`
+`func (o *AdoptHostClusterRequest) GetRegion() string`
 
-GetRegionId returns the RegionId field if non-nil, zero value otherwise.
+GetRegion returns the Region field if non-nil, zero value otherwise.
 
-### GetRegionIdOk
+### GetRegionOk
 
-`func (o *AdoptHostClusterRequest) GetRegionIdOk() (*string, bool)`
+`func (o *AdoptHostClusterRequest) GetRegionOk() (*string, bool)`
 
-GetRegionIdOk returns a tuple with the RegionId field if it's non-nil, zero value otherwise
+GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRegionId
+### SetRegion
 
-`func (o *AdoptHostClusterRequest) SetRegionId(v string)`
+`func (o *AdoptHostClusterRequest) SetRegion(v string)`
 
-SetRegionId sets RegionId field to given value.
+SetRegion sets Region field to given value.
 
-
-### GetSubscriptionId
-
-`func (o *AdoptHostClusterRequest) GetSubscriptionId() string`
-
-GetSubscriptionId returns the SubscriptionId field if non-nil, zero value otherwise.
-
-### GetSubscriptionIdOk
-
-`func (o *AdoptHostClusterRequest) GetSubscriptionIdOk() (*string, bool)`
-
-GetSubscriptionIdOk returns a tuple with the SubscriptionId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSubscriptionId
-
-`func (o *AdoptHostClusterRequest) SetSubscriptionId(v string)`
-
-SetSubscriptionId sets SubscriptionId field to given value.
-
-### HasSubscriptionId
-
-`func (o *AdoptHostClusterRequest) HasSubscriptionId() bool`
-
-HasSubscriptionId returns a boolean if a field has been set.
 
 ### GetToken
 

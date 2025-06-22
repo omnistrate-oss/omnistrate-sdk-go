@@ -20,15 +20,15 @@ var _ MappedNullable = &AdoptHostClusterRequest2{}
 
 // AdoptHostClusterRequest2 struct for AdoptHostClusterRequest2
 type AdoptHostClusterRequest2 struct {
-	CloudProviderId string `json:"cloudProviderId"`
+	CloudProvider string `json:"cloudProvider"`
+	// Email of the customer who owns the host cluster in case this is a BYOA host cluster
+	CustomerEmail *string `json:"customerEmail,omitempty"`
 	// Description of the host cluster
 	Description string `json:"description"`
 	// ID of the host cluster to adopt
 	Id string `json:"id"`
-	// ID of the region where the host cluster is located
-	RegionId string `json:"regionId"`
-	// The subscription ID
-	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	// The actual region name of the host cluster
+	Region string `json:"region"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -38,12 +38,12 @@ type _AdoptHostClusterRequest2 AdoptHostClusterRequest2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAdoptHostClusterRequest2(cloudProviderId string, description string, id string, regionId string) *AdoptHostClusterRequest2 {
+func NewAdoptHostClusterRequest2(cloudProvider string, description string, id string, region string) *AdoptHostClusterRequest2 {
 	this := AdoptHostClusterRequest2{}
-	this.CloudProviderId = cloudProviderId
+	this.CloudProvider = cloudProvider
 	this.Description = description
 	this.Id = id
-	this.RegionId = regionId
+	this.Region = region
 	return &this
 }
 
@@ -55,28 +55,60 @@ func NewAdoptHostClusterRequest2WithDefaults() *AdoptHostClusterRequest2 {
 	return &this
 }
 
-// GetCloudProviderId returns the CloudProviderId field value
-func (o *AdoptHostClusterRequest2) GetCloudProviderId() string {
+// GetCloudProvider returns the CloudProvider field value
+func (o *AdoptHostClusterRequest2) GetCloudProvider() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.CloudProviderId
+	return o.CloudProvider
 }
 
-// GetCloudProviderIdOk returns a tuple with the CloudProviderId field value
+// GetCloudProviderOk returns a tuple with the CloudProvider field value
 // and a boolean to check if the value has been set.
-func (o *AdoptHostClusterRequest2) GetCloudProviderIdOk() (*string, bool) {
+func (o *AdoptHostClusterRequest2) GetCloudProviderOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.CloudProviderId, true
+	return &o.CloudProvider, true
 }
 
-// SetCloudProviderId sets field value
-func (o *AdoptHostClusterRequest2) SetCloudProviderId(v string) {
-	o.CloudProviderId = v
+// SetCloudProvider sets field value
+func (o *AdoptHostClusterRequest2) SetCloudProvider(v string) {
+	o.CloudProvider = v
+}
+
+// GetCustomerEmail returns the CustomerEmail field value if set, zero value otherwise.
+func (o *AdoptHostClusterRequest2) GetCustomerEmail() string {
+	if o == nil || IsNil(o.CustomerEmail) {
+		var ret string
+		return ret
+	}
+	return *o.CustomerEmail
+}
+
+// GetCustomerEmailOk returns a tuple with the CustomerEmail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AdoptHostClusterRequest2) GetCustomerEmailOk() (*string, bool) {
+	if o == nil || IsNil(o.CustomerEmail) {
+		return nil, false
+	}
+	return o.CustomerEmail, true
+}
+
+// HasCustomerEmail returns a boolean if a field has been set.
+func (o *AdoptHostClusterRequest2) HasCustomerEmail() bool {
+	if o != nil && !IsNil(o.CustomerEmail) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomerEmail gets a reference to the given string and assigns it to the CustomerEmail field.
+func (o *AdoptHostClusterRequest2) SetCustomerEmail(v string) {
+	o.CustomerEmail = &v
 }
 
 // GetDescription returns the Description field value
@@ -127,60 +159,28 @@ func (o *AdoptHostClusterRequest2) SetId(v string) {
 	o.Id = v
 }
 
-// GetRegionId returns the RegionId field value
-func (o *AdoptHostClusterRequest2) GetRegionId() string {
+// GetRegion returns the Region field value
+func (o *AdoptHostClusterRequest2) GetRegion() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.RegionId
+	return o.Region
 }
 
-// GetRegionIdOk returns a tuple with the RegionId field value
+// GetRegionOk returns a tuple with the Region field value
 // and a boolean to check if the value has been set.
-func (o *AdoptHostClusterRequest2) GetRegionIdOk() (*string, bool) {
+func (o *AdoptHostClusterRequest2) GetRegionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.RegionId, true
+	return &o.Region, true
 }
 
-// SetRegionId sets field value
-func (o *AdoptHostClusterRequest2) SetRegionId(v string) {
-	o.RegionId = v
-}
-
-// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
-func (o *AdoptHostClusterRequest2) GetSubscriptionId() string {
-	if o == nil || IsNil(o.SubscriptionId) {
-		var ret string
-		return ret
-	}
-	return *o.SubscriptionId
-}
-
-// GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AdoptHostClusterRequest2) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SubscriptionId) {
-		return nil, false
-	}
-	return o.SubscriptionId, true
-}
-
-// HasSubscriptionId returns a boolean if a field has been set.
-func (o *AdoptHostClusterRequest2) HasSubscriptionId() bool {
-	if o != nil && !IsNil(o.SubscriptionId) {
-		return true
-	}
-
-	return false
-}
-
-// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
-func (o *AdoptHostClusterRequest2) SetSubscriptionId(v string) {
-	o.SubscriptionId = &v
+// SetRegion sets field value
+func (o *AdoptHostClusterRequest2) SetRegion(v string) {
+	o.Region = v
 }
 
 func (o AdoptHostClusterRequest2) MarshalJSON() ([]byte, error) {
@@ -193,13 +193,13 @@ func (o AdoptHostClusterRequest2) MarshalJSON() ([]byte, error) {
 
 func (o AdoptHostClusterRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["cloudProviderId"] = o.CloudProviderId
+	toSerialize["cloudProvider"] = o.CloudProvider
+	if !IsNil(o.CustomerEmail) {
+		toSerialize["customerEmail"] = o.CustomerEmail
+	}
 	toSerialize["description"] = o.Description
 	toSerialize["id"] = o.Id
-	toSerialize["regionId"] = o.RegionId
-	if !IsNil(o.SubscriptionId) {
-		toSerialize["subscriptionId"] = o.SubscriptionId
-	}
+	toSerialize["region"] = o.Region
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -213,10 +213,10 @@ func (o *AdoptHostClusterRequest2) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"cloudProviderId",
+		"cloudProvider",
 		"description",
 		"id",
-		"regionId",
+		"region",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -246,11 +246,11 @@ func (o *AdoptHostClusterRequest2) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "cloudProviderId")
+		delete(additionalProperties, "cloudProvider")
+		delete(additionalProperties, "customerEmail")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "id")
-		delete(additionalProperties, "regionId")
-		delete(additionalProperties, "subscriptionId")
+		delete(additionalProperties, "region")
 		o.AdditionalProperties = additionalProperties
 	}
 

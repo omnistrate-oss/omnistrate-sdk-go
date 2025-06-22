@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FailedEntities** | Pointer to [**[]EntityHealth**](EntityHealth.md) | List of entities that have failed health checks | [optional] 
+**KubernetesControlPlaneVersion** | **string** | Version of the Kubernetes control plane running in the host cluster | 
 **OverallStatus** | **string** | The heath status of a resource | 
 **StatusMessage** | Pointer to **string** | Detailed message about the health status of the host cluster | [optional] 
 **TotalNumberOfEntities** | **int64** | Total number of entities under management in the host cluster | 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewHostClusterHealthStatus
 
-`func NewHostClusterHealthStatus(overallStatus string, totalNumberOfEntities int64, totalNumberOfEntitiesByType map[string]int64, totalNumberOfFailedEntities int64, totalNumberOfFailedEntitiesByType map[string]int64, totalNumberOfHealthyEntities int64, totalNumberOfHealthyEntitiesByType map[string]int64, ) *HostClusterHealthStatus`
+`func NewHostClusterHealthStatus(kubernetesControlPlaneVersion string, overallStatus string, totalNumberOfEntities int64, totalNumberOfEntitiesByType map[string]int64, totalNumberOfFailedEntities int64, totalNumberOfFailedEntitiesByType map[string]int64, totalNumberOfHealthyEntities int64, totalNumberOfHealthyEntitiesByType map[string]int64, ) *HostClusterHealthStatus`
 
 NewHostClusterHealthStatus instantiates a new HostClusterHealthStatus object
 This constructor will assign default values to properties that have it defined,
@@ -57,6 +58,26 @@ SetFailedEntities sets FailedEntities field to given value.
 `func (o *HostClusterHealthStatus) HasFailedEntities() bool`
 
 HasFailedEntities returns a boolean if a field has been set.
+
+### GetKubernetesControlPlaneVersion
+
+`func (o *HostClusterHealthStatus) GetKubernetesControlPlaneVersion() string`
+
+GetKubernetesControlPlaneVersion returns the KubernetesControlPlaneVersion field if non-nil, zero value otherwise.
+
+### GetKubernetesControlPlaneVersionOk
+
+`func (o *HostClusterHealthStatus) GetKubernetesControlPlaneVersionOk() (*string, bool)`
+
+GetKubernetesControlPlaneVersionOk returns a tuple with the KubernetesControlPlaneVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKubernetesControlPlaneVersion
+
+`func (o *HostClusterHealthStatus) SetKubernetesControlPlaneVersion(v string)`
+
+SetKubernetesControlPlaneVersion sets KubernetesControlPlaneVersion field to given value.
+
 
 ### GetOverallStatus
 

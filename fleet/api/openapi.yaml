@@ -92,10 +92,12 @@ paths:
         schema:
           description: The event types to filter by
           example:
-          - Saepe quaerat necessitatibus recusandae sint error eum.
+          - Voluptatem odit voluptatibus.
+          - Consequuntur dolorem autem saepe quaerat necessitatibus.
+          - Sint error eum.
           - Ratione nulla ut nostrum eligendi ut.
           items:
-            example: Modi voluptatem odit voluptatibus odio consequuntur.
+            example: Sint est in.
             type: string
           type: array
         style: form
@@ -1592,7 +1594,7 @@ paths:
             application/json:
               example: Et voluptatibus assumenda saepe.
               schema:
-                example: Est et odit.
+                example: Quam autem.
                 type: string
           description: OK response.
         "400":
@@ -1958,7 +1960,7 @@ paths:
         required: true
         schema:
           description: ID of a Event
-          example: Sint est in.
+          example: Praesentium qui est.
           type: string
         style: simple
       responses:
@@ -2351,7 +2353,7 @@ paths:
             example: Harum eaque sed vel totam corrupti ut.
             schema:
               description: The event data
-              example: A quia est.
+              example: Modi ex architecto voluptatum incidunt voluptatibus.
               type: string
         description: The event data
         required: true
@@ -2412,7 +2414,7 @@ paths:
         required: true
         schema:
           description: ID of a Host Cluster
-          example: Harum sunt reprehenderit sed similique quia incidunt.
+          example: Magni harum sunt reprehenderit sed similique quia.
           type: string
         style: simple
       responses:
@@ -2472,7 +2474,7 @@ paths:
         required: true
         schema:
           description: ID of a Host Cluster
-          example: Doloremque qui voluptates quidem magnam earum possimus.
+          example: Itaque doloremque.
           type: string
         style: simple
       responses:
@@ -2489,6 +2491,8 @@ paths:
                   id: n-12345678
                   name: Prod us-east-1
                   orgName: Company TM
+                customerEmail: admin@example.com
+                customerOrganizationName: My Customer Organization
                 description: My Host Cluster
                 healthStatus:
                   failedEntities:
@@ -2513,6 +2517,7 @@ paths:
                   version: 1.0.0
                 id: hc-12345678
                 isCustomDeployment: true
+                key: my-host-cluster
                 kubernetesDashboardEndpoint: https://my-k8s-dashboard.com
                 modelType: BYOA
                 region: us-east-1
@@ -2579,7 +2584,7 @@ paths:
         required: true
         schema:
           description: ID of a Host Cluster
-          example: Praesentium qui est.
+          example: Corporis soluta nostrum dolor.
           type: string
         style: simple
       responses:
@@ -2644,11 +2649,11 @@ paths:
         content:
           application/json:
             example:
-              cloudProviderId: infra-12345678
+              cloudProvider: aws
+              customerEmail: mycustomer@example.com
               description: My Adopted Host Cluster
               id: hc-12345678
-              regionId: region-12345678
-              subscriptionId: sub-12345678
+              region: us-east-1
             schema:
               $ref: '#/components/schemas/AdoptHostClusterRequest2'
         required: true
@@ -2718,7 +2723,7 @@ paths:
         required: false
         schema:
           description: ID of an Account Config
-          example: Iure deserunt.
+          example: Voluptates quidem magnam earum possimus et.
           type: string
         style: form
       - allowEmptyValue: true
@@ -2730,7 +2735,7 @@ paths:
         required: false
         schema:
           description: ID of a Region
-          example: Ullam corporis soluta nostrum dolor.
+          example: Deserunt commodi.
           type: string
         style: form
       - allowEmptyValue: true
@@ -2745,6 +2750,18 @@ paths:
           example: true
           type: boolean
         style: form
+      - allowEmptyValue: true
+        description: The email of the customer to filter host clusters by
+        example: admin@example.com
+        explode: true
+        in: query
+        name: customerEmail
+        required: false
+        schema:
+          description: The email of the customer to filter host clusters by
+          example: admin@example.com
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -2755,6 +2772,8 @@ paths:
                   accountID: "123456789012"
                   cloudProvider: aws
                   currentNumberOfDeployments: 2
+                  customerEmail: admin@example.com
+                  customerOrganizationName: My Customer Organization
                   description: My Host Cluster
                   failedEntities:
                   - error: Namespace failed to sync because of missing permissions
@@ -2867,7 +2886,7 @@ paths:
         required: true
         schema:
           description: ID of a Host Cluster
-          example: Iure aut.
+          example: Quia minima veniam voluptatem voluptas iusto iure.
           type: string
         style: simple
       responses:
@@ -4549,7 +4568,7 @@ paths:
             application/json:
               example: Sapiente est architecto voluptate.
               schema:
-                example: Ipsum ut tempora libero itaque.
+                example: Et qui quibusdam numquam ut.
                 type: string
           description: OK response.
         "400":
@@ -5498,7 +5517,7 @@ paths:
       parameters:
       - allowEmptyValue: true
         description: Filter for organizations with invoices
-        example: true
+        example: false
         explode: true
         in: query
         name: hasInvoice
@@ -5627,7 +5646,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Vel corrupti.
+          example: Vel perspiciatis odio.
           type: string
         style: simple
       - description: The service name
@@ -5755,7 +5774,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Vel perspiciatis odio.
+          example: Nesciunt molestias numquam aut sint perferendis dolor.
           type: string
         style: simple
       - description: The service name
@@ -5901,7 +5920,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Cumque eum vitae dolor reiciendis non libero.
+          example: Ea neque dolorem excepturi quis.
           type: string
         style: simple
       - description: The service name
@@ -6052,7 +6071,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Provider
-          example: Nesciunt molestias numquam aut sint perferendis dolor.
+          example: Cumque eum vitae dolor reiciendis non libero.
           type: string
         style: simple
       - description: The service name
@@ -6424,7 +6443,7 @@ paths:
         required: false
         schema:
           description: ID of an Org
-          example: Ea neque dolorem excepturi quis.
+          example: Soluta molestiae.
           type: string
         style: form
       - allowEmptyValue: true
@@ -6609,7 +6628,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Soluta molestiae.
+          example: Sit voluptatum voluptatem eum soluta.
           type: string
         style: form
       - allowEmptyValue: true
@@ -6744,7 +6763,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Eligendi voluptatem odit velit.
+          example: Aspernatur minima.
           type: string
         style: form
       - allowEmptyValue: true
@@ -6778,7 +6797,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Sit voluptatum voluptatem eum soluta.
+          example: Eligendi voluptatem odit velit.
           type: string
         style: simple
       - description: The instance ID
@@ -7215,7 +7234,7 @@ paths:
         required: true
         schema:
           description: ID of a Host Cluster
-          example: Ut sunt illo qui.
+          example: Cumque est autem sunt.
           type: string
         style: simple
       responses:
@@ -7314,7 +7333,7 @@ paths:
         required: true
         schema:
           description: ID of a Host Cluster
-          example: Hic velit vero earum quia deleniti praesentium.
+          example: Ut sunt illo qui.
           type: string
         style: simple
       responses:
@@ -8572,7 +8591,7 @@ paths:
         required: true
         schema:
           description: ID of a Event
-          example: Quia architecto et iste hic nostrum ducimus.
+          example: Animi sunt.
           type: string
         style: simple
       responses:
@@ -10331,7 +10350,7 @@ paths:
         required: true
         schema:
           description: ID of a Resource Instance Snapshot
-          example: Totam exercitationem excepturi aliquam ipsum pariatur.
+          example: Qui vel quo rem.
           type: string
         style: simple
       responses:
@@ -10587,7 +10606,7 @@ paths:
       - allowEmptyValue: true
         description: "Product tier version of the instance to describe. If not specified,\
           \ the latest version is described."
-        example: Animi cumque animi.
+        example: Exercitationem aliquid.
         explode: true
         in: query
         name: ProductTierVersion
@@ -10595,7 +10614,7 @@ paths:
         schema:
           description: "Product tier version of the instance to describe. If not specified,\
             \ the latest version is described."
-          example: Exercitationem aliquid.
+          example: Ut deleniti.
           type: string
         style: form
       - allowEmptyValue: true
@@ -10608,7 +10627,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Molestiae vero quisquam nam perferendis.
+          example: Animi cumque animi.
           type: string
         style: form
       - allowEmptyValue: true
@@ -10620,7 +10639,7 @@ paths:
         required: false
         schema:
           description: ID of a Subscription
-          example: Qui vel quo rem.
+          example: Molestiae vero quisquam nam perferendis.
           type: string
         style: form
       - allowEmptyValue: true
@@ -11339,7 +11358,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Model
-          example: Earum dolore praesentium.
+          example: Vel corrupti.
           type: string
         style: simple
       - description: The product tier ID.
@@ -11350,7 +11369,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Hic dolorem id sequi alias.
+          example: Earum dolore praesentium.
           type: string
         style: simple
       - description: The resource ID.
@@ -11361,7 +11380,7 @@ paths:
         required: true
         schema:
           description: ID of a resource
-          example: Ut deleniti.
+          example: Hic dolorem id sequi alias.
           type: string
         style: simple
       responses:
@@ -11467,7 +11486,7 @@ paths:
         required: true
         schema:
           description: ID of a Service Model
-          example: Aperiam deserunt.
+          example: Nihil amet natus libero non.
           type: string
         style: simple
       - description: The product tier ID.
@@ -11478,7 +11497,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Aspernatur minima.
+          example: Aperiam deserunt.
           type: string
         style: simple
       requestBody:
@@ -11651,7 +11670,7 @@ paths:
         required: true
         schema:
           description: ID of an Org
-          example: Et provident modi aut dolores odit ut.
+          example: Odit id deleniti impedit et.
           type: string
         style: simple
       responses:
@@ -12773,7 +12792,7 @@ paths:
         required: true
         schema:
           description: ID of a Resource Instance Snapshot
-          example: Animi sunt.
+          example: Totam exercitationem excepturi aliquam ipsum pariatur.
           type: string
         style: simple
       requestBody:
@@ -12854,7 +12873,7 @@ paths:
         required: false
         schema:
           description: ID of a Product Tier
-          example: Ipsam ipsa deserunt placeat.
+          example: Velit et ea hic sapiente quos sint.
           type: string
         style: form
       - allowEmptyValue: true
@@ -13572,7 +13591,7 @@ paths:
         required: true
         schema:
           description: ID of a Subscription
-          example: Cumque est autem sunt.
+          example: Veniam velit.
           type: string
         style: simple
       responses:
@@ -13654,7 +13673,7 @@ paths:
         required: true
         schema:
           description: ID of a Subscription
-          example: Velit et ea hic sapiente quos sint.
+          example: Repudiandae accusamus rerum est rerum.
           type: string
         style: simple
       responses:
@@ -13860,7 +13879,7 @@ paths:
         required: true
         schema:
           description: ID of a Subscription
-          example: Ipsa sunt dolorem est et aut rerum.
+          example: Quia repellendus ab impedit id.
           type: string
         style: simple
       requestBody:
@@ -13967,7 +13986,7 @@ paths:
         required: true
         schema:
           description: ID of a Subscription
-          example: Veniam velit.
+          example: Possimus molestiae veritatis molestias voluptatibus fugiat autem.
           type: string
         style: simple
       responses:
@@ -14050,7 +14069,7 @@ paths:
         required: true
         schema:
           description: ID of a Subscription
-          example: Possimus molestiae veritatis molestias voluptatibus fugiat autem.
+          example: Ipsam ipsa deserunt placeat.
           type: string
         style: simple
       responses:
@@ -14284,7 +14303,7 @@ paths:
         required: true
         schema:
           description: ID of a Subscription Request
-          example: Repudiandae accusamus rerum est rerum.
+          example: Eum suscipit quia nostrum modi sunt.
           type: string
         style: simple
       responses:
@@ -14366,7 +14385,7 @@ paths:
         required: true
         schema:
           description: ID of a Subscription Request
-          example: Sunt nihil et iusto aut.
+          example: Ipsa sunt dolorem est et aut rerum.
           type: string
         style: simple
       responses:
@@ -14467,7 +14486,7 @@ paths:
         required: true
         schema:
           description: ID of a Subscription Request
-          example: Eum suscipit quia nostrum modi sunt.
+          example: Sunt nihil et iusto aut.
           type: string
         style: simple
       responses:
@@ -14650,7 +14669,7 @@ paths:
         required: true
         schema:
           description: ID of a User
-          example: Delectus molestias magni dolorum ipsam magni at.
+          example: Et rem.
           type: string
         style: simple
       responses:
@@ -14809,7 +14828,7 @@ paths:
         required: false
         schema:
           description: ID of a Subscription
-          example: Et rem.
+          example: Modi aut dolores odit ut.
           type: string
         style: form
       - description: The service ID this workflow belongs to.
@@ -14967,7 +14986,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Dolor sed earum et eum veniam.
+          example: Quia architecto et iste hic nostrum ducimus.
           type: string
         style: simple
       requestBody:
@@ -15098,7 +15117,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Hic et aspernatur pariatur non repellendus.
+          example: Dolor sed earum et eum veniam.
           type: string
         style: simple
       - description: The upgrade path ID
@@ -15109,7 +15128,7 @@ paths:
         required: true
         schema:
           description: ID of an Upgrade Path
-          example: Distinctio ut ut quia quod inventore.
+          example: Hic et aspernatur pariatur non repellendus.
           type: string
         style: simple
       responses:
@@ -15210,7 +15229,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Corporis voluptas accusantium eveniet dolores.
+          example: Expedita est optio et incidunt dolorem libero.
           type: string
         style: simple
       - description: The upgrade path ID
@@ -15221,7 +15240,7 @@ paths:
         required: true
         schema:
           description: ID of an Upgrade Path
-          example: Enim doloribus incidunt sunt.
+          example: Corporis voluptas accusantium eveniet dolores.
           type: string
         style: simple
       responses:
@@ -15345,7 +15364,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Ut ut.
+          example: Enim doloribus incidunt sunt.
           type: string
         style: simple
       - description: The upgrade path ID
@@ -15356,7 +15375,7 @@ paths:
         required: true
         schema:
           description: ID of an Upgrade Path
-          example: Quia repellendus ab impedit id.
+          example: Ut ut.
           type: string
         style: simple
       responses:
@@ -15459,7 +15478,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Eligendi placeat.
+          example: Mollitia unde deleniti velit distinctio qui.
           type: string
         style: simple
       - description: The upgrade path ID
@@ -15470,7 +15489,7 @@ paths:
         required: true
         schema:
           description: ID of an Upgrade Path
-          example: Expedita est optio et incidunt dolorem libero.
+          example: Eligendi placeat.
           type: string
         style: simple
       requestBody:
@@ -15655,7 +15674,7 @@ paths:
         required: true
         schema:
           description: ID of a Product Tier
-          example: Mollitia unde deleniti velit distinctio qui.
+          example: Distinctio ut ut quia quod inventore.
           type: string
         style: simple
       responses:
@@ -16077,6 +16096,106 @@ paths:
                       param2: value2
                     status: PENDING
                     updatedAt: 2021-01-01T00:00:00Z
+                - accessServicesOrchestration:
+                    ServicesTopology:
+                    - dependsOnDeployment:
+                      - instanceDeploymentAlias1
+                      - instanceDeploymentAlias2
+                      failedReason: Invalid inputs
+                      instanceDeploymentAlias: instanceDeploymentAlias
+                      instanceId: i-12345678
+                      serviceId: s-12345678
+                      status: PENDING
+                      statusMessage: Creating deployment
+                      subscriptionId: Rem quisquam deserunt reiciendis dolor sapiente.
+                    - dependsOnDeployment:
+                      - instanceDeploymentAlias1
+                      - instanceDeploymentAlias2
+                      failedReason: Invalid inputs
+                      instanceDeploymentAlias: instanceDeploymentAlias
+                      instanceId: i-12345678
+                      serviceId: s-12345678
+                      status: PENDING
+                      statusMessage: Creating deployment
+                      subscriptionId: Rem quisquam deserunt reiciendis dolor sapiente.
+                    - dependsOnDeployment:
+                      - instanceDeploymentAlias1
+                      - instanceDeploymentAlias2
+                      failedReason: Invalid inputs
+                      instanceDeploymentAlias: instanceDeploymentAlias
+                      instanceId: i-12345678
+                      serviceId: s-12345678
+                      status: PENDING
+                      statusMessage: Creating deployment
+                      subscriptionId: Rem quisquam deserunt reiciendis dolor sapiente.
+                    - dependsOnDeployment:
+                      - instanceDeploymentAlias1
+                      - instanceDeploymentAlias2
+                      failedReason: Invalid inputs
+                      instanceDeploymentAlias: instanceDeploymentAlias
+                      instanceId: i-12345678
+                      serviceId: s-12345678
+                      status: PENDING
+                      statusMessage: Creating deployment
+                      subscriptionId: Rem quisquam deserunt reiciendis dolor sapiente.
+                    createdAt: 2021-01-01T00:00:00Z
+                    id: so-12345678
+                    orchestrationFailedReason: Invalid DSL
+                    resultParams:
+                      param1: value1
+                      param2: value2
+                    status: PENDING
+                    updatedAt: 2021-01-01T00:00:00Z
+                - accessServicesOrchestration:
+                    ServicesTopology:
+                    - dependsOnDeployment:
+                      - instanceDeploymentAlias1
+                      - instanceDeploymentAlias2
+                      failedReason: Invalid inputs
+                      instanceDeploymentAlias: instanceDeploymentAlias
+                      instanceId: i-12345678
+                      serviceId: s-12345678
+                      status: PENDING
+                      statusMessage: Creating deployment
+                      subscriptionId: Rem quisquam deserunt reiciendis dolor sapiente.
+                    - dependsOnDeployment:
+                      - instanceDeploymentAlias1
+                      - instanceDeploymentAlias2
+                      failedReason: Invalid inputs
+                      instanceDeploymentAlias: instanceDeploymentAlias
+                      instanceId: i-12345678
+                      serviceId: s-12345678
+                      status: PENDING
+                      statusMessage: Creating deployment
+                      subscriptionId: Rem quisquam deserunt reiciendis dolor sapiente.
+                    - dependsOnDeployment:
+                      - instanceDeploymentAlias1
+                      - instanceDeploymentAlias2
+                      failedReason: Invalid inputs
+                      instanceDeploymentAlias: instanceDeploymentAlias
+                      instanceId: i-12345678
+                      serviceId: s-12345678
+                      status: PENDING
+                      statusMessage: Creating deployment
+                      subscriptionId: Rem quisquam deserunt reiciendis dolor sapiente.
+                    - dependsOnDeployment:
+                      - instanceDeploymentAlias1
+                      - instanceDeploymentAlias2
+                      failedReason: Invalid inputs
+                      instanceDeploymentAlias: instanceDeploymentAlias
+                      instanceId: i-12345678
+                      serviceId: s-12345678
+                      status: PENDING
+                      statusMessage: Creating deployment
+                      subscriptionId: Rem quisquam deserunt reiciendis dolor sapiente.
+                    createdAt: 2021-01-01T00:00:00Z
+                    id: so-12345678
+                    orchestrationFailedReason: Invalid DSL
+                    resultParams:
+                      param1: value1
+                      param2: value2
+                    status: PENDING
+                    updatedAt: 2021-01-01T00:00:00Z
                 items:
                   $ref: '#/components/schemas/FleetDescribeServicesOrchestrationResult'
                 type: array
@@ -16200,7 +16319,7 @@ paths:
         required: true
         schema:
           description: ID of a Services Orchestration
-          example: Ut quia minima veniam voluptatem voluptas.
+          example: Blanditiis delectus voluptates id culpa dolor beatae.
           type: string
         style: simple
       responses:
@@ -16261,7 +16380,7 @@ paths:
         required: true
         schema:
           description: ID of a Services Orchestration
-          example: Dolores aliquid minima error blanditiis.
+          example: Hic velit vero earum quia deleniti praesentium.
           type: string
         style: simple
       responses:
@@ -16377,7 +16496,7 @@ paths:
         required: true
         schema:
           description: ID of a Services Orchestration
-          example: Id culpa dolor.
+          example: Aliquid minima.
           type: string
         style: simple
       requestBody:
@@ -16455,9 +16574,9 @@ paths:
         "200":
           content:
             application/json:
-              example: Eaque possimus.
+              example: Repellat architecto soluta.
               schema:
-                example: Sed et consequatur corporis.
+                example: Quo voluptatem saepe et.
                 type: string
           description: OK response.
         "400":
@@ -16515,7 +16634,7 @@ paths:
         required: true
         schema:
           description: ID of a User
-          example: Nihil amet natus libero non.
+          example: Ad similique.
           type: string
         style: simple
       responses:
@@ -16575,7 +16694,7 @@ paths:
         required: true
         schema:
           description: ID of a User
-          example: Repellat architecto soluta.
+          example: Delectus molestias magni dolorum ipsam magni at.
           type: string
         style: simple
       responses:
@@ -16691,7 +16810,7 @@ paths:
         required: true
         schema:
           description: ID of a User
-          example: Ad similique.
+          example: Autem reprehenderit.
           type: string
         style: simple
       responses:
@@ -16752,7 +16871,7 @@ paths:
         required: true
         schema:
           description: ID of a User
-          example: Autem reprehenderit.
+          example: Eaque possimus.
           type: string
         style: simple
       responses:
@@ -17370,16 +17489,21 @@ components:
       type: object
     AdoptHostClusterRequest:
       example:
-        cloudProviderId: infra-12345678
+        cloudProvider: aws
+        customerEmail: mycustomer@example.com
         description: My Adopted Host Cluster
         id: hc-12345678
-        regionId: region-12345678
-        subscriptionId: sub-12345678
-        token: "11"
+        region: us-east-1
+        token: rjy
       properties:
-        cloudProviderId:
-          description: ID of an CloudProvider
-          example: Assumenda non.
+        cloudProvider:
+          description: Name of the Infra Provider
+          example: aws|azure|gcp|all
+          type: string
+        customerEmail:
+          description: Email of the customer who owns the host cluster in case this
+            is a BYOA host cluster
+          example: mycustomer@example.com
           type: string
         description:
           description: Description of the host cluster
@@ -17390,13 +17514,9 @@ components:
           description: ID of a Host Cluster
           example: Ipsa voluptatibus suscipit aut minus.
           type: string
-        regionId:
-          description: ID of a Region
-          example: Optio et.
-          type: string
-        subscriptionId:
-          description: ID of a Subscription
-          example: Deserunt voluptatem modi.
+        region:
+          description: The actual region name of the host cluster
+          example: us-east-1
           type: string
         token:
           description: JWT token used to perform authorization
@@ -17404,22 +17524,27 @@ components:
           minLength: 1
           type: string
       required:
-      - cloudProviderId
+      - cloudProvider
       - description
       - id
-      - regionId
+      - region
       - token
       type: object
     AdoptHostClusterRequest2:
       example:
-        cloudProviderId: infra-12345678
+        cloudProvider: aws
+        customerEmail: mycustomer@example.com
         description: My Adopted Host Cluster
         id: hc-12345678
-        regionId: region-12345678
-        subscriptionId: sub-12345678
+        region: us-east-1
       properties:
-        cloudProviderId:
-          example: infra-12345678
+        cloudProvider:
+          example: aws
+          type: string
+        customerEmail:
+          description: Email of the customer who owns the host cluster in case this
+            is a BYOA host cluster
+          example: mycustomer@example.com
           type: string
         description:
           description: Description of the host cluster
@@ -17430,19 +17555,15 @@ components:
           description: ID of the host cluster to adopt
           example: hc-12345678
           type: string
-        regionId:
-          description: ID of the region where the host cluster is located
-          example: region-12345678
-          type: string
-        subscriptionId:
-          description: The subscription ID
-          example: sub-12345678
+        region:
+          description: The actual region name of the host cluster
+          example: us-east-1
           type: string
       required:
-      - cloudProviderId
+      - cloudProvider
       - description
       - id
-      - regionId
+      - region
       type: object
     AdoptHostClusterResult:
       example:
@@ -17454,10 +17575,9 @@ components:
           example: FAILED|CANCELLED|PENDING_DEPENDENCY|PENDING|RUNNING|DEPLOYING|READY|SUCCESS|COMPLETE|DELETING|DELETED|UNKNOWN|DISCONNECTED|DISCONNECTING|CONNECTING|DEACTIVATED
           type: string
         agentInstallationKit:
-          description: The TAR archive containing the agent installation kit
-          example: !!binary |-
-            YmFzZTY0LWVuY29kZWQtdGFyLWFyY2hpdmU=
-          format: binary
+          description: The base64 encoded TAR archive containing the agent installation
+            kit
+          example: base64-encoded-tar-archive
           type: string
       required:
       - adoptionStatus
@@ -18980,11 +19100,11 @@ components:
       type: object
     CreateCustomerOnboardingRequest2:
       example:
-        name: Quam autem.
+        name: Ut voluptatem excepturi sed unde harum at.
       properties:
         name:
           description: "DEPRECATED: Name will be generated automatically."
-          example: Ut voluptatem excepturi sed unde harum at.
+          example: Ipsum ut tempora libero itaque.
           type: string
       type: object
     CreateIdentityProviderRequest:
@@ -20093,11 +20213,12 @@ components:
         upgradeFilters:
           additionalProperties:
             example:
-            - Eveniet a.
-            - Sequi earum similique fuga eos dolorum.
-            - Omnis optio laborum.
+            - Debitis at sed et.
+            - Corporis ratione omnis nisi modi ab.
+            - A asperiores sequi.
+            - Similique fuga.
             items:
-              example: Omnis nisi.
+              example: Quia qui voluptates dolor.
               type: string
             type: array
           description: The filter to use to choose the instances to upgrade.
@@ -20641,15 +20762,15 @@ components:
     DeleteHostClusterRequest:
       example:
         id: hc-12345678
-        token: zq
+        token: "11"
       properties:
         id:
           description: ID of a Host Cluster
-          example: Tempora aut.
+          example: Deserunt voluptatem modi.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: vb
+          example: p
           minLength: 1
           type: string
       required:
@@ -24962,11 +25083,11 @@ components:
       type: object
     DisableFleetFeatureRequest2:
       example:
-        feature: Et qui quibusdam numquam ut.
+        feature: Ut molestiae beatae laboriosam explicabo soluta.
       properties:
         feature:
           description: The feature to disable.
-          example: Ut molestiae beatae laboriosam explicabo soluta.
+          example: Qui fugit praesentium dolores.
           type: string
       type: object
     DisableProductTierFeatureRequest:
@@ -25116,11 +25237,11 @@ components:
       type: object
     EnableFleetFeatureRequest2:
       example:
-        feature: Fugit praesentium dolores.
+        feature: Enim a quia est amet aut magni.
       properties:
         feature:
           description: The feature to enable.
-          example: Aut magni molestiae.
+          example: Perferendis harum.
           type: string
       type: object
     EnableProductTierFeatureRequest:
@@ -25380,12 +25501,12 @@ components:
         id: 123abc
         message: parameter 'p' must be an integer
         name: bad_request
-        temporary: false
-        timeout: true
+        temporary: true
+        timeout: false
       properties:
         fault:
           description: Is the error a server-side fault?
-          example: true
+          example: false
           type: boolean
         id:
           description: ID is a unique identifier for this particular occurrence of
@@ -25403,11 +25524,11 @@ components:
           type: string
         temporary:
           description: Is the error temporary?
-          example: false
+          example: true
           type: boolean
         timeout:
           description: Is the error a timeout?
-          example: false
+          example: true
           type: boolean
       required:
       - fault
@@ -26553,11 +26674,11 @@ components:
       type: object
     FleetCreateServicesOrchestrationRequest2:
       example:
-        orchestrationCreateDSL: Vel voluptatum officia et rem.
+        orchestrationCreateDSL: Consequatur et illum.
       properties:
         orchestrationCreateDSL:
           description: base64 encoded content of service orchestration create DSL
-          example: Asperiores pariatur.
+          example: Sint molestias magnam.
           type: string
       required:
       - orchestrationCreateDSL
@@ -32805,11 +32926,11 @@ components:
       type: object
     FleetModifyServicesOrchestrationRequest2:
       example:
-        orchestrationModifyDSL: Harum voluptate.
+        orchestrationModifyDSL: Quibusdam vel voluptatum officia et rem.
       properties:
         orchestrationModifyDSL:
           description: base64 encoded content of services orchestration modify DSL
-          example: Ex architecto voluptatum incidunt voluptatibus ipsum.
+          example: Adipisci soluta id sit asperiores.
           type: string
       required:
       - orchestrationModifyDSL
@@ -33812,10 +33933,9 @@ components:
         maxNumberOfInstances: 10
         priceEffectiveDate: 2019-01-01T00:00:00Z
         subscriptionIDs:
+        - Qui quo dolores quasi ducimus.
+        - Culpa doloremque sit quisquam animi dolores.
         - Inventore blanditiis similique aliquid at dolorum earum.
-        - Sint molestias magnam.
-        - Consequatur et illum.
-        - Cumque adipisci soluta id.
       properties:
         allowCreatesWhenPaymentNotConfigured:
           description: Whether to allow creating instances when payment is not configured.
@@ -33863,12 +33983,10 @@ components:
         subscriptionIDs:
           description: List of subscription IDs to update
           example:
+          - Distinctio accusantium expedita aut velit consequatur.
           - Enim fugit eius repudiandae.
-          - Adipisci qui.
-          - Dolores quasi ducimus doloremque culpa.
-          - Sit quisquam animi.
           items:
-            example: Recusandae distinctio accusantium expedita aut velit.
+            example: Quae ut quia.
             type: string
           type: array
       required:
@@ -33999,15 +34117,15 @@ components:
     GenerateTokenForHostClusterDashboardRequest:
       example:
         id: hc-12345678
-        token: "2"
+        token: zq
       properties:
         id:
           description: ID of a Host Cluster
-          example: Qui et quo voluptatem saepe et.
+          example: Tempora aut.
           type: string
         token:
           description: JWT token used to perform authorization
-          example: kx8
+          example: vb
           minLength: 1
           type: string
       required:
@@ -34812,6 +34930,8 @@ components:
           id: n-12345678
           name: Prod us-east-1
           orgName: Company TM
+        customerEmail: admin@example.com
+        customerOrganizationName: My Customer Organization
         description: My Host Cluster
         healthStatus:
           failedEntities:
@@ -34836,6 +34956,7 @@ components:
           version: 1.0.0
         id: hc-12345678
         isCustomDeployment: true
+        key: my-host-cluster
         kubernetesDashboardEndpoint: https://my-k8s-dashboard.com
         modelType: BYOA
         region: us-east-1
@@ -34864,6 +34985,16 @@ components:
           type: integer
         customNetworkDetail:
           $ref: '#/components/schemas/CustomNetworkFleetDetail'
+        customerEmail:
+          description: Email of the customer who owns the host cluster in case this
+            is a BYOC / Adopted host cluster
+          example: admin@example.com
+          type: string
+        customerOrganizationName:
+          description: Name of the customer organization that owns the host cluster
+            in case this is a BYOC / Adopted host cluster
+          example: My Customer Organization
+          type: string
         description:
           example: My Host Cluster
           minLength: 1
@@ -34894,6 +35025,10 @@ components:
           description: Indicates if the host cluster is a custom deployment
           example: true
           type: boolean
+        key:
+          description: "Unique key for the host cluster, used for identification"
+          example: my-host-cluster
+          type: string
         kubernetesDashboardEndpoint:
           description: Endpoint of the Kubernetes dashboard
           example: https://my-k8s-dashboard.com
@@ -34929,6 +35064,7 @@ components:
       - description
       - id
       - isCustomDeployment
+      - key
       - region
       - regionId
       - status
@@ -34946,6 +35082,7 @@ components:
           identifier: service-67890
           syncStatus: FAILED
           type: SERVICE
+        kubernetesControlPlaneVersion: 1.32.0
         overallStatus: HEALTHY
         statusMessage: All systems operational
         totalNumberOfEntities: 10
@@ -34978,6 +35115,11 @@ components:
           items:
             $ref: '#/components/schemas/EntityHealth'
           type: array
+        kubernetesControlPlaneVersion:
+          description: Version of the Kubernetes control plane running in the host
+            cluster
+          example: 1.32.0
+          type: string
         overallStatus:
           description: The heath status of a resource
           example: HEALTHY|UNHEALTHY|UNKNOWN|STOPPED|PENDING_ADOPTION|N/A
@@ -35036,6 +35178,7 @@ components:
             SERVICE: 3
           type: object
       required:
+      - kubernetesControlPlaneVersion
       - overallStatus
       - totalNumberOfEntities
       - totalNumberOfEntitiesByType
@@ -40402,6 +40545,7 @@ components:
     ListHostClustersRequest:
       example:
         accountConfigId: ac-12345678
+        customerEmail: admin@example.com
         includeProvisionerClusters: true
         regionId: region-12345678
         token: "3"
@@ -40409,6 +40553,10 @@ components:
         accountConfigId:
           description: ID of an Account Config
           example: Voluptas non molestiae et.
+          type: string
+        customerEmail:
+          description: Email of the customer to filter host clusters by (optional)
+          example: admin@example.com
           type: string
         includeProvisionerClusters:
           description: Include provisioner clusters in the response
@@ -40433,6 +40581,8 @@ components:
           accountID: "123456789012"
           cloudProvider: aws
           currentNumberOfDeployments: 2
+          customerEmail: admin@example.com
+          customerOrganizationName: My Customer Organization
           description: My Host Cluster
           failedEntities:
           - error: Namespace failed to sync because of missing permissions
@@ -40470,6 +40620,8 @@ components:
             accountID: "123456789012"
             cloudProvider: aws
             currentNumberOfDeployments: 2
+            customerEmail: admin@example.com
+            customerOrganizationName: My Customer Organization
             description: My Host Cluster
             failedEntities:
             - error: Namespace failed to sync because of missing permissions
@@ -44146,21 +44298,22 @@ components:
       type: object
     ManageUpgradePathLifecycleRequest2:
       example:
-        action: Dicta eveniet quo et aut.
+        action: Aut quis dicta earum est.
         actionPayload:
-          A debitis.: Quae ut quia.
-          Earum est.: Quo omnis totam tempora pariatur et facilis.
-          Ipsa dolor deserunt tempore.: Ab qui necessitatibus.
+          Omnis totam tempora pariatur et.: Ad ipsa dolor.
+          Tempore expedita ab qui necessitatibus.: A debitis.
       properties:
         action:
           description: The action to perform on the upgrade path.
-          example: Quos voluptate ea.
+          example: Dolorum mollitia omnis.
           type: string
         actionPayload:
           additionalProperties: true
           description: The action payload to perform on the upgrade path.
           example:
-            Sit aliquam id itaque voluptatem.: Error qui quaerat excepturi.
+            Quaerat excepturi omnis.: Eveniet quo.
+            Veniam quos voluptate ea non sint sit.: Id itaque voluptatem voluptatem
+              error.
           type: object
       required:
       - action

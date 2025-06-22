@@ -9,11 +9,14 @@ Name | Type | Description | Notes
 **CloudProvider** | **string** | Name of the Infra Provider | 
 **CurrentNumberOfDeployments** | **int64** | The current number of deployments on the host cluster | 
 **CustomNetworkDetail** | Pointer to [**CustomNetworkFleetDetail**](CustomNetworkFleetDetail.md) |  | [optional] 
+**CustomerEmail** | Pointer to **string** | Email of the customer who owns the host cluster in case this is a BYOC / Adopted host cluster | [optional] 
+**CustomerOrganizationName** | Pointer to **string** | Name of the customer organization that owns the host cluster in case this is a BYOC / Adopted host cluster | [optional] 
 **Description** | **string** |  | 
 **HealthStatus** | Pointer to [**HostClusterHealthStatus**](HostClusterHealthStatus.md) |  | [optional] 
 **HelmPackages** | Pointer to [**[]HelmPackage**](HelmPackage.md) | Helm packages installed on the host cluster | [optional] 
 **Id** | **string** | ID of a Host Cluster | 
 **IsCustomDeployment** | **bool** | Indicates if the host cluster is a custom deployment | 
+**Key** | **string** | Unique key for the host cluster, used for identification | 
 **KubernetesDashboardEndpoint** | Pointer to **string** | Endpoint of the Kubernetes dashboard | [optional] 
 **ModelType** | Pointer to **string** | The model type encapsulating this service | [optional] 
 **Region** | **string** | The actual region name of the host cluster | 
@@ -26,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewHostCluster
 
-`func NewHostCluster(accountConfigId string, accountID string, cloudProvider string, currentNumberOfDeployments int64, description string, id string, isCustomDeployment bool, region string, regionId string, status string, type_ string, ) *HostCluster`
+`func NewHostCluster(accountConfigId string, accountID string, cloudProvider string, currentNumberOfDeployments int64, description string, id string, isCustomDeployment bool, key string, region string, regionId string, status string, type_ string, ) *HostCluster`
 
 NewHostCluster instantiates a new HostCluster object
 This constructor will assign default values to properties that have it defined,
@@ -146,6 +149,56 @@ SetCustomNetworkDetail sets CustomNetworkDetail field to given value.
 
 HasCustomNetworkDetail returns a boolean if a field has been set.
 
+### GetCustomerEmail
+
+`func (o *HostCluster) GetCustomerEmail() string`
+
+GetCustomerEmail returns the CustomerEmail field if non-nil, zero value otherwise.
+
+### GetCustomerEmailOk
+
+`func (o *HostCluster) GetCustomerEmailOk() (*string, bool)`
+
+GetCustomerEmailOk returns a tuple with the CustomerEmail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomerEmail
+
+`func (o *HostCluster) SetCustomerEmail(v string)`
+
+SetCustomerEmail sets CustomerEmail field to given value.
+
+### HasCustomerEmail
+
+`func (o *HostCluster) HasCustomerEmail() bool`
+
+HasCustomerEmail returns a boolean if a field has been set.
+
+### GetCustomerOrganizationName
+
+`func (o *HostCluster) GetCustomerOrganizationName() string`
+
+GetCustomerOrganizationName returns the CustomerOrganizationName field if non-nil, zero value otherwise.
+
+### GetCustomerOrganizationNameOk
+
+`func (o *HostCluster) GetCustomerOrganizationNameOk() (*string, bool)`
+
+GetCustomerOrganizationNameOk returns a tuple with the CustomerOrganizationName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomerOrganizationName
+
+`func (o *HostCluster) SetCustomerOrganizationName(v string)`
+
+SetCustomerOrganizationName sets CustomerOrganizationName field to given value.
+
+### HasCustomerOrganizationName
+
+`func (o *HostCluster) HasCustomerOrganizationName() bool`
+
+HasCustomerOrganizationName returns a boolean if a field has been set.
+
 ### GetDescription
 
 `func (o *HostCluster) GetDescription() string`
@@ -254,6 +307,26 @@ and a boolean to check if the value has been set.
 `func (o *HostCluster) SetIsCustomDeployment(v bool)`
 
 SetIsCustomDeployment sets IsCustomDeployment field to given value.
+
+
+### GetKey
+
+`func (o *HostCluster) GetKey() string`
+
+GetKey returns the Key field if non-nil, zero value otherwise.
+
+### GetKeyOk
+
+`func (o *HostCluster) GetKeyOk() (*string, bool)`
+
+GetKeyOk returns a tuple with the Key field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKey
+
+`func (o *HostCluster) SetKey(v string)`
+
+SetKey sets Key field to given value.
 
 
 ### GetKubernetesDashboardEndpoint

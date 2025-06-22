@@ -29,6 +29,10 @@ type HostCluster struct {
 	// The current number of deployments on the host cluster
 	CurrentNumberOfDeployments int64 `json:"currentNumberOfDeployments"`
 	CustomNetworkDetail *CustomNetworkFleetDetail `json:"customNetworkDetail,omitempty"`
+	// Email of the customer who owns the host cluster in case this is a BYOC / Adopted host cluster
+	CustomerEmail *string `json:"customerEmail,omitempty"`
+	// Name of the customer organization that owns the host cluster in case this is a BYOC / Adopted host cluster
+	CustomerOrganizationName *string `json:"customerOrganizationName,omitempty"`
 	Description string `json:"description"`
 	HealthStatus *HostClusterHealthStatus `json:"healthStatus,omitempty"`
 	// Helm packages installed on the host cluster
@@ -37,6 +41,8 @@ type HostCluster struct {
 	Id string `json:"id"`
 	// Indicates if the host cluster is a custom deployment
 	IsCustomDeployment bool `json:"isCustomDeployment"`
+	// Unique key for the host cluster, used for identification
+	Key string `json:"key"`
 	// Endpoint of the Kubernetes dashboard
 	KubernetesDashboardEndpoint *string `json:"kubernetesDashboardEndpoint,omitempty"`
 	// The model type encapsulating this service
@@ -59,7 +65,7 @@ type _HostCluster HostCluster
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHostCluster(accountConfigId string, accountID string, cloudProvider string, currentNumberOfDeployments int64, description string, id string, isCustomDeployment bool, region string, regionId string, status string, type_ string) *HostCluster {
+func NewHostCluster(accountConfigId string, accountID string, cloudProvider string, currentNumberOfDeployments int64, description string, id string, isCustomDeployment bool, key string, region string, regionId string, status string, type_ string) *HostCluster {
 	this := HostCluster{}
 	this.AccountConfigId = accountConfigId
 	this.AccountID = accountID
@@ -68,6 +74,7 @@ func NewHostCluster(accountConfigId string, accountID string, cloudProvider stri
 	this.Description = description
 	this.Id = id
 	this.IsCustomDeployment = isCustomDeployment
+	this.Key = key
 	this.Region = region
 	this.RegionId = regionId
 	this.Status = status
@@ -211,6 +218,70 @@ func (o *HostCluster) SetCustomNetworkDetail(v CustomNetworkFleetDetail) {
 	o.CustomNetworkDetail = &v
 }
 
+// GetCustomerEmail returns the CustomerEmail field value if set, zero value otherwise.
+func (o *HostCluster) GetCustomerEmail() string {
+	if o == nil || IsNil(o.CustomerEmail) {
+		var ret string
+		return ret
+	}
+	return *o.CustomerEmail
+}
+
+// GetCustomerEmailOk returns a tuple with the CustomerEmail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetCustomerEmailOk() (*string, bool) {
+	if o == nil || IsNil(o.CustomerEmail) {
+		return nil, false
+	}
+	return o.CustomerEmail, true
+}
+
+// HasCustomerEmail returns a boolean if a field has been set.
+func (o *HostCluster) HasCustomerEmail() bool {
+	if o != nil && !IsNil(o.CustomerEmail) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomerEmail gets a reference to the given string and assigns it to the CustomerEmail field.
+func (o *HostCluster) SetCustomerEmail(v string) {
+	o.CustomerEmail = &v
+}
+
+// GetCustomerOrganizationName returns the CustomerOrganizationName field value if set, zero value otherwise.
+func (o *HostCluster) GetCustomerOrganizationName() string {
+	if o == nil || IsNil(o.CustomerOrganizationName) {
+		var ret string
+		return ret
+	}
+	return *o.CustomerOrganizationName
+}
+
+// GetCustomerOrganizationNameOk returns a tuple with the CustomerOrganizationName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetCustomerOrganizationNameOk() (*string, bool) {
+	if o == nil || IsNil(o.CustomerOrganizationName) {
+		return nil, false
+	}
+	return o.CustomerOrganizationName, true
+}
+
+// HasCustomerOrganizationName returns a boolean if a field has been set.
+func (o *HostCluster) HasCustomerOrganizationName() bool {
+	if o != nil && !IsNil(o.CustomerOrganizationName) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomerOrganizationName gets a reference to the given string and assigns it to the CustomerOrganizationName field.
+func (o *HostCluster) SetCustomerOrganizationName(v string) {
+	o.CustomerOrganizationName = &v
+}
+
 // GetDescription returns the Description field value
 func (o *HostCluster) GetDescription() string {
 	if o == nil {
@@ -345,6 +416,30 @@ func (o *HostCluster) GetIsCustomDeploymentOk() (*bool, bool) {
 // SetIsCustomDeployment sets field value
 func (o *HostCluster) SetIsCustomDeployment(v bool) {
 	o.IsCustomDeployment = v
+}
+
+// GetKey returns the Key field value
+func (o *HostCluster) GetKey() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Key
+}
+
+// GetKeyOk returns a tuple with the Key field value
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetKeyOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Key, true
+}
+
+// SetKey sets field value
+func (o *HostCluster) SetKey(v string) {
+	o.Key = v
 }
 
 // GetKubernetesDashboardEndpoint returns the KubernetesDashboardEndpoint field value if set, zero value otherwise.
@@ -556,6 +651,12 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CustomNetworkDetail) {
 		toSerialize["customNetworkDetail"] = o.CustomNetworkDetail
 	}
+	if !IsNil(o.CustomerEmail) {
+		toSerialize["customerEmail"] = o.CustomerEmail
+	}
+	if !IsNil(o.CustomerOrganizationName) {
+		toSerialize["customerOrganizationName"] = o.CustomerOrganizationName
+	}
 	toSerialize["description"] = o.Description
 	if !IsNil(o.HealthStatus) {
 		toSerialize["healthStatus"] = o.HealthStatus
@@ -565,6 +666,7 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["id"] = o.Id
 	toSerialize["isCustomDeployment"] = o.IsCustomDeployment
+	toSerialize["key"] = o.Key
 	if !IsNil(o.KubernetesDashboardEndpoint) {
 		toSerialize["kubernetesDashboardEndpoint"] = o.KubernetesDashboardEndpoint
 	}
@@ -598,6 +700,7 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 		"description",
 		"id",
 		"isCustomDeployment",
+		"key",
 		"region",
 		"regionId",
 		"status",
@@ -636,11 +739,14 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "cloudProvider")
 		delete(additionalProperties, "currentNumberOfDeployments")
 		delete(additionalProperties, "customNetworkDetail")
+		delete(additionalProperties, "customerEmail")
+		delete(additionalProperties, "customerOrganizationName")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "healthStatus")
 		delete(additionalProperties, "helmPackages")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "isCustomDeployment")
+		delete(additionalProperties, "key")
 		delete(additionalProperties, "kubernetesDashboardEndpoint")
 		delete(additionalProperties, "modelType")
 		delete(additionalProperties, "region")

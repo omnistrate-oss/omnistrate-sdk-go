@@ -33,7 +33,7 @@ import (
 )
 
 func main() {
-	adoptHostClusterRequest2 := *openapiclient.NewAdoptHostClusterRequest2("infra-12345678", "My Adopted Host Cluster", "hc-12345678", "region-12345678") // AdoptHostClusterRequest2 | 
+	adoptHostClusterRequest2 := *openapiclient.NewAdoptHostClusterRequest2("aws", "My Adopted Host Cluster", "hc-12345678", "us-east-1") // AdoptHostClusterRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 
 ## HostclusterApiListHostClusters
 
-> ListHostClustersResult HostclusterApiListHostClusters(ctx).AccountConfigId(accountConfigId).RegionId(regionId).IncludeProvisionerClusters(includeProvisionerClusters).Execute()
+> ListHostClustersResult HostclusterApiListHostClusters(ctx).AccountConfigId(accountConfigId).RegionId(regionId).IncludeProvisionerClusters(includeProvisionerClusters).CustomerEmail(customerEmail).Execute()
 
 ListHostClusters hostcluster-api
 
@@ -304,10 +304,11 @@ func main() {
 	accountConfigId := "ac-12345678" // string | The account config ID of the host cluster (optional)
 	regionId := "region-12345678" // string | The region ID of the host cluster (optional)
 	includeProvisionerClusters := true // bool | Whether to include provisioner clusters in the response (optional)
+	customerEmail := "admin@example.com" // string | The email of the customer to filter host clusters by (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.HostclusterApiAPI.HostclusterApiListHostClusters(context.Background()).AccountConfigId(accountConfigId).RegionId(regionId).IncludeProvisionerClusters(includeProvisionerClusters).Execute()
+	resp, r, err := apiClient.HostclusterApiAPI.HostclusterApiListHostClusters(context.Background()).AccountConfigId(accountConfigId).RegionId(regionId).IncludeProvisionerClusters(includeProvisionerClusters).CustomerEmail(customerEmail).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `HostclusterApiAPI.HostclusterApiListHostClusters``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -331,6 +332,7 @@ Name | Type | Description  | Notes
  **accountConfigId** | **string** | The account config ID of the host cluster | 
  **regionId** | **string** | The region ID of the host cluster | 
  **includeProvisionerClusters** | **bool** | Whether to include provisioner clusters in the response | 
+ **customerEmail** | **string** | The email of the customer to filter host clusters by | 
 
 ### Return type
 
