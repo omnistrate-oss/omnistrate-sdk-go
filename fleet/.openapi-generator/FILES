@@ -100,6 +100,7 @@ docs/CustomerSignupRequest.md
 docs/DebugResourceInstanceRequest.md
 docs/DebugResourceInstanceResult.md
 docs/DebugResourceResult.md
+docs/DeleteAccountConfigRequest.md
 docs/DeleteCustomerOnboardingRequest.md
 docs/DeleteHostClusterRequest.md
 docs/DeleteIdentityProviderRequest.md
@@ -122,6 +123,7 @@ docs/DeploymentCellHealthDetail.md
 docs/DeploymentCellHealthRequest.md
 docs/DeploymentCellHealthSummary.md
 docs/DeploymentCellSearchRecord.md
+docs/DescribeAccountConfigRequest.md
 docs/DescribeAvailabilityZoneRequest.md
 docs/DescribeAvailabilityZoneResult.md
 docs/DescribeCloudProviderCostRequest.md
@@ -252,6 +254,7 @@ docs/FleetDeleteResourceInstanceRequest.md
 docs/FleetDeleteResourceInstanceRequest2.md
 docs/FleetDeleteServicesOrchestrationRequest.md
 docs/FleetDeleteUserRequest.md
+docs/FleetDescribeAccountConfigResult.md
 docs/FleetDescribeCustomNetworkRequest.md
 docs/FleetDescribeEventRequest.md
 docs/FleetDescribeEventResult.md
@@ -277,6 +280,8 @@ docs/FleetFeaturesApiAPI.md
 docs/FleetGenerateTokenForHostClusterDashboardRequest.md
 docs/FleetGenerateTokenForHostClusterDashboardResult.md
 docs/FleetInvoice.md
+docs/FleetListAccountConfigsRequest.md
+docs/FleetListAccountConfigsRequest2.md
 docs/FleetListAllUsers.md
 docs/FleetListAllUsersResult.md
 docs/FleetListCustomNetworksRequest.md
@@ -342,6 +347,7 @@ docs/GenerateTokenForDeploymentCellDashboardRequest.md
 docs/GenerateTokenForDeploymentCellDashboardResult.md
 docs/GenerateTokenForHostClusterDashboardRequest.md
 docs/GenerateTokenForHostClusterDashboardResult.md
+docs/GenericResourceDeploymentConfiguration.md
 docs/GetAvailabilityZoneByCodeRequest.md
 docs/GetCloudProviderByNameRequest.md
 docs/GetConsumptionUsageRequest.md
@@ -359,6 +365,7 @@ docs/GetUsageRequest.md
 docs/GetUsageResult.md
 docs/GetWorkflowEventsRequest.md
 docs/GetWorkflowEventsResult.md
+docs/HelmDeploymentConfiguration.md
 docs/HelmPackage.md
 docs/HelmPackageApiAPI.md
 docs/HelmPackageInstallations.md
@@ -386,7 +393,9 @@ docs/Invoice.md
 docs/InvoiceApiAPI.md
 docs/JobMetric.md
 docs/KubernetesDashboardEndpoint.md
+docs/KustomizeDeploymentConfiguration.md
 docs/List.md
+docs/ListAccountConfigsResult.md
 docs/ListActiveOrganizationsRequest.md
 docs/ListAllInstancesInHostClusterRequest.md
 docs/ListAllInstancesInHostClusterResult.md
@@ -496,6 +505,7 @@ docs/PerDeploymentCellCost.md
 docs/PerInstanceCost.md
 docs/PerRegionCost.md
 docs/PerUserCost.md
+docs/PodEvent.md
 docs/ProductTierFeatureDetail.md
 docs/PromoteServiceEnvironmentRequest.md
 docs/PromoteServiceEnvironmentStatusRequest.md
@@ -573,6 +583,7 @@ docs/SubscriptionPricing.md
 docs/SubscriptionSearchRecord.md
 docs/SubscriptionUsers.md
 docs/TerminateServiceWorkflowRequest.md
+docs/TerraformDeploymentConfiguration.md
 docs/UpdateAccountConfigResourceInstanceRequest.md
 docs/UpdateCustomerOnboardingRequest.md
 docs/UpdateCustomerOnboardingRequest2.md
@@ -685,6 +696,7 @@ model_customer_signup_request.go
 model_debug_resource_instance_request.go
 model_debug_resource_instance_result.go
 model_debug_resource_result.go
+model_delete_account_config_request.go
 model_delete_customer_onboarding_request.go
 model_delete_host_cluster_request.go
 model_delete_identity_provider_request.go
@@ -707,6 +719,7 @@ model_deployment_cell_health_detail.go
 model_deployment_cell_health_request.go
 model_deployment_cell_health_summary.go
 model_deployment_cell_search_record.go
+model_describe_account_config_request.go
 model_describe_availability_zone_request.go
 model_describe_availability_zone_result.go
 model_describe_cloud_provider_cost_request.go
@@ -835,6 +848,7 @@ model_fleet_delete_resource_instance_request.go
 model_fleet_delete_resource_instance_request2.go
 model_fleet_delete_services_orchestration_request.go
 model_fleet_delete_user_request.go
+model_fleet_describe_account_config_result.go
 model_fleet_describe_custom_network_request.go
 model_fleet_describe_event_request.go
 model_fleet_describe_event_result.go
@@ -859,6 +873,8 @@ model_fleet_feature.go
 model_fleet_generate_token_for_host_cluster_dashboard_request.go
 model_fleet_generate_token_for_host_cluster_dashboard_result.go
 model_fleet_invoice.go
+model_fleet_list_account_configs_request.go
+model_fleet_list_account_configs_request2.go
 model_fleet_list_all_users.go
 model_fleet_list_all_users_result.go
 model_fleet_list_custom_networks_request.go
@@ -923,6 +939,7 @@ model_generate_token_for_deployment_cell_dashboard_request.go
 model_generate_token_for_deployment_cell_dashboard_result.go
 model_generate_token_for_host_cluster_dashboard_request.go
 model_generate_token_for_host_cluster_dashboard_result.go
+model_generic_resource_deployment_configuration.go
 model_get_availability_zone_by_code_request.go
 model_get_cloud_provider_by_name_request.go
 model_get_consumption_usage_request.go
@@ -940,6 +957,7 @@ model_get_usage_request.go
 model_get_usage_result.go
 model_get_workflow_events_request.go
 model_get_workflow_events_result.go
+model_helm_deployment_configuration.go
 model_helm_package.go
 model_helm_package_installations.go
 model_host_cluster.go
@@ -963,7 +981,9 @@ model_invite_user_request.go
 model_invoice.go
 model_job_metric.go
 model_kubernetes_dashboard_endpoint.go
+model_kustomize_deployment_configuration.go
 model_list.go
+model_list_account_configs_result.go
 model_list_active_organizations_request.go
 model_list_all_instances_in_host_cluster_request.go
 model_list_all_instances_in_host_cluster_result.go
@@ -1071,6 +1091,7 @@ model_per_deployment_cell_cost.go
 model_per_instance_cost.go
 model_per_region_cost.go
 model_per_user_cost.go
+model_pod_event.go
 model_product_tier_feature_detail.go
 model_promote_service_environment_request.go
 model_promote_service_environment_status_request.go
@@ -1148,6 +1169,7 @@ model_subscription_pricing.go
 model_subscription_search_record.go
 model_subscription_users.go
 model_terminate_service_workflow_request.go
+model_terraform_deployment_configuration.go
 model_update_account_config_resource_instance_request.go
 model_update_customer_onboarding_request.go
 model_update_customer_onboarding_request2.go

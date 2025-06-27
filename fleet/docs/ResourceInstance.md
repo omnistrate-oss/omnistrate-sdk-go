@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Adopted** | **bool** | Whether the resource instance is adopted. | 
-**AdoptionConfiguration** | Pointer to **map[string]interface{}** | The adoption configuration overrides for the resource instance. | [optional] 
 **AwsAccountID** | Pointer to **string** | The AWS account ID | [optional] 
 **AzureSubscriptionID** | Pointer to **string** | The Azure subscription ID | [optional] 
 **CloudProvider** | **string** | Name of the Infra Provider | 
 **ConsumptionResourceInstanceResult** | [**DescribeResourceInstanceResult**](DescribeResourceInstanceResult.md) |  | 
 **DefaultSubscription** | **bool** | Whether the subscription is the default subscription | 
 **DeploymentCellID** | Pointer to **string** | ID of a Host Cluster | [optional] 
+**DetailedResourceConfiguration** | Pointer to **map[string]interface{}** | Per resource detailed configuration provided if &#39;detail&#x3D;true&#39; | [optional] 
 **EnvironmentId** | **string** | ID of a Service Environment | 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **InputParams** | **interface{}** | Custom input parameters | 
@@ -82,31 +82,6 @@ and a boolean to check if the value has been set.
 
 SetAdopted sets Adopted field to given value.
 
-
-### GetAdoptionConfiguration
-
-`func (o *ResourceInstance) GetAdoptionConfiguration() map[string]interface{}`
-
-GetAdoptionConfiguration returns the AdoptionConfiguration field if non-nil, zero value otherwise.
-
-### GetAdoptionConfigurationOk
-
-`func (o *ResourceInstance) GetAdoptionConfigurationOk() (*map[string]interface{}, bool)`
-
-GetAdoptionConfigurationOk returns a tuple with the AdoptionConfiguration field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAdoptionConfiguration
-
-`func (o *ResourceInstance) SetAdoptionConfiguration(v map[string]interface{})`
-
-SetAdoptionConfiguration sets AdoptionConfiguration field to given value.
-
-### HasAdoptionConfiguration
-
-`func (o *ResourceInstance) HasAdoptionConfiguration() bool`
-
-HasAdoptionConfiguration returns a boolean if a field has been set.
 
 ### GetAwsAccountID
 
@@ -242,6 +217,31 @@ SetDeploymentCellID sets DeploymentCellID field to given value.
 `func (o *ResourceInstance) HasDeploymentCellID() bool`
 
 HasDeploymentCellID returns a boolean if a field has been set.
+
+### GetDetailedResourceConfiguration
+
+`func (o *ResourceInstance) GetDetailedResourceConfiguration() map[string]interface{}`
+
+GetDetailedResourceConfiguration returns the DetailedResourceConfiguration field if non-nil, zero value otherwise.
+
+### GetDetailedResourceConfigurationOk
+
+`func (o *ResourceInstance) GetDetailedResourceConfigurationOk() (*map[string]interface{}, bool)`
+
+GetDetailedResourceConfigurationOk returns a tuple with the DetailedResourceConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDetailedResourceConfiguration
+
+`func (o *ResourceInstance) SetDetailedResourceConfiguration(v map[string]interface{})`
+
+SetDetailedResourceConfiguration sets DetailedResourceConfiguration field to given value.
+
+### HasDetailedResourceConfiguration
+
+`func (o *ResourceInstance) HasDetailedResourceConfiguration() bool`
+
+HasDetailedResourceConfiguration returns a boolean if a field has been set.
 
 ### GetEnvironmentId
 

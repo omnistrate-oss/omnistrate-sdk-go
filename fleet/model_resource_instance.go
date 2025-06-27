@@ -22,8 +22,6 @@ var _ MappedNullable = &ResourceInstance{}
 type ResourceInstance struct {
 	// Whether the resource instance is adopted.
 	Adopted bool `json:"adopted"`
-	// The adoption configuration overrides for the resource instance.
-	AdoptionConfiguration map[string]interface{} `json:"adoptionConfiguration,omitempty"`
 	// The AWS account ID
 	AwsAccountID *string `json:"awsAccountID,omitempty"`
 	// The Azure subscription ID
@@ -35,6 +33,8 @@ type ResourceInstance struct {
 	DefaultSubscription bool `json:"defaultSubscription"`
 	// ID of a Host Cluster
 	DeploymentCellID *string `json:"deploymentCellID,omitempty"`
+	// Per resource detailed configuration provided if 'detail=true'
+	DetailedResourceConfiguration map[string]interface{} `json:"detailedResourceConfiguration,omitempty"`
 	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
 	// The GCP project ID
@@ -167,38 +167,6 @@ func (o *ResourceInstance) GetAdoptedOk() (*bool, bool) {
 // SetAdopted sets field value
 func (o *ResourceInstance) SetAdopted(v bool) {
 	o.Adopted = v
-}
-
-// GetAdoptionConfiguration returns the AdoptionConfiguration field value if set, zero value otherwise.
-func (o *ResourceInstance) GetAdoptionConfiguration() map[string]interface{} {
-	if o == nil || IsNil(o.AdoptionConfiguration) {
-		var ret map[string]interface{}
-		return ret
-	}
-	return o.AdoptionConfiguration
-}
-
-// GetAdoptionConfigurationOk returns a tuple with the AdoptionConfiguration field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ResourceInstance) GetAdoptionConfigurationOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.AdoptionConfiguration) {
-		return map[string]interface{}{}, false
-	}
-	return o.AdoptionConfiguration, true
-}
-
-// HasAdoptionConfiguration returns a boolean if a field has been set.
-func (o *ResourceInstance) HasAdoptionConfiguration() bool {
-	if o != nil && !IsNil(o.AdoptionConfiguration) {
-		return true
-	}
-
-	return false
-}
-
-// SetAdoptionConfiguration gets a reference to the given map[string]interface{} and assigns it to the AdoptionConfiguration field.
-func (o *ResourceInstance) SetAdoptionConfiguration(v map[string]interface{}) {
-	o.AdoptionConfiguration = v
 }
 
 // GetAwsAccountID returns the AwsAccountID field value if set, zero value otherwise.
@@ -367,6 +335,38 @@ func (o *ResourceInstance) HasDeploymentCellID() bool {
 // SetDeploymentCellID gets a reference to the given string and assigns it to the DeploymentCellID field.
 func (o *ResourceInstance) SetDeploymentCellID(v string) {
 	o.DeploymentCellID = &v
+}
+
+// GetDetailedResourceConfiguration returns the DetailedResourceConfiguration field value if set, zero value otherwise.
+func (o *ResourceInstance) GetDetailedResourceConfiguration() map[string]interface{} {
+	if o == nil || IsNil(o.DetailedResourceConfiguration) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.DetailedResourceConfiguration
+}
+
+// GetDetailedResourceConfigurationOk returns a tuple with the DetailedResourceConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceInstance) GetDetailedResourceConfigurationOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.DetailedResourceConfiguration) {
+		return map[string]interface{}{}, false
+	}
+	return o.DetailedResourceConfiguration, true
+}
+
+// HasDetailedResourceConfiguration returns a boolean if a field has been set.
+func (o *ResourceInstance) HasDetailedResourceConfiguration() bool {
+	if o != nil && !IsNil(o.DetailedResourceConfiguration) {
+		return true
+	}
+
+	return false
+}
+
+// SetDetailedResourceConfiguration gets a reference to the given map[string]interface{} and assigns it to the DetailedResourceConfiguration field.
+func (o *ResourceInstance) SetDetailedResourceConfiguration(v map[string]interface{}) {
+	o.DetailedResourceConfiguration = v
 }
 
 // GetEnvironmentId returns the EnvironmentId field value
@@ -1190,9 +1190,6 @@ func (o ResourceInstance) MarshalJSON() ([]byte, error) {
 func (o ResourceInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["adopted"] = o.Adopted
-	if !IsNil(o.AdoptionConfiguration) {
-		toSerialize["adoptionConfiguration"] = o.AdoptionConfiguration
-	}
 	if !IsNil(o.AwsAccountID) {
 		toSerialize["awsAccountID"] = o.AwsAccountID
 	}
@@ -1204,6 +1201,9 @@ func (o ResourceInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize["defaultSubscription"] = o.DefaultSubscription
 	if !IsNil(o.DeploymentCellID) {
 		toSerialize["deploymentCellID"] = o.DeploymentCellID
+	}
+	if !IsNil(o.DetailedResourceConfiguration) {
+		toSerialize["detailedResourceConfiguration"] = o.DetailedResourceConfiguration
 	}
 	toSerialize["environmentId"] = o.EnvironmentId
 	if !IsNil(o.GcpProjectID) {
@@ -1324,13 +1324,13 @@ func (o *ResourceInstance) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "adopted")
-		delete(additionalProperties, "adoptionConfiguration")
 		delete(additionalProperties, "awsAccountID")
 		delete(additionalProperties, "azureSubscriptionID")
 		delete(additionalProperties, "cloudProvider")
 		delete(additionalProperties, "consumptionResourceInstanceResult")
 		delete(additionalProperties, "defaultSubscription")
 		delete(additionalProperties, "deploymentCellID")
+		delete(additionalProperties, "detailedResourceConfiguration")
 		delete(additionalProperties, "environmentId")
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "input_params")

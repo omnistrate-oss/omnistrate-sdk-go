@@ -30,6 +30,8 @@ type DescribeSubscriptionResult struct {
 	DefaultSubscription bool `json:"defaultSubscription"`
 	// ID of a Subscription
 	Id string `json:"id"`
+	// Return true if the required payment method is configured for this subscription or no payment method is required. False if the subscription requires a payment method but it is not configured.
+	PaymentMethodConfigured *bool `json:"paymentMethodConfigured,omitempty"`
 	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// The name of the product tier
@@ -208,6 +210,38 @@ func (o *DescribeSubscriptionResult) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *DescribeSubscriptionResult) SetId(v string) {
 	o.Id = v
+}
+
+// GetPaymentMethodConfigured returns the PaymentMethodConfigured field value if set, zero value otherwise.
+func (o *DescribeSubscriptionResult) GetPaymentMethodConfigured() bool {
+	if o == nil || IsNil(o.PaymentMethodConfigured) {
+		var ret bool
+		return ret
+	}
+	return *o.PaymentMethodConfigured
+}
+
+// GetPaymentMethodConfiguredOk returns a tuple with the PaymentMethodConfigured field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeSubscriptionResult) GetPaymentMethodConfiguredOk() (*bool, bool) {
+	if o == nil || IsNil(o.PaymentMethodConfigured) {
+		return nil, false
+	}
+	return o.PaymentMethodConfigured, true
+}
+
+// HasPaymentMethodConfigured returns a boolean if a field has been set.
+func (o *DescribeSubscriptionResult) HasPaymentMethodConfigured() bool {
+	if o != nil && !IsNil(o.PaymentMethodConfigured) {
+		return true
+	}
+
+	return false
+}
+
+// SetPaymentMethodConfigured gets a reference to the given bool and assigns it to the PaymentMethodConfigured field.
+func (o *DescribeSubscriptionResult) SetPaymentMethodConfigured(v bool) {
+	o.PaymentMethodConfigured = &v
 }
 
 // GetProductTierId returns the ProductTierId field value
@@ -489,6 +523,9 @@ func (o DescribeSubscriptionResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["createdAt"] = o.CreatedAt
 	toSerialize["defaultSubscription"] = o.DefaultSubscription
 	toSerialize["id"] = o.Id
+	if !IsNil(o.PaymentMethodConfigured) {
+		toSerialize["paymentMethodConfigured"] = o.PaymentMethodConfigured
+	}
 	toSerialize["productTierId"] = o.ProductTierId
 	toSerialize["productTierName"] = o.ProductTierName
 	toSerialize["roleType"] = o.RoleType
@@ -563,6 +600,7 @@ func (o *DescribeSubscriptionResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "defaultSubscription")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "paymentMethodConfigured")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "productTierName")
 		delete(additionalProperties, "roleType")

@@ -229,6 +229,19 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test InventoryApiAPIService InventoryApiDeleteAccountConfig", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		httpRes, err := apiClient.InventoryApiAPI.InventoryApiDeleteAccountConfig(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test InventoryApiAPIService InventoryApiDeleteProxyResourceInstance", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -316,6 +329,20 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 		httpRes, err := apiClient.InventoryApiAPI.InventoryApiDenySubscriptionRequest(context.Background(), serviceId, environmentId, id).Execute()
 
 		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InventoryApiAPIService InventoryApiDescribeAccountConfig", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiDescribeAccountConfig(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -597,6 +624,18 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 		var id string
 
 		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiGenerateTokenForHostClusterDashboard(context.Background(), serviceId, environmentId, id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InventoryApiAPIService InventoryApiListAccountConfigs", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiListAccountConfigs(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
