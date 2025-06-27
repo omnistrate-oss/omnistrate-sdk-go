@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **CreatedAt** | **string** | The time that this subscription was created | 
 **DefaultSubscription** | **bool** | Whether this is the default subscription for the user | 
 **Id** | **string** | ID of a Subscription | 
+**PaymentMethodConfigured** | Pointer to **bool** | Return true if the required payment method is configured for this subscription or no payment method is required. False if the subscription requires a payment method but it is not configured. | [optional] 
 **ProductTierId** | **string** | ID of a Product Tier | 
 **ProductTierName** | **string** | The name of the product tier | 
 **RoleType** | **string** | Type of the role | 
@@ -139,6 +140,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetPaymentMethodConfigured
+
+`func (o *DescribeSubscriptionResult) GetPaymentMethodConfigured() bool`
+
+GetPaymentMethodConfigured returns the PaymentMethodConfigured field if non-nil, zero value otherwise.
+
+### GetPaymentMethodConfiguredOk
+
+`func (o *DescribeSubscriptionResult) GetPaymentMethodConfiguredOk() (*bool, bool)`
+
+GetPaymentMethodConfiguredOk returns a tuple with the PaymentMethodConfigured field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentMethodConfigured
+
+`func (o *DescribeSubscriptionResult) SetPaymentMethodConfigured(v bool)`
+
+SetPaymentMethodConfigured sets PaymentMethodConfigured field to given value.
+
+### HasPaymentMethodConfigured
+
+`func (o *DescribeSubscriptionResult) HasPaymentMethodConfigured() bool`
+
+HasPaymentMethodConfigured returns a boolean if a field has been set.
 
 ### GetProductTierId
 
