@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **ChartRepoUrl** | **string** | The chart repository URL of the Helm package | 
 **ChartValues** | Pointer to **map[string]interface{}** | The values of the Helm package | [optional] 
 **ChartVersion** | **string** | The chart version of the Helm package | 
+**LayeredChartValues** | Pointer to [**[]ChartValuesRef**](ChartValuesRef.md) | Layered chart values configuration with conditional scoping (mutually exclusive with chartValues). Values are processed in order - later entries override earlier ones for the same keys. | [optional] 
 **Namespace** | **string** | The namespace where the Helm package should be installed | 
 
 ## Methods
@@ -134,6 +135,31 @@ and a boolean to check if the value has been set.
 
 SetChartVersion sets ChartVersion field to given value.
 
+
+### GetLayeredChartValues
+
+`func (o *HelmPackage) GetLayeredChartValues() []ChartValuesRef`
+
+GetLayeredChartValues returns the LayeredChartValues field if non-nil, zero value otherwise.
+
+### GetLayeredChartValuesOk
+
+`func (o *HelmPackage) GetLayeredChartValuesOk() (*[]ChartValuesRef, bool)`
+
+GetLayeredChartValuesOk returns a tuple with the LayeredChartValues field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLayeredChartValues
+
+`func (o *HelmPackage) SetLayeredChartValues(v []ChartValuesRef)`
+
+SetLayeredChartValues sets LayeredChartValues field to given value.
+
+### HasLayeredChartValues
+
+`func (o *HelmPackage) HasLayeredChartValues() bool`
+
+HasLayeredChartValues returns a boolean if a field has been set.
 
 ### GetNamespace
 

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ResourceId** | **string** | The resource ID. | 
+**ResourceOverrideConfiguration** | Pointer to [**map[string]ResourceOneOffPatchConfigurationOverride**](ResourceOneOffPatchConfigurationOverride.md) | The resource override configuration for one-off patching. | [optional] 
 **TargetTierVersion** | Pointer to **string** | The target resource version. | [optional] 
 
 ## Methods
@@ -45,6 +46,31 @@ and a boolean to check if the value has been set.
 
 SetResourceId sets ResourceId field to given value.
 
+
+### GetResourceOverrideConfiguration
+
+`func (o *OneOffPatchResourceInstanceRequest2) GetResourceOverrideConfiguration() map[string]ResourceOneOffPatchConfigurationOverride`
+
+GetResourceOverrideConfiguration returns the ResourceOverrideConfiguration field if non-nil, zero value otherwise.
+
+### GetResourceOverrideConfigurationOk
+
+`func (o *OneOffPatchResourceInstanceRequest2) GetResourceOverrideConfigurationOk() (*map[string]ResourceOneOffPatchConfigurationOverride, bool)`
+
+GetResourceOverrideConfigurationOk returns a tuple with the ResourceOverrideConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceOverrideConfiguration
+
+`func (o *OneOffPatchResourceInstanceRequest2) SetResourceOverrideConfiguration(v map[string]ResourceOneOffPatchConfigurationOverride)`
+
+SetResourceOverrideConfiguration sets ResourceOverrideConfiguration field to given value.
+
+### HasResourceOverrideConfiguration
+
+`func (o *OneOffPatchResourceInstanceRequest2) HasResourceOverrideConfiguration() bool`
+
+HasResourceOverrideConfiguration returns a boolean if a field has been set.
 
 ### GetTargetTierVersion
 

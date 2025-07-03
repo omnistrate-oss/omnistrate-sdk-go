@@ -57,14 +57,12 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var serviceProviderId string
-		var serviceKey string
-		var serviceAPIVersion string
-		var serviceEnvironmentKey string
-		var serviceModelKey string
-		var productTierKey string
+		var serviceID string
+		var servicePlanID string
+		var hostClusterID string
+		var primaryResourceKey string
 
-		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiAdoptResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey).Execute()
+		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiAdoptResourceInstance(context.Background(), serviceID, servicePlanID, hostClusterID, primaryResourceKey).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -26,6 +26,8 @@ type OneOffPatchResourceInstanceRequest struct {
 	InstanceId string `json:"instanceId"`
 	// ID of a resource
 	ResourceId string `json:"resourceId"`
+	// The resource override configuration for one-off patching.
+	ResourceOverrideConfiguration *map[string]ResourceOneOffPatchConfigurationOverride `json:"resourceOverrideConfiguration,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The target resource version.
@@ -131,6 +133,38 @@ func (o *OneOffPatchResourceInstanceRequest) SetResourceId(v string) {
 	o.ResourceId = v
 }
 
+// GetResourceOverrideConfiguration returns the ResourceOverrideConfiguration field value if set, zero value otherwise.
+func (o *OneOffPatchResourceInstanceRequest) GetResourceOverrideConfiguration() map[string]ResourceOneOffPatchConfigurationOverride {
+	if o == nil || IsNil(o.ResourceOverrideConfiguration) {
+		var ret map[string]ResourceOneOffPatchConfigurationOverride
+		return ret
+	}
+	return *o.ResourceOverrideConfiguration
+}
+
+// GetResourceOverrideConfigurationOk returns a tuple with the ResourceOverrideConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OneOffPatchResourceInstanceRequest) GetResourceOverrideConfigurationOk() (*map[string]ResourceOneOffPatchConfigurationOverride, bool) {
+	if o == nil || IsNil(o.ResourceOverrideConfiguration) {
+		return nil, false
+	}
+	return o.ResourceOverrideConfiguration, true
+}
+
+// HasResourceOverrideConfiguration returns a boolean if a field has been set.
+func (o *OneOffPatchResourceInstanceRequest) HasResourceOverrideConfiguration() bool {
+	if o != nil && !IsNil(o.ResourceOverrideConfiguration) {
+		return true
+	}
+
+	return false
+}
+
+// SetResourceOverrideConfiguration gets a reference to the given map[string]ResourceOneOffPatchConfigurationOverride and assigns it to the ResourceOverrideConfiguration field.
+func (o *OneOffPatchResourceInstanceRequest) SetResourceOverrideConfiguration(v map[string]ResourceOneOffPatchConfigurationOverride) {
+	o.ResourceOverrideConfiguration = &v
+}
+
 // GetServiceId returns the ServiceId field value
 func (o *OneOffPatchResourceInstanceRequest) GetServiceId() string {
 	if o == nil {
@@ -224,6 +258,9 @@ func (o OneOffPatchResourceInstanceRequest) ToMap() (map[string]interface{}, err
 	toSerialize["environmentId"] = o.EnvironmentId
 	toSerialize["instanceId"] = o.InstanceId
 	toSerialize["resourceId"] = o.ResourceId
+	if !IsNil(o.ResourceOverrideConfiguration) {
+		toSerialize["resourceOverrideConfiguration"] = o.ResourceOverrideConfiguration
+	}
 	toSerialize["serviceId"] = o.ServiceId
 	if !IsNil(o.TargetTierVersion) {
 		toSerialize["targetTierVersion"] = o.TargetTierVersion
@@ -279,6 +316,7 @@ func (o *OneOffPatchResourceInstanceRequest) UnmarshalJSON(data []byte) (err err
 		delete(additionalProperties, "environmentId")
 		delete(additionalProperties, "instanceId")
 		delete(additionalProperties, "resourceId")
+		delete(additionalProperties, "resourceOverrideConfiguration")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "targetTierVersion")
 		delete(additionalProperties, "token")

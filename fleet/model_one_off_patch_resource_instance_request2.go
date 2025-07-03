@@ -22,6 +22,8 @@ var _ MappedNullable = &OneOffPatchResourceInstanceRequest2{}
 type OneOffPatchResourceInstanceRequest2 struct {
 	// The resource ID.
 	ResourceId string `json:"resourceId"`
+	// The resource override configuration for one-off patching.
+	ResourceOverrideConfiguration *map[string]ResourceOneOffPatchConfigurationOverride `json:"resourceOverrideConfiguration,omitempty"`
 	// The target resource version.
 	TargetTierVersion *string `json:"targetTierVersion,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -71,6 +73,38 @@ func (o *OneOffPatchResourceInstanceRequest2) SetResourceId(v string) {
 	o.ResourceId = v
 }
 
+// GetResourceOverrideConfiguration returns the ResourceOverrideConfiguration field value if set, zero value otherwise.
+func (o *OneOffPatchResourceInstanceRequest2) GetResourceOverrideConfiguration() map[string]ResourceOneOffPatchConfigurationOverride {
+	if o == nil || IsNil(o.ResourceOverrideConfiguration) {
+		var ret map[string]ResourceOneOffPatchConfigurationOverride
+		return ret
+	}
+	return *o.ResourceOverrideConfiguration
+}
+
+// GetResourceOverrideConfigurationOk returns a tuple with the ResourceOverrideConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OneOffPatchResourceInstanceRequest2) GetResourceOverrideConfigurationOk() (*map[string]ResourceOneOffPatchConfigurationOverride, bool) {
+	if o == nil || IsNil(o.ResourceOverrideConfiguration) {
+		return nil, false
+	}
+	return o.ResourceOverrideConfiguration, true
+}
+
+// HasResourceOverrideConfiguration returns a boolean if a field has been set.
+func (o *OneOffPatchResourceInstanceRequest2) HasResourceOverrideConfiguration() bool {
+	if o != nil && !IsNil(o.ResourceOverrideConfiguration) {
+		return true
+	}
+
+	return false
+}
+
+// SetResourceOverrideConfiguration gets a reference to the given map[string]ResourceOneOffPatchConfigurationOverride and assigns it to the ResourceOverrideConfiguration field.
+func (o *OneOffPatchResourceInstanceRequest2) SetResourceOverrideConfiguration(v map[string]ResourceOneOffPatchConfigurationOverride) {
+	o.ResourceOverrideConfiguration = &v
+}
+
 // GetTargetTierVersion returns the TargetTierVersion field value if set, zero value otherwise.
 func (o *OneOffPatchResourceInstanceRequest2) GetTargetTierVersion() string {
 	if o == nil || IsNil(o.TargetTierVersion) {
@@ -114,6 +148,9 @@ func (o OneOffPatchResourceInstanceRequest2) MarshalJSON() ([]byte, error) {
 func (o OneOffPatchResourceInstanceRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["resourceId"] = o.ResourceId
+	if !IsNil(o.ResourceOverrideConfiguration) {
+		toSerialize["resourceOverrideConfiguration"] = o.ResourceOverrideConfiguration
+	}
 	if !IsNil(o.TargetTierVersion) {
 		toSerialize["targetTierVersion"] = o.TargetTierVersion
 	}
@@ -161,6 +198,7 @@ func (o *OneOffPatchResourceInstanceRequest2) UnmarshalJSON(data []byte) (err er
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "resourceId")
+		delete(additionalProperties, "resourceOverrideConfiguration")
 		delete(additionalProperties, "targetTierVersion")
 		o.AdditionalProperties = additionalProperties
 	}

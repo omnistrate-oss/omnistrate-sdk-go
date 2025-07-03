@@ -33,8 +33,6 @@ type ResourceInstance struct {
 	DefaultSubscription bool `json:"defaultSubscription"`
 	// ID of a Host Cluster
 	DeploymentCellID *string `json:"deploymentCellID,omitempty"`
-	// Per resource detailed configuration provided if 'detail=true'
-	DetailedResourceConfiguration map[string]interface{} `json:"detailedResourceConfiguration,omitempty"`
 	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
 	// The GCP project ID
@@ -335,38 +333,6 @@ func (o *ResourceInstance) HasDeploymentCellID() bool {
 // SetDeploymentCellID gets a reference to the given string and assigns it to the DeploymentCellID field.
 func (o *ResourceInstance) SetDeploymentCellID(v string) {
 	o.DeploymentCellID = &v
-}
-
-// GetDetailedResourceConfiguration returns the DetailedResourceConfiguration field value if set, zero value otherwise.
-func (o *ResourceInstance) GetDetailedResourceConfiguration() map[string]interface{} {
-	if o == nil || IsNil(o.DetailedResourceConfiguration) {
-		var ret map[string]interface{}
-		return ret
-	}
-	return o.DetailedResourceConfiguration
-}
-
-// GetDetailedResourceConfigurationOk returns a tuple with the DetailedResourceConfiguration field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ResourceInstance) GetDetailedResourceConfigurationOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.DetailedResourceConfiguration) {
-		return map[string]interface{}{}, false
-	}
-	return o.DetailedResourceConfiguration, true
-}
-
-// HasDetailedResourceConfiguration returns a boolean if a field has been set.
-func (o *ResourceInstance) HasDetailedResourceConfiguration() bool {
-	if o != nil && !IsNil(o.DetailedResourceConfiguration) {
-		return true
-	}
-
-	return false
-}
-
-// SetDetailedResourceConfiguration gets a reference to the given map[string]interface{} and assigns it to the DetailedResourceConfiguration field.
-func (o *ResourceInstance) SetDetailedResourceConfiguration(v map[string]interface{}) {
-	o.DetailedResourceConfiguration = v
 }
 
 // GetEnvironmentId returns the EnvironmentId field value
@@ -1202,9 +1168,6 @@ func (o ResourceInstance) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DeploymentCellID) {
 		toSerialize["deploymentCellID"] = o.DeploymentCellID
 	}
-	if !IsNil(o.DetailedResourceConfiguration) {
-		toSerialize["detailedResourceConfiguration"] = o.DetailedResourceConfiguration
-	}
 	toSerialize["environmentId"] = o.EnvironmentId
 	if !IsNil(o.GcpProjectID) {
 		toSerialize["gcpProjectID"] = o.GcpProjectID
@@ -1330,7 +1293,6 @@ func (o *ResourceInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "consumptionResourceInstanceResult")
 		delete(additionalProperties, "defaultSubscription")
 		delete(additionalProperties, "deploymentCellID")
-		delete(additionalProperties, "detailedResourceConfiguration")
 		delete(additionalProperties, "environmentId")
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "input_params")

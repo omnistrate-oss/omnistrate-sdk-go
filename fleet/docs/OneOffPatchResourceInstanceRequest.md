@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **EnvironmentId** | **string** | ID of a Service Environment | 
 **InstanceId** | **string** | ID of a Resource Instance | 
 **ResourceId** | **string** | ID of a resource | 
+**ResourceOverrideConfiguration** | Pointer to [**map[string]ResourceOneOffPatchConfigurationOverride**](ResourceOneOffPatchConfigurationOverride.md) | The resource override configuration for one-off patching. | [optional] 
 **ServiceId** | **string** | ID of a Service | 
 **TargetTierVersion** | Pointer to **string** | The target resource version. | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
@@ -89,6 +90,31 @@ and a boolean to check if the value has been set.
 
 SetResourceId sets ResourceId field to given value.
 
+
+### GetResourceOverrideConfiguration
+
+`func (o *OneOffPatchResourceInstanceRequest) GetResourceOverrideConfiguration() map[string]ResourceOneOffPatchConfigurationOverride`
+
+GetResourceOverrideConfiguration returns the ResourceOverrideConfiguration field if non-nil, zero value otherwise.
+
+### GetResourceOverrideConfigurationOk
+
+`func (o *OneOffPatchResourceInstanceRequest) GetResourceOverrideConfigurationOk() (*map[string]ResourceOneOffPatchConfigurationOverride, bool)`
+
+GetResourceOverrideConfigurationOk returns a tuple with the ResourceOverrideConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceOverrideConfiguration
+
+`func (o *OneOffPatchResourceInstanceRequest) SetResourceOverrideConfiguration(v map[string]ResourceOneOffPatchConfigurationOverride)`
+
+SetResourceOverrideConfiguration sets ResourceOverrideConfiguration field to given value.
+
+### HasResourceOverrideConfiguration
+
+`func (o *OneOffPatchResourceInstanceRequest) HasResourceOverrideConfiguration() bool`
+
+HasResourceOverrideConfiguration returns a boolean if a field has been set.
 
 ### GetServiceId
 
