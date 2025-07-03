@@ -4,26 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudProvider** | Pointer to **string** | The cloud provider name | [optional] 
-**CustomNetworkId** | Pointer to **string** | Custom network for resource | [optional] 
-**ExternalPayerId** | Pointer to **string** | The external payer id to record which customer should pay for this resource instance. This will override the subscription level external payer id if set. | [optional] 
-**ProductTierKey** | **string** | The product tier name | 
-**ProductTierVersion** | Pointer to **string** | The product tier version | [optional] 
-**Region** | Pointer to **string** | The region code | [optional] 
-**ResourceConfiguration** | Pointer to **map[string]interface{}** | The resource configuration | [optional] 
-**ServiceAPIVersion** | **string** | The service API version | 
-**ServiceEnvironmentKey** | **string** | The service environment name | 
-**ServiceKey** | **string** | The service name | 
-**ServiceModelKey** | **string** | The service model name | 
-**ServiceProviderId** | **string** | ID of a Service Provider | 
-**SubscriptionId** | Pointer to **string** | ID of a Subscription | [optional] 
+**HostClusterID** | **string** | The host cluster ID or key | 
+**PrimaryResourceKey** | **string** | The primary resource key to adopt. This is the top-level resource that will be managed by Omnistrate. | 
+**ResourceAdoptionConfiguration** | Pointer to [**map[string]ResourceAdoptionConfiguration**](ResourceAdoptionConfiguration.md) | The resource adoption configuration | [optional] 
+**ServiceID** | **string** | ID of a Service | 
+**ServicePlanID** | **string** | ID of a Product Tier | 
+**ServicePlanVersion** | Pointer to **string** | The service plan version | [optional] 
+**SubscriptionID** | Pointer to **string** | ID of a Subscription | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
 
 ### NewAdoptResourceInstanceRequest
 
-`func NewAdoptResourceInstanceRequest(productTierKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceKey string, serviceModelKey string, serviceProviderId string, token string, ) *AdoptResourceInstanceRequest`
+`func NewAdoptResourceInstanceRequest(hostClusterID string, primaryResourceKey string, serviceID string, servicePlanID string, token string, ) *AdoptResourceInstanceRequest`
 
 NewAdoptResourceInstanceRequest instantiates a new AdoptResourceInstanceRequest object
 This constructor will assign default values to properties that have it defined,
@@ -38,300 +32,160 @@ NewAdoptResourceInstanceRequestWithDefaults instantiates a new AdoptResourceInst
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetCloudProvider
+### GetHostClusterID
 
-`func (o *AdoptResourceInstanceRequest) GetCloudProvider() string`
+`func (o *AdoptResourceInstanceRequest) GetHostClusterID() string`
 
-GetCloudProvider returns the CloudProvider field if non-nil, zero value otherwise.
+GetHostClusterID returns the HostClusterID field if non-nil, zero value otherwise.
 
-### GetCloudProviderOk
+### GetHostClusterIDOk
 
-`func (o *AdoptResourceInstanceRequest) GetCloudProviderOk() (*string, bool)`
+`func (o *AdoptResourceInstanceRequest) GetHostClusterIDOk() (*string, bool)`
 
-GetCloudProviderOk returns a tuple with the CloudProvider field if it's non-nil, zero value otherwise
+GetHostClusterIDOk returns a tuple with the HostClusterID field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCloudProvider
+### SetHostClusterID
 
-`func (o *AdoptResourceInstanceRequest) SetCloudProvider(v string)`
+`func (o *AdoptResourceInstanceRequest) SetHostClusterID(v string)`
 
-SetCloudProvider sets CloudProvider field to given value.
+SetHostClusterID sets HostClusterID field to given value.
 
-### HasCloudProvider
 
-`func (o *AdoptResourceInstanceRequest) HasCloudProvider() bool`
+### GetPrimaryResourceKey
 
-HasCloudProvider returns a boolean if a field has been set.
+`func (o *AdoptResourceInstanceRequest) GetPrimaryResourceKey() string`
 
-### GetCustomNetworkId
+GetPrimaryResourceKey returns the PrimaryResourceKey field if non-nil, zero value otherwise.
 
-`func (o *AdoptResourceInstanceRequest) GetCustomNetworkId() string`
+### GetPrimaryResourceKeyOk
 
-GetCustomNetworkId returns the CustomNetworkId field if non-nil, zero value otherwise.
+`func (o *AdoptResourceInstanceRequest) GetPrimaryResourceKeyOk() (*string, bool)`
 
-### GetCustomNetworkIdOk
-
-`func (o *AdoptResourceInstanceRequest) GetCustomNetworkIdOk() (*string, bool)`
-
-GetCustomNetworkIdOk returns a tuple with the CustomNetworkId field if it's non-nil, zero value otherwise
+GetPrimaryResourceKeyOk returns a tuple with the PrimaryResourceKey field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCustomNetworkId
+### SetPrimaryResourceKey
 
-`func (o *AdoptResourceInstanceRequest) SetCustomNetworkId(v string)`
+`func (o *AdoptResourceInstanceRequest) SetPrimaryResourceKey(v string)`
 
-SetCustomNetworkId sets CustomNetworkId field to given value.
+SetPrimaryResourceKey sets PrimaryResourceKey field to given value.
 
-### HasCustomNetworkId
 
-`func (o *AdoptResourceInstanceRequest) HasCustomNetworkId() bool`
+### GetResourceAdoptionConfiguration
 
-HasCustomNetworkId returns a boolean if a field has been set.
+`func (o *AdoptResourceInstanceRequest) GetResourceAdoptionConfiguration() map[string]ResourceAdoptionConfiguration`
 
-### GetExternalPayerId
+GetResourceAdoptionConfiguration returns the ResourceAdoptionConfiguration field if non-nil, zero value otherwise.
 
-`func (o *AdoptResourceInstanceRequest) GetExternalPayerId() string`
+### GetResourceAdoptionConfigurationOk
 
-GetExternalPayerId returns the ExternalPayerId field if non-nil, zero value otherwise.
+`func (o *AdoptResourceInstanceRequest) GetResourceAdoptionConfigurationOk() (*map[string]ResourceAdoptionConfiguration, bool)`
 
-### GetExternalPayerIdOk
-
-`func (o *AdoptResourceInstanceRequest) GetExternalPayerIdOk() (*string, bool)`
-
-GetExternalPayerIdOk returns a tuple with the ExternalPayerId field if it's non-nil, zero value otherwise
+GetResourceAdoptionConfigurationOk returns a tuple with the ResourceAdoptionConfiguration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetExternalPayerId
+### SetResourceAdoptionConfiguration
 
-`func (o *AdoptResourceInstanceRequest) SetExternalPayerId(v string)`
+`func (o *AdoptResourceInstanceRequest) SetResourceAdoptionConfiguration(v map[string]ResourceAdoptionConfiguration)`
 
-SetExternalPayerId sets ExternalPayerId field to given value.
+SetResourceAdoptionConfiguration sets ResourceAdoptionConfiguration field to given value.
 
-### HasExternalPayerId
+### HasResourceAdoptionConfiguration
 
-`func (o *AdoptResourceInstanceRequest) HasExternalPayerId() bool`
+`func (o *AdoptResourceInstanceRequest) HasResourceAdoptionConfiguration() bool`
 
-HasExternalPayerId returns a boolean if a field has been set.
+HasResourceAdoptionConfiguration returns a boolean if a field has been set.
 
-### GetProductTierKey
+### GetServiceID
 
-`func (o *AdoptResourceInstanceRequest) GetProductTierKey() string`
+`func (o *AdoptResourceInstanceRequest) GetServiceID() string`
 
-GetProductTierKey returns the ProductTierKey field if non-nil, zero value otherwise.
+GetServiceID returns the ServiceID field if non-nil, zero value otherwise.
 
-### GetProductTierKeyOk
+### GetServiceIDOk
 
-`func (o *AdoptResourceInstanceRequest) GetProductTierKeyOk() (*string, bool)`
+`func (o *AdoptResourceInstanceRequest) GetServiceIDOk() (*string, bool)`
 
-GetProductTierKeyOk returns a tuple with the ProductTierKey field if it's non-nil, zero value otherwise
+GetServiceIDOk returns a tuple with the ServiceID field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProductTierKey
+### SetServiceID
 
-`func (o *AdoptResourceInstanceRequest) SetProductTierKey(v string)`
+`func (o *AdoptResourceInstanceRequest) SetServiceID(v string)`
 
-SetProductTierKey sets ProductTierKey field to given value.
+SetServiceID sets ServiceID field to given value.
 
 
-### GetProductTierVersion
+### GetServicePlanID
 
-`func (o *AdoptResourceInstanceRequest) GetProductTierVersion() string`
+`func (o *AdoptResourceInstanceRequest) GetServicePlanID() string`
 
-GetProductTierVersion returns the ProductTierVersion field if non-nil, zero value otherwise.
+GetServicePlanID returns the ServicePlanID field if non-nil, zero value otherwise.
 
-### GetProductTierVersionOk
+### GetServicePlanIDOk
 
-`func (o *AdoptResourceInstanceRequest) GetProductTierVersionOk() (*string, bool)`
+`func (o *AdoptResourceInstanceRequest) GetServicePlanIDOk() (*string, bool)`
 
-GetProductTierVersionOk returns a tuple with the ProductTierVersion field if it's non-nil, zero value otherwise
+GetServicePlanIDOk returns a tuple with the ServicePlanID field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProductTierVersion
+### SetServicePlanID
 
-`func (o *AdoptResourceInstanceRequest) SetProductTierVersion(v string)`
+`func (o *AdoptResourceInstanceRequest) SetServicePlanID(v string)`
 
-SetProductTierVersion sets ProductTierVersion field to given value.
+SetServicePlanID sets ServicePlanID field to given value.
 
-### HasProductTierVersion
 
-`func (o *AdoptResourceInstanceRequest) HasProductTierVersion() bool`
+### GetServicePlanVersion
 
-HasProductTierVersion returns a boolean if a field has been set.
+`func (o *AdoptResourceInstanceRequest) GetServicePlanVersion() string`
 
-### GetRegion
+GetServicePlanVersion returns the ServicePlanVersion field if non-nil, zero value otherwise.
 
-`func (o *AdoptResourceInstanceRequest) GetRegion() string`
+### GetServicePlanVersionOk
 
-GetRegion returns the Region field if non-nil, zero value otherwise.
+`func (o *AdoptResourceInstanceRequest) GetServicePlanVersionOk() (*string, bool)`
 
-### GetRegionOk
-
-`func (o *AdoptResourceInstanceRequest) GetRegionOk() (*string, bool)`
-
-GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
+GetServicePlanVersionOk returns a tuple with the ServicePlanVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRegion
+### SetServicePlanVersion
 
-`func (o *AdoptResourceInstanceRequest) SetRegion(v string)`
+`func (o *AdoptResourceInstanceRequest) SetServicePlanVersion(v string)`
 
-SetRegion sets Region field to given value.
+SetServicePlanVersion sets ServicePlanVersion field to given value.
 
-### HasRegion
+### HasServicePlanVersion
 
-`func (o *AdoptResourceInstanceRequest) HasRegion() bool`
+`func (o *AdoptResourceInstanceRequest) HasServicePlanVersion() bool`
 
-HasRegion returns a boolean if a field has been set.
+HasServicePlanVersion returns a boolean if a field has been set.
 
-### GetResourceConfiguration
+### GetSubscriptionID
 
-`func (o *AdoptResourceInstanceRequest) GetResourceConfiguration() map[string]interface{}`
+`func (o *AdoptResourceInstanceRequest) GetSubscriptionID() string`
 
-GetResourceConfiguration returns the ResourceConfiguration field if non-nil, zero value otherwise.
+GetSubscriptionID returns the SubscriptionID field if non-nil, zero value otherwise.
 
-### GetResourceConfigurationOk
+### GetSubscriptionIDOk
 
-`func (o *AdoptResourceInstanceRequest) GetResourceConfigurationOk() (*map[string]interface{}, bool)`
+`func (o *AdoptResourceInstanceRequest) GetSubscriptionIDOk() (*string, bool)`
 
-GetResourceConfigurationOk returns a tuple with the ResourceConfiguration field if it's non-nil, zero value otherwise
+GetSubscriptionIDOk returns a tuple with the SubscriptionID field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetResourceConfiguration
+### SetSubscriptionID
 
-`func (o *AdoptResourceInstanceRequest) SetResourceConfiguration(v map[string]interface{})`
+`func (o *AdoptResourceInstanceRequest) SetSubscriptionID(v string)`
 
-SetResourceConfiguration sets ResourceConfiguration field to given value.
+SetSubscriptionID sets SubscriptionID field to given value.
 
-### HasResourceConfiguration
+### HasSubscriptionID
 
-`func (o *AdoptResourceInstanceRequest) HasResourceConfiguration() bool`
+`func (o *AdoptResourceInstanceRequest) HasSubscriptionID() bool`
 
-HasResourceConfiguration returns a boolean if a field has been set.
-
-### GetServiceAPIVersion
-
-`func (o *AdoptResourceInstanceRequest) GetServiceAPIVersion() string`
-
-GetServiceAPIVersion returns the ServiceAPIVersion field if non-nil, zero value otherwise.
-
-### GetServiceAPIVersionOk
-
-`func (o *AdoptResourceInstanceRequest) GetServiceAPIVersionOk() (*string, bool)`
-
-GetServiceAPIVersionOk returns a tuple with the ServiceAPIVersion field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetServiceAPIVersion
-
-`func (o *AdoptResourceInstanceRequest) SetServiceAPIVersion(v string)`
-
-SetServiceAPIVersion sets ServiceAPIVersion field to given value.
-
-
-### GetServiceEnvironmentKey
-
-`func (o *AdoptResourceInstanceRequest) GetServiceEnvironmentKey() string`
-
-GetServiceEnvironmentKey returns the ServiceEnvironmentKey field if non-nil, zero value otherwise.
-
-### GetServiceEnvironmentKeyOk
-
-`func (o *AdoptResourceInstanceRequest) GetServiceEnvironmentKeyOk() (*string, bool)`
-
-GetServiceEnvironmentKeyOk returns a tuple with the ServiceEnvironmentKey field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetServiceEnvironmentKey
-
-`func (o *AdoptResourceInstanceRequest) SetServiceEnvironmentKey(v string)`
-
-SetServiceEnvironmentKey sets ServiceEnvironmentKey field to given value.
-
-
-### GetServiceKey
-
-`func (o *AdoptResourceInstanceRequest) GetServiceKey() string`
-
-GetServiceKey returns the ServiceKey field if non-nil, zero value otherwise.
-
-### GetServiceKeyOk
-
-`func (o *AdoptResourceInstanceRequest) GetServiceKeyOk() (*string, bool)`
-
-GetServiceKeyOk returns a tuple with the ServiceKey field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetServiceKey
-
-`func (o *AdoptResourceInstanceRequest) SetServiceKey(v string)`
-
-SetServiceKey sets ServiceKey field to given value.
-
-
-### GetServiceModelKey
-
-`func (o *AdoptResourceInstanceRequest) GetServiceModelKey() string`
-
-GetServiceModelKey returns the ServiceModelKey field if non-nil, zero value otherwise.
-
-### GetServiceModelKeyOk
-
-`func (o *AdoptResourceInstanceRequest) GetServiceModelKeyOk() (*string, bool)`
-
-GetServiceModelKeyOk returns a tuple with the ServiceModelKey field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetServiceModelKey
-
-`func (o *AdoptResourceInstanceRequest) SetServiceModelKey(v string)`
-
-SetServiceModelKey sets ServiceModelKey field to given value.
-
-
-### GetServiceProviderId
-
-`func (o *AdoptResourceInstanceRequest) GetServiceProviderId() string`
-
-GetServiceProviderId returns the ServiceProviderId field if non-nil, zero value otherwise.
-
-### GetServiceProviderIdOk
-
-`func (o *AdoptResourceInstanceRequest) GetServiceProviderIdOk() (*string, bool)`
-
-GetServiceProviderIdOk returns a tuple with the ServiceProviderId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetServiceProviderId
-
-`func (o *AdoptResourceInstanceRequest) SetServiceProviderId(v string)`
-
-SetServiceProviderId sets ServiceProviderId field to given value.
-
-
-### GetSubscriptionId
-
-`func (o *AdoptResourceInstanceRequest) GetSubscriptionId() string`
-
-GetSubscriptionId returns the SubscriptionId field if non-nil, zero value otherwise.
-
-### GetSubscriptionIdOk
-
-`func (o *AdoptResourceInstanceRequest) GetSubscriptionIdOk() (*string, bool)`
-
-GetSubscriptionIdOk returns a tuple with the SubscriptionId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSubscriptionId
-
-`func (o *AdoptResourceInstanceRequest) SetSubscriptionId(v string)`
-
-SetSubscriptionId sets SubscriptionId field to given value.
-
-### HasSubscriptionId
-
-`func (o *AdoptResourceInstanceRequest) HasSubscriptionId() bool`
-
-HasSubscriptionId returns a boolean if a field has been set.
+HasSubscriptionID returns a boolean if a field has been set.
 
 ### GetToken
 

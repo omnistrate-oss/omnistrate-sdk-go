@@ -102,6 +102,7 @@ docs/ChangePlanRequest.md
 docs/ChangePlanRequest2.md
 docs/ChangeSet.md
 docs/ChangeSummary.md
+docs/ChartValuesRef.md
 docs/CheckIfContainerImageAccessibleRequest.md
 docs/CheckIfContainerImageAccessibleResult.md
 docs/CloudProviderApiAPI.md
@@ -404,6 +405,7 @@ docs/GetTenantBillingStatusResult.md
 docs/GetUsageRequest.md
 docs/GetUsageResult.md
 docs/GitConfiguration.md
+docs/GitFileConfiguration.md
 docs/GlobalApiAPI.md
 docs/HelmChartConfiguration.md
 docs/HelmPackage.md
@@ -759,6 +761,7 @@ docs/UsagePerDimension.md
 docs/UsersApiAPI.md
 docs/VUnitHealthReport.md
 docs/ValidateTokenRequest.md
+docs/ValuesFile.md
 docs/VerifyAccountConfigRequest.md
 docs/VerifyCustomDomainRequest.md
 docs/VerifyIdentityProviderRequest.md
@@ -809,6 +812,7 @@ model_change_plan_request.go
 model_change_plan_request2.go
 model_change_set.go
 model_change_summary.go
+model_chart_values_ref.go
 model_check_if_container_image_accessible_request.go
 model_check_if_container_image_accessible_result.go
 model_cloud_provider_health_summary.go
@@ -1099,6 +1103,7 @@ model_get_tenant_billing_status_result.go
 model_get_usage_request.go
 model_get_usage_result.go
 model_git_configuration.go
+model_git_file_configuration.go
 model_helm_chart_configuration.go
 model_helm_package.go
 model_helm_runtime_configuration.go
@@ -1418,6 +1423,7 @@ model_update_user_request2.go
 model_usage_per_dimension.go
 model_v_unit_health_report.go
 model_validate_token_request.go
+model_values_file.go
 model_verify_account_config_request.go
 model_verify_custom_domain_request.go
 model_verify_identity_provider_request.go

@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **ConsumptionResourceInstanceResult** | [**DescribeResourceInstanceResult**](DescribeResourceInstanceResult.md) |  | 
 **DefaultSubscription** | **bool** | Whether the subscription is the default subscription | 
 **DeploymentCellID** | Pointer to **string** | ID of a Host Cluster | [optional] 
-**DetailedResourceConfiguration** | Pointer to **map[string]interface{}** | Per resource detailed configuration provided if &#39;detail&#x3D;true&#39; | [optional] 
 **EnvironmentId** | **string** | ID of a Service Environment | 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **InputParams** | **interface{}** | Custom input parameters | 
@@ -217,31 +216,6 @@ SetDeploymentCellID sets DeploymentCellID field to given value.
 `func (o *ResourceInstance) HasDeploymentCellID() bool`
 
 HasDeploymentCellID returns a boolean if a field has been set.
-
-### GetDetailedResourceConfiguration
-
-`func (o *ResourceInstance) GetDetailedResourceConfiguration() map[string]interface{}`
-
-GetDetailedResourceConfiguration returns the DetailedResourceConfiguration field if non-nil, zero value otherwise.
-
-### GetDetailedResourceConfigurationOk
-
-`func (o *ResourceInstance) GetDetailedResourceConfigurationOk() (*map[string]interface{}, bool)`
-
-GetDetailedResourceConfigurationOk returns a tuple with the DetailedResourceConfiguration field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDetailedResourceConfiguration
-
-`func (o *ResourceInstance) SetDetailedResourceConfiguration(v map[string]interface{})`
-
-SetDetailedResourceConfiguration sets DetailedResourceConfiguration field to given value.
-
-### HasDetailedResourceConfiguration
-
-`func (o *ResourceInstance) HasDetailedResourceConfiguration() bool`
-
-HasDetailedResourceConfiguration returns a boolean if a field has been set.
 
 ### GetEnvironmentId
 

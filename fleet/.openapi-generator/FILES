@@ -48,6 +48,7 @@ docs/ChangeSet.md
 docs/ChangeSummary.md
 docs/Channel.md
 docs/ChannelSubscription.md
+docs/ChartValuesRef.md
 docs/CheckIfContainerImageAccessibleRequest.md
 docs/CheckIfContainerImageAccessibleResult.md
 docs/CloudProviderHealthSummary.md
@@ -86,6 +87,7 @@ docs/CustomDNSEndpoint.md
 docs/CustomDomain.md
 docs/CustomNetworkFleetDetail.md
 docs/CustomNetworkResourceDetail.md
+docs/CustomTag.md
 docs/CustomerBillingProvider.md
 docs/CustomerDeleteUserRequest.md
 docs/CustomerInviteUserRequest.md
@@ -365,10 +367,13 @@ docs/GetUsageRequest.md
 docs/GetUsageResult.md
 docs/GetWorkflowEventsRequest.md
 docs/GetWorkflowEventsResult.md
+docs/GitConfiguration.md
+docs/HelmAdoptionConfiguration.md
 docs/HelmDeploymentConfiguration.md
 docs/HelmPackage.md
 docs/HelmPackageApiAPI.md
 docs/HelmPackageInstallations.md
+docs/HelmRuntimeConfiguration.md
 docs/HostCluster.md
 docs/HostClusterHealthStatus.md
 docs/HostclusterApiAPI.md
@@ -394,6 +399,7 @@ docs/InvoiceApiAPI.md
 docs/JobMetric.md
 docs/KubernetesDashboardEndpoint.md
 docs/KustomizeDeploymentConfiguration.md
+docs/Limits.md
 docs/List.md
 docs/ListAccountConfigsResult.md
 docs/ListActiveOrganizationsRequest.md
@@ -527,6 +533,7 @@ docs/ReportHealthRequest.md
 docs/ReportHealthResult.md
 docs/ResetPasswordRequest.md
 docs/Resource.md
+docs/ResourceAdoptionConfiguration.md
 docs/ResourceCapability.md
 docs/ResourceDeploymentStatus.md
 docs/ResourceEntity.md
@@ -535,6 +542,7 @@ docs/ResourceInstance.md
 docs/ResourceInstanceProvisionerSetupKitRequest.md
 docs/ResourceInstanceSearchRecord.md
 docs/ResourceNetworkTopologyResult.md
+docs/ResourceOneOffPatchConfigurationOverride.md
 docs/ResourceSearchRecord.md
 docs/ResourceVersionSummary.md
 docs/RestartResourceInstanceRequest.md
@@ -610,6 +618,7 @@ docs/UserSearchRecord.md
 docs/UserSubscription.md
 docs/VUnitHealthReport.md
 docs/ValidateTokenRequest.md
+docs/ValuesFile.md
 docs/VerifyIdentityProviderRequest.md
 docs/VerifyIdentityProviderResult.md
 docs/WebhookConfiguration.md
@@ -646,6 +655,7 @@ model_change_set.go
 model_change_summary.go
 model_channel.go
 model_channel_subscription.go
+model_chart_values_ref.go
 model_check_if_container_image_accessible_request.go
 model_check_if_container_image_accessible_result.go
 model_cloud_provider_health_summary.go
@@ -683,6 +693,7 @@ model_custom_dns_endpoint.go
 model_custom_domain.go
 model_custom_network_fleet_detail.go
 model_custom_network_resource_detail.go
+model_custom_tag.go
 model_customer_billing_provider.go
 model_customer_delete_user_request.go
 model_customer_invite_user_request.go
@@ -957,9 +968,12 @@ model_get_usage_request.go
 model_get_usage_result.go
 model_get_workflow_events_request.go
 model_get_workflow_events_result.go
+model_git_configuration.go
+model_helm_adoption_configuration.go
 model_helm_deployment_configuration.go
 model_helm_package.go
 model_helm_package_installations.go
+model_helm_runtime_configuration.go
 model_host_cluster.go
 model_host_cluster_health_status.go
 model_image_config_change_summary.go
@@ -982,6 +996,7 @@ model_invoice.go
 model_job_metric.go
 model_kubernetes_dashboard_endpoint.go
 model_kustomize_deployment_configuration.go
+model_limits.go
 model_list.go
 model_list_account_configs_result.go
 model_list_active_organizations_request.go
@@ -1113,6 +1128,7 @@ model_report_health_request.go
 model_report_health_result.go
 model_reset_password_request.go
 model_resource.go
+model_resource_adoption_configuration.go
 model_resource_capability.go
 model_resource_deployment_status.go
 model_resource_entity.go
@@ -1121,6 +1137,7 @@ model_resource_instance.go
 model_resource_instance_provisioner_setup_kit_request.go
 model_resource_instance_search_record.go
 model_resource_network_topology_result.go
+model_resource_one_off_patch_configuration_override.go
 model_resource_search_record.go
 model_resource_version_summary.go
 model_restart_resource_instance_request.go
@@ -1196,6 +1213,7 @@ model_user_search_record.go
 model_user_subscription.go
 model_v_unit_health_report.go
 model_validate_token_request.go
+model_values_file.go
 model_verify_identity_provider_request.go
 model_verify_identity_provider_result.go
 model_webhook_configuration.go

@@ -5,10 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountConfigIdentityId** | **string** | ID of an Org | 
+**AllowCreatesWhenPaymentNotConfigured** | Pointer to **bool** | Whether to allow creating instances when payment is not configured. | [optional] 
 **CloudProviderNames** | **[]string** | List of cloud provider names | 
 **CreatedAt** | **string** | The time that this subscription was created | 
 **DefaultSubscription** | **bool** | Whether this is the default subscription for the user | 
 **Id** | **string** | ID of a Subscription | 
+**MaxNumberOfInstances** | Pointer to **int64** | The maximum number of instances that can be created for this subscription. | [optional] 
 **PaymentMethodConfigured** | Pointer to **bool** | Return true if the required payment method is configured for this subscription or no payment method is required. False if the subscription requires a payment method but it is not configured. | [optional] 
 **ProductTierId** | **string** | ID of a Product Tier | 
 **ProductTierName** | **string** | The name of the product tier | 
@@ -60,6 +62,31 @@ and a boolean to check if the value has been set.
 
 SetAccountConfigIdentityId sets AccountConfigIdentityId field to given value.
 
+
+### GetAllowCreatesWhenPaymentNotConfigured
+
+`func (o *DescribeSubscriptionResult) GetAllowCreatesWhenPaymentNotConfigured() bool`
+
+GetAllowCreatesWhenPaymentNotConfigured returns the AllowCreatesWhenPaymentNotConfigured field if non-nil, zero value otherwise.
+
+### GetAllowCreatesWhenPaymentNotConfiguredOk
+
+`func (o *DescribeSubscriptionResult) GetAllowCreatesWhenPaymentNotConfiguredOk() (*bool, bool)`
+
+GetAllowCreatesWhenPaymentNotConfiguredOk returns a tuple with the AllowCreatesWhenPaymentNotConfigured field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowCreatesWhenPaymentNotConfigured
+
+`func (o *DescribeSubscriptionResult) SetAllowCreatesWhenPaymentNotConfigured(v bool)`
+
+SetAllowCreatesWhenPaymentNotConfigured sets AllowCreatesWhenPaymentNotConfigured field to given value.
+
+### HasAllowCreatesWhenPaymentNotConfigured
+
+`func (o *DescribeSubscriptionResult) HasAllowCreatesWhenPaymentNotConfigured() bool`
+
+HasAllowCreatesWhenPaymentNotConfigured returns a boolean if a field has been set.
 
 ### GetCloudProviderNames
 
@@ -140,6 +167,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetMaxNumberOfInstances
+
+`func (o *DescribeSubscriptionResult) GetMaxNumberOfInstances() int64`
+
+GetMaxNumberOfInstances returns the MaxNumberOfInstances field if non-nil, zero value otherwise.
+
+### GetMaxNumberOfInstancesOk
+
+`func (o *DescribeSubscriptionResult) GetMaxNumberOfInstancesOk() (*int64, bool)`
+
+GetMaxNumberOfInstancesOk returns a tuple with the MaxNumberOfInstances field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxNumberOfInstances
+
+`func (o *DescribeSubscriptionResult) SetMaxNumberOfInstances(v int64)`
+
+SetMaxNumberOfInstances sets MaxNumberOfInstances field to given value.
+
+### HasMaxNumberOfInstances
+
+`func (o *DescribeSubscriptionResult) HasMaxNumberOfInstances() bool`
+
+HasMaxNumberOfInstances returns a boolean if a field has been set.
 
 ### GetPaymentMethodConfigured
 

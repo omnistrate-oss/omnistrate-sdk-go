@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**InventoryApiAddCapacityToResourceInstance**](InventoryApiAPI.md#InventoryApiAddCapacityToResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/add-capacity | AddCapacityToResourceInstance inventory-api
 [**InventoryApiAddCustomDNSToResourceInstance**](InventoryApiAPI.md#InventoryApiAddCustomDNSToResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/{resourceKey}/instance/{instanceId}/custom-dns | AddCustomDNSToResourceInstance inventory-api
-[**InventoryApiAdoptResourceInstance**](InventoryApiAPI.md#InventoryApiAdoptResourceInstance) | **Post** /2022-09-01-00/fleet/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/adopt | AdoptResourceInstance inventory-api
+[**InventoryApiAdoptResourceInstance**](InventoryApiAPI.md#InventoryApiAdoptResourceInstance) | **Post** /2022-09-01-00/fleet/resource-instance/{serviceID}/{servicePlanID}/{hostClusterID}/{primaryResourceKey}/adopt | AdoptResourceInstance inventory-api
 [**InventoryApiApproveSubscriptionRequest**](InventoryApiAPI.md#InventoryApiApproveSubscriptionRequest) | **Put** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | ApproveSubscriptionRequest inventory-api
 [**InventoryApiCancelUpgradePath**](InventoryApiAPI.md#InventoryApiCancelUpgradePath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/cancel | CancelUpgradePath inventory-api
 [**InventoryApiCreateConsumptionUser**](InventoryApiAPI.md#InventoryApiCreateConsumptionUser) | **Post** /2022-09-01-00/fleet/user | CreateConsumptionUser inventory-api
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiAdoptResourceInstance
 
-> FleetCreateResourceInstanceResult InventoryApiAdoptResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey).AdoptResourceInstanceRequest2(adoptResourceInstanceRequest2).Execute()
+> FleetCreateResourceInstanceResult InventoryApiAdoptResourceInstance(ctx, serviceID, servicePlanID, hostClusterID, primaryResourceKey).AdoptResourceInstanceRequest2(adoptResourceInstanceRequest2).ServicePlanVersion(servicePlanVersion).SubscriptionID(subscriptionID).Execute()
 
 AdoptResourceInstance inventory-api
 
@@ -257,17 +257,17 @@ import (
 )
 
 func main() {
-	serviceProviderId := "omnistrate" // string | The service provider ID
-	serviceKey := "service-orchestration" // string | The service name
-	serviceAPIVersion := "v1" // string | The service API version
-	serviceEnvironmentKey := "dev" // string | The service environment name
-	serviceModelKey := "hosted" // string | The service model name
-	productTierKey := "premium" // string | The product tier name
+	serviceID := "s-12345678" // string | Service ID
+	servicePlanID := "pt-12345678" // string | The service plan ID
+	hostClusterID := "hc-12345678" // string | The host cluster ID or key
+	primaryResourceKey := "mysql" // string | The primary resource key to adopt. This is the top-level resource that will be managed by Omnistrate.
 	adoptResourceInstanceRequest2 := *openapiclient.NewAdoptResourceInstanceRequest2() // AdoptResourceInstanceRequest2 | 
+	servicePlanVersion := "1.0" // string | The service plan version (optional)
+	subscriptionID := "sub-12345678" // string | The subscription ID of the resource instance (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiAdoptResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey).AdoptResourceInstanceRequest2(adoptResourceInstanceRequest2).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiAdoptResourceInstance(context.Background(), serviceID, servicePlanID, hostClusterID, primaryResourceKey).AdoptResourceInstanceRequest2(adoptResourceInstanceRequest2).ServicePlanVersion(servicePlanVersion).SubscriptionID(subscriptionID).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiAdoptResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -283,12 +283,10 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**serviceProviderId** | **string** | The service provider ID | 
-**serviceKey** | **string** | The service name | 
-**serviceAPIVersion** | **string** | The service API version | 
-**serviceEnvironmentKey** | **string** | The service environment name | 
-**serviceModelKey** | **string** | The service model name | 
-**productTierKey** | **string** | The product tier name | 
+**serviceID** | **string** | Service ID | 
+**servicePlanID** | **string** | The service plan ID | 
+**hostClusterID** | **string** | The host cluster ID or key | 
+**primaryResourceKey** | **string** | The primary resource key to adopt. This is the top-level resource that will be managed by Omnistrate. | 
 
 ### Other Parameters
 
@@ -301,9 +299,9 @@ Name | Type | Description  | Notes
 
 
 
-
-
  **adoptResourceInstanceRequest2** | [**AdoptResourceInstanceRequest2**](AdoptResourceInstanceRequest2.md) |  | 
+ **servicePlanVersion** | **string** | The service plan version | 
+ **subscriptionID** | **string** | The subscription ID of the resource instance | 
 
 ### Return type
 
@@ -802,7 +800,7 @@ import (
 )
 
 func main() {
-	fleetCreateServicesOrchestrationRequest2 := *openapiclient.NewFleetCreateServicesOrchestrationRequest2("Eum suscipit quia nostrum modi sunt.") // FleetCreateServicesOrchestrationRequest2 | 
+	fleetCreateServicesOrchestrationRequest2 := *openapiclient.NewFleetCreateServicesOrchestrationRequest2("Itaque aut dicta sint illo blanditiis ut.") // FleetCreateServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -941,7 +939,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
-	createUpgradePathRequest2 := *openapiclient.NewCreateUpgradePathRequest2("1.0", "2.0", map[string][]string{"key": []string{"Hic dolorem id sequi alias."}}) // CreateUpgradePathRequest2 | 
+	createUpgradePathRequest2 := *openapiclient.NewCreateUpgradePathRequest2("1.0", "2.0", map[string][]string{"key": []string{"Velit vero earum quia deleniti praesentium iure."}}) // CreateUpgradePathRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3797,7 +3795,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	productTierVersion := "Voluptatem alias qui omnis labore est soluta." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Eaque rerum amet voluptatem ea consequatur." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Eum officiis et." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
 	subscriptionId := "Quisquam officiis occaecati rerum iusto atque itaque." // string | Subscription id of the instance to describe. (optional)
 	filter := "onlyCloudAccounts" // string | Filter to apply to the list of instances. (optional)
@@ -4400,7 +4398,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
 	upgradePathId := "up-12345678" // string | The upgrade path ID
-	manageUpgradePathLifecycleRequest2 := *openapiclient.NewManageUpgradePathLifecycleRequest2("Vel quo rem et totam.") // ManageUpgradePathLifecycleRequest2 | 
+	manageUpgradePathLifecycleRequest2 := *openapiclient.NewManageUpgradePathLifecycleRequest2("Minima veniam.") // ManageUpgradePathLifecycleRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -4474,7 +4472,7 @@ import (
 
 func main() {
 	id := "so-12345678" // string | The ID of the services orchestration
-	fleetModifyServicesOrchestrationRequest2 := *openapiclient.NewFleetModifyServicesOrchestrationRequest2("Et ea.") // FleetModifyServicesOrchestrationRequest2 | 
+	fleetModifyServicesOrchestrationRequest2 := *openapiclient.NewFleetModifyServicesOrchestrationRequest2("Sapiente est architecto voluptate.") // FleetModifyServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -5918,7 +5916,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	fleetUpdateSubscriptionsRequest2 := *openapiclient.NewFleetUpdateSubscriptionsRequest2([]string{"Ut quia quod inventore."}) // FleetUpdateSubscriptionsRequest2 | 
+	fleetUpdateSubscriptionsRequest2 := *openapiclient.NewFleetUpdateSubscriptionsRequest2([]string{"Rerum ratione nulla ut."}) // FleetUpdateSubscriptionsRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

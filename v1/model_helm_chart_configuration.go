@@ -26,12 +26,14 @@ type HelmChartConfiguration struct {
 	ChartRepoName string `json:"chartRepoName"`
 	// The chart repository URL of the Helm package
 	ChartRepoUrl string `json:"chartRepoUrl"`
-	// The values of the Helm package
+	// The values of the Helm package (mutually exclusive with layeredChartValues)
 	ChartValues map[string]interface{} `json:"chartValues,omitempty"`
 	// The chart version of the Helm package
 	ChartVersion string `json:"chartVersion"`
 	// The endpoints from the Helm Deployment to expose to the customer
 	EndpointConfiguration *map[string]Endpoint `json:"endpointConfiguration,omitempty"`
+	// Layered chart values configuration with conditional scoping (mutually exclusive with chartValues). Values are processed in order - later entries override earlier ones for the same keys.
+	LayeredChartValues []ChartValuesRef `json:"layeredChartValues,omitempty"`
 	// The password to authenticate with the registry
 	Password *string `json:"password,omitempty"`
 	RuntimeConfiguration *HelmRuntimeConfiguration `json:"runtimeConfiguration,omitempty"`
@@ -205,6 +207,29 @@ func (o *HelmChartConfiguration) SetEndpointConfiguration(v map[string]Endpoint)
 	o.EndpointConfiguration = &v
 }
 
+// GetLayeredChartValues returns the LayeredChartValues field value if set, zero value otherwise.
+func (o *HelmChartConfiguration) GetLayeredChartValues() []ChartValuesRef {
+	if o == nil || IsNil(o.LayeredChartValues) {
+		var ret []ChartValuesRef
+		return ret
+	}
+	return o.LayeredChartValues
+}
+
+// GetLayeredChartValuesOk returns a tuple with the LayeredChartValues field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HelmChartConfiguration) GetLayeredChartValuesOk() ([]ChartValuesRef, bool) {
+	if o == nil || IsNil(o.LayeredChartValues) {
+		return nil, false
+	}
+	return o.LayeredChartValues, true
+}
+
+// SetLayeredChartValues gets a reference to the given []ChartValuesRef and assigns it to the LayeredChartValues field.
+func (o *HelmChartConfiguration) SetLayeredChartValues(v []ChartValuesRef) {
+	o.LayeredChartValues = v
+}
+
 // GetPassword returns the Password field value if set, zero value otherwise.
 func (o *HelmChartConfiguration) GetPassword() string {
 	if o == nil || IsNil(o.Password) {
@@ -294,6 +319,9 @@ func (o HelmChartConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EndpointConfiguration) {
 		toSerialize["endpointConfiguration"] = o.EndpointConfiguration
 	}
+	if !IsNil(o.LayeredChartValues) {
+		toSerialize["layeredChartValues"] = o.LayeredChartValues
+	}
 	if !IsNil(o.Password) {
 		toSerialize["password"] = o.Password
 	}
@@ -355,6 +383,7 @@ func (o *HelmChartConfiguration) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "chartValues")
 		delete(additionalProperties, "chartVersion")
 		delete(additionalProperties, "endpointConfiguration")
+		delete(additionalProperties, "layeredChartValues")
 		delete(additionalProperties, "password")
 		delete(additionalProperties, "runtimeConfiguration")
 		delete(additionalProperties, "username")

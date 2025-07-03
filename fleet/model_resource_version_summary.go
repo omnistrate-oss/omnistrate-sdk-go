@@ -23,12 +23,16 @@ type ResourceVersionSummary struct {
 	Capabilities []ResourceCapability `json:"capabilities,omitempty"`
 	// Whether the resource is external.
 	ExternalResource *bool `json:"externalResource,omitempty"`
+	GenericResourceDeploymentConfiguration *GenericResourceDeploymentConfiguration `json:"genericResourceDeploymentConfiguration,omitempty"`
+	HelmDeploymentConfiguration *HelmDeploymentConfiguration `json:"helmDeploymentConfiguration,omitempty"`
+	KustomizeDeploymentConfiguration *KustomizeDeploymentConfiguration `json:"kustomizeDeploymentConfiguration,omitempty"`
 	// The latest version of the resource.
 	LatestVersion *string `json:"latestVersion,omitempty"`
 	// ID of a resource
 	ResourceId *string `json:"resourceId,omitempty"`
 	// The name of the resource.
 	ResourceName *string `json:"resourceName,omitempty"`
+	TerraformDeploymentConfiguration *TerraformDeploymentConfiguration `json:"terraformDeploymentConfiguration,omitempty"`
 	// The version of the resource deployed for the instance.
 	Version *string `json:"version,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -115,6 +119,102 @@ func (o *ResourceVersionSummary) HasExternalResource() bool {
 // SetExternalResource gets a reference to the given bool and assigns it to the ExternalResource field.
 func (o *ResourceVersionSummary) SetExternalResource(v bool) {
 	o.ExternalResource = &v
+}
+
+// GetGenericResourceDeploymentConfiguration returns the GenericResourceDeploymentConfiguration field value if set, zero value otherwise.
+func (o *ResourceVersionSummary) GetGenericResourceDeploymentConfiguration() GenericResourceDeploymentConfiguration {
+	if o == nil || IsNil(o.GenericResourceDeploymentConfiguration) {
+		var ret GenericResourceDeploymentConfiguration
+		return ret
+	}
+	return *o.GenericResourceDeploymentConfiguration
+}
+
+// GetGenericResourceDeploymentConfigurationOk returns a tuple with the GenericResourceDeploymentConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceVersionSummary) GetGenericResourceDeploymentConfigurationOk() (*GenericResourceDeploymentConfiguration, bool) {
+	if o == nil || IsNil(o.GenericResourceDeploymentConfiguration) {
+		return nil, false
+	}
+	return o.GenericResourceDeploymentConfiguration, true
+}
+
+// HasGenericResourceDeploymentConfiguration returns a boolean if a field has been set.
+func (o *ResourceVersionSummary) HasGenericResourceDeploymentConfiguration() bool {
+	if o != nil && !IsNil(o.GenericResourceDeploymentConfiguration) {
+		return true
+	}
+
+	return false
+}
+
+// SetGenericResourceDeploymentConfiguration gets a reference to the given GenericResourceDeploymentConfiguration and assigns it to the GenericResourceDeploymentConfiguration field.
+func (o *ResourceVersionSummary) SetGenericResourceDeploymentConfiguration(v GenericResourceDeploymentConfiguration) {
+	o.GenericResourceDeploymentConfiguration = &v
+}
+
+// GetHelmDeploymentConfiguration returns the HelmDeploymentConfiguration field value if set, zero value otherwise.
+func (o *ResourceVersionSummary) GetHelmDeploymentConfiguration() HelmDeploymentConfiguration {
+	if o == nil || IsNil(o.HelmDeploymentConfiguration) {
+		var ret HelmDeploymentConfiguration
+		return ret
+	}
+	return *o.HelmDeploymentConfiguration
+}
+
+// GetHelmDeploymentConfigurationOk returns a tuple with the HelmDeploymentConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceVersionSummary) GetHelmDeploymentConfigurationOk() (*HelmDeploymentConfiguration, bool) {
+	if o == nil || IsNil(o.HelmDeploymentConfiguration) {
+		return nil, false
+	}
+	return o.HelmDeploymentConfiguration, true
+}
+
+// HasHelmDeploymentConfiguration returns a boolean if a field has been set.
+func (o *ResourceVersionSummary) HasHelmDeploymentConfiguration() bool {
+	if o != nil && !IsNil(o.HelmDeploymentConfiguration) {
+		return true
+	}
+
+	return false
+}
+
+// SetHelmDeploymentConfiguration gets a reference to the given HelmDeploymentConfiguration and assigns it to the HelmDeploymentConfiguration field.
+func (o *ResourceVersionSummary) SetHelmDeploymentConfiguration(v HelmDeploymentConfiguration) {
+	o.HelmDeploymentConfiguration = &v
+}
+
+// GetKustomizeDeploymentConfiguration returns the KustomizeDeploymentConfiguration field value if set, zero value otherwise.
+func (o *ResourceVersionSummary) GetKustomizeDeploymentConfiguration() KustomizeDeploymentConfiguration {
+	if o == nil || IsNil(o.KustomizeDeploymentConfiguration) {
+		var ret KustomizeDeploymentConfiguration
+		return ret
+	}
+	return *o.KustomizeDeploymentConfiguration
+}
+
+// GetKustomizeDeploymentConfigurationOk returns a tuple with the KustomizeDeploymentConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceVersionSummary) GetKustomizeDeploymentConfigurationOk() (*KustomizeDeploymentConfiguration, bool) {
+	if o == nil || IsNil(o.KustomizeDeploymentConfiguration) {
+		return nil, false
+	}
+	return o.KustomizeDeploymentConfiguration, true
+}
+
+// HasKustomizeDeploymentConfiguration returns a boolean if a field has been set.
+func (o *ResourceVersionSummary) HasKustomizeDeploymentConfiguration() bool {
+	if o != nil && !IsNil(o.KustomizeDeploymentConfiguration) {
+		return true
+	}
+
+	return false
+}
+
+// SetKustomizeDeploymentConfiguration gets a reference to the given KustomizeDeploymentConfiguration and assigns it to the KustomizeDeploymentConfiguration field.
+func (o *ResourceVersionSummary) SetKustomizeDeploymentConfiguration(v KustomizeDeploymentConfiguration) {
+	o.KustomizeDeploymentConfiguration = &v
 }
 
 // GetLatestVersion returns the LatestVersion field value if set, zero value otherwise.
@@ -213,6 +313,38 @@ func (o *ResourceVersionSummary) SetResourceName(v string) {
 	o.ResourceName = &v
 }
 
+// GetTerraformDeploymentConfiguration returns the TerraformDeploymentConfiguration field value if set, zero value otherwise.
+func (o *ResourceVersionSummary) GetTerraformDeploymentConfiguration() TerraformDeploymentConfiguration {
+	if o == nil || IsNil(o.TerraformDeploymentConfiguration) {
+		var ret TerraformDeploymentConfiguration
+		return ret
+	}
+	return *o.TerraformDeploymentConfiguration
+}
+
+// GetTerraformDeploymentConfigurationOk returns a tuple with the TerraformDeploymentConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceVersionSummary) GetTerraformDeploymentConfigurationOk() (*TerraformDeploymentConfiguration, bool) {
+	if o == nil || IsNil(o.TerraformDeploymentConfiguration) {
+		return nil, false
+	}
+	return o.TerraformDeploymentConfiguration, true
+}
+
+// HasTerraformDeploymentConfiguration returns a boolean if a field has been set.
+func (o *ResourceVersionSummary) HasTerraformDeploymentConfiguration() bool {
+	if o != nil && !IsNil(o.TerraformDeploymentConfiguration) {
+		return true
+	}
+
+	return false
+}
+
+// SetTerraformDeploymentConfiguration gets a reference to the given TerraformDeploymentConfiguration and assigns it to the TerraformDeploymentConfiguration field.
+func (o *ResourceVersionSummary) SetTerraformDeploymentConfiguration(v TerraformDeploymentConfiguration) {
+	o.TerraformDeploymentConfiguration = &v
+}
+
 // GetVersion returns the Version field value if set, zero value otherwise.
 func (o *ResourceVersionSummary) GetVersion() string {
 	if o == nil || IsNil(o.Version) {
@@ -261,6 +393,15 @@ func (o ResourceVersionSummary) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ExternalResource) {
 		toSerialize["externalResource"] = o.ExternalResource
 	}
+	if !IsNil(o.GenericResourceDeploymentConfiguration) {
+		toSerialize["genericResourceDeploymentConfiguration"] = o.GenericResourceDeploymentConfiguration
+	}
+	if !IsNil(o.HelmDeploymentConfiguration) {
+		toSerialize["helmDeploymentConfiguration"] = o.HelmDeploymentConfiguration
+	}
+	if !IsNil(o.KustomizeDeploymentConfiguration) {
+		toSerialize["kustomizeDeploymentConfiguration"] = o.KustomizeDeploymentConfiguration
+	}
 	if !IsNil(o.LatestVersion) {
 		toSerialize["latestVersion"] = o.LatestVersion
 	}
@@ -269,6 +410,9 @@ func (o ResourceVersionSummary) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ResourceName) {
 		toSerialize["resourceName"] = o.ResourceName
+	}
+	if !IsNil(o.TerraformDeploymentConfiguration) {
+		toSerialize["terraformDeploymentConfiguration"] = o.TerraformDeploymentConfiguration
 	}
 	if !IsNil(o.Version) {
 		toSerialize["version"] = o.Version
@@ -297,9 +441,13 @@ func (o *ResourceVersionSummary) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "capabilities")
 		delete(additionalProperties, "externalResource")
+		delete(additionalProperties, "genericResourceDeploymentConfiguration")
+		delete(additionalProperties, "helmDeploymentConfiguration")
+		delete(additionalProperties, "kustomizeDeploymentConfiguration")
 		delete(additionalProperties, "latestVersion")
 		delete(additionalProperties, "resourceId")
 		delete(additionalProperties, "resourceName")
+		delete(additionalProperties, "terraformDeploymentConfiguration")
 		delete(additionalProperties, "version")
 		o.AdditionalProperties = additionalProperties
 	}

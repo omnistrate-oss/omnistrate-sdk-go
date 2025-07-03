@@ -20,32 +20,20 @@ var _ MappedNullable = &AdoptResourceInstanceRequest{}
 
 // AdoptResourceInstanceRequest struct for AdoptResourceInstanceRequest
 type AdoptResourceInstanceRequest struct {
-	// The cloud provider name
-	CloudProvider *string `json:"cloud_provider,omitempty"`
-	// Custom network for resource
-	CustomNetworkId *string `json:"custom_network_id,omitempty"`
-	// The external payer id to record which customer should pay for this resource instance. This will override the subscription level external payer id if set.
-	ExternalPayerId *string `json:"externalPayerId,omitempty"`
-	// The product tier name
-	ProductTierKey string `json:"productTierKey"`
-	// The product tier version
-	ProductTierVersion *string `json:"productTierVersion,omitempty"`
-	// The region code
-	Region *string `json:"region,omitempty"`
-	// The resource configuration
-	ResourceConfiguration map[string]interface{} `json:"resourceConfiguration,omitempty"`
-	// The service API version
-	ServiceAPIVersion string `json:"serviceAPIVersion"`
-	// The service environment name
-	ServiceEnvironmentKey string `json:"serviceEnvironmentKey"`
-	// The service name
-	ServiceKey string `json:"serviceKey"`
-	// The service model name
-	ServiceModelKey string `json:"serviceModelKey"`
-	// ID of a Service Provider
-	ServiceProviderId string `json:"serviceProviderId"`
+	// The host cluster ID or key
+	HostClusterID string `json:"hostClusterID"`
+	// The primary resource key to adopt. This is the top-level resource that will be managed by Omnistrate.
+	PrimaryResourceKey string `json:"primaryResourceKey"`
+	// The resource adoption configuration
+	ResourceAdoptionConfiguration *map[string]ResourceAdoptionConfiguration `json:"resourceAdoptionConfiguration,omitempty"`
+	// ID of a Service
+	ServiceID string `json:"serviceID"`
+	// ID of a Product Tier
+	ServicePlanID string `json:"servicePlanID"`
+	// The service plan version
+	ServicePlanVersion *string `json:"servicePlanVersion,omitempty"`
 	// ID of a Subscription
-	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	SubscriptionID *string `json:"subscriptionID,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -57,14 +45,12 @@ type _AdoptResourceInstanceRequest AdoptResourceInstanceRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAdoptResourceInstanceRequest(productTierKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceKey string, serviceModelKey string, serviceProviderId string, token string) *AdoptResourceInstanceRequest {
+func NewAdoptResourceInstanceRequest(hostClusterID string, primaryResourceKey string, serviceID string, servicePlanID string, token string) *AdoptResourceInstanceRequest {
 	this := AdoptResourceInstanceRequest{}
-	this.ProductTierKey = productTierKey
-	this.ServiceAPIVersion = serviceAPIVersion
-	this.ServiceEnvironmentKey = serviceEnvironmentKey
-	this.ServiceKey = serviceKey
-	this.ServiceModelKey = serviceModelKey
-	this.ServiceProviderId = serviceProviderId
+	this.HostClusterID = hostClusterID
+	this.PrimaryResourceKey = primaryResourceKey
+	this.ServiceID = serviceID
+	this.ServicePlanID = servicePlanID
 	this.Token = token
 	return &this
 }
@@ -77,372 +63,196 @@ func NewAdoptResourceInstanceRequestWithDefaults() *AdoptResourceInstanceRequest
 	return &this
 }
 
-// GetCloudProvider returns the CloudProvider field value if set, zero value otherwise.
-func (o *AdoptResourceInstanceRequest) GetCloudProvider() string {
-	if o == nil || IsNil(o.CloudProvider) {
+// GetHostClusterID returns the HostClusterID field value
+func (o *AdoptResourceInstanceRequest) GetHostClusterID() string {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CloudProvider
+
+	return o.HostClusterID
 }
 
-// GetCloudProviderOk returns a tuple with the CloudProvider field value if set, nil otherwise
+// GetHostClusterIDOk returns a tuple with the HostClusterID field value
 // and a boolean to check if the value has been set.
-func (o *AdoptResourceInstanceRequest) GetCloudProviderOk() (*string, bool) {
-	if o == nil || IsNil(o.CloudProvider) {
+func (o *AdoptResourceInstanceRequest) GetHostClusterIDOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CloudProvider, true
+	return &o.HostClusterID, true
 }
 
-// HasCloudProvider returns a boolean if a field has been set.
-func (o *AdoptResourceInstanceRequest) HasCloudProvider() bool {
-	if o != nil && !IsNil(o.CloudProvider) {
+// SetHostClusterID sets field value
+func (o *AdoptResourceInstanceRequest) SetHostClusterID(v string) {
+	o.HostClusterID = v
+}
+
+// GetPrimaryResourceKey returns the PrimaryResourceKey field value
+func (o *AdoptResourceInstanceRequest) GetPrimaryResourceKey() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.PrimaryResourceKey
+}
+
+// GetPrimaryResourceKeyOk returns a tuple with the PrimaryResourceKey field value
+// and a boolean to check if the value has been set.
+func (o *AdoptResourceInstanceRequest) GetPrimaryResourceKeyOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PrimaryResourceKey, true
+}
+
+// SetPrimaryResourceKey sets field value
+func (o *AdoptResourceInstanceRequest) SetPrimaryResourceKey(v string) {
+	o.PrimaryResourceKey = v
+}
+
+// GetResourceAdoptionConfiguration returns the ResourceAdoptionConfiguration field value if set, zero value otherwise.
+func (o *AdoptResourceInstanceRequest) GetResourceAdoptionConfiguration() map[string]ResourceAdoptionConfiguration {
+	if o == nil || IsNil(o.ResourceAdoptionConfiguration) {
+		var ret map[string]ResourceAdoptionConfiguration
+		return ret
+	}
+	return *o.ResourceAdoptionConfiguration
+}
+
+// GetResourceAdoptionConfigurationOk returns a tuple with the ResourceAdoptionConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AdoptResourceInstanceRequest) GetResourceAdoptionConfigurationOk() (*map[string]ResourceAdoptionConfiguration, bool) {
+	if o == nil || IsNil(o.ResourceAdoptionConfiguration) {
+		return nil, false
+	}
+	return o.ResourceAdoptionConfiguration, true
+}
+
+// HasResourceAdoptionConfiguration returns a boolean if a field has been set.
+func (o *AdoptResourceInstanceRequest) HasResourceAdoptionConfiguration() bool {
+	if o != nil && !IsNil(o.ResourceAdoptionConfiguration) {
 		return true
 	}
 
 	return false
 }
 
-// SetCloudProvider gets a reference to the given string and assigns it to the CloudProvider field.
-func (o *AdoptResourceInstanceRequest) SetCloudProvider(v string) {
-	o.CloudProvider = &v
+// SetResourceAdoptionConfiguration gets a reference to the given map[string]ResourceAdoptionConfiguration and assigns it to the ResourceAdoptionConfiguration field.
+func (o *AdoptResourceInstanceRequest) SetResourceAdoptionConfiguration(v map[string]ResourceAdoptionConfiguration) {
+	o.ResourceAdoptionConfiguration = &v
 }
 
-// GetCustomNetworkId returns the CustomNetworkId field value if set, zero value otherwise.
-func (o *AdoptResourceInstanceRequest) GetCustomNetworkId() string {
-	if o == nil || IsNil(o.CustomNetworkId) {
+// GetServiceID returns the ServiceID field value
+func (o *AdoptResourceInstanceRequest) GetServiceID() string {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CustomNetworkId
+
+	return o.ServiceID
 }
 
-// GetCustomNetworkIdOk returns a tuple with the CustomNetworkId field value if set, nil otherwise
+// GetServiceIDOk returns a tuple with the ServiceID field value
 // and a boolean to check if the value has been set.
-func (o *AdoptResourceInstanceRequest) GetCustomNetworkIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CustomNetworkId) {
+func (o *AdoptResourceInstanceRequest) GetServiceIDOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CustomNetworkId, true
+	return &o.ServiceID, true
 }
 
-// HasCustomNetworkId returns a boolean if a field has been set.
-func (o *AdoptResourceInstanceRequest) HasCustomNetworkId() bool {
-	if o != nil && !IsNil(o.CustomNetworkId) {
+// SetServiceID sets field value
+func (o *AdoptResourceInstanceRequest) SetServiceID(v string) {
+	o.ServiceID = v
+}
+
+// GetServicePlanID returns the ServicePlanID field value
+func (o *AdoptResourceInstanceRequest) GetServicePlanID() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ServicePlanID
+}
+
+// GetServicePlanIDOk returns a tuple with the ServicePlanID field value
+// and a boolean to check if the value has been set.
+func (o *AdoptResourceInstanceRequest) GetServicePlanIDOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ServicePlanID, true
+}
+
+// SetServicePlanID sets field value
+func (o *AdoptResourceInstanceRequest) SetServicePlanID(v string) {
+	o.ServicePlanID = v
+}
+
+// GetServicePlanVersion returns the ServicePlanVersion field value if set, zero value otherwise.
+func (o *AdoptResourceInstanceRequest) GetServicePlanVersion() string {
+	if o == nil || IsNil(o.ServicePlanVersion) {
+		var ret string
+		return ret
+	}
+	return *o.ServicePlanVersion
+}
+
+// GetServicePlanVersionOk returns a tuple with the ServicePlanVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AdoptResourceInstanceRequest) GetServicePlanVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.ServicePlanVersion) {
+		return nil, false
+	}
+	return o.ServicePlanVersion, true
+}
+
+// HasServicePlanVersion returns a boolean if a field has been set.
+func (o *AdoptResourceInstanceRequest) HasServicePlanVersion() bool {
+	if o != nil && !IsNil(o.ServicePlanVersion) {
 		return true
 	}
 
 	return false
 }
 
-// SetCustomNetworkId gets a reference to the given string and assigns it to the CustomNetworkId field.
-func (o *AdoptResourceInstanceRequest) SetCustomNetworkId(v string) {
-	o.CustomNetworkId = &v
+// SetServicePlanVersion gets a reference to the given string and assigns it to the ServicePlanVersion field.
+func (o *AdoptResourceInstanceRequest) SetServicePlanVersion(v string) {
+	o.ServicePlanVersion = &v
 }
 
-// GetExternalPayerId returns the ExternalPayerId field value if set, zero value otherwise.
-func (o *AdoptResourceInstanceRequest) GetExternalPayerId() string {
-	if o == nil || IsNil(o.ExternalPayerId) {
+// GetSubscriptionID returns the SubscriptionID field value if set, zero value otherwise.
+func (o *AdoptResourceInstanceRequest) GetSubscriptionID() string {
+	if o == nil || IsNil(o.SubscriptionID) {
 		var ret string
 		return ret
 	}
-	return *o.ExternalPayerId
+	return *o.SubscriptionID
 }
 
-// GetExternalPayerIdOk returns a tuple with the ExternalPayerId field value if set, nil otherwise
+// GetSubscriptionIDOk returns a tuple with the SubscriptionID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AdoptResourceInstanceRequest) GetExternalPayerIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ExternalPayerId) {
+func (o *AdoptResourceInstanceRequest) GetSubscriptionIDOk() (*string, bool) {
+	if o == nil || IsNil(o.SubscriptionID) {
 		return nil, false
 	}
-	return o.ExternalPayerId, true
+	return o.SubscriptionID, true
 }
 
-// HasExternalPayerId returns a boolean if a field has been set.
-func (o *AdoptResourceInstanceRequest) HasExternalPayerId() bool {
-	if o != nil && !IsNil(o.ExternalPayerId) {
+// HasSubscriptionID returns a boolean if a field has been set.
+func (o *AdoptResourceInstanceRequest) HasSubscriptionID() bool {
+	if o != nil && !IsNil(o.SubscriptionID) {
 		return true
 	}
 
 	return false
 }
 
-// SetExternalPayerId gets a reference to the given string and assigns it to the ExternalPayerId field.
-func (o *AdoptResourceInstanceRequest) SetExternalPayerId(v string) {
-	o.ExternalPayerId = &v
-}
-
-// GetProductTierKey returns the ProductTierKey field value
-func (o *AdoptResourceInstanceRequest) GetProductTierKey() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ProductTierKey
-}
-
-// GetProductTierKeyOk returns a tuple with the ProductTierKey field value
-// and a boolean to check if the value has been set.
-func (o *AdoptResourceInstanceRequest) GetProductTierKeyOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ProductTierKey, true
-}
-
-// SetProductTierKey sets field value
-func (o *AdoptResourceInstanceRequest) SetProductTierKey(v string) {
-	o.ProductTierKey = v
-}
-
-// GetProductTierVersion returns the ProductTierVersion field value if set, zero value otherwise.
-func (o *AdoptResourceInstanceRequest) GetProductTierVersion() string {
-	if o == nil || IsNil(o.ProductTierVersion) {
-		var ret string
-		return ret
-	}
-	return *o.ProductTierVersion
-}
-
-// GetProductTierVersionOk returns a tuple with the ProductTierVersion field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AdoptResourceInstanceRequest) GetProductTierVersionOk() (*string, bool) {
-	if o == nil || IsNil(o.ProductTierVersion) {
-		return nil, false
-	}
-	return o.ProductTierVersion, true
-}
-
-// HasProductTierVersion returns a boolean if a field has been set.
-func (o *AdoptResourceInstanceRequest) HasProductTierVersion() bool {
-	if o != nil && !IsNil(o.ProductTierVersion) {
-		return true
-	}
-
-	return false
-}
-
-// SetProductTierVersion gets a reference to the given string and assigns it to the ProductTierVersion field.
-func (o *AdoptResourceInstanceRequest) SetProductTierVersion(v string) {
-	o.ProductTierVersion = &v
-}
-
-// GetRegion returns the Region field value if set, zero value otherwise.
-func (o *AdoptResourceInstanceRequest) GetRegion() string {
-	if o == nil || IsNil(o.Region) {
-		var ret string
-		return ret
-	}
-	return *o.Region
-}
-
-// GetRegionOk returns a tuple with the Region field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AdoptResourceInstanceRequest) GetRegionOk() (*string, bool) {
-	if o == nil || IsNil(o.Region) {
-		return nil, false
-	}
-	return o.Region, true
-}
-
-// HasRegion returns a boolean if a field has been set.
-func (o *AdoptResourceInstanceRequest) HasRegion() bool {
-	if o != nil && !IsNil(o.Region) {
-		return true
-	}
-
-	return false
-}
-
-// SetRegion gets a reference to the given string and assigns it to the Region field.
-func (o *AdoptResourceInstanceRequest) SetRegion(v string) {
-	o.Region = &v
-}
-
-// GetResourceConfiguration returns the ResourceConfiguration field value if set, zero value otherwise.
-func (o *AdoptResourceInstanceRequest) GetResourceConfiguration() map[string]interface{} {
-	if o == nil || IsNil(o.ResourceConfiguration) {
-		var ret map[string]interface{}
-		return ret
-	}
-	return o.ResourceConfiguration
-}
-
-// GetResourceConfigurationOk returns a tuple with the ResourceConfiguration field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AdoptResourceInstanceRequest) GetResourceConfigurationOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.ResourceConfiguration) {
-		return map[string]interface{}{}, false
-	}
-	return o.ResourceConfiguration, true
-}
-
-// HasResourceConfiguration returns a boolean if a field has been set.
-func (o *AdoptResourceInstanceRequest) HasResourceConfiguration() bool {
-	if o != nil && !IsNil(o.ResourceConfiguration) {
-		return true
-	}
-
-	return false
-}
-
-// SetResourceConfiguration gets a reference to the given map[string]interface{} and assigns it to the ResourceConfiguration field.
-func (o *AdoptResourceInstanceRequest) SetResourceConfiguration(v map[string]interface{}) {
-	o.ResourceConfiguration = v
-}
-
-// GetServiceAPIVersion returns the ServiceAPIVersion field value
-func (o *AdoptResourceInstanceRequest) GetServiceAPIVersion() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ServiceAPIVersion
-}
-
-// GetServiceAPIVersionOk returns a tuple with the ServiceAPIVersion field value
-// and a boolean to check if the value has been set.
-func (o *AdoptResourceInstanceRequest) GetServiceAPIVersionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ServiceAPIVersion, true
-}
-
-// SetServiceAPIVersion sets field value
-func (o *AdoptResourceInstanceRequest) SetServiceAPIVersion(v string) {
-	o.ServiceAPIVersion = v
-}
-
-// GetServiceEnvironmentKey returns the ServiceEnvironmentKey field value
-func (o *AdoptResourceInstanceRequest) GetServiceEnvironmentKey() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ServiceEnvironmentKey
-}
-
-// GetServiceEnvironmentKeyOk returns a tuple with the ServiceEnvironmentKey field value
-// and a boolean to check if the value has been set.
-func (o *AdoptResourceInstanceRequest) GetServiceEnvironmentKeyOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ServiceEnvironmentKey, true
-}
-
-// SetServiceEnvironmentKey sets field value
-func (o *AdoptResourceInstanceRequest) SetServiceEnvironmentKey(v string) {
-	o.ServiceEnvironmentKey = v
-}
-
-// GetServiceKey returns the ServiceKey field value
-func (o *AdoptResourceInstanceRequest) GetServiceKey() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ServiceKey
-}
-
-// GetServiceKeyOk returns a tuple with the ServiceKey field value
-// and a boolean to check if the value has been set.
-func (o *AdoptResourceInstanceRequest) GetServiceKeyOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ServiceKey, true
-}
-
-// SetServiceKey sets field value
-func (o *AdoptResourceInstanceRequest) SetServiceKey(v string) {
-	o.ServiceKey = v
-}
-
-// GetServiceModelKey returns the ServiceModelKey field value
-func (o *AdoptResourceInstanceRequest) GetServiceModelKey() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ServiceModelKey
-}
-
-// GetServiceModelKeyOk returns a tuple with the ServiceModelKey field value
-// and a boolean to check if the value has been set.
-func (o *AdoptResourceInstanceRequest) GetServiceModelKeyOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ServiceModelKey, true
-}
-
-// SetServiceModelKey sets field value
-func (o *AdoptResourceInstanceRequest) SetServiceModelKey(v string) {
-	o.ServiceModelKey = v
-}
-
-// GetServiceProviderId returns the ServiceProviderId field value
-func (o *AdoptResourceInstanceRequest) GetServiceProviderId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ServiceProviderId
-}
-
-// GetServiceProviderIdOk returns a tuple with the ServiceProviderId field value
-// and a boolean to check if the value has been set.
-func (o *AdoptResourceInstanceRequest) GetServiceProviderIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ServiceProviderId, true
-}
-
-// SetServiceProviderId sets field value
-func (o *AdoptResourceInstanceRequest) SetServiceProviderId(v string) {
-	o.ServiceProviderId = v
-}
-
-// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
-func (o *AdoptResourceInstanceRequest) GetSubscriptionId() string {
-	if o == nil || IsNil(o.SubscriptionId) {
-		var ret string
-		return ret
-	}
-	return *o.SubscriptionId
-}
-
-// GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AdoptResourceInstanceRequest) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SubscriptionId) {
-		return nil, false
-	}
-	return o.SubscriptionId, true
-}
-
-// HasSubscriptionId returns a boolean if a field has been set.
-func (o *AdoptResourceInstanceRequest) HasSubscriptionId() bool {
-	if o != nil && !IsNil(o.SubscriptionId) {
-		return true
-	}
-
-	return false
-}
-
-// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
-func (o *AdoptResourceInstanceRequest) SetSubscriptionId(v string) {
-	o.SubscriptionId = &v
+// SetSubscriptionID gets a reference to the given string and assigns it to the SubscriptionID field.
+func (o *AdoptResourceInstanceRequest) SetSubscriptionID(v string) {
+	o.SubscriptionID = &v
 }
 
 // GetToken returns the Token field value
@@ -479,32 +289,18 @@ func (o AdoptResourceInstanceRequest) MarshalJSON() ([]byte, error) {
 
 func (o AdoptResourceInstanceRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.CloudProvider) {
-		toSerialize["cloud_provider"] = o.CloudProvider
+	toSerialize["hostClusterID"] = o.HostClusterID
+	toSerialize["primaryResourceKey"] = o.PrimaryResourceKey
+	if !IsNil(o.ResourceAdoptionConfiguration) {
+		toSerialize["resourceAdoptionConfiguration"] = o.ResourceAdoptionConfiguration
 	}
-	if !IsNil(o.CustomNetworkId) {
-		toSerialize["custom_network_id"] = o.CustomNetworkId
+	toSerialize["serviceID"] = o.ServiceID
+	toSerialize["servicePlanID"] = o.ServicePlanID
+	if !IsNil(o.ServicePlanVersion) {
+		toSerialize["servicePlanVersion"] = o.ServicePlanVersion
 	}
-	if !IsNil(o.ExternalPayerId) {
-		toSerialize["externalPayerId"] = o.ExternalPayerId
-	}
-	toSerialize["productTierKey"] = o.ProductTierKey
-	if !IsNil(o.ProductTierVersion) {
-		toSerialize["productTierVersion"] = o.ProductTierVersion
-	}
-	if !IsNil(o.Region) {
-		toSerialize["region"] = o.Region
-	}
-	if !IsNil(o.ResourceConfiguration) {
-		toSerialize["resourceConfiguration"] = o.ResourceConfiguration
-	}
-	toSerialize["serviceAPIVersion"] = o.ServiceAPIVersion
-	toSerialize["serviceEnvironmentKey"] = o.ServiceEnvironmentKey
-	toSerialize["serviceKey"] = o.ServiceKey
-	toSerialize["serviceModelKey"] = o.ServiceModelKey
-	toSerialize["serviceProviderId"] = o.ServiceProviderId
-	if !IsNil(o.SubscriptionId) {
-		toSerialize["subscriptionId"] = o.SubscriptionId
+	if !IsNil(o.SubscriptionID) {
+		toSerialize["subscriptionID"] = o.SubscriptionID
 	}
 	toSerialize["token"] = o.Token
 
@@ -520,12 +316,10 @@ func (o *AdoptResourceInstanceRequest) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"productTierKey",
-		"serviceAPIVersion",
-		"serviceEnvironmentKey",
-		"serviceKey",
-		"serviceModelKey",
-		"serviceProviderId",
+		"hostClusterID",
+		"primaryResourceKey",
+		"serviceID",
+		"servicePlanID",
 		"token",
 	}
 
@@ -556,19 +350,13 @@ func (o *AdoptResourceInstanceRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "cloud_provider")
-		delete(additionalProperties, "custom_network_id")
-		delete(additionalProperties, "externalPayerId")
-		delete(additionalProperties, "productTierKey")
-		delete(additionalProperties, "productTierVersion")
-		delete(additionalProperties, "region")
-		delete(additionalProperties, "resourceConfiguration")
-		delete(additionalProperties, "serviceAPIVersion")
-		delete(additionalProperties, "serviceEnvironmentKey")
-		delete(additionalProperties, "serviceKey")
-		delete(additionalProperties, "serviceModelKey")
-		delete(additionalProperties, "serviceProviderId")
-		delete(additionalProperties, "subscriptionId")
+		delete(additionalProperties, "hostClusterID")
+		delete(additionalProperties, "primaryResourceKey")
+		delete(additionalProperties, "resourceAdoptionConfiguration")
+		delete(additionalProperties, "serviceID")
+		delete(additionalProperties, "servicePlanID")
+		delete(additionalProperties, "servicePlanVersion")
+		delete(additionalProperties, "subscriptionID")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

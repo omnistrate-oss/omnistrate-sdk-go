@@ -22,6 +22,8 @@ var _ MappedNullable = &DescribeSubscriptionResult{}
 type DescribeSubscriptionResult struct {
 	// ID of an Org
 	AccountConfigIdentityId string `json:"accountConfigIdentityId"`
+	// Whether to allow creating instances when payment is not configured.
+	AllowCreatesWhenPaymentNotConfigured *bool `json:"allowCreatesWhenPaymentNotConfigured,omitempty"`
 	// List of cloud provider names
 	CloudProviderNames []string `json:"cloudProviderNames"`
 	// The time that this subscription was created
@@ -30,6 +32,8 @@ type DescribeSubscriptionResult struct {
 	DefaultSubscription bool `json:"defaultSubscription"`
 	// ID of a Subscription
 	Id string `json:"id"`
+	// The maximum number of instances that can be created for this subscription.
+	MaxNumberOfInstances *int64 `json:"maxNumberOfInstances,omitempty"`
 	// Return true if the required payment method is configured for this subscription or no payment method is required. False if the subscription requires a payment method but it is not configured.
 	PaymentMethodConfigured *bool `json:"paymentMethodConfigured,omitempty"`
 	// ID of a Product Tier
@@ -114,6 +118,38 @@ func (o *DescribeSubscriptionResult) GetAccountConfigIdentityIdOk() (*string, bo
 // SetAccountConfigIdentityId sets field value
 func (o *DescribeSubscriptionResult) SetAccountConfigIdentityId(v string) {
 	o.AccountConfigIdentityId = v
+}
+
+// GetAllowCreatesWhenPaymentNotConfigured returns the AllowCreatesWhenPaymentNotConfigured field value if set, zero value otherwise.
+func (o *DescribeSubscriptionResult) GetAllowCreatesWhenPaymentNotConfigured() bool {
+	if o == nil || IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
+		var ret bool
+		return ret
+	}
+	return *o.AllowCreatesWhenPaymentNotConfigured
+}
+
+// GetAllowCreatesWhenPaymentNotConfiguredOk returns a tuple with the AllowCreatesWhenPaymentNotConfigured field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeSubscriptionResult) GetAllowCreatesWhenPaymentNotConfiguredOk() (*bool, bool) {
+	if o == nil || IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
+		return nil, false
+	}
+	return o.AllowCreatesWhenPaymentNotConfigured, true
+}
+
+// HasAllowCreatesWhenPaymentNotConfigured returns a boolean if a field has been set.
+func (o *DescribeSubscriptionResult) HasAllowCreatesWhenPaymentNotConfigured() bool {
+	if o != nil && !IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
+		return true
+	}
+
+	return false
+}
+
+// SetAllowCreatesWhenPaymentNotConfigured gets a reference to the given bool and assigns it to the AllowCreatesWhenPaymentNotConfigured field.
+func (o *DescribeSubscriptionResult) SetAllowCreatesWhenPaymentNotConfigured(v bool) {
+	o.AllowCreatesWhenPaymentNotConfigured = &v
 }
 
 // GetCloudProviderNames returns the CloudProviderNames field value
@@ -210,6 +246,38 @@ func (o *DescribeSubscriptionResult) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *DescribeSubscriptionResult) SetId(v string) {
 	o.Id = v
+}
+
+// GetMaxNumberOfInstances returns the MaxNumberOfInstances field value if set, zero value otherwise.
+func (o *DescribeSubscriptionResult) GetMaxNumberOfInstances() int64 {
+	if o == nil || IsNil(o.MaxNumberOfInstances) {
+		var ret int64
+		return ret
+	}
+	return *o.MaxNumberOfInstances
+}
+
+// GetMaxNumberOfInstancesOk returns a tuple with the MaxNumberOfInstances field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeSubscriptionResult) GetMaxNumberOfInstancesOk() (*int64, bool) {
+	if o == nil || IsNil(o.MaxNumberOfInstances) {
+		return nil, false
+	}
+	return o.MaxNumberOfInstances, true
+}
+
+// HasMaxNumberOfInstances returns a boolean if a field has been set.
+func (o *DescribeSubscriptionResult) HasMaxNumberOfInstances() bool {
+	if o != nil && !IsNil(o.MaxNumberOfInstances) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxNumberOfInstances gets a reference to the given int64 and assigns it to the MaxNumberOfInstances field.
+func (o *DescribeSubscriptionResult) SetMaxNumberOfInstances(v int64) {
+	o.MaxNumberOfInstances = &v
 }
 
 // GetPaymentMethodConfigured returns the PaymentMethodConfigured field value if set, zero value otherwise.
@@ -519,10 +587,16 @@ func (o DescribeSubscriptionResult) MarshalJSON() ([]byte, error) {
 func (o DescribeSubscriptionResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["accountConfigIdentityId"] = o.AccountConfigIdentityId
+	if !IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
+		toSerialize["allowCreatesWhenPaymentNotConfigured"] = o.AllowCreatesWhenPaymentNotConfigured
+	}
 	toSerialize["cloudProviderNames"] = o.CloudProviderNames
 	toSerialize["createdAt"] = o.CreatedAt
 	toSerialize["defaultSubscription"] = o.DefaultSubscription
 	toSerialize["id"] = o.Id
+	if !IsNil(o.MaxNumberOfInstances) {
+		toSerialize["maxNumberOfInstances"] = o.MaxNumberOfInstances
+	}
 	if !IsNil(o.PaymentMethodConfigured) {
 		toSerialize["paymentMethodConfigured"] = o.PaymentMethodConfigured
 	}
@@ -596,10 +670,12 @@ func (o *DescribeSubscriptionResult) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "accountConfigIdentityId")
+		delete(additionalProperties, "allowCreatesWhenPaymentNotConfigured")
 		delete(additionalProperties, "cloudProviderNames")
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "defaultSubscription")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "maxNumberOfInstances")
 		delete(additionalProperties, "paymentMethodConfigured")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "productTierName")

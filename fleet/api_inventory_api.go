@@ -56,15 +56,13 @@ type InventoryApiAPI interface {
 	InventoryApiAdoptResourceInstance AdoptResourceInstance inventory-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param serviceProviderId The service provider ID
-	@param serviceKey The service name
-	@param serviceAPIVersion The service API version
-	@param serviceEnvironmentKey The service environment name
-	@param serviceModelKey The service model name
-	@param productTierKey The product tier name
+	@param serviceID Service ID
+	@param servicePlanID The service plan ID
+	@param hostClusterID The host cluster ID or key
+	@param primaryResourceKey The primary resource key to adopt. This is the top-level resource that will be managed by Omnistrate.
 	@return ApiInventoryApiAdoptResourceInstanceRequest
 	*/
-	InventoryApiAdoptResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string) ApiInventoryApiAdoptResourceInstanceRequest
+	InventoryApiAdoptResourceInstance(ctx context.Context, serviceID string, servicePlanID string, hostClusterID string, primaryResourceKey string) ApiInventoryApiAdoptResourceInstanceRequest
 
 	// InventoryApiAdoptResourceInstanceExecute executes the request
 	//  @return FleetCreateResourceInstanceResult
@@ -1521,17 +1519,29 @@ func (a *InventoryApiAPIService) InventoryApiAddCustomDNSToResourceInstanceExecu
 type ApiInventoryApiAdoptResourceInstanceRequest struct {
 	ctx context.Context
 	ApiService InventoryApiAPI
-	serviceProviderId string
-	serviceKey string
-	serviceAPIVersion string
-	serviceEnvironmentKey string
-	serviceModelKey string
-	productTierKey string
+	serviceID string
+	servicePlanID string
+	hostClusterID string
+	primaryResourceKey string
 	adoptResourceInstanceRequest2 *AdoptResourceInstanceRequest2
+	servicePlanVersion *string
+	subscriptionID *string
 }
 
 func (r ApiInventoryApiAdoptResourceInstanceRequest) AdoptResourceInstanceRequest2(adoptResourceInstanceRequest2 AdoptResourceInstanceRequest2) ApiInventoryApiAdoptResourceInstanceRequest {
 	r.adoptResourceInstanceRequest2 = &adoptResourceInstanceRequest2
+	return r
+}
+
+// The service plan version
+func (r ApiInventoryApiAdoptResourceInstanceRequest) ServicePlanVersion(servicePlanVersion string) ApiInventoryApiAdoptResourceInstanceRequest {
+	r.servicePlanVersion = &servicePlanVersion
+	return r
+}
+
+// The subscription ID of the resource instance
+func (r ApiInventoryApiAdoptResourceInstanceRequest) SubscriptionID(subscriptionID string) ApiInventoryApiAdoptResourceInstanceRequest {
+	r.subscriptionID = &subscriptionID
 	return r
 }
 
@@ -1543,24 +1553,20 @@ func (r ApiInventoryApiAdoptResourceInstanceRequest) Execute() (*FleetCreateReso
 InventoryApiAdoptResourceInstance AdoptResourceInstance inventory-api
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceProviderId The service provider ID
- @param serviceKey The service name
- @param serviceAPIVersion The service API version
- @param serviceEnvironmentKey The service environment name
- @param serviceModelKey The service model name
- @param productTierKey The product tier name
+ @param serviceID Service ID
+ @param servicePlanID The service plan ID
+ @param hostClusterID The host cluster ID or key
+ @param primaryResourceKey The primary resource key to adopt. This is the top-level resource that will be managed by Omnistrate.
  @return ApiInventoryApiAdoptResourceInstanceRequest
 */
-func (a *InventoryApiAPIService) InventoryApiAdoptResourceInstance(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string) ApiInventoryApiAdoptResourceInstanceRequest {
+func (a *InventoryApiAPIService) InventoryApiAdoptResourceInstance(ctx context.Context, serviceID string, servicePlanID string, hostClusterID string, primaryResourceKey string) ApiInventoryApiAdoptResourceInstanceRequest {
 	return ApiInventoryApiAdoptResourceInstanceRequest{
 		ApiService: a,
 		ctx: ctx,
-		serviceProviderId: serviceProviderId,
-		serviceKey: serviceKey,
-		serviceAPIVersion: serviceAPIVersion,
-		serviceEnvironmentKey: serviceEnvironmentKey,
-		serviceModelKey: serviceModelKey,
-		productTierKey: productTierKey,
+		serviceID: serviceID,
+		servicePlanID: servicePlanID,
+		hostClusterID: hostClusterID,
+		primaryResourceKey: primaryResourceKey,
 	}
 }
 
@@ -1579,13 +1585,11 @@ func (a *InventoryApiAPIService) InventoryApiAdoptResourceInstanceExecute(r ApiI
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2022-09-01-00/fleet/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/adopt"
-	localVarPath = strings.Replace(localVarPath, "{"+"serviceProviderId"+"}", url.PathEscape(parameterValueToString(r.serviceProviderId, "serviceProviderId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"serviceKey"+"}", url.PathEscape(parameterValueToString(r.serviceKey, "serviceKey")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"serviceAPIVersion"+"}", url.PathEscape(parameterValueToString(r.serviceAPIVersion, "serviceAPIVersion")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"serviceEnvironmentKey"+"}", url.PathEscape(parameterValueToString(r.serviceEnvironmentKey, "serviceEnvironmentKey")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"serviceModelKey"+"}", url.PathEscape(parameterValueToString(r.serviceModelKey, "serviceModelKey")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"productTierKey"+"}", url.PathEscape(parameterValueToString(r.productTierKey, "productTierKey")), -1)
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/resource-instance/{serviceID}/{servicePlanID}/{hostClusterID}/{primaryResourceKey}/adopt"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceID"+"}", url.PathEscape(parameterValueToString(r.serviceID, "serviceID")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"servicePlanID"+"}", url.PathEscape(parameterValueToString(r.servicePlanID, "servicePlanID")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"hostClusterID"+"}", url.PathEscape(parameterValueToString(r.hostClusterID, "hostClusterID")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"primaryResourceKey"+"}", url.PathEscape(parameterValueToString(r.primaryResourceKey, "primaryResourceKey")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1594,6 +1598,12 @@ func (a *InventoryApiAPIService) InventoryApiAdoptResourceInstanceExecute(r ApiI
 		return localVarReturnValue, nil, reportError("adoptResourceInstanceRequest2 is required and must be specified")
 	}
 
+	if r.servicePlanVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "servicePlanVersion", r.servicePlanVersion, "form", "")
+	}
+	if r.subscriptionID != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "subscriptionID", r.subscriptionID, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
