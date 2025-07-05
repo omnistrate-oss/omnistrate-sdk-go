@@ -934,6 +934,22 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test InventoryApiAPIService InventoryApiOneOffPatchResourceInstance", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var environmentId string
+		var instanceId string
+
+		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiOneOffPatchResourceInstance(context.Background(), serviceId, environmentId, instanceId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test InventoryApiAPIService InventoryApiRemoveCapacityFromResourceInstance", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
