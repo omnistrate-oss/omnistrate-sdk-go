@@ -11417,6 +11417,493 @@ paths:
       summary: ListLinkedInstances inventory-api
       tags:
       - inventory-api
+  /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/patch:
+    patch:
+      operationId: inventory-api#OneOffPatchResourceInstance
+      parameters:
+      - description: The service ID this workflow belongs to.
+        example: s-12345678
+        explode: false
+        in: path
+        name: serviceId
+        required: true
+        schema:
+          description: ID of a Service
+          example: s-123456
+          type: string
+        style: simple
+      - description: The service environment ID this workflow belongs to.
+        example: se-12345678
+        explode: false
+        in: path
+        name: environmentId
+        required: true
+        schema:
+          description: ID of a Service Environment
+          example: se-123456
+          type: string
+        style: simple
+      - description: The resource instance ID.
+        example: instance-12345678
+        explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          description: ID of a Resource Instance
+          example: instance-12345678
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            example:
+              resourceId: r-12345678
+              resourceOverrideConfiguration:
+                mysql:
+                  helmChartValues:
+                    image:
+                      repository: mysql
+                      tag: "8.0"
+                    replicaCount: 3
+                    service:
+                      type: LoadBalancer
+                redis:
+                  helmChartValues:
+                    image:
+                      repository: redis
+                      tag: "6.0"
+                    replicaCount: 2
+              targetTierVersion: "2.0"
+            schema:
+              $ref: '#/components/schemas/OneOffPatchResourceInstanceRequest2'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                adopted: true
+                awsAccountID: "123456789012"
+                azureSubscriptionID: 0fa05079-dd73-4b88-babc-05537817604a
+                cloudProvider: aws
+                consumptionResourceInstanceResult:
+                  active: true
+                  autoscalingEnabled: true
+                  awsAccountID: "123456789012"
+                  azureSubscriptionID: 0fa05079-dd73-4b88-babc-05537817604a
+                  backupStatus:
+                    backupPeriodInHours: 2
+                    backupRetentionInDays: 7
+                    earliestRestoreTime: 2021-09-01T00:00:00Z
+                    lastBackupTime: 2021-09-01T00:00:00Z
+                  cloud_provider: aws
+                  created_at: 2023-01-10T00:00:00Z
+                  createdByUserId: user-12345678
+                  createdByUserName: John Doe
+                  currentReplicas: "2"
+                  customNetworkDetail:
+                    cidr: 10.177.0.0/16
+                    id: n-12345678
+                    name: Prod us-east-1
+                  detailedNetworkTopology:
+                    r-abcd1234:
+                      allowedIPRanges:
+                      - 0.0.0.0/0
+                      clusterEndpoint: primary.instance-abcd1234.us-east-2.aws.omnistrate.cloud
+                      clusterPorts:
+                      - 3306
+                      isJob: false
+                      jobMetrics:
+                      - additionalData:
+                          exitCode: 0
+                          status: Succeeded
+                        endTime: 2023-01-01T10:05:00Z
+                        metricType: cpu_core_seconds
+                        startTime: 2023-01-01T10:00:00Z
+                        value: 120.5
+                      - additionalData:
+                          peakMemoryUsage: 512MB
+                        endTime: 2023-01-01T10:05:00Z
+                        metricType: memory_mb_seconds
+                        startTime: 2023-01-01T10:00:00Z
+                        value: 2560
+                      main: true
+                      networkingType: PUBLIC
+                      nodes:
+                      - availabilityZone: us-east-2a
+                        endpoint: primary-0.instance-abcd1234.us-east-2.aws.omnistrate.cloud
+                        healthStatus: healthy
+                        id: primary-0
+                        ports:
+                        - 3306
+                        status: RUNNING
+                      privateNetworkCIDR: 10.0.0.2/24
+                      privateNetworkID: n-1234abcd
+                      publiclyAccessible: true
+                      resourceKey: primary
+                      resourceName: Primary MySQL Instance
+                  externalPayerId: external-payer-id-1234
+                  gcpProjectID: my-project
+                  highAvailability: true
+                  id: instance-abcd1234
+                  instanceLoadStatus: Aliquid minus asperiores.
+                  kubernetesDashboardEndpoint:
+                    dashboardEndpoint: https://kubernetes-dashboard.hc-12345678.region.cloudprovider.f2e0a955bb84.cloud/#/pod?namespace=instance-abcdefgh
+                    deploymentCellID: hc-12345678
+                  last_modified_at: 2023-01-20T00:00:00Z
+                  maintenanceTasks:
+                    Quibusdam dignissimos aperiam perspiciatis.: Adipisci voluptatem
+                      amet quibusdam alias modi.
+                    Quidem inventore porro.: Sint unde placeat ex enim.
+                  maxReplicas: "1"
+                  minReplicas: "1"
+                  network_type: PUBLIC|INTERNAL
+                  productTierFeatures:
+                    LOGS:
+                      auth:
+                        password: px3c4d5f6g7h8i
+                        username: abcd1234
+                      enabled: true
+                      websocketBaseUrl: wss://r-injectedobserve.instance-abcdefgh.us-east-2.aws.omnistrate.cloud/logs
+                    METRICS:
+                      enabled: false
+                  region: us-east-1
+                  resourceID: r-abcd1234
+                  result_params:
+                    param1: value1
+                    param2: value2
+                  serverlessEnabled: true
+                  status: RUNNING
+                  subscriptionId: sub-abcd1234
+                  subscriptionLicense:
+                    certificateBase64: public-cert
+                    expirationDate: 2024-01-01T10:00:00Z
+                    licenseBase64: license-file
+                  subscriptionStatus: ACTIVE
+                defaultSubscription: true
+                deploymentCellID: hc-12345678
+                environmentId: se-12345678
+                gcpProjectID: my-project
+                input_params:
+                  param1: value1
+                  param2: value2
+                instanceDebugCommands:
+                - aws eks update-kubeconfig --name my-cluster --region us-west-2
+                - kubectl -n instance-12345678 get pods
+                integrationsStatus:
+                - Url: https://one.newrelic.com/data-exploration/data-explorer/explorer
+                  configuration:
+                    provider: native
+                  healthStatus: UNHEALTHY
+                  integrationType: LOGS
+                  message: missing exporter secret configuration for gcp
+                  scope: INTERNAL
+                - Url: https://one.newrelic.com/data-exploration/data-explorer/explorer
+                  configuration:
+                    provider: native
+                  healthStatus: UNHEALTHY
+                  integrationType: LOGS
+                  message: missing exporter secret configuration for gcp
+                  scope: INTERNAL
+                - Url: https://one.newrelic.com/data-exploration/data-explorer/explorer
+                  configuration:
+                    provider: native
+                  healthStatus: UNHEALTHY
+                  integrationType: LOGS
+                  message: missing exporter secret configuration for gcp
+                  scope: INTERNAL
+                maintenanceTasks:
+                  Sed odit.: Delectus dolorum beatae aut cupiditate voluptatem.
+                managedResourceType: PortsBasedProxy
+                manualOverride:
+                  setAt: 2020-01-01T00:00:00Z
+                  setterUserId: user-12345678
+                  workflowId: wf-12345678
+                organizationId: org-12345678
+                organizationName: my-org
+                portsRegistrationStatus:
+                  instance-123:
+                  - 30000
+                  - 30001
+                  instance-456:
+                  - 30002
+                  - 30003
+                productTierId: pt-12345678
+                productTierName: premium
+                productTierType: OMNISTRATE_DEDICATED
+                proxyType: PortsBasedProxy
+                resourceVersionSummaries:
+                - capabilities:
+                  - capability: SERVERLESS
+                    configuration:
+                      EnableAutoStop: true
+                      MinimumNodesInPool: 5
+                      PortsMappingProxyConfig:
+                        MaxNumberOfClustersPerProxyInstance: 50
+                        NumberOfPortsPerCluster: 4
+                      ProxyId: r-123456
+                      ReferenceProxyKey: resource-proxy
+                      TargetPort: 5432
+                  - capability: SERVERLESS
+                    configuration:
+                      EnableAutoStop: true
+                      MinimumNodesInPool: 5
+                      PortsMappingProxyConfig:
+                        MaxNumberOfClustersPerProxyInstance: 50
+                        NumberOfPortsPerCluster: 4
+                      ProxyId: r-123456
+                      ReferenceProxyKey: resource-proxy
+                      TargetPort: 5432
+                  - capability: SERVERLESS
+                    configuration:
+                      EnableAutoStop: true
+                      MinimumNodesInPool: 5
+                      PortsMappingProxyConfig:
+                        MaxNumberOfClustersPerProxyInstance: 50
+                        NumberOfPortsPerCluster: 4
+                      ProxyId: r-123456
+                      ReferenceProxyKey: resource-proxy
+                      TargetPort: 5432
+                  externalResource: true
+                  genericResourceDeploymentConfiguration:
+                    image: nginx:latest
+                    podEvents:
+                      pod1:
+                      - FirstTimestamp: 2025-10-01T12:00:00Z
+                        LastTimestamp: 2025-10-01T12:05:00Z
+                        Message: Pod scheduled successfully
+                        NumberOfOccurrences: 3
+                        Reason: Scheduled
+                    podStatus:
+                      pod1: Running
+                      pod2: Pending
+                    podToHostMapping:
+                      pod1: node1
+                      pod2: node2
+                  helmDeploymentConfiguration:
+                    chartName: nginx
+                    chartVersion: 1.2.3
+                    podEvents:
+                      pod1:
+                      - FirstTimestamp: 2025-10-01T12:00:00Z
+                        LastTimestamp: 2025-10-01T12:05:00Z
+                        Message: Pod scheduled successfully
+                        NumberOfOccurrences: 3
+                        Reason: Scheduled
+                      pod2:
+                      - FirstTimestamp: 2025-10-01T12:06:00Z
+                        LastTimestamp: 2025-10-01T12:06:00Z
+                        Message: Insufficient resources
+                        NumberOfOccurrences: 1
+                        Reason: FailedScheduling
+                    podStatus:
+                      pod1: Running
+                      pod2: Pending
+                      pod3: Failed
+                    podToHostMapping:
+                      pod1: node1
+                      pod2: node2
+                      pod3: node1
+                    releaseName: my-nginx-release
+                    releaseNamespace: default
+                    releaseStatus: deployed
+                    repositoryURL: https://charts.example.com
+                    runtimeConfiguration:
+                      namespace: default
+                      timeout: 300s
+                      waitForJobs: true
+                      waitForJobsTimeout: 10m
+                    values:
+                      mysql:
+                        image:
+                          repository: mysql
+                          tag: "8.0"
+                        replicaCount: 3
+                        service:
+                          type: LoadBalancer
+                  kustomizeDeploymentConfiguration:
+                    BasePath: /path/to/kustomization
+                    DeploymentErrors: Failed to apply Kustomize overlays
+                    Overlays:
+                      overlay1: /path/to/overlay1
+                      overlay2: /path/to/overlay2
+                  latestVersion: "2.0"
+                  resourceId: r-12345678
+                  resourceName: asserts-server
+                  terraformDeploymentConfiguration:
+                    configurationFiles:
+                      main.tf: "resource \"aws_instance\" \"example\" { ... }"
+                      variables.tf: "variable \"instance_type\" { default = \"t2.micro\"\
+                        \ }"
+                    deploymentErrors: Failed to initialize Terraform provider
+                  version: "1.0"
+                - capabilities:
+                  - capability: SERVERLESS
+                    configuration:
+                      EnableAutoStop: true
+                      MinimumNodesInPool: 5
+                      PortsMappingProxyConfig:
+                        MaxNumberOfClustersPerProxyInstance: 50
+                        NumberOfPortsPerCluster: 4
+                      ProxyId: r-123456
+                      ReferenceProxyKey: resource-proxy
+                      TargetPort: 5432
+                  - capability: SERVERLESS
+                    configuration:
+                      EnableAutoStop: true
+                      MinimumNodesInPool: 5
+                      PortsMappingProxyConfig:
+                        MaxNumberOfClustersPerProxyInstance: 50
+                        NumberOfPortsPerCluster: 4
+                      ProxyId: r-123456
+                      ReferenceProxyKey: resource-proxy
+                      TargetPort: 5432
+                  - capability: SERVERLESS
+                    configuration:
+                      EnableAutoStop: true
+                      MinimumNodesInPool: 5
+                      PortsMappingProxyConfig:
+                        MaxNumberOfClustersPerProxyInstance: 50
+                        NumberOfPortsPerCluster: 4
+                      ProxyId: r-123456
+                      ReferenceProxyKey: resource-proxy
+                      TargetPort: 5432
+                  externalResource: true
+                  genericResourceDeploymentConfiguration:
+                    image: nginx:latest
+                    podEvents:
+                      pod1:
+                      - FirstTimestamp: 2025-10-01T12:00:00Z
+                        LastTimestamp: 2025-10-01T12:05:00Z
+                        Message: Pod scheduled successfully
+                        NumberOfOccurrences: 3
+                        Reason: Scheduled
+                    podStatus:
+                      pod1: Running
+                      pod2: Pending
+                    podToHostMapping:
+                      pod1: node1
+                      pod2: node2
+                  helmDeploymentConfiguration:
+                    chartName: nginx
+                    chartVersion: 1.2.3
+                    podEvents:
+                      pod1:
+                      - FirstTimestamp: 2025-10-01T12:00:00Z
+                        LastTimestamp: 2025-10-01T12:05:00Z
+                        Message: Pod scheduled successfully
+                        NumberOfOccurrences: 3
+                        Reason: Scheduled
+                      pod2:
+                      - FirstTimestamp: 2025-10-01T12:06:00Z
+                        LastTimestamp: 2025-10-01T12:06:00Z
+                        Message: Insufficient resources
+                        NumberOfOccurrences: 1
+                        Reason: FailedScheduling
+                    podStatus:
+                      pod1: Running
+                      pod2: Pending
+                      pod3: Failed
+                    podToHostMapping:
+                      pod1: node1
+                      pod2: node2
+                      pod3: node1
+                    releaseName: my-nginx-release
+                    releaseNamespace: default
+                    releaseStatus: deployed
+                    repositoryURL: https://charts.example.com
+                    runtimeConfiguration:
+                      namespace: default
+                      timeout: 300s
+                      waitForJobs: true
+                      waitForJobsTimeout: 10m
+                    values:
+                      mysql:
+                        image:
+                          repository: mysql
+                          tag: "8.0"
+                        replicaCount: 3
+                        service:
+                          type: LoadBalancer
+                  kustomizeDeploymentConfiguration:
+                    BasePath: /path/to/kustomization
+                    DeploymentErrors: Failed to apply Kustomize overlays
+                    Overlays:
+                      overlay1: /path/to/overlay1
+                      overlay2: /path/to/overlay2
+                  latestVersion: "2.0"
+                  resourceId: r-12345678
+                  resourceName: asserts-server
+                  terraformDeploymentConfiguration:
+                    configurationFiles:
+                      main.tf: "resource \"aws_instance\" \"example\" { ... }"
+                      variables.tf: "variable \"instance_type\" { default = \"t2.micro\"\
+                        \ }"
+                    deploymentErrors: Failed to initialize Terraform provider
+                  version: "1.0"
+                serviceEnvName: dev
+                serviceId: s-12345678
+                serviceLogoURL: Sit quaerat.
+                serviceModelId: sm-12345678
+                serviceModelName: hosted
+                serviceModelType: OMNISTRATE_HOSTED
+                serviceName: mysql
+                subscriptionId: sub-12345678
+                subscriptionOwnerName: John Doe
+                subscriptionStatus: ACTIVE
+                tierVersion: "1.0"
+                tierVersionReleasedAt: 2020-01-01T00:00:00Z
+                tierVersionReleasedByUserId: user-12345678
+                tierVersionReleasedByUserName: John Doe
+                tierVersionStatus: Preferred|Active|Deprecated|Pending
+              schema:
+                $ref: '#/components/schemas/ResourceInstance'
+          description: OK response.
+        "400":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "bad_request: Response used on a bad request"
+        "401":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "auth_failure: Response used on authentication failure"
+        "403":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "forbidden: Response used on authorization failure"
+        "404":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "not_found: Response used when the requested resource is not\
+            \ found"
+        "409":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "invalid_state: Response used when requested resource is in\
+            \ an invalid state for this operation"
+        "500":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "failed_request: Response used on failure to describe a inventory\
+            \ summary."
+      security:
+      - api_key_header_Authorization: []
+      summary: OneOffPatchResourceInstance inventory-api
+      tags:
+      - inventory-api
   /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/remove-capacity:
     post:
       operationId: inventory-api#RemoveCapacityFromResourceInstance

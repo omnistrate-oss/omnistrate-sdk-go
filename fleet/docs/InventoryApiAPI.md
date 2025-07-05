@@ -64,6 +64,7 @@ Method | HTTP request | Description
 [**InventoryApiListUsers**](InventoryApiAPI.md#InventoryApiListUsers) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/users | ListUsers inventory-api
 [**InventoryApiManageUpgradePath**](InventoryApiAPI.md#InventoryApiManageUpgradePath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/manage-lifecycle | ManageUpgradePath inventory-api
 [**InventoryApiModifyServicesOrchestration**](InventoryApiAPI.md#InventoryApiModifyServicesOrchestration) | **Patch** /2022-09-01-00/fleet/services-orchestration/{id} | ModifyServicesOrchestration inventory-api
+[**InventoryApiOneOffPatchResourceInstance**](InventoryApiAPI.md#InventoryApiOneOffPatchResourceInstance) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/patch | OneOffPatchResourceInstance inventory-api
 [**InventoryApiRemoveCapacityFromResourceInstance**](InventoryApiAPI.md#InventoryApiRemoveCapacityFromResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/remove-capacity | RemoveCapacityFromResourceInstance inventory-api
 [**InventoryApiRemoveCustomDNSFromResourceInstance**](InventoryApiAPI.md#InventoryApiRemoveCustomDNSFromResourceInstance) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/{resourceKey}/instance/{instanceId}/custom-dns | RemoveCustomDNSFromResourceInstance inventory-api
 [**InventoryApiRestartResourceInstance**](InventoryApiAPI.md#InventoryApiRestartResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/restart | RestartResourceInstance inventory-api
@@ -4514,6 +4515,82 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InventoryApiOneOffPatchResourceInstance
+
+> ResourceInstance InventoryApiOneOffPatchResourceInstance(ctx, serviceId, environmentId, instanceId).OneOffPatchResourceInstanceRequest2(oneOffPatchResourceInstanceRequest2).Execute()
+
+OneOffPatchResourceInstance inventory-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
+	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
+	instanceId := "instance-12345678" // string | The resource instance ID.
+	oneOffPatchResourceInstanceRequest2 := *openapiclient.NewOneOffPatchResourceInstanceRequest2("r-12345678") // OneOffPatchResourceInstanceRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiOneOffPatchResourceInstance(context.Background(), serviceId, environmentId, instanceId).OneOffPatchResourceInstanceRequest2(oneOffPatchResourceInstanceRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiOneOffPatchResourceInstance``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InventoryApiOneOffPatchResourceInstance`: ResourceInstance
+	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiOneOffPatchResourceInstance`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | The service ID this workflow belongs to. | 
+**environmentId** | **string** | The service environment ID this workflow belongs to. | 
+**instanceId** | **string** | The resource instance ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInventoryApiOneOffPatchResourceInstanceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **oneOffPatchResourceInstanceRequest2** | [**OneOffPatchResourceInstanceRequest2**](OneOffPatchResourceInstanceRequest2.md) |  | 
+
+### Return type
+
+[**ResourceInstance**](ResourceInstance.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
