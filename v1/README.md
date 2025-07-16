@@ -324,6 +324,8 @@ Class | Method | HTTP request | Description
 *SignupApiAPI* | [**SignupApiResetPassword**](docs/SignupApiAPI.md#signupapiresetpassword) | **Post** /2022-09-01-00/reset-password | ResetPassword signup-api
 *SignupApiAPI* | [**SignupApiSignup**](docs/SignupApiAPI.md#signupapisignup) | **Post** /2022-09-01-00/signup | Signup signup-api
 *SignupApiAPI* | [**SignupApiValidateToken**](docs/SignupApiAPI.md#signupapivalidatetoken) | **Post** /2022-09-01-00/validate-token | ValidateToken signup-api
+*SpOrganizationApiAPI* | [**SpOrganizationApiDescribeServiceProviderOrganization**](docs/SpOrganizationApiAPI.md#sporganizationapidescribeserviceproviderorganization) | **Get** /2022-09-01-00/sp-organization | DescribeServiceProviderOrganization sp-organization-api
+*SpOrganizationApiAPI* | [**SpOrganizationApiModifyServiceProviderOrganization**](docs/SpOrganizationApiAPI.md#sporganizationapimodifyserviceproviderorganization) | **Patch** /2022-09-01-00/sp-organization | ModifyServiceProviderOrganization sp-organization-api
 *StorageConfigApiAPI* | [**StorageConfigApiAddStorageVolumeConfig**](docs/StorageConfigApiAPI.md#storageconfigapiaddstoragevolumeconfig) | **Put** /2022-09-01-00/service/{serviceId}/storage-config/{id}/volume/{storageVolumeConfigId} | AddStorageVolumeConfig storage-config-api
 *StorageConfigApiAPI* | [**StorageConfigApiCreateStorageConfig**](docs/StorageConfigApiAPI.md#storageconfigapicreatestorageconfig) | **Post** /2022-09-01-00/service/{serviceId}/storage-config | CreateStorageConfig storage-config-api
 *StorageConfigApiAPI* | [**StorageConfigApiDeleteStorageConfig**](docs/StorageConfigApiAPI.md#storageconfigapideletestorageconfig) | **Delete** /2022-09-01-00/service/{serviceId}/storage-config/{id} | DeleteStorageConfig storage-config-api
@@ -340,7 +342,6 @@ Class | Method | HTTP request | Description
 *StorageVolumeConfigApiAPI* | [**StorageVolumeConfigApiUpdateStorageVolumeSizeConfig**](docs/StorageVolumeConfigApiAPI.md#storagevolumeconfigapiupdatestoragevolumesizeconfig) | **Patch** /2022-09-01-00/service/{serviceId}/storage-volume-config/{id}/size | UpdateStorageVolumeSizeConfig storage-volume-config-api
 *StripeConnectApiAPI* | [**StripeConnectApiCompleteOAuthConnection**](docs/StripeConnectApiAPI.md#stripeconnectapicompleteoauthconnection) | **Post** /2022-09-01-00/stripe-setup | CompleteOAuthConnection stripe-connect-api
 *StripeConnectApiAPI* | [**StripeConnectApiGetStripeAuthorizeUrl**](docs/StripeConnectApiAPI.md#stripeconnectapigetstripeauthorizeurl) | **Get** /2022-09-01-00/stripe-setup | GetStripeAuthorizeUrl stripe-connect-api
-*StripeConnectApiAPI* | [**StripeConnectApiRevokeOAuthAccess**](docs/StripeConnectApiAPI.md#stripeconnectapirevokeoauthaccess) | **Delete** /2022-09-01-00/stripe-setup | RevokeOAuthAccess stripe-connect-api
 *SubscriptionApiAPI* | [**SubscriptionApiCreateSubscription**](docs/SubscriptionApiAPI.md#subscriptionapicreatesubscription) | **Post** /2022-09-01-00/subscription | CreateSubscription subscription-api
 *SubscriptionApiAPI* | [**SubscriptionApiDeleteSubscription**](docs/SubscriptionApiAPI.md#subscriptionapideletesubscription) | **Delete** /2022-09-01-00/subscription/{id} | DeleteSubscription subscription-api
 *SubscriptionApiAPI* | [**SubscriptionApiDescribeSubscription**](docs/SubscriptionApiAPI.md#subscriptionapidescribesubscription) | **Get** /2022-09-01-00/subscription/{id} | DescribeSubscription subscription-api
@@ -361,6 +362,7 @@ Class | Method | HTTP request | Description
 *TierVersionSetApiAPI* | [**TierVersionSetApiListTierVersionSets**](docs/TierVersionSetApiAPI.md#tierversionsetapilisttierversionsets) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set | ListTierVersionSets tier-version-set-api
 *TierVersionSetApiAPI* | [**TierVersionSetApiPromoteTierVersionSet**](docs/TierVersionSetApiAPI.md#tierversionsetapipromotetierversionset) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/promote | PromoteTierVersionSet tier-version-set-api
 *TierVersionSetApiAPI* | [**TierVersionSetApiReleaseTierVersionSet**](docs/TierVersionSetApiAPI.md#tierversionsetapireleasetierversionset) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/release | ReleaseTierVersionSet tier-version-set-api
+*TierVersionSetApiAPI* | [**TierVersionSetApiUpdateTierVersionSet**](docs/TierVersionSetApiAPI.md#tierversionsetapiupdatetierversionset) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version} | UpdateTierVersionSet tier-version-set-api
 *UsageApiAPI* | [**UsageApiGetCurrentUsage**](docs/UsageApiAPI.md#usageapigetcurrentusage) | **Get** /2022-09-01-00/usage | GetCurrentUsage usage-api
 *UsageApiAPI* | [**UsageApiGetUsagePerDay**](docs/UsageApiAPI.md#usageapigetusageperday) | **Get** /2022-09-01-00/usage-per-day | GetUsagePerDay usage-api
 *UsersApiAPI* | [**UsersApiCustomerDeleteUser**](docs/UsersApiAPI.md#usersapicustomerdeleteuser) | **Delete** /2022-09-01-00/customer-delete-user | CustomerDeleteUser users-api
@@ -406,6 +408,7 @@ Class | Method | HTTP request | Description
  - [AddStorageVolumeConfigRequest2](docs/AddStorageVolumeConfigRequest2.md)
  - [AdditionalSecurityContext](docs/AdditionalSecurityContext.md)
  - [Address](docs/Address.md)
+ - [Amenity](docs/Amenity.md)
  - [AutoScalingMetricSpec](docs/AutoScalingMetricSpec.md)
  - [AutoscalingPolicy](docs/AutoscalingPolicy.md)
  - [BackendPortConfiguration](docs/BackendPortConfiguration.md)
@@ -525,6 +528,7 @@ Class | Method | HTTP request | Description
  - [CustomerSignupRequest](docs/CustomerSignupRequest.md)
  - [CustomerSignupRequest2](docs/CustomerSignupRequest2.md)
  - [DeRegisterResourceMetricsConfigRequest](docs/DeRegisterResourceMetricsConfigRequest.md)
+ - [DefaultDeploymentCellConfigurations](docs/DefaultDeploymentCellConfigurations.md)
  - [DeleteAccountConfigRequest](docs/DeleteAccountConfigRequest.md)
  - [DeleteComputeConfigRequest](docs/DeleteComputeConfigRequest.md)
  - [DeleteCustomDomainRequest](docs/DeleteCustomDomainRequest.md)
@@ -556,6 +560,7 @@ Class | Method | HTTP request | Description
  - [DeleteUpgradePathRequest](docs/DeleteUpgradePathRequest.md)
  - [DeleteUserRequest](docs/DeleteUserRequest.md)
  - [DemoRequest](docs/DemoRequest.md)
+ - [DeploymentCellConfiguration](docs/DeploymentCellConfiguration.md)
  - [DeploymentCellHealthDetail](docs/DeploymentCellHealthDetail.md)
  - [DeploymentCellHealthRequest](docs/DeploymentCellHealthRequest.md)
  - [DeploymentCellHealthSummary](docs/DeploymentCellHealthSummary.md)
@@ -636,6 +641,8 @@ Class | Method | HTTP request | Description
  - [DescribeServiceOfferingResourceRequest](docs/DescribeServiceOfferingResourceRequest.md)
  - [DescribeServiceOfferingResourceResult](docs/DescribeServiceOfferingResourceResult.md)
  - [DescribeServiceOfferingResult](docs/DescribeServiceOfferingResult.md)
+ - [DescribeServiceProviderOrganizationRequest](docs/DescribeServiceProviderOrganizationRequest.md)
+ - [DescribeServiceProviderOrganizationResult](docs/DescribeServiceProviderOrganizationResult.md)
  - [DescribeServiceRequest](docs/DescribeServiceRequest.md)
  - [DescribeServiceResult](docs/DescribeServiceResult.md)
  - [DescribeServicesOrchestrationRequest](docs/DescribeServicesOrchestrationRequest.md)
@@ -717,7 +724,6 @@ Class | Method | HTTP request | Description
  - [GetUsageRequest](docs/GetUsageRequest.md)
  - [GetUsageResult](docs/GetUsageResult.md)
  - [GitConfiguration](docs/GitConfiguration.md)
- - [GitFileConfiguration](docs/GitFileConfiguration.md)
  - [HelmChartConfiguration](docs/HelmChartConfiguration.md)
  - [HelmPackage](docs/HelmPackage.md)
  - [HelmRuntimeConfiguration](docs/HelmRuntimeConfiguration.md)
@@ -856,6 +862,7 @@ Class | Method | HTTP request | Description
  - [LoginWithIdentityProviderRequest](docs/LoginWithIdentityProviderRequest.md)
  - [LoginWithIdentityProviderResult](docs/LoginWithIdentityProviderResult.md)
  - [LogoutRequest](docs/LogoutRequest.md)
+ - [ModifyServiceProviderOrganizationRequest](docs/ModifyServiceProviderOrganizationRequest.md)
  - [ModifyServicesOrchestrationRequest](docs/ModifyServicesOrchestrationRequest.md)
  - [ModifyServicesOrchestrationRequest2](docs/ModifyServicesOrchestrationRequest2.md)
  - [NetworkFeaturesConfiguration](docs/NetworkFeaturesConfiguration.md)
@@ -928,7 +935,6 @@ Class | Method | HTTP request | Description
  - [RestoreResourceInstanceRequest2](docs/RestoreResourceInstanceRequest2.md)
  - [RevokeConsumptionUserRoleRequest](docs/RevokeConsumptionUserRoleRequest.md)
  - [RevokeConsumptionUserRoleRequest2](docs/RevokeConsumptionUserRoleRequest2.md)
- - [RevokeOAuthAccessRequest](docs/RevokeOAuthAccessRequest.md)
  - [RevokeUserRoleRequest](docs/RevokeUserRoleRequest.md)
  - [RevokeUserRoleRequest2](docs/RevokeUserRoleRequest2.md)
  - [RolloutFleetImageConfigRequest](docs/RolloutFleetImageConfigRequest.md)
@@ -1031,6 +1037,8 @@ Class | Method | HTTP request | Description
  - [UpdateStorageVolumeConfigRequest2](docs/UpdateStorageVolumeConfigRequest2.md)
  - [UpdateStorageVolumeSizeConfigRequest](docs/UpdateStorageVolumeSizeConfigRequest.md)
  - [UpdateStorageVolumeSizeConfigRequest2](docs/UpdateStorageVolumeSizeConfigRequest2.md)
+ - [UpdateTierVersionSetRequest](docs/UpdateTierVersionSetRequest.md)
+ - [UpdateTierVersionSetRequest2](docs/UpdateTierVersionSetRequest2.md)
  - [UpdateUpgradePathRequest](docs/UpdateUpgradePathRequest.md)
  - [UpdateUserRequest](docs/UpdateUserRequest.md)
  - [UpdateUserRequest2](docs/UpdateUserRequest2.md)

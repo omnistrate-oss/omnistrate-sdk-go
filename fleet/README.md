@@ -96,10 +96,6 @@ Class | Method | HTTP request | Description
 *FleetCustomNetworkApiAPI* | [**FleetCustomNetworkApiDescribeCustomNetwork**](docs/FleetCustomNetworkApiAPI.md#fleetcustomnetworkapidescribecustomnetwork) | **Get** /2022-09-01-00/fleet/custom-network/{id} | DescribeCustomNetwork fleet-custom-network-api
 *FleetCustomNetworkApiAPI* | [**FleetCustomNetworkApiListCustomNetworks**](docs/FleetCustomNetworkApiAPI.md#fleetcustomnetworkapilistcustomnetworks) | **Get** /2022-09-01-00/fleet/custom-network | ListCustomNetworks fleet-custom-network-api
 *FleetCustomNetworkApiAPI* | [**FleetCustomNetworkApiUpdateCustomNetwork**](docs/FleetCustomNetworkApiAPI.md#fleetcustomnetworkapiupdatecustomnetwork) | **Patch** /2022-09-01-00/fleet/custom-network/{id} | UpdateCustomNetwork fleet-custom-network-api
-*FleetFeaturesApiAPI* | [**FleetFeaturesApiDescribeFleetFeature**](docs/FleetFeaturesApiAPI.md#fleetfeaturesapidescribefleetfeature) | **Get** /2022-09-01-00/fleet/feature/{feature} | DescribeFleetFeature fleet-features-api
-*FleetFeaturesApiAPI* | [**FleetFeaturesApiDisableFleetFeature**](docs/FleetFeaturesApiAPI.md#fleetfeaturesapidisablefleetfeature) | **Delete** /2022-09-01-00/fleet/feature | DisableFleetFeature fleet-features-api
-*FleetFeaturesApiAPI* | [**FleetFeaturesApiEnableFleetFeature**](docs/FleetFeaturesApiAPI.md#fleetfeaturesapienablefleetfeature) | **Put** /2022-09-01-00/fleet/feature | EnableFleetFeature fleet-features-api
-*FleetFeaturesApiAPI* | [**FleetFeaturesApiListFleetFeatures**](docs/FleetFeaturesApiAPI.md#fleetfeaturesapilistfleetfeatures) | **Get** /2022-09-01-00/fleet/features | ListFleetFeatures fleet-features-api
 *FleetWorkflowsApiAPI* | [**FleetWorkflowsApiDescribeServiceWorkflow**](docs/FleetWorkflowsApiAPI.md#fleetworkflowsapidescribeserviceworkflow) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows/{id} | DescribeServiceWorkflow fleet-workflows-api
 *FleetWorkflowsApiAPI* | [**FleetWorkflowsApiDescribeServiceWorkflowSummary**](docs/FleetWorkflowsApiAPI.md#fleetworkflowsapidescribeserviceworkflowsummary) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows-summary | DescribeServiceWorkflowSummary fleet-workflows-api
 *FleetWorkflowsApiAPI* | [**FleetWorkflowsApiGetWorkflowEvents**](docs/FleetWorkflowsApiAPI.md#fleetworkflowsapigetworkflowevents) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows/{id}/events | GetWorkflowEvents fleet-workflows-api
@@ -111,6 +107,7 @@ Class | Method | HTTP request | Description
 *HostclusterApiAPI* | [**HostclusterApiDeleteHostCluster**](docs/HostclusterApiAPI.md#hostclusterapideletehostcluster) | **Delete** /2022-09-01-00/fleet/host-cluster/{id} | DeleteHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiDescribeHostCluster**](docs/HostclusterApiAPI.md#hostclusterapidescribehostcluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id} | DescribeHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiGenerateTokenForHostClusterDashboard**](docs/HostclusterApiAPI.md#hostclusterapigeneratetokenforhostclusterdashboard) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard hostcluster-api
+*HostclusterApiAPI* | [**HostclusterApiKubeConfigHostCluster**](docs/HostclusterApiAPI.md#hostclusterapikubeconfighostcluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id}/kubeconfig | KubeConfigHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiListHostClusters**](docs/HostclusterApiAPI.md#hostclusterapilisthostclusters) | **Get** /2022-09-01-00/fleet/host-clusters | ListHostClusters hostcluster-api
 *InventoryApiAPI* | [**InventoryApiAddCapacityToResourceInstance**](docs/InventoryApiAPI.md#inventoryapiaddcapacitytoresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/add-capacity | AddCapacityToResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiAddCustomDNSToResourceInstance**](docs/InventoryApiAPI.md#inventoryapiaddcustomdnstoresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/{resourceKey}/instance/{instanceId}/custom-dns | AddCustomDNSToResourceInstance inventory-api
@@ -223,6 +220,7 @@ Class | Method | HTTP request | Description
  - [AdoptHostClusterResult](docs/AdoptHostClusterResult.md)
  - [AdoptResourceInstanceRequest](docs/AdoptResourceInstanceRequest.md)
  - [AdoptResourceInstanceRequest2](docs/AdoptResourceInstanceRequest2.md)
+ - [Amenity](docs/Amenity.md)
  - [ApproveSubscriptionRequestRequest](docs/ApproveSubscriptionRequestRequest.md)
  - [BackupStatus](docs/BackupStatus.md)
  - [BillingProvider](docs/BillingProvider.md)
@@ -291,6 +289,7 @@ Class | Method | HTTP request | Description
  - [DebugResourceInstanceRequest](docs/DebugResourceInstanceRequest.md)
  - [DebugResourceInstanceResult](docs/DebugResourceInstanceResult.md)
  - [DebugResourceResult](docs/DebugResourceResult.md)
+ - [DefaultDeploymentCellConfigurations](docs/DefaultDeploymentCellConfigurations.md)
  - [DeleteAccountConfigRequest](docs/DeleteAccountConfigRequest.md)
  - [DeleteCustomerOnboardingRequest](docs/DeleteCustomerOnboardingRequest.md)
  - [DeleteHostClusterRequest](docs/DeleteHostClusterRequest.md)
@@ -310,6 +309,7 @@ Class | Method | HTTP request | Description
  - [DeleteUserRequest](docs/DeleteUserRequest.md)
  - [DemoRequest](docs/DemoRequest.md)
  - [DenySubscriptionRequestRequest](docs/DenySubscriptionRequestRequest.md)
+ - [DeploymentCellConfiguration](docs/DeploymentCellConfiguration.md)
  - [DeploymentCellHealthDetail](docs/DeploymentCellHealthDetail.md)
  - [DeploymentCellHealthRequest](docs/DeploymentCellHealthRequest.md)
  - [DeploymentCellHealthSummary](docs/DeploymentCellHealthSummary.md)
@@ -330,7 +330,6 @@ Class | Method | HTTP request | Description
  - [DescribeCustomerOnboardingRequest](docs/DescribeCustomerOnboardingRequest.md)
  - [DescribeDeploymentCellCostRequest](docs/DescribeDeploymentCellCostRequest.md)
  - [DescribeDeploymentCellCostResult](docs/DescribeDeploymentCellCostResult.md)
- - [DescribeFleetFeatureRequest](docs/DescribeFleetFeatureRequest.md)
  - [DescribeHostClusterRequest](docs/DescribeHostClusterRequest.md)
  - [DescribeIdentityProviderRequest](docs/DescribeIdentityProviderRequest.md)
  - [DescribeIdentityProviderResult](docs/DescribeIdentityProviderResult.md)
@@ -363,6 +362,8 @@ Class | Method | HTTP request | Description
  - [DescribeServiceOfferingResourceRequest](docs/DescribeServiceOfferingResourceRequest.md)
  - [DescribeServiceOfferingResourceResult](docs/DescribeServiceOfferingResourceResult.md)
  - [DescribeServiceOfferingResult](docs/DescribeServiceOfferingResult.md)
+ - [DescribeServiceProviderOrganizationRequest](docs/DescribeServiceProviderOrganizationRequest.md)
+ - [DescribeServiceProviderOrganizationResult](docs/DescribeServiceProviderOrganizationResult.md)
  - [DescribeServiceRequest](docs/DescribeServiceRequest.md)
  - [DescribeServiceResult](docs/DescribeServiceResult.md)
  - [DescribeServiceWorkflowRequest](docs/DescribeServiceWorkflowRequest.md)
@@ -388,15 +389,11 @@ Class | Method | HTTP request | Description
  - [DescribeVUnitResult](docs/DescribeVUnitResult.md)
  - [DetailedNodeHealthResult](docs/DetailedNodeHealthResult.md)
  - [DisableBillingProviderRequest](docs/DisableBillingProviderRequest.md)
- - [DisableFleetFeatureRequest](docs/DisableFleetFeatureRequest.md)
- - [DisableFleetFeatureRequest2](docs/DisableFleetFeatureRequest2.md)
  - [DisableProductTierFeatureRequest](docs/DisableProductTierFeatureRequest.md)
  - [DisableServiceModelFeatureRequest](docs/DisableServiceModelFeatureRequest.md)
  - [DisableTenantBillingRequest](docs/DisableTenantBillingRequest.md)
  - [EmailConfiguration](docs/EmailConfiguration.md)
  - [EnableBillingProviderRequest](docs/EnableBillingProviderRequest.md)
- - [EnableFleetFeatureRequest](docs/EnableFleetFeatureRequest.md)
- - [EnableFleetFeatureRequest2](docs/EnableFleetFeatureRequest2.md)
  - [EnableProductTierFeatureRequest](docs/EnableProductTierFeatureRequest.md)
  - [EnableServiceModelFeatureRequest](docs/EnableServiceModelFeatureRequest.md)
  - [EnableTenantBillingRequest](docs/EnableTenantBillingRequest.md)
@@ -464,7 +461,6 @@ Class | Method | HTTP request | Description
  - [FleetDescribeUserResult](docs/FleetDescribeUserResult.md)
  - [FleetFailoverResourceInstanceRequest](docs/FleetFailoverResourceInstanceRequest.md)
  - [FleetFailoverResourceInstanceRequest2](docs/FleetFailoverResourceInstanceRequest2.md)
- - [FleetFeature](docs/FleetFeature.md)
  - [FleetGenerateTokenForHostClusterDashboardRequest](docs/FleetGenerateTokenForHostClusterDashboardRequest.md)
  - [FleetGenerateTokenForHostClusterDashboardResult](docs/FleetGenerateTokenForHostClusterDashboardResult.md)
  - [FleetInvoice](docs/FleetInvoice.md)
@@ -578,6 +574,8 @@ Class | Method | HTTP request | Description
  - [InviteUserRequest](docs/InviteUserRequest.md)
  - [Invoice](docs/Invoice.md)
  - [JobMetric](docs/JobMetric.md)
+ - [KubeConfigHostClusterRequest](docs/KubeConfigHostClusterRequest.md)
+ - [KubeConfigHostClusterResult](docs/KubeConfigHostClusterResult.md)
  - [KubernetesDashboardEndpoint](docs/KubernetesDashboardEndpoint.md)
  - [KustomizeDeploymentConfiguration](docs/KustomizeDeploymentConfiguration.md)
  - [Limits](docs/Limits.md)
@@ -606,8 +604,6 @@ Class | Method | HTTP request | Description
  - [ListEligibleInstancesPerUpgradeResult](docs/ListEligibleInstancesPerUpgradeResult.md)
  - [ListEndCustomerEvents](docs/ListEndCustomerEvents.md)
  - [ListEndCustomerEventsResult](docs/ListEndCustomerEventsResult.md)
- - [ListFleetFeaturesRequest](docs/ListFleetFeaturesRequest.md)
- - [ListFleetFeaturesResult](docs/ListFleetFeaturesResult.md)
  - [ListFleetResourceInstancesRequest](docs/ListFleetResourceInstancesRequest.md)
  - [ListFleetResourceInstancesResultInternal](docs/ListFleetResourceInstancesResultInternal.md)
  - [ListHelmPackageInstallationsRequest](docs/ListHelmPackageInstallationsRequest.md)
@@ -670,6 +666,7 @@ Class | Method | HTTP request | Description
  - [ManageUpgradePathLifecycleRequest](docs/ManageUpgradePathLifecycleRequest.md)
  - [ManageUpgradePathLifecycleRequest2](docs/ManageUpgradePathLifecycleRequest2.md)
  - [ManualOverride](docs/ManualOverride.md)
+ - [ModifyServiceProviderOrganizationRequest](docs/ModifyServiceProviderOrganizationRequest.md)
  - [ModifyServicesOrchestrationRequest](docs/ModifyServicesOrchestrationRequest.md)
  - [NodeHealthSummary](docs/NodeHealthSummary.md)
  - [NodeNetworkTopologyResult](docs/NodeNetworkTopologyResult.md)
@@ -728,7 +725,6 @@ Class | Method | HTTP request | Description
  - [RestoreResourceInstanceFromSnapshotRequest](docs/RestoreResourceInstanceFromSnapshotRequest.md)
  - [RestoreResourceInstanceRequest](docs/RestoreResourceInstanceRequest.md)
  - [RevokeConsumptionUserRoleRequest](docs/RevokeConsumptionUserRoleRequest.md)
- - [RevokeOAuthAccessRequest](docs/RevokeOAuthAccessRequest.md)
  - [RevokeUserRoleRequest](docs/RevokeUserRoleRequest.md)
  - [SaaSPortal](docs/SaaSPortal.md)
  - [SaaSPortalEmailConfig](docs/SaaSPortalEmailConfig.md)

@@ -1,4 +1,4 @@
-# RevokeOAuthAccessRequest
+# DescribeServiceProviderOrganizationRequest
 
 ## Properties
 
@@ -8,39 +8,39 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewRevokeOAuthAccessRequest
+### NewDescribeServiceProviderOrganizationRequest
 
-`func NewRevokeOAuthAccessRequest(token string, ) *RevokeOAuthAccessRequest`
+`func NewDescribeServiceProviderOrganizationRequest(token string, ) *DescribeServiceProviderOrganizationRequest`
 
-NewRevokeOAuthAccessRequest instantiates a new RevokeOAuthAccessRequest object
+NewDescribeServiceProviderOrganizationRequest instantiates a new DescribeServiceProviderOrganizationRequest object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewRevokeOAuthAccessRequestWithDefaults
+### NewDescribeServiceProviderOrganizationRequestWithDefaults
 
-`func NewRevokeOAuthAccessRequestWithDefaults() *RevokeOAuthAccessRequest`
+`func NewDescribeServiceProviderOrganizationRequestWithDefaults() *DescribeServiceProviderOrganizationRequest`
 
-NewRevokeOAuthAccessRequestWithDefaults instantiates a new RevokeOAuthAccessRequest object
+NewDescribeServiceProviderOrganizationRequestWithDefaults instantiates a new DescribeServiceProviderOrganizationRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetToken
 
-`func (o *RevokeOAuthAccessRequest) GetToken() string`
+`func (o *DescribeServiceProviderOrganizationRequest) GetToken() string`
 
 GetToken returns the Token field if non-nil, zero value otherwise.
 
 ### GetTokenOk
 
-`func (o *RevokeOAuthAccessRequest) GetTokenOk() (*string, bool)`
+`func (o *DescribeServiceProviderOrganizationRequest) GetTokenOk() (*string, bool)`
 
 GetTokenOk returns a tuple with the Token field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetToken
 
-`func (o *RevokeOAuthAccessRequest) SetToken(v string)`
+`func (o *DescribeServiceProviderOrganizationRequest) SetToken(v string)`
 
 SetToken sets Token field to given value.
 

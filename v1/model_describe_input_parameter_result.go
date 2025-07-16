@@ -43,6 +43,8 @@ type DescribeInputParameterResult struct {
 	Name string `json:"name"`
 	// A list of options to restrict the value of the input parameter to (represented as a string)
 	Options []string `json:"options,omitempty"`
+	// Regular expression pattern for validating the input parameter value
+	Regex *string `json:"regex,omitempty"`
 	// Enforces the input parameter as a required parameter
 	Required bool `json:"required"`
 	// ID of a resource
@@ -377,6 +379,29 @@ func (o *DescribeInputParameterResult) SetOptions(v []string) {
 	o.Options = v
 }
 
+// GetRegex returns the Regex field value if set, zero value otherwise.
+func (o *DescribeInputParameterResult) GetRegex() string {
+	if o == nil || IsNil(o.Regex) {
+		var ret string
+		return ret
+	}
+	return *o.Regex
+}
+
+// GetRegexOk returns a tuple with the Regex field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeInputParameterResult) GetRegexOk() (*string, bool) {
+	if o == nil || IsNil(o.Regex) {
+		return nil, false
+	}
+	return o.Regex, true
+}
+
+// SetRegex gets a reference to the given string and assigns it to the Regex field.
+func (o *DescribeInputParameterResult) SetRegex(v string) {
+	o.Regex = &v
+}
+
 // GetRequired returns the Required field value
 func (o *DescribeInputParameterResult) GetRequired() bool {
 	if o == nil {
@@ -530,6 +555,9 @@ func (o DescribeInputParameterResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Options) {
 		toSerialize["options"] = o.Options
 	}
+	if !IsNil(o.Regex) {
+		toSerialize["regex"] = o.Regex
+	}
 	toSerialize["required"] = o.Required
 	toSerialize["resourceId"] = o.ResourceId
 	toSerialize["serviceId"] = o.ServiceId
@@ -601,6 +629,7 @@ func (o *DescribeInputParameterResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "modifiable")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "options")
+		delete(additionalProperties, "regex")
 		delete(additionalProperties, "required")
 		delete(additionalProperties, "resourceId")
 		delete(additionalProperties, "serviceId")

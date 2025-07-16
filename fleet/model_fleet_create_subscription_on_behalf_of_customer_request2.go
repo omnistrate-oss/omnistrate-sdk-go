@@ -34,8 +34,6 @@ type FleetCreateSubscriptionOnBehalfOfCustomerRequest2 struct {
 	MaxNumberOfInstances *int64 `json:"maxNumberOfInstances,omitempty"`
 	// The user ID of the customer that this subscription is on behalf of
 	OnBehalfOfCustomerUserId string `json:"onBehalfOfCustomerUserId"`
-	// Deprecated: Use billingProvider instead.
-	PaymentChannelType *string `json:"paymentChannelType,omitempty"`
 	// The effective date of the price, truncated to the first day of the month. Only the current or future months may be specified.
 	PriceEffectiveDate *string `json:"priceEffectiveDate,omitempty"`
 	// The product tier ID
@@ -280,38 +278,6 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) SetOnBehalfOfCustome
 	o.OnBehalfOfCustomerUserId = v
 }
 
-// GetPaymentChannelType returns the PaymentChannelType field value if set, zero value otherwise.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) GetPaymentChannelType() string {
-	if o == nil || IsNil(o.PaymentChannelType) {
-		var ret string
-		return ret
-	}
-	return *o.PaymentChannelType
-}
-
-// GetPaymentChannelTypeOk returns a tuple with the PaymentChannelType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) GetPaymentChannelTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.PaymentChannelType) {
-		return nil, false
-	}
-	return o.PaymentChannelType, true
-}
-
-// HasPaymentChannelType returns a boolean if a field has been set.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) HasPaymentChannelType() bool {
-	if o != nil && !IsNil(o.PaymentChannelType) {
-		return true
-	}
-
-	return false
-}
-
-// SetPaymentChannelType gets a reference to the given string and assigns it to the PaymentChannelType field.
-func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) SetPaymentChannelType(v string) {
-	o.PaymentChannelType = &v
-}
-
 // GetPriceEffectiveDate returns the PriceEffectiveDate field value if set, zero value otherwise.
 func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) GetPriceEffectiveDate() string {
 	if o == nil || IsNil(o.PriceEffectiveDate) {
@@ -397,9 +363,6 @@ func (o FleetCreateSubscriptionOnBehalfOfCustomerRequest2) ToMap() (map[string]i
 		toSerialize["maxNumberOfInstances"] = o.MaxNumberOfInstances
 	}
 	toSerialize["onBehalfOfCustomerUserId"] = o.OnBehalfOfCustomerUserId
-	if !IsNil(o.PaymentChannelType) {
-		toSerialize["paymentChannelType"] = o.PaymentChannelType
-	}
 	if !IsNil(o.PriceEffectiveDate) {
 		toSerialize["priceEffectiveDate"] = o.PriceEffectiveDate
 	}
@@ -455,7 +418,6 @@ func (o *FleetCreateSubscriptionOnBehalfOfCustomerRequest2) UnmarshalJSON(data [
 		delete(additionalProperties, "externalPayerId")
 		delete(additionalProperties, "maxNumberOfInstances")
 		delete(additionalProperties, "onBehalfOfCustomerUserId")
-		delete(additionalProperties, "paymentChannelType")
 		delete(additionalProperties, "priceEffectiveDate")
 		delete(additionalProperties, "productTierId")
 		o.AdditionalProperties = additionalProperties

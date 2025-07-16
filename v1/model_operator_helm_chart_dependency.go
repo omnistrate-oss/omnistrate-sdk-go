@@ -26,10 +26,12 @@ type OperatorHelmChartDependency struct {
 	ChartRepoName *string `json:"chartRepoName,omitempty"`
 	// The repository URL of the Helm chart
 	ChartRepoUrl *string `json:"chartRepoUrl,omitempty"`
-	// The values of the Helm chart
+	// The values of the Helm chart (mutually exclusive with layeredChartValues)
 	ChartValues map[string]interface{} `json:"chartValues,omitempty"`
 	// The version of the helm chart
 	ChartVersion string `json:"chartVersion"`
+	// Layered chart values configuration with conditional scoping (mutually exclusive with chartValues). Values are processed in order - later entries override earlier ones for the same keys.
+	LayeredChartValues []ChartValuesRef `json:"layeredChartValues,omitempty"`
 	// The password to authenticate with the registry
 	Password *string `json:"password,omitempty"`
 	// The username to authenticate with the registry
@@ -175,6 +177,29 @@ func (o *OperatorHelmChartDependency) SetChartVersion(v string) {
 	o.ChartVersion = v
 }
 
+// GetLayeredChartValues returns the LayeredChartValues field value if set, zero value otherwise.
+func (o *OperatorHelmChartDependency) GetLayeredChartValues() []ChartValuesRef {
+	if o == nil || IsNil(o.LayeredChartValues) {
+		var ret []ChartValuesRef
+		return ret
+	}
+	return o.LayeredChartValues
+}
+
+// GetLayeredChartValuesOk returns a tuple with the LayeredChartValues field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OperatorHelmChartDependency) GetLayeredChartValuesOk() ([]ChartValuesRef, bool) {
+	if o == nil || IsNil(o.LayeredChartValues) {
+		return nil, false
+	}
+	return o.LayeredChartValues, true
+}
+
+// SetLayeredChartValues gets a reference to the given []ChartValuesRef and assigns it to the LayeredChartValues field.
+func (o *OperatorHelmChartDependency) SetLayeredChartValues(v []ChartValuesRef) {
+	o.LayeredChartValues = v
+}
+
 // GetPassword returns the Password field value if set, zero value otherwise.
 func (o *OperatorHelmChartDependency) GetPassword() string {
 	if o == nil || IsNil(o.Password) {
@@ -242,6 +267,9 @@ func (o OperatorHelmChartDependency) ToMap() (map[string]interface{}, error) {
 		toSerialize["chartValues"] = o.ChartValues
 	}
 	toSerialize["chartVersion"] = o.ChartVersion
+	if !IsNil(o.LayeredChartValues) {
+		toSerialize["layeredChartValues"] = o.LayeredChartValues
+	}
 	if !IsNil(o.Password) {
 		toSerialize["password"] = o.Password
 	}
@@ -297,6 +325,7 @@ func (o *OperatorHelmChartDependency) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "chartRepoUrl")
 		delete(additionalProperties, "chartValues")
 		delete(additionalProperties, "chartVersion")
+		delete(additionalProperties, "layeredChartValues")
 		delete(additionalProperties, "password")
 		delete(additionalProperties, "username")
 		o.AdditionalProperties = additionalProperties

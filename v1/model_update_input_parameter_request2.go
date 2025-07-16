@@ -34,6 +34,8 @@ type UpdateInputParameterRequest2 struct {
 	Name *string `json:"name,omitempty"`
 	// A list of options to restrict the value of the input parameter to (represented as a string)
 	Options []string `json:"options,omitempty"`
+	// Regular expression pattern for validating the input parameter value
+	Regex *string `json:"regex,omitempty"`
 	// Enforces the input parameter as a required parameter
 	Required *bool `json:"required,omitempty"`
 	// Index for parameter ordering in the SaaS portal
@@ -248,6 +250,29 @@ func (o *UpdateInputParameterRequest2) SetOptions(v []string) {
 	o.Options = v
 }
 
+// GetRegex returns the Regex field value if set, zero value otherwise.
+func (o *UpdateInputParameterRequest2) GetRegex() string {
+	if o == nil || IsNil(o.Regex) {
+		var ret string
+		return ret
+	}
+	return *o.Regex
+}
+
+// GetRegexOk returns a tuple with the Regex field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateInputParameterRequest2) GetRegexOk() (*string, bool) {
+	if o == nil || IsNil(o.Regex) {
+		return nil, false
+	}
+	return o.Regex, true
+}
+
+// SetRegex gets a reference to the given string and assigns it to the Regex field.
+func (o *UpdateInputParameterRequest2) SetRegex(v string) {
+	o.Regex = &v
+}
+
 // GetRequired returns the Required field value if set, zero value otherwise.
 func (o *UpdateInputParameterRequest2) GetRequired() bool {
 	if o == nil || IsNil(o.Required) {
@@ -328,6 +353,9 @@ func (o UpdateInputParameterRequest2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Options) {
 		toSerialize["options"] = o.Options
 	}
+	if !IsNil(o.Regex) {
+		toSerialize["regex"] = o.Regex
+	}
 	if !IsNil(o.Required) {
 		toSerialize["required"] = o.Required
 	}
@@ -364,6 +392,7 @@ func (o *UpdateInputParameterRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "modifiable")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "options")
+		delete(additionalProperties, "regex")
 		delete(additionalProperties, "required")
 		delete(additionalProperties, "tabIndex")
 		o.AdditionalProperties = additionalProperties

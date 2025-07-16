@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **CustomPricePerUnit** | Pointer to **map[string]interface{}** | If custom price is true, provide the price per unit for the subscription here. | [optional] 
 **ExternalPayerId** | Pointer to **string** | The external payer ID to record which customer should pay for this subscription. | [optional] 
 **MaxNumberOfInstances** | Pointer to **int64** | The maximum number of instances that can be created for this subscription. Use -1 to unset this restriction. | [optional] 
-**PaymentChannelType** | Pointer to **string** | Deprecated: Use billingProvider instead. | [optional] 
 **PriceEffectiveDate** | Pointer to **string** | The effective date of the price, truncated to the first day of the month. Only the current or future months may be specified. | [optional] 
 
 ## Methods
@@ -181,31 +180,6 @@ SetMaxNumberOfInstances sets MaxNumberOfInstances field to given value.
 `func (o *FleetUpdateSubscriptionRequest2) HasMaxNumberOfInstances() bool`
 
 HasMaxNumberOfInstances returns a boolean if a field has been set.
-
-### GetPaymentChannelType
-
-`func (o *FleetUpdateSubscriptionRequest2) GetPaymentChannelType() string`
-
-GetPaymentChannelType returns the PaymentChannelType field if non-nil, zero value otherwise.
-
-### GetPaymentChannelTypeOk
-
-`func (o *FleetUpdateSubscriptionRequest2) GetPaymentChannelTypeOk() (*string, bool)`
-
-GetPaymentChannelTypeOk returns a tuple with the PaymentChannelType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPaymentChannelType
-
-`func (o *FleetUpdateSubscriptionRequest2) SetPaymentChannelType(v string)`
-
-SetPaymentChannelType sets PaymentChannelType field to given value.
-
-### HasPaymentChannelType
-
-`func (o *FleetUpdateSubscriptionRequest2) HasPaymentChannelType() bool`
-
-HasPaymentChannelType returns a boolean if a field has been set.
 
 ### GetPriceEffectiveDate
 

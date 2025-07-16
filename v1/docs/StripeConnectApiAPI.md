@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**StripeConnectApiCompleteOAuthConnection**](StripeConnectApiAPI.md#StripeConnectApiCompleteOAuthConnection) | **Post** /2022-09-01-00/stripe-setup | CompleteOAuthConnection stripe-connect-api
 [**StripeConnectApiGetStripeAuthorizeUrl**](StripeConnectApiAPI.md#StripeConnectApiGetStripeAuthorizeUrl) | **Get** /2022-09-01-00/stripe-setup | GetStripeAuthorizeUrl stripe-connect-api
-[**StripeConnectApiRevokeOAuthAccess**](StripeConnectApiAPI.md#StripeConnectApiRevokeOAuthAccess) | **Delete** /2022-09-01-00/stripe-setup | RevokeOAuthAccess stripe-connect-api
 
 
 
@@ -127,63 +126,6 @@ Other parameters are passed through a pointer to a apiStripeConnectApiGetStripeA
 
 - **Content-Type**: Not defined
 - **Accept**: application/json, application/vnd.goa.error
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## StripeConnectApiRevokeOAuthAccess
-
-> StripeConnectApiRevokeOAuthAccess(ctx).Execute()
-
-RevokeOAuthAccess stripe-connect-api
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
-)
-
-func main() {
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.StripeConnectApiAPI.StripeConnectApiRevokeOAuthAccess(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `StripeConnectApiAPI.StripeConnectApiRevokeOAuthAccess``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
-```
-
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiStripeConnectApiRevokeOAuthAccessRequest struct via the builder pattern
-
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[api_key_header_Authorization](../README.md#api_key_header_Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
