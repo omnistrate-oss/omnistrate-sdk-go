@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ExcludeDetail** | Pointer to **bool** | Whether to exclude detailed information about the resource instances | [optional] [default to false]
 **Filter** | Pointer to **string** | Filter to list resources. | [optional] 
 **ProductTierId** | Pointer to **string** | ID of a Product Tier | [optional] 
 **ProductTierVersion** | Pointer to **string** | The product tier version of the infra config to describe. If not specified, the latest version is described. | [optional] 
@@ -32,6 +33,31 @@ will change when the set of required properties is changed
 NewListFleetResourceInstancesRequestWithDefaults instantiates a new ListFleetResourceInstancesRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetExcludeDetail
+
+`func (o *ListFleetResourceInstancesRequest) GetExcludeDetail() bool`
+
+GetExcludeDetail returns the ExcludeDetail field if non-nil, zero value otherwise.
+
+### GetExcludeDetailOk
+
+`func (o *ListFleetResourceInstancesRequest) GetExcludeDetailOk() (*bool, bool)`
+
+GetExcludeDetailOk returns a tuple with the ExcludeDetail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeDetail
+
+`func (o *ListFleetResourceInstancesRequest) SetExcludeDetail(v bool)`
+
+SetExcludeDetail sets ExcludeDetail field to given value.
+
+### HasExcludeDetail
+
+`func (o *ListFleetResourceInstancesRequest) HasExcludeDetail() bool`
+
+HasExcludeDetail returns a boolean if a field has been set.
 
 ### GetFilter
 

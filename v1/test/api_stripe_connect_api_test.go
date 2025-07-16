@@ -46,15 +46,4 @@ func Test_v1_StripeConnectApiAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test StripeConnectApiAPIService StripeConnectApiRevokeOAuthAccess", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		httpRes, err := apiClient.StripeConnectApiAPI.StripeConnectApiRevokeOAuthAccess(context.Background()).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 }

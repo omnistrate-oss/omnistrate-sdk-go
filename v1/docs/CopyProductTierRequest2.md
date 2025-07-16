@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **PlanDescription** | Pointer to **string** | A brief description for the end user of the product tier | [optional] 
 **PricePerUnit** | Pointer to **map[string]interface{}** | Price per unit. | [optional] 
 **Pricing** | Pointer to **interface{}** | Pricing | [optional] 
+**PrivateRegions** | Pointer to **[]string** | The Private cloud regions that this product tier is available on | [optional] 
 **ServiceModelId** | **string** | Service model ID | 
 **Support** | Pointer to **string** | Support | [optional] 
 **TargetTierType** | Pointer to **string** | Tier type | [optional] 
@@ -417,6 +418,31 @@ HasPricing returns a boolean if a field has been set.
 `func (o *CopyProductTierRequest2) UnsetPricing()`
 
 UnsetPricing ensures that no value is present for Pricing, not even an explicit nil
+### GetPrivateRegions
+
+`func (o *CopyProductTierRequest2) GetPrivateRegions() []string`
+
+GetPrivateRegions returns the PrivateRegions field if non-nil, zero value otherwise.
+
+### GetPrivateRegionsOk
+
+`func (o *CopyProductTierRequest2) GetPrivateRegionsOk() (*[]string, bool)`
+
+GetPrivateRegionsOk returns a tuple with the PrivateRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrivateRegions
+
+`func (o *CopyProductTierRequest2) SetPrivateRegions(v []string)`
+
+SetPrivateRegions sets PrivateRegions field to given value.
+
+### HasPrivateRegions
+
+`func (o *CopyProductTierRequest2) HasPrivateRegions() bool`
+
+HasPrivateRegions returns a boolean if a field has been set.
+
 ### GetServiceModelId
 
 `func (o *CopyProductTierRequest2) GetServiceModelId() string`

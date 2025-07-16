@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **IsProductTierDisabled** | **bool** | Whether the product tier is disabled | 
 **LatestMajorVersion** | **string** | The version number for the latest major version set. | 
 **ModelType** | **string** | The model type encapsulating this service | 
+**PrivateRegions** | Pointer to **[]string** | The Private regions that this service plan is available on | [optional] 
 **ProductTierDescription** | **string** | A brief description of the product tier | 
 **ProductTierDocumentation** | **string** | Documentation | 
 **ProductTierFeatures** | Pointer to **map[string]interface{}** | The features that are enabled / disabled for this product tier | [optional] 
@@ -323,6 +324,31 @@ and a boolean to check if the value has been set.
 
 SetModelType sets ModelType field to given value.
 
+
+### GetPrivateRegions
+
+`func (o *GetServicePlanResult) GetPrivateRegions() []string`
+
+GetPrivateRegions returns the PrivateRegions field if non-nil, zero value otherwise.
+
+### GetPrivateRegionsOk
+
+`func (o *GetServicePlanResult) GetPrivateRegionsOk() (*[]string, bool)`
+
+GetPrivateRegionsOk returns a tuple with the PrivateRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrivateRegions
+
+`func (o *GetServicePlanResult) SetPrivateRegions(v []string)`
+
+SetPrivateRegions sets PrivateRegions field to given value.
+
+### HasPrivateRegions
+
+`func (o *GetServicePlanResult) HasPrivateRegions() bool`
+
+HasPrivateRegions returns a boolean if a field has been set.
 
 ### GetProductTierDescription
 

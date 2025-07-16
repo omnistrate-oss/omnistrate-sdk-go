@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **Modifiable** | **bool** | Marks the input parameter as immutable | 
 **Name** | **string** | External name for the input parameter | 
 **Options** | Pointer to **[]string** | A list of options to restrict the value of the input parameter to (represented as a string) | [optional] 
+**Regex** | Pointer to **string** | Regular expression pattern for validating the input parameter value | [optional] 
 **Required** | **bool** | Enforces the input parameter as a required parameter | 
 **ResourceId** | **string** | ID of a resource | 
 **ServiceId** | **string** | ID of a Service | 
@@ -310,6 +311,31 @@ SetOptions sets Options field to given value.
 `func (o *DescribeInputParameterResult) HasOptions() bool`
 
 HasOptions returns a boolean if a field has been set.
+
+### GetRegex
+
+`func (o *DescribeInputParameterResult) GetRegex() string`
+
+GetRegex returns the Regex field if non-nil, zero value otherwise.
+
+### GetRegexOk
+
+`func (o *DescribeInputParameterResult) GetRegexOk() (*string, bool)`
+
+GetRegexOk returns a tuple with the Regex field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegex
+
+`func (o *DescribeInputParameterResult) SetRegex(v string)`
+
+SetRegex sets Regex field to given value.
+
+### HasRegex
+
+`func (o *DescribeInputParameterResult) HasRegex() bool`
+
+HasRegex returns a boolean if a field has been set.
 
 ### GetRequired
 

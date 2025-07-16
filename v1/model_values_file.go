@@ -20,7 +20,9 @@ var _ MappedNullable = &ValuesFile{}
 
 // ValuesFile struct for ValuesFile
 type ValuesFile struct {
-	GitConfiguration GitFileConfiguration `json:"gitConfiguration"`
+	GitConfiguration GitConfiguration `json:"gitConfiguration"`
+	// The relative file path from repository root
+	Path string `json:"path"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -30,9 +32,10 @@ type _ValuesFile ValuesFile
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewValuesFile(gitConfiguration GitFileConfiguration) *ValuesFile {
+func NewValuesFile(gitConfiguration GitConfiguration, path string) *ValuesFile {
 	this := ValuesFile{}
 	this.GitConfiguration = gitConfiguration
+	this.Path = path
 	return &this
 }
 
@@ -45,9 +48,9 @@ func NewValuesFileWithDefaults() *ValuesFile {
 }
 
 // GetGitConfiguration returns the GitConfiguration field value
-func (o *ValuesFile) GetGitConfiguration() GitFileConfiguration {
+func (o *ValuesFile) GetGitConfiguration() GitConfiguration {
 	if o == nil {
-		var ret GitFileConfiguration
+		var ret GitConfiguration
 		return ret
 	}
 
@@ -56,7 +59,7 @@ func (o *ValuesFile) GetGitConfiguration() GitFileConfiguration {
 
 // GetGitConfigurationOk returns a tuple with the GitConfiguration field value
 // and a boolean to check if the value has been set.
-func (o *ValuesFile) GetGitConfigurationOk() (*GitFileConfiguration, bool) {
+func (o *ValuesFile) GetGitConfigurationOk() (*GitConfiguration, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -64,8 +67,32 @@ func (o *ValuesFile) GetGitConfigurationOk() (*GitFileConfiguration, bool) {
 }
 
 // SetGitConfiguration sets field value
-func (o *ValuesFile) SetGitConfiguration(v GitFileConfiguration) {
+func (o *ValuesFile) SetGitConfiguration(v GitConfiguration) {
 	o.GitConfiguration = v
+}
+
+// GetPath returns the Path field value
+func (o *ValuesFile) GetPath() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Path
+}
+
+// GetPathOk returns a tuple with the Path field value
+// and a boolean to check if the value has been set.
+func (o *ValuesFile) GetPathOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Path, true
+}
+
+// SetPath sets field value
+func (o *ValuesFile) SetPath(v string) {
+	o.Path = v
 }
 
 func (o ValuesFile) MarshalJSON() ([]byte, error) {
@@ -79,6 +106,7 @@ func (o ValuesFile) MarshalJSON() ([]byte, error) {
 func (o ValuesFile) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["gitConfiguration"] = o.GitConfiguration
+	toSerialize["path"] = o.Path
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -93,6 +121,7 @@ func (o *ValuesFile) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"gitConfiguration",
+		"path",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -123,6 +152,7 @@ func (o *ValuesFile) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "gitConfiguration")
+		delete(additionalProperties, "path")
 		o.AdditionalProperties = additionalProperties
 	}
 

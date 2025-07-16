@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Modifiable** | Pointer to **bool** | Marks the input parameter as immutable | [optional] 
 **Name** | Pointer to **string** | External name for the input parameter | [optional] 
 **Options** | Pointer to **[]string** | A list of options to restrict the value of the input parameter to (represented as a string) | [optional] 
+**Regex** | Pointer to **string** | Regular expression pattern for validating the input parameter value | [optional] 
 **Required** | Pointer to **bool** | Enforces the input parameter as a required parameter | [optional] 
 **TabIndex** | Pointer to **int64** | Index for parameter ordering in the SaaS portal | [optional] [default to 0]
 
@@ -233,6 +234,31 @@ SetOptions sets Options field to given value.
 `func (o *UpdateInputParameterRequest2) HasOptions() bool`
 
 HasOptions returns a boolean if a field has been set.
+
+### GetRegex
+
+`func (o *UpdateInputParameterRequest2) GetRegex() string`
+
+GetRegex returns the Regex field if non-nil, zero value otherwise.
+
+### GetRegexOk
+
+`func (o *UpdateInputParameterRequest2) GetRegexOk() (*string, bool)`
+
+GetRegexOk returns a tuple with the Regex field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegex
+
+`func (o *UpdateInputParameterRequest2) SetRegex(v string)`
+
+SetRegex sets Regex field to given value.
+
+### HasRegex
+
+`func (o *UpdateInputParameterRequest2) HasRegex() bool`
+
+HasRegex returns a boolean if a field has been set.
 
 ### GetRequired
 

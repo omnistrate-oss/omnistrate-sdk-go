@@ -133,4 +133,20 @@ func Test_v1_TierVersionSetApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test TierVersionSetApiAPIService TierVersionSetApiUpdateTierVersionSet", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var productTierId string
+		var version string
+
+		resp, httpRes, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiUpdateTierVersionSet(context.Background(), serviceId, productTierId, version).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 }

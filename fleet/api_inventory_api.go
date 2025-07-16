@@ -10069,6 +10069,7 @@ type ApiInventoryApiListResourceInstancesRequest struct {
 	productTierId *string
 	subscriptionId *string
 	filter *string
+	excludeDetail *bool
 	nextPageToken *string
 	pageSize *int64
 }
@@ -10094,6 +10095,12 @@ func (r ApiInventoryApiListResourceInstancesRequest) SubscriptionId(subscription
 // Filter to apply to the list of instances.
 func (r ApiInventoryApiListResourceInstancesRequest) Filter(filter string) ApiInventoryApiListResourceInstancesRequest {
 	r.filter = &filter
+	return r
+}
+
+// Whether to exclude detailed information about the resource instances.
+func (r ApiInventoryApiListResourceInstancesRequest) ExcludeDetail(excludeDetail bool) ApiInventoryApiListResourceInstancesRequest {
+	r.excludeDetail = &excludeDetail
 	return r
 }
 
@@ -10162,6 +10169,12 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstancesExecute(r ApiI
 	}
 	if r.filter != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "Filter", r.filter, "form", "")
+	}
+	if r.excludeDetail != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ExcludeDetail", r.excludeDetail, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.excludeDetail = &defaultValue
 	}
 	if r.nextPageToken != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")

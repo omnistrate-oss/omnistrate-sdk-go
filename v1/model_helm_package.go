@@ -26,10 +26,12 @@ type HelmPackage struct {
 	ChartRepoName string `json:"chartRepoName"`
 	// The chart repository URL of the Helm package
 	ChartRepoUrl string `json:"chartRepoUrl"`
-	// The values of the Helm package
+	// The values of the Helm package (mutually exclusive with layeredChartValues)
 	ChartValues map[string]interface{} `json:"chartValues,omitempty"`
 	// The chart version of the Helm package
 	ChartVersion string `json:"chartVersion"`
+	// Layered chart values configuration allowing multiple conditional value sets (mutually exclusive with chartValues).
+	LayeredChartValues []ChartValuesRef `json:"layeredChartValues,omitempty"`
 	// The namespace where the Helm package should be installed
 	Namespace string `json:"namespace"`
 	// The password to authenticate with the registry
@@ -182,6 +184,29 @@ func (o *HelmPackage) SetChartVersion(v string) {
 	o.ChartVersion = v
 }
 
+// GetLayeredChartValues returns the LayeredChartValues field value if set, zero value otherwise.
+func (o *HelmPackage) GetLayeredChartValues() []ChartValuesRef {
+	if o == nil || IsNil(o.LayeredChartValues) {
+		var ret []ChartValuesRef
+		return ret
+	}
+	return o.LayeredChartValues
+}
+
+// GetLayeredChartValuesOk returns a tuple with the LayeredChartValues field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HelmPackage) GetLayeredChartValuesOk() ([]ChartValuesRef, bool) {
+	if o == nil || IsNil(o.LayeredChartValues) {
+		return nil, false
+	}
+	return o.LayeredChartValues, true
+}
+
+// SetLayeredChartValues gets a reference to the given []ChartValuesRef and assigns it to the LayeredChartValues field.
+func (o *HelmPackage) SetLayeredChartValues(v []ChartValuesRef) {
+	o.LayeredChartValues = v
+}
+
 // GetNamespace returns the Namespace field value
 func (o *HelmPackage) GetNamespace() string {
 	if o == nil {
@@ -269,6 +294,9 @@ func (o HelmPackage) ToMap() (map[string]interface{}, error) {
 		toSerialize["chartValues"] = o.ChartValues
 	}
 	toSerialize["chartVersion"] = o.ChartVersion
+	if !IsNil(o.LayeredChartValues) {
+		toSerialize["layeredChartValues"] = o.LayeredChartValues
+	}
 	toSerialize["namespace"] = o.Namespace
 	if !IsNil(o.Password) {
 		toSerialize["password"] = o.Password
@@ -328,6 +356,7 @@ func (o *HelmPackage) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "chartRepoUrl")
 		delete(additionalProperties, "chartValues")
 		delete(additionalProperties, "chartVersion")
+		delete(additionalProperties, "layeredChartValues")
 		delete(additionalProperties, "namespace")
 		delete(additionalProperties, "password")
 		delete(additionalProperties, "username")

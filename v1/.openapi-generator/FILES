@@ -45,6 +45,7 @@ api_service_plan_api.go
 api_services_orchestration_api.go
 api_signin_api.go
 api_signup_api.go
+api_sp_organization_api.go
 api_storage_config_api.go
 api_storage_volume_config_api.go
 api_stripe_connect_api.go
@@ -80,6 +81,7 @@ docs/AddStorageVolumeConfigRequest.md
 docs/AddStorageVolumeConfigRequest2.md
 docs/AdditionalSecurityContext.md
 docs/Address.md
+docs/Amenity.md
 docs/AuditEventsApiAPI.md
 docs/AutoScalingMetricSpec.md
 docs/AutoscalingPolicy.md
@@ -211,6 +213,7 @@ docs/CustomerSigninResult.md
 docs/CustomerSignupRequest.md
 docs/CustomerSignupRequest2.md
 docs/DeRegisterResourceMetricsConfigRequest.md
+docs/DefaultDeploymentCellConfigurations.md
 docs/DeleteAccountConfigRequest.md
 docs/DeleteComputeConfigRequest.md
 docs/DeleteCustomDomainRequest.md
@@ -243,6 +246,7 @@ docs/DeleteUpgradePathRequest.md
 docs/DeleteUserRequest.md
 docs/DemoApiAPI.md
 docs/DemoRequest.md
+docs/DeploymentCellConfiguration.md
 docs/DeploymentCellHealthDetail.md
 docs/DeploymentCellHealthRequest.md
 docs/DeploymentCellHealthSummary.md
@@ -324,6 +328,8 @@ docs/DescribeServiceOfferingRequest.md
 docs/DescribeServiceOfferingResourceRequest.md
 docs/DescribeServiceOfferingResourceResult.md
 docs/DescribeServiceOfferingResult.md
+docs/DescribeServiceProviderOrganizationRequest.md
+docs/DescribeServiceProviderOrganizationResult.md
 docs/DescribeServiceRequest.md
 docs/DescribeServiceResult.md
 docs/DescribeServicesOrchestrationRequest.md
@@ -405,7 +411,6 @@ docs/GetTenantBillingStatusResult.md
 docs/GetUsageRequest.md
 docs/GetUsageResult.md
 docs/GitConfiguration.md
-docs/GitFileConfiguration.md
 docs/GlobalApiAPI.md
 docs/HelmChartConfiguration.md
 docs/HelmPackage.md
@@ -553,6 +558,7 @@ docs/LoadBalancerPathConfiguration.md
 docs/LoginWithIdentityProviderRequest.md
 docs/LoginWithIdentityProviderResult.md
 docs/LogoutRequest.md
+docs/ModifyServiceProviderOrganizationRequest.md
 docs/ModifyServicesOrchestrationRequest.md
 docs/ModifyServicesOrchestrationRequest2.md
 docs/NetworkConfigApiAPI.md
@@ -632,7 +638,6 @@ docs/RestoreResourceInstanceRequest.md
 docs/RestoreResourceInstanceRequest2.md
 docs/RevokeConsumptionUserRoleRequest.md
 docs/RevokeConsumptionUserRoleRequest2.md
-docs/RevokeOAuthAccessRequest.md
 docs/RevokeUserRoleRequest.md
 docs/RevokeUserRoleRequest2.md
 docs/RolloutFleetImageConfigRequest.md
@@ -678,6 +683,7 @@ docs/SigninRequest.md
 docs/SigninResult.md
 docs/SignupApiAPI.md
 docs/SignupRequest.md
+docs/SpOrganizationApiAPI.md
 docs/StartResourceInstanceRequest.md
 docs/StopResourceInstanceRequest.md
 docs/StorageConfigApiAPI.md
@@ -753,6 +759,8 @@ docs/UpdateStorageVolumeConfigRequest.md
 docs/UpdateStorageVolumeConfigRequest2.md
 docs/UpdateStorageVolumeSizeConfigRequest.md
 docs/UpdateStorageVolumeSizeConfigRequest2.md
+docs/UpdateTierVersionSetRequest.md
+docs/UpdateTierVersionSetRequest2.md
 docs/UpdateUpgradePathRequest.md
 docs/UpdateUserRequest.md
 docs/UpdateUserRequest2.md
@@ -790,6 +798,7 @@ model_add_storage_volume_config_request.go
 model_add_storage_volume_config_request2.go
 model_additional_security_context.go
 model_address.go
+model_amenity.go
 model_api_entity.go
 model_auto_scaling_metric_spec.go
 model_autoscaling_policy.go
@@ -911,6 +920,7 @@ model_customer_signin_result.go
 model_customer_signup_request.go
 model_customer_signup_request2.go
 model_de_register_resource_metrics_config_request.go
+model_default_deployment_cell_configurations.go
 model_delete_account_config_request.go
 model_delete_compute_config_request.go
 model_delete_custom_domain_request.go
@@ -942,6 +952,7 @@ model_delete_subscription_request.go
 model_delete_upgrade_path_request.go
 model_delete_user_request.go
 model_demo_request.go
+model_deployment_cell_configuration.go
 model_deployment_cell_health_detail.go
 model_deployment_cell_health_request.go
 model_deployment_cell_health_summary.go
@@ -1022,6 +1033,8 @@ model_describe_service_offering_request.go
 model_describe_service_offering_resource_request.go
 model_describe_service_offering_resource_result.go
 model_describe_service_offering_result.go
+model_describe_service_provider_organization_request.go
+model_describe_service_provider_organization_result.go
 model_describe_service_request.go
 model_describe_service_result.go
 model_describe_services_orchestration_request.go
@@ -1103,7 +1116,6 @@ model_get_tenant_billing_status_result.go
 model_get_usage_request.go
 model_get_usage_result.go
 model_git_configuration.go
-model_git_file_configuration.go
 model_helm_chart_configuration.go
 model_helm_package.go
 model_helm_runtime_configuration.go
@@ -1242,6 +1254,7 @@ model_load_balancer_path_configuration.go
 model_login_with_identity_provider_request.go
 model_login_with_identity_provider_result.go
 model_logout_request.go
+model_modify_service_provider_organization_request.go
 model_modify_services_orchestration_request.go
 model_modify_services_orchestration_request2.go
 model_network_features_configuration.go
@@ -1314,7 +1327,6 @@ model_restore_resource_instance_request.go
 model_restore_resource_instance_request2.go
 model_revoke_consumption_user_role_request.go
 model_revoke_consumption_user_role_request2.go
-model_revoke_o_auth_access_request.go
 model_revoke_user_role_request.go
 model_revoke_user_role_request2.go
 model_rollout_fleet_image_config_request.go
@@ -1417,6 +1429,8 @@ model_update_storage_volume_config_request.go
 model_update_storage_volume_config_request2.go
 model_update_storage_volume_size_config_request.go
 model_update_storage_volume_size_config_request2.go
+model_update_tier_version_set_request.go
+model_update_tier_version_set_request2.go
 model_update_upgrade_path_request.go
 model_update_user_request.go
 model_update_user_request2.go
@@ -1473,6 +1487,7 @@ test/api_service_plan_api_test.go
 test/api_services_orchestration_api_test.go
 test/api_signin_api_test.go
 test/api_signup_api_test.go
+test/api_sp_organization_api_test.go
 test/api_storage_config_api_test.go
 test/api_storage_volume_config_api_test.go
 test/api_stripe_connect_api_test.go

@@ -8,7 +8,6 @@ api_cost_api.go
 api_customer_onboardings_api.go
 api_events_api.go
 api_fleet_custom_network_api.go
-api_fleet_features_api.go
 api_fleet_workflows_api.go
 api_helm_package_api.go
 api_hostcluster_api.go
@@ -31,6 +30,7 @@ docs/AdoptHostClusterRequest2.md
 docs/AdoptHostClusterResult.md
 docs/AdoptResourceInstanceRequest.md
 docs/AdoptResourceInstanceRequest2.md
+docs/Amenity.md
 docs/ApproveSubscriptionRequestRequest.md
 docs/AuditEventsApiAPI.md
 docs/BackupStatus.md
@@ -102,6 +102,7 @@ docs/CustomerSignupRequest.md
 docs/DebugResourceInstanceRequest.md
 docs/DebugResourceInstanceResult.md
 docs/DebugResourceResult.md
+docs/DefaultDeploymentCellConfigurations.md
 docs/DeleteAccountConfigRequest.md
 docs/DeleteCustomerOnboardingRequest.md
 docs/DeleteHostClusterRequest.md
@@ -121,6 +122,7 @@ docs/DeleteSubscriptionRequest.md
 docs/DeleteUserRequest.md
 docs/DemoRequest.md
 docs/DenySubscriptionRequestRequest.md
+docs/DeploymentCellConfiguration.md
 docs/DeploymentCellHealthDetail.md
 docs/DeploymentCellHealthRequest.md
 docs/DeploymentCellHealthSummary.md
@@ -141,7 +143,6 @@ docs/DescribeConsumptionUserBillingDetailsResult.md
 docs/DescribeCustomerOnboardingRequest.md
 docs/DescribeDeploymentCellCostRequest.md
 docs/DescribeDeploymentCellCostResult.md
-docs/DescribeFleetFeatureRequest.md
 docs/DescribeHostClusterRequest.md
 docs/DescribeIdentityProviderRequest.md
 docs/DescribeIdentityProviderResult.md
@@ -174,6 +175,8 @@ docs/DescribeServiceOfferingRequest.md
 docs/DescribeServiceOfferingResourceRequest.md
 docs/DescribeServiceOfferingResourceResult.md
 docs/DescribeServiceOfferingResult.md
+docs/DescribeServiceProviderOrganizationRequest.md
+docs/DescribeServiceProviderOrganizationResult.md
 docs/DescribeServiceRequest.md
 docs/DescribeServiceResult.md
 docs/DescribeServiceWorkflowRequest.md
@@ -199,15 +202,11 @@ docs/DescribeVUnitRequest.md
 docs/DescribeVUnitResult.md
 docs/DetailedNodeHealthResult.md
 docs/DisableBillingProviderRequest.md
-docs/DisableFleetFeatureRequest.md
-docs/DisableFleetFeatureRequest2.md
 docs/DisableProductTierFeatureRequest.md
 docs/DisableServiceModelFeatureRequest.md
 docs/DisableTenantBillingRequest.md
 docs/EmailConfiguration.md
 docs/EnableBillingProviderRequest.md
-docs/EnableFleetFeatureRequest.md
-docs/EnableFleetFeatureRequest2.md
 docs/EnableProductTierFeatureRequest.md
 docs/EnableServiceModelFeatureRequest.md
 docs/EnableTenantBillingRequest.md
@@ -277,8 +276,6 @@ docs/FleetDescribeUser.md
 docs/FleetDescribeUserResult.md
 docs/FleetFailoverResourceInstanceRequest.md
 docs/FleetFailoverResourceInstanceRequest2.md
-docs/FleetFeature.md
-docs/FleetFeaturesApiAPI.md
 docs/FleetGenerateTokenForHostClusterDashboardRequest.md
 docs/FleetGenerateTokenForHostClusterDashboardResult.md
 docs/FleetInvoice.md
@@ -397,6 +394,8 @@ docs/InviteUserRequest.md
 docs/Invoice.md
 docs/InvoiceApiAPI.md
 docs/JobMetric.md
+docs/KubeConfigHostClusterRequest.md
+docs/KubeConfigHostClusterResult.md
 docs/KubernetesDashboardEndpoint.md
 docs/KustomizeDeploymentConfiguration.md
 docs/Limits.md
@@ -425,8 +424,6 @@ docs/ListEligibleInstancesPerUpgradeRequest.md
 docs/ListEligibleInstancesPerUpgradeResult.md
 docs/ListEndCustomerEvents.md
 docs/ListEndCustomerEventsResult.md
-docs/ListFleetFeaturesRequest.md
-docs/ListFleetFeaturesResult.md
 docs/ListFleetResourceInstancesRequest.md
 docs/ListFleetResourceInstancesResultInternal.md
 docs/ListHelmPackageInstallationsRequest.md
@@ -489,6 +486,7 @@ docs/LogoutRequest.md
 docs/ManageUpgradePathLifecycleRequest.md
 docs/ManageUpgradePathLifecycleRequest2.md
 docs/ManualOverride.md
+docs/ModifyServiceProviderOrganizationRequest.md
 docs/ModifyServicesOrchestrationRequest.md
 docs/NodeHealthSummary.md
 docs/NodeNetworkTopologyResult.md
@@ -549,7 +547,6 @@ docs/RestartResourceInstanceRequest.md
 docs/RestoreResourceInstanceFromSnapshotRequest.md
 docs/RestoreResourceInstanceRequest.md
 docs/RevokeConsumptionUserRoleRequest.md
-docs/RevokeOAuthAccessRequest.md
 docs/RevokeUserRoleRequest.md
 docs/SaaSPortal.md
 docs/SaaSPortalEmailConfig.md
@@ -638,6 +635,7 @@ model_adopt_host_cluster_request2.go
 model_adopt_host_cluster_result.go
 model_adopt_resource_instance_request.go
 model_adopt_resource_instance_request2.go
+model_amenity.go
 model_api_entity.go
 model_approve_subscription_request_request.go
 model_backup_status.go
@@ -707,6 +705,7 @@ model_customer_signup_request.go
 model_debug_resource_instance_request.go
 model_debug_resource_instance_result.go
 model_debug_resource_result.go
+model_default_deployment_cell_configurations.go
 model_delete_account_config_request.go
 model_delete_customer_onboarding_request.go
 model_delete_host_cluster_request.go
@@ -726,6 +725,7 @@ model_delete_subscription_request.go
 model_delete_user_request.go
 model_demo_request.go
 model_deny_subscription_request_request.go
+model_deployment_cell_configuration.go
 model_deployment_cell_health_detail.go
 model_deployment_cell_health_request.go
 model_deployment_cell_health_summary.go
@@ -746,7 +746,6 @@ model_describe_consumption_user_billing_details_result.go
 model_describe_customer_onboarding_request.go
 model_describe_deployment_cell_cost_request.go
 model_describe_deployment_cell_cost_result.go
-model_describe_fleet_feature_request.go
 model_describe_host_cluster_request.go
 model_describe_identity_provider_request.go
 model_describe_identity_provider_result.go
@@ -779,6 +778,8 @@ model_describe_service_offering_request.go
 model_describe_service_offering_resource_request.go
 model_describe_service_offering_resource_result.go
 model_describe_service_offering_result.go
+model_describe_service_provider_organization_request.go
+model_describe_service_provider_organization_result.go
 model_describe_service_request.go
 model_describe_service_result.go
 model_describe_service_workflow_request.go
@@ -804,15 +805,11 @@ model_describe_v_unit_request.go
 model_describe_v_unit_result.go
 model_detailed_node_health_result.go
 model_disable_billing_provider_request.go
-model_disable_fleet_feature_request.go
-model_disable_fleet_feature_request2.go
 model_disable_product_tier_feature_request.go
 model_disable_service_model_feature_request.go
 model_disable_tenant_billing_request.go
 model_email_configuration.go
 model_enable_billing_provider_request.go
-model_enable_fleet_feature_request.go
-model_enable_fleet_feature_request2.go
 model_enable_product_tier_feature_request.go
 model_enable_service_model_feature_request.go
 model_enable_tenant_billing_request.go
@@ -880,7 +877,6 @@ model_fleet_describe_user.go
 model_fleet_describe_user_result.go
 model_fleet_failover_resource_instance_request.go
 model_fleet_failover_resource_instance_request2.go
-model_fleet_feature.go
 model_fleet_generate_token_for_host_cluster_dashboard_request.go
 model_fleet_generate_token_for_host_cluster_dashboard_result.go
 model_fleet_invoice.go
@@ -994,6 +990,8 @@ model_invite_consumption_user_request.go
 model_invite_user_request.go
 model_invoice.go
 model_job_metric.go
+model_kube_config_host_cluster_request.go
+model_kube_config_host_cluster_result.go
 model_kubernetes_dashboard_endpoint.go
 model_kustomize_deployment_configuration.go
 model_limits.go
@@ -1022,8 +1020,6 @@ model_list_eligible_instances_per_upgrade_request.go
 model_list_eligible_instances_per_upgrade_result.go
 model_list_end_customer_events.go
 model_list_end_customer_events_result.go
-model_list_fleet_features_request.go
-model_list_fleet_features_result.go
 model_list_fleet_resource_instances_request.go
 model_list_fleet_resource_instances_result_internal.go
 model_list_helm_package_installations_request.go
@@ -1086,6 +1082,7 @@ model_logout_request.go
 model_manage_upgrade_path_lifecycle_request.go
 model_manage_upgrade_path_lifecycle_request2.go
 model_manual_override.go
+model_modify_service_provider_organization_request.go
 model_modify_services_orchestration_request.go
 model_node_health_summary.go
 model_node_network_topology_result.go
@@ -1144,7 +1141,6 @@ model_restart_resource_instance_request.go
 model_restore_resource_instance_from_snapshot_request.go
 model_restore_resource_instance_request.go
 model_revoke_consumption_user_role_request.go
-model_revoke_o_auth_access_request.go
 model_revoke_user_role_request.go
 model_saa_s_portal.go
 model_saa_s_portal_email_config.go
@@ -1226,7 +1222,6 @@ test/api_cost_api_test.go
 test/api_customer_onboardings_api_test.go
 test/api_events_api_test.go
 test/api_fleet_custom_network_api_test.go
-test/api_fleet_features_api_test.go
 test/api_fleet_workflows_api_test.go
 test/api_helm_package_api_test.go
 test/api_hostcluster_api_test.go

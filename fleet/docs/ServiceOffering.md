@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **CloudProviders** | Pointer to **[]string** | List of supported cloud providers for this product tier. | [optional] 
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this service offering is available on | [optional] 
 **MaxNumberOfInstances** | Pointer to **int64** | Maximum number of instances | [optional] 
+**PrivateRegions** | Pointer to **[]string** | The Private regions that this service offering is available on | [optional] 
 **ProductTierDescription** | Pointer to **string** | A brief description of the product tier | [optional] 
 **ProductTierDocumentation** | **string** | Documentation | 
 **ProductTierID** | **string** | ID of a Product Tier | 
@@ -252,6 +253,31 @@ SetMaxNumberOfInstances sets MaxNumberOfInstances field to given value.
 `func (o *ServiceOffering) HasMaxNumberOfInstances() bool`
 
 HasMaxNumberOfInstances returns a boolean if a field has been set.
+
+### GetPrivateRegions
+
+`func (o *ServiceOffering) GetPrivateRegions() []string`
+
+GetPrivateRegions returns the PrivateRegions field if non-nil, zero value otherwise.
+
+### GetPrivateRegionsOk
+
+`func (o *ServiceOffering) GetPrivateRegionsOk() (*[]string, bool)`
+
+GetPrivateRegionsOk returns a tuple with the PrivateRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrivateRegions
+
+`func (o *ServiceOffering) SetPrivateRegions(v []string)`
+
+SetPrivateRegions sets PrivateRegions field to given value.
+
+### HasPrivateRegions
+
+`func (o *ServiceOffering) HasPrivateRegions() bool`
+
+HasPrivateRegions returns a boolean if a field has been set.
 
 ### GetProductTierDescription
 

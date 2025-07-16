@@ -20,6 +20,8 @@ var _ MappedNullable = &ListFleetResourceInstancesRequest{}
 
 // ListFleetResourceInstancesRequest struct for ListFleetResourceInstancesRequest
 type ListFleetResourceInstancesRequest struct {
+	// Whether to exclude detailed information about the resource instances
+	ExcludeDetail *bool `json:"ExcludeDetail,omitempty"`
 	// Filter to list resources.
 	Filter *string `json:"Filter,omitempty"`
 	// ID of a Product Tier
@@ -49,6 +51,8 @@ type _ListFleetResourceInstancesRequest ListFleetResourceInstancesRequest
 // will change when the set of required properties is changed
 func NewListFleetResourceInstancesRequest(environmentId string, serviceId string, token string) *ListFleetResourceInstancesRequest {
 	this := ListFleetResourceInstancesRequest{}
+	var excludeDetail bool = false
+	this.ExcludeDetail = &excludeDetail
 	this.EnvironmentId = environmentId
 	this.ServiceId = serviceId
 	this.Token = token
@@ -60,7 +64,41 @@ func NewListFleetResourceInstancesRequest(environmentId string, serviceId string
 // but it doesn't guarantee that properties required by API are set
 func NewListFleetResourceInstancesRequestWithDefaults() *ListFleetResourceInstancesRequest {
 	this := ListFleetResourceInstancesRequest{}
+	var excludeDetail bool = false
+	this.ExcludeDetail = &excludeDetail
 	return &this
+}
+
+// GetExcludeDetail returns the ExcludeDetail field value if set, zero value otherwise.
+func (o *ListFleetResourceInstancesRequest) GetExcludeDetail() bool {
+	if o == nil || IsNil(o.ExcludeDetail) {
+		var ret bool
+		return ret
+	}
+	return *o.ExcludeDetail
+}
+
+// GetExcludeDetailOk returns a tuple with the ExcludeDetail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListFleetResourceInstancesRequest) GetExcludeDetailOk() (*bool, bool) {
+	if o == nil || IsNil(o.ExcludeDetail) {
+		return nil, false
+	}
+	return o.ExcludeDetail, true
+}
+
+// HasExcludeDetail returns a boolean if a field has been set.
+func (o *ListFleetResourceInstancesRequest) HasExcludeDetail() bool {
+	if o != nil && !IsNil(o.ExcludeDetail) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludeDetail gets a reference to the given bool and assigns it to the ExcludeDetail field.
+func (o *ListFleetResourceInstancesRequest) SetExcludeDetail(v bool) {
+	o.ExcludeDetail = &v
 }
 
 // GetFilter returns the Filter field value if set, zero value otherwise.
@@ -337,6 +375,9 @@ func (o ListFleetResourceInstancesRequest) MarshalJSON() ([]byte, error) {
 
 func (o ListFleetResourceInstancesRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ExcludeDetail) {
+		toSerialize["ExcludeDetail"] = o.ExcludeDetail
+	}
 	if !IsNil(o.Filter) {
 		toSerialize["Filter"] = o.Filter
 	}
@@ -403,6 +444,7 @@ func (o *ListFleetResourceInstancesRequest) UnmarshalJSON(data []byte) (err erro
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "ExcludeDetail")
 		delete(additionalProperties, "Filter")
 		delete(additionalProperties, "ProductTierId")
 		delete(additionalProperties, "ProductTierVersion")

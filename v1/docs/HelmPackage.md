@@ -7,8 +7,9 @@ Name | Type | Description | Notes
 **ChartName** | **string** | The chart name of the Helm package | 
 **ChartRepoName** | **string** | The chart repository name of the Helm package | 
 **ChartRepoUrl** | **string** | The chart repository URL of the Helm package | 
-**ChartValues** | Pointer to **map[string]interface{}** | The values of the Helm package | [optional] 
+**ChartValues** | Pointer to **map[string]interface{}** | The values of the Helm package (mutually exclusive with layeredChartValues) | [optional] 
 **ChartVersion** | **string** | The chart version of the Helm package | 
+**LayeredChartValues** | Pointer to [**[]ChartValuesRef**](ChartValuesRef.md) | Layered chart values configuration allowing multiple conditional value sets (mutually exclusive with chartValues). | [optional] 
 **Namespace** | **string** | The namespace where the Helm package should be installed | 
 **Password** | Pointer to **string** | The password to authenticate with the registry | [optional] 
 **Username** | Pointer to **string** | The username to authenticate with the registry | [optional] 
@@ -136,6 +137,31 @@ and a boolean to check if the value has been set.
 
 SetChartVersion sets ChartVersion field to given value.
 
+
+### GetLayeredChartValues
+
+`func (o *HelmPackage) GetLayeredChartValues() []ChartValuesRef`
+
+GetLayeredChartValues returns the LayeredChartValues field if non-nil, zero value otherwise.
+
+### GetLayeredChartValuesOk
+
+`func (o *HelmPackage) GetLayeredChartValuesOk() (*[]ChartValuesRef, bool)`
+
+GetLayeredChartValuesOk returns a tuple with the LayeredChartValues field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLayeredChartValues
+
+`func (o *HelmPackage) SetLayeredChartValues(v []ChartValuesRef)`
+
+SetLayeredChartValues sets LayeredChartValues field to given value.
+
+### HasLayeredChartValues
+
+`func (o *HelmPackage) HasLayeredChartValues() bool`
+
+HasLayeredChartValues returns a boolean if a field has been set.
 
 ### GetNamespace
 

@@ -44,6 +44,8 @@ type GetServicePlanResult struct {
 	LatestMajorVersion string `json:"latestMajorVersion"`
 	// The model type encapsulating this service
 	ModelType string `json:"modelType"`
+	// The Private regions that this service plan is available on
+	PrivateRegions []string `json:"privateRegions,omitempty"`
 	// A brief description of the product tier
 	ProductTierDescription string `json:"productTierDescription"`
 	// Documentation
@@ -458,6 +460,38 @@ func (o *GetServicePlanResult) GetModelTypeOk() (*string, bool) {
 // SetModelType sets field value
 func (o *GetServicePlanResult) SetModelType(v string) {
 	o.ModelType = v
+}
+
+// GetPrivateRegions returns the PrivateRegions field value if set, zero value otherwise.
+func (o *GetServicePlanResult) GetPrivateRegions() []string {
+	if o == nil || IsNil(o.PrivateRegions) {
+		var ret []string
+		return ret
+	}
+	return o.PrivateRegions
+}
+
+// GetPrivateRegionsOk returns a tuple with the PrivateRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetServicePlanResult) GetPrivateRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.PrivateRegions) {
+		return nil, false
+	}
+	return o.PrivateRegions, true
+}
+
+// HasPrivateRegions returns a boolean if a field has been set.
+func (o *GetServicePlanResult) HasPrivateRegions() bool {
+	if o != nil && !IsNil(o.PrivateRegions) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrivateRegions gets a reference to the given []string and assigns it to the PrivateRegions field.
+func (o *GetServicePlanResult) SetPrivateRegions(v []string) {
+	o.PrivateRegions = v
 }
 
 // GetProductTierDescription returns the ProductTierDescription field value
@@ -944,6 +978,9 @@ func (o GetServicePlanResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["isProductTierDisabled"] = o.IsProductTierDisabled
 	toSerialize["latestMajorVersion"] = o.LatestMajorVersion
 	toSerialize["modelType"] = o.ModelType
+	if !IsNil(o.PrivateRegions) {
+		toSerialize["privateRegions"] = o.PrivateRegions
+	}
 	toSerialize["productTierDescription"] = o.ProductTierDescription
 	toSerialize["productTierDocumentation"] = o.ProductTierDocumentation
 	if !IsNil(o.ProductTierFeatures) {
@@ -1044,6 +1081,7 @@ func (o *GetServicePlanResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "isProductTierDisabled")
 		delete(additionalProperties, "latestMajorVersion")
 		delete(additionalProperties, "modelType")
+		delete(additionalProperties, "privateRegions")
 		delete(additionalProperties, "productTierDescription")
 		delete(additionalProperties, "productTierDocumentation")
 		delete(additionalProperties, "productTierFeatures")

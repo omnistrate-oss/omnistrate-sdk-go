@@ -55,6 +55,8 @@ type UpdateProductTierRequest2 struct {
 	PricePerUnit map[string]interface{} `json:"pricePerUnit,omitempty"`
 	// Pricing
 	Pricing interface{} `json:"pricing,omitempty"`
+	// The private regions that this product tier is available on
+	PrivateRegions []string `json:"privateRegions,omitempty"`
 	// Support
 	Support *string `json:"support,omitempty"`
 	// Tier type
@@ -496,6 +498,29 @@ func (o *UpdateProductTierRequest2) SetPricing(v interface{}) {
 	o.Pricing = v
 }
 
+// GetPrivateRegions returns the PrivateRegions field value if set, zero value otherwise.
+func (o *UpdateProductTierRequest2) GetPrivateRegions() []string {
+	if o == nil || IsNil(o.PrivateRegions) {
+		var ret []string
+		return ret
+	}
+	return o.PrivateRegions
+}
+
+// GetPrivateRegionsOk returns a tuple with the PrivateRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateProductTierRequest2) GetPrivateRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.PrivateRegions) {
+		return nil, false
+	}
+	return o.PrivateRegions, true
+}
+
+// SetPrivateRegions gets a reference to the given []string and assigns it to the PrivateRegions field.
+func (o *UpdateProductTierRequest2) SetPrivateRegions(v []string) {
+	o.PrivateRegions = v
+}
+
 // GetSupport returns the Support field value if set, zero value otherwise.
 func (o *UpdateProductTierRequest2) GetSupport() string {
 	if o == nil || IsNil(o.Support) {
@@ -606,6 +631,9 @@ func (o UpdateProductTierRequest2) ToMap() (map[string]interface{}, error) {
 	if o.Pricing != nil {
 		toSerialize["pricing"] = o.Pricing
 	}
+	if !IsNil(o.PrivateRegions) {
+		toSerialize["privateRegions"] = o.PrivateRegions
+	}
 	if !IsNil(o.Support) {
 		toSerialize["support"] = o.Support
 	}
@@ -652,6 +680,7 @@ func (o *UpdateProductTierRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "planDescription")
 		delete(additionalProperties, "pricePerUnit")
 		delete(additionalProperties, "pricing")
+		delete(additionalProperties, "privateRegions")
 		delete(additionalProperties, "support")
 		delete(additionalProperties, "tierType")
 		o.AdditionalProperties = additionalProperties

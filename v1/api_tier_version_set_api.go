@@ -125,6 +125,21 @@ type TierVersionSetApiAPI interface {
 	// TierVersionSetApiReleaseTierVersionSetExecute executes the request
 	//  @return TierVersionSet
 	TierVersionSetApiReleaseTierVersionSetExecute(r ApiTierVersionSetApiReleaseTierVersionSetRequest) (*TierVersionSet, *http.Response, error)
+
+	/*
+	TierVersionSetApiUpdateTierVersionSet UpdateTierVersionSet tier-version-set-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId ID of the Service
+	@param productTierId The product tier ID that this version set belongs to.
+	@param version The version number for the specific version set.
+	@return ApiTierVersionSetApiUpdateTierVersionSetRequest
+	*/
+	TierVersionSetApiUpdateTierVersionSet(ctx context.Context, serviceId string, productTierId string, version string) ApiTierVersionSetApiUpdateTierVersionSetRequest
+
+	// TierVersionSetApiUpdateTierVersionSetExecute executes the request
+	//  @return TierVersionSet
+	TierVersionSetApiUpdateTierVersionSetExecute(r ApiTierVersionSetApiUpdateTierVersionSetRequest) (*TierVersionSet, *http.Response, error)
 }
 
 // TierVersionSetApiAPIService TierVersionSetApiAPI service
@@ -1302,6 +1317,191 @@ func (a *TierVersionSetApiAPIService) TierVersionSetApiReleaseTierVersionSetExec
 	}
 	// body params
 	localVarPostBody = r.releaseTierVersionSetRequest2
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiTierVersionSetApiUpdateTierVersionSetRequest struct {
+	ctx context.Context
+	ApiService TierVersionSetApiAPI
+	serviceId string
+	productTierId string
+	version string
+	updateTierVersionSetRequest2 *UpdateTierVersionSetRequest2
+}
+
+func (r ApiTierVersionSetApiUpdateTierVersionSetRequest) UpdateTierVersionSetRequest2(updateTierVersionSetRequest2 UpdateTierVersionSetRequest2) ApiTierVersionSetApiUpdateTierVersionSetRequest {
+	r.updateTierVersionSetRequest2 = &updateTierVersionSetRequest2
+	return r
+}
+
+func (r ApiTierVersionSetApiUpdateTierVersionSetRequest) Execute() (*TierVersionSet, *http.Response, error) {
+	return r.ApiService.TierVersionSetApiUpdateTierVersionSetExecute(r)
+}
+
+/*
+TierVersionSetApiUpdateTierVersionSet UpdateTierVersionSet tier-version-set-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serviceId ID of the Service
+ @param productTierId The product tier ID that this version set belongs to.
+ @param version The version number for the specific version set.
+ @return ApiTierVersionSetApiUpdateTierVersionSetRequest
+*/
+func (a *TierVersionSetApiAPIService) TierVersionSetApiUpdateTierVersionSet(ctx context.Context, serviceId string, productTierId string, version string) ApiTierVersionSetApiUpdateTierVersionSetRequest {
+	return ApiTierVersionSetApiUpdateTierVersionSetRequest{
+		ApiService: a,
+		ctx: ctx,
+		serviceId: serviceId,
+		productTierId: productTierId,
+		version: version,
+	}
+}
+
+// Execute executes the request
+//  @return TierVersionSet
+func (a *TierVersionSetApiAPIService) TierVersionSetApiUpdateTierVersionSetExecute(r ApiTierVersionSetApiUpdateTierVersionSetRequest) (*TierVersionSet, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TierVersionSet
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TierVersionSetApiAPIService.TierVersionSetApiUpdateTierVersionSet")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"productTierId"+"}", url.PathEscape(parameterValueToString(r.productTierId, "productTierId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.updateTierVersionSetRequest2 == nil {
+		return localVarReturnValue, nil, reportError("updateTierVersionSetRequest2 is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.updateTierVersionSetRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

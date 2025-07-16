@@ -68,6 +68,8 @@ type DescribeProductTierResult struct {
 	PricePerUnit map[string]interface{} `json:"pricePerUnit,omitempty"`
 	// Pricing
 	Pricing interface{} `json:"pricing"`
+	// The Private regions that this product tier is available on
+	PrivateRegions []string `json:"privateRegions,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// ID of a Service Model
@@ -672,6 +674,29 @@ func (o *DescribeProductTierResult) SetPricing(v interface{}) {
 	o.Pricing = v
 }
 
+// GetPrivateRegions returns the PrivateRegions field value if set, zero value otherwise.
+func (o *DescribeProductTierResult) GetPrivateRegions() []string {
+	if o == nil || IsNil(o.PrivateRegions) {
+		var ret []string
+		return ret
+	}
+	return o.PrivateRegions
+}
+
+// GetPrivateRegionsOk returns a tuple with the PrivateRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeProductTierResult) GetPrivateRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.PrivateRegions) {
+		return nil, false
+	}
+	return o.PrivateRegions, true
+}
+
+// SetPrivateRegions gets a reference to the given []string and assigns it to the PrivateRegions field.
+func (o *DescribeProductTierResult) SetPrivateRegions(v []string) {
+	o.PrivateRegions = v
+}
+
 // GetServiceId returns the ServiceId field value
 func (o *DescribeProductTierResult) GetServiceId() string {
 	if o == nil {
@@ -836,6 +861,9 @@ func (o DescribeProductTierResult) ToMap() (map[string]interface{}, error) {
 	if o.Pricing != nil {
 		toSerialize["pricing"] = o.Pricing
 	}
+	if !IsNil(o.PrivateRegions) {
+		toSerialize["privateRegions"] = o.PrivateRegions
+	}
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["serviceModelId"] = o.ServiceModelId
 	toSerialize["support"] = o.Support
@@ -918,6 +946,7 @@ func (o *DescribeProductTierResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "planDescription")
 		delete(additionalProperties, "pricePerUnit")
 		delete(additionalProperties, "pricing")
+		delete(additionalProperties, "privateRegions")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "serviceModelId")
 		delete(additionalProperties, "support")

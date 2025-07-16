@@ -321,7 +321,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | Service ID
 	id := "pt-12345678" // string | Product tier ID
-	disableProductTierFeatureRequest2 := *openapiclient.NewDisableProductTierFeatureRequest2("BILLING") // DisableProductTierFeatureRequest2 | 
+	disableProductTierFeatureRequest2 := *openapiclient.NewDisableProductTierFeatureRequest2("LOGS") // DisableProductTierFeatureRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -392,7 +392,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | Service ID
 	id := "pt-12345678" // string | Product tier ID
-	enableProductTierFeatureRequest2 := *openapiclient.NewEnableProductTierFeatureRequest2("BILLING") // EnableProductTierFeatureRequest2 | 
+	enableProductTierFeatureRequest2 := *openapiclient.NewEnableProductTierFeatureRequest2("LOGS") // EnableProductTierFeatureRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

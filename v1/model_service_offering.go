@@ -35,6 +35,8 @@ type ServiceOffering struct {
 	GcpRegions []string `json:"gcpRegions,omitempty"`
 	// Maximum number of instances
 	MaxNumberOfInstances *int64 `json:"maxNumberOfInstances,omitempty"`
+	// The Private regions that this service offering is available on
+	PrivateRegions []string `json:"privateRegions,omitempty"`
 	// A brief description of the product tier
 	ProductTierDescription *string `json:"productTierDescription,omitempty"`
 	// Documentation
@@ -315,6 +317,29 @@ func (o *ServiceOffering) GetMaxNumberOfInstancesOk() (*int64, bool) {
 // SetMaxNumberOfInstances gets a reference to the given int64 and assigns it to the MaxNumberOfInstances field.
 func (o *ServiceOffering) SetMaxNumberOfInstances(v int64) {
 	o.MaxNumberOfInstances = &v
+}
+
+// GetPrivateRegions returns the PrivateRegions field value if set, zero value otherwise.
+func (o *ServiceOffering) GetPrivateRegions() []string {
+	if o == nil || IsNil(o.PrivateRegions) {
+		var ret []string
+		return ret
+	}
+	return o.PrivateRegions
+}
+
+// GetPrivateRegionsOk returns a tuple with the PrivateRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceOffering) GetPrivateRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.PrivateRegions) {
+		return nil, false
+	}
+	return o.PrivateRegions, true
+}
+
+// SetPrivateRegions gets a reference to the given []string and assigns it to the PrivateRegions field.
+func (o *ServiceOffering) SetPrivateRegions(v []string) {
+	o.PrivateRegions = v
 }
 
 // GetProductTierDescription returns the ProductTierDescription field value if set, zero value otherwise.
@@ -971,6 +996,9 @@ func (o ServiceOffering) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.MaxNumberOfInstances) {
 		toSerialize["maxNumberOfInstances"] = o.MaxNumberOfInstances
 	}
+	if !IsNil(o.PrivateRegions) {
+		toSerialize["privateRegions"] = o.PrivateRegions
+	}
 	if !IsNil(o.ProductTierDescription) {
 		toSerialize["productTierDescription"] = o.ProductTierDescription
 	}
@@ -1080,6 +1108,7 @@ func (o *ServiceOffering) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "cloudProviders")
 		delete(additionalProperties, "gcpRegions")
 		delete(additionalProperties, "maxNumberOfInstances")
+		delete(additionalProperties, "privateRegions")
 		delete(additionalProperties, "productTierDescription")
 		delete(additionalProperties, "productTierDocumentation")
 		delete(additionalProperties, "productTierID")

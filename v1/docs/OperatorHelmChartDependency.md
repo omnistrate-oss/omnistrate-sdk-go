@@ -7,8 +7,9 @@ Name | Type | Description | Notes
 **ChartName** | **string** | The name of the helm chart | 
 **ChartRepoName** | Pointer to **string** | The repository name of the Helm chart | [optional] 
 **ChartRepoUrl** | Pointer to **string** | The repository URL of the Helm chart | [optional] 
-**ChartValues** | Pointer to **map[string]interface{}** | The values of the Helm chart | [optional] 
+**ChartValues** | Pointer to **map[string]interface{}** | The values of the Helm chart (mutually exclusive with layeredChartValues) | [optional] 
 **ChartVersion** | **string** | The version of the helm chart | 
+**LayeredChartValues** | Pointer to [**[]ChartValuesRef**](ChartValuesRef.md) | Layered chart values configuration with conditional scoping (mutually exclusive with chartValues). Values are processed in order - later entries override earlier ones for the same keys. | [optional] 
 **Password** | Pointer to **string** | The password to authenticate with the registry | [optional] 
 **Username** | Pointer to **string** | The username to authenticate with the registry | [optional] 
 
@@ -145,6 +146,31 @@ and a boolean to check if the value has been set.
 
 SetChartVersion sets ChartVersion field to given value.
 
+
+### GetLayeredChartValues
+
+`func (o *OperatorHelmChartDependency) GetLayeredChartValues() []ChartValuesRef`
+
+GetLayeredChartValues returns the LayeredChartValues field if non-nil, zero value otherwise.
+
+### GetLayeredChartValuesOk
+
+`func (o *OperatorHelmChartDependency) GetLayeredChartValuesOk() (*[]ChartValuesRef, bool)`
+
+GetLayeredChartValuesOk returns a tuple with the LayeredChartValues field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLayeredChartValues
+
+`func (o *OperatorHelmChartDependency) SetLayeredChartValues(v []ChartValuesRef)`
+
+SetLayeredChartValues sets LayeredChartValues field to given value.
+
+### HasLayeredChartValues
+
+`func (o *OperatorHelmChartDependency) HasLayeredChartValues() bool`
+
+HasLayeredChartValues returns a boolean if a field has been set.
 
 ### GetPassword
 
