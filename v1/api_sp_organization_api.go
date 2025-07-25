@@ -213,6 +213,12 @@ func (a *SpOrganizationApiAPIService) SpOrganizationApiDescribeServiceProviderOr
 type ApiSpOrganizationApiModifyServiceProviderOrganizationRequest struct {
 	ctx context.Context
 	ApiService SpOrganizationApiAPI
+	modifyServiceProviderOrganizationRequest2 *ModifyServiceProviderOrganizationRequest2
+}
+
+func (r ApiSpOrganizationApiModifyServiceProviderOrganizationRequest) ModifyServiceProviderOrganizationRequest2(modifyServiceProviderOrganizationRequest2 ModifyServiceProviderOrganizationRequest2) ApiSpOrganizationApiModifyServiceProviderOrganizationRequest {
+	r.modifyServiceProviderOrganizationRequest2 = &modifyServiceProviderOrganizationRequest2
+	return r
 }
 
 func (r ApiSpOrganizationApiModifyServiceProviderOrganizationRequest) Execute() (*http.Response, error) {
@@ -250,9 +256,12 @@ func (a *SpOrganizationApiAPIService) SpOrganizationApiModifyServiceProviderOrga
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.modifyServiceProviderOrganizationRequest2 == nil {
+		return nil, reportError("modifyServiceProviderOrganizationRequest2 is required and must be specified")
+	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -268,6 +277,8 @@ func (a *SpOrganizationApiAPIService) SpOrganizationApiModifyServiceProviderOrga
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.modifyServiceProviderOrganizationRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

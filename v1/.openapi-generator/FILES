@@ -202,6 +202,8 @@ docs/CustomerBillingProvider.md
 docs/CustomerDeleteUserRequest.md
 docs/CustomerInviteUserRequest.md
 docs/CustomerInviteUserRequest2.md
+docs/CustomerListTierVersionSetsRequest.md
+docs/CustomerListTierVersionSetsResult.md
 docs/CustomerLoginWithIdentityProviderRequest.md
 docs/CustomerLoginWithIdentityProviderRequest2.md
 docs/CustomerLoginWithIdentityProviderResult.md
@@ -213,7 +215,6 @@ docs/CustomerSigninResult.md
 docs/CustomerSignupRequest.md
 docs/CustomerSignupRequest2.md
 docs/DeRegisterResourceMetricsConfigRequest.md
-docs/DefaultDeploymentCellConfigurations.md
 docs/DeleteAccountConfigRequest.md
 docs/DeleteComputeConfigRequest.md
 docs/DeleteCustomDomainRequest.md
@@ -247,6 +248,7 @@ docs/DeleteUserRequest.md
 docs/DemoApiAPI.md
 docs/DemoRequest.md
 docs/DeploymentCellConfiguration.md
+docs/DeploymentCellConfigurations.md
 docs/DeploymentCellHealthDetail.md
 docs/DeploymentCellHealthRequest.md
 docs/DeploymentCellHealthSummary.md
@@ -559,6 +561,7 @@ docs/LoginWithIdentityProviderRequest.md
 docs/LoginWithIdentityProviderResult.md
 docs/LogoutRequest.md
 docs/ModifyServiceProviderOrganizationRequest.md
+docs/ModifyServiceProviderOrganizationRequest2.md
 docs/ModifyServicesOrchestrationRequest.md
 docs/ModifyServicesOrchestrationRequest2.md
 docs/NetworkConfigApiAPI.md
@@ -764,6 +767,8 @@ docs/UpdateTierVersionSetRequest2.md
 docs/UpdateUpgradePathRequest.md
 docs/UpdateUserRequest.md
 docs/UpdateUserRequest2.md
+docs/UpgradeResourceInstanceVersionRequest.md
+docs/UpgradeResourceInstanceVersionRequest2.md
 docs/UsageApiAPI.md
 docs/UsagePerDimension.md
 docs/UsersApiAPI.md
@@ -909,6 +914,8 @@ model_customer_billing_provider.go
 model_customer_delete_user_request.go
 model_customer_invite_user_request.go
 model_customer_invite_user_request2.go
+model_customer_list_tier_version_sets_request.go
+model_customer_list_tier_version_sets_result.go
 model_customer_login_with_identity_provider_request.go
 model_customer_login_with_identity_provider_request2.go
 model_customer_login_with_identity_provider_result.go
@@ -920,7 +927,6 @@ model_customer_signin_result.go
 model_customer_signup_request.go
 model_customer_signup_request2.go
 model_de_register_resource_metrics_config_request.go
-model_default_deployment_cell_configurations.go
 model_delete_account_config_request.go
 model_delete_compute_config_request.go
 model_delete_custom_domain_request.go
@@ -953,6 +959,7 @@ model_delete_upgrade_path_request.go
 model_delete_user_request.go
 model_demo_request.go
 model_deployment_cell_configuration.go
+model_deployment_cell_configurations.go
 model_deployment_cell_health_detail.go
 model_deployment_cell_health_request.go
 model_deployment_cell_health_summary.go
@@ -1255,6 +1262,7 @@ model_login_with_identity_provider_request.go
 model_login_with_identity_provider_result.go
 model_logout_request.go
 model_modify_service_provider_organization_request.go
+model_modify_service_provider_organization_request2.go
 model_modify_services_orchestration_request.go
 model_modify_services_orchestration_request2.go
 model_network_features_configuration.go
@@ -1434,6 +1442,8 @@ model_update_tier_version_set_request2.go
 model_update_upgrade_path_request.go
 model_update_user_request.go
 model_update_user_request2.go
+model_upgrade_resource_instance_version_request.go
+model_upgrade_resource_instance_version_request2.go
 model_usage_per_dimension.go
 model_v_unit_health_report.go
 model_validate_token_request.go

@@ -17,6 +17,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"time"
 )
 
 
@@ -70,6 +71,31 @@ type NotificationsApiAPI interface {
 	// NotificationsApiListNotificationChannelsExecute executes the request
 	//  @return ListNotificationChannelsResult
 	NotificationsApiListNotificationChannelsExecute(r ApiNotificationsApiListNotificationChannelsRequest) (*ListNotificationChannelsResult, *http.Response, error)
+
+	/*
+	NotificationsApiNotificationChannelEventHistory NotificationChannelEventHistory notifications-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id Unique identifier of the channel
+	@return ApiNotificationsApiNotificationChannelEventHistoryRequest
+	*/
+	NotificationsApiNotificationChannelEventHistory(ctx context.Context, id string) ApiNotificationsApiNotificationChannelEventHistoryRequest
+
+	// NotificationsApiNotificationChannelEventHistoryExecute executes the request
+	//  @return ChannelEventHistoryResult
+	NotificationsApiNotificationChannelEventHistoryExecute(r ApiNotificationsApiNotificationChannelEventHistoryRequest) (*ChannelEventHistoryResult, *http.Response, error)
+
+	/*
+	NotificationsApiReplayEvent ReplayEvent notifications-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id Unique identifier of the event to replay
+	@return ApiNotificationsApiReplayEventRequest
+	*/
+	NotificationsApiReplayEvent(ctx context.Context, id string) ApiNotificationsApiReplayEventRequest
+
+	// NotificationsApiReplayEventExecute executes the request
+	NotificationsApiReplayEventExecute(r ApiNotificationsApiReplayEventRequest) (*http.Response, error)
 
 	/*
 	NotificationsApiUpdateNotificationChannel UpdateNotificationChannel notifications-api
@@ -653,6 +679,325 @@ func (a *NotificationsApiAPIService) NotificationsApiListNotificationChannelsExe
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiNotificationsApiNotificationChannelEventHistoryRequest struct {
+	ctx context.Context
+	ApiService NotificationsApiAPI
+	id string
+	startTime *time.Time
+	endTime *time.Time
+}
+
+// The start time of the range
+func (r ApiNotificationsApiNotificationChannelEventHistoryRequest) StartTime(startTime time.Time) ApiNotificationsApiNotificationChannelEventHistoryRequest {
+	r.startTime = &startTime
+	return r
+}
+
+// The end time of the range
+func (r ApiNotificationsApiNotificationChannelEventHistoryRequest) EndTime(endTime time.Time) ApiNotificationsApiNotificationChannelEventHistoryRequest {
+	r.endTime = &endTime
+	return r
+}
+
+func (r ApiNotificationsApiNotificationChannelEventHistoryRequest) Execute() (*ChannelEventHistoryResult, *http.Response, error) {
+	return r.ApiService.NotificationsApiNotificationChannelEventHistoryExecute(r)
+}
+
+/*
+NotificationsApiNotificationChannelEventHistory NotificationChannelEventHistory notifications-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id Unique identifier of the channel
+ @return ApiNotificationsApiNotificationChannelEventHistoryRequest
+*/
+func (a *NotificationsApiAPIService) NotificationsApiNotificationChannelEventHistory(ctx context.Context, id string) ApiNotificationsApiNotificationChannelEventHistoryRequest {
+	return ApiNotificationsApiNotificationChannelEventHistoryRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+//  @return ChannelEventHistoryResult
+func (a *NotificationsApiAPIService) NotificationsApiNotificationChannelEventHistoryExecute(r ApiNotificationsApiNotificationChannelEventHistoryRequest) (*ChannelEventHistoryResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ChannelEventHistoryResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsApiAPIService.NotificationsApiNotificationChannelEventHistory")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/notification-channel/{id}/event-history"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.startTime != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "startTime", r.startTime, "form", "")
+	}
+	if r.endTime != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "endTime", r.endTime, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiNotificationsApiReplayEventRequest struct {
+	ctx context.Context
+	ApiService NotificationsApiAPI
+	id string
+}
+
+func (r ApiNotificationsApiReplayEventRequest) Execute() (*http.Response, error) {
+	return r.ApiService.NotificationsApiReplayEventExecute(r)
+}
+
+/*
+NotificationsApiReplayEvent ReplayEvent notifications-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id Unique identifier of the event to replay
+ @return ApiNotificationsApiReplayEventRequest
+*/
+func (a *NotificationsApiAPIService) NotificationsApiReplayEvent(ctx context.Context, id string) ApiNotificationsApiReplayEventRequest {
+	return ApiNotificationsApiReplayEventRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+func (a *NotificationsApiAPIService) NotificationsApiReplayEventExecute(r ApiNotificationsApiReplayEventRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsApiAPIService.NotificationsApiReplayEvent")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/notification-event/{id}/replay"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
 }
 
 type ApiNotificationsApiUpdateNotificationChannelRequest struct {

@@ -27,6 +27,8 @@ type CreateResourceInstanceRequest2 struct {
 	ExternalBillingId *string `json:"externalBillingId,omitempty"`
 	// The network type
 	NetworkType *string `json:"network_type,omitempty"`
+	// The product tier version
+	ProductTierVersion *string `json:"productTierVersion,omitempty"`
 	// The region code
 	Region *string `json:"region,omitempty"`
 	// The request parameters
@@ -145,6 +147,29 @@ func (o *CreateResourceInstanceRequest2) SetNetworkType(v string) {
 	o.NetworkType = &v
 }
 
+// GetProductTierVersion returns the ProductTierVersion field value if set, zero value otherwise.
+func (o *CreateResourceInstanceRequest2) GetProductTierVersion() string {
+	if o == nil || IsNil(o.ProductTierVersion) {
+		var ret string
+		return ret
+	}
+	return *o.ProductTierVersion
+}
+
+// GetProductTierVersionOk returns a tuple with the ProductTierVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateResourceInstanceRequest2) GetProductTierVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.ProductTierVersion) {
+		return nil, false
+	}
+	return o.ProductTierVersion, true
+}
+
+// SetProductTierVersion gets a reference to the given string and assigns it to the ProductTierVersion field.
+func (o *CreateResourceInstanceRequest2) SetProductTierVersion(v string) {
+	o.ProductTierVersion = &v
+}
+
 // GetRegion returns the Region field value if set, zero value otherwise.
 func (o *CreateResourceInstanceRequest2) GetRegion() string {
 	if o == nil || IsNil(o.Region) {
@@ -214,6 +239,9 @@ func (o CreateResourceInstanceRequest2) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.NetworkType) {
 		toSerialize["network_type"] = o.NetworkType
 	}
+	if !IsNil(o.ProductTierVersion) {
+		toSerialize["productTierVersion"] = o.ProductTierVersion
+	}
 	if !IsNil(o.Region) {
 		toSerialize["region"] = o.Region
 	}
@@ -246,6 +274,7 @@ func (o *CreateResourceInstanceRequest2) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "custom_network_id")
 		delete(additionalProperties, "externalBillingId")
 		delete(additionalProperties, "network_type")
+		delete(additionalProperties, "productTierVersion")
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "requestParams")
 		o.AdditionalProperties = additionalProperties

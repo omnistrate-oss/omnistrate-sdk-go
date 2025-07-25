@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **CustomNetworkId** | Pointer to **string** | Custom network for resource | [optional] 
 **ExternalBillingId** | Pointer to **string** | This externalBillingId is deprecated and will be removed in the future | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
+**ProductTierVersion** | Pointer to **string** | The product tier version | [optional] 
 **Region** | Pointer to **string** | The region code | [optional] 
 **RequestParams** | Pointer to **interface{}** | The request parameters | [optional] 
 
@@ -129,6 +130,31 @@ SetNetworkType sets NetworkType field to given value.
 `func (o *CreateResourceInstanceRequest2) HasNetworkType() bool`
 
 HasNetworkType returns a boolean if a field has been set.
+
+### GetProductTierVersion
+
+`func (o *CreateResourceInstanceRequest2) GetProductTierVersion() string`
+
+GetProductTierVersion returns the ProductTierVersion field if non-nil, zero value otherwise.
+
+### GetProductTierVersionOk
+
+`func (o *CreateResourceInstanceRequest2) GetProductTierVersionOk() (*string, bool)`
+
+GetProductTierVersionOk returns a tuple with the ProductTierVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductTierVersion
+
+`func (o *CreateResourceInstanceRequest2) SetProductTierVersion(v string)`
+
+SetProductTierVersion sets ProductTierVersion field to given value.
+
+### HasProductTierVersion
+
+`func (o *CreateResourceInstanceRequest2) HasProductTierVersion() bool`
+
+HasProductTierVersion returns a boolean if a field has been set.
 
 ### GetRegion
 

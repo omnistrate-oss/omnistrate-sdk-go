@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DefaultDeploymentCellConfigurations** | Pointer to [**map[string]DefaultDeploymentCellConfigurations**](DefaultDeploymentCellConfigurations.md) | The default deployment cell configurations for the organization per environment. | [optional] 
+**DefaultDeploymentCellConfigurations** | Pointer to [**DeploymentCellConfigurations**](DeploymentCellConfigurations.md) |  | [optional] 
+**DeploymentCellConfigurationsPerEnv** | Pointer to **map[string]interface{}** | The default deployment cell configurations for the organization per environment. | [optional] 
 **Id** | Pointer to **string** | ID of an Org | [optional] 
 
 ## Methods
@@ -28,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDefaultDeploymentCellConfigurations
 
-`func (o *DescribeServiceProviderOrganizationResult) GetDefaultDeploymentCellConfigurations() map[string]DefaultDeploymentCellConfigurations`
+`func (o *DescribeServiceProviderOrganizationResult) GetDefaultDeploymentCellConfigurations() DeploymentCellConfigurations`
 
 GetDefaultDeploymentCellConfigurations returns the DefaultDeploymentCellConfigurations field if non-nil, zero value otherwise.
 
 ### GetDefaultDeploymentCellConfigurationsOk
 
-`func (o *DescribeServiceProviderOrganizationResult) GetDefaultDeploymentCellConfigurationsOk() (*map[string]DefaultDeploymentCellConfigurations, bool)`
+`func (o *DescribeServiceProviderOrganizationResult) GetDefaultDeploymentCellConfigurationsOk() (*DeploymentCellConfigurations, bool)`
 
 GetDefaultDeploymentCellConfigurationsOk returns a tuple with the DefaultDeploymentCellConfigurations field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultDeploymentCellConfigurations
 
-`func (o *DescribeServiceProviderOrganizationResult) SetDefaultDeploymentCellConfigurations(v map[string]DefaultDeploymentCellConfigurations)`
+`func (o *DescribeServiceProviderOrganizationResult) SetDefaultDeploymentCellConfigurations(v DeploymentCellConfigurations)`
 
 SetDefaultDeploymentCellConfigurations sets DefaultDeploymentCellConfigurations field to given value.
 
@@ -50,6 +51,31 @@ SetDefaultDeploymentCellConfigurations sets DefaultDeploymentCellConfigurations 
 `func (o *DescribeServiceProviderOrganizationResult) HasDefaultDeploymentCellConfigurations() bool`
 
 HasDefaultDeploymentCellConfigurations returns a boolean if a field has been set.
+
+### GetDeploymentCellConfigurationsPerEnv
+
+`func (o *DescribeServiceProviderOrganizationResult) GetDeploymentCellConfigurationsPerEnv() map[string]interface{}`
+
+GetDeploymentCellConfigurationsPerEnv returns the DeploymentCellConfigurationsPerEnv field if non-nil, zero value otherwise.
+
+### GetDeploymentCellConfigurationsPerEnvOk
+
+`func (o *DescribeServiceProviderOrganizationResult) GetDeploymentCellConfigurationsPerEnvOk() (*map[string]interface{}, bool)`
+
+GetDeploymentCellConfigurationsPerEnvOk returns a tuple with the DeploymentCellConfigurationsPerEnv field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeploymentCellConfigurationsPerEnv
+
+`func (o *DescribeServiceProviderOrganizationResult) SetDeploymentCellConfigurationsPerEnv(v map[string]interface{})`
+
+SetDeploymentCellConfigurationsPerEnv sets DeploymentCellConfigurationsPerEnv field to given value.
+
+### HasDeploymentCellConfigurationsPerEnv
+
+`func (o *DescribeServiceProviderOrganizationResult) HasDeploymentCellConfigurationsPerEnv() bool`
+
+HasDeploymentCellConfigurationsPerEnv returns a boolean if a field has been set.
 
 ### GetId
 

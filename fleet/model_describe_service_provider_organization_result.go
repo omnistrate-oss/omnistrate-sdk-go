@@ -19,8 +19,9 @@ var _ MappedNullable = &DescribeServiceProviderOrganizationResult{}
 
 // DescribeServiceProviderOrganizationResult struct for DescribeServiceProviderOrganizationResult
 type DescribeServiceProviderOrganizationResult struct {
+	DefaultDeploymentCellConfigurations *DeploymentCellConfigurations `json:"DefaultDeploymentCellConfigurations,omitempty"`
 	// The default deployment cell configurations for the organization per environment.
-	DefaultDeploymentCellConfigurations *map[string]DefaultDeploymentCellConfigurations `json:"DefaultDeploymentCellConfigurations,omitempty"`
+	DeploymentCellConfigurationsPerEnv map[string]interface{} `json:"DeploymentCellConfigurationsPerEnv,omitempty"`
 	// ID of an Org
 	Id *string `json:"id,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -46,9 +47,9 @@ func NewDescribeServiceProviderOrganizationResultWithDefaults() *DescribeService
 }
 
 // GetDefaultDeploymentCellConfigurations returns the DefaultDeploymentCellConfigurations field value if set, zero value otherwise.
-func (o *DescribeServiceProviderOrganizationResult) GetDefaultDeploymentCellConfigurations() map[string]DefaultDeploymentCellConfigurations {
+func (o *DescribeServiceProviderOrganizationResult) GetDefaultDeploymentCellConfigurations() DeploymentCellConfigurations {
 	if o == nil || IsNil(o.DefaultDeploymentCellConfigurations) {
-		var ret map[string]DefaultDeploymentCellConfigurations
+		var ret DeploymentCellConfigurations
 		return ret
 	}
 	return *o.DefaultDeploymentCellConfigurations
@@ -56,7 +57,7 @@ func (o *DescribeServiceProviderOrganizationResult) GetDefaultDeploymentCellConf
 
 // GetDefaultDeploymentCellConfigurationsOk returns a tuple with the DefaultDeploymentCellConfigurations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeServiceProviderOrganizationResult) GetDefaultDeploymentCellConfigurationsOk() (*map[string]DefaultDeploymentCellConfigurations, bool) {
+func (o *DescribeServiceProviderOrganizationResult) GetDefaultDeploymentCellConfigurationsOk() (*DeploymentCellConfigurations, bool) {
 	if o == nil || IsNil(o.DefaultDeploymentCellConfigurations) {
 		return nil, false
 	}
@@ -72,9 +73,41 @@ func (o *DescribeServiceProviderOrganizationResult) HasDefaultDeploymentCellConf
 	return false
 }
 
-// SetDefaultDeploymentCellConfigurations gets a reference to the given map[string]DefaultDeploymentCellConfigurations and assigns it to the DefaultDeploymentCellConfigurations field.
-func (o *DescribeServiceProviderOrganizationResult) SetDefaultDeploymentCellConfigurations(v map[string]DefaultDeploymentCellConfigurations) {
+// SetDefaultDeploymentCellConfigurations gets a reference to the given DeploymentCellConfigurations and assigns it to the DefaultDeploymentCellConfigurations field.
+func (o *DescribeServiceProviderOrganizationResult) SetDefaultDeploymentCellConfigurations(v DeploymentCellConfigurations) {
 	o.DefaultDeploymentCellConfigurations = &v
+}
+
+// GetDeploymentCellConfigurationsPerEnv returns the DeploymentCellConfigurationsPerEnv field value if set, zero value otherwise.
+func (o *DescribeServiceProviderOrganizationResult) GetDeploymentCellConfigurationsPerEnv() map[string]interface{} {
+	if o == nil || IsNil(o.DeploymentCellConfigurationsPerEnv) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.DeploymentCellConfigurationsPerEnv
+}
+
+// GetDeploymentCellConfigurationsPerEnvOk returns a tuple with the DeploymentCellConfigurationsPerEnv field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeServiceProviderOrganizationResult) GetDeploymentCellConfigurationsPerEnvOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.DeploymentCellConfigurationsPerEnv) {
+		return map[string]interface{}{}, false
+	}
+	return o.DeploymentCellConfigurationsPerEnv, true
+}
+
+// HasDeploymentCellConfigurationsPerEnv returns a boolean if a field has been set.
+func (o *DescribeServiceProviderOrganizationResult) HasDeploymentCellConfigurationsPerEnv() bool {
+	if o != nil && !IsNil(o.DeploymentCellConfigurationsPerEnv) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeploymentCellConfigurationsPerEnv gets a reference to the given map[string]interface{} and assigns it to the DeploymentCellConfigurationsPerEnv field.
+func (o *DescribeServiceProviderOrganizationResult) SetDeploymentCellConfigurationsPerEnv(v map[string]interface{}) {
+	o.DeploymentCellConfigurationsPerEnv = v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
@@ -122,6 +155,9 @@ func (o DescribeServiceProviderOrganizationResult) ToMap() (map[string]interface
 	if !IsNil(o.DefaultDeploymentCellConfigurations) {
 		toSerialize["DefaultDeploymentCellConfigurations"] = o.DefaultDeploymentCellConfigurations
 	}
+	if !IsNil(o.DeploymentCellConfigurationsPerEnv) {
+		toSerialize["DeploymentCellConfigurationsPerEnv"] = o.DeploymentCellConfigurationsPerEnv
+	}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
@@ -148,6 +184,7 @@ func (o *DescribeServiceProviderOrganizationResult) UnmarshalJSON(data []byte) (
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "DefaultDeploymentCellConfigurations")
+		delete(additionalProperties, "DeploymentCellConfigurationsPerEnv")
 		delete(additionalProperties, "id")
 		o.AdditionalProperties = additionalProperties
 	}

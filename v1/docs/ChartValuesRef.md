@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Name** | Pointer to **string** | The name of the layer | [optional] 
 **Scope** | Pointer to **map[string]string** | Scope condition for applying these chart values (can be used with either values or valuesFile). Key is the parameter name which supports template expressions like &#39;{{ $sys.cloudProviderName }}&#39;, value is the expected value.  | [optional] 
 **Values** | Pointer to **interface{}** | Inline chart values as a map (mutually exclusive with valuesFile) | [optional] 
 **ValuesFile** | Pointer to [**ValuesFile**](ValuesFile.md) |  | [optional] 
@@ -26,6 +27,31 @@ will change when the set of required properties is changed
 NewChartValuesRefWithDefaults instantiates a new ChartValuesRef object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetName
+
+`func (o *ChartValuesRef) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *ChartValuesRef) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *ChartValuesRef) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *ChartValuesRef) HasName() bool`
+
+HasName returns a boolean if a field has been set.
 
 ### GetScope
 

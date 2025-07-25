@@ -47,6 +47,8 @@ docs/ChangePlanRequest.md
 docs/ChangeSet.md
 docs/ChangeSummary.md
 docs/Channel.md
+docs/ChannelEventHistoryRequest.md
+docs/ChannelEventHistoryResult.md
 docs/ChannelSubscription.md
 docs/ChartValuesRef.md
 docs/CheckIfContainerImageAccessibleRequest.md
@@ -102,7 +104,6 @@ docs/CustomerSignupRequest.md
 docs/DebugResourceInstanceRequest.md
 docs/DebugResourceInstanceResult.md
 docs/DebugResourceResult.md
-docs/DefaultDeploymentCellConfigurations.md
 docs/DeleteAccountConfigRequest.md
 docs/DeleteCustomerOnboardingRequest.md
 docs/DeleteHostClusterRequest.md
@@ -123,6 +124,7 @@ docs/DeleteUserRequest.md
 docs/DemoRequest.md
 docs/DenySubscriptionRequestRequest.md
 docs/DeploymentCellConfiguration.md
+docs/DeploymentCellConfigurations.md
 docs/DeploymentCellHealthDetail.md
 docs/DeploymentCellHealthRequest.md
 docs/DeploymentCellHealthSummary.md
@@ -216,6 +218,7 @@ docs/EnvironmentHealthReport.md
 docs/EnvironmentPromotionStatus.md
 docs/EnvironmentVariable.md
 docs/Error.md
+docs/Event.md
 docs/EventsApiAPI.md
 docs/EventsPerResource.md
 docs/EventsPerWorkflowStep.md
@@ -224,6 +227,7 @@ docs/FleetAddCapacityToResourceInstanceRequest.md
 docs/FleetAddCapacityToResourceInstanceRequest2.md
 docs/FleetAddCustomDNSToResourceInstanceRequest.md
 docs/FleetAddCustomDNSToResourceInstanceRequest2.md
+docs/FleetApplyPendingChangesToHostClusterRequest.md
 docs/FleetApproveInvoiceRequest.md
 docs/FleetAuditEvent.md
 docs/FleetAuditEventsRequest.md
@@ -330,6 +334,8 @@ docs/FleetUpdateAccountConfigResourceInstanceRequest.md
 docs/FleetUpdateAccountConfigResourceInstanceRequest2.md
 docs/FleetUpdateCustomNetworkRequest.md
 docs/FleetUpdateCustomNetworkRequest2.md
+docs/FleetUpdateHostClusterRequest.md
+docs/FleetUpdateHostClusterRequest2.md
 docs/FleetUpdateResourceInstanceDebugModeRequest.md
 docs/FleetUpdateResourceInstanceDebugModeRequest2.md
 docs/FleetUpdateResourceInstanceRequest.md
@@ -527,6 +533,7 @@ docs/RemoveCustomDNSToResourceInstanceRequest.md
 docs/RenderIdentityProvidersRequest.md
 docs/RenderIdentityProvidersResult.md
 docs/RenderedIdentityProviderResult.md
+docs/ReplayEventRequest.md
 docs/ReportHealthRequest.md
 docs/ReportHealthResult.md
 docs/ResetPasswordRequest.md
@@ -609,6 +616,7 @@ docs/UpdateServiceWorkflowRequest2.md
 docs/UpdateUserRequest.md
 docs/UpgradePath.md
 docs/UpgradePathSearchRecord.md
+docs/UpgradeResourceInstanceVersionRequest.md
 docs/UsagePerDimension.md
 docs/User.md
 docs/UserSearchRecord.md
@@ -652,6 +660,8 @@ model_change_plan_request.go
 model_change_set.go
 model_change_summary.go
 model_channel.go
+model_channel_event_history_request.go
+model_channel_event_history_result.go
 model_channel_subscription.go
 model_chart_values_ref.go
 model_check_if_container_image_accessible_request.go
@@ -705,7 +715,6 @@ model_customer_signup_request.go
 model_debug_resource_instance_request.go
 model_debug_resource_instance_result.go
 model_debug_resource_result.go
-model_default_deployment_cell_configurations.go
 model_delete_account_config_request.go
 model_delete_customer_onboarding_request.go
 model_delete_host_cluster_request.go
@@ -726,6 +735,7 @@ model_delete_user_request.go
 model_demo_request.go
 model_deny_subscription_request_request.go
 model_deployment_cell_configuration.go
+model_deployment_cell_configurations.go
 model_deployment_cell_health_detail.go
 model_deployment_cell_health_request.go
 model_deployment_cell_health_summary.go
@@ -819,6 +829,7 @@ model_environment_health_report.go
 model_environment_promotion_status.go
 model_environment_variable.go
 model_error.go
+model_event.go
 model_events_per_resource.go
 model_events_per_workflow_step.go
 model_failover_resource_instance_request.go
@@ -826,6 +837,7 @@ model_fleet_add_capacity_to_resource_instance_request.go
 model_fleet_add_capacity_to_resource_instance_request2.go
 model_fleet_add_custom_dnsto_resource_instance_request.go
 model_fleet_add_custom_dnsto_resource_instance_request2.go
+model_fleet_apply_pending_changes_to_host_cluster_request.go
 model_fleet_approve_invoice_request.go
 model_fleet_audit_event.go
 model_fleet_audit_events_request.go
@@ -931,6 +943,8 @@ model_fleet_update_account_config_resource_instance_request.go
 model_fleet_update_account_config_resource_instance_request2.go
 model_fleet_update_custom_network_request.go
 model_fleet_update_custom_network_request2.go
+model_fleet_update_host_cluster_request.go
+model_fleet_update_host_cluster_request2.go
 model_fleet_update_resource_instance_debug_mode_request.go
 model_fleet_update_resource_instance_debug_mode_request2.go
 model_fleet_update_resource_instance_request.go
@@ -1121,6 +1135,7 @@ model_remove_custom_dnsto_resource_instance_request.go
 model_render_identity_providers_request.go
 model_render_identity_providers_result.go
 model_rendered_identity_provider_result.go
+model_replay_event_request.go
 model_report_health_request.go
 model_report_health_result.go
 model_reset_password_request.go
@@ -1203,6 +1218,7 @@ model_update_service_workflow_request2.go
 model_update_user_request.go
 model_upgrade_path.go
 model_upgrade_path_search_record.go
+model_upgrade_resource_instance_version_request.go
 model_usage_per_dimension.go
 model_user.go
 model_user_search_record.go

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**DeploymentCellConfigurations** | Pointer to **map[string]interface{}** | The default deployment cell configurations for the organization per environment. | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
@@ -24,6 +25,31 @@ will change when the set of required properties is changed
 NewModifyServiceProviderOrganizationRequestWithDefaults instantiates a new ModifyServiceProviderOrganizationRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetDeploymentCellConfigurations
+
+`func (o *ModifyServiceProviderOrganizationRequest) GetDeploymentCellConfigurations() map[string]interface{}`
+
+GetDeploymentCellConfigurations returns the DeploymentCellConfigurations field if non-nil, zero value otherwise.
+
+### GetDeploymentCellConfigurationsOk
+
+`func (o *ModifyServiceProviderOrganizationRequest) GetDeploymentCellConfigurationsOk() (*map[string]interface{}, bool)`
+
+GetDeploymentCellConfigurationsOk returns a tuple with the DeploymentCellConfigurations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeploymentCellConfigurations
+
+`func (o *ModifyServiceProviderOrganizationRequest) SetDeploymentCellConfigurations(v map[string]interface{})`
+
+SetDeploymentCellConfigurations sets DeploymentCellConfigurations field to given value.
+
+### HasDeploymentCellConfigurations
+
+`func (o *ModifyServiceProviderOrganizationRequest) HasDeploymentCellConfigurations() bool`
+
+HasDeploymentCellConfigurations returns a boolean if a field has been set.
 
 ### GetToken
 

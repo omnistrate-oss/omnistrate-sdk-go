@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **ExternalBillingId** | Pointer to **string** | This externalBillingId is deprecated and will be removed in the future | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
 **ProductTierKey** | **string** | The product tier name | 
+**ProductTierVersion** | Pointer to **string** | The product tier version | [optional] 
 **Region** | Pointer to **string** | The region code | [optional] 
 **RequestParams** | Pointer to **interface{}** | The request parameters | [optional] 
 **ResourceKey** | **string** | The resource key | 
@@ -158,6 +159,31 @@ and a boolean to check if the value has been set.
 
 SetProductTierKey sets ProductTierKey field to given value.
 
+
+### GetProductTierVersion
+
+`func (o *CreateResourceInstanceRequest) GetProductTierVersion() string`
+
+GetProductTierVersion returns the ProductTierVersion field if non-nil, zero value otherwise.
+
+### GetProductTierVersionOk
+
+`func (o *CreateResourceInstanceRequest) GetProductTierVersionOk() (*string, bool)`
+
+GetProductTierVersionOk returns a tuple with the ProductTierVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductTierVersion
+
+`func (o *CreateResourceInstanceRequest) SetProductTierVersion(v string)`
+
+SetProductTierVersion sets ProductTierVersion field to given value.
+
+### HasProductTierVersion
+
+`func (o *CreateResourceInstanceRequest) HasProductTierVersion() bool`
+
+HasProductTierVersion returns a boolean if a field has been set.
 
 ### GetRegion
 

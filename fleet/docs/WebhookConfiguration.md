@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AdditionalBodyParameters** | Pointer to **map[string]string** | Additional parameters to include in the notification body | [optional] 
+**AdditionalBodyParameters** | Pointer to **map[string]interface{}** | Additional parameters to include in the notification body | [optional] 
 **Headers** | Pointer to **map[string]string** | HTTP headers to include in the notification | [optional] 
 **Method** | **string** | HTTP method to use for the notification | 
 **Url** | **string** | URL to send notifications to | 
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAdditionalBodyParameters
 
-`func (o *WebhookConfiguration) GetAdditionalBodyParameters() map[string]string`
+`func (o *WebhookConfiguration) GetAdditionalBodyParameters() map[string]interface{}`
 
 GetAdditionalBodyParameters returns the AdditionalBodyParameters field if non-nil, zero value otherwise.
 
 ### GetAdditionalBodyParametersOk
 
-`func (o *WebhookConfiguration) GetAdditionalBodyParametersOk() (*map[string]string, bool)`
+`func (o *WebhookConfiguration) GetAdditionalBodyParametersOk() (*map[string]interface{}, bool)`
 
 GetAdditionalBodyParametersOk returns a tuple with the AdditionalBodyParameters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAdditionalBodyParameters
 
-`func (o *WebhookConfiguration) SetAdditionalBodyParameters(v map[string]string)`
+`func (o *WebhookConfiguration) SetAdditionalBodyParameters(v map[string]interface{})`
 
 SetAdditionalBodyParameters sets AdditionalBodyParameters field to given value.
 
