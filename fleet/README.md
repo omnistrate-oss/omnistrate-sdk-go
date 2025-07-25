@@ -112,6 +112,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiAddCapacityToResourceInstance**](docs/InventoryApiAPI.md#inventoryapiaddcapacitytoresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/add-capacity | AddCapacityToResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiAddCustomDNSToResourceInstance**](docs/InventoryApiAPI.md#inventoryapiaddcustomdnstoresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/{resourceKey}/instance/{instanceId}/custom-dns | AddCustomDNSToResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiAdoptResourceInstance**](docs/InventoryApiAPI.md#inventoryapiadoptresourceinstance) | **Post** /2022-09-01-00/fleet/resource-instance/{serviceID}/{servicePlanID}/{hostClusterID}/{primaryResourceKey}/adopt | AdoptResourceInstance inventory-api
+*InventoryApiAPI* | [**InventoryApiApplyPendingChangesToHostCluster**](docs/InventoryApiAPI.md#inventoryapiapplypendingchangestohostcluster) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/host-cluster/{id}/apply-pending-changes | ApplyPendingChangesToHostCluster inventory-api
 *InventoryApiAPI* | [**InventoryApiApproveSubscriptionRequest**](docs/InventoryApiAPI.md#inventoryapiapprovesubscriptionrequest) | **Put** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | ApproveSubscriptionRequest inventory-api
 *InventoryApiAPI* | [**InventoryApiCancelUpgradePath**](docs/InventoryApiAPI.md#inventoryapicancelupgradepath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/cancel | CancelUpgradePath inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateConsumptionUser**](docs/InventoryApiAPI.md#inventoryapicreateconsumptionuser) | **Post** /2022-09-01-00/fleet/user | CreateConsumptionUser inventory-api
@@ -186,6 +187,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiTriggerAutomaticResourceInstanceSnapshotCreation**](docs/InventoryApiAPI.md#inventoryapitriggerautomaticresourceinstancesnapshotcreation) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/autosnapshot | TriggerAutomaticResourceInstanceSnapshotCreation inventory-api
 *InventoryApiAPI* | [**InventoryApiUnsuspendUser**](docs/InventoryApiAPI.md#inventoryapiunsuspenduser) | **Put** /2022-09-01-00/fleet/user/{userId}/unsuspend | UnsuspendUser inventory-api
 *InventoryApiAPI* | [**InventoryApiUpdateAccountConfigResourceInstance**](docs/InventoryApiAPI.md#inventoryapiupdateaccountconfigresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/account-config-instance/{instanceId} | UpdateAccountConfigResourceInstance inventory-api
+*InventoryApiAPI* | [**InventoryApiUpdateHostCluster**](docs/InventoryApiAPI.md#inventoryapiupdatehostcluster) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/host-cluster/{id} | UpdateHostCluster inventory-api
 *InventoryApiAPI* | [**InventoryApiUpdateResourceInstance**](docs/InventoryApiAPI.md#inventoryapiupdateresourceinstance) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId} | UpdateResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiUpdateResourceInstanceDebugMode**](docs/InventoryApiAPI.md#inventoryapiupdateresourceinstancedebugmode) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/debug-mode | UpdateResourceInstanceDebugMode inventory-api
 *InventoryApiAPI* | [**InventoryApiUpdateSubscription**](docs/InventoryApiAPI.md#inventoryapiupdatesubscription) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/{id} | UpdateSubscription inventory-api
@@ -199,6 +201,8 @@ Class | Method | HTTP request | Description
 *NotificationsApiAPI* | [**NotificationsApiDeleteNotificationChannel**](docs/NotificationsApiAPI.md#notificationsapideletenotificationchannel) | **Delete** /2022-09-01-00/fleet/notification-channel/{id} | DeleteNotificationChannel notifications-api
 *NotificationsApiAPI* | [**NotificationsApiDescribeNotificationChannel**](docs/NotificationsApiAPI.md#notificationsapidescribenotificationchannel) | **Get** /2022-09-01-00/fleet/notification-channel/{id} | DescribeNotificationChannel notifications-api
 *NotificationsApiAPI* | [**NotificationsApiListNotificationChannels**](docs/NotificationsApiAPI.md#notificationsapilistnotificationchannels) | **Get** /2022-09-01-00/fleet/notification-channel | ListNotificationChannels notifications-api
+*NotificationsApiAPI* | [**NotificationsApiNotificationChannelEventHistory**](docs/NotificationsApiAPI.md#notificationsapinotificationchanneleventhistory) | **Get** /2022-09-01-00/fleet/notification-channel/{id}/event-history | NotificationChannelEventHistory notifications-api
+*NotificationsApiAPI* | [**NotificationsApiReplayEvent**](docs/NotificationsApiAPI.md#notificationsapireplayevent) | **Post** /2022-09-01-00/fleet/notification-event/{id}/replay | ReplayEvent notifications-api
 *NotificationsApiAPI* | [**NotificationsApiUpdateNotificationChannel**](docs/NotificationsApiAPI.md#notificationsapiupdatenotificationchannel) | **Patch** /2022-09-01-00/fleet/notification-channel/{id} | UpdateNotificationChannel notifications-api
 *OperationsApiAPI* | [**OperationsApiDeploymentCellHealth**](docs/OperationsApiAPI.md#operationsapideploymentcellhealth) | **Get** /2022-09-01-00/fleet/operations/deployment-cell-health | DeploymentCellHealth operations-api
 *OperationsApiAPI* | [**OperationsApiListEvents**](docs/OperationsApiAPI.md#operationsapilistevents) | **Get** /2022-09-01-00/fleet/operations/events | ListEvents operations-api
@@ -236,6 +240,8 @@ Class | Method | HTTP request | Description
  - [ChangeSet](docs/ChangeSet.md)
  - [ChangeSummary](docs/ChangeSummary.md)
  - [Channel](docs/Channel.md)
+ - [ChannelEventHistoryRequest](docs/ChannelEventHistoryRequest.md)
+ - [ChannelEventHistoryResult](docs/ChannelEventHistoryResult.md)
  - [ChannelSubscription](docs/ChannelSubscription.md)
  - [ChartValuesRef](docs/ChartValuesRef.md)
  - [CheckIfContainerImageAccessibleRequest](docs/CheckIfContainerImageAccessibleRequest.md)
@@ -289,7 +295,6 @@ Class | Method | HTTP request | Description
  - [DebugResourceInstanceRequest](docs/DebugResourceInstanceRequest.md)
  - [DebugResourceInstanceResult](docs/DebugResourceInstanceResult.md)
  - [DebugResourceResult](docs/DebugResourceResult.md)
- - [DefaultDeploymentCellConfigurations](docs/DefaultDeploymentCellConfigurations.md)
  - [DeleteAccountConfigRequest](docs/DeleteAccountConfigRequest.md)
  - [DeleteCustomerOnboardingRequest](docs/DeleteCustomerOnboardingRequest.md)
  - [DeleteHostClusterRequest](docs/DeleteHostClusterRequest.md)
@@ -310,6 +315,7 @@ Class | Method | HTTP request | Description
  - [DemoRequest](docs/DemoRequest.md)
  - [DenySubscriptionRequestRequest](docs/DenySubscriptionRequestRequest.md)
  - [DeploymentCellConfiguration](docs/DeploymentCellConfiguration.md)
+ - [DeploymentCellConfigurations](docs/DeploymentCellConfigurations.md)
  - [DeploymentCellHealthDetail](docs/DeploymentCellHealthDetail.md)
  - [DeploymentCellHealthRequest](docs/DeploymentCellHealthRequest.md)
  - [DeploymentCellHealthSummary](docs/DeploymentCellHealthSummary.md)
@@ -403,6 +409,7 @@ Class | Method | HTTP request | Description
  - [EnvironmentPromotionStatus](docs/EnvironmentPromotionStatus.md)
  - [EnvironmentVariable](docs/EnvironmentVariable.md)
  - [Error](docs/Error.md)
+ - [Event](docs/Event.md)
  - [EventsPerResource](docs/EventsPerResource.md)
  - [EventsPerWorkflowStep](docs/EventsPerWorkflowStep.md)
  - [FailoverResourceInstanceRequest](docs/FailoverResourceInstanceRequest.md)
@@ -410,6 +417,7 @@ Class | Method | HTTP request | Description
  - [FleetAddCapacityToResourceInstanceRequest2](docs/FleetAddCapacityToResourceInstanceRequest2.md)
  - [FleetAddCustomDNSToResourceInstanceRequest](docs/FleetAddCustomDNSToResourceInstanceRequest.md)
  - [FleetAddCustomDNSToResourceInstanceRequest2](docs/FleetAddCustomDNSToResourceInstanceRequest2.md)
+ - [FleetApplyPendingChangesToHostClusterRequest](docs/FleetApplyPendingChangesToHostClusterRequest.md)
  - [FleetApproveInvoiceRequest](docs/FleetApproveInvoiceRequest.md)
  - [FleetAuditEvent](docs/FleetAuditEvent.md)
  - [FleetAuditEventsRequest](docs/FleetAuditEventsRequest.md)
@@ -515,6 +523,8 @@ Class | Method | HTTP request | Description
  - [FleetUpdateAccountConfigResourceInstanceRequest2](docs/FleetUpdateAccountConfigResourceInstanceRequest2.md)
  - [FleetUpdateCustomNetworkRequest](docs/FleetUpdateCustomNetworkRequest.md)
  - [FleetUpdateCustomNetworkRequest2](docs/FleetUpdateCustomNetworkRequest2.md)
+ - [FleetUpdateHostClusterRequest](docs/FleetUpdateHostClusterRequest.md)
+ - [FleetUpdateHostClusterRequest2](docs/FleetUpdateHostClusterRequest2.md)
  - [FleetUpdateResourceInstanceDebugModeRequest](docs/FleetUpdateResourceInstanceDebugModeRequest.md)
  - [FleetUpdateResourceInstanceDebugModeRequest2](docs/FleetUpdateResourceInstanceDebugModeRequest2.md)
  - [FleetUpdateResourceInstanceRequest](docs/FleetUpdateResourceInstanceRequest.md)
@@ -705,6 +715,7 @@ Class | Method | HTTP request | Description
  - [RenderIdentityProvidersRequest](docs/RenderIdentityProvidersRequest.md)
  - [RenderIdentityProvidersResult](docs/RenderIdentityProvidersResult.md)
  - [RenderedIdentityProviderResult](docs/RenderedIdentityProviderResult.md)
+ - [ReplayEventRequest](docs/ReplayEventRequest.md)
  - [ReportHealthRequest](docs/ReportHealthRequest.md)
  - [ReportHealthResult](docs/ReportHealthResult.md)
  - [ResetPasswordRequest](docs/ResetPasswordRequest.md)
@@ -787,6 +798,7 @@ Class | Method | HTTP request | Description
  - [UpdateUserRequest](docs/UpdateUserRequest.md)
  - [UpgradePath](docs/UpgradePath.md)
  - [UpgradePathSearchRecord](docs/UpgradePathSearchRecord.md)
+ - [UpgradeResourceInstanceVersionRequest](docs/UpgradeResourceInstanceVersionRequest.md)
  - [UsagePerDimension](docs/UsagePerDimension.md)
  - [User](docs/User.md)
  - [UserSearchRecord](docs/UserSearchRecord.md)

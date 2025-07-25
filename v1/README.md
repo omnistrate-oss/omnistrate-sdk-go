@@ -260,6 +260,7 @@ Class | Method | HTTP request | Description
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiStopResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapistopresourceinstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/stop | StopResourceInstance resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiUpdateAccountConfigResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapiupdateaccountconfigresourceinstance) | **Post** /2022-09-01-00/resource-instance/account-config/{id} | UpdateAccountConfigResourceInstance resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiUpdateResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapiupdateresourceinstance) | **Patch** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id} | UpdateResourceInstance resource-instance-api
+*ResourceInstanceApiAPI* | [**ResourceInstanceApiUpgradeResourceInstanceVersion**](docs/ResourceInstanceApiAPI.md#resourceinstanceapiupgraderesourceinstanceversion) | **Post** /2022-09-01-00/resource-instance/{id}/version-upgrade | UpgradeResourceInstanceVersion resource-instance-api
 *SaasPortalApiAPI* | [**SaasPortalApiCreateSaaSPortalCustomDomain**](docs/SaasPortalApiAPI.md#saasportalapicreatesaasportalcustomdomain) | **Post** /2022-09-01-00/saas-portal-custom-domain | CreateSaaSPortalCustomDomain saas-portal-api
 *SaasPortalApiAPI* | [**SaasPortalApiDeleteSaaSPortalCustomDomain**](docs/SaasPortalApiAPI.md#saasportalapideletesaasportalcustomdomain) | **Delete** /2022-09-01-00/saas-portal-custom-domain/{environmentType} | DeleteSaaSPortalCustomDomain saas-portal-api
 *SaasPortalApiAPI* | [**SaasPortalApiListSaaSPortalCustomDomains**](docs/SaasPortalApiAPI.md#saasportalapilistsaasportalcustomdomains) | **Get** /2022-09-01-00/saas-portal-custom-domain | ListSaaSPortalCustomDomains saas-portal-api
@@ -356,6 +357,7 @@ Class | Method | HTTP request | Description
 *TenantBillingApiAPI* | [**TenantBillingApiEnableTenantBilling**](docs/TenantBillingApiAPI.md#tenantbillingapienabletenantbilling) | **Post** /2022-09-01-00/tenant-billing/enable | EnableTenantBilling tenant-billing-api
 *TenantBillingApiAPI* | [**TenantBillingApiGetTenantBillingStatus**](docs/TenantBillingApiAPI.md#tenantbillingapigettenantbillingstatus) | **Get** /2022-09-01-00/tenant-billing | GetTenantBillingStatus tenant-billing-api
 *TierVersionSetApiAPI* | [**TierVersionSetApiCreateTierVersionSet**](docs/TierVersionSetApiAPI.md#tierversionsetapicreatetierversionset) | **Post** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set | CreateTierVersionSet tier-version-set-api
+*TierVersionSetApiAPI* | [**TierVersionSetApiCustomerListTierVersionSets**](docs/TierVersionSetApiAPI.md#tierversionsetapicustomerlisttierversionsets) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/customer-version-set | CustomerListTierVersionSets tier-version-set-api
 *TierVersionSetApiAPI* | [**TierVersionSetApiDeprecateTierVersionSet**](docs/TierVersionSetApiAPI.md#tierversionsetapideprecatetierversionset) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/deprecate | DeprecateTierVersionSet tier-version-set-api
 *TierVersionSetApiAPI* | [**TierVersionSetApiDescribeTierVersionSet**](docs/TierVersionSetApiAPI.md#tierversionsetapidescribetierversionset) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version} | DescribeTierVersionSet tier-version-set-api
 *TierVersionSetApiAPI* | [**TierVersionSetApiDiffTierVersionSets**](docs/TierVersionSetApiAPI.md#tierversionsetapidifftierversionsets) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/diff/{anotherVersion} | DiffTierVersionSets tier-version-set-api
@@ -517,6 +519,8 @@ Class | Method | HTTP request | Description
  - [CustomerDeleteUserRequest](docs/CustomerDeleteUserRequest.md)
  - [CustomerInviteUserRequest](docs/CustomerInviteUserRequest.md)
  - [CustomerInviteUserRequest2](docs/CustomerInviteUserRequest2.md)
+ - [CustomerListTierVersionSetsRequest](docs/CustomerListTierVersionSetsRequest.md)
+ - [CustomerListTierVersionSetsResult](docs/CustomerListTierVersionSetsResult.md)
  - [CustomerLoginWithIdentityProviderRequest](docs/CustomerLoginWithIdentityProviderRequest.md)
  - [CustomerLoginWithIdentityProviderRequest2](docs/CustomerLoginWithIdentityProviderRequest2.md)
  - [CustomerLoginWithIdentityProviderResult](docs/CustomerLoginWithIdentityProviderResult.md)
@@ -528,7 +532,6 @@ Class | Method | HTTP request | Description
  - [CustomerSignupRequest](docs/CustomerSignupRequest.md)
  - [CustomerSignupRequest2](docs/CustomerSignupRequest2.md)
  - [DeRegisterResourceMetricsConfigRequest](docs/DeRegisterResourceMetricsConfigRequest.md)
- - [DefaultDeploymentCellConfigurations](docs/DefaultDeploymentCellConfigurations.md)
  - [DeleteAccountConfigRequest](docs/DeleteAccountConfigRequest.md)
  - [DeleteComputeConfigRequest](docs/DeleteComputeConfigRequest.md)
  - [DeleteCustomDomainRequest](docs/DeleteCustomDomainRequest.md)
@@ -561,6 +564,7 @@ Class | Method | HTTP request | Description
  - [DeleteUserRequest](docs/DeleteUserRequest.md)
  - [DemoRequest](docs/DemoRequest.md)
  - [DeploymentCellConfiguration](docs/DeploymentCellConfiguration.md)
+ - [DeploymentCellConfigurations](docs/DeploymentCellConfigurations.md)
  - [DeploymentCellHealthDetail](docs/DeploymentCellHealthDetail.md)
  - [DeploymentCellHealthRequest](docs/DeploymentCellHealthRequest.md)
  - [DeploymentCellHealthSummary](docs/DeploymentCellHealthSummary.md)
@@ -863,6 +867,7 @@ Class | Method | HTTP request | Description
  - [LoginWithIdentityProviderResult](docs/LoginWithIdentityProviderResult.md)
  - [LogoutRequest](docs/LogoutRequest.md)
  - [ModifyServiceProviderOrganizationRequest](docs/ModifyServiceProviderOrganizationRequest.md)
+ - [ModifyServiceProviderOrganizationRequest2](docs/ModifyServiceProviderOrganizationRequest2.md)
  - [ModifyServicesOrchestrationRequest](docs/ModifyServicesOrchestrationRequest.md)
  - [ModifyServicesOrchestrationRequest2](docs/ModifyServicesOrchestrationRequest2.md)
  - [NetworkFeaturesConfiguration](docs/NetworkFeaturesConfiguration.md)
@@ -1042,6 +1047,8 @@ Class | Method | HTTP request | Description
  - [UpdateUpgradePathRequest](docs/UpdateUpgradePathRequest.md)
  - [UpdateUserRequest](docs/UpdateUserRequest.md)
  - [UpdateUserRequest2](docs/UpdateUserRequest2.md)
+ - [UpgradeResourceInstanceVersionRequest](docs/UpgradeResourceInstanceVersionRequest.md)
+ - [UpgradeResourceInstanceVersionRequest2](docs/UpgradeResourceInstanceVersionRequest2.md)
  - [UsagePerDimension](docs/UsagePerDimension.md)
  - [VUnitHealthReport](docs/VUnitHealthReport.md)
  - [ValidateTokenRequest](docs/ValidateTokenRequest.md)

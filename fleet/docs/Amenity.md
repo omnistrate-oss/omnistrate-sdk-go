@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **Modifiable** | Pointer to **bool** | Whether the amenity can be modified. | [optional] 
 **Name** | Pointer to **string** | The name of the amenity. | [optional] 
 **Properties** | Pointer to **map[string]interface{}** | The properties of the amenity. | [optional] 
-**Skip** | Pointer to **bool** | Whether the amenity should be skipped during deployment. | [optional] 
 **Type** | Pointer to **string** | The type of the amenity. | [optional] 
 
 ## Methods
@@ -155,31 +154,6 @@ SetProperties sets Properties field to given value.
 `func (o *Amenity) HasProperties() bool`
 
 HasProperties returns a boolean if a field has been set.
-
-### GetSkip
-
-`func (o *Amenity) GetSkip() bool`
-
-GetSkip returns the Skip field if non-nil, zero value otherwise.
-
-### GetSkipOk
-
-`func (o *Amenity) GetSkipOk() (*bool, bool)`
-
-GetSkipOk returns a tuple with the Skip field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSkip
-
-`func (o *Amenity) SetSkip(v bool)`
-
-SetSkip sets Skip field to given value.
-
-### HasSkip
-
-`func (o *Amenity) HasSkip() bool`
-
-HasSkip returns a boolean if a field has been set.
 
 ### GetType
 

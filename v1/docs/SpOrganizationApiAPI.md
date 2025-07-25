@@ -70,7 +70,7 @@ Other parameters are passed through a pointer to a apiSpOrganizationApiDescribeS
 
 ## SpOrganizationApiModifyServiceProviderOrganization
 
-> SpOrganizationApiModifyServiceProviderOrganization(ctx).Execute()
+> SpOrganizationApiModifyServiceProviderOrganization(ctx).ModifyServiceProviderOrganizationRequest2(modifyServiceProviderOrganizationRequest2).Execute()
 
 ModifyServiceProviderOrganization sp-organization-api
 
@@ -87,10 +87,11 @@ import (
 )
 
 func main() {
+	modifyServiceProviderOrganizationRequest2 := *openapiclient.NewModifyServiceProviderOrganizationRequest2() // ModifyServiceProviderOrganizationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.SpOrganizationApiAPI.SpOrganizationApiModifyServiceProviderOrganization(context.Background()).Execute()
+	r, err := apiClient.SpOrganizationApiAPI.SpOrganizationApiModifyServiceProviderOrganization(context.Background()).ModifyServiceProviderOrganizationRequest2(modifyServiceProviderOrganizationRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SpOrganizationApiAPI.SpOrganizationApiModifyServiceProviderOrganization``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -100,12 +101,16 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiSpOrganizationApiModifyServiceProviderOrganizationRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modifyServiceProviderOrganizationRequest2** | [**ModifyServiceProviderOrganizationRequest2**](ModifyServiceProviderOrganizationRequest2.md) |  | 
 
 ### Return type
 
@@ -117,7 +122,7 @@ Other parameters are passed through a pointer to a apiSpOrganizationApiModifySer
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

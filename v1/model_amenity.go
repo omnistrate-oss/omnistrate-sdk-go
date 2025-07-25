@@ -29,8 +29,6 @@ type Amenity struct {
 	Name *string `json:"Name,omitempty"`
 	// The properties of the amenity.
 	Properties map[string]interface{} `json:"Properties,omitempty"`
-	// Whether the amenity should be skipped during deployment.
-	Skip *bool `json:"Skip,omitempty"`
 	// The type of the amenity.
 	Type *string `json:"Type,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -170,29 +168,6 @@ func (o *Amenity) SetProperties(v map[string]interface{}) {
 	o.Properties = v
 }
 
-// GetSkip returns the Skip field value if set, zero value otherwise.
-func (o *Amenity) GetSkip() bool {
-	if o == nil || IsNil(o.Skip) {
-		var ret bool
-		return ret
-	}
-	return *o.Skip
-}
-
-// GetSkipOk returns a tuple with the Skip field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Amenity) GetSkipOk() (*bool, bool) {
-	if o == nil || IsNil(o.Skip) {
-		return nil, false
-	}
-	return o.Skip, true
-}
-
-// SetSkip gets a reference to the given bool and assigns it to the Skip field.
-func (o *Amenity) SetSkip(v bool) {
-	o.Skip = &v
-}
-
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *Amenity) GetType() string {
 	if o == nil || IsNil(o.Type) {
@@ -241,9 +216,6 @@ func (o Amenity) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Properties) {
 		toSerialize["Properties"] = o.Properties
 	}
-	if !IsNil(o.Skip) {
-		toSerialize["Skip"] = o.Skip
-	}
 	if !IsNil(o.Type) {
 		toSerialize["Type"] = o.Type
 	}
@@ -274,7 +246,6 @@ func (o *Amenity) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "Modifiable")
 		delete(additionalProperties, "Name")
 		delete(additionalProperties, "Properties")
-		delete(additionalProperties, "Skip")
 		delete(additionalProperties, "Type")
 		o.AdditionalProperties = additionalProperties
 	}

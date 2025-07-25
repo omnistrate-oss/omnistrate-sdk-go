@@ -20,6 +20,8 @@ var _ MappedNullable = &ModifyServiceProviderOrganizationRequest{}
 
 // ModifyServiceProviderOrganizationRequest struct for ModifyServiceProviderOrganizationRequest
 type ModifyServiceProviderOrganizationRequest struct {
+	// The default deployment cell configurations for the organization per environment.
+	DeploymentCellConfigurations map[string]interface{} `json:"DeploymentCellConfigurations,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -43,6 +45,29 @@ func NewModifyServiceProviderOrganizationRequest(token string) *ModifyServicePro
 func NewModifyServiceProviderOrganizationRequestWithDefaults() *ModifyServiceProviderOrganizationRequest {
 	this := ModifyServiceProviderOrganizationRequest{}
 	return &this
+}
+
+// GetDeploymentCellConfigurations returns the DeploymentCellConfigurations field value if set, zero value otherwise.
+func (o *ModifyServiceProviderOrganizationRequest) GetDeploymentCellConfigurations() map[string]interface{} {
+	if o == nil || IsNil(o.DeploymentCellConfigurations) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.DeploymentCellConfigurations
+}
+
+// GetDeploymentCellConfigurationsOk returns a tuple with the DeploymentCellConfigurations field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModifyServiceProviderOrganizationRequest) GetDeploymentCellConfigurationsOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.DeploymentCellConfigurations) {
+		return map[string]interface{}{}, false
+	}
+	return o.DeploymentCellConfigurations, true
+}
+
+// SetDeploymentCellConfigurations gets a reference to the given map[string]interface{} and assigns it to the DeploymentCellConfigurations field.
+func (o *ModifyServiceProviderOrganizationRequest) SetDeploymentCellConfigurations(v map[string]interface{}) {
+	o.DeploymentCellConfigurations = v
 }
 
 // GetToken returns the Token field value
@@ -79,6 +104,9 @@ func (o ModifyServiceProviderOrganizationRequest) MarshalJSON() ([]byte, error) 
 
 func (o ModifyServiceProviderOrganizationRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.DeploymentCellConfigurations) {
+		toSerialize["DeploymentCellConfigurations"] = o.DeploymentCellConfigurations
+	}
 	toSerialize["token"] = o.Token
 
 	for key, value := range o.AdditionalProperties {
@@ -123,6 +151,7 @@ func (o *ModifyServiceProviderOrganizationRequest) UnmarshalJSON(data []byte) (e
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "DeploymentCellConfigurations")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

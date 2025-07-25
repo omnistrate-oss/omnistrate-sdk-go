@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**ResourceInstanceApiStopResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiStopResourceInstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/stop | StopResourceInstance resource-instance-api
 [**ResourceInstanceApiUpdateAccountConfigResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiUpdateAccountConfigResourceInstance) | **Post** /2022-09-01-00/resource-instance/account-config/{id} | UpdateAccountConfigResourceInstance resource-instance-api
 [**ResourceInstanceApiUpdateResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiUpdateResourceInstance) | **Patch** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id} | UpdateResourceInstance resource-instance-api
+[**ResourceInstanceApiUpgradeResourceInstanceVersion**](ResourceInstanceApiAPI.md#ResourceInstanceApiUpgradeResourceInstanceVersion) | **Post** /2022-09-01-00/resource-instance/{id}/version-upgrade | UpgradeResourceInstanceVersion resource-instance-api
 
 
 
@@ -1735,6 +1736,76 @@ Name | Type | Description  | Notes
 
 
  **updateResourceInstanceRequest2** | [**UpdateResourceInstanceRequest2**](UpdateResourceInstanceRequest2.md) |  | 
+ **subscriptionId** | **string** | Subscription Id | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ResourceInstanceApiUpgradeResourceInstanceVersion
+
+> ResourceInstanceApiUpgradeResourceInstanceVersion(ctx, id).UpgradeResourceInstanceVersionRequest2(upgradeResourceInstanceVersionRequest2).SubscriptionId(subscriptionId).Execute()
+
+UpgradeResourceInstanceVersion resource-instance-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	id := "instance-abcd1234" // string | The instance ID
+	upgradeResourceInstanceVersionRequest2 := *openapiclient.NewUpgradeResourceInstanceVersionRequest2("premium", "mysql", "v1", "dev", "service-orchestration", "hosted", "omnistrate") // UpgradeResourceInstanceVersionRequest2 | 
+	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiUpgradeResourceInstanceVersion(context.Background(), id).UpgradeResourceInstanceVersionRequest2(upgradeResourceInstanceVersionRequest2).SubscriptionId(subscriptionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiUpgradeResourceInstanceVersion``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The instance ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiResourceInstanceApiUpgradeResourceInstanceVersionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **upgradeResourceInstanceVersionRequest2** | [**UpgradeResourceInstanceVersionRequest2**](UpgradeResourceInstanceVersionRequest2.md) |  | 
  **subscriptionId** | **string** | Subscription Id | 
 
 ### Return type

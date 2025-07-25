@@ -5,6 +5,7 @@ All URIs are relative to *https://api.omnistrate.cloud*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**TierVersionSetApiCreateTierVersionSet**](TierVersionSetApiAPI.md#TierVersionSetApiCreateTierVersionSet) | **Post** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set | CreateTierVersionSet tier-version-set-api
+[**TierVersionSetApiCustomerListTierVersionSets**](TierVersionSetApiAPI.md#TierVersionSetApiCustomerListTierVersionSets) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/customer-version-set | CustomerListTierVersionSets tier-version-set-api
 [**TierVersionSetApiDeprecateTierVersionSet**](TierVersionSetApiAPI.md#TierVersionSetApiDeprecateTierVersionSet) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/deprecate | DeprecateTierVersionSet tier-version-set-api
 [**TierVersionSetApiDescribeTierVersionSet**](TierVersionSetApiAPI.md#TierVersionSetApiDescribeTierVersionSet) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version} | DescribeTierVersionSet tier-version-set-api
 [**TierVersionSetApiDiffTierVersionSets**](TierVersionSetApiAPI.md#TierVersionSetApiDiffTierVersionSets) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/diff/{anotherVersion} | DiffTierVersionSets tier-version-set-api
@@ -81,6 +82,81 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## TierVersionSetApiCustomerListTierVersionSets
+
+> CustomerListTierVersionSetsResult TierVersionSetApiCustomerListTierVersionSets(ctx, serviceId, productTierId).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
+
+CustomerListTierVersionSets tier-version-set-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | ID of the Service
+	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
+	nextPageToken := "token" // string |  (optional)
+	pageSize := int64(10) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiCustomerListTierVersionSets(context.Background(), serviceId, productTierId).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TierVersionSetApiAPI.TierVersionSetApiCustomerListTierVersionSets``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `TierVersionSetApiCustomerListTierVersionSets`: CustomerListTierVersionSetsResult
+	fmt.Fprintf(os.Stdout, "Response from `TierVersionSetApiAPI.TierVersionSetApiCustomerListTierVersionSets`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | ID of the Service | 
+**productTierId** | **string** | The product tier ID that this version set belongs to. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiTierVersionSetApiCustomerListTierVersionSetsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **nextPageToken** | **string** |  | 
+ **pageSize** | **int64** |  | 
+
+### Return type
+
+[**CustomerListTierVersionSetsResult**](CustomerListTierVersionSetsResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

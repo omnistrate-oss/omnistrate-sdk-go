@@ -21,7 +21,7 @@ var _ MappedNullable = &WebhookConfiguration{}
 // WebhookConfiguration struct for WebhookConfiguration
 type WebhookConfiguration struct {
 	// Additional parameters to include in the notification body
-	AdditionalBodyParameters *map[string]string `json:"additionalBodyParameters,omitempty"`
+	AdditionalBodyParameters map[string]interface{} `json:"additionalBodyParameters,omitempty"`
 	// HTTP headers to include in the notification
 	Headers *map[string]string `json:"headers,omitempty"`
 	// HTTP method to use for the notification
@@ -53,19 +53,19 @@ func NewWebhookConfigurationWithDefaults() *WebhookConfiguration {
 }
 
 // GetAdditionalBodyParameters returns the AdditionalBodyParameters field value if set, zero value otherwise.
-func (o *WebhookConfiguration) GetAdditionalBodyParameters() map[string]string {
+func (o *WebhookConfiguration) GetAdditionalBodyParameters() map[string]interface{} {
 	if o == nil || IsNil(o.AdditionalBodyParameters) {
-		var ret map[string]string
+		var ret map[string]interface{}
 		return ret
 	}
-	return *o.AdditionalBodyParameters
+	return o.AdditionalBodyParameters
 }
 
 // GetAdditionalBodyParametersOk returns a tuple with the AdditionalBodyParameters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WebhookConfiguration) GetAdditionalBodyParametersOk() (*map[string]string, bool) {
+func (o *WebhookConfiguration) GetAdditionalBodyParametersOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.AdditionalBodyParameters) {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
 	return o.AdditionalBodyParameters, true
 }
@@ -79,9 +79,9 @@ func (o *WebhookConfiguration) HasAdditionalBodyParameters() bool {
 	return false
 }
 
-// SetAdditionalBodyParameters gets a reference to the given map[string]string and assigns it to the AdditionalBodyParameters field.
-func (o *WebhookConfiguration) SetAdditionalBodyParameters(v map[string]string) {
-	o.AdditionalBodyParameters = &v
+// SetAdditionalBodyParameters gets a reference to the given map[string]interface{} and assigns it to the AdditionalBodyParameters field.
+func (o *WebhookConfiguration) SetAdditionalBodyParameters(v map[string]interface{}) {
+	o.AdditionalBodyParameters = v
 }
 
 // GetHeaders returns the Headers field value if set, zero value otherwise.

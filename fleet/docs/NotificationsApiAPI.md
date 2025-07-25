@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**NotificationsApiDeleteNotificationChannel**](NotificationsApiAPI.md#NotificationsApiDeleteNotificationChannel) | **Delete** /2022-09-01-00/fleet/notification-channel/{id} | DeleteNotificationChannel notifications-api
 [**NotificationsApiDescribeNotificationChannel**](NotificationsApiAPI.md#NotificationsApiDescribeNotificationChannel) | **Get** /2022-09-01-00/fleet/notification-channel/{id} | DescribeNotificationChannel notifications-api
 [**NotificationsApiListNotificationChannels**](NotificationsApiAPI.md#NotificationsApiListNotificationChannels) | **Get** /2022-09-01-00/fleet/notification-channel | ListNotificationChannels notifications-api
+[**NotificationsApiNotificationChannelEventHistory**](NotificationsApiAPI.md#NotificationsApiNotificationChannelEventHistory) | **Get** /2022-09-01-00/fleet/notification-channel/{id}/event-history | NotificationChannelEventHistory notifications-api
+[**NotificationsApiReplayEvent**](NotificationsApiAPI.md#NotificationsApiReplayEvent) | **Post** /2022-09-01-00/fleet/notification-event/{id}/replay | ReplayEvent notifications-api
 [**NotificationsApiUpdateNotificationChannel**](NotificationsApiAPI.md#NotificationsApiUpdateNotificationChannel) | **Patch** /2022-09-01-00/fleet/notification-channel/{id} | UpdateNotificationChannel notifications-api
 
 
@@ -263,6 +265,145 @@ Other parameters are passed through a pointer to a apiNotificationsApiListNotifi
 
 - **Content-Type**: Not defined
 - **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## NotificationsApiNotificationChannelEventHistory
+
+> ChannelEventHistoryResult NotificationsApiNotificationChannelEventHistory(ctx, id).StartTime(startTime).EndTime(endTime).Execute()
+
+NotificationChannelEventHistory notifications-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	id := "channel-12345678" // string | Unique identifier of the channel
+	startTime := time.Now() // time.Time | The start time of the range (optional)
+	endTime := time.Now() // time.Time | The end time of the range (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.NotificationsApiAPI.NotificationsApiNotificationChannelEventHistory(context.Background(), id).StartTime(startTime).EndTime(endTime).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsApiAPI.NotificationsApiNotificationChannelEventHistory``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `NotificationsApiNotificationChannelEventHistory`: ChannelEventHistoryResult
+	fmt.Fprintf(os.Stdout, "Response from `NotificationsApiAPI.NotificationsApiNotificationChannelEventHistory`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Unique identifier of the channel | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiNotificationsApiNotificationChannelEventHistoryRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **startTime** | **time.Time** | The start time of the range | 
+ **endTime** | **time.Time** | The end time of the range | 
+
+### Return type
+
+[**ChannelEventHistoryResult**](ChannelEventHistoryResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## NotificationsApiReplayEvent
+
+> NotificationsApiReplayEvent(ctx, id).Execute()
+
+ReplayEvent notifications-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	id := "event-12345678" // string | Unique identifier of the event to replay
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.NotificationsApiAPI.NotificationsApiReplayEvent(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsApiAPI.NotificationsApiReplayEvent``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Unique identifier of the event to replay | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiNotificationsApiReplayEventRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

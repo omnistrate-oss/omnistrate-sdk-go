@@ -30,6 +30,8 @@ type CreateResourceInstanceRequest struct {
 	NetworkType *string `json:"network_type,omitempty"`
 	// The product tier name
 	ProductTierKey string `json:"productTierKey"`
+	// The product tier version
+	ProductTierVersion *string `json:"productTierVersion,omitempty"`
 	// The region code
 	Region *string `json:"region,omitempty"`
 	// The request parameters
@@ -230,6 +232,38 @@ func (o *CreateResourceInstanceRequest) GetProductTierKeyOk() (*string, bool) {
 // SetProductTierKey sets field value
 func (o *CreateResourceInstanceRequest) SetProductTierKey(v string) {
 	o.ProductTierKey = v
+}
+
+// GetProductTierVersion returns the ProductTierVersion field value if set, zero value otherwise.
+func (o *CreateResourceInstanceRequest) GetProductTierVersion() string {
+	if o == nil || IsNil(o.ProductTierVersion) {
+		var ret string
+		return ret
+	}
+	return *o.ProductTierVersion
+}
+
+// GetProductTierVersionOk returns a tuple with the ProductTierVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateResourceInstanceRequest) GetProductTierVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.ProductTierVersion) {
+		return nil, false
+	}
+	return o.ProductTierVersion, true
+}
+
+// HasProductTierVersion returns a boolean if a field has been set.
+func (o *CreateResourceInstanceRequest) HasProductTierVersion() bool {
+	if o != nil && !IsNil(o.ProductTierVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetProductTierVersion gets a reference to the given string and assigns it to the ProductTierVersion field.
+func (o *CreateResourceInstanceRequest) SetProductTierVersion(v string) {
+	o.ProductTierVersion = &v
 }
 
 // GetRegion returns the Region field value if set, zero value otherwise.
@@ -520,6 +554,9 @@ func (o CreateResourceInstanceRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["network_type"] = o.NetworkType
 	}
 	toSerialize["productTierKey"] = o.ProductTierKey
+	if !IsNil(o.ProductTierVersion) {
+		toSerialize["productTierVersion"] = o.ProductTierVersion
+	}
 	if !IsNil(o.Region) {
 		toSerialize["region"] = o.Region
 	}
@@ -591,6 +628,7 @@ func (o *CreateResourceInstanceRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "externalBillingId")
 		delete(additionalProperties, "network_type")
 		delete(additionalProperties, "productTierKey")
+		delete(additionalProperties, "productTierVersion")
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "requestParams")
 		delete(additionalProperties, "resourceKey")
