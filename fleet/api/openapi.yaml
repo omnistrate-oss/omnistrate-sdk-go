@@ -7812,6 +7812,7 @@ paths:
                 gcpProjectID: my-project
                 hasPendingChanges: true
                 id: hc-12345678
+                isInSyncWithOrgTemplate: true
                 pendingAmenities:
                 - Description: Ensures high availability across multiple zones.
                   IsManaged: true
@@ -7955,6 +7956,7 @@ paths:
                   Iste nemo culpa est et autem ut.: Sint officia excepturi fugit dolor
                     inventore.
                 Type: HelmChart
+              syncWithOrgTemplate: true
             schema:
               $ref: '#/components/schemas/FleetUpdateHostClusterRequest2'
         required: true
@@ -8264,6 +8266,7 @@ paths:
                   gcpProjectID: my-project
                   hasPendingChanges: true
                   id: hc-12345678
+                  isInSyncWithOrgTemplate: true
                   pendingAmenities:
                   - Description: Ensures high availability across multiple zones.
                     IsManaged: true
@@ -8318,6 +8321,7 @@ paths:
                   gcpProjectID: my-project
                   hasPendingChanges: true
                   id: hc-12345678
+                  isInSyncWithOrgTemplate: true
                   pendingAmenities:
                   - Description: Ensures high availability across multiple zones.
                     IsManaged: true
@@ -8372,6 +8376,7 @@ paths:
                   gcpProjectID: my-project
                   hasPendingChanges: true
                   id: hc-12345678
+                  isInSyncWithOrgTemplate: true
                   pendingAmenities:
                   - Description: Ensures high availability across multiple zones.
                     IsManaged: true
@@ -30555,6 +30560,7 @@ components:
         gcpProjectID: my-project
         hasPendingChanges: true
         id: hc-12345678
+        isInSyncWithOrgTemplate: true
         pendingAmenities:
         - Description: Ensures high availability across multiple zones.
           IsManaged: true
@@ -30657,6 +30663,10 @@ components:
           description: ID of a Host Cluster
           example: Ea et ut occaecati accusamus est illo.
           type: string
+        isInSyncWithOrgTemplate:
+          description: Whether the host cluster is in sync with the org template
+          example: true
+          type: boolean
         pendingAmenities:
           description: The pending amenities for the host cluster
           example:
@@ -32593,6 +32603,7 @@ components:
           gcpProjectID: my-project
           hasPendingChanges: true
           id: hc-12345678
+          isInSyncWithOrgTemplate: true
           pendingAmenities:
           - Description: Ensures high availability across multiple zones.
             IsManaged: true
@@ -32677,6 +32688,7 @@ components:
           gcpProjectID: my-project
           hasPendingChanges: true
           id: hc-12345678
+          isInSyncWithOrgTemplate: true
           pendingAmenities:
           - Description: Ensures high availability across multiple zones.
             IsManaged: true
@@ -32778,6 +32790,7 @@ components:
             gcpProjectID: my-project
             hasPendingChanges: true
             id: hc-12345678
+            isInSyncWithOrgTemplate: true
             pendingAmenities:
             - Description: Ensures high availability across multiple zones.
               IsManaged: true
@@ -32878,6 +32891,7 @@ components:
             gcpProjectID: my-project
             hasPendingChanges: true
             id: hc-12345678
+            isInSyncWithOrgTemplate: true
             pendingAmenities:
             - Description: Ensures high availability across multiple zones.
               IsManaged: true
@@ -37103,6 +37117,7 @@ components:
             Voluptatem assumenda ut quibusdam.: Voluptates eligendi.
           Type: HelmChart
         serviceId: s-12345678
+        syncWithOrgTemplate: true
         token: 8r2
       properties:
         environmentId:
@@ -37141,6 +37156,10 @@ components:
           description: ID of a Service
           example: s-123456
           type: string
+        syncWithOrgTemplate:
+          description: Whether to sync the host cluster with the org template
+          example: true
+          type: boolean
         token:
           description: JWT token used to perform authorization
           example: "4"
@@ -37187,6 +37206,7 @@ components:
             At consequatur quidem facilis in natus molestiae.: Itaque eveniet quo.
             Iste nemo culpa est et autem ut.: Sint officia excepturi fugit dolor inventore.
           Type: HelmChart
+        syncWithOrgTemplate: true
       properties:
         pendingAmenities:
           description: The pending amenities for the host cluster
@@ -37230,6 +37250,10 @@ components:
           items:
             $ref: '#/components/schemas/Amenity'
           type: array
+        syncWithOrgTemplate:
+          description: Whether to sync the host cluster with the org template
+          example: true
+          type: boolean
       type: object
     FleetUpdateResourceInstanceDebugModeRequest:
       example:

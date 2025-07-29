@@ -28,6 +28,8 @@ type FleetUpdateHostClusterRequest struct {
 	PendingAmenities []Amenity `json:"pendingAmenities,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
+	// Whether to sync the host cluster with the org template
+	SyncWithOrgTemplate *bool `json:"syncWithOrgTemplate,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -160,6 +162,38 @@ func (o *FleetUpdateHostClusterRequest) SetServiceId(v string) {
 	o.ServiceId = v
 }
 
+// GetSyncWithOrgTemplate returns the SyncWithOrgTemplate field value if set, zero value otherwise.
+func (o *FleetUpdateHostClusterRequest) GetSyncWithOrgTemplate() bool {
+	if o == nil || IsNil(o.SyncWithOrgTemplate) {
+		var ret bool
+		return ret
+	}
+	return *o.SyncWithOrgTemplate
+}
+
+// GetSyncWithOrgTemplateOk returns a tuple with the SyncWithOrgTemplate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetUpdateHostClusterRequest) GetSyncWithOrgTemplateOk() (*bool, bool) {
+	if o == nil || IsNil(o.SyncWithOrgTemplate) {
+		return nil, false
+	}
+	return o.SyncWithOrgTemplate, true
+}
+
+// HasSyncWithOrgTemplate returns a boolean if a field has been set.
+func (o *FleetUpdateHostClusterRequest) HasSyncWithOrgTemplate() bool {
+	if o != nil && !IsNil(o.SyncWithOrgTemplate) {
+		return true
+	}
+
+	return false
+}
+
+// SetSyncWithOrgTemplate gets a reference to the given bool and assigns it to the SyncWithOrgTemplate field.
+func (o *FleetUpdateHostClusterRequest) SetSyncWithOrgTemplate(v bool) {
+	o.SyncWithOrgTemplate = &v
+}
+
 // GetToken returns the Token field value
 func (o *FleetUpdateHostClusterRequest) GetToken() string {
 	if o == nil {
@@ -200,6 +234,9 @@ func (o FleetUpdateHostClusterRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["pendingAmenities"] = o.PendingAmenities
 	}
 	toSerialize["serviceId"] = o.ServiceId
+	if !IsNil(o.SyncWithOrgTemplate) {
+		toSerialize["syncWithOrgTemplate"] = o.SyncWithOrgTemplate
+	}
 	toSerialize["token"] = o.Token
 
 	for key, value := range o.AdditionalProperties {
@@ -251,6 +288,7 @@ func (o *FleetUpdateHostClusterRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "pendingAmenities")
 		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "syncWithOrgTemplate")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

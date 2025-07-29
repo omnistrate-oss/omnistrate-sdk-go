@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PendingAmenities** | Pointer to [**[]Amenity**](Amenity.md) | The pending amenities for the host cluster | [optional] 
+**SyncWithOrgTemplate** | Pointer to **bool** | Whether to sync the host cluster with the org template | [optional] 
 
 ## Methods
 
@@ -49,6 +50,31 @@ SetPendingAmenities sets PendingAmenities field to given value.
 `func (o *FleetUpdateHostClusterRequest2) HasPendingAmenities() bool`
 
 HasPendingAmenities returns a boolean if a field has been set.
+
+### GetSyncWithOrgTemplate
+
+`func (o *FleetUpdateHostClusterRequest2) GetSyncWithOrgTemplate() bool`
+
+GetSyncWithOrgTemplate returns the SyncWithOrgTemplate field if non-nil, zero value otherwise.
+
+### GetSyncWithOrgTemplateOk
+
+`func (o *FleetUpdateHostClusterRequest2) GetSyncWithOrgTemplateOk() (*bool, bool)`
+
+GetSyncWithOrgTemplateOk returns a tuple with the SyncWithOrgTemplate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSyncWithOrgTemplate
+
+`func (o *FleetUpdateHostClusterRequest2) SetSyncWithOrgTemplate(v bool)`
+
+SetSyncWithOrgTemplate sets SyncWithOrgTemplate field to given value.
+
+### HasSyncWithOrgTemplate
+
+`func (o *FleetUpdateHostClusterRequest2) HasSyncWithOrgTemplate() bool`
+
+HasSyncWithOrgTemplate returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

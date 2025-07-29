@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Id** | **string** | ID of a Host Cluster | 
 **PendingAmenities** | Pointer to [**[]Amenity**](Amenity.md) | The pending amenities for the host cluster | [optional] 
 **ServiceId** | **string** | ID of a Service | 
+**SyncWithOrgTemplate** | Pointer to **bool** | Whether to sync the host cluster with the org template | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
@@ -113,6 +114,31 @@ and a boolean to check if the value has been set.
 
 SetServiceId sets ServiceId field to given value.
 
+
+### GetSyncWithOrgTemplate
+
+`func (o *FleetUpdateHostClusterRequest) GetSyncWithOrgTemplate() bool`
+
+GetSyncWithOrgTemplate returns the SyncWithOrgTemplate field if non-nil, zero value otherwise.
+
+### GetSyncWithOrgTemplateOk
+
+`func (o *FleetUpdateHostClusterRequest) GetSyncWithOrgTemplateOk() (*bool, bool)`
+
+GetSyncWithOrgTemplateOk returns a tuple with the SyncWithOrgTemplate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSyncWithOrgTemplate
+
+`func (o *FleetUpdateHostClusterRequest) SetSyncWithOrgTemplate(v bool)`
+
+SetSyncWithOrgTemplate sets SyncWithOrgTemplate field to given value.
+
+### HasSyncWithOrgTemplate
+
+`func (o *FleetUpdateHostClusterRequest) HasSyncWithOrgTemplate() bool`
+
+HasSyncWithOrgTemplate returns a boolean if a field has been set.
 
 ### GetToken
 
