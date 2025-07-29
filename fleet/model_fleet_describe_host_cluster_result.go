@@ -36,6 +36,8 @@ type FleetDescribeHostClusterResult struct {
 	HasPendingChanges *bool `json:"hasPendingChanges,omitempty"`
 	// ID of a Host Cluster
 	Id string `json:"id"`
+	// Whether the host cluster is in sync with the org template
+	IsInSyncWithOrgTemplate *bool `json:"isInSyncWithOrgTemplate,omitempty"`
 	// The pending amenities for the host cluster
 	PendingAmenities []Amenity `json:"pendingAmenities,omitempty"`
 	// The region of the host cluster
@@ -310,6 +312,38 @@ func (o *FleetDescribeHostClusterResult) SetId(v string) {
 	o.Id = v
 }
 
+// GetIsInSyncWithOrgTemplate returns the IsInSyncWithOrgTemplate field value if set, zero value otherwise.
+func (o *FleetDescribeHostClusterResult) GetIsInSyncWithOrgTemplate() bool {
+	if o == nil || IsNil(o.IsInSyncWithOrgTemplate) {
+		var ret bool
+		return ret
+	}
+	return *o.IsInSyncWithOrgTemplate
+}
+
+// GetIsInSyncWithOrgTemplateOk returns a tuple with the IsInSyncWithOrgTemplate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeHostClusterResult) GetIsInSyncWithOrgTemplateOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsInSyncWithOrgTemplate) {
+		return nil, false
+	}
+	return o.IsInSyncWithOrgTemplate, true
+}
+
+// HasIsInSyncWithOrgTemplate returns a boolean if a field has been set.
+func (o *FleetDescribeHostClusterResult) HasIsInSyncWithOrgTemplate() bool {
+	if o != nil && !IsNil(o.IsInSyncWithOrgTemplate) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsInSyncWithOrgTemplate gets a reference to the given bool and assigns it to the IsInSyncWithOrgTemplate field.
+func (o *FleetDescribeHostClusterResult) SetIsInSyncWithOrgTemplate(v bool) {
+	o.IsInSyncWithOrgTemplate = &v
+}
+
 // GetPendingAmenities returns the PendingAmenities field value if set, zero value otherwise.
 func (o *FleetDescribeHostClusterResult) GetPendingAmenities() []Amenity {
 	if o == nil || IsNil(o.PendingAmenities) {
@@ -444,6 +478,9 @@ func (o FleetDescribeHostClusterResult) ToMap() (map[string]interface{}, error) 
 		toSerialize["hasPendingChanges"] = o.HasPendingChanges
 	}
 	toSerialize["id"] = o.Id
+	if !IsNil(o.IsInSyncWithOrgTemplate) {
+		toSerialize["isInSyncWithOrgTemplate"] = o.IsInSyncWithOrgTemplate
+	}
 	if !IsNil(o.PendingAmenities) {
 		toSerialize["pendingAmenities"] = o.PendingAmenities
 	}
@@ -505,6 +542,7 @@ func (o *FleetDescribeHostClusterResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "hasPendingChanges")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "isInSyncWithOrgTemplate")
 		delete(additionalProperties, "pendingAmenities")
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "status")

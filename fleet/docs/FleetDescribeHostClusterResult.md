@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **HasPendingChanges** | Pointer to **bool** | Whether the host cluster has pending changes | [optional] 
 **Id** | **string** | ID of a Host Cluster | 
+**IsInSyncWithOrgTemplate** | Pointer to **bool** | Whether the host cluster is in sync with the org template | [optional] 
 **PendingAmenities** | Pointer to [**[]Amenity**](Amenity.md) | The pending amenities for the host cluster | [optional] 
 **Region** | **string** | The region of the host cluster | 
 **Status** | **string** | The status of an operation | 
@@ -225,6 +226,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetIsInSyncWithOrgTemplate
+
+`func (o *FleetDescribeHostClusterResult) GetIsInSyncWithOrgTemplate() bool`
+
+GetIsInSyncWithOrgTemplate returns the IsInSyncWithOrgTemplate field if non-nil, zero value otherwise.
+
+### GetIsInSyncWithOrgTemplateOk
+
+`func (o *FleetDescribeHostClusterResult) GetIsInSyncWithOrgTemplateOk() (*bool, bool)`
+
+GetIsInSyncWithOrgTemplateOk returns a tuple with the IsInSyncWithOrgTemplate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsInSyncWithOrgTemplate
+
+`func (o *FleetDescribeHostClusterResult) SetIsInSyncWithOrgTemplate(v bool)`
+
+SetIsInSyncWithOrgTemplate sets IsInSyncWithOrgTemplate field to given value.
+
+### HasIsInSyncWithOrgTemplate
+
+`func (o *FleetDescribeHostClusterResult) HasIsInSyncWithOrgTemplate() bool`
+
+HasIsInSyncWithOrgTemplate returns a boolean if a field has been set.
 
 ### GetPendingAmenities
 
