@@ -104,15 +104,16 @@ Class | Method | HTTP request | Description
 *FleetWorkflowsApiAPI* | [**FleetWorkflowsApiUpdateServiceWorkflow**](docs/FleetWorkflowsApiAPI.md#fleetworkflowsapiupdateserviceworkflow) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows/{id} | UpdateServiceWorkflow fleet-workflows-api
 *HelmPackageApiAPI* | [**HelmPackageApiListHelmPackageInstallations**](docs/HelmPackageApiAPI.md#helmpackageapilisthelmpackageinstallations) | **Get** /2022-09-01-00/fleet/helm-package-installations | ListHelmPackageInstallations helm-package-api
 *HostclusterApiAPI* | [**HostclusterApiAdoptHostCluster**](docs/HostclusterApiAPI.md#hostclusterapiadopthostcluster) | **Post** /2022-09-01-00/fleet/host-cluster/adopt | AdoptHostCluster hostcluster-api
+*HostclusterApiAPI* | [**HostclusterApiApplyPendingChangesToHostCluster**](docs/HostclusterApiAPI.md#hostclusterapiapplypendingchangestohostcluster) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/apply-pending-changes | ApplyPendingChangesToHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiDeleteHostCluster**](docs/HostclusterApiAPI.md#hostclusterapideletehostcluster) | **Delete** /2022-09-01-00/fleet/host-cluster/{id} | DeleteHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiDescribeHostCluster**](docs/HostclusterApiAPI.md#hostclusterapidescribehostcluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id} | DescribeHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiGenerateTokenForHostClusterDashboard**](docs/HostclusterApiAPI.md#hostclusterapigeneratetokenforhostclusterdashboard) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiKubeConfigHostCluster**](docs/HostclusterApiAPI.md#hostclusterapikubeconfighostcluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id}/kubeconfig | KubeConfigHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiListHostClusters**](docs/HostclusterApiAPI.md#hostclusterapilisthostclusters) | **Get** /2022-09-01-00/fleet/host-clusters | ListHostClusters hostcluster-api
+*HostclusterApiAPI* | [**HostclusterApiUpdateHostCluster**](docs/HostclusterApiAPI.md#hostclusterapiupdatehostcluster) | **Patch** /2022-09-01-00/fleet/host-cluster/{id} | UpdateHostCluster hostcluster-api
 *InventoryApiAPI* | [**InventoryApiAddCapacityToResourceInstance**](docs/InventoryApiAPI.md#inventoryapiaddcapacitytoresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/add-capacity | AddCapacityToResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiAddCustomDNSToResourceInstance**](docs/InventoryApiAPI.md#inventoryapiaddcustomdnstoresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/{resourceKey}/instance/{instanceId}/custom-dns | AddCustomDNSToResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiAdoptResourceInstance**](docs/InventoryApiAPI.md#inventoryapiadoptresourceinstance) | **Post** /2022-09-01-00/fleet/resource-instance/{serviceID}/{servicePlanID}/{hostClusterID}/{primaryResourceKey}/adopt | AdoptResourceInstance inventory-api
-*InventoryApiAPI* | [**InventoryApiApplyPendingChangesToHostCluster**](docs/InventoryApiAPI.md#inventoryapiapplypendingchangestohostcluster) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/host-cluster/{id}/apply-pending-changes | ApplyPendingChangesToHostCluster inventory-api
 *InventoryApiAPI* | [**InventoryApiApproveSubscriptionRequest**](docs/InventoryApiAPI.md#inventoryapiapprovesubscriptionrequest) | **Put** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | ApproveSubscriptionRequest inventory-api
 *InventoryApiAPI* | [**InventoryApiCancelUpgradePath**](docs/InventoryApiAPI.md#inventoryapicancelupgradepath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/cancel | CancelUpgradePath inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateConsumptionUser**](docs/InventoryApiAPI.md#inventoryapicreateconsumptionuser) | **Post** /2022-09-01-00/fleet/user | CreateConsumptionUser inventory-api
@@ -187,7 +188,6 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiTriggerAutomaticResourceInstanceSnapshotCreation**](docs/InventoryApiAPI.md#inventoryapitriggerautomaticresourceinstancesnapshotcreation) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/autosnapshot | TriggerAutomaticResourceInstanceSnapshotCreation inventory-api
 *InventoryApiAPI* | [**InventoryApiUnsuspendUser**](docs/InventoryApiAPI.md#inventoryapiunsuspenduser) | **Put** /2022-09-01-00/fleet/user/{userId}/unsuspend | UnsuspendUser inventory-api
 *InventoryApiAPI* | [**InventoryApiUpdateAccountConfigResourceInstance**](docs/InventoryApiAPI.md#inventoryapiupdateaccountconfigresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/account-config-instance/{instanceId} | UpdateAccountConfigResourceInstance inventory-api
-*InventoryApiAPI* | [**InventoryApiUpdateHostCluster**](docs/InventoryApiAPI.md#inventoryapiupdatehostcluster) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/host-cluster/{id} | UpdateHostCluster inventory-api
 *InventoryApiAPI* | [**InventoryApiUpdateResourceInstance**](docs/InventoryApiAPI.md#inventoryapiupdateresourceinstance) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId} | UpdateResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiUpdateResourceInstanceDebugMode**](docs/InventoryApiAPI.md#inventoryapiupdateresourceinstancedebugmode) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/debug-mode | UpdateResourceInstanceDebugMode inventory-api
 *InventoryApiAPI* | [**InventoryApiUpdateSubscription**](docs/InventoryApiAPI.md#inventoryapiupdatesubscription) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/{id} | UpdateSubscription inventory-api
@@ -225,6 +225,7 @@ Class | Method | HTTP request | Description
  - [AdoptResourceInstanceRequest](docs/AdoptResourceInstanceRequest.md)
  - [AdoptResourceInstanceRequest2](docs/AdoptResourceInstanceRequest2.md)
  - [Amenity](docs/Amenity.md)
+ - [ApplyPendingChangesToHostClusterRequest](docs/ApplyPendingChangesToHostClusterRequest.md)
  - [ApproveSubscriptionRequestRequest](docs/ApproveSubscriptionRequestRequest.md)
  - [BackupStatus](docs/BackupStatus.md)
  - [BillingProvider](docs/BillingProvider.md)
@@ -417,7 +418,6 @@ Class | Method | HTTP request | Description
  - [FleetAddCapacityToResourceInstanceRequest2](docs/FleetAddCapacityToResourceInstanceRequest2.md)
  - [FleetAddCustomDNSToResourceInstanceRequest](docs/FleetAddCustomDNSToResourceInstanceRequest.md)
  - [FleetAddCustomDNSToResourceInstanceRequest2](docs/FleetAddCustomDNSToResourceInstanceRequest2.md)
- - [FleetApplyPendingChangesToHostClusterRequest](docs/FleetApplyPendingChangesToHostClusterRequest.md)
  - [FleetApproveInvoiceRequest](docs/FleetApproveInvoiceRequest.md)
  - [FleetAuditEvent](docs/FleetAuditEvent.md)
  - [FleetAuditEventsRequest](docs/FleetAuditEventsRequest.md)
@@ -523,8 +523,6 @@ Class | Method | HTTP request | Description
  - [FleetUpdateAccountConfigResourceInstanceRequest2](docs/FleetUpdateAccountConfigResourceInstanceRequest2.md)
  - [FleetUpdateCustomNetworkRequest](docs/FleetUpdateCustomNetworkRequest.md)
  - [FleetUpdateCustomNetworkRequest2](docs/FleetUpdateCustomNetworkRequest2.md)
- - [FleetUpdateHostClusterRequest](docs/FleetUpdateHostClusterRequest.md)
- - [FleetUpdateHostClusterRequest2](docs/FleetUpdateHostClusterRequest2.md)
  - [FleetUpdateResourceInstanceDebugModeRequest](docs/FleetUpdateResourceInstanceDebugModeRequest.md)
  - [FleetUpdateResourceInstanceDebugModeRequest2](docs/FleetUpdateResourceInstanceDebugModeRequest2.md)
  - [FleetUpdateResourceInstanceRequest](docs/FleetUpdateResourceInstanceRequest.md)
@@ -781,6 +779,8 @@ Class | Method | HTTP request | Description
  - [UpdateAccountConfigResourceInstanceRequest](docs/UpdateAccountConfigResourceInstanceRequest.md)
  - [UpdateCustomerOnboardingRequest](docs/UpdateCustomerOnboardingRequest.md)
  - [UpdateCustomerOnboardingRequest2](docs/UpdateCustomerOnboardingRequest2.md)
+ - [UpdateHostClusterRequest](docs/UpdateHostClusterRequest.md)
+ - [UpdateHostClusterRequest2](docs/UpdateHostClusterRequest2.md)
  - [UpdateIdentityProviderRequest](docs/UpdateIdentityProviderRequest.md)
  - [UpdateNotificationChannelRequest](docs/UpdateNotificationChannelRequest.md)
  - [UpdateNotificationChannelRequest2](docs/UpdateNotificationChannelRequest2.md)

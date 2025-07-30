@@ -20,7 +20,7 @@ clean:
 .PHONY: gen-go-sdk
 gen-go-sdk:
 	echo "Generate Go SDK"
-	openapi-generator generate \
+	_JAVA_OPTIONS=-DmaxYamlCodePoints=99999999 openapi-generator generate \
   -i ${OPEN_API_SPEC} \
   -g go \
   -o v1 \
@@ -32,7 +32,7 @@ gen-go-sdk:
 .PHONY: gen-fleet-go-sdk
 gen-fleet-go-sdk:
 	echo "Generate Fleet Go SDK"
-	openapi-generator generate \
+	_JAVA_OPTIONS=-DmaxYamlCodePoints=99999999 openapi-generator generate \
   -i ${FLEET_OPEN_API_SPEC} \
   -g go \
   -o fleet \

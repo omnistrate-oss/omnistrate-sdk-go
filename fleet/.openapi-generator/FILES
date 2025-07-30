@@ -30,6 +30,7 @@ docs/AdoptHostClusterResult.md
 docs/AdoptResourceInstanceRequest.md
 docs/AdoptResourceInstanceRequest2.md
 docs/Amenity.md
+docs/ApplyPendingChangesToHostClusterRequest.md
 docs/ApproveSubscriptionRequestRequest.md
 docs/AuditEventsApiAPI.md
 docs/BackupStatus.md
@@ -226,7 +227,6 @@ docs/FleetAddCapacityToResourceInstanceRequest.md
 docs/FleetAddCapacityToResourceInstanceRequest2.md
 docs/FleetAddCustomDNSToResourceInstanceRequest.md
 docs/FleetAddCustomDNSToResourceInstanceRequest2.md
-docs/FleetApplyPendingChangesToHostClusterRequest.md
 docs/FleetApproveInvoiceRequest.md
 docs/FleetAuditEvent.md
 docs/FleetAuditEventsRequest.md
@@ -333,8 +333,6 @@ docs/FleetUpdateAccountConfigResourceInstanceRequest.md
 docs/FleetUpdateAccountConfigResourceInstanceRequest2.md
 docs/FleetUpdateCustomNetworkRequest.md
 docs/FleetUpdateCustomNetworkRequest2.md
-docs/FleetUpdateHostClusterRequest.md
-docs/FleetUpdateHostClusterRequest2.md
 docs/FleetUpdateResourceInstanceDebugModeRequest.md
 docs/FleetUpdateResourceInstanceDebugModeRequest2.md
 docs/FleetUpdateResourceInstanceRequest.md
@@ -598,6 +596,8 @@ docs/TerraformDeploymentConfiguration.md
 docs/UpdateAccountConfigResourceInstanceRequest.md
 docs/UpdateCustomerOnboardingRequest.md
 docs/UpdateCustomerOnboardingRequest2.md
+docs/UpdateHostClusterRequest.md
+docs/UpdateHostClusterRequest2.md
 docs/UpdateIdentityProviderRequest.md
 docs/UpdateNotificationChannelRequest.md
 docs/UpdateNotificationChannelRequest2.md
@@ -644,6 +644,7 @@ model_adopt_resource_instance_request.go
 model_adopt_resource_instance_request2.go
 model_amenity.go
 model_api_entity.go
+model_apply_pending_changes_to_host_cluster_request.go
 model_approve_subscription_request_request.go
 model_backup_status.go
 model_billing_provider.go
@@ -836,7 +837,6 @@ model_fleet_add_capacity_to_resource_instance_request.go
 model_fleet_add_capacity_to_resource_instance_request2.go
 model_fleet_add_custom_dnsto_resource_instance_request.go
 model_fleet_add_custom_dnsto_resource_instance_request2.go
-model_fleet_apply_pending_changes_to_host_cluster_request.go
 model_fleet_approve_invoice_request.go
 model_fleet_audit_event.go
 model_fleet_audit_events_request.go
@@ -942,8 +942,6 @@ model_fleet_update_account_config_resource_instance_request.go
 model_fleet_update_account_config_resource_instance_request2.go
 model_fleet_update_custom_network_request.go
 model_fleet_update_custom_network_request2.go
-model_fleet_update_host_cluster_request.go
-model_fleet_update_host_cluster_request2.go
 model_fleet_update_resource_instance_debug_mode_request.go
 model_fleet_update_resource_instance_debug_mode_request2.go
 model_fleet_update_resource_instance_request.go
@@ -1200,6 +1198,8 @@ model_terraform_deployment_configuration.go
 model_update_account_config_resource_instance_request.go
 model_update_customer_onboarding_request.go
 model_update_customer_onboarding_request2.go
+model_update_host_cluster_request.go
+model_update_host_cluster_request2.go
 model_update_identity_provider_request.go
 model_update_notification_channel_request.go
 model_update_notification_channel_request2.go
