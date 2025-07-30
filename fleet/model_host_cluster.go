@@ -24,6 +24,8 @@ type HostCluster struct {
 	AccountConfigId string `json:"accountConfigId"`
 	// The actual account ID (AWS Account ID, GCP Project ID, Azure Subscription ID) or 'Omnistrate Hosted' for managed accounts
 	AccountID string `json:"accountID"`
+	// The amenities available in the host cluster
+	Amenities []Amenity `json:"amenities,omitempty"`
 	// Name of the Infra Provider
 	CloudProvider string `json:"cloudProvider"`
 	// The current number of deployments on the host cluster
@@ -34,6 +36,8 @@ type HostCluster struct {
 	// Name of the customer organization that owns the host cluster in case this is a BYOC / Adopted host cluster
 	CustomerOrganizationName *string `json:"customerOrganizationName,omitempty"`
 	Description string `json:"description"`
+	// Whether the host cluster has pending changes
+	HasPendingChanges *bool `json:"hasPendingChanges,omitempty"`
 	HealthStatus *HostClusterHealthStatus `json:"healthStatus,omitempty"`
 	// Helm packages installed on the host cluster
 	HelmPackages []HelmPackage `json:"helmPackages,omitempty"`
@@ -41,12 +45,16 @@ type HostCluster struct {
 	Id string `json:"id"`
 	// Indicates if the host cluster is a custom deployment
 	IsCustomDeployment bool `json:"isCustomDeployment"`
+	// Whether the host cluster is in sync with the org template
+	IsInSyncWithOrgTemplate *bool `json:"isInSyncWithOrgTemplate,omitempty"`
 	// Unique key for the host cluster, used for identification
 	Key string `json:"key"`
 	// Endpoint of the Kubernetes dashboard
 	KubernetesDashboardEndpoint *string `json:"kubernetesDashboardEndpoint,omitempty"`
 	// The model type encapsulating this service
 	ModelType *string `json:"modelType,omitempty"`
+	// The pending amenities for the host cluster
+	PendingAmenities []Amenity `json:"pendingAmenities,omitempty"`
 	// The actual region name of the host cluster
 	Region string `json:"region"`
 	// ID of a Region
@@ -136,6 +144,38 @@ func (o *HostCluster) GetAccountIDOk() (*string, bool) {
 // SetAccountID sets field value
 func (o *HostCluster) SetAccountID(v string) {
 	o.AccountID = v
+}
+
+// GetAmenities returns the Amenities field value if set, zero value otherwise.
+func (o *HostCluster) GetAmenities() []Amenity {
+	if o == nil || IsNil(o.Amenities) {
+		var ret []Amenity
+		return ret
+	}
+	return o.Amenities
+}
+
+// GetAmenitiesOk returns a tuple with the Amenities field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetAmenitiesOk() ([]Amenity, bool) {
+	if o == nil || IsNil(o.Amenities) {
+		return nil, false
+	}
+	return o.Amenities, true
+}
+
+// HasAmenities returns a boolean if a field has been set.
+func (o *HostCluster) HasAmenities() bool {
+	if o != nil && !IsNil(o.Amenities) {
+		return true
+	}
+
+	return false
+}
+
+// SetAmenities gets a reference to the given []Amenity and assigns it to the Amenities field.
+func (o *HostCluster) SetAmenities(v []Amenity) {
+	o.Amenities = v
 }
 
 // GetCloudProvider returns the CloudProvider field value
@@ -306,6 +346,38 @@ func (o *HostCluster) SetDescription(v string) {
 	o.Description = v
 }
 
+// GetHasPendingChanges returns the HasPendingChanges field value if set, zero value otherwise.
+func (o *HostCluster) GetHasPendingChanges() bool {
+	if o == nil || IsNil(o.HasPendingChanges) {
+		var ret bool
+		return ret
+	}
+	return *o.HasPendingChanges
+}
+
+// GetHasPendingChangesOk returns a tuple with the HasPendingChanges field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetHasPendingChangesOk() (*bool, bool) {
+	if o == nil || IsNil(o.HasPendingChanges) {
+		return nil, false
+	}
+	return o.HasPendingChanges, true
+}
+
+// HasHasPendingChanges returns a boolean if a field has been set.
+func (o *HostCluster) HasHasPendingChanges() bool {
+	if o != nil && !IsNil(o.HasPendingChanges) {
+		return true
+	}
+
+	return false
+}
+
+// SetHasPendingChanges gets a reference to the given bool and assigns it to the HasPendingChanges field.
+func (o *HostCluster) SetHasPendingChanges(v bool) {
+	o.HasPendingChanges = &v
+}
+
 // GetHealthStatus returns the HealthStatus field value if set, zero value otherwise.
 func (o *HostCluster) GetHealthStatus() HostClusterHealthStatus {
 	if o == nil || IsNil(o.HealthStatus) {
@@ -418,6 +490,38 @@ func (o *HostCluster) SetIsCustomDeployment(v bool) {
 	o.IsCustomDeployment = v
 }
 
+// GetIsInSyncWithOrgTemplate returns the IsInSyncWithOrgTemplate field value if set, zero value otherwise.
+func (o *HostCluster) GetIsInSyncWithOrgTemplate() bool {
+	if o == nil || IsNil(o.IsInSyncWithOrgTemplate) {
+		var ret bool
+		return ret
+	}
+	return *o.IsInSyncWithOrgTemplate
+}
+
+// GetIsInSyncWithOrgTemplateOk returns a tuple with the IsInSyncWithOrgTemplate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetIsInSyncWithOrgTemplateOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsInSyncWithOrgTemplate) {
+		return nil, false
+	}
+	return o.IsInSyncWithOrgTemplate, true
+}
+
+// HasIsInSyncWithOrgTemplate returns a boolean if a field has been set.
+func (o *HostCluster) HasIsInSyncWithOrgTemplate() bool {
+	if o != nil && !IsNil(o.IsInSyncWithOrgTemplate) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsInSyncWithOrgTemplate gets a reference to the given bool and assigns it to the IsInSyncWithOrgTemplate field.
+func (o *HostCluster) SetIsInSyncWithOrgTemplate(v bool) {
+	o.IsInSyncWithOrgTemplate = &v
+}
+
 // GetKey returns the Key field value
 func (o *HostCluster) GetKey() string {
 	if o == nil {
@@ -504,6 +608,38 @@ func (o *HostCluster) HasModelType() bool {
 // SetModelType gets a reference to the given string and assigns it to the ModelType field.
 func (o *HostCluster) SetModelType(v string) {
 	o.ModelType = &v
+}
+
+// GetPendingAmenities returns the PendingAmenities field value if set, zero value otherwise.
+func (o *HostCluster) GetPendingAmenities() []Amenity {
+	if o == nil || IsNil(o.PendingAmenities) {
+		var ret []Amenity
+		return ret
+	}
+	return o.PendingAmenities
+}
+
+// GetPendingAmenitiesOk returns a tuple with the PendingAmenities field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetPendingAmenitiesOk() ([]Amenity, bool) {
+	if o == nil || IsNil(o.PendingAmenities) {
+		return nil, false
+	}
+	return o.PendingAmenities, true
+}
+
+// HasPendingAmenities returns a boolean if a field has been set.
+func (o *HostCluster) HasPendingAmenities() bool {
+	if o != nil && !IsNil(o.PendingAmenities) {
+		return true
+	}
+
+	return false
+}
+
+// SetPendingAmenities gets a reference to the given []Amenity and assigns it to the PendingAmenities field.
+func (o *HostCluster) SetPendingAmenities(v []Amenity) {
+	o.PendingAmenities = v
 }
 
 // GetRegion returns the Region field value
@@ -646,6 +782,9 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["accountConfigId"] = o.AccountConfigId
 	toSerialize["accountID"] = o.AccountID
+	if !IsNil(o.Amenities) {
+		toSerialize["amenities"] = o.Amenities
+	}
 	toSerialize["cloudProvider"] = o.CloudProvider
 	toSerialize["currentNumberOfDeployments"] = o.CurrentNumberOfDeployments
 	if !IsNil(o.CustomNetworkDetail) {
@@ -658,6 +797,9 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 		toSerialize["customerOrganizationName"] = o.CustomerOrganizationName
 	}
 	toSerialize["description"] = o.Description
+	if !IsNil(o.HasPendingChanges) {
+		toSerialize["hasPendingChanges"] = o.HasPendingChanges
+	}
 	if !IsNil(o.HealthStatus) {
 		toSerialize["healthStatus"] = o.HealthStatus
 	}
@@ -666,12 +808,18 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["id"] = o.Id
 	toSerialize["isCustomDeployment"] = o.IsCustomDeployment
+	if !IsNil(o.IsInSyncWithOrgTemplate) {
+		toSerialize["isInSyncWithOrgTemplate"] = o.IsInSyncWithOrgTemplate
+	}
 	toSerialize["key"] = o.Key
 	if !IsNil(o.KubernetesDashboardEndpoint) {
 		toSerialize["kubernetesDashboardEndpoint"] = o.KubernetesDashboardEndpoint
 	}
 	if !IsNil(o.ModelType) {
 		toSerialize["modelType"] = o.ModelType
+	}
+	if !IsNil(o.PendingAmenities) {
+		toSerialize["pendingAmenities"] = o.PendingAmenities
 	}
 	toSerialize["region"] = o.Region
 	toSerialize["regionId"] = o.RegionId
@@ -736,19 +884,23 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "accountConfigId")
 		delete(additionalProperties, "accountID")
+		delete(additionalProperties, "amenities")
 		delete(additionalProperties, "cloudProvider")
 		delete(additionalProperties, "currentNumberOfDeployments")
 		delete(additionalProperties, "customNetworkDetail")
 		delete(additionalProperties, "customerEmail")
 		delete(additionalProperties, "customerOrganizationName")
 		delete(additionalProperties, "description")
+		delete(additionalProperties, "hasPendingChanges")
 		delete(additionalProperties, "healthStatus")
 		delete(additionalProperties, "helmPackages")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "isCustomDeployment")
+		delete(additionalProperties, "isInSyncWithOrgTemplate")
 		delete(additionalProperties, "key")
 		delete(additionalProperties, "kubernetesDashboardEndpoint")
 		delete(additionalProperties, "modelType")
+		delete(additionalProperties, "pendingAmenities")
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "regionId")
 		delete(additionalProperties, "role")

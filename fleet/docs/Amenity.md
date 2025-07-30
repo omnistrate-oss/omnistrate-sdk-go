@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | Pointer to **string** | A description of the amenity. | [optional] 
 **IsManaged** | Pointer to **bool** | Whether the amenity is managed by the system. | [optional] 
-**Modifiable** | Pointer to **bool** | Whether the amenity can be modified. | [optional] 
 **Name** | Pointer to **string** | The name of the amenity. | [optional] 
 **Properties** | Pointer to **map[string]interface{}** | The properties of the amenity. | [optional] 
 **Type** | Pointer to **string** | The type of the amenity. | [optional] 
@@ -79,31 +78,6 @@ SetIsManaged sets IsManaged field to given value.
 `func (o *Amenity) HasIsManaged() bool`
 
 HasIsManaged returns a boolean if a field has been set.
-
-### GetModifiable
-
-`func (o *Amenity) GetModifiable() bool`
-
-GetModifiable returns the Modifiable field if non-nil, zero value otherwise.
-
-### GetModifiableOk
-
-`func (o *Amenity) GetModifiableOk() (*bool, bool)`
-
-GetModifiableOk returns a tuple with the Modifiable field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetModifiable
-
-`func (o *Amenity) SetModifiable(v bool)`
-
-SetModifiable sets Modifiable field to given value.
-
-### HasModifiable
-
-`func (o *Amenity) HasModifiable() bool`
-
-HasModifiable returns a boolean if a field has been set.
 
 ### GetName
 

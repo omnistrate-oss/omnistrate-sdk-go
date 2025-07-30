@@ -6,19 +6,23 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountConfigId** | **string** | ID of an Account Config | 
 **AccountID** | **string** | The actual account ID (AWS Account ID, GCP Project ID, Azure Subscription ID) or &#39;Omnistrate Hosted&#39; for managed accounts | 
+**Amenities** | Pointer to [**[]Amenity**](Amenity.md) | The amenities available in the host cluster | [optional] 
 **CloudProvider** | **string** | Name of the Infra Provider | 
 **CurrentNumberOfDeployments** | **int64** | The current number of deployments on the host cluster | 
 **CustomNetworkDetail** | Pointer to [**CustomNetworkFleetDetail**](CustomNetworkFleetDetail.md) |  | [optional] 
 **CustomerEmail** | Pointer to **string** | Email of the customer who owns the host cluster in case this is a BYOC / Adopted host cluster | [optional] 
 **CustomerOrganizationName** | Pointer to **string** | Name of the customer organization that owns the host cluster in case this is a BYOC / Adopted host cluster | [optional] 
 **Description** | **string** |  | 
+**HasPendingChanges** | Pointer to **bool** | Whether the host cluster has pending changes | [optional] 
 **HealthStatus** | Pointer to [**HostClusterHealthStatus**](HostClusterHealthStatus.md) |  | [optional] 
 **HelmPackages** | Pointer to [**[]HelmPackage**](HelmPackage.md) | Helm packages installed on the host cluster | [optional] 
 **Id** | **string** | ID of a Host Cluster | 
 **IsCustomDeployment** | **bool** | Indicates if the host cluster is a custom deployment | 
+**IsInSyncWithOrgTemplate** | Pointer to **bool** | Whether the host cluster is in sync with the org template | [optional] 
 **Key** | **string** | Unique key for the host cluster, used for identification | 
 **KubernetesDashboardEndpoint** | Pointer to **string** | Endpoint of the Kubernetes dashboard | [optional] 
 **ModelType** | Pointer to **string** | The model type encapsulating this service | [optional] 
+**PendingAmenities** | Pointer to [**[]Amenity**](Amenity.md) | The pending amenities for the host cluster | [optional] 
 **Region** | **string** | The actual region name of the host cluster | 
 **RegionId** | **string** | ID of a Region | 
 **Role** | Pointer to **string** |  | [optional] 
@@ -83,6 +87,31 @@ and a boolean to check if the value has been set.
 
 SetAccountID sets AccountID field to given value.
 
+
+### GetAmenities
+
+`func (o *HostCluster) GetAmenities() []Amenity`
+
+GetAmenities returns the Amenities field if non-nil, zero value otherwise.
+
+### GetAmenitiesOk
+
+`func (o *HostCluster) GetAmenitiesOk() (*[]Amenity, bool)`
+
+GetAmenitiesOk returns a tuple with the Amenities field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAmenities
+
+`func (o *HostCluster) SetAmenities(v []Amenity)`
+
+SetAmenities sets Amenities field to given value.
+
+### HasAmenities
+
+`func (o *HostCluster) HasAmenities() bool`
+
+HasAmenities returns a boolean if a field has been set.
 
 ### GetCloudProvider
 
@@ -219,6 +248,31 @@ and a boolean to check if the value has been set.
 SetDescription sets Description field to given value.
 
 
+### GetHasPendingChanges
+
+`func (o *HostCluster) GetHasPendingChanges() bool`
+
+GetHasPendingChanges returns the HasPendingChanges field if non-nil, zero value otherwise.
+
+### GetHasPendingChangesOk
+
+`func (o *HostCluster) GetHasPendingChangesOk() (*bool, bool)`
+
+GetHasPendingChangesOk returns a tuple with the HasPendingChanges field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHasPendingChanges
+
+`func (o *HostCluster) SetHasPendingChanges(v bool)`
+
+SetHasPendingChanges sets HasPendingChanges field to given value.
+
+### HasHasPendingChanges
+
+`func (o *HostCluster) HasHasPendingChanges() bool`
+
+HasHasPendingChanges returns a boolean if a field has been set.
+
 ### GetHealthStatus
 
 `func (o *HostCluster) GetHealthStatus() HostClusterHealthStatus`
@@ -309,6 +363,31 @@ and a boolean to check if the value has been set.
 SetIsCustomDeployment sets IsCustomDeployment field to given value.
 
 
+### GetIsInSyncWithOrgTemplate
+
+`func (o *HostCluster) GetIsInSyncWithOrgTemplate() bool`
+
+GetIsInSyncWithOrgTemplate returns the IsInSyncWithOrgTemplate field if non-nil, zero value otherwise.
+
+### GetIsInSyncWithOrgTemplateOk
+
+`func (o *HostCluster) GetIsInSyncWithOrgTemplateOk() (*bool, bool)`
+
+GetIsInSyncWithOrgTemplateOk returns a tuple with the IsInSyncWithOrgTemplate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsInSyncWithOrgTemplate
+
+`func (o *HostCluster) SetIsInSyncWithOrgTemplate(v bool)`
+
+SetIsInSyncWithOrgTemplate sets IsInSyncWithOrgTemplate field to given value.
+
+### HasIsInSyncWithOrgTemplate
+
+`func (o *HostCluster) HasIsInSyncWithOrgTemplate() bool`
+
+HasIsInSyncWithOrgTemplate returns a boolean if a field has been set.
+
 ### GetKey
 
 `func (o *HostCluster) GetKey() string`
@@ -378,6 +457,31 @@ SetModelType sets ModelType field to given value.
 `func (o *HostCluster) HasModelType() bool`
 
 HasModelType returns a boolean if a field has been set.
+
+### GetPendingAmenities
+
+`func (o *HostCluster) GetPendingAmenities() []Amenity`
+
+GetPendingAmenities returns the PendingAmenities field if non-nil, zero value otherwise.
+
+### GetPendingAmenitiesOk
+
+`func (o *HostCluster) GetPendingAmenitiesOk() (*[]Amenity, bool)`
+
+GetPendingAmenitiesOk returns a tuple with the PendingAmenities field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPendingAmenities
+
+`func (o *HostCluster) SetPendingAmenities(v []Amenity)`
+
+SetPendingAmenities sets PendingAmenities field to given value.
+
+### HasPendingAmenities
+
+`func (o *HostCluster) HasPendingAmenities() bool`
+
+HasPendingAmenities returns a boolean if a field has been set.
 
 ### GetRegion
 

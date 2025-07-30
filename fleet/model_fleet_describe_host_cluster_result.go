@@ -20,8 +20,6 @@ var _ MappedNullable = &FleetDescribeHostClusterResult{}
 
 // FleetDescribeHostClusterResult struct for FleetDescribeHostClusterResult
 type FleetDescribeHostClusterResult struct {
-	// The amenities available in the host cluster
-	Amenities []Amenity `json:"amenities,omitempty"`
 	// The AWS account ID
 	AwsAccountID *string `json:"awsAccountID,omitempty"`
 	// The Azure subscription ID
@@ -32,14 +30,8 @@ type FleetDescribeHostClusterResult struct {
 	DashboardEndpoint *string `json:"dashboardEndpoint,omitempty"`
 	// The GCP project ID
 	GcpProjectID *string `json:"gcpProjectID,omitempty"`
-	// Whether the host cluster has pending changes
-	HasPendingChanges *bool `json:"hasPendingChanges,omitempty"`
 	// ID of a Host Cluster
 	Id string `json:"id"`
-	// Whether the host cluster is in sync with the org template
-	IsInSyncWithOrgTemplate *bool `json:"isInSyncWithOrgTemplate,omitempty"`
-	// The pending amenities for the host cluster
-	PendingAmenities []Amenity `json:"pendingAmenities,omitempty"`
 	// The region of the host cluster
 	Region string `json:"region"`
 	// The status of an operation
@@ -70,38 +62,6 @@ func NewFleetDescribeHostClusterResult(cloudProvider string, id string, region s
 func NewFleetDescribeHostClusterResultWithDefaults() *FleetDescribeHostClusterResult {
 	this := FleetDescribeHostClusterResult{}
 	return &this
-}
-
-// GetAmenities returns the Amenities field value if set, zero value otherwise.
-func (o *FleetDescribeHostClusterResult) GetAmenities() []Amenity {
-	if o == nil || IsNil(o.Amenities) {
-		var ret []Amenity
-		return ret
-	}
-	return o.Amenities
-}
-
-// GetAmenitiesOk returns a tuple with the Amenities field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FleetDescribeHostClusterResult) GetAmenitiesOk() ([]Amenity, bool) {
-	if o == nil || IsNil(o.Amenities) {
-		return nil, false
-	}
-	return o.Amenities, true
-}
-
-// HasAmenities returns a boolean if a field has been set.
-func (o *FleetDescribeHostClusterResult) HasAmenities() bool {
-	if o != nil && !IsNil(o.Amenities) {
-		return true
-	}
-
-	return false
-}
-
-// SetAmenities gets a reference to the given []Amenity and assigns it to the Amenities field.
-func (o *FleetDescribeHostClusterResult) SetAmenities(v []Amenity) {
-	o.Amenities = v
 }
 
 // GetAwsAccountID returns the AwsAccountID field value if set, zero value otherwise.
@@ -256,38 +216,6 @@ func (o *FleetDescribeHostClusterResult) SetGcpProjectID(v string) {
 	o.GcpProjectID = &v
 }
 
-// GetHasPendingChanges returns the HasPendingChanges field value if set, zero value otherwise.
-func (o *FleetDescribeHostClusterResult) GetHasPendingChanges() bool {
-	if o == nil || IsNil(o.HasPendingChanges) {
-		var ret bool
-		return ret
-	}
-	return *o.HasPendingChanges
-}
-
-// GetHasPendingChangesOk returns a tuple with the HasPendingChanges field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FleetDescribeHostClusterResult) GetHasPendingChangesOk() (*bool, bool) {
-	if o == nil || IsNil(o.HasPendingChanges) {
-		return nil, false
-	}
-	return o.HasPendingChanges, true
-}
-
-// HasHasPendingChanges returns a boolean if a field has been set.
-func (o *FleetDescribeHostClusterResult) HasHasPendingChanges() bool {
-	if o != nil && !IsNil(o.HasPendingChanges) {
-		return true
-	}
-
-	return false
-}
-
-// SetHasPendingChanges gets a reference to the given bool and assigns it to the HasPendingChanges field.
-func (o *FleetDescribeHostClusterResult) SetHasPendingChanges(v bool) {
-	o.HasPendingChanges = &v
-}
-
 // GetId returns the Id field value
 func (o *FleetDescribeHostClusterResult) GetId() string {
 	if o == nil {
@@ -310,70 +238,6 @@ func (o *FleetDescribeHostClusterResult) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *FleetDescribeHostClusterResult) SetId(v string) {
 	o.Id = v
-}
-
-// GetIsInSyncWithOrgTemplate returns the IsInSyncWithOrgTemplate field value if set, zero value otherwise.
-func (o *FleetDescribeHostClusterResult) GetIsInSyncWithOrgTemplate() bool {
-	if o == nil || IsNil(o.IsInSyncWithOrgTemplate) {
-		var ret bool
-		return ret
-	}
-	return *o.IsInSyncWithOrgTemplate
-}
-
-// GetIsInSyncWithOrgTemplateOk returns a tuple with the IsInSyncWithOrgTemplate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FleetDescribeHostClusterResult) GetIsInSyncWithOrgTemplateOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsInSyncWithOrgTemplate) {
-		return nil, false
-	}
-	return o.IsInSyncWithOrgTemplate, true
-}
-
-// HasIsInSyncWithOrgTemplate returns a boolean if a field has been set.
-func (o *FleetDescribeHostClusterResult) HasIsInSyncWithOrgTemplate() bool {
-	if o != nil && !IsNil(o.IsInSyncWithOrgTemplate) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsInSyncWithOrgTemplate gets a reference to the given bool and assigns it to the IsInSyncWithOrgTemplate field.
-func (o *FleetDescribeHostClusterResult) SetIsInSyncWithOrgTemplate(v bool) {
-	o.IsInSyncWithOrgTemplate = &v
-}
-
-// GetPendingAmenities returns the PendingAmenities field value if set, zero value otherwise.
-func (o *FleetDescribeHostClusterResult) GetPendingAmenities() []Amenity {
-	if o == nil || IsNil(o.PendingAmenities) {
-		var ret []Amenity
-		return ret
-	}
-	return o.PendingAmenities
-}
-
-// GetPendingAmenitiesOk returns a tuple with the PendingAmenities field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FleetDescribeHostClusterResult) GetPendingAmenitiesOk() ([]Amenity, bool) {
-	if o == nil || IsNil(o.PendingAmenities) {
-		return nil, false
-	}
-	return o.PendingAmenities, true
-}
-
-// HasPendingAmenities returns a boolean if a field has been set.
-func (o *FleetDescribeHostClusterResult) HasPendingAmenities() bool {
-	if o != nil && !IsNil(o.PendingAmenities) {
-		return true
-	}
-
-	return false
-}
-
-// SetPendingAmenities gets a reference to the given []Amenity and assigns it to the PendingAmenities field.
-func (o *FleetDescribeHostClusterResult) SetPendingAmenities(v []Amenity) {
-	o.PendingAmenities = v
 }
 
 // GetRegion returns the Region field value
@@ -458,9 +322,6 @@ func (o FleetDescribeHostClusterResult) MarshalJSON() ([]byte, error) {
 
 func (o FleetDescribeHostClusterResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Amenities) {
-		toSerialize["amenities"] = o.Amenities
-	}
 	if !IsNil(o.AwsAccountID) {
 		toSerialize["awsAccountID"] = o.AwsAccountID
 	}
@@ -474,16 +335,7 @@ func (o FleetDescribeHostClusterResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.GcpProjectID) {
 		toSerialize["gcpProjectID"] = o.GcpProjectID
 	}
-	if !IsNil(o.HasPendingChanges) {
-		toSerialize["hasPendingChanges"] = o.HasPendingChanges
-	}
 	toSerialize["id"] = o.Id
-	if !IsNil(o.IsInSyncWithOrgTemplate) {
-		toSerialize["isInSyncWithOrgTemplate"] = o.IsInSyncWithOrgTemplate
-	}
-	if !IsNil(o.PendingAmenities) {
-		toSerialize["pendingAmenities"] = o.PendingAmenities
-	}
 	toSerialize["region"] = o.Region
 	toSerialize["status"] = o.Status
 	toSerialize["type"] = o.Type
@@ -534,16 +386,12 @@ func (o *FleetDescribeHostClusterResult) UnmarshalJSON(data []byte) (err error) 
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "amenities")
 		delete(additionalProperties, "awsAccountID")
 		delete(additionalProperties, "azureSubscriptionID")
 		delete(additionalProperties, "cloudProvider")
 		delete(additionalProperties, "dashboardEndpoint")
 		delete(additionalProperties, "gcpProjectID")
-		delete(additionalProperties, "hasPendingChanges")
 		delete(additionalProperties, "id")
-		delete(additionalProperties, "isInSyncWithOrgTemplate")
-		delete(additionalProperties, "pendingAmenities")
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "type")

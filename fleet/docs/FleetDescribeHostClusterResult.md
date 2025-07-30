@@ -4,16 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Amenities** | Pointer to [**[]Amenity**](Amenity.md) | The amenities available in the host cluster | [optional] 
 **AwsAccountID** | Pointer to **string** | The AWS account ID | [optional] 
 **AzureSubscriptionID** | Pointer to **string** | The Azure subscription ID | [optional] 
 **CloudProvider** | **string** | Name of the Infra Provider | 
 **DashboardEndpoint** | Pointer to **string** | The endpoint to access the dashboard | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
-**HasPendingChanges** | Pointer to **bool** | Whether the host cluster has pending changes | [optional] 
 **Id** | **string** | ID of a Host Cluster | 
-**IsInSyncWithOrgTemplate** | Pointer to **bool** | Whether the host cluster is in sync with the org template | [optional] 
-**PendingAmenities** | Pointer to [**[]Amenity**](Amenity.md) | The pending amenities for the host cluster | [optional] 
 **Region** | **string** | The region of the host cluster | 
 **Status** | **string** | The status of an operation | 
 **Type** | **string** |  | 
@@ -36,31 +32,6 @@ will change when the set of required properties is changed
 NewFleetDescribeHostClusterResultWithDefaults instantiates a new FleetDescribeHostClusterResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetAmenities
-
-`func (o *FleetDescribeHostClusterResult) GetAmenities() []Amenity`
-
-GetAmenities returns the Amenities field if non-nil, zero value otherwise.
-
-### GetAmenitiesOk
-
-`func (o *FleetDescribeHostClusterResult) GetAmenitiesOk() (*[]Amenity, bool)`
-
-GetAmenitiesOk returns a tuple with the Amenities field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAmenities
-
-`func (o *FleetDescribeHostClusterResult) SetAmenities(v []Amenity)`
-
-SetAmenities sets Amenities field to given value.
-
-### HasAmenities
-
-`func (o *FleetDescribeHostClusterResult) HasAmenities() bool`
-
-HasAmenities returns a boolean if a field has been set.
 
 ### GetAwsAccountID
 
@@ -182,31 +153,6 @@ SetGcpProjectID sets GcpProjectID field to given value.
 
 HasGcpProjectID returns a boolean if a field has been set.
 
-### GetHasPendingChanges
-
-`func (o *FleetDescribeHostClusterResult) GetHasPendingChanges() bool`
-
-GetHasPendingChanges returns the HasPendingChanges field if non-nil, zero value otherwise.
-
-### GetHasPendingChangesOk
-
-`func (o *FleetDescribeHostClusterResult) GetHasPendingChangesOk() (*bool, bool)`
-
-GetHasPendingChangesOk returns a tuple with the HasPendingChanges field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHasPendingChanges
-
-`func (o *FleetDescribeHostClusterResult) SetHasPendingChanges(v bool)`
-
-SetHasPendingChanges sets HasPendingChanges field to given value.
-
-### HasHasPendingChanges
-
-`func (o *FleetDescribeHostClusterResult) HasHasPendingChanges() bool`
-
-HasHasPendingChanges returns a boolean if a field has been set.
-
 ### GetId
 
 `func (o *FleetDescribeHostClusterResult) GetId() string`
@@ -226,56 +172,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-
-### GetIsInSyncWithOrgTemplate
-
-`func (o *FleetDescribeHostClusterResult) GetIsInSyncWithOrgTemplate() bool`
-
-GetIsInSyncWithOrgTemplate returns the IsInSyncWithOrgTemplate field if non-nil, zero value otherwise.
-
-### GetIsInSyncWithOrgTemplateOk
-
-`func (o *FleetDescribeHostClusterResult) GetIsInSyncWithOrgTemplateOk() (*bool, bool)`
-
-GetIsInSyncWithOrgTemplateOk returns a tuple with the IsInSyncWithOrgTemplate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsInSyncWithOrgTemplate
-
-`func (o *FleetDescribeHostClusterResult) SetIsInSyncWithOrgTemplate(v bool)`
-
-SetIsInSyncWithOrgTemplate sets IsInSyncWithOrgTemplate field to given value.
-
-### HasIsInSyncWithOrgTemplate
-
-`func (o *FleetDescribeHostClusterResult) HasIsInSyncWithOrgTemplate() bool`
-
-HasIsInSyncWithOrgTemplate returns a boolean if a field has been set.
-
-### GetPendingAmenities
-
-`func (o *FleetDescribeHostClusterResult) GetPendingAmenities() []Amenity`
-
-GetPendingAmenities returns the PendingAmenities field if non-nil, zero value otherwise.
-
-### GetPendingAmenitiesOk
-
-`func (o *FleetDescribeHostClusterResult) GetPendingAmenitiesOk() (*[]Amenity, bool)`
-
-GetPendingAmenitiesOk returns a tuple with the PendingAmenities field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPendingAmenities
-
-`func (o *FleetDescribeHostClusterResult) SetPendingAmenities(v []Amenity)`
-
-SetPendingAmenities sets PendingAmenities field to given value.
-
-### HasPendingAmenities
-
-`func (o *FleetDescribeHostClusterResult) HasPendingAmenities() bool`
-
-HasPendingAmenities returns a boolean if a field has been set.
 
 ### GetRegion
 

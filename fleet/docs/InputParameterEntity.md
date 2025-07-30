@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Key** | **string** | The parameter key | 
 **Modifiable** | **bool** | Whether the parameter is modifiable | 
 **Options** | Pointer to **[]string** | The parameter options | [optional] 
+**Regex** | Pointer to **string** | The parameter regex for validation | [optional] 
 **Required** | **bool** | Whether the parameter is required | 
 **TabIndex** | Pointer to **int64** | Index for parameter ordering in the SaaS portal | [optional] [default to 0]
 **Type** | **string** | The parameter type | 
@@ -230,6 +231,31 @@ SetOptions sets Options field to given value.
 `func (o *InputParameterEntity) HasOptions() bool`
 
 HasOptions returns a boolean if a field has been set.
+
+### GetRegex
+
+`func (o *InputParameterEntity) GetRegex() string`
+
+GetRegex returns the Regex field if non-nil, zero value otherwise.
+
+### GetRegexOk
+
+`func (o *InputParameterEntity) GetRegexOk() (*string, bool)`
+
+GetRegexOk returns a tuple with the Regex field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegex
+
+`func (o *InputParameterEntity) SetRegex(v string)`
+
+SetRegex sets Regex field to given value.
+
+### HasRegex
+
+`func (o *InputParameterEntity) HasRegex() bool`
+
+HasRegex returns a boolean if a field has been set.
 
 ### GetRequired
 
