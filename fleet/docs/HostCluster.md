@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**EnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
 **AccountConfigId** | **string** | ID of an Account Config | 
 **AccountID** | **string** | The actual account ID (AWS Account ID, GCP Project ID, Azure Subscription ID) or &#39;Omnistrate Hosted&#39; for managed accounts | 
 **Amenities** | Pointer to [**[]Amenity**](Amenity.md) | The amenities available in the host cluster | [optional] 
@@ -47,6 +48,31 @@ will change when the set of required properties is changed
 NewHostClusterWithDefaults instantiates a new HostCluster object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetEnvironmentType
+
+`func (o *HostCluster) GetEnvironmentType() string`
+
+GetEnvironmentType returns the EnvironmentType field if non-nil, zero value otherwise.
+
+### GetEnvironmentTypeOk
+
+`func (o *HostCluster) GetEnvironmentTypeOk() (*string, bool)`
+
+GetEnvironmentTypeOk returns a tuple with the EnvironmentType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnvironmentType
+
+`func (o *HostCluster) SetEnvironmentType(v string)`
+
+SetEnvironmentType sets EnvironmentType field to given value.
+
+### HasEnvironmentType
+
+`func (o *HostCluster) HasEnvironmentType() bool`
+
+HasEnvironmentType returns a boolean if a field has been set.
 
 ### GetAccountConfigId
 

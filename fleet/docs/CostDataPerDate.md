@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Cost** | **float64** | The total cost of the fleet on that date | 
+**CostByInstanceType** | Pointer to [**map[string]InstanceTypeCost**](InstanceTypeCost.md) | The cost of the fleet by instance type on that date | [optional] 
 **Date** | **time.Time** | The date of the cost data | 
 
 ## Methods
@@ -45,6 +46,31 @@ and a boolean to check if the value has been set.
 
 SetCost sets Cost field to given value.
 
+
+### GetCostByInstanceType
+
+`func (o *CostDataPerDate) GetCostByInstanceType() map[string]InstanceTypeCost`
+
+GetCostByInstanceType returns the CostByInstanceType field if non-nil, zero value otherwise.
+
+### GetCostByInstanceTypeOk
+
+`func (o *CostDataPerDate) GetCostByInstanceTypeOk() (*map[string]InstanceTypeCost, bool)`
+
+GetCostByInstanceTypeOk returns a tuple with the CostByInstanceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCostByInstanceType
+
+`func (o *CostDataPerDate) SetCostByInstanceType(v map[string]InstanceTypeCost)`
+
+SetCostByInstanceType sets CostByInstanceType field to given value.
+
+### HasCostByInstanceType
+
+`func (o *CostDataPerDate) HasCostByInstanceType() bool`
+
+HasCostByInstanceType returns a boolean if a field has been set.
 
 ### GetDate
 

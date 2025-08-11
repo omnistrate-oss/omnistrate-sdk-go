@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **PrivateRegions** | Pointer to **[]string** | The Private regions that this service offering is available on | [optional] 
 **ProductTierDescription** | Pointer to **string** | A brief description of the product tier | [optional] 
 **ProductTierDocumentation** | **string** | Documentation | 
+**ProductTierFeatures** | Pointer to [**[]ProductTierFeatureDetail**](ProductTierFeatureDetail.md) | Enabled product tier features | [optional] 
 **ProductTierID** | **string** | ID of a Product Tier | 
 **ProductTierName** | **string** | The product tier name | 
 **ProductTierPlanDescription** | Pointer to **string** | A brief description for the end user of the product tier | [optional] 
@@ -323,6 +324,31 @@ and a boolean to check if the value has been set.
 
 SetProductTierDocumentation sets ProductTierDocumentation field to given value.
 
+
+### GetProductTierFeatures
+
+`func (o *ServiceOffering) GetProductTierFeatures() []ProductTierFeatureDetail`
+
+GetProductTierFeatures returns the ProductTierFeatures field if non-nil, zero value otherwise.
+
+### GetProductTierFeaturesOk
+
+`func (o *ServiceOffering) GetProductTierFeaturesOk() (*[]ProductTierFeatureDetail, bool)`
+
+GetProductTierFeaturesOk returns a tuple with the ProductTierFeatures field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductTierFeatures
+
+`func (o *ServiceOffering) SetProductTierFeatures(v []ProductTierFeatureDetail)`
+
+SetProductTierFeatures sets ProductTierFeatures field to given value.
+
+### HasProductTierFeatures
+
+`func (o *ServiceOffering) HasProductTierFeatures() bool`
+
+HasProductTierFeatures returns a boolean if a field has been set.
 
 ### GetProductTierID
 

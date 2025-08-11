@@ -801,7 +801,7 @@ import (
 )
 
 func main() {
-	fleetCreateServicesOrchestrationRequest2 := *openapiclient.NewFleetCreateServicesOrchestrationRequest2("Voluptatibus neque possimus molestias maiores quibusdam.") // FleetCreateServicesOrchestrationRequest2 | 
+	fleetCreateServicesOrchestrationRequest2 := *openapiclient.NewFleetCreateServicesOrchestrationRequest2("Id et enim a qui.") // FleetCreateServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -940,7 +940,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
-	createUpgradePathRequest2 := *openapiclient.NewCreateUpgradePathRequest2("1.0", "2.0", map[string][]string{"key": []string{"Dolor omnis id sit expedita quasi aspernatur."}}) // CreateUpgradePathRequest2 | 
+	createUpgradePathRequest2 := *openapiclient.NewCreateUpgradePathRequest2("1.0", "2.0", map[string][]string{"key": []string{"Voluptas natus maxime commodi minus incidunt hic."}}) // CreateUpgradePathRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3796,11 +3796,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	productTierVersion := "Quae non nam aut et tempore sint." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Ab porro et." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Eum officiis et." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
 	subscriptionId := "Quisquam officiis occaecati rerum iusto atque itaque." // string | Subscription id of the instance to describe. (optional)
 	filter := "onlyCloudAccounts" // string | Filter to apply to the list of instances. (optional)
-	excludeDetail := false // bool | Whether to exclude detailed information about the resource instances. (optional) (default to false)
+	excludeDetail := true // bool | Whether to exclude detailed information about the resource instances. (optional) (default to false)
 	nextPageToken := "token" // string |  (optional)
 	pageSize := int64(10) // int64 |  (optional)
 
@@ -4024,7 +4024,7 @@ import (
 )
 
 func main() {
-	environmentType := "PROD|PRIVATE|CANARY|STAGING|QA|DEV" // string | The environment type
+	environmentType := "PROD|PRIVATE|CANARY|STAGING|QA|DEV|GLOBAL" // string | The environment type
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -4401,7 +4401,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
 	upgradePathId := "up-12345678" // string | The upgrade path ID
-	manageUpgradePathLifecycleRequest2 := *openapiclient.NewManageUpgradePathLifecycleRequest2("Dolorem id ea odio.") // ManageUpgradePathLifecycleRequest2 | 
+	manageUpgradePathLifecycleRequest2 := *openapiclient.NewManageUpgradePathLifecycleRequest2("Id voluptas rerum illum.") // ManageUpgradePathLifecycleRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -4475,7 +4475,7 @@ import (
 
 func main() {
 	id := "so-12345678" // string | The ID of the services orchestration
-	fleetModifyServicesOrchestrationRequest2 := *openapiclient.NewFleetModifyServicesOrchestrationRequest2("Voluptas sunt ipsam qui.") // FleetModifyServicesOrchestrationRequest2 | 
+	fleetModifyServicesOrchestrationRequest2 := *openapiclient.NewFleetModifyServicesOrchestrationRequest2("Est dicta vitae in ullam est delectus.") // FleetModifyServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -5995,7 +5995,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	fleetUpdateSubscriptionsRequest2 := *openapiclient.NewFleetUpdateSubscriptionsRequest2([]string{"Sed quas amet."}) // FleetUpdateSubscriptionsRequest2 | 
+	fleetUpdateSubscriptionsRequest2 := *openapiclient.NewFleetUpdateSubscriptionsRequest2([]string{"Sapiente mollitia atque."}) // FleetUpdateSubscriptionsRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

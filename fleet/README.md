@@ -569,6 +569,7 @@ Class | Method | HTTP request | Description
  - [InputParameterEntity](docs/InputParameterEntity.md)
  - [InstanceHealthSummary](docs/InstanceHealthSummary.md)
  - [InstanceSnapshot](docs/InstanceSnapshot.md)
+ - [InstanceTypeCost](docs/InstanceTypeCost.md)
  - [InstanceUpgrade](docs/InstanceUpgrade.md)
  - [IntegrationStatus](docs/IntegrationStatus.md)
  - [IntegrationsHealth](docs/IntegrationsHealth.md)

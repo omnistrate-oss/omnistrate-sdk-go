@@ -21,8 +21,10 @@ Name | Type | Description | Notes
 **ServiceId** | **string** | ID of a Service | 
 **SkippedCount** | **int64** | The number of instances that are skipped the upgrade. | 
 **SourceVersion** | **string** | The source version of the upgrade path. | 
+**SourceVersionName** | **string** | The source version name of the upgrade path. | 
 **Status** | **string** | The status of the upgrade path. | 
 **TargetVersion** | **string** | The target version of the upgrade path. | 
+**TargetVersionName** | **string** | The target version name of the upgrade path. | 
 **TotalCount** | **int64** | The total number of instances that are eligible for the upgrade. | 
 **Type** | **string** | The type of the upgrade path. | 
 **UpdatedAt** | **string** | The timestamp when the upgrade path was updated. | 
@@ -32,7 +34,7 @@ Name | Type | Description | Notes
 
 ### NewUpgradePath
 
-`func NewUpgradePath(completedCount int64, createdAt string, failedCount int64, inProgressCount int64, pendingCount int64, productTierId string, releasedAt string, serviceId string, skippedCount int64, sourceVersion string, status string, targetVersion string, totalCount int64, type_ string, updatedAt string, upgradePathId string, ) *UpgradePath`
+`func NewUpgradePath(completedCount int64, createdAt string, failedCount int64, inProgressCount int64, pendingCount int64, productTierId string, releasedAt string, serviceId string, skippedCount int64, sourceVersion string, sourceVersionName string, status string, targetVersion string, targetVersionName string, totalCount int64, type_ string, updatedAt string, upgradePathId string, ) *UpgradePath`
 
 NewUpgradePath instantiates a new UpgradePath object
 This constructor will assign default values to properties that have it defined,
@@ -422,6 +424,26 @@ and a boolean to check if the value has been set.
 SetSourceVersion sets SourceVersion field to given value.
 
 
+### GetSourceVersionName
+
+`func (o *UpgradePath) GetSourceVersionName() string`
+
+GetSourceVersionName returns the SourceVersionName field if non-nil, zero value otherwise.
+
+### GetSourceVersionNameOk
+
+`func (o *UpgradePath) GetSourceVersionNameOk() (*string, bool)`
+
+GetSourceVersionNameOk returns a tuple with the SourceVersionName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceVersionName
+
+`func (o *UpgradePath) SetSourceVersionName(v string)`
+
+SetSourceVersionName sets SourceVersionName field to given value.
+
+
 ### GetStatus
 
 `func (o *UpgradePath) GetStatus() string`
@@ -460,6 +482,26 @@ and a boolean to check if the value has been set.
 `func (o *UpgradePath) SetTargetVersion(v string)`
 
 SetTargetVersion sets TargetVersion field to given value.
+
+
+### GetTargetVersionName
+
+`func (o *UpgradePath) GetTargetVersionName() string`
+
+GetTargetVersionName returns the TargetVersionName field if non-nil, zero value otherwise.
+
+### GetTargetVersionNameOk
+
+`func (o *UpgradePath) GetTargetVersionNameOk() (*string, bool)`
+
+GetTargetVersionNameOk returns a tuple with the TargetVersionName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTargetVersionName
+
+`func (o *UpgradePath) SetTargetVersionName(v string)`
+
+SetTargetVersionName sets TargetVersionName field to given value.
 
 
 ### GetTotalCount

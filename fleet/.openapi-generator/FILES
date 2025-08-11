@@ -382,6 +382,7 @@ docs/InfraConfigChangeSummary.md
 docs/InputParameterEntity.md
 docs/InstanceHealthSummary.md
 docs/InstanceSnapshot.md
+docs/InstanceTypeCost.md
 docs/InstanceUpgrade.md
 docs/IntegrationStatus.md
 docs/IntegrationsHealth.md
@@ -988,6 +989,7 @@ model_infra_config_change_summary.go
 model_input_parameter_entity.go
 model_instance_health_summary.go
 model_instance_snapshot.go
+model_instance_type_cost.go
 model_instance_upgrade.go
 model_integration_status.go
 model_integrations_health.go
