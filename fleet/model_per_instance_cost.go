@@ -22,6 +22,8 @@ var _ MappedNullable = &PerInstanceCost{}
 type PerInstanceCost struct {
 	// Name of the Infra Provider
 	CloudProviderName string `json:"cloudProviderName"`
+	// The cost of the fleet by instance type on that date
+	CostByInstanceType *map[string]InstanceTypeCost `json:"costByInstanceType,omitempty"`
 	// ID of a Resource Instance
 	InstanceID string `json:"instanceID"`
 	// Whether the instance is deleted
@@ -100,6 +102,38 @@ func (o *PerInstanceCost) GetCloudProviderNameOk() (*string, bool) {
 // SetCloudProviderName sets field value
 func (o *PerInstanceCost) SetCloudProviderName(v string) {
 	o.CloudProviderName = v
+}
+
+// GetCostByInstanceType returns the CostByInstanceType field value if set, zero value otherwise.
+func (o *PerInstanceCost) GetCostByInstanceType() map[string]InstanceTypeCost {
+	if o == nil || IsNil(o.CostByInstanceType) {
+		var ret map[string]InstanceTypeCost
+		return ret
+	}
+	return *o.CostByInstanceType
+}
+
+// GetCostByInstanceTypeOk returns a tuple with the CostByInstanceType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PerInstanceCost) GetCostByInstanceTypeOk() (*map[string]InstanceTypeCost, bool) {
+	if o == nil || IsNil(o.CostByInstanceType) {
+		return nil, false
+	}
+	return o.CostByInstanceType, true
+}
+
+// HasCostByInstanceType returns a boolean if a field has been set.
+func (o *PerInstanceCost) HasCostByInstanceType() bool {
+	if o != nil && !IsNil(o.CostByInstanceType) {
+		return true
+	}
+
+	return false
+}
+
+// SetCostByInstanceType gets a reference to the given map[string]InstanceTypeCost and assigns it to the CostByInstanceType field.
+func (o *PerInstanceCost) SetCostByInstanceType(v map[string]InstanceTypeCost) {
+	o.CostByInstanceType = &v
 }
 
 // GetInstanceID returns the InstanceID field value
@@ -377,6 +411,9 @@ func (o PerInstanceCost) MarshalJSON() ([]byte, error) {
 func (o PerInstanceCost) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["cloudProviderName"] = o.CloudProviderName
+	if !IsNil(o.CostByInstanceType) {
+		toSerialize["costByInstanceType"] = o.CostByInstanceType
+	}
 	toSerialize["instanceID"] = o.InstanceID
 	toSerialize["isDeleted"] = o.IsDeleted
 	toSerialize["productTierID"] = o.ProductTierID
@@ -443,6 +480,7 @@ func (o *PerInstanceCost) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "cloudProviderName")
+		delete(additionalProperties, "costByInstanceType")
 		delete(additionalProperties, "instanceID")
 		delete(additionalProperties, "isDeleted")
 		delete(additionalProperties, "productTierID")

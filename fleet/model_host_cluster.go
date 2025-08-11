@@ -20,6 +20,8 @@ var _ MappedNullable = &HostCluster{}
 
 // HostCluster struct for HostCluster
 type HostCluster struct {
+	// The type of service environment
+	EnvironmentType *string `json:"EnvironmentType,omitempty"`
 	// ID of an Account Config
 	AccountConfigId string `json:"accountConfigId"`
 	// The actual account ID (AWS Account ID, GCP Project ID, Azure Subscription ID) or 'Omnistrate Hosted' for managed accounts
@@ -96,6 +98,38 @@ func NewHostCluster(accountConfigId string, accountID string, cloudProvider stri
 func NewHostClusterWithDefaults() *HostCluster {
 	this := HostCluster{}
 	return &this
+}
+
+// GetEnvironmentType returns the EnvironmentType field value if set, zero value otherwise.
+func (o *HostCluster) GetEnvironmentType() string {
+	if o == nil || IsNil(o.EnvironmentType) {
+		var ret string
+		return ret
+	}
+	return *o.EnvironmentType
+}
+
+// GetEnvironmentTypeOk returns a tuple with the EnvironmentType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetEnvironmentTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.EnvironmentType) {
+		return nil, false
+	}
+	return o.EnvironmentType, true
+}
+
+// HasEnvironmentType returns a boolean if a field has been set.
+func (o *HostCluster) HasEnvironmentType() bool {
+	if o != nil && !IsNil(o.EnvironmentType) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnvironmentType gets a reference to the given string and assigns it to the EnvironmentType field.
+func (o *HostCluster) SetEnvironmentType(v string) {
+	o.EnvironmentType = &v
 }
 
 // GetAccountConfigId returns the AccountConfigId field value
@@ -780,6 +814,9 @@ func (o HostCluster) MarshalJSON() ([]byte, error) {
 
 func (o HostCluster) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.EnvironmentType) {
+		toSerialize["EnvironmentType"] = o.EnvironmentType
+	}
 	toSerialize["accountConfigId"] = o.AccountConfigId
 	toSerialize["accountID"] = o.AccountID
 	if !IsNil(o.Amenities) {
@@ -882,6 +919,7 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "EnvironmentType")
 		delete(additionalProperties, "accountConfigId")
 		delete(additionalProperties, "accountID")
 		delete(additionalProperties, "amenities")

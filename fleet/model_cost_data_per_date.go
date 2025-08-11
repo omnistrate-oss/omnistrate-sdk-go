@@ -23,6 +23,8 @@ var _ MappedNullable = &CostDataPerDate{}
 type CostDataPerDate struct {
 	// The total cost of the fleet on that date
 	Cost float64 `json:"cost"`
+	// The cost of the fleet by instance type on that date
+	CostByInstanceType *map[string]InstanceTypeCost `json:"costByInstanceType,omitempty"`
 	// The date of the cost data
 	Date time.Time `json:"date"`
 	AdditionalProperties map[string]interface{}
@@ -73,6 +75,38 @@ func (o *CostDataPerDate) SetCost(v float64) {
 	o.Cost = v
 }
 
+// GetCostByInstanceType returns the CostByInstanceType field value if set, zero value otherwise.
+func (o *CostDataPerDate) GetCostByInstanceType() map[string]InstanceTypeCost {
+	if o == nil || IsNil(o.CostByInstanceType) {
+		var ret map[string]InstanceTypeCost
+		return ret
+	}
+	return *o.CostByInstanceType
+}
+
+// GetCostByInstanceTypeOk returns a tuple with the CostByInstanceType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CostDataPerDate) GetCostByInstanceTypeOk() (*map[string]InstanceTypeCost, bool) {
+	if o == nil || IsNil(o.CostByInstanceType) {
+		return nil, false
+	}
+	return o.CostByInstanceType, true
+}
+
+// HasCostByInstanceType returns a boolean if a field has been set.
+func (o *CostDataPerDate) HasCostByInstanceType() bool {
+	if o != nil && !IsNil(o.CostByInstanceType) {
+		return true
+	}
+
+	return false
+}
+
+// SetCostByInstanceType gets a reference to the given map[string]InstanceTypeCost and assigns it to the CostByInstanceType field.
+func (o *CostDataPerDate) SetCostByInstanceType(v map[string]InstanceTypeCost) {
+	o.CostByInstanceType = &v
+}
+
 // GetDate returns the Date field value
 func (o *CostDataPerDate) GetDate() time.Time {
 	if o == nil {
@@ -108,6 +142,9 @@ func (o CostDataPerDate) MarshalJSON() ([]byte, error) {
 func (o CostDataPerDate) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["cost"] = o.Cost
+	if !IsNil(o.CostByInstanceType) {
+		toSerialize["costByInstanceType"] = o.CostByInstanceType
+	}
 	toSerialize["date"] = o.Date
 
 	for key, value := range o.AdditionalProperties {
@@ -154,6 +191,7 @@ func (o *CostDataPerDate) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "cost")
+		delete(additionalProperties, "costByInstanceType")
 		delete(additionalProperties, "date")
 		o.AdditionalProperties = additionalProperties
 	}

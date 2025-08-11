@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudProviderName** | **string** | Name of the Infra Provider | 
+**CostByInstanceType** | Pointer to [**map[string]InstanceTypeCost**](InstanceTypeCost.md) | The cost of the fleet by instance type on that date | [optional] 
 **InstanceID** | **string** | ID of a Resource Instance | 
 **IsDeleted** | **bool** | Whether the instance is deleted | 
 **ProductTierID** | **string** | ID of a Product Tier | 
@@ -55,6 +56,31 @@ and a boolean to check if the value has been set.
 
 SetCloudProviderName sets CloudProviderName field to given value.
 
+
+### GetCostByInstanceType
+
+`func (o *PerInstanceCost) GetCostByInstanceType() map[string]InstanceTypeCost`
+
+GetCostByInstanceType returns the CostByInstanceType field if non-nil, zero value otherwise.
+
+### GetCostByInstanceTypeOk
+
+`func (o *PerInstanceCost) GetCostByInstanceTypeOk() (*map[string]InstanceTypeCost, bool)`
+
+GetCostByInstanceTypeOk returns a tuple with the CostByInstanceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCostByInstanceType
+
+`func (o *PerInstanceCost) SetCostByInstanceType(v map[string]InstanceTypeCost)`
+
+SetCostByInstanceType sets CostByInstanceType field to given value.
+
+### HasCostByInstanceType
+
+`func (o *PerInstanceCost) HasCostByInstanceType() bool`
+
+HasCostByInstanceType returns a boolean if a field has been set.
 
 ### GetInstanceID
 

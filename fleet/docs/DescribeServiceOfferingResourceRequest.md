@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InstanceId** | Pointer to **string** | The instance ID | [optional] [default to "none"]
+**ProductTierId** | Pointer to **string** | ID of a Product Tier | [optional] 
+**ProductTierVersion** | Pointer to **string** | The product tier version | [optional] 
 **ResourceId** | **string** | ID of a resource | 
 **ServiceId** | **string** | ID of a Service | 
 **Token** | **string** | JWT token used to perform authorization | 
@@ -52,6 +54,56 @@ SetInstanceId sets InstanceId field to given value.
 `func (o *DescribeServiceOfferingResourceRequest) HasInstanceId() bool`
 
 HasInstanceId returns a boolean if a field has been set.
+
+### GetProductTierId
+
+`func (o *DescribeServiceOfferingResourceRequest) GetProductTierId() string`
+
+GetProductTierId returns the ProductTierId field if non-nil, zero value otherwise.
+
+### GetProductTierIdOk
+
+`func (o *DescribeServiceOfferingResourceRequest) GetProductTierIdOk() (*string, bool)`
+
+GetProductTierIdOk returns a tuple with the ProductTierId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductTierId
+
+`func (o *DescribeServiceOfferingResourceRequest) SetProductTierId(v string)`
+
+SetProductTierId sets ProductTierId field to given value.
+
+### HasProductTierId
+
+`func (o *DescribeServiceOfferingResourceRequest) HasProductTierId() bool`
+
+HasProductTierId returns a boolean if a field has been set.
+
+### GetProductTierVersion
+
+`func (o *DescribeServiceOfferingResourceRequest) GetProductTierVersion() string`
+
+GetProductTierVersion returns the ProductTierVersion field if non-nil, zero value otherwise.
+
+### GetProductTierVersionOk
+
+`func (o *DescribeServiceOfferingResourceRequest) GetProductTierVersionOk() (*string, bool)`
+
+GetProductTierVersionOk returns a tuple with the ProductTierVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductTierVersion
+
+`func (o *DescribeServiceOfferingResourceRequest) SetProductTierVersion(v string)`
+
+SetProductTierVersion sets ProductTierVersion field to given value.
+
+### HasProductTierVersion
+
+`func (o *DescribeServiceOfferingResourceRequest) HasProductTierVersion() bool`
+
+HasProductTierVersion returns a boolean if a field has been set.
 
 ### GetResourceId
 

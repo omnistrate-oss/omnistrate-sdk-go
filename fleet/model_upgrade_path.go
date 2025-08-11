@@ -54,10 +54,14 @@ type UpgradePath struct {
 	SkippedCount int64 `json:"skippedCount"`
 	// The source version of the upgrade path.
 	SourceVersion string `json:"sourceVersion"`
+	// The source version name of the upgrade path.
+	SourceVersionName string `json:"sourceVersionName"`
 	// The status of the upgrade path.
 	Status string `json:"status"`
 	// The target version of the upgrade path.
 	TargetVersion string `json:"targetVersion"`
+	// The target version name of the upgrade path.
+	TargetVersionName string `json:"targetVersionName"`
 	// The total number of instances that are eligible for the upgrade.
 	TotalCount int64 `json:"totalCount"`
 	// The type of the upgrade path.
@@ -75,7 +79,7 @@ type _UpgradePath UpgradePath
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpgradePath(completedCount int64, createdAt string, failedCount int64, inProgressCount int64, pendingCount int64, productTierId string, releasedAt string, serviceId string, skippedCount int64, sourceVersion string, status string, targetVersion string, totalCount int64, type_ string, updatedAt string, upgradePathId string) *UpgradePath {
+func NewUpgradePath(completedCount int64, createdAt string, failedCount int64, inProgressCount int64, pendingCount int64, productTierId string, releasedAt string, serviceId string, skippedCount int64, sourceVersion string, sourceVersionName string, status string, targetVersion string, targetVersionName string, totalCount int64, type_ string, updatedAt string, upgradePathId string) *UpgradePath {
 	this := UpgradePath{}
 	this.CompletedCount = completedCount
 	this.CreatedAt = createdAt
@@ -87,8 +91,10 @@ func NewUpgradePath(completedCount int64, createdAt string, failedCount int64, i
 	this.ServiceId = serviceId
 	this.SkippedCount = skippedCount
 	this.SourceVersion = sourceVersion
+	this.SourceVersionName = sourceVersionName
 	this.Status = status
 	this.TargetVersion = targetVersion
+	this.TargetVersionName = targetVersionName
 	this.TotalCount = totalCount
 	this.Type = type_
 	this.UpdatedAt = updatedAt
@@ -568,6 +574,30 @@ func (o *UpgradePath) SetSourceVersion(v string) {
 	o.SourceVersion = v
 }
 
+// GetSourceVersionName returns the SourceVersionName field value
+func (o *UpgradePath) GetSourceVersionName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SourceVersionName
+}
+
+// GetSourceVersionNameOk returns a tuple with the SourceVersionName field value
+// and a boolean to check if the value has been set.
+func (o *UpgradePath) GetSourceVersionNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SourceVersionName, true
+}
+
+// SetSourceVersionName sets field value
+func (o *UpgradePath) SetSourceVersionName(v string) {
+	o.SourceVersionName = v
+}
+
 // GetStatus returns the Status field value
 func (o *UpgradePath) GetStatus() string {
 	if o == nil {
@@ -614,6 +644,30 @@ func (o *UpgradePath) GetTargetVersionOk() (*string, bool) {
 // SetTargetVersion sets field value
 func (o *UpgradePath) SetTargetVersion(v string) {
 	o.TargetVersion = v
+}
+
+// GetTargetVersionName returns the TargetVersionName field value
+func (o *UpgradePath) GetTargetVersionName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.TargetVersionName
+}
+
+// GetTargetVersionNameOk returns a tuple with the TargetVersionName field value
+// and a boolean to check if the value has been set.
+func (o *UpgradePath) GetTargetVersionNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TargetVersionName, true
+}
+
+// SetTargetVersionName sets field value
+func (o *UpgradePath) SetTargetVersionName(v string) {
+	o.TargetVersionName = v
 }
 
 // GetTotalCount returns the TotalCount field value
@@ -753,8 +807,10 @@ func (o UpgradePath) ToMap() (map[string]interface{}, error) {
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["skippedCount"] = o.SkippedCount
 	toSerialize["sourceVersion"] = o.SourceVersion
+	toSerialize["sourceVersionName"] = o.SourceVersionName
 	toSerialize["status"] = o.Status
 	toSerialize["targetVersion"] = o.TargetVersion
+	toSerialize["targetVersionName"] = o.TargetVersionName
 	toSerialize["totalCount"] = o.TotalCount
 	toSerialize["type"] = o.Type
 	toSerialize["updatedAt"] = o.UpdatedAt
@@ -782,8 +838,10 @@ func (o *UpgradePath) UnmarshalJSON(data []byte) (err error) {
 		"serviceId",
 		"skippedCount",
 		"sourceVersion",
+		"sourceVersionName",
 		"status",
 		"targetVersion",
+		"targetVersionName",
 		"totalCount",
 		"type",
 		"updatedAt",
@@ -834,8 +892,10 @@ func (o *UpgradePath) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "skippedCount")
 		delete(additionalProperties, "sourceVersion")
+		delete(additionalProperties, "sourceVersionName")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "targetVersion")
+		delete(additionalProperties, "targetVersionName")
 		delete(additionalProperties, "totalCount")
 		delete(additionalProperties, "type")
 		delete(additionalProperties, "updatedAt")

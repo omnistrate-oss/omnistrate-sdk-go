@@ -33,7 +33,7 @@ import (
 )
 
 func main() {
-	createNotificationChannelRequest2 := *openapiclient.NewCreateNotificationChannelRequest2("My Channel", *openapiclient.NewChannelSubscription([]string{"Alarm|Notification"}, []string{"PROD|PRIVATE|CANARY|STAGING|QA|DEV"}, []string{"InstanceEvent|ServiceEvent|UserEvent|IdentityProviderEvent"}, []string{"Critical|High|Medium|Low"}, []string{"UnhealthyInstance|FailedDeployment|ScaleOut|UserSignUp|UserSubscription"})) // CreateNotificationChannelRequest2 | 
+	createNotificationChannelRequest2 := *openapiclient.NewCreateNotificationChannelRequest2("My Channel", *openapiclient.NewChannelSubscription([]string{"Alarm|Notification"}, []string{"PROD|PRIVATE|CANARY|STAGING|QA|DEV|GLOBAL"}, []string{"InstanceEvent|ServiceEvent|UserEvent|IdentityProviderEvent"}, []string{"Critical|High|Medium|Low"}, []string{"UnhealthyInstance|FailedDeployment|ScaleOut|UserSignUp|UserSubscription"})) // CreateNotificationChannelRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

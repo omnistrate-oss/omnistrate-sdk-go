@@ -100,7 +100,7 @@ import (
 func main() {
 	nextPageToken := "token" // string |  (optional)
 	pageSize := int64(10) // int64 |  (optional)
-	environmentType := "PROD|PRIVATE|CANARY|STAGING|QA|DEV" // string |  (optional)
+	environmentType := "PROD|PRIVATE|CANARY|STAGING|QA|DEV|GLOBAL" // string |  (optional)
 	eventTypes := []string{"UnhealthyInstance|FailedDeployment|ScaleOut|UserSignUp|UserSubscription"} // []string | The event types to filter by (optional)
 	serviceID := "s-123456" // string | The service ID to list events for (optional)
 	serviceEnvironmentID := "se-123456" // string | The service environment ID to list events for (optional)
