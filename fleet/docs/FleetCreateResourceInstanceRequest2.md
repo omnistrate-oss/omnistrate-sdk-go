@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **CustomNetworkId** | Pointer to **string** | Custom network for resource | [optional] 
 **ExternalPayerId** | Pointer to **string** | The external payer id to record which customer should pay for this resource instance. This will override the subscription level external payer id if set. | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
+**OnpremPlatform** | Pointer to **string** | OnPrem platform | [optional] 
 **ProductTierVersion** | Pointer to **string** | The product tier version | [optional] 
 **Region** | Pointer to **string** | The region code | [optional] 
 **RequestParams** | Pointer to **interface{}** | The request parameters | [optional] 
@@ -131,6 +132,31 @@ SetNetworkType sets NetworkType field to given value.
 `func (o *FleetCreateResourceInstanceRequest2) HasNetworkType() bool`
 
 HasNetworkType returns a boolean if a field has been set.
+
+### GetOnpremPlatform
+
+`func (o *FleetCreateResourceInstanceRequest2) GetOnpremPlatform() string`
+
+GetOnpremPlatform returns the OnpremPlatform field if non-nil, zero value otherwise.
+
+### GetOnpremPlatformOk
+
+`func (o *FleetCreateResourceInstanceRequest2) GetOnpremPlatformOk() (*string, bool)`
+
+GetOnpremPlatformOk returns a tuple with the OnpremPlatform field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnpremPlatform
+
+`func (o *FleetCreateResourceInstanceRequest2) SetOnpremPlatform(v string)`
+
+SetOnpremPlatform sets OnpremPlatform field to given value.
+
+### HasOnpremPlatform
+
+`func (o *FleetCreateResourceInstanceRequest2) HasOnpremPlatform() bool`
+
+HasOnpremPlatform returns a boolean if a field has been set.
 
 ### GetProductTierVersion
 

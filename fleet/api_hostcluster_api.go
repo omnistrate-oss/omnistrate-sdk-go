@@ -49,6 +49,21 @@ type HostclusterApiAPI interface {
 	HostclusterApiApplyPendingChangesToHostClusterExecute(r ApiHostclusterApiApplyPendingChangesToHostClusterRequest) (*http.Response, error)
 
 	/*
+	HostclusterApiDebugHostCluster DebugHostCluster hostcluster-api
+
+	Debug a host cluster.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the host cluster to debug
+	@return ApiHostclusterApiDebugHostClusterRequest
+	*/
+	HostclusterApiDebugHostCluster(ctx context.Context, id string) ApiHostclusterApiDebugHostClusterRequest
+
+	// HostclusterApiDebugHostClusterExecute executes the request
+	//  @return DebugHostClusterResult
+	HostclusterApiDebugHostClusterExecute(r ApiHostclusterApiDebugHostClusterRequest) (*DebugHostClusterResult, *http.Response, error)
+
+	/*
 	HostclusterApiDeleteHostCluster DeleteHostCluster hostcluster-api
 
 	Delete an empty host cluster.
@@ -459,6 +474,185 @@ func (a *HostclusterApiAPIService) HostclusterApiApplyPendingChangesToHostCluste
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+type ApiHostclusterApiDebugHostClusterRequest struct {
+	ctx context.Context
+	ApiService HostclusterApiAPI
+	id string
+	debugHostClusterRequest2 *DebugHostClusterRequest2
+}
+
+func (r ApiHostclusterApiDebugHostClusterRequest) DebugHostClusterRequest2(debugHostClusterRequest2 DebugHostClusterRequest2) ApiHostclusterApiDebugHostClusterRequest {
+	r.debugHostClusterRequest2 = &debugHostClusterRequest2
+	return r
+}
+
+func (r ApiHostclusterApiDebugHostClusterRequest) Execute() (*DebugHostClusterResult, *http.Response, error) {
+	return r.ApiService.HostclusterApiDebugHostClusterExecute(r)
+}
+
+/*
+HostclusterApiDebugHostCluster DebugHostCluster hostcluster-api
+
+Debug a host cluster.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id ID of the host cluster to debug
+ @return ApiHostclusterApiDebugHostClusterRequest
+*/
+func (a *HostclusterApiAPIService) HostclusterApiDebugHostCluster(ctx context.Context, id string) ApiHostclusterApiDebugHostClusterRequest {
+	return ApiHostclusterApiDebugHostClusterRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+//  @return DebugHostClusterResult
+func (a *HostclusterApiAPIService) HostclusterApiDebugHostClusterExecute(r ApiHostclusterApiDebugHostClusterRequest) (*DebugHostClusterResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DebugHostClusterResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HostclusterApiAPIService.HostclusterApiDebugHostCluster")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/host-cluster/{id}/debug"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.debugHostClusterRequest2 == nil {
+		return localVarReturnValue, nil, reportError("debugHostClusterRequest2 is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.debugHostClusterRequest2
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiHostclusterApiDeleteHostClusterRequest struct {
