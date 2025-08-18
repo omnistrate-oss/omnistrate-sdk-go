@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**HostclusterApiAdoptHostCluster**](HostclusterApiAPI.md#HostclusterApiAdoptHostCluster) | **Post** /2022-09-01-00/fleet/host-cluster/adopt | AdoptHostCluster hostcluster-api
 [**HostclusterApiApplyPendingChangesToHostCluster**](HostclusterApiAPI.md#HostclusterApiApplyPendingChangesToHostCluster) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/apply-pending-changes | ApplyPendingChangesToHostCluster hostcluster-api
+[**HostclusterApiDebugHostCluster**](HostclusterApiAPI.md#HostclusterApiDebugHostCluster) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/debug | DebugHostCluster hostcluster-api
 [**HostclusterApiDeleteHostCluster**](HostclusterApiAPI.md#HostclusterApiDeleteHostCluster) | **Delete** /2022-09-01-00/fleet/host-cluster/{id} | DeleteHostCluster hostcluster-api
 [**HostclusterApiDescribeHostCluster**](HostclusterApiAPI.md#HostclusterApiDescribeHostCluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id} | DescribeHostCluster hostcluster-api
 [**HostclusterApiGenerateTokenForHostClusterDashboard**](HostclusterApiAPI.md#HostclusterApiGenerateTokenForHostClusterDashboard) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard hostcluster-api
@@ -141,6 +142,78 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## HostclusterApiDebugHostCluster
+
+> DebugHostClusterResult HostclusterApiDebugHostCluster(ctx, id).DebugHostClusterRequest2(debugHostClusterRequest2).Execute()
+
+DebugHostCluster hostcluster-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	id := "hc-12345678" // string | ID of the host cluster to debug
+	debugHostClusterRequest2 := *openapiclient.NewDebugHostClusterRequest2() // DebugHostClusterRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.HostclusterApiAPI.HostclusterApiDebugHostCluster(context.Background(), id).DebugHostClusterRequest2(debugHostClusterRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `HostclusterApiAPI.HostclusterApiDebugHostCluster``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `HostclusterApiDebugHostCluster`: DebugHostClusterResult
+	fmt.Fprintf(os.Stdout, "Response from `HostclusterApiAPI.HostclusterApiDebugHostCluster`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | ID of the host cluster to debug | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiHostclusterApiDebugHostClusterRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **debugHostClusterRequest2** | [**DebugHostClusterRequest2**](DebugHostClusterRequest2.md) |  | 
+
+### Return type
+
+[**DebugHostClusterResult**](DebugHostClusterResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

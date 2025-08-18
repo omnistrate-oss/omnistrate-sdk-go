@@ -27,6 +27,8 @@ type FleetCreateResourceInstanceRequest2 struct {
 	ExternalPayerId *string `json:"externalPayerId,omitempty"`
 	// The network type
 	NetworkType *string `json:"network_type,omitempty"`
+	// OnPrem platform
+	OnpremPlatform *string `json:"onprem_platform,omitempty"`
 	// The product tier version
 	ProductTierVersion *string `json:"productTierVersion,omitempty"`
 	// The region code
@@ -185,6 +187,38 @@ func (o *FleetCreateResourceInstanceRequest2) SetNetworkType(v string) {
 	o.NetworkType = &v
 }
 
+// GetOnpremPlatform returns the OnpremPlatform field value if set, zero value otherwise.
+func (o *FleetCreateResourceInstanceRequest2) GetOnpremPlatform() string {
+	if o == nil || IsNil(o.OnpremPlatform) {
+		var ret string
+		return ret
+	}
+	return *o.OnpremPlatform
+}
+
+// GetOnpremPlatformOk returns a tuple with the OnpremPlatform field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCreateResourceInstanceRequest2) GetOnpremPlatformOk() (*string, bool) {
+	if o == nil || IsNil(o.OnpremPlatform) {
+		return nil, false
+	}
+	return o.OnpremPlatform, true
+}
+
+// HasOnpremPlatform returns a boolean if a field has been set.
+func (o *FleetCreateResourceInstanceRequest2) HasOnpremPlatform() bool {
+	if o != nil && !IsNil(o.OnpremPlatform) {
+		return true
+	}
+
+	return false
+}
+
+// SetOnpremPlatform gets a reference to the given string and assigns it to the OnpremPlatform field.
+func (o *FleetCreateResourceInstanceRequest2) SetOnpremPlatform(v string) {
+	o.OnpremPlatform = &v
+}
+
 // GetProductTierVersion returns the ProductTierVersion field value if set, zero value otherwise.
 func (o *FleetCreateResourceInstanceRequest2) GetProductTierVersion() string {
 	if o == nil || IsNil(o.ProductTierVersion) {
@@ -336,6 +370,9 @@ func (o FleetCreateResourceInstanceRequest2) ToMap() (map[string]interface{}, er
 	if !IsNil(o.NetworkType) {
 		toSerialize["network_type"] = o.NetworkType
 	}
+	if !IsNil(o.OnpremPlatform) {
+		toSerialize["onprem_platform"] = o.OnpremPlatform
+	}
 	if !IsNil(o.ProductTierVersion) {
 		toSerialize["productTierVersion"] = o.ProductTierVersion
 	}
@@ -374,6 +411,7 @@ func (o *FleetCreateResourceInstanceRequest2) UnmarshalJSON(data []byte) (err er
 		delete(additionalProperties, "custom_network_id")
 		delete(additionalProperties, "externalPayerId")
 		delete(additionalProperties, "network_type")
+		delete(additionalProperties, "onprem_platform")
 		delete(additionalProperties, "productTierVersion")
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "requestParams")
