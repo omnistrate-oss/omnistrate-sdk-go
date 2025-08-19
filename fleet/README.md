@@ -105,7 +105,7 @@ Class | Method | HTTP request | Description
 *HelmPackageApiAPI* | [**HelmPackageApiListHelmPackageInstallations**](docs/HelmPackageApiAPI.md#helmpackageapilisthelmpackageinstallations) | **Get** /2022-09-01-00/fleet/helm-package-installations | ListHelmPackageInstallations helm-package-api
 *HostclusterApiAPI* | [**HostclusterApiAdoptHostCluster**](docs/HostclusterApiAPI.md#hostclusterapiadopthostcluster) | **Post** /2022-09-01-00/fleet/host-cluster/adopt | AdoptHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiApplyPendingChangesToHostCluster**](docs/HostclusterApiAPI.md#hostclusterapiapplypendingchangestohostcluster) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/apply-pending-changes | ApplyPendingChangesToHostCluster hostcluster-api
-*HostclusterApiAPI* | [**HostclusterApiDebugHostCluster**](docs/HostclusterApiAPI.md#hostclusterapidebughostcluster) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/debug | DebugHostCluster hostcluster-api
+*HostclusterApiAPI* | [**HostclusterApiDebugHostCluster**](docs/HostclusterApiAPI.md#hostclusterapidebughostcluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id}/debug | DebugHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiDeleteHostCluster**](docs/HostclusterApiAPI.md#hostclusterapideletehostcluster) | **Delete** /2022-09-01-00/fleet/host-cluster/{id} | DeleteHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiDescribeHostCluster**](docs/HostclusterApiAPI.md#hostclusterapidescribehostcluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id} | DescribeHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiGenerateTokenForHostClusterDashboard**](docs/HostclusterApiAPI.md#hostclusterapigeneratetokenforhostclusterdashboard) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard hostcluster-api
@@ -295,7 +295,6 @@ Class | Method | HTTP request | Description
  - [CustomerSigninResult](docs/CustomerSigninResult.md)
  - [CustomerSignupRequest](docs/CustomerSignupRequest.md)
  - [DebugHostClusterRequest](docs/DebugHostClusterRequest.md)
- - [DebugHostClusterRequest2](docs/DebugHostClusterRequest2.md)
  - [DebugHostClusterResult](docs/DebugHostClusterResult.md)
  - [DebugResourceInstanceRequest](docs/DebugResourceInstanceRequest.md)
  - [DebugResourceInstanceResult](docs/DebugResourceInstanceResult.md)

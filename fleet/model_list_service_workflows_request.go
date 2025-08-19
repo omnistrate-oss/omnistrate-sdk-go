@@ -12,6 +12,7 @@ package fleet
 
 import (
 	"encoding/json"
+	"time"
 	"fmt"
 )
 
@@ -20,6 +21,8 @@ var _ MappedNullable = &ListServiceWorkflowsRequest{}
 
 // ListServiceWorkflowsRequest struct for ListServiceWorkflowsRequest
 type ListServiceWorkflowsRequest struct {
+	// End time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start.
+	EndDate *time.Time `json:"endDate,omitempty"`
 	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
 	// ID of a Resource Instance
@@ -30,6 +33,8 @@ type ListServiceWorkflowsRequest struct {
 	PageSize *int64 `json:"pageSize,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
+	// Start time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start.
+	StartDate *time.Time `json:"startDate,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -55,6 +60,38 @@ func NewListServiceWorkflowsRequest(environmentId string, serviceId string, toke
 func NewListServiceWorkflowsRequestWithDefaults() *ListServiceWorkflowsRequest {
 	this := ListServiceWorkflowsRequest{}
 	return &this
+}
+
+// GetEndDate returns the EndDate field value if set, zero value otherwise.
+func (o *ListServiceWorkflowsRequest) GetEndDate() time.Time {
+	if o == nil || IsNil(o.EndDate) {
+		var ret time.Time
+		return ret
+	}
+	return *o.EndDate
+}
+
+// GetEndDateOk returns a tuple with the EndDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListServiceWorkflowsRequest) GetEndDateOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.EndDate) {
+		return nil, false
+	}
+	return o.EndDate, true
+}
+
+// HasEndDate returns a boolean if a field has been set.
+func (o *ListServiceWorkflowsRequest) HasEndDate() bool {
+	if o != nil && !IsNil(o.EndDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetEndDate gets a reference to the given time.Time and assigns it to the EndDate field.
+func (o *ListServiceWorkflowsRequest) SetEndDate(v time.Time) {
+	o.EndDate = &v
 }
 
 // GetEnvironmentId returns the EnvironmentId field value
@@ -201,6 +238,38 @@ func (o *ListServiceWorkflowsRequest) SetServiceId(v string) {
 	o.ServiceId = v
 }
 
+// GetStartDate returns the StartDate field value if set, zero value otherwise.
+func (o *ListServiceWorkflowsRequest) GetStartDate() time.Time {
+	if o == nil || IsNil(o.StartDate) {
+		var ret time.Time
+		return ret
+	}
+	return *o.StartDate
+}
+
+// GetStartDateOk returns a tuple with the StartDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListServiceWorkflowsRequest) GetStartDateOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.StartDate) {
+		return nil, false
+	}
+	return o.StartDate, true
+}
+
+// HasStartDate returns a boolean if a field has been set.
+func (o *ListServiceWorkflowsRequest) HasStartDate() bool {
+	if o != nil && !IsNil(o.StartDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetStartDate gets a reference to the given time.Time and assigns it to the StartDate field.
+func (o *ListServiceWorkflowsRequest) SetStartDate(v time.Time) {
+	o.StartDate = &v
+}
+
 // GetToken returns the Token field value
 func (o *ListServiceWorkflowsRequest) GetToken() string {
 	if o == nil {
@@ -235,6 +304,9 @@ func (o ListServiceWorkflowsRequest) MarshalJSON() ([]byte, error) {
 
 func (o ListServiceWorkflowsRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.EndDate) {
+		toSerialize["endDate"] = o.EndDate
+	}
 	toSerialize["environmentId"] = o.EnvironmentId
 	if !IsNil(o.InstanceId) {
 		toSerialize["instanceId"] = o.InstanceId
@@ -246,6 +318,9 @@ func (o ListServiceWorkflowsRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["pageSize"] = o.PageSize
 	}
 	toSerialize["serviceId"] = o.ServiceId
+	if !IsNil(o.StartDate) {
+		toSerialize["startDate"] = o.StartDate
+	}
 	toSerialize["token"] = o.Token
 
 	for key, value := range o.AdditionalProperties {
@@ -292,11 +367,13 @@ func (o *ListServiceWorkflowsRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "endDate")
 		delete(additionalProperties, "environmentId")
 		delete(additionalProperties, "instanceId")
 		delete(additionalProperties, "nextPageToken")
 		delete(additionalProperties, "pageSize")
 		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "startDate")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

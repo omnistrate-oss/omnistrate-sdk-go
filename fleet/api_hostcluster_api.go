@@ -480,11 +480,12 @@ type ApiHostclusterApiDebugHostClusterRequest struct {
 	ctx context.Context
 	ApiService HostclusterApiAPI
 	id string
-	debugHostClusterRequest2 *DebugHostClusterRequest2
+	includeAmenitiesInstallationLogs *bool
 }
 
-func (r ApiHostclusterApiDebugHostClusterRequest) DebugHostClusterRequest2(debugHostClusterRequest2 DebugHostClusterRequest2) ApiHostclusterApiDebugHostClusterRequest {
-	r.debugHostClusterRequest2 = &debugHostClusterRequest2
+// Include the installation logs of the amenities in the host cluster
+func (r ApiHostclusterApiDebugHostClusterRequest) IncludeAmenitiesInstallationLogs(includeAmenitiesInstallationLogs bool) ApiHostclusterApiDebugHostClusterRequest {
+	r.includeAmenitiesInstallationLogs = &includeAmenitiesInstallationLogs
 	return r
 }
 
@@ -513,7 +514,7 @@ func (a *HostclusterApiAPIService) HostclusterApiDebugHostCluster(ctx context.Co
 //  @return DebugHostClusterResult
 func (a *HostclusterApiAPIService) HostclusterApiDebugHostClusterExecute(r ApiHostclusterApiDebugHostClusterRequest) (*DebugHostClusterResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *DebugHostClusterResult
@@ -530,12 +531,12 @@ func (a *HostclusterApiAPIService) HostclusterApiDebugHostClusterExecute(r ApiHo
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.debugHostClusterRequest2 == nil {
-		return localVarReturnValue, nil, reportError("debugHostClusterRequest2 is required and must be specified")
-	}
 
+	if r.includeAmenitiesInstallationLogs != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeAmenitiesInstallationLogs", r.includeAmenitiesInstallationLogs, "form", "")
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -551,8 +552,6 @@ func (a *HostclusterApiAPIService) HostclusterApiDebugHostClusterExecute(r ApiHo
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.debugHostClusterRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

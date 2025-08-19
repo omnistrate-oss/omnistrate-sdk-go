@@ -102,7 +102,6 @@ docs/CustomerSigninRequest.md
 docs/CustomerSigninResult.md
 docs/CustomerSignupRequest.md
 docs/DebugHostClusterRequest.md
-docs/DebugHostClusterRequest2.md
 docs/DebugHostClusterResult.md
 docs/DebugResourceInstanceRequest.md
 docs/DebugResourceInstanceResult.md
@@ -717,7 +716,6 @@ model_customer_signin_request.go
 model_customer_signin_result.go
 model_customer_signup_request.go
 model_debug_host_cluster_request.go
-model_debug_host_cluster_request2.go
 model_debug_host_cluster_result.go
 model_debug_resource_instance_request.go
 model_debug_resource_instance_result.go

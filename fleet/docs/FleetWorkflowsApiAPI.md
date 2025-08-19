@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 ## FleetWorkflowsApiListServiceWorkflows
 
-> ListServiceWorkflowsResult FleetWorkflowsApiListServiceWorkflows(ctx, serviceId, environmentId).NextPageToken(nextPageToken).PageSize(pageSize).InstanceId(instanceId).Execute()
+> ListServiceWorkflowsResult FleetWorkflowsApiListServiceWorkflows(ctx, serviceId, environmentId).NextPageToken(nextPageToken).PageSize(pageSize).InstanceId(instanceId).StartDate(startDate).EndDate(endDate).Execute()
 
 ListServiceWorkflows fleet-workflows-api
 
@@ -247,6 +247,7 @@ import (
 	"context"
 	"fmt"
 	"os"
+    "time"
 	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
 )
 
@@ -256,10 +257,12 @@ func main() {
 	nextPageToken := "token" // string |  (optional)
 	pageSize := int64(10) // int64 |  (optional)
 	instanceId := "instance-12345678" // string | The instance ID of the workflow (optional)
+	startDate := time.Now() // time.Time | Start date of the workflows (optional)
+	endDate := time.Now() // time.Time | End date of the workflows (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FleetWorkflowsApiAPI.FleetWorkflowsApiListServiceWorkflows(context.Background(), serviceId, environmentId).NextPageToken(nextPageToken).PageSize(pageSize).InstanceId(instanceId).Execute()
+	resp, r, err := apiClient.FleetWorkflowsApiAPI.FleetWorkflowsApiListServiceWorkflows(context.Background(), serviceId, environmentId).NextPageToken(nextPageToken).PageSize(pageSize).InstanceId(instanceId).StartDate(startDate).EndDate(endDate).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FleetWorkflowsApiAPI.FleetWorkflowsApiListServiceWorkflows``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -290,6 +293,8 @@ Name | Type | Description  | Notes
  **nextPageToken** | **string** |  | 
  **pageSize** | **int64** |  | 
  **instanceId** | **string** | The instance ID of the workflow | 
+ **startDate** | **time.Time** | Start date of the workflows | 
+ **endDate** | **time.Time** | End date of the workflows | 
 
 ### Return type
 

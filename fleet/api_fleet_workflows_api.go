@@ -17,6 +17,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"time"
 )
 
 
@@ -640,6 +641,8 @@ type ApiFleetWorkflowsApiListServiceWorkflowsRequest struct {
 	nextPageToken *string
 	pageSize *int64
 	instanceId *string
+	startDate *time.Time
+	endDate *time.Time
 }
 
 func (r ApiFleetWorkflowsApiListServiceWorkflowsRequest) NextPageToken(nextPageToken string) ApiFleetWorkflowsApiListServiceWorkflowsRequest {
@@ -655,6 +658,18 @@ func (r ApiFleetWorkflowsApiListServiceWorkflowsRequest) PageSize(pageSize int64
 // The instance ID of the workflow
 func (r ApiFleetWorkflowsApiListServiceWorkflowsRequest) InstanceId(instanceId string) ApiFleetWorkflowsApiListServiceWorkflowsRequest {
 	r.instanceId = &instanceId
+	return r
+}
+
+// Start date of the workflows
+func (r ApiFleetWorkflowsApiListServiceWorkflowsRequest) StartDate(startDate time.Time) ApiFleetWorkflowsApiListServiceWorkflowsRequest {
+	r.startDate = &startDate
+	return r
+}
+
+// End date of the workflows
+func (r ApiFleetWorkflowsApiListServiceWorkflowsRequest) EndDate(endDate time.Time) ApiFleetWorkflowsApiListServiceWorkflowsRequest {
+	r.endDate = &endDate
 	return r
 }
 
@@ -710,6 +725,12 @@ func (a *FleetWorkflowsApiAPIService) FleetWorkflowsApiListServiceWorkflowsExecu
 	}
 	if r.instanceId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "instanceId", r.instanceId, "form", "")
+	}
+	if r.startDate != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "startDate", r.startDate, "form", "")
+	}
+	if r.endDate != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "endDate", r.endDate, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
