@@ -4,11 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**EndDate** | Pointer to **time.Time** | End time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start. | [optional] 
 **EnvironmentId** | **string** | ID of a Service Environment | 
 **InstanceId** | Pointer to **string** | ID of a Resource Instance | [optional] 
 **NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
 **PageSize** | Pointer to **int64** | The number of resources to return per page | [optional] 
 **ServiceId** | **string** | ID of a Service | 
+**StartDate** | Pointer to **time.Time** | Start time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start. | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
@@ -29,6 +31,31 @@ will change when the set of required properties is changed
 NewListServiceWorkflowsRequestWithDefaults instantiates a new ListServiceWorkflowsRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetEndDate
+
+`func (o *ListServiceWorkflowsRequest) GetEndDate() time.Time`
+
+GetEndDate returns the EndDate field if non-nil, zero value otherwise.
+
+### GetEndDateOk
+
+`func (o *ListServiceWorkflowsRequest) GetEndDateOk() (*time.Time, bool)`
+
+GetEndDateOk returns a tuple with the EndDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndDate
+
+`func (o *ListServiceWorkflowsRequest) SetEndDate(v time.Time)`
+
+SetEndDate sets EndDate field to given value.
+
+### HasEndDate
+
+`func (o *ListServiceWorkflowsRequest) HasEndDate() bool`
+
+HasEndDate returns a boolean if a field has been set.
 
 ### GetEnvironmentId
 
@@ -144,6 +171,31 @@ and a boolean to check if the value has been set.
 
 SetServiceId sets ServiceId field to given value.
 
+
+### GetStartDate
+
+`func (o *ListServiceWorkflowsRequest) GetStartDate() time.Time`
+
+GetStartDate returns the StartDate field if non-nil, zero value otherwise.
+
+### GetStartDateOk
+
+`func (o *ListServiceWorkflowsRequest) GetStartDateOk() (*time.Time, bool)`
+
+GetStartDateOk returns a tuple with the StartDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartDate
+
+`func (o *ListServiceWorkflowsRequest) SetStartDate(v time.Time)`
+
+SetStartDate sets StartDate field to given value.
+
+### HasStartDate
+
+`func (o *ListServiceWorkflowsRequest) HasStartDate() bool`
+
+HasStartDate returns a boolean if a field has been set.
 
 ### GetToken
 

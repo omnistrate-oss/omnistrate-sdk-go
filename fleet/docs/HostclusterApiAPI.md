@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**HostclusterApiAdoptHostCluster**](HostclusterApiAPI.md#HostclusterApiAdoptHostCluster) | **Post** /2022-09-01-00/fleet/host-cluster/adopt | AdoptHostCluster hostcluster-api
 [**HostclusterApiApplyPendingChangesToHostCluster**](HostclusterApiAPI.md#HostclusterApiApplyPendingChangesToHostCluster) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/apply-pending-changes | ApplyPendingChangesToHostCluster hostcluster-api
-[**HostclusterApiDebugHostCluster**](HostclusterApiAPI.md#HostclusterApiDebugHostCluster) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/debug | DebugHostCluster hostcluster-api
+[**HostclusterApiDebugHostCluster**](HostclusterApiAPI.md#HostclusterApiDebugHostCluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id}/debug | DebugHostCluster hostcluster-api
 [**HostclusterApiDeleteHostCluster**](HostclusterApiAPI.md#HostclusterApiDeleteHostCluster) | **Delete** /2022-09-01-00/fleet/host-cluster/{id} | DeleteHostCluster hostcluster-api
 [**HostclusterApiDescribeHostCluster**](HostclusterApiAPI.md#HostclusterApiDescribeHostCluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id} | DescribeHostCluster hostcluster-api
 [**HostclusterApiGenerateTokenForHostClusterDashboard**](HostclusterApiAPI.md#HostclusterApiGenerateTokenForHostClusterDashboard) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard hostcluster-api
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ## HostclusterApiDebugHostCluster
 
-> DebugHostClusterResult HostclusterApiDebugHostCluster(ctx, id).DebugHostClusterRequest2(debugHostClusterRequest2).Execute()
+> DebugHostClusterResult HostclusterApiDebugHostCluster(ctx, id).IncludeAmenitiesInstallationLogs(includeAmenitiesInstallationLogs).Execute()
 
 DebugHostCluster hostcluster-api
 
@@ -170,11 +170,11 @@ import (
 
 func main() {
 	id := "hc-12345678" // string | ID of the host cluster to debug
-	debugHostClusterRequest2 := *openapiclient.NewDebugHostClusterRequest2() // DebugHostClusterRequest2 | 
+	includeAmenitiesInstallationLogs := true // bool | Include the installation logs of the amenities in the host cluster (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.HostclusterApiAPI.HostclusterApiDebugHostCluster(context.Background(), id).DebugHostClusterRequest2(debugHostClusterRequest2).Execute()
+	resp, r, err := apiClient.HostclusterApiAPI.HostclusterApiDebugHostCluster(context.Background(), id).IncludeAmenitiesInstallationLogs(includeAmenitiesInstallationLogs).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `HostclusterApiAPI.HostclusterApiDebugHostCluster``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -200,7 +200,7 @@ Other parameters are passed through a pointer to a apiHostclusterApiDebugHostClu
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **debugHostClusterRequest2** | [**DebugHostClusterRequest2**](DebugHostClusterRequest2.md) |  | 
+ **includeAmenitiesInstallationLogs** | **bool** | Include the installation logs of the amenities in the host cluster | 
 
 ### Return type
 
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
