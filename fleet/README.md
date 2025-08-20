@@ -140,6 +140,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiDescribeOrganization**](docs/InventoryApiAPI.md#inventoryapidescribeorganization) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/organization/{organizationId} | DescribeOrganization inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeResource**](docs/InventoryApiAPI.md#inventoryapidescriberesource) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/model/{serviceModelId}/productTier/{productTierId}/resource/{resourceId} | DescribeResource inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeResourceInstance**](docs/InventoryApiAPI.md#inventoryapidescriberesourceinstance) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId} | DescribeResourceInstance inventory-api
+*InventoryApiAPI* | [**InventoryApiDescribeResourceInstanceInstaller**](docs/InventoryApiAPI.md#inventoryapidescriberesourceinstanceinstaller) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/installer | DescribeResourceInstanceInstaller inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeResourceInstanceSnapshot**](docs/InventoryApiAPI.md#inventoryapidescriberesourceinstancesnapshot) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/snapshot/{snapshotId} | DescribeResourceInstanceSnapshot inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeResourceInstanceSnapshotFromTime**](docs/InventoryApiAPI.md#inventoryapidescriberesourceinstancesnapshotfromtime) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/restore | DescribeResourceInstanceSnapshotFromTime inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeServiceOffering**](docs/InventoryApiAPI.md#inventoryapidescribeserviceoffering) | **Get** /2022-09-01-00/fleet/service-offering/{serviceId} | DescribeServiceOffering inventory-api
@@ -360,6 +361,8 @@ Class | Method | HTTP request | Description
  - [DescribeRegionCostResult](docs/DescribeRegionCostResult.md)
  - [DescribeRegionRequest](docs/DescribeRegionRequest.md)
  - [DescribeRegionResult](docs/DescribeRegionResult.md)
+ - [DescribeResourceInstanceInstaller](docs/DescribeResourceInstanceInstaller.md)
+ - [DescribeResourceInstanceInstallerResult](docs/DescribeResourceInstanceInstallerResult.md)
  - [DescribeResourceInstanceRequest](docs/DescribeResourceInstanceRequest.md)
  - [DescribeResourceInstanceRequestInternal](docs/DescribeResourceInstanceRequestInternal.md)
  - [DescribeResourceInstanceResult](docs/DescribeResourceInstanceResult.md)
