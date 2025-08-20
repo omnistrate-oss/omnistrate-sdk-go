@@ -167,6 +167,8 @@ docs/DescribeRegionCostRequest.md
 docs/DescribeRegionCostResult.md
 docs/DescribeRegionRequest.md
 docs/DescribeRegionResult.md
+docs/DescribeResourceInstanceInstaller.md
+docs/DescribeResourceInstanceInstallerResult.md
 docs/DescribeResourceInstanceRequest.md
 docs/DescribeResourceInstanceRequestInternal.md
 docs/DescribeResourceInstanceResult.md
@@ -781,6 +783,8 @@ model_describe_region_cost_request.go
 model_describe_region_cost_result.go
 model_describe_region_request.go
 model_describe_region_result.go
+model_describe_resource_instance_installer.go
+model_describe_resource_instance_installer_result.go
 model_describe_resource_instance_request.go
 model_describe_resource_instance_request_internal.go
 model_describe_resource_instance_result.go

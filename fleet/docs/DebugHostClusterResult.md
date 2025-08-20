@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CustomHelmExecutionLogs** | Pointer to **map[string]*os.File** | Custom Helm execution logs for the host cluster, keyed by namespace | [optional] 
+**CustomHelmExecutionLogsBase64** | Pointer to **map[string]string** | Custom Helm execution logs for the host cluster, keyed by namespace | [optional] 
 
 ## Methods
 
@@ -25,30 +25,30 @@ NewDebugHostClusterResultWithDefaults instantiates a new DebugHostClusterResult 
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetCustomHelmExecutionLogs
+### GetCustomHelmExecutionLogsBase64
 
-`func (o *DebugHostClusterResult) GetCustomHelmExecutionLogs() map[string]*os.File`
+`func (o *DebugHostClusterResult) GetCustomHelmExecutionLogsBase64() map[string]string`
 
-GetCustomHelmExecutionLogs returns the CustomHelmExecutionLogs field if non-nil, zero value otherwise.
+GetCustomHelmExecutionLogsBase64 returns the CustomHelmExecutionLogsBase64 field if non-nil, zero value otherwise.
 
-### GetCustomHelmExecutionLogsOk
+### GetCustomHelmExecutionLogsBase64Ok
 
-`func (o *DebugHostClusterResult) GetCustomHelmExecutionLogsOk() (*map[string]*os.File, bool)`
+`func (o *DebugHostClusterResult) GetCustomHelmExecutionLogsBase64Ok() (*map[string]string, bool)`
 
-GetCustomHelmExecutionLogsOk returns a tuple with the CustomHelmExecutionLogs field if it's non-nil, zero value otherwise
+GetCustomHelmExecutionLogsBase64Ok returns a tuple with the CustomHelmExecutionLogsBase64 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCustomHelmExecutionLogs
+### SetCustomHelmExecutionLogsBase64
 
-`func (o *DebugHostClusterResult) SetCustomHelmExecutionLogs(v map[string]*os.File)`
+`func (o *DebugHostClusterResult) SetCustomHelmExecutionLogsBase64(v map[string]string)`
 
-SetCustomHelmExecutionLogs sets CustomHelmExecutionLogs field to given value.
+SetCustomHelmExecutionLogsBase64 sets CustomHelmExecutionLogsBase64 field to given value.
 
-### HasCustomHelmExecutionLogs
+### HasCustomHelmExecutionLogsBase64
 
-`func (o *DebugHostClusterResult) HasCustomHelmExecutionLogs() bool`
+`func (o *DebugHostClusterResult) HasCustomHelmExecutionLogsBase64() bool`
 
-HasCustomHelmExecutionLogs returns a boolean if a field has been set.
+HasCustomHelmExecutionLogsBase64 returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

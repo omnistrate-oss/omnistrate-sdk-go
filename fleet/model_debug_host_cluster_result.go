@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"os"
 )
 
 // checks if the DebugHostClusterResult type satisfies the MappedNullable interface at compile time
@@ -21,7 +20,7 @@ var _ MappedNullable = &DebugHostClusterResult{}
 // DebugHostClusterResult struct for DebugHostClusterResult
 type DebugHostClusterResult struct {
 	// Custom Helm execution logs for the host cluster, keyed by namespace
-	CustomHelmExecutionLogs *map[string]*os.File `json:"customHelmExecutionLogs,omitempty"`
+	CustomHelmExecutionLogsBase64 *map[string]string `json:"customHelmExecutionLogsBase64,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -44,36 +43,36 @@ func NewDebugHostClusterResultWithDefaults() *DebugHostClusterResult {
 	return &this
 }
 
-// GetCustomHelmExecutionLogs returns the CustomHelmExecutionLogs field value if set, zero value otherwise.
-func (o *DebugHostClusterResult) GetCustomHelmExecutionLogs() map[string]*os.File {
-	if o == nil || IsNil(o.CustomHelmExecutionLogs) {
-		var ret map[string]*os.File
+// GetCustomHelmExecutionLogsBase64 returns the CustomHelmExecutionLogsBase64 field value if set, zero value otherwise.
+func (o *DebugHostClusterResult) GetCustomHelmExecutionLogsBase64() map[string]string {
+	if o == nil || IsNil(o.CustomHelmExecutionLogsBase64) {
+		var ret map[string]string
 		return ret
 	}
-	return *o.CustomHelmExecutionLogs
+	return *o.CustomHelmExecutionLogsBase64
 }
 
-// GetCustomHelmExecutionLogsOk returns a tuple with the CustomHelmExecutionLogs field value if set, nil otherwise
+// GetCustomHelmExecutionLogsBase64Ok returns a tuple with the CustomHelmExecutionLogsBase64 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DebugHostClusterResult) GetCustomHelmExecutionLogsOk() (*map[string]*os.File, bool) {
-	if o == nil || IsNil(o.CustomHelmExecutionLogs) {
+func (o *DebugHostClusterResult) GetCustomHelmExecutionLogsBase64Ok() (*map[string]string, bool) {
+	if o == nil || IsNil(o.CustomHelmExecutionLogsBase64) {
 		return nil, false
 	}
-	return o.CustomHelmExecutionLogs, true
+	return o.CustomHelmExecutionLogsBase64, true
 }
 
-// HasCustomHelmExecutionLogs returns a boolean if a field has been set.
-func (o *DebugHostClusterResult) HasCustomHelmExecutionLogs() bool {
-	if o != nil && !IsNil(o.CustomHelmExecutionLogs) {
+// HasCustomHelmExecutionLogsBase64 returns a boolean if a field has been set.
+func (o *DebugHostClusterResult) HasCustomHelmExecutionLogsBase64() bool {
+	if o != nil && !IsNil(o.CustomHelmExecutionLogsBase64) {
 		return true
 	}
 
 	return false
 }
 
-// SetCustomHelmExecutionLogs gets a reference to the given map[string]*os.File and assigns it to the CustomHelmExecutionLogs field.
-func (o *DebugHostClusterResult) SetCustomHelmExecutionLogs(v map[string]*os.File) {
-	o.CustomHelmExecutionLogs = &v
+// SetCustomHelmExecutionLogsBase64 gets a reference to the given map[string]string and assigns it to the CustomHelmExecutionLogsBase64 field.
+func (o *DebugHostClusterResult) SetCustomHelmExecutionLogsBase64(v map[string]string) {
+	o.CustomHelmExecutionLogsBase64 = &v
 }
 
 func (o DebugHostClusterResult) MarshalJSON() ([]byte, error) {
@@ -86,8 +85,8 @@ func (o DebugHostClusterResult) MarshalJSON() ([]byte, error) {
 
 func (o DebugHostClusterResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.CustomHelmExecutionLogs) {
-		toSerialize["customHelmExecutionLogs"] = o.CustomHelmExecutionLogs
+	if !IsNil(o.CustomHelmExecutionLogsBase64) {
+		toSerialize["customHelmExecutionLogsBase64"] = o.CustomHelmExecutionLogsBase64
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -111,7 +110,7 @@ func (o *DebugHostClusterResult) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "customHelmExecutionLogs")
+		delete(additionalProperties, "customHelmExecutionLogsBase64")
 		o.AdditionalProperties = additionalProperties
 	}
 
