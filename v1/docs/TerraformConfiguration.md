@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **RequiredOutputs** | Pointer to [**[]TerraformOutput**](TerraformOutput.md) | The required output keys to export | [optional] 
 **TerraformExecutionIdentity** | Pointer to **string** | The identity to use for terraform execution | [optional] 
 **TerraformPath** | **string** | The path to the terraform files directory | 
+**VariablesValuesFileOverride** | Pointer to ***os.File** | The variables values file override for the Terraform configuration | [optional] 
 
 ## Methods
 
@@ -174,6 +175,31 @@ and a boolean to check if the value has been set.
 
 SetTerraformPath sets TerraformPath field to given value.
 
+
+### GetVariablesValuesFileOverride
+
+`func (o *TerraformConfiguration) GetVariablesValuesFileOverride() *os.File`
+
+GetVariablesValuesFileOverride returns the VariablesValuesFileOverride field if non-nil, zero value otherwise.
+
+### GetVariablesValuesFileOverrideOk
+
+`func (o *TerraformConfiguration) GetVariablesValuesFileOverrideOk() (**os.File, bool)`
+
+GetVariablesValuesFileOverrideOk returns a tuple with the VariablesValuesFileOverride field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVariablesValuesFileOverride
+
+`func (o *TerraformConfiguration) SetVariablesValuesFileOverride(v *os.File)`
+
+SetVariablesValuesFileOverride sets VariablesValuesFileOverride field to given value.
+
+### HasVariablesValuesFileOverride
+
+`func (o *TerraformConfiguration) HasVariablesValuesFileOverride() bool`
+
+HasVariablesValuesFileOverride returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

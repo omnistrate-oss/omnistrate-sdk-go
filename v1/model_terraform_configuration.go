@@ -12,6 +12,7 @@ package v1
 
 import (
 	"encoding/json"
+	"os"
 	"fmt"
 )
 
@@ -31,6 +32,8 @@ type TerraformConfiguration struct {
 	TerraformExecutionIdentity *string `json:"terraformExecutionIdentity,omitempty"`
 	// The path to the terraform files directory
 	TerraformPath string `json:"terraformPath"`
+	// The variables values file override for the Terraform configuration
+	VariablesValuesFileOverride **os.File `json:"variablesValuesFileOverride,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -193,6 +196,29 @@ func (o *TerraformConfiguration) SetTerraformPath(v string) {
 	o.TerraformPath = v
 }
 
+// GetVariablesValuesFileOverride returns the VariablesValuesFileOverride field value if set, zero value otherwise.
+func (o *TerraformConfiguration) GetVariablesValuesFileOverride() *os.File {
+	if o == nil || IsNil(o.VariablesValuesFileOverride) {
+		var ret *os.File
+		return ret
+	}
+	return *o.VariablesValuesFileOverride
+}
+
+// GetVariablesValuesFileOverrideOk returns a tuple with the VariablesValuesFileOverride field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TerraformConfiguration) GetVariablesValuesFileOverrideOk() (**os.File, bool) {
+	if o == nil || IsNil(o.VariablesValuesFileOverride) {
+		return nil, false
+	}
+	return o.VariablesValuesFileOverride, true
+}
+
+// SetVariablesValuesFileOverride gets a reference to the given *os.File and assigns it to the VariablesValuesFileOverride field.
+func (o *TerraformConfiguration) SetVariablesValuesFileOverride(v *os.File) {
+	o.VariablesValuesFileOverride = &v
+}
+
 func (o TerraformConfiguration) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -219,6 +245,9 @@ func (o TerraformConfiguration) ToMap() (map[string]interface{}, error) {
 		toSerialize["terraformExecutionIdentity"] = o.TerraformExecutionIdentity
 	}
 	toSerialize["terraformPath"] = o.TerraformPath
+	if !IsNil(o.VariablesValuesFileOverride) {
+		toSerialize["variablesValuesFileOverride"] = o.VariablesValuesFileOverride
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -268,6 +297,7 @@ func (o *TerraformConfiguration) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "requiredOutputs")
 		delete(additionalProperties, "terraformExecutionIdentity")
 		delete(additionalProperties, "terraformPath")
+		delete(additionalProperties, "variablesValuesFileOverride")
 		o.AdditionalProperties = additionalProperties
 	}
 

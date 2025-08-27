@@ -34,6 +34,8 @@ type HelmChartConfiguration struct {
 	EndpointConfiguration *map[string]Endpoint `json:"endpointConfiguration,omitempty"`
 	// Layered chart values configuration with conditional scoping (mutually exclusive with chartValues). Values are processed in order - later entries override earlier ones for the same keys.
 	LayeredChartValues []ChartValuesRef `json:"layeredChartValues,omitempty"`
+	// The namespace to deploy the Helm chart into (only applicable to OnPrem hosting model)
+	Namespace *string `json:"namespace,omitempty"`
 	// The password to authenticate with the registry
 	Password *string `json:"password,omitempty"`
 	RuntimeConfiguration *HelmRuntimeConfiguration `json:"runtimeConfiguration,omitempty"`
@@ -230,6 +232,29 @@ func (o *HelmChartConfiguration) SetLayeredChartValues(v []ChartValuesRef) {
 	o.LayeredChartValues = v
 }
 
+// GetNamespace returns the Namespace field value if set, zero value otherwise.
+func (o *HelmChartConfiguration) GetNamespace() string {
+	if o == nil || IsNil(o.Namespace) {
+		var ret string
+		return ret
+	}
+	return *o.Namespace
+}
+
+// GetNamespaceOk returns a tuple with the Namespace field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HelmChartConfiguration) GetNamespaceOk() (*string, bool) {
+	if o == nil || IsNil(o.Namespace) {
+		return nil, false
+	}
+	return o.Namespace, true
+}
+
+// SetNamespace gets a reference to the given string and assigns it to the Namespace field.
+func (o *HelmChartConfiguration) SetNamespace(v string) {
+	o.Namespace = &v
+}
+
 // GetPassword returns the Password field value if set, zero value otherwise.
 func (o *HelmChartConfiguration) GetPassword() string {
 	if o == nil || IsNil(o.Password) {
@@ -322,6 +347,9 @@ func (o HelmChartConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.LayeredChartValues) {
 		toSerialize["layeredChartValues"] = o.LayeredChartValues
 	}
+	if !IsNil(o.Namespace) {
+		toSerialize["namespace"] = o.Namespace
+	}
 	if !IsNil(o.Password) {
 		toSerialize["password"] = o.Password
 	}
@@ -384,6 +412,7 @@ func (o *HelmChartConfiguration) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "chartVersion")
 		delete(additionalProperties, "endpointConfiguration")
 		delete(additionalProperties, "layeredChartValues")
+		delete(additionalProperties, "namespace")
 		delete(additionalProperties, "password")
 		delete(additionalProperties, "runtimeConfiguration")
 		delete(additionalProperties, "username")

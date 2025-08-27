@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -226,6 +227,8 @@ docs/Event.md
 docs/EventsApiAPI.md
 docs/EventsPerResource.md
 docs/EventsPerWorkflowStep.md
+docs/ExpressionEvaluatorRequest.md
+docs/ExpressionEvaluatorResult.md
 docs/FailoverResourceInstanceRequest.md
 docs/FleetAddCapacityToResourceInstanceRequest.md
 docs/FleetAddCapacityToResourceInstanceRequest2.md
@@ -317,6 +320,7 @@ docs/FleetRemoveCapacityFromResourceInstanceRequest.md
 docs/FleetRemoveCapacityFromResourceInstanceRequest2.md
 docs/FleetRemoveCustomDNSFromResourceInstanceRequest.md
 docs/FleetResendInvoiceRequest.md
+docs/FleetResendVerificationEmailRequest.md
 docs/FleetRestartResourceInstanceRequest.md
 docs/FleetRestartResourceInstanceRequest2.md
 docs/FleetRestoreResourceInstanceFromSnapshotRequest.md
@@ -841,6 +845,8 @@ model_error.go
 model_event.go
 model_events_per_resource.go
 model_events_per_workflow_step.go
+model_expression_evaluator_request.go
+model_expression_evaluator_result.go
 model_failover_resource_instance_request.go
 model_fleet_add_capacity_to_resource_instance_request.go
 model_fleet_add_capacity_to_resource_instance_request2.go
@@ -931,6 +937,7 @@ model_fleet_remove_capacity_from_resource_instance_request.go
 model_fleet_remove_capacity_from_resource_instance_request2.go
 model_fleet_remove_custom_dns_from_resource_instance_request.go
 model_fleet_resend_invoice_request.go
+model_fleet_resend_verification_email_request.go
 model_fleet_restart_resource_instance_request.go
 model_fleet_restart_resource_instance_request2.go
 model_fleet_restore_resource_instance_from_snapshot_request.go
@@ -1242,4 +1249,17 @@ model_workflow_event.go
 model_workflow_failure.go
 model_workflow_search_record.go
 response.go
+test/api_audit_events_api_test.go
+test/api_cost_api_test.go
+test/api_customer_onboardings_api_test.go
+test/api_events_api_test.go
+test/api_fleet_custom_network_api_test.go
+test/api_fleet_workflows_api_test.go
+test/api_helm_package_api_test.go
+test/api_hostcluster_api_test.go
+test/api_inventory_api_test.go
+test/api_invoice_api_test.go
+test/api_notifications_api_test.go
+test/api_operations_api_test.go
+test/api_webhooks_api_test.go
 utils.go

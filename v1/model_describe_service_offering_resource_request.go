@@ -22,6 +22,10 @@ var _ MappedNullable = &DescribeServiceOfferingResourceRequest{}
 type DescribeServiceOfferingResourceRequest struct {
 	// The instance ID
 	InstanceId *string `json:"instanceId,omitempty"`
+	// ID of a Product Tier
+	ProductTierId *string `json:"productTierId,omitempty"`
+	// The product tier version
+	ProductTierVersion *string `json:"productTierVersion,omitempty"`
 	// ID of a resource
 	ResourceId string `json:"resourceId"`
 	// ID of a Service
@@ -78,6 +82,52 @@ func (o *DescribeServiceOfferingResourceRequest) GetInstanceIdOk() (*string, boo
 // SetInstanceId gets a reference to the given string and assigns it to the InstanceId field.
 func (o *DescribeServiceOfferingResourceRequest) SetInstanceId(v string) {
 	o.InstanceId = &v
+}
+
+// GetProductTierId returns the ProductTierId field value if set, zero value otherwise.
+func (o *DescribeServiceOfferingResourceRequest) GetProductTierId() string {
+	if o == nil || IsNil(o.ProductTierId) {
+		var ret string
+		return ret
+	}
+	return *o.ProductTierId
+}
+
+// GetProductTierIdOk returns a tuple with the ProductTierId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeServiceOfferingResourceRequest) GetProductTierIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ProductTierId) {
+		return nil, false
+	}
+	return o.ProductTierId, true
+}
+
+// SetProductTierId gets a reference to the given string and assigns it to the ProductTierId field.
+func (o *DescribeServiceOfferingResourceRequest) SetProductTierId(v string) {
+	o.ProductTierId = &v
+}
+
+// GetProductTierVersion returns the ProductTierVersion field value if set, zero value otherwise.
+func (o *DescribeServiceOfferingResourceRequest) GetProductTierVersion() string {
+	if o == nil || IsNil(o.ProductTierVersion) {
+		var ret string
+		return ret
+	}
+	return *o.ProductTierVersion
+}
+
+// GetProductTierVersionOk returns a tuple with the ProductTierVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeServiceOfferingResourceRequest) GetProductTierVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.ProductTierVersion) {
+		return nil, false
+	}
+	return o.ProductTierVersion, true
+}
+
+// SetProductTierVersion gets a reference to the given string and assigns it to the ProductTierVersion field.
+func (o *DescribeServiceOfferingResourceRequest) SetProductTierVersion(v string) {
+	o.ProductTierVersion = &v
 }
 
 // GetResourceId returns the ResourceId field value
@@ -165,6 +215,12 @@ func (o DescribeServiceOfferingResourceRequest) ToMap() (map[string]interface{},
 	if !IsNil(o.InstanceId) {
 		toSerialize["instanceId"] = o.InstanceId
 	}
+	if !IsNil(o.ProductTierId) {
+		toSerialize["productTierId"] = o.ProductTierId
+	}
+	if !IsNil(o.ProductTierVersion) {
+		toSerialize["productTierVersion"] = o.ProductTierVersion
+	}
 	toSerialize["resourceId"] = o.ResourceId
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["token"] = o.Token
@@ -214,6 +270,8 @@ func (o *DescribeServiceOfferingResourceRequest) UnmarshalJSON(data []byte) (err
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "instanceId")
+		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "productTierVersion")
 		delete(additionalProperties, "resourceId")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "token")

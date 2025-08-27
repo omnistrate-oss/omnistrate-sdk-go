@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **IsExternal** | **bool** | Whether the resource is external | 
 **ManagedResourceType** | Pointer to **string** | The managed resource type of instance | [optional] 
 **Name** | **string** | The name of the resource | 
+**UrlKey** | Pointer to **string** | The URL key of the resource | [optional] 
 
 ## Methods
 
@@ -185,6 +186,31 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetUrlKey
+
+`func (o *ResourceSummary) GetUrlKey() string`
+
+GetUrlKey returns the UrlKey field if non-nil, zero value otherwise.
+
+### GetUrlKeyOk
+
+`func (o *ResourceSummary) GetUrlKeyOk() (*string, bool)`
+
+GetUrlKeyOk returns a tuple with the UrlKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUrlKey
+
+`func (o *ResourceSummary) SetUrlKey(v string)`
+
+SetUrlKey sets UrlKey field to given value.
+
+### HasUrlKey
+
+`func (o *ResourceSummary) HasUrlKey() bool`
+
+HasUrlKey returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

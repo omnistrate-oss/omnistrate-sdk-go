@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **SubscriptionId** | Pointer to **string** | Subscription ID | [optional] 
 **SubscriptionLicense** | Pointer to [**SubscriptionLicense**](SubscriptionLicense.md) |  | [optional] 
 **SubscriptionStatus** | Pointer to **string** | Subscription Status | [optional] 
+**TierVersion** | Pointer to **string** | The tier version of the resource instance. | [optional] 
 
 ## Methods
 
@@ -865,6 +866,31 @@ SetSubscriptionStatus sets SubscriptionStatus field to given value.
 `func (o *DescribeResourceInstanceResult) HasSubscriptionStatus() bool`
 
 HasSubscriptionStatus returns a boolean if a field has been set.
+
+### GetTierVersion
+
+`func (o *DescribeResourceInstanceResult) GetTierVersion() string`
+
+GetTierVersion returns the TierVersion field if non-nil, zero value otherwise.
+
+### GetTierVersionOk
+
+`func (o *DescribeResourceInstanceResult) GetTierVersionOk() (*string, bool)`
+
+GetTierVersionOk returns a tuple with the TierVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTierVersion
+
+`func (o *DescribeResourceInstanceResult) SetTierVersion(v string)`
+
+SetTierVersion sets TierVersion field to given value.
+
+### HasTierVersion
+
+`func (o *DescribeResourceInstanceResult) HasTierVersion() bool`
+
+HasTierVersion returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

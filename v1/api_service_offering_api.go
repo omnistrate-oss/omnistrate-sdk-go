@@ -258,6 +258,20 @@ type ApiServiceOfferingApiDescribeServiceOfferingResourceRequest struct {
 	serviceId string
 	resourceId string
 	instanceId string
+	productTierId *string
+	productTierVersion *string
+}
+
+// The product tier Id
+func (r ApiServiceOfferingApiDescribeServiceOfferingResourceRequest) ProductTierId(productTierId string) ApiServiceOfferingApiDescribeServiceOfferingResourceRequest {
+	r.productTierId = &productTierId
+	return r
+}
+
+// The product tier version
+func (r ApiServiceOfferingApiDescribeServiceOfferingResourceRequest) ProductTierVersion(productTierVersion string) ApiServiceOfferingApiDescribeServiceOfferingResourceRequest {
+	r.productTierVersion = &productTierVersion
+	return r
 }
 
 func (r ApiServiceOfferingApiDescribeServiceOfferingResourceRequest) Execute() (*DescribeServiceOfferingResourceResult, *http.Response, error) {
@@ -307,6 +321,12 @@ func (a *ServiceOfferingApiAPIService) ServiceOfferingApiDescribeServiceOffering
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.productTierId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "productTierId", r.productTierId, "form", "")
+	}
+	if r.productTierVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "productTierVersion", r.productTierVersion, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
