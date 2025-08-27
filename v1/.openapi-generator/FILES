@@ -18,6 +18,7 @@ api_custom_domain_api.go
 api_custom_network_api.go
 api_demo_api.go
 api_deployment_config_api.go
+api_expression_evaluator_api.go
 api_global_api.go
 api_helm_package_api.go
 api_identity_provider_api.go
@@ -81,6 +82,12 @@ docs/AddStorageVolumeConfigRequest.md
 docs/AddStorageVolumeConfigRequest2.md
 docs/AdditionalSecurityContext.md
 docs/Address.md
+docs/AgentCodeInterpreterConfiguration.md
+docs/AgentConfiguration.md
+docs/AgentEvaluation.md
+docs/AgentMemoryConfiguration.md
+docs/AgentMonitoringConfiguration.md
+docs/AgentVectorStoreConfiguration.md
 docs/Amenity.md
 docs/AuditEventsApiAPI.md
 docs/AutoScalingMetricSpec.md
@@ -124,6 +131,9 @@ docs/ConsumptionUsageApiAPI.md
 docs/ConsumptionUserApiAPI.md
 docs/ContactusApiAPI.md
 docs/ContactusRequest.md
+docs/ContainerImageConfiguration.md
+docs/ContainerImageLocator.md
+docs/ContainerImageRegistryCredentials.md
 docs/CopyProductTierRequest.md
 docs/CopyProductTierRequest2.md
 docs/CopyServiceModelRequest.md
@@ -387,6 +397,10 @@ docs/EnvironmentHealthReport.md
 docs/EnvironmentPromotionStatus.md
 docs/EnvironmentVariable.md
 docs/Error.md
+docs/ExpressionEvaluatorApiAPI.md
+docs/ExpressionEvaluatorRequest.md
+docs/ExpressionEvaluatorRequest2.md
+docs/ExpressionEvaluatorResult.md
 docs/FailoverResourceInstanceRequest.md
 docs/FailoverResourceInstanceRequest2.md
 docs/FileMetadata.md
@@ -410,6 +424,8 @@ docs/GetServicePlanRequest.md
 docs/GetServicePlanResult.md
 docs/GetTenantBillingStatusRequest.md
 docs/GetTenantBillingStatusResult.md
+docs/GetTierVersionSetSpecRequest.md
+docs/GetTierVersionSetSpecResult.md
 docs/GetUsageRequest.md
 docs/GetUsageResult.md
 docs/GitConfiguration.md
@@ -549,6 +565,8 @@ docs/ListSubscriptionRequestsRequest.md
 docs/ListSubscriptionRequestsResult.md
 docs/ListSubscriptionsRequest.md
 docs/ListSubscriptionsResult.md
+docs/ListTierVersionSetSpecsRequest.md
+docs/ListTierVersionSetSpecsResult.md
 docs/ListTierVersionSetsRequest.md
 docs/ListTierVersionSetsResult.md
 docs/ListUpgradePathRequest.md
@@ -657,6 +675,7 @@ docs/SaaSPortalImageConfig.md
 docs/SaasPortalApiAPI.md
 docs/SaveHelmPackageRequest.md
 docs/SaveHelmPackageRequest2.md
+docs/ScheduleConfig.md
 docs/Secret.md
 docs/SecretsApiAPI.md
 docs/ServiceApiAPI.md
@@ -704,6 +723,7 @@ docs/TerraformConfiguration.md
 docs/TerraformOutput.md
 docs/TierVersionSet.md
 docs/TierVersionSetApiAPI.md
+docs/TierVersionSetSpecSummary.md
 docs/UnsetEnvironmentVariablesRequest.md
 docs/UnsetEnvironmentVariablesRequest2.md
 docs/UpdateAccountConfigResourceInstanceRequest.md
@@ -803,6 +823,12 @@ model_add_storage_volume_config_request.go
 model_add_storage_volume_config_request2.go
 model_additional_security_context.go
 model_address.go
+model_agent_code_interpreter_configuration.go
+model_agent_configuration.go
+model_agent_evaluation.go
+model_agent_memory_configuration.go
+model_agent_monitoring_configuration.go
+model_agent_vector_store_configuration.go
 model_amenity.go
 model_api_entity.go
 model_auto_scaling_metric_spec.go
@@ -838,6 +864,9 @@ model_compute_instance_type_config_override.go
 model_consumption_service_auth_request.go
 model_consumption_service_auth_result.go
 model_contactus_request.go
+model_container_image_configuration.go
+model_container_image_locator.go
+model_container_image_registry_credentials.go
 model_copy_product_tier_request.go
 model_copy_product_tier_request2.go
 model_copy_service_model_request.go
@@ -1097,6 +1126,9 @@ model_environment_health_report.go
 model_environment_promotion_status.go
 model_environment_variable.go
 model_error.go
+model_expression_evaluator_request.go
+model_expression_evaluator_request2.go
+model_expression_evaluator_result.go
 model_failover_resource_instance_request.go
 model_failover_resource_instance_request2.go
 model_file_metadata.go
@@ -1120,6 +1152,8 @@ model_get_service_plan_request.go
 model_get_service_plan_result.go
 model_get_tenant_billing_status_request.go
 model_get_tenant_billing_status_result.go
+model_get_tier_version_set_spec_request.go
+model_get_tier_version_set_spec_result.go
 model_get_usage_request.go
 model_get_usage_result.go
 model_git_configuration.go
@@ -1250,6 +1284,8 @@ model_list_subscription_requests_request.go
 model_list_subscription_requests_result.go
 model_list_subscriptions_request.go
 model_list_subscriptions_result.go
+model_list_tier_version_set_specs_request.go
+model_list_tier_version_set_specs_result.go
 model_list_tier_version_sets_request.go
 model_list_tier_version_sets_result.go
 model_list_upgrade_path_request.go
@@ -1350,6 +1386,7 @@ model_saa_s_portal_email_config.go
 model_saa_s_portal_image_config.go
 model_save_helm_package_request.go
 model_save_helm_package_request2.go
+model_schedule_config.go
 model_secret.go
 model_service_assets.go
 model_service_deployment_details.go
@@ -1379,6 +1416,7 @@ model_taint_configuration.go
 model_terraform_configuration.go
 model_terraform_output.go
 model_tier_version_set.go
+model_tier_version_set_spec_summary.go
 model_unset_environment_variables_request.go
 model_unset_environment_variables_request2.go
 model_update_account_config_resource_instance_request.go
@@ -1470,6 +1508,7 @@ test/api_custom_domain_api_test.go
 test/api_custom_network_api_test.go
 test/api_demo_api_test.go
 test/api_deployment_config_api_test.go
+test/api_expression_evaluator_api_test.go
 test/api_global_api_test.go
 test/api_helm_package_api_test.go
 test/api_identity_provider_api_test.go

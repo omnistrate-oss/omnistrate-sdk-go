@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **ChartVersion** | **string** | The chart version of the Helm package | 
 **EndpointConfiguration** | Pointer to [**map[string]Endpoint**](Endpoint.md) | The endpoints from the Helm Deployment to expose to the customer | [optional] 
 **LayeredChartValues** | Pointer to [**[]ChartValuesRef**](ChartValuesRef.md) | Layered chart values configuration with conditional scoping (mutually exclusive with chartValues). Values are processed in order - later entries override earlier ones for the same keys. | [optional] 
+**Namespace** | Pointer to **string** | The namespace to deploy the Helm chart into (only applicable to OnPrem hosting model) | [optional] 
 **Password** | Pointer to **string** | The password to authenticate with the registry | [optional] 
 **RuntimeConfiguration** | Pointer to [**HelmRuntimeConfiguration**](HelmRuntimeConfiguration.md) |  | [optional] 
 **Username** | Pointer to **string** | The username to authenticate with the registry | [optional] 
@@ -188,6 +189,31 @@ SetLayeredChartValues sets LayeredChartValues field to given value.
 `func (o *HelmChartConfiguration) HasLayeredChartValues() bool`
 
 HasLayeredChartValues returns a boolean if a field has been set.
+
+### GetNamespace
+
+`func (o *HelmChartConfiguration) GetNamespace() string`
+
+GetNamespace returns the Namespace field if non-nil, zero value otherwise.
+
+### GetNamespaceOk
+
+`func (o *HelmChartConfiguration) GetNamespaceOk() (*string, bool)`
+
+GetNamespaceOk returns a tuple with the Namespace field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNamespace
+
+`func (o *HelmChartConfiguration) SetNamespace(v string)`
+
+SetNamespace sets Namespace field to given value.
+
+### HasNamespace
+
+`func (o *HelmChartConfiguration) HasNamespace() bool`
+
+HasNamespace returns a boolean if a field has been set.
 
 ### GetPassword
 

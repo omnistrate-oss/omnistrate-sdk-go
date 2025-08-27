@@ -23,6 +23,7 @@ type JobConfig struct {
 	ActiveDeadlineSeconds *int64 `json:"activeDeadlineSeconds,omitempty"`
 	// The number of retries before marking the job as failed
 	BackoffLimit *int32 `json:"backoffLimit,omitempty"`
+	ScheduleConfig *ScheduleConfig `json:"scheduleConfig,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -99,6 +100,29 @@ func (o *JobConfig) SetBackoffLimit(v int32) {
 	o.BackoffLimit = &v
 }
 
+// GetScheduleConfig returns the ScheduleConfig field value if set, zero value otherwise.
+func (o *JobConfig) GetScheduleConfig() ScheduleConfig {
+	if o == nil || IsNil(o.ScheduleConfig) {
+		var ret ScheduleConfig
+		return ret
+	}
+	return *o.ScheduleConfig
+}
+
+// GetScheduleConfigOk returns a tuple with the ScheduleConfig field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobConfig) GetScheduleConfigOk() (*ScheduleConfig, bool) {
+	if o == nil || IsNil(o.ScheduleConfig) {
+		return nil, false
+	}
+	return o.ScheduleConfig, true
+}
+
+// SetScheduleConfig gets a reference to the given ScheduleConfig and assigns it to the ScheduleConfig field.
+func (o *JobConfig) SetScheduleConfig(v ScheduleConfig) {
+	o.ScheduleConfig = &v
+}
+
 func (o JobConfig) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -114,6 +138,9 @@ func (o JobConfig) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.BackoffLimit) {
 		toSerialize["backoffLimit"] = o.BackoffLimit
+	}
+	if !IsNil(o.ScheduleConfig) {
+		toSerialize["scheduleConfig"] = o.ScheduleConfig
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -139,6 +166,7 @@ func (o *JobConfig) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "activeDeadlineSeconds")
 		delete(additionalProperties, "backoffLimit")
+		delete(additionalProperties, "scheduleConfig")
 		o.AdditionalProperties = additionalProperties
 	}
 

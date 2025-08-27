@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **CustomNetworkId** | Pointer to **string** | Custom network for resource | [optional] 
 **ExternalBillingId** | Pointer to **string** | This externalBillingId is deprecated and will be removed in the future | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
+**OnpremPlatform** | Pointer to **string** | OnPrem platform | [optional] 
 **ProductTierVersion** | Pointer to **string** | The product tier version | [optional] 
 **Region** | Pointer to **string** | The region code | [optional] 
 **RequestParams** | Pointer to **interface{}** | The request parameters | [optional] 
@@ -130,6 +131,31 @@ SetNetworkType sets NetworkType field to given value.
 `func (o *CreateResourceInstanceRequest2) HasNetworkType() bool`
 
 HasNetworkType returns a boolean if a field has been set.
+
+### GetOnpremPlatform
+
+`func (o *CreateResourceInstanceRequest2) GetOnpremPlatform() string`
+
+GetOnpremPlatform returns the OnpremPlatform field if non-nil, zero value otherwise.
+
+### GetOnpremPlatformOk
+
+`func (o *CreateResourceInstanceRequest2) GetOnpremPlatformOk() (*string, bool)`
+
+GetOnpremPlatformOk returns a tuple with the OnpremPlatform field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnpremPlatform
+
+`func (o *CreateResourceInstanceRequest2) SetOnpremPlatform(v string)`
+
+SetOnpremPlatform sets OnpremPlatform field to given value.
+
+### HasOnpremPlatform
+
+`func (o *CreateResourceInstanceRequest2) HasOnpremPlatform() bool`
+
+HasOnpremPlatform returns a boolean if a field has been set.
 
 ### GetProductTierVersion
 

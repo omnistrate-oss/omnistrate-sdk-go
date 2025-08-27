@@ -23,8 +23,6 @@ type Amenity struct {
 	Description *string `json:"Description,omitempty"`
 	// Whether the amenity is managed by the system.
 	IsManaged *bool `json:"IsManaged,omitempty"`
-	// Whether the amenity can be modified.
-	Modifiable *bool `json:"Modifiable,omitempty"`
 	// The name of the amenity.
 	Name *string `json:"Name,omitempty"`
 	// The properties of the amenity.
@@ -97,29 +95,6 @@ func (o *Amenity) GetIsManagedOk() (*bool, bool) {
 // SetIsManaged gets a reference to the given bool and assigns it to the IsManaged field.
 func (o *Amenity) SetIsManaged(v bool) {
 	o.IsManaged = &v
-}
-
-// GetModifiable returns the Modifiable field value if set, zero value otherwise.
-func (o *Amenity) GetModifiable() bool {
-	if o == nil || IsNil(o.Modifiable) {
-		var ret bool
-		return ret
-	}
-	return *o.Modifiable
-}
-
-// GetModifiableOk returns a tuple with the Modifiable field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Amenity) GetModifiableOk() (*bool, bool) {
-	if o == nil || IsNil(o.Modifiable) {
-		return nil, false
-	}
-	return o.Modifiable, true
-}
-
-// SetModifiable gets a reference to the given bool and assigns it to the Modifiable field.
-func (o *Amenity) SetModifiable(v bool) {
-	o.Modifiable = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -207,9 +182,6 @@ func (o Amenity) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsManaged) {
 		toSerialize["IsManaged"] = o.IsManaged
 	}
-	if !IsNil(o.Modifiable) {
-		toSerialize["Modifiable"] = o.Modifiable
-	}
 	if !IsNil(o.Name) {
 		toSerialize["Name"] = o.Name
 	}
@@ -243,7 +215,6 @@ func (o *Amenity) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "Description")
 		delete(additionalProperties, "IsManaged")
-		delete(additionalProperties, "Modifiable")
 		delete(additionalProperties, "Name")
 		delete(additionalProperties, "Properties")
 		delete(additionalProperties, "Type")

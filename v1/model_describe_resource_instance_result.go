@@ -79,6 +79,8 @@ type DescribeResourceInstanceResult struct {
 	SubscriptionLicense *SubscriptionLicense `json:"subscriptionLicense,omitempty"`
 	// Subscription Status
 	SubscriptionStatus *string `json:"subscriptionStatus,omitempty"`
+	// The tier version of the resource instance.
+	TierVersion *string `json:"tierVersion,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -838,6 +840,29 @@ func (o *DescribeResourceInstanceResult) SetSubscriptionStatus(v string) {
 	o.SubscriptionStatus = &v
 }
 
+// GetTierVersion returns the TierVersion field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetTierVersion() string {
+	if o == nil || IsNil(o.TierVersion) {
+		var ret string
+		return ret
+	}
+	return *o.TierVersion
+}
+
+// GetTierVersionOk returns a tuple with the TierVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetTierVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.TierVersion) {
+		return nil, false
+	}
+	return o.TierVersion, true
+}
+
+// SetTierVersion gets a reference to the given string and assigns it to the TierVersion field.
+func (o *DescribeResourceInstanceResult) SetTierVersion(v string) {
+	o.TierVersion = &v
+}
+
 func (o DescribeResourceInstanceResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -944,6 +969,9 @@ func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.SubscriptionStatus) {
 		toSerialize["subscriptionStatus"] = o.SubscriptionStatus
 	}
+	if !IsNil(o.TierVersion) {
+		toSerialize["tierVersion"] = o.TierVersion
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -998,6 +1026,7 @@ func (o *DescribeResourceInstanceResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "subscriptionLicense")
 		delete(additionalProperties, "subscriptionStatus")
+		delete(additionalProperties, "tierVersion")
 		o.AdditionalProperties = additionalProperties
 	}
 

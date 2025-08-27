@@ -41,6 +41,8 @@ type ServiceOffering struct {
 	ProductTierDescription *string `json:"productTierDescription,omitempty"`
 	// Documentation
 	ProductTierDocumentation string `json:"productTierDocumentation"`
+	// Enabled product tier features
+	ProductTierFeatures []ProductTierFeatureDetail `json:"productTierFeatures,omitempty"`
 	// ID of a Product Tier
 	ProductTierID string `json:"productTierID"`
 	// The product tier name
@@ -387,6 +389,29 @@ func (o *ServiceOffering) GetProductTierDocumentationOk() (*string, bool) {
 // SetProductTierDocumentation sets field value
 func (o *ServiceOffering) SetProductTierDocumentation(v string) {
 	o.ProductTierDocumentation = v
+}
+
+// GetProductTierFeatures returns the ProductTierFeatures field value if set, zero value otherwise.
+func (o *ServiceOffering) GetProductTierFeatures() []ProductTierFeatureDetail {
+	if o == nil || IsNil(o.ProductTierFeatures) {
+		var ret []ProductTierFeatureDetail
+		return ret
+	}
+	return o.ProductTierFeatures
+}
+
+// GetProductTierFeaturesOk returns a tuple with the ProductTierFeatures field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceOffering) GetProductTierFeaturesOk() ([]ProductTierFeatureDetail, bool) {
+	if o == nil || IsNil(o.ProductTierFeatures) {
+		return nil, false
+	}
+	return o.ProductTierFeatures, true
+}
+
+// SetProductTierFeatures gets a reference to the given []ProductTierFeatureDetail and assigns it to the ProductTierFeatures field.
+func (o *ServiceOffering) SetProductTierFeatures(v []ProductTierFeatureDetail) {
+	o.ProductTierFeatures = v
 }
 
 // GetProductTierID returns the ProductTierID field value
@@ -1003,6 +1028,9 @@ func (o ServiceOffering) ToMap() (map[string]interface{}, error) {
 		toSerialize["productTierDescription"] = o.ProductTierDescription
 	}
 	toSerialize["productTierDocumentation"] = o.ProductTierDocumentation
+	if !IsNil(o.ProductTierFeatures) {
+		toSerialize["productTierFeatures"] = o.ProductTierFeatures
+	}
 	toSerialize["productTierID"] = o.ProductTierID
 	toSerialize["productTierName"] = o.ProductTierName
 	if !IsNil(o.ProductTierPlanDescription) {
@@ -1111,6 +1139,7 @@ func (o *ServiceOffering) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "privateRegions")
 		delete(additionalProperties, "productTierDescription")
 		delete(additionalProperties, "productTierDocumentation")
+		delete(additionalProperties, "productTierFeatures")
 		delete(additionalProperties, "productTierID")
 		delete(additionalProperties, "productTierName")
 		delete(additionalProperties, "productTierPlanDescription")

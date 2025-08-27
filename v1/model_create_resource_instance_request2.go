@@ -27,6 +27,8 @@ type CreateResourceInstanceRequest2 struct {
 	ExternalBillingId *string `json:"externalBillingId,omitempty"`
 	// The network type
 	NetworkType *string `json:"network_type,omitempty"`
+	// OnPrem platform
+	OnpremPlatform *string `json:"onprem_platform,omitempty"`
 	// The product tier version
 	ProductTierVersion *string `json:"productTierVersion,omitempty"`
 	// The region code
@@ -147,6 +149,29 @@ func (o *CreateResourceInstanceRequest2) SetNetworkType(v string) {
 	o.NetworkType = &v
 }
 
+// GetOnpremPlatform returns the OnpremPlatform field value if set, zero value otherwise.
+func (o *CreateResourceInstanceRequest2) GetOnpremPlatform() string {
+	if o == nil || IsNil(o.OnpremPlatform) {
+		var ret string
+		return ret
+	}
+	return *o.OnpremPlatform
+}
+
+// GetOnpremPlatformOk returns a tuple with the OnpremPlatform field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateResourceInstanceRequest2) GetOnpremPlatformOk() (*string, bool) {
+	if o == nil || IsNil(o.OnpremPlatform) {
+		return nil, false
+	}
+	return o.OnpremPlatform, true
+}
+
+// SetOnpremPlatform gets a reference to the given string and assigns it to the OnpremPlatform field.
+func (o *CreateResourceInstanceRequest2) SetOnpremPlatform(v string) {
+	o.OnpremPlatform = &v
+}
+
 // GetProductTierVersion returns the ProductTierVersion field value if set, zero value otherwise.
 func (o *CreateResourceInstanceRequest2) GetProductTierVersion() string {
 	if o == nil || IsNil(o.ProductTierVersion) {
@@ -239,6 +264,9 @@ func (o CreateResourceInstanceRequest2) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.NetworkType) {
 		toSerialize["network_type"] = o.NetworkType
 	}
+	if !IsNil(o.OnpremPlatform) {
+		toSerialize["onprem_platform"] = o.OnpremPlatform
+	}
 	if !IsNil(o.ProductTierVersion) {
 		toSerialize["productTierVersion"] = o.ProductTierVersion
 	}
@@ -274,6 +302,7 @@ func (o *CreateResourceInstanceRequest2) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "custom_network_id")
 		delete(additionalProperties, "externalBillingId")
 		delete(additionalProperties, "network_type")
+		delete(additionalProperties, "onprem_platform")
 		delete(additionalProperties, "productTierVersion")
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "requestParams")

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ActiveDeadlineSeconds** | Pointer to **int64** | The duration in seconds relative to the startTime that the job may be active before the system tries to terminate it | [optional] [default to 3600]
 **BackoffLimit** | Pointer to **int32** | The number of retries before marking the job as failed | [optional] [default to 5]
+**ScheduleConfig** | Pointer to [**ScheduleConfig**](ScheduleConfig.md) |  | [optional] 
 
 ## Methods
 
@@ -75,6 +76,31 @@ SetBackoffLimit sets BackoffLimit field to given value.
 `func (o *JobConfig) HasBackoffLimit() bool`
 
 HasBackoffLimit returns a boolean if a field has been set.
+
+### GetScheduleConfig
+
+`func (o *JobConfig) GetScheduleConfig() ScheduleConfig`
+
+GetScheduleConfig returns the ScheduleConfig field if non-nil, zero value otherwise.
+
+### GetScheduleConfigOk
+
+`func (o *JobConfig) GetScheduleConfigOk() (*ScheduleConfig, bool)`
+
+GetScheduleConfigOk returns a tuple with the ScheduleConfig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScheduleConfig
+
+`func (o *JobConfig) SetScheduleConfig(v ScheduleConfig)`
+
+SetScheduleConfig sets ScheduleConfig field to given value.
+
+### HasScheduleConfig
+
+`func (o *JobConfig) HasScheduleConfig() bool`
+
+HasScheduleConfig returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

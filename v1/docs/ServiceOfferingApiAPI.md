@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## ServiceOfferingApiDescribeServiceOfferingResource
 
-> DescribeServiceOfferingResourceResult ServiceOfferingApiDescribeServiceOfferingResource(ctx, serviceId, resourceId, instanceId).Execute()
+> DescribeServiceOfferingResourceResult ServiceOfferingApiDescribeServiceOfferingResource(ctx, serviceId, resourceId, instanceId).ProductTierId(productTierId).ProductTierVersion(productTierVersion).Execute()
 
 DescribeServiceOfferingResource service-offering-api
 
@@ -104,10 +104,12 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID
 	resourceId := "r-12345678" // string | The resource ID
 	instanceId := "instance-12345678" // string | The instance ID (default to "none")
+	productTierId := "pt-12345678" // string | The product tier Id (optional)
+	productTierVersion := "1.0.0" // string | The product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServiceOfferingApiAPI.ServiceOfferingApiDescribeServiceOfferingResource(context.Background(), serviceId, resourceId, instanceId).Execute()
+	resp, r, err := apiClient.ServiceOfferingApiAPI.ServiceOfferingApiDescribeServiceOfferingResource(context.Background(), serviceId, resourceId, instanceId).ProductTierId(productTierId).ProductTierVersion(productTierVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceOfferingApiAPI.ServiceOfferingApiDescribeServiceOfferingResource``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -137,6 +139,8 @@ Name | Type | Description  | Notes
 
 
 
+ **productTierId** | **string** | The product tier Id | 
+ **productTierVersion** | **string** | The product tier version | 
 
 ### Return type
 

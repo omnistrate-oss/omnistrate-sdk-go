@@ -1,0 +1,119 @@
+# GetTierVersionSetSpecRequest
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**ProductTierId** | **string** | ID of a Product Tier | 
+**ServiceId** | **string** | ID of a Service | 
+**Token** | **string** | JWT token used to perform authorization | 
+**Version** | Pointer to **string** | The version number for the specific version set. If not specified, returns the latest preferred or active version. | [optional] 
+
+## Methods
+
+### NewGetTierVersionSetSpecRequest
+
+`func NewGetTierVersionSetSpecRequest(productTierId string, serviceId string, token string, ) *GetTierVersionSetSpecRequest`
+
+NewGetTierVersionSetSpecRequest instantiates a new GetTierVersionSetSpecRequest object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewGetTierVersionSetSpecRequestWithDefaults
+
+`func NewGetTierVersionSetSpecRequestWithDefaults() *GetTierVersionSetSpecRequest`
+
+NewGetTierVersionSetSpecRequestWithDefaults instantiates a new GetTierVersionSetSpecRequest object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetProductTierId
+
+`func (o *GetTierVersionSetSpecRequest) GetProductTierId() string`
+
+GetProductTierId returns the ProductTierId field if non-nil, zero value otherwise.
+
+### GetProductTierIdOk
+
+`func (o *GetTierVersionSetSpecRequest) GetProductTierIdOk() (*string, bool)`
+
+GetProductTierIdOk returns a tuple with the ProductTierId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductTierId
+
+`func (o *GetTierVersionSetSpecRequest) SetProductTierId(v string)`
+
+SetProductTierId sets ProductTierId field to given value.
+
+
+### GetServiceId
+
+`func (o *GetTierVersionSetSpecRequest) GetServiceId() string`
+
+GetServiceId returns the ServiceId field if non-nil, zero value otherwise.
+
+### GetServiceIdOk
+
+`func (o *GetTierVersionSetSpecRequest) GetServiceIdOk() (*string, bool)`
+
+GetServiceIdOk returns a tuple with the ServiceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceId
+
+`func (o *GetTierVersionSetSpecRequest) SetServiceId(v string)`
+
+SetServiceId sets ServiceId field to given value.
+
+
+### GetToken
+
+`func (o *GetTierVersionSetSpecRequest) GetToken() string`
+
+GetToken returns the Token field if non-nil, zero value otherwise.
+
+### GetTokenOk
+
+`func (o *GetTierVersionSetSpecRequest) GetTokenOk() (*string, bool)`
+
+GetTokenOk returns a tuple with the Token field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetToken
+
+`func (o *GetTierVersionSetSpecRequest) SetToken(v string)`
+
+SetToken sets Token field to given value.
+
+
+### GetVersion
+
+`func (o *GetTierVersionSetSpecRequest) GetVersion() string`
+
+GetVersion returns the Version field if non-nil, zero value otherwise.
+
+### GetVersionOk
+
+`func (o *GetTierVersionSetSpecRequest) GetVersionOk() (*string, bool)`
+
+GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersion
+
+`func (o *GetTierVersionSetSpecRequest) SetVersion(v string)`
+
+SetVersion sets Version field to given value.
+
+### HasVersion
+
+`func (o *GetTierVersionSetSpecRequest) HasVersion() bool`
+
+HasVersion returns a boolean if a field has been set.
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

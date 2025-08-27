@@ -5,7 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AdditionalSecurityContext** | Pointer to [**AdditionalSecurityContext**](AdditionalSecurityContext.md) |  | [optional] 
+**AgentConfiguration** | Pointer to [**AgentConfiguration**](AgentConfiguration.md) |  | [optional] 
 **BackupConfiguration** | Pointer to [**BackupConfiguration**](BackupConfiguration.md) |  | [optional] 
+**ContainerImageConfiguration** | Pointer to [**ContainerImageConfiguration**](ContainerImageConfiguration.md) |  | [optional] 
 **CustomLabels** | Pointer to **map[string]string** | Custom labels for the resource | [optional] 
 **CustomSysCTLs** | Pointer to **map[string]string** | Custom sysctl settings for the resource | [optional] 
 **CustomULimits** | Pointer to [**[]CustomULimits**](CustomULimits.md) | Custom ulimits for the resource | [optional] 
@@ -20,6 +22,7 @@ Name | Type | Description | Notes
 **L4LoadBalancerConfiguration** | Pointer to [**L4LoadBalancerConfiguration**](L4LoadBalancerConfiguration.md) |  | [optional] 
 **L7LoadBalancerConfiguration** | Pointer to [**L7LoadBalancerConfiguration**](L7LoadBalancerConfiguration.md) |  | [optional] 
 **Name** | Pointer to **string** | Name of the resource | [optional] 
+**OnPremTerraformConfigurations** | Pointer to [**map[string]TerraformConfiguration**](TerraformConfiguration.md) | The Terraform configurations for various OnPrem platforms | [optional] 
 **OperatorCRDConfiguration** | Pointer to [**OperatorCRDConfiguration**](OperatorCRDConfiguration.md) |  | [optional] 
 **TerraformConfigurations** | Pointer to [**map[string]TerraformConfiguration**](TerraformConfiguration.md) | The Terraform configurations for various cloud providers | [optional] 
 
@@ -67,6 +70,31 @@ SetAdditionalSecurityContext sets AdditionalSecurityContext field to given value
 
 HasAdditionalSecurityContext returns a boolean if a field has been set.
 
+### GetAgentConfiguration
+
+`func (o *UpdateResourceRequest2) GetAgentConfiguration() AgentConfiguration`
+
+GetAgentConfiguration returns the AgentConfiguration field if non-nil, zero value otherwise.
+
+### GetAgentConfigurationOk
+
+`func (o *UpdateResourceRequest2) GetAgentConfigurationOk() (*AgentConfiguration, bool)`
+
+GetAgentConfigurationOk returns a tuple with the AgentConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAgentConfiguration
+
+`func (o *UpdateResourceRequest2) SetAgentConfiguration(v AgentConfiguration)`
+
+SetAgentConfiguration sets AgentConfiguration field to given value.
+
+### HasAgentConfiguration
+
+`func (o *UpdateResourceRequest2) HasAgentConfiguration() bool`
+
+HasAgentConfiguration returns a boolean if a field has been set.
+
 ### GetBackupConfiguration
 
 `func (o *UpdateResourceRequest2) GetBackupConfiguration() BackupConfiguration`
@@ -91,6 +119,31 @@ SetBackupConfiguration sets BackupConfiguration field to given value.
 `func (o *UpdateResourceRequest2) HasBackupConfiguration() bool`
 
 HasBackupConfiguration returns a boolean if a field has been set.
+
+### GetContainerImageConfiguration
+
+`func (o *UpdateResourceRequest2) GetContainerImageConfiguration() ContainerImageConfiguration`
+
+GetContainerImageConfiguration returns the ContainerImageConfiguration field if non-nil, zero value otherwise.
+
+### GetContainerImageConfigurationOk
+
+`func (o *UpdateResourceRequest2) GetContainerImageConfigurationOk() (*ContainerImageConfiguration, bool)`
+
+GetContainerImageConfigurationOk returns a tuple with the ContainerImageConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContainerImageConfiguration
+
+`func (o *UpdateResourceRequest2) SetContainerImageConfiguration(v ContainerImageConfiguration)`
+
+SetContainerImageConfiguration sets ContainerImageConfiguration field to given value.
+
+### HasContainerImageConfiguration
+
+`func (o *UpdateResourceRequest2) HasContainerImageConfiguration() bool`
+
+HasContainerImageConfiguration returns a boolean if a field has been set.
 
 ### GetCustomLabels
 
@@ -441,6 +494,31 @@ SetName sets Name field to given value.
 `func (o *UpdateResourceRequest2) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetOnPremTerraformConfigurations
+
+`func (o *UpdateResourceRequest2) GetOnPremTerraformConfigurations() map[string]TerraformConfiguration`
+
+GetOnPremTerraformConfigurations returns the OnPremTerraformConfigurations field if non-nil, zero value otherwise.
+
+### GetOnPremTerraformConfigurationsOk
+
+`func (o *UpdateResourceRequest2) GetOnPremTerraformConfigurationsOk() (*map[string]TerraformConfiguration, bool)`
+
+GetOnPremTerraformConfigurationsOk returns a tuple with the OnPremTerraformConfigurations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnPremTerraformConfigurations
+
+`func (o *UpdateResourceRequest2) SetOnPremTerraformConfigurations(v map[string]TerraformConfiguration)`
+
+SetOnPremTerraformConfigurations sets OnPremTerraformConfigurations field to given value.
+
+### HasOnPremTerraformConfigurations
+
+`func (o *UpdateResourceRequest2) HasOnPremTerraformConfigurations() bool`
+
+HasOnPremTerraformConfigurations returns a boolean if a field has been set.
 
 ### GetOperatorCRDConfiguration
 

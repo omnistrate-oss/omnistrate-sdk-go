@@ -21,7 +21,9 @@ var _ MappedNullable = &UpdateResourceRequest{}
 // UpdateResourceRequest struct for UpdateResourceRequest
 type UpdateResourceRequest struct {
 	AdditionalSecurityContext *AdditionalSecurityContext `json:"additionalSecurityContext,omitempty"`
+	AgentConfiguration *AgentConfiguration `json:"agentConfiguration,omitempty"`
 	BackupConfiguration *BackupConfiguration `json:"backupConfiguration,omitempty"`
+	ContainerImageConfiguration *ContainerImageConfiguration `json:"containerImageConfiguration,omitempty"`
 	// Custom labels for the resource
 	CustomLabels *map[string]string `json:"customLabels,omitempty"`
 	// Custom sysctl settings for the resource
@@ -46,6 +48,8 @@ type UpdateResourceRequest struct {
 	L7LoadBalancerConfiguration *L7LoadBalancerConfiguration `json:"l7LoadBalancerConfiguration,omitempty"`
 	// Name of the resource
 	Name *string `json:"name,omitempty"`
+	// The Terraform configurations for an OnPrem platform
+	OnPremTerraformConfigurations map[string]interface{} `json:"onPremTerraformConfigurations,omitempty"`
 	OperatorCRDConfiguration *OperatorCRDConfiguration `json:"operatorCRDConfiguration,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
@@ -101,6 +105,29 @@ func (o *UpdateResourceRequest) SetAdditionalSecurityContext(v AdditionalSecurit
 	o.AdditionalSecurityContext = &v
 }
 
+// GetAgentConfiguration returns the AgentConfiguration field value if set, zero value otherwise.
+func (o *UpdateResourceRequest) GetAgentConfiguration() AgentConfiguration {
+	if o == nil || IsNil(o.AgentConfiguration) {
+		var ret AgentConfiguration
+		return ret
+	}
+	return *o.AgentConfiguration
+}
+
+// GetAgentConfigurationOk returns a tuple with the AgentConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateResourceRequest) GetAgentConfigurationOk() (*AgentConfiguration, bool) {
+	if o == nil || IsNil(o.AgentConfiguration) {
+		return nil, false
+	}
+	return o.AgentConfiguration, true
+}
+
+// SetAgentConfiguration gets a reference to the given AgentConfiguration and assigns it to the AgentConfiguration field.
+func (o *UpdateResourceRequest) SetAgentConfiguration(v AgentConfiguration) {
+	o.AgentConfiguration = &v
+}
+
 // GetBackupConfiguration returns the BackupConfiguration field value if set, zero value otherwise.
 func (o *UpdateResourceRequest) GetBackupConfiguration() BackupConfiguration {
 	if o == nil || IsNil(o.BackupConfiguration) {
@@ -122,6 +149,29 @@ func (o *UpdateResourceRequest) GetBackupConfigurationOk() (*BackupConfiguration
 // SetBackupConfiguration gets a reference to the given BackupConfiguration and assigns it to the BackupConfiguration field.
 func (o *UpdateResourceRequest) SetBackupConfiguration(v BackupConfiguration) {
 	o.BackupConfiguration = &v
+}
+
+// GetContainerImageConfiguration returns the ContainerImageConfiguration field value if set, zero value otherwise.
+func (o *UpdateResourceRequest) GetContainerImageConfiguration() ContainerImageConfiguration {
+	if o == nil || IsNil(o.ContainerImageConfiguration) {
+		var ret ContainerImageConfiguration
+		return ret
+	}
+	return *o.ContainerImageConfiguration
+}
+
+// GetContainerImageConfigurationOk returns a tuple with the ContainerImageConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateResourceRequest) GetContainerImageConfigurationOk() (*ContainerImageConfiguration, bool) {
+	if o == nil || IsNil(o.ContainerImageConfiguration) {
+		return nil, false
+	}
+	return o.ContainerImageConfiguration, true
+}
+
+// SetContainerImageConfiguration gets a reference to the given ContainerImageConfiguration and assigns it to the ContainerImageConfiguration field.
+func (o *UpdateResourceRequest) SetContainerImageConfiguration(v ContainerImageConfiguration) {
+	o.ContainerImageConfiguration = &v
 }
 
 // GetCustomLabels returns the CustomLabels field value if set, zero value otherwise.
@@ -470,6 +520,29 @@ func (o *UpdateResourceRequest) SetName(v string) {
 	o.Name = &v
 }
 
+// GetOnPremTerraformConfigurations returns the OnPremTerraformConfigurations field value if set, zero value otherwise.
+func (o *UpdateResourceRequest) GetOnPremTerraformConfigurations() map[string]interface{} {
+	if o == nil || IsNil(o.OnPremTerraformConfigurations) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.OnPremTerraformConfigurations
+}
+
+// GetOnPremTerraformConfigurationsOk returns a tuple with the OnPremTerraformConfigurations field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateResourceRequest) GetOnPremTerraformConfigurationsOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.OnPremTerraformConfigurations) {
+		return map[string]interface{}{}, false
+	}
+	return o.OnPremTerraformConfigurations, true
+}
+
+// SetOnPremTerraformConfigurations gets a reference to the given map[string]interface{} and assigns it to the OnPremTerraformConfigurations field.
+func (o *UpdateResourceRequest) SetOnPremTerraformConfigurations(v map[string]interface{}) {
+	o.OnPremTerraformConfigurations = v
+}
+
 // GetOperatorCRDConfiguration returns the OperatorCRDConfiguration field value if set, zero value otherwise.
 func (o *UpdateResourceRequest) GetOperatorCRDConfiguration() OperatorCRDConfiguration {
 	if o == nil || IsNil(o.OperatorCRDConfiguration) {
@@ -577,8 +650,14 @@ func (o UpdateResourceRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AdditionalSecurityContext) {
 		toSerialize["additionalSecurityContext"] = o.AdditionalSecurityContext
 	}
+	if !IsNil(o.AgentConfiguration) {
+		toSerialize["agentConfiguration"] = o.AgentConfiguration
+	}
 	if !IsNil(o.BackupConfiguration) {
 		toSerialize["backupConfiguration"] = o.BackupConfiguration
+	}
+	if !IsNil(o.ContainerImageConfiguration) {
+		toSerialize["containerImageConfiguration"] = o.ContainerImageConfiguration
 	}
 	if !IsNil(o.CustomLabels) {
 		toSerialize["customLabels"] = o.CustomLabels
@@ -622,6 +701,9 @@ func (o UpdateResourceRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.OnPremTerraformConfigurations) {
+		toSerialize["onPremTerraformConfigurations"] = o.OnPremTerraformConfigurations
 	}
 	if !IsNil(o.OperatorCRDConfiguration) {
 		toSerialize["operatorCRDConfiguration"] = o.OperatorCRDConfiguration
@@ -677,7 +759,9 @@ func (o *UpdateResourceRequest) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "additionalSecurityContext")
+		delete(additionalProperties, "agentConfiguration")
 		delete(additionalProperties, "backupConfiguration")
+		delete(additionalProperties, "containerImageConfiguration")
 		delete(additionalProperties, "customLabels")
 		delete(additionalProperties, "customSysCTLs")
 		delete(additionalProperties, "customULimits")
@@ -693,6 +777,7 @@ func (o *UpdateResourceRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "l4LoadBalancerConfiguration")
 		delete(additionalProperties, "l7LoadBalancerConfiguration")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "onPremTerraformConfigurations")
 		delete(additionalProperties, "operatorCRDConfiguration")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "terraformConfigurations")

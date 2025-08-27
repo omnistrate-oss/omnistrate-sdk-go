@@ -140,6 +140,7 @@ Class | Method | HTTP request | Description
 *DeploymentConfigApiAPI* | [**DeploymentConfigApiDescribeDeploymentConfig**](docs/DeploymentConfigApiAPI.md#deploymentconfigapidescribedeploymentconfig) | **Get** /2022-09-01-00/deployment-config/{id} | DescribeDeploymentConfig deployment-config-api
 *DeploymentConfigApiAPI* | [**DeploymentConfigApiListDeploymentConfigs**](docs/DeploymentConfigApiAPI.md#deploymentconfigapilistdeploymentconfigs) | **Get** /2022-09-01-00/deployment-config | ListDeploymentConfigs deployment-config-api
 *DeploymentConfigApiAPI* | [**DeploymentConfigApiUpdateDeploymentConfig**](docs/DeploymentConfigApiAPI.md#deploymentconfigapiupdatedeploymentconfig) | **Patch** /2022-09-01-00/deployment-config/{id} | UpdateDeploymentConfig deployment-config-api
+*ExpressionEvaluatorApiAPI* | [**ExpressionEvaluatorApiExpressionEvaluator**](docs/ExpressionEvaluatorApiAPI.md#expressionevaluatorapiexpressionevaluator) | **Post** /2022-09-01-00/resource-instance/expression-evaluator | ExpressionEvaluator expression-evaluator-api
 *GlobalApiAPI* | [**GlobalApiConsumptionServiceHealth**](docs/GlobalApiAPI.md#globalapiconsumptionservicehealth) | **Get** /2022-09-01-00/resource-instance/health | consumptionServiceHealth global-api
 *GlobalApiAPI* | [**GlobalApiConsumptionServiceVersion**](docs/GlobalApiAPI.md#globalapiconsumptionserviceversion) | **Get** /2022-09-01-00/resource-instance/version | consumptionServiceVersion global-api
 *GlobalApiAPI* | [**GlobalApiRegistrationServiceHealth**](docs/GlobalApiAPI.md#globalapiregistrationservicehealth) | **Get** /2022-09-01-00/health | registrationServiceHealth global-api
@@ -361,6 +362,8 @@ Class | Method | HTTP request | Description
 *TierVersionSetApiAPI* | [**TierVersionSetApiDeprecateTierVersionSet**](docs/TierVersionSetApiAPI.md#tierversionsetapideprecatetierversionset) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/deprecate | DeprecateTierVersionSet tier-version-set-api
 *TierVersionSetApiAPI* | [**TierVersionSetApiDescribeTierVersionSet**](docs/TierVersionSetApiAPI.md#tierversionsetapidescribetierversionset) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version} | DescribeTierVersionSet tier-version-set-api
 *TierVersionSetApiAPI* | [**TierVersionSetApiDiffTierVersionSets**](docs/TierVersionSetApiAPI.md#tierversionsetapidifftierversionsets) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/diff/{anotherVersion} | DiffTierVersionSets tier-version-set-api
+*TierVersionSetApiAPI* | [**TierVersionSetApiGetTierVersionSetSpec**](docs/TierVersionSetApiAPI.md#tierversionsetapigettierversionsetspec) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/spec | GetTierVersionSetSpec tier-version-set-api
+*TierVersionSetApiAPI* | [**TierVersionSetApiListTierVersionSetSpecs**](docs/TierVersionSetApiAPI.md#tierversionsetapilisttierversionsetspecs) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/specs | ListTierVersionSetSpecs tier-version-set-api
 *TierVersionSetApiAPI* | [**TierVersionSetApiListTierVersionSets**](docs/TierVersionSetApiAPI.md#tierversionsetapilisttierversionsets) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set | ListTierVersionSets tier-version-set-api
 *TierVersionSetApiAPI* | [**TierVersionSetApiPromoteTierVersionSet**](docs/TierVersionSetApiAPI.md#tierversionsetapipromotetierversionset) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/promote | PromoteTierVersionSet tier-version-set-api
 *TierVersionSetApiAPI* | [**TierVersionSetApiReleaseTierVersionSet**](docs/TierVersionSetApiAPI.md#tierversionsetapireleasetierversionset) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/release | ReleaseTierVersionSet tier-version-set-api
@@ -410,6 +413,12 @@ Class | Method | HTTP request | Description
  - [AddStorageVolumeConfigRequest2](docs/AddStorageVolumeConfigRequest2.md)
  - [AdditionalSecurityContext](docs/AdditionalSecurityContext.md)
  - [Address](docs/Address.md)
+ - [AgentCodeInterpreterConfiguration](docs/AgentCodeInterpreterConfiguration.md)
+ - [AgentConfiguration](docs/AgentConfiguration.md)
+ - [AgentEvaluation](docs/AgentEvaluation.md)
+ - [AgentMemoryConfiguration](docs/AgentMemoryConfiguration.md)
+ - [AgentMonitoringConfiguration](docs/AgentMonitoringConfiguration.md)
+ - [AgentVectorStoreConfiguration](docs/AgentVectorStoreConfiguration.md)
  - [Amenity](docs/Amenity.md)
  - [AutoScalingMetricSpec](docs/AutoScalingMetricSpec.md)
  - [AutoscalingPolicy](docs/AutoscalingPolicy.md)
@@ -443,6 +452,9 @@ Class | Method | HTTP request | Description
  - [ConsumptionServiceAuthRequest](docs/ConsumptionServiceAuthRequest.md)
  - [ConsumptionServiceAuthResult](docs/ConsumptionServiceAuthResult.md)
  - [ContactusRequest](docs/ContactusRequest.md)
+ - [ContainerImageConfiguration](docs/ContainerImageConfiguration.md)
+ - [ContainerImageLocator](docs/ContainerImageLocator.md)
+ - [ContainerImageRegistryCredentials](docs/ContainerImageRegistryCredentials.md)
  - [CopyProductTierRequest](docs/CopyProductTierRequest.md)
  - [CopyProductTierRequest2](docs/CopyProductTierRequest2.md)
  - [CopyServiceModelRequest](docs/CopyServiceModelRequest.md)
@@ -702,6 +714,9 @@ Class | Method | HTTP request | Description
  - [EnvironmentPromotionStatus](docs/EnvironmentPromotionStatus.md)
  - [EnvironmentVariable](docs/EnvironmentVariable.md)
  - [Error](docs/Error.md)
+ - [ExpressionEvaluatorRequest](docs/ExpressionEvaluatorRequest.md)
+ - [ExpressionEvaluatorRequest2](docs/ExpressionEvaluatorRequest2.md)
+ - [ExpressionEvaluatorResult](docs/ExpressionEvaluatorResult.md)
  - [FailoverResourceInstanceRequest](docs/FailoverResourceInstanceRequest.md)
  - [FailoverResourceInstanceRequest2](docs/FailoverResourceInstanceRequest2.md)
  - [FileMetadata](docs/FileMetadata.md)
@@ -725,6 +740,8 @@ Class | Method | HTTP request | Description
  - [GetServicePlanResult](docs/GetServicePlanResult.md)
  - [GetTenantBillingStatusRequest](docs/GetTenantBillingStatusRequest.md)
  - [GetTenantBillingStatusResult](docs/GetTenantBillingStatusResult.md)
+ - [GetTierVersionSetSpecRequest](docs/GetTierVersionSetSpecRequest.md)
+ - [GetTierVersionSetSpecResult](docs/GetTierVersionSetSpecResult.md)
  - [GetUsageRequest](docs/GetUsageRequest.md)
  - [GetUsageResult](docs/GetUsageResult.md)
  - [GitConfiguration](docs/GitConfiguration.md)
@@ -855,6 +872,8 @@ Class | Method | HTTP request | Description
  - [ListSubscriptionRequestsResult](docs/ListSubscriptionRequestsResult.md)
  - [ListSubscriptionsRequest](docs/ListSubscriptionsRequest.md)
  - [ListSubscriptionsResult](docs/ListSubscriptionsResult.md)
+ - [ListTierVersionSetSpecsRequest](docs/ListTierVersionSetSpecsRequest.md)
+ - [ListTierVersionSetSpecsResult](docs/ListTierVersionSetSpecsResult.md)
  - [ListTierVersionSetsRequest](docs/ListTierVersionSetsRequest.md)
  - [ListTierVersionSetsResult](docs/ListTierVersionSetsResult.md)
  - [ListUpgradePathRequest](docs/ListUpgradePathRequest.md)
@@ -955,6 +974,7 @@ Class | Method | HTTP request | Description
  - [SaaSPortalImageConfig](docs/SaaSPortalImageConfig.md)
  - [SaveHelmPackageRequest](docs/SaveHelmPackageRequest.md)
  - [SaveHelmPackageRequest2](docs/SaveHelmPackageRequest2.md)
+ - [ScheduleConfig](docs/ScheduleConfig.md)
  - [Secret](docs/Secret.md)
  - [ServiceAssets](docs/ServiceAssets.md)
  - [ServiceDeploymentDetails](docs/ServiceDeploymentDetails.md)
@@ -984,6 +1004,7 @@ Class | Method | HTTP request | Description
  - [TerraformConfiguration](docs/TerraformConfiguration.md)
  - [TerraformOutput](docs/TerraformOutput.md)
  - [TierVersionSet](docs/TierVersionSet.md)
+ - [TierVersionSetSpecSummary](docs/TierVersionSetSpecSummary.md)
  - [UnsetEnvironmentVariablesRequest](docs/UnsetEnvironmentVariablesRequest.md)
  - [UnsetEnvironmentVariablesRequest2](docs/UnsetEnvironmentVariablesRequest2.md)
  - [UpdateAccountConfigResourceInstanceRequest](docs/UpdateAccountConfigResourceInstanceRequest.md)
