@@ -23,7 +23,7 @@ type DebugResourceInstanceResult struct {
 	// ID of a Resource Instance
 	InstanceId string `json:"instanceId"`
 	// The debug information for individual instance resources
-	ResourcesDebug map[string]interface{} `json:"resourcesDebug,omitempty"`
+	ResourcesDebug *map[string]DebugResourceResult `json:"resourcesDebug,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -72,19 +72,19 @@ func (o *DebugResourceInstanceResult) SetInstanceId(v string) {
 }
 
 // GetResourcesDebug returns the ResourcesDebug field value if set, zero value otherwise.
-func (o *DebugResourceInstanceResult) GetResourcesDebug() map[string]interface{} {
+func (o *DebugResourceInstanceResult) GetResourcesDebug() map[string]DebugResourceResult {
 	if o == nil || IsNil(o.ResourcesDebug) {
-		var ret map[string]interface{}
+		var ret map[string]DebugResourceResult
 		return ret
 	}
-	return o.ResourcesDebug
+	return *o.ResourcesDebug
 }
 
 // GetResourcesDebugOk returns a tuple with the ResourcesDebug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DebugResourceInstanceResult) GetResourcesDebugOk() (map[string]interface{}, bool) {
+func (o *DebugResourceInstanceResult) GetResourcesDebugOk() (*map[string]DebugResourceResult, bool) {
 	if o == nil || IsNil(o.ResourcesDebug) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.ResourcesDebug, true
 }
@@ -98,9 +98,9 @@ func (o *DebugResourceInstanceResult) HasResourcesDebug() bool {
 	return false
 }
 
-// SetResourcesDebug gets a reference to the given map[string]interface{} and assigns it to the ResourcesDebug field.
-func (o *DebugResourceInstanceResult) SetResourcesDebug(v map[string]interface{}) {
-	o.ResourcesDebug = v
+// SetResourcesDebug gets a reference to the given map[string]DebugResourceResult and assigns it to the ResourcesDebug field.
+func (o *DebugResourceInstanceResult) SetResourcesDebug(v map[string]DebugResourceResult) {
+	o.ResourcesDebug = &v
 }
 
 func (o DebugResourceInstanceResult) MarshalJSON() ([]byte, error) {

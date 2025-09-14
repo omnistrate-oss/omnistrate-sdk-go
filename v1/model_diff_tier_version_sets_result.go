@@ -25,7 +25,7 @@ type DiffTierVersionSetsResult struct {
 	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// The difference for the service API configuration per resource
-	ResourceChangeSets map[string]interface{} `json:"resourceChangeSets"`
+	ResourceChangeSets map[string]ChangeSet `json:"resourceChangeSets"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The version number for the version set.
@@ -39,7 +39,7 @@ type _DiffTierVersionSetsResult DiffTierVersionSetsResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDiffTierVersionSetsResult(anotherVersion string, productTierId string, resourceChangeSets map[string]interface{}, serviceId string, version string) *DiffTierVersionSetsResult {
+func NewDiffTierVersionSetsResult(anotherVersion string, productTierId string, resourceChangeSets map[string]ChangeSet, serviceId string, version string) *DiffTierVersionSetsResult {
 	this := DiffTierVersionSetsResult{}
 	this.AnotherVersion = anotherVersion
 	this.ProductTierId = productTierId
@@ -106,9 +106,9 @@ func (o *DiffTierVersionSetsResult) SetProductTierId(v string) {
 }
 
 // GetResourceChangeSets returns the ResourceChangeSets field value
-func (o *DiffTierVersionSetsResult) GetResourceChangeSets() map[string]interface{} {
+func (o *DiffTierVersionSetsResult) GetResourceChangeSets() map[string]ChangeSet {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret map[string]ChangeSet
 		return ret
 	}
 
@@ -117,15 +117,15 @@ func (o *DiffTierVersionSetsResult) GetResourceChangeSets() map[string]interface
 
 // GetResourceChangeSetsOk returns a tuple with the ResourceChangeSets field value
 // and a boolean to check if the value has been set.
-func (o *DiffTierVersionSetsResult) GetResourceChangeSetsOk() (map[string]interface{}, bool) {
+func (o *DiffTierVersionSetsResult) GetResourceChangeSetsOk() (*map[string]ChangeSet, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.ResourceChangeSets, true
+	return &o.ResourceChangeSets, true
 }
 
 // SetResourceChangeSets sets field value
-func (o *DiffTierVersionSetsResult) SetResourceChangeSets(v map[string]interface{}) {
+func (o *DiffTierVersionSetsResult) SetResourceChangeSets(v map[string]ChangeSet) {
 	o.ResourceChangeSets = v
 }
 

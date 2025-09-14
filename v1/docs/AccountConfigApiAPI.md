@@ -97,7 +97,7 @@ import (
 )
 
 func main() {
-	createAccountConfigRequest2 := *openapiclient.NewCreateAccountConfigRequest2("infra-12345678", "An AWS account hosting multiple dev environments", "Dev AWS account") // CreateAccountConfigRequest2 | 
+	createAccountConfigRequest2 := *openapiclient.NewCreateAccountConfigRequest2("Id hic minima esse non aliquam.", "An AWS account hosting multiple dev environments", "Dev AWS account") // CreateAccountConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -567,7 +567,7 @@ import (
 )
 
 func main() {
-	listBYOAConfigRequest2 := *openapiclient.NewListBYOAConfigRequest2("aws") // ListBYOAConfigRequest2 | 
+	listBYOAConfigRequest2 := *openapiclient.NewListBYOAConfigRequest2("aws|azure|gcp|all") // ListBYOAConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

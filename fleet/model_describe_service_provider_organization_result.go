@@ -21,7 +21,7 @@ var _ MappedNullable = &DescribeServiceProviderOrganizationResult{}
 type DescribeServiceProviderOrganizationResult struct {
 	DefaultDeploymentCellConfigurations *DeploymentCellConfigurations `json:"DefaultDeploymentCellConfigurations,omitempty"`
 	// The default deployment cell configurations for the organization per environment.
-	DeploymentCellConfigurationsPerEnv map[string]interface{} `json:"DeploymentCellConfigurationsPerEnv,omitempty"`
+	DeploymentCellConfigurationsPerEnv *map[string]DeploymentCellConfigurations `json:"DeploymentCellConfigurationsPerEnv,omitempty"`
 	// ID of an Org
 	Id *string `json:"id,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -79,19 +79,19 @@ func (o *DescribeServiceProviderOrganizationResult) SetDefaultDeploymentCellConf
 }
 
 // GetDeploymentCellConfigurationsPerEnv returns the DeploymentCellConfigurationsPerEnv field value if set, zero value otherwise.
-func (o *DescribeServiceProviderOrganizationResult) GetDeploymentCellConfigurationsPerEnv() map[string]interface{} {
+func (o *DescribeServiceProviderOrganizationResult) GetDeploymentCellConfigurationsPerEnv() map[string]DeploymentCellConfigurations {
 	if o == nil || IsNil(o.DeploymentCellConfigurationsPerEnv) {
-		var ret map[string]interface{}
+		var ret map[string]DeploymentCellConfigurations
 		return ret
 	}
-	return o.DeploymentCellConfigurationsPerEnv
+	return *o.DeploymentCellConfigurationsPerEnv
 }
 
 // GetDeploymentCellConfigurationsPerEnvOk returns a tuple with the DeploymentCellConfigurationsPerEnv field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeServiceProviderOrganizationResult) GetDeploymentCellConfigurationsPerEnvOk() (map[string]interface{}, bool) {
+func (o *DescribeServiceProviderOrganizationResult) GetDeploymentCellConfigurationsPerEnvOk() (*map[string]DeploymentCellConfigurations, bool) {
 	if o == nil || IsNil(o.DeploymentCellConfigurationsPerEnv) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.DeploymentCellConfigurationsPerEnv, true
 }
@@ -105,9 +105,9 @@ func (o *DescribeServiceProviderOrganizationResult) HasDeploymentCellConfigurati
 	return false
 }
 
-// SetDeploymentCellConfigurationsPerEnv gets a reference to the given map[string]interface{} and assigns it to the DeploymentCellConfigurationsPerEnv field.
-func (o *DescribeServiceProviderOrganizationResult) SetDeploymentCellConfigurationsPerEnv(v map[string]interface{}) {
-	o.DeploymentCellConfigurationsPerEnv = v
+// SetDeploymentCellConfigurationsPerEnv gets a reference to the given map[string]DeploymentCellConfigurations and assigns it to the DeploymentCellConfigurationsPerEnv field.
+func (o *DescribeServiceProviderOrganizationResult) SetDeploymentCellConfigurationsPerEnv(v map[string]DeploymentCellConfigurations) {
+	o.DeploymentCellConfigurationsPerEnv = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.

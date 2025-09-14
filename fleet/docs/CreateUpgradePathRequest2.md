@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ConfigurationOverrides** | Pointer to **map[string]interface{}** | Configuration overrides for the upgrade path per adopted instance ID. This currently only includes custom Helm chart values and Helm runtime configurations. | [optional] 
+**MaxConcurrentUpgrades** | Pointer to **int64** | The maximum number of instances that can be upgraded concurrently. If not specified, falls back to the deployment configuration setting. | [optional] 
 **NotifyCustomer** | Pointer to **bool** | Whether to notify the end customer about the upgrade progress. | [optional] 
 **ScheduledDate** | Pointer to **string** | The future date when the upgrade is planned to be executed. Empty for immediate upgrade. | [optional] 
 **SourceVersion** | **string** | The source version of the upgrade path. | 
@@ -54,6 +55,31 @@ SetConfigurationOverrides sets ConfigurationOverrides field to given value.
 `func (o *CreateUpgradePathRequest2) HasConfigurationOverrides() bool`
 
 HasConfigurationOverrides returns a boolean if a field has been set.
+
+### GetMaxConcurrentUpgrades
+
+`func (o *CreateUpgradePathRequest2) GetMaxConcurrentUpgrades() int64`
+
+GetMaxConcurrentUpgrades returns the MaxConcurrentUpgrades field if non-nil, zero value otherwise.
+
+### GetMaxConcurrentUpgradesOk
+
+`func (o *CreateUpgradePathRequest2) GetMaxConcurrentUpgradesOk() (*int64, bool)`
+
+GetMaxConcurrentUpgradesOk returns a tuple with the MaxConcurrentUpgrades field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxConcurrentUpgrades
+
+`func (o *CreateUpgradePathRequest2) SetMaxConcurrentUpgrades(v int64)`
+
+SetMaxConcurrentUpgrades sets MaxConcurrentUpgrades field to given value.
+
+### HasMaxConcurrentUpgrades
+
+`func (o *CreateUpgradePathRequest2) HasMaxConcurrentUpgrades() bool`
+
+HasMaxConcurrentUpgrades returns a boolean if a field has been set.
 
 ### GetNotifyCustomer
 

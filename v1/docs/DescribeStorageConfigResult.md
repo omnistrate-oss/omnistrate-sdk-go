@@ -9,13 +9,13 @@ Name | Type | Description | Notes
 **InfraConfigIDs** | Pointer to **[]string** | The list of infra config IDs associated with the compute config. | [optional] 
 **Name** | **string** | Name of the storage config | 
 **ServiceId** | **string** | ID of a Service | 
-**Volumes** | **map[string]interface{}** | The storage volume config IDs and the corresponding mount path | 
+**Volumes** | **map[string][]string** | The storage volume config IDs and the corresponding mount path | 
 
 ## Methods
 
 ### NewDescribeStorageConfigResult
 
-`func NewDescribeStorageConfigResult(description string, id string, name string, serviceId string, volumes map[string]interface{}, ) *DescribeStorageConfigResult`
+`func NewDescribeStorageConfigResult(description string, id string, name string, serviceId string, volumes map[string][]string, ) *DescribeStorageConfigResult`
 
 NewDescribeStorageConfigResult instantiates a new DescribeStorageConfigResult object
 This constructor will assign default values to properties that have it defined,
@@ -137,20 +137,20 @@ SetServiceId sets ServiceId field to given value.
 
 ### GetVolumes
 
-`func (o *DescribeStorageConfigResult) GetVolumes() map[string]interface{}`
+`func (o *DescribeStorageConfigResult) GetVolumes() map[string][]string`
 
 GetVolumes returns the Volumes field if non-nil, zero value otherwise.
 
 ### GetVolumesOk
 
-`func (o *DescribeStorageConfigResult) GetVolumesOk() (*map[string]interface{}, bool)`
+`func (o *DescribeStorageConfigResult) GetVolumesOk() (*map[string][]string, bool)`
 
 GetVolumesOk returns a tuple with the Volumes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVolumes
 
-`func (o *DescribeStorageConfigResult) SetVolumes(v map[string]interface{})`
+`func (o *DescribeStorageConfigResult) SetVolumes(v map[string][]string)`
 
 SetVolumes sets Volumes field to given value.
 

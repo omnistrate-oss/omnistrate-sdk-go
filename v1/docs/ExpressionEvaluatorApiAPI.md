@@ -27,7 +27,7 @@ import (
 )
 
 func main() {
-	expressionEvaluatorRequest2 := *openapiclient.NewExpressionEvaluatorRequest2("mysql", "s-12345678") // ExpressionEvaluatorRequest2 | 
+	expressionEvaluatorRequest2 := *openapiclient.NewExpressionEvaluatorRequest2("mysql", "s-123456") // ExpressionEvaluatorRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

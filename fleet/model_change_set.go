@@ -21,7 +21,7 @@ var _ MappedNullable = &ChangeSet{}
 // ChangeSet struct for ChangeSet
 type ChangeSet struct {
 	// Summary of all changes within a resource for each category (ie. image, infra, product tier feature, etc.)
-	CategorizedResourceChanges map[string]interface{} `json:"categorizedResourceChanges"`
+	CategorizedResourceChanges map[string]ChangeSummary `json:"categorizedResourceChanges"`
 	ImageConfigChanges *ImageConfigChangeSummary `json:"imageConfigChanges,omitempty"`
 	InfraConfigChanges *InfraConfigChangeSummary `json:"infraConfigChanges,omitempty"`
 	// Summary status of the changes
@@ -41,7 +41,7 @@ type _ChangeSet ChangeSet
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewChangeSet(categorizedResourceChanges map[string]interface{}, overallResourceStatus string) *ChangeSet {
+func NewChangeSet(categorizedResourceChanges map[string]ChangeSummary, overallResourceStatus string) *ChangeSet {
 	this := ChangeSet{}
 	this.CategorizedResourceChanges = categorizedResourceChanges
 	this.OverallResourceStatus = overallResourceStatus
@@ -57,9 +57,9 @@ func NewChangeSetWithDefaults() *ChangeSet {
 }
 
 // GetCategorizedResourceChanges returns the CategorizedResourceChanges field value
-func (o *ChangeSet) GetCategorizedResourceChanges() map[string]interface{} {
+func (o *ChangeSet) GetCategorizedResourceChanges() map[string]ChangeSummary {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret map[string]ChangeSummary
 		return ret
 	}
 
@@ -68,15 +68,15 @@ func (o *ChangeSet) GetCategorizedResourceChanges() map[string]interface{} {
 
 // GetCategorizedResourceChangesOk returns a tuple with the CategorizedResourceChanges field value
 // and a boolean to check if the value has been set.
-func (o *ChangeSet) GetCategorizedResourceChangesOk() (map[string]interface{}, bool) {
+func (o *ChangeSet) GetCategorizedResourceChangesOk() (*map[string]ChangeSummary, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.CategorizedResourceChanges, true
+	return &o.CategorizedResourceChanges, true
 }
 
 // SetCategorizedResourceChanges sets field value
-func (o *ChangeSet) SetCategorizedResourceChanges(v map[string]interface{}) {
+func (o *ChangeSet) SetCategorizedResourceChanges(v map[string]ChangeSummary) {
 	o.CategorizedResourceChanges = v
 }
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EventsSummary** | Pointer to **map[string]interface{}** | The number of outstanding events by type | [optional] 
+**EventsSummary** | Pointer to **map[string]int64** | The number of outstanding events by type | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetEventsSummary
 
-`func (o *ServiceProviderEventSummary) GetEventsSummary() map[string]interface{}`
+`func (o *ServiceProviderEventSummary) GetEventsSummary() map[string]int64`
 
 GetEventsSummary returns the EventsSummary field if non-nil, zero value otherwise.
 
 ### GetEventsSummaryOk
 
-`func (o *ServiceProviderEventSummary) GetEventsSummaryOk() (*map[string]interface{}, bool)`
+`func (o *ServiceProviderEventSummary) GetEventsSummaryOk() (*map[string]int64, bool)`
 
 GetEventsSummaryOk returns a tuple with the EventsSummary field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEventsSummary
 
-`func (o *ServiceProviderEventSummary) SetEventsSummary(v map[string]interface{})`
+`func (o *ServiceProviderEventSummary) SetEventsSummary(v map[string]int64)`
 
 SetEventsSummary sets EventsSummary field to given value.
 

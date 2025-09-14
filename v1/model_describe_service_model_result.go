@@ -23,7 +23,7 @@ type DescribeServiceModelResult struct {
 	// The infrastructure account configuration ID list
 	AccountConfigIds []string `json:"accountConfigIds,omitempty"`
 	// The active infrastructure account configuration IDs per cloud provider
-	ActiveAccountConfigIds map[string]interface{} `json:"activeAccountConfigIds,omitempty"`
+	ActiveAccountConfigIds *map[string]string `json:"activeAccountConfigIds,omitempty"`
 	// A brief description of the service model
 	Description string `json:"description"`
 	// Enabled service model features
@@ -95,26 +95,26 @@ func (o *DescribeServiceModelResult) SetAccountConfigIds(v []string) {
 }
 
 // GetActiveAccountConfigIds returns the ActiveAccountConfigIds field value if set, zero value otherwise.
-func (o *DescribeServiceModelResult) GetActiveAccountConfigIds() map[string]interface{} {
+func (o *DescribeServiceModelResult) GetActiveAccountConfigIds() map[string]string {
 	if o == nil || IsNil(o.ActiveAccountConfigIds) {
-		var ret map[string]interface{}
+		var ret map[string]string
 		return ret
 	}
-	return o.ActiveAccountConfigIds
+	return *o.ActiveAccountConfigIds
 }
 
 // GetActiveAccountConfigIdsOk returns a tuple with the ActiveAccountConfigIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeServiceModelResult) GetActiveAccountConfigIdsOk() (map[string]interface{}, bool) {
+func (o *DescribeServiceModelResult) GetActiveAccountConfigIdsOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.ActiveAccountConfigIds) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.ActiveAccountConfigIds, true
 }
 
-// SetActiveAccountConfigIds gets a reference to the given map[string]interface{} and assigns it to the ActiveAccountConfigIds field.
-func (o *DescribeServiceModelResult) SetActiveAccountConfigIds(v map[string]interface{}) {
-	o.ActiveAccountConfigIds = v
+// SetActiveAccountConfigIds gets a reference to the given map[string]string and assigns it to the ActiveAccountConfigIds field.
+func (o *DescribeServiceModelResult) SetActiveAccountConfigIds(v map[string]string) {
+	o.ActiveAccountConfigIds = &v
 }
 
 // GetDescription returns the Description field value

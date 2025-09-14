@@ -20,7 +20,7 @@ var _ MappedNullable = &DescribeUserCostResult{}
 // DescribeUserCostResult struct for DescribeUserCostResult
 type DescribeUserCostResult struct {
 	// The cost data for each user
-	UserCosts map[string]interface{} `json:"userCosts,omitempty"`
+	UserCosts *map[string]PerUserCost `json:"userCosts,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -44,19 +44,19 @@ func NewDescribeUserCostResultWithDefaults() *DescribeUserCostResult {
 }
 
 // GetUserCosts returns the UserCosts field value if set, zero value otherwise.
-func (o *DescribeUserCostResult) GetUserCosts() map[string]interface{} {
+func (o *DescribeUserCostResult) GetUserCosts() map[string]PerUserCost {
 	if o == nil || IsNil(o.UserCosts) {
-		var ret map[string]interface{}
+		var ret map[string]PerUserCost
 		return ret
 	}
-	return o.UserCosts
+	return *o.UserCosts
 }
 
 // GetUserCostsOk returns a tuple with the UserCosts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeUserCostResult) GetUserCostsOk() (map[string]interface{}, bool) {
+func (o *DescribeUserCostResult) GetUserCostsOk() (*map[string]PerUserCost, bool) {
 	if o == nil || IsNil(o.UserCosts) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.UserCosts, true
 }
@@ -70,9 +70,9 @@ func (o *DescribeUserCostResult) HasUserCosts() bool {
 	return false
 }
 
-// SetUserCosts gets a reference to the given map[string]interface{} and assigns it to the UserCosts field.
-func (o *DescribeUserCostResult) SetUserCosts(v map[string]interface{}) {
-	o.UserCosts = v
+// SetUserCosts gets a reference to the given map[string]PerUserCost and assigns it to the UserCosts field.
+func (o *DescribeUserCostResult) SetUserCosts(v map[string]PerUserCost) {
+	o.UserCosts = &v
 }
 
 func (o DescribeUserCostResult) MarshalJSON() ([]byte, error) {

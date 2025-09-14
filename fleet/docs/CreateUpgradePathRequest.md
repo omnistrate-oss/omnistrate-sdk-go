@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ConfigurationOverrides** | Pointer to **map[string]interface{}** | Configuration overrides for the upgrade path per adopted instance ID. This currently only includes custom Helm chart values and Helm runtime configurations. | [optional] 
+**MaxConcurrentUpgrades** | Pointer to **int64** | The maximum number of instances that can be upgraded concurrently. If not specified, falls back to the deployment configuration setting. | [optional] 
 **NotifyCustomer** | Pointer to **bool** | Whether to notify the end customer about the upgrade progress. | [optional] 
 **ProductTierId** | **string** | ID of a Product Tier | 
 **ScheduledDate** | Pointer to **string** | The future date when the upgrade is planned to be executed. Empty for immediate upgrade. | [optional] 
@@ -12,13 +13,13 @@ Name | Type | Description | Notes
 **SourceVersion** | **string** | The source version of the upgrade path. | 
 **TargetVersion** | **string** | The target version of the upgrade path. | 
 **Token** | **string** | JWT token used to perform authorization | 
-**UpgradeFilters** | **map[string]interface{}** | The filter to use to choose the instances to upgrade. | 
+**UpgradeFilters** | **map[string][]string** | The filter to use to choose the instances to upgrade. | 
 
 ## Methods
 
 ### NewCreateUpgradePathRequest
 
-`func NewCreateUpgradePathRequest(productTierId string, serviceId string, sourceVersion string, targetVersion string, token string, upgradeFilters map[string]interface{}, ) *CreateUpgradePathRequest`
+`func NewCreateUpgradePathRequest(productTierId string, serviceId string, sourceVersion string, targetVersion string, token string, upgradeFilters map[string][]string, ) *CreateUpgradePathRequest`
 
 NewCreateUpgradePathRequest instantiates a new CreateUpgradePathRequest object
 This constructor will assign default values to properties that have it defined,
@@ -57,6 +58,31 @@ SetConfigurationOverrides sets ConfigurationOverrides field to given value.
 `func (o *CreateUpgradePathRequest) HasConfigurationOverrides() bool`
 
 HasConfigurationOverrides returns a boolean if a field has been set.
+
+### GetMaxConcurrentUpgrades
+
+`func (o *CreateUpgradePathRequest) GetMaxConcurrentUpgrades() int64`
+
+GetMaxConcurrentUpgrades returns the MaxConcurrentUpgrades field if non-nil, zero value otherwise.
+
+### GetMaxConcurrentUpgradesOk
+
+`func (o *CreateUpgradePathRequest) GetMaxConcurrentUpgradesOk() (*int64, bool)`
+
+GetMaxConcurrentUpgradesOk returns a tuple with the MaxConcurrentUpgrades field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxConcurrentUpgrades
+
+`func (o *CreateUpgradePathRequest) SetMaxConcurrentUpgrades(v int64)`
+
+SetMaxConcurrentUpgrades sets MaxConcurrentUpgrades field to given value.
+
+### HasMaxConcurrentUpgrades
+
+`func (o *CreateUpgradePathRequest) HasMaxConcurrentUpgrades() bool`
+
+HasMaxConcurrentUpgrades returns a boolean if a field has been set.
 
 ### GetNotifyCustomer
 
@@ -210,20 +236,20 @@ SetToken sets Token field to given value.
 
 ### GetUpgradeFilters
 
-`func (o *CreateUpgradePathRequest) GetUpgradeFilters() map[string]interface{}`
+`func (o *CreateUpgradePathRequest) GetUpgradeFilters() map[string][]string`
 
 GetUpgradeFilters returns the UpgradeFilters field if non-nil, zero value otherwise.
 
 ### GetUpgradeFiltersOk
 
-`func (o *CreateUpgradePathRequest) GetUpgradeFiltersOk() (*map[string]interface{}, bool)`
+`func (o *CreateUpgradePathRequest) GetUpgradeFiltersOk() (*map[string][]string, bool)`
 
 GetUpgradeFiltersOk returns a tuple with the UpgradeFilters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUpgradeFilters
 
-`func (o *CreateUpgradePathRequest) SetUpgradeFilters(v map[string]interface{})`
+`func (o *CreateUpgradePathRequest) SetUpgradeFilters(v map[string][]string)`
 
 SetUpgradeFilters sets UpgradeFilters field to given value.
 

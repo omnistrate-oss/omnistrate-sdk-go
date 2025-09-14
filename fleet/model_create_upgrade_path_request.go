@@ -22,6 +22,8 @@ var _ MappedNullable = &CreateUpgradePathRequest{}
 type CreateUpgradePathRequest struct {
 	// Configuration overrides for the upgrade path per adopted instance ID. This currently only includes custom Helm chart values and Helm runtime configurations.
 	ConfigurationOverrides map[string]interface{} `json:"configurationOverrides,omitempty"`
+	// The maximum number of instances that can be upgraded concurrently. If not specified, falls back to the deployment configuration setting.
+	MaxConcurrentUpgrades *int64 `json:"maxConcurrentUpgrades,omitempty"`
 	// Whether to notify the end customer about the upgrade progress.
 	NotifyCustomer *bool `json:"notifyCustomer,omitempty"`
 	// ID of a Product Tier
@@ -37,7 +39,7 @@ type CreateUpgradePathRequest struct {
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	// The filter to use to choose the instances to upgrade.
-	UpgradeFilters map[string]interface{} `json:"upgradeFilters"`
+	UpgradeFilters map[string][]string `json:"upgradeFilters"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -47,7 +49,7 @@ type _CreateUpgradePathRequest CreateUpgradePathRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateUpgradePathRequest(productTierId string, serviceId string, sourceVersion string, targetVersion string, token string, upgradeFilters map[string]interface{}) *CreateUpgradePathRequest {
+func NewCreateUpgradePathRequest(productTierId string, serviceId string, sourceVersion string, targetVersion string, token string, upgradeFilters map[string][]string) *CreateUpgradePathRequest {
 	this := CreateUpgradePathRequest{}
 	this.ProductTierId = productTierId
 	this.ServiceId = serviceId
@@ -96,6 +98,38 @@ func (o *CreateUpgradePathRequest) HasConfigurationOverrides() bool {
 // SetConfigurationOverrides gets a reference to the given map[string]interface{} and assigns it to the ConfigurationOverrides field.
 func (o *CreateUpgradePathRequest) SetConfigurationOverrides(v map[string]interface{}) {
 	o.ConfigurationOverrides = v
+}
+
+// GetMaxConcurrentUpgrades returns the MaxConcurrentUpgrades field value if set, zero value otherwise.
+func (o *CreateUpgradePathRequest) GetMaxConcurrentUpgrades() int64 {
+	if o == nil || IsNil(o.MaxConcurrentUpgrades) {
+		var ret int64
+		return ret
+	}
+	return *o.MaxConcurrentUpgrades
+}
+
+// GetMaxConcurrentUpgradesOk returns a tuple with the MaxConcurrentUpgrades field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpgradePathRequest) GetMaxConcurrentUpgradesOk() (*int64, bool) {
+	if o == nil || IsNil(o.MaxConcurrentUpgrades) {
+		return nil, false
+	}
+	return o.MaxConcurrentUpgrades, true
+}
+
+// HasMaxConcurrentUpgrades returns a boolean if a field has been set.
+func (o *CreateUpgradePathRequest) HasMaxConcurrentUpgrades() bool {
+	if o != nil && !IsNil(o.MaxConcurrentUpgrades) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxConcurrentUpgrades gets a reference to the given int64 and assigns it to the MaxConcurrentUpgrades field.
+func (o *CreateUpgradePathRequest) SetMaxConcurrentUpgrades(v int64) {
+	o.MaxConcurrentUpgrades = &v
 }
 
 // GetNotifyCustomer returns the NotifyCustomer field value if set, zero value otherwise.
@@ -283,9 +317,9 @@ func (o *CreateUpgradePathRequest) SetToken(v string) {
 }
 
 // GetUpgradeFilters returns the UpgradeFilters field value
-func (o *CreateUpgradePathRequest) GetUpgradeFilters() map[string]interface{} {
+func (o *CreateUpgradePathRequest) GetUpgradeFilters() map[string][]string {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret map[string][]string
 		return ret
 	}
 
@@ -294,15 +328,15 @@ func (o *CreateUpgradePathRequest) GetUpgradeFilters() map[string]interface{} {
 
 // GetUpgradeFiltersOk returns a tuple with the UpgradeFilters field value
 // and a boolean to check if the value has been set.
-func (o *CreateUpgradePathRequest) GetUpgradeFiltersOk() (map[string]interface{}, bool) {
+func (o *CreateUpgradePathRequest) GetUpgradeFiltersOk() (*map[string][]string, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.UpgradeFilters, true
+	return &o.UpgradeFilters, true
 }
 
 // SetUpgradeFilters sets field value
-func (o *CreateUpgradePathRequest) SetUpgradeFilters(v map[string]interface{}) {
+func (o *CreateUpgradePathRequest) SetUpgradeFilters(v map[string][]string) {
 	o.UpgradeFilters = v
 }
 
@@ -318,6 +352,9 @@ func (o CreateUpgradePathRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.ConfigurationOverrides) {
 		toSerialize["configurationOverrides"] = o.ConfigurationOverrides
+	}
+	if !IsNil(o.MaxConcurrentUpgrades) {
+		toSerialize["maxConcurrentUpgrades"] = o.MaxConcurrentUpgrades
 	}
 	if !IsNil(o.NotifyCustomer) {
 		toSerialize["notifyCustomer"] = o.NotifyCustomer
@@ -380,6 +417,7 @@ func (o *CreateUpgradePathRequest) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "configurationOverrides")
+		delete(additionalProperties, "maxConcurrentUpgrades")
 		delete(additionalProperties, "notifyCustomer")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "scheduledDate")

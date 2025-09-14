@@ -32,7 +32,7 @@ import (
 )
 
 func main() {
-	createSaaSPortalCustomDomainRequest2 := *openapiclient.NewCreateSaaSPortalCustomDomainRequest2("mycustomdomain.com", "My custom domain description", "DEV", "MyCustomDomain") // CreateSaaSPortalCustomDomainRequest2 | 
+	createSaaSPortalCustomDomainRequest2 := *openapiclient.NewCreateSaaSPortalCustomDomainRequest2("mycustomdomain.com", "My custom domain description", "PROD|PRIVATE|CANARY|STAGING|QA|DEV|GLOBAL", "MyCustomDomain") // CreateSaaSPortalCustomDomainRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

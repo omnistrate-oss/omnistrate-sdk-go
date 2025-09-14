@@ -28,7 +28,7 @@ import (
 )
 
 func main() {
-	changePlanRequest2 := *openapiclient.NewChangePlanRequest2("STARTER") // ChangePlanRequest2 | 
+	changePlanRequest2 := *openapiclient.NewChangePlanRequest2("STARTER_NO_COMMIT|STARTER|GROWTH|ENTERPRISE") // ChangePlanRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

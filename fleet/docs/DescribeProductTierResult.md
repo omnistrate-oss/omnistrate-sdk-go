@@ -5,20 +5,20 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AllowCreatesWhenPaymentNotConfigured** | Pointer to **bool** | Allow creates when payment not configured | [optional] 
-**ApiGroups** | Pointer to **map[string]interface{}** | The resources that belong to this service API bundle and their active versions | [optional] 
+**ApiGroups** | Pointer to **map[string]string** | The resources that belong to this service API bundle and their active versions | [optional] 
 **AutoApproveSubscription** | Pointer to **bool** | Auto approve subscription or not | [optional] 
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this product tier is available on | [optional] 
 **AzureRegions** | Pointer to **[]string** | The Azure regions that this product tier is available on | [optional] 
 **BillingProductID** | Pointer to **string** | Optional billing product ID for tax purposes | [optional] 
 **BillingProviders** | Pointer to **[]string** | List of billing providers to be used for the product tier | [optional] 
-**CloudProvidersConfigReadiness** | Pointer to **map[string]interface{}** | The readiness of the cloud providers configurations | [optional] 
+**CloudProvidersConfigReadiness** | Pointer to **map[string]map[string]string** | The readiness of the cloud providers configurations | [optional] 
 **DefaultBillingProvider** | Pointer to **string** | The billing provider type | [optional] 
 **Description** | **string** | A brief description of the product tier | 
 **Documentation** | **string** | Documentation | 
 **EnabledFeatures** | Pointer to [**[]ProductTierFeatureDetail**](ProductTierFeatureDetail.md) | The features that are enabled for this product tier, including scope details and configuration | [optional] 
 **ExportUsageMetering** | Pointer to **bool** | Export usage metering data | [optional] 
 **ExportUsageMeteringConfig** | Pointer to **map[string]interface{}** | Export usage metering data configuration | [optional] 
-**Features** | Pointer to **map[string]interface{}** | The features that are enabled / disabled for this product tier | [optional] 
+**Features** | Pointer to **map[string]bool** | The features that are enabled / disabled for this product tier | [optional] 
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this product tier is available on | [optional] 
 **Id** | **string** | ID of a Product Tier | 
 **IsDisabled** | **bool** | Flag to indicate if the product tier is disabled. | 
@@ -80,20 +80,20 @@ HasAllowCreatesWhenPaymentNotConfigured returns a boolean if a field has been se
 
 ### GetApiGroups
 
-`func (o *DescribeProductTierResult) GetApiGroups() map[string]interface{}`
+`func (o *DescribeProductTierResult) GetApiGroups() map[string]string`
 
 GetApiGroups returns the ApiGroups field if non-nil, zero value otherwise.
 
 ### GetApiGroupsOk
 
-`func (o *DescribeProductTierResult) GetApiGroupsOk() (*map[string]interface{}, bool)`
+`func (o *DescribeProductTierResult) GetApiGroupsOk() (*map[string]string, bool)`
 
 GetApiGroupsOk returns a tuple with the ApiGroups field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetApiGroups
 
-`func (o *DescribeProductTierResult) SetApiGroups(v map[string]interface{})`
+`func (o *DescribeProductTierResult) SetApiGroups(v map[string]string)`
 
 SetApiGroups sets ApiGroups field to given value.
 
@@ -230,20 +230,20 @@ HasBillingProviders returns a boolean if a field has been set.
 
 ### GetCloudProvidersConfigReadiness
 
-`func (o *DescribeProductTierResult) GetCloudProvidersConfigReadiness() map[string]interface{}`
+`func (o *DescribeProductTierResult) GetCloudProvidersConfigReadiness() map[string]map[string]string`
 
 GetCloudProvidersConfigReadiness returns the CloudProvidersConfigReadiness field if non-nil, zero value otherwise.
 
 ### GetCloudProvidersConfigReadinessOk
 
-`func (o *DescribeProductTierResult) GetCloudProvidersConfigReadinessOk() (*map[string]interface{}, bool)`
+`func (o *DescribeProductTierResult) GetCloudProvidersConfigReadinessOk() (*map[string]map[string]string, bool)`
 
 GetCloudProvidersConfigReadinessOk returns a tuple with the CloudProvidersConfigReadiness field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCloudProvidersConfigReadiness
 
-`func (o *DescribeProductTierResult) SetCloudProvidersConfigReadiness(v map[string]interface{})`
+`func (o *DescribeProductTierResult) SetCloudProvidersConfigReadiness(v map[string]map[string]string)`
 
 SetCloudProvidersConfigReadiness sets CloudProvidersConfigReadiness field to given value.
 
@@ -395,20 +395,20 @@ HasExportUsageMeteringConfig returns a boolean if a field has been set.
 
 ### GetFeatures
 
-`func (o *DescribeProductTierResult) GetFeatures() map[string]interface{}`
+`func (o *DescribeProductTierResult) GetFeatures() map[string]bool`
 
 GetFeatures returns the Features field if non-nil, zero value otherwise.
 
 ### GetFeaturesOk
 
-`func (o *DescribeProductTierResult) GetFeaturesOk() (*map[string]interface{}, bool)`
+`func (o *DescribeProductTierResult) GetFeaturesOk() (*map[string]bool, bool)`
 
 GetFeaturesOk returns a tuple with the Features field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFeatures
 
-`func (o *DescribeProductTierResult) SetFeatures(v map[string]interface{})`
+`func (o *DescribeProductTierResult) SetFeatures(v map[string]bool)`
 
 SetFeatures sets Features field to given value.
 

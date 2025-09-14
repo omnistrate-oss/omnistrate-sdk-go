@@ -20,7 +20,7 @@ var _ MappedNullable = &DescribeCloudProviderCostResult{}
 // DescribeCloudProviderCostResult struct for DescribeCloudProviderCostResult
 type DescribeCloudProviderCostResult struct {
 	// The cost data for each cloud provider
-	CloudProviderCosts map[string]interface{} `json:"cloudProviderCosts,omitempty"`
+	CloudProviderCosts *map[string]PerCloudProviderCost `json:"cloudProviderCosts,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -44,19 +44,19 @@ func NewDescribeCloudProviderCostResultWithDefaults() *DescribeCloudProviderCost
 }
 
 // GetCloudProviderCosts returns the CloudProviderCosts field value if set, zero value otherwise.
-func (o *DescribeCloudProviderCostResult) GetCloudProviderCosts() map[string]interface{} {
+func (o *DescribeCloudProviderCostResult) GetCloudProviderCosts() map[string]PerCloudProviderCost {
 	if o == nil || IsNil(o.CloudProviderCosts) {
-		var ret map[string]interface{}
+		var ret map[string]PerCloudProviderCost
 		return ret
 	}
-	return o.CloudProviderCosts
+	return *o.CloudProviderCosts
 }
 
 // GetCloudProviderCostsOk returns a tuple with the CloudProviderCosts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeCloudProviderCostResult) GetCloudProviderCostsOk() (map[string]interface{}, bool) {
+func (o *DescribeCloudProviderCostResult) GetCloudProviderCostsOk() (*map[string]PerCloudProviderCost, bool) {
 	if o == nil || IsNil(o.CloudProviderCosts) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.CloudProviderCosts, true
 }
@@ -70,9 +70,9 @@ func (o *DescribeCloudProviderCostResult) HasCloudProviderCosts() bool {
 	return false
 }
 
-// SetCloudProviderCosts gets a reference to the given map[string]interface{} and assigns it to the CloudProviderCosts field.
-func (o *DescribeCloudProviderCostResult) SetCloudProviderCosts(v map[string]interface{}) {
-	o.CloudProviderCosts = v
+// SetCloudProviderCosts gets a reference to the given map[string]PerCloudProviderCost and assigns it to the CloudProviderCosts field.
+func (o *DescribeCloudProviderCostResult) SetCloudProviderCosts(v map[string]PerCloudProviderCost) {
+	o.CloudProviderCosts = &v
 }
 
 func (o DescribeCloudProviderCostResult) MarshalJSON() ([]byte, error) {

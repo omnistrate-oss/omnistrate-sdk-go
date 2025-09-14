@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DefaultDeploymentCellConfigurations** | Pointer to [**DeploymentCellConfigurations**](DeploymentCellConfigurations.md) |  | [optional] 
-**DeploymentCellConfigurationsPerEnv** | Pointer to **map[string]interface{}** | The default deployment cell configurations for the organization per environment. | [optional] 
+**DeploymentCellConfigurationsPerEnv** | Pointer to [**map[string]DeploymentCellConfigurations**](DeploymentCellConfigurations.md) | The default deployment cell configurations for the organization per environment. | [optional] 
 **Id** | Pointer to **string** | ID of an Org | [optional] 
 
 ## Methods
@@ -54,20 +54,20 @@ HasDefaultDeploymentCellConfigurations returns a boolean if a field has been set
 
 ### GetDeploymentCellConfigurationsPerEnv
 
-`func (o *DescribeServiceProviderOrganizationResult) GetDeploymentCellConfigurationsPerEnv() map[string]interface{}`
+`func (o *DescribeServiceProviderOrganizationResult) GetDeploymentCellConfigurationsPerEnv() map[string]DeploymentCellConfigurations`
 
 GetDeploymentCellConfigurationsPerEnv returns the DeploymentCellConfigurationsPerEnv field if non-nil, zero value otherwise.
 
 ### GetDeploymentCellConfigurationsPerEnvOk
 
-`func (o *DescribeServiceProviderOrganizationResult) GetDeploymentCellConfigurationsPerEnvOk() (*map[string]interface{}, bool)`
+`func (o *DescribeServiceProviderOrganizationResult) GetDeploymentCellConfigurationsPerEnvOk() (*map[string]DeploymentCellConfigurations, bool)`
 
 GetDeploymentCellConfigurationsPerEnvOk returns a tuple with the DeploymentCellConfigurationsPerEnv field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeploymentCellConfigurationsPerEnv
 
-`func (o *DescribeServiceProviderOrganizationResult) SetDeploymentCellConfigurationsPerEnv(v map[string]interface{})`
+`func (o *DescribeServiceProviderOrganizationResult) SetDeploymentCellConfigurationsPerEnv(v map[string]DeploymentCellConfigurations)`
 
 SetDeploymentCellConfigurationsPerEnv sets DeploymentCellConfigurationsPerEnv field to given value.
 

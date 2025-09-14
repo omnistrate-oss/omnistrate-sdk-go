@@ -169,7 +169,7 @@ import (
 
 func main() {
 	subscriptionId := "sub-abcd1234" // string | The subscription ID
-	inviteConsumptionUserRequest2 := *openapiclient.NewInviteConsumptionUserRequest2("abc@gmail.com", "reader") // InviteConsumptionUserRequest2 | 
+	inviteConsumptionUserRequest2 := *openapiclient.NewInviteConsumptionUserRequest2("abc@gmail.com", "root|editor|reader|service_editor|service_reader|admin|service_operator") // InviteConsumptionUserRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -301,7 +301,7 @@ import (
 
 func main() {
 	subscriptionId := "sub-abcd1234" // string | The subscription ID
-	revokeConsumptionUserRoleRequest2 := *openapiclient.NewRevokeConsumptionUserRoleRequest2("abc@gmail.com", "reader") // RevokeConsumptionUserRoleRequest2 | 
+	revokeConsumptionUserRoleRequest2 := *openapiclient.NewRevokeConsumptionUserRoleRequest2("abc@gmail.com", "root|editor|reader|service_editor|service_reader|admin|service_operator") // RevokeConsumptionUserRoleRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

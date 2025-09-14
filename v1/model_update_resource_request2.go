@@ -22,7 +22,7 @@ type UpdateResourceRequest2 struct {
 	AdditionalSecurityContext *AdditionalSecurityContext `json:"additionalSecurityContext,omitempty"`
 	AgentConfiguration *AgentConfiguration `json:"agentConfiguration,omitempty"`
 	BackupConfiguration *BackupConfiguration `json:"backupConfiguration,omitempty"`
-	ContainerImageConfiguration *ContainerImageConfiguration `json:"containerImageConfiguration,omitempty"`
+	ContainerImagesRegistryCopyConfiguration *ContainerImagesRegistryCopyConfiguration `json:"containerImagesRegistryCopyConfiguration,omitempty"`
 	// Custom labels for the resource
 	CustomLabels *map[string]string `json:"customLabels,omitempty"`
 	// Custom sysctl settings for the resource
@@ -141,27 +141,27 @@ func (o *UpdateResourceRequest2) SetBackupConfiguration(v BackupConfiguration) {
 	o.BackupConfiguration = &v
 }
 
-// GetContainerImageConfiguration returns the ContainerImageConfiguration field value if set, zero value otherwise.
-func (o *UpdateResourceRequest2) GetContainerImageConfiguration() ContainerImageConfiguration {
-	if o == nil || IsNil(o.ContainerImageConfiguration) {
-		var ret ContainerImageConfiguration
+// GetContainerImagesRegistryCopyConfiguration returns the ContainerImagesRegistryCopyConfiguration field value if set, zero value otherwise.
+func (o *UpdateResourceRequest2) GetContainerImagesRegistryCopyConfiguration() ContainerImagesRegistryCopyConfiguration {
+	if o == nil || IsNil(o.ContainerImagesRegistryCopyConfiguration) {
+		var ret ContainerImagesRegistryCopyConfiguration
 		return ret
 	}
-	return *o.ContainerImageConfiguration
+	return *o.ContainerImagesRegistryCopyConfiguration
 }
 
-// GetContainerImageConfigurationOk returns a tuple with the ContainerImageConfiguration field value if set, nil otherwise
+// GetContainerImagesRegistryCopyConfigurationOk returns a tuple with the ContainerImagesRegistryCopyConfiguration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdateResourceRequest2) GetContainerImageConfigurationOk() (*ContainerImageConfiguration, bool) {
-	if o == nil || IsNil(o.ContainerImageConfiguration) {
+func (o *UpdateResourceRequest2) GetContainerImagesRegistryCopyConfigurationOk() (*ContainerImagesRegistryCopyConfiguration, bool) {
+	if o == nil || IsNil(o.ContainerImagesRegistryCopyConfiguration) {
 		return nil, false
 	}
-	return o.ContainerImageConfiguration, true
+	return o.ContainerImagesRegistryCopyConfiguration, true
 }
 
-// SetContainerImageConfiguration gets a reference to the given ContainerImageConfiguration and assigns it to the ContainerImageConfiguration field.
-func (o *UpdateResourceRequest2) SetContainerImageConfiguration(v ContainerImageConfiguration) {
-	o.ContainerImageConfiguration = &v
+// SetContainerImagesRegistryCopyConfiguration gets a reference to the given ContainerImagesRegistryCopyConfiguration and assigns it to the ContainerImagesRegistryCopyConfiguration field.
+func (o *UpdateResourceRequest2) SetContainerImagesRegistryCopyConfiguration(v ContainerImagesRegistryCopyConfiguration) {
+	o.ContainerImagesRegistryCopyConfiguration = &v
 }
 
 // GetCustomLabels returns the CustomLabels field value if set, zero value otherwise.
@@ -574,8 +574,8 @@ func (o UpdateResourceRequest2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.BackupConfiguration) {
 		toSerialize["backupConfiguration"] = o.BackupConfiguration
 	}
-	if !IsNil(o.ContainerImageConfiguration) {
-		toSerialize["containerImageConfiguration"] = o.ContainerImageConfiguration
+	if !IsNil(o.ContainerImagesRegistryCopyConfiguration) {
+		toSerialize["containerImagesRegistryCopyConfiguration"] = o.ContainerImagesRegistryCopyConfiguration
 	}
 	if !IsNil(o.CustomLabels) {
 		toSerialize["customLabels"] = o.CustomLabels
@@ -653,7 +653,7 @@ func (o *UpdateResourceRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "additionalSecurityContext")
 		delete(additionalProperties, "agentConfiguration")
 		delete(additionalProperties, "backupConfiguration")
-		delete(additionalProperties, "containerImageConfiguration")
+		delete(additionalProperties, "containerImagesRegistryCopyConfiguration")
 		delete(additionalProperties, "customLabels")
 		delete(additionalProperties, "customSysCTLs")
 		delete(additionalProperties, "customULimits")

@@ -170,7 +170,7 @@ import (
 )
 
 func main() {
-	listLimitRequest2 := *openapiclient.NewListLimitRequest2("COMPUTE_INFRA") // ListLimitRequest2 | 
+	listLimitRequest2 := *openapiclient.NewListLimitRequest2("SERVICE") // ListLimitRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

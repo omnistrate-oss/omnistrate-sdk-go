@@ -24,7 +24,7 @@ type CreateResourceRequest struct {
 	AgentConfiguration *AgentConfiguration `json:"agentConfiguration,omitempty"`
 	BackupConfiguration *BackupConfiguration `json:"backupConfiguration,omitempty"`
 	BlobStorageConfiguration *BlobStorageConfiguration `json:"blobStorageConfiguration,omitempty"`
-	ContainerImageConfiguration *ContainerImageConfiguration `json:"containerImageConfiguration,omitempty"`
+	ContainerImagesRegistryCopyConfiguration *ContainerImagesRegistryCopyConfiguration `json:"containerImagesRegistryCopyConfiguration,omitempty"`
 	// Custom labels for the resource
 	CustomLabels *map[string]string `json:"customLabels,omitempty"`
 	// Custom sysctl settings for the resource
@@ -54,7 +54,7 @@ type CreateResourceRequest struct {
 	// Name of the resource
 	Name string `json:"name"`
 	// The Terraform configurations for an OnPrem platform
-	OnPremTerraformConfigurations map[string]interface{} `json:"onPremTerraformConfigurations,omitempty"`
+	OnPremTerraformConfigurations *map[string]TerraformConfiguration `json:"onPremTerraformConfigurations,omitempty"`
 	OperatorCRDConfiguration *OperatorCRDConfiguration `json:"operatorCRDConfiguration,omitempty"`
 	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
@@ -66,7 +66,7 @@ type CreateResourceRequest struct {
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The Terraform configurations for cloud providers
-	TerraformConfigurations map[string]interface{} `json:"terraformConfigurations,omitempty"`
+	TerraformConfigurations *map[string]TerraformConfiguration `json:"terraformConfigurations,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -200,27 +200,27 @@ func (o *CreateResourceRequest) SetBlobStorageConfiguration(v BlobStorageConfigu
 	o.BlobStorageConfiguration = &v
 }
 
-// GetContainerImageConfiguration returns the ContainerImageConfiguration field value if set, zero value otherwise.
-func (o *CreateResourceRequest) GetContainerImageConfiguration() ContainerImageConfiguration {
-	if o == nil || IsNil(o.ContainerImageConfiguration) {
-		var ret ContainerImageConfiguration
+// GetContainerImagesRegistryCopyConfiguration returns the ContainerImagesRegistryCopyConfiguration field value if set, zero value otherwise.
+func (o *CreateResourceRequest) GetContainerImagesRegistryCopyConfiguration() ContainerImagesRegistryCopyConfiguration {
+	if o == nil || IsNil(o.ContainerImagesRegistryCopyConfiguration) {
+		var ret ContainerImagesRegistryCopyConfiguration
 		return ret
 	}
-	return *o.ContainerImageConfiguration
+	return *o.ContainerImagesRegistryCopyConfiguration
 }
 
-// GetContainerImageConfigurationOk returns a tuple with the ContainerImageConfiguration field value if set, nil otherwise
+// GetContainerImagesRegistryCopyConfigurationOk returns a tuple with the ContainerImagesRegistryCopyConfiguration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateResourceRequest) GetContainerImageConfigurationOk() (*ContainerImageConfiguration, bool) {
-	if o == nil || IsNil(o.ContainerImageConfiguration) {
+func (o *CreateResourceRequest) GetContainerImagesRegistryCopyConfigurationOk() (*ContainerImagesRegistryCopyConfiguration, bool) {
+	if o == nil || IsNil(o.ContainerImagesRegistryCopyConfiguration) {
 		return nil, false
 	}
-	return o.ContainerImageConfiguration, true
+	return o.ContainerImagesRegistryCopyConfiguration, true
 }
 
-// SetContainerImageConfiguration gets a reference to the given ContainerImageConfiguration and assigns it to the ContainerImageConfiguration field.
-func (o *CreateResourceRequest) SetContainerImageConfiguration(v ContainerImageConfiguration) {
-	o.ContainerImageConfiguration = &v
+// SetContainerImagesRegistryCopyConfiguration gets a reference to the given ContainerImagesRegistryCopyConfiguration and assigns it to the ContainerImagesRegistryCopyConfiguration field.
+func (o *CreateResourceRequest) SetContainerImagesRegistryCopyConfiguration(v ContainerImagesRegistryCopyConfiguration) {
+	o.ContainerImagesRegistryCopyConfiguration = &v
 }
 
 // GetCustomLabels returns the CustomLabels field value if set, zero value otherwise.
@@ -617,26 +617,26 @@ func (o *CreateResourceRequest) SetName(v string) {
 }
 
 // GetOnPremTerraformConfigurations returns the OnPremTerraformConfigurations field value if set, zero value otherwise.
-func (o *CreateResourceRequest) GetOnPremTerraformConfigurations() map[string]interface{} {
+func (o *CreateResourceRequest) GetOnPremTerraformConfigurations() map[string]TerraformConfiguration {
 	if o == nil || IsNil(o.OnPremTerraformConfigurations) {
-		var ret map[string]interface{}
+		var ret map[string]TerraformConfiguration
 		return ret
 	}
-	return o.OnPremTerraformConfigurations
+	return *o.OnPremTerraformConfigurations
 }
 
 // GetOnPremTerraformConfigurationsOk returns a tuple with the OnPremTerraformConfigurations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateResourceRequest) GetOnPremTerraformConfigurationsOk() (map[string]interface{}, bool) {
+func (o *CreateResourceRequest) GetOnPremTerraformConfigurationsOk() (*map[string]TerraformConfiguration, bool) {
 	if o == nil || IsNil(o.OnPremTerraformConfigurations) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.OnPremTerraformConfigurations, true
 }
 
-// SetOnPremTerraformConfigurations gets a reference to the given map[string]interface{} and assigns it to the OnPremTerraformConfigurations field.
-func (o *CreateResourceRequest) SetOnPremTerraformConfigurations(v map[string]interface{}) {
-	o.OnPremTerraformConfigurations = v
+// SetOnPremTerraformConfigurations gets a reference to the given map[string]TerraformConfiguration and assigns it to the OnPremTerraformConfigurations field.
+func (o *CreateResourceRequest) SetOnPremTerraformConfigurations(v map[string]TerraformConfiguration) {
+	o.OnPremTerraformConfigurations = &v
 }
 
 // GetOperatorCRDConfiguration returns the OperatorCRDConfiguration field value if set, zero value otherwise.
@@ -780,26 +780,26 @@ func (o *CreateResourceRequest) SetServiceId(v string) {
 }
 
 // GetTerraformConfigurations returns the TerraformConfigurations field value if set, zero value otherwise.
-func (o *CreateResourceRequest) GetTerraformConfigurations() map[string]interface{} {
+func (o *CreateResourceRequest) GetTerraformConfigurations() map[string]TerraformConfiguration {
 	if o == nil || IsNil(o.TerraformConfigurations) {
-		var ret map[string]interface{}
+		var ret map[string]TerraformConfiguration
 		return ret
 	}
-	return o.TerraformConfigurations
+	return *o.TerraformConfigurations
 }
 
 // GetTerraformConfigurationsOk returns a tuple with the TerraformConfigurations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateResourceRequest) GetTerraformConfigurationsOk() (map[string]interface{}, bool) {
+func (o *CreateResourceRequest) GetTerraformConfigurationsOk() (*map[string]TerraformConfiguration, bool) {
 	if o == nil || IsNil(o.TerraformConfigurations) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.TerraformConfigurations, true
 }
 
-// SetTerraformConfigurations gets a reference to the given map[string]interface{} and assigns it to the TerraformConfigurations field.
-func (o *CreateResourceRequest) SetTerraformConfigurations(v map[string]interface{}) {
-	o.TerraformConfigurations = v
+// SetTerraformConfigurations gets a reference to the given map[string]TerraformConfiguration and assigns it to the TerraformConfigurations field.
+func (o *CreateResourceRequest) SetTerraformConfigurations(v map[string]TerraformConfiguration) {
+	o.TerraformConfigurations = &v
 }
 
 // GetToken returns the Token field value
@@ -848,8 +848,8 @@ func (o CreateResourceRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.BlobStorageConfiguration) {
 		toSerialize["blobStorageConfiguration"] = o.BlobStorageConfiguration
 	}
-	if !IsNil(o.ContainerImageConfiguration) {
-		toSerialize["containerImageConfiguration"] = o.ContainerImageConfiguration
+	if !IsNil(o.ContainerImagesRegistryCopyConfiguration) {
+		toSerialize["containerImagesRegistryCopyConfiguration"] = o.ContainerImagesRegistryCopyConfiguration
 	}
 	if !IsNil(o.CustomLabels) {
 		toSerialize["customLabels"] = o.CustomLabels
@@ -970,7 +970,7 @@ func (o *CreateResourceRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "agentConfiguration")
 		delete(additionalProperties, "backupConfiguration")
 		delete(additionalProperties, "blobStorageConfiguration")
-		delete(additionalProperties, "containerImageConfiguration")
+		delete(additionalProperties, "containerImagesRegistryCopyConfiguration")
 		delete(additionalProperties, "customLabels")
 		delete(additionalProperties, "customSysCTLs")
 		delete(additionalProperties, "customULimits")

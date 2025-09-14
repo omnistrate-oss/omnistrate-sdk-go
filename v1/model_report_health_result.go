@@ -24,7 +24,7 @@ type ReportHealthResult struct {
 	// ID of a Service
 	Id *string `json:"id,omitempty"`
 	// The health of each environment under this service
-	Report map[string]interface{} `json:"report,omitempty"`
+	Report *map[string]EnvironmentHealthReport `json:"report,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -94,26 +94,26 @@ func (o *ReportHealthResult) SetId(v string) {
 }
 
 // GetReport returns the Report field value if set, zero value otherwise.
-func (o *ReportHealthResult) GetReport() map[string]interface{} {
+func (o *ReportHealthResult) GetReport() map[string]EnvironmentHealthReport {
 	if o == nil || IsNil(o.Report) {
-		var ret map[string]interface{}
+		var ret map[string]EnvironmentHealthReport
 		return ret
 	}
-	return o.Report
+	return *o.Report
 }
 
 // GetReportOk returns a tuple with the Report field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ReportHealthResult) GetReportOk() (map[string]interface{}, bool) {
+func (o *ReportHealthResult) GetReportOk() (*map[string]EnvironmentHealthReport, bool) {
 	if o == nil || IsNil(o.Report) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.Report, true
 }
 
-// SetReport gets a reference to the given map[string]interface{} and assigns it to the Report field.
-func (o *ReportHealthResult) SetReport(v map[string]interface{}) {
-	o.Report = v
+// SetReport gets a reference to the given map[string]EnvironmentHealthReport and assigns it to the Report field.
+func (o *ReportHealthResult) SetReport(v map[string]EnvironmentHealthReport) {
+	o.Report = &v
 }
 
 func (o ReportHealthResult) MarshalJSON() ([]byte, error) {

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserCosts** | Pointer to **map[string]interface{}** | The cost data for each user | [optional] 
+**UserCosts** | Pointer to [**map[string]PerUserCost**](PerUserCost.md) | The cost data for each user | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetUserCosts
 
-`func (o *DescribeUserCostResult) GetUserCosts() map[string]interface{}`
+`func (o *DescribeUserCostResult) GetUserCosts() map[string]PerUserCost`
 
 GetUserCosts returns the UserCosts field if non-nil, zero value otherwise.
 
 ### GetUserCostsOk
 
-`func (o *DescribeUserCostResult) GetUserCostsOk() (*map[string]interface{}, bool)`
+`func (o *DescribeUserCostResult) GetUserCostsOk() (*map[string]PerUserCost, bool)`
 
 GetUserCostsOk returns a tuple with the UserCosts field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUserCosts
 
-`func (o *DescribeUserCostResult) SetUserCosts(v map[string]interface{})`
+`func (o *DescribeUserCostResult) SetUserCosts(v map[string]PerUserCost)`
 
 SetUserCosts sets UserCosts field to given value.
 

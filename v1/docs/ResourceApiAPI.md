@@ -208,7 +208,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
-	createResourceRequest2 := *openapiclient.NewCreateResourceRequest2("A resource to manage a hosted public SaaS offering of a multi-writer MySQL service", "Galera", "pt-12345678") // CreateResourceRequest2 | 
+	createResourceRequest2 := *openapiclient.NewCreateResourceRequest2("A resource to manage a hosted public SaaS offering of a multi-writer MySQL service", "Galera", "Et est et rerum debitis.") // CreateResourceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -417,7 +417,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service to which the hook belongs
 	id := "r-12345678" // string | The ID of the resource to which the hook belongs
-	deregisterActionHookRequest2 := *openapiclient.NewDeregisterActionHookRequest2("CLUSTER", "ADD") // DeregisterActionHookRequest2 | 
+	deregisterActionHookRequest2 := *openapiclient.NewDeregisterActionHookRequest2("CLUSTER|NODE", "INIT|ADD|REMOVE|PROMOTE|DEMOTE|HEALTH_CHECK|READINESS_CHECK|STARTUP_CHECK|PRE_START|POST_START|PRE_UPGRADE|POST_UPGRADE|PRE_STOP|POST_STOP") // DeregisterActionHookRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -557,7 +557,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	productTierVersion := "Aut et adipisci in nobis." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Quia laborum nostrum voluptas numquam." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the resource to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -632,7 +632,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	productTierVersion := "Et qui et qui officia dolor." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Aut quas rem corrupti." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the resource to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -707,7 +707,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	disableResourceCapabilityRequest2 := *openapiclient.NewDisableResourceCapabilityRequest2("SERVERLESS") // DisableResourceCapabilityRequest2 | 
+	disableResourceCapabilityRequest2 := *openapiclient.NewDisableResourceCapabilityRequest2("SERVERLESS|SERVICE_ACCOUNT_POLICIES|PROCESS_CORE_DUMP|CUSTOM_DNS|SIDECARS") // DisableResourceCapabilityRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -778,7 +778,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	enableResourceCapabilityRequest2 := *openapiclient.NewEnableResourceCapabilityRequest2("SERVERLESS") // EnableResourceCapabilityRequest2 | 
+	enableResourceCapabilityRequest2 := *openapiclient.NewEnableResourceCapabilityRequest2("SERVERLESS|SERVICE_ACCOUNT_POLICIES|PROCESS_CORE_DUMP|CUSTOM_DNS|SIDECARS") // EnableResourceCapabilityRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1144,7 +1144,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	productTierVersion := "Voluptatem voluptatem excepturi asperiores odio." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Dolorum officiis voluptatem placeat nostrum nam eaque." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -1220,7 +1220,7 @@ func main() {
 	serviceId := "si-12345678" // string | The ID of the service to list resources for
 	productTierId := "pt-12345678" // string | The product tier ID
 	managed := false // bool | Is resource managed by omnistrate (optional)
-	productTierVersion := "Deleniti et iusto atque placeat tempore." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Necessitatibus explicabo accusantium vitae eos eum ut." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1294,7 +1294,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service to which the hook belongs
 	id := "r-12345678" // string | The ID of the resource to which the hook belongs
-	registerActionHookRequest2 := *openapiclient.NewRegisterActionHookRequest2("ZWNobyAiaGVsbG8gd29ybGQi", "CLUSTER", "ADD") // RegisterActionHookRequest2 | 
+	registerActionHookRequest2 := *openapiclient.NewRegisterActionHookRequest2("ZWNobyAiaGVsbG8gd29ybGQi", "CLUSTER|NODE", "INIT|ADD|REMOVE|PROMOTE|DEMOTE|HEALTH_CHECK|READINESS_CHECK|STARTUP_CHECK|PRE_START|POST_START|PRE_UPGRADE|POST_UPGRADE|PRE_STOP|POST_STOP") // RegisterActionHookRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

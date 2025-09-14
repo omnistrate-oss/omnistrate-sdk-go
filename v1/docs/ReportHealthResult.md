@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Health** | Pointer to **string** | Service Health Status | [optional] 
 **Id** | Pointer to **string** | ID of a Service | [optional] 
-**Report** | Pointer to **map[string]interface{}** | The health of each environment under this service | [optional] 
+**Report** | Pointer to [**map[string]EnvironmentHealthReport**](EnvironmentHealthReport.md) | The health of each environment under this service | [optional] 
 
 ## Methods
 
@@ -79,20 +79,20 @@ HasId returns a boolean if a field has been set.
 
 ### GetReport
 
-`func (o *ReportHealthResult) GetReport() map[string]interface{}`
+`func (o *ReportHealthResult) GetReport() map[string]EnvironmentHealthReport`
 
 GetReport returns the Report field if non-nil, zero value otherwise.
 
 ### GetReportOk
 
-`func (o *ReportHealthResult) GetReportOk() (*map[string]interface{}, bool)`
+`func (o *ReportHealthResult) GetReportOk() (*map[string]EnvironmentHealthReport, bool)`
 
 GetReportOk returns a tuple with the Report field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetReport
 
-`func (o *ReportHealthResult) SetReport(v map[string]interface{})`
+`func (o *ReportHealthResult) SetReport(v map[string]EnvironmentHealthReport)`
 
 SetReport sets Report field to given value.
 

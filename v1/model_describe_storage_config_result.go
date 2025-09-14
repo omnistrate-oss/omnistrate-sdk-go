@@ -31,7 +31,7 @@ type DescribeStorageConfigResult struct {
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The storage volume config IDs and the corresponding mount path
-	Volumes map[string]interface{} `json:"volumes"`
+	Volumes map[string][]string `json:"volumes"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -41,7 +41,7 @@ type _DescribeStorageConfigResult DescribeStorageConfigResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDescribeStorageConfigResult(description string, id string, name string, serviceId string, volumes map[string]interface{}) *DescribeStorageConfigResult {
+func NewDescribeStorageConfigResult(description string, id string, name string, serviceId string, volumes map[string][]string) *DescribeStorageConfigResult {
 	this := DescribeStorageConfigResult{}
 	this.Description = description
 	this.Id = id
@@ -179,9 +179,9 @@ func (o *DescribeStorageConfigResult) SetServiceId(v string) {
 }
 
 // GetVolumes returns the Volumes field value
-func (o *DescribeStorageConfigResult) GetVolumes() map[string]interface{} {
+func (o *DescribeStorageConfigResult) GetVolumes() map[string][]string {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret map[string][]string
 		return ret
 	}
 
@@ -190,15 +190,15 @@ func (o *DescribeStorageConfigResult) GetVolumes() map[string]interface{} {
 
 // GetVolumesOk returns a tuple with the Volumes field value
 // and a boolean to check if the value has been set.
-func (o *DescribeStorageConfigResult) GetVolumesOk() (map[string]interface{}, bool) {
+func (o *DescribeStorageConfigResult) GetVolumesOk() (*map[string][]string, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.Volumes, true
+	return &o.Volumes, true
 }
 
 // SetVolumes sets field value
-func (o *DescribeStorageConfigResult) SetVolumes(v map[string]interface{}) {
+func (o *DescribeStorageConfigResult) SetVolumes(v map[string][]string) {
 	o.Volumes = v
 }
 

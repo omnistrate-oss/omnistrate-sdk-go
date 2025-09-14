@@ -39,7 +39,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The service ID
-	createInfraConfigRequest2 := *openapiclient.NewCreateInfraConfigRequest2("Infra config used for the base tier MySQL service", "MySQL Writer Infra Config", "se-12345678") // CreateInfraConfigRequest2 | 
+	createInfraConfigRequest2 := *openapiclient.NewCreateInfraConfigRequest2("Infra config used for the base tier MySQL service", "MySQL Writer Infra Config", "se-123456") // CreateInfraConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -179,7 +179,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "ic-12345678" // string | Infra Config ID to operate on
-	productTierVersion := "Et odit a quis ex cumque." // string | Product tier version of the infra config to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Ea dolorem." // string | Product tier version of the infra config to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the infra config to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()

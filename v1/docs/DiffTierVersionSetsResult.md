@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AnotherVersion** | **string** | The target version to compare against. | 
 **ProductTierId** | **string** | ID of a Product Tier | 
-**ResourceChangeSets** | **map[string]interface{}** | The difference for the service API configuration per resource | 
+**ResourceChangeSets** | [**map[string]ChangeSet**](ChangeSet.md) | The difference for the service API configuration per resource | 
 **ServiceId** | **string** | ID of a Service | 
 **Version** | **string** | The version number for the version set. | 
 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewDiffTierVersionSetsResult
 
-`func NewDiffTierVersionSetsResult(anotherVersion string, productTierId string, resourceChangeSets map[string]interface{}, serviceId string, version string, ) *DiffTierVersionSetsResult`
+`func NewDiffTierVersionSetsResult(anotherVersion string, productTierId string, resourceChangeSets map[string]ChangeSet, serviceId string, version string, ) *DiffTierVersionSetsResult`
 
 NewDiffTierVersionSetsResult instantiates a new DiffTierVersionSetsResult object
 This constructor will assign default values to properties that have it defined,
@@ -71,20 +71,20 @@ SetProductTierId sets ProductTierId field to given value.
 
 ### GetResourceChangeSets
 
-`func (o *DiffTierVersionSetsResult) GetResourceChangeSets() map[string]interface{}`
+`func (o *DiffTierVersionSetsResult) GetResourceChangeSets() map[string]ChangeSet`
 
 GetResourceChangeSets returns the ResourceChangeSets field if non-nil, zero value otherwise.
 
 ### GetResourceChangeSetsOk
 
-`func (o *DiffTierVersionSetsResult) GetResourceChangeSetsOk() (*map[string]interface{}, bool)`
+`func (o *DiffTierVersionSetsResult) GetResourceChangeSetsOk() (*map[string]ChangeSet, bool)`
 
 GetResourceChangeSetsOk returns a tuple with the ResourceChangeSets field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResourceChangeSets
 
-`func (o *DiffTierVersionSetsResult) SetResourceChangeSets(v map[string]interface{})`
+`func (o *DiffTierVersionSetsResult) SetResourceChangeSets(v map[string]ChangeSet)`
 
 SetResourceChangeSets sets ResourceChangeSets field to given value.
 

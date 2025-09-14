@@ -22,7 +22,7 @@ var _ MappedNullable = &DescribeComputeConfigResult{}
 type DescribeComputeConfigResult struct {
 	AutoscalingPolicy *AutoscalingPolicy `json:"autoscalingPolicy,omitempty"`
 	// The compute instance type config overrides for this compute config
-	ComputeInstanceTypeConfigOverrides map[string]interface{} `json:"computeInstanceTypeConfigOverrides,omitempty"`
+	ComputeInstanceTypeConfigOverrides *map[string]map[string]ComputeInstanceTypeConfigOverride `json:"computeInstanceTypeConfigOverrides,omitempty"`
 	// Processor architecture
 	CpuArchitecture *string `json:"cpuArchitecture,omitempty"`
 	// Description of the compute config
@@ -32,7 +32,7 @@ type DescribeComputeConfigResult struct {
 	// The list of infra config IDs associated with the compute config.
 	InfraConfigIDs []string `json:"infraConfigIDs,omitempty"`
 	// The instance types for this compute config
-	InstanceTypes map[string]interface{} `json:"instanceTypes,omitempty"`
+	InstanceTypes *map[string][]string `json:"instanceTypes,omitempty"`
 	// Name of the compute config
 	Name string `json:"name"`
 	// Number of replicas to provision for this logical pool of nodes per instance of the resource
@@ -94,26 +94,26 @@ func (o *DescribeComputeConfigResult) SetAutoscalingPolicy(v AutoscalingPolicy) 
 }
 
 // GetComputeInstanceTypeConfigOverrides returns the ComputeInstanceTypeConfigOverrides field value if set, zero value otherwise.
-func (o *DescribeComputeConfigResult) GetComputeInstanceTypeConfigOverrides() map[string]interface{} {
+func (o *DescribeComputeConfigResult) GetComputeInstanceTypeConfigOverrides() map[string]map[string]ComputeInstanceTypeConfigOverride {
 	if o == nil || IsNil(o.ComputeInstanceTypeConfigOverrides) {
-		var ret map[string]interface{}
+		var ret map[string]map[string]ComputeInstanceTypeConfigOverride
 		return ret
 	}
-	return o.ComputeInstanceTypeConfigOverrides
+	return *o.ComputeInstanceTypeConfigOverrides
 }
 
 // GetComputeInstanceTypeConfigOverridesOk returns a tuple with the ComputeInstanceTypeConfigOverrides field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeComputeConfigResult) GetComputeInstanceTypeConfigOverridesOk() (map[string]interface{}, bool) {
+func (o *DescribeComputeConfigResult) GetComputeInstanceTypeConfigOverridesOk() (*map[string]map[string]ComputeInstanceTypeConfigOverride, bool) {
 	if o == nil || IsNil(o.ComputeInstanceTypeConfigOverrides) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.ComputeInstanceTypeConfigOverrides, true
 }
 
-// SetComputeInstanceTypeConfigOverrides gets a reference to the given map[string]interface{} and assigns it to the ComputeInstanceTypeConfigOverrides field.
-func (o *DescribeComputeConfigResult) SetComputeInstanceTypeConfigOverrides(v map[string]interface{}) {
-	o.ComputeInstanceTypeConfigOverrides = v
+// SetComputeInstanceTypeConfigOverrides gets a reference to the given map[string]map[string]ComputeInstanceTypeConfigOverride and assigns it to the ComputeInstanceTypeConfigOverrides field.
+func (o *DescribeComputeConfigResult) SetComputeInstanceTypeConfigOverrides(v map[string]map[string]ComputeInstanceTypeConfigOverride) {
+	o.ComputeInstanceTypeConfigOverrides = &v
 }
 
 // GetCpuArchitecture returns the CpuArchitecture field value if set, zero value otherwise.
@@ -211,26 +211,26 @@ func (o *DescribeComputeConfigResult) SetInfraConfigIDs(v []string) {
 }
 
 // GetInstanceTypes returns the InstanceTypes field value if set, zero value otherwise.
-func (o *DescribeComputeConfigResult) GetInstanceTypes() map[string]interface{} {
+func (o *DescribeComputeConfigResult) GetInstanceTypes() map[string][]string {
 	if o == nil || IsNil(o.InstanceTypes) {
-		var ret map[string]interface{}
+		var ret map[string][]string
 		return ret
 	}
-	return o.InstanceTypes
+	return *o.InstanceTypes
 }
 
 // GetInstanceTypesOk returns a tuple with the InstanceTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeComputeConfigResult) GetInstanceTypesOk() (map[string]interface{}, bool) {
+func (o *DescribeComputeConfigResult) GetInstanceTypesOk() (*map[string][]string, bool) {
 	if o == nil || IsNil(o.InstanceTypes) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.InstanceTypes, true
 }
 
-// SetInstanceTypes gets a reference to the given map[string]interface{} and assigns it to the InstanceTypes field.
-func (o *DescribeComputeConfigResult) SetInstanceTypes(v map[string]interface{}) {
-	o.InstanceTypes = v
+// SetInstanceTypes gets a reference to the given map[string][]string and assigns it to the InstanceTypes field.
+func (o *DescribeComputeConfigResult) SetInstanceTypes(v map[string][]string) {
+	o.InstanceTypes = &v
 }
 
 // GetName returns the Name field value
