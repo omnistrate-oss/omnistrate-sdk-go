@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **InProgressCount** | **int64** | The number of instances that are in progress of the upgrade. | 
 **LastModifiedBy** | Pointer to **string** | The name of the user who created the upgrade path. | [optional] 
 **LastRequestedAction** | Pointer to **string** | The action to perform on an ongoing resource workflow | [optional] 
+**MaxConcurrentUpgrades** | Pointer to **int64** | The maximum number of instances that can be upgraded concurrently. If not specified, falls back to the deployment configuration setting. | [optional] 
 **NotifyCustomer** | Pointer to **bool** | Whether to notify the end customer about the upgrade progress. | [optional] 
 **PendingCount** | **int64** | The number of instances that are pending the upgrade. | 
 **PlannedExecutionDate** | Pointer to **string** | The date when the upgrade was/is planned to be executed. | [optional] 
@@ -228,6 +229,31 @@ SetLastRequestedAction sets LastRequestedAction field to given value.
 `func (o *UpgradePath) HasLastRequestedAction() bool`
 
 HasLastRequestedAction returns a boolean if a field has been set.
+
+### GetMaxConcurrentUpgrades
+
+`func (o *UpgradePath) GetMaxConcurrentUpgrades() int64`
+
+GetMaxConcurrentUpgrades returns the MaxConcurrentUpgrades field if non-nil, zero value otherwise.
+
+### GetMaxConcurrentUpgradesOk
+
+`func (o *UpgradePath) GetMaxConcurrentUpgradesOk() (*int64, bool)`
+
+GetMaxConcurrentUpgradesOk returns a tuple with the MaxConcurrentUpgrades field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxConcurrentUpgrades
+
+`func (o *UpgradePath) SetMaxConcurrentUpgrades(v int64)`
+
+SetMaxConcurrentUpgrades sets MaxConcurrentUpgrades field to given value.
+
+### HasMaxConcurrentUpgrades
+
+`func (o *UpgradePath) HasMaxConcurrentUpgrades() bool`
+
+HasMaxConcurrentUpgrades returns a boolean if a field has been set.
 
 ### GetNotifyCustomer
 

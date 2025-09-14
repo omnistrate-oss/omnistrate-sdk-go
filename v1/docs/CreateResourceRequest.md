@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **AgentConfiguration** | Pointer to [**AgentConfiguration**](AgentConfiguration.md) |  | [optional] 
 **BackupConfiguration** | Pointer to [**BackupConfiguration**](BackupConfiguration.md) |  | [optional] 
 **BlobStorageConfiguration** | Pointer to [**BlobStorageConfiguration**](BlobStorageConfiguration.md) |  | [optional] 
-**ContainerImageConfiguration** | Pointer to [**ContainerImageConfiguration**](ContainerImageConfiguration.md) |  | [optional] 
+**ContainerImagesRegistryCopyConfiguration** | Pointer to [**ContainerImagesRegistryCopyConfiguration**](ContainerImagesRegistryCopyConfiguration.md) |  | [optional] 
 **CustomLabels** | Pointer to **map[string]string** | Custom labels for the resource | [optional] 
 **CustomSysCTLs** | Pointer to **map[string]string** | Custom sysctl settings for the resource | [optional] 
 **CustomULimits** | Pointer to [**[]CustomULimits**](CustomULimits.md) | Custom ulimits for the resource | [optional] 
@@ -26,14 +26,14 @@ Name | Type | Description | Notes
 **L4LoadBalancerConfiguration** | Pointer to [**L4LoadBalancerConfiguration**](L4LoadBalancerConfiguration.md) |  | [optional] 
 **L7LoadBalancerConfiguration** | Pointer to [**L7LoadBalancerConfiguration**](L7LoadBalancerConfiguration.md) |  | [optional] 
 **Name** | **string** | Name of the resource | 
-**OnPremTerraformConfigurations** | Pointer to **map[string]interface{}** | The Terraform configurations for an OnPrem platform | [optional] 
+**OnPremTerraformConfigurations** | Pointer to [**map[string]TerraformConfiguration**](TerraformConfiguration.md) | The Terraform configurations for an OnPrem platform | [optional] 
 **OperatorCRDConfiguration** | Pointer to [**OperatorCRDConfiguration**](OperatorCRDConfiguration.md) |  | [optional] 
 **ProductTierId** | **string** | ID of a Product Tier | 
 **ProxyType** | Pointer to **string** | A proxy type of resource | [optional] [default to "PortsBasedProxy"]
 **ResourceDependencies** | Pointer to [**[]ResourceDependency**](ResourceDependency.md) |  | [optional] 
 **ResourceType** | Pointer to **string** | The type of the resource | [optional] 
 **ServiceId** | **string** | ID of a Service | 
-**TerraformConfigurations** | Pointer to **map[string]interface{}** | The Terraform configurations for cloud providers | [optional] 
+**TerraformConfigurations** | Pointer to [**map[string]TerraformConfiguration**](TerraformConfiguration.md) | The Terraform configurations for cloud providers | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
@@ -155,30 +155,30 @@ SetBlobStorageConfiguration sets BlobStorageConfiguration field to given value.
 
 HasBlobStorageConfiguration returns a boolean if a field has been set.
 
-### GetContainerImageConfiguration
+### GetContainerImagesRegistryCopyConfiguration
 
-`func (o *CreateResourceRequest) GetContainerImageConfiguration() ContainerImageConfiguration`
+`func (o *CreateResourceRequest) GetContainerImagesRegistryCopyConfiguration() ContainerImagesRegistryCopyConfiguration`
 
-GetContainerImageConfiguration returns the ContainerImageConfiguration field if non-nil, zero value otherwise.
+GetContainerImagesRegistryCopyConfiguration returns the ContainerImagesRegistryCopyConfiguration field if non-nil, zero value otherwise.
 
-### GetContainerImageConfigurationOk
+### GetContainerImagesRegistryCopyConfigurationOk
 
-`func (o *CreateResourceRequest) GetContainerImageConfigurationOk() (*ContainerImageConfiguration, bool)`
+`func (o *CreateResourceRequest) GetContainerImagesRegistryCopyConfigurationOk() (*ContainerImagesRegistryCopyConfiguration, bool)`
 
-GetContainerImageConfigurationOk returns a tuple with the ContainerImageConfiguration field if it's non-nil, zero value otherwise
+GetContainerImagesRegistryCopyConfigurationOk returns a tuple with the ContainerImagesRegistryCopyConfiguration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetContainerImageConfiguration
+### SetContainerImagesRegistryCopyConfiguration
 
-`func (o *CreateResourceRequest) SetContainerImageConfiguration(v ContainerImageConfiguration)`
+`func (o *CreateResourceRequest) SetContainerImagesRegistryCopyConfiguration(v ContainerImagesRegistryCopyConfiguration)`
 
-SetContainerImageConfiguration sets ContainerImageConfiguration field to given value.
+SetContainerImagesRegistryCopyConfiguration sets ContainerImagesRegistryCopyConfiguration field to given value.
 
-### HasContainerImageConfiguration
+### HasContainerImagesRegistryCopyConfiguration
 
-`func (o *CreateResourceRequest) HasContainerImageConfiguration() bool`
+`func (o *CreateResourceRequest) HasContainerImagesRegistryCopyConfiguration() bool`
 
-HasContainerImageConfiguration returns a boolean if a field has been set.
+HasContainerImagesRegistryCopyConfiguration returns a boolean if a field has been set.
 
 ### GetCustomLabels
 
@@ -597,20 +597,20 @@ SetName sets Name field to given value.
 
 ### GetOnPremTerraformConfigurations
 
-`func (o *CreateResourceRequest) GetOnPremTerraformConfigurations() map[string]interface{}`
+`func (o *CreateResourceRequest) GetOnPremTerraformConfigurations() map[string]TerraformConfiguration`
 
 GetOnPremTerraformConfigurations returns the OnPremTerraformConfigurations field if non-nil, zero value otherwise.
 
 ### GetOnPremTerraformConfigurationsOk
 
-`func (o *CreateResourceRequest) GetOnPremTerraformConfigurationsOk() (*map[string]interface{}, bool)`
+`func (o *CreateResourceRequest) GetOnPremTerraformConfigurationsOk() (*map[string]TerraformConfiguration, bool)`
 
 GetOnPremTerraformConfigurationsOk returns a tuple with the OnPremTerraformConfigurations field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOnPremTerraformConfigurations
 
-`func (o *CreateResourceRequest) SetOnPremTerraformConfigurations(v map[string]interface{})`
+`func (o *CreateResourceRequest) SetOnPremTerraformConfigurations(v map[string]TerraformConfiguration)`
 
 SetOnPremTerraformConfigurations sets OnPremTerraformConfigurations field to given value.
 
@@ -762,20 +762,20 @@ SetServiceId sets ServiceId field to given value.
 
 ### GetTerraformConfigurations
 
-`func (o *CreateResourceRequest) GetTerraformConfigurations() map[string]interface{}`
+`func (o *CreateResourceRequest) GetTerraformConfigurations() map[string]TerraformConfiguration`
 
 GetTerraformConfigurations returns the TerraformConfigurations field if non-nil, zero value otherwise.
 
 ### GetTerraformConfigurationsOk
 
-`func (o *CreateResourceRequest) GetTerraformConfigurationsOk() (*map[string]interface{}, bool)`
+`func (o *CreateResourceRequest) GetTerraformConfigurationsOk() (*map[string]TerraformConfiguration, bool)`
 
 GetTerraformConfigurationsOk returns a tuple with the TerraformConfigurations field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTerraformConfigurations
 
-`func (o *CreateResourceRequest) SetTerraformConfigurations(v map[string]interface{})`
+`func (o *CreateResourceRequest) SetTerraformConfigurations(v map[string]TerraformConfiguration)`
 
 SetTerraformConfigurations sets TerraformConfigurations field to given value.
 

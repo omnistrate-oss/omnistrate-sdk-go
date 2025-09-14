@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InstanceId** | **string** | ID of a Resource Instance | 
-**ResourcesDebug** | Pointer to **map[string]interface{}** | The debug information for individual instance resources | [optional] 
+**ResourcesDebug** | Pointer to [**map[string]DebugResourceResult**](DebugResourceResult.md) | The debug information for individual instance resources | [optional] 
 
 ## Methods
 
@@ -48,20 +48,20 @@ SetInstanceId sets InstanceId field to given value.
 
 ### GetResourcesDebug
 
-`func (o *DebugResourceInstanceResult) GetResourcesDebug() map[string]interface{}`
+`func (o *DebugResourceInstanceResult) GetResourcesDebug() map[string]DebugResourceResult`
 
 GetResourcesDebug returns the ResourcesDebug field if non-nil, zero value otherwise.
 
 ### GetResourcesDebugOk
 
-`func (o *DebugResourceInstanceResult) GetResourcesDebugOk() (*map[string]interface{}, bool)`
+`func (o *DebugResourceInstanceResult) GetResourcesDebugOk() (*map[string]DebugResourceResult, bool)`
 
 GetResourcesDebugOk returns a tuple with the ResourcesDebug field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResourcesDebug
 
-`func (o *DebugResourceInstanceResult) SetResourcesDebug(v map[string]interface{})`
+`func (o *DebugResourceInstanceResult) SetResourcesDebug(v map[string]DebugResourceResult)`
 
 SetResourcesDebug sets ResourcesDebug field to given value.
 

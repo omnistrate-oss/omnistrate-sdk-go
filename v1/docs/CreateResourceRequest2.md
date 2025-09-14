@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **AgentConfiguration** | Pointer to [**AgentConfiguration**](AgentConfiguration.md) |  | [optional] 
 **BackupConfiguration** | Pointer to [**BackupConfiguration**](BackupConfiguration.md) |  | [optional] 
 **BlobStorageConfiguration** | Pointer to [**BlobStorageConfiguration**](BlobStorageConfiguration.md) |  | [optional] 
-**ContainerImageConfiguration** | Pointer to [**ContainerImageConfiguration**](ContainerImageConfiguration.md) |  | [optional] 
+**ContainerImagesRegistryCopyConfiguration** | Pointer to [**ContainerImagesRegistryCopyConfiguration**](ContainerImagesRegistryCopyConfiguration.md) |  | [optional] 
 **CustomLabels** | Pointer to **map[string]string** | Custom labels for the resource | [optional] 
 **CustomSysCTLs** | Pointer to **map[string]string** | Custom sysctl settings for the resource | [optional] 
 **CustomULimits** | Pointer to [**[]CustomULimits**](CustomULimits.md) | Custom ulimits for the resource | [optional] 
@@ -153,30 +153,30 @@ SetBlobStorageConfiguration sets BlobStorageConfiguration field to given value.
 
 HasBlobStorageConfiguration returns a boolean if a field has been set.
 
-### GetContainerImageConfiguration
+### GetContainerImagesRegistryCopyConfiguration
 
-`func (o *CreateResourceRequest2) GetContainerImageConfiguration() ContainerImageConfiguration`
+`func (o *CreateResourceRequest2) GetContainerImagesRegistryCopyConfiguration() ContainerImagesRegistryCopyConfiguration`
 
-GetContainerImageConfiguration returns the ContainerImageConfiguration field if non-nil, zero value otherwise.
+GetContainerImagesRegistryCopyConfiguration returns the ContainerImagesRegistryCopyConfiguration field if non-nil, zero value otherwise.
 
-### GetContainerImageConfigurationOk
+### GetContainerImagesRegistryCopyConfigurationOk
 
-`func (o *CreateResourceRequest2) GetContainerImageConfigurationOk() (*ContainerImageConfiguration, bool)`
+`func (o *CreateResourceRequest2) GetContainerImagesRegistryCopyConfigurationOk() (*ContainerImagesRegistryCopyConfiguration, bool)`
 
-GetContainerImageConfigurationOk returns a tuple with the ContainerImageConfiguration field if it's non-nil, zero value otherwise
+GetContainerImagesRegistryCopyConfigurationOk returns a tuple with the ContainerImagesRegistryCopyConfiguration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetContainerImageConfiguration
+### SetContainerImagesRegistryCopyConfiguration
 
-`func (o *CreateResourceRequest2) SetContainerImageConfiguration(v ContainerImageConfiguration)`
+`func (o *CreateResourceRequest2) SetContainerImagesRegistryCopyConfiguration(v ContainerImagesRegistryCopyConfiguration)`
 
-SetContainerImageConfiguration sets ContainerImageConfiguration field to given value.
+SetContainerImagesRegistryCopyConfiguration sets ContainerImagesRegistryCopyConfiguration field to given value.
 
-### HasContainerImageConfiguration
+### HasContainerImagesRegistryCopyConfiguration
 
-`func (o *CreateResourceRequest2) HasContainerImageConfiguration() bool`
+`func (o *CreateResourceRequest2) HasContainerImagesRegistryCopyConfiguration() bool`
 
-HasContainerImageConfiguration returns a boolean if a field has been set.
+HasContainerImagesRegistryCopyConfiguration returns a boolean if a field has been set.
 
 ### GetCustomLabels
 

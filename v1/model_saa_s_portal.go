@@ -25,7 +25,7 @@ type SaaSPortal struct {
 	// The status of an operation
 	CustomDomainStatus *string `json:"customDomainStatus,omitempty"`
 	// The detailed network topology of the SaaS portal
-	DetailedNetworkTopology map[string]interface{} `json:"detailedNetworkTopology,omitempty"`
+	DetailedNetworkTopology *map[string]ResourceNetworkTopologyResult `json:"detailedNetworkTopology,omitempty"`
 	// Whether to disable password login for the SaaS portal
 	DisablePasswordLogin *bool `json:"disablePasswordLogin,omitempty"`
 	EmailConfig *SaaSPortalEmailConfig `json:"emailConfig,omitempty"`
@@ -109,26 +109,26 @@ func (o *SaaSPortal) SetCustomDomainStatus(v string) {
 }
 
 // GetDetailedNetworkTopology returns the DetailedNetworkTopology field value if set, zero value otherwise.
-func (o *SaaSPortal) GetDetailedNetworkTopology() map[string]interface{} {
+func (o *SaaSPortal) GetDetailedNetworkTopology() map[string]ResourceNetworkTopologyResult {
 	if o == nil || IsNil(o.DetailedNetworkTopology) {
-		var ret map[string]interface{}
+		var ret map[string]ResourceNetworkTopologyResult
 		return ret
 	}
-	return o.DetailedNetworkTopology
+	return *o.DetailedNetworkTopology
 }
 
 // GetDetailedNetworkTopologyOk returns a tuple with the DetailedNetworkTopology field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SaaSPortal) GetDetailedNetworkTopologyOk() (map[string]interface{}, bool) {
+func (o *SaaSPortal) GetDetailedNetworkTopologyOk() (*map[string]ResourceNetworkTopologyResult, bool) {
 	if o == nil || IsNil(o.DetailedNetworkTopology) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.DetailedNetworkTopology, true
 }
 
-// SetDetailedNetworkTopology gets a reference to the given map[string]interface{} and assigns it to the DetailedNetworkTopology field.
-func (o *SaaSPortal) SetDetailedNetworkTopology(v map[string]interface{}) {
-	o.DetailedNetworkTopology = v
+// SetDetailedNetworkTopology gets a reference to the given map[string]ResourceNetworkTopologyResult and assigns it to the DetailedNetworkTopology field.
+func (o *SaaSPortal) SetDetailedNetworkTopology(v map[string]ResourceNetworkTopologyResult) {
+	o.DetailedNetworkTopology = &v
 }
 
 // GetDisablePasswordLogin returns the DisablePasswordLogin field value if set, zero value otherwise.

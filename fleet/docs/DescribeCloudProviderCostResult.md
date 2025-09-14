@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudProviderCosts** | Pointer to **map[string]interface{}** | The cost data for each cloud provider | [optional] 
+**CloudProviderCosts** | Pointer to [**map[string]PerCloudProviderCost**](PerCloudProviderCost.md) | The cost data for each cloud provider | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCloudProviderCosts
 
-`func (o *DescribeCloudProviderCostResult) GetCloudProviderCosts() map[string]interface{}`
+`func (o *DescribeCloudProviderCostResult) GetCloudProviderCosts() map[string]PerCloudProviderCost`
 
 GetCloudProviderCosts returns the CloudProviderCosts field if non-nil, zero value otherwise.
 
 ### GetCloudProviderCostsOk
 
-`func (o *DescribeCloudProviderCostResult) GetCloudProviderCostsOk() (*map[string]interface{}, bool)`
+`func (o *DescribeCloudProviderCostResult) GetCloudProviderCostsOk() (*map[string]PerCloudProviderCost, bool)`
 
 GetCloudProviderCostsOk returns a tuple with the CloudProviderCosts field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCloudProviderCosts
 
-`func (o *DescribeCloudProviderCostResult) SetCloudProviderCosts(v map[string]interface{})`
+`func (o *DescribeCloudProviderCostResult) SetCloudProviderCosts(v map[string]PerCloudProviderCost)`
 
 SetCloudProviderCosts sets CloudProviderCosts field to given value.
 

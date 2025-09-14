@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ids** | Pointer to **map[string]interface{}** | List of VUnit IDs per Cloud provider | [optional] 
+**Ids** | Pointer to **map[string][]string** | List of VUnit IDs per Cloud provider | [optional] 
 **NextPageToken** | Pointer to **string** | Next page token | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetIds
 
-`func (o *ListVUnitsResult) GetIds() map[string]interface{}`
+`func (o *ListVUnitsResult) GetIds() map[string][]string`
 
 GetIds returns the Ids field if non-nil, zero value otherwise.
 
 ### GetIdsOk
 
-`func (o *ListVUnitsResult) GetIdsOk() (*map[string]interface{}, bool)`
+`func (o *ListVUnitsResult) GetIdsOk() (*map[string][]string, bool)`
 
 GetIdsOk returns a tuple with the Ids field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIds
 
-`func (o *ListVUnitsResult) SetIds(v map[string]interface{})`
+`func (o *ListVUnitsResult) SetIds(v map[string][]string)`
 
 SetIds sets Ids field to given value.
 

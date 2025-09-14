@@ -31,7 +31,7 @@ import (
 )
 
 func main() {
-	fleetCreateCustomNetworkRequest2 := *openapiclient.NewFleetCreateCustomNetworkRequest2("10.0.0.0/16", "aws", "us-east-1") // FleetCreateCustomNetworkRequest2 | 
+	fleetCreateCustomNetworkRequest2 := *openapiclient.NewFleetCreateCustomNetworkRequest2("10.0.0.0/16", "aws|azure|gcp|all", "us-east-1") // FleetCreateCustomNetworkRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

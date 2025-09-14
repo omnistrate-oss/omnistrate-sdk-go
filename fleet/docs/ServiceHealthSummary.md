@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudProviderHealthSummary** | **map[string]interface{}** | The summary of health by cloud provider | 
+**CloudProviderHealthSummary** | [**map[string]CloudProviderHealthSummary**](CloudProviderHealthSummary.md) | The summary of health by cloud provider | 
 **HealthyInstances** | **int64** | The number of healthy instances in the region | 
 **Message** | **string** | The status message | 
 **ServiceEnvironmentID** | **string** | ID of a Service Environment | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewServiceHealthSummary
 
-`func NewServiceHealthSummary(cloudProviderHealthSummary map[string]interface{}, healthyInstances int64, message string, serviceEnvironmentID string, serviceID string, status string, totalInstances int64, unhealthyInstances int64, ) *ServiceHealthSummary`
+`func NewServiceHealthSummary(cloudProviderHealthSummary map[string]CloudProviderHealthSummary, healthyInstances int64, message string, serviceEnvironmentID string, serviceID string, status string, totalInstances int64, unhealthyInstances int64, ) *ServiceHealthSummary`
 
 NewServiceHealthSummary instantiates a new ServiceHealthSummary object
 This constructor will assign default values to properties that have it defined,
@@ -35,20 +35,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCloudProviderHealthSummary
 
-`func (o *ServiceHealthSummary) GetCloudProviderHealthSummary() map[string]interface{}`
+`func (o *ServiceHealthSummary) GetCloudProviderHealthSummary() map[string]CloudProviderHealthSummary`
 
 GetCloudProviderHealthSummary returns the CloudProviderHealthSummary field if non-nil, zero value otherwise.
 
 ### GetCloudProviderHealthSummaryOk
 
-`func (o *ServiceHealthSummary) GetCloudProviderHealthSummaryOk() (*map[string]interface{}, bool)`
+`func (o *ServiceHealthSummary) GetCloudProviderHealthSummaryOk() (*map[string]CloudProviderHealthSummary, bool)`
 
 GetCloudProviderHealthSummaryOk returns a tuple with the CloudProviderHealthSummary field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCloudProviderHealthSummary
 
-`func (o *ServiceHealthSummary) SetCloudProviderHealthSummary(v map[string]interface{})`
+`func (o *ServiceHealthSummary) SetCloudProviderHealthSummary(v map[string]CloudProviderHealthSummary)`
 
 SetCloudProviderHealthSummary sets CloudProviderHealthSummary field to given value.
 

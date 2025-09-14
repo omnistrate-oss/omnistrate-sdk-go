@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **CreatedByUserName** | Pointer to **string** | The name of the user that created the resource instance | [optional] 
 **CurrentReplicas** | Pointer to **string** | The current number of replicas | [optional] 
 **CustomNetworkDetail** | Pointer to [**CustomNetworkResourceDetail**](CustomNetworkResourceDetail.md) |  | [optional] 
-**DetailedNetworkTopology** | Pointer to **map[string]interface{}** | The detailed network topology | [optional] 
+**DetailedNetworkTopology** | Pointer to [**map[string]ResourceNetworkTopologyResult**](ResourceNetworkTopologyResult.md) | The detailed network topology | [optional] 
 **ExternalPayerId** | Pointer to **string** | The external payer id to record which customer should pay for this resource instance | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **HighAvailability** | Pointer to **bool** | Whether the instance is High Availability | [optional] 
@@ -334,20 +334,20 @@ HasCustomNetworkDetail returns a boolean if a field has been set.
 
 ### GetDetailedNetworkTopology
 
-`func (o *DescribeResourceInstanceResult) GetDetailedNetworkTopology() map[string]interface{}`
+`func (o *DescribeResourceInstanceResult) GetDetailedNetworkTopology() map[string]ResourceNetworkTopologyResult`
 
 GetDetailedNetworkTopology returns the DetailedNetworkTopology field if non-nil, zero value otherwise.
 
 ### GetDetailedNetworkTopologyOk
 
-`func (o *DescribeResourceInstanceResult) GetDetailedNetworkTopologyOk() (*map[string]interface{}, bool)`
+`func (o *DescribeResourceInstanceResult) GetDetailedNetworkTopologyOk() (*map[string]ResourceNetworkTopologyResult, bool)`
 
 GetDetailedNetworkTopologyOk returns a tuple with the DetailedNetworkTopology field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDetailedNetworkTopology
 
-`func (o *DescribeResourceInstanceResult) SetDetailedNetworkTopology(v map[string]interface{})`
+`func (o *DescribeResourceInstanceResult) SetDetailedNetworkTopology(v map[string]ResourceNetworkTopologyResult)`
 
 SetDetailedNetworkTopology sets DetailedNetworkTopology field to given value.
 

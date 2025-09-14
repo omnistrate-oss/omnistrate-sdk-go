@@ -20,7 +20,7 @@ var _ MappedNullable = &DescribeRegionCostResult{}
 // DescribeRegionCostResult struct for DescribeRegionCostResult
 type DescribeRegionCostResult struct {
 	// The cost data for each region
-	RegionCosts map[string]interface{} `json:"regionCosts,omitempty"`
+	RegionCosts *map[string]PerRegionCost `json:"regionCosts,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -44,19 +44,19 @@ func NewDescribeRegionCostResultWithDefaults() *DescribeRegionCostResult {
 }
 
 // GetRegionCosts returns the RegionCosts field value if set, zero value otherwise.
-func (o *DescribeRegionCostResult) GetRegionCosts() map[string]interface{} {
+func (o *DescribeRegionCostResult) GetRegionCosts() map[string]PerRegionCost {
 	if o == nil || IsNil(o.RegionCosts) {
-		var ret map[string]interface{}
+		var ret map[string]PerRegionCost
 		return ret
 	}
-	return o.RegionCosts
+	return *o.RegionCosts
 }
 
 // GetRegionCostsOk returns a tuple with the RegionCosts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeRegionCostResult) GetRegionCostsOk() (map[string]interface{}, bool) {
+func (o *DescribeRegionCostResult) GetRegionCostsOk() (*map[string]PerRegionCost, bool) {
 	if o == nil || IsNil(o.RegionCosts) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.RegionCosts, true
 }
@@ -70,9 +70,9 @@ func (o *DescribeRegionCostResult) HasRegionCosts() bool {
 	return false
 }
 
-// SetRegionCosts gets a reference to the given map[string]interface{} and assigns it to the RegionCosts field.
-func (o *DescribeRegionCostResult) SetRegionCosts(v map[string]interface{}) {
-	o.RegionCosts = v
+// SetRegionCosts gets a reference to the given map[string]PerRegionCost and assigns it to the RegionCosts field.
+func (o *DescribeRegionCostResult) SetRegionCosts(v map[string]PerRegionCost) {
+	o.RegionCosts = &v
 }
 
 func (o DescribeRegionCostResult) MarshalJSON() ([]byte, error) {

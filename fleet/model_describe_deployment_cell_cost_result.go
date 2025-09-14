@@ -20,7 +20,7 @@ var _ MappedNullable = &DescribeDeploymentCellCostResult{}
 // DescribeDeploymentCellCostResult struct for DescribeDeploymentCellCostResult
 type DescribeDeploymentCellCostResult struct {
 	// The cost data for each deployment cell
-	DeploymentCellCosts map[string]interface{} `json:"deploymentCellCosts,omitempty"`
+	DeploymentCellCosts *map[string]PerDeploymentCellCost `json:"deploymentCellCosts,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -44,19 +44,19 @@ func NewDescribeDeploymentCellCostResultWithDefaults() *DescribeDeploymentCellCo
 }
 
 // GetDeploymentCellCosts returns the DeploymentCellCosts field value if set, zero value otherwise.
-func (o *DescribeDeploymentCellCostResult) GetDeploymentCellCosts() map[string]interface{} {
+func (o *DescribeDeploymentCellCostResult) GetDeploymentCellCosts() map[string]PerDeploymentCellCost {
 	if o == nil || IsNil(o.DeploymentCellCosts) {
-		var ret map[string]interface{}
+		var ret map[string]PerDeploymentCellCost
 		return ret
 	}
-	return o.DeploymentCellCosts
+	return *o.DeploymentCellCosts
 }
 
 // GetDeploymentCellCostsOk returns a tuple with the DeploymentCellCosts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeDeploymentCellCostResult) GetDeploymentCellCostsOk() (map[string]interface{}, bool) {
+func (o *DescribeDeploymentCellCostResult) GetDeploymentCellCostsOk() (*map[string]PerDeploymentCellCost, bool) {
 	if o == nil || IsNil(o.DeploymentCellCosts) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.DeploymentCellCosts, true
 }
@@ -70,9 +70,9 @@ func (o *DescribeDeploymentCellCostResult) HasDeploymentCellCosts() bool {
 	return false
 }
 
-// SetDeploymentCellCosts gets a reference to the given map[string]interface{} and assigns it to the DeploymentCellCosts field.
-func (o *DescribeDeploymentCellCostResult) SetDeploymentCellCosts(v map[string]interface{}) {
-	o.DeploymentCellCosts = v
+// SetDeploymentCellCosts gets a reference to the given map[string]PerDeploymentCellCost and assigns it to the DeploymentCellCosts field.
+func (o *DescribeDeploymentCellCostResult) SetDeploymentCellCosts(v map[string]PerDeploymentCellCost) {
+	o.DeploymentCellCosts = &v
 }
 
 func (o DescribeDeploymentCellCostResult) MarshalJSON() ([]byte, error) {

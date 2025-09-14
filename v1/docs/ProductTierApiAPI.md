@@ -36,7 +36,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | Service ID
 	sourceId := "pt-12345678" // string | The source product tier ID
-	copyProductTierRequest2 := *openapiclient.NewCopyProductTierRequest2("A premium product tier", "Premium", "sm-12345678") // CopyProductTierRequest2 | 
+	copyProductTierRequest2 := *openapiclient.NewCopyProductTierRequest2("A premium product tier", "Premium", "Consequatur necessitatibus dolore.") // CopyProductTierRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -108,7 +108,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | Service ID
-	createProductTierRequest2 := *openapiclient.NewCreateProductTierRequest2("A premium product tier", "Premium", "A premium plan", "sm-12345678", "OMNISTRATE_DEDICATED_TENANCY") // CreateProductTierRequest2 | 
+	createProductTierRequest2 := *openapiclient.NewCreateProductTierRequest2("A premium product tier", "Premium", "A premium plan", "Sit animi unde consequuntur voluptas.", "OMNISTRATE_DEDICATED_TENANCY|OMNISTRATE_MULTI_TENANCY|CUSTOM_TENANCY") // CreateProductTierRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -321,7 +321,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | Service ID
 	id := "pt-12345678" // string | Product tier ID
-	disableProductTierFeatureRequest2 := *openapiclient.NewDisableProductTierFeatureRequest2("LOGS") // DisableProductTierFeatureRequest2 | 
+	disableProductTierFeatureRequest2 := *openapiclient.NewDisableProductTierFeatureRequest2("LOGS|METRICS|CLOUD_INSURANCE|MARKETPLACE|OPERATIONAL_STATUS|COMPLIANCE|APPLICATION_SECURITY") // DisableProductTierFeatureRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -392,7 +392,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | Service ID
 	id := "pt-12345678" // string | Product tier ID
-	enableProductTierFeatureRequest2 := *openapiclient.NewEnableProductTierFeatureRequest2("LOGS") // EnableProductTierFeatureRequest2 | 
+	enableProductTierFeatureRequest2 := *openapiclient.NewEnableProductTierFeatureRequest2("LOGS|METRICS|CLOUD_INSURANCE|MARKETPLACE|OPERATIONAL_STATUS|COMPLIANCE|APPLICATION_SECURITY") // EnableProductTierFeatureRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

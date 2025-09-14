@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RegionCosts** | Pointer to **map[string]interface{}** | The cost data for each region | [optional] 
+**RegionCosts** | Pointer to [**map[string]PerRegionCost**](PerRegionCost.md) | The cost data for each region | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetRegionCosts
 
-`func (o *DescribeRegionCostResult) GetRegionCosts() map[string]interface{}`
+`func (o *DescribeRegionCostResult) GetRegionCosts() map[string]PerRegionCost`
 
 GetRegionCosts returns the RegionCosts field if non-nil, zero value otherwise.
 
 ### GetRegionCostsOk
 
-`func (o *DescribeRegionCostResult) GetRegionCostsOk() (*map[string]interface{}, bool)`
+`func (o *DescribeRegionCostResult) GetRegionCostsOk() (*map[string]PerRegionCost, bool)`
 
 GetRegionCostsOk returns a tuple with the RegionCosts field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRegionCosts
 
-`func (o *DescribeRegionCostResult) SetRegionCosts(v map[string]interface{})`
+`func (o *DescribeRegionCostResult) SetRegionCosts(v map[string]PerRegionCost)`
 
 SetRegionCosts sets RegionCosts field to given value.
 

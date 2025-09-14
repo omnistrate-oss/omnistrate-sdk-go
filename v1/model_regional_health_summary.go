@@ -23,7 +23,7 @@ type RegionalHealthSummary struct {
 	// The number of instances currently deploying
 	DeployingInstances int64 `json:"deployingInstances"`
 	// The summary of health by deployment cell
-	DeploymentCellHealthSummary map[string]interface{} `json:"deploymentCellHealthSummary"`
+	DeploymentCellHealthSummary map[string]DeploymentCellHealthSummary `json:"deploymentCellHealthSummary"`
 	// The number of healthy instances in the region
 	HealthyInstances int64 `json:"healthyInstances"`
 	// The status message
@@ -47,7 +47,7 @@ type _RegionalHealthSummary RegionalHealthSummary
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRegionalHealthSummary(deployingInstances int64, deploymentCellHealthSummary map[string]interface{}, healthyInstances int64, message string, region string, status string, totalInstances int64, unhealthyInstances int64) *RegionalHealthSummary {
+func NewRegionalHealthSummary(deployingInstances int64, deploymentCellHealthSummary map[string]DeploymentCellHealthSummary, healthyInstances int64, message string, region string, status string, totalInstances int64, unhealthyInstances int64) *RegionalHealthSummary {
 	this := RegionalHealthSummary{}
 	this.DeployingInstances = deployingInstances
 	this.DeploymentCellHealthSummary = deploymentCellHealthSummary
@@ -93,9 +93,9 @@ func (o *RegionalHealthSummary) SetDeployingInstances(v int64) {
 }
 
 // GetDeploymentCellHealthSummary returns the DeploymentCellHealthSummary field value
-func (o *RegionalHealthSummary) GetDeploymentCellHealthSummary() map[string]interface{} {
+func (o *RegionalHealthSummary) GetDeploymentCellHealthSummary() map[string]DeploymentCellHealthSummary {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret map[string]DeploymentCellHealthSummary
 		return ret
 	}
 
@@ -104,15 +104,15 @@ func (o *RegionalHealthSummary) GetDeploymentCellHealthSummary() map[string]inte
 
 // GetDeploymentCellHealthSummaryOk returns a tuple with the DeploymentCellHealthSummary field value
 // and a boolean to check if the value has been set.
-func (o *RegionalHealthSummary) GetDeploymentCellHealthSummaryOk() (map[string]interface{}, bool) {
+func (o *RegionalHealthSummary) GetDeploymentCellHealthSummaryOk() (*map[string]DeploymentCellHealthSummary, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.DeploymentCellHealthSummary, true
+	return &o.DeploymentCellHealthSummary, true
 }
 
 // SetDeploymentCellHealthSummary sets field value
-func (o *RegionalHealthSummary) SetDeploymentCellHealthSummary(v map[string]interface{}) {
+func (o *RegionalHealthSummary) SetDeploymentCellHealthSummary(v map[string]DeploymentCellHealthSummary) {
 	o.DeploymentCellHealthSummary = v
 }
 

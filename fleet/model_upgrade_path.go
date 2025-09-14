@@ -36,6 +36,8 @@ type UpgradePath struct {
 	LastModifiedBy *string `json:"lastModifiedBy,omitempty"`
 	// The action to perform on an ongoing resource workflow
 	LastRequestedAction *string `json:"lastRequestedAction,omitempty"`
+	// The maximum number of instances that can be upgraded concurrently. If not specified, falls back to the deployment configuration setting.
+	MaxConcurrentUpgrades *int64 `json:"maxConcurrentUpgrades,omitempty"`
 	// Whether to notify the end customer about the upgrade progress.
 	NotifyCustomer *bool `json:"notifyCustomer,omitempty"`
 	// The number of instances that are pending the upgrade.
@@ -332,6 +334,38 @@ func (o *UpgradePath) HasLastRequestedAction() bool {
 // SetLastRequestedAction gets a reference to the given string and assigns it to the LastRequestedAction field.
 func (o *UpgradePath) SetLastRequestedAction(v string) {
 	o.LastRequestedAction = &v
+}
+
+// GetMaxConcurrentUpgrades returns the MaxConcurrentUpgrades field value if set, zero value otherwise.
+func (o *UpgradePath) GetMaxConcurrentUpgrades() int64 {
+	if o == nil || IsNil(o.MaxConcurrentUpgrades) {
+		var ret int64
+		return ret
+	}
+	return *o.MaxConcurrentUpgrades
+}
+
+// GetMaxConcurrentUpgradesOk returns a tuple with the MaxConcurrentUpgrades field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpgradePath) GetMaxConcurrentUpgradesOk() (*int64, bool) {
+	if o == nil || IsNil(o.MaxConcurrentUpgrades) {
+		return nil, false
+	}
+	return o.MaxConcurrentUpgrades, true
+}
+
+// HasMaxConcurrentUpgrades returns a boolean if a field has been set.
+func (o *UpgradePath) HasMaxConcurrentUpgrades() bool {
+	if o != nil && !IsNil(o.MaxConcurrentUpgrades) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxConcurrentUpgrades gets a reference to the given int64 and assigns it to the MaxConcurrentUpgrades field.
+func (o *UpgradePath) SetMaxConcurrentUpgrades(v int64) {
+	o.MaxConcurrentUpgrades = &v
 }
 
 // GetNotifyCustomer returns the NotifyCustomer field value if set, zero value otherwise.
@@ -792,6 +826,9 @@ func (o UpgradePath) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.LastRequestedAction) {
 		toSerialize["lastRequestedAction"] = o.LastRequestedAction
 	}
+	if !IsNil(o.MaxConcurrentUpgrades) {
+		toSerialize["maxConcurrentUpgrades"] = o.MaxConcurrentUpgrades
+	}
 	if !IsNil(o.NotifyCustomer) {
 		toSerialize["notifyCustomer"] = o.NotifyCustomer
 	}
@@ -883,6 +920,7 @@ func (o *UpgradePath) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "inProgressCount")
 		delete(additionalProperties, "lastModifiedBy")
 		delete(additionalProperties, "lastRequestedAction")
+		delete(additionalProperties, "maxConcurrentUpgrades")
 		delete(additionalProperties, "notifyCustomer")
 		delete(additionalProperties, "pendingCount")
 		delete(additionalProperties, "plannedExecutionDate")

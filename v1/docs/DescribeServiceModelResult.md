@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountConfigIds** | Pointer to **[]string** | The infrastructure account configuration ID list | [optional] 
-**ActiveAccountConfigIds** | Pointer to **map[string]interface{}** | The active infrastructure account configuration IDs per cloud provider | [optional] 
+**ActiveAccountConfigIds** | Pointer to **map[string]string** | The active infrastructure account configuration IDs per cloud provider | [optional] 
 **Description** | **string** | A brief description of the service model | 
 **Features** | Pointer to [**[]ServiceModelFeatureDetail**](ServiceModelFeatureDetail.md) | Enabled service model features | [optional] 
 **Id** | **string** | ID of a Service Model | 
@@ -62,20 +62,20 @@ HasAccountConfigIds returns a boolean if a field has been set.
 
 ### GetActiveAccountConfigIds
 
-`func (o *DescribeServiceModelResult) GetActiveAccountConfigIds() map[string]interface{}`
+`func (o *DescribeServiceModelResult) GetActiveAccountConfigIds() map[string]string`
 
 GetActiveAccountConfigIds returns the ActiveAccountConfigIds field if non-nil, zero value otherwise.
 
 ### GetActiveAccountConfigIdsOk
 
-`func (o *DescribeServiceModelResult) GetActiveAccountConfigIdsOk() (*map[string]interface{}, bool)`
+`func (o *DescribeServiceModelResult) GetActiveAccountConfigIdsOk() (*map[string]string, bool)`
 
 GetActiveAccountConfigIdsOk returns a tuple with the ActiveAccountConfigIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetActiveAccountConfigIds
 
-`func (o *DescribeServiceModelResult) SetActiveAccountConfigIds(v map[string]interface{})`
+`func (o *DescribeServiceModelResult) SetActiveAccountConfigIds(v map[string]string)`
 
 SetActiveAccountConfigIds sets ActiveAccountConfigIds field to given value.
 

@@ -23,7 +23,7 @@ type DescribeProductTierResult struct {
 	// Allow creates when payment not configured
 	AllowCreatesWhenPaymentNotConfigured *bool `json:"allowCreatesWhenPaymentNotConfigured,omitempty"`
 	// The resources that belong to this service API bundle and their active versions
-	ApiGroups map[string]interface{} `json:"apiGroups,omitempty"`
+	ApiGroups *map[string]string `json:"apiGroups,omitempty"`
 	// Auto approve subscription or not
 	AutoApproveSubscription *bool `json:"autoApproveSubscription,omitempty"`
 	// The AWS regions that this product tier is available on
@@ -35,7 +35,7 @@ type DescribeProductTierResult struct {
 	// List of billing providers to be used for the product tier
 	BillingProviders []string `json:"billingProviders,omitempty"`
 	// The readiness of the cloud providers configurations
-	CloudProvidersConfigReadiness map[string]interface{} `json:"cloudProvidersConfigReadiness,omitempty"`
+	CloudProvidersConfigReadiness *map[string]map[string]string `json:"cloudProvidersConfigReadiness,omitempty"`
 	// The billing provider type
 	DefaultBillingProvider *string `json:"defaultBillingProvider,omitempty"`
 	// A brief description of the product tier
@@ -49,7 +49,7 @@ type DescribeProductTierResult struct {
 	// Export usage metering data configuration
 	ExportUsageMeteringConfig map[string]interface{} `json:"exportUsageMeteringConfig,omitempty"`
 	// The features that are enabled / disabled for this product tier
-	Features map[string]interface{} `json:"features,omitempty"`
+	Features *map[string]bool `json:"features,omitempty"`
 	// The GCP regions that this product tier is available on
 	GcpRegions []string `json:"gcpRegions,omitempty"`
 	// ID of a Product Tier
@@ -136,26 +136,26 @@ func (o *DescribeProductTierResult) SetAllowCreatesWhenPaymentNotConfigured(v bo
 }
 
 // GetApiGroups returns the ApiGroups field value if set, zero value otherwise.
-func (o *DescribeProductTierResult) GetApiGroups() map[string]interface{} {
+func (o *DescribeProductTierResult) GetApiGroups() map[string]string {
 	if o == nil || IsNil(o.ApiGroups) {
-		var ret map[string]interface{}
+		var ret map[string]string
 		return ret
 	}
-	return o.ApiGroups
+	return *o.ApiGroups
 }
 
 // GetApiGroupsOk returns a tuple with the ApiGroups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeProductTierResult) GetApiGroupsOk() (map[string]interface{}, bool) {
+func (o *DescribeProductTierResult) GetApiGroupsOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.ApiGroups) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.ApiGroups, true
 }
 
-// SetApiGroups gets a reference to the given map[string]interface{} and assigns it to the ApiGroups field.
-func (o *DescribeProductTierResult) SetApiGroups(v map[string]interface{}) {
-	o.ApiGroups = v
+// SetApiGroups gets a reference to the given map[string]string and assigns it to the ApiGroups field.
+func (o *DescribeProductTierResult) SetApiGroups(v map[string]string) {
+	o.ApiGroups = &v
 }
 
 // GetAutoApproveSubscription returns the AutoApproveSubscription field value if set, zero value otherwise.
@@ -274,26 +274,26 @@ func (o *DescribeProductTierResult) SetBillingProviders(v []string) {
 }
 
 // GetCloudProvidersConfigReadiness returns the CloudProvidersConfigReadiness field value if set, zero value otherwise.
-func (o *DescribeProductTierResult) GetCloudProvidersConfigReadiness() map[string]interface{} {
+func (o *DescribeProductTierResult) GetCloudProvidersConfigReadiness() map[string]map[string]string {
 	if o == nil || IsNil(o.CloudProvidersConfigReadiness) {
-		var ret map[string]interface{}
+		var ret map[string]map[string]string
 		return ret
 	}
-	return o.CloudProvidersConfigReadiness
+	return *o.CloudProvidersConfigReadiness
 }
 
 // GetCloudProvidersConfigReadinessOk returns a tuple with the CloudProvidersConfigReadiness field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeProductTierResult) GetCloudProvidersConfigReadinessOk() (map[string]interface{}, bool) {
+func (o *DescribeProductTierResult) GetCloudProvidersConfigReadinessOk() (*map[string]map[string]string, bool) {
 	if o == nil || IsNil(o.CloudProvidersConfigReadiness) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.CloudProvidersConfigReadiness, true
 }
 
-// SetCloudProvidersConfigReadiness gets a reference to the given map[string]interface{} and assigns it to the CloudProvidersConfigReadiness field.
-func (o *DescribeProductTierResult) SetCloudProvidersConfigReadiness(v map[string]interface{}) {
-	o.CloudProvidersConfigReadiness = v
+// SetCloudProvidersConfigReadiness gets a reference to the given map[string]map[string]string and assigns it to the CloudProvidersConfigReadiness field.
+func (o *DescribeProductTierResult) SetCloudProvidersConfigReadiness(v map[string]map[string]string) {
+	o.CloudProvidersConfigReadiness = &v
 }
 
 // GetDefaultBillingProvider returns the DefaultBillingProvider field value if set, zero value otherwise.
@@ -437,26 +437,26 @@ func (o *DescribeProductTierResult) SetExportUsageMeteringConfig(v map[string]in
 }
 
 // GetFeatures returns the Features field value if set, zero value otherwise.
-func (o *DescribeProductTierResult) GetFeatures() map[string]interface{} {
+func (o *DescribeProductTierResult) GetFeatures() map[string]bool {
 	if o == nil || IsNil(o.Features) {
-		var ret map[string]interface{}
+		var ret map[string]bool
 		return ret
 	}
-	return o.Features
+	return *o.Features
 }
 
 // GetFeaturesOk returns a tuple with the Features field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeProductTierResult) GetFeaturesOk() (map[string]interface{}, bool) {
+func (o *DescribeProductTierResult) GetFeaturesOk() (*map[string]bool, bool) {
 	if o == nil || IsNil(o.Features) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.Features, true
 }
 
-// SetFeatures gets a reference to the given map[string]interface{} and assigns it to the Features field.
-func (o *DescribeProductTierResult) SetFeatures(v map[string]interface{}) {
-	o.Features = v
+// SetFeatures gets a reference to the given map[string]bool and assigns it to the Features field.
+func (o *DescribeProductTierResult) SetFeatures(v map[string]bool) {
+	o.Features = &v
 }
 
 // GetGcpRegions returns the GcpRegions field value if set, zero value otherwise.

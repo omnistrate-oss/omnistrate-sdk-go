@@ -34,7 +34,7 @@ import (
 )
 
 func main() {
-	createIdentityProviderRequest2 := *openapiclient.NewCreateIdentityProviderRequest2("205376496935-vtfpdnseqmjhsynlh0bsufl38k0test.apps.googleusercontent.com", "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", "Google") // CreateIdentityProviderRequest2 | 
+	createIdentityProviderRequest2 := *openapiclient.NewCreateIdentityProviderRequest2("205376496935-vtfpdnseqmjhsynlh0bsufl38k0test.apps.googleusercontent.com", "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", "Google|GitHub|Microsoft Entra|Amazon Cognito|Okta|Auth0|Keycloak|OIDC") // CreateIdentityProviderRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

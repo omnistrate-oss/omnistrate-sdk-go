@@ -586,7 +586,7 @@ import (
 )
 
 func main() {
-	inviteUserRequest2 := *openapiclient.NewInviteUserRequest2("abc@gmail.com", "reader") // InviteUserRequest2 | 
+	inviteUserRequest2 := *openapiclient.NewInviteUserRequest2("abc@gmail.com", "root|editor|reader|service_editor|service_reader|admin|service_operator") // InviteUserRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -705,7 +705,7 @@ import (
 )
 
 func main() {
-	revokeUserRoleRequest2 := *openapiclient.NewRevokeUserRoleRequest2("abc@gmail.com", "reader") // RevokeUserRoleRequest2 | 
+	revokeUserRoleRequest2 := *openapiclient.NewRevokeUserRoleRequest2("abc@gmail.com", "root|editor|reader|service_editor|service_reader|admin|service_operator") // RevokeUserRoleRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

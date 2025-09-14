@@ -131,9 +131,10 @@ docs/ConsumptionUsageApiAPI.md
 docs/ConsumptionUserApiAPI.md
 docs/ContactusApiAPI.md
 docs/ContactusRequest.md
-docs/ContainerImageConfiguration.md
-docs/ContainerImageLocator.md
+docs/ContainerImage.md
 docs/ContainerImageRegistryCredentials.md
+docs/ContainerImagesRegistry.md
+docs/ContainerImagesRegistryCopyConfiguration.md
 docs/CopyProductTierRequest.md
 docs/CopyProductTierRequest2.md
 docs/CopyServiceModelRequest.md
@@ -864,9 +865,10 @@ model_compute_instance_type_config_override.go
 model_consumption_service_auth_request.go
 model_consumption_service_auth_result.go
 model_contactus_request.go
-model_container_image_configuration.go
-model_container_image_locator.go
+model_container_image.go
 model_container_image_registry_credentials.go
+model_container_images_registry.go
+model_container_images_registry_copy_configuration.go
 model_copy_product_tier_request.go
 model_copy_product_tier_request2.go
 model_copy_service_model_request.go

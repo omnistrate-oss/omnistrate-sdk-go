@@ -1,0 +1,93 @@
+# ContainerImagesRegistryCopyConfiguration
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Images** | [**[]ContainerImage**](ContainerImage.md) | The list of container images to copy from source to target | 
+**PullSource** | [**ContainerImagesRegistry**](ContainerImagesRegistry.md) |  | 
+**PushTarget** | [**ContainerImagesRegistry**](ContainerImagesRegistry.md) |  | 
+
+## Methods
+
+### NewContainerImagesRegistryCopyConfiguration
+
+`func NewContainerImagesRegistryCopyConfiguration(images []ContainerImage, pullSource ContainerImagesRegistry, pushTarget ContainerImagesRegistry, ) *ContainerImagesRegistryCopyConfiguration`
+
+NewContainerImagesRegistryCopyConfiguration instantiates a new ContainerImagesRegistryCopyConfiguration object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewContainerImagesRegistryCopyConfigurationWithDefaults
+
+`func NewContainerImagesRegistryCopyConfigurationWithDefaults() *ContainerImagesRegistryCopyConfiguration`
+
+NewContainerImagesRegistryCopyConfigurationWithDefaults instantiates a new ContainerImagesRegistryCopyConfiguration object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetImages
+
+`func (o *ContainerImagesRegistryCopyConfiguration) GetImages() []ContainerImage`
+
+GetImages returns the Images field if non-nil, zero value otherwise.
+
+### GetImagesOk
+
+`func (o *ContainerImagesRegistryCopyConfiguration) GetImagesOk() (*[]ContainerImage, bool)`
+
+GetImagesOk returns a tuple with the Images field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetImages
+
+`func (o *ContainerImagesRegistryCopyConfiguration) SetImages(v []ContainerImage)`
+
+SetImages sets Images field to given value.
+
+
+### GetPullSource
+
+`func (o *ContainerImagesRegistryCopyConfiguration) GetPullSource() ContainerImagesRegistry`
+
+GetPullSource returns the PullSource field if non-nil, zero value otherwise.
+
+### GetPullSourceOk
+
+`func (o *ContainerImagesRegistryCopyConfiguration) GetPullSourceOk() (*ContainerImagesRegistry, bool)`
+
+GetPullSourceOk returns a tuple with the PullSource field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPullSource
+
+`func (o *ContainerImagesRegistryCopyConfiguration) SetPullSource(v ContainerImagesRegistry)`
+
+SetPullSource sets PullSource field to given value.
+
+
+### GetPushTarget
+
+`func (o *ContainerImagesRegistryCopyConfiguration) GetPushTarget() ContainerImagesRegistry`
+
+GetPushTarget returns the PushTarget field if non-nil, zero value otherwise.
+
+### GetPushTargetOk
+
+`func (o *ContainerImagesRegistryCopyConfiguration) GetPushTargetOk() (*ContainerImagesRegistry, bool)`
+
+GetPushTargetOk returns a tuple with the PushTarget field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPushTarget
+
+`func (o *ContainerImagesRegistryCopyConfiguration) SetPushTarget(v ContainerImagesRegistry)`
+
+SetPushTarget sets PushTarget field to given value.
+
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

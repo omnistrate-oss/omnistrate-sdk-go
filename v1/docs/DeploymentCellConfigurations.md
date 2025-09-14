@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DeploymentCellConfigurationPerCloudProvider** | Pointer to **map[string]interface{}** | The deployment cell configurations per cloud provider. | [optional] 
+**DeploymentCellConfigurationPerCloudProvider** | Pointer to [**map[string]DeploymentCellConfiguration**](DeploymentCellConfiguration.md) | The deployment cell configurations per cloud provider. | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDeploymentCellConfigurationPerCloudProvider
 
-`func (o *DeploymentCellConfigurations) GetDeploymentCellConfigurationPerCloudProvider() map[string]interface{}`
+`func (o *DeploymentCellConfigurations) GetDeploymentCellConfigurationPerCloudProvider() map[string]DeploymentCellConfiguration`
 
 GetDeploymentCellConfigurationPerCloudProvider returns the DeploymentCellConfigurationPerCloudProvider field if non-nil, zero value otherwise.
 
 ### GetDeploymentCellConfigurationPerCloudProviderOk
 
-`func (o *DeploymentCellConfigurations) GetDeploymentCellConfigurationPerCloudProviderOk() (*map[string]interface{}, bool)`
+`func (o *DeploymentCellConfigurations) GetDeploymentCellConfigurationPerCloudProviderOk() (*map[string]DeploymentCellConfiguration, bool)`
 
 GetDeploymentCellConfigurationPerCloudProviderOk returns a tuple with the DeploymentCellConfigurationPerCloudProvider field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeploymentCellConfigurationPerCloudProvider
 
-`func (o *DeploymentCellConfigurations) SetDeploymentCellConfigurationPerCloudProvider(v map[string]interface{})`
+`func (o *DeploymentCellConfigurations) SetDeploymentCellConfigurationPerCloudProvider(v map[string]DeploymentCellConfiguration)`
 
 SetDeploymentCellConfigurationPerCloudProvider sets DeploymentCellConfigurationPerCloudProvider field to given value.
 
