@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **ChartVersion** | **string** | The chart version of the Helm package | 
 **LayeredChartValues** | Pointer to [**[]ChartValuesRef**](ChartValuesRef.md) | Layered chart values configuration with conditional scoping (mutually exclusive with chartValues). Values are processed in order - later entries override earlier ones for the same keys. | [optional] 
 **Namespace** | **string** | The namespace where the Helm package should be installed | 
+**ReleaseName** | Pointer to **string** | The release name of the Helm package | [optional] 
 
 ## Methods
 
@@ -180,6 +181,31 @@ and a boolean to check if the value has been set.
 
 SetNamespace sets Namespace field to given value.
 
+
+### GetReleaseName
+
+`func (o *HelmPackage) GetReleaseName() string`
+
+GetReleaseName returns the ReleaseName field if non-nil, zero value otherwise.
+
+### GetReleaseNameOk
+
+`func (o *HelmPackage) GetReleaseNameOk() (*string, bool)`
+
+GetReleaseNameOk returns a tuple with the ReleaseName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReleaseName
+
+`func (o *HelmPackage) SetReleaseName(v string)`
+
+SetReleaseName sets ReleaseName field to given value.
+
+### HasReleaseName
+
+`func (o *HelmPackage) HasReleaseName() bool`
+
+HasReleaseName returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

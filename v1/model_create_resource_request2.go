@@ -33,6 +33,8 @@ type CreateResourceRequest2 struct {
 	CustomULimits []CustomULimits `json:"customULimits,omitempty"`
 	// A brief description of the resource
 	Description string `json:"description"`
+	// Allows resource to be disabled. Expression returning true/false can be used as value. Resource is enabled by default, if this property is not set.
+	Disable *string `json:"disable,omitempty"`
 	// The environment variables that this resource requires
 	EnvironmentVariables []EnvironmentVariable `json:"environmentVariables,omitempty"`
 	FileSystemConfiguration *FileSystemConfiguration `json:"fileSystemConfiguration,omitempty"`
@@ -308,6 +310,29 @@ func (o *CreateResourceRequest2) GetDescriptionOk() (*string, bool) {
 // SetDescription sets field value
 func (o *CreateResourceRequest2) SetDescription(v string) {
 	o.Description = v
+}
+
+// GetDisable returns the Disable field value if set, zero value otherwise.
+func (o *CreateResourceRequest2) GetDisable() string {
+	if o == nil || IsNil(o.Disable) {
+		var ret string
+		return ret
+	}
+	return *o.Disable
+}
+
+// GetDisableOk returns a tuple with the Disable field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateResourceRequest2) GetDisableOk() (*string, bool) {
+	if o == nil || IsNil(o.Disable) {
+		return nil, false
+	}
+	return o.Disable, true
+}
+
+// SetDisable gets a reference to the given string and assigns it to the Disable field.
+func (o *CreateResourceRequest2) SetDisable(v string) {
+	o.Disable = &v
 }
 
 // GetEnvironmentVariables returns the EnvironmentVariables field value if set, zero value otherwise.
@@ -807,6 +832,9 @@ func (o CreateResourceRequest2) ToMap() (map[string]interface{}, error) {
 		toSerialize["customULimits"] = o.CustomULimits
 	}
 	toSerialize["description"] = o.Description
+	if !IsNil(o.Disable) {
+		toSerialize["disable"] = o.Disable
+	}
 	if !IsNil(o.EnvironmentVariables) {
 		toSerialize["environmentVariables"] = o.EnvironmentVariables
 	}
@@ -917,6 +945,7 @@ func (o *CreateResourceRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "customSysCTLs")
 		delete(additionalProperties, "customULimits")
 		delete(additionalProperties, "description")
+		delete(additionalProperties, "disable")
 		delete(additionalProperties, "environmentVariables")
 		delete(additionalProperties, "fileSystemConfiguration")
 		delete(additionalProperties, "helmChartConfiguration")

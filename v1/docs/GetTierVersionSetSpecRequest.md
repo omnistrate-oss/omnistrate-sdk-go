@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ProductTierId** | **string** | ID of a Product Tier | 
 **ServiceId** | **string** | ID of a Service | 
 **Token** | **string** | JWT token used to perform authorization | 
-**Version** | Pointer to **string** | The version number for the specific version set. If not specified, returns the latest preferred or active version. | [optional] 
+**Version** | Pointer to **string** | The version number for the specific version set. If version is not specified, returns the unreleased spec if one exists, otherwise the latest preferred or active version spec. | [optional] 
 
 ## Methods
 

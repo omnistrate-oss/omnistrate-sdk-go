@@ -21,6 +21,8 @@ var _ MappedNullable = &UpdateOutputParameterRequest2{}
 type UpdateOutputParameterRequest2 struct {
 	// Description of the output variable being exported
 	Description *string `json:"description,omitempty"`
+	GenericCommandValueProvider *GenericCommandValueProviderConfig `json:"genericCommandValueProvider,omitempty"`
+	KubectlValueProvider *KubectlValueProviderConfig `json:"kubectlValueProvider,omitempty"`
 	// External name of the output variable being exported
 	Name *string `json:"name,omitempty"`
 	// Value of the output variable being exported
@@ -71,6 +73,52 @@ func (o *UpdateOutputParameterRequest2) GetDescriptionOk() (*string, bool) {
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *UpdateOutputParameterRequest2) SetDescription(v string) {
 	o.Description = &v
+}
+
+// GetGenericCommandValueProvider returns the GenericCommandValueProvider field value if set, zero value otherwise.
+func (o *UpdateOutputParameterRequest2) GetGenericCommandValueProvider() GenericCommandValueProviderConfig {
+	if o == nil || IsNil(o.GenericCommandValueProvider) {
+		var ret GenericCommandValueProviderConfig
+		return ret
+	}
+	return *o.GenericCommandValueProvider
+}
+
+// GetGenericCommandValueProviderOk returns a tuple with the GenericCommandValueProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateOutputParameterRequest2) GetGenericCommandValueProviderOk() (*GenericCommandValueProviderConfig, bool) {
+	if o == nil || IsNil(o.GenericCommandValueProvider) {
+		return nil, false
+	}
+	return o.GenericCommandValueProvider, true
+}
+
+// SetGenericCommandValueProvider gets a reference to the given GenericCommandValueProviderConfig and assigns it to the GenericCommandValueProvider field.
+func (o *UpdateOutputParameterRequest2) SetGenericCommandValueProvider(v GenericCommandValueProviderConfig) {
+	o.GenericCommandValueProvider = &v
+}
+
+// GetKubectlValueProvider returns the KubectlValueProvider field value if set, zero value otherwise.
+func (o *UpdateOutputParameterRequest2) GetKubectlValueProvider() KubectlValueProviderConfig {
+	if o == nil || IsNil(o.KubectlValueProvider) {
+		var ret KubectlValueProviderConfig
+		return ret
+	}
+	return *o.KubectlValueProvider
+}
+
+// GetKubectlValueProviderOk returns a tuple with the KubectlValueProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateOutputParameterRequest2) GetKubectlValueProviderOk() (*KubectlValueProviderConfig, bool) {
+	if o == nil || IsNil(o.KubectlValueProvider) {
+		return nil, false
+	}
+	return o.KubectlValueProvider, true
+}
+
+// SetKubectlValueProvider gets a reference to the given KubectlValueProviderConfig and assigns it to the KubectlValueProvider field.
+func (o *UpdateOutputParameterRequest2) SetKubectlValueProvider(v KubectlValueProviderConfig) {
+	o.KubectlValueProvider = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -178,6 +226,12 @@ func (o UpdateOutputParameterRequest2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
+	if !IsNil(o.GenericCommandValueProvider) {
+		toSerialize["genericCommandValueProvider"] = o.GenericCommandValueProvider
+	}
+	if !IsNil(o.KubectlValueProvider) {
+		toSerialize["kubectlValueProvider"] = o.KubectlValueProvider
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
@@ -213,6 +267,8 @@ func (o *UpdateOutputParameterRequest2) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "description")
+		delete(additionalProperties, "genericCommandValueProvider")
+		delete(additionalProperties, "kubectlValueProvider")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "value")
 		delete(additionalProperties, "valueRef")

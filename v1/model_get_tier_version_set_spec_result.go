@@ -27,7 +27,7 @@ type GetTierVersionSetSpecResult struct {
 	ProductTierId string `json:"productTierId"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
-	// YAML content of the tier version set specification
+	// JSON content containing the tier version set specification with raw YAML, configs, and secrets
 	SpecContent string `json:"specContent"`
 	// When the version was last updated
 	UpdatedAt *time.Time `json:"updatedAt,omitempty"`

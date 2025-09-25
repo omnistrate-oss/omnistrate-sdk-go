@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | ID of a Service Environment | 
+**ProductTierId** | Pointer to **string** | ID of a Product Tier | [optional] 
 **ServiceId** | **string** | ID of a Service | 
 **Token** | **string** | JWT token used to perform authorization | 
 
@@ -46,6 +47,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetProductTierId
+
+`func (o *PromoteServiceEnvironmentRequest) GetProductTierId() string`
+
+GetProductTierId returns the ProductTierId field if non-nil, zero value otherwise.
+
+### GetProductTierIdOk
+
+`func (o *PromoteServiceEnvironmentRequest) GetProductTierIdOk() (*string, bool)`
+
+GetProductTierIdOk returns a tuple with the ProductTierId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductTierId
+
+`func (o *PromoteServiceEnvironmentRequest) SetProductTierId(v string)`
+
+SetProductTierId sets ProductTierId field to given value.
+
+### HasProductTierId
+
+`func (o *PromoteServiceEnvironmentRequest) HasProductTierId() bool`
+
+HasProductTierId returns a boolean if a field has been set.
 
 ### GetServiceId
 

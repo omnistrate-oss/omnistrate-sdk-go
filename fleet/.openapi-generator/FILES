@@ -357,6 +357,7 @@ docs/GenerateTokenForDeploymentCellDashboardRequest.md
 docs/GenerateTokenForDeploymentCellDashboardResult.md
 docs/GenerateTokenForHostClusterDashboardRequest.md
 docs/GenerateTokenForHostClusterDashboardResult.md
+docs/GenericCommandValueProviderConfig.md
 docs/GenericResourceDeploymentConfiguration.md
 docs/GetAvailabilityZoneByCodeRequest.md
 docs/GetCloudProviderByNameRequest.md
@@ -408,6 +409,7 @@ docs/InvoiceApiAPI.md
 docs/JobMetric.md
 docs/KubeConfigHostClusterRequest.md
 docs/KubeConfigHostClusterResult.md
+docs/KubectlValueProviderConfig.md
 docs/KubernetesDashboardEndpoint.md
 docs/KustomizeDeploymentConfiguration.md
 docs/Limits.md
@@ -973,6 +975,7 @@ model_generate_token_for_deployment_cell_dashboard_request.go
 model_generate_token_for_deployment_cell_dashboard_result.go
 model_generate_token_for_host_cluster_dashboard_request.go
 model_generate_token_for_host_cluster_dashboard_result.go
+model_generic_command_value_provider_config.go
 model_generic_resource_deployment_configuration.go
 model_get_availability_zone_by_code_request.go
 model_get_cloud_provider_by_name_request.go
@@ -1020,6 +1023,7 @@ model_invoice.go
 model_job_metric.go
 model_kube_config_host_cluster_request.go
 model_kube_config_host_cluster_result.go
+model_kubectl_value_provider_config.go
 model_kubernetes_dashboard_endpoint.go
 model_kustomize_deployment_configuration.go
 model_limits.go

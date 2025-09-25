@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **CreatedAt** | Pointer to **time.Time** | When the version was created | [optional] 
 **ProductTierId** | **string** | ID of a Product Tier | 
 **ServiceId** | **string** | ID of a Service | 
-**SpecContent** | **string** | YAML content of the tier version set specification | 
+**SpecContent** | **string** | JSON content containing the tier version set specification with raw YAML, configs, and secrets | 
 **UpdatedAt** | Pointer to **time.Time** | When the version was last updated | [optional] 
 **Version** | **string** | Version of the tier version set spec | 
 
