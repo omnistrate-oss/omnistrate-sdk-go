@@ -38,6 +38,8 @@ type DescribeResourceResult struct {
 	Dependencies []ResourceDependency `json:"dependencies,omitempty"`
 	// A brief description of the resource
 	Description string `json:"description"`
+	// Allows resource to be disabled. Expression returning true/false can be used as value. Resource is enabled by default, if this property is not set.
+	Disable *string `json:"disable,omitempty"`
 	// The environment variables that this resource requires
 	EnvironmentVariables []EnvironmentVariable `json:"environmentVariables,omitempty"`
 	FileSystemConfiguration *FileSystemConfiguration `json:"fileSystemConfiguration,omitempty"`
@@ -383,6 +385,29 @@ func (o *DescribeResourceResult) GetDescriptionOk() (*string, bool) {
 // SetDescription sets field value
 func (o *DescribeResourceResult) SetDescription(v string) {
 	o.Description = v
+}
+
+// GetDisable returns the Disable field value if set, zero value otherwise.
+func (o *DescribeResourceResult) GetDisable() string {
+	if o == nil || IsNil(o.Disable) {
+		var ret string
+		return ret
+	}
+	return *o.Disable
+}
+
+// GetDisableOk returns a tuple with the Disable field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceResult) GetDisableOk() (*string, bool) {
+	if o == nil || IsNil(o.Disable) {
+		return nil, false
+	}
+	return o.Disable, true
+}
+
+// SetDisable gets a reference to the given string and assigns it to the Disable field.
+func (o *DescribeResourceResult) SetDisable(v string) {
+	o.Disable = &v
 }
 
 // GetEnvironmentVariables returns the EnvironmentVariables field value if set, zero value otherwise.
@@ -920,6 +945,9 @@ func (o DescribeResourceResult) ToMap() (map[string]interface{}, error) {
 		toSerialize["dependencies"] = o.Dependencies
 	}
 	toSerialize["description"] = o.Description
+	if !IsNil(o.Disable) {
+		toSerialize["disable"] = o.Disable
+	}
 	if !IsNil(o.EnvironmentVariables) {
 		toSerialize["environmentVariables"] = o.EnvironmentVariables
 	}
@@ -1030,6 +1058,7 @@ func (o *DescribeResourceResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "customULimits")
 		delete(additionalProperties, "dependencies")
 		delete(additionalProperties, "description")
+		delete(additionalProperties, "disable")
 		delete(additionalProperties, "environmentVariables")
 		delete(additionalProperties, "fileSystemConfiguration")
 		delete(additionalProperties, "helmChartConfiguration")

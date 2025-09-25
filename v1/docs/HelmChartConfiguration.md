@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **LayeredChartValues** | Pointer to [**[]ChartValuesRef**](ChartValuesRef.md) | Layered chart values configuration with conditional scoping (mutually exclusive with chartValues). Values are processed in order - later entries override earlier ones for the same keys. | [optional] 
 **Namespace** | Pointer to **string** | The namespace to deploy the Helm chart into (only applicable to OnPrem hosting model) | [optional] 
 **Password** | Pointer to **string** | The password to authenticate with the registry | [optional] 
+**ReleaseName** | Pointer to **string** | The release name of the Helm package (defaults to chartName if not provided) | [optional] 
 **RuntimeConfiguration** | Pointer to [**HelmRuntimeConfiguration**](HelmRuntimeConfiguration.md) |  | [optional] 
 **Username** | Pointer to **string** | The username to authenticate with the registry | [optional] 
 
@@ -239,6 +240,31 @@ SetPassword sets Password field to given value.
 `func (o *HelmChartConfiguration) HasPassword() bool`
 
 HasPassword returns a boolean if a field has been set.
+
+### GetReleaseName
+
+`func (o *HelmChartConfiguration) GetReleaseName() string`
+
+GetReleaseName returns the ReleaseName field if non-nil, zero value otherwise.
+
+### GetReleaseNameOk
+
+`func (o *HelmChartConfiguration) GetReleaseNameOk() (*string, bool)`
+
+GetReleaseNameOk returns a tuple with the ReleaseName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReleaseName
+
+`func (o *HelmChartConfiguration) SetReleaseName(v string)`
+
+SetReleaseName sets ReleaseName field to given value.
+
+### HasReleaseName
+
+`func (o *HelmChartConfiguration) HasReleaseName() bool`
+
+HasReleaseName returns a boolean if a field has been set.
 
 ### GetRuntimeConfiguration
 

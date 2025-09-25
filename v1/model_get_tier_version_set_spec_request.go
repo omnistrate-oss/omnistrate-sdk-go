@@ -26,7 +26,7 @@ type GetTierVersionSetSpecRequest struct {
 	ServiceId string `json:"serviceId"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
-	// The version number for the specific version set. If not specified, returns the latest preferred or active version.
+	// The version number for the specific version set. If version is not specified, returns the unreleased spec if one exists, otherwise the latest preferred or active version spec.
 	Version *string `json:"version,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

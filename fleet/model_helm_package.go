@@ -34,6 +34,8 @@ type HelmPackage struct {
 	LayeredChartValues []ChartValuesRef `json:"layeredChartValues,omitempty"`
 	// The namespace where the Helm package should be installed
 	Namespace string `json:"namespace"`
+	// The release name of the Helm package
+	ReleaseName *string `json:"releaseName,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -245,6 +247,38 @@ func (o *HelmPackage) SetNamespace(v string) {
 	o.Namespace = v
 }
 
+// GetReleaseName returns the ReleaseName field value if set, zero value otherwise.
+func (o *HelmPackage) GetReleaseName() string {
+	if o == nil || IsNil(o.ReleaseName) {
+		var ret string
+		return ret
+	}
+	return *o.ReleaseName
+}
+
+// GetReleaseNameOk returns a tuple with the ReleaseName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HelmPackage) GetReleaseNameOk() (*string, bool) {
+	if o == nil || IsNil(o.ReleaseName) {
+		return nil, false
+	}
+	return o.ReleaseName, true
+}
+
+// HasReleaseName returns a boolean if a field has been set.
+func (o *HelmPackage) HasReleaseName() bool {
+	if o != nil && !IsNil(o.ReleaseName) {
+		return true
+	}
+
+	return false
+}
+
+// SetReleaseName gets a reference to the given string and assigns it to the ReleaseName field.
+func (o *HelmPackage) SetReleaseName(v string) {
+	o.ReleaseName = &v
+}
+
 func (o HelmPackage) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -266,6 +300,9 @@ func (o HelmPackage) ToMap() (map[string]interface{}, error) {
 		toSerialize["layeredChartValues"] = o.LayeredChartValues
 	}
 	toSerialize["namespace"] = o.Namespace
+	if !IsNil(o.ReleaseName) {
+		toSerialize["releaseName"] = o.ReleaseName
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -320,6 +357,7 @@ func (o *HelmPackage) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "chartVersion")
 		delete(additionalProperties, "layeredChartValues")
 		delete(additionalProperties, "namespace")
+		delete(additionalProperties, "releaseName")
 		o.AdditionalProperties = additionalProperties
 	}
 

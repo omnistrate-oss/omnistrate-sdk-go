@@ -796,6 +796,12 @@ type ApiServiceEnvironmentApiPromoteServiceEnvironmentRequest struct {
 	ApiService ServiceEnvironmentApiAPI
 	serviceId string
 	id string
+	promoteServiceEnvironmentRequest2 *PromoteServiceEnvironmentRequest2
+}
+
+func (r ApiServiceEnvironmentApiPromoteServiceEnvironmentRequest) PromoteServiceEnvironmentRequest2(promoteServiceEnvironmentRequest2 PromoteServiceEnvironmentRequest2) ApiServiceEnvironmentApiPromoteServiceEnvironmentRequest {
+	r.promoteServiceEnvironmentRequest2 = &promoteServiceEnvironmentRequest2
+	return r
 }
 
 func (r ApiServiceEnvironmentApiPromoteServiceEnvironmentRequest) Execute() (*http.Response, error) {
@@ -839,9 +845,12 @@ func (a *ServiceEnvironmentApiAPIService) ServiceEnvironmentApiPromoteServiceEnv
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.promoteServiceEnvironmentRequest2 == nil {
+		return nil, reportError("promoteServiceEnvironmentRequest2 is required and must be specified")
+	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -857,6 +866,8 @@ func (a *ServiceEnvironmentApiAPIService) ServiceEnvironmentApiPromoteServiceEnv
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.promoteServiceEnvironmentRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

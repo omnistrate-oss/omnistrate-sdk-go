@@ -38,6 +38,8 @@ type HelmChartConfiguration struct {
 	Namespace *string `json:"namespace,omitempty"`
 	// The password to authenticate with the registry
 	Password *string `json:"password,omitempty"`
+	// The release name of the Helm package (defaults to chartName if not provided)
+	ReleaseName *string `json:"releaseName,omitempty"`
 	RuntimeConfiguration *HelmRuntimeConfiguration `json:"runtimeConfiguration,omitempty"`
 	// The username to authenticate with the registry
 	Username *string `json:"username,omitempty"`
@@ -278,6 +280,29 @@ func (o *HelmChartConfiguration) SetPassword(v string) {
 	o.Password = &v
 }
 
+// GetReleaseName returns the ReleaseName field value if set, zero value otherwise.
+func (o *HelmChartConfiguration) GetReleaseName() string {
+	if o == nil || IsNil(o.ReleaseName) {
+		var ret string
+		return ret
+	}
+	return *o.ReleaseName
+}
+
+// GetReleaseNameOk returns a tuple with the ReleaseName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HelmChartConfiguration) GetReleaseNameOk() (*string, bool) {
+	if o == nil || IsNil(o.ReleaseName) {
+		return nil, false
+	}
+	return o.ReleaseName, true
+}
+
+// SetReleaseName gets a reference to the given string and assigns it to the ReleaseName field.
+func (o *HelmChartConfiguration) SetReleaseName(v string) {
+	o.ReleaseName = &v
+}
+
 // GetRuntimeConfiguration returns the RuntimeConfiguration field value if set, zero value otherwise.
 func (o *HelmChartConfiguration) GetRuntimeConfiguration() HelmRuntimeConfiguration {
 	if o == nil || IsNil(o.RuntimeConfiguration) {
@@ -353,6 +378,9 @@ func (o HelmChartConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Password) {
 		toSerialize["password"] = o.Password
 	}
+	if !IsNil(o.ReleaseName) {
+		toSerialize["releaseName"] = o.ReleaseName
+	}
 	if !IsNil(o.RuntimeConfiguration) {
 		toSerialize["runtimeConfiguration"] = o.RuntimeConfiguration
 	}
@@ -414,6 +442,7 @@ func (o *HelmChartConfiguration) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "layeredChartValues")
 		delete(additionalProperties, "namespace")
 		delete(additionalProperties, "password")
+		delete(additionalProperties, "releaseName")
 		delete(additionalProperties, "runtimeConfiguration")
 		delete(additionalProperties, "username")
 		o.AdditionalProperties = additionalProperties

@@ -34,7 +34,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service this environment belongs to
-	createServiceEnvironmentRequest2 := *openapiclient.NewCreateServiceEnvironmentRequest2("Qui est.", "The production environment for the MySQL multi-writer service", "Production") // CreateServiceEnvironmentRequest2 | 
+	createServiceEnvironmentRequest2 := *openapiclient.NewCreateServiceEnvironmentRequest2("Impedit et libero.", "The production environment for the MySQL multi-writer service", "Production") // CreateServiceEnvironmentRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 
 ## ServiceEnvironmentApiPromoteServiceEnvironment
 
-> ServiceEnvironmentApiPromoteServiceEnvironment(ctx, serviceId, id).Execute()
+> ServiceEnvironmentApiPromoteServiceEnvironment(ctx, serviceId, id).PromoteServiceEnvironmentRequest2(promoteServiceEnvironmentRequest2).Execute()
 
 PromoteServiceEnvironment service-environment-api
 
@@ -313,10 +313,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service this environment belongs to
 	id := "se-12345678" // string | The ID of the service environment
+	promoteServiceEnvironmentRequest2 := *openapiclient.NewPromoteServiceEnvironmentRequest2() // PromoteServiceEnvironmentRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ServiceEnvironmentApiAPI.ServiceEnvironmentApiPromoteServiceEnvironment(context.Background(), serviceId, id).Execute()
+	r, err := apiClient.ServiceEnvironmentApiAPI.ServiceEnvironmentApiPromoteServiceEnvironment(context.Background(), serviceId, id).PromoteServiceEnvironmentRequest2(promoteServiceEnvironmentRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceEnvironmentApiAPI.ServiceEnvironmentApiPromoteServiceEnvironment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -342,6 +343,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+ **promoteServiceEnvironmentRequest2** | [**PromoteServiceEnvironmentRequest2**](PromoteServiceEnvironmentRequest2.md) |  | 
 
 ### Return type
 
@@ -353,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

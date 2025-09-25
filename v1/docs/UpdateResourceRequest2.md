@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **CustomULimits** | Pointer to [**[]CustomULimits**](CustomULimits.md) | Custom ulimits for the resource | [optional] 
 **Dependencies** | Pointer to [**[]ResourceDependency**](ResourceDependency.md) |  | [optional] 
 **Description** | Pointer to **string** | A brief description of the resource | [optional] 
+**Disable** | Pointer to **string** | Allows resource to be disabled. Expression returning true/false can be used as value. Resource is enabled by default, if this property is not set. | [optional] 
 **EnvironmentVariables** | Pointer to [**[]EnvironmentVariable**](EnvironmentVariable.md) | The environment variables that this resource requires | [optional] 
 **HelmChartConfiguration** | Pointer to [**HelmChartConfiguration**](HelmChartConfiguration.md) |  | [optional] 
 **ImageConfigId** | Pointer to **string** | The ID of the image configuration that this resource refers to | [optional] 
@@ -269,6 +270,31 @@ SetDescription sets Description field to given value.
 `func (o *UpdateResourceRequest2) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
+
+### GetDisable
+
+`func (o *UpdateResourceRequest2) GetDisable() string`
+
+GetDisable returns the Disable field if non-nil, zero value otherwise.
+
+### GetDisableOk
+
+`func (o *UpdateResourceRequest2) GetDisableOk() (*string, bool)`
+
+GetDisableOk returns a tuple with the Disable field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisable
+
+`func (o *UpdateResourceRequest2) SetDisable(v string)`
+
+SetDisable sets Disable field to given value.
+
+### HasDisable
+
+`func (o *UpdateResourceRequest2) HasDisable() bool`
+
+HasDisable returns a boolean if a field has been set.
 
 ### GetEnvironmentVariables
 

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **OwningOrgName** | **string** | Name of the owning organization | 
 **OwningUserID** | Pointer to **string** | ID of the owning user | [optional] 
 **OwningUserName** | Pointer to **string** | Name of the owning user | [optional] 
+**Status** | Pointer to **string** | The status of an operation | [optional] 
 
 ## Methods
 
@@ -305,6 +306,31 @@ SetOwningUserName sets OwningUserName field to given value.
 `func (o *FleetCustomNetwork) HasOwningUserName() bool`
 
 HasOwningUserName returns a boolean if a field has been set.
+
+### GetStatus
+
+`func (o *FleetCustomNetwork) GetStatus() string`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *FleetCustomNetwork) GetStatusOk() (*string, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *FleetCustomNetwork) SetStatus(v string)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *FleetCustomNetwork) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

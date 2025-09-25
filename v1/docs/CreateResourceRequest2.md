@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **CustomSysCTLs** | Pointer to **map[string]string** | Custom sysctl settings for the resource | [optional] 
 **CustomULimits** | Pointer to [**[]CustomULimits**](CustomULimits.md) | Custom ulimits for the resource | [optional] 
 **Description** | **string** | A brief description of the resource | 
+**Disable** | Pointer to **string** | Allows resource to be disabled. Expression returning true/false can be used as value. Resource is enabled by default, if this property is not set. | [optional] 
 **EnvironmentVariables** | Pointer to [**[]EnvironmentVariable**](EnvironmentVariable.md) | The environment variables that this resource requires | [optional] 
 **FileSystemConfiguration** | Pointer to [**FileSystemConfiguration**](FileSystemConfiguration.md) |  | [optional] 
 **HelmChartConfiguration** | Pointer to [**HelmChartConfiguration**](HelmChartConfiguration.md) |  | [optional] 
@@ -272,6 +273,31 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
+
+### GetDisable
+
+`func (o *CreateResourceRequest2) GetDisable() string`
+
+GetDisable returns the Disable field if non-nil, zero value otherwise.
+
+### GetDisableOk
+
+`func (o *CreateResourceRequest2) GetDisableOk() (*string, bool)`
+
+GetDisableOk returns a tuple with the Disable field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisable
+
+`func (o *CreateResourceRequest2) SetDisable(v string)`
+
+SetDisable sets Disable field to given value.
+
+### HasDisable
+
+`func (o *CreateResourceRequest2) HasDisable() bool`
+
+HasDisable returns a boolean if a field has been set.
 
 ### GetEnvironmentVariables
 
