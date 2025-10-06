@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **string** | The status of the workflow execution. | 
+**Status** | **string** | Update the status of the workflow execution. You can pause, resume or retry a workflow. | 
 
 ## Methods
 

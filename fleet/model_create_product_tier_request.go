@@ -34,6 +34,7 @@ type CreateProductTierRequest struct {
 	BillingProviders []string `json:"billingProviders,omitempty"`
 	// The billing provider type
 	DefaultBillingProvider *string `json:"defaultBillingProvider,omitempty"`
+	DeploymentConfiguration *ProductTierDeploymentConfiguration `json:"deploymentConfiguration,omitempty"`
 	// A brief description of the product tier
 	Description string `json:"description"`
 	// Documentation
@@ -319,6 +320,38 @@ func (o *CreateProductTierRequest) HasDefaultBillingProvider() bool {
 // SetDefaultBillingProvider gets a reference to the given string and assigns it to the DefaultBillingProvider field.
 func (o *CreateProductTierRequest) SetDefaultBillingProvider(v string) {
 	o.DefaultBillingProvider = &v
+}
+
+// GetDeploymentConfiguration returns the DeploymentConfiguration field value if set, zero value otherwise.
+func (o *CreateProductTierRequest) GetDeploymentConfiguration() ProductTierDeploymentConfiguration {
+	if o == nil || IsNil(o.DeploymentConfiguration) {
+		var ret ProductTierDeploymentConfiguration
+		return ret
+	}
+	return *o.DeploymentConfiguration
+}
+
+// GetDeploymentConfigurationOk returns a tuple with the DeploymentConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateProductTierRequest) GetDeploymentConfigurationOk() (*ProductTierDeploymentConfiguration, bool) {
+	if o == nil || IsNil(o.DeploymentConfiguration) {
+		return nil, false
+	}
+	return o.DeploymentConfiguration, true
+}
+
+// HasDeploymentConfiguration returns a boolean if a field has been set.
+func (o *CreateProductTierRequest) HasDeploymentConfiguration() bool {
+	if o != nil && !IsNil(o.DeploymentConfiguration) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeploymentConfiguration gets a reference to the given ProductTierDeploymentConfiguration and assigns it to the DeploymentConfiguration field.
+func (o *CreateProductTierRequest) SetDeploymentConfiguration(v ProductTierDeploymentConfiguration) {
+	o.DeploymentConfiguration = &v
 }
 
 // GetDescription returns the Description field value
@@ -841,6 +874,9 @@ func (o CreateProductTierRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DefaultBillingProvider) {
 		toSerialize["defaultBillingProvider"] = o.DefaultBillingProvider
 	}
+	if !IsNil(o.DeploymentConfiguration) {
+		toSerialize["deploymentConfiguration"] = o.DeploymentConfiguration
+	}
 	toSerialize["description"] = o.Description
 	if !IsNil(o.Documentation) {
 		toSerialize["documentation"] = o.Documentation
@@ -934,6 +970,7 @@ func (o *CreateProductTierRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "billingProductID")
 		delete(additionalProperties, "billingProviders")
 		delete(additionalProperties, "defaultBillingProvider")
+		delete(additionalProperties, "deploymentConfiguration")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "documentation")
 		delete(additionalProperties, "exportUsageMetering")

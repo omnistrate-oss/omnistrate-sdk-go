@@ -374,4 +374,3 @@ func (v *NullableCreateServiceModelRequest) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
-

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudProvider** | Pointer to **string** | The cloud provider name | [optional] 
 **CustomNetworkId** | Pointer to **string** | Custom network for resource | [optional] 
+**CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The custom tags for the resource instance. | [optional] 
 **ExternalPayerId** | Pointer to **string** | The external payer id to record which customer should pay for this resource instance. This will override the subscription level external payer id if set. | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
 **OnpremPlatform** | Pointer to **string** | OnPrem platform | [optional] 
@@ -82,6 +83,31 @@ SetCustomNetworkId sets CustomNetworkId field to given value.
 `func (o *FleetCreateResourceInstanceRequest2) HasCustomNetworkId() bool`
 
 HasCustomNetworkId returns a boolean if a field has been set.
+
+### GetCustomTags
+
+`func (o *FleetCreateResourceInstanceRequest2) GetCustomTags() []CustomTag`
+
+GetCustomTags returns the CustomTags field if non-nil, zero value otherwise.
+
+### GetCustomTagsOk
+
+`func (o *FleetCreateResourceInstanceRequest2) GetCustomTagsOk() (*[]CustomTag, bool)`
+
+GetCustomTagsOk returns a tuple with the CustomTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomTags
+
+`func (o *FleetCreateResourceInstanceRequest2) SetCustomTags(v []CustomTag)`
+
+SetCustomTags sets CustomTags field to given value.
+
+### HasCustomTags
+
+`func (o *FleetCreateResourceInstanceRequest2) HasCustomTags() bool`
+
+HasCustomTags returns a boolean if a field has been set.
 
 ### GetExternalPayerId
 

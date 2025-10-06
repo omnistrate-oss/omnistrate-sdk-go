@@ -284,4 +284,3 @@ func (v *NullableCheckIfContainerImageAccessibleRequest) UnmarshalJSON(src []byt
 	return json.Unmarshal(src, &v.value)
 }
 
-

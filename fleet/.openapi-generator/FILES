@@ -15,6 +15,7 @@ api_inventory_api.go
 api_invoice_api.go
 api_notifications_api.go
 api_operations_api.go
+api_usage_api.go
 api_webhooks_api.go
 client.go
 configuration.go
@@ -288,6 +289,11 @@ docs/FleetFailoverResourceInstanceRequest.md
 docs/FleetFailoverResourceInstanceRequest2.md
 docs/FleetGenerateTokenForHostClusterDashboardRequest.md
 docs/FleetGenerateTokenForHostClusterDashboardResult.md
+docs/FleetGetCurrentUsageRequest.md
+docs/FleetGetCurrentUsageRequest2.md
+docs/FleetGetUsagePerDayRequest.md
+docs/FleetGetUsagePerDayRequest2.md
+docs/FleetGetUsageResult.md
 docs/FleetInvoice.md
 docs/FleetListAccountConfigsRequest.md
 docs/FleetListAccountConfigsRequest2.md
@@ -510,6 +516,8 @@ docs/NotificationsApiAPI.md
 docs/OmnistrateError.md
 docs/OmnistrateServiceHealthResult.md
 docs/OmnistrateServiceVersionResult.md
+docs/OnPremCustomUserScript.md
+docs/OnPremInstallerTools.md
 docs/OnboardingStage.md
 docs/OneOffPatchResourceInstanceRequest.md
 docs/OneOffPatchResourceInstanceRequest2.md
@@ -524,6 +532,8 @@ docs/PerInstanceCost.md
 docs/PerRegionCost.md
 docs/PerUserCost.md
 docs/PodEvent.md
+docs/ProductTierDeploymentConfiguration.md
+docs/ProductTierDeploymentRequirements.md
 docs/ProductTierFeatureDetail.md
 docs/PromoteServiceEnvironmentRequest.md
 docs/PromoteServiceEnvironmentStatusRequest.md
@@ -627,7 +637,9 @@ docs/UpdateUserRequest.md
 docs/UpgradePath.md
 docs/UpgradePathSearchRecord.md
 docs/UpgradeResourceInstanceVersionRequest.md
+docs/UsageApiAPI.md
 docs/UsagePerDimension.md
+docs/UsagePerSubscription.md
 docs/User.md
 docs/UserSearchRecord.md
 docs/UserSubscription.md
@@ -907,6 +919,11 @@ model_fleet_failover_resource_instance_request.go
 model_fleet_failover_resource_instance_request2.go
 model_fleet_generate_token_for_host_cluster_dashboard_request.go
 model_fleet_generate_token_for_host_cluster_dashboard_result.go
+model_fleet_get_current_usage_request.go
+model_fleet_get_current_usage_request2.go
+model_fleet_get_usage_per_day_request.go
+model_fleet_get_usage_per_day_request2.go
+model_fleet_get_usage_result.go
 model_fleet_invoice.go
 model_fleet_list_account_configs_request.go
 model_fleet_list_account_configs_request2.go
@@ -1123,6 +1140,8 @@ model_notification_search_record.go
 model_omnistrate_error.go
 model_omnistrate_service_health_result.go
 model_omnistrate_service_version_result.go
+model_on_prem_custom_user_script.go
+model_on_prem_installer_tools.go
 model_onboarding_stage.go
 model_one_off_patch_resource_instance_request.go
 model_one_off_patch_resource_instance_request2.go
@@ -1136,6 +1155,8 @@ model_per_instance_cost.go
 model_per_region_cost.go
 model_per_user_cost.go
 model_pod_event.go
+model_product_tier_deployment_configuration.go
+model_product_tier_deployment_requirements.go
 model_product_tier_feature_detail.go
 model_promote_service_environment_request.go
 model_promote_service_environment_status_request.go
@@ -1240,6 +1261,7 @@ model_upgrade_path.go
 model_upgrade_path_search_record.go
 model_upgrade_resource_instance_version_request.go
 model_usage_per_dimension.go
+model_usage_per_subscription.go
 model_user.go
 model_user_search_record.go
 model_user_subscription.go
@@ -1265,5 +1287,6 @@ test/api_inventory_api_test.go
 test/api_invoice_api_test.go
 test/api_notifications_api_test.go
 test/api_operations_api_test.go
+test/api_usage_api_test.go
 test/api_webhooks_api_test.go
 utils.go

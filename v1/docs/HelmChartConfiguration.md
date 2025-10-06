@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AutoDiscoverImagesTag** | Pointer to **string** | The tag to auto-discover and update in the Helm chart values (if the chartValues or layeredChartValues contain an image tag placeholder like {{ .Values.image.tag }}, this field specifies which tag to replace it with) | [optional] 
 **ChartName** | **string** | The chart name of the Helm package | 
 **ChartRepoName** | **string** | The chart repository name of the Helm package | 
 **ChartRepoUrl** | **string** | The chart repository URL of the Helm package | 
@@ -35,6 +36,31 @@ will change when the set of required properties is changed
 NewHelmChartConfigurationWithDefaults instantiates a new HelmChartConfiguration object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAutoDiscoverImagesTag
+
+`func (o *HelmChartConfiguration) GetAutoDiscoverImagesTag() string`
+
+GetAutoDiscoverImagesTag returns the AutoDiscoverImagesTag field if non-nil, zero value otherwise.
+
+### GetAutoDiscoverImagesTagOk
+
+`func (o *HelmChartConfiguration) GetAutoDiscoverImagesTagOk() (*string, bool)`
+
+GetAutoDiscoverImagesTagOk returns a tuple with the AutoDiscoverImagesTag field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoDiscoverImagesTag
+
+`func (o *HelmChartConfiguration) SetAutoDiscoverImagesTag(v string)`
+
+SetAutoDiscoverImagesTag sets AutoDiscoverImagesTag field to given value.
+
+### HasAutoDiscoverImagesTag
+
+`func (o *HelmChartConfiguration) HasAutoDiscoverImagesTag() bool`
+
+HasAutoDiscoverImagesTag returns a boolean if a field has been set.
 
 ### GetChartName
 

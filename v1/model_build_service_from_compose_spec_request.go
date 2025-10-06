@@ -32,6 +32,8 @@ type BuildServiceFromComposeSpecRequest struct {
 	EnvironmentType *string `json:"environmentType,omitempty"`
 	// Base64 encoded Compose Spec YAML in docker compose format
 	FileContent string `json:"fileContent"`
+	// Force create a new service plan version when the service is released
+	ForceCreateNewServicePlanVersion *bool `json:"forceCreateNewServicePlanVersion,omitempty"`
 	// Name of the Service
 	Name string `json:"name"`
 	// Release the service after building
@@ -208,6 +210,29 @@ func (o *BuildServiceFromComposeSpecRequest) GetFileContentOk() (*string, bool) 
 // SetFileContent sets field value
 func (o *BuildServiceFromComposeSpecRequest) SetFileContent(v string) {
 	o.FileContent = v
+}
+
+// GetForceCreateNewServicePlanVersion returns the ForceCreateNewServicePlanVersion field value if set, zero value otherwise.
+func (o *BuildServiceFromComposeSpecRequest) GetForceCreateNewServicePlanVersion() bool {
+	if o == nil || IsNil(o.ForceCreateNewServicePlanVersion) {
+		var ret bool
+		return ret
+	}
+	return *o.ForceCreateNewServicePlanVersion
+}
+
+// GetForceCreateNewServicePlanVersionOk returns a tuple with the ForceCreateNewServicePlanVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BuildServiceFromComposeSpecRequest) GetForceCreateNewServicePlanVersionOk() (*bool, bool) {
+	if o == nil || IsNil(o.ForceCreateNewServicePlanVersion) {
+		return nil, false
+	}
+	return o.ForceCreateNewServicePlanVersion, true
+}
+
+// SetForceCreateNewServicePlanVersion gets a reference to the given bool and assigns it to the ForceCreateNewServicePlanVersion field.
+func (o *BuildServiceFromComposeSpecRequest) SetForceCreateNewServicePlanVersion(v bool) {
+	o.ForceCreateNewServicePlanVersion = &v
 }
 
 // GetName returns the Name field value
@@ -399,6 +424,9 @@ func (o BuildServiceFromComposeSpecRequest) ToMap() (map[string]interface{}, err
 		toSerialize["environmentType"] = o.EnvironmentType
 	}
 	toSerialize["fileContent"] = o.FileContent
+	if !IsNil(o.ForceCreateNewServicePlanVersion) {
+		toSerialize["forceCreateNewServicePlanVersion"] = o.ForceCreateNewServicePlanVersion
+	}
 	toSerialize["name"] = o.Name
 	if !IsNil(o.Release) {
 		toSerialize["release"] = o.Release
@@ -467,6 +495,7 @@ func (o *BuildServiceFromComposeSpecRequest) UnmarshalJSON(data []byte) (err err
 		delete(additionalProperties, "environment")
 		delete(additionalProperties, "environmentType")
 		delete(additionalProperties, "fileContent")
+		delete(additionalProperties, "forceCreateNewServicePlanVersion")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "release")
 		delete(additionalProperties, "releaseAsPreferred")
@@ -515,5 +544,4 @@ func (v *NullableBuildServiceFromComposeSpecRequest) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

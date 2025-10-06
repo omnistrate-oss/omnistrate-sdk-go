@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **EnvironmentId** | **string** | ID of a Service Environment | 
 **Id** | **string** | ID of the ServiceWorkflow | 
 **ServiceId** | **string** | ID of a Service | 
-**Status** | **string** | The status of the workflow execution. | 
+**Status** | **string** | Update the status of the workflow execution. You can pause, resume or retry a workflow. | 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods

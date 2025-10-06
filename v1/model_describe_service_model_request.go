@@ -226,4 +226,3 @@ func (v *NullableDescribeServiceModelRequest) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
-

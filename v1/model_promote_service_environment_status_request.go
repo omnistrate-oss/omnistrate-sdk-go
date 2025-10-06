@@ -226,4 +226,3 @@ func (v *NullablePromoteServiceEnvironmentStatusRequest) UnmarshalJSON(src []byt
 	return json.Unmarshal(src, &v.value)
 }
 
-

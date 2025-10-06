@@ -144,4 +144,3 @@ func (v *NullableListSecretsResult) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
-

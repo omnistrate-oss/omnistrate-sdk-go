@@ -525,4 +525,3 @@ func (v *NullableInputParameterEntity) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
-

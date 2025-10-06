@@ -20,6 +20,8 @@ var _ MappedNullable = &BuildServiceFromServicePlanSpecResult{}
 
 // BuildServiceFromServicePlanSpecResult struct for BuildServiceFromServicePlanSpecResult
 type BuildServiceFromServicePlanSpecResult struct {
+	// Indicates if a new service plan version was created
+	IsNewServicePlanVersionCreated *bool `json:"isNewServicePlanVersionCreated,omitempty"`
 	// ID of a Product Tier
 	ProductTierID string `json:"productTierID"`
 	// ID of a Service Environment
@@ -51,6 +53,29 @@ func NewBuildServiceFromServicePlanSpecResult(productTierID string, serviceEnvir
 func NewBuildServiceFromServicePlanSpecResultWithDefaults() *BuildServiceFromServicePlanSpecResult {
 	this := BuildServiceFromServicePlanSpecResult{}
 	return &this
+}
+
+// GetIsNewServicePlanVersionCreated returns the IsNewServicePlanVersionCreated field value if set, zero value otherwise.
+func (o *BuildServiceFromServicePlanSpecResult) GetIsNewServicePlanVersionCreated() bool {
+	if o == nil || IsNil(o.IsNewServicePlanVersionCreated) {
+		var ret bool
+		return ret
+	}
+	return *o.IsNewServicePlanVersionCreated
+}
+
+// GetIsNewServicePlanVersionCreatedOk returns a tuple with the IsNewServicePlanVersionCreated field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BuildServiceFromServicePlanSpecResult) GetIsNewServicePlanVersionCreatedOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsNewServicePlanVersionCreated) {
+		return nil, false
+	}
+	return o.IsNewServicePlanVersionCreated, true
+}
+
+// SetIsNewServicePlanVersionCreated gets a reference to the given bool and assigns it to the IsNewServicePlanVersionCreated field.
+func (o *BuildServiceFromServicePlanSpecResult) SetIsNewServicePlanVersionCreated(v bool) {
+	o.IsNewServicePlanVersionCreated = &v
 }
 
 // GetProductTierID returns the ProductTierID field value
@@ -158,6 +183,9 @@ func (o BuildServiceFromServicePlanSpecResult) MarshalJSON() ([]byte, error) {
 
 func (o BuildServiceFromServicePlanSpecResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.IsNewServicePlanVersionCreated) {
+		toSerialize["isNewServicePlanVersionCreated"] = o.IsNewServicePlanVersionCreated
+	}
 	toSerialize["productTierID"] = o.ProductTierID
 	toSerialize["serviceEnvironmentID"] = o.ServiceEnvironmentID
 	toSerialize["serviceID"] = o.ServiceID
@@ -209,6 +237,7 @@ func (o *BuildServiceFromServicePlanSpecResult) UnmarshalJSON(data []byte) (err 
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "isNewServicePlanVersionCreated")
 		delete(additionalProperties, "productTierID")
 		delete(additionalProperties, "serviceEnvironmentID")
 		delete(additionalProperties, "serviceID")
@@ -254,5 +283,4 @@ func (v *NullableBuildServiceFromServicePlanSpecResult) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 
