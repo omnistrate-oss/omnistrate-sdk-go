@@ -20,7 +20,7 @@ var _ MappedNullable = &UpdateServiceWorkflowRequest2{}
 
 // UpdateServiceWorkflowRequest2 struct for UpdateServiceWorkflowRequest2
 type UpdateServiceWorkflowRequest2 struct {
-	// The status of the workflow execution.
+	// Update the status of the workflow execution. You can pause, resume or retry a workflow.
 	Status string `json:"status"`
 	AdditionalProperties map[string]interface{}
 }

@@ -20,6 +20,8 @@ var _ MappedNullable = &HelmChartConfiguration{}
 
 // HelmChartConfiguration struct for HelmChartConfiguration
 type HelmChartConfiguration struct {
+	// The tag to auto-discover and update in the Helm chart values (if the chartValues or layeredChartValues contain an image tag placeholder like {{ .Values.image.tag }}, this field specifies which tag to replace it with)
+	AutoDiscoverImagesTag *string `json:"autoDiscoverImagesTag,omitempty"`
 	// The chart name of the Helm package
 	ChartName string `json:"chartName"`
 	// The chart repository name of the Helm package
@@ -67,6 +69,29 @@ func NewHelmChartConfiguration(chartName string, chartRepoName string, chartRepo
 func NewHelmChartConfigurationWithDefaults() *HelmChartConfiguration {
 	this := HelmChartConfiguration{}
 	return &this
+}
+
+// GetAutoDiscoverImagesTag returns the AutoDiscoverImagesTag field value if set, zero value otherwise.
+func (o *HelmChartConfiguration) GetAutoDiscoverImagesTag() string {
+	if o == nil || IsNil(o.AutoDiscoverImagesTag) {
+		var ret string
+		return ret
+	}
+	return *o.AutoDiscoverImagesTag
+}
+
+// GetAutoDiscoverImagesTagOk returns a tuple with the AutoDiscoverImagesTag field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HelmChartConfiguration) GetAutoDiscoverImagesTagOk() (*string, bool) {
+	if o == nil || IsNil(o.AutoDiscoverImagesTag) {
+		return nil, false
+	}
+	return o.AutoDiscoverImagesTag, true
+}
+
+// SetAutoDiscoverImagesTag gets a reference to the given string and assigns it to the AutoDiscoverImagesTag field.
+func (o *HelmChartConfiguration) SetAutoDiscoverImagesTag(v string) {
+	o.AutoDiscoverImagesTag = &v
 }
 
 // GetChartName returns the ChartName field value
@@ -359,6 +384,9 @@ func (o HelmChartConfiguration) MarshalJSON() ([]byte, error) {
 
 func (o HelmChartConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AutoDiscoverImagesTag) {
+		toSerialize["autoDiscoverImagesTag"] = o.AutoDiscoverImagesTag
+	}
 	toSerialize["chartName"] = o.ChartName
 	toSerialize["chartRepoName"] = o.ChartRepoName
 	toSerialize["chartRepoUrl"] = o.ChartRepoUrl
@@ -433,6 +461,7 @@ func (o *HelmChartConfiguration) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "autoDiscoverImagesTag")
 		delete(additionalProperties, "chartName")
 		delete(additionalProperties, "chartRepoName")
 		delete(additionalProperties, "chartRepoUrl")
@@ -486,5 +515,4 @@ func (v *NullableHelmChartConfiguration) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **BillingProviders** | Pointer to **[]string** | List of billing providers to be used for the product tier | [optional] 
 **CloudProvidersConfigReadiness** | Pointer to **map[string]map[string]string** | The readiness of the cloud providers configurations | [optional] 
 **DefaultBillingProvider** | Pointer to **string** | The billing provider type | [optional] 
+**DeploymentConfiguration** | Pointer to [**ProductTierDeploymentConfiguration**](ProductTierDeploymentConfiguration.md) |  | [optional] 
 **Description** | **string** | A brief description of the product tier | 
 **Documentation** | **string** | Documentation | 
 **EnabledFeatures** | Pointer to [**[]ProductTierFeatureDetail**](ProductTierFeatureDetail.md) | The features that are enabled for this product tier, including scope details and configuration | [optional] 
@@ -277,6 +278,31 @@ SetDefaultBillingProvider sets DefaultBillingProvider field to given value.
 `func (o *DescribeProductTierResult) HasDefaultBillingProvider() bool`
 
 HasDefaultBillingProvider returns a boolean if a field has been set.
+
+### GetDeploymentConfiguration
+
+`func (o *DescribeProductTierResult) GetDeploymentConfiguration() ProductTierDeploymentConfiguration`
+
+GetDeploymentConfiguration returns the DeploymentConfiguration field if non-nil, zero value otherwise.
+
+### GetDeploymentConfigurationOk
+
+`func (o *DescribeProductTierResult) GetDeploymentConfigurationOk() (*ProductTierDeploymentConfiguration, bool)`
+
+GetDeploymentConfigurationOk returns a tuple with the DeploymentConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeploymentConfiguration
+
+`func (o *DescribeProductTierResult) SetDeploymentConfiguration(v ProductTierDeploymentConfiguration)`
+
+SetDeploymentConfiguration sets DeploymentConfiguration field to given value.
+
+### HasDeploymentConfiguration
+
+`func (o *DescribeProductTierResult) HasDeploymentConfiguration() bool`
+
+HasDeploymentConfiguration returns a boolean if a field has been set.
 
 ### GetDescription
 

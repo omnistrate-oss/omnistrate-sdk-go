@@ -173,4 +173,3 @@ func (v *NullableListUpgradePathResult) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
-

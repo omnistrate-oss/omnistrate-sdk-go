@@ -226,4 +226,3 @@ func (v *NullableDescribeIdentityProviderTypeResult) UnmarshalJSON(src []byte) e
 	return json.Unmarshal(src, &v.value)
 }
 
-

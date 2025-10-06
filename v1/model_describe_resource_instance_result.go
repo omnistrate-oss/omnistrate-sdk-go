@@ -39,6 +39,8 @@ type DescribeResourceInstanceResult struct {
 	// The current number of replicas
 	CurrentReplicas *string `json:"currentReplicas,omitempty"`
 	CustomNetworkDetail *CustomNetworkResourceDetail `json:"customNetworkDetail,omitempty"`
+	// The custom tag for the resource instance
+	CustomTags []CustomTag `json:"customTags,omitempty"`
 	// The detailed network topology
 	DetailedNetworkTopology *map[string]ResourceNetworkTopologyResult `json:"detailedNetworkTopology,omitempty"`
 	// The external payer id to record which customer should pay for this resource instance
@@ -354,6 +356,29 @@ func (o *DescribeResourceInstanceResult) GetCustomNetworkDetailOk() (*CustomNetw
 // SetCustomNetworkDetail gets a reference to the given CustomNetworkResourceDetail and assigns it to the CustomNetworkDetail field.
 func (o *DescribeResourceInstanceResult) SetCustomNetworkDetail(v CustomNetworkResourceDetail) {
 	o.CustomNetworkDetail = &v
+}
+
+// GetCustomTags returns the CustomTags field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetCustomTags() []CustomTag {
+	if o == nil || IsNil(o.CustomTags) {
+		var ret []CustomTag
+		return ret
+	}
+	return o.CustomTags
+}
+
+// GetCustomTagsOk returns a tuple with the CustomTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetCustomTagsOk() ([]CustomTag, bool) {
+	if o == nil || IsNil(o.CustomTags) {
+		return nil, false
+	}
+	return o.CustomTags, true
+}
+
+// SetCustomTags gets a reference to the given []CustomTag and assigns it to the CustomTags field.
+func (o *DescribeResourceInstanceResult) SetCustomTags(v []CustomTag) {
+	o.CustomTags = v
 }
 
 // GetDetailedNetworkTopology returns the DetailedNetworkTopology field value if set, zero value otherwise.
@@ -906,6 +931,9 @@ func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.CustomNetworkDetail) {
 		toSerialize["customNetworkDetail"] = o.CustomNetworkDetail
 	}
+	if !IsNil(o.CustomTags) {
+		toSerialize["customTags"] = o.CustomTags
+	}
 	if !IsNil(o.DetailedNetworkTopology) {
 		toSerialize["detailedNetworkTopology"] = o.DetailedNetworkTopology
 	}
@@ -1005,6 +1033,7 @@ func (o *DescribeResourceInstanceResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "createdByUserName")
 		delete(additionalProperties, "currentReplicas")
 		delete(additionalProperties, "customNetworkDetail")
+		delete(additionalProperties, "customTags")
 		delete(additionalProperties, "detailedNetworkTopology")
 		delete(additionalProperties, "externalPayerId")
 		delete(additionalProperties, "gcpProjectID")
@@ -1068,5 +1097,4 @@ func (v *NullableDescribeResourceInstanceResult) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

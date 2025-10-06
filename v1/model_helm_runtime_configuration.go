@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the HelmRuntimeConfiguration type satisfies the MappedNullable interface at compile time
@@ -21,25 +20,25 @@ var _ MappedNullable = &HelmRuntimeConfiguration{}
 // HelmRuntimeConfiguration struct for HelmRuntimeConfiguration
 type HelmRuntimeConfiguration struct {
 	// Disable Helm hooks
-	DisableHooks bool `json:"disableHooks"`
+	DisableHooks *bool `json:"disableHooks,omitempty"`
 	// Recreate the Helm package if it already exists
-	Recreate bool `json:"recreate"`
+	Recreate *bool `json:"recreate,omitempty"`
 	// Reset then reuse values for the Helm package before applying
-	ResetThenReuseValues bool `json:"resetThenReuseValues"`
+	ResetThenReuseValues *bool `json:"resetThenReuseValues,omitempty"`
 	// Reset values for the Helm package before applying
-	ResetValues bool `json:"resetValues"`
+	ResetValues *bool `json:"resetValues,omitempty"`
 	// Reuse values for the Helm package before applying
-	ReuseValues bool `json:"reuseValues"`
+	ReuseValues *bool `json:"reuseValues,omitempty"`
 	// Skip CRDs for the Helm package
-	SkipCRDs bool `json:"skipCRDs"`
+	SkipCRDs *bool `json:"skipCRDs,omitempty"`
 	// Timeout (nanos) for the Helm package to be deployed
-	TimeoutNanos int64 `json:"timeoutNanos"`
+	TimeoutNanos *int64 `json:"timeoutNanos,omitempty"`
 	// Upgrade CRDs for the Helm package
-	UpgradeCRDs bool `json:"upgradeCRDs"`
+	UpgradeCRDs *bool `json:"upgradeCRDs,omitempty"`
 	// Wait for the Helm package to be deployed
-	Wait bool `json:"wait"`
+	Wait *bool `json:"wait,omitempty"`
 	// Wait for all jobs to be completed
-	WaitForJobs bool `json:"waitForJobs"`
+	WaitForJobs *bool `json:"waitForJobs,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -49,18 +48,8 @@ type _HelmRuntimeConfiguration HelmRuntimeConfiguration
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHelmRuntimeConfiguration(disableHooks bool, recreate bool, resetThenReuseValues bool, resetValues bool, reuseValues bool, skipCRDs bool, timeoutNanos int64, upgradeCRDs bool, wait bool, waitForJobs bool) *HelmRuntimeConfiguration {
+func NewHelmRuntimeConfiguration() *HelmRuntimeConfiguration {
 	this := HelmRuntimeConfiguration{}
-	this.DisableHooks = disableHooks
-	this.Recreate = recreate
-	this.ResetThenReuseValues = resetThenReuseValues
-	this.ResetValues = resetValues
-	this.ReuseValues = reuseValues
-	this.SkipCRDs = skipCRDs
-	this.TimeoutNanos = timeoutNanos
-	this.UpgradeCRDs = upgradeCRDs
-	this.Wait = wait
-	this.WaitForJobs = waitForJobs
 	return &this
 }
 
@@ -72,244 +61,234 @@ func NewHelmRuntimeConfigurationWithDefaults() *HelmRuntimeConfiguration {
 	return &this
 }
 
-// GetDisableHooks returns the DisableHooks field value
+// GetDisableHooks returns the DisableHooks field value if set, zero value otherwise.
 func (o *HelmRuntimeConfiguration) GetDisableHooks() bool {
-	if o == nil {
+	if o == nil || IsNil(o.DisableHooks) {
 		var ret bool
 		return ret
 	}
-
-	return o.DisableHooks
+	return *o.DisableHooks
 }
 
-// GetDisableHooksOk returns a tuple with the DisableHooks field value
+// GetDisableHooksOk returns a tuple with the DisableHooks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HelmRuntimeConfiguration) GetDisableHooksOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DisableHooks) {
 		return nil, false
 	}
-	return &o.DisableHooks, true
+	return o.DisableHooks, true
 }
 
-// SetDisableHooks sets field value
+// SetDisableHooks gets a reference to the given bool and assigns it to the DisableHooks field.
 func (o *HelmRuntimeConfiguration) SetDisableHooks(v bool) {
-	o.DisableHooks = v
+	o.DisableHooks = &v
 }
 
-// GetRecreate returns the Recreate field value
+// GetRecreate returns the Recreate field value if set, zero value otherwise.
 func (o *HelmRuntimeConfiguration) GetRecreate() bool {
-	if o == nil {
+	if o == nil || IsNil(o.Recreate) {
 		var ret bool
 		return ret
 	}
-
-	return o.Recreate
+	return *o.Recreate
 }
 
-// GetRecreateOk returns a tuple with the Recreate field value
+// GetRecreateOk returns a tuple with the Recreate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HelmRuntimeConfiguration) GetRecreateOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Recreate) {
 		return nil, false
 	}
-	return &o.Recreate, true
+	return o.Recreate, true
 }
 
-// SetRecreate sets field value
+// SetRecreate gets a reference to the given bool and assigns it to the Recreate field.
 func (o *HelmRuntimeConfiguration) SetRecreate(v bool) {
-	o.Recreate = v
+	o.Recreate = &v
 }
 
-// GetResetThenReuseValues returns the ResetThenReuseValues field value
+// GetResetThenReuseValues returns the ResetThenReuseValues field value if set, zero value otherwise.
 func (o *HelmRuntimeConfiguration) GetResetThenReuseValues() bool {
-	if o == nil {
+	if o == nil || IsNil(o.ResetThenReuseValues) {
 		var ret bool
 		return ret
 	}
-
-	return o.ResetThenReuseValues
+	return *o.ResetThenReuseValues
 }
 
-// GetResetThenReuseValuesOk returns a tuple with the ResetThenReuseValues field value
+// GetResetThenReuseValuesOk returns a tuple with the ResetThenReuseValues field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HelmRuntimeConfiguration) GetResetThenReuseValuesOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ResetThenReuseValues) {
 		return nil, false
 	}
-	return &o.ResetThenReuseValues, true
+	return o.ResetThenReuseValues, true
 }
 
-// SetResetThenReuseValues sets field value
+// SetResetThenReuseValues gets a reference to the given bool and assigns it to the ResetThenReuseValues field.
 func (o *HelmRuntimeConfiguration) SetResetThenReuseValues(v bool) {
-	o.ResetThenReuseValues = v
+	o.ResetThenReuseValues = &v
 }
 
-// GetResetValues returns the ResetValues field value
+// GetResetValues returns the ResetValues field value if set, zero value otherwise.
 func (o *HelmRuntimeConfiguration) GetResetValues() bool {
-	if o == nil {
+	if o == nil || IsNil(o.ResetValues) {
 		var ret bool
 		return ret
 	}
-
-	return o.ResetValues
+	return *o.ResetValues
 }
 
-// GetResetValuesOk returns a tuple with the ResetValues field value
+// GetResetValuesOk returns a tuple with the ResetValues field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HelmRuntimeConfiguration) GetResetValuesOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ResetValues) {
 		return nil, false
 	}
-	return &o.ResetValues, true
+	return o.ResetValues, true
 }
 
-// SetResetValues sets field value
+// SetResetValues gets a reference to the given bool and assigns it to the ResetValues field.
 func (o *HelmRuntimeConfiguration) SetResetValues(v bool) {
-	o.ResetValues = v
+	o.ResetValues = &v
 }
 
-// GetReuseValues returns the ReuseValues field value
+// GetReuseValues returns the ReuseValues field value if set, zero value otherwise.
 func (o *HelmRuntimeConfiguration) GetReuseValues() bool {
-	if o == nil {
+	if o == nil || IsNil(o.ReuseValues) {
 		var ret bool
 		return ret
 	}
-
-	return o.ReuseValues
+	return *o.ReuseValues
 }
 
-// GetReuseValuesOk returns a tuple with the ReuseValues field value
+// GetReuseValuesOk returns a tuple with the ReuseValues field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HelmRuntimeConfiguration) GetReuseValuesOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ReuseValues) {
 		return nil, false
 	}
-	return &o.ReuseValues, true
+	return o.ReuseValues, true
 }
 
-// SetReuseValues sets field value
+// SetReuseValues gets a reference to the given bool and assigns it to the ReuseValues field.
 func (o *HelmRuntimeConfiguration) SetReuseValues(v bool) {
-	o.ReuseValues = v
+	o.ReuseValues = &v
 }
 
-// GetSkipCRDs returns the SkipCRDs field value
+// GetSkipCRDs returns the SkipCRDs field value if set, zero value otherwise.
 func (o *HelmRuntimeConfiguration) GetSkipCRDs() bool {
-	if o == nil {
+	if o == nil || IsNil(o.SkipCRDs) {
 		var ret bool
 		return ret
 	}
-
-	return o.SkipCRDs
+	return *o.SkipCRDs
 }
 
-// GetSkipCRDsOk returns a tuple with the SkipCRDs field value
+// GetSkipCRDsOk returns a tuple with the SkipCRDs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HelmRuntimeConfiguration) GetSkipCRDsOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SkipCRDs) {
 		return nil, false
 	}
-	return &o.SkipCRDs, true
+	return o.SkipCRDs, true
 }
 
-// SetSkipCRDs sets field value
+// SetSkipCRDs gets a reference to the given bool and assigns it to the SkipCRDs field.
 func (o *HelmRuntimeConfiguration) SetSkipCRDs(v bool) {
-	o.SkipCRDs = v
+	o.SkipCRDs = &v
 }
 
-// GetTimeoutNanos returns the TimeoutNanos field value
+// GetTimeoutNanos returns the TimeoutNanos field value if set, zero value otherwise.
 func (o *HelmRuntimeConfiguration) GetTimeoutNanos() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.TimeoutNanos) {
 		var ret int64
 		return ret
 	}
-
-	return o.TimeoutNanos
+	return *o.TimeoutNanos
 }
 
-// GetTimeoutNanosOk returns a tuple with the TimeoutNanos field value
+// GetTimeoutNanosOk returns a tuple with the TimeoutNanos field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HelmRuntimeConfiguration) GetTimeoutNanosOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TimeoutNanos) {
 		return nil, false
 	}
-	return &o.TimeoutNanos, true
+	return o.TimeoutNanos, true
 }
 
-// SetTimeoutNanos sets field value
+// SetTimeoutNanos gets a reference to the given int64 and assigns it to the TimeoutNanos field.
 func (o *HelmRuntimeConfiguration) SetTimeoutNanos(v int64) {
-	o.TimeoutNanos = v
+	o.TimeoutNanos = &v
 }
 
-// GetUpgradeCRDs returns the UpgradeCRDs field value
+// GetUpgradeCRDs returns the UpgradeCRDs field value if set, zero value otherwise.
 func (o *HelmRuntimeConfiguration) GetUpgradeCRDs() bool {
-	if o == nil {
+	if o == nil || IsNil(o.UpgradeCRDs) {
 		var ret bool
 		return ret
 	}
-
-	return o.UpgradeCRDs
+	return *o.UpgradeCRDs
 }
 
-// GetUpgradeCRDsOk returns a tuple with the UpgradeCRDs field value
+// GetUpgradeCRDsOk returns a tuple with the UpgradeCRDs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HelmRuntimeConfiguration) GetUpgradeCRDsOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UpgradeCRDs) {
 		return nil, false
 	}
-	return &o.UpgradeCRDs, true
+	return o.UpgradeCRDs, true
 }
 
-// SetUpgradeCRDs sets field value
+// SetUpgradeCRDs gets a reference to the given bool and assigns it to the UpgradeCRDs field.
 func (o *HelmRuntimeConfiguration) SetUpgradeCRDs(v bool) {
-	o.UpgradeCRDs = v
+	o.UpgradeCRDs = &v
 }
 
-// GetWait returns the Wait field value
+// GetWait returns the Wait field value if set, zero value otherwise.
 func (o *HelmRuntimeConfiguration) GetWait() bool {
-	if o == nil {
+	if o == nil || IsNil(o.Wait) {
 		var ret bool
 		return ret
 	}
-
-	return o.Wait
+	return *o.Wait
 }
 
-// GetWaitOk returns a tuple with the Wait field value
+// GetWaitOk returns a tuple with the Wait field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HelmRuntimeConfiguration) GetWaitOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Wait) {
 		return nil, false
 	}
-	return &o.Wait, true
+	return o.Wait, true
 }
 
-// SetWait sets field value
+// SetWait gets a reference to the given bool and assigns it to the Wait field.
 func (o *HelmRuntimeConfiguration) SetWait(v bool) {
-	o.Wait = v
+	o.Wait = &v
 }
 
-// GetWaitForJobs returns the WaitForJobs field value
+// GetWaitForJobs returns the WaitForJobs field value if set, zero value otherwise.
 func (o *HelmRuntimeConfiguration) GetWaitForJobs() bool {
-	if o == nil {
+	if o == nil || IsNil(o.WaitForJobs) {
 		var ret bool
 		return ret
 	}
-
-	return o.WaitForJobs
+	return *o.WaitForJobs
 }
 
-// GetWaitForJobsOk returns a tuple with the WaitForJobs field value
+// GetWaitForJobsOk returns a tuple with the WaitForJobs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HelmRuntimeConfiguration) GetWaitForJobsOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.WaitForJobs) {
 		return nil, false
 	}
-	return &o.WaitForJobs, true
+	return o.WaitForJobs, true
 }
 
-// SetWaitForJobs sets field value
+// SetWaitForJobs gets a reference to the given bool and assigns it to the WaitForJobs field.
 func (o *HelmRuntimeConfiguration) SetWaitForJobs(v bool) {
-	o.WaitForJobs = v
+	o.WaitForJobs = &v
 }
 
 func (o HelmRuntimeConfiguration) MarshalJSON() ([]byte, error) {
@@ -322,16 +301,36 @@ func (o HelmRuntimeConfiguration) MarshalJSON() ([]byte, error) {
 
 func (o HelmRuntimeConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["disableHooks"] = o.DisableHooks
-	toSerialize["recreate"] = o.Recreate
-	toSerialize["resetThenReuseValues"] = o.ResetThenReuseValues
-	toSerialize["resetValues"] = o.ResetValues
-	toSerialize["reuseValues"] = o.ReuseValues
-	toSerialize["skipCRDs"] = o.SkipCRDs
-	toSerialize["timeoutNanos"] = o.TimeoutNanos
-	toSerialize["upgradeCRDs"] = o.UpgradeCRDs
-	toSerialize["wait"] = o.Wait
-	toSerialize["waitForJobs"] = o.WaitForJobs
+	if !IsNil(o.DisableHooks) {
+		toSerialize["disableHooks"] = o.DisableHooks
+	}
+	if !IsNil(o.Recreate) {
+		toSerialize["recreate"] = o.Recreate
+	}
+	if !IsNil(o.ResetThenReuseValues) {
+		toSerialize["resetThenReuseValues"] = o.ResetThenReuseValues
+	}
+	if !IsNil(o.ResetValues) {
+		toSerialize["resetValues"] = o.ResetValues
+	}
+	if !IsNil(o.ReuseValues) {
+		toSerialize["reuseValues"] = o.ReuseValues
+	}
+	if !IsNil(o.SkipCRDs) {
+		toSerialize["skipCRDs"] = o.SkipCRDs
+	}
+	if !IsNil(o.TimeoutNanos) {
+		toSerialize["timeoutNanos"] = o.TimeoutNanos
+	}
+	if !IsNil(o.UpgradeCRDs) {
+		toSerialize["upgradeCRDs"] = o.UpgradeCRDs
+	}
+	if !IsNil(o.Wait) {
+		toSerialize["wait"] = o.Wait
+	}
+	if !IsNil(o.WaitForJobs) {
+		toSerialize["waitForJobs"] = o.WaitForJobs
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -341,36 +340,6 @@ func (o HelmRuntimeConfiguration) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *HelmRuntimeConfiguration) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"disableHooks",
-		"recreate",
-		"resetThenReuseValues",
-		"resetValues",
-		"reuseValues",
-		"skipCRDs",
-		"timeoutNanos",
-		"upgradeCRDs",
-		"wait",
-		"waitForJobs",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varHelmRuntimeConfiguration := _HelmRuntimeConfiguration{}
 
 	err = json.Unmarshal(data, &varHelmRuntimeConfiguration)
@@ -435,5 +404,4 @@ func (v *NullableHelmRuntimeConfiguration) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

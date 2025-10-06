@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **CreatedByUserName** | Pointer to **string** | The name of the user that created the resource instance | [optional] 
 **CurrentReplicas** | Pointer to **string** | The current number of replicas | [optional] 
 **CustomNetworkDetail** | Pointer to [**CustomNetworkResourceDetail**](CustomNetworkResourceDetail.md) |  | [optional] 
+**CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The custom tag for the resource instance | [optional] 
 **DetailedNetworkTopology** | Pointer to [**map[string]ResourceNetworkTopologyResult**](ResourceNetworkTopologyResult.md) | The detailed network topology | [optional] 
 **ExternalPayerId** | Pointer to **string** | The external payer id to record which customer should pay for this resource instance | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
@@ -331,6 +332,31 @@ SetCustomNetworkDetail sets CustomNetworkDetail field to given value.
 `func (o *DescribeResourceInstanceResult) HasCustomNetworkDetail() bool`
 
 HasCustomNetworkDetail returns a boolean if a field has been set.
+
+### GetCustomTags
+
+`func (o *DescribeResourceInstanceResult) GetCustomTags() []CustomTag`
+
+GetCustomTags returns the CustomTags field if non-nil, zero value otherwise.
+
+### GetCustomTagsOk
+
+`func (o *DescribeResourceInstanceResult) GetCustomTagsOk() (*[]CustomTag, bool)`
+
+GetCustomTagsOk returns a tuple with the CustomTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomTags
+
+`func (o *DescribeResourceInstanceResult) SetCustomTags(v []CustomTag)`
+
+SetCustomTags sets CustomTags field to given value.
+
+### HasCustomTags
+
+`func (o *DescribeResourceInstanceResult) HasCustomTags() bool`
+
+HasCustomTags returns a boolean if a field has been set.
 
 ### GetDetailedNetworkTopology
 

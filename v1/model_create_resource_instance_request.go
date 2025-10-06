@@ -24,6 +24,8 @@ type CreateResourceInstanceRequest struct {
 	CloudProvider *string `json:"cloud_provider,omitempty"`
 	// Custom network for resource
 	CustomNetworkId *string `json:"custom_network_id,omitempty"`
+	// The custom tags for the resource instance
+	CustomTags []CustomTag `json:"customTags,omitempty"`
 	// This externalBillingId is deprecated and will be removed in the future
 	ExternalBillingId *string `json:"externalBillingId,omitempty"`
 	// The network type
@@ -128,6 +130,29 @@ func (o *CreateResourceInstanceRequest) GetCustomNetworkIdOk() (*string, bool) {
 // SetCustomNetworkId gets a reference to the given string and assigns it to the CustomNetworkId field.
 func (o *CreateResourceInstanceRequest) SetCustomNetworkId(v string) {
 	o.CustomNetworkId = &v
+}
+
+// GetCustomTags returns the CustomTags field value if set, zero value otherwise.
+func (o *CreateResourceInstanceRequest) GetCustomTags() []CustomTag {
+	if o == nil || IsNil(o.CustomTags) {
+		var ret []CustomTag
+		return ret
+	}
+	return o.CustomTags
+}
+
+// GetCustomTagsOk returns a tuple with the CustomTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateResourceInstanceRequest) GetCustomTagsOk() ([]CustomTag, bool) {
+	if o == nil || IsNil(o.CustomTags) {
+		return nil, false
+	}
+	return o.CustomTags, true
+}
+
+// SetCustomTags gets a reference to the given []CustomTag and assigns it to the CustomTags field.
+func (o *CreateResourceInstanceRequest) SetCustomTags(v []CustomTag) {
+	o.CustomTags = v
 }
 
 // GetExternalBillingId returns the ExternalBillingId field value if set, zero value otherwise.
@@ -500,6 +525,9 @@ func (o CreateResourceInstanceRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CustomNetworkId) {
 		toSerialize["custom_network_id"] = o.CustomNetworkId
 	}
+	if !IsNil(o.CustomTags) {
+		toSerialize["customTags"] = o.CustomTags
+	}
 	if !IsNil(o.ExternalBillingId) {
 		toSerialize["externalBillingId"] = o.ExternalBillingId
 	}
@@ -581,6 +609,7 @@ func (o *CreateResourceInstanceRequest) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "cloud_provider")
 		delete(additionalProperties, "custom_network_id")
+		delete(additionalProperties, "customTags")
 		delete(additionalProperties, "externalBillingId")
 		delete(additionalProperties, "network_type")
 		delete(additionalProperties, "onprem_platform")
@@ -637,5 +666,4 @@ func (v *NullableCreateResourceInstanceRequest) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

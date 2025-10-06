@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Environment** | Pointer to **string** | The environment to build the service in | [optional] 
 **EnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
 **FileContent** | **string** | Base64 encoded Compose Spec YAML in service plan configuration format | 
+**ForceCreateNewServicePlanVersion** | Pointer to **bool** | Force create a new service plan version when the service is released | [optional] 
 **Name** | **string** | Name of the Service | 
 **Release** | Pointer to **bool** | Release the service after building | [optional] 
 **ReleaseAsPreferred** | Pointer to **bool** | Release the service as preferred | [optional] 
@@ -154,6 +155,31 @@ and a boolean to check if the value has been set.
 
 SetFileContent sets FileContent field to given value.
 
+
+### GetForceCreateNewServicePlanVersion
+
+`func (o *BuildServiceFromServicePlanSpecRequest) GetForceCreateNewServicePlanVersion() bool`
+
+GetForceCreateNewServicePlanVersion returns the ForceCreateNewServicePlanVersion field if non-nil, zero value otherwise.
+
+### GetForceCreateNewServicePlanVersionOk
+
+`func (o *BuildServiceFromServicePlanSpecRequest) GetForceCreateNewServicePlanVersionOk() (*bool, bool)`
+
+GetForceCreateNewServicePlanVersionOk returns a tuple with the ForceCreateNewServicePlanVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForceCreateNewServicePlanVersion
+
+`func (o *BuildServiceFromServicePlanSpecRequest) SetForceCreateNewServicePlanVersion(v bool)`
+
+SetForceCreateNewServicePlanVersion sets ForceCreateNewServicePlanVersion field to given value.
+
+### HasForceCreateNewServicePlanVersion
+
+`func (o *BuildServiceFromServicePlanSpecRequest) HasForceCreateNewServicePlanVersion() bool`
+
+HasForceCreateNewServicePlanVersion returns a boolean if a field has been set.
 
 ### GetName
 
