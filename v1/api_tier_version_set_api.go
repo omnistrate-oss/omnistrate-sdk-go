@@ -86,9 +86,10 @@ type TierVersionSetApiAPI interface {
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param serviceId ID of the Service
 	@param productTierId The product tier ID that this version set belongs to.
+	@param version The version number for the specific version set.
 	@return ApiTierVersionSetApiDescribeTierVersionSetMetadataRequest
 	*/
-	TierVersionSetApiDescribeTierVersionSetMetadata(ctx context.Context, serviceId string, productTierId string) ApiTierVersionSetApiDescribeTierVersionSetMetadataRequest
+	TierVersionSetApiDescribeTierVersionSetMetadata(ctx context.Context, serviceId string, productTierId string, version string) ApiTierVersionSetApiDescribeTierVersionSetMetadataRequest
 
 	// TierVersionSetApiDescribeTierVersionSetMetadataExecute executes the request
 	//  @return TierVersionSetMetadata
@@ -203,9 +204,10 @@ type TierVersionSetApiAPI interface {
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param serviceId ID of the Service
 	@param productTierId The product tier ID that this version set belongs to.
+	@param version The version number for the specific version set.
 	@return ApiTierVersionSetApiUpdateTierVersionSetMetadataRequest
 	*/
-	TierVersionSetApiUpdateTierVersionSetMetadata(ctx context.Context, serviceId string, productTierId string) ApiTierVersionSetApiUpdateTierVersionSetMetadataRequest
+	TierVersionSetApiUpdateTierVersionSetMetadata(ctx context.Context, serviceId string, productTierId string, version string) ApiTierVersionSetApiUpdateTierVersionSetMetadataRequest
 
 	// TierVersionSetApiUpdateTierVersionSetMetadataExecute executes the request
 	//  @return TierVersionSetMetadata
@@ -937,12 +939,7 @@ type ApiTierVersionSetApiDescribeTierVersionSetMetadataRequest struct {
 	ApiService TierVersionSetApiAPI
 	serviceId string
 	productTierId string
-	describeTierVersionSetMetadataRequest2 *DescribeTierVersionSetMetadataRequest2
-}
-
-func (r ApiTierVersionSetApiDescribeTierVersionSetMetadataRequest) DescribeTierVersionSetMetadataRequest2(describeTierVersionSetMetadataRequest2 DescribeTierVersionSetMetadataRequest2) ApiTierVersionSetApiDescribeTierVersionSetMetadataRequest {
-	r.describeTierVersionSetMetadataRequest2 = &describeTierVersionSetMetadataRequest2
-	return r
+	version string
 }
 
 func (r ApiTierVersionSetApiDescribeTierVersionSetMetadataRequest) Execute() (*TierVersionSetMetadata, *http.Response, error) {
@@ -955,14 +952,16 @@ TierVersionSetApiDescribeTierVersionSetMetadata DescribeTierVersionSetMetadata t
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param serviceId ID of the Service
  @param productTierId The product tier ID that this version set belongs to.
+ @param version The version number for the specific version set.
  @return ApiTierVersionSetApiDescribeTierVersionSetMetadataRequest
 */
-func (a *TierVersionSetApiAPIService) TierVersionSetApiDescribeTierVersionSetMetadata(ctx context.Context, serviceId string, productTierId string) ApiTierVersionSetApiDescribeTierVersionSetMetadataRequest {
+func (a *TierVersionSetApiAPIService) TierVersionSetApiDescribeTierVersionSetMetadata(ctx context.Context, serviceId string, productTierId string, version string) ApiTierVersionSetApiDescribeTierVersionSetMetadataRequest {
 	return ApiTierVersionSetApiDescribeTierVersionSetMetadataRequest{
 		ApiService: a,
 		ctx: ctx,
 		serviceId: serviceId,
 		productTierId: productTierId,
+		version: version,
 	}
 }
 
@@ -981,19 +980,17 @@ func (a *TierVersionSetApiAPIService) TierVersionSetApiDescribeTierVersionSetMet
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/metadata"
+	localVarPath := localBasePath + "/2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/metadata"
 	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"productTierId"+"}", url.PathEscape(parameterValueToString(r.productTierId, "productTierId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.describeTierVersionSetMetadataRequest2 == nil {
-		return localVarReturnValue, nil, reportError("describeTierVersionSetMetadataRequest2 is required and must be specified")
-	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1009,8 +1006,6 @@ func (a *TierVersionSetApiAPIService) TierVersionSetApiDescribeTierVersionSetMet
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.describeTierVersionSetMetadataRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2398,6 +2393,7 @@ type ApiTierVersionSetApiUpdateTierVersionSetMetadataRequest struct {
 	ApiService TierVersionSetApiAPI
 	serviceId string
 	productTierId string
+	version string
 	updateTierVersionSetMetadataRequest2 *UpdateTierVersionSetMetadataRequest2
 }
 
@@ -2416,14 +2412,16 @@ TierVersionSetApiUpdateTierVersionSetMetadata UpdateTierVersionSetMetadata tier-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param serviceId ID of the Service
  @param productTierId The product tier ID that this version set belongs to.
+ @param version The version number for the specific version set.
  @return ApiTierVersionSetApiUpdateTierVersionSetMetadataRequest
 */
-func (a *TierVersionSetApiAPIService) TierVersionSetApiUpdateTierVersionSetMetadata(ctx context.Context, serviceId string, productTierId string) ApiTierVersionSetApiUpdateTierVersionSetMetadataRequest {
+func (a *TierVersionSetApiAPIService) TierVersionSetApiUpdateTierVersionSetMetadata(ctx context.Context, serviceId string, productTierId string, version string) ApiTierVersionSetApiUpdateTierVersionSetMetadataRequest {
 	return ApiTierVersionSetApiUpdateTierVersionSetMetadataRequest{
 		ApiService: a,
 		ctx: ctx,
 		serviceId: serviceId,
 		productTierId: productTierId,
+		version: version,
 	}
 }
 
@@ -2442,9 +2440,10 @@ func (a *TierVersionSetApiAPIService) TierVersionSetApiUpdateTierVersionSetMetad
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/metadata"
+	localVarPath := localBasePath + "/2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/metadata"
 	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"productTierId"+"}", url.PathEscape(parameterValueToString(r.productTierId, "productTierId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

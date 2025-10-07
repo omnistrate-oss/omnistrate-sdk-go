@@ -379,3 +379,4 @@ func (v *NullableReleaseServiceAPIRequest) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
+

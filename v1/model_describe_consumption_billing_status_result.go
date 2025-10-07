@@ -144,3 +144,4 @@ func (v *NullableDescribeConsumptionBillingStatusResult) UnmarshalJSON(src []byt
 	return json.Unmarshal(src, &v.value)
 }
 
+

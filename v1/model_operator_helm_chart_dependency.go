@@ -370,3 +370,4 @@ func (v *NullableOperatorHelmChartDependency) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
+

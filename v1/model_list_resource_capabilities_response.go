@@ -144,3 +144,4 @@ func (v *NullableListResourceCapabilitiesResponse) UnmarshalJSON(src []byte) err
 	return json.Unmarshal(src, &v.value)
 }
 
+
