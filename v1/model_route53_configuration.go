@@ -166,4 +166,3 @@ func (v *NullableRoute53Configuration) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
-
