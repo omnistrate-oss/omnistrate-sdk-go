@@ -762,6 +762,7 @@ Class | Method | HTTP request | Description
  - [SaaSPortal](docs/SaaSPortal.md)
  - [SaaSPortalEmailConfig](docs/SaaSPortalEmailConfig.md)
  - [SaaSPortalImageConfig](docs/SaaSPortalImageConfig.md)
+ - [SchemaRequest](docs/SchemaRequest.md)
  - [SearchInventoryRequest](docs/SearchInventoryRequest.md)
  - [SearchInventoryRequest2](docs/SearchInventoryRequest2.md)
  - [SearchInventoryResult](docs/SearchInventoryResult.md)

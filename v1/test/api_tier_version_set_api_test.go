@@ -90,8 +90,9 @@ func Test_v1_TierVersionSetApiAPIService(t *testing.T) {
 
 		var serviceId string
 		var productTierId string
+		var version string
 
-		resp, httpRes, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiDescribeTierVersionSetMetadata(context.Background(), serviceId, productTierId).Execute()
+		resp, httpRes, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiDescribeTierVersionSetMetadata(context.Background(), serviceId, productTierId, version).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -215,8 +216,9 @@ func Test_v1_TierVersionSetApiAPIService(t *testing.T) {
 
 		var serviceId string
 		var productTierId string
+		var version string
 
-		resp, httpRes, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiUpdateTierVersionSetMetadata(context.Background(), serviceId, productTierId).Execute()
+		resp, httpRes, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiUpdateTierVersionSetMetadata(context.Background(), serviceId, productTierId, version).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

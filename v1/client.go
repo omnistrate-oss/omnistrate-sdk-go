@@ -115,6 +115,8 @@ type APIClient struct {
 
 	SaasPortalApiAPI SaasPortalApiAPI
 
+	SchemaApiAPI SchemaApiAPI
+
 	SecretsApiAPI SecretsApiAPI
 
 	ServiceApiAPI ServiceApiAPI
@@ -207,6 +209,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ResourceApiAPI = (*ResourceApiAPIService)(&c.common)
 	c.ResourceInstanceApiAPI = (*ResourceInstanceApiAPIService)(&c.common)
 	c.SaasPortalApiAPI = (*SaasPortalApiAPIService)(&c.common)
+	c.SchemaApiAPI = (*SchemaApiAPIService)(&c.common)
 	c.SecretsApiAPI = (*SecretsApiAPIService)(&c.common)
 	c.ServiceApiAPI = (*ServiceApiAPIService)(&c.common)
 	c.ServiceApiApiAPI = (*ServiceApiApiAPIService)(&c.common)

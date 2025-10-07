@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**TierVersionSetApiCustomerListTierVersionSets**](TierVersionSetApiAPI.md#TierVersionSetApiCustomerListTierVersionSets) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/customer-version-set | CustomerListTierVersionSets tier-version-set-api
 [**TierVersionSetApiDeprecateTierVersionSet**](TierVersionSetApiAPI.md#TierVersionSetApiDeprecateTierVersionSet) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/deprecate | DeprecateTierVersionSet tier-version-set-api
 [**TierVersionSetApiDescribeTierVersionSet**](TierVersionSetApiAPI.md#TierVersionSetApiDescribeTierVersionSet) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version} | DescribeTierVersionSet tier-version-set-api
-[**TierVersionSetApiDescribeTierVersionSetMetadata**](TierVersionSetApiAPI.md#TierVersionSetApiDescribeTierVersionSetMetadata) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/metadata | DescribeTierVersionSetMetadata tier-version-set-api
+[**TierVersionSetApiDescribeTierVersionSetMetadata**](TierVersionSetApiAPI.md#TierVersionSetApiDescribeTierVersionSetMetadata) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/metadata | DescribeTierVersionSetMetadata tier-version-set-api
 [**TierVersionSetApiDiffTierVersionSets**](TierVersionSetApiAPI.md#TierVersionSetApiDiffTierVersionSets) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/diff/{anotherVersion} | DiffTierVersionSets tier-version-set-api
 [**TierVersionSetApiGetTierVersionSetSpec**](TierVersionSetApiAPI.md#TierVersionSetApiGetTierVersionSetSpec) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/spec | GetTierVersionSetSpec tier-version-set-api
 [**TierVersionSetApiListTierVersionSetSpecs**](TierVersionSetApiAPI.md#TierVersionSetApiListTierVersionSetSpecs) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/specs | ListTierVersionSetSpecs tier-version-set-api
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**TierVersionSetApiPromoteTierVersionSet**](TierVersionSetApiAPI.md#TierVersionSetApiPromoteTierVersionSet) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/promote | PromoteTierVersionSet tier-version-set-api
 [**TierVersionSetApiReleaseTierVersionSet**](TierVersionSetApiAPI.md#TierVersionSetApiReleaseTierVersionSet) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/release | ReleaseTierVersionSet tier-version-set-api
 [**TierVersionSetApiUpdateTierVersionSet**](TierVersionSetApiAPI.md#TierVersionSetApiUpdateTierVersionSet) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version} | UpdateTierVersionSet tier-version-set-api
-[**TierVersionSetApiUpdateTierVersionSetMetadata**](TierVersionSetApiAPI.md#TierVersionSetApiUpdateTierVersionSetMetadata) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/metadata | UpdateTierVersionSetMetadata tier-version-set-api
+[**TierVersionSetApiUpdateTierVersionSetMetadata**](TierVersionSetApiAPI.md#TierVersionSetApiUpdateTierVersionSetMetadata) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/metadata | UpdateTierVersionSetMetadata tier-version-set-api
 
 
 
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 
 ## TierVersionSetApiDescribeTierVersionSetMetadata
 
-> TierVersionSetMetadata TierVersionSetApiDescribeTierVersionSetMetadata(ctx, serviceId, productTierId).DescribeTierVersionSetMetadataRequest2(describeTierVersionSetMetadataRequest2).Execute()
+> TierVersionSetMetadata TierVersionSetApiDescribeTierVersionSetMetadata(ctx, serviceId, productTierId, version).Execute()
 
 DescribeTierVersionSetMetadata tier-version-set-api
 
@@ -337,11 +337,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | ID of the Service
 	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
-	describeTierVersionSetMetadataRequest2 := *openapiclient.NewDescribeTierVersionSetMetadataRequest2("3.0") // DescribeTierVersionSetMetadataRequest2 | 
+	version := "3.0" // string | The version number for the specific version set.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiDescribeTierVersionSetMetadata(context.Background(), serviceId, productTierId).DescribeTierVersionSetMetadataRequest2(describeTierVersionSetMetadataRequest2).Execute()
+	resp, r, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiDescribeTierVersionSetMetadata(context.Background(), serviceId, productTierId, version).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TierVersionSetApiAPI.TierVersionSetApiDescribeTierVersionSetMetadata``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -359,6 +359,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **serviceId** | **string** | ID of the Service | 
 **productTierId** | **string** | The product tier ID that this version set belongs to. | 
+**version** | **string** | The version number for the specific version set. | 
 
 ### Other Parameters
 
@@ -369,7 +370,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **describeTierVersionSetMetadataRequest2** | [**DescribeTierVersionSetMetadataRequest2**](DescribeTierVersionSetMetadataRequest2.md) |  | 
+
 
 ### Return type
 
@@ -381,7 +382,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -917,7 +918,7 @@ Name | Type | Description  | Notes
 
 ## TierVersionSetApiUpdateTierVersionSetMetadata
 
-> TierVersionSetMetadata TierVersionSetApiUpdateTierVersionSetMetadata(ctx, serviceId, productTierId).UpdateTierVersionSetMetadataRequest2(updateTierVersionSetMetadataRequest2).Execute()
+> TierVersionSetMetadata TierVersionSetApiUpdateTierVersionSetMetadata(ctx, serviceId, productTierId, version).UpdateTierVersionSetMetadataRequest2(updateTierVersionSetMetadataRequest2).Execute()
 
 UpdateTierVersionSetMetadata tier-version-set-api
 
@@ -936,11 +937,12 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | ID of the Service
 	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
-	updateTierVersionSetMetadataRequest2 := *openapiclient.NewUpdateTierVersionSetMetadataRequest2("3.0") // UpdateTierVersionSetMetadataRequest2 | 
+	version := "3.0" // string | The version number for the specific version set.
+	updateTierVersionSetMetadataRequest2 := *openapiclient.NewUpdateTierVersionSetMetadataRequest2() // UpdateTierVersionSetMetadataRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiUpdateTierVersionSetMetadata(context.Background(), serviceId, productTierId).UpdateTierVersionSetMetadataRequest2(updateTierVersionSetMetadataRequest2).Execute()
+	resp, r, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiUpdateTierVersionSetMetadata(context.Background(), serviceId, productTierId, version).UpdateTierVersionSetMetadataRequest2(updateTierVersionSetMetadataRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TierVersionSetApiAPI.TierVersionSetApiUpdateTierVersionSetMetadata``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -958,6 +960,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **serviceId** | **string** | ID of the Service | 
 **productTierId** | **string** | The product tier ID that this version set belongs to. | 
+**version** | **string** | The version number for the specific version set. | 
 
 ### Other Parameters
 
@@ -966,6 +969,7 @@ Other parameters are passed through a pointer to a apiTierVersionSetApiUpdateTie
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
 
 
  **updateTierVersionSetMetadataRequest2** | [**UpdateTierVersionSetMetadataRequest2**](UpdateTierVersionSetMetadataRequest2.md) |  | 

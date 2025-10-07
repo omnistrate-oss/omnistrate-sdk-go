@@ -576,6 +576,7 @@ docs/RevokeUserRoleRequest.md
 docs/SaaSPortal.md
 docs/SaaSPortalEmailConfig.md
 docs/SaaSPortalImageConfig.md
+docs/SchemaRequest.md
 docs/SearchInventoryRequest.md
 docs/SearchInventoryRequest2.md
 docs/SearchInventoryResult.md
@@ -1199,6 +1200,7 @@ model_revoke_user_role_request.go
 model_saa_s_portal.go
 model_saa_s_portal_email_config.go
 model_saa_s_portal_image_config.go
+model_schema_request.go
 model_search_inventory_request.go
 model_search_inventory_request2.go
 model_search_inventory_result.go

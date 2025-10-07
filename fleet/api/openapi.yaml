@@ -64398,6 +64398,17 @@ components:
       - imageRegistry
       - imageTag
       type: object
+    SchemaRequest:
+      example:
+        type: x-omnistrate-service-plan|x-omnistrate-integrations|x-omnistrate-mode-internal|x-omnistrate-proxy-type|x-omnistrate-actionhooks|x-omnistrate-api-params|x-omnistrate-capabilities|x-omnistrate-compute|x-omnistrate-job-config|x-omnistrate-storage|x-omnistrate-image-registry-attributes|x-omnistrate-load-balancer|compose|service-plan|deployment-cell-amenities|system-parameters|services-orchestration-create-dsl|service-orchestration-modify-dsl
+      properties:
+        type:
+          description: "Type of the schema, e.g., 'compose', 'service-plan', 'x-omnistrate-mode-internal'"
+          example: x-omnistrate-service-plan|x-omnistrate-integrations|x-omnistrate-mode-internal|x-omnistrate-proxy-type|x-omnistrate-actionhooks|x-omnistrate-api-params|x-omnistrate-capabilities|x-omnistrate-compute|x-omnistrate-job-config|x-omnistrate-storage|x-omnistrate-image-registry-attributes|x-omnistrate-load-balancer|compose|service-plan|deployment-cell-amenities|system-parameters|services-orchestration-create-dsl|service-orchestration-modify-dsl
+          type: string
+      required:
+      - type
+      type: object
     SearchInventoryRequest:
       example:
         query: foo

@@ -36,6 +36,7 @@ api_region_api.go
 api_resource_api.go
 api_resource_instance_api.go
 api_saas_portal_api.go
+api_schema_api.go
 api_secrets_api.go
 api_service_api.go
 api_service_api_api.go
@@ -356,7 +357,6 @@ docs/DescribeSubscriptionRequestRequest.md
 docs/DescribeSubscriptionRequestResult.md
 docs/DescribeSubscriptionResult.md
 docs/DescribeTierVersionSetMetadataRequest.md
-docs/DescribeTierVersionSetMetadataRequest2.md
 docs/DescribeTierVersionSetRequest.md
 docs/DescribeUpgradePathRequest.md
 docs/DescribeUpgradePathResult.md
@@ -686,6 +686,8 @@ docs/SaasPortalApiAPI.md
 docs/SaveHelmPackageRequest.md
 docs/SaveHelmPackageRequest2.md
 docs/ScheduleConfig.md
+docs/SchemaApiAPI.md
+docs/SchemaRequest.md
 docs/Secret.md
 docs/SecretsApiAPI.md
 docs/ServiceApiAPI.md
@@ -1098,7 +1100,6 @@ model_describe_subscription_request_request.go
 model_describe_subscription_request_result.go
 model_describe_subscription_result.go
 model_describe_tier_version_set_metadata_request.go
-model_describe_tier_version_set_metadata_request2.go
 model_describe_tier_version_set_request.go
 model_describe_upgrade_path_request.go
 model_describe_upgrade_path_result.go
@@ -1410,6 +1411,7 @@ model_saa_s_portal_image_config.go
 model_save_helm_package_request.go
 model_save_helm_package_request2.go
 model_schedule_config.go
+model_schema_request.go
 model_secret.go
 model_service_assets.go
 model_service_deployment_details.go
@@ -1552,6 +1554,7 @@ test/api_region_api_test.go
 test/api_resource_api_test.go
 test/api_resource_instance_api_test.go
 test/api_saas_portal_api_test.go
+test/api_schema_api_test.go
 test/api_secrets_api_test.go
 test/api_service_api_api_test.go
 test/api_service_api_test.go
