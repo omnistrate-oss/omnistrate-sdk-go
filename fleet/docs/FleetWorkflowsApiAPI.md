@@ -410,7 +410,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	id := "submit-create-instance-plan-instance-50h74sj46" // string | ID of the ServiceWorkflow
-	updateServiceWorkflowRequest2 := *openapiclient.NewUpdateServiceWorkflowRequest2("pause | resume | retry") // UpdateServiceWorkflowRequest2 | 
+	updateServiceWorkflowRequest2 := *openapiclient.NewUpdateServiceWorkflowRequest2("pause|resume|retry") // UpdateServiceWorkflowRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

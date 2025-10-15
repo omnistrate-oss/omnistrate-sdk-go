@@ -20,6 +20,7 @@ var _ MappedNullable = &FileSystemConfiguration{}
 // FileSystemConfiguration struct for FileSystemConfiguration
 type FileSystemConfiguration struct {
 	EFSFileSystemConfiguration *EFSFileSystemConfiguration `json:"EFSFileSystemConfiguration,omitempty"`
+	GCPFilestoreConfiguration *GCPFilestoreConfiguration `json:"GCPFilestoreConfiguration,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -65,6 +66,29 @@ func (o *FileSystemConfiguration) SetEFSFileSystemConfiguration(v EFSFileSystemC
 	o.EFSFileSystemConfiguration = &v
 }
 
+// GetGCPFilestoreConfiguration returns the GCPFilestoreConfiguration field value if set, zero value otherwise.
+func (o *FileSystemConfiguration) GetGCPFilestoreConfiguration() GCPFilestoreConfiguration {
+	if o == nil || IsNil(o.GCPFilestoreConfiguration) {
+		var ret GCPFilestoreConfiguration
+		return ret
+	}
+	return *o.GCPFilestoreConfiguration
+}
+
+// GetGCPFilestoreConfigurationOk returns a tuple with the GCPFilestoreConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FileSystemConfiguration) GetGCPFilestoreConfigurationOk() (*GCPFilestoreConfiguration, bool) {
+	if o == nil || IsNil(o.GCPFilestoreConfiguration) {
+		return nil, false
+	}
+	return o.GCPFilestoreConfiguration, true
+}
+
+// SetGCPFilestoreConfiguration gets a reference to the given GCPFilestoreConfiguration and assigns it to the GCPFilestoreConfiguration field.
+func (o *FileSystemConfiguration) SetGCPFilestoreConfiguration(v GCPFilestoreConfiguration) {
+	o.GCPFilestoreConfiguration = &v
+}
+
 func (o FileSystemConfiguration) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -77,6 +101,9 @@ func (o FileSystemConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.EFSFileSystemConfiguration) {
 		toSerialize["EFSFileSystemConfiguration"] = o.EFSFileSystemConfiguration
+	}
+	if !IsNil(o.GCPFilestoreConfiguration) {
+		toSerialize["GCPFilestoreConfiguration"] = o.GCPFilestoreConfiguration
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -101,6 +128,7 @@ func (o *FileSystemConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "EFSFileSystemConfiguration")
+		delete(additionalProperties, "GCPFilestoreConfiguration")
 		o.AdditionalProperties = additionalProperties
 	}
 

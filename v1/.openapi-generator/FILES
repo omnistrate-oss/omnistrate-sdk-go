@@ -138,6 +138,9 @@ docs/ContainerImagesRegistry.md
 docs/ContainerImagesRegistryCopyConfiguration.md
 docs/CopyProductTierRequest.md
 docs/CopyProductTierRequest2.md
+docs/CopyResourceInstanceSnapshotRequest.md
+docs/CopyResourceInstanceSnapshotRequest2.md
+docs/CopyResourceInstanceSnapshotResponseBody.md
 docs/CopyServiceModelRequest.md
 docs/CopyServiceModelRequest2.md
 docs/CreateAccountConfigRequest.md
@@ -408,6 +411,7 @@ docs/FailoverResourceInstanceRequest.md
 docs/FailoverResourceInstanceRequest2.md
 docs/FileMetadata.md
 docs/FileSystemConfiguration.md
+docs/GCPFilestoreConfiguration.md
 docs/GenerateComposeSpecFromContainerImageRequest.md
 docs/GenerateComposeSpecFromContainerImageRequest2.md
 docs/GenerateComposeSpecFromContainerImageResult.md
@@ -885,6 +889,9 @@ model_container_images_registry.go
 model_container_images_registry_copy_configuration.go
 model_copy_product_tier_request.go
 model_copy_product_tier_request2.go
+model_copy_resource_instance_snapshot_request.go
+model_copy_resource_instance_snapshot_request2.go
+model_copy_resource_instance_snapshot_response_body.go
 model_copy_service_model_request.go
 model_copy_service_model_request2.go
 model_create_account_config_request.go
@@ -1150,6 +1157,7 @@ model_failover_resource_instance_request.go
 model_failover_resource_instance_request2.go
 model_file_metadata.go
 model_file_system_configuration.go
+model_gcp_filestore_configuration.go
 model_generate_compose_spec_from_container_image_request.go
 model_generate_compose_spec_from_container_image_request2.go
 model_generate_compose_spec_from_container_image_result.go

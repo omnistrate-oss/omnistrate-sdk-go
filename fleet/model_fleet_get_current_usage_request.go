@@ -23,6 +23,12 @@ var _ MappedNullable = &FleetGetCurrentUsageRequest{}
 type FleetGetCurrentUsageRequest struct {
 	// End time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start.
 	EndDate *time.Time `json:"endDate,omitempty"`
+	// ID of a Service Environment
+	EnvironmentID *string `json:"environmentID,omitempty"`
+	// ID of a Product Tier
+	ProductTierID *string `json:"productTierID,omitempty"`
+	// ID of a Service
+	ServiceID *string `json:"serviceID,omitempty"`
 	// Start time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start.
 	StartDate *time.Time `json:"startDate,omitempty"`
 	// Optionally filter by subscription IDs
@@ -82,6 +88,102 @@ func (o *FleetGetCurrentUsageRequest) HasEndDate() bool {
 // SetEndDate gets a reference to the given time.Time and assigns it to the EndDate field.
 func (o *FleetGetCurrentUsageRequest) SetEndDate(v time.Time) {
 	o.EndDate = &v
+}
+
+// GetEnvironmentID returns the EnvironmentID field value if set, zero value otherwise.
+func (o *FleetGetCurrentUsageRequest) GetEnvironmentID() string {
+	if o == nil || IsNil(o.EnvironmentID) {
+		var ret string
+		return ret
+	}
+	return *o.EnvironmentID
+}
+
+// GetEnvironmentIDOk returns a tuple with the EnvironmentID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetGetCurrentUsageRequest) GetEnvironmentIDOk() (*string, bool) {
+	if o == nil || IsNil(o.EnvironmentID) {
+		return nil, false
+	}
+	return o.EnvironmentID, true
+}
+
+// HasEnvironmentID returns a boolean if a field has been set.
+func (o *FleetGetCurrentUsageRequest) HasEnvironmentID() bool {
+	if o != nil && !IsNil(o.EnvironmentID) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnvironmentID gets a reference to the given string and assigns it to the EnvironmentID field.
+func (o *FleetGetCurrentUsageRequest) SetEnvironmentID(v string) {
+	o.EnvironmentID = &v
+}
+
+// GetProductTierID returns the ProductTierID field value if set, zero value otherwise.
+func (o *FleetGetCurrentUsageRequest) GetProductTierID() string {
+	if o == nil || IsNil(o.ProductTierID) {
+		var ret string
+		return ret
+	}
+	return *o.ProductTierID
+}
+
+// GetProductTierIDOk returns a tuple with the ProductTierID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetGetCurrentUsageRequest) GetProductTierIDOk() (*string, bool) {
+	if o == nil || IsNil(o.ProductTierID) {
+		return nil, false
+	}
+	return o.ProductTierID, true
+}
+
+// HasProductTierID returns a boolean if a field has been set.
+func (o *FleetGetCurrentUsageRequest) HasProductTierID() bool {
+	if o != nil && !IsNil(o.ProductTierID) {
+		return true
+	}
+
+	return false
+}
+
+// SetProductTierID gets a reference to the given string and assigns it to the ProductTierID field.
+func (o *FleetGetCurrentUsageRequest) SetProductTierID(v string) {
+	o.ProductTierID = &v
+}
+
+// GetServiceID returns the ServiceID field value if set, zero value otherwise.
+func (o *FleetGetCurrentUsageRequest) GetServiceID() string {
+	if o == nil || IsNil(o.ServiceID) {
+		var ret string
+		return ret
+	}
+	return *o.ServiceID
+}
+
+// GetServiceIDOk returns a tuple with the ServiceID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetGetCurrentUsageRequest) GetServiceIDOk() (*string, bool) {
+	if o == nil || IsNil(o.ServiceID) {
+		return nil, false
+	}
+	return o.ServiceID, true
+}
+
+// HasServiceID returns a boolean if a field has been set.
+func (o *FleetGetCurrentUsageRequest) HasServiceID() bool {
+	if o != nil && !IsNil(o.ServiceID) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceID gets a reference to the given string and assigns it to the ServiceID field.
+func (o *FleetGetCurrentUsageRequest) SetServiceID(v string) {
+	o.ServiceID = &v
 }
 
 // GetStartDate returns the StartDate field value if set, zero value otherwise.
@@ -185,6 +287,15 @@ func (o FleetGetCurrentUsageRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EndDate) {
 		toSerialize["endDate"] = o.EndDate
 	}
+	if !IsNil(o.EnvironmentID) {
+		toSerialize["environmentID"] = o.EnvironmentID
+	}
+	if !IsNil(o.ProductTierID) {
+		toSerialize["productTierID"] = o.ProductTierID
+	}
+	if !IsNil(o.ServiceID) {
+		toSerialize["serviceID"] = o.ServiceID
+	}
 	if !IsNil(o.StartDate) {
 		toSerialize["startDate"] = o.StartDate
 	}
@@ -236,6 +347,9 @@ func (o *FleetGetCurrentUsageRequest) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "endDate")
+		delete(additionalProperties, "environmentID")
+		delete(additionalProperties, "productTierID")
+		delete(additionalProperties, "serviceID")
 		delete(additionalProperties, "startDate")
 		delete(additionalProperties, "subscriptionIDs")
 		delete(additionalProperties, "token")

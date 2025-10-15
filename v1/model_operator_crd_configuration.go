@@ -20,6 +20,8 @@ var _ MappedNullable = &OperatorCRDConfiguration{}
 
 // OperatorCRDConfiguration struct for OperatorCRDConfiguration
 type OperatorCRDConfiguration struct {
+	// Flag to disable drift reconciliation for the Operator CRD and its supplemental files
+	DisableReconciliation *bool `json:"disableReconciliation,omitempty"`
 	// The endpoints from the Operator CRD Deployment to expose to the customer
 	EndpointConfiguration *map[string]Endpoint `json:"endpointConfiguration,omitempty"`
 	// The helm chart dependencies for the CRD (including charts necessary to manage the operator) - Optional
@@ -53,6 +55,29 @@ func NewOperatorCRDConfiguration(template string) *OperatorCRDConfiguration {
 func NewOperatorCRDConfigurationWithDefaults() *OperatorCRDConfiguration {
 	this := OperatorCRDConfiguration{}
 	return &this
+}
+
+// GetDisableReconciliation returns the DisableReconciliation field value if set, zero value otherwise.
+func (o *OperatorCRDConfiguration) GetDisableReconciliation() bool {
+	if o == nil || IsNil(o.DisableReconciliation) {
+		var ret bool
+		return ret
+	}
+	return *o.DisableReconciliation
+}
+
+// GetDisableReconciliationOk returns a tuple with the DisableReconciliation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OperatorCRDConfiguration) GetDisableReconciliationOk() (*bool, bool) {
+	if o == nil || IsNil(o.DisableReconciliation) {
+		return nil, false
+	}
+	return o.DisableReconciliation, true
+}
+
+// SetDisableReconciliation gets a reference to the given bool and assigns it to the DisableReconciliation field.
+func (o *OperatorCRDConfiguration) SetDisableReconciliation(v bool) {
+	o.DisableReconciliation = &v
 }
 
 // GetEndpointConfiguration returns the EndpointConfiguration field value if set, zero value otherwise.
@@ -204,6 +229,9 @@ func (o OperatorCRDConfiguration) MarshalJSON() ([]byte, error) {
 
 func (o OperatorCRDConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.DisableReconciliation) {
+		toSerialize["disableReconciliation"] = o.DisableReconciliation
+	}
 	if !IsNil(o.EndpointConfiguration) {
 		toSerialize["endpointConfiguration"] = o.EndpointConfiguration
 	}
@@ -263,6 +291,7 @@ func (o *OperatorCRDConfiguration) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "disableReconciliation")
 		delete(additionalProperties, "endpointConfiguration")
 		delete(additionalProperties, "helmChartDependencies")
 		delete(additionalProperties, "outputParameters")

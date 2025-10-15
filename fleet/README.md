@@ -117,6 +117,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiAdoptResourceInstance**](docs/InventoryApiAPI.md#inventoryapiadoptresourceinstance) | **Post** /2022-09-01-00/fleet/resource-instance/{serviceID}/{servicePlanID}/{hostClusterID}/{primaryResourceKey}/adopt | AdoptResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiApproveSubscriptionRequest**](docs/InventoryApiAPI.md#inventoryapiapprovesubscriptionrequest) | **Put** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | ApproveSubscriptionRequest inventory-api
 *InventoryApiAPI* | [**InventoryApiCancelUpgradePath**](docs/InventoryApiAPI.md#inventoryapicancelupgradepath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/cancel | CancelUpgradePath inventory-api
+*InventoryApiAPI* | [**InventoryApiCopyResourceInstanceSnapshot**](docs/InventoryApiAPI.md#inventoryapicopyresourceinstancesnapshot) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/copy-snapshot | CopyResourceInstanceSnapshot inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateConsumptionUser**](docs/InventoryApiAPI.md#inventoryapicreateconsumptionuser) | **Post** /2022-09-01-00/fleet/user | CreateConsumptionUser inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateProxyResourceInstance**](docs/InventoryApiAPI.md#inventoryapicreateproxyresourceinstance) | **Post** /2022-09-01-00/fleet/proxy-resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{sourceResourceKey} | CreateProxyResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateResourceInstance**](docs/InventoryApiAPI.md#inventoryapicreateresourceinstance) | **Post** /2022-09-01-00/fleet/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey} | CreateResourceInstance inventory-api
@@ -260,6 +261,7 @@ Class | Method | HTTP request | Description
  - [ConsumptionServiceAuthResult](docs/ConsumptionServiceAuthResult.md)
  - [ContactusRequest](docs/ContactusRequest.md)
  - [CopyProductTierRequest](docs/CopyProductTierRequest.md)
+ - [CopyResourceInstanceSnapshotRequest](docs/CopyResourceInstanceSnapshotRequest.md)
  - [CopyServiceModelRequest](docs/CopyServiceModelRequest.md)
  - [CostDataPerDate](docs/CostDataPerDate.md)
  - [CreateCustomerOnboardingRequest](docs/CreateCustomerOnboardingRequest.md)
@@ -435,6 +437,9 @@ Class | Method | HTTP request | Description
  - [FleetAuditEventsResult](docs/FleetAuditEventsResult.md)
  - [FleetAutomaticInstanceSnapshotCreationRequest](docs/FleetAutomaticInstanceSnapshotCreationRequest.md)
  - [FleetAutomaticInstanceSnapshotCreationResult](docs/FleetAutomaticInstanceSnapshotCreationResult.md)
+ - [FleetCopyResourceInstanceSnapshotRequest](docs/FleetCopyResourceInstanceSnapshotRequest.md)
+ - [FleetCopyResourceInstanceSnapshotRequest2](docs/FleetCopyResourceInstanceSnapshotRequest2.md)
+ - [FleetCopyResourceInstanceSnapshotResult](docs/FleetCopyResourceInstanceSnapshotResult.md)
  - [FleetCreateConsumptionUserRequest](docs/FleetCreateConsumptionUserRequest.md)
  - [FleetCreateConsumptionUserRequest2](docs/FleetCreateConsumptionUserRequest2.md)
  - [FleetCreateCustomNetworkRequest](docs/FleetCreateCustomNetworkRequest.md)
@@ -483,9 +488,7 @@ Class | Method | HTTP request | Description
  - [FleetGenerateTokenForHostClusterDashboardRequest](docs/FleetGenerateTokenForHostClusterDashboardRequest.md)
  - [FleetGenerateTokenForHostClusterDashboardResult](docs/FleetGenerateTokenForHostClusterDashboardResult.md)
  - [FleetGetCurrentUsageRequest](docs/FleetGetCurrentUsageRequest.md)
- - [FleetGetCurrentUsageRequest2](docs/FleetGetCurrentUsageRequest2.md)
  - [FleetGetUsagePerDayRequest](docs/FleetGetUsagePerDayRequest.md)
- - [FleetGetUsagePerDayRequest2](docs/FleetGetUsagePerDayRequest2.md)
  - [FleetGetUsageResult](docs/FleetGetUsageResult.md)
  - [FleetInvoice](docs/FleetInvoice.md)
  - [FleetListAccountConfigsRequest](docs/FleetListAccountConfigsRequest.md)

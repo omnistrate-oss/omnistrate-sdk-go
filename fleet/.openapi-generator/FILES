@@ -63,6 +63,7 @@ docs/ConsumptionServiceAuthRequest.md
 docs/ConsumptionServiceAuthResult.md
 docs/ContactusRequest.md
 docs/CopyProductTierRequest.md
+docs/CopyResourceInstanceSnapshotRequest.md
 docs/CopyServiceModelRequest.md
 docs/CostApiAPI.md
 docs/CostDataPerDate.md
@@ -241,6 +242,9 @@ docs/FleetAuditEventsRequest.md
 docs/FleetAuditEventsResult.md
 docs/FleetAutomaticInstanceSnapshotCreationRequest.md
 docs/FleetAutomaticInstanceSnapshotCreationResult.md
+docs/FleetCopyResourceInstanceSnapshotRequest.md
+docs/FleetCopyResourceInstanceSnapshotRequest2.md
+docs/FleetCopyResourceInstanceSnapshotResult.md
 docs/FleetCreateConsumptionUserRequest.md
 docs/FleetCreateConsumptionUserRequest2.md
 docs/FleetCreateCustomNetworkRequest.md
@@ -290,9 +294,7 @@ docs/FleetFailoverResourceInstanceRequest2.md
 docs/FleetGenerateTokenForHostClusterDashboardRequest.md
 docs/FleetGenerateTokenForHostClusterDashboardResult.md
 docs/FleetGetCurrentUsageRequest.md
-docs/FleetGetCurrentUsageRequest2.md
 docs/FleetGetUsagePerDayRequest.md
-docs/FleetGetUsagePerDayRequest2.md
 docs/FleetGetUsageResult.md
 docs/FleetInvoice.md
 docs/FleetListAccountConfigsRequest.md
@@ -698,6 +700,7 @@ model_consumption_service_auth_request.go
 model_consumption_service_auth_result.go
 model_contactus_request.go
 model_copy_product_tier_request.go
+model_copy_resource_instance_snapshot_request.go
 model_copy_service_model_request.go
 model_cost_data_per_date.go
 model_create_customer_onboarding_request.go
@@ -873,6 +876,9 @@ model_fleet_audit_events_request.go
 model_fleet_audit_events_result.go
 model_fleet_automatic_instance_snapshot_creation_request.go
 model_fleet_automatic_instance_snapshot_creation_result.go
+model_fleet_copy_resource_instance_snapshot_request.go
+model_fleet_copy_resource_instance_snapshot_request2.go
+model_fleet_copy_resource_instance_snapshot_result.go
 model_fleet_create_consumption_user_request.go
 model_fleet_create_consumption_user_request2.go
 model_fleet_create_custom_network_request.go
@@ -921,9 +927,7 @@ model_fleet_failover_resource_instance_request2.go
 model_fleet_generate_token_for_host_cluster_dashboard_request.go
 model_fleet_generate_token_for_host_cluster_dashboard_result.go
 model_fleet_get_current_usage_request.go
-model_fleet_get_current_usage_request2.go
 model_fleet_get_usage_per_day_request.go
-model_fleet_get_usage_per_day_request2.go
 model_fleet_get_usage_result.go
 model_fleet_invoice.go
 model_fleet_list_account_configs_request.go

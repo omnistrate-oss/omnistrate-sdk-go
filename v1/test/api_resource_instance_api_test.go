@@ -62,6 +62,27 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiCopyResourceInstanceSnapshot", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceProviderId string
+		var serviceKey string
+		var serviceAPIVersion string
+		var serviceEnvironmentKey string
+		var serviceModelKey string
+		var productTierKey string
+		var resourceKey string
+		var id string
+
+		resp, httpRes, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiCopyResourceInstanceSnapshot(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiCreateResourceInstance", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

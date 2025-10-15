@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**DisableReconciliation** | Pointer to **bool** | Flag to disable drift reconciliation for the Operator CRD and its supplemental files | [optional] 
 **EndpointConfiguration** | Pointer to [**map[string]Endpoint**](Endpoint.md) | The endpoints from the Operator CRD Deployment to expose to the customer | [optional] 
 **HelmChartDependencies** | Pointer to [**[]OperatorHelmChartDependency**](OperatorHelmChartDependency.md) | The helm chart dependencies for the CRD (including charts necessary to manage the operator) - Optional | [optional] 
 **OutputParameters** | Pointer to **map[string]string** | The output parameters to export to the user from the CRD | [optional] 
@@ -29,6 +30,31 @@ will change when the set of required properties is changed
 NewOperatorCRDConfigurationWithDefaults instantiates a new OperatorCRDConfiguration object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetDisableReconciliation
+
+`func (o *OperatorCRDConfiguration) GetDisableReconciliation() bool`
+
+GetDisableReconciliation returns the DisableReconciliation field if non-nil, zero value otherwise.
+
+### GetDisableReconciliationOk
+
+`func (o *OperatorCRDConfiguration) GetDisableReconciliationOk() (*bool, bool)`
+
+GetDisableReconciliationOk returns a tuple with the DisableReconciliation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisableReconciliation
+
+`func (o *OperatorCRDConfiguration) SetDisableReconciliation(v bool)`
+
+SetDisableReconciliation sets DisableReconciliation field to given value.
+
+### HasDisableReconciliation
+
+`func (o *OperatorCRDConfiguration) HasDisableReconciliation() bool`
+
+HasDisableReconciliation returns a boolean if a field has been set.
 
 ### GetEndpointConfiguration
 

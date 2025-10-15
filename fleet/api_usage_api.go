@@ -17,6 +17,7 @@ import (
 	"net/http"
 	"net/url"
 	"time"
+	"reflect"
 )
 
 
@@ -53,11 +54,47 @@ type UsageApiAPIService service
 type ApiUsageApiGetCurrentUsageRequest struct {
 	ctx context.Context
 	ApiService UsageApiAPI
-	fleetGetCurrentUsageRequest2 *FleetGetCurrentUsageRequest2
+	startDate *time.Time
+	endDate *time.Time
+	serviceID *string
+	environmentID *string
+	productTierID *string
+	subscriptionIDs *[]string
 }
 
-func (r ApiUsageApiGetCurrentUsageRequest) FleetGetCurrentUsageRequest2(fleetGetCurrentUsageRequest2 FleetGetCurrentUsageRequest2) ApiUsageApiGetCurrentUsageRequest {
-	r.fleetGetCurrentUsageRequest2 = &fleetGetCurrentUsageRequest2
+// Start date of the usage report
+func (r ApiUsageApiGetCurrentUsageRequest) StartDate(startDate time.Time) ApiUsageApiGetCurrentUsageRequest {
+	r.startDate = &startDate
+	return r
+}
+
+// End date of the usage report
+func (r ApiUsageApiGetCurrentUsageRequest) EndDate(endDate time.Time) ApiUsageApiGetCurrentUsageRequest {
+	r.endDate = &endDate
+	return r
+}
+
+// Filter usage by service ID
+func (r ApiUsageApiGetCurrentUsageRequest) ServiceID(serviceID string) ApiUsageApiGetCurrentUsageRequest {
+	r.serviceID = &serviceID
+	return r
+}
+
+// Filter usage by environment ID
+func (r ApiUsageApiGetCurrentUsageRequest) EnvironmentID(environmentID string) ApiUsageApiGetCurrentUsageRequest {
+	r.environmentID = &environmentID
+	return r
+}
+
+// Filter usage by product tier ID
+func (r ApiUsageApiGetCurrentUsageRequest) ProductTierID(productTierID string) ApiUsageApiGetCurrentUsageRequest {
+	r.productTierID = &productTierID
+	return r
+}
+
+// Filter usage by subscription IDs
+func (r ApiUsageApiGetCurrentUsageRequest) SubscriptionIDs(subscriptionIDs []string) ApiUsageApiGetCurrentUsageRequest {
+	r.subscriptionIDs = &subscriptionIDs
 	return r
 }
 
@@ -98,12 +135,35 @@ func (a *UsageApiAPIService) UsageApiGetCurrentUsageExecute(r ApiUsageApiGetCurr
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.fleetGetCurrentUsageRequest2 == nil {
-		return localVarReturnValue, nil, reportError("fleetGetCurrentUsageRequest2 is required and must be specified")
-	}
 
+	if r.startDate != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "startDate", r.startDate, "form", "")
+	}
+	if r.endDate != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "endDate", r.endDate, "form", "")
+	}
+	if r.serviceID != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "serviceID", r.serviceID, "form", "")
+	}
+	if r.environmentID != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "environmentID", r.environmentID, "form", "")
+	}
+	if r.productTierID != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "productTierID", r.productTierID, "form", "")
+	}
+	if r.subscriptionIDs != nil {
+		t := *r.subscriptionIDs
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "subscriptionIDs", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "subscriptionIDs", t, "form", "multi")
+		}
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -119,8 +179,6 @@ func (a *UsageApiAPIService) UsageApiGetCurrentUsageExecute(r ApiUsageApiGetCurr
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.fleetGetCurrentUsageRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -226,14 +284,12 @@ func (a *UsageApiAPIService) UsageApiGetCurrentUsageExecute(r ApiUsageApiGetCurr
 type ApiUsageApiGetUsagePerDayRequest struct {
 	ctx context.Context
 	ApiService UsageApiAPI
-	fleetGetUsagePerDayRequest2 *FleetGetUsagePerDayRequest2
 	startDate *time.Time
 	endDate *time.Time
-}
-
-func (r ApiUsageApiGetUsagePerDayRequest) FleetGetUsagePerDayRequest2(fleetGetUsagePerDayRequest2 FleetGetUsagePerDayRequest2) ApiUsageApiGetUsagePerDayRequest {
-	r.fleetGetUsagePerDayRequest2 = &fleetGetUsagePerDayRequest2
-	return r
+	serviceID *string
+	environmentID *string
+	productTierID *string
+	subscriptionIDs *[]string
 }
 
 // Start date of the usage report
@@ -245,6 +301,30 @@ func (r ApiUsageApiGetUsagePerDayRequest) StartDate(startDate time.Time) ApiUsag
 // End date of the usage report
 func (r ApiUsageApiGetUsagePerDayRequest) EndDate(endDate time.Time) ApiUsageApiGetUsagePerDayRequest {
 	r.endDate = &endDate
+	return r
+}
+
+// Filter usage by service ID
+func (r ApiUsageApiGetUsagePerDayRequest) ServiceID(serviceID string) ApiUsageApiGetUsagePerDayRequest {
+	r.serviceID = &serviceID
+	return r
+}
+
+// Filter usage by environment ID
+func (r ApiUsageApiGetUsagePerDayRequest) EnvironmentID(environmentID string) ApiUsageApiGetUsagePerDayRequest {
+	r.environmentID = &environmentID
+	return r
+}
+
+// Filter usage by product tier ID
+func (r ApiUsageApiGetUsagePerDayRequest) ProductTierID(productTierID string) ApiUsageApiGetUsagePerDayRequest {
+	r.productTierID = &productTierID
+	return r
+}
+
+// Filter usage by subscription IDs
+func (r ApiUsageApiGetUsagePerDayRequest) SubscriptionIDs(subscriptionIDs []string) ApiUsageApiGetUsagePerDayRequest {
+	r.subscriptionIDs = &subscriptionIDs
 	return r
 }
 
@@ -285,9 +365,6 @@ func (a *UsageApiAPIService) UsageApiGetUsagePerDayExecute(r ApiUsageApiGetUsage
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.fleetGetUsagePerDayRequest2 == nil {
-		return localVarReturnValue, nil, reportError("fleetGetUsagePerDayRequest2 is required and must be specified")
-	}
 
 	if r.startDate != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "startDate", r.startDate, "form", "")
@@ -295,8 +372,28 @@ func (a *UsageApiAPIService) UsageApiGetUsagePerDayExecute(r ApiUsageApiGetUsage
 	if r.endDate != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "endDate", r.endDate, "form", "")
 	}
+	if r.serviceID != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "serviceID", r.serviceID, "form", "")
+	}
+	if r.environmentID != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "environmentID", r.environmentID, "form", "")
+	}
+	if r.productTierID != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "productTierID", r.productTierID, "form", "")
+	}
+	if r.subscriptionIDs != nil {
+		t := *r.subscriptionIDs
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "subscriptionIDs", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "subscriptionIDs", t, "form", "multi")
+		}
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -312,8 +409,6 @@ func (a *UsageApiAPIService) UsageApiGetUsagePerDayExecute(r ApiUsageApiGetUsage
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.fleetGetUsagePerDayRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ContainerImagesRegistryCopyConfiguration type satisfies the MappedNullable interface at compile time
@@ -21,9 +20,9 @@ var _ MappedNullable = &ContainerImagesRegistryCopyConfiguration{}
 // ContainerImagesRegistryCopyConfiguration struct for ContainerImagesRegistryCopyConfiguration
 type ContainerImagesRegistryCopyConfiguration struct {
 	// The list of container images to copy from source to target
-	Images []ContainerImage `json:"images"`
-	PullSource ContainerImagesRegistry `json:"pullSource"`
-	PushTarget ContainerImagesRegistry `json:"pushTarget"`
+	Images []ContainerImage `json:"images,omitempty"`
+	PullSource *ContainerImagesRegistry `json:"pullSource,omitempty"`
+	PushTarget *ContainerImagesRegistry `json:"pushTarget,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -33,11 +32,8 @@ type _ContainerImagesRegistryCopyConfiguration ContainerImagesRegistryCopyConfig
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContainerImagesRegistryCopyConfiguration(images []ContainerImage, pullSource ContainerImagesRegistry, pushTarget ContainerImagesRegistry) *ContainerImagesRegistryCopyConfiguration {
+func NewContainerImagesRegistryCopyConfiguration() *ContainerImagesRegistryCopyConfiguration {
 	this := ContainerImagesRegistryCopyConfiguration{}
-	this.Images = images
-	this.PullSource = pullSource
-	this.PushTarget = pushTarget
 	return &this
 }
 
@@ -49,76 +45,73 @@ func NewContainerImagesRegistryCopyConfigurationWithDefaults() *ContainerImagesR
 	return &this
 }
 
-// GetImages returns the Images field value
+// GetImages returns the Images field value if set, zero value otherwise.
 func (o *ContainerImagesRegistryCopyConfiguration) GetImages() []ContainerImage {
-	if o == nil {
+	if o == nil || IsNil(o.Images) {
 		var ret []ContainerImage
 		return ret
 	}
-
 	return o.Images
 }
 
-// GetImagesOk returns a tuple with the Images field value
+// GetImagesOk returns a tuple with the Images field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ContainerImagesRegistryCopyConfiguration) GetImagesOk() ([]ContainerImage, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Images) {
 		return nil, false
 	}
 	return o.Images, true
 }
 
-// SetImages sets field value
+// SetImages gets a reference to the given []ContainerImage and assigns it to the Images field.
 func (o *ContainerImagesRegistryCopyConfiguration) SetImages(v []ContainerImage) {
 	o.Images = v
 }
 
-// GetPullSource returns the PullSource field value
+// GetPullSource returns the PullSource field value if set, zero value otherwise.
 func (o *ContainerImagesRegistryCopyConfiguration) GetPullSource() ContainerImagesRegistry {
-	if o == nil {
+	if o == nil || IsNil(o.PullSource) {
 		var ret ContainerImagesRegistry
 		return ret
 	}
-
-	return o.PullSource
+	return *o.PullSource
 }
 
-// GetPullSourceOk returns a tuple with the PullSource field value
+// GetPullSourceOk returns a tuple with the PullSource field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ContainerImagesRegistryCopyConfiguration) GetPullSourceOk() (*ContainerImagesRegistry, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PullSource) {
 		return nil, false
 	}
-	return &o.PullSource, true
+	return o.PullSource, true
 }
 
-// SetPullSource sets field value
+// SetPullSource gets a reference to the given ContainerImagesRegistry and assigns it to the PullSource field.
 func (o *ContainerImagesRegistryCopyConfiguration) SetPullSource(v ContainerImagesRegistry) {
-	o.PullSource = v
+	o.PullSource = &v
 }
 
-// GetPushTarget returns the PushTarget field value
+// GetPushTarget returns the PushTarget field value if set, zero value otherwise.
 func (o *ContainerImagesRegistryCopyConfiguration) GetPushTarget() ContainerImagesRegistry {
-	if o == nil {
+	if o == nil || IsNil(o.PushTarget) {
 		var ret ContainerImagesRegistry
 		return ret
 	}
-
-	return o.PushTarget
+	return *o.PushTarget
 }
 
-// GetPushTargetOk returns a tuple with the PushTarget field value
+// GetPushTargetOk returns a tuple with the PushTarget field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ContainerImagesRegistryCopyConfiguration) GetPushTargetOk() (*ContainerImagesRegistry, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PushTarget) {
 		return nil, false
 	}
-	return &o.PushTarget, true
+	return o.PushTarget, true
 }
 
-// SetPushTarget sets field value
+// SetPushTarget gets a reference to the given ContainerImagesRegistry and assigns it to the PushTarget field.
 func (o *ContainerImagesRegistryCopyConfiguration) SetPushTarget(v ContainerImagesRegistry) {
-	o.PushTarget = v
+	o.PushTarget = &v
 }
 
 func (o ContainerImagesRegistryCopyConfiguration) MarshalJSON() ([]byte, error) {
@@ -131,9 +124,15 @@ func (o ContainerImagesRegistryCopyConfiguration) MarshalJSON() ([]byte, error) 
 
 func (o ContainerImagesRegistryCopyConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["images"] = o.Images
-	toSerialize["pullSource"] = o.PullSource
-	toSerialize["pushTarget"] = o.PushTarget
+	if !IsNil(o.Images) {
+		toSerialize["images"] = o.Images
+	}
+	if !IsNil(o.PullSource) {
+		toSerialize["pullSource"] = o.PullSource
+	}
+	if !IsNil(o.PushTarget) {
+		toSerialize["pushTarget"] = o.PushTarget
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -143,29 +142,6 @@ func (o ContainerImagesRegistryCopyConfiguration) ToMap() (map[string]interface{
 }
 
 func (o *ContainerImagesRegistryCopyConfiguration) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"images",
-		"pullSource",
-		"pushTarget",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varContainerImagesRegistryCopyConfiguration := _ContainerImagesRegistryCopyConfiguration{}
 
 	err = json.Unmarshal(data, &varContainerImagesRegistryCopyConfiguration)
