@@ -251,4 +251,3 @@ func (v *NullableUpdatePasswordRequest) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
-

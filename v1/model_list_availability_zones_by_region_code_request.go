@@ -225,4 +225,3 @@ func (v *NullableListAvailabilityZonesByRegionCodeRequest) UnmarshalJSON(src []b
 	return json.Unmarshal(src, &v.value)
 }
 
-

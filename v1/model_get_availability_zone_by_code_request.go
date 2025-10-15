@@ -226,4 +226,3 @@ func (v *NullableGetAvailabilityZoneByCodeRequest) UnmarshalJSON(src []byte) err
 	return json.Unmarshal(src, &v.value)
 }
 
-

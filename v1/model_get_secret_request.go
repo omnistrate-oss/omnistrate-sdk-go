@@ -226,4 +226,3 @@ func (v *NullableGetSecretRequest) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
-

@@ -1008,4 +1008,3 @@ func (v *NullableCreateResourceRequest2) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
-

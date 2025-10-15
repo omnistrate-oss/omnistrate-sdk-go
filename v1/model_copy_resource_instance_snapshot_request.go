@@ -465,4 +465,3 @@ func (v *NullableCopyResourceInstanceSnapshotRequest) UnmarshalJSON(src []byte) 
 	return json.Unmarshal(src, &v.value)
 }
 
-

@@ -544,4 +544,3 @@ func (v *NullableUpdateIdentityProviderRequest) UnmarshalJSON(src []byte) error 
 	return json.Unmarshal(src, &v.value)
 }
 
-
