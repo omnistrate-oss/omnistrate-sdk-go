@@ -26,7 +26,7 @@ type UpdateServiceWorkflowRequest struct {
 	Id string `json:"id"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
-	// The status of the workflow execution.
+	// Update the status of the workflow execution. You can pause, resume or retry a workflow.
 	Status string `json:"status"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`

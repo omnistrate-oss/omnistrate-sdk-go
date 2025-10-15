@@ -438,4 +438,3 @@ func (v *NullableDescribeServiceOfferingResult) UnmarshalJSON(src []byte) error 
 	return json.Unmarshal(src, &v.value)
 }
 
-

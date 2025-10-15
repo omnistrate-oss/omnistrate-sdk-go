@@ -253,4 +253,3 @@ func (v *NullableDeploymentCellHealthRequest) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
-

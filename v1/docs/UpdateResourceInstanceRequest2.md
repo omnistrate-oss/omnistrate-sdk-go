@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The custom tag for the resource instance | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
 **RequestParams** | Pointer to **interface{}** | The request parameters | [optional] 
 
@@ -25,6 +26,31 @@ will change when the set of required properties is changed
 NewUpdateResourceInstanceRequest2WithDefaults instantiates a new UpdateResourceInstanceRequest2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCustomTags
+
+`func (o *UpdateResourceInstanceRequest2) GetCustomTags() []CustomTag`
+
+GetCustomTags returns the CustomTags field if non-nil, zero value otherwise.
+
+### GetCustomTagsOk
+
+`func (o *UpdateResourceInstanceRequest2) GetCustomTagsOk() (*[]CustomTag, bool)`
+
+GetCustomTagsOk returns a tuple with the CustomTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomTags
+
+`func (o *UpdateResourceInstanceRequest2) SetCustomTags(v []CustomTag)`
+
+SetCustomTags sets CustomTags field to given value.
+
+### HasCustomTags
+
+`func (o *UpdateResourceInstanceRequest2) HasCustomTags() bool`
+
+HasCustomTags returns a boolean if a field has been set.
 
 ### GetNetworkType
 

@@ -371,4 +371,3 @@ func (v *NullableServiceDeploymentDetails) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
-

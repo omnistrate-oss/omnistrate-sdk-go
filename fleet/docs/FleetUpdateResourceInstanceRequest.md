@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The custom tags for the resource instance. | [optional] 
 **EnvironmentId** | **string** | ID of a Service Environment | 
 **InstanceId** | **string** | ID of a Resource Instance | 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
@@ -30,6 +31,31 @@ will change when the set of required properties is changed
 NewFleetUpdateResourceInstanceRequestWithDefaults instantiates a new FleetUpdateResourceInstanceRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCustomTags
+
+`func (o *FleetUpdateResourceInstanceRequest) GetCustomTags() []CustomTag`
+
+GetCustomTags returns the CustomTags field if non-nil, zero value otherwise.
+
+### GetCustomTagsOk
+
+`func (o *FleetUpdateResourceInstanceRequest) GetCustomTagsOk() (*[]CustomTag, bool)`
+
+GetCustomTagsOk returns a tuple with the CustomTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomTags
+
+`func (o *FleetUpdateResourceInstanceRequest) SetCustomTags(v []CustomTag)`
+
+SetCustomTags sets CustomTags field to given value.
+
+### HasCustomTags
+
+`func (o *FleetUpdateResourceInstanceRequest) HasCustomTags() bool`
+
+HasCustomTags returns a boolean if a field has been set.
 
 ### GetEnvironmentId
 

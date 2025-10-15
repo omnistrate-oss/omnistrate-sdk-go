@@ -144,4 +144,3 @@ func (v *NullableL4LoadBalancerConfiguration) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
-

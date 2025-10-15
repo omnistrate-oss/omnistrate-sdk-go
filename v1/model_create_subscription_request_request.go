@@ -226,4 +226,3 @@ func (v *NullableCreateSubscriptionRequestRequest) UnmarshalJSON(src []byte) err
 	return json.Unmarshal(src, &v.value)
 }
 
-

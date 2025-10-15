@@ -36,6 +36,7 @@ api_region_api.go
 api_resource_api.go
 api_resource_instance_api.go
 api_saas_portal_api.go
+api_schema_api.go
 api_secrets_api.go
 api_service_api.go
 api_service_api_api.go
@@ -355,6 +356,7 @@ docs/DescribeSubscriptionRequest.md
 docs/DescribeSubscriptionRequestRequest.md
 docs/DescribeSubscriptionRequestResult.md
 docs/DescribeSubscriptionResult.md
+docs/DescribeTierVersionSetMetadataRequest.md
 docs/DescribeTierVersionSetRequest.md
 docs/DescribeUpgradePathRequest.md
 docs/DescribeUpgradePathResult.md
@@ -593,6 +595,8 @@ docs/NodeVMInfoResult.md
 docs/OmnistrateError.md
 docs/OmnistrateServiceHealthResult.md
 docs/OmnistrateServiceVersionResult.md
+docs/OnPremCustomUserScript.md
+docs/OnPremInstallerTools.md
 docs/OperatorCRDConfiguration.md
 docs/OperatorHelmChartDependency.md
 docs/OrgUsers.md
@@ -602,6 +606,8 @@ docs/PlanApiAPI.md
 docs/PrivateLinkConfiguration.md
 docs/PrivateNetworkingConfiguration.md
 docs/ProductTierApiAPI.md
+docs/ProductTierDeploymentConfiguration.md
+docs/ProductTierDeploymentRequirements.md
 docs/ProductTierFeatureDetail.md
 docs/PromoteServiceEnvironmentRequest.md
 docs/PromoteServiceEnvironmentRequest2.md
@@ -680,6 +686,8 @@ docs/SaasPortalApiAPI.md
 docs/SaveHelmPackageRequest.md
 docs/SaveHelmPackageRequest2.md
 docs/ScheduleConfig.md
+docs/SchemaApiAPI.md
+docs/SchemaRequest.md
 docs/Secret.md
 docs/SecretsApiAPI.md
 docs/ServiceApiAPI.md
@@ -727,6 +735,7 @@ docs/TerraformConfiguration.md
 docs/TerraformOutput.md
 docs/TierVersionSet.md
 docs/TierVersionSetApiAPI.md
+docs/TierVersionSetMetadata.md
 docs/TierVersionSetSpecSummary.md
 docs/UnsetEnvironmentVariablesRequest.md
 docs/UnsetEnvironmentVariablesRequest2.md
@@ -786,6 +795,8 @@ docs/UpdateStorageVolumeConfigRequest.md
 docs/UpdateStorageVolumeConfigRequest2.md
 docs/UpdateStorageVolumeSizeConfigRequest.md
 docs/UpdateStorageVolumeSizeConfigRequest2.md
+docs/UpdateTierVersionSetMetadataRequest.md
+docs/UpdateTierVersionSetMetadataRequest2.md
 docs/UpdateTierVersionSetRequest.md
 docs/UpdateTierVersionSetRequest2.md
 docs/UpdateUpgradePathRequest.md
@@ -1088,6 +1099,7 @@ model_describe_subscription_request.go
 model_describe_subscription_request_request.go
 model_describe_subscription_request_result.go
 model_describe_subscription_result.go
+model_describe_tier_version_set_metadata_request.go
 model_describe_tier_version_set_request.go
 model_describe_upgrade_path_request.go
 model_describe_upgrade_path_result.go
@@ -1315,12 +1327,16 @@ model_node_vm_info_result.go
 model_omnistrate_error.go
 model_omnistrate_service_health_result.go
 model_omnistrate_service_version_result.go
+model_on_prem_custom_user_script.go
+model_on_prem_installer_tools.go
 model_operator_crd_configuration.go
 model_operator_helm_chart_dependency.go
 model_org_users.go
 model_output_parameter_entity.go
 model_private_link_configuration.go
 model_private_networking_configuration.go
+model_product_tier_deployment_configuration.go
+model_product_tier_deployment_requirements.go
 model_product_tier_feature_detail.go
 model_promote_service_environment_request.go
 model_promote_service_environment_request2.go
@@ -1395,6 +1411,7 @@ model_saa_s_portal_image_config.go
 model_save_helm_package_request.go
 model_save_helm_package_request2.go
 model_schedule_config.go
+model_schema_request.go
 model_secret.go
 model_service_assets.go
 model_service_deployment_details.go
@@ -1424,6 +1441,7 @@ model_taint_configuration.go
 model_terraform_configuration.go
 model_terraform_output.go
 model_tier_version_set.go
+model_tier_version_set_metadata.go
 model_tier_version_set_spec_summary.go
 model_unset_environment_variables_request.go
 model_unset_environment_variables_request2.go
@@ -1483,6 +1501,8 @@ model_update_storage_volume_config_request.go
 model_update_storage_volume_config_request2.go
 model_update_storage_volume_size_config_request.go
 model_update_storage_volume_size_config_request2.go
+model_update_tier_version_set_metadata_request.go
+model_update_tier_version_set_metadata_request2.go
 model_update_tier_version_set_request.go
 model_update_tier_version_set_request2.go
 model_update_upgrade_path_request.go
@@ -1534,6 +1554,7 @@ test/api_region_api_test.go
 test/api_resource_api_test.go
 test/api_resource_instance_api_test.go
 test/api_saas_portal_api_test.go
+test/api_schema_api_test.go
 test/api_secrets_api_test.go
 test/api_service_api_api_test.go
 test/api_service_api_test.go

@@ -224,4 +224,3 @@ func (v *NullableCompleteOAuthConnectionRequest) UnmarshalJSON(src []byte) error
 	return json.Unmarshal(src, &v.value)
 }
 
-

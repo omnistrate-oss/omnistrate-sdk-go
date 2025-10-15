@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **BillingProductID** | Pointer to **string** | Optional billing product ID for tax purposes | [optional] 
 **BillingProviders** | Pointer to **[]string** | List of billing providers to be used for the product tier | [optional] 
 **DefaultBillingProvider** | Pointer to **string** | The billing provider type | [optional] 
+**DeploymentConfiguration** | Pointer to [**ProductTierDeploymentConfiguration**](ProductTierDeploymentConfiguration.md) |  | [optional] 
 **Description** | Pointer to **string** | A brief description of the product tier | [optional] 
 **Documentation** | Pointer to **string** | Documentation | [optional] 
 **ExportUsageMetering** | Pointer to **bool** | Export usage metering data | [optional] 
@@ -222,6 +223,31 @@ SetDefaultBillingProvider sets DefaultBillingProvider field to given value.
 `func (o *UpdateProductTierRequest) HasDefaultBillingProvider() bool`
 
 HasDefaultBillingProvider returns a boolean if a field has been set.
+
+### GetDeploymentConfiguration
+
+`func (o *UpdateProductTierRequest) GetDeploymentConfiguration() ProductTierDeploymentConfiguration`
+
+GetDeploymentConfiguration returns the DeploymentConfiguration field if non-nil, zero value otherwise.
+
+### GetDeploymentConfigurationOk
+
+`func (o *UpdateProductTierRequest) GetDeploymentConfigurationOk() (*ProductTierDeploymentConfiguration, bool)`
+
+GetDeploymentConfigurationOk returns a tuple with the DeploymentConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeploymentConfiguration
+
+`func (o *UpdateProductTierRequest) SetDeploymentConfiguration(v ProductTierDeploymentConfiguration)`
+
+SetDeploymentConfiguration sets DeploymentConfiguration field to given value.
+
+### HasDeploymentConfiguration
+
+`func (o *UpdateProductTierRequest) HasDeploymentConfiguration() bool`
+
+HasDeploymentConfiguration returns a boolean if a field has been set.
 
 ### GetDescription
 

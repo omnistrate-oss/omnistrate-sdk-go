@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **NetworkInstances** | Pointer to [**[]CustomNetworkInstance**](CustomNetworkInstance.md) | List of network instances created within this custom network | [optional] 
 **OwningUserId** | Pointer to **string** | ID of a User | [optional] 
 **OwningUserName** | Pointer to **string** | The name of the user that created and owns the custom network | [optional] 
+**Status** | Pointer to **string** | The status of an operation | [optional] 
 
 ## Methods
 
@@ -268,6 +269,31 @@ SetOwningUserName sets OwningUserName field to given value.
 `func (o *CustomNetwork) HasOwningUserName() bool`
 
 HasOwningUserName returns a boolean if a field has been set.
+
+### GetStatus
+
+`func (o *CustomNetwork) GetStatus() string`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *CustomNetwork) GetStatusOk() (*string, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *CustomNetwork) SetStatus(v string)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *CustomNetwork) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

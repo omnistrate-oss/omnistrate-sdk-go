@@ -144,4 +144,3 @@ func (v *NullableUpdateCustomNetworkRequest2) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
-

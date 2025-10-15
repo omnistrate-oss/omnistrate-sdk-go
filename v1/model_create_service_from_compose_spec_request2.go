@@ -315,4 +315,3 @@ func (v *NullableCreateServiceFromComposeSpecRequest2) UnmarshalJSON(src []byte)
 	return json.Unmarshal(src, &v.value)
 }
 
-
