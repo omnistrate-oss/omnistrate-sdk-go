@@ -173,3 +173,4 @@ func (v *NullableUpdateServiceModelRequest2) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
+

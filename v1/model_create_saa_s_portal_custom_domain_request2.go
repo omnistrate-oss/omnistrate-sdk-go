@@ -256,3 +256,4 @@ func (v *NullableCreateSaaSPortalCustomDomainRequest2) UnmarshalJSON(src []byte)
 	return json.Unmarshal(src, &v.value)
 }
 
+

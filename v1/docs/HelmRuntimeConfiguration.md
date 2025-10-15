@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DisableHooks** | Pointer to **bool** | Disable Helm hooks | [optional] 
+**DisableReconciliation** | Pointer to **bool** | Flag to disable drift reconciliation for the Helm package | [optional] 
 **Recreate** | Pointer to **bool** | Recreate the Helm package if it already exists | [optional] 
 **ResetThenReuseValues** | Pointer to **bool** | Reset then reuse values for the Helm package before applying | [optional] 
 **ResetValues** | Pointer to **bool** | Reset values for the Helm package before applying | [optional] 
@@ -58,6 +59,31 @@ SetDisableHooks sets DisableHooks field to given value.
 `func (o *HelmRuntimeConfiguration) HasDisableHooks() bool`
 
 HasDisableHooks returns a boolean if a field has been set.
+
+### GetDisableReconciliation
+
+`func (o *HelmRuntimeConfiguration) GetDisableReconciliation() bool`
+
+GetDisableReconciliation returns the DisableReconciliation field if non-nil, zero value otherwise.
+
+### GetDisableReconciliationOk
+
+`func (o *HelmRuntimeConfiguration) GetDisableReconciliationOk() (*bool, bool)`
+
+GetDisableReconciliationOk returns a tuple with the DisableReconciliation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisableReconciliation
+
+`func (o *HelmRuntimeConfiguration) SetDisableReconciliation(v bool)`
+
+SetDisableReconciliation sets DisableReconciliation field to given value.
+
+### HasDisableReconciliation
+
+`func (o *HelmRuntimeConfiguration) HasDisableReconciliation() bool`
+
+HasDisableReconciliation returns a boolean if a field has been set.
 
 ### GetRecreate
 

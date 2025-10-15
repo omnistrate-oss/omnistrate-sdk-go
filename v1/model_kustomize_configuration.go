@@ -20,6 +20,8 @@ var _ MappedNullable = &KustomizeConfiguration{}
 
 // KustomizeConfiguration struct for KustomizeConfiguration
 type KustomizeConfiguration struct {
+	// Flag to disable drift reconciliation for the Kustomize deployment
+	DisableReconciliation *bool `json:"disableReconciliation,omitempty"`
 	// The endpoints from the Kustomize Deployment to expose to the customer
 	EndpointConfiguration *map[string]Endpoint `json:"endpointConfiguration,omitempty"`
 	GitConfiguration *GitConfiguration `json:"gitConfiguration,omitempty"`
@@ -48,6 +50,29 @@ func NewKustomizeConfiguration(kustomizePath string) *KustomizeConfiguration {
 func NewKustomizeConfigurationWithDefaults() *KustomizeConfiguration {
 	this := KustomizeConfiguration{}
 	return &this
+}
+
+// GetDisableReconciliation returns the DisableReconciliation field value if set, zero value otherwise.
+func (o *KustomizeConfiguration) GetDisableReconciliation() bool {
+	if o == nil || IsNil(o.DisableReconciliation) {
+		var ret bool
+		return ret
+	}
+	return *o.DisableReconciliation
+}
+
+// GetDisableReconciliationOk returns a tuple with the DisableReconciliation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *KustomizeConfiguration) GetDisableReconciliationOk() (*bool, bool) {
+	if o == nil || IsNil(o.DisableReconciliation) {
+		return nil, false
+	}
+	return o.DisableReconciliation, true
+}
+
+// SetDisableReconciliation gets a reference to the given bool and assigns it to the DisableReconciliation field.
+func (o *KustomizeConfiguration) SetDisableReconciliation(v bool) {
+	o.DisableReconciliation = &v
 }
 
 // GetEndpointConfiguration returns the EndpointConfiguration field value if set, zero value otherwise.
@@ -153,6 +178,9 @@ func (o KustomizeConfiguration) MarshalJSON() ([]byte, error) {
 
 func (o KustomizeConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.DisableReconciliation) {
+		toSerialize["disableReconciliation"] = o.DisableReconciliation
+	}
 	if !IsNil(o.EndpointConfiguration) {
 		toSerialize["endpointConfiguration"] = o.EndpointConfiguration
 	}
@@ -206,6 +234,7 @@ func (o *KustomizeConfiguration) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "disableReconciliation")
 		delete(additionalProperties, "endpointConfiguration")
 		delete(additionalProperties, "gitConfiguration")
 		delete(additionalProperties, "helmChartDependencies")
@@ -251,4 +280,5 @@ func (v *NullableKustomizeConfiguration) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

@@ -166,3 +166,4 @@ func (v *NullableCustomerLoginWithIdentityProviderResult) UnmarshalJSON(src []by
 	return json.Unmarshal(src, &v.value)
 }
 
+

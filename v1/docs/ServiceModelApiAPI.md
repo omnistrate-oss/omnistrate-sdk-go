@@ -40,7 +40,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this model belongs to
 	id := "sm-12345678" // string | The service model ID
-	addAccountConfigToServiceModelRequest2 := *openapiclient.NewAddAccountConfigToServiceModelRequest2("Voluptates at ipsam sint adipisci esse voluptatibus.") // AddAccountConfigToServiceModelRequest2 | 
+	addAccountConfigToServiceModelRequest2 := *openapiclient.NewAddAccountConfigToServiceModelRequest2("Voluptatem quasi architecto quis.") // AddAccountConfigToServiceModelRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -183,7 +183,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The service this model is for
-	createServiceModelRequest2 := *openapiclient.NewCreateServiceModelRequest2("A MySQL Hosted SaaS specializing in multi-writer clusters for high availability", "OMNISTRATE_HOSTED|CUSTOMER_HOSTED|BYOA", "MySQL multi-writer service hosted model", "Sit et porro.") // CreateServiceModelRequest2 | 
+	createServiceModelRequest2 := *openapiclient.NewCreateServiceModelRequest2("A MySQL Hosted SaaS specializing in multi-writer clusters for high availability", "OMNISTRATE_HOSTED|CUSTOMER_HOSTED|BYOA", "MySQL multi-writer service hosted model", "Rerum dolorem sequi iure error perferendis in.") // CreateServiceModelRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -678,7 +678,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this model belongs to
 	id := "sm-12345678" // string | The service model ID
-	removeAccountConfigFromServiceModelRequest2 := *openapiclient.NewRemoveAccountConfigFromServiceModelRequest2("Nam illum harum.") // RemoveAccountConfigFromServiceModelRequest2 | 
+	removeAccountConfigFromServiceModelRequest2 := *openapiclient.NewRemoveAccountConfigFromServiceModelRequest2("Blanditiis doloribus.") // RemoveAccountConfigFromServiceModelRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

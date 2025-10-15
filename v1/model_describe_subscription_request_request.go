@@ -196,3 +196,4 @@ func (v *NullableDescribeSubscriptionRequestRequest) UnmarshalJSON(src []byte) e
 	return json.Unmarshal(src, &v.value)
 }
 
+

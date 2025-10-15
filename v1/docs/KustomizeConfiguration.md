@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**DisableReconciliation** | Pointer to **bool** | Flag to disable drift reconciliation for the Kustomize deployment | [optional] 
 **EndpointConfiguration** | Pointer to [**map[string]Endpoint**](Endpoint.md) | The endpoints from the Kustomize Deployment to expose to the customer | [optional] 
 **GitConfiguration** | Pointer to [**GitConfiguration**](GitConfiguration.md) |  | [optional] 
 **HelmChartDependencies** | Pointer to [**[]OperatorHelmChartDependency**](OperatorHelmChartDependency.md) | The helm chart dependencies for the CRD - Optional | [optional] 
@@ -27,6 +28,31 @@ will change when the set of required properties is changed
 NewKustomizeConfigurationWithDefaults instantiates a new KustomizeConfiguration object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetDisableReconciliation
+
+`func (o *KustomizeConfiguration) GetDisableReconciliation() bool`
+
+GetDisableReconciliation returns the DisableReconciliation field if non-nil, zero value otherwise.
+
+### GetDisableReconciliationOk
+
+`func (o *KustomizeConfiguration) GetDisableReconciliationOk() (*bool, bool)`
+
+GetDisableReconciliationOk returns a tuple with the DisableReconciliation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisableReconciliation
+
+`func (o *KustomizeConfiguration) SetDisableReconciliation(v bool)`
+
+SetDisableReconciliation sets DisableReconciliation field to given value.
+
+### HasDisableReconciliation
+
+`func (o *KustomizeConfiguration) HasDisableReconciliation() bool`
+
+HasDisableReconciliation returns a boolean if a field has been set.
 
 ### GetEndpointConfiguration
 

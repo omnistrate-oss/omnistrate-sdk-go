@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Images** | [**[]ContainerImage**](ContainerImage.md) | The list of container images to copy from source to target | 
-**PullSource** | [**ContainerImagesRegistry**](ContainerImagesRegistry.md) |  | 
-**PushTarget** | [**ContainerImagesRegistry**](ContainerImagesRegistry.md) |  | 
+**Images** | Pointer to [**[]ContainerImage**](ContainerImage.md) | The list of container images to copy from source to target | [optional] 
+**PullSource** | Pointer to [**ContainerImagesRegistry**](ContainerImagesRegistry.md) |  | [optional] 
+**PushTarget** | Pointer to [**ContainerImagesRegistry**](ContainerImagesRegistry.md) |  | [optional] 
 
 ## Methods
 
 ### NewContainerImagesRegistryCopyConfiguration
 
-`func NewContainerImagesRegistryCopyConfiguration(images []ContainerImage, pullSource ContainerImagesRegistry, pushTarget ContainerImagesRegistry, ) *ContainerImagesRegistryCopyConfiguration`
+`func NewContainerImagesRegistryCopyConfiguration() *ContainerImagesRegistryCopyConfiguration`
 
 NewContainerImagesRegistryCopyConfiguration instantiates a new ContainerImagesRegistryCopyConfiguration object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetImages sets Images field to given value.
 
+### HasImages
+
+`func (o *ContainerImagesRegistryCopyConfiguration) HasImages() bool`
+
+HasImages returns a boolean if a field has been set.
 
 ### GetPullSource
 
@@ -66,6 +71,11 @@ and a boolean to check if the value has been set.
 
 SetPullSource sets PullSource field to given value.
 
+### HasPullSource
+
+`func (o *ContainerImagesRegistryCopyConfiguration) HasPullSource() bool`
+
+HasPullSource returns a boolean if a field has been set.
 
 ### GetPushTarget
 
@@ -86,6 +96,11 @@ and a boolean to check if the value has been set.
 
 SetPushTarget sets PushTarget field to given value.
 
+### HasPushTarget
+
+`func (o *ContainerImagesRegistryCopyConfiguration) HasPushTarget() bool`
+
+HasPushTarget returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

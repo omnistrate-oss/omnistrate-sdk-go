@@ -1206,3 +1206,4 @@ func (v *NullableServiceOffering) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
+

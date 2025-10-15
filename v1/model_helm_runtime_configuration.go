@@ -21,6 +21,8 @@ var _ MappedNullable = &HelmRuntimeConfiguration{}
 type HelmRuntimeConfiguration struct {
 	// Disable Helm hooks
 	DisableHooks *bool `json:"disableHooks,omitempty"`
+	// Flag to disable drift reconciliation for the Helm package
+	DisableReconciliation *bool `json:"disableReconciliation,omitempty"`
 	// Recreate the Helm package if it already exists
 	Recreate *bool `json:"recreate,omitempty"`
 	// Reset then reuse values for the Helm package before applying
@@ -82,6 +84,29 @@ func (o *HelmRuntimeConfiguration) GetDisableHooksOk() (*bool, bool) {
 // SetDisableHooks gets a reference to the given bool and assigns it to the DisableHooks field.
 func (o *HelmRuntimeConfiguration) SetDisableHooks(v bool) {
 	o.DisableHooks = &v
+}
+
+// GetDisableReconciliation returns the DisableReconciliation field value if set, zero value otherwise.
+func (o *HelmRuntimeConfiguration) GetDisableReconciliation() bool {
+	if o == nil || IsNil(o.DisableReconciliation) {
+		var ret bool
+		return ret
+	}
+	return *o.DisableReconciliation
+}
+
+// GetDisableReconciliationOk returns a tuple with the DisableReconciliation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HelmRuntimeConfiguration) GetDisableReconciliationOk() (*bool, bool) {
+	if o == nil || IsNil(o.DisableReconciliation) {
+		return nil, false
+	}
+	return o.DisableReconciliation, true
+}
+
+// SetDisableReconciliation gets a reference to the given bool and assigns it to the DisableReconciliation field.
+func (o *HelmRuntimeConfiguration) SetDisableReconciliation(v bool) {
+	o.DisableReconciliation = &v
 }
 
 // GetRecreate returns the Recreate field value if set, zero value otherwise.
@@ -304,6 +329,9 @@ func (o HelmRuntimeConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DisableHooks) {
 		toSerialize["disableHooks"] = o.DisableHooks
 	}
+	if !IsNil(o.DisableReconciliation) {
+		toSerialize["disableReconciliation"] = o.DisableReconciliation
+	}
 	if !IsNil(o.Recreate) {
 		toSerialize["recreate"] = o.Recreate
 	}
@@ -354,6 +382,7 @@ func (o *HelmRuntimeConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "disableHooks")
+		delete(additionalProperties, "disableReconciliation")
 		delete(additionalProperties, "recreate")
 		delete(additionalProperties, "resetThenReuseValues")
 		delete(additionalProperties, "resetValues")
@@ -404,4 +433,5 @@ func (v *NullableHelmRuntimeConfiguration) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 
