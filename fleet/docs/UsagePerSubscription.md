@@ -5,6 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EndTime** | Pointer to **string** | End timestamp of usage | [optional] 
+**EnvironmentID** | Pointer to **string** | ID of a Service Environment | [optional] 
+**EnvironmentName** | Pointer to **string** | The name of the environment the subscription is for | [optional] 
+**EnvironmentType** | Pointer to **string** | The type of the environment the subscription is for | [optional] 
 **OrganizationID** | Pointer to **string** | ID of an Org | [optional] 
 **OrganizationName** | Pointer to **string** | The name of the organization the subscription belongs to | [optional] 
 **ProductTierID** | Pointer to **string** | ID of a Product Tier | [optional] 
@@ -60,6 +63,81 @@ SetEndTime sets EndTime field to given value.
 `func (o *UsagePerSubscription) HasEndTime() bool`
 
 HasEndTime returns a boolean if a field has been set.
+
+### GetEnvironmentID
+
+`func (o *UsagePerSubscription) GetEnvironmentID() string`
+
+GetEnvironmentID returns the EnvironmentID field if non-nil, zero value otherwise.
+
+### GetEnvironmentIDOk
+
+`func (o *UsagePerSubscription) GetEnvironmentIDOk() (*string, bool)`
+
+GetEnvironmentIDOk returns a tuple with the EnvironmentID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnvironmentID
+
+`func (o *UsagePerSubscription) SetEnvironmentID(v string)`
+
+SetEnvironmentID sets EnvironmentID field to given value.
+
+### HasEnvironmentID
+
+`func (o *UsagePerSubscription) HasEnvironmentID() bool`
+
+HasEnvironmentID returns a boolean if a field has been set.
+
+### GetEnvironmentName
+
+`func (o *UsagePerSubscription) GetEnvironmentName() string`
+
+GetEnvironmentName returns the EnvironmentName field if non-nil, zero value otherwise.
+
+### GetEnvironmentNameOk
+
+`func (o *UsagePerSubscription) GetEnvironmentNameOk() (*string, bool)`
+
+GetEnvironmentNameOk returns a tuple with the EnvironmentName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnvironmentName
+
+`func (o *UsagePerSubscription) SetEnvironmentName(v string)`
+
+SetEnvironmentName sets EnvironmentName field to given value.
+
+### HasEnvironmentName
+
+`func (o *UsagePerSubscription) HasEnvironmentName() bool`
+
+HasEnvironmentName returns a boolean if a field has been set.
+
+### GetEnvironmentType
+
+`func (o *UsagePerSubscription) GetEnvironmentType() string`
+
+GetEnvironmentType returns the EnvironmentType field if non-nil, zero value otherwise.
+
+### GetEnvironmentTypeOk
+
+`func (o *UsagePerSubscription) GetEnvironmentTypeOk() (*string, bool)`
+
+GetEnvironmentTypeOk returns a tuple with the EnvironmentType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnvironmentType
+
+`func (o *UsagePerSubscription) SetEnvironmentType(v string)`
+
+SetEnvironmentType sets EnvironmentType field to given value.
+
+### HasEnvironmentType
+
+`func (o *UsagePerSubscription) HasEnvironmentType() bool`
+
+HasEnvironmentType returns a boolean if a field has been set.
 
 ### GetOrganizationID
 

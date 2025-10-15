@@ -21,6 +21,12 @@ var _ MappedNullable = &UsagePerSubscription{}
 type UsagePerSubscription struct {
 	// End timestamp of usage
 	EndTime *string `json:"endTime,omitempty"`
+	// ID of a Service Environment
+	EnvironmentID *string `json:"environmentID,omitempty"`
+	// The name of the environment the subscription is for
+	EnvironmentName *string `json:"environmentName,omitempty"`
+	// The type of the environment the subscription is for
+	EnvironmentType *string `json:"environmentType,omitempty"`
 	// ID of an Org
 	OrganizationID *string `json:"organizationID,omitempty"`
 	// The name of the organization the subscription belongs to
@@ -95,6 +101,102 @@ func (o *UsagePerSubscription) HasEndTime() bool {
 // SetEndTime gets a reference to the given string and assigns it to the EndTime field.
 func (o *UsagePerSubscription) SetEndTime(v string) {
 	o.EndTime = &v
+}
+
+// GetEnvironmentID returns the EnvironmentID field value if set, zero value otherwise.
+func (o *UsagePerSubscription) GetEnvironmentID() string {
+	if o == nil || IsNil(o.EnvironmentID) {
+		var ret string
+		return ret
+	}
+	return *o.EnvironmentID
+}
+
+// GetEnvironmentIDOk returns a tuple with the EnvironmentID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsagePerSubscription) GetEnvironmentIDOk() (*string, bool) {
+	if o == nil || IsNil(o.EnvironmentID) {
+		return nil, false
+	}
+	return o.EnvironmentID, true
+}
+
+// HasEnvironmentID returns a boolean if a field has been set.
+func (o *UsagePerSubscription) HasEnvironmentID() bool {
+	if o != nil && !IsNil(o.EnvironmentID) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnvironmentID gets a reference to the given string and assigns it to the EnvironmentID field.
+func (o *UsagePerSubscription) SetEnvironmentID(v string) {
+	o.EnvironmentID = &v
+}
+
+// GetEnvironmentName returns the EnvironmentName field value if set, zero value otherwise.
+func (o *UsagePerSubscription) GetEnvironmentName() string {
+	if o == nil || IsNil(o.EnvironmentName) {
+		var ret string
+		return ret
+	}
+	return *o.EnvironmentName
+}
+
+// GetEnvironmentNameOk returns a tuple with the EnvironmentName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsagePerSubscription) GetEnvironmentNameOk() (*string, bool) {
+	if o == nil || IsNil(o.EnvironmentName) {
+		return nil, false
+	}
+	return o.EnvironmentName, true
+}
+
+// HasEnvironmentName returns a boolean if a field has been set.
+func (o *UsagePerSubscription) HasEnvironmentName() bool {
+	if o != nil && !IsNil(o.EnvironmentName) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnvironmentName gets a reference to the given string and assigns it to the EnvironmentName field.
+func (o *UsagePerSubscription) SetEnvironmentName(v string) {
+	o.EnvironmentName = &v
+}
+
+// GetEnvironmentType returns the EnvironmentType field value if set, zero value otherwise.
+func (o *UsagePerSubscription) GetEnvironmentType() string {
+	if o == nil || IsNil(o.EnvironmentType) {
+		var ret string
+		return ret
+	}
+	return *o.EnvironmentType
+}
+
+// GetEnvironmentTypeOk returns a tuple with the EnvironmentType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsagePerSubscription) GetEnvironmentTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.EnvironmentType) {
+		return nil, false
+	}
+	return o.EnvironmentType, true
+}
+
+// HasEnvironmentType returns a boolean if a field has been set.
+func (o *UsagePerSubscription) HasEnvironmentType() bool {
+	if o != nil && !IsNil(o.EnvironmentType) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnvironmentType gets a reference to the given string and assigns it to the EnvironmentType field.
+func (o *UsagePerSubscription) SetEnvironmentType(v string) {
+	o.EnvironmentType = &v
 }
 
 // GetOrganizationID returns the OrganizationID field value if set, zero value otherwise.
@@ -462,6 +564,15 @@ func (o UsagePerSubscription) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EndTime) {
 		toSerialize["endTime"] = o.EndTime
 	}
+	if !IsNil(o.EnvironmentID) {
+		toSerialize["environmentID"] = o.EnvironmentID
+	}
+	if !IsNil(o.EnvironmentName) {
+		toSerialize["environmentName"] = o.EnvironmentName
+	}
+	if !IsNil(o.EnvironmentType) {
+		toSerialize["environmentType"] = o.EnvironmentType
+	}
 	if !IsNil(o.OrganizationID) {
 		toSerialize["organizationID"] = o.OrganizationID
 	}
@@ -518,6 +629,9 @@ func (o *UsagePerSubscription) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "endTime")
+		delete(additionalProperties, "environmentID")
+		delete(additionalProperties, "environmentName")
+		delete(additionalProperties, "environmentType")
 		delete(additionalProperties, "organizationID")
 		delete(additionalProperties, "organizationName")
 		delete(additionalProperties, "productTierID")
