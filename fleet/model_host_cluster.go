@@ -30,6 +30,8 @@ type HostCluster struct {
 	Amenities []Amenity `json:"amenities,omitempty"`
 	// Name of the Infra Provider
 	CloudProvider string `json:"cloudProvider"`
+	// The timestamp when the host cluster was created
+	CreatedAt *string `json:"createdAt,omitempty"`
 	// The current number of deployments on the host cluster
 	CurrentNumberOfDeployments int64 `json:"currentNumberOfDeployments"`
 	CustomNetworkDetail *CustomNetworkFleetDetail `json:"customNetworkDetail,omitempty"`
@@ -234,6 +236,38 @@ func (o *HostCluster) GetCloudProviderOk() (*string, bool) {
 // SetCloudProvider sets field value
 func (o *HostCluster) SetCloudProvider(v string) {
 	o.CloudProvider = v
+}
+
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
+func (o *HostCluster) GetCreatedAt() string {
+	if o == nil || IsNil(o.CreatedAt) {
+		var ret string
+		return ret
+	}
+	return *o.CreatedAt
+}
+
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetCreatedAtOk() (*string, bool) {
+	if o == nil || IsNil(o.CreatedAt) {
+		return nil, false
+	}
+	return o.CreatedAt, true
+}
+
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *HostCluster) HasCreatedAt() bool {
+	if o != nil && !IsNil(o.CreatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
+func (o *HostCluster) SetCreatedAt(v string) {
+	o.CreatedAt = &v
 }
 
 // GetCurrentNumberOfDeployments returns the CurrentNumberOfDeployments field value
@@ -823,6 +857,9 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 		toSerialize["amenities"] = o.Amenities
 	}
 	toSerialize["cloudProvider"] = o.CloudProvider
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
 	toSerialize["currentNumberOfDeployments"] = o.CurrentNumberOfDeployments
 	if !IsNil(o.CustomNetworkDetail) {
 		toSerialize["customNetworkDetail"] = o.CustomNetworkDetail
@@ -924,6 +961,7 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "accountID")
 		delete(additionalProperties, "amenities")
 		delete(additionalProperties, "cloudProvider")
+		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "currentNumberOfDeployments")
 		delete(additionalProperties, "customNetworkDetail")
 		delete(additionalProperties, "customerEmail")
