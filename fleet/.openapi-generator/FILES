@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -1280,4 +1281,18 @@ model_workflow_event.go
 model_workflow_failure.go
 model_workflow_search_record.go
 response.go
+test/api_audit_events_api_test.go
+test/api_cost_api_test.go
+test/api_customer_onboardings_api_test.go
+test/api_events_api_test.go
+test/api_fleet_custom_network_api_test.go
+test/api_fleet_workflows_api_test.go
+test/api_helm_package_api_test.go
+test/api_hostcluster_api_test.go
+test/api_inventory_api_test.go
+test/api_invoice_api_test.go
+test/api_notifications_api_test.go
+test/api_operations_api_test.go
+test/api_usage_api_test.go
+test/api_webhooks_api_test.go
 utils.go
