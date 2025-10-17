@@ -26,6 +26,8 @@ type FleetDescribeHostClusterResult struct {
 	AzureSubscriptionID *string `json:"azureSubscriptionID,omitempty"`
 	// Name of the Infra Provider
 	CloudProvider string `json:"cloudProvider"`
+	// The timestamp when the host cluster was created
+	CreatedAt *string `json:"createdAt,omitempty"`
 	// The endpoint to access the dashboard
 	DashboardEndpoint *string `json:"dashboardEndpoint,omitempty"`
 	// The GCP project ID
@@ -150,6 +152,38 @@ func (o *FleetDescribeHostClusterResult) GetCloudProviderOk() (*string, bool) {
 // SetCloudProvider sets field value
 func (o *FleetDescribeHostClusterResult) SetCloudProvider(v string) {
 	o.CloudProvider = v
+}
+
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
+func (o *FleetDescribeHostClusterResult) GetCreatedAt() string {
+	if o == nil || IsNil(o.CreatedAt) {
+		var ret string
+		return ret
+	}
+	return *o.CreatedAt
+}
+
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeHostClusterResult) GetCreatedAtOk() (*string, bool) {
+	if o == nil || IsNil(o.CreatedAt) {
+		return nil, false
+	}
+	return o.CreatedAt, true
+}
+
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *FleetDescribeHostClusterResult) HasCreatedAt() bool {
+	if o != nil && !IsNil(o.CreatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
+func (o *FleetDescribeHostClusterResult) SetCreatedAt(v string) {
+	o.CreatedAt = &v
 }
 
 // GetDashboardEndpoint returns the DashboardEndpoint field value if set, zero value otherwise.
@@ -329,6 +363,9 @@ func (o FleetDescribeHostClusterResult) ToMap() (map[string]interface{}, error) 
 		toSerialize["azureSubscriptionID"] = o.AzureSubscriptionID
 	}
 	toSerialize["cloudProvider"] = o.CloudProvider
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
 	if !IsNil(o.DashboardEndpoint) {
 		toSerialize["dashboardEndpoint"] = o.DashboardEndpoint
 	}
@@ -389,6 +426,7 @@ func (o *FleetDescribeHostClusterResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "awsAccountID")
 		delete(additionalProperties, "azureSubscriptionID")
 		delete(additionalProperties, "cloudProvider")
+		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "dashboardEndpoint")
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "id")

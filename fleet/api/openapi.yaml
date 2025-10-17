@@ -2768,6 +2768,7 @@ paths:
                   Name: Istio
                   Type: HelmChart
                 cloudProvider: aws|azure|gcp|all
+                createdAt: 2021-01-01T00:00:00Z
                 currentNumberOfDeployments: 2
                 customNetworkDetail:
                   cidr: 10.177.0.0/16
@@ -3392,6 +3393,7 @@ paths:
                 - accountConfigId: ac-12345678
                   accountID: "123456789012"
                   cloudProvider: aws
+                  createdAt: 2021-01-01T00:00:00Z
                   currentNumberOfDeployments: 2
                   customerEmail: admin@example.com
                   customerOrganizationName: My Customer Organization
@@ -7807,6 +7809,11 @@ paths:
                   targetResourceName: postgres
                 resourceInstanceResults:
                 - cloudProvider: aws
+                  customTags:
+                  - key: customKey1
+                    value: customValue1
+                  - key: customKey2
+                    value: customValue2
                   description: My proxy.
                   id: i-12345
                   managed: true
@@ -8866,6 +8873,7 @@ paths:
                 awsAccountID: "123456789012"
                 azureSubscriptionID: 0fa05079-dd73-4b88-babc-05537817604a
                 cloudProvider: aws|azure|gcp|all
+                createdAt: 2021-01-01T00:00:00Z
                 dashboardEndpoint: https://dashboard.example.com
                 gcpProjectID: my-project
                 id: Voluptas rerum soluta accusamus doloribus rem rerum.
@@ -9068,6 +9076,7 @@ paths:
                 - awsAccountID: "123456789012"
                   azureSubscriptionID: 0fa05079-dd73-4b88-babc-05537817604a
                   cloudProvider: aws|azure|gcp|all
+                  createdAt: 2021-01-01T00:00:00Z
                   dashboardEndpoint: https://dashboard.example.com
                   gcpProjectID: my-project
                   id: Facilis alias fugiat.
@@ -9077,6 +9086,7 @@ paths:
                 - awsAccountID: "123456789012"
                   azureSubscriptionID: 0fa05079-dd73-4b88-babc-05537817604a
                   cloudProvider: aws|azure|gcp|all
+                  createdAt: 2021-01-01T00:00:00Z
                   dashboardEndpoint: https://dashboard.example.com
                   gcpProjectID: my-project
                   id: Facilis alias fugiat.
@@ -9086,6 +9096,7 @@ paths:
                 - awsAccountID: "123456789012"
                   azureSubscriptionID: 0fa05079-dd73-4b88-babc-05537817604a
                   cloudProvider: aws|azure|gcp|all
+                  createdAt: 2021-01-01T00:00:00Z
                   dashboardEndpoint: https://dashboard.example.com
                   gcpProjectID: my-project
                   id: Facilis alias fugiat.
@@ -33905,6 +33916,7 @@ components:
         awsAccountID: "123456789012"
         azureSubscriptionID: 0fa05079-dd73-4b88-babc-05537817604a
         cloudProvider: aws
+        createdAt: 2021-01-01T00:00:00Z
         dashboardEndpoint: https://dashboard.example.com
         gcpProjectID: my-project
         id: hc-12345678
@@ -33923,6 +33935,10 @@ components:
         cloudProvider:
           description: Name of the Infra Provider
           example: aws|azure|gcp|all
+          type: string
+        createdAt:
+          description: The timestamp when the host cluster was created
+          example: 2021-01-01T00:00:00Z
           type: string
         dashboardEndpoint:
           description: The endpoint to access the dashboard
@@ -36086,6 +36102,7 @@ components:
         - awsAccountID: "123456789012"
           azureSubscriptionID: 0fa05079-dd73-4b88-babc-05537817604a
           cloudProvider: aws
+          createdAt: 2021-01-01T00:00:00Z
           dashboardEndpoint: https://dashboard.example.com
           gcpProjectID: my-project
           id: hc-12345678
@@ -36095,6 +36112,7 @@ components:
         - awsAccountID: "123456789012"
           azureSubscriptionID: 0fa05079-dd73-4b88-babc-05537817604a
           cloudProvider: aws
+          createdAt: 2021-01-01T00:00:00Z
           dashboardEndpoint: https://dashboard.example.com
           gcpProjectID: my-project
           id: hc-12345678
@@ -36104,6 +36122,7 @@ components:
         - awsAccountID: "123456789012"
           azureSubscriptionID: 0fa05079-dd73-4b88-babc-05537817604a
           cloudProvider: aws
+          createdAt: 2021-01-01T00:00:00Z
           dashboardEndpoint: https://dashboard.example.com
           gcpProjectID: my-project
           id: hc-12345678
@@ -36113,6 +36132,7 @@ components:
         - awsAccountID: "123456789012"
           azureSubscriptionID: 0fa05079-dd73-4b88-babc-05537817604a
           cloudProvider: aws
+          createdAt: 2021-01-01T00:00:00Z
           dashboardEndpoint: https://dashboard.example.com
           gcpProjectID: my-project
           id: hc-12345678
@@ -36131,6 +36151,7 @@ components:
           - awsAccountID: "123456789012"
             azureSubscriptionID: 0fa05079-dd73-4b88-babc-05537817604a
             cloudProvider: aws
+            createdAt: 2021-01-01T00:00:00Z
             dashboardEndpoint: https://dashboard.example.com
             gcpProjectID: my-project
             id: hc-12345678
@@ -36140,6 +36161,7 @@ components:
           - awsAccountID: "123456789012"
             azureSubscriptionID: 0fa05079-dd73-4b88-babc-05537817604a
             cloudProvider: aws
+            createdAt: 2021-01-01T00:00:00Z
             dashboardEndpoint: https://dashboard.example.com
             gcpProjectID: my-project
             id: hc-12345678
@@ -36149,6 +36171,7 @@ components:
           - awsAccountID: "123456789012"
             azureSubscriptionID: 0fa05079-dd73-4b88-babc-05537817604a
             cloudProvider: aws
+            createdAt: 2021-01-01T00:00:00Z
             dashboardEndpoint: https://dashboard.example.com
             gcpProjectID: my-project
             id: hc-12345678
@@ -36158,6 +36181,7 @@ components:
           - awsAccountID: "123456789012"
             azureSubscriptionID: 0fa05079-dd73-4b88-babc-05537817604a
             cloudProvider: aws
+            createdAt: 2021-01-01T00:00:00Z
             dashboardEndpoint: https://dashboard.example.com
             gcpProjectID: my-project
             id: hc-12345678
@@ -43889,6 +43913,7 @@ components:
           Name: Istio
           Type: HelmChart
         cloudProvider: aws
+        createdAt: 2021-01-01T00:00:00Z
         currentNumberOfDeployments: 2
         customNetworkDetail:
           cidr: 10.177.0.0/16
@@ -43996,6 +44021,10 @@ components:
         cloudProvider:
           description: Name of the Infra Provider
           example: aws|azure|gcp|all
+          type: string
+        createdAt:
+          description: The timestamp when the host cluster was created
+          example: 2021-01-01T00:00:00Z
           type: string
         currentNumberOfDeployments:
           description: The current number of deployments on the host cluster
@@ -55189,6 +55218,7 @@ components:
         - accountConfigId: ac-12345678
           accountID: "123456789012"
           cloudProvider: aws
+          createdAt: 2021-01-01T00:00:00Z
           currentNumberOfDeployments: 2
           customerEmail: admin@example.com
           customerOrganizationName: My Customer Organization
@@ -55228,6 +55258,7 @@ components:
           - accountConfigId: ac-12345678
             accountID: "123456789012"
             cloudProvider: aws
+            createdAt: 2021-01-01T00:00:00Z
             currentNumberOfDeployments: 2
             customerEmail: admin@example.com
             customerOrganizationName: My Customer Organization
@@ -63003,6 +63034,11 @@ components:
     ResourceInstanceSearchRecord:
       example:
         cloudProvider: aws
+        customTags:
+        - key: customKey1
+          value: customValue1
+        - key: customKey2
+          value: customValue2
         description: The instance is hosted in us-east-2 on aws.
         id: i-12345678
         managed: false
@@ -63034,6 +63070,16 @@ components:
           description: Name of the Infra Provider
           example: aws|azure|gcp|all
           type: string
+        customTags:
+          description: The custom tags associated with the resource instance.
+          example:
+          - key: customKey1
+            value: customValue1
+          - key: customKey2
+            value: customValue2
+          items:
+            $ref: "#/components/schemas/CustomTag"
+          type: array
         description:
           description: The instance description.
           example: The instance is hosted in us-east-2 on aws.
@@ -64261,6 +64307,11 @@ components:
           targetResourceName: postgres
         resourceInstanceResults:
         - cloudProvider: aws
+          customTags:
+          - key: customKey1
+            value: customValue1
+          - key: customKey2
+            value: customValue2
           description: My proxy.
           id: i-12345
           managed: true
@@ -64438,6 +64489,11 @@ components:
           description: The resource instance search results
           example:
           - cloudProvider: aws
+            customTags:
+            - key: customKey1
+              value: customValue1
+            - key: customKey2
+              value: customValue2
             description: My proxy.
             id: i-12345
             managed: true
