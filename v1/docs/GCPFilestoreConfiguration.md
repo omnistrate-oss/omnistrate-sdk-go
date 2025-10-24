@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Capacity** | **string** | The capacity of the GCP filestore in GB | 
+**Capacity** | **string** | The capacity of the GCP filestore in GiB | 
 **MaxIopsPerTb** | Pointer to **int64** | The maximum IOPS per TB for the performance tier | [optional] 
 **Tier** | **string** | The tier of the GCP filestore | 
 

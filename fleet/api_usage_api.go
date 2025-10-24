@@ -16,8 +16,8 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 	"time"
-	"reflect"
 )
 
 
@@ -27,9 +27,10 @@ type UsageApiAPI interface {
 	UsageApiGetCurrentUsage GetCurrentUsage usage-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param subscriptionId The ID of the subscription to get usage for
 	@return ApiUsageApiGetCurrentUsageRequest
 	*/
-	UsageApiGetCurrentUsage(ctx context.Context) ApiUsageApiGetCurrentUsageRequest
+	UsageApiGetCurrentUsage(ctx context.Context, subscriptionId string) ApiUsageApiGetCurrentUsageRequest
 
 	// UsageApiGetCurrentUsageExecute executes the request
 	//  @return FleetGetUsageResult
@@ -39,9 +40,10 @@ type UsageApiAPI interface {
 	UsageApiGetUsagePerDay GetUsagePerDay usage-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param subscriptionId The ID of the subscription to get usage for
 	@return ApiUsageApiGetUsagePerDayRequest
 	*/
-	UsageApiGetUsagePerDay(ctx context.Context) ApiUsageApiGetUsagePerDayRequest
+	UsageApiGetUsagePerDay(ctx context.Context, subscriptionId string) ApiUsageApiGetUsagePerDayRequest
 
 	// UsageApiGetUsagePerDayExecute executes the request
 	//  @return FleetGetUsageResult
@@ -54,12 +56,9 @@ type UsageApiAPIService service
 type ApiUsageApiGetCurrentUsageRequest struct {
 	ctx context.Context
 	ApiService UsageApiAPI
+	subscriptionId string
 	startDate *time.Time
 	endDate *time.Time
-	serviceID *string
-	environmentID *string
-	productTierID *string
-	subscriptionIDs *[]string
 }
 
 // Start date of the usage report
@@ -74,30 +73,6 @@ func (r ApiUsageApiGetCurrentUsageRequest) EndDate(endDate time.Time) ApiUsageAp
 	return r
 }
 
-// Filter usage by service ID
-func (r ApiUsageApiGetCurrentUsageRequest) ServiceID(serviceID string) ApiUsageApiGetCurrentUsageRequest {
-	r.serviceID = &serviceID
-	return r
-}
-
-// Filter usage by environment ID
-func (r ApiUsageApiGetCurrentUsageRequest) EnvironmentID(environmentID string) ApiUsageApiGetCurrentUsageRequest {
-	r.environmentID = &environmentID
-	return r
-}
-
-// Filter usage by product tier ID
-func (r ApiUsageApiGetCurrentUsageRequest) ProductTierID(productTierID string) ApiUsageApiGetCurrentUsageRequest {
-	r.productTierID = &productTierID
-	return r
-}
-
-// Filter usage by subscription IDs
-func (r ApiUsageApiGetCurrentUsageRequest) SubscriptionIDs(subscriptionIDs []string) ApiUsageApiGetCurrentUsageRequest {
-	r.subscriptionIDs = &subscriptionIDs
-	return r
-}
-
 func (r ApiUsageApiGetCurrentUsageRequest) Execute() (*FleetGetUsageResult, *http.Response, error) {
 	return r.ApiService.UsageApiGetCurrentUsageExecute(r)
 }
@@ -106,12 +81,14 @@ func (r ApiUsageApiGetCurrentUsageRequest) Execute() (*FleetGetUsageResult, *htt
 UsageApiGetCurrentUsage GetCurrentUsage usage-api
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param subscriptionId The ID of the subscription to get usage for
  @return ApiUsageApiGetCurrentUsageRequest
 */
-func (a *UsageApiAPIService) UsageApiGetCurrentUsage(ctx context.Context) ApiUsageApiGetCurrentUsageRequest {
+func (a *UsageApiAPIService) UsageApiGetCurrentUsage(ctx context.Context, subscriptionId string) ApiUsageApiGetCurrentUsageRequest {
 	return ApiUsageApiGetCurrentUsageRequest{
 		ApiService: a,
 		ctx: ctx,
+		subscriptionId: subscriptionId,
 	}
 }
 
@@ -130,7 +107,8 @@ func (a *UsageApiAPIService) UsageApiGetCurrentUsageExecute(r ApiUsageApiGetCurr
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2022-09-01-00/fleet/usage"
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/usage/{subscriptionId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"subscriptionId"+"}", url.PathEscape(parameterValueToString(r.subscriptionId, "subscriptionId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -141,26 +119,6 @@ func (a *UsageApiAPIService) UsageApiGetCurrentUsageExecute(r ApiUsageApiGetCurr
 	}
 	if r.endDate != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "endDate", r.endDate, "form", "")
-	}
-	if r.serviceID != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "serviceID", r.serviceID, "form", "")
-	}
-	if r.environmentID != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "environmentID", r.environmentID, "form", "")
-	}
-	if r.productTierID != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "productTierID", r.productTierID, "form", "")
-	}
-	if r.subscriptionIDs != nil {
-		t := *r.subscriptionIDs
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "subscriptionIDs", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "subscriptionIDs", t, "form", "multi")
-		}
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -284,12 +242,9 @@ func (a *UsageApiAPIService) UsageApiGetCurrentUsageExecute(r ApiUsageApiGetCurr
 type ApiUsageApiGetUsagePerDayRequest struct {
 	ctx context.Context
 	ApiService UsageApiAPI
+	subscriptionId string
 	startDate *time.Time
 	endDate *time.Time
-	serviceID *string
-	environmentID *string
-	productTierID *string
-	subscriptionIDs *[]string
 }
 
 // Start date of the usage report
@@ -304,30 +259,6 @@ func (r ApiUsageApiGetUsagePerDayRequest) EndDate(endDate time.Time) ApiUsageApi
 	return r
 }
 
-// Filter usage by service ID
-func (r ApiUsageApiGetUsagePerDayRequest) ServiceID(serviceID string) ApiUsageApiGetUsagePerDayRequest {
-	r.serviceID = &serviceID
-	return r
-}
-
-// Filter usage by environment ID
-func (r ApiUsageApiGetUsagePerDayRequest) EnvironmentID(environmentID string) ApiUsageApiGetUsagePerDayRequest {
-	r.environmentID = &environmentID
-	return r
-}
-
-// Filter usage by product tier ID
-func (r ApiUsageApiGetUsagePerDayRequest) ProductTierID(productTierID string) ApiUsageApiGetUsagePerDayRequest {
-	r.productTierID = &productTierID
-	return r
-}
-
-// Filter usage by subscription IDs
-func (r ApiUsageApiGetUsagePerDayRequest) SubscriptionIDs(subscriptionIDs []string) ApiUsageApiGetUsagePerDayRequest {
-	r.subscriptionIDs = &subscriptionIDs
-	return r
-}
-
 func (r ApiUsageApiGetUsagePerDayRequest) Execute() (*FleetGetUsageResult, *http.Response, error) {
 	return r.ApiService.UsageApiGetUsagePerDayExecute(r)
 }
@@ -336,12 +267,14 @@ func (r ApiUsageApiGetUsagePerDayRequest) Execute() (*FleetGetUsageResult, *http
 UsageApiGetUsagePerDay GetUsagePerDay usage-api
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param subscriptionId The ID of the subscription to get usage for
  @return ApiUsageApiGetUsagePerDayRequest
 */
-func (a *UsageApiAPIService) UsageApiGetUsagePerDay(ctx context.Context) ApiUsageApiGetUsagePerDayRequest {
+func (a *UsageApiAPIService) UsageApiGetUsagePerDay(ctx context.Context, subscriptionId string) ApiUsageApiGetUsagePerDayRequest {
 	return ApiUsageApiGetUsagePerDayRequest{
 		ApiService: a,
 		ctx: ctx,
+		subscriptionId: subscriptionId,
 	}
 }
 
@@ -360,7 +293,8 @@ func (a *UsageApiAPIService) UsageApiGetUsagePerDayExecute(r ApiUsageApiGetUsage
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2022-09-01-00/fleet/usage-per-day"
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/usage-per-day/{subscriptionId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"subscriptionId"+"}", url.PathEscape(parameterValueToString(r.subscriptionId, "subscriptionId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -371,26 +305,6 @@ func (a *UsageApiAPIService) UsageApiGetUsagePerDayExecute(r ApiUsageApiGetUsage
 	}
 	if r.endDate != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "endDate", r.endDate, "form", "")
-	}
-	if r.serviceID != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "serviceID", r.serviceID, "form", "")
-	}
-	if r.environmentID != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "environmentID", r.environmentID, "form", "")
-	}
-	if r.productTierID != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "productTierID", r.productTierID, "form", "")
-	}
-	if r.subscriptionIDs != nil {
-		t := *r.subscriptionIDs
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "subscriptionIDs", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "subscriptionIDs", t, "form", "multi")
-		}
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

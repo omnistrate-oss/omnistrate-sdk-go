@@ -26,7 +26,9 @@ func Test_fleet_UsageApiAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.UsageApiAPI.UsageApiGetCurrentUsage(context.Background()).Execute()
+		var subscriptionId string
+
+		resp, httpRes, err := apiClient.UsageApiAPI.UsageApiGetCurrentUsage(context.Background(), subscriptionId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -38,7 +40,9 @@ func Test_fleet_UsageApiAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.UsageApiAPI.UsageApiGetUsagePerDay(context.Background()).Execute()
+		var subscriptionId string
+
+		resp, httpRes, err := apiClient.UsageApiAPI.UsageApiGetUsagePerDay(context.Background(), subscriptionId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

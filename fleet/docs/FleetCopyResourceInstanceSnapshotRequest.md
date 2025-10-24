@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **EnvironmentId** | **string** | ID of a Service Environment | 
 **InstanceId** | **string** | ID of a Resource Instance | 
 **ServiceId** | **string** | ID of a Service | 
+**SourceSnapshotId** | Pointer to **string** | ID of a Resource Instance Snapshot | [optional] 
 **TargetRegion** | **string** | The target region to copy the snapshot to | 
 **Token** | **string** | JWT token used to perform authorization | 
 
@@ -88,6 +89,31 @@ and a boolean to check if the value has been set.
 
 SetServiceId sets ServiceId field to given value.
 
+
+### GetSourceSnapshotId
+
+`func (o *FleetCopyResourceInstanceSnapshotRequest) GetSourceSnapshotId() string`
+
+GetSourceSnapshotId returns the SourceSnapshotId field if non-nil, zero value otherwise.
+
+### GetSourceSnapshotIdOk
+
+`func (o *FleetCopyResourceInstanceSnapshotRequest) GetSourceSnapshotIdOk() (*string, bool)`
+
+GetSourceSnapshotIdOk returns a tuple with the SourceSnapshotId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceSnapshotId
+
+`func (o *FleetCopyResourceInstanceSnapshotRequest) SetSourceSnapshotId(v string)`
+
+SetSourceSnapshotId sets SourceSnapshotId field to given value.
+
+### HasSourceSnapshotId
+
+`func (o *FleetCopyResourceInstanceSnapshotRequest) HasSourceSnapshotId() bool`
+
+HasSourceSnapshotId returns a boolean if a field has been set.
 
 ### GetTargetRegion
 

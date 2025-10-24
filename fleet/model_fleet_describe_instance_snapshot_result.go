@@ -34,6 +34,8 @@ type FleetDescribeInstanceSnapshotResult struct {
 	ProductTierVersion string `json:"productTierVersion"`
 	// The backup progress. 0-100
 	Progress int64 `json:"progress"`
+	// The region name where the snapshot is stored
+	Region string `json:"region"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// ID of a Resource Instance Snapshot
@@ -51,7 +53,7 @@ type _FleetDescribeInstanceSnapshotResult FleetDescribeInstanceSnapshotResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFleetDescribeInstanceSnapshotResult(completeTime string, createdTime string, encrypted bool, environmentId string, productTierId string, productTierVersion string, progress int64, serviceId string, snapshotId string, sourceInstanceId string, status string) *FleetDescribeInstanceSnapshotResult {
+func NewFleetDescribeInstanceSnapshotResult(completeTime string, createdTime string, encrypted bool, environmentId string, productTierId string, productTierVersion string, progress int64, region string, serviceId string, snapshotId string, sourceInstanceId string, status string) *FleetDescribeInstanceSnapshotResult {
 	this := FleetDescribeInstanceSnapshotResult{}
 	this.CompleteTime = completeTime
 	this.CreatedTime = createdTime
@@ -60,6 +62,7 @@ func NewFleetDescribeInstanceSnapshotResult(completeTime string, createdTime str
 	this.ProductTierId = productTierId
 	this.ProductTierVersion = productTierVersion
 	this.Progress = progress
+	this.Region = region
 	this.ServiceId = serviceId
 	this.SnapshotId = snapshotId
 	this.SourceInstanceId = sourceInstanceId
@@ -243,6 +246,30 @@ func (o *FleetDescribeInstanceSnapshotResult) SetProgress(v int64) {
 	o.Progress = v
 }
 
+// GetRegion returns the Region field value
+func (o *FleetDescribeInstanceSnapshotResult) GetRegion() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Region
+}
+
+// GetRegionOk returns a tuple with the Region field value
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetRegionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Region, true
+}
+
+// SetRegion sets field value
+func (o *FleetDescribeInstanceSnapshotResult) SetRegion(v string) {
+	o.Region = v
+}
+
 // GetServiceId returns the ServiceId field value
 func (o *FleetDescribeInstanceSnapshotResult) GetServiceId() string {
 	if o == nil {
@@ -356,6 +383,7 @@ func (o FleetDescribeInstanceSnapshotResult) ToMap() (map[string]interface{}, er
 	toSerialize["productTierId"] = o.ProductTierId
 	toSerialize["productTierVersion"] = o.ProductTierVersion
 	toSerialize["progress"] = o.Progress
+	toSerialize["region"] = o.Region
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["snapshotId"] = o.SnapshotId
 	toSerialize["sourceInstanceId"] = o.SourceInstanceId
@@ -380,6 +408,7 @@ func (o *FleetDescribeInstanceSnapshotResult) UnmarshalJSON(data []byte) (err er
 		"productTierId",
 		"productTierVersion",
 		"progress",
+		"region",
 		"serviceId",
 		"snapshotId",
 		"sourceInstanceId",
@@ -420,6 +449,7 @@ func (o *FleetDescribeInstanceSnapshotResult) UnmarshalJSON(data []byte) (err er
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "productTierVersion")
 		delete(additionalProperties, "progress")
+		delete(additionalProperties, "region")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "snapshotId")
 		delete(additionalProperties, "sourceInstanceId")

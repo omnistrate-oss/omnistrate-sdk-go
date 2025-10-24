@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **ProductTierId** | Pointer to **string** | ID of a Product Tier | [optional] 
 **ServiceId** | **string** | ID of a Service | 
 **Token** | **string** | JWT token used to perform authorization | 
+**VersionSetDescription** | Pointer to **string** | The description of the version set to release | [optional] 
 **VersionSetName** | Pointer to **string** | The name of the version set to release | [optional] 
 **VersionSetType** | Pointer to **string** | The version-set type of the product-tier. | [optional] 
 
@@ -166,6 +167,31 @@ and a boolean to check if the value has been set.
 
 SetToken sets Token field to given value.
 
+
+### GetVersionSetDescription
+
+`func (o *ReleaseServiceAPIRequest) GetVersionSetDescription() string`
+
+GetVersionSetDescription returns the VersionSetDescription field if non-nil, zero value otherwise.
+
+### GetVersionSetDescriptionOk
+
+`func (o *ReleaseServiceAPIRequest) GetVersionSetDescriptionOk() (*string, bool)`
+
+GetVersionSetDescriptionOk returns a tuple with the VersionSetDescription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersionSetDescription
+
+`func (o *ReleaseServiceAPIRequest) SetVersionSetDescription(v string)`
+
+SetVersionSetDescription sets VersionSetDescription field to given value.
+
+### HasVersionSetDescription
+
+`func (o *ReleaseServiceAPIRequest) HasVersionSetDescription() bool`
+
+HasVersionSetDescription returns a boolean if a field has been set.
 
 ### GetVersionSetName
 

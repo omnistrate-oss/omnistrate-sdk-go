@@ -56,6 +56,14 @@ type DescribeAccountConfigResult struct {
 	Id string `json:"id"`
 	// The name of the account
 	Name string `json:"name"`
+	// The OCI bootstrap shell command
+	OciBootstrapShellCommand *string `json:"ociBootstrapShellCommand,omitempty"`
+	// The OCI disconnect shell command
+	OciDisconnectShellCommand *string `json:"ociDisconnectShellCommand,omitempty"`
+	// The Domain OCID for Oracle Cloud Infrastructure
+	OciDomainID *string `json:"ociDomainID,omitempty"`
+	// The Tenancy OCID for Oracle Cloud Infrastructure
+	OciTenancyID *string `json:"ociTenancyID,omitempty"`
 	// The status of the account configuration
 	Status string `json:"status"`
 	// The status message of the account
@@ -506,6 +514,98 @@ func (o *DescribeAccountConfigResult) SetName(v string) {
 	o.Name = v
 }
 
+// GetOciBootstrapShellCommand returns the OciBootstrapShellCommand field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetOciBootstrapShellCommand() string {
+	if o == nil || IsNil(o.OciBootstrapShellCommand) {
+		var ret string
+		return ret
+	}
+	return *o.OciBootstrapShellCommand
+}
+
+// GetOciBootstrapShellCommandOk returns a tuple with the OciBootstrapShellCommand field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetOciBootstrapShellCommandOk() (*string, bool) {
+	if o == nil || IsNil(o.OciBootstrapShellCommand) {
+		return nil, false
+	}
+	return o.OciBootstrapShellCommand, true
+}
+
+// SetOciBootstrapShellCommand gets a reference to the given string and assigns it to the OciBootstrapShellCommand field.
+func (o *DescribeAccountConfigResult) SetOciBootstrapShellCommand(v string) {
+	o.OciBootstrapShellCommand = &v
+}
+
+// GetOciDisconnectShellCommand returns the OciDisconnectShellCommand field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetOciDisconnectShellCommand() string {
+	if o == nil || IsNil(o.OciDisconnectShellCommand) {
+		var ret string
+		return ret
+	}
+	return *o.OciDisconnectShellCommand
+}
+
+// GetOciDisconnectShellCommandOk returns a tuple with the OciDisconnectShellCommand field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetOciDisconnectShellCommandOk() (*string, bool) {
+	if o == nil || IsNil(o.OciDisconnectShellCommand) {
+		return nil, false
+	}
+	return o.OciDisconnectShellCommand, true
+}
+
+// SetOciDisconnectShellCommand gets a reference to the given string and assigns it to the OciDisconnectShellCommand field.
+func (o *DescribeAccountConfigResult) SetOciDisconnectShellCommand(v string) {
+	o.OciDisconnectShellCommand = &v
+}
+
+// GetOciDomainID returns the OciDomainID field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetOciDomainID() string {
+	if o == nil || IsNil(o.OciDomainID) {
+		var ret string
+		return ret
+	}
+	return *o.OciDomainID
+}
+
+// GetOciDomainIDOk returns a tuple with the OciDomainID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetOciDomainIDOk() (*string, bool) {
+	if o == nil || IsNil(o.OciDomainID) {
+		return nil, false
+	}
+	return o.OciDomainID, true
+}
+
+// SetOciDomainID gets a reference to the given string and assigns it to the OciDomainID field.
+func (o *DescribeAccountConfigResult) SetOciDomainID(v string) {
+	o.OciDomainID = &v
+}
+
+// GetOciTenancyID returns the OciTenancyID field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetOciTenancyID() string {
+	if o == nil || IsNil(o.OciTenancyID) {
+		var ret string
+		return ret
+	}
+	return *o.OciTenancyID
+}
+
+// GetOciTenancyIDOk returns a tuple with the OciTenancyID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetOciTenancyIDOk() (*string, bool) {
+	if o == nil || IsNil(o.OciTenancyID) {
+		return nil, false
+	}
+	return o.OciTenancyID, true
+}
+
+// SetOciTenancyID gets a reference to the given string and assigns it to the OciTenancyID field.
+func (o *DescribeAccountConfigResult) SetOciTenancyID(v string) {
+	o.OciTenancyID = &v
+}
+
 // GetStatus returns the Status field value
 func (o *DescribeAccountConfigResult) GetStatus() string {
 	if o == nil {
@@ -610,6 +710,18 @@ func (o DescribeAccountConfigResult) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
+	if !IsNil(o.OciBootstrapShellCommand) {
+		toSerialize["ociBootstrapShellCommand"] = o.OciBootstrapShellCommand
+	}
+	if !IsNil(o.OciDisconnectShellCommand) {
+		toSerialize["ociDisconnectShellCommand"] = o.OciDisconnectShellCommand
+	}
+	if !IsNil(o.OciDomainID) {
+		toSerialize["ociDomainID"] = o.OciDomainID
+	}
+	if !IsNil(o.OciTenancyID) {
+		toSerialize["ociTenancyID"] = o.OciTenancyID
+	}
 	toSerialize["status"] = o.Status
 	toSerialize["statusMessage"] = o.StatusMessage
 
@@ -678,6 +790,10 @@ func (o *DescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "gcpServiceAccountEmail")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "ociBootstrapShellCommand")
+		delete(additionalProperties, "ociDisconnectShellCommand")
+		delete(additionalProperties, "ociDomainID")
+		delete(additionalProperties, "ociTenancyID")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "statusMessage")
 		o.AdditionalProperties = additionalProperties

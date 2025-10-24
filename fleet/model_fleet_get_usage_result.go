@@ -19,8 +19,7 @@ var _ MappedNullable = &FleetGetUsageResult{}
 
 // FleetGetUsageResult struct for FleetGetUsageResult
 type FleetGetUsageResult struct {
-	// Usage broken down per subscription
-	Subscriptions []UsagePerSubscription `json:"subscriptions,omitempty"`
+	Usage *UsagePerSubscription `json:"usage,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -43,36 +42,36 @@ func NewFleetGetUsageResultWithDefaults() *FleetGetUsageResult {
 	return &this
 }
 
-// GetSubscriptions returns the Subscriptions field value if set, zero value otherwise.
-func (o *FleetGetUsageResult) GetSubscriptions() []UsagePerSubscription {
-	if o == nil || IsNil(o.Subscriptions) {
-		var ret []UsagePerSubscription
+// GetUsage returns the Usage field value if set, zero value otherwise.
+func (o *FleetGetUsageResult) GetUsage() UsagePerSubscription {
+	if o == nil || IsNil(o.Usage) {
+		var ret UsagePerSubscription
 		return ret
 	}
-	return o.Subscriptions
+	return *o.Usage
 }
 
-// GetSubscriptionsOk returns a tuple with the Subscriptions field value if set, nil otherwise
+// GetUsageOk returns a tuple with the Usage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FleetGetUsageResult) GetSubscriptionsOk() ([]UsagePerSubscription, bool) {
-	if o == nil || IsNil(o.Subscriptions) {
+func (o *FleetGetUsageResult) GetUsageOk() (*UsagePerSubscription, bool) {
+	if o == nil || IsNil(o.Usage) {
 		return nil, false
 	}
-	return o.Subscriptions, true
+	return o.Usage, true
 }
 
-// HasSubscriptions returns a boolean if a field has been set.
-func (o *FleetGetUsageResult) HasSubscriptions() bool {
-	if o != nil && !IsNil(o.Subscriptions) {
+// HasUsage returns a boolean if a field has been set.
+func (o *FleetGetUsageResult) HasUsage() bool {
+	if o != nil && !IsNil(o.Usage) {
 		return true
 	}
 
 	return false
 }
 
-// SetSubscriptions gets a reference to the given []UsagePerSubscription and assigns it to the Subscriptions field.
-func (o *FleetGetUsageResult) SetSubscriptions(v []UsagePerSubscription) {
-	o.Subscriptions = v
+// SetUsage gets a reference to the given UsagePerSubscription and assigns it to the Usage field.
+func (o *FleetGetUsageResult) SetUsage(v UsagePerSubscription) {
+	o.Usage = &v
 }
 
 func (o FleetGetUsageResult) MarshalJSON() ([]byte, error) {
@@ -85,8 +84,8 @@ func (o FleetGetUsageResult) MarshalJSON() ([]byte, error) {
 
 func (o FleetGetUsageResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Subscriptions) {
-		toSerialize["subscriptions"] = o.Subscriptions
+	if !IsNil(o.Usage) {
+		toSerialize["usage"] = o.Usage
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -110,7 +109,7 @@ func (o *FleetGetUsageResult) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "subscriptions")
+		delete(additionalProperties, "usage")
 		o.AdditionalProperties = additionalProperties
 	}
 

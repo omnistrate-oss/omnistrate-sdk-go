@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **CreatedTime** | **string** | The snapshot creation time | 
 **Encrypted** | **bool** | Whether the snapshot is encrypted | 
 **Progress** | **int64** | The backup progress. 0-100 | 
+**Region** | Pointer to **string** | The region name where the snapshot is stored | [optional] 
 **SnapshotId** | **string** | ID of a Resource Instance Snapshot | 
 **Status** | **string** | The snapshot status | 
 
@@ -109,6 +110,31 @@ and a boolean to check if the value has been set.
 
 SetProgress sets Progress field to given value.
 
+
+### GetRegion
+
+`func (o *InstanceSnapshot) GetRegion() string`
+
+GetRegion returns the Region field if non-nil, zero value otherwise.
+
+### GetRegionOk
+
+`func (o *InstanceSnapshot) GetRegionOk() (*string, bool)`
+
+GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegion
+
+`func (o *InstanceSnapshot) SetRegion(v string)`
+
+SetRegion sets Region field to given value.
+
+### HasRegion
+
+`func (o *InstanceSnapshot) HasRegion() bool`
+
+HasRegion returns a boolean if a field has been set.
 
 ### GetSnapshotId
 

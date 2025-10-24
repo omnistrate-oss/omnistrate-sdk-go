@@ -20,6 +20,8 @@ var _ MappedNullable = &CopyResourceInstanceSnapshotRequest2{}
 
 // CopyResourceInstanceSnapshotRequest2 struct for CopyResourceInstanceSnapshotRequest2
 type CopyResourceInstanceSnapshotRequest2 struct {
+	// The source snapshot ID
+	SourceSnapshotId *string `json:"sourceSnapshotId,omitempty"`
 	// The target region to copy the snapshot to
 	TargetRegion string `json:"targetRegion"`
 	AdditionalProperties map[string]interface{}
@@ -43,6 +45,29 @@ func NewCopyResourceInstanceSnapshotRequest2(targetRegion string) *CopyResourceI
 func NewCopyResourceInstanceSnapshotRequest2WithDefaults() *CopyResourceInstanceSnapshotRequest2 {
 	this := CopyResourceInstanceSnapshotRequest2{}
 	return &this
+}
+
+// GetSourceSnapshotId returns the SourceSnapshotId field value if set, zero value otherwise.
+func (o *CopyResourceInstanceSnapshotRequest2) GetSourceSnapshotId() string {
+	if o == nil || IsNil(o.SourceSnapshotId) {
+		var ret string
+		return ret
+	}
+	return *o.SourceSnapshotId
+}
+
+// GetSourceSnapshotIdOk returns a tuple with the SourceSnapshotId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CopyResourceInstanceSnapshotRequest2) GetSourceSnapshotIdOk() (*string, bool) {
+	if o == nil || IsNil(o.SourceSnapshotId) {
+		return nil, false
+	}
+	return o.SourceSnapshotId, true
+}
+
+// SetSourceSnapshotId gets a reference to the given string and assigns it to the SourceSnapshotId field.
+func (o *CopyResourceInstanceSnapshotRequest2) SetSourceSnapshotId(v string) {
+	o.SourceSnapshotId = &v
 }
 
 // GetTargetRegion returns the TargetRegion field value
@@ -79,6 +104,9 @@ func (o CopyResourceInstanceSnapshotRequest2) MarshalJSON() ([]byte, error) {
 
 func (o CopyResourceInstanceSnapshotRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.SourceSnapshotId) {
+		toSerialize["sourceSnapshotId"] = o.SourceSnapshotId
+	}
 	toSerialize["targetRegion"] = o.TargetRegion
 
 	for key, value := range o.AdditionalProperties {
@@ -123,6 +151,7 @@ func (o *CopyResourceInstanceSnapshotRequest2) UnmarshalJSON(data []byte) (err e
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "sourceSnapshotId")
 		delete(additionalProperties, "targetRegion")
 		o.AdditionalProperties = additionalProperties
 	}

@@ -26,6 +26,8 @@ type FleetCopyResourceInstanceSnapshotRequest struct {
 	InstanceId string `json:"instanceId"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
+	// ID of a Resource Instance Snapshot
+	SourceSnapshotId *string `json:"sourceSnapshotId,omitempty"`
 	// The target region to copy the snapshot to
 	TargetRegion string `json:"targetRegion"`
 	// JWT token used to perform authorization
@@ -129,6 +131,38 @@ func (o *FleetCopyResourceInstanceSnapshotRequest) SetServiceId(v string) {
 	o.ServiceId = v
 }
 
+// GetSourceSnapshotId returns the SourceSnapshotId field value if set, zero value otherwise.
+func (o *FleetCopyResourceInstanceSnapshotRequest) GetSourceSnapshotId() string {
+	if o == nil || IsNil(o.SourceSnapshotId) {
+		var ret string
+		return ret
+	}
+	return *o.SourceSnapshotId
+}
+
+// GetSourceSnapshotIdOk returns a tuple with the SourceSnapshotId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCopyResourceInstanceSnapshotRequest) GetSourceSnapshotIdOk() (*string, bool) {
+	if o == nil || IsNil(o.SourceSnapshotId) {
+		return nil, false
+	}
+	return o.SourceSnapshotId, true
+}
+
+// HasSourceSnapshotId returns a boolean if a field has been set.
+func (o *FleetCopyResourceInstanceSnapshotRequest) HasSourceSnapshotId() bool {
+	if o != nil && !IsNil(o.SourceSnapshotId) {
+		return true
+	}
+
+	return false
+}
+
+// SetSourceSnapshotId gets a reference to the given string and assigns it to the SourceSnapshotId field.
+func (o *FleetCopyResourceInstanceSnapshotRequest) SetSourceSnapshotId(v string) {
+	o.SourceSnapshotId = &v
+}
+
 // GetTargetRegion returns the TargetRegion field value
 func (o *FleetCopyResourceInstanceSnapshotRequest) GetTargetRegion() string {
 	if o == nil {
@@ -190,6 +224,9 @@ func (o FleetCopyResourceInstanceSnapshotRequest) ToMap() (map[string]interface{
 	toSerialize["environmentId"] = o.EnvironmentId
 	toSerialize["instanceId"] = o.InstanceId
 	toSerialize["serviceId"] = o.ServiceId
+	if !IsNil(o.SourceSnapshotId) {
+		toSerialize["sourceSnapshotId"] = o.SourceSnapshotId
+	}
 	toSerialize["targetRegion"] = o.TargetRegion
 	toSerialize["token"] = o.Token
 
@@ -242,6 +279,7 @@ func (o *FleetCopyResourceInstanceSnapshotRequest) UnmarshalJSON(data []byte) (e
 		delete(additionalProperties, "environmentId")
 		delete(additionalProperties, "instanceId")
 		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "sourceSnapshotId")
 		delete(additionalProperties, "targetRegion")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties

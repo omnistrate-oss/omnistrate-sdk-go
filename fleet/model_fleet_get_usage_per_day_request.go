@@ -23,16 +23,10 @@ var _ MappedNullable = &FleetGetUsagePerDayRequest{}
 type FleetGetUsagePerDayRequest struct {
 	// End time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start.
 	EndDate *time.Time `json:"endDate,omitempty"`
-	// ID of a Service Environment
-	EnvironmentID *string `json:"environmentID,omitempty"`
-	// ID of a Product Tier
-	ProductTierID *string `json:"productTierID,omitempty"`
-	// ID of a Service
-	ServiceID *string `json:"serviceID,omitempty"`
 	// Start time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start.
 	StartDate *time.Time `json:"startDate,omitempty"`
-	// Optionally filter by subscription IDs
-	SubscriptionIDs []string `json:"subscriptionIDs,omitempty"`
+	// ID of a Subscription
+	SubscriptionId string `json:"subscriptionId"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -44,8 +38,9 @@ type _FleetGetUsagePerDayRequest FleetGetUsagePerDayRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFleetGetUsagePerDayRequest(token string) *FleetGetUsagePerDayRequest {
+func NewFleetGetUsagePerDayRequest(subscriptionId string, token string) *FleetGetUsagePerDayRequest {
 	this := FleetGetUsagePerDayRequest{}
+	this.SubscriptionId = subscriptionId
 	this.Token = token
 	return &this
 }
@@ -90,102 +85,6 @@ func (o *FleetGetUsagePerDayRequest) SetEndDate(v time.Time) {
 	o.EndDate = &v
 }
 
-// GetEnvironmentID returns the EnvironmentID field value if set, zero value otherwise.
-func (o *FleetGetUsagePerDayRequest) GetEnvironmentID() string {
-	if o == nil || IsNil(o.EnvironmentID) {
-		var ret string
-		return ret
-	}
-	return *o.EnvironmentID
-}
-
-// GetEnvironmentIDOk returns a tuple with the EnvironmentID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FleetGetUsagePerDayRequest) GetEnvironmentIDOk() (*string, bool) {
-	if o == nil || IsNil(o.EnvironmentID) {
-		return nil, false
-	}
-	return o.EnvironmentID, true
-}
-
-// HasEnvironmentID returns a boolean if a field has been set.
-func (o *FleetGetUsagePerDayRequest) HasEnvironmentID() bool {
-	if o != nil && !IsNil(o.EnvironmentID) {
-		return true
-	}
-
-	return false
-}
-
-// SetEnvironmentID gets a reference to the given string and assigns it to the EnvironmentID field.
-func (o *FleetGetUsagePerDayRequest) SetEnvironmentID(v string) {
-	o.EnvironmentID = &v
-}
-
-// GetProductTierID returns the ProductTierID field value if set, zero value otherwise.
-func (o *FleetGetUsagePerDayRequest) GetProductTierID() string {
-	if o == nil || IsNil(o.ProductTierID) {
-		var ret string
-		return ret
-	}
-	return *o.ProductTierID
-}
-
-// GetProductTierIDOk returns a tuple with the ProductTierID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FleetGetUsagePerDayRequest) GetProductTierIDOk() (*string, bool) {
-	if o == nil || IsNil(o.ProductTierID) {
-		return nil, false
-	}
-	return o.ProductTierID, true
-}
-
-// HasProductTierID returns a boolean if a field has been set.
-func (o *FleetGetUsagePerDayRequest) HasProductTierID() bool {
-	if o != nil && !IsNil(o.ProductTierID) {
-		return true
-	}
-
-	return false
-}
-
-// SetProductTierID gets a reference to the given string and assigns it to the ProductTierID field.
-func (o *FleetGetUsagePerDayRequest) SetProductTierID(v string) {
-	o.ProductTierID = &v
-}
-
-// GetServiceID returns the ServiceID field value if set, zero value otherwise.
-func (o *FleetGetUsagePerDayRequest) GetServiceID() string {
-	if o == nil || IsNil(o.ServiceID) {
-		var ret string
-		return ret
-	}
-	return *o.ServiceID
-}
-
-// GetServiceIDOk returns a tuple with the ServiceID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FleetGetUsagePerDayRequest) GetServiceIDOk() (*string, bool) {
-	if o == nil || IsNil(o.ServiceID) {
-		return nil, false
-	}
-	return o.ServiceID, true
-}
-
-// HasServiceID returns a boolean if a field has been set.
-func (o *FleetGetUsagePerDayRequest) HasServiceID() bool {
-	if o != nil && !IsNil(o.ServiceID) {
-		return true
-	}
-
-	return false
-}
-
-// SetServiceID gets a reference to the given string and assigns it to the ServiceID field.
-func (o *FleetGetUsagePerDayRequest) SetServiceID(v string) {
-	o.ServiceID = &v
-}
-
 // GetStartDate returns the StartDate field value if set, zero value otherwise.
 func (o *FleetGetUsagePerDayRequest) GetStartDate() time.Time {
 	if o == nil || IsNil(o.StartDate) {
@@ -218,36 +117,28 @@ func (o *FleetGetUsagePerDayRequest) SetStartDate(v time.Time) {
 	o.StartDate = &v
 }
 
-// GetSubscriptionIDs returns the SubscriptionIDs field value if set, zero value otherwise.
-func (o *FleetGetUsagePerDayRequest) GetSubscriptionIDs() []string {
-	if o == nil || IsNil(o.SubscriptionIDs) {
-		var ret []string
+// GetSubscriptionId returns the SubscriptionId field value
+func (o *FleetGetUsagePerDayRequest) GetSubscriptionId() string {
+	if o == nil {
+		var ret string
 		return ret
 	}
-	return o.SubscriptionIDs
+
+	return o.SubscriptionId
 }
 
-// GetSubscriptionIDsOk returns a tuple with the SubscriptionIDs field value if set, nil otherwise
+// GetSubscriptionIdOk returns a tuple with the SubscriptionId field value
 // and a boolean to check if the value has been set.
-func (o *FleetGetUsagePerDayRequest) GetSubscriptionIDsOk() ([]string, bool) {
-	if o == nil || IsNil(o.SubscriptionIDs) {
+func (o *FleetGetUsagePerDayRequest) GetSubscriptionIdOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubscriptionIDs, true
+	return &o.SubscriptionId, true
 }
 
-// HasSubscriptionIDs returns a boolean if a field has been set.
-func (o *FleetGetUsagePerDayRequest) HasSubscriptionIDs() bool {
-	if o != nil && !IsNil(o.SubscriptionIDs) {
-		return true
-	}
-
-	return false
-}
-
-// SetSubscriptionIDs gets a reference to the given []string and assigns it to the SubscriptionIDs field.
-func (o *FleetGetUsagePerDayRequest) SetSubscriptionIDs(v []string) {
-	o.SubscriptionIDs = v
+// SetSubscriptionId sets field value
+func (o *FleetGetUsagePerDayRequest) SetSubscriptionId(v string) {
+	o.SubscriptionId = v
 }
 
 // GetToken returns the Token field value
@@ -287,21 +178,10 @@ func (o FleetGetUsagePerDayRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EndDate) {
 		toSerialize["endDate"] = o.EndDate
 	}
-	if !IsNil(o.EnvironmentID) {
-		toSerialize["environmentID"] = o.EnvironmentID
-	}
-	if !IsNil(o.ProductTierID) {
-		toSerialize["productTierID"] = o.ProductTierID
-	}
-	if !IsNil(o.ServiceID) {
-		toSerialize["serviceID"] = o.ServiceID
-	}
 	if !IsNil(o.StartDate) {
 		toSerialize["startDate"] = o.StartDate
 	}
-	if !IsNil(o.SubscriptionIDs) {
-		toSerialize["subscriptionIDs"] = o.SubscriptionIDs
-	}
+	toSerialize["subscriptionId"] = o.SubscriptionId
 	toSerialize["token"] = o.Token
 
 	for key, value := range o.AdditionalProperties {
@@ -316,6 +196,7 @@ func (o *FleetGetUsagePerDayRequest) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"subscriptionId",
 		"token",
 	}
 
@@ -347,11 +228,8 @@ func (o *FleetGetUsagePerDayRequest) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "endDate")
-		delete(additionalProperties, "environmentID")
-		delete(additionalProperties, "productTierID")
-		delete(additionalProperties, "serviceID")
 		delete(additionalProperties, "startDate")
-		delete(additionalProperties, "subscriptionIDs")
+		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

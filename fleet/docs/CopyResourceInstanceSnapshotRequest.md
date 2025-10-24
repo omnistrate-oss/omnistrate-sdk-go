@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **ServiceKey** | **string** | The service name | 
 **ServiceModelKey** | **string** | The service model name | 
 **ServiceProviderId** | **string** | ID of a Service Provider | 
+**SourceSnapshotId** | Pointer to **string** | ID of a Resource Instance Snapshot | [optional] 
 **SubscriptionId** | Pointer to **string** | The subscription ID | [optional] 
 **TargetRegion** | **string** | The target region to copy the snapshot to | 
 **Token** | **string** | JWT token used to perform authorization | 
@@ -194,6 +195,31 @@ and a boolean to check if the value has been set.
 
 SetServiceProviderId sets ServiceProviderId field to given value.
 
+
+### GetSourceSnapshotId
+
+`func (o *CopyResourceInstanceSnapshotRequest) GetSourceSnapshotId() string`
+
+GetSourceSnapshotId returns the SourceSnapshotId field if non-nil, zero value otherwise.
+
+### GetSourceSnapshotIdOk
+
+`func (o *CopyResourceInstanceSnapshotRequest) GetSourceSnapshotIdOk() (*string, bool)`
+
+GetSourceSnapshotIdOk returns a tuple with the SourceSnapshotId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceSnapshotId
+
+`func (o *CopyResourceInstanceSnapshotRequest) SetSourceSnapshotId(v string)`
+
+SetSourceSnapshotId sets SourceSnapshotId field to given value.
+
+### HasSourceSnapshotId
+
+`func (o *CopyResourceInstanceSnapshotRequest) HasSourceSnapshotId() bool`
+
+HasSourceSnapshotId returns a boolean if a field has been set.
 
 ### GetSubscriptionId
 

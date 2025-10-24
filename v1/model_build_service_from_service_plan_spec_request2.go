@@ -38,6 +38,8 @@ type BuildServiceFromServicePlanSpecRequest2 struct {
 	Release *bool `json:"release,omitempty"`
 	// Release the service as preferred
 	ReleaseAsPreferred *bool `json:"releaseAsPreferred,omitempty"`
+	// Release version description
+	ReleaseVersionDescription *string `json:"releaseVersionDescription,omitempty"`
 	// Release version name
 	ReleaseVersionName *string `json:"releaseVersionName,omitempty"`
 	// The logo for the service
@@ -275,6 +277,29 @@ func (o *BuildServiceFromServicePlanSpecRequest2) SetReleaseAsPreferred(v bool) 
 	o.ReleaseAsPreferred = &v
 }
 
+// GetReleaseVersionDescription returns the ReleaseVersionDescription field value if set, zero value otherwise.
+func (o *BuildServiceFromServicePlanSpecRequest2) GetReleaseVersionDescription() string {
+	if o == nil || IsNil(o.ReleaseVersionDescription) {
+		var ret string
+		return ret
+	}
+	return *o.ReleaseVersionDescription
+}
+
+// GetReleaseVersionDescriptionOk returns a tuple with the ReleaseVersionDescription field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BuildServiceFromServicePlanSpecRequest2) GetReleaseVersionDescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.ReleaseVersionDescription) {
+		return nil, false
+	}
+	return o.ReleaseVersionDescription, true
+}
+
+// SetReleaseVersionDescription gets a reference to the given string and assigns it to the ReleaseVersionDescription field.
+func (o *BuildServiceFromServicePlanSpecRequest2) SetReleaseVersionDescription(v string) {
+	o.ReleaseVersionDescription = &v
+}
+
 // GetReleaseVersionName returns the ReleaseVersionName field value if set, zero value otherwise.
 func (o *BuildServiceFromServicePlanSpecRequest2) GetReleaseVersionName() string {
 	if o == nil || IsNil(o.ReleaseVersionName) {
@@ -354,6 +379,9 @@ func (o BuildServiceFromServicePlanSpecRequest2) ToMap() (map[string]interface{}
 	if !IsNil(o.ReleaseAsPreferred) {
 		toSerialize["releaseAsPreferred"] = o.ReleaseAsPreferred
 	}
+	if !IsNil(o.ReleaseVersionDescription) {
+		toSerialize["releaseVersionDescription"] = o.ReleaseVersionDescription
+	}
 	if !IsNil(o.ReleaseVersionName) {
 		toSerialize["releaseVersionName"] = o.ReleaseVersionName
 	}
@@ -413,6 +441,7 @@ func (o *BuildServiceFromServicePlanSpecRequest2) UnmarshalJSON(data []byte) (er
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "release")
 		delete(additionalProperties, "releaseAsPreferred")
+		delete(additionalProperties, "releaseVersionDescription")
 		delete(additionalProperties, "releaseVersionName")
 		delete(additionalProperties, "serviceLogoURL")
 		o.AdditionalProperties = additionalProperties

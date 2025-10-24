@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Subscriptions** | Pointer to [**[]UsagePerSubscription**](UsagePerSubscription.md) | Usage broken down per subscription | [optional] 
+**Usage** | Pointer to [**UsagePerSubscription**](UsagePerSubscription.md) |  | [optional] 
 
 ## Methods
 
@@ -25,30 +25,30 @@ NewFleetGetUsageResultWithDefaults instantiates a new FleetGetUsageResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetSubscriptions
+### GetUsage
 
-`func (o *FleetGetUsageResult) GetSubscriptions() []UsagePerSubscription`
+`func (o *FleetGetUsageResult) GetUsage() UsagePerSubscription`
 
-GetSubscriptions returns the Subscriptions field if non-nil, zero value otherwise.
+GetUsage returns the Usage field if non-nil, zero value otherwise.
 
-### GetSubscriptionsOk
+### GetUsageOk
 
-`func (o *FleetGetUsageResult) GetSubscriptionsOk() (*[]UsagePerSubscription, bool)`
+`func (o *FleetGetUsageResult) GetUsageOk() (*UsagePerSubscription, bool)`
 
-GetSubscriptionsOk returns a tuple with the Subscriptions field if it's non-nil, zero value otherwise
+GetUsageOk returns a tuple with the Usage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSubscriptions
+### SetUsage
 
-`func (o *FleetGetUsageResult) SetSubscriptions(v []UsagePerSubscription)`
+`func (o *FleetGetUsageResult) SetUsage(v UsagePerSubscription)`
 
-SetSubscriptions sets Subscriptions field to given value.
+SetUsage sets Usage field to given value.
 
-### HasSubscriptions
+### HasUsage
 
-`func (o *FleetGetUsageResult) HasSubscriptions() bool`
+`func (o *FleetGetUsageResult) HasUsage() bool`
 
-HasSubscriptions returns a boolean if a field has been set.
+HasUsage returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

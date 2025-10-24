@@ -12,6 +12,7 @@ package v1
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the CopyResourceInstanceSnapshotResponseBody type satisfies the MappedNullable interface at compile time
@@ -20,7 +21,7 @@ var _ MappedNullable = &CopyResourceInstanceSnapshotResponseBody{}
 // CopyResourceInstanceSnapshotResponseBody struct for CopyResourceInstanceSnapshotResponseBody
 type CopyResourceInstanceSnapshotResponseBody struct {
 	// The new snapshot ID created as a result of the copy operation
-	SnapshotId *string `json:"snapshotId,omitempty"`
+	SnapshotId string `json:"snapshotId"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -30,8 +31,9 @@ type _CopyResourceInstanceSnapshotResponseBody CopyResourceInstanceSnapshotRespo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCopyResourceInstanceSnapshotResponseBody() *CopyResourceInstanceSnapshotResponseBody {
+func NewCopyResourceInstanceSnapshotResponseBody(snapshotId string) *CopyResourceInstanceSnapshotResponseBody {
 	this := CopyResourceInstanceSnapshotResponseBody{}
+	this.SnapshotId = snapshotId
 	return &this
 }
 
@@ -43,27 +45,28 @@ func NewCopyResourceInstanceSnapshotResponseBodyWithDefaults() *CopyResourceInst
 	return &this
 }
 
-// GetSnapshotId returns the SnapshotId field value if set, zero value otherwise.
+// GetSnapshotId returns the SnapshotId field value
 func (o *CopyResourceInstanceSnapshotResponseBody) GetSnapshotId() string {
-	if o == nil || IsNil(o.SnapshotId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SnapshotId
+
+	return o.SnapshotId
 }
 
-// GetSnapshotIdOk returns a tuple with the SnapshotId field value if set, nil otherwise
+// GetSnapshotIdOk returns a tuple with the SnapshotId field value
 // and a boolean to check if the value has been set.
 func (o *CopyResourceInstanceSnapshotResponseBody) GetSnapshotIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SnapshotId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SnapshotId, true
+	return &o.SnapshotId, true
 }
 
-// SetSnapshotId gets a reference to the given string and assigns it to the SnapshotId field.
+// SetSnapshotId sets field value
 func (o *CopyResourceInstanceSnapshotResponseBody) SetSnapshotId(v string) {
-	o.SnapshotId = &v
+	o.SnapshotId = v
 }
 
 func (o CopyResourceInstanceSnapshotResponseBody) MarshalJSON() ([]byte, error) {
@@ -76,9 +79,7 @@ func (o CopyResourceInstanceSnapshotResponseBody) MarshalJSON() ([]byte, error) 
 
 func (o CopyResourceInstanceSnapshotResponseBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.SnapshotId) {
-		toSerialize["snapshotId"] = o.SnapshotId
-	}
+	toSerialize["snapshotId"] = o.SnapshotId
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -88,6 +89,27 @@ func (o CopyResourceInstanceSnapshotResponseBody) ToMap() (map[string]interface{
 }
 
 func (o *CopyResourceInstanceSnapshotResponseBody) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"snapshotId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
 	varCopyResourceInstanceSnapshotResponseBody := _CopyResourceInstanceSnapshotResponseBody{}
 
 	err = json.Unmarshal(data, &varCopyResourceInstanceSnapshotResponseBody)

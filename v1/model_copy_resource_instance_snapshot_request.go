@@ -36,6 +36,8 @@ type CopyResourceInstanceSnapshotRequest struct {
 	ServiceModelKey string `json:"serviceModelKey"`
 	// ID of a Service Provider
 	ServiceProviderId string `json:"serviceProviderId"`
+	// ID of a Resource Instance Snapshot
+	SourceSnapshotId *string `json:"sourceSnapshotId,omitempty"`
 	// The subscription ID
 	SubscriptionId *string `json:"subscriptionId,omitempty"`
 	// The target region to copy the snapshot to
@@ -266,6 +268,29 @@ func (o *CopyResourceInstanceSnapshotRequest) SetServiceProviderId(v string) {
 	o.ServiceProviderId = v
 }
 
+// GetSourceSnapshotId returns the SourceSnapshotId field value if set, zero value otherwise.
+func (o *CopyResourceInstanceSnapshotRequest) GetSourceSnapshotId() string {
+	if o == nil || IsNil(o.SourceSnapshotId) {
+		var ret string
+		return ret
+	}
+	return *o.SourceSnapshotId
+}
+
+// GetSourceSnapshotIdOk returns a tuple with the SourceSnapshotId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CopyResourceInstanceSnapshotRequest) GetSourceSnapshotIdOk() (*string, bool) {
+	if o == nil || IsNil(o.SourceSnapshotId) {
+		return nil, false
+	}
+	return o.SourceSnapshotId, true
+}
+
+// SetSourceSnapshotId gets a reference to the given string and assigns it to the SourceSnapshotId field.
+func (o *CopyResourceInstanceSnapshotRequest) SetSourceSnapshotId(v string) {
+	o.SourceSnapshotId = &v
+}
+
 // GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
 func (o *CopyResourceInstanceSnapshotRequest) GetSubscriptionId() string {
 	if o == nil || IsNil(o.SubscriptionId) {
@@ -355,6 +380,9 @@ func (o CopyResourceInstanceSnapshotRequest) ToMap() (map[string]interface{}, er
 	toSerialize["serviceKey"] = o.ServiceKey
 	toSerialize["serviceModelKey"] = o.ServiceModelKey
 	toSerialize["serviceProviderId"] = o.ServiceProviderId
+	if !IsNil(o.SourceSnapshotId) {
+		toSerialize["sourceSnapshotId"] = o.SourceSnapshotId
+	}
 	if !IsNil(o.SubscriptionId) {
 		toSerialize["subscriptionId"] = o.SubscriptionId
 	}
@@ -420,6 +448,7 @@ func (o *CopyResourceInstanceSnapshotRequest) UnmarshalJSON(data []byte) (err er
 		delete(additionalProperties, "serviceKey")
 		delete(additionalProperties, "serviceModelKey")
 		delete(additionalProperties, "serviceProviderId")
+		delete(additionalProperties, "sourceSnapshotId")
 		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "targetRegion")
 		delete(additionalProperties, "token")

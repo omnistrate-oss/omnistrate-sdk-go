@@ -179,7 +179,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "ic-12345678" // string | Infra Config ID to operate on
-	productTierVersion := "Consequatur eaque facere architecto voluptate quo." // string | Product tier version of the infra config to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Vel provident quia voluptas ea quia nemo." // string | Product tier version of the infra config to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the infra config to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()

@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SnapshotId** | Pointer to **string** | The new snapshot ID created as a result of the copy operation | [optional] 
+**SnapshotId** | **string** | The new snapshot ID created as a result of the copy operation | 
 
 ## Methods
 
 ### NewCopyResourceInstanceSnapshotResponseBody
 
-`func NewCopyResourceInstanceSnapshotResponseBody() *CopyResourceInstanceSnapshotResponseBody`
+`func NewCopyResourceInstanceSnapshotResponseBody(snapshotId string, ) *CopyResourceInstanceSnapshotResponseBody`
 
 NewCopyResourceInstanceSnapshotResponseBody instantiates a new CopyResourceInstanceSnapshotResponseBody object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetSnapshotId sets SnapshotId field to given value.
 
-### HasSnapshotId
-
-`func (o *CopyResourceInstanceSnapshotResponseBody) HasSnapshotId() bool`
-
-HasSnapshotId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

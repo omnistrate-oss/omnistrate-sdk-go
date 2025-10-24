@@ -84,6 +84,7 @@ Class | Method | HTTP request | Description
 *AccountConfigApiAPI* | [**AccountConfigApiDescribeAccountConfigByAWSAccountID**](docs/AccountConfigApiAPI.md#accountconfigapidescribeaccountconfigbyawsaccountid) | **Get** /2022-09-01-00/accountconfig/aws/{awsAccountID} | DescribeAccountConfigByAWSAccountID account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiDescribeAccountConfigByAzureSubscriptionID**](docs/AccountConfigApiAPI.md#accountconfigapidescribeaccountconfigbyazuresubscriptionid) | **Get** /2022-09-01-00/accountconfig/azure/{azureSubscriptionID} | DescribeAccountConfigByAzureSubscriptionID account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiDescribeAccountConfigByGCPProjectID**](docs/AccountConfigApiAPI.md#accountconfigapidescribeaccountconfigbygcpprojectid) | **Get** /2022-09-01-00/accountconfig/gcp/{gcpProjectID} | DescribeAccountConfigByGCPProjectID account-config-api
+*AccountConfigApiAPI* | [**AccountConfigApiDescribeAccountConfigByOCITenancyID**](docs/AccountConfigApiAPI.md#accountconfigapidescribeaccountconfigbyocitenancyid) | **Get** /2022-09-01-00/accountconfig/oci/{ociTenancyID} | DescribeAccountConfigByOCITenancyID account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiListAccountConfig**](docs/AccountConfigApiAPI.md#accountconfigapilistaccountconfig) | **Get** /2022-09-01-00/accountconfig/cloudprovider/{cloudProviderName} | ListAccountConfig account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiListBYOAConfig**](docs/AccountConfigApiAPI.md#accountconfigapilistbyoaconfig) | **Get** /2022-09-01-00/accountconfig/byoa | ListBYOAConfig account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiVerifyAccountConfig**](docs/AccountConfigApiAPI.md#accountconfigapiverifyaccountconfig) | **Post** /2022-09-01-00/accountconfig/verify/{id} | VerifyAccountConfig account-config-api
@@ -599,6 +600,8 @@ Class | Method | HTTP request | Description
  - [DescribeAccountConfigByAzureSubscriptionIDResult](docs/DescribeAccountConfigByAzureSubscriptionIDResult.md)
  - [DescribeAccountConfigByGCPProjectIDRequest](docs/DescribeAccountConfigByGCPProjectIDRequest.md)
  - [DescribeAccountConfigByGCPProjectIDResult](docs/DescribeAccountConfigByGCPProjectIDResult.md)
+ - [DescribeAccountConfigByOCITenancyIDRequest](docs/DescribeAccountConfigByOCITenancyIDRequest.md)
+ - [DescribeAccountConfigByOCITenancyIDResult](docs/DescribeAccountConfigByOCITenancyIDResult.md)
  - [DescribeAccountConfigRequest](docs/DescribeAccountConfigRequest.md)
  - [DescribeAccountConfigResult](docs/DescribeAccountConfigResult.md)
  - [DescribeAuditEventRequest](docs/DescribeAuditEventRequest.md)
