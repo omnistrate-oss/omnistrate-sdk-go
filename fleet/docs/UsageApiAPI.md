@@ -4,14 +4,14 @@ All URIs are relative to *https://api.omnistrate.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**UsageApiGetCurrentUsage**](UsageApiAPI.md#UsageApiGetCurrentUsage) | **Get** /2022-09-01-00/fleet/usage | GetCurrentUsage usage-api
-[**UsageApiGetUsagePerDay**](UsageApiAPI.md#UsageApiGetUsagePerDay) | **Get** /2022-09-01-00/fleet/usage-per-day | GetUsagePerDay usage-api
+[**UsageApiGetCurrentUsage**](UsageApiAPI.md#UsageApiGetCurrentUsage) | **Get** /2022-09-01-00/fleet/usage/{subscriptionId} | GetCurrentUsage usage-api
+[**UsageApiGetUsagePerDay**](UsageApiAPI.md#UsageApiGetUsagePerDay) | **Get** /2022-09-01-00/fleet/usage-per-day/{subscriptionId} | GetUsagePerDay usage-api
 
 
 
 ## UsageApiGetCurrentUsage
 
-> FleetGetUsageResult UsageApiGetCurrentUsage(ctx).StartDate(startDate).EndDate(endDate).ServiceID(serviceID).EnvironmentID(environmentID).ProductTierID(productTierID).SubscriptionIDs(subscriptionIDs).Execute()
+> FleetGetUsageResult UsageApiGetCurrentUsage(ctx, subscriptionId).StartDate(startDate).EndDate(endDate).Execute()
 
 GetCurrentUsage usage-api
 
@@ -29,16 +29,13 @@ import (
 )
 
 func main() {
+	subscriptionId := "sub-12345678" // string | The ID of the subscription to get usage for
 	startDate := time.Now() // time.Time | Start date of the usage report (optional)
 	endDate := time.Now() // time.Time | End date of the usage report (optional)
-	serviceID := "s-12345678" // string | Filter usage by service ID (optional)
-	environmentID := "env-12345678" // string | Filter usage by environment ID (optional)
-	productTierID := "pt-12345678" // string | Filter usage by product tier ID (optional)
-	subscriptionIDs := []string{"Ea ut ex unde rerum nihil."} // []string | Filter usage by subscription IDs (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsageApiAPI.UsageApiGetCurrentUsage(context.Background()).StartDate(startDate).EndDate(endDate).ServiceID(serviceID).EnvironmentID(environmentID).ProductTierID(productTierID).SubscriptionIDs(subscriptionIDs).Execute()
+	resp, r, err := apiClient.UsageApiAPI.UsageApiGetCurrentUsage(context.Background(), subscriptionId).StartDate(startDate).EndDate(endDate).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsageApiAPI.UsageApiGetCurrentUsage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -51,6 +48,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**subscriptionId** | **string** | The ID of the subscription to get usage for | 
 
 ### Other Parameters
 
@@ -59,12 +60,9 @@ Other parameters are passed through a pointer to a apiUsageApiGetCurrentUsageReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **startDate** | **time.Time** | Start date of the usage report | 
  **endDate** | **time.Time** | End date of the usage report | 
- **serviceID** | **string** | Filter usage by service ID | 
- **environmentID** | **string** | Filter usage by environment ID | 
- **productTierID** | **string** | Filter usage by product tier ID | 
- **subscriptionIDs** | **[]string** | Filter usage by subscription IDs | 
 
 ### Return type
 
@@ -86,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## UsageApiGetUsagePerDay
 
-> FleetGetUsageResult UsageApiGetUsagePerDay(ctx).StartDate(startDate).EndDate(endDate).ServiceID(serviceID).EnvironmentID(environmentID).ProductTierID(productTierID).SubscriptionIDs(subscriptionIDs).Execute()
+> FleetGetUsageResult UsageApiGetUsagePerDay(ctx, subscriptionId).StartDate(startDate).EndDate(endDate).Execute()
 
 GetUsagePerDay usage-api
 
@@ -104,16 +102,13 @@ import (
 )
 
 func main() {
+	subscriptionId := "sub-12345678" // string | The ID of the subscription to get usage for
 	startDate := time.Now() // time.Time | Start date of the usage report (optional)
 	endDate := time.Now() // time.Time | End date of the usage report (optional)
-	serviceID := "s-12345678" // string | Filter usage by service ID (optional)
-	environmentID := "env-12345678" // string | Filter usage by environment ID (optional)
-	productTierID := "pt-12345678" // string | Filter usage by product tier ID (optional)
-	subscriptionIDs := []string{"Vel qui repudiandae a."} // []string | Filter usage by subscription IDs (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsageApiAPI.UsageApiGetUsagePerDay(context.Background()).StartDate(startDate).EndDate(endDate).ServiceID(serviceID).EnvironmentID(environmentID).ProductTierID(productTierID).SubscriptionIDs(subscriptionIDs).Execute()
+	resp, r, err := apiClient.UsageApiAPI.UsageApiGetUsagePerDay(context.Background(), subscriptionId).StartDate(startDate).EndDate(endDate).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsageApiAPI.UsageApiGetUsagePerDay``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -126,6 +121,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**subscriptionId** | **string** | The ID of the subscription to get usage for | 
 
 ### Other Parameters
 
@@ -134,12 +133,9 @@ Other parameters are passed through a pointer to a apiUsageApiGetUsagePerDayRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **startDate** | **time.Time** | Start date of the usage report | 
  **endDate** | **time.Time** | End date of the usage report | 
- **serviceID** | **string** | Filter usage by service ID | 
- **environmentID** | **string** | Filter usage by environment ID | 
- **productTierID** | **string** | Filter usage by product tier ID | 
- **subscriptionIDs** | **[]string** | Filter usage by subscription IDs | 
 
 ### Return type
 

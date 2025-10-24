@@ -5,18 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EndDate** | Pointer to **time.Time** | End time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start. | [optional] 
-**EnvironmentID** | Pointer to **string** | ID of a Service Environment | [optional] 
-**ProductTierID** | Pointer to **string** | ID of a Product Tier | [optional] 
-**ServiceID** | Pointer to **string** | ID of a Service | [optional] 
 **StartDate** | Pointer to **time.Time** | Start time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start. | [optional] 
-**SubscriptionIDs** | Pointer to **[]string** | Optionally filter by subscription IDs | [optional] 
+**SubscriptionId** | **string** | ID of a Subscription | 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
 
 ### NewFleetGetCurrentUsageRequest
 
-`func NewFleetGetCurrentUsageRequest(token string, ) *FleetGetCurrentUsageRequest`
+`func NewFleetGetCurrentUsageRequest(subscriptionId string, token string, ) *FleetGetCurrentUsageRequest`
 
 NewFleetGetCurrentUsageRequest instantiates a new FleetGetCurrentUsageRequest object
 This constructor will assign default values to properties that have it defined,
@@ -56,81 +53,6 @@ SetEndDate sets EndDate field to given value.
 
 HasEndDate returns a boolean if a field has been set.
 
-### GetEnvironmentID
-
-`func (o *FleetGetCurrentUsageRequest) GetEnvironmentID() string`
-
-GetEnvironmentID returns the EnvironmentID field if non-nil, zero value otherwise.
-
-### GetEnvironmentIDOk
-
-`func (o *FleetGetCurrentUsageRequest) GetEnvironmentIDOk() (*string, bool)`
-
-GetEnvironmentIDOk returns a tuple with the EnvironmentID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnvironmentID
-
-`func (o *FleetGetCurrentUsageRequest) SetEnvironmentID(v string)`
-
-SetEnvironmentID sets EnvironmentID field to given value.
-
-### HasEnvironmentID
-
-`func (o *FleetGetCurrentUsageRequest) HasEnvironmentID() bool`
-
-HasEnvironmentID returns a boolean if a field has been set.
-
-### GetProductTierID
-
-`func (o *FleetGetCurrentUsageRequest) GetProductTierID() string`
-
-GetProductTierID returns the ProductTierID field if non-nil, zero value otherwise.
-
-### GetProductTierIDOk
-
-`func (o *FleetGetCurrentUsageRequest) GetProductTierIDOk() (*string, bool)`
-
-GetProductTierIDOk returns a tuple with the ProductTierID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetProductTierID
-
-`func (o *FleetGetCurrentUsageRequest) SetProductTierID(v string)`
-
-SetProductTierID sets ProductTierID field to given value.
-
-### HasProductTierID
-
-`func (o *FleetGetCurrentUsageRequest) HasProductTierID() bool`
-
-HasProductTierID returns a boolean if a field has been set.
-
-### GetServiceID
-
-`func (o *FleetGetCurrentUsageRequest) GetServiceID() string`
-
-GetServiceID returns the ServiceID field if non-nil, zero value otherwise.
-
-### GetServiceIDOk
-
-`func (o *FleetGetCurrentUsageRequest) GetServiceIDOk() (*string, bool)`
-
-GetServiceIDOk returns a tuple with the ServiceID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetServiceID
-
-`func (o *FleetGetCurrentUsageRequest) SetServiceID(v string)`
-
-SetServiceID sets ServiceID field to given value.
-
-### HasServiceID
-
-`func (o *FleetGetCurrentUsageRequest) HasServiceID() bool`
-
-HasServiceID returns a boolean if a field has been set.
-
 ### GetStartDate
 
 `func (o *FleetGetCurrentUsageRequest) GetStartDate() time.Time`
@@ -156,30 +78,25 @@ SetStartDate sets StartDate field to given value.
 
 HasStartDate returns a boolean if a field has been set.
 
-### GetSubscriptionIDs
+### GetSubscriptionId
 
-`func (o *FleetGetCurrentUsageRequest) GetSubscriptionIDs() []string`
+`func (o *FleetGetCurrentUsageRequest) GetSubscriptionId() string`
 
-GetSubscriptionIDs returns the SubscriptionIDs field if non-nil, zero value otherwise.
+GetSubscriptionId returns the SubscriptionId field if non-nil, zero value otherwise.
 
-### GetSubscriptionIDsOk
+### GetSubscriptionIdOk
 
-`func (o *FleetGetCurrentUsageRequest) GetSubscriptionIDsOk() (*[]string, bool)`
+`func (o *FleetGetCurrentUsageRequest) GetSubscriptionIdOk() (*string, bool)`
 
-GetSubscriptionIDsOk returns a tuple with the SubscriptionIDs field if it's non-nil, zero value otherwise
+GetSubscriptionIdOk returns a tuple with the SubscriptionId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSubscriptionIDs
+### SetSubscriptionId
 
-`func (o *FleetGetCurrentUsageRequest) SetSubscriptionIDs(v []string)`
+`func (o *FleetGetCurrentUsageRequest) SetSubscriptionId(v string)`
 
-SetSubscriptionIDs sets SubscriptionIDs field to given value.
+SetSubscriptionId sets SubscriptionId field to given value.
 
-### HasSubscriptionIDs
-
-`func (o *FleetGetCurrentUsageRequest) HasSubscriptionIDs() bool`
-
-HasSubscriptionIDs returns a boolean if a field has been set.
 
 ### GetToken
 

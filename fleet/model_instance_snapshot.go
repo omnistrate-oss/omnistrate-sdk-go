@@ -28,6 +28,8 @@ type InstanceSnapshot struct {
 	Encrypted bool `json:"encrypted"`
 	// The backup progress. 0-100
 	Progress int64 `json:"progress"`
+	// The region name where the snapshot is stored
+	Region *string `json:"region,omitempty"`
 	// ID of a Resource Instance Snapshot
 	SnapshotId string `json:"snapshotId"`
 	// The snapshot status
@@ -156,6 +158,38 @@ func (o *InstanceSnapshot) SetProgress(v int64) {
 	o.Progress = v
 }
 
+// GetRegion returns the Region field value if set, zero value otherwise.
+func (o *InstanceSnapshot) GetRegion() string {
+	if o == nil || IsNil(o.Region) {
+		var ret string
+		return ret
+	}
+	return *o.Region
+}
+
+// GetRegionOk returns a tuple with the Region field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InstanceSnapshot) GetRegionOk() (*string, bool) {
+	if o == nil || IsNil(o.Region) {
+		return nil, false
+	}
+	return o.Region, true
+}
+
+// HasRegion returns a boolean if a field has been set.
+func (o *InstanceSnapshot) HasRegion() bool {
+	if o != nil && !IsNil(o.Region) {
+		return true
+	}
+
+	return false
+}
+
+// SetRegion gets a reference to the given string and assigns it to the Region field.
+func (o *InstanceSnapshot) SetRegion(v string) {
+	o.Region = &v
+}
+
 // GetSnapshotId returns the SnapshotId field value
 func (o *InstanceSnapshot) GetSnapshotId() string {
 	if o == nil {
@@ -218,6 +252,9 @@ func (o InstanceSnapshot) ToMap() (map[string]interface{}, error) {
 	toSerialize["createdTime"] = o.CreatedTime
 	toSerialize["encrypted"] = o.Encrypted
 	toSerialize["progress"] = o.Progress
+	if !IsNil(o.Region) {
+		toSerialize["region"] = o.Region
+	}
 	toSerialize["snapshotId"] = o.SnapshotId
 	toSerialize["status"] = o.Status
 
@@ -272,6 +309,7 @@ func (o *InstanceSnapshot) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "createdTime")
 		delete(additionalProperties, "encrypted")
 		delete(additionalProperties, "progress")
+		delete(additionalProperties, "region")
 		delete(additionalProperties, "snapshotId")
 		delete(additionalProperties, "status")
 		o.AdditionalProperties = additionalProperties

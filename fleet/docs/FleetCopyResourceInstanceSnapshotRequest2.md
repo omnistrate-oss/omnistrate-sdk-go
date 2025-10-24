@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**SourceSnapshotId** | Pointer to **string** | The source snapshot ID | [optional] 
 **TargetRegion** | **string** | The target region to copy the snapshot to | 
 
 ## Methods
@@ -24,6 +25,31 @@ will change when the set of required properties is changed
 NewFleetCopyResourceInstanceSnapshotRequest2WithDefaults instantiates a new FleetCopyResourceInstanceSnapshotRequest2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetSourceSnapshotId
+
+`func (o *FleetCopyResourceInstanceSnapshotRequest2) GetSourceSnapshotId() string`
+
+GetSourceSnapshotId returns the SourceSnapshotId field if non-nil, zero value otherwise.
+
+### GetSourceSnapshotIdOk
+
+`func (o *FleetCopyResourceInstanceSnapshotRequest2) GetSourceSnapshotIdOk() (*string, bool)`
+
+GetSourceSnapshotIdOk returns a tuple with the SourceSnapshotId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceSnapshotId
+
+`func (o *FleetCopyResourceInstanceSnapshotRequest2) SetSourceSnapshotId(v string)`
+
+SetSourceSnapshotId sets SourceSnapshotId field to given value.
+
+### HasSourceSnapshotId
+
+`func (o *FleetCopyResourceInstanceSnapshotRequest2) HasSourceSnapshotId() bool`
+
+HasSourceSnapshotId returns a boolean if a field has been set.
 
 ### GetTargetRegion
 

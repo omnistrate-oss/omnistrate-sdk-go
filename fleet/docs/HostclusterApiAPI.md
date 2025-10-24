@@ -9,9 +9,12 @@ Method | HTTP request | Description
 [**HostclusterApiDebugHostCluster**](HostclusterApiAPI.md#HostclusterApiDebugHostCluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id}/debug | DebugHostCluster hostcluster-api
 [**HostclusterApiDeleteHostCluster**](HostclusterApiAPI.md#HostclusterApiDeleteHostCluster) | **Delete** /2022-09-01-00/fleet/host-cluster/{id} | DeleteHostCluster hostcluster-api
 [**HostclusterApiDescribeHostCluster**](HostclusterApiAPI.md#HostclusterApiDescribeHostCluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id} | DescribeHostCluster hostcluster-api
+[**HostclusterApiDescribeHostClusterEntity**](HostclusterApiAPI.md#HostclusterApiDescribeHostClusterEntity) | **Get** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/entityType/{entityType}/entityID/{entityID} | DescribeHostClusterEntity hostcluster-api
 [**HostclusterApiGenerateTokenForHostClusterDashboard**](HostclusterApiAPI.md#HostclusterApiGenerateTokenForHostClusterDashboard) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard hostcluster-api
 [**HostclusterApiKubeConfigHostCluster**](HostclusterApiAPI.md#HostclusterApiKubeConfigHostCluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id}/kubeconfig | KubeConfigHostCluster hostcluster-api
+[**HostclusterApiListHostClusterEntities**](HostclusterApiAPI.md#HostclusterApiListHostClusterEntities) | **Get** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/entityType/{entityType} | ListHostClusterEntities hostcluster-api
 [**HostclusterApiListHostClusters**](HostclusterApiAPI.md#HostclusterApiListHostClusters) | **Get** /2022-09-01-00/fleet/host-clusters | ListHostClusters hostcluster-api
+[**HostclusterApiSetNodePoolProperty**](HostclusterApiAPI.md#HostclusterApiSetNodePoolProperty) | **Patch** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/node-pool/{nodePoolName} | SetNodePoolProperty hostcluster-api
 [**HostclusterApiUpdateHostCluster**](HostclusterApiAPI.md#HostclusterApiUpdateHostCluster) | **Patch** /2022-09-01-00/fleet/host-cluster/{id} | UpdateHostCluster hostcluster-api
 
 
@@ -37,7 +40,7 @@ import (
 )
 
 func main() {
-	adoptHostClusterRequest2 := *openapiclient.NewAdoptHostClusterRequest2("aws|azure|gcp|all", "My Adopted Host Cluster", "Omnis quos architecto veniam non dolor eos.", "us-east-1") // AdoptHostClusterRequest2 | 
+	adoptHostClusterRequest2 := *openapiclient.NewAdoptHostClusterRequest2("aws|azure|gcp|all", "My Adopted Host Cluster", "Libero molestias beatae cupiditate aliquam itaque.", "us-east-1") // AdoptHostClusterRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -356,6 +359,82 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## HostclusterApiDescribeHostClusterEntity
+
+> Entity HostclusterApiDescribeHostClusterEntity(ctx, hostClusterID, entityType, entityID).Execute()
+
+DescribeHostClusterEntity hostcluster-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	hostClusterID := "hc-12345abcd" // string | ID of the host cluster to which the entity belongs
+	entityType := "NAMESPACE" // string | Type of the entity (e.g., NAMESPACE, SERVICE, POD, etc.)
+	entityID := "namespace-12345" // string | Unique identifier of the entity to describe
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.HostclusterApiAPI.HostclusterApiDescribeHostClusterEntity(context.Background(), hostClusterID, entityType, entityID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `HostclusterApiAPI.HostclusterApiDescribeHostClusterEntity``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `HostclusterApiDescribeHostClusterEntity`: Entity
+	fmt.Fprintf(os.Stdout, "Response from `HostclusterApiAPI.HostclusterApiDescribeHostClusterEntity`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**hostClusterID** | **string** | ID of the host cluster to which the entity belongs | 
+**entityType** | **string** | Type of the entity (e.g., NAMESPACE, SERVICE, POD, etc.) | 
+**entityID** | **string** | Unique identifier of the entity to describe | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiHostclusterApiDescribeHostClusterEntityRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+### Return type
+
+[**Entity**](Entity.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## HostclusterApiGenerateTokenForHostClusterDashboard
 
 > GenerateTokenForHostClusterDashboardResult HostclusterApiGenerateTokenForHostClusterDashboard(ctx, id).Execute()
@@ -496,6 +575,79 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## HostclusterApiListHostClusterEntities
+
+> ListEntitiesResult HostclusterApiListHostClusterEntities(ctx, hostClusterID, entityType).Execute()
+
+ListHostClusterEntities hostcluster-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	hostClusterID := "hc-12345abcd" // string | ID of the host cluster whose entities are to be listed
+	entityType := "NAMESPACE" // string | Type of entities to list (e.g., NAMESPACE, SERVICE, POD, etc.)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.HostclusterApiAPI.HostclusterApiListHostClusterEntities(context.Background(), hostClusterID, entityType).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `HostclusterApiAPI.HostclusterApiListHostClusterEntities``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `HostclusterApiListHostClusterEntities`: ListEntitiesResult
+	fmt.Fprintf(os.Stdout, "Response from `HostclusterApiAPI.HostclusterApiListHostClusterEntities`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**hostClusterID** | **string** | ID of the host cluster whose entities are to be listed | 
+**entityType** | **string** | Type of entities to list (e.g., NAMESPACE, SERVICE, POD, etc.) | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiHostclusterApiListHostClusterEntitiesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**ListEntitiesResult**](ListEntitiesResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## HostclusterApiListHostClusters
 
 > ListHostClustersResult HostclusterApiListHostClusters(ctx).AccountConfigId(accountConfigId).RegionId(regionId).IncludeProvisionerClusters(includeProvisionerClusters).CustomerEmail(customerEmail).Execute()
@@ -560,6 +712,79 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## HostclusterApiSetNodePoolProperty
+
+> HostclusterApiSetNodePoolProperty(ctx, hostClusterID, nodePoolName).SetNodePoolPropertyRequest2(setNodePoolPropertyRequest2).Execute()
+
+SetNodePoolProperty hostcluster-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	hostClusterID := "hc-12345abcd" // string | ID of the host cluster to which the entity belongs
+	nodePoolName := "nodepool-1" // string | Unique identifier of the node pool to update
+	setNodePoolPropertyRequest2 := *openapiclient.NewSetNodePoolPropertyRequest2(int64(10)) // SetNodePoolPropertyRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.HostclusterApiAPI.HostclusterApiSetNodePoolProperty(context.Background(), hostClusterID, nodePoolName).SetNodePoolPropertyRequest2(setNodePoolPropertyRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `HostclusterApiAPI.HostclusterApiSetNodePoolProperty``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**hostClusterID** | **string** | ID of the host cluster to which the entity belongs | 
+**nodePoolName** | **string** | Unique identifier of the node pool to update | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiHostclusterApiSetNodePoolPropertyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **setNodePoolPropertyRequest2** | [**SetNodePoolPropertyRequest2**](SetNodePoolPropertyRequest2.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

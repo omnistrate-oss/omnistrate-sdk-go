@@ -108,9 +108,12 @@ Class | Method | HTTP request | Description
 *HostclusterApiAPI* | [**HostclusterApiDebugHostCluster**](docs/HostclusterApiAPI.md#hostclusterapidebughostcluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id}/debug | DebugHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiDeleteHostCluster**](docs/HostclusterApiAPI.md#hostclusterapideletehostcluster) | **Delete** /2022-09-01-00/fleet/host-cluster/{id} | DeleteHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiDescribeHostCluster**](docs/HostclusterApiAPI.md#hostclusterapidescribehostcluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id} | DescribeHostCluster hostcluster-api
+*HostclusterApiAPI* | [**HostclusterApiDescribeHostClusterEntity**](docs/HostclusterApiAPI.md#hostclusterapidescribehostclusterentity) | **Get** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/entityType/{entityType}/entityID/{entityID} | DescribeHostClusterEntity hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiGenerateTokenForHostClusterDashboard**](docs/HostclusterApiAPI.md#hostclusterapigeneratetokenforhostclusterdashboard) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiKubeConfigHostCluster**](docs/HostclusterApiAPI.md#hostclusterapikubeconfighostcluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id}/kubeconfig | KubeConfigHostCluster hostcluster-api
+*HostclusterApiAPI* | [**HostclusterApiListHostClusterEntities**](docs/HostclusterApiAPI.md#hostclusterapilisthostclusterentities) | **Get** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/entityType/{entityType} | ListHostClusterEntities hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiListHostClusters**](docs/HostclusterApiAPI.md#hostclusterapilisthostclusters) | **Get** /2022-09-01-00/fleet/host-clusters | ListHostClusters hostcluster-api
+*HostclusterApiAPI* | [**HostclusterApiSetNodePoolProperty**](docs/HostclusterApiAPI.md#hostclusterapisetnodepoolproperty) | **Patch** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/node-pool/{nodePoolName} | SetNodePoolProperty hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiUpdateHostCluster**](docs/HostclusterApiAPI.md#hostclusterapiupdatehostcluster) | **Patch** /2022-09-01-00/fleet/host-cluster/{id} | UpdateHostCluster hostcluster-api
 *InventoryApiAPI* | [**InventoryApiAddCapacityToResourceInstance**](docs/InventoryApiAPI.md#inventoryapiaddcapacitytoresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/add-capacity | AddCapacityToResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiAddCustomDNSToResourceInstance**](docs/InventoryApiAPI.md#inventoryapiaddcustomdnstoresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/{resourceKey}/instance/{instanceId}/custom-dns | AddCustomDNSToResourceInstance inventory-api
@@ -211,8 +214,8 @@ Class | Method | HTTP request | Description
 *OperationsApiAPI* | [**OperationsApiDeploymentCellHealth**](docs/OperationsApiAPI.md#operationsapideploymentcellhealth) | **Get** /2022-09-01-00/fleet/operations/deployment-cell-health | DeploymentCellHealth operations-api
 *OperationsApiAPI* | [**OperationsApiListEvents**](docs/OperationsApiAPI.md#operationsapilistevents) | **Get** /2022-09-01-00/fleet/operations/events | ListEvents operations-api
 *OperationsApiAPI* | [**OperationsApiServiceHealth**](docs/OperationsApiAPI.md#operationsapiservicehealth) | **Get** /2022-09-01-00/fleet/operations/service-health | ServiceHealth operations-api
-*UsageApiAPI* | [**UsageApiGetCurrentUsage**](docs/UsageApiAPI.md#usageapigetcurrentusage) | **Get** /2022-09-01-00/fleet/usage | GetCurrentUsage usage-api
-*UsageApiAPI* | [**UsageApiGetUsagePerDay**](docs/UsageApiAPI.md#usageapigetusageperday) | **Get** /2022-09-01-00/fleet/usage-per-day | GetUsagePerDay usage-api
+*UsageApiAPI* | [**UsageApiGetCurrentUsage**](docs/UsageApiAPI.md#usageapigetcurrentusage) | **Get** /2022-09-01-00/fleet/usage/{subscriptionId} | GetCurrentUsage usage-api
+*UsageApiAPI* | [**UsageApiGetUsagePerDay**](docs/UsageApiAPI.md#usageapigetusageperday) | **Get** /2022-09-01-00/fleet/usage-per-day/{subscriptionId} | GetUsagePerDay usage-api
 *WebhooksApiAPI* | [**WebhooksApiReceiveWebhook**](docs/WebhooksApiAPI.md#webhooksapireceivewebhook) | **Post** /2022-09-01-00/fleet/hooks/{id} | ReceiveWebhook webhooks-api
 
 
@@ -346,6 +349,7 @@ Class | Method | HTTP request | Description
  - [DescribeCustomerOnboardingRequest](docs/DescribeCustomerOnboardingRequest.md)
  - [DescribeDeploymentCellCostRequest](docs/DescribeDeploymentCellCostRequest.md)
  - [DescribeDeploymentCellCostResult](docs/DescribeDeploymentCellCostResult.md)
+ - [DescribeEntityRequest](docs/DescribeEntityRequest.md)
  - [DescribeHostClusterRequest](docs/DescribeHostClusterRequest.md)
  - [DescribeIdentityProviderRequest](docs/DescribeIdentityProviderRequest.md)
  - [DescribeIdentityProviderResult](docs/DescribeIdentityProviderResult.md)
@@ -416,6 +420,7 @@ Class | Method | HTTP request | Description
  - [EnableServiceModelFeatureRequest](docs/EnableServiceModelFeatureRequest.md)
  - [EnableTenantBillingRequest](docs/EnableTenantBillingRequest.md)
  - [EndCustomerEvent](docs/EndCustomerEvent.md)
+ - [Entity](docs/Entity.md)
  - [EntityHealth](docs/EntityHealth.md)
  - [EnvironmentHealthReport](docs/EnvironmentHealthReport.md)
  - [EnvironmentPromotionStatus](docs/EnvironmentPromotionStatus.md)
@@ -635,6 +640,8 @@ Class | Method | HTTP request | Description
  - [ListEligibleInstancesPerUpgradeResult](docs/ListEligibleInstancesPerUpgradeResult.md)
  - [ListEndCustomerEvents](docs/ListEndCustomerEvents.md)
  - [ListEndCustomerEventsResult](docs/ListEndCustomerEventsResult.md)
+ - [ListEntitiesRequest](docs/ListEntitiesRequest.md)
+ - [ListEntitiesResult](docs/ListEntitiesResult.md)
  - [ListFleetResourceInstancesRequest](docs/ListFleetResourceInstancesRequest.md)
  - [ListFleetResourceInstancesResultInternal](docs/ListFleetResourceInstancesResultInternal.md)
  - [ListHelmPackageInstallationsRequest](docs/ListHelmPackageInstallationsRequest.md)
@@ -789,6 +796,8 @@ Class | Method | HTTP request | Description
  - [ServiceSearchRecord](docs/ServiceSearchRecord.md)
  - [ServiceWorkflow](docs/ServiceWorkflow.md)
  - [SetActiveAccountConfigRequest](docs/SetActiveAccountConfigRequest.md)
+ - [SetNodePoolPropertyRequest](docs/SetNodePoolPropertyRequest.md)
+ - [SetNodePoolPropertyRequest2](docs/SetNodePoolPropertyRequest2.md)
  - [SetSecretRequest](docs/SetSecretRequest.md)
  - [SigninRequest](docs/SigninRequest.md)
  - [SigninResult](docs/SigninResult.md)

@@ -20,7 +20,7 @@ var _ MappedNullable = &GCPFilestoreConfiguration{}
 
 // GCPFilestoreConfiguration struct for GCPFilestoreConfiguration
 type GCPFilestoreConfiguration struct {
-	// The capacity of the GCP filestore in GB
+	// The capacity of the GCP filestore in GiB
 	Capacity string `json:"Capacity"`
 	// The maximum IOPS per TB for the performance tier
 	MaxIopsPerTb *int64 `json:"MaxIopsPerTb,omitempty"`

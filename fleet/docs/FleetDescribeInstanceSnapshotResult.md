@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **ProductTierId** | **string** | ID of a Product Tier | 
 **ProductTierVersion** | **string** | The product tier version | 
 **Progress** | **int64** | The backup progress. 0-100 | 
+**Region** | **string** | The region name where the snapshot is stored | 
 **ServiceId** | **string** | ID of a Service | 
 **SnapshotId** | **string** | ID of a Resource Instance Snapshot | 
 **SourceInstanceId** | **string** | ID of a Resource Instance | 
@@ -20,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewFleetDescribeInstanceSnapshotResult
 
-`func NewFleetDescribeInstanceSnapshotResult(completeTime string, createdTime string, encrypted bool, environmentId string, productTierId string, productTierVersion string, progress int64, serviceId string, snapshotId string, sourceInstanceId string, status string, ) *FleetDescribeInstanceSnapshotResult`
+`func NewFleetDescribeInstanceSnapshotResult(completeTime string, createdTime string, encrypted bool, environmentId string, productTierId string, productTierVersion string, progress int64, region string, serviceId string, snapshotId string, sourceInstanceId string, status string, ) *FleetDescribeInstanceSnapshotResult`
 
 NewFleetDescribeInstanceSnapshotResult instantiates a new FleetDescribeInstanceSnapshotResult object
 This constructor will assign default values to properties that have it defined,
@@ -173,6 +174,26 @@ and a boolean to check if the value has been set.
 `func (o *FleetDescribeInstanceSnapshotResult) SetProgress(v int64)`
 
 SetProgress sets Progress field to given value.
+
+
+### GetRegion
+
+`func (o *FleetDescribeInstanceSnapshotResult) GetRegion() string`
+
+GetRegion returns the Region field if non-nil, zero value otherwise.
+
+### GetRegionOk
+
+`func (o *FleetDescribeInstanceSnapshotResult) GetRegionOk() (*string, bool)`
+
+GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegion
+
+`func (o *FleetDescribeInstanceSnapshotResult) SetRegion(v string)`
+
+SetRegion sets Region field to given value.
 
 
 ### GetServiceId

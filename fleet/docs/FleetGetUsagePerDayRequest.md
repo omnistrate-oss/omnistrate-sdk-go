@@ -5,18 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EndDate** | Pointer to **time.Time** | End time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start. | [optional] 
-**EnvironmentID** | Pointer to **string** | ID of a Service Environment | [optional] 
-**ProductTierID** | Pointer to **string** | ID of a Product Tier | [optional] 
-**ServiceID** | Pointer to **string** | ID of a Service | [optional] 
 **StartDate** | Pointer to **time.Time** | Start time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start. | [optional] 
-**SubscriptionIDs** | Pointer to **[]string** | Optionally filter by subscription IDs | [optional] 
+**SubscriptionId** | **string** | ID of a Subscription | 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
 
 ### NewFleetGetUsagePerDayRequest
 
-`func NewFleetGetUsagePerDayRequest(token string, ) *FleetGetUsagePerDayRequest`
+`func NewFleetGetUsagePerDayRequest(subscriptionId string, token string, ) *FleetGetUsagePerDayRequest`
 
 NewFleetGetUsagePerDayRequest instantiates a new FleetGetUsagePerDayRequest object
 This constructor will assign default values to properties that have it defined,
@@ -56,81 +53,6 @@ SetEndDate sets EndDate field to given value.
 
 HasEndDate returns a boolean if a field has been set.
 
-### GetEnvironmentID
-
-`func (o *FleetGetUsagePerDayRequest) GetEnvironmentID() string`
-
-GetEnvironmentID returns the EnvironmentID field if non-nil, zero value otherwise.
-
-### GetEnvironmentIDOk
-
-`func (o *FleetGetUsagePerDayRequest) GetEnvironmentIDOk() (*string, bool)`
-
-GetEnvironmentIDOk returns a tuple with the EnvironmentID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnvironmentID
-
-`func (o *FleetGetUsagePerDayRequest) SetEnvironmentID(v string)`
-
-SetEnvironmentID sets EnvironmentID field to given value.
-
-### HasEnvironmentID
-
-`func (o *FleetGetUsagePerDayRequest) HasEnvironmentID() bool`
-
-HasEnvironmentID returns a boolean if a field has been set.
-
-### GetProductTierID
-
-`func (o *FleetGetUsagePerDayRequest) GetProductTierID() string`
-
-GetProductTierID returns the ProductTierID field if non-nil, zero value otherwise.
-
-### GetProductTierIDOk
-
-`func (o *FleetGetUsagePerDayRequest) GetProductTierIDOk() (*string, bool)`
-
-GetProductTierIDOk returns a tuple with the ProductTierID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetProductTierID
-
-`func (o *FleetGetUsagePerDayRequest) SetProductTierID(v string)`
-
-SetProductTierID sets ProductTierID field to given value.
-
-### HasProductTierID
-
-`func (o *FleetGetUsagePerDayRequest) HasProductTierID() bool`
-
-HasProductTierID returns a boolean if a field has been set.
-
-### GetServiceID
-
-`func (o *FleetGetUsagePerDayRequest) GetServiceID() string`
-
-GetServiceID returns the ServiceID field if non-nil, zero value otherwise.
-
-### GetServiceIDOk
-
-`func (o *FleetGetUsagePerDayRequest) GetServiceIDOk() (*string, bool)`
-
-GetServiceIDOk returns a tuple with the ServiceID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetServiceID
-
-`func (o *FleetGetUsagePerDayRequest) SetServiceID(v string)`
-
-SetServiceID sets ServiceID field to given value.
-
-### HasServiceID
-
-`func (o *FleetGetUsagePerDayRequest) HasServiceID() bool`
-
-HasServiceID returns a boolean if a field has been set.
-
 ### GetStartDate
 
 `func (o *FleetGetUsagePerDayRequest) GetStartDate() time.Time`
@@ -156,30 +78,25 @@ SetStartDate sets StartDate field to given value.
 
 HasStartDate returns a boolean if a field has been set.
 
-### GetSubscriptionIDs
+### GetSubscriptionId
 
-`func (o *FleetGetUsagePerDayRequest) GetSubscriptionIDs() []string`
+`func (o *FleetGetUsagePerDayRequest) GetSubscriptionId() string`
 
-GetSubscriptionIDs returns the SubscriptionIDs field if non-nil, zero value otherwise.
+GetSubscriptionId returns the SubscriptionId field if non-nil, zero value otherwise.
 
-### GetSubscriptionIDsOk
+### GetSubscriptionIdOk
 
-`func (o *FleetGetUsagePerDayRequest) GetSubscriptionIDsOk() (*[]string, bool)`
+`func (o *FleetGetUsagePerDayRequest) GetSubscriptionIdOk() (*string, bool)`
 
-GetSubscriptionIDsOk returns a tuple with the SubscriptionIDs field if it's non-nil, zero value otherwise
+GetSubscriptionIdOk returns a tuple with the SubscriptionId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSubscriptionIDs
+### SetSubscriptionId
 
-`func (o *FleetGetUsagePerDayRequest) SetSubscriptionIDs(v []string)`
+`func (o *FleetGetUsagePerDayRequest) SetSubscriptionId(v string)`
 
-SetSubscriptionIDs sets SubscriptionIDs field to given value.
+SetSubscriptionId sets SubscriptionId field to given value.
 
-### HasSubscriptionIDs
-
-`func (o *FleetGetUsagePerDayRequest) HasSubscriptionIDs() bool`
-
-HasSubscriptionIDs returns a boolean if a field has been set.
 
 ### GetToken
 

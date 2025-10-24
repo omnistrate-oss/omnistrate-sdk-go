@@ -20,6 +20,8 @@ var _ MappedNullable = &FleetCopyResourceInstanceSnapshotRequest2{}
 
 // FleetCopyResourceInstanceSnapshotRequest2 struct for FleetCopyResourceInstanceSnapshotRequest2
 type FleetCopyResourceInstanceSnapshotRequest2 struct {
+	// The source snapshot ID
+	SourceSnapshotId *string `json:"sourceSnapshotId,omitempty"`
 	// The target region to copy the snapshot to
 	TargetRegion string `json:"targetRegion"`
 	AdditionalProperties map[string]interface{}
@@ -43,6 +45,38 @@ func NewFleetCopyResourceInstanceSnapshotRequest2(targetRegion string) *FleetCop
 func NewFleetCopyResourceInstanceSnapshotRequest2WithDefaults() *FleetCopyResourceInstanceSnapshotRequest2 {
 	this := FleetCopyResourceInstanceSnapshotRequest2{}
 	return &this
+}
+
+// GetSourceSnapshotId returns the SourceSnapshotId field value if set, zero value otherwise.
+func (o *FleetCopyResourceInstanceSnapshotRequest2) GetSourceSnapshotId() string {
+	if o == nil || IsNil(o.SourceSnapshotId) {
+		var ret string
+		return ret
+	}
+	return *o.SourceSnapshotId
+}
+
+// GetSourceSnapshotIdOk returns a tuple with the SourceSnapshotId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCopyResourceInstanceSnapshotRequest2) GetSourceSnapshotIdOk() (*string, bool) {
+	if o == nil || IsNil(o.SourceSnapshotId) {
+		return nil, false
+	}
+	return o.SourceSnapshotId, true
+}
+
+// HasSourceSnapshotId returns a boolean if a field has been set.
+func (o *FleetCopyResourceInstanceSnapshotRequest2) HasSourceSnapshotId() bool {
+	if o != nil && !IsNil(o.SourceSnapshotId) {
+		return true
+	}
+
+	return false
+}
+
+// SetSourceSnapshotId gets a reference to the given string and assigns it to the SourceSnapshotId field.
+func (o *FleetCopyResourceInstanceSnapshotRequest2) SetSourceSnapshotId(v string) {
+	o.SourceSnapshotId = &v
 }
 
 // GetTargetRegion returns the TargetRegion field value
@@ -79,6 +113,9 @@ func (o FleetCopyResourceInstanceSnapshotRequest2) MarshalJSON() ([]byte, error)
 
 func (o FleetCopyResourceInstanceSnapshotRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.SourceSnapshotId) {
+		toSerialize["sourceSnapshotId"] = o.SourceSnapshotId
+	}
 	toSerialize["targetRegion"] = o.TargetRegion
 
 	for key, value := range o.AdditionalProperties {
@@ -123,6 +160,7 @@ func (o *FleetCopyResourceInstanceSnapshotRequest2) UnmarshalJSON(data []byte) (
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "sourceSnapshotId")
 		delete(additionalProperties, "targetRegion")
 		o.AdditionalProperties = additionalProperties
 	}
