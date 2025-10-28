@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** | A brief description of the resource | [optional] 
 **Disable** | Pointer to **string** | Allows resource to be disabled. Expression returning true/false can be used as value. Resource is enabled by default, if this property is not set. | [optional] 
 **EnvironmentVariables** | Pointer to [**[]EnvironmentVariable**](EnvironmentVariable.md) | The environment variables that this resource requires | [optional] 
+**FileSystemConfiguration** | Pointer to [**FileSystemConfiguration**](FileSystemConfiguration.md) |  | [optional] 
 **HelmChartConfiguration** | Pointer to [**HelmChartConfiguration**](HelmChartConfiguration.md) |  | [optional] 
 **Id** | **string** | ID of a resource | 
 **ImageConfigId** | Pointer to **string** | ID of an Image Config | [optional] 
@@ -323,6 +324,31 @@ SetEnvironmentVariables sets EnvironmentVariables field to given value.
 `func (o *UpdateResourceRequest) HasEnvironmentVariables() bool`
 
 HasEnvironmentVariables returns a boolean if a field has been set.
+
+### GetFileSystemConfiguration
+
+`func (o *UpdateResourceRequest) GetFileSystemConfiguration() FileSystemConfiguration`
+
+GetFileSystemConfiguration returns the FileSystemConfiguration field if non-nil, zero value otherwise.
+
+### GetFileSystemConfigurationOk
+
+`func (o *UpdateResourceRequest) GetFileSystemConfigurationOk() (*FileSystemConfiguration, bool)`
+
+GetFileSystemConfigurationOk returns a tuple with the FileSystemConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFileSystemConfiguration
+
+`func (o *UpdateResourceRequest) SetFileSystemConfiguration(v FileSystemConfiguration)`
+
+SetFileSystemConfiguration sets FileSystemConfiguration field to given value.
+
+### HasFileSystemConfiguration
+
+`func (o *UpdateResourceRequest) HasFileSystemConfiguration() bool`
+
+HasFileSystemConfiguration returns a boolean if a field has been set.
 
 ### GetHelmChartConfiguration
 

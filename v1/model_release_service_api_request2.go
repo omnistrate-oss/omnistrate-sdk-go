@@ -25,8 +25,6 @@ type ReleaseServiceAPIRequest2 struct {
 	IsPreferred *bool `json:"isPreferred,omitempty"`
 	// The product tier ID
 	ProductTierId *string `json:"productTierId,omitempty"`
-	// The description of the version set to release
-	VersionSetDescription *string `json:"versionSetDescription,omitempty"`
 	// The name of the version set to release
 	VersionSetName *string `json:"versionSetName,omitempty"`
 	// The version-set type of the product-tier.
@@ -130,29 +128,6 @@ func (o *ReleaseServiceAPIRequest2) SetProductTierId(v string) {
 	o.ProductTierId = &v
 }
 
-// GetVersionSetDescription returns the VersionSetDescription field value if set, zero value otherwise.
-func (o *ReleaseServiceAPIRequest2) GetVersionSetDescription() string {
-	if o == nil || IsNil(o.VersionSetDescription) {
-		var ret string
-		return ret
-	}
-	return *o.VersionSetDescription
-}
-
-// GetVersionSetDescriptionOk returns a tuple with the VersionSetDescription field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ReleaseServiceAPIRequest2) GetVersionSetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.VersionSetDescription) {
-		return nil, false
-	}
-	return o.VersionSetDescription, true
-}
-
-// SetVersionSetDescription gets a reference to the given string and assigns it to the VersionSetDescription field.
-func (o *ReleaseServiceAPIRequest2) SetVersionSetDescription(v string) {
-	o.VersionSetDescription = &v
-}
-
 // GetVersionSetName returns the VersionSetName field value if set, zero value otherwise.
 func (o *ReleaseServiceAPIRequest2) GetVersionSetName() string {
 	if o == nil || IsNil(o.VersionSetName) {
@@ -218,9 +193,6 @@ func (o ReleaseServiceAPIRequest2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ProductTierId) {
 		toSerialize["productTierId"] = o.ProductTierId
 	}
-	if !IsNil(o.VersionSetDescription) {
-		toSerialize["versionSetDescription"] = o.VersionSetDescription
-	}
 	if !IsNil(o.VersionSetName) {
 		toSerialize["versionSetName"] = o.VersionSetName
 	}
@@ -252,7 +224,6 @@ func (o *ReleaseServiceAPIRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "dryRun")
 		delete(additionalProperties, "isPreferred")
 		delete(additionalProperties, "productTierId")
-		delete(additionalProperties, "versionSetDescription")
 		delete(additionalProperties, "versionSetName")
 		delete(additionalProperties, "versionSetType")
 		o.AdditionalProperties = additionalProperties

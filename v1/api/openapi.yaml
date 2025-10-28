@@ -8845,6 +8845,7 @@ paths:
                   progress: 100
                   region: us-east-1
                   snapshotId: instance-ss-12345678
+                  snapshotType: ManualSnapshot
                   status: completed
               schema:
                 $ref: "#/components/schemas/ListResourceInstanceSnapshotsResult"
@@ -22958,7 +22959,7 @@ paths:
                     GCPFilestoreConfiguration:
                       Capacity: 1024GiB
                       MaxIopsPerTb: 3000
-                      Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|ZONAL
+                      Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
                   helmChartConfiguration:
                     autoDiscoverImagesTag: omnistrate/images
                     chartName: my-chart
@@ -23283,7 +23284,7 @@ paths:
                     GCPFilestoreConfiguration:
                       Capacity: 1024GiB
                       MaxIopsPerTb: 3000
-                      Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|ZONAL
+                      Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
                   helmChartConfiguration:
                     autoDiscoverImagesTag: omnistrate/images
                     chartName: my-chart
@@ -23608,7 +23609,7 @@ paths:
                     GCPFilestoreConfiguration:
                       Capacity: 1024GiB
                       MaxIopsPerTb: 3000
-                      Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|ZONAL
+                      Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
                   helmChartConfiguration:
                     autoDiscoverImagesTag: omnistrate/images
                     chartName: my-chart
@@ -23966,7 +23967,7 @@ paths:
                 GCPFilestoreConfiguration:
                   Capacity: 1024GiB
                   MaxIopsPerTb: 3000
-                  Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|ZONAL
+                  Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
               helmChartConfiguration:
                 autoDiscoverImagesTag: omnistrate/images
                 chartName: my-chart
@@ -24503,7 +24504,7 @@ paths:
                   GCPFilestoreConfiguration:
                     Capacity: 1024GiB
                     MaxIopsPerTb: 3000
-                    Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|ZONAL
+                    Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
                 helmChartConfiguration:
                   autoDiscoverImagesTag: omnistrate/images
                   chartName: my-chart
@@ -24869,6 +24870,15 @@ paths:
               environmentVariables:
               - key: MYSQL_ROOT_PASSWORD
                 value: password
+              fileSystemConfiguration:
+                EFSFileSystemConfiguration:
+                  PerformanceMode: generalPurpose|maxIO
+                  ProvisionedThroughputInMibps: 125
+                  ThroughputMode: provisioned|bursting|elastic
+                GCPFilestoreConfiguration:
+                  Capacity: 1024GiB
+                  MaxIopsPerTb: 3000
+                  Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
               helmChartConfiguration:
                 autoDiscoverImagesTag: omnistrate/images
                 chartName: my-chart
@@ -28236,7 +28246,6 @@ paths:
               dryRun: false
               isPreferred: true
               productTierId: Alias in vel ut doloremque quasi.
-              versionSetDescription: Initial release of the API
               versionSetName: v1
               versionSetType: Major|Incremental|UserDefined
             schema:
@@ -30014,7 +30023,6 @@ paths:
               name: MySQL multi-writer service
               release: true
               releaseAsPreferred: true
-              releaseVersionDescription: MySQL release version
               releaseVersionName: mysql
               secrets:
                 Laboriosam iste eaque consequuntur architecto minima.: Natus voluptatum.
@@ -30097,7 +30105,6 @@ paths:
               name: MySQL multi-writer service
               release: true
               releaseAsPreferred: true
-              releaseVersionDescription: MySQL release version
               releaseVersionName: mysql
               serviceLogoURL: http://hegmannokeefe.net/cristian
             schema:
@@ -33311,7 +33318,6 @@ components:
         name: MySQL multi-writer service
         release: true
         releaseAsPreferred: true
-        releaseVersionDescription: MySQL release version
         releaseVersionName: mysql
         secrets:
           Laudantium laboriosam minima repudiandae porro ut dolorem.: Facere itaque
@@ -33371,10 +33377,6 @@ components:
           description: Release the service as preferred
           example: true
           type: boolean
-        releaseVersionDescription:
-          description: Release version description
-          example: MySQL release version
-          type: string
         releaseVersionName:
           description: Release version name
           example: mysql
@@ -33416,7 +33418,6 @@ components:
         name: MySQL multi-writer service
         release: true
         releaseAsPreferred: true
-        releaseVersionDescription: MySQL release version
         releaseVersionName: mysql
         secrets:
           Soluta deleniti saepe quos.: Autem qui ab debitis omnis eos praesentium.
@@ -33469,10 +33470,6 @@ components:
           description: Release the service as preferred
           example: true
           type: boolean
-        releaseVersionDescription:
-          description: Release version description
-          example: MySQL release version
-          type: string
         releaseVersionName:
           description: Release version name
           example: mysql
@@ -33548,7 +33545,6 @@ components:
         name: MySQL multi-writer service
         release: true
         releaseAsPreferred: true
-        releaseVersionDescription: MySQL release version
         releaseVersionName: mysql
         serviceLogoURL: http://goyette.name/lenna.becker
         token: fjf
@@ -33592,10 +33588,6 @@ components:
           description: Release the service as preferred
           example: true
           type: boolean
-        releaseVersionDescription:
-          description: Release version description
-          example: MySQL release version
-          type: string
         releaseVersionName:
           description: Release version name
           example: mysql
@@ -33626,7 +33618,6 @@ components:
         name: MySQL multi-writer service
         release: true
         releaseAsPreferred: true
-        releaseVersionDescription: MySQL release version
         releaseVersionName: mysql
         serviceLogoURL: http://bahringer.info/jerod
       properties:
@@ -33669,10 +33660,6 @@ components:
           description: Release the service as preferred
           example: true
           type: boolean
-        releaseVersionDescription:
-          description: Release version description
-          example: MySQL release version
-          type: string
         releaseVersionName:
           description: Release version name
           example: mysql
@@ -37370,7 +37357,7 @@ components:
           GCPFilestoreConfiguration:
             Capacity: 1024GiB
             MaxIopsPerTb: 3000
-            Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|ZONAL
+            Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
         helmChartConfiguration:
           autoDiscoverImagesTag: omnistrate/images
           chartName: my-chart
@@ -37840,7 +37827,7 @@ components:
           GCPFilestoreConfiguration:
             Capacity: 1024GiB
             MaxIopsPerTb: 3000
-            Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|ZONAL
+            Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
         helmChartConfiguration:
           autoDiscoverImagesTag: omnistrate/images
           chartName: my-chart
@@ -45230,7 +45217,7 @@ components:
           GCPFilestoreConfiguration:
             Capacity: 1024GiB
             MaxIopsPerTb: 3000
-            Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|ZONAL
+            Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
         helmChartConfiguration:
           autoDiscoverImagesTag: omnistrate/images
           chartName: my-chart
@@ -48911,7 +48898,7 @@ components:
         GCPFilestoreConfiguration:
           Capacity: 1024GiB
           MaxIopsPerTb: 3000
-          Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|ZONAL
+          Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
       properties:
         EFSFileSystemConfiguration:
           $ref: "#/components/schemas/EFSFileSystemConfiguration"
@@ -48922,7 +48909,7 @@ components:
       example:
         Capacity: 1024GiB
         MaxIopsPerTb: 3000
-        Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|ZONAL
+        Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
       properties:
         Capacity:
           description: The capacity of the GCP filestore in GiB
@@ -48935,7 +48922,7 @@ components:
           type: integer
         Tier:
           description: The tier of the GCP filestore
-          example: BASIC_HDD|BASIC_SSD|ENTERPRISE|ZONAL
+          example: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
           type: string
       required:
       - Capacity
@@ -50610,6 +50597,7 @@ components:
         progress: 99
         region: us-east-1
         snapshotId: instance-ss-12345678
+        snapshotType: AutomatedSnapshot|ManualSnapshot
         status: completed
       properties:
         completeTime:
@@ -50637,6 +50625,10 @@ components:
           description: ID of a Resource Instance Snapshot
           example: Quo exercitationem a optio.
           type: string
+        snapshotType:
+          description: The snapshot type
+          example: AutomatedSnapshot|ManualSnapshot
+          type: string
         status:
           description: The snapshot status
           example: completed
@@ -50646,7 +50638,9 @@ components:
       - createdTime
       - encrypted
       - progress
+      - region
       - snapshotId
+      - snapshotType
       - status
       type: object
     IntegrationsHealth:
@@ -55297,6 +55291,7 @@ components:
           progress: 100
           region: us-east-1
           snapshotId: instance-ss-12345678
+          snapshotType: ManualSnapshot
           status: completed
       properties:
         snapshots:
@@ -55308,6 +55303,7 @@ components:
             progress: 100
             region: us-east-1
             snapshotId: instance-ss-12345678
+            snapshotType: ManualSnapshot
             status: completed
           items:
             $ref: "#/components/schemas/InstanceSnapshot"
@@ -55563,7 +55559,7 @@ components:
             GCPFilestoreConfiguration:
               Capacity: 1024GiB
               MaxIopsPerTb: 3000
-              Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|ZONAL
+              Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
           helmChartConfiguration:
             autoDiscoverImagesTag: omnistrate/images
             chartName: my-chart
@@ -55896,7 +55892,7 @@ components:
             GCPFilestoreConfiguration:
               Capacity: 1024GiB
               MaxIopsPerTb: 3000
-              Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|ZONAL
+              Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
           helmChartConfiguration:
             autoDiscoverImagesTag: omnistrate/images
             chartName: my-chart
@@ -56229,7 +56225,7 @@ components:
             GCPFilestoreConfiguration:
               Capacity: 1024GiB
               MaxIopsPerTb: 3000
-              Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|ZONAL
+              Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
           helmChartConfiguration:
             autoDiscoverImagesTag: omnistrate/images
             chartName: my-chart
@@ -56562,7 +56558,7 @@ components:
             GCPFilestoreConfiguration:
               Capacity: 1024GiB
               MaxIopsPerTb: 3000
-              Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|ZONAL
+              Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
           helmChartConfiguration:
             autoDiscoverImagesTag: omnistrate/images
             chartName: my-chart
@@ -56914,7 +56910,7 @@ components:
               GCPFilestoreConfiguration:
                 Capacity: 1024GiB
                 MaxIopsPerTb: 3000
-                Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|ZONAL
+                Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
             helmChartConfiguration:
               autoDiscoverImagesTag: omnistrate/images
               chartName: my-chart
@@ -57247,7 +57243,7 @@ components:
               GCPFilestoreConfiguration:
                 Capacity: 1024GiB
                 MaxIopsPerTb: 3000
-                Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|ZONAL
+                Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
             helmChartConfiguration:
               autoDiscoverImagesTag: omnistrate/images
               chartName: my-chart
@@ -62331,7 +62327,6 @@ components:
         productTierId: pt-12345678
         serviceId: s-12345678
         token: eh
-        versionSetDescription: Initial release of the API
         versionSetName: v1
         versionSetType: Major|Incremental|UserDefined
       properties:
@@ -62364,10 +62359,6 @@ components:
           example: ek
           minLength: 1
           type: string
-        versionSetDescription:
-          description: The description of the version set to release
-          example: Initial release of the API
-          type: string
         versionSetName:
           description: The name of the version set to release
           example: v1
@@ -62386,7 +62377,6 @@ components:
         dryRun: false
         isPreferred: true
         productTierId: Facere ratione et qui omnis vitae.
-        versionSetDescription: Initial release of the API
         versionSetName: v1
         versionSetType: Major|Incremental|UserDefined
       properties:
@@ -62405,10 +62395,6 @@ components:
         productTierId:
           description: The product tier ID
           example: Sapiente repellendus cumque.
-          type: string
-        versionSetDescription:
-          description: The description of the version set to release
-          example: Initial release of the API
           type: string
         versionSetName:
           description: The name of the version set to release
@@ -68621,6 +68607,15 @@ components:
         environmentVariables:
         - key: MYSQL_ROOT_PASSWORD
           value: password
+        fileSystemConfiguration:
+          EFSFileSystemConfiguration:
+            PerformanceMode: generalPurpose|maxIO
+            ProvisionedThroughputInMibps: 125
+            ThroughputMode: provisioned|bursting|elastic
+          GCPFilestoreConfiguration:
+            Capacity: 1024GiB
+            MaxIopsPerTb: 3000
+            Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
         helmChartConfiguration:
           autoDiscoverImagesTag: omnistrate/images
           chartName: my-chart
@@ -68892,6 +68887,8 @@ components:
           items:
             $ref: "#/components/schemas/EnvironmentVariable"
           type: array
+        fileSystemConfiguration:
+          $ref: "#/components/schemas/FileSystemConfiguration"
         helmChartConfiguration:
           $ref: "#/components/schemas/HelmChartConfiguration"
         id:
@@ -69045,6 +69042,15 @@ components:
         environmentVariables:
         - key: MYSQL_ROOT_PASSWORD
           value: password
+        fileSystemConfiguration:
+          EFSFileSystemConfiguration:
+            PerformanceMode: generalPurpose|maxIO
+            ProvisionedThroughputInMibps: 125
+            ThroughputMode: provisioned|bursting|elastic
+          GCPFilestoreConfiguration:
+            Capacity: 1024GiB
+            MaxIopsPerTb: 3000
+            Tier: BASIC_HDD|BASIC_SSD|ENTERPRISE|REGIONAL|ZONAL
         helmChartConfiguration:
           autoDiscoverImagesTag: omnistrate/images
           chartName: my-chart
@@ -69313,6 +69319,8 @@ components:
           items:
             $ref: "#/components/schemas/EnvironmentVariable"
           type: array
+        fileSystemConfiguration:
+          $ref: "#/components/schemas/FileSystemConfiguration"
         helmChartConfiguration:
           $ref: "#/components/schemas/HelmChartConfiguration"
         imageConfigId:

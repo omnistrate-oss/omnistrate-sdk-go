@@ -8,15 +8,16 @@ Name | Type | Description | Notes
 **CreatedTime** | **string** | The snapshot creation time | 
 **Encrypted** | **bool** | Whether the snapshot is encrypted | 
 **Progress** | **int64** | The backup progress. 0-100 | 
-**Region** | Pointer to **string** | The region name where the snapshot is stored | [optional] 
+**Region** | **string** | The region name where the snapshot is stored | 
 **SnapshotId** | **string** | ID of a Resource Instance Snapshot | 
+**SnapshotType** | **string** | The snapshot type | 
 **Status** | **string** | The snapshot status | 
 
 ## Methods
 
 ### NewInstanceSnapshot
 
-`func NewInstanceSnapshot(completeTime string, createdTime string, encrypted bool, progress int64, snapshotId string, status string, ) *InstanceSnapshot`
+`func NewInstanceSnapshot(completeTime string, createdTime string, encrypted bool, progress int64, region string, snapshotId string, snapshotType string, status string, ) *InstanceSnapshot`
 
 NewInstanceSnapshot instantiates a new InstanceSnapshot object
 This constructor will assign default values to properties that have it defined,
@@ -130,11 +131,6 @@ and a boolean to check if the value has been set.
 
 SetRegion sets Region field to given value.
 
-### HasRegion
-
-`func (o *InstanceSnapshot) HasRegion() bool`
-
-HasRegion returns a boolean if a field has been set.
 
 ### GetSnapshotId
 
@@ -154,6 +150,26 @@ and a boolean to check if the value has been set.
 `func (o *InstanceSnapshot) SetSnapshotId(v string)`
 
 SetSnapshotId sets SnapshotId field to given value.
+
+
+### GetSnapshotType
+
+`func (o *InstanceSnapshot) GetSnapshotType() string`
+
+GetSnapshotType returns the SnapshotType field if non-nil, zero value otherwise.
+
+### GetSnapshotTypeOk
+
+`func (o *InstanceSnapshot) GetSnapshotTypeOk() (*string, bool)`
+
+GetSnapshotTypeOk returns a tuple with the SnapshotType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSnapshotType
+
+`func (o *InstanceSnapshot) SetSnapshotType(v string)`
+
+SetSnapshotType sets SnapshotType field to given value.
 
 
 ### GetStatus

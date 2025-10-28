@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Region** | **string** | The region name where the snapshot is stored | 
 **ServiceId** | **string** | ID of a Service | 
 **SnapshotId** | **string** | ID of a Resource Instance Snapshot | 
+**SnapshotType** | **string** | The snapshot type | 
 **SourceInstanceId** | **string** | ID of a Resource Instance | 
 **Status** | **string** | The snapshot status | 
 
@@ -21,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewFleetDescribeInstanceSnapshotResult
 
-`func NewFleetDescribeInstanceSnapshotResult(completeTime string, createdTime string, encrypted bool, environmentId string, productTierId string, productTierVersion string, progress int64, region string, serviceId string, snapshotId string, sourceInstanceId string, status string, ) *FleetDescribeInstanceSnapshotResult`
+`func NewFleetDescribeInstanceSnapshotResult(completeTime string, createdTime string, encrypted bool, environmentId string, productTierId string, productTierVersion string, progress int64, region string, serviceId string, snapshotId string, snapshotType string, sourceInstanceId string, status string, ) *FleetDescribeInstanceSnapshotResult`
 
 NewFleetDescribeInstanceSnapshotResult instantiates a new FleetDescribeInstanceSnapshotResult object
 This constructor will assign default values to properties that have it defined,
@@ -234,6 +235,26 @@ and a boolean to check if the value has been set.
 `func (o *FleetDescribeInstanceSnapshotResult) SetSnapshotId(v string)`
 
 SetSnapshotId sets SnapshotId field to given value.
+
+
+### GetSnapshotType
+
+`func (o *FleetDescribeInstanceSnapshotResult) GetSnapshotType() string`
+
+GetSnapshotType returns the SnapshotType field if non-nil, zero value otherwise.
+
+### GetSnapshotTypeOk
+
+`func (o *FleetDescribeInstanceSnapshotResult) GetSnapshotTypeOk() (*string, bool)`
+
+GetSnapshotTypeOk returns a tuple with the SnapshotType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSnapshotType
+
+`func (o *FleetDescribeInstanceSnapshotResult) SetSnapshotType(v string)`
+
+SetSnapshotType sets SnapshotType field to given value.
 
 
 ### GetSourceInstanceId

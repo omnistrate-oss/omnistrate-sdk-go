@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** | A brief description of the resource | [optional] 
 **Disable** | Pointer to **string** | Allows resource to be disabled. Expression returning true/false can be used as value. Resource is enabled by default, if this property is not set. | [optional] 
 **EnvironmentVariables** | Pointer to [**[]EnvironmentVariable**](EnvironmentVariable.md) | The environment variables that this resource requires | [optional] 
+**FileSystemConfiguration** | Pointer to [**FileSystemConfiguration**](FileSystemConfiguration.md) |  | [optional] 
 **HelmChartConfiguration** | Pointer to [**HelmChartConfiguration**](HelmChartConfiguration.md) |  | [optional] 
 **ImageConfigId** | Pointer to **string** | The ID of the image configuration that this resource refers to | [optional] 
 **InfraConfigId** | Pointer to **string** | The ID of the infrastructure configuration that this resource refers to | [optional] 
@@ -320,6 +321,31 @@ SetEnvironmentVariables sets EnvironmentVariables field to given value.
 `func (o *UpdateResourceRequest2) HasEnvironmentVariables() bool`
 
 HasEnvironmentVariables returns a boolean if a field has been set.
+
+### GetFileSystemConfiguration
+
+`func (o *UpdateResourceRequest2) GetFileSystemConfiguration() FileSystemConfiguration`
+
+GetFileSystemConfiguration returns the FileSystemConfiguration field if non-nil, zero value otherwise.
+
+### GetFileSystemConfigurationOk
+
+`func (o *UpdateResourceRequest2) GetFileSystemConfigurationOk() (*FileSystemConfiguration, bool)`
+
+GetFileSystemConfigurationOk returns a tuple with the FileSystemConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFileSystemConfiguration
+
+`func (o *UpdateResourceRequest2) SetFileSystemConfiguration(v FileSystemConfiguration)`
+
+SetFileSystemConfiguration sets FileSystemConfiguration field to given value.
+
+### HasFileSystemConfiguration
+
+`func (o *UpdateResourceRequest2) HasFileSystemConfiguration() bool`
+
+HasFileSystemConfiguration returns a boolean if a field has been set.
 
 ### GetHelmChartConfiguration
 

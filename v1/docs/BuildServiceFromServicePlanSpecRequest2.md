@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **Name** | **string** | Name of the Service | 
 **Release** | Pointer to **bool** | Release the service after building | [optional] 
 **ReleaseAsPreferred** | Pointer to **bool** | Release the service as preferred | [optional] 
-**ReleaseVersionDescription** | Pointer to **string** | Release version description | [optional] 
 **ReleaseVersionName** | Pointer to **string** | Release version name | [optional] 
 **ServiceLogoURL** | Pointer to **string** | The logo for the service | [optional] 
 
@@ -250,31 +249,6 @@ SetReleaseAsPreferred sets ReleaseAsPreferred field to given value.
 `func (o *BuildServiceFromServicePlanSpecRequest2) HasReleaseAsPreferred() bool`
 
 HasReleaseAsPreferred returns a boolean if a field has been set.
-
-### GetReleaseVersionDescription
-
-`func (o *BuildServiceFromServicePlanSpecRequest2) GetReleaseVersionDescription() string`
-
-GetReleaseVersionDescription returns the ReleaseVersionDescription field if non-nil, zero value otherwise.
-
-### GetReleaseVersionDescriptionOk
-
-`func (o *BuildServiceFromServicePlanSpecRequest2) GetReleaseVersionDescriptionOk() (*string, bool)`
-
-GetReleaseVersionDescriptionOk returns a tuple with the ReleaseVersionDescription field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetReleaseVersionDescription
-
-`func (o *BuildServiceFromServicePlanSpecRequest2) SetReleaseVersionDescription(v string)`
-
-SetReleaseVersionDescription sets ReleaseVersionDescription field to given value.
-
-### HasReleaseVersionDescription
-
-`func (o *BuildServiceFromServicePlanSpecRequest2) HasReleaseVersionDescription() bool`
-
-HasReleaseVersionDescription returns a boolean if a field has been set.
 
 ### GetReleaseVersionName
 

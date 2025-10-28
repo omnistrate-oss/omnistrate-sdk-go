@@ -26,6 +26,8 @@ type InstanceUpgrade struct {
 	CloudProviderRegion string `json:"cloudProviderRegion"`
 	// The timestamp when the instance was created.
 	CreatedAt string `json:"createdAt"`
+	// The custom tags associated with the resource instance.
+	CustomTags []CustomTag `json:"customTags,omitempty"`
 	// The heath status of a resource
 	HealthStatus *string `json:"healthStatus,omitempty"`
 	// ID of a Resource Instance
@@ -152,6 +154,38 @@ func (o *InstanceUpgrade) GetCreatedAtOk() (*string, bool) {
 // SetCreatedAt sets field value
 func (o *InstanceUpgrade) SetCreatedAt(v string) {
 	o.CreatedAt = v
+}
+
+// GetCustomTags returns the CustomTags field value if set, zero value otherwise.
+func (o *InstanceUpgrade) GetCustomTags() []CustomTag {
+	if o == nil || IsNil(o.CustomTags) {
+		var ret []CustomTag
+		return ret
+	}
+	return o.CustomTags
+}
+
+// GetCustomTagsOk returns a tuple with the CustomTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InstanceUpgrade) GetCustomTagsOk() ([]CustomTag, bool) {
+	if o == nil || IsNil(o.CustomTags) {
+		return nil, false
+	}
+	return o.CustomTags, true
+}
+
+// HasCustomTags returns a boolean if a field has been set.
+func (o *InstanceUpgrade) HasCustomTags() bool {
+	if o != nil && !IsNil(o.CustomTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomTags gets a reference to the given []CustomTag and assigns it to the CustomTags field.
+func (o *InstanceUpgrade) SetCustomTags(v []CustomTag) {
+	o.CustomTags = v
 }
 
 // GetHealthStatus returns the HealthStatus field value if set, zero value otherwise.
@@ -495,6 +529,9 @@ func (o InstanceUpgrade) ToMap() (map[string]interface{}, error) {
 	toSerialize["cloudProviderName"] = o.CloudProviderName
 	toSerialize["cloudProviderRegion"] = o.CloudProviderRegion
 	toSerialize["createdAt"] = o.CreatedAt
+	if !IsNil(o.CustomTags) {
+		toSerialize["customTags"] = o.CustomTags
+	}
 	if !IsNil(o.HealthStatus) {
 		toSerialize["healthStatus"] = o.HealthStatus
 	}
@@ -572,6 +609,7 @@ func (o *InstanceUpgrade) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "cloudProviderName")
 		delete(additionalProperties, "cloudProviderRegion")
 		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "customTags")
 		delete(additionalProperties, "healthStatus")
 		delete(additionalProperties, "instanceId")
 		delete(additionalProperties, "lifecycleStatus")

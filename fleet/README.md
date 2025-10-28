@@ -105,6 +105,7 @@ Class | Method | HTTP request | Description
 *HelmPackageApiAPI* | [**HelmPackageApiListHelmPackageInstallations**](docs/HelmPackageApiAPI.md#helmpackageapilisthelmpackageinstallations) | **Get** /2022-09-01-00/fleet/helm-package-installations | ListHelmPackageInstallations helm-package-api
 *HostclusterApiAPI* | [**HostclusterApiAdoptHostCluster**](docs/HostclusterApiAPI.md#hostclusterapiadopthostcluster) | **Post** /2022-09-01-00/fleet/host-cluster/adopt | AdoptHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiApplyPendingChangesToHostCluster**](docs/HostclusterApiAPI.md#hostclusterapiapplypendingchangestohostcluster) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/apply-pending-changes | ApplyPendingChangesToHostCluster hostcluster-api
+*HostclusterApiAPI* | [**HostclusterApiCancelHostClusterDeployment**](docs/HostclusterApiAPI.md#hostclusterapicancelhostclusterdeployment) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/cancel-deployment | CancelHostClusterDeployment hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiDebugHostCluster**](docs/HostclusterApiAPI.md#hostclusterapidebughostcluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id}/debug | DebugHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiDeleteHostCluster**](docs/HostclusterApiAPI.md#hostclusterapideletehostcluster) | **Delete** /2022-09-01-00/fleet/host-cluster/{id} | DeleteHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiDescribeHostCluster**](docs/HostclusterApiAPI.md#hostclusterapidescribehostcluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id} | DescribeHostCluster hostcluster-api
@@ -113,6 +114,7 @@ Class | Method | HTTP request | Description
 *HostclusterApiAPI* | [**HostclusterApiKubeConfigHostCluster**](docs/HostclusterApiAPI.md#hostclusterapikubeconfighostcluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id}/kubeconfig | KubeConfigHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiListHostClusterEntities**](docs/HostclusterApiAPI.md#hostclusterapilisthostclusterentities) | **Get** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/entityType/{entityType} | ListHostClusterEntities hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiListHostClusters**](docs/HostclusterApiAPI.md#hostclusterapilisthostclusters) | **Get** /2022-09-01-00/fleet/host-clusters | ListHostClusters hostcluster-api
+*HostclusterApiAPI* | [**HostclusterApiRestartHostClusterDeployment**](docs/HostclusterApiAPI.md#hostclusterapirestarthostclusterdeployment) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/restart-deployment | RestartHostClusterDeployment hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiSetNodePoolProperty**](docs/HostclusterApiAPI.md#hostclusterapisetnodepoolproperty) | **Patch** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/node-pool/{nodePoolName} | SetNodePoolProperty hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiUpdateHostCluster**](docs/HostclusterApiAPI.md#hostclusterapiupdatehostcluster) | **Patch** /2022-09-01-00/fleet/host-cluster/{id} | UpdateHostCluster hostcluster-api
 *InventoryApiAPI* | [**InventoryApiAddCapacityToResourceInstance**](docs/InventoryApiAPI.md#inventoryapiaddcapacitytoresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/add-capacity | AddCapacityToResourceInstance inventory-api
@@ -242,6 +244,7 @@ Class | Method | HTTP request | Description
  - [BuildServiceFromComposeSpecResult](docs/BuildServiceFromComposeSpecResult.md)
  - [BuildServiceFromServicePlanSpecRequest](docs/BuildServiceFromServicePlanSpecRequest.md)
  - [BuildServiceFromServicePlanSpecResult](docs/BuildServiceFromServicePlanSpecResult.md)
+ - [CancelHostClusterDeploymentRequest](docs/CancelHostClusterDeploymentRequest.md)
  - [CancelSubscriptionRequestRequest](docs/CancelSubscriptionRequestRequest.md)
  - [CancelUpgradePathRequest](docs/CancelUpgradePathRequest.md)
  - [Change](docs/Change.md)
@@ -764,6 +767,7 @@ Class | Method | HTTP request | Description
  - [ResourceOneOffPatchConfigurationOverride](docs/ResourceOneOffPatchConfigurationOverride.md)
  - [ResourceSearchRecord](docs/ResourceSearchRecord.md)
  - [ResourceVersionSummary](docs/ResourceVersionSummary.md)
+ - [RestartHostClusterDeploymentRequest](docs/RestartHostClusterDeploymentRequest.md)
  - [RestartResourceInstanceRequest](docs/RestartResourceInstanceRequest.md)
  - [RestoreResourceInstanceFromSnapshotRequest](docs/RestoreResourceInstanceFromSnapshotRequest.md)
  - [RestoreResourceInstanceRequest](docs/RestoreResourceInstanceRequest.md)
