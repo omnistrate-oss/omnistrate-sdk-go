@@ -37,6 +37,7 @@ type UpdateResourceRequest struct {
 	Disable *string `json:"disable,omitempty"`
 	// The environment variables that this resource requires
 	EnvironmentVariables []EnvironmentVariable `json:"environmentVariables,omitempty"`
+	FileSystemConfiguration *FileSystemConfiguration `json:"fileSystemConfiguration,omitempty"`
 	HelmChartConfiguration *HelmChartConfiguration `json:"helmChartConfiguration,omitempty"`
 	// ID of a resource
 	Id string `json:"id"`
@@ -335,6 +336,29 @@ func (o *UpdateResourceRequest) GetEnvironmentVariablesOk() ([]EnvironmentVariab
 // SetEnvironmentVariables gets a reference to the given []EnvironmentVariable and assigns it to the EnvironmentVariables field.
 func (o *UpdateResourceRequest) SetEnvironmentVariables(v []EnvironmentVariable) {
 	o.EnvironmentVariables = v
+}
+
+// GetFileSystemConfiguration returns the FileSystemConfiguration field value if set, zero value otherwise.
+func (o *UpdateResourceRequest) GetFileSystemConfiguration() FileSystemConfiguration {
+	if o == nil || IsNil(o.FileSystemConfiguration) {
+		var ret FileSystemConfiguration
+		return ret
+	}
+	return *o.FileSystemConfiguration
+}
+
+// GetFileSystemConfigurationOk returns a tuple with the FileSystemConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateResourceRequest) GetFileSystemConfigurationOk() (*FileSystemConfiguration, bool) {
+	if o == nil || IsNil(o.FileSystemConfiguration) {
+		return nil, false
+	}
+	return o.FileSystemConfiguration, true
+}
+
+// SetFileSystemConfiguration gets a reference to the given FileSystemConfiguration and assigns it to the FileSystemConfiguration field.
+func (o *UpdateResourceRequest) SetFileSystemConfiguration(v FileSystemConfiguration) {
+	o.FileSystemConfiguration = &v
 }
 
 // GetHelmChartConfiguration returns the HelmChartConfiguration field value if set, zero value otherwise.
@@ -705,6 +729,9 @@ func (o UpdateResourceRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EnvironmentVariables) {
 		toSerialize["environmentVariables"] = o.EnvironmentVariables
 	}
+	if !IsNil(o.FileSystemConfiguration) {
+		toSerialize["fileSystemConfiguration"] = o.FileSystemConfiguration
+	}
 	if !IsNil(o.HelmChartConfiguration) {
 		toSerialize["helmChartConfiguration"] = o.HelmChartConfiguration
 	}
@@ -797,6 +824,7 @@ func (o *UpdateResourceRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "disable")
 		delete(additionalProperties, "environmentVariables")
+		delete(additionalProperties, "fileSystemConfiguration")
 		delete(additionalProperties, "helmChartConfiguration")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "imageConfigId")

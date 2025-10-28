@@ -32,8 +32,6 @@ type ReleaseServiceAPIRequest struct {
 	ServiceId string `json:"serviceId"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
-	// The description of the version set to release
-	VersionSetDescription *string `json:"versionSetDescription,omitempty"`
 	// The name of the version set to release
 	VersionSetName *string `json:"versionSetName,omitempty"`
 	// The version-set type of the product-tier.
@@ -212,29 +210,6 @@ func (o *ReleaseServiceAPIRequest) SetToken(v string) {
 	o.Token = v
 }
 
-// GetVersionSetDescription returns the VersionSetDescription field value if set, zero value otherwise.
-func (o *ReleaseServiceAPIRequest) GetVersionSetDescription() string {
-	if o == nil || IsNil(o.VersionSetDescription) {
-		var ret string
-		return ret
-	}
-	return *o.VersionSetDescription
-}
-
-// GetVersionSetDescriptionOk returns a tuple with the VersionSetDescription field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ReleaseServiceAPIRequest) GetVersionSetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.VersionSetDescription) {
-		return nil, false
-	}
-	return o.VersionSetDescription, true
-}
-
-// SetVersionSetDescription gets a reference to the given string and assigns it to the VersionSetDescription field.
-func (o *ReleaseServiceAPIRequest) SetVersionSetDescription(v string) {
-	o.VersionSetDescription = &v
-}
-
 // GetVersionSetName returns the VersionSetName field value if set, zero value otherwise.
 func (o *ReleaseServiceAPIRequest) GetVersionSetName() string {
 	if o == nil || IsNil(o.VersionSetName) {
@@ -303,9 +278,6 @@ func (o ReleaseServiceAPIRequest) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["token"] = o.Token
-	if !IsNil(o.VersionSetDescription) {
-		toSerialize["versionSetDescription"] = o.VersionSetDescription
-	}
 	if !IsNil(o.VersionSetName) {
 		toSerialize["versionSetName"] = o.VersionSetName
 	}
@@ -363,7 +335,6 @@ func (o *ReleaseServiceAPIRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "token")
-		delete(additionalProperties, "versionSetDescription")
 		delete(additionalProperties, "versionSetName")
 		delete(additionalProperties, "versionSetType")
 		o.AdditionalProperties = additionalProperties

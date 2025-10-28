@@ -40,6 +40,8 @@ type FleetDescribeInstanceSnapshotResult struct {
 	ServiceId string `json:"serviceId"`
 	// ID of a Resource Instance Snapshot
 	SnapshotId string `json:"snapshotId"`
+	// The snapshot type
+	SnapshotType string `json:"snapshotType"`
 	// ID of a Resource Instance
 	SourceInstanceId string `json:"sourceInstanceId"`
 	// The snapshot status
@@ -53,7 +55,7 @@ type _FleetDescribeInstanceSnapshotResult FleetDescribeInstanceSnapshotResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFleetDescribeInstanceSnapshotResult(completeTime string, createdTime string, encrypted bool, environmentId string, productTierId string, productTierVersion string, progress int64, region string, serviceId string, snapshotId string, sourceInstanceId string, status string) *FleetDescribeInstanceSnapshotResult {
+func NewFleetDescribeInstanceSnapshotResult(completeTime string, createdTime string, encrypted bool, environmentId string, productTierId string, productTierVersion string, progress int64, region string, serviceId string, snapshotId string, snapshotType string, sourceInstanceId string, status string) *FleetDescribeInstanceSnapshotResult {
 	this := FleetDescribeInstanceSnapshotResult{}
 	this.CompleteTime = completeTime
 	this.CreatedTime = createdTime
@@ -65,6 +67,7 @@ func NewFleetDescribeInstanceSnapshotResult(completeTime string, createdTime str
 	this.Region = region
 	this.ServiceId = serviceId
 	this.SnapshotId = snapshotId
+	this.SnapshotType = snapshotType
 	this.SourceInstanceId = sourceInstanceId
 	this.Status = status
 	return &this
@@ -318,6 +321,30 @@ func (o *FleetDescribeInstanceSnapshotResult) SetSnapshotId(v string) {
 	o.SnapshotId = v
 }
 
+// GetSnapshotType returns the SnapshotType field value
+func (o *FleetDescribeInstanceSnapshotResult) GetSnapshotType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SnapshotType
+}
+
+// GetSnapshotTypeOk returns a tuple with the SnapshotType field value
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetSnapshotTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SnapshotType, true
+}
+
+// SetSnapshotType sets field value
+func (o *FleetDescribeInstanceSnapshotResult) SetSnapshotType(v string) {
+	o.SnapshotType = v
+}
+
 // GetSourceInstanceId returns the SourceInstanceId field value
 func (o *FleetDescribeInstanceSnapshotResult) GetSourceInstanceId() string {
 	if o == nil {
@@ -386,6 +413,7 @@ func (o FleetDescribeInstanceSnapshotResult) ToMap() (map[string]interface{}, er
 	toSerialize["region"] = o.Region
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["snapshotId"] = o.SnapshotId
+	toSerialize["snapshotType"] = o.SnapshotType
 	toSerialize["sourceInstanceId"] = o.SourceInstanceId
 	toSerialize["status"] = o.Status
 
@@ -411,6 +439,7 @@ func (o *FleetDescribeInstanceSnapshotResult) UnmarshalJSON(data []byte) (err er
 		"region",
 		"serviceId",
 		"snapshotId",
+		"snapshotType",
 		"sourceInstanceId",
 		"status",
 	}
@@ -452,6 +481,7 @@ func (o *FleetDescribeInstanceSnapshotResult) UnmarshalJSON(data []byte) (err er
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "snapshotId")
+		delete(additionalProperties, "snapshotType")
 		delete(additionalProperties, "sourceInstanceId")
 		delete(additionalProperties, "status")
 		o.AdditionalProperties = additionalProperties

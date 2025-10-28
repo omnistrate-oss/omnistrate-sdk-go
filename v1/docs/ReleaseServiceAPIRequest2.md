@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **DryRun** | Pointer to **bool** | When true, performs a dry run of the release operation without making any actual changes to the current pending changes and the service API. | [optional] [default to false]
 **IsPreferred** | Pointer to **bool** | Indicates whether this version set is preferred. | [optional] [default to false]
 **ProductTierId** | Pointer to **string** | The product tier ID | [optional] 
-**VersionSetDescription** | Pointer to **string** | The description of the version set to release | [optional] 
 **VersionSetName** | Pointer to **string** | The name of the version set to release | [optional] 
 **VersionSetType** | Pointer to **string** | The version-set type of the product-tier. | [optional] 
 
@@ -104,31 +103,6 @@ SetProductTierId sets ProductTierId field to given value.
 `func (o *ReleaseServiceAPIRequest2) HasProductTierId() bool`
 
 HasProductTierId returns a boolean if a field has been set.
-
-### GetVersionSetDescription
-
-`func (o *ReleaseServiceAPIRequest2) GetVersionSetDescription() string`
-
-GetVersionSetDescription returns the VersionSetDescription field if non-nil, zero value otherwise.
-
-### GetVersionSetDescriptionOk
-
-`func (o *ReleaseServiceAPIRequest2) GetVersionSetDescriptionOk() (*string, bool)`
-
-GetVersionSetDescriptionOk returns a tuple with the VersionSetDescription field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetVersionSetDescription
-
-`func (o *ReleaseServiceAPIRequest2) SetVersionSetDescription(v string)`
-
-SetVersionSetDescription sets VersionSetDescription field to given value.
-
-### HasVersionSetDescription
-
-`func (o *ReleaseServiceAPIRequest2) HasVersionSetDescription() bool`
-
-HasVersionSetDescription returns a boolean if a field has been set.
 
 ### GetVersionSetName
 
