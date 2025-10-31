@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CopySpecFromPreviousVersion** | Pointer to **bool** | When true, copies the specification from the previous version during the release operation. | [optional] [default to false]
 **DryRun** | Pointer to **bool** | When true, performs a dry run of the release operation without making any actual changes to the current pending changes and the service API. | [optional] [default to false]
 **IsPreferred** | Pointer to **bool** | Indicates whether this version set is preferred. | [optional] [default to false]
 **ProductTierId** | Pointer to **string** | The product tier ID | [optional] 
@@ -28,6 +29,31 @@ will change when the set of required properties is changed
 NewReleaseServiceAPIRequest2WithDefaults instantiates a new ReleaseServiceAPIRequest2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCopySpecFromPreviousVersion
+
+`func (o *ReleaseServiceAPIRequest2) GetCopySpecFromPreviousVersion() bool`
+
+GetCopySpecFromPreviousVersion returns the CopySpecFromPreviousVersion field if non-nil, zero value otherwise.
+
+### GetCopySpecFromPreviousVersionOk
+
+`func (o *ReleaseServiceAPIRequest2) GetCopySpecFromPreviousVersionOk() (*bool, bool)`
+
+GetCopySpecFromPreviousVersionOk returns a tuple with the CopySpecFromPreviousVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCopySpecFromPreviousVersion
+
+`func (o *ReleaseServiceAPIRequest2) SetCopySpecFromPreviousVersion(v bool)`
+
+SetCopySpecFromPreviousVersion sets CopySpecFromPreviousVersion field to given value.
+
+### HasCopySpecFromPreviousVersion
+
+`func (o *ReleaseServiceAPIRequest2) HasCopySpecFromPreviousVersion() bool`
+
+HasCopySpecFromPreviousVersion returns a boolean if a field has been set.
 
 ### GetDryRun
 

@@ -28243,6 +28243,7 @@ paths:
         content:
           application/json:
             example:
+              copySpecFromPreviousVersion: false
               dryRun: false
               isPreferred: true
               productTierId: Alias in vel ut doloremque quasi.
@@ -30347,6 +30348,7 @@ paths:
                             RepoURL: https://grafana.github.io/helm-charts
                           Type: HelmChart
                 id: Architecto id rerum ratione ratione.
+                isPerEnvClusterEnabled: true
               schema:
                 $ref: "#/components/schemas/DescribeServiceProviderOrganizationResult"
           description: OK response.
@@ -46368,6 +46370,7 @@ components:
                     RepoURL: https://grafana.github.io/helm-charts
                   Type: HelmChart
         id: org-aKQ8G13QeR
+        isPerEnvClusterEnabled: true
       properties:
         DefaultDeploymentCellConfigurations:
           $ref: "#/components/schemas/DeploymentCellConfigurations"
@@ -46409,6 +46412,10 @@ components:
           description: ID of an Org
           example: Nihil maxime inventore fugiat dicta dicta.
           type: string
+        isPerEnvClusterEnabled:
+          description: Whether per-environment clusters are enabled for the organization
+          example: true
+          type: boolean
       type: object
     DescribeServiceRequest:
       example:
@@ -62321,6 +62328,7 @@ components:
       type: object
     ReleaseServiceAPIRequest:
       example:
+        copySpecFromPreviousVersion: false
         dryRun: false
         id: sa-12345678
         isPreferred: true
@@ -62330,6 +62338,12 @@ components:
         versionSetName: v1
         versionSetType: Major|Incremental|UserDefined
       properties:
+        copySpecFromPreviousVersion:
+          default: false
+          description: "When true, copies the specification from the previous version\
+            \ during the release operation."
+          example: false
+          type: boolean
         dryRun:
           default: false
           description: "When true, performs a dry run of the release operation without\
@@ -62374,12 +62388,19 @@ components:
       type: object
     ReleaseServiceAPIRequest2:
       example:
+        copySpecFromPreviousVersion: false
         dryRun: false
         isPreferred: true
         productTierId: Facere ratione et qui omnis vitae.
         versionSetName: v1
         versionSetType: Major|Incremental|UserDefined
       properties:
+        copySpecFromPreviousVersion:
+          default: false
+          description: "When true, copies the specification from the previous version\
+            \ during the release operation."
+          example: false
+          type: boolean
         dryRun:
           default: false
           description: "When true, performs a dry run of the release operation without\
