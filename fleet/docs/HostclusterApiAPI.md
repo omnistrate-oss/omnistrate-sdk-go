@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**HostclusterApiApplyPendingChangesToHostCluster**](HostclusterApiAPI.md#HostclusterApiApplyPendingChangesToHostCluster) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/apply-pending-changes | ApplyPendingChangesToHostCluster hostcluster-api
 [**HostclusterApiCancelHostClusterDeployment**](HostclusterApiAPI.md#HostclusterApiCancelHostClusterDeployment) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/cancel-deployment | CancelHostClusterDeployment hostcluster-api
 [**HostclusterApiDebugHostCluster**](HostclusterApiAPI.md#HostclusterApiDebugHostCluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id}/debug | DebugHostCluster hostcluster-api
+[**HostclusterApiDeleteEntity**](HostclusterApiAPI.md#HostclusterApiDeleteEntity) | **Delete** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/entityType/{entityType}/entityID/{entityID} | DeleteEntity hostcluster-api
 [**HostclusterApiDeleteHostCluster**](HostclusterApiAPI.md#HostclusterApiDeleteHostCluster) | **Delete** /2022-09-01-00/fleet/host-cluster/{id} | DeleteHostCluster hostcluster-api
 [**HostclusterApiDescribeHostCluster**](HostclusterApiAPI.md#HostclusterApiDescribeHostCluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id} | DescribeHostCluster hostcluster-api
 [**HostclusterApiDescribeHostClusterEntity**](HostclusterApiAPI.md#HostclusterApiDescribeHostClusterEntity) | **Get** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/entityType/{entityType}/entityID/{entityID} | DescribeHostClusterEntity hostcluster-api
@@ -42,7 +43,7 @@ import (
 )
 
 func main() {
-	adoptHostClusterRequest2 := *openapiclient.NewAdoptHostClusterRequest2("aws|azure|gcp|all", "My Adopted Host Cluster", "Dicta facere.", "us-east-1") // AdoptHostClusterRequest2 | 
+	adoptHostClusterRequest2 := *openapiclient.NewAdoptHostClusterRequest2("aws|azure|gcp|all", "My Adopted Host Cluster", "Minus ullam a dolorum sed dolorem modi.", "us-east-1") // AdoptHostClusterRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -285,6 +286,80 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## HostclusterApiDeleteEntity
+
+> HostclusterApiDeleteEntity(ctx, hostClusterID, entityType, entityID).Execute()
+
+DeleteEntity hostcluster-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	hostClusterID := "hc-12345abcd" // string | ID of the host cluster to which the entity belongs
+	entityType := "NAMESPACE" // string | Type of the entity (e.g., NAMESPACE, SERVICE, POD, etc.)
+	entityID := "namespace-12345" // string | Unique identifier of the entity to delete
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.HostclusterApiAPI.HostclusterApiDeleteEntity(context.Background(), hostClusterID, entityType, entityID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `HostclusterApiAPI.HostclusterApiDeleteEntity``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**hostClusterID** | **string** | ID of the host cluster to which the entity belongs | 
+**entityType** | **string** | Type of the entity (e.g., NAMESPACE, SERVICE, POD, etc.) | 
+**entityID** | **string** | Unique identifier of the entity to delete | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiHostclusterApiDeleteEntityRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **DefaultDeploymentCellConfigurations** | Pointer to [**DeploymentCellConfigurations**](DeploymentCellConfigurations.md) |  | [optional] 
 **DeploymentCellConfigurationsPerEnv** | Pointer to [**map[string]DeploymentCellConfigurations**](DeploymentCellConfigurations.md) | The default deployment cell configurations for the organization per environment. | [optional] 
 **Id** | Pointer to **string** | ID of an Org | [optional] 
+**IsPerEnvClusterEnabled** | Pointer to **bool** | Whether per-environment clusters are enabled for the organization | [optional] 
 
 ## Methods
 
@@ -101,6 +102,31 @@ SetId sets Id field to given value.
 `func (o *DescribeServiceProviderOrganizationResult) HasId() bool`
 
 HasId returns a boolean if a field has been set.
+
+### GetIsPerEnvClusterEnabled
+
+`func (o *DescribeServiceProviderOrganizationResult) GetIsPerEnvClusterEnabled() bool`
+
+GetIsPerEnvClusterEnabled returns the IsPerEnvClusterEnabled field if non-nil, zero value otherwise.
+
+### GetIsPerEnvClusterEnabledOk
+
+`func (o *DescribeServiceProviderOrganizationResult) GetIsPerEnvClusterEnabledOk() (*bool, bool)`
+
+GetIsPerEnvClusterEnabledOk returns a tuple with the IsPerEnvClusterEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsPerEnvClusterEnabled
+
+`func (o *DescribeServiceProviderOrganizationResult) SetIsPerEnvClusterEnabled(v bool)`
+
+SetIsPerEnvClusterEnabled sets IsPerEnvClusterEnabled field to given value.
+
+### HasIsPerEnvClusterEnabled
+
+`func (o *DescribeServiceProviderOrganizationResult) HasIsPerEnvClusterEnabled() bool`
+
+HasIsPerEnvClusterEnabled returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

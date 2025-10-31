@@ -107,6 +107,7 @@ Class | Method | HTTP request | Description
 *HostclusterApiAPI* | [**HostclusterApiApplyPendingChangesToHostCluster**](docs/HostclusterApiAPI.md#hostclusterapiapplypendingchangestohostcluster) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/apply-pending-changes | ApplyPendingChangesToHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiCancelHostClusterDeployment**](docs/HostclusterApiAPI.md#hostclusterapicancelhostclusterdeployment) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/cancel-deployment | CancelHostClusterDeployment hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiDebugHostCluster**](docs/HostclusterApiAPI.md#hostclusterapidebughostcluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id}/debug | DebugHostCluster hostcluster-api
+*HostclusterApiAPI* | [**HostclusterApiDeleteEntity**](docs/HostclusterApiAPI.md#hostclusterapideleteentity) | **Delete** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/entityType/{entityType}/entityID/{entityID} | DeleteEntity hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiDeleteHostCluster**](docs/HostclusterApiAPI.md#hostclusterapideletehostcluster) | **Delete** /2022-09-01-00/fleet/host-cluster/{id} | DeleteHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiDescribeHostCluster**](docs/HostclusterApiAPI.md#hostclusterapidescribehostcluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id} | DescribeHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiDescribeHostClusterEntity**](docs/HostclusterApiAPI.md#hostclusterapidescribehostclusterentity) | **Get** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/entityType/{entityType}/entityID/{entityID} | DescribeHostClusterEntity hostcluster-api
@@ -313,6 +314,7 @@ Class | Method | HTTP request | Description
  - [DebugResourceResult](docs/DebugResourceResult.md)
  - [DeleteAccountConfigRequest](docs/DeleteAccountConfigRequest.md)
  - [DeleteCustomerOnboardingRequest](docs/DeleteCustomerOnboardingRequest.md)
+ - [DeleteEntityRequest](docs/DeleteEntityRequest.md)
  - [DeleteHostClusterRequest](docs/DeleteHostClusterRequest.md)
  - [DeleteIdentityProviderRequest](docs/DeleteIdentityProviderRequest.md)
  - [DeleteNotificationChannelRequest](docs/DeleteNotificationChannelRequest.md)

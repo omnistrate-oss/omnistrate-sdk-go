@@ -24,6 +24,8 @@ type DescribeServiceProviderOrganizationResult struct {
 	DeploymentCellConfigurationsPerEnv *map[string]DeploymentCellConfigurations `json:"DeploymentCellConfigurationsPerEnv,omitempty"`
 	// ID of an Org
 	Id *string `json:"id,omitempty"`
+	// Whether per-environment clusters are enabled for the organization
+	IsPerEnvClusterEnabled *bool `json:"isPerEnvClusterEnabled,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -115,6 +117,29 @@ func (o *DescribeServiceProviderOrganizationResult) SetId(v string) {
 	o.Id = &v
 }
 
+// GetIsPerEnvClusterEnabled returns the IsPerEnvClusterEnabled field value if set, zero value otherwise.
+func (o *DescribeServiceProviderOrganizationResult) GetIsPerEnvClusterEnabled() bool {
+	if o == nil || IsNil(o.IsPerEnvClusterEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.IsPerEnvClusterEnabled
+}
+
+// GetIsPerEnvClusterEnabledOk returns a tuple with the IsPerEnvClusterEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeServiceProviderOrganizationResult) GetIsPerEnvClusterEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsPerEnvClusterEnabled) {
+		return nil, false
+	}
+	return o.IsPerEnvClusterEnabled, true
+}
+
+// SetIsPerEnvClusterEnabled gets a reference to the given bool and assigns it to the IsPerEnvClusterEnabled field.
+func (o *DescribeServiceProviderOrganizationResult) SetIsPerEnvClusterEnabled(v bool) {
+	o.IsPerEnvClusterEnabled = &v
+}
+
 func (o DescribeServiceProviderOrganizationResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -133,6 +158,9 @@ func (o DescribeServiceProviderOrganizationResult) ToMap() (map[string]interface
 	}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.IsPerEnvClusterEnabled) {
+		toSerialize["isPerEnvClusterEnabled"] = o.IsPerEnvClusterEnabled
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -159,6 +187,7 @@ func (o *DescribeServiceProviderOrganizationResult) UnmarshalJSON(data []byte) (
 		delete(additionalProperties, "DefaultDeploymentCellConfigurations")
 		delete(additionalProperties, "DeploymentCellConfigurationsPerEnv")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "isPerEnvClusterEnabled")
 		o.AdditionalProperties = additionalProperties
 	}
 
