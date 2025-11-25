@@ -10,10 +10,13 @@ Method | HTTP request | Description
 [**HostclusterApiDebugHostCluster**](HostclusterApiAPI.md#HostclusterApiDebugHostCluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id}/debug | DebugHostCluster hostcluster-api
 [**HostclusterApiDeleteEntity**](HostclusterApiAPI.md#HostclusterApiDeleteEntity) | **Delete** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/entityType/{entityType}/entityID/{entityID} | DeleteEntity hostcluster-api
 [**HostclusterApiDeleteHostCluster**](HostclusterApiAPI.md#HostclusterApiDeleteHostCluster) | **Delete** /2022-09-01-00/fleet/host-cluster/{id} | DeleteHostCluster hostcluster-api
+[**HostclusterApiDescribeDeploymentCellWorkflow**](HostclusterApiAPI.md#HostclusterApiDescribeDeploymentCellWorkflow) | **Get** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/workflow/{workflowID} | DescribeDeploymentCellWorkflow hostcluster-api
 [**HostclusterApiDescribeHostCluster**](HostclusterApiAPI.md#HostclusterApiDescribeHostCluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id} | DescribeHostCluster hostcluster-api
 [**HostclusterApiDescribeHostClusterEntity**](HostclusterApiAPI.md#HostclusterApiDescribeHostClusterEntity) | **Get** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/entityType/{entityType}/entityID/{entityID} | DescribeHostClusterEntity hostcluster-api
 [**HostclusterApiGenerateTokenForHostClusterDashboard**](HostclusterApiAPI.md#HostclusterApiGenerateTokenForHostClusterDashboard) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard hostcluster-api
+[**HostclusterApiGetDeploymentCellWorkflowEvents**](HostclusterApiAPI.md#HostclusterApiGetDeploymentCellWorkflowEvents) | **Get** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/workflow/{workflowID}/events | GetDeploymentCellWorkflowEvents hostcluster-api
 [**HostclusterApiKubeConfigHostCluster**](HostclusterApiAPI.md#HostclusterApiKubeConfigHostCluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id}/kubeconfig | KubeConfigHostCluster hostcluster-api
+[**HostclusterApiListDeploymentCellWorkflows**](HostclusterApiAPI.md#HostclusterApiListDeploymentCellWorkflows) | **Get** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/workflows | ListDeploymentCellWorkflows hostcluster-api
 [**HostclusterApiListHostClusterEntities**](HostclusterApiAPI.md#HostclusterApiListHostClusterEntities) | **Get** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/entityType/{entityType} | ListHostClusterEntities hostcluster-api
 [**HostclusterApiListHostClusters**](HostclusterApiAPI.md#HostclusterApiListHostClusters) | **Get** /2022-09-01-00/fleet/host-clusters | ListHostClusters hostcluster-api
 [**HostclusterApiRestartHostClusterDeployment**](HostclusterApiAPI.md#HostclusterApiRestartHostClusterDeployment) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/restart-deployment | RestartHostClusterDeployment hostcluster-api
@@ -43,7 +46,7 @@ import (
 )
 
 func main() {
-	adoptHostClusterRequest2 := *openapiclient.NewAdoptHostClusterRequest2("aws|azure|gcp|all", "My Adopted Host Cluster", "Minus ullam a dolorum sed dolorem modi.", "us-east-1") // AdoptHostClusterRequest2 | 
+	adoptHostClusterRequest2 := *openapiclient.NewAdoptHostClusterRequest2("aws|azure|gcp|all", "My Adopted Host Cluster", "Earum architecto aut.", "us-east-1") // AdoptHostClusterRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -434,6 +437,79 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## HostclusterApiDescribeDeploymentCellWorkflow
+
+> DescribeDeploymentCellWorkflowResult HostclusterApiDescribeDeploymentCellWorkflow(ctx, hostClusterID, workflowID).Execute()
+
+DescribeDeploymentCellWorkflow hostcluster-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	hostClusterID := "hc-abcdefgh" // string | ID of the Host Cluster
+	workflowID := "redeploy-hc-abcdefgh" // string | ID of the Deployment Cell Workflow
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.HostclusterApiAPI.HostclusterApiDescribeDeploymentCellWorkflow(context.Background(), hostClusterID, workflowID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `HostclusterApiAPI.HostclusterApiDescribeDeploymentCellWorkflow``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `HostclusterApiDescribeDeploymentCellWorkflow`: DescribeDeploymentCellWorkflowResult
+	fmt.Fprintf(os.Stdout, "Response from `HostclusterApiAPI.HostclusterApiDescribeDeploymentCellWorkflow`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**hostClusterID** | **string** | ID of the Host Cluster | 
+**workflowID** | **string** | ID of the Deployment Cell Workflow | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiHostclusterApiDescribeDeploymentCellWorkflowRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**DescribeDeploymentCellWorkflowResult**](DescribeDeploymentCellWorkflowResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## HostclusterApiDescribeHostCluster
 
 > HostCluster HostclusterApiDescribeHostCluster(ctx, id).Execute()
@@ -646,6 +722,79 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## HostclusterApiGetDeploymentCellWorkflowEvents
+
+> GetDeploymentCellWorkflowEventsResult HostclusterApiGetDeploymentCellWorkflowEvents(ctx, hostClusterID, workflowID).Execute()
+
+GetDeploymentCellWorkflowEvents hostcluster-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	hostClusterID := "hc-abcdefgh" // string | ID of the Host Cluster
+	workflowID := "redeploy-hc-abcdefgh" // string | ID of the Deployment Cell Workflow
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.HostclusterApiAPI.HostclusterApiGetDeploymentCellWorkflowEvents(context.Background(), hostClusterID, workflowID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `HostclusterApiAPI.HostclusterApiGetDeploymentCellWorkflowEvents``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `HostclusterApiGetDeploymentCellWorkflowEvents`: GetDeploymentCellWorkflowEventsResult
+	fmt.Fprintf(os.Stdout, "Response from `HostclusterApiAPI.HostclusterApiGetDeploymentCellWorkflowEvents`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**hostClusterID** | **string** | ID of the Host Cluster | 
+**workflowID** | **string** | ID of the Deployment Cell Workflow | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiHostclusterApiGetDeploymentCellWorkflowEventsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**GetDeploymentCellWorkflowEventsResult**](GetDeploymentCellWorkflowEventsResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## HostclusterApiKubeConfigHostCluster
 
 > KubeConfigHostClusterResult HostclusterApiKubeConfigHostCluster(ctx, id).Role(role).Execute()
@@ -711,6 +860,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## HostclusterApiListDeploymentCellWorkflows
+
+> ListDeploymentCellWorkflowsResult HostclusterApiListDeploymentCellWorkflows(ctx, hostClusterID).ListDeploymentCellWorkflowsRequest2(listDeploymentCellWorkflowsRequest2).Execute()
+
+ListDeploymentCellWorkflows hostcluster-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	hostClusterID := "hc-abcdefgh" // string | ID of the Host Cluster to filter Deployment Cell Workflows
+	listDeploymentCellWorkflowsRequest2 := *openapiclient.NewListDeploymentCellWorkflowsRequest2() // ListDeploymentCellWorkflowsRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.HostclusterApiAPI.HostclusterApiListDeploymentCellWorkflows(context.Background(), hostClusterID).ListDeploymentCellWorkflowsRequest2(listDeploymentCellWorkflowsRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `HostclusterApiAPI.HostclusterApiListDeploymentCellWorkflows``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `HostclusterApiListDeploymentCellWorkflows`: ListDeploymentCellWorkflowsResult
+	fmt.Fprintf(os.Stdout, "Response from `HostclusterApiAPI.HostclusterApiListDeploymentCellWorkflows`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**hostClusterID** | **string** | ID of the Host Cluster to filter Deployment Cell Workflows | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiHostclusterApiListDeploymentCellWorkflowsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **listDeploymentCellWorkflowsRequest2** | [**ListDeploymentCellWorkflowsRequest2**](ListDeploymentCellWorkflowsRequest2.md) |  | 
+
+### Return type
+
+[**ListDeploymentCellWorkflowsResult**](ListDeploymentCellWorkflowsResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

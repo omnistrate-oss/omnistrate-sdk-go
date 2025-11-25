@@ -343,6 +343,20 @@ func Test_v1_ResourceApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ResourceApiAPIService ResourceApiUndeprecateResource", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var id string
+
+		httpRes, err := apiClient.ResourceApiAPI.ResourceApiUndeprecateResource(context.Background(), serviceId, id).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ResourceApiAPIService ResourceApiUnsetEnvironmentVariables", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

@@ -20,6 +20,8 @@ var _ MappedNullable = &UpdateUserRequest2{}
 // UpdateUserRequest2 struct for UpdateUserRequest2
 type UpdateUserRequest2 struct {
 	Address *Address `json:"address,omitempty"`
+	// Additional attributes of the user.
+	Attributes *map[string]string `json:"attributes,omitempty"`
 	// The name of the user
 	Name *string `json:"name,omitempty"`
 	// The cookie policy for the org that this user owns in an HTML format
@@ -83,6 +85,29 @@ func (o *UpdateUserRequest2) GetAddressOk() (*Address, bool) {
 // SetAddress gets a reference to the given Address and assigns it to the Address field.
 func (o *UpdateUserRequest2) SetAddress(v Address) {
 	o.Address = &v
+}
+
+// GetAttributes returns the Attributes field value if set, zero value otherwise.
+func (o *UpdateUserRequest2) GetAttributes() map[string]string {
+	if o == nil || IsNil(o.Attributes) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.Attributes
+}
+
+// GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateUserRequest2) GetAttributesOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.Attributes) {
+		return nil, false
+	}
+	return o.Attributes, true
+}
+
+// SetAttributes gets a reference to the given map[string]string and assigns it to the Attributes field.
+func (o *UpdateUserRequest2) SetAttributes(v map[string]string) {
+	o.Attributes = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -328,6 +353,9 @@ func (o UpdateUserRequest2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Address) {
 		toSerialize["address"] = o.Address
 	}
+	if !IsNil(o.Attributes) {
+		toSerialize["attributes"] = o.Attributes
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
@@ -381,6 +409,7 @@ func (o *UpdateUserRequest2) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "address")
+		delete(additionalProperties, "attributes")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "orgCookiePolicy")
 		delete(additionalProperties, "orgDescription")

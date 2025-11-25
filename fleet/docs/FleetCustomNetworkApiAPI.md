@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 ## FleetCustomNetworkApiListCustomNetworks
 
-> FleetListCustomNetworksResult FleetCustomNetworkApiListCustomNetworks(ctx).CloudProviderName(cloudProviderName).CloudProviderRegion(cloudProviderRegion).CustomNetworksOnly(customNetworksOnly).Execute()
+> FleetListCustomNetworksResult FleetCustomNetworkApiListCustomNetworks(ctx).CloudProviderName(cloudProviderName).CloudProviderRegion(cloudProviderRegion).CustomNetworksOnly(customNetworksOnly).OwningOrgID(owningOrgID).Execute()
 
 ListCustomNetworks fleet-custom-network-api
 
@@ -229,13 +229,14 @@ import (
 )
 
 func main() {
-	cloudProviderName := "aws" // string | The name of the cloud provider that custom network should be created in (optional)
-	cloudProviderRegion := "us-east-1" // string | The region of the cloud provider that the network should be created in (optional)
+	cloudProviderName := "aws" // string | The name of the cloud provider to filter custom networks by (optional)
+	cloudProviderRegion := "us-east-1" // string | The region of the cloud provider to filter custom networks by (optional)
 	customNetworksOnly := false // bool | Flag indicating whether to return only custom networks, or to include default and imported networks as well (optional)
+	owningOrgID := "org-12345678" // string | The owning organization ID to filter custom networks by (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FleetCustomNetworkApiAPI.FleetCustomNetworkApiListCustomNetworks(context.Background()).CloudProviderName(cloudProviderName).CloudProviderRegion(cloudProviderRegion).CustomNetworksOnly(customNetworksOnly).Execute()
+	resp, r, err := apiClient.FleetCustomNetworkApiAPI.FleetCustomNetworkApiListCustomNetworks(context.Background()).CloudProviderName(cloudProviderName).CloudProviderRegion(cloudProviderRegion).CustomNetworksOnly(customNetworksOnly).OwningOrgID(owningOrgID).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FleetCustomNetworkApiAPI.FleetCustomNetworkApiListCustomNetworks``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -256,9 +257,10 @@ Other parameters are passed through a pointer to a apiFleetCustomNetworkApiListC
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cloudProviderName** | **string** | The name of the cloud provider that custom network should be created in | 
- **cloudProviderRegion** | **string** | The region of the cloud provider that the network should be created in | 
+ **cloudProviderName** | **string** | The name of the cloud provider to filter custom networks by | 
+ **cloudProviderRegion** | **string** | The region of the cloud provider to filter custom networks by | 
  **customNetworksOnly** | **bool** | Flag indicating whether to return only custom networks, or to include default and imported networks as well | 
+ **owningOrgID** | **string** | The owning organization ID to filter custom networks by | 
 
 ### Return type
 

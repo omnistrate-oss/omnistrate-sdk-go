@@ -229,8 +229,8 @@ import (
 )
 
 func main() {
-	cloudProviderName := "aws" // string | The name of the cloud provider that custom network should be created in (optional)
-	cloudProviderRegion := "us-east-1" // string | The region of the cloud provider that the network should be created in (optional)
+	cloudProviderName := "aws" // string | The name of the cloud provider to filter custom networks by (optional)
+	cloudProviderRegion := "us-east-1" // string | The region of the cloud provider to filter custom networks by (optional)
 	customNetworksOnly := false // bool | Flag indicating whether to return only custom networks, or to include default and imported networks as well (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -256,8 +256,8 @@ Other parameters are passed through a pointer to a apiCustomNetworkApiListCustom
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cloudProviderName** | **string** | The name of the cloud provider that custom network should be created in | 
- **cloudProviderRegion** | **string** | The region of the cloud provider that the network should be created in | 
+ **cloudProviderName** | **string** | The name of the cloud provider to filter custom networks by | 
+ **cloudProviderRegion** | **string** | The region of the cloud provider to filter custom networks by | 
  **customNetworksOnly** | **bool** | Flag indicating whether to return only custom networks, or to include default and imported networks as well | 
 
 ### Return type

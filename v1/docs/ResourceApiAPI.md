@@ -26,6 +26,7 @@ Method | HTTP request | Description
 [**ResourceApiRemoveFile**](ResourceApiAPI.md#ResourceApiRemoveFile) | **Delete** /2022-09-01-00/service/{serviceId}/resource/{id}/file/{fileId} | RemoveFile resource-api
 [**ResourceApiRemoveResourceDependency**](ResourceApiAPI.md#ResourceApiRemoveResourceDependency) | **Delete** /2022-09-01-00/service/{serviceId}/resource/{id}/resource-dependency/{resourceDependencyId} | RemoveResourceDependency resource-api
 [**ResourceApiSetEnvironmentVariables**](ResourceApiAPI.md#ResourceApiSetEnvironmentVariables) | **Patch** /2022-09-01-00/service/{serviceId}/resource/{id}/environment-variables | SetEnvironmentVariables resource-api
+[**ResourceApiUndeprecateResource**](ResourceApiAPI.md#ResourceApiUndeprecateResource) | **Patch** /2022-09-01-00/service/{serviceId}/resource/{id}/undeprecate | UndeprecateResource resource-api
 [**ResourceApiUnsetEnvironmentVariables**](ResourceApiAPI.md#ResourceApiUnsetEnvironmentVariables) | **Delete** /2022-09-01-00/service/{serviceId}/resource/{id}/environment-variables | UnsetEnvironmentVariables resource-api
 [**ResourceApiUpdateFileContent**](ResourceApiAPI.md#ResourceApiUpdateFileContent) | **Put** /2022-09-01-00/service/{serviceId}/resource/{id}/file/{fileId}/content | UpdateFileContent resource-api
 [**ResourceApiUpdateFileMetadata**](ResourceApiAPI.md#ResourceApiUpdateFileMetadata) | **Patch** /2022-09-01-00/service/{serviceId}/resource/{id}/file/{fileId}/metadata | UpdateFileMetadata resource-api
@@ -208,7 +209,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
-	createResourceRequest2 := *openapiclient.NewCreateResourceRequest2("A resource to manage a hosted public SaaS offering of a multi-writer MySQL service", "Galera", "Esse expedita atque eaque neque.") // CreateResourceRequest2 | 
+	createResourceRequest2 := *openapiclient.NewCreateResourceRequest2("A resource to manage a hosted public SaaS offering of a multi-writer MySQL service", "Galera", "Sapiente aliquid enim est dolorem.") // CreateResourceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -557,7 +558,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	productTierVersion := "Nam minima dicta exercitationem accusamus." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Alias quia accusantium ut." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the resource to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -632,7 +633,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	productTierVersion := "Quos dolorum." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Nostrum possimus non nesciunt illo ut." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the resource to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -1144,7 +1145,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
-	productTierVersion := "Iste error minus." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Veritatis non voluptas officia molestiae." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -1220,7 +1221,7 @@ func main() {
 	serviceId := "si-12345678" // string | The ID of the service to list resources for
 	productTierId := "pt-12345678" // string | The product tier ID
 	managed := false // bool | Is resource managed by omnistrate (optional)
-	productTierVersion := "Ut sed vitae et quasi." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Possimus mollitia cumque natus." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1623,6 +1624,75 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ResourceApiUndeprecateResource
+
+> ResourceApiUndeprecateResource(ctx, serviceId, id).Execute()
+
+UndeprecateResource resource-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
+	id := "r-12345678" // string | The ID of the resource
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ResourceApiAPI.ResourceApiUndeprecateResource(context.Background(), serviceId, id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ResourceApiAPI.ResourceApiUndeprecateResource``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | The service ID that this API bundle belongs to | 
+**id** | **string** | The ID of the resource | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiResourceApiUndeprecateResourceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

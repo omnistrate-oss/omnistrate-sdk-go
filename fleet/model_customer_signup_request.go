@@ -20,6 +20,8 @@ var _ MappedNullable = &CustomerSignupRequest{}
 
 // CustomerSignupRequest struct for CustomerSignupRequest
 type CustomerSignupRequest struct {
+	// Additional attributes for the user signup
+	Attributes *map[string]string `json:"attributes,omitempty"`
 	CompanyDescription *string `json:"companyDescription,omitempty"`
 	CompanyUrl *string `json:"companyUrl,omitempty"`
 	// Email address of the end-user
@@ -58,6 +60,38 @@ func NewCustomerSignupRequestWithDefaults() *CustomerSignupRequest {
 	var legalCompanyName string = ""
 	this.LegalCompanyName = &legalCompanyName
 	return &this
+}
+
+// GetAttributes returns the Attributes field value if set, zero value otherwise.
+func (o *CustomerSignupRequest) GetAttributes() map[string]string {
+	if o == nil || IsNil(o.Attributes) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.Attributes
+}
+
+// GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomerSignupRequest) GetAttributesOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.Attributes) {
+		return nil, false
+	}
+	return o.Attributes, true
+}
+
+// HasAttributes returns a boolean if a field has been set.
+func (o *CustomerSignupRequest) HasAttributes() bool {
+	if o != nil && !IsNil(o.Attributes) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttributes gets a reference to the given map[string]string and assigns it to the Attributes field.
+func (o *CustomerSignupRequest) SetAttributes(v map[string]string) {
+	o.Attributes = &v
 }
 
 // GetCompanyDescription returns the CompanyDescription field value if set, zero value otherwise.
@@ -262,6 +296,9 @@ func (o CustomerSignupRequest) MarshalJSON() ([]byte, error) {
 
 func (o CustomerSignupRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Attributes) {
+		toSerialize["attributes"] = o.Attributes
+	}
 	if !IsNil(o.CompanyDescription) {
 		toSerialize["companyDescription"] = o.CompanyDescription
 	}
@@ -321,6 +358,7 @@ func (o *CustomerSignupRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "attributes")
 		delete(additionalProperties, "companyDescription")
 		delete(additionalProperties, "companyUrl")
 		delete(additionalProperties, "email")

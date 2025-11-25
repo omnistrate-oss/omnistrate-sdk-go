@@ -42,6 +42,7 @@ type InputParameterEntity struct {
 	Regex *string `json:"regex,omitempty"`
 	// Whether the parameter is required
 	Required bool `json:"required"`
+	Scope *InputParameterScope `json:"scope,omitempty"`
 	// Index for parameter ordering in the SaaS portal
 	TabIndex *int64 `json:"tabIndex,omitempty"`
 	// The parameter type
@@ -376,6 +377,38 @@ func (o *InputParameterEntity) SetRequired(v bool) {
 	o.Required = v
 }
 
+// GetScope returns the Scope field value if set, zero value otherwise.
+func (o *InputParameterEntity) GetScope() InputParameterScope {
+	if o == nil || IsNil(o.Scope) {
+		var ret InputParameterScope
+		return ret
+	}
+	return *o.Scope
+}
+
+// GetScopeOk returns a tuple with the Scope field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InputParameterEntity) GetScopeOk() (*InputParameterScope, bool) {
+	if o == nil || IsNil(o.Scope) {
+		return nil, false
+	}
+	return o.Scope, true
+}
+
+// HasScope returns a boolean if a field has been set.
+func (o *InputParameterEntity) HasScope() bool {
+	if o != nil && !IsNil(o.Scope) {
+		return true
+	}
+
+	return false
+}
+
+// SetScope gets a reference to the given InputParameterScope and assigns it to the Scope field.
+func (o *InputParameterEntity) SetScope(v InputParameterScope) {
+	o.Scope = &v
+}
+
 // GetTabIndex returns the TabIndex field value if set, zero value otherwise.
 func (o *InputParameterEntity) GetTabIndex() int64 {
 	if o == nil || IsNil(o.TabIndex) {
@@ -461,6 +494,9 @@ func (o InputParameterEntity) ToMap() (map[string]interface{}, error) {
 		toSerialize["regex"] = o.Regex
 	}
 	toSerialize["required"] = o.Required
+	if !IsNil(o.Scope) {
+		toSerialize["scope"] = o.Scope
+	}
 	if !IsNil(o.TabIndex) {
 		toSerialize["tabIndex"] = o.TabIndex
 	}
@@ -526,6 +562,7 @@ func (o *InputParameterEntity) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "options")
 		delete(additionalProperties, "regex")
 		delete(additionalProperties, "required")
+		delete(additionalProperties, "scope")
 		delete(additionalProperties, "tabIndex")
 		delete(additionalProperties, "type")
 		o.AdditionalProperties = additionalProperties

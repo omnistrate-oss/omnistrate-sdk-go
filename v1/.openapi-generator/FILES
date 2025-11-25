@@ -26,6 +26,7 @@ api_image_config_api.go
 api_image_registry_api.go
 api_infra_config_api.go
 api_input_parameter_api.go
+api_instance_snapshot_api.go
 api_invoice_api.go
 api_limit_api.go
 api_network_config_api.go
@@ -94,6 +95,7 @@ docs/AuditEventsApiAPI.md
 docs/AutoScalingMetricSpec.md
 docs/AutoscalingPolicy.md
 docs/AvailabilityZoneApiAPI.md
+docs/AzureFileShareConfiguration.md
 docs/BackendPortConfiguration.md
 docs/BackupConfiguration.md
 docs/BackupStatus.md
@@ -247,6 +249,7 @@ docs/DeleteOutputParameterRequest.md
 docs/DeletePipelineRequest.md
 docs/DeleteProductTierRequest.md
 docs/DeleteResourceInstanceRequest.md
+docs/DeleteResourceInstanceSnapshotRequest.md
 docs/DeleteResourceRequest.md
 docs/DeleteSaaSPortalCustomDomainRequest.md
 docs/DeleteSecretRequest.md
@@ -453,8 +456,10 @@ docs/InfraConfigChangeSummary.md
 docs/InfraRollConfiguration.md
 docs/InputParameterApiAPI.md
 docs/InputParameterEntity.md
+docs/InputParameterScope.md
 docs/InstanceHealthSummary.md
 docs/InstanceSnapshot.md
+docs/InstanceSnapshotApiAPI.md
 docs/IntegrationsHealth.md
 docs/InviteConsumptionUserRequest.md
 docs/InviteConsumptionUserRequest2.md
@@ -743,6 +748,7 @@ docs/TierVersionSet.md
 docs/TierVersionSetApiAPI.md
 docs/TierVersionSetMetadata.md
 docs/TierVersionSetSpecSummary.md
+docs/UndeprecateResourceRequest.md
 docs/UnsetEnvironmentVariablesRequest.md
 docs/UnsetEnvironmentVariablesRequest2.md
 docs/UpdateAccountConfigResourceInstanceRequest.md
@@ -855,6 +861,7 @@ model_api_entity.go
 model_auto_scaling_metric_spec.go
 model_autoscaling_policy.go
 model_aws_private_link_configuration.go
+model_azure_file_share_configuration.go
 model_backend_port_configuration.go
 model_backup_configuration.go
 model_backup_status.go
@@ -998,6 +1005,7 @@ model_delete_output_parameter_request.go
 model_delete_pipeline_request.go
 model_delete_product_tier_request.go
 model_delete_resource_instance_request.go
+model_delete_resource_instance_snapshot_request.go
 model_delete_resource_request.go
 model_delete_saa_s_portal_custom_domain_request.go
 model_delete_secret_request.go
@@ -1194,6 +1202,7 @@ model_image_config_change_summary.go
 model_infra_config_change_summary.go
 model_infra_roll_configuration.go
 model_input_parameter_entity.go
+model_input_parameter_scope.go
 model_instance_health_summary.go
 model_instance_snapshot.go
 model_integrations_health.go
@@ -1455,6 +1464,7 @@ model_terraform_output.go
 model_tier_version_set.go
 model_tier_version_set_metadata.go
 model_tier_version_set_spec_summary.go
+model_undeprecate_resource_request.go
 model_unset_environment_variables_request.go
 model_unset_environment_variables_request2.go
 model_update_account_config_resource_instance_request.go
@@ -1556,6 +1566,7 @@ test/api_image_config_api_test.go
 test/api_image_registry_api_test.go
 test/api_infra_config_api_test.go
 test/api_input_parameter_api_test.go
+test/api_instance_snapshot_api_test.go
 test/api_invoice_api_test.go
 test/api_limit_api_test.go
 test/api_network_config_api_test.go

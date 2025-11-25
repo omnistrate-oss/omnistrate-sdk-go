@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Attributes** | Pointer to **map[string]string** | Additional attributes of the user. | [optional] 
 **CompanyUrl** | Pointer to **string** | Company URL of the user. | [optional] 
 **Email** | **string** | Email address of the user | 
 **EnableAutoVerification** | **bool** | Whether to enable auto verification for the user. | 
@@ -30,6 +31,31 @@ will change when the set of required properties is changed
 NewFleetCreateConsumptionUserRequestWithDefaults instantiates a new FleetCreateConsumptionUserRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAttributes
+
+`func (o *FleetCreateConsumptionUserRequest) GetAttributes() map[string]string`
+
+GetAttributes returns the Attributes field if non-nil, zero value otherwise.
+
+### GetAttributesOk
+
+`func (o *FleetCreateConsumptionUserRequest) GetAttributesOk() (*map[string]string, bool)`
+
+GetAttributesOk returns a tuple with the Attributes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttributes
+
+`func (o *FleetCreateConsumptionUserRequest) SetAttributes(v map[string]string)`
+
+SetAttributes sets Attributes field to given value.
+
+### HasAttributes
+
+`func (o *FleetCreateConsumptionUserRequest) HasAttributes() bool`
+
+HasAttributes returns a boolean if a field has been set.
 
 ### GetCompanyUrl
 

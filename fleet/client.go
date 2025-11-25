@@ -73,6 +73,8 @@ type APIClient struct {
 
 	OperationsApiAPI OperationsApiAPI
 
+	ReportApiAPI ReportApiAPI
+
 	UsageApiAPI UsageApiAPI
 
 	WebhooksApiAPI WebhooksApiAPI
@@ -106,6 +108,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.InvoiceApiAPI = (*InvoiceApiAPIService)(&c.common)
 	c.NotificationsApiAPI = (*NotificationsApiAPIService)(&c.common)
 	c.OperationsApiAPI = (*OperationsApiAPIService)(&c.common)
+	c.ReportApiAPI = (*ReportApiAPIService)(&c.common)
 	c.UsageApiAPI = (*UsageApiAPIService)(&c.common)
 	c.WebhooksApiAPI = (*WebhooksApiAPIService)(&c.common)
 

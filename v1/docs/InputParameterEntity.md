@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **Options** | Pointer to **[]string** | The parameter options | [optional] 
 **Regex** | Pointer to **string** | The parameter regex for validation | [optional] 
 **Required** | **bool** | Whether the parameter is required | 
+**Scope** | Pointer to [**InputParameterScope**](InputParameterScope.md) |  | [optional] 
 **TabIndex** | Pointer to **int64** | Index for parameter ordering in the SaaS portal | [optional] [default to 0]
 **Type** | **string** | The parameter type | 
 
@@ -276,6 +277,31 @@ and a boolean to check if the value has been set.
 
 SetRequired sets Required field to given value.
 
+
+### GetScope
+
+`func (o *InputParameterEntity) GetScope() InputParameterScope`
+
+GetScope returns the Scope field if non-nil, zero value otherwise.
+
+### GetScopeOk
+
+`func (o *InputParameterEntity) GetScopeOk() (*InputParameterScope, bool)`
+
+GetScopeOk returns a tuple with the Scope field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScope
+
+`func (o *InputParameterEntity) SetScope(v InputParameterScope)`
+
+SetScope sets Scope field to given value.
+
+### HasScope
+
+`func (o *InputParameterEntity) HasScope() bool`
+
+HasScope returns a boolean if a field has been set.
 
 ### GetTabIndex
 

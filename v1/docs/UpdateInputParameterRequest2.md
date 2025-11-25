@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Options** | Pointer to **[]string** | A list of options to restrict the value of the input parameter to (represented as a string) | [optional] 
 **Regex** | Pointer to **string** | Regular expression pattern for validating the input parameter value | [optional] 
 **Required** | Pointer to **bool** | Enforces the input parameter as a required parameter | [optional] 
+**Scope** | Pointer to [**InputParameterScope**](InputParameterScope.md) |  | [optional] 
 **TabIndex** | Pointer to **int64** | Index for parameter ordering in the SaaS portal | [optional] [default to 0]
 
 ## Methods
@@ -284,6 +285,31 @@ SetRequired sets Required field to given value.
 `func (o *UpdateInputParameterRequest2) HasRequired() bool`
 
 HasRequired returns a boolean if a field has been set.
+
+### GetScope
+
+`func (o *UpdateInputParameterRequest2) GetScope() InputParameterScope`
+
+GetScope returns the Scope field if non-nil, zero value otherwise.
+
+### GetScopeOk
+
+`func (o *UpdateInputParameterRequest2) GetScopeOk() (*InputParameterScope, bool)`
+
+GetScopeOk returns a tuple with the Scope field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScope
+
+`func (o *UpdateInputParameterRequest2) SetScope(v InputParameterScope)`
+
+SetScope sets Scope field to given value.
+
+### HasScope
+
+`func (o *UpdateInputParameterRequest2) HasScope() bool`
+
+HasScope returns a boolean if a field has been set.
 
 ### GetTabIndex
 

@@ -102,6 +102,21 @@ func Test_fleet_HostclusterApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test HostclusterApiAPIService HostclusterApiDescribeDeploymentCellWorkflow", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var hostClusterID string
+		var workflowID string
+
+		resp, httpRes, err := apiClient.HostclusterApiAPI.HostclusterApiDescribeDeploymentCellWorkflow(context.Background(), hostClusterID, workflowID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test HostclusterApiAPIService HostclusterApiDescribeHostCluster", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -146,6 +161,21 @@ func Test_fleet_HostclusterApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test HostclusterApiAPIService HostclusterApiGetDeploymentCellWorkflowEvents", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var hostClusterID string
+		var workflowID string
+
+		resp, httpRes, err := apiClient.HostclusterApiAPI.HostclusterApiGetDeploymentCellWorkflowEvents(context.Background(), hostClusterID, workflowID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test HostclusterApiAPIService HostclusterApiKubeConfigHostCluster", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -153,6 +183,20 @@ func Test_fleet_HostclusterApiAPIService(t *testing.T) {
 		var id string
 
 		resp, httpRes, err := apiClient.HostclusterApiAPI.HostclusterApiKubeConfigHostCluster(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HostclusterApiAPIService HostclusterApiListDeploymentCellWorkflows", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var hostClusterID string
+
+		resp, httpRes, err := apiClient.HostclusterApiAPI.HostclusterApiListDeploymentCellWorkflows(context.Background(), hostClusterID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

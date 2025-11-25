@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **CloudProviders** | Pointer to **[]string** | List of supported cloud providers for this product tier. | [optional] 
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this service offering is available on | [optional] 
 **MaxNumberOfInstances** | Pointer to **int64** | Maximum number of instances | [optional] 
+**OciRegions** | Pointer to **[]string** | The OCI regions that this service offering is available on | [optional] 
+**OnPremPlatforms** | Pointer to **[]string** | The on prem platforms that this service offering is available on | [optional] 
 **PrivateRegions** | Pointer to **[]string** | The Private regions that this service offering is available on | [optional] 
 **ProductTierDescription** | Pointer to **string** | A brief description of the product tier | [optional] 
 **ProductTierDocumentation** | **string** | Documentation | 
@@ -254,6 +256,56 @@ SetMaxNumberOfInstances sets MaxNumberOfInstances field to given value.
 `func (o *ServiceOffering) HasMaxNumberOfInstances() bool`
 
 HasMaxNumberOfInstances returns a boolean if a field has been set.
+
+### GetOciRegions
+
+`func (o *ServiceOffering) GetOciRegions() []string`
+
+GetOciRegions returns the OciRegions field if non-nil, zero value otherwise.
+
+### GetOciRegionsOk
+
+`func (o *ServiceOffering) GetOciRegionsOk() (*[]string, bool)`
+
+GetOciRegionsOk returns a tuple with the OciRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciRegions
+
+`func (o *ServiceOffering) SetOciRegions(v []string)`
+
+SetOciRegions sets OciRegions field to given value.
+
+### HasOciRegions
+
+`func (o *ServiceOffering) HasOciRegions() bool`
+
+HasOciRegions returns a boolean if a field has been set.
+
+### GetOnPremPlatforms
+
+`func (o *ServiceOffering) GetOnPremPlatforms() []string`
+
+GetOnPremPlatforms returns the OnPremPlatforms field if non-nil, zero value otherwise.
+
+### GetOnPremPlatformsOk
+
+`func (o *ServiceOffering) GetOnPremPlatformsOk() (*[]string, bool)`
+
+GetOnPremPlatformsOk returns a tuple with the OnPremPlatforms field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnPremPlatforms
+
+`func (o *ServiceOffering) SetOnPremPlatforms(v []string)`
+
+SetOnPremPlatforms sets OnPremPlatforms field to given value.
+
+### HasOnPremPlatforms
+
+`func (o *ServiceOffering) HasOnPremPlatforms() bool`
+
+HasOnPremPlatforms returns a boolean if a field has been set.
 
 ### GetPrivateRegions
 

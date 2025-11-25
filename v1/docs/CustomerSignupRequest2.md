@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Attributes** | Pointer to **map[string]string** | Additional attributes for the user signup | [optional] 
 **CompanyDescription** | Pointer to **string** |  | [optional] 
 **CompanyUrl** | Pointer to **string** |  | [optional] 
 **Email** | **string** | Email address of the end-user | 
@@ -29,6 +30,31 @@ will change when the set of required properties is changed
 NewCustomerSignupRequest2WithDefaults instantiates a new CustomerSignupRequest2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAttributes
+
+`func (o *CustomerSignupRequest2) GetAttributes() map[string]string`
+
+GetAttributes returns the Attributes field if non-nil, zero value otherwise.
+
+### GetAttributesOk
+
+`func (o *CustomerSignupRequest2) GetAttributesOk() (*map[string]string, bool)`
+
+GetAttributesOk returns a tuple with the Attributes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttributes
+
+`func (o *CustomerSignupRequest2) SetAttributes(v map[string]string)`
+
+SetAttributes sets Attributes field to given value.
+
+### HasAttributes
+
+`func (o *CustomerSignupRequest2) HasAttributes() bool`
+
+HasAttributes returns a boolean if a field has been set.
 
 ### GetCompanyDescription
 

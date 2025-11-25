@@ -21,6 +21,8 @@ var _ MappedNullable = &DescribeUserResult{}
 // DescribeUserResult struct for DescribeUserResult
 type DescribeUserResult struct {
 	Address *Address `json:"address,omitempty"`
+	// Additional attributes of the user.
+	Attributes *map[string]string `json:"attributes,omitempty"`
 	// The user creation time
 	CreatedAt *string `json:"createdAt,omitempty"`
 	// The email of the user
@@ -112,6 +114,38 @@ func (o *DescribeUserResult) HasAddress() bool {
 // SetAddress gets a reference to the given Address and assigns it to the Address field.
 func (o *DescribeUserResult) SetAddress(v Address) {
 	o.Address = &v
+}
+
+// GetAttributes returns the Attributes field value if set, zero value otherwise.
+func (o *DescribeUserResult) GetAttributes() map[string]string {
+	if o == nil || IsNil(o.Attributes) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.Attributes
+}
+
+// GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeUserResult) GetAttributesOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.Attributes) {
+		return nil, false
+	}
+	return o.Attributes, true
+}
+
+// HasAttributes returns a boolean if a field has been set.
+func (o *DescribeUserResult) HasAttributes() bool {
+	if o != nil && !IsNil(o.Attributes) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttributes gets a reference to the given map[string]string and assigns it to the Attributes field.
+func (o *DescribeUserResult) SetAttributes(v map[string]string) {
+	o.Attributes = &v
 }
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
@@ -727,6 +761,9 @@ func (o DescribeUserResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Address) {
 		toSerialize["address"] = o.Address
 	}
+	if !IsNil(o.Attributes) {
+		toSerialize["attributes"] = o.Attributes
+	}
 	if !IsNil(o.CreatedAt) {
 		toSerialize["createdAt"] = o.CreatedAt
 	}
@@ -826,6 +863,7 @@ func (o *DescribeUserResult) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "address")
+		delete(additionalProperties, "attributes")
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "email")
 		delete(additionalProperties, "enabled")

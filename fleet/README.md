@@ -109,10 +109,13 @@ Class | Method | HTTP request | Description
 *HostclusterApiAPI* | [**HostclusterApiDebugHostCluster**](docs/HostclusterApiAPI.md#hostclusterapidebughostcluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id}/debug | DebugHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiDeleteEntity**](docs/HostclusterApiAPI.md#hostclusterapideleteentity) | **Delete** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/entityType/{entityType}/entityID/{entityID} | DeleteEntity hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiDeleteHostCluster**](docs/HostclusterApiAPI.md#hostclusterapideletehostcluster) | **Delete** /2022-09-01-00/fleet/host-cluster/{id} | DeleteHostCluster hostcluster-api
+*HostclusterApiAPI* | [**HostclusterApiDescribeDeploymentCellWorkflow**](docs/HostclusterApiAPI.md#hostclusterapidescribedeploymentcellworkflow) | **Get** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/workflow/{workflowID} | DescribeDeploymentCellWorkflow hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiDescribeHostCluster**](docs/HostclusterApiAPI.md#hostclusterapidescribehostcluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id} | DescribeHostCluster hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiDescribeHostClusterEntity**](docs/HostclusterApiAPI.md#hostclusterapidescribehostclusterentity) | **Get** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/entityType/{entityType}/entityID/{entityID} | DescribeHostClusterEntity hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiGenerateTokenForHostClusterDashboard**](docs/HostclusterApiAPI.md#hostclusterapigeneratetokenforhostclusterdashboard) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard hostcluster-api
+*HostclusterApiAPI* | [**HostclusterApiGetDeploymentCellWorkflowEvents**](docs/HostclusterApiAPI.md#hostclusterapigetdeploymentcellworkflowevents) | **Get** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/workflow/{workflowID}/events | GetDeploymentCellWorkflowEvents hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiKubeConfigHostCluster**](docs/HostclusterApiAPI.md#hostclusterapikubeconfighostcluster) | **Get** /2022-09-01-00/fleet/host-cluster/{id}/kubeconfig | KubeConfigHostCluster hostcluster-api
+*HostclusterApiAPI* | [**HostclusterApiListDeploymentCellWorkflows**](docs/HostclusterApiAPI.md#hostclusterapilistdeploymentcellworkflows) | **Get** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/workflows | ListDeploymentCellWorkflows hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiListHostClusterEntities**](docs/HostclusterApiAPI.md#hostclusterapilisthostclusterentities) | **Get** /2022-09-01-00/fleet/host-cluster/{hostClusterID}/entityType/{entityType} | ListHostClusterEntities hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiListHostClusters**](docs/HostclusterApiAPI.md#hostclusterapilisthostclusters) | **Get** /2022-09-01-00/fleet/host-clusters | ListHostClusters hostcluster-api
 *HostclusterApiAPI* | [**HostclusterApiRestartHostClusterDeployment**](docs/HostclusterApiAPI.md#hostclusterapirestarthostclusterdeployment) | **Post** /2022-09-01-00/fleet/host-cluster/{id}/restart-deployment | RestartHostClusterDeployment hostcluster-api
@@ -135,7 +138,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiDeleteAccountConfig**](docs/InventoryApiAPI.md#inventoryapideleteaccountconfig) | **Delete** /2022-09-01-00/fleet/account-config/{id} | DeleteAccountConfig inventory-api
 *InventoryApiAPI* | [**InventoryApiDeleteProxyResourceInstance**](docs/InventoryApiAPI.md#inventoryapideleteproxyresourceinstance) | **Delete** /2022-09-01-00/fleet/proxy-resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{id} | DeleteProxyResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiDeleteResourceInstance**](docs/InventoryApiAPI.md#inventoryapideleteresourceinstance) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId} | DeleteResourceInstance inventory-api
-*InventoryApiAPI* | [**InventoryApiDeleteResourceInstanceSnapshot**](docs/InventoryApiAPI.md#inventoryapideleteresourceinstancesnapshot) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/snapshot/{snapshotId} | DeleteResourceInstanceSnapshot inventory-api
+*InventoryApiAPI* | [**InventoryApiDeleteResourceInstanceSnapshot**](docs/InventoryApiAPI.md#inventoryapideleteresourceinstancesnapshot) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/snapshot/{snapshotId} | DeleteResourceInstanceSnapshot inventory-api
 *InventoryApiAPI* | [**InventoryApiDeleteServicesOrchestration**](docs/InventoryApiAPI.md#inventoryapideleteservicesorchestration) | **Delete** /2022-09-01-00/fleet/services-orchestration/{id} | DeleteServicesOrchestration inventory-api
 *InventoryApiAPI* | [**InventoryApiDeleteUser**](docs/InventoryApiAPI.md#inventoryapideleteuser) | **Delete** /2022-09-01-00/fleet/user/{userId} | DeleteUser inventory-api
 *InventoryApiAPI* | [**InventoryApiDenySubscriptionRequest**](docs/InventoryApiAPI.md#inventoryapidenysubscriptionrequest) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | DenySubscriptionRequest inventory-api
@@ -217,6 +220,7 @@ Class | Method | HTTP request | Description
 *OperationsApiAPI* | [**OperationsApiDeploymentCellHealth**](docs/OperationsApiAPI.md#operationsapideploymentcellhealth) | **Get** /2022-09-01-00/fleet/operations/deployment-cell-health | DeploymentCellHealth operations-api
 *OperationsApiAPI* | [**OperationsApiListEvents**](docs/OperationsApiAPI.md#operationsapilistevents) | **Get** /2022-09-01-00/fleet/operations/events | ListEvents operations-api
 *OperationsApiAPI* | [**OperationsApiServiceHealth**](docs/OperationsApiAPI.md#operationsapiservicehealth) | **Get** /2022-09-01-00/fleet/operations/service-health | ServiceHealth operations-api
+*ReportApiAPI* | [**ReportApiDescribeEnvironmentReportStats**](docs/ReportApiAPI.md#reportapidescribeenvironmentreportstats) | **Get** /2022-09-01-00/fleet/report/stats/env/{environmentType} | DescribeEnvironmentReportStats report-api
 *UsageApiAPI* | [**UsageApiGetCurrentUsage**](docs/UsageApiAPI.md#usageapigetcurrentusage) | **Get** /2022-09-01-00/fleet/usage/{subscriptionId} | GetCurrentUsage usage-api
 *UsageApiAPI* | [**UsageApiGetUsagePerDay**](docs/UsageApiAPI.md#usageapigetusageperday) | **Get** /2022-09-01-00/fleet/usage-per-day/{subscriptionId} | GetUsagePerDay usage-api
 *WebhooksApiAPI* | [**WebhooksApiReceiveWebhook**](docs/WebhooksApiAPI.md#webhooksapireceivewebhook) | **Post** /2022-09-01-00/fleet/hooks/{id} | ReceiveWebhook webhooks-api
@@ -271,6 +275,7 @@ Class | Method | HTTP request | Description
  - [CopyResourceInstanceSnapshotRequest](docs/CopyResourceInstanceSnapshotRequest.md)
  - [CopyServiceModelRequest](docs/CopyServiceModelRequest.md)
  - [CostDataPerDate](docs/CostDataPerDate.md)
+ - [CountWithRecent](docs/CountWithRecent.md)
  - [CreateCustomerOnboardingRequest](docs/CreateCustomerOnboardingRequest.md)
  - [CreateCustomerOnboardingRequest2](docs/CreateCustomerOnboardingRequest2.md)
  - [CreateIdentityProviderRequest](docs/CreateIdentityProviderRequest.md)
@@ -322,6 +327,7 @@ Class | Method | HTTP request | Description
  - [DeleteProductTierRequest](docs/DeleteProductTierRequest.md)
  - [DeleteProxyResourceInstanceRequest](docs/DeleteProxyResourceInstanceRequest.md)
  - [DeleteResourceInstanceRequest](docs/DeleteResourceInstanceRequest.md)
+ - [DeleteResourceInstanceSnapshotRequest](docs/DeleteResourceInstanceSnapshotRequest.md)
  - [DeleteSaaSPortalCustomDomainRequest](docs/DeleteSaaSPortalCustomDomainRequest.md)
  - [DeleteSecretRequest](docs/DeleteSecretRequest.md)
  - [DeleteServiceEnvironmentRequest](docs/DeleteServiceEnvironmentRequest.md)
@@ -334,10 +340,14 @@ Class | Method | HTTP request | Description
  - [DenySubscriptionRequestRequest](docs/DenySubscriptionRequestRequest.md)
  - [DeploymentCellConfiguration](docs/DeploymentCellConfiguration.md)
  - [DeploymentCellConfigurations](docs/DeploymentCellConfigurations.md)
+ - [DeploymentCellEventsPerWorkflowStep](docs/DeploymentCellEventsPerWorkflowStep.md)
  - [DeploymentCellHealthDetail](docs/DeploymentCellHealthDetail.md)
  - [DeploymentCellHealthRequest](docs/DeploymentCellHealthRequest.md)
  - [DeploymentCellHealthSummary](docs/DeploymentCellHealthSummary.md)
  - [DeploymentCellSearchRecord](docs/DeploymentCellSearchRecord.md)
+ - [DeploymentCellStatus](docs/DeploymentCellStatus.md)
+ - [DeploymentCellWorkflow](docs/DeploymentCellWorkflow.md)
+ - [DeploymentCellWorkflowEvent](docs/DeploymentCellWorkflowEvent.md)
  - [DescribeAccountConfigRequest](docs/DescribeAccountConfigRequest.md)
  - [DescribeAvailabilityZoneRequest](docs/DescribeAvailabilityZoneRequest.md)
  - [DescribeAvailabilityZoneResult](docs/DescribeAvailabilityZoneResult.md)
@@ -354,7 +364,10 @@ Class | Method | HTTP request | Description
  - [DescribeCustomerOnboardingRequest](docs/DescribeCustomerOnboardingRequest.md)
  - [DescribeDeploymentCellCostRequest](docs/DescribeDeploymentCellCostRequest.md)
  - [DescribeDeploymentCellCostResult](docs/DescribeDeploymentCellCostResult.md)
+ - [DescribeDeploymentCellWorkflowRequest](docs/DescribeDeploymentCellWorkflowRequest.md)
+ - [DescribeDeploymentCellWorkflowResult](docs/DescribeDeploymentCellWorkflowResult.md)
  - [DescribeEntityRequest](docs/DescribeEntityRequest.md)
+ - [DescribeEnvironmentReportStatsRequest](docs/DescribeEnvironmentReportStatsRequest.md)
  - [DescribeHostClusterRequest](docs/DescribeHostClusterRequest.md)
  - [DescribeIdentityProviderRequest](docs/DescribeIdentityProviderRequest.md)
  - [DescribeIdentityProviderResult](docs/DescribeIdentityProviderResult.md)
@@ -429,6 +442,7 @@ Class | Method | HTTP request | Description
  - [EntityHealth](docs/EntityHealth.md)
  - [EnvironmentHealthReport](docs/EnvironmentHealthReport.md)
  - [EnvironmentPromotionStatus](docs/EnvironmentPromotionStatus.md)
+ - [EnvironmentReportStatsSummary](docs/EnvironmentReportStatsSummary.md)
  - [EnvironmentVariable](docs/EnvironmentVariable.md)
  - [Error](docs/Error.md)
  - [Event](docs/Event.md)
@@ -576,6 +590,8 @@ Class | Method | HTTP request | Description
  - [GetConsumptionUsageResult](docs/GetConsumptionUsageResult.md)
  - [GetCurrentConsumptionUsageRequest](docs/GetCurrentConsumptionUsageRequest.md)
  - [GetCurrentUsageRequest](docs/GetCurrentUsageRequest.md)
+ - [GetDeploymentCellWorkflowEventsRequest](docs/GetDeploymentCellWorkflowEventsRequest.md)
+ - [GetDeploymentCellWorkflowEventsResult](docs/GetDeploymentCellWorkflowEventsResult.md)
  - [GetRegionByCodeRequest](docs/GetRegionByCodeRequest.md)
  - [GetSecretRequest](docs/GetSecretRequest.md)
  - [GetSecretResult](docs/GetSecretResult.md)
@@ -598,6 +614,7 @@ Class | Method | HTTP request | Description
  - [ImageConfigChangeSummary](docs/ImageConfigChangeSummary.md)
  - [InfraConfigChangeSummary](docs/InfraConfigChangeSummary.md)
  - [InputParameterEntity](docs/InputParameterEntity.md)
+ - [InputParameterScope](docs/InputParameterScope.md)
  - [InstanceHealthSummary](docs/InstanceHealthSummary.md)
  - [InstanceSnapshot](docs/InstanceSnapshot.md)
  - [InstanceTypeCost](docs/InstanceTypeCost.md)
@@ -641,6 +658,9 @@ Class | Method | HTTP request | Description
  - [ListCustomerOnboardingResult](docs/ListCustomerOnboardingResult.md)
  - [ListCustomerOnboardingStagesRequest](docs/ListCustomerOnboardingStagesRequest.md)
  - [ListCustomerOnboardingStagesResult](docs/ListCustomerOnboardingStagesResult.md)
+ - [ListDeploymentCellWorkflowsRequest](docs/ListDeploymentCellWorkflowsRequest.md)
+ - [ListDeploymentCellWorkflowsRequest2](docs/ListDeploymentCellWorkflowsRequest2.md)
+ - [ListDeploymentCellWorkflowsResult](docs/ListDeploymentCellWorkflowsResult.md)
  - [ListEligibleInstancesPerUpgradeRequest](docs/ListEligibleInstancesPerUpgradeRequest.md)
  - [ListEligibleInstancesPerUpgradeResult](docs/ListEligibleInstancesPerUpgradeResult.md)
  - [ListEndCustomerEvents](docs/ListEndCustomerEvents.md)

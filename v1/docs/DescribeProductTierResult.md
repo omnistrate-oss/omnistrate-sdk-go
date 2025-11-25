@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **Key** | **string** | Unique Key of the product tier | 
 **MaxNumberOfInstances** | Pointer to **int64** | Maximum number of instances | [optional] 
 **Name** | **string** | Name of the product tier | 
+**OciRegions** | Pointer to **[]string** | The OCI regions that this product tier is available on | [optional] 
+**OnPremPlatforms** | Pointer to **[]string** | The on prem platforms that this product tier is available on | [optional] 
 **PlanDescription** | **string** | A brief description for the end user of the product tier | 
 **PricePerUnit** | Pointer to **map[string]interface{}** | Price per unit. | [optional] 
 **Pricing** | **interface{}** | Pricing | 
@@ -573,6 +575,56 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetOciRegions
+
+`func (o *DescribeProductTierResult) GetOciRegions() []string`
+
+GetOciRegions returns the OciRegions field if non-nil, zero value otherwise.
+
+### GetOciRegionsOk
+
+`func (o *DescribeProductTierResult) GetOciRegionsOk() (*[]string, bool)`
+
+GetOciRegionsOk returns a tuple with the OciRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciRegions
+
+`func (o *DescribeProductTierResult) SetOciRegions(v []string)`
+
+SetOciRegions sets OciRegions field to given value.
+
+### HasOciRegions
+
+`func (o *DescribeProductTierResult) HasOciRegions() bool`
+
+HasOciRegions returns a boolean if a field has been set.
+
+### GetOnPremPlatforms
+
+`func (o *DescribeProductTierResult) GetOnPremPlatforms() []string`
+
+GetOnPremPlatforms returns the OnPremPlatforms field if non-nil, zero value otherwise.
+
+### GetOnPremPlatformsOk
+
+`func (o *DescribeProductTierResult) GetOnPremPlatformsOk() (*[]string, bool)`
+
+GetOnPremPlatformsOk returns a tuple with the OnPremPlatforms field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnPremPlatforms
+
+`func (o *DescribeProductTierResult) SetOnPremPlatforms(v []string)`
+
+SetOnPremPlatforms sets OnPremPlatforms field to given value.
+
+### HasOnPremPlatforms
+
+`func (o *DescribeProductTierResult) HasOnPremPlatforms() bool`
+
+HasOnPremPlatforms returns a boolean if a field has been set.
 
 ### GetPlanDescription
 

@@ -95,6 +95,8 @@ type APIClient struct {
 
 	InputParameterApiAPI InputParameterApiAPI
 
+	InstanceSnapshotApiAPI InstanceSnapshotApiAPI
+
 	InvoiceApiAPI InvoiceApiAPI
 
 	LimitApiAPI LimitApiAPI
@@ -199,6 +201,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ImageRegistryApiAPI = (*ImageRegistryApiAPIService)(&c.common)
 	c.InfraConfigApiAPI = (*InfraConfigApiAPIService)(&c.common)
 	c.InputParameterApiAPI = (*InputParameterApiAPIService)(&c.common)
+	c.InstanceSnapshotApiAPI = (*InstanceSnapshotApiAPIService)(&c.common)
 	c.InvoiceApiAPI = (*InvoiceApiAPIService)(&c.common)
 	c.LimitApiAPI = (*LimitApiAPIService)(&c.common)
 	c.NetworkConfigApiAPI = (*NetworkConfigApiAPIService)(&c.common)

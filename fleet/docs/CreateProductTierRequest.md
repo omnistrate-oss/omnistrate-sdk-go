@@ -20,6 +20,8 @@ Name | Type | Description | Notes
 **IsDisabled** | Pointer to **bool** | Create the product tier in a disabled state. Enabling the product tier will let end-customers subscribe and use the service plan. | [optional] 
 **MaxNumberOfInstances** | Pointer to **int64** | Maximum number of instances | [optional] 
 **Name** | **string** | Name of the product tier | 
+**OciRegions** | Pointer to **[]string** | The OCI regions that this product tier is available on | [optional] 
+**OnPremPlatforms** | Pointer to **[]string** | The on prem platforms that this product tier is available on | [optional] 
 **PlanDescription** | **string** | A brief description for the end user of the product tier | 
 **PricePerUnit** | Pointer to **map[string]interface{}** | Price per unit. | [optional] 
 **Pricing** | Pointer to **interface{}** | Pricing | [optional] 
@@ -438,6 +440,56 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetOciRegions
+
+`func (o *CreateProductTierRequest) GetOciRegions() []string`
+
+GetOciRegions returns the OciRegions field if non-nil, zero value otherwise.
+
+### GetOciRegionsOk
+
+`func (o *CreateProductTierRequest) GetOciRegionsOk() (*[]string, bool)`
+
+GetOciRegionsOk returns a tuple with the OciRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciRegions
+
+`func (o *CreateProductTierRequest) SetOciRegions(v []string)`
+
+SetOciRegions sets OciRegions field to given value.
+
+### HasOciRegions
+
+`func (o *CreateProductTierRequest) HasOciRegions() bool`
+
+HasOciRegions returns a boolean if a field has been set.
+
+### GetOnPremPlatforms
+
+`func (o *CreateProductTierRequest) GetOnPremPlatforms() []string`
+
+GetOnPremPlatforms returns the OnPremPlatforms field if non-nil, zero value otherwise.
+
+### GetOnPremPlatformsOk
+
+`func (o *CreateProductTierRequest) GetOnPremPlatformsOk() (*[]string, bool)`
+
+GetOnPremPlatformsOk returns a tuple with the OnPremPlatforms field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnPremPlatforms
+
+`func (o *CreateProductTierRequest) SetOnPremPlatforms(v []string)`
+
+SetOnPremPlatforms sets OnPremPlatforms field to given value.
+
+### HasOnPremPlatforms
+
+`func (o *CreateProductTierRequest) HasOnPremPlatforms() bool`
+
+HasOnPremPlatforms returns a boolean if a field has been set.
 
 ### GetPlanDescription
 

@@ -188,6 +188,7 @@ Class | Method | HTTP request | Description
 *InputParameterApiAPI* | [**InputParameterApiDescribeInputParameter**](docs/InputParameterApiAPI.md#inputparameterapidescribeinputparameter) | **Get** /2022-09-01-00/service/{serviceId}/input-parameter/{id} | DescribeInputParameter input-parameter-api
 *InputParameterApiAPI* | [**InputParameterApiListInputParameter**](docs/InputParameterApiAPI.md#inputparameterapilistinputparameter) | **Get** /2022-09-01-00/service/{serviceId}/resource/{resourceId}/input-parameter | ListInputParameter input-parameter-api
 *InputParameterApiAPI* | [**InputParameterApiUpdateInputParameter**](docs/InputParameterApiAPI.md#inputparameterapiupdateinputparameter) | **Patch** /2022-09-01-00/service/{serviceId}/input-parameter/{id} | UpdateInputParameter input-parameter-api
+*InstanceSnapshotApiAPI* | [**InstanceSnapshotApiDeleteResourceInstanceSnapshot**](docs/InstanceSnapshotApiAPI.md#instancesnapshotapideleteresourceinstancesnapshot) | **Delete** /2022-09-01-00/resource-instance/snapshot/{snapshotId} | DeleteResourceInstanceSnapshot instance-snapshot-api
 *InvoiceApiAPI* | [**InvoiceApiListInvoices**](docs/InvoiceApiAPI.md#invoiceapilistinvoices) | **Get** /2022-09-01-00/invoice | ListInvoices invoice-api
 *LimitApiAPI* | [**LimitApiDeleteLimit**](docs/LimitApiAPI.md#limitapideletelimit) | **Delete** /2022-09-01-00/limit/family/{family}/key/{key} | DeleteLimit limit-api
 *LimitApiAPI* | [**LimitApiDescribeLimit**](docs/LimitApiAPI.md#limitapidescribelimit) | **Get** /2022-09-01-00/limit/family/{family}/key/{key} | DescribeLimit limit-api
@@ -238,6 +239,7 @@ Class | Method | HTTP request | Description
 *ResourceApiAPI* | [**ResourceApiRemoveFile**](docs/ResourceApiAPI.md#resourceapiremovefile) | **Delete** /2022-09-01-00/service/{serviceId}/resource/{id}/file/{fileId} | RemoveFile resource-api
 *ResourceApiAPI* | [**ResourceApiRemoveResourceDependency**](docs/ResourceApiAPI.md#resourceapiremoveresourcedependency) | **Delete** /2022-09-01-00/service/{serviceId}/resource/{id}/resource-dependency/{resourceDependencyId} | RemoveResourceDependency resource-api
 *ResourceApiAPI* | [**ResourceApiSetEnvironmentVariables**](docs/ResourceApiAPI.md#resourceapisetenvironmentvariables) | **Patch** /2022-09-01-00/service/{serviceId}/resource/{id}/environment-variables | SetEnvironmentVariables resource-api
+*ResourceApiAPI* | [**ResourceApiUndeprecateResource**](docs/ResourceApiAPI.md#resourceapiundeprecateresource) | **Patch** /2022-09-01-00/service/{serviceId}/resource/{id}/undeprecate | UndeprecateResource resource-api
 *ResourceApiAPI* | [**ResourceApiUnsetEnvironmentVariables**](docs/ResourceApiAPI.md#resourceapiunsetenvironmentvariables) | **Delete** /2022-09-01-00/service/{serviceId}/resource/{id}/environment-variables | UnsetEnvironmentVariables resource-api
 *ResourceApiAPI* | [**ResourceApiUpdateFileContent**](docs/ResourceApiAPI.md#resourceapiupdatefilecontent) | **Put** /2022-09-01-00/service/{serviceId}/resource/{id}/file/{fileId}/content | UpdateFileContent resource-api
 *ResourceApiAPI* | [**ResourceApiUpdateFileMetadata**](docs/ResourceApiAPI.md#resourceapiupdatefilemetadata) | **Patch** /2022-09-01-00/service/{serviceId}/resource/{id}/file/{fileId}/metadata | UpdateFileMetadata resource-api
@@ -427,6 +429,7 @@ Class | Method | HTTP request | Description
  - [Amenity](docs/Amenity.md)
  - [AutoScalingMetricSpec](docs/AutoScalingMetricSpec.md)
  - [AutoscalingPolicy](docs/AutoscalingPolicy.md)
+ - [AzureFileShareConfiguration](docs/AzureFileShareConfiguration.md)
  - [BackendPortConfiguration](docs/BackendPortConfiguration.md)
  - [BackupConfiguration](docs/BackupConfiguration.md)
  - [BackupStatus](docs/BackupStatus.md)
@@ -570,6 +573,7 @@ Class | Method | HTTP request | Description
  - [DeletePipelineRequest](docs/DeletePipelineRequest.md)
  - [DeleteProductTierRequest](docs/DeleteProductTierRequest.md)
  - [DeleteResourceInstanceRequest](docs/DeleteResourceInstanceRequest.md)
+ - [DeleteResourceInstanceSnapshotRequest](docs/DeleteResourceInstanceSnapshotRequest.md)
  - [DeleteResourceRequest](docs/DeleteResourceRequest.md)
  - [DeleteSaaSPortalCustomDomainRequest](docs/DeleteSaaSPortalCustomDomainRequest.md)
  - [DeleteSecretRequest](docs/DeleteSecretRequest.md)
@@ -766,6 +770,7 @@ Class | Method | HTTP request | Description
  - [InfraConfigChangeSummary](docs/InfraConfigChangeSummary.md)
  - [InfraRollConfiguration](docs/InfraRollConfiguration.md)
  - [InputParameterEntity](docs/InputParameterEntity.md)
+ - [InputParameterScope](docs/InputParameterScope.md)
  - [InstanceHealthSummary](docs/InstanceHealthSummary.md)
  - [InstanceSnapshot](docs/InstanceSnapshot.md)
  - [IntegrationsHealth](docs/IntegrationsHealth.md)
@@ -1027,6 +1032,7 @@ Class | Method | HTTP request | Description
  - [TierVersionSet](docs/TierVersionSet.md)
  - [TierVersionSetMetadata](docs/TierVersionSetMetadata.md)
  - [TierVersionSetSpecSummary](docs/TierVersionSetSpecSummary.md)
+ - [UndeprecateResourceRequest](docs/UndeprecateResourceRequest.md)
  - [UnsetEnvironmentVariablesRequest](docs/UnsetEnvironmentVariablesRequest.md)
  - [UnsetEnvironmentVariablesRequest2](docs/UnsetEnvironmentVariablesRequest2.md)
  - [UpdateAccountConfigResourceInstanceRequest](docs/UpdateAccountConfigResourceInstanceRequest.md)

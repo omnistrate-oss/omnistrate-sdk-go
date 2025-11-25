@@ -32,6 +32,8 @@ type FleetDescribeSubscriptionResult struct {
 	CustomPrice *bool `json:"customPrice,omitempty"`
 	// The external payer ID to record which customer should pay for this subscription
 	ExternalPayerId *string `json:"externalPayerId,omitempty"`
+	// The first time this subscription was used.
+	FirstUsageTime *string `json:"firstUsageTime,omitempty"`
 	// ID of a Subscription
 	Id string `json:"id"`
 	// The number of active instances in the subscription
@@ -70,6 +72,10 @@ type FleetDescribeSubscriptionResult struct {
 	UpdatedByUserName string `json:"updatedByUserName"`
 	// ID of an Org
 	UpdatedByUserOrgId *string `json:"updatedByUserOrgId,omitempty"`
+	// Additional attributes for the user
+	UserAttributes *map[string]string `json:"userAttributes,omitempty"`
+	// The number of users sharing this subscription
+	UserCount *int64 `json:"userCount,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -288,6 +294,38 @@ func (o *FleetDescribeSubscriptionResult) HasExternalPayerId() bool {
 // SetExternalPayerId gets a reference to the given string and assigns it to the ExternalPayerId field.
 func (o *FleetDescribeSubscriptionResult) SetExternalPayerId(v string) {
 	o.ExternalPayerId = &v
+}
+
+// GetFirstUsageTime returns the FirstUsageTime field value if set, zero value otherwise.
+func (o *FleetDescribeSubscriptionResult) GetFirstUsageTime() string {
+	if o == nil || IsNil(o.FirstUsageTime) {
+		var ret string
+		return ret
+	}
+	return *o.FirstUsageTime
+}
+
+// GetFirstUsageTimeOk returns a tuple with the FirstUsageTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeSubscriptionResult) GetFirstUsageTimeOk() (*string, bool) {
+	if o == nil || IsNil(o.FirstUsageTime) {
+		return nil, false
+	}
+	return o.FirstUsageTime, true
+}
+
+// HasFirstUsageTime returns a boolean if a field has been set.
+func (o *FleetDescribeSubscriptionResult) HasFirstUsageTime() bool {
+	if o != nil && !IsNil(o.FirstUsageTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetFirstUsageTime gets a reference to the given string and assigns it to the FirstUsageTime field.
+func (o *FleetDescribeSubscriptionResult) SetFirstUsageTime(v string) {
+	o.FirstUsageTime = &v
 }
 
 // GetId returns the Id field value
@@ -794,6 +832,70 @@ func (o *FleetDescribeSubscriptionResult) SetUpdatedByUserOrgId(v string) {
 	o.UpdatedByUserOrgId = &v
 }
 
+// GetUserAttributes returns the UserAttributes field value if set, zero value otherwise.
+func (o *FleetDescribeSubscriptionResult) GetUserAttributes() map[string]string {
+	if o == nil || IsNil(o.UserAttributes) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.UserAttributes
+}
+
+// GetUserAttributesOk returns a tuple with the UserAttributes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeSubscriptionResult) GetUserAttributesOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.UserAttributes) {
+		return nil, false
+	}
+	return o.UserAttributes, true
+}
+
+// HasUserAttributes returns a boolean if a field has been set.
+func (o *FleetDescribeSubscriptionResult) HasUserAttributes() bool {
+	if o != nil && !IsNil(o.UserAttributes) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserAttributes gets a reference to the given map[string]string and assigns it to the UserAttributes field.
+func (o *FleetDescribeSubscriptionResult) SetUserAttributes(v map[string]string) {
+	o.UserAttributes = &v
+}
+
+// GetUserCount returns the UserCount field value if set, zero value otherwise.
+func (o *FleetDescribeSubscriptionResult) GetUserCount() int64 {
+	if o == nil || IsNil(o.UserCount) {
+		var ret int64
+		return ret
+	}
+	return *o.UserCount
+}
+
+// GetUserCountOk returns a tuple with the UserCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeSubscriptionResult) GetUserCountOk() (*int64, bool) {
+	if o == nil || IsNil(o.UserCount) {
+		return nil, false
+	}
+	return o.UserCount, true
+}
+
+// HasUserCount returns a boolean if a field has been set.
+func (o *FleetDescribeSubscriptionResult) HasUserCount() bool {
+	if o != nil && !IsNil(o.UserCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserCount gets a reference to the given int64 and assigns it to the UserCount field.
+func (o *FleetDescribeSubscriptionResult) SetUserCount(v int64) {
+	o.UserCount = &v
+}
+
 func (o FleetDescribeSubscriptionResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -819,6 +921,9 @@ func (o FleetDescribeSubscriptionResult) ToMap() (map[string]interface{}, error)
 	}
 	if !IsNil(o.ExternalPayerId) {
 		toSerialize["externalPayerId"] = o.ExternalPayerId
+	}
+	if !IsNil(o.FirstUsageTime) {
+		toSerialize["firstUsageTime"] = o.FirstUsageTime
 	}
 	toSerialize["id"] = o.Id
 	toSerialize["instanceCount"] = o.InstanceCount
@@ -850,6 +955,12 @@ func (o FleetDescribeSubscriptionResult) ToMap() (map[string]interface{}, error)
 	toSerialize["updatedByUserName"] = o.UpdatedByUserName
 	if !IsNil(o.UpdatedByUserOrgId) {
 		toSerialize["updatedByUserOrgId"] = o.UpdatedByUserOrgId
+	}
+	if !IsNil(o.UserAttributes) {
+		toSerialize["userAttributes"] = o.UserAttributes
+	}
+	if !IsNil(o.UserCount) {
+		toSerialize["userCount"] = o.UserCount
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -913,6 +1024,7 @@ func (o *FleetDescribeSubscriptionResult) UnmarshalJSON(data []byte) (err error)
 		delete(additionalProperties, "currentActivePricePerUnit")
 		delete(additionalProperties, "customPrice")
 		delete(additionalProperties, "externalPayerId")
+		delete(additionalProperties, "firstUsageTime")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "instanceCount")
 		delete(additionalProperties, "maxNumberOfInstances")
@@ -932,6 +1044,8 @@ func (o *FleetDescribeSubscriptionResult) UnmarshalJSON(data []byte) (err error)
 		delete(additionalProperties, "updatedByUserId")
 		delete(additionalProperties, "updatedByUserName")
 		delete(additionalProperties, "updatedByUserOrgId")
+		delete(additionalProperties, "userAttributes")
+		delete(additionalProperties, "userCount")
 		o.AdditionalProperties = additionalProperties
 	}
 

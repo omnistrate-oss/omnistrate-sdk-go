@@ -26,6 +26,8 @@ type FleetListCustomNetworksRequest struct {
 	CloudProviderRegion *string `json:"cloudProviderRegion,omitempty"`
 	// Flag indicating whether to return only custom networks, or to include default and imported networks as well
 	CustomNetworksOnly *bool `json:"customNetworksOnly,omitempty"`
+	// ID of the owning organization
+	OwningOrgID *string `json:"owningOrgID,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -147,6 +149,38 @@ func (o *FleetListCustomNetworksRequest) SetCustomNetworksOnly(v bool) {
 	o.CustomNetworksOnly = &v
 }
 
+// GetOwningOrgID returns the OwningOrgID field value if set, zero value otherwise.
+func (o *FleetListCustomNetworksRequest) GetOwningOrgID() string {
+	if o == nil || IsNil(o.OwningOrgID) {
+		var ret string
+		return ret
+	}
+	return *o.OwningOrgID
+}
+
+// GetOwningOrgIDOk returns a tuple with the OwningOrgID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetListCustomNetworksRequest) GetOwningOrgIDOk() (*string, bool) {
+	if o == nil || IsNil(o.OwningOrgID) {
+		return nil, false
+	}
+	return o.OwningOrgID, true
+}
+
+// HasOwningOrgID returns a boolean if a field has been set.
+func (o *FleetListCustomNetworksRequest) HasOwningOrgID() bool {
+	if o != nil && !IsNil(o.OwningOrgID) {
+		return true
+	}
+
+	return false
+}
+
+// SetOwningOrgID gets a reference to the given string and assigns it to the OwningOrgID field.
+func (o *FleetListCustomNetworksRequest) SetOwningOrgID(v string) {
+	o.OwningOrgID = &v
+}
+
 // GetToken returns the Token field value
 func (o *FleetListCustomNetworksRequest) GetToken() string {
 	if o == nil {
@@ -189,6 +223,9 @@ func (o FleetListCustomNetworksRequest) ToMap() (map[string]interface{}, error) 
 	}
 	if !IsNil(o.CustomNetworksOnly) {
 		toSerialize["customNetworksOnly"] = o.CustomNetworksOnly
+	}
+	if !IsNil(o.OwningOrgID) {
+		toSerialize["owningOrgID"] = o.OwningOrgID
 	}
 	toSerialize["token"] = o.Token
 
@@ -237,6 +274,7 @@ func (o *FleetListCustomNetworksRequest) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "cloudProviderName")
 		delete(additionalProperties, "cloudProviderRegion")
 		delete(additionalProperties, "customNetworksOnly")
+		delete(additionalProperties, "owningOrgID")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

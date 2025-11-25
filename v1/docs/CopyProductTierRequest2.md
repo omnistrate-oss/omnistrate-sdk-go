@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this product tier is available on | [optional] 
 **MaxNumberOfInstances** | Pointer to **int64** | Maximum number of instances | [optional] 
 **Name** | **string** | Name of the product tier | 
+**OciRegions** | Pointer to **[]string** | The OCI regions that this product tier is available on | [optional] 
+**OnPremPlatforms** | Pointer to **[]string** | The on prem platforms that this product tier is available on | [optional] 
 **PlanDescription** | Pointer to **string** | A brief description for the end user of the product tier | [optional] 
 **PricePerUnit** | Pointer to **map[string]interface{}** | Price per unit. | [optional] 
 **Pricing** | Pointer to **interface{}** | Pricing | [optional] 
@@ -332,6 +334,56 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetOciRegions
+
+`func (o *CopyProductTierRequest2) GetOciRegions() []string`
+
+GetOciRegions returns the OciRegions field if non-nil, zero value otherwise.
+
+### GetOciRegionsOk
+
+`func (o *CopyProductTierRequest2) GetOciRegionsOk() (*[]string, bool)`
+
+GetOciRegionsOk returns a tuple with the OciRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciRegions
+
+`func (o *CopyProductTierRequest2) SetOciRegions(v []string)`
+
+SetOciRegions sets OciRegions field to given value.
+
+### HasOciRegions
+
+`func (o *CopyProductTierRequest2) HasOciRegions() bool`
+
+HasOciRegions returns a boolean if a field has been set.
+
+### GetOnPremPlatforms
+
+`func (o *CopyProductTierRequest2) GetOnPremPlatforms() []string`
+
+GetOnPremPlatforms returns the OnPremPlatforms field if non-nil, zero value otherwise.
+
+### GetOnPremPlatformsOk
+
+`func (o *CopyProductTierRequest2) GetOnPremPlatformsOk() (*[]string, bool)`
+
+GetOnPremPlatformsOk returns a tuple with the OnPremPlatforms field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnPremPlatforms
+
+`func (o *CopyProductTierRequest2) SetOnPremPlatforms(v []string)`
+
+SetOnPremPlatforms sets OnPremPlatforms field to given value.
+
+### HasOnPremPlatforms
+
+`func (o *CopyProductTierRequest2) HasOnPremPlatforms() bool`
+
+HasOnPremPlatforms returns a boolean if a field has been set.
 
 ### GetPlanDescription
 
