@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **Regex** | Pointer to **string** | Regular expression pattern for validating the input parameter value | [optional] 
 **Required** | **bool** | Enforces the input parameter as a required parameter | 
 **ResourceId** | **string** | The ID of the resource that this input parameter belongs to | 
+**Scope** | Pointer to [**InputParameterScope**](InputParameterScope.md) |  | [optional] 
 **TabIndex** | Pointer to **int64** | Index for parameter ordering in the SaaS portal | [optional] [default to 0]
 **Type** | **string** |  | 
 
@@ -359,6 +360,31 @@ and a boolean to check if the value has been set.
 
 SetResourceId sets ResourceId field to given value.
 
+
+### GetScope
+
+`func (o *CreateInputParameterRequest2) GetScope() InputParameterScope`
+
+GetScope returns the Scope field if non-nil, zero value otherwise.
+
+### GetScopeOk
+
+`func (o *CreateInputParameterRequest2) GetScopeOk() (*InputParameterScope, bool)`
+
+GetScopeOk returns a tuple with the Scope field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScope
+
+`func (o *CreateInputParameterRequest2) SetScope(v InputParameterScope)`
+
+SetScope sets Scope field to given value.
+
+### HasScope
+
+`func (o *CreateInputParameterRequest2) HasScope() bool`
+
+HasScope returns a boolean if a field has been set.
 
 ### GetTabIndex
 

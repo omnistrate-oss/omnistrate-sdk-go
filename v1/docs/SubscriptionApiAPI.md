@@ -30,7 +30,7 @@ import (
 )
 
 func main() {
-	createSubscriptionRequest2 := *openapiclient.NewCreateSubscriptionRequest2("Harum nesciunt recusandae.", "s-123456") // CreateSubscriptionRequest2 | 
+	createSubscriptionRequest2 := *openapiclient.NewCreateSubscriptionRequest2("Est adipisci laudantium id fuga porro.", "s-123456") // CreateSubscriptionRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

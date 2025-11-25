@@ -35,6 +35,10 @@ type ServiceOffering struct {
 	GcpRegions []string `json:"gcpRegions,omitempty"`
 	// Maximum number of instances
 	MaxNumberOfInstances *int64 `json:"maxNumberOfInstances,omitempty"`
+	// The OCI regions that this service offering is available on
+	OciRegions []string `json:"ociRegions,omitempty"`
+	// The on prem platforms that this service offering is available on
+	OnPremPlatforms []string `json:"onPremPlatforms,omitempty"`
 	// The Private regions that this service offering is available on
 	PrivateRegions []string `json:"privateRegions,omitempty"`
 	// A brief description of the product tier
@@ -382,6 +386,70 @@ func (o *ServiceOffering) HasMaxNumberOfInstances() bool {
 // SetMaxNumberOfInstances gets a reference to the given int64 and assigns it to the MaxNumberOfInstances field.
 func (o *ServiceOffering) SetMaxNumberOfInstances(v int64) {
 	o.MaxNumberOfInstances = &v
+}
+
+// GetOciRegions returns the OciRegions field value if set, zero value otherwise.
+func (o *ServiceOffering) GetOciRegions() []string {
+	if o == nil || IsNil(o.OciRegions) {
+		var ret []string
+		return ret
+	}
+	return o.OciRegions
+}
+
+// GetOciRegionsOk returns a tuple with the OciRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceOffering) GetOciRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.OciRegions) {
+		return nil, false
+	}
+	return o.OciRegions, true
+}
+
+// HasOciRegions returns a boolean if a field has been set.
+func (o *ServiceOffering) HasOciRegions() bool {
+	if o != nil && !IsNil(o.OciRegions) {
+		return true
+	}
+
+	return false
+}
+
+// SetOciRegions gets a reference to the given []string and assigns it to the OciRegions field.
+func (o *ServiceOffering) SetOciRegions(v []string) {
+	o.OciRegions = v
+}
+
+// GetOnPremPlatforms returns the OnPremPlatforms field value if set, zero value otherwise.
+func (o *ServiceOffering) GetOnPremPlatforms() []string {
+	if o == nil || IsNil(o.OnPremPlatforms) {
+		var ret []string
+		return ret
+	}
+	return o.OnPremPlatforms
+}
+
+// GetOnPremPlatformsOk returns a tuple with the OnPremPlatforms field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceOffering) GetOnPremPlatformsOk() ([]string, bool) {
+	if o == nil || IsNil(o.OnPremPlatforms) {
+		return nil, false
+	}
+	return o.OnPremPlatforms, true
+}
+
+// HasOnPremPlatforms returns a boolean if a field has been set.
+func (o *ServiceOffering) HasOnPremPlatforms() bool {
+	if o != nil && !IsNil(o.OnPremPlatforms) {
+		return true
+	}
+
+	return false
+}
+
+// SetOnPremPlatforms gets a reference to the given []string and assigns it to the OnPremPlatforms field.
+func (o *ServiceOffering) SetOnPremPlatforms(v []string) {
+	o.OnPremPlatforms = v
 }
 
 // GetPrivateRegions returns the PrivateRegions field value if set, zero value otherwise.
@@ -1138,6 +1206,12 @@ func (o ServiceOffering) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.MaxNumberOfInstances) {
 		toSerialize["maxNumberOfInstances"] = o.MaxNumberOfInstances
 	}
+	if !IsNil(o.OciRegions) {
+		toSerialize["ociRegions"] = o.OciRegions
+	}
+	if !IsNil(o.OnPremPlatforms) {
+		toSerialize["onPremPlatforms"] = o.OnPremPlatforms
+	}
 	if !IsNil(o.PrivateRegions) {
 		toSerialize["privateRegions"] = o.PrivateRegions
 	}
@@ -1253,6 +1327,8 @@ func (o *ServiceOffering) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "cloudProviders")
 		delete(additionalProperties, "gcpRegions")
 		delete(additionalProperties, "maxNumberOfInstances")
+		delete(additionalProperties, "ociRegions")
+		delete(additionalProperties, "onPremPlatforms")
 		delete(additionalProperties, "privateRegions")
 		delete(additionalProperties, "productTierDescription")
 		delete(additionalProperties, "productTierDocumentation")

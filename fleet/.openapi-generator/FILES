@@ -15,6 +15,7 @@ api_inventory_api.go
 api_invoice_api.go
 api_notifications_api.go
 api_operations_api.go
+api_report_api.go
 api_usage_api.go
 api_webhooks_api.go
 client.go
@@ -68,6 +69,7 @@ docs/CopyResourceInstanceSnapshotRequest.md
 docs/CopyServiceModelRequest.md
 docs/CostApiAPI.md
 docs/CostDataPerDate.md
+docs/CountWithRecent.md
 docs/CreateCustomerOnboardingRequest.md
 docs/CreateCustomerOnboardingRequest2.md
 docs/CreateIdentityProviderRequest.md
@@ -120,6 +122,7 @@ docs/DeletePipelineRequest.md
 docs/DeleteProductTierRequest.md
 docs/DeleteProxyResourceInstanceRequest.md
 docs/DeleteResourceInstanceRequest.md
+docs/DeleteResourceInstanceSnapshotRequest.md
 docs/DeleteSaaSPortalCustomDomainRequest.md
 docs/DeleteSecretRequest.md
 docs/DeleteServiceEnvironmentRequest.md
@@ -132,10 +135,14 @@ docs/DemoRequest.md
 docs/DenySubscriptionRequestRequest.md
 docs/DeploymentCellConfiguration.md
 docs/DeploymentCellConfigurations.md
+docs/DeploymentCellEventsPerWorkflowStep.md
 docs/DeploymentCellHealthDetail.md
 docs/DeploymentCellHealthRequest.md
 docs/DeploymentCellHealthSummary.md
 docs/DeploymentCellSearchRecord.md
+docs/DeploymentCellStatus.md
+docs/DeploymentCellWorkflow.md
+docs/DeploymentCellWorkflowEvent.md
 docs/DescribeAccountConfigRequest.md
 docs/DescribeAvailabilityZoneRequest.md
 docs/DescribeAvailabilityZoneResult.md
@@ -152,7 +159,10 @@ docs/DescribeConsumptionUserBillingDetailsResult.md
 docs/DescribeCustomerOnboardingRequest.md
 docs/DescribeDeploymentCellCostRequest.md
 docs/DescribeDeploymentCellCostResult.md
+docs/DescribeDeploymentCellWorkflowRequest.md
+docs/DescribeDeploymentCellWorkflowResult.md
 docs/DescribeEntityRequest.md
+docs/DescribeEnvironmentReportStatsRequest.md
 docs/DescribeHostClusterRequest.md
 docs/DescribeIdentityProviderRequest.md
 docs/DescribeIdentityProviderResult.md
@@ -227,6 +237,7 @@ docs/Entity.md
 docs/EntityHealth.md
 docs/EnvironmentHealthReport.md
 docs/EnvironmentPromotionStatus.md
+docs/EnvironmentReportStatsSummary.md
 docs/EnvironmentVariable.md
 docs/Error.md
 docs/Event.md
@@ -377,6 +388,8 @@ docs/GetConsumptionUsageRequest.md
 docs/GetConsumptionUsageResult.md
 docs/GetCurrentConsumptionUsageRequest.md
 docs/GetCurrentUsageRequest.md
+docs/GetDeploymentCellWorkflowEventsRequest.md
+docs/GetDeploymentCellWorkflowEventsResult.md
 docs/GetRegionByCodeRequest.md
 docs/GetSecretRequest.md
 docs/GetSecretResult.md
@@ -401,6 +414,7 @@ docs/HostclusterApiAPI.md
 docs/ImageConfigChangeSummary.md
 docs/InfraConfigChangeSummary.md
 docs/InputParameterEntity.md
+docs/InputParameterScope.md
 docs/InstanceHealthSummary.md
 docs/InstanceSnapshot.md
 docs/InstanceTypeCost.md
@@ -446,6 +460,9 @@ docs/ListCustomerOnboardingRequest.md
 docs/ListCustomerOnboardingResult.md
 docs/ListCustomerOnboardingStagesRequest.md
 docs/ListCustomerOnboardingStagesResult.md
+docs/ListDeploymentCellWorkflowsRequest.md
+docs/ListDeploymentCellWorkflowsRequest2.md
+docs/ListDeploymentCellWorkflowsResult.md
 docs/ListEligibleInstancesPerUpgradeRequest.md
 docs/ListEligibleInstancesPerUpgradeResult.md
 docs/ListEndCustomerEvents.md
@@ -560,6 +577,7 @@ docs/RenderIdentityProvidersRequest.md
 docs/RenderIdentityProvidersResult.md
 docs/RenderedIdentityProviderResult.md
 docs/ReplayEventRequest.md
+docs/ReportApiAPI.md
 docs/ReportHealthRequest.md
 docs/ReportHealthResult.md
 docs/ResetPasswordRequest.md
@@ -713,6 +731,7 @@ model_copy_product_tier_request.go
 model_copy_resource_instance_snapshot_request.go
 model_copy_service_model_request.go
 model_cost_data_per_date.go
+model_count_with_recent.go
 model_create_customer_onboarding_request.go
 model_create_customer_onboarding_request2.go
 model_create_identity_provider_request.go
@@ -764,6 +783,7 @@ model_delete_pipeline_request.go
 model_delete_product_tier_request.go
 model_delete_proxy_resource_instance_request.go
 model_delete_resource_instance_request.go
+model_delete_resource_instance_snapshot_request.go
 model_delete_saa_s_portal_custom_domain_request.go
 model_delete_secret_request.go
 model_delete_service_environment_request.go
@@ -776,10 +796,14 @@ model_demo_request.go
 model_deny_subscription_request_request.go
 model_deployment_cell_configuration.go
 model_deployment_cell_configurations.go
+model_deployment_cell_events_per_workflow_step.go
 model_deployment_cell_health_detail.go
 model_deployment_cell_health_request.go
 model_deployment_cell_health_summary.go
 model_deployment_cell_search_record.go
+model_deployment_cell_status.go
+model_deployment_cell_workflow.go
+model_deployment_cell_workflow_event.go
 model_describe_account_config_request.go
 model_describe_availability_zone_request.go
 model_describe_availability_zone_result.go
@@ -796,7 +820,10 @@ model_describe_consumption_user_billing_details_result.go
 model_describe_customer_onboarding_request.go
 model_describe_deployment_cell_cost_request.go
 model_describe_deployment_cell_cost_result.go
+model_describe_deployment_cell_workflow_request.go
+model_describe_deployment_cell_workflow_result.go
 model_describe_entity_request.go
+model_describe_environment_report_stats_request.go
 model_describe_host_cluster_request.go
 model_describe_identity_provider_request.go
 model_describe_identity_provider_result.go
@@ -871,6 +898,7 @@ model_entity.go
 model_entity_health.go
 model_environment_health_report.go
 model_environment_promotion_status.go
+model_environment_report_stats_summary.go
 model_environment_variable.go
 model_error.go
 model_event.go
@@ -1018,6 +1046,8 @@ model_get_consumption_usage_request.go
 model_get_consumption_usage_result.go
 model_get_current_consumption_usage_request.go
 model_get_current_usage_request.go
+model_get_deployment_cell_workflow_events_request.go
+model_get_deployment_cell_workflow_events_result.go
 model_get_region_by_code_request.go
 model_get_secret_request.go
 model_get_secret_result.go
@@ -1040,6 +1070,7 @@ model_host_cluster_health_status.go
 model_image_config_change_summary.go
 model_infra_config_change_summary.go
 model_input_parameter_entity.go
+model_input_parameter_scope.go
 model_instance_health_summary.go
 model_instance_snapshot.go
 model_instance_type_cost.go
@@ -1083,6 +1114,9 @@ model_list_customer_onboarding_request.go
 model_list_customer_onboarding_result.go
 model_list_customer_onboarding_stages_request.go
 model_list_customer_onboarding_stages_result.go
+model_list_deployment_cell_workflows_request.go
+model_list_deployment_cell_workflows_request2.go
+model_list_deployment_cell_workflows_result.go
 model_list_eligible_instances_per_upgrade_request.go
 model_list_eligible_instances_per_upgrade_result.go
 model_list_end_customer_events.go
@@ -1311,6 +1345,7 @@ test/api_inventory_api_test.go
 test/api_invoice_api_test.go
 test/api_notifications_api_test.go
 test/api_operations_api_test.go
+test/api_report_api_test.go
 test/api_usage_api_test.go
 test/api_webhooks_api_test.go
 utils.go

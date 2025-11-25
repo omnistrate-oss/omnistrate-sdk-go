@@ -24,6 +24,8 @@ type AutoscalingPolicy struct {
 	IdleMinutesBeforeScalingDown *int64 `json:"idleMinutesBeforeScalingDown,omitempty"`
 	// Metric value below threshold will be considered to be idle
 	IdleThreshold *int64 `json:"idleThreshold,omitempty"`
+	// The autoscaling policy type
+	ManagementPolicy *string `json:"managementPolicy,omitempty"`
 	// Maximum number of compute nodes to provision
 	MaxReplicas string `json:"maxReplicas"`
 	// Minimum number of compute nodes to provision
@@ -48,6 +50,8 @@ func NewAutoscalingPolicy(maxReplicas string, minReplicas string) *AutoscalingPo
 	this.IdleMinutesBeforeScalingDown = &idleMinutesBeforeScalingDown
 	var idleThreshold int64 = 20
 	this.IdleThreshold = &idleThreshold
+	var managementPolicy string = "managed"
+	this.ManagementPolicy = &managementPolicy
 	this.MaxReplicas = maxReplicas
 	this.MinReplicas = minReplicas
 	var overUtilizedMinutesBeforeScalingUp int64 = 5
@@ -66,6 +70,8 @@ func NewAutoscalingPolicyWithDefaults() *AutoscalingPolicy {
 	this.IdleMinutesBeforeScalingDown = &idleMinutesBeforeScalingDown
 	var idleThreshold int64 = 20
 	this.IdleThreshold = &idleThreshold
+	var managementPolicy string = "managed"
+	this.ManagementPolicy = &managementPolicy
 	var overUtilizedMinutesBeforeScalingUp int64 = 5
 	this.OverUtilizedMinutesBeforeScalingUp = &overUtilizedMinutesBeforeScalingUp
 	var overUtilizedThreshold int64 = 80
@@ -117,6 +123,29 @@ func (o *AutoscalingPolicy) GetIdleThresholdOk() (*int64, bool) {
 // SetIdleThreshold gets a reference to the given int64 and assigns it to the IdleThreshold field.
 func (o *AutoscalingPolicy) SetIdleThreshold(v int64) {
 	o.IdleThreshold = &v
+}
+
+// GetManagementPolicy returns the ManagementPolicy field value if set, zero value otherwise.
+func (o *AutoscalingPolicy) GetManagementPolicy() string {
+	if o == nil || IsNil(o.ManagementPolicy) {
+		var ret string
+		return ret
+	}
+	return *o.ManagementPolicy
+}
+
+// GetManagementPolicyOk returns a tuple with the ManagementPolicy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AutoscalingPolicy) GetManagementPolicyOk() (*string, bool) {
+	if o == nil || IsNil(o.ManagementPolicy) {
+		return nil, false
+	}
+	return o.ManagementPolicy, true
+}
+
+// SetManagementPolicy gets a reference to the given string and assigns it to the ManagementPolicy field.
+func (o *AutoscalingPolicy) SetManagementPolicy(v string) {
+	o.ManagementPolicy = &v
 }
 
 // GetMaxReplicas returns the MaxReplicas field value
@@ -252,6 +281,9 @@ func (o AutoscalingPolicy) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IdleThreshold) {
 		toSerialize["idleThreshold"] = o.IdleThreshold
 	}
+	if !IsNil(o.ManagementPolicy) {
+		toSerialize["managementPolicy"] = o.ManagementPolicy
+	}
 	toSerialize["maxReplicas"] = o.MaxReplicas
 	toSerialize["minReplicas"] = o.MinReplicas
 	if !IsNil(o.OverUtilizedMinutesBeforeScalingUp) {
@@ -309,6 +341,7 @@ func (o *AutoscalingPolicy) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "idleMinutesBeforeScalingDown")
 		delete(additionalProperties, "idleThreshold")
+		delete(additionalProperties, "managementPolicy")
 		delete(additionalProperties, "maxReplicas")
 		delete(additionalProperties, "minReplicas")
 		delete(additionalProperties, "overUtilizedMinutesBeforeScalingUp")

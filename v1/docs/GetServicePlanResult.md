@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **IsProductTierDisabled** | **bool** | Whether the product tier is disabled | 
 **LatestMajorVersion** | **string** | The version number for the latest major version set. | 
 **ModelType** | **string** | The model type encapsulating this service | 
+**OciRegions** | Pointer to **[]string** | The OCI regions that this service plan is available on | [optional] 
+**OnPremPlatforms** | Pointer to **[]string** | The on prem platforms that this service plan is available on | [optional] 
 **PrivateRegions** | Pointer to **[]string** | The Private regions that this service plan is available on | [optional] 
 **ProductTierDescription** | **string** | A brief description of the product tier | 
 **ProductTierDocumentation** | **string** | Documentation | 
@@ -324,6 +326,56 @@ and a boolean to check if the value has been set.
 
 SetModelType sets ModelType field to given value.
 
+
+### GetOciRegions
+
+`func (o *GetServicePlanResult) GetOciRegions() []string`
+
+GetOciRegions returns the OciRegions field if non-nil, zero value otherwise.
+
+### GetOciRegionsOk
+
+`func (o *GetServicePlanResult) GetOciRegionsOk() (*[]string, bool)`
+
+GetOciRegionsOk returns a tuple with the OciRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciRegions
+
+`func (o *GetServicePlanResult) SetOciRegions(v []string)`
+
+SetOciRegions sets OciRegions field to given value.
+
+### HasOciRegions
+
+`func (o *GetServicePlanResult) HasOciRegions() bool`
+
+HasOciRegions returns a boolean if a field has been set.
+
+### GetOnPremPlatforms
+
+`func (o *GetServicePlanResult) GetOnPremPlatforms() []string`
+
+GetOnPremPlatforms returns the OnPremPlatforms field if non-nil, zero value otherwise.
+
+### GetOnPremPlatformsOk
+
+`func (o *GetServicePlanResult) GetOnPremPlatformsOk() (*[]string, bool)`
+
+GetOnPremPlatformsOk returns a tuple with the OnPremPlatforms field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnPremPlatforms
+
+`func (o *GetServicePlanResult) SetOnPremPlatforms(v []string)`
+
+SetOnPremPlatforms sets OnPremPlatforms field to given value.
+
+### HasOnPremPlatforms
+
+`func (o *GetServicePlanResult) HasOnPremPlatforms() bool`
+
+HasOnPremPlatforms returns a boolean if a field has been set.
 
 ### GetPrivateRegions
 

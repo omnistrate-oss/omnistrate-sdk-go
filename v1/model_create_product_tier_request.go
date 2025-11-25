@@ -51,6 +51,10 @@ type CreateProductTierRequest struct {
 	MaxNumberOfInstances *int64 `json:"maxNumberOfInstances,omitempty"`
 	// Name of the product tier
 	Name string `json:"name"`
+	// The OCI regions that this product tier is available on
+	OciRegions []string `json:"ociRegions,omitempty"`
+	// The on prem platforms that this product tier is available on
+	OnPremPlatforms []string `json:"onPremPlatforms,omitempty"`
 	// A brief description for the end user of the product tier
 	PlanDescription string `json:"planDescription"`
 	// Price per unit.
@@ -468,6 +472,52 @@ func (o *CreateProductTierRequest) SetName(v string) {
 	o.Name = v
 }
 
+// GetOciRegions returns the OciRegions field value if set, zero value otherwise.
+func (o *CreateProductTierRequest) GetOciRegions() []string {
+	if o == nil || IsNil(o.OciRegions) {
+		var ret []string
+		return ret
+	}
+	return o.OciRegions
+}
+
+// GetOciRegionsOk returns a tuple with the OciRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateProductTierRequest) GetOciRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.OciRegions) {
+		return nil, false
+	}
+	return o.OciRegions, true
+}
+
+// SetOciRegions gets a reference to the given []string and assigns it to the OciRegions field.
+func (o *CreateProductTierRequest) SetOciRegions(v []string) {
+	o.OciRegions = v
+}
+
+// GetOnPremPlatforms returns the OnPremPlatforms field value if set, zero value otherwise.
+func (o *CreateProductTierRequest) GetOnPremPlatforms() []string {
+	if o == nil || IsNil(o.OnPremPlatforms) {
+		var ret []string
+		return ret
+	}
+	return o.OnPremPlatforms
+}
+
+// GetOnPremPlatformsOk returns a tuple with the OnPremPlatforms field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateProductTierRequest) GetOnPremPlatformsOk() ([]string, bool) {
+	if o == nil || IsNil(o.OnPremPlatforms) {
+		return nil, false
+	}
+	return o.OnPremPlatforms, true
+}
+
+// SetOnPremPlatforms gets a reference to the given []string and assigns it to the OnPremPlatforms field.
+func (o *CreateProductTierRequest) SetOnPremPlatforms(v []string) {
+	o.OnPremPlatforms = v
+}
+
 // GetPlanDescription returns the PlanDescription field value
 func (o *CreateProductTierRequest) GetPlanDescription() string {
 	if o == nil {
@@ -735,6 +785,12 @@ func (o CreateProductTierRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["maxNumberOfInstances"] = o.MaxNumberOfInstances
 	}
 	toSerialize["name"] = o.Name
+	if !IsNil(o.OciRegions) {
+		toSerialize["ociRegions"] = o.OciRegions
+	}
+	if !IsNil(o.OnPremPlatforms) {
+		toSerialize["onPremPlatforms"] = o.OnPremPlatforms
+	}
 	toSerialize["planDescription"] = o.PlanDescription
 	if !IsNil(o.PricePerUnit) {
 		toSerialize["pricePerUnit"] = o.PricePerUnit
@@ -817,6 +873,8 @@ func (o *CreateProductTierRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "isDisabled")
 		delete(additionalProperties, "maxNumberOfInstances")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "ociRegions")
+		delete(additionalProperties, "onPremPlatforms")
 		delete(additionalProperties, "planDescription")
 		delete(additionalProperties, "pricePerUnit")
 		delete(additionalProperties, "pricing")

@@ -296,10 +296,9 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 		var serviceId string
 		var environmentId string
-		var instanceId string
 		var snapshotId string
 
-		httpRes, err := apiClient.InventoryApiAPI.InventoryApiDeleteResourceInstanceSnapshot(context.Background(), serviceId, environmentId, instanceId, snapshotId).Execute()
+		httpRes, err := apiClient.InventoryApiAPI.InventoryApiDeleteResourceInstanceSnapshot(context.Background(), serviceId, environmentId, snapshotId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Address** | Pointer to [**Address**](Address.md) |  | [optional] 
+**Attributes** | Pointer to **map[string]string** | Additional attributes of the user. | [optional] 
 **CreatedAt** | Pointer to **string** | The user creation time | [optional] 
 **Email** | Pointer to **string** | The email of the user | [optional] 
 **Enabled** | Pointer to **bool** | Is the user enabled. | [optional] 
@@ -68,6 +69,31 @@ SetAddress sets Address field to given value.
 `func (o *DescribeUserResult) HasAddress() bool`
 
 HasAddress returns a boolean if a field has been set.
+
+### GetAttributes
+
+`func (o *DescribeUserResult) GetAttributes() map[string]string`
+
+GetAttributes returns the Attributes field if non-nil, zero value otherwise.
+
+### GetAttributesOk
+
+`func (o *DescribeUserResult) GetAttributesOk() (*map[string]string, bool)`
+
+GetAttributesOk returns a tuple with the Attributes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttributes
+
+`func (o *DescribeUserResult) SetAttributes(v map[string]string)`
+
+SetAttributes sets Attributes field to given value.
+
+### HasAttributes
+
+`func (o *DescribeUserResult) HasAttributes() bool`
+
+HasAttributes returns a boolean if a field has been set.
 
 ### GetCreatedAt
 

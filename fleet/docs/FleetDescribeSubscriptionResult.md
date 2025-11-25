@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **CurrentActivePricePerUnit** | Pointer to **map[string]interface{}** | The active pricing for the subscription at the time of the request. | [optional] 
 **CustomPrice** | Pointer to **bool** | Whether this subscription has a custom price | [optional] 
 **ExternalPayerId** | Pointer to **string** | The external payer ID to record which customer should pay for this subscription | [optional] 
+**FirstUsageTime** | Pointer to **string** | The first time this subscription was used. | [optional] 
 **Id** | **string** | ID of a Subscription | 
 **InstanceCount** | **int64** | The number of active instances in the subscription | 
 **MaxNumberOfInstances** | Pointer to **int64** | The maximum number of instances that can be created for this subscription. | [optional] 
@@ -29,6 +30,8 @@ Name | Type | Description | Notes
 **UpdatedByUserId** | **string** | ID of a User | 
 **UpdatedByUserName** | **string** | The name of the user that last updated the subscription | 
 **UpdatedByUserOrgId** | Pointer to **string** | ID of an Org | [optional] 
+**UserAttributes** | Pointer to **map[string]string** | Additional attributes for the user | [optional] 
+**UserCount** | Pointer to **int64** | The number of users sharing this subscription | [optional] 
 
 ## Methods
 
@@ -193,6 +196,31 @@ SetExternalPayerId sets ExternalPayerId field to given value.
 `func (o *FleetDescribeSubscriptionResult) HasExternalPayerId() bool`
 
 HasExternalPayerId returns a boolean if a field has been set.
+
+### GetFirstUsageTime
+
+`func (o *FleetDescribeSubscriptionResult) GetFirstUsageTime() string`
+
+GetFirstUsageTime returns the FirstUsageTime field if non-nil, zero value otherwise.
+
+### GetFirstUsageTimeOk
+
+`func (o *FleetDescribeSubscriptionResult) GetFirstUsageTimeOk() (*string, bool)`
+
+GetFirstUsageTimeOk returns a tuple with the FirstUsageTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFirstUsageTime
+
+`func (o *FleetDescribeSubscriptionResult) SetFirstUsageTime(v string)`
+
+SetFirstUsageTime sets FirstUsageTime field to given value.
+
+### HasFirstUsageTime
+
+`func (o *FleetDescribeSubscriptionResult) HasFirstUsageTime() bool`
+
+HasFirstUsageTime returns a boolean if a field has been set.
 
 ### GetId
 
@@ -603,6 +631,56 @@ SetUpdatedByUserOrgId sets UpdatedByUserOrgId field to given value.
 `func (o *FleetDescribeSubscriptionResult) HasUpdatedByUserOrgId() bool`
 
 HasUpdatedByUserOrgId returns a boolean if a field has been set.
+
+### GetUserAttributes
+
+`func (o *FleetDescribeSubscriptionResult) GetUserAttributes() map[string]string`
+
+GetUserAttributes returns the UserAttributes field if non-nil, zero value otherwise.
+
+### GetUserAttributesOk
+
+`func (o *FleetDescribeSubscriptionResult) GetUserAttributesOk() (*map[string]string, bool)`
+
+GetUserAttributesOk returns a tuple with the UserAttributes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserAttributes
+
+`func (o *FleetDescribeSubscriptionResult) SetUserAttributes(v map[string]string)`
+
+SetUserAttributes sets UserAttributes field to given value.
+
+### HasUserAttributes
+
+`func (o *FleetDescribeSubscriptionResult) HasUserAttributes() bool`
+
+HasUserAttributes returns a boolean if a field has been set.
+
+### GetUserCount
+
+`func (o *FleetDescribeSubscriptionResult) GetUserCount() int64`
+
+GetUserCount returns the UserCount field if non-nil, zero value otherwise.
+
+### GetUserCountOk
+
+`func (o *FleetDescribeSubscriptionResult) GetUserCountOk() (*int64, bool)`
+
+GetUserCountOk returns a tuple with the UserCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserCount
+
+`func (o *FleetDescribeSubscriptionResult) SetUserCount(v int64)`
+
+SetUserCount sets UserCount field to given value.
+
+### HasUserCount
+
+`func (o *FleetDescribeSubscriptionResult) HasUserCount() bool`
+
+HasUserCount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -19,6 +19,8 @@ var _ MappedNullable = &RestoreResourceInstanceFromSnapshotRequest2{}
 
 // RestoreResourceInstanceFromSnapshotRequest2 struct for RestoreResourceInstanceFromSnapshotRequest2
 type RestoreResourceInstanceFromSnapshotRequest2 struct {
+	// Custom network for resource
+	CustomNetworkId *string `json:"custom_network_id,omitempty"`
 	// The network type
 	NetworkType *string `json:"network_type,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -41,6 +43,29 @@ func NewRestoreResourceInstanceFromSnapshotRequest2() *RestoreResourceInstanceFr
 func NewRestoreResourceInstanceFromSnapshotRequest2WithDefaults() *RestoreResourceInstanceFromSnapshotRequest2 {
 	this := RestoreResourceInstanceFromSnapshotRequest2{}
 	return &this
+}
+
+// GetCustomNetworkId returns the CustomNetworkId field value if set, zero value otherwise.
+func (o *RestoreResourceInstanceFromSnapshotRequest2) GetCustomNetworkId() string {
+	if o == nil || IsNil(o.CustomNetworkId) {
+		var ret string
+		return ret
+	}
+	return *o.CustomNetworkId
+}
+
+// GetCustomNetworkIdOk returns a tuple with the CustomNetworkId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RestoreResourceInstanceFromSnapshotRequest2) GetCustomNetworkIdOk() (*string, bool) {
+	if o == nil || IsNil(o.CustomNetworkId) {
+		return nil, false
+	}
+	return o.CustomNetworkId, true
+}
+
+// SetCustomNetworkId gets a reference to the given string and assigns it to the CustomNetworkId field.
+func (o *RestoreResourceInstanceFromSnapshotRequest2) SetCustomNetworkId(v string) {
+	o.CustomNetworkId = &v
 }
 
 // GetNetworkType returns the NetworkType field value if set, zero value otherwise.
@@ -76,6 +101,9 @@ func (o RestoreResourceInstanceFromSnapshotRequest2) MarshalJSON() ([]byte, erro
 
 func (o RestoreResourceInstanceFromSnapshotRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CustomNetworkId) {
+		toSerialize["custom_network_id"] = o.CustomNetworkId
+	}
 	if !IsNil(o.NetworkType) {
 		toSerialize["network_type"] = o.NetworkType
 	}
@@ -101,6 +129,7 @@ func (o *RestoreResourceInstanceFromSnapshotRequest2) UnmarshalJSON(data []byte)
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "custom_network_id")
 		delete(additionalProperties, "network_type")
 		o.AdditionalProperties = additionalProperties
 	}

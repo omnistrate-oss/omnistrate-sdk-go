@@ -282,11 +282,10 @@ type InventoryApiAPI interface {
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param serviceId The service ID this workflow belongs to.
 	@param environmentId The service environment ID this workflow belongs to.
-	@param instanceId The resource instance ID.
 	@param snapshotId The instance snapshot ID
 	@return ApiInventoryApiDeleteResourceInstanceSnapshotRequest
 	*/
-	InventoryApiDeleteResourceInstanceSnapshot(ctx context.Context, serviceId string, environmentId string, instanceId string, snapshotId string) ApiInventoryApiDeleteResourceInstanceSnapshotRequest
+	InventoryApiDeleteResourceInstanceSnapshot(ctx context.Context, serviceId string, environmentId string, snapshotId string) ApiInventoryApiDeleteResourceInstanceSnapshotRequest
 
 	// InventoryApiDeleteResourceInstanceSnapshotExecute executes the request
 	InventoryApiDeleteResourceInstanceSnapshotExecute(r ApiInventoryApiDeleteResourceInstanceSnapshotRequest) (*http.Response, error)
@@ -4275,7 +4274,6 @@ type ApiInventoryApiDeleteResourceInstanceSnapshotRequest struct {
 	ApiService InventoryApiAPI
 	serviceId string
 	environmentId string
-	instanceId string
 	snapshotId string
 }
 
@@ -4289,17 +4287,15 @@ InventoryApiDeleteResourceInstanceSnapshot DeleteResourceInstanceSnapshot invent
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param serviceId The service ID this workflow belongs to.
  @param environmentId The service environment ID this workflow belongs to.
- @param instanceId The resource instance ID.
  @param snapshotId The instance snapshot ID
  @return ApiInventoryApiDeleteResourceInstanceSnapshotRequest
 */
-func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceSnapshot(ctx context.Context, serviceId string, environmentId string, instanceId string, snapshotId string) ApiInventoryApiDeleteResourceInstanceSnapshotRequest {
+func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceSnapshot(ctx context.Context, serviceId string, environmentId string, snapshotId string) ApiInventoryApiDeleteResourceInstanceSnapshotRequest {
 	return ApiInventoryApiDeleteResourceInstanceSnapshotRequest{
 		ApiService: a,
 		ctx: ctx,
 		serviceId: serviceId,
 		environmentId: environmentId,
-		instanceId: instanceId,
 		snapshotId: snapshotId,
 	}
 }
@@ -4317,10 +4313,9 @@ func (a *InventoryApiAPIService) InventoryApiDeleteResourceInstanceSnapshotExecu
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/snapshot/{snapshotId}"
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/snapshot/{snapshotId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"environmentId"+"}", url.PathEscape(parameterValueToString(r.environmentId, "environmentId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"snapshotId"+"}", url.PathEscape(parameterValueToString(r.snapshotId, "snapshotId")), -1)
 
 	localVarHeaderParams := make(map[string]string)

@@ -480,13 +480,13 @@ type ApiCustomNetworkApiListCustomNetworksRequest struct {
 	customNetworksOnly *bool
 }
 
-// The name of the cloud provider that custom network should be created in
+// The name of the cloud provider to filter custom networks by
 func (r ApiCustomNetworkApiListCustomNetworksRequest) CloudProviderName(cloudProviderName string) ApiCustomNetworkApiListCustomNetworksRequest {
 	r.cloudProviderName = &cloudProviderName
 	return r
 }
 
-// The region of the cloud provider that the network should be created in
+// The region of the cloud provider to filter custom networks by
 func (r ApiCustomNetworkApiListCustomNetworksRequest) CloudProviderRegion(cloudProviderRegion string) ApiCustomNetworkApiListCustomNetworksRequest {
 	r.cloudProviderRegion = &cloudProviderRegion
 	return r

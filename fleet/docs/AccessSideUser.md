@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Attributes** | Pointer to **map[string]string** | Additional attributes of the user. | [optional] 
 **CreatedAt** | Pointer to **string** | The time the user was created. | [optional] 
 **Email** | Pointer to **string** | The user email. | [optional] 
 **Enabled** | Pointer to **bool** | Is the user enabled. | [optional] 
@@ -38,6 +39,31 @@ will change when the set of required properties is changed
 NewAccessSideUserWithDefaults instantiates a new AccessSideUser object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAttributes
+
+`func (o *AccessSideUser) GetAttributes() map[string]string`
+
+GetAttributes returns the Attributes field if non-nil, zero value otherwise.
+
+### GetAttributesOk
+
+`func (o *AccessSideUser) GetAttributesOk() (*map[string]string, bool)`
+
+GetAttributesOk returns a tuple with the Attributes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttributes
+
+`func (o *AccessSideUser) SetAttributes(v map[string]string)`
+
+SetAttributes sets Attributes field to given value.
+
+### HasAttributes
+
+`func (o *AccessSideUser) HasAttributes() bool`
+
+HasAttributes returns a boolean if a field has been set.
 
 ### GetCreatedAt
 

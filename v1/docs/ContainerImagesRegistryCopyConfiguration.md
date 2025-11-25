@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Images** | Pointer to [**[]ContainerImage**](ContainerImage.md) | The list of container images to copy from source to target | [optional] 
+**PullMode** | Pointer to **string** | Mode for the image pull | [optional] 
 **PullSource** | Pointer to [**ContainerImagesRegistry**](ContainerImagesRegistry.md) |  | [optional] 
 **PushTarget** | Pointer to [**ContainerImagesRegistry**](ContainerImagesRegistry.md) |  | [optional] 
 
@@ -51,6 +52,31 @@ SetImages sets Images field to given value.
 `func (o *ContainerImagesRegistryCopyConfiguration) HasImages() bool`
 
 HasImages returns a boolean if a field has been set.
+
+### GetPullMode
+
+`func (o *ContainerImagesRegistryCopyConfiguration) GetPullMode() string`
+
+GetPullMode returns the PullMode field if non-nil, zero value otherwise.
+
+### GetPullModeOk
+
+`func (o *ContainerImagesRegistryCopyConfiguration) GetPullModeOk() (*string, bool)`
+
+GetPullModeOk returns a tuple with the PullMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPullMode
+
+`func (o *ContainerImagesRegistryCopyConfiguration) SetPullMode(v string)`
+
+SetPullMode sets PullMode field to given value.
+
+### HasPullMode
+
+`func (o *ContainerImagesRegistryCopyConfiguration) HasPullMode() bool`
+
+HasPullMode returns a boolean if a field has been set.
 
 ### GetPullSource
 

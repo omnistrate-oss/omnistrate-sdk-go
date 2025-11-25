@@ -21,6 +21,8 @@ var _ MappedNullable = &ContainerImagesRegistryCopyConfiguration{}
 type ContainerImagesRegistryCopyConfiguration struct {
 	// The list of container images to copy from source to target
 	Images []ContainerImage `json:"images,omitempty"`
+	// Mode for the image pull
+	PullMode *string `json:"pullMode,omitempty"`
 	PullSource *ContainerImagesRegistry `json:"pullSource,omitempty"`
 	PushTarget *ContainerImagesRegistry `json:"pushTarget,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -66,6 +68,29 @@ func (o *ContainerImagesRegistryCopyConfiguration) GetImagesOk() ([]ContainerIma
 // SetImages gets a reference to the given []ContainerImage and assigns it to the Images field.
 func (o *ContainerImagesRegistryCopyConfiguration) SetImages(v []ContainerImage) {
 	o.Images = v
+}
+
+// GetPullMode returns the PullMode field value if set, zero value otherwise.
+func (o *ContainerImagesRegistryCopyConfiguration) GetPullMode() string {
+	if o == nil || IsNil(o.PullMode) {
+		var ret string
+		return ret
+	}
+	return *o.PullMode
+}
+
+// GetPullModeOk returns a tuple with the PullMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ContainerImagesRegistryCopyConfiguration) GetPullModeOk() (*string, bool) {
+	if o == nil || IsNil(o.PullMode) {
+		return nil, false
+	}
+	return o.PullMode, true
+}
+
+// SetPullMode gets a reference to the given string and assigns it to the PullMode field.
+func (o *ContainerImagesRegistryCopyConfiguration) SetPullMode(v string) {
+	o.PullMode = &v
 }
 
 // GetPullSource returns the PullSource field value if set, zero value otherwise.
@@ -127,6 +152,9 @@ func (o ContainerImagesRegistryCopyConfiguration) ToMap() (map[string]interface{
 	if !IsNil(o.Images) {
 		toSerialize["images"] = o.Images
 	}
+	if !IsNil(o.PullMode) {
+		toSerialize["pullMode"] = o.PullMode
+	}
 	if !IsNil(o.PullSource) {
 		toSerialize["pullSource"] = o.PullSource
 	}
@@ -156,6 +184,7 @@ func (o *ContainerImagesRegistryCopyConfiguration) UnmarshalJSON(data []byte) (e
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "images")
+		delete(additionalProperties, "pullMode")
 		delete(additionalProperties, "pullSource")
 		delete(additionalProperties, "pushTarget")
 		o.AdditionalProperties = additionalProperties

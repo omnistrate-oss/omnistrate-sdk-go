@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **Regex** | Pointer to **string** | Regular expression pattern for validating the input parameter value | [optional] 
 **Required** | **bool** | Enforces the input parameter as a required parameter | 
 **ResourceId** | **string** | ID of a resource | 
+**Scope** | Pointer to [**InputParameterScope**](InputParameterScope.md) |  | [optional] 
 **ServiceId** | **string** | ID of a Service | 
 **TabIndex** | Pointer to **int64** | Index for parameter ordering in the SaaS portal | [optional] [default to 0]
 **Type** | **string** | Type of the variable encoding the value | 
@@ -376,6 +377,31 @@ and a boolean to check if the value has been set.
 
 SetResourceId sets ResourceId field to given value.
 
+
+### GetScope
+
+`func (o *DescribeInputParameterResult) GetScope() InputParameterScope`
+
+GetScope returns the Scope field if non-nil, zero value otherwise.
+
+### GetScopeOk
+
+`func (o *DescribeInputParameterResult) GetScopeOk() (*InputParameterScope, bool)`
+
+GetScopeOk returns a tuple with the Scope field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScope
+
+`func (o *DescribeInputParameterResult) SetScope(v InputParameterScope)`
+
+SetScope sets Scope field to given value.
+
+### HasScope
+
+`func (o *DescribeInputParameterResult) HasScope() bool`
+
+HasScope returns a boolean if a field has been set.
 
 ### GetServiceId
 

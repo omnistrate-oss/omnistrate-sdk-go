@@ -19,6 +19,8 @@ var _ MappedNullable = &FleetRestoreResourceInstanceFromSnapshotRequest2{}
 
 // FleetRestoreResourceInstanceFromSnapshotRequest2 struct for FleetRestoreResourceInstanceFromSnapshotRequest2
 type FleetRestoreResourceInstanceFromSnapshotRequest2 struct {
+	// Custom network for resource
+	CustomNetworkId *string `json:"custom_network_id,omitempty"`
 	// Custom input parameters override
 	InputParametersOverride interface{} `json:"inputParametersOverride,omitempty"`
 	// The network type
@@ -45,6 +47,38 @@ func NewFleetRestoreResourceInstanceFromSnapshotRequest2() *FleetRestoreResource
 func NewFleetRestoreResourceInstanceFromSnapshotRequest2WithDefaults() *FleetRestoreResourceInstanceFromSnapshotRequest2 {
 	this := FleetRestoreResourceInstanceFromSnapshotRequest2{}
 	return &this
+}
+
+// GetCustomNetworkId returns the CustomNetworkId field value if set, zero value otherwise.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) GetCustomNetworkId() string {
+	if o == nil || IsNil(o.CustomNetworkId) {
+		var ret string
+		return ret
+	}
+	return *o.CustomNetworkId
+}
+
+// GetCustomNetworkIdOk returns a tuple with the CustomNetworkId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) GetCustomNetworkIdOk() (*string, bool) {
+	if o == nil || IsNil(o.CustomNetworkId) {
+		return nil, false
+	}
+	return o.CustomNetworkId, true
+}
+
+// HasCustomNetworkId returns a boolean if a field has been set.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) HasCustomNetworkId() bool {
+	if o != nil && !IsNil(o.CustomNetworkId) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomNetworkId gets a reference to the given string and assigns it to the CustomNetworkId field.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) SetCustomNetworkId(v string) {
+	o.CustomNetworkId = &v
 }
 
 // GetInputParametersOverride returns the InputParametersOverride field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -154,6 +188,9 @@ func (o FleetRestoreResourceInstanceFromSnapshotRequest2) MarshalJSON() ([]byte,
 
 func (o FleetRestoreResourceInstanceFromSnapshotRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CustomNetworkId) {
+		toSerialize["custom_network_id"] = o.CustomNetworkId
+	}
 	if o.InputParametersOverride != nil {
 		toSerialize["inputParametersOverride"] = o.InputParametersOverride
 	}
@@ -185,6 +222,7 @@ func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) UnmarshalJSON(data []
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "custom_network_id")
 		delete(additionalProperties, "inputParametersOverride")
 		delete(additionalProperties, "network_type")
 		delete(additionalProperties, "productTierVersionOverride")

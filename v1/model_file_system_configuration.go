@@ -19,6 +19,7 @@ var _ MappedNullable = &FileSystemConfiguration{}
 
 // FileSystemConfiguration struct for FileSystemConfiguration
 type FileSystemConfiguration struct {
+	AzureFileShareConfiguration *AzureFileShareConfiguration `json:"AzureFileShareConfiguration,omitempty"`
 	EFSFileSystemConfiguration *EFSFileSystemConfiguration `json:"EFSFileSystemConfiguration,omitempty"`
 	GCPFilestoreConfiguration *GCPFilestoreConfiguration `json:"GCPFilestoreConfiguration,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -41,6 +42,29 @@ func NewFileSystemConfiguration() *FileSystemConfiguration {
 func NewFileSystemConfigurationWithDefaults() *FileSystemConfiguration {
 	this := FileSystemConfiguration{}
 	return &this
+}
+
+// GetAzureFileShareConfiguration returns the AzureFileShareConfiguration field value if set, zero value otherwise.
+func (o *FileSystemConfiguration) GetAzureFileShareConfiguration() AzureFileShareConfiguration {
+	if o == nil || IsNil(o.AzureFileShareConfiguration) {
+		var ret AzureFileShareConfiguration
+		return ret
+	}
+	return *o.AzureFileShareConfiguration
+}
+
+// GetAzureFileShareConfigurationOk returns a tuple with the AzureFileShareConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FileSystemConfiguration) GetAzureFileShareConfigurationOk() (*AzureFileShareConfiguration, bool) {
+	if o == nil || IsNil(o.AzureFileShareConfiguration) {
+		return nil, false
+	}
+	return o.AzureFileShareConfiguration, true
+}
+
+// SetAzureFileShareConfiguration gets a reference to the given AzureFileShareConfiguration and assigns it to the AzureFileShareConfiguration field.
+func (o *FileSystemConfiguration) SetAzureFileShareConfiguration(v AzureFileShareConfiguration) {
+	o.AzureFileShareConfiguration = &v
 }
 
 // GetEFSFileSystemConfiguration returns the EFSFileSystemConfiguration field value if set, zero value otherwise.
@@ -99,6 +123,9 @@ func (o FileSystemConfiguration) MarshalJSON() ([]byte, error) {
 
 func (o FileSystemConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AzureFileShareConfiguration) {
+		toSerialize["AzureFileShareConfiguration"] = o.AzureFileShareConfiguration
+	}
 	if !IsNil(o.EFSFileSystemConfiguration) {
 		toSerialize["EFSFileSystemConfiguration"] = o.EFSFileSystemConfiguration
 	}
@@ -127,6 +154,7 @@ func (o *FileSystemConfiguration) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "AzureFileShareConfiguration")
 		delete(additionalProperties, "EFSFileSystemConfiguration")
 		delete(additionalProperties, "GCPFilestoreConfiguration")
 		o.AdditionalProperties = additionalProperties

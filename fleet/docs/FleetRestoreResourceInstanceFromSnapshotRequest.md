@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CustomNetworkId** | Pointer to **string** | Custom network for resource | [optional] 
 **EnvironmentId** | **string** | ID of a Service Environment | 
 **InputParametersOverride** | Pointer to **interface{}** | Custom input parameters override | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
@@ -30,6 +31,31 @@ will change when the set of required properties is changed
 NewFleetRestoreResourceInstanceFromSnapshotRequestWithDefaults instantiates a new FleetRestoreResourceInstanceFromSnapshotRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCustomNetworkId
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest) GetCustomNetworkId() string`
+
+GetCustomNetworkId returns the CustomNetworkId field if non-nil, zero value otherwise.
+
+### GetCustomNetworkIdOk
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest) GetCustomNetworkIdOk() (*string, bool)`
+
+GetCustomNetworkIdOk returns a tuple with the CustomNetworkId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomNetworkId
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest) SetCustomNetworkId(v string)`
+
+SetCustomNetworkId sets CustomNetworkId field to given value.
+
+### HasCustomNetworkId
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest) HasCustomNetworkId() bool`
+
+HasCustomNetworkId returns a boolean if a field has been set.
 
 ### GetEnvironmentId
 

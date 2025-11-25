@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **SubscriptionDate** | Pointer to **string** | The date the user joined the subscription | [optional] 
 **SubscriptionId** | Pointer to **string** | ID of a Subscription | [optional] 
 **SubscriptionOwnerName** | Pointer to **string** | The name of the subscription owner user | [optional] 
+**UserCount** | Pointer to **int64** | The number of users sharing the subscription | [optional] 
 **UserId** | Pointer to **string** | [DEPRECATED] The User ID | [optional] 
 
 ## Methods
@@ -414,6 +415,31 @@ SetSubscriptionOwnerName sets SubscriptionOwnerName field to given value.
 `func (o *UserSubscription) HasSubscriptionOwnerName() bool`
 
 HasSubscriptionOwnerName returns a boolean if a field has been set.
+
+### GetUserCount
+
+`func (o *UserSubscription) GetUserCount() int64`
+
+GetUserCount returns the UserCount field if non-nil, zero value otherwise.
+
+### GetUserCountOk
+
+`func (o *UserSubscription) GetUserCountOk() (*int64, bool)`
+
+GetUserCountOk returns a tuple with the UserCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserCount
+
+`func (o *UserSubscription) SetUserCount(v int64)`
+
+SetUserCount sets UserCount field to given value.
+
+### HasUserCount
+
+`func (o *UserSubscription) HasUserCount() bool`
+
+HasUserCount returns a boolean if a field has been set.
 
 ### GetUserId
 

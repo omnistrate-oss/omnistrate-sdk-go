@@ -49,6 +49,8 @@ type UserSubscription struct {
 	SubscriptionId *string `json:"subscriptionId,omitempty"`
 	// The name of the subscription owner user
 	SubscriptionOwnerName *string `json:"subscriptionOwnerName,omitempty"`
+	// The number of users sharing the subscription
+	UserCount *int64 `json:"userCount,omitempty"`
 	// [DEPRECATED] The User ID
 	UserId *string `json:"userId,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -553,6 +555,38 @@ func (o *UserSubscription) SetSubscriptionOwnerName(v string) {
 	o.SubscriptionOwnerName = &v
 }
 
+// GetUserCount returns the UserCount field value if set, zero value otherwise.
+func (o *UserSubscription) GetUserCount() int64 {
+	if o == nil || IsNil(o.UserCount) {
+		var ret int64
+		return ret
+	}
+	return *o.UserCount
+}
+
+// GetUserCountOk returns a tuple with the UserCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UserSubscription) GetUserCountOk() (*int64, bool) {
+	if o == nil || IsNil(o.UserCount) {
+		return nil, false
+	}
+	return o.UserCount, true
+}
+
+// HasUserCount returns a boolean if a field has been set.
+func (o *UserSubscription) HasUserCount() bool {
+	if o != nil && !IsNil(o.UserCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserCount gets a reference to the given int64 and assigns it to the UserCount field.
+func (o *UserSubscription) SetUserCount(v int64) {
+	o.UserCount = &v
+}
+
 // GetUserId returns the UserId field value if set, zero value otherwise.
 func (o *UserSubscription) GetUserId() string {
 	if o == nil || IsNil(o.UserId) {
@@ -640,6 +674,9 @@ func (o UserSubscription) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.SubscriptionOwnerName) {
 		toSerialize["subscriptionOwnerName"] = o.SubscriptionOwnerName
 	}
+	if !IsNil(o.UserCount) {
+		toSerialize["userCount"] = o.UserCount
+	}
 	if !IsNil(o.UserId) {
 		toSerialize["userId"] = o.UserId
 	}
@@ -680,6 +717,7 @@ func (o *UserSubscription) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "subscriptionDate")
 		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "subscriptionOwnerName")
+		delete(additionalProperties, "userCount")
 		delete(additionalProperties, "userId")
 		o.AdditionalProperties = additionalProperties
 	}

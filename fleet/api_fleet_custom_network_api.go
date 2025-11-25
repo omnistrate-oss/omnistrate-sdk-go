@@ -478,15 +478,16 @@ type ApiFleetCustomNetworkApiListCustomNetworksRequest struct {
 	cloudProviderName *string
 	cloudProviderRegion *string
 	customNetworksOnly *bool
+	owningOrgID *string
 }
 
-// The name of the cloud provider that custom network should be created in
+// The name of the cloud provider to filter custom networks by
 func (r ApiFleetCustomNetworkApiListCustomNetworksRequest) CloudProviderName(cloudProviderName string) ApiFleetCustomNetworkApiListCustomNetworksRequest {
 	r.cloudProviderName = &cloudProviderName
 	return r
 }
 
-// The region of the cloud provider that the network should be created in
+// The region of the cloud provider to filter custom networks by
 func (r ApiFleetCustomNetworkApiListCustomNetworksRequest) CloudProviderRegion(cloudProviderRegion string) ApiFleetCustomNetworkApiListCustomNetworksRequest {
 	r.cloudProviderRegion = &cloudProviderRegion
 	return r
@@ -495,6 +496,12 @@ func (r ApiFleetCustomNetworkApiListCustomNetworksRequest) CloudProviderRegion(c
 // Flag indicating whether to return only custom networks, or to include default and imported networks as well
 func (r ApiFleetCustomNetworkApiListCustomNetworksRequest) CustomNetworksOnly(customNetworksOnly bool) ApiFleetCustomNetworkApiListCustomNetworksRequest {
 	r.customNetworksOnly = &customNetworksOnly
+	return r
+}
+
+// The owning organization ID to filter custom networks by
+func (r ApiFleetCustomNetworkApiListCustomNetworksRequest) OwningOrgID(owningOrgID string) ApiFleetCustomNetworkApiListCustomNetworksRequest {
+	r.owningOrgID = &owningOrgID
 	return r
 }
 
@@ -544,6 +551,9 @@ func (a *FleetCustomNetworkApiAPIService) FleetCustomNetworkApiListCustomNetwork
 	}
 	if r.customNetworksOnly != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "customNetworksOnly", r.customNetworksOnly, "form", "")
+	}
+	if r.owningOrgID != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "owningOrgID", r.owningOrgID, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
