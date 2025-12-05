@@ -17,6 +17,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"time"
 )
 
 
@@ -201,7 +202,7 @@ type HostclusterApiAPI interface {
 	List the deployment cell workflows.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param hostClusterID ID of the Host Cluster to filter Deployment Cell Workflows
+	@param hostClusterID The host cluster ID to filter by
 	@return ApiHostclusterApiListDeploymentCellWorkflowsRequest
 	*/
 	HostclusterApiListDeploymentCellWorkflows(ctx context.Context, hostClusterID string) ApiHostclusterApiListDeploymentCellWorkflowsRequest
@@ -2303,11 +2304,31 @@ type ApiHostclusterApiListDeploymentCellWorkflowsRequest struct {
 	ctx context.Context
 	ApiService HostclusterApiAPI
 	hostClusterID string
-	listDeploymentCellWorkflowsRequest2 *ListDeploymentCellWorkflowsRequest2
+	startDate *time.Time
+	endDate *time.Time
+	nextPageToken *string
+	pageSize *int64
 }
 
-func (r ApiHostclusterApiListDeploymentCellWorkflowsRequest) ListDeploymentCellWorkflowsRequest2(listDeploymentCellWorkflowsRequest2 ListDeploymentCellWorkflowsRequest2) ApiHostclusterApiListDeploymentCellWorkflowsRequest {
-	r.listDeploymentCellWorkflowsRequest2 = &listDeploymentCellWorkflowsRequest2
+// Start date of the workflows
+func (r ApiHostclusterApiListDeploymentCellWorkflowsRequest) StartDate(startDate time.Time) ApiHostclusterApiListDeploymentCellWorkflowsRequest {
+	r.startDate = &startDate
+	return r
+}
+
+// End date of the workflows
+func (r ApiHostclusterApiListDeploymentCellWorkflowsRequest) EndDate(endDate time.Time) ApiHostclusterApiListDeploymentCellWorkflowsRequest {
+	r.endDate = &endDate
+	return r
+}
+
+func (r ApiHostclusterApiListDeploymentCellWorkflowsRequest) NextPageToken(nextPageToken string) ApiHostclusterApiListDeploymentCellWorkflowsRequest {
+	r.nextPageToken = &nextPageToken
+	return r
+}
+
+func (r ApiHostclusterApiListDeploymentCellWorkflowsRequest) PageSize(pageSize int64) ApiHostclusterApiListDeploymentCellWorkflowsRequest {
+	r.pageSize = &pageSize
 	return r
 }
 
@@ -2321,7 +2342,7 @@ HostclusterApiListDeploymentCellWorkflows ListDeploymentCellWorkflows hostcluste
 List the deployment cell workflows.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param hostClusterID ID of the Host Cluster to filter Deployment Cell Workflows
+ @param hostClusterID The host cluster ID to filter by
  @return ApiHostclusterApiListDeploymentCellWorkflowsRequest
 */
 func (a *HostclusterApiAPIService) HostclusterApiListDeploymentCellWorkflows(ctx context.Context, hostClusterID string) ApiHostclusterApiListDeploymentCellWorkflowsRequest {
@@ -2353,12 +2374,21 @@ func (a *HostclusterApiAPIService) HostclusterApiListDeploymentCellWorkflowsExec
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.listDeploymentCellWorkflowsRequest2 == nil {
-		return localVarReturnValue, nil, reportError("listDeploymentCellWorkflowsRequest2 is required and must be specified")
-	}
 
+	if r.startDate != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "startDate", r.startDate, "form", "")
+	}
+	if r.endDate != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "endDate", r.endDate, "form", "")
+	}
+	if r.nextPageToken != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")
+	}
+	if r.pageSize != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "form", "")
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2374,8 +2404,6 @@ func (a *HostclusterApiAPIService) HostclusterApiListDeploymentCellWorkflowsExec
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.listDeploymentCellWorkflowsRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

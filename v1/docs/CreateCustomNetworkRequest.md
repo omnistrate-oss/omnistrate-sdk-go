@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **CloudProviderRegion** | **string** | The region of the cloud provider that the instance is running in. | 
 **Name** | Pointer to **string** | User friendly network name to help distinguish networks with same CIDRs | [optional] 
 **NetworkFeaturesConfiguration** | Pointer to [**NetworkFeaturesConfiguration**](NetworkFeaturesConfiguration.md) |  | [optional] 
+**OrgId** | Pointer to **string** | ID of an Org | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
@@ -144,6 +145,31 @@ SetNetworkFeaturesConfiguration sets NetworkFeaturesConfiguration field to given
 `func (o *CreateCustomNetworkRequest) HasNetworkFeaturesConfiguration() bool`
 
 HasNetworkFeaturesConfiguration returns a boolean if a field has been set.
+
+### GetOrgId
+
+`func (o *CreateCustomNetworkRequest) GetOrgId() string`
+
+GetOrgId returns the OrgId field if non-nil, zero value otherwise.
+
+### GetOrgIdOk
+
+`func (o *CreateCustomNetworkRequest) GetOrgIdOk() (*string, bool)`
+
+GetOrgIdOk returns a tuple with the OrgId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrgId
+
+`func (o *CreateCustomNetworkRequest) SetOrgId(v string)`
+
+SetOrgId sets OrgId field to given value.
+
+### HasOrgId
+
+`func (o *CreateCustomNetworkRequest) HasOrgId() bool`
+
+HasOrgId returns a boolean if a field has been set.
 
 ### GetToken
 

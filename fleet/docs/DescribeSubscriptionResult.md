@@ -16,6 +16,9 @@ Name | Type | Description | Notes
 **ProductTierName** | **string** | The name of the product tier | 
 **RoleType** | **string** | Type of the role | 
 **RootUserId** | **string** | ID of a User | 
+**RootUserName** | Pointer to **string** | The user name that this subscription belong to | [optional] 
+**RootUserOrgId** | Pointer to **string** | ID of a User | [optional] 
+**RootUserOrgName** | Pointer to **string** | The org name of the subscription owner user | [optional] 
 **ServiceId** | **string** | ID of a Service | 
 **ServiceLogoURL** | **string** | The logo for the service | 
 **ServiceName** | **string** | The name of the service | 
@@ -297,6 +300,81 @@ and a boolean to check if the value has been set.
 
 SetRootUserId sets RootUserId field to given value.
 
+
+### GetRootUserName
+
+`func (o *DescribeSubscriptionResult) GetRootUserName() string`
+
+GetRootUserName returns the RootUserName field if non-nil, zero value otherwise.
+
+### GetRootUserNameOk
+
+`func (o *DescribeSubscriptionResult) GetRootUserNameOk() (*string, bool)`
+
+GetRootUserNameOk returns a tuple with the RootUserName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRootUserName
+
+`func (o *DescribeSubscriptionResult) SetRootUserName(v string)`
+
+SetRootUserName sets RootUserName field to given value.
+
+### HasRootUserName
+
+`func (o *DescribeSubscriptionResult) HasRootUserName() bool`
+
+HasRootUserName returns a boolean if a field has been set.
+
+### GetRootUserOrgId
+
+`func (o *DescribeSubscriptionResult) GetRootUserOrgId() string`
+
+GetRootUserOrgId returns the RootUserOrgId field if non-nil, zero value otherwise.
+
+### GetRootUserOrgIdOk
+
+`func (o *DescribeSubscriptionResult) GetRootUserOrgIdOk() (*string, bool)`
+
+GetRootUserOrgIdOk returns a tuple with the RootUserOrgId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRootUserOrgId
+
+`func (o *DescribeSubscriptionResult) SetRootUserOrgId(v string)`
+
+SetRootUserOrgId sets RootUserOrgId field to given value.
+
+### HasRootUserOrgId
+
+`func (o *DescribeSubscriptionResult) HasRootUserOrgId() bool`
+
+HasRootUserOrgId returns a boolean if a field has been set.
+
+### GetRootUserOrgName
+
+`func (o *DescribeSubscriptionResult) GetRootUserOrgName() string`
+
+GetRootUserOrgName returns the RootUserOrgName field if non-nil, zero value otherwise.
+
+### GetRootUserOrgNameOk
+
+`func (o *DescribeSubscriptionResult) GetRootUserOrgNameOk() (*string, bool)`
+
+GetRootUserOrgNameOk returns a tuple with the RootUserOrgName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRootUserOrgName
+
+`func (o *DescribeSubscriptionResult) SetRootUserOrgName(v string)`
+
+SetRootUserOrgName sets RootUserOrgName field to given value.
+
+### HasRootUserOrgName
+
+`func (o *DescribeSubscriptionResult) HasRootUserOrgName() bool`
+
+HasRootUserOrgName returns a boolean if a field has been set.
 
 ### GetServiceId
 

@@ -66,6 +66,7 @@ type DescribeResourceInstanceResult struct {
 	NetworkType *string `json:"network_type,omitempty"`
 	// The product tier features
 	ProductTierFeatures map[string]interface{} `json:"productTierFeatures,omitempty"`
+	ProductTierVersionDetail *ProductTierVersionDetail `json:"productTierVersionDetail,omitempty"`
 	// The region code
 	Region *string `json:"region,omitempty"`
 	// ID of a resource
@@ -74,6 +75,8 @@ type DescribeResourceInstanceResult struct {
 	ResultParams interface{} `json:"result_params,omitempty"`
 	// Whether the instance has serverless enabled
 	ServerlessEnabled *bool `json:"serverlessEnabled,omitempty"`
+	// The source snapshot ID if the instance is restored from snapshot
+	SourceSnapshotID *string `json:"sourceSnapshotID,omitempty"`
 	// The status of an operation
 	Status *string `json:"status,omitempty"`
 	// Subscription ID
@@ -680,6 +683,29 @@ func (o *DescribeResourceInstanceResult) SetProductTierFeatures(v map[string]int
 	o.ProductTierFeatures = v
 }
 
+// GetProductTierVersionDetail returns the ProductTierVersionDetail field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetProductTierVersionDetail() ProductTierVersionDetail {
+	if o == nil || IsNil(o.ProductTierVersionDetail) {
+		var ret ProductTierVersionDetail
+		return ret
+	}
+	return *o.ProductTierVersionDetail
+}
+
+// GetProductTierVersionDetailOk returns a tuple with the ProductTierVersionDetail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetProductTierVersionDetailOk() (*ProductTierVersionDetail, bool) {
+	if o == nil || IsNil(o.ProductTierVersionDetail) {
+		return nil, false
+	}
+	return o.ProductTierVersionDetail, true
+}
+
+// SetProductTierVersionDetail gets a reference to the given ProductTierVersionDetail and assigns it to the ProductTierVersionDetail field.
+func (o *DescribeResourceInstanceResult) SetProductTierVersionDetail(v ProductTierVersionDetail) {
+	o.ProductTierVersionDetail = &v
+}
+
 // GetRegion returns the Region field value if set, zero value otherwise.
 func (o *DescribeResourceInstanceResult) GetRegion() string {
 	if o == nil || IsNil(o.Region) {
@@ -771,6 +797,29 @@ func (o *DescribeResourceInstanceResult) GetServerlessEnabledOk() (*bool, bool) 
 // SetServerlessEnabled gets a reference to the given bool and assigns it to the ServerlessEnabled field.
 func (o *DescribeResourceInstanceResult) SetServerlessEnabled(v bool) {
 	o.ServerlessEnabled = &v
+}
+
+// GetSourceSnapshotID returns the SourceSnapshotID field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetSourceSnapshotID() string {
+	if o == nil || IsNil(o.SourceSnapshotID) {
+		var ret string
+		return ret
+	}
+	return *o.SourceSnapshotID
+}
+
+// GetSourceSnapshotIDOk returns a tuple with the SourceSnapshotID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetSourceSnapshotIDOk() (*string, bool) {
+	if o == nil || IsNil(o.SourceSnapshotID) {
+		return nil, false
+	}
+	return o.SourceSnapshotID, true
+}
+
+// SetSourceSnapshotID gets a reference to the given string and assigns it to the SourceSnapshotID field.
+func (o *DescribeResourceInstanceResult) SetSourceSnapshotID(v string) {
+	o.SourceSnapshotID = &v
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
@@ -973,6 +1022,9 @@ func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.ProductTierFeatures) {
 		toSerialize["productTierFeatures"] = o.ProductTierFeatures
 	}
+	if !IsNil(o.ProductTierVersionDetail) {
+		toSerialize["productTierVersionDetail"] = o.ProductTierVersionDetail
+	}
 	if !IsNil(o.Region) {
 		toSerialize["region"] = o.Region
 	}
@@ -984,6 +1036,9 @@ func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) 
 	}
 	if !IsNil(o.ServerlessEnabled) {
 		toSerialize["serverlessEnabled"] = o.ServerlessEnabled
+	}
+	if !IsNil(o.SourceSnapshotID) {
+		toSerialize["sourceSnapshotID"] = o.SourceSnapshotID
 	}
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
@@ -1047,10 +1102,12 @@ func (o *DescribeResourceInstanceResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "minReplicas")
 		delete(additionalProperties, "network_type")
 		delete(additionalProperties, "productTierFeatures")
+		delete(additionalProperties, "productTierVersionDetail")
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "resourceID")
 		delete(additionalProperties, "result_params")
 		delete(additionalProperties, "serverlessEnabled")
+		delete(additionalProperties, "sourceSnapshotID")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "subscriptionLicense")

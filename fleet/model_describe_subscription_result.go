@@ -44,6 +44,12 @@ type DescribeSubscriptionResult struct {
 	RoleType string `json:"roleType"`
 	// ID of a User
 	RootUserId string `json:"rootUserId"`
+	// The user name that this subscription belong to
+	RootUserName *string `json:"rootUserName,omitempty"`
+	// ID of a User
+	RootUserOrgId *string `json:"rootUserOrgId,omitempty"`
+	// The org name of the subscription owner user
+	RootUserOrgName *string `json:"rootUserOrgName,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The logo for the service
@@ -408,6 +414,102 @@ func (o *DescribeSubscriptionResult) SetRootUserId(v string) {
 	o.RootUserId = v
 }
 
+// GetRootUserName returns the RootUserName field value if set, zero value otherwise.
+func (o *DescribeSubscriptionResult) GetRootUserName() string {
+	if o == nil || IsNil(o.RootUserName) {
+		var ret string
+		return ret
+	}
+	return *o.RootUserName
+}
+
+// GetRootUserNameOk returns a tuple with the RootUserName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeSubscriptionResult) GetRootUserNameOk() (*string, bool) {
+	if o == nil || IsNil(o.RootUserName) {
+		return nil, false
+	}
+	return o.RootUserName, true
+}
+
+// HasRootUserName returns a boolean if a field has been set.
+func (o *DescribeSubscriptionResult) HasRootUserName() bool {
+	if o != nil && !IsNil(o.RootUserName) {
+		return true
+	}
+
+	return false
+}
+
+// SetRootUserName gets a reference to the given string and assigns it to the RootUserName field.
+func (o *DescribeSubscriptionResult) SetRootUserName(v string) {
+	o.RootUserName = &v
+}
+
+// GetRootUserOrgId returns the RootUserOrgId field value if set, zero value otherwise.
+func (o *DescribeSubscriptionResult) GetRootUserOrgId() string {
+	if o == nil || IsNil(o.RootUserOrgId) {
+		var ret string
+		return ret
+	}
+	return *o.RootUserOrgId
+}
+
+// GetRootUserOrgIdOk returns a tuple with the RootUserOrgId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeSubscriptionResult) GetRootUserOrgIdOk() (*string, bool) {
+	if o == nil || IsNil(o.RootUserOrgId) {
+		return nil, false
+	}
+	return o.RootUserOrgId, true
+}
+
+// HasRootUserOrgId returns a boolean if a field has been set.
+func (o *DescribeSubscriptionResult) HasRootUserOrgId() bool {
+	if o != nil && !IsNil(o.RootUserOrgId) {
+		return true
+	}
+
+	return false
+}
+
+// SetRootUserOrgId gets a reference to the given string and assigns it to the RootUserOrgId field.
+func (o *DescribeSubscriptionResult) SetRootUserOrgId(v string) {
+	o.RootUserOrgId = &v
+}
+
+// GetRootUserOrgName returns the RootUserOrgName field value if set, zero value otherwise.
+func (o *DescribeSubscriptionResult) GetRootUserOrgName() string {
+	if o == nil || IsNil(o.RootUserOrgName) {
+		var ret string
+		return ret
+	}
+	return *o.RootUserOrgName
+}
+
+// GetRootUserOrgNameOk returns a tuple with the RootUserOrgName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeSubscriptionResult) GetRootUserOrgNameOk() (*string, bool) {
+	if o == nil || IsNil(o.RootUserOrgName) {
+		return nil, false
+	}
+	return o.RootUserOrgName, true
+}
+
+// HasRootUserOrgName returns a boolean if a field has been set.
+func (o *DescribeSubscriptionResult) HasRootUserOrgName() bool {
+	if o != nil && !IsNil(o.RootUserOrgName) {
+		return true
+	}
+
+	return false
+}
+
+// SetRootUserOrgName gets a reference to the given string and assigns it to the RootUserOrgName field.
+func (o *DescribeSubscriptionResult) SetRootUserOrgName(v string) {
+	o.RootUserOrgName = &v
+}
+
 // GetServiceId returns the ServiceId field value
 func (o *DescribeSubscriptionResult) GetServiceId() string {
 	if o == nil {
@@ -604,6 +706,15 @@ func (o DescribeSubscriptionResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["productTierName"] = o.ProductTierName
 	toSerialize["roleType"] = o.RoleType
 	toSerialize["rootUserId"] = o.RootUserId
+	if !IsNil(o.RootUserName) {
+		toSerialize["rootUserName"] = o.RootUserName
+	}
+	if !IsNil(o.RootUserOrgId) {
+		toSerialize["rootUserOrgId"] = o.RootUserOrgId
+	}
+	if !IsNil(o.RootUserOrgName) {
+		toSerialize["rootUserOrgName"] = o.RootUserOrgName
+	}
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["serviceLogoURL"] = o.ServiceLogoURL
 	toSerialize["serviceName"] = o.ServiceName
@@ -681,6 +792,9 @@ func (o *DescribeSubscriptionResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "productTierName")
 		delete(additionalProperties, "roleType")
 		delete(additionalProperties, "rootUserId")
+		delete(additionalProperties, "rootUserName")
+		delete(additionalProperties, "rootUserOrgId")
+		delete(additionalProperties, "rootUserOrgName")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "serviceLogoURL")
 		delete(additionalProperties, "serviceName")

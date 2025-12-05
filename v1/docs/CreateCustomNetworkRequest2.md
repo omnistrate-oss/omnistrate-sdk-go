@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **CloudProviderRegion** | **string** | The region of the cloud provider that the instance is running in. | 
 **Name** | Pointer to **string** | User friendly network name to help distinguish networks with same CIDRs | [optional] 
 **NetworkFeaturesConfiguration** | Pointer to [**NetworkFeaturesConfiguration**](NetworkFeaturesConfiguration.md) |  | [optional] 
+**OrgId** | Pointer to **string** | The ID of the organization that owns the custom network | [optional] 
 
 ## Methods
 
@@ -143,6 +144,31 @@ SetNetworkFeaturesConfiguration sets NetworkFeaturesConfiguration field to given
 `func (o *CreateCustomNetworkRequest2) HasNetworkFeaturesConfiguration() bool`
 
 HasNetworkFeaturesConfiguration returns a boolean if a field has been set.
+
+### GetOrgId
+
+`func (o *CreateCustomNetworkRequest2) GetOrgId() string`
+
+GetOrgId returns the OrgId field if non-nil, zero value otherwise.
+
+### GetOrgIdOk
+
+`func (o *CreateCustomNetworkRequest2) GetOrgIdOk() (*string, bool)`
+
+GetOrgIdOk returns a tuple with the OrgId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrgId
+
+`func (o *CreateCustomNetworkRequest2) SetOrgId(v string)`
+
+SetOrgId sets OrgId field to given value.
+
+### HasOrgId
+
+`func (o *CreateCustomNetworkRequest2) HasOrgId() bool`
+
+HasOrgId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

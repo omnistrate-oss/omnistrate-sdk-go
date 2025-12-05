@@ -869,7 +869,7 @@ Name | Type | Description  | Notes
 
 ## HostclusterApiListDeploymentCellWorkflows
 
-> ListDeploymentCellWorkflowsResult HostclusterApiListDeploymentCellWorkflows(ctx, hostClusterID).ListDeploymentCellWorkflowsRequest2(listDeploymentCellWorkflowsRequest2).Execute()
+> ListDeploymentCellWorkflowsResult HostclusterApiListDeploymentCellWorkflows(ctx, hostClusterID).StartDate(startDate).EndDate(endDate).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
 
 ListDeploymentCellWorkflows hostcluster-api
 
@@ -884,16 +884,20 @@ import (
 	"context"
 	"fmt"
 	"os"
+    "time"
 	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
 )
 
 func main() {
-	hostClusterID := "hc-abcdefgh" // string | ID of the Host Cluster to filter Deployment Cell Workflows
-	listDeploymentCellWorkflowsRequest2 := *openapiclient.NewListDeploymentCellWorkflowsRequest2() // ListDeploymentCellWorkflowsRequest2 | 
+	hostClusterID := "hc-abcdefgh" // string | The host cluster ID to filter by
+	startDate := time.Now() // time.Time | Start date of the workflows (optional)
+	endDate := time.Now() // time.Time | End date of the workflows (optional)
+	nextPageToken := "token" // string |  (optional)
+	pageSize := int64(10) // int64 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.HostclusterApiAPI.HostclusterApiListDeploymentCellWorkflows(context.Background(), hostClusterID).ListDeploymentCellWorkflowsRequest2(listDeploymentCellWorkflowsRequest2).Execute()
+	resp, r, err := apiClient.HostclusterApiAPI.HostclusterApiListDeploymentCellWorkflows(context.Background(), hostClusterID).StartDate(startDate).EndDate(endDate).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `HostclusterApiAPI.HostclusterApiListDeploymentCellWorkflows``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -909,7 +913,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**hostClusterID** | **string** | ID of the Host Cluster to filter Deployment Cell Workflows | 
+**hostClusterID** | **string** | The host cluster ID to filter by | 
 
 ### Other Parameters
 
@@ -919,7 +923,10 @@ Other parameters are passed through a pointer to a apiHostclusterApiListDeployme
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **listDeploymentCellWorkflowsRequest2** | [**ListDeploymentCellWorkflowsRequest2**](ListDeploymentCellWorkflowsRequest2.md) |  | 
+ **startDate** | **time.Time** | Start date of the workflows | 
+ **endDate** | **time.Time** | End date of the workflows | 
+ **nextPageToken** | **string** |  | 
+ **pageSize** | **int64** |  | 
 
 ### Return type
 
@@ -931,7 +938,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

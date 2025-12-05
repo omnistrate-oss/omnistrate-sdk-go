@@ -317,6 +317,7 @@ docs/DescribeInfraConfigRequest.md
 docs/DescribeInfraConfigResult.md
 docs/DescribeInputParameterRequest.md
 docs/DescribeInputParameterResult.md
+docs/DescribeInvoiceRequest.md
 docs/DescribeLimitRequest.md
 docs/DescribeLimitResult.md
 docs/DescribeNetworkConfigRequest.md
@@ -620,6 +621,7 @@ docs/ProductTierApiAPI.md
 docs/ProductTierDeploymentConfiguration.md
 docs/ProductTierDeploymentRequirements.md
 docs/ProductTierFeatureDetail.md
+docs/ProductTierVersionDetail.md
 docs/PromoteServiceEnvironmentRequest.md
 docs/PromoteServiceEnvironmentRequest2.md
 docs/PromoteServiceEnvironmentStatusRequest.md
@@ -1071,6 +1073,7 @@ model_describe_infra_config_request.go
 model_describe_infra_config_result.go
 model_describe_input_parameter_request.go
 model_describe_input_parameter_result.go
+model_describe_invoice_request.go
 model_describe_limit_request.go
 model_describe_limit_result.go
 model_describe_network_config_request.go
@@ -1359,6 +1362,7 @@ model_private_networking_configuration.go
 model_product_tier_deployment_configuration.go
 model_product_tier_deployment_requirements.go
 model_product_tier_feature_detail.go
+model_product_tier_version_detail.go
 model_promote_service_environment_request.go
 model_promote_service_environment_request2.go
 model_promote_service_environment_status_request.go

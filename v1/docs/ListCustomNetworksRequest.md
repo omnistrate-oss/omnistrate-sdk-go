@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **CloudProviderName** | Pointer to **string** | Name of the Infra Provider | [optional] 
 **CloudProviderRegion** | Pointer to **string** | The region of the cloud provider that the instance is running in. | [optional] 
 **CustomNetworksOnly** | Pointer to **bool** | Flag indicating whether to return only custom networks, or to include default and imported networks as well | [optional] 
+**SubscriptionId** | Pointer to **string** | ID of a Subscription | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
@@ -102,6 +103,31 @@ SetCustomNetworksOnly sets CustomNetworksOnly field to given value.
 `func (o *ListCustomNetworksRequest) HasCustomNetworksOnly() bool`
 
 HasCustomNetworksOnly returns a boolean if a field has been set.
+
+### GetSubscriptionId
+
+`func (o *ListCustomNetworksRequest) GetSubscriptionId() string`
+
+GetSubscriptionId returns the SubscriptionId field if non-nil, zero value otherwise.
+
+### GetSubscriptionIdOk
+
+`func (o *ListCustomNetworksRequest) GetSubscriptionIdOk() (*string, bool)`
+
+GetSubscriptionIdOk returns a tuple with the SubscriptionId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscriptionId
+
+`func (o *ListCustomNetworksRequest) SetSubscriptionId(v string)`
+
+SetSubscriptionId sets SubscriptionId field to given value.
+
+### HasSubscriptionId
+
+`func (o *ListCustomNetworksRequest) HasSubscriptionId() bool`
+
+HasSubscriptionId returns a boolean if a field has been set.
 
 ### GetToken
 

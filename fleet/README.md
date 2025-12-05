@@ -207,6 +207,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiUpdateSubscriptions**](docs/InventoryApiAPI.md#inventoryapiupdatesubscriptions) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscriptions | UpdateSubscriptions inventory-api
 *InvoiceApiAPI* | [**InvoiceApiApproveInvoice**](docs/InvoiceApiAPI.md#invoiceapiapproveinvoice) | **Post** /2022-09-01-00/fleet/invoice/{id}/approve | ApproveInvoice invoice-api
 *InvoiceApiAPI* | [**InvoiceApiDeleteInvoice**](docs/InvoiceApiAPI.md#invoiceapideleteinvoice) | **Delete** /2022-09-01-00/fleet/invoice/{id} | DeleteInvoice invoice-api
+*InvoiceApiAPI* | [**InvoiceApiDescribeInvoice**](docs/InvoiceApiAPI.md#invoiceapidescribeinvoice) | **Get** /2022-09-01-00/fleet/invoices/{id} | DescribeInvoice invoice-api
 *InvoiceApiAPI* | [**InvoiceApiListInvoices**](docs/InvoiceApiAPI.md#invoiceapilistinvoices) | **Get** /2022-09-01-00/fleet/invoices | ListInvoices invoice-api
 *InvoiceApiAPI* | [**InvoiceApiResendInvoice**](docs/InvoiceApiAPI.md#invoiceapiresendinvoice) | **Post** /2022-09-01-00/fleet/invoice/{id}/resend | ResendInvoice invoice-api
 *InvoiceApiAPI* | [**InvoiceApiVoidInvoice**](docs/InvoiceApiAPI.md#invoiceapivoidinvoice) | **Post** /2022-09-01-00/fleet/invoice/{id}/void | VoidInvoice invoice-api
@@ -374,6 +375,7 @@ Class | Method | HTTP request | Description
  - [DescribeIdentityProviderTypeResult](docs/DescribeIdentityProviderTypeResult.md)
  - [DescribeInventorySummary](docs/DescribeInventorySummary.md)
  - [DescribeInventorySummaryResult](docs/DescribeInventorySummaryResult.md)
+ - [DescribeInvoiceRequest](docs/DescribeInvoiceRequest.md)
  - [DescribeNetworkRequest](docs/DescribeNetworkRequest.md)
  - [DescribeNetworkResult](docs/DescribeNetworkResult.md)
  - [DescribeNotificationChannelRequest](docs/DescribeNotificationChannelRequest.md)
@@ -499,6 +501,7 @@ Class | Method | HTTP request | Description
  - [FleetDescribeInstanceSnapshotFromTimeResult](docs/FleetDescribeInstanceSnapshotFromTimeResult.md)
  - [FleetDescribeInstanceSnapshotRequest](docs/FleetDescribeInstanceSnapshotRequest.md)
  - [FleetDescribeInstanceSnapshotResult](docs/FleetDescribeInstanceSnapshotResult.md)
+ - [FleetDescribeInvoiceRequest](docs/FleetDescribeInvoiceRequest.md)
  - [FleetDescribeOrgUser](docs/FleetDescribeOrgUser.md)
  - [FleetDescribeServicesOrchestrationRequest](docs/FleetDescribeServicesOrchestrationRequest.md)
  - [FleetDescribeServicesOrchestrationResult](docs/FleetDescribeServicesOrchestrationResult.md)
@@ -659,7 +662,6 @@ Class | Method | HTTP request | Description
  - [ListCustomerOnboardingStagesRequest](docs/ListCustomerOnboardingStagesRequest.md)
  - [ListCustomerOnboardingStagesResult](docs/ListCustomerOnboardingStagesResult.md)
  - [ListDeploymentCellWorkflowsRequest](docs/ListDeploymentCellWorkflowsRequest.md)
- - [ListDeploymentCellWorkflowsRequest2](docs/ListDeploymentCellWorkflowsRequest2.md)
  - [ListDeploymentCellWorkflowsResult](docs/ListDeploymentCellWorkflowsResult.md)
  - [ListEligibleInstancesPerUpgradeRequest](docs/ListEligibleInstancesPerUpgradeRequest.md)
  - [ListEligibleInstancesPerUpgradeResult](docs/ListEligibleInstancesPerUpgradeResult.md)
@@ -739,6 +741,7 @@ Class | Method | HTTP request | Description
  - [OmnistrateServiceHealthResult](docs/OmnistrateServiceHealthResult.md)
  - [OmnistrateServiceVersionResult](docs/OmnistrateServiceVersionResult.md)
  - [OnPremCustomUserScript](docs/OnPremCustomUserScript.md)
+ - [OnPremInstallerDetails](docs/OnPremInstallerDetails.md)
  - [OnPremInstallerTools](docs/OnPremInstallerTools.md)
  - [OnboardingStage](docs/OnboardingStage.md)
  - [OneOffPatchResourceInstanceRequest](docs/OneOffPatchResourceInstanceRequest.md)
@@ -756,6 +759,7 @@ Class | Method | HTTP request | Description
  - [ProductTierDeploymentConfiguration](docs/ProductTierDeploymentConfiguration.md)
  - [ProductTierDeploymentRequirements](docs/ProductTierDeploymentRequirements.md)
  - [ProductTierFeatureDetail](docs/ProductTierFeatureDetail.md)
+ - [ProductTierVersionDetail](docs/ProductTierVersionDetail.md)
  - [PromoteServiceEnvironmentRequest](docs/PromoteServiceEnvironmentRequest.md)
  - [PromoteServiceEnvironmentStatusRequest](docs/PromoteServiceEnvironmentStatusRequest.md)
  - [ProxyEndpoint](docs/ProxyEndpoint.md)
