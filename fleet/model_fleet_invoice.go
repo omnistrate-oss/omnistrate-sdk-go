@@ -37,6 +37,8 @@ type FleetInvoice struct {
 	Id *string `json:"id,omitempty"`
 	// Date of the invoice in ISO 8601 format
 	InvoiceDate *string `json:"invoiceDate,omitempty"`
+	// URL for the PDF of the invoice
+	InvoicePdf *string `json:"invoicePdf,omitempty"`
 	// Stripe URL for this invoice
 	InvoiceUrl *string `json:"invoiceUrl,omitempty"`
 	// Payment terms of the invoice
@@ -359,6 +361,38 @@ func (o *FleetInvoice) SetInvoiceDate(v string) {
 	o.InvoiceDate = &v
 }
 
+// GetInvoicePdf returns the InvoicePdf field value if set, zero value otherwise.
+func (o *FleetInvoice) GetInvoicePdf() string {
+	if o == nil || IsNil(o.InvoicePdf) {
+		var ret string
+		return ret
+	}
+	return *o.InvoicePdf
+}
+
+// GetInvoicePdfOk returns a tuple with the InvoicePdf field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetInvoice) GetInvoicePdfOk() (*string, bool) {
+	if o == nil || IsNil(o.InvoicePdf) {
+		return nil, false
+	}
+	return o.InvoicePdf, true
+}
+
+// HasInvoicePdf returns a boolean if a field has been set.
+func (o *FleetInvoice) HasInvoicePdf() bool {
+	if o != nil && !IsNil(o.InvoicePdf) {
+		return true
+	}
+
+	return false
+}
+
+// SetInvoicePdf gets a reference to the given string and assigns it to the InvoicePdf field.
+func (o *FleetInvoice) SetInvoicePdf(v string) {
+	o.InvoicePdf = &v
+}
+
 // GetInvoiceUrl returns the InvoiceUrl field value if set, zero value otherwise.
 func (o *FleetInvoice) GetInvoiceUrl() string {
 	if o == nil || IsNil(o.InvoiceUrl) {
@@ -588,6 +622,9 @@ func (o FleetInvoice) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.InvoiceDate) {
 		toSerialize["invoiceDate"] = o.InvoiceDate
 	}
+	if !IsNil(o.InvoicePdf) {
+		toSerialize["invoicePdf"] = o.InvoicePdf
+	}
 	if !IsNil(o.InvoiceUrl) {
 		toSerialize["invoiceUrl"] = o.InvoiceUrl
 	}
@@ -637,6 +674,7 @@ func (o *FleetInvoice) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "dueDate")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "invoiceDate")
+		delete(additionalProperties, "invoicePdf")
 		delete(additionalProperties, "invoiceUrl")
 		delete(additionalProperties, "paymentTerms")
 		delete(additionalProperties, "status")

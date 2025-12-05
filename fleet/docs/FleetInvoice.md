@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **DueDate** | Pointer to **string** | Due date in ISO 8601 format | [optional] 
 **Id** | Pointer to **string** | ID of the invoice | [optional] 
 **InvoiceDate** | Pointer to **string** | Date of the invoice in ISO 8601 format | [optional] 
+**InvoicePdf** | Pointer to **string** | URL for the PDF of the invoice | [optional] 
 **InvoiceUrl** | Pointer to **string** | Stripe URL for this invoice | [optional] 
 **PaymentTerms** | Pointer to **string** | Payment terms of the invoice | [optional] 
 **Status** | Pointer to **string** | This describes the status of the invoice and is set by the payment provider | [optional] 
@@ -263,6 +264,31 @@ SetInvoiceDate sets InvoiceDate field to given value.
 `func (o *FleetInvoice) HasInvoiceDate() bool`
 
 HasInvoiceDate returns a boolean if a field has been set.
+
+### GetInvoicePdf
+
+`func (o *FleetInvoice) GetInvoicePdf() string`
+
+GetInvoicePdf returns the InvoicePdf field if non-nil, zero value otherwise.
+
+### GetInvoicePdfOk
+
+`func (o *FleetInvoice) GetInvoicePdfOk() (*string, bool)`
+
+GetInvoicePdfOk returns a tuple with the InvoicePdf field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInvoicePdf
+
+`func (o *FleetInvoice) SetInvoicePdf(v string)`
+
+SetInvoicePdf sets InvoicePdf field to given value.
+
+### HasInvoicePdf
+
+`func (o *FleetInvoice) HasInvoicePdf() bool`
+
+HasInvoicePdf returns a boolean if a field has been set.
 
 ### GetInvoiceUrl
 

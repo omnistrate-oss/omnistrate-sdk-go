@@ -189,6 +189,7 @@ Class | Method | HTTP request | Description
 *InputParameterApiAPI* | [**InputParameterApiListInputParameter**](docs/InputParameterApiAPI.md#inputparameterapilistinputparameter) | **Get** /2022-09-01-00/service/{serviceId}/resource/{resourceId}/input-parameter | ListInputParameter input-parameter-api
 *InputParameterApiAPI* | [**InputParameterApiUpdateInputParameter**](docs/InputParameterApiAPI.md#inputparameterapiupdateinputparameter) | **Patch** /2022-09-01-00/service/{serviceId}/input-parameter/{id} | UpdateInputParameter input-parameter-api
 *InstanceSnapshotApiAPI* | [**InstanceSnapshotApiDeleteResourceInstanceSnapshot**](docs/InstanceSnapshotApiAPI.md#instancesnapshotapideleteresourceinstancesnapshot) | **Delete** /2022-09-01-00/resource-instance/snapshot/{snapshotId} | DeleteResourceInstanceSnapshot instance-snapshot-api
+*InvoiceApiAPI* | [**InvoiceApiDescribeInvoice**](docs/InvoiceApiAPI.md#invoiceapidescribeinvoice) | **Get** /2022-09-01-00/invoice/{id} | DescribeInvoice invoice-api
 *InvoiceApiAPI* | [**InvoiceApiListInvoices**](docs/InvoiceApiAPI.md#invoiceapilistinvoices) | **Get** /2022-09-01-00/invoice | ListInvoices invoice-api
 *LimitApiAPI* | [**LimitApiDeleteLimit**](docs/LimitApiAPI.md#limitapideletelimit) | **Delete** /2022-09-01-00/limit/family/{family}/key/{key} | DeleteLimit limit-api
 *LimitApiAPI* | [**LimitApiDescribeLimit**](docs/LimitApiAPI.md#limitapidescribelimit) | **Get** /2022-09-01-00/limit/family/{family}/key/{key} | DescribeLimit limit-api
@@ -639,6 +640,7 @@ Class | Method | HTTP request | Description
  - [DescribeInfraConfigResult](docs/DescribeInfraConfigResult.md)
  - [DescribeInputParameterRequest](docs/DescribeInputParameterRequest.md)
  - [DescribeInputParameterResult](docs/DescribeInputParameterResult.md)
+ - [DescribeInvoiceRequest](docs/DescribeInvoiceRequest.md)
  - [DescribeLimitRequest](docs/DescribeLimitRequest.md)
  - [DescribeLimitResult](docs/DescribeLimitResult.md)
  - [DescribeNetworkConfigRequest](docs/DescribeNetworkConfigRequest.md)
@@ -927,6 +929,7 @@ Class | Method | HTTP request | Description
  - [ProductTierDeploymentConfiguration](docs/ProductTierDeploymentConfiguration.md)
  - [ProductTierDeploymentRequirements](docs/ProductTierDeploymentRequirements.md)
  - [ProductTierFeatureDetail](docs/ProductTierFeatureDetail.md)
+ - [ProductTierVersionDetail](docs/ProductTierVersionDetail.md)
  - [PromoteServiceEnvironmentRequest](docs/PromoteServiceEnvironmentRequest.md)
  - [PromoteServiceEnvironmentRequest2](docs/PromoteServiceEnvironmentRequest2.md)
  - [PromoteServiceEnvironmentStatusRequest](docs/PromoteServiceEnvironmentStatusRequest.md)

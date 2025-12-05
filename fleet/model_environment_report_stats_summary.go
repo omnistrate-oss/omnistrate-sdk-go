@@ -21,6 +21,7 @@ var _ MappedNullable = &EnvironmentReportStatsSummary{}
 type EnvironmentReportStatsSummary struct {
 	Deployments *CountWithRecent `json:"deployments,omitempty"`
 	Failovers *CountWithRecent `json:"failovers,omitempty"`
+	LiveDeployments *CountWithRecent `json:"liveDeployments,omitempty"`
 	Subscriptions *CountWithRecent `json:"subscriptions,omitempty"`
 	Upgrades *CountWithRecent `json:"upgrades,omitempty"`
 	UserSignups *CountWithRecent `json:"userSignups,omitempty"`
@@ -108,6 +109,38 @@ func (o *EnvironmentReportStatsSummary) HasFailovers() bool {
 // SetFailovers gets a reference to the given CountWithRecent and assigns it to the Failovers field.
 func (o *EnvironmentReportStatsSummary) SetFailovers(v CountWithRecent) {
 	o.Failovers = &v
+}
+
+// GetLiveDeployments returns the LiveDeployments field value if set, zero value otherwise.
+func (o *EnvironmentReportStatsSummary) GetLiveDeployments() CountWithRecent {
+	if o == nil || IsNil(o.LiveDeployments) {
+		var ret CountWithRecent
+		return ret
+	}
+	return *o.LiveDeployments
+}
+
+// GetLiveDeploymentsOk returns a tuple with the LiveDeployments field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EnvironmentReportStatsSummary) GetLiveDeploymentsOk() (*CountWithRecent, bool) {
+	if o == nil || IsNil(o.LiveDeployments) {
+		return nil, false
+	}
+	return o.LiveDeployments, true
+}
+
+// HasLiveDeployments returns a boolean if a field has been set.
+func (o *EnvironmentReportStatsSummary) HasLiveDeployments() bool {
+	if o != nil && !IsNil(o.LiveDeployments) {
+		return true
+	}
+
+	return false
+}
+
+// SetLiveDeployments gets a reference to the given CountWithRecent and assigns it to the LiveDeployments field.
+func (o *EnvironmentReportStatsSummary) SetLiveDeployments(v CountWithRecent) {
+	o.LiveDeployments = &v
 }
 
 // GetSubscriptions returns the Subscriptions field value if set, zero value otherwise.
@@ -222,6 +255,9 @@ func (o EnvironmentReportStatsSummary) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Failovers) {
 		toSerialize["failovers"] = o.Failovers
 	}
+	if !IsNil(o.LiveDeployments) {
+		toSerialize["liveDeployments"] = o.LiveDeployments
+	}
 	if !IsNil(o.Subscriptions) {
 		toSerialize["subscriptions"] = o.Subscriptions
 	}
@@ -255,6 +291,7 @@ func (o *EnvironmentReportStatsSummary) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "deployments")
 		delete(additionalProperties, "failovers")
+		delete(additionalProperties, "liveDeployments")
 		delete(additionalProperties, "subscriptions")
 		delete(additionalProperties, "upgrades")
 		delete(additionalProperties, "userSignups")

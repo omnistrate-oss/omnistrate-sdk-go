@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Deployments** | Pointer to [**CountWithRecent**](CountWithRecent.md) |  | [optional] 
 **Failovers** | Pointer to [**CountWithRecent**](CountWithRecent.md) |  | [optional] 
+**LiveDeployments** | Pointer to [**CountWithRecent**](CountWithRecent.md) |  | [optional] 
 **Subscriptions** | Pointer to [**CountWithRecent**](CountWithRecent.md) |  | [optional] 
 **Upgrades** | Pointer to [**CountWithRecent**](CountWithRecent.md) |  | [optional] 
 **UserSignups** | Pointer to [**CountWithRecent**](CountWithRecent.md) |  | [optional] 
@@ -78,6 +79,31 @@ SetFailovers sets Failovers field to given value.
 `func (o *EnvironmentReportStatsSummary) HasFailovers() bool`
 
 HasFailovers returns a boolean if a field has been set.
+
+### GetLiveDeployments
+
+`func (o *EnvironmentReportStatsSummary) GetLiveDeployments() CountWithRecent`
+
+GetLiveDeployments returns the LiveDeployments field if non-nil, zero value otherwise.
+
+### GetLiveDeploymentsOk
+
+`func (o *EnvironmentReportStatsSummary) GetLiveDeploymentsOk() (*CountWithRecent, bool)`
+
+GetLiveDeploymentsOk returns a tuple with the LiveDeployments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLiveDeployments
+
+`func (o *EnvironmentReportStatsSummary) SetLiveDeployments(v CountWithRecent)`
+
+SetLiveDeployments sets LiveDeployments field to given value.
+
+### HasLiveDeployments
+
+`func (o *EnvironmentReportStatsSummary) HasLiveDeployments() bool`
+
+HasLiveDeployments returns a boolean if a field has been set.
 
 ### GetSubscriptions
 

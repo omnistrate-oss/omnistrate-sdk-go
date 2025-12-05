@@ -29,10 +29,12 @@ Name | Type | Description | Notes
 **MinReplicas** | Pointer to **string** | The minimum number of replicas | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
 **ProductTierFeatures** | Pointer to **map[string]interface{}** | The product tier features | [optional] 
+**ProductTierVersionDetail** | Pointer to [**ProductTierVersionDetail**](ProductTierVersionDetail.md) |  | [optional] 
 **Region** | Pointer to **string** | The region code | [optional] 
 **ResourceID** | Pointer to **string** | ID of a resource | [optional] 
 **ResultParams** | Pointer to **interface{}** | Custom result parameters | [optional] 
 **ServerlessEnabled** | Pointer to **bool** | Whether the instance has serverless enabled | [optional] 
+**SourceSnapshotID** | Pointer to **string** | The source snapshot ID if the instance is restored from snapshot | [optional] 
 **Status** | Pointer to **string** | The status of an operation | [optional] 
 **SubscriptionId** | Pointer to **string** | Subscription ID | [optional] 
 **SubscriptionLicense** | Pointer to [**SubscriptionLicense**](SubscriptionLicense.md) |  | [optional] 
@@ -683,6 +685,31 @@ SetProductTierFeatures sets ProductTierFeatures field to given value.
 
 HasProductTierFeatures returns a boolean if a field has been set.
 
+### GetProductTierVersionDetail
+
+`func (o *DescribeResourceInstanceResult) GetProductTierVersionDetail() ProductTierVersionDetail`
+
+GetProductTierVersionDetail returns the ProductTierVersionDetail field if non-nil, zero value otherwise.
+
+### GetProductTierVersionDetailOk
+
+`func (o *DescribeResourceInstanceResult) GetProductTierVersionDetailOk() (*ProductTierVersionDetail, bool)`
+
+GetProductTierVersionDetailOk returns a tuple with the ProductTierVersionDetail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductTierVersionDetail
+
+`func (o *DescribeResourceInstanceResult) SetProductTierVersionDetail(v ProductTierVersionDetail)`
+
+SetProductTierVersionDetail sets ProductTierVersionDetail field to given value.
+
+### HasProductTierVersionDetail
+
+`func (o *DescribeResourceInstanceResult) HasProductTierVersionDetail() bool`
+
+HasProductTierVersionDetail returns a boolean if a field has been set.
+
 ### GetRegion
 
 `func (o *DescribeResourceInstanceResult) GetRegion() string`
@@ -792,6 +819,31 @@ SetServerlessEnabled sets ServerlessEnabled field to given value.
 `func (o *DescribeResourceInstanceResult) HasServerlessEnabled() bool`
 
 HasServerlessEnabled returns a boolean if a field has been set.
+
+### GetSourceSnapshotID
+
+`func (o *DescribeResourceInstanceResult) GetSourceSnapshotID() string`
+
+GetSourceSnapshotID returns the SourceSnapshotID field if non-nil, zero value otherwise.
+
+### GetSourceSnapshotIDOk
+
+`func (o *DescribeResourceInstanceResult) GetSourceSnapshotIDOk() (*string, bool)`
+
+GetSourceSnapshotIDOk returns a tuple with the SourceSnapshotID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceSnapshotID
+
+`func (o *DescribeResourceInstanceResult) SetSourceSnapshotID(v string)`
+
+SetSourceSnapshotID sets SourceSnapshotID field to given value.
+
+### HasSourceSnapshotID
+
+`func (o *DescribeResourceInstanceResult) HasSourceSnapshotID() bool`
+
+HasSourceSnapshotID returns a boolean if a field has been set.
 
 ### GetStatus
 

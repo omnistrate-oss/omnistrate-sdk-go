@@ -169,6 +169,7 @@ docs/DescribeIdentityProviderResult.md
 docs/DescribeIdentityProviderTypeResult.md
 docs/DescribeInventorySummary.md
 docs/DescribeInventorySummaryResult.md
+docs/DescribeInvoiceRequest.md
 docs/DescribeNetworkRequest.md
 docs/DescribeNetworkResult.md
 docs/DescribeNotificationChannelRequest.md
@@ -296,6 +297,7 @@ docs/FleetDescribeInstanceSnapshotFromTimeRequest2.md
 docs/FleetDescribeInstanceSnapshotFromTimeResult.md
 docs/FleetDescribeInstanceSnapshotRequest.md
 docs/FleetDescribeInstanceSnapshotResult.md
+docs/FleetDescribeInvoiceRequest.md
 docs/FleetDescribeOrgUser.md
 docs/FleetDescribeServicesOrchestrationRequest.md
 docs/FleetDescribeServicesOrchestrationResult.md
@@ -461,7 +463,6 @@ docs/ListCustomerOnboardingResult.md
 docs/ListCustomerOnboardingStagesRequest.md
 docs/ListCustomerOnboardingStagesResult.md
 docs/ListDeploymentCellWorkflowsRequest.md
-docs/ListDeploymentCellWorkflowsRequest2.md
 docs/ListDeploymentCellWorkflowsResult.md
 docs/ListEligibleInstancesPerUpgradeRequest.md
 docs/ListEligibleInstancesPerUpgradeResult.md
@@ -542,6 +543,7 @@ docs/OmnistrateError.md
 docs/OmnistrateServiceHealthResult.md
 docs/OmnistrateServiceVersionResult.md
 docs/OnPremCustomUserScript.md
+docs/OnPremInstallerDetails.md
 docs/OnPremInstallerTools.md
 docs/OnboardingStage.md
 docs/OneOffPatchResourceInstanceRequest.md
@@ -560,6 +562,7 @@ docs/PodEvent.md
 docs/ProductTierDeploymentConfiguration.md
 docs/ProductTierDeploymentRequirements.md
 docs/ProductTierFeatureDetail.md
+docs/ProductTierVersionDetail.md
 docs/PromoteServiceEnvironmentRequest.md
 docs/PromoteServiceEnvironmentStatusRequest.md
 docs/ProxyEndpoint.md
@@ -830,6 +833,7 @@ model_describe_identity_provider_result.go
 model_describe_identity_provider_type_result.go
 model_describe_inventory_summary.go
 model_describe_inventory_summary_result.go
+model_describe_invoice_request.go
 model_describe_network_request.go
 model_describe_network_result.go
 model_describe_notification_channel_request.go
@@ -955,6 +959,7 @@ model_fleet_describe_instance_snapshot_from_time_request2.go
 model_fleet_describe_instance_snapshot_from_time_result.go
 model_fleet_describe_instance_snapshot_request.go
 model_fleet_describe_instance_snapshot_result.go
+model_fleet_describe_invoice_request.go
 model_fleet_describe_org_user.go
 model_fleet_describe_services_orchestration_request.go
 model_fleet_describe_services_orchestration_result.go
@@ -1115,7 +1120,6 @@ model_list_customer_onboarding_result.go
 model_list_customer_onboarding_stages_request.go
 model_list_customer_onboarding_stages_result.go
 model_list_deployment_cell_workflows_request.go
-model_list_deployment_cell_workflows_request2.go
 model_list_deployment_cell_workflows_result.go
 model_list_eligible_instances_per_upgrade_request.go
 model_list_eligible_instances_per_upgrade_result.go
@@ -1195,6 +1199,7 @@ model_omnistrate_error.go
 model_omnistrate_service_health_result.go
 model_omnistrate_service_version_result.go
 model_on_prem_custom_user_script.go
+model_on_prem_installer_details.go
 model_on_prem_installer_tools.go
 model_onboarding_stage.go
 model_one_off_patch_resource_instance_request.go
@@ -1212,6 +1217,7 @@ model_pod_event.go
 model_product_tier_deployment_configuration.go
 model_product_tier_deployment_requirements.go
 model_product_tier_feature_detail.go
+model_product_tier_version_detail.go
 model_promote_service_environment_request.go
 model_promote_service_environment_status_request.go
 model_proxy_endpoint.go
