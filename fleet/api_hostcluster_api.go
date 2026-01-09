@@ -2178,8 +2178,9 @@ func (a *HostclusterApiAPIService) HostclusterApiKubeConfigHostClusterExecute(r 
 	if r.role != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "role", r.role, "form", "")
 	} else {
-		var defaultValue string = "cluster-reader"
-		r.role = &defaultValue
+        var defaultValue string = "cluster-reader"
+        parameterAddToHeaderOrQuery(localVarQueryParams, "role", defaultValue, "form", "")
+        r.role = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

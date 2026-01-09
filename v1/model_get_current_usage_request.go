@@ -166,4 +166,3 @@ func (v *NullableGetCurrentUsageRequest) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
-

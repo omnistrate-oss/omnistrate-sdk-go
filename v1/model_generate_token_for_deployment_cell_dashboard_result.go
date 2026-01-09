@@ -226,4 +226,3 @@ func (v *NullableGenerateTokenForDeploymentCellDashboardResult) UnmarshalJSON(sr
 	return json.Unmarshal(src, &v.value)
 }
 
-

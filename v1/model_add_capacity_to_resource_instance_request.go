@@ -465,4 +465,3 @@ func (v *NullableAddCapacityToResourceInstanceRequest) UnmarshalJSON(src []byte)
 	return json.Unmarshal(src, &v.value)
 }
 
-

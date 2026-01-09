@@ -313,4 +313,3 @@ func (v *NullableGenerateComposeSpecFromContainerImageRequest) UnmarshalJSON(src
 	return json.Unmarshal(src, &v.value)
 }
 
-

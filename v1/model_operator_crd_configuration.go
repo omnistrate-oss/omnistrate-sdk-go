@@ -340,4 +340,3 @@ func (v *NullableOperatorCRDConfiguration) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
-

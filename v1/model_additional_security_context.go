@@ -202,4 +202,3 @@ func (v *NullableAdditionalSecurityContext) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
-

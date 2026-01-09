@@ -6219,8 +6219,9 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceExecute(r A
 	if r.detail != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "detail", r.detail, "form", "")
 	} else {
-		var defaultValue bool = false
-		r.detail = &defaultValue
+        var defaultValue bool = false
+        parameterAddToHeaderOrQuery(localVarQueryParams, "detail", defaultValue, "form", "")
+        r.detail = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -10808,8 +10809,9 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstancesExecute(r ApiI
 	if r.excludeDetail != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ExcludeDetail", r.excludeDetail, "form", "")
 	} else {
-		var defaultValue bool = false
-		r.excludeDetail = &defaultValue
+        var defaultValue bool = false
+        parameterAddToHeaderOrQuery(localVarQueryParams, "ExcludeDetail", defaultValue, "form", "")
+        r.excludeDetail = &defaultValue
 	}
 	if r.nextPageToken != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")

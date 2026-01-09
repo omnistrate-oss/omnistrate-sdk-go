@@ -226,4 +226,3 @@ func (v *NullableDeleteInputParameterRequest) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
-
