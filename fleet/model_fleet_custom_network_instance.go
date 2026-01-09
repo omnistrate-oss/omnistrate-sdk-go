@@ -33,6 +33,10 @@ type FleetCustomNetworkInstance struct {
 	GcpProjectNumber *string `json:"gcpProjectNumber,omitempty"`
 	// ID of a Host Cluster
 	HostClusterID *string `json:"hostClusterID,omitempty"`
+	// The Domain OCID for Oracle Cloud Infrastructure
+	OciDomainID *string `json:"ociDomainID,omitempty"`
+	// The Tenancy OCID for Oracle Cloud Infrastructure
+	OciTenancyID *string `json:"ociTenancyID,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -279,6 +283,70 @@ func (o *FleetCustomNetworkInstance) SetHostClusterID(v string) {
 	o.HostClusterID = &v
 }
 
+// GetOciDomainID returns the OciDomainID field value if set, zero value otherwise.
+func (o *FleetCustomNetworkInstance) GetOciDomainID() string {
+	if o == nil || IsNil(o.OciDomainID) {
+		var ret string
+		return ret
+	}
+	return *o.OciDomainID
+}
+
+// GetOciDomainIDOk returns a tuple with the OciDomainID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCustomNetworkInstance) GetOciDomainIDOk() (*string, bool) {
+	if o == nil || IsNil(o.OciDomainID) {
+		return nil, false
+	}
+	return o.OciDomainID, true
+}
+
+// HasOciDomainID returns a boolean if a field has been set.
+func (o *FleetCustomNetworkInstance) HasOciDomainID() bool {
+	if o != nil && !IsNil(o.OciDomainID) {
+		return true
+	}
+
+	return false
+}
+
+// SetOciDomainID gets a reference to the given string and assigns it to the OciDomainID field.
+func (o *FleetCustomNetworkInstance) SetOciDomainID(v string) {
+	o.OciDomainID = &v
+}
+
+// GetOciTenancyID returns the OciTenancyID field value if set, zero value otherwise.
+func (o *FleetCustomNetworkInstance) GetOciTenancyID() string {
+	if o == nil || IsNil(o.OciTenancyID) {
+		var ret string
+		return ret
+	}
+	return *o.OciTenancyID
+}
+
+// GetOciTenancyIDOk returns a tuple with the OciTenancyID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCustomNetworkInstance) GetOciTenancyIDOk() (*string, bool) {
+	if o == nil || IsNil(o.OciTenancyID) {
+		return nil, false
+	}
+	return o.OciTenancyID, true
+}
+
+// HasOciTenancyID returns a boolean if a field has been set.
+func (o *FleetCustomNetworkInstance) HasOciTenancyID() bool {
+	if o != nil && !IsNil(o.OciTenancyID) {
+		return true
+	}
+
+	return false
+}
+
+// SetOciTenancyID gets a reference to the given string and assigns it to the OciTenancyID field.
+func (o *FleetCustomNetworkInstance) SetOciTenancyID(v string) {
+	o.OciTenancyID = &v
+}
+
 func (o FleetCustomNetworkInstance) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -310,6 +378,12 @@ func (o FleetCustomNetworkInstance) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.HostClusterID) {
 		toSerialize["hostClusterID"] = o.HostClusterID
 	}
+	if !IsNil(o.OciDomainID) {
+		toSerialize["ociDomainID"] = o.OciDomainID
+	}
+	if !IsNil(o.OciTenancyID) {
+		toSerialize["ociTenancyID"] = o.OciTenancyID
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -339,6 +413,8 @@ func (o *FleetCustomNetworkInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "gcpProjectNumber")
 		delete(additionalProperties, "hostClusterID")
+		delete(additionalProperties, "ociDomainID")
+		delete(additionalProperties, "ociTenancyID")
 		o.AdditionalProperties = additionalProperties
 	}
 

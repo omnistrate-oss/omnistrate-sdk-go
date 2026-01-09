@@ -26,6 +26,8 @@ type FleetCreateInstanceSnapshotRequest struct {
 	InstanceId string `json:"instanceId"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
+	// The target region to create the snapshot in. If not specified, use the same region as the instance
+	TargetRegion *string `json:"targetRegion,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -126,6 +128,38 @@ func (o *FleetCreateInstanceSnapshotRequest) SetServiceId(v string) {
 	o.ServiceId = v
 }
 
+// GetTargetRegion returns the TargetRegion field value if set, zero value otherwise.
+func (o *FleetCreateInstanceSnapshotRequest) GetTargetRegion() string {
+	if o == nil || IsNil(o.TargetRegion) {
+		var ret string
+		return ret
+	}
+	return *o.TargetRegion
+}
+
+// GetTargetRegionOk returns a tuple with the TargetRegion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCreateInstanceSnapshotRequest) GetTargetRegionOk() (*string, bool) {
+	if o == nil || IsNil(o.TargetRegion) {
+		return nil, false
+	}
+	return o.TargetRegion, true
+}
+
+// HasTargetRegion returns a boolean if a field has been set.
+func (o *FleetCreateInstanceSnapshotRequest) HasTargetRegion() bool {
+	if o != nil && !IsNil(o.TargetRegion) {
+		return true
+	}
+
+	return false
+}
+
+// SetTargetRegion gets a reference to the given string and assigns it to the TargetRegion field.
+func (o *FleetCreateInstanceSnapshotRequest) SetTargetRegion(v string) {
+	o.TargetRegion = &v
+}
+
 // GetToken returns the Token field value
 func (o *FleetCreateInstanceSnapshotRequest) GetToken() string {
 	if o == nil {
@@ -163,6 +197,9 @@ func (o FleetCreateInstanceSnapshotRequest) ToMap() (map[string]interface{}, err
 	toSerialize["environmentId"] = o.EnvironmentId
 	toSerialize["instanceId"] = o.InstanceId
 	toSerialize["serviceId"] = o.ServiceId
+	if !IsNil(o.TargetRegion) {
+		toSerialize["targetRegion"] = o.TargetRegion
+	}
 	toSerialize["token"] = o.Token
 
 	for key, value := range o.AdditionalProperties {
@@ -213,6 +250,7 @@ func (o *FleetCreateInstanceSnapshotRequest) UnmarshalJSON(data []byte) (err err
 		delete(additionalProperties, "environmentId")
 		delete(additionalProperties, "instanceId")
 		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "targetRegion")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

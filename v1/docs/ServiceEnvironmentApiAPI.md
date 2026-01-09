@@ -34,7 +34,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service this environment belongs to
-	createServiceEnvironmentRequest2 := *openapiclient.NewCreateServiceEnvironmentRequest2("Labore id ex eos sapiente rerum.", "The production environment for the MySQL multi-writer service", "Production") // CreateServiceEnvironmentRequest2 | 
+	createServiceEnvironmentRequest2 := *openapiclient.NewCreateServiceEnvironmentRequest2("Ipsum labore id saepe.", "The production environment for the MySQL multi-writer service", "Production") // CreateServiceEnvironmentRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

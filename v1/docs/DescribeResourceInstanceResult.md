@@ -28,6 +28,9 @@ Name | Type | Description | Notes
 **MaxReplicas** | Pointer to **string** | The maximum number of replicas | [optional] 
 **MinReplicas** | Pointer to **string** | The minimum number of replicas | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
+**OciTenancyID** | Pointer to **string** | The Tenancy OCID for Oracle Cloud Infrastructure | [optional] 
+**OnPremInstallerDetails** | Pointer to [**OnPremInstallerDetails**](OnPremInstallerDetails.md) |  | [optional] 
+**OnpremPlatform** | Pointer to **string** | OnPrem model platform | [optional] 
 **ProductTierFeatures** | Pointer to **map[string]interface{}** | The product tier features | [optional] 
 **ProductTierVersionDetail** | Pointer to [**ProductTierVersionDetail**](ProductTierVersionDetail.md) |  | [optional] 
 **Region** | Pointer to **string** | The region code | [optional] 
@@ -659,6 +662,81 @@ SetNetworkType sets NetworkType field to given value.
 `func (o *DescribeResourceInstanceResult) HasNetworkType() bool`
 
 HasNetworkType returns a boolean if a field has been set.
+
+### GetOciTenancyID
+
+`func (o *DescribeResourceInstanceResult) GetOciTenancyID() string`
+
+GetOciTenancyID returns the OciTenancyID field if non-nil, zero value otherwise.
+
+### GetOciTenancyIDOk
+
+`func (o *DescribeResourceInstanceResult) GetOciTenancyIDOk() (*string, bool)`
+
+GetOciTenancyIDOk returns a tuple with the OciTenancyID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciTenancyID
+
+`func (o *DescribeResourceInstanceResult) SetOciTenancyID(v string)`
+
+SetOciTenancyID sets OciTenancyID field to given value.
+
+### HasOciTenancyID
+
+`func (o *DescribeResourceInstanceResult) HasOciTenancyID() bool`
+
+HasOciTenancyID returns a boolean if a field has been set.
+
+### GetOnPremInstallerDetails
+
+`func (o *DescribeResourceInstanceResult) GetOnPremInstallerDetails() OnPremInstallerDetails`
+
+GetOnPremInstallerDetails returns the OnPremInstallerDetails field if non-nil, zero value otherwise.
+
+### GetOnPremInstallerDetailsOk
+
+`func (o *DescribeResourceInstanceResult) GetOnPremInstallerDetailsOk() (*OnPremInstallerDetails, bool)`
+
+GetOnPremInstallerDetailsOk returns a tuple with the OnPremInstallerDetails field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnPremInstallerDetails
+
+`func (o *DescribeResourceInstanceResult) SetOnPremInstallerDetails(v OnPremInstallerDetails)`
+
+SetOnPremInstallerDetails sets OnPremInstallerDetails field to given value.
+
+### HasOnPremInstallerDetails
+
+`func (o *DescribeResourceInstanceResult) HasOnPremInstallerDetails() bool`
+
+HasOnPremInstallerDetails returns a boolean if a field has been set.
+
+### GetOnpremPlatform
+
+`func (o *DescribeResourceInstanceResult) GetOnpremPlatform() string`
+
+GetOnpremPlatform returns the OnpremPlatform field if non-nil, zero value otherwise.
+
+### GetOnpremPlatformOk
+
+`func (o *DescribeResourceInstanceResult) GetOnpremPlatformOk() (*string, bool)`
+
+GetOnpremPlatformOk returns a tuple with the OnpremPlatform field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnpremPlatform
+
+`func (o *DescribeResourceInstanceResult) SetOnpremPlatform(v string)`
+
+SetOnpremPlatform sets OnpremPlatform field to given value.
+
+### HasOnpremPlatform
+
+`func (o *DescribeResourceInstanceResult) HasOnpremPlatform() bool`
+
+HasOnpremPlatform returns a boolean if a field has been set.
 
 ### GetProductTierFeatures
 

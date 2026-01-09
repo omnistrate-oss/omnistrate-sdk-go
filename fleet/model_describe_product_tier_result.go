@@ -43,6 +43,8 @@ type DescribeProductTierResult struct {
 	Description string `json:"description"`
 	// Documentation
 	Documentation string `json:"documentation"`
+	// Enable deletion protection for the product tier
+	EnableDeletionProtection bool `json:"enableDeletionProtection"`
 	// The features that are enabled for this product tier, including scope details and configuration
 	EnabledFeatures []ProductTierFeatureDetail `json:"enabledFeatures,omitempty"`
 	// Export usage metering data
@@ -92,10 +94,11 @@ type _DescribeProductTierResult DescribeProductTierResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDescribeProductTierResult(description string, documentation string, id string, isDisabled bool, key string, name string, planDescription string, pricing interface{}, serviceId string, serviceModelId string, support string, tierType string) *DescribeProductTierResult {
+func NewDescribeProductTierResult(description string, documentation string, enableDeletionProtection bool, id string, isDisabled bool, key string, name string, planDescription string, pricing interface{}, serviceId string, serviceModelId string, support string, tierType string) *DescribeProductTierResult {
 	this := DescribeProductTierResult{}
 	this.Description = description
 	this.Documentation = documentation
+	this.EnableDeletionProtection = enableDeletionProtection
 	this.Id = id
 	this.IsDisabled = isDisabled
 	this.Key = key
@@ -483,6 +486,30 @@ func (o *DescribeProductTierResult) GetDocumentationOk() (*string, bool) {
 // SetDocumentation sets field value
 func (o *DescribeProductTierResult) SetDocumentation(v string) {
 	o.Documentation = v
+}
+
+// GetEnableDeletionProtection returns the EnableDeletionProtection field value
+func (o *DescribeProductTierResult) GetEnableDeletionProtection() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.EnableDeletionProtection
+}
+
+// GetEnableDeletionProtectionOk returns a tuple with the EnableDeletionProtection field value
+// and a boolean to check if the value has been set.
+func (o *DescribeProductTierResult) GetEnableDeletionProtectionOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EnableDeletionProtection, true
+}
+
+// SetEnableDeletionProtection sets field value
+func (o *DescribeProductTierResult) SetEnableDeletionProtection(v bool) {
+	o.EnableDeletionProtection = v
 }
 
 // GetEnabledFeatures returns the EnabledFeatures field value if set, zero value otherwise.
@@ -1089,6 +1116,7 @@ func (o DescribeProductTierResult) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["description"] = o.Description
 	toSerialize["documentation"] = o.Documentation
+	toSerialize["enableDeletionProtection"] = o.EnableDeletionProtection
 	if !IsNil(o.EnabledFeatures) {
 		toSerialize["enabledFeatures"] = o.EnabledFeatures
 	}
@@ -1146,6 +1174,7 @@ func (o *DescribeProductTierResult) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"description",
 		"documentation",
+		"enableDeletionProtection",
 		"id",
 		"isDisabled",
 		"key",
@@ -1197,6 +1226,7 @@ func (o *DescribeProductTierResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "deploymentConfiguration")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "documentation")
+		delete(additionalProperties, "enableDeletionProtection")
 		delete(additionalProperties, "enabledFeatures")
 		delete(additionalProperties, "exportUsageMetering")
 		delete(additionalProperties, "exportUsageMeteringConfig")

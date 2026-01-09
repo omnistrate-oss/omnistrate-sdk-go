@@ -25,6 +25,8 @@ type Endpoint struct {
 	Host *string `json:"host,omitempty"`
 	// The networking type of the endpoint
 	NetworkingType *string `json:"networkingType,omitempty"`
+	// The port expressions that will be evaluated to generate dynamic ports
+	PortExpressions []string `json:"portExpressions,omitempty"`
 	// The ports of the endpoint
 	Ports []int64 `json:"ports,omitempty"`
 	// Whether this is the primary endpoint to highlight
@@ -136,6 +138,29 @@ func (o *Endpoint) SetNetworkingType(v string) {
 	o.NetworkingType = &v
 }
 
+// GetPortExpressions returns the PortExpressions field value if set, zero value otherwise.
+func (o *Endpoint) GetPortExpressions() []string {
+	if o == nil || IsNil(o.PortExpressions) {
+		var ret []string
+		return ret
+	}
+	return o.PortExpressions
+}
+
+// GetPortExpressionsOk returns a tuple with the PortExpressions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Endpoint) GetPortExpressionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.PortExpressions) {
+		return nil, false
+	}
+	return o.PortExpressions, true
+}
+
+// SetPortExpressions gets a reference to the given []string and assigns it to the PortExpressions field.
+func (o *Endpoint) SetPortExpressions(v []string) {
+	o.PortExpressions = v
+}
+
 // GetPorts returns the Ports field value if set, zero value otherwise.
 func (o *Endpoint) GetPorts() []int64 {
 	if o == nil || IsNil(o.Ports) {
@@ -201,6 +226,9 @@ func (o Endpoint) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.NetworkingType) {
 		toSerialize["networkingType"] = o.NetworkingType
 	}
+	if !IsNil(o.PortExpressions) {
+		toSerialize["portExpressions"] = o.PortExpressions
+	}
 	if !IsNil(o.Ports) {
 		toSerialize["ports"] = o.Ports
 	}
@@ -232,6 +260,7 @@ func (o *Endpoint) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "disableMonitoring")
 		delete(additionalProperties, "host")
 		delete(additionalProperties, "networkingType")
+		delete(additionalProperties, "portExpressions")
 		delete(additionalProperties, "ports")
 		delete(additionalProperties, "primary")
 		o.AdditionalProperties = additionalProperties

@@ -64,6 +64,11 @@ type DescribeResourceInstanceResult struct {
 	MinReplicas *string `json:"minReplicas,omitempty"`
 	// The network type
 	NetworkType *string `json:"network_type,omitempty"`
+	// The Tenancy OCID for Oracle Cloud Infrastructure
+	OciTenancyID *string `json:"ociTenancyID,omitempty"`
+	OnPremInstallerDetails *OnPremInstallerDetails `json:"onPremInstallerDetails,omitempty"`
+	// OnPrem model platform
+	OnpremPlatform *string `json:"onpremPlatform,omitempty"`
 	// The product tier features
 	ProductTierFeatures map[string]interface{} `json:"productTierFeatures,omitempty"`
 	ProductTierVersionDetail *ProductTierVersionDetail `json:"productTierVersionDetail,omitempty"`
@@ -660,6 +665,75 @@ func (o *DescribeResourceInstanceResult) SetNetworkType(v string) {
 	o.NetworkType = &v
 }
 
+// GetOciTenancyID returns the OciTenancyID field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetOciTenancyID() string {
+	if o == nil || IsNil(o.OciTenancyID) {
+		var ret string
+		return ret
+	}
+	return *o.OciTenancyID
+}
+
+// GetOciTenancyIDOk returns a tuple with the OciTenancyID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetOciTenancyIDOk() (*string, bool) {
+	if o == nil || IsNil(o.OciTenancyID) {
+		return nil, false
+	}
+	return o.OciTenancyID, true
+}
+
+// SetOciTenancyID gets a reference to the given string and assigns it to the OciTenancyID field.
+func (o *DescribeResourceInstanceResult) SetOciTenancyID(v string) {
+	o.OciTenancyID = &v
+}
+
+// GetOnPremInstallerDetails returns the OnPremInstallerDetails field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetOnPremInstallerDetails() OnPremInstallerDetails {
+	if o == nil || IsNil(o.OnPremInstallerDetails) {
+		var ret OnPremInstallerDetails
+		return ret
+	}
+	return *o.OnPremInstallerDetails
+}
+
+// GetOnPremInstallerDetailsOk returns a tuple with the OnPremInstallerDetails field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetOnPremInstallerDetailsOk() (*OnPremInstallerDetails, bool) {
+	if o == nil || IsNil(o.OnPremInstallerDetails) {
+		return nil, false
+	}
+	return o.OnPremInstallerDetails, true
+}
+
+// SetOnPremInstallerDetails gets a reference to the given OnPremInstallerDetails and assigns it to the OnPremInstallerDetails field.
+func (o *DescribeResourceInstanceResult) SetOnPremInstallerDetails(v OnPremInstallerDetails) {
+	o.OnPremInstallerDetails = &v
+}
+
+// GetOnpremPlatform returns the OnpremPlatform field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetOnpremPlatform() string {
+	if o == nil || IsNil(o.OnpremPlatform) {
+		var ret string
+		return ret
+	}
+	return *o.OnpremPlatform
+}
+
+// GetOnpremPlatformOk returns a tuple with the OnpremPlatform field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetOnpremPlatformOk() (*string, bool) {
+	if o == nil || IsNil(o.OnpremPlatform) {
+		return nil, false
+	}
+	return o.OnpremPlatform, true
+}
+
+// SetOnpremPlatform gets a reference to the given string and assigns it to the OnpremPlatform field.
+func (o *DescribeResourceInstanceResult) SetOnpremPlatform(v string) {
+	o.OnpremPlatform = &v
+}
+
 // GetProductTierFeatures returns the ProductTierFeatures field value if set, zero value otherwise.
 func (o *DescribeResourceInstanceResult) GetProductTierFeatures() map[string]interface{} {
 	if o == nil || IsNil(o.ProductTierFeatures) {
@@ -1019,6 +1093,15 @@ func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.NetworkType) {
 		toSerialize["network_type"] = o.NetworkType
 	}
+	if !IsNil(o.OciTenancyID) {
+		toSerialize["ociTenancyID"] = o.OciTenancyID
+	}
+	if !IsNil(o.OnPremInstallerDetails) {
+		toSerialize["onPremInstallerDetails"] = o.OnPremInstallerDetails
+	}
+	if !IsNil(o.OnpremPlatform) {
+		toSerialize["onpremPlatform"] = o.OnpremPlatform
+	}
 	if !IsNil(o.ProductTierFeatures) {
 		toSerialize["productTierFeatures"] = o.ProductTierFeatures
 	}
@@ -1101,6 +1184,9 @@ func (o *DescribeResourceInstanceResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "maxReplicas")
 		delete(additionalProperties, "minReplicas")
 		delete(additionalProperties, "network_type")
+		delete(additionalProperties, "ociTenancyID")
+		delete(additionalProperties, "onPremInstallerDetails")
+		delete(additionalProperties, "onpremPlatform")
 		delete(additionalProperties, "productTierFeatures")
 		delete(additionalProperties, "productTierVersionDetail")
 		delete(additionalProperties, "region")

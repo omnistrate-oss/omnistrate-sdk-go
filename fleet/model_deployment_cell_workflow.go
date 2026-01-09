@@ -34,6 +34,8 @@ type DeploymentCellWorkflow struct {
 	GcpProjectID *string `json:"gcpProjectID,omitempty"`
 	// ID of the Host Cluster
 	HostClusterID string `json:"hostClusterID"`
+	// The Tenancy OCID for Oracle Cloud Infrastructure
+	OciTenancyID *string `json:"ociTenancyID,omitempty"`
 	// The name of the deployment cell owner organization.
 	OrgName string `json:"orgName"`
 	// The parent workflow's id for the execution.
@@ -283,6 +285,38 @@ func (o *DeploymentCellWorkflow) SetHostClusterID(v string) {
 	o.HostClusterID = v
 }
 
+// GetOciTenancyID returns the OciTenancyID field value if set, zero value otherwise.
+func (o *DeploymentCellWorkflow) GetOciTenancyID() string {
+	if o == nil || IsNil(o.OciTenancyID) {
+		var ret string
+		return ret
+	}
+	return *o.OciTenancyID
+}
+
+// GetOciTenancyIDOk returns a tuple with the OciTenancyID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellWorkflow) GetOciTenancyIDOk() (*string, bool) {
+	if o == nil || IsNil(o.OciTenancyID) {
+		return nil, false
+	}
+	return o.OciTenancyID, true
+}
+
+// HasOciTenancyID returns a boolean if a field has been set.
+func (o *DeploymentCellWorkflow) HasOciTenancyID() bool {
+	if o != nil && !IsNil(o.OciTenancyID) {
+		return true
+	}
+
+	return false
+}
+
+// SetOciTenancyID gets a reference to the given string and assigns it to the OciTenancyID field.
+func (o *DeploymentCellWorkflow) SetOciTenancyID(v string) {
+	o.OciTenancyID = &v
+}
+
 // GetOrgName returns the OrgName field value
 func (o *DeploymentCellWorkflow) GetOrgName() string {
 	if o == nil {
@@ -462,6 +496,9 @@ func (o DeploymentCellWorkflow) ToMap() (map[string]interface{}, error) {
 		toSerialize["gcpProjectID"] = o.GcpProjectID
 	}
 	toSerialize["hostClusterID"] = o.HostClusterID
+	if !IsNil(o.OciTenancyID) {
+		toSerialize["ociTenancyID"] = o.OciTenancyID
+	}
 	toSerialize["orgName"] = o.OrgName
 	if !IsNil(o.ParentId) {
 		toSerialize["parentId"] = o.ParentId
@@ -526,6 +563,7 @@ func (o *DeploymentCellWorkflow) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "endTime")
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "hostClusterID")
+		delete(additionalProperties, "ociTenancyID")
 		delete(additionalProperties, "orgName")
 		delete(additionalProperties, "parentId")
 		delete(additionalProperties, "startTime")

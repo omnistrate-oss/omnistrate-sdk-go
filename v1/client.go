@@ -77,6 +77,8 @@ type APIClient struct {
 
 	DemoApiAPI DemoApiAPI
 
+	DeploymentArtifactApiAPI DeploymentArtifactApiAPI
+
 	DeploymentConfigApiAPI DeploymentConfigApiAPI
 
 	ExpressionEvaluatorApiAPI ExpressionEvaluatorApiAPI
@@ -192,6 +194,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.CustomDomainApiAPI = (*CustomDomainApiAPIService)(&c.common)
 	c.CustomNetworkApiAPI = (*CustomNetworkApiAPIService)(&c.common)
 	c.DemoApiAPI = (*DemoApiAPIService)(&c.common)
+	c.DeploymentArtifactApiAPI = (*DeploymentArtifactApiAPIService)(&c.common)
 	c.DeploymentConfigApiAPI = (*DeploymentConfigApiAPIService)(&c.common)
 	c.ExpressionEvaluatorApiAPI = (*ExpressionEvaluatorApiAPIService)(&c.common)
 	c.GlobalApiAPI = (*GlobalApiAPIService)(&c.common)

@@ -47,6 +47,7 @@ type HostCluster struct {
 	HelmPackages []HelmPackage `json:"helmPackages,omitempty"`
 	// ID of a Host Cluster
 	Id string `json:"id"`
+	IntermediaryAccountDetail *IntermediaryAccountDetail `json:"intermediaryAccountDetail,omitempty"`
 	// Indicates if the host cluster is a custom deployment
 	IsCustomDeployment bool `json:"isCustomDeployment"`
 	// Whether the host cluster is in sync with the org template
@@ -534,6 +535,38 @@ func (o *HostCluster) SetId(v string) {
 	o.Id = v
 }
 
+// GetIntermediaryAccountDetail returns the IntermediaryAccountDetail field value if set, zero value otherwise.
+func (o *HostCluster) GetIntermediaryAccountDetail() IntermediaryAccountDetail {
+	if o == nil || IsNil(o.IntermediaryAccountDetail) {
+		var ret IntermediaryAccountDetail
+		return ret
+	}
+	return *o.IntermediaryAccountDetail
+}
+
+// GetIntermediaryAccountDetailOk returns a tuple with the IntermediaryAccountDetail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetIntermediaryAccountDetailOk() (*IntermediaryAccountDetail, bool) {
+	if o == nil || IsNil(o.IntermediaryAccountDetail) {
+		return nil, false
+	}
+	return o.IntermediaryAccountDetail, true
+}
+
+// HasIntermediaryAccountDetail returns a boolean if a field has been set.
+func (o *HostCluster) HasIntermediaryAccountDetail() bool {
+	if o != nil && !IsNil(o.IntermediaryAccountDetail) {
+		return true
+	}
+
+	return false
+}
+
+// SetIntermediaryAccountDetail gets a reference to the given IntermediaryAccountDetail and assigns it to the IntermediaryAccountDetail field.
+func (o *HostCluster) SetIntermediaryAccountDetail(v IntermediaryAccountDetail) {
+	o.IntermediaryAccountDetail = &v
+}
+
 // GetIsCustomDeployment returns the IsCustomDeployment field value
 func (o *HostCluster) GetIsCustomDeployment() bool {
 	if o == nil {
@@ -881,6 +914,9 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 		toSerialize["helmPackages"] = o.HelmPackages
 	}
 	toSerialize["id"] = o.Id
+	if !IsNil(o.IntermediaryAccountDetail) {
+		toSerialize["intermediaryAccountDetail"] = o.IntermediaryAccountDetail
+	}
 	toSerialize["isCustomDeployment"] = o.IsCustomDeployment
 	if !IsNil(o.IsInSyncWithOrgTemplate) {
 		toSerialize["isInSyncWithOrgTemplate"] = o.IsInSyncWithOrgTemplate
@@ -971,6 +1007,7 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "healthStatus")
 		delete(additionalProperties, "helmPackages")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "intermediaryAccountDetail")
 		delete(additionalProperties, "isCustomDeployment")
 		delete(additionalProperties, "isInSyncWithOrgTemplate")
 		delete(additionalProperties, "key")

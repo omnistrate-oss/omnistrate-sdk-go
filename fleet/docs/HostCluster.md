@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **HealthStatus** | Pointer to [**HostClusterHealthStatus**](HostClusterHealthStatus.md) |  | [optional] 
 **HelmPackages** | Pointer to [**[]HelmPackage**](HelmPackage.md) | Helm packages installed on the host cluster | [optional] 
 **Id** | **string** | ID of a Host Cluster | 
+**IntermediaryAccountDetail** | Pointer to [**IntermediaryAccountDetail**](IntermediaryAccountDetail.md) |  | [optional] 
 **IsCustomDeployment** | **bool** | Indicates if the host cluster is a custom deployment | 
 **IsInSyncWithOrgTemplate** | Pointer to **bool** | Whether the host cluster is in sync with the org template | [optional] 
 **Key** | **string** | Unique key for the host cluster, used for identification | 
@@ -394,6 +395,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetIntermediaryAccountDetail
+
+`func (o *HostCluster) GetIntermediaryAccountDetail() IntermediaryAccountDetail`
+
+GetIntermediaryAccountDetail returns the IntermediaryAccountDetail field if non-nil, zero value otherwise.
+
+### GetIntermediaryAccountDetailOk
+
+`func (o *HostCluster) GetIntermediaryAccountDetailOk() (*IntermediaryAccountDetail, bool)`
+
+GetIntermediaryAccountDetailOk returns a tuple with the IntermediaryAccountDetail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIntermediaryAccountDetail
+
+`func (o *HostCluster) SetIntermediaryAccountDetail(v IntermediaryAccountDetail)`
+
+SetIntermediaryAccountDetail sets IntermediaryAccountDetail field to given value.
+
+### HasIntermediaryAccountDetail
+
+`func (o *HostCluster) HasIntermediaryAccountDetail() bool`
+
+HasIntermediaryAccountDetail returns a boolean if a field has been set.
 
 ### GetIsCustomDeployment
 

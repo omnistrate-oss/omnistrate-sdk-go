@@ -17,6 +17,7 @@ api_contactus_api.go
 api_custom_domain_api.go
 api_custom_network_api.go
 api_demo_api.go
+api_deployment_artifact_api.go
 api_deployment_config_api.go
 api_expression_evaluator_api.go
 api_global_api.go
@@ -138,6 +139,8 @@ docs/ContainerImage.md
 docs/ContainerImageRegistryCredentials.md
 docs/ContainerImagesRegistry.md
 docs/ContainerImagesRegistryCopyConfiguration.md
+docs/CopyInstanceSnapshotRequest.md
+docs/CopyInstanceSnapshotRequest2.md
 docs/CopyProductTierRequest.md
 docs/CopyProductTierRequest2.md
 docs/CopyResourceInstanceSnapshotRequest.md
@@ -165,6 +168,8 @@ docs/CreateInfraConfigRequest.md
 docs/CreateInfraConfigRequest2.md
 docs/CreateInputParameterRequest.md
 docs/CreateInputParameterRequest2.md
+docs/CreateInstanceSnapshotRequest.md
+docs/CreateInstanceSnapshotRequest2.md
 docs/CreateNetworkConfigRequest.md
 docs/CreateNetworkConfigRequest2.md
 docs/CreateOutputParameterRequest.md
@@ -243,13 +248,13 @@ docs/DeleteImageConfigRequest.md
 docs/DeleteImageRegistryRequest.md
 docs/DeleteInfraConfigRequest.md
 docs/DeleteInputParameterRequest.md
+docs/DeleteInstanceSnapshotRequest.md
 docs/DeleteLimitRequest.md
 docs/DeleteNetworkConfigRequest.md
 docs/DeleteOutputParameterRequest.md
 docs/DeletePipelineRequest.md
 docs/DeleteProductTierRequest.md
 docs/DeleteResourceInstanceRequest.md
-docs/DeleteResourceInstanceSnapshotRequest.md
 docs/DeleteResourceRequest.md
 docs/DeleteSaaSPortalCustomDomainRequest.md
 docs/DeleteSecretRequest.md
@@ -265,6 +270,7 @@ docs/DeleteUpgradePathRequest.md
 docs/DeleteUserRequest.md
 docs/DemoApiAPI.md
 docs/DemoRequest.md
+docs/DeploymentArtifactApiAPI.md
 docs/DeploymentCellConfiguration.md
 docs/DeploymentCellConfigurations.md
 docs/DeploymentCellHealthDetail.md
@@ -317,6 +323,8 @@ docs/DescribeInfraConfigRequest.md
 docs/DescribeInfraConfigResult.md
 docs/DescribeInputParameterRequest.md
 docs/DescribeInputParameterResult.md
+docs/DescribeInstanceSnapshotRequest.md
+docs/DescribeInstanceSnapshotResult.md
 docs/DescribeInvoiceRequest.md
 docs/DescribeLimitRequest.md
 docs/DescribeLimitResult.md
@@ -483,6 +491,7 @@ docs/ListAccountConfigResult.md
 docs/ListActionHooksRequest.md
 docs/ListActionHooksResult.md
 docs/ListAllAuditEventsRequest.md
+docs/ListAllInstanceSnapshotsRequest.md
 docs/ListAllResourceInstancesRequest.md
 docs/ListAllResourceInstancesResult.md
 docs/ListAllSubscriptionUsersRequest.md
@@ -531,6 +540,7 @@ docs/ListInfraConfigRequest.md
 docs/ListInfraConfigResult.md
 docs/ListInputParametersRequest.md
 docs/ListInputParametersResult.md
+docs/ListInstanceSnapshotResult.md
 docs/ListInvoicesRequest.md
 docs/ListInvoicesResult.md
 docs/ListLimitRequest.md
@@ -608,10 +618,12 @@ docs/OmnistrateError.md
 docs/OmnistrateServiceHealthResult.md
 docs/OmnistrateServiceVersionResult.md
 docs/OnPremCustomUserScript.md
+docs/OnPremInstallerDetails.md
 docs/OnPremInstallerTools.md
 docs/OperatorCRDConfiguration.md
 docs/OperatorHelmChartDependency.md
 docs/OrgUsers.md
+docs/OutputParameter.md
 docs/OutputParameterApiAPI.md
 docs/OutputParameterEntity.md
 docs/PlanApiAPI.md
@@ -676,8 +688,11 @@ docs/ResourceSpecLimits.md
 docs/ResourceSpecRequests.md
 docs/ResourceSummary.md
 docs/RestartResourceInstanceRequest.md
+docs/RestoreFromInstanceSnapshotRequest.md
+docs/RestoreFromInstanceSnapshotRequest2.md
 docs/RestoreResourceInstanceFromSnapshotRequest.md
 docs/RestoreResourceInstanceFromSnapshotRequest2.md
+docs/RestoreResourceInstanceFromSnapshotResponseBody.md
 docs/RestoreResourceInstanceRequest.md
 docs/RestoreResourceInstanceRequest2.md
 docs/RevokeConsumptionUserRoleRequest.md
@@ -818,6 +833,8 @@ docs/UpdateUserRequest.md
 docs/UpdateUserRequest2.md
 docs/UpgradeResourceInstanceVersionRequest.md
 docs/UpgradeResourceInstanceVersionRequest2.md
+docs/UploadDeploymentArtifactRequest.md
+docs/UploadDeploymentArtifactRequest2.md
 docs/UsageApiAPI.md
 docs/UsagePerDimension.md
 docs/UsersApiAPI.md
@@ -898,6 +915,8 @@ model_container_image.go
 model_container_image_registry_credentials.go
 model_container_images_registry.go
 model_container_images_registry_copy_configuration.go
+model_copy_instance_snapshot_request.go
+model_copy_instance_snapshot_request2.go
 model_copy_product_tier_request.go
 model_copy_product_tier_request2.go
 model_copy_resource_instance_snapshot_request.go
@@ -925,6 +944,8 @@ model_create_infra_config_request.go
 model_create_infra_config_request2.go
 model_create_input_parameter_request.go
 model_create_input_parameter_request2.go
+model_create_instance_snapshot_request.go
+model_create_instance_snapshot_request2.go
 model_create_network_config_request.go
 model_create_network_config_request2.go
 model_create_output_parameter_request.go
@@ -1001,13 +1022,13 @@ model_delete_image_config_request.go
 model_delete_image_registry_request.go
 model_delete_infra_config_request.go
 model_delete_input_parameter_request.go
+model_delete_instance_snapshot_request.go
 model_delete_limit_request.go
 model_delete_network_config_request.go
 model_delete_output_parameter_request.go
 model_delete_pipeline_request.go
 model_delete_product_tier_request.go
 model_delete_resource_instance_request.go
-model_delete_resource_instance_snapshot_request.go
 model_delete_resource_request.go
 model_delete_saa_s_portal_custom_domain_request.go
 model_delete_secret_request.go
@@ -1073,6 +1094,8 @@ model_describe_infra_config_request.go
 model_describe_infra_config_result.go
 model_describe_input_parameter_request.go
 model_describe_input_parameter_result.go
+model_describe_instance_snapshot_request.go
+model_describe_instance_snapshot_result.go
 model_describe_invoice_request.go
 model_describe_limit_request.go
 model_describe_limit_result.go
@@ -1228,6 +1251,7 @@ model_list_account_config_result.go
 model_list_action_hooks_request.go
 model_list_action_hooks_result.go
 model_list_all_audit_events_request.go
+model_list_all_instance_snapshots_request.go
 model_list_all_resource_instances_request.go
 model_list_all_resource_instances_result.go
 model_list_all_subscription_users_request.go
@@ -1276,6 +1300,7 @@ model_list_infra_config_request.go
 model_list_infra_config_result.go
 model_list_input_parameters_request.go
 model_list_input_parameters_result.go
+model_list_instance_snapshot_result.go
 model_list_invoices_request.go
 model_list_invoices_result.go
 model_list_limit_request.go
@@ -1352,10 +1377,12 @@ model_omnistrate_error.go
 model_omnistrate_service_health_result.go
 model_omnistrate_service_version_result.go
 model_on_prem_custom_user_script.go
+model_on_prem_installer_details.go
 model_on_prem_installer_tools.go
 model_operator_crd_configuration.go
 model_operator_helm_chart_dependency.go
 model_org_users.go
+model_output_parameter.go
 model_output_parameter_entity.go
 model_private_link_configuration.go
 model_private_networking_configuration.go
@@ -1414,8 +1441,11 @@ model_resource_spec_limits.go
 model_resource_spec_requests.go
 model_resource_summary.go
 model_restart_resource_instance_request.go
+model_restore_from_instance_snapshot_request.go
+model_restore_from_instance_snapshot_request2.go
 model_restore_resource_instance_from_snapshot_request.go
 model_restore_resource_instance_from_snapshot_request2.go
+model_restore_resource_instance_from_snapshot_response_body.go
 model_restore_resource_instance_request.go
 model_restore_resource_instance_request2.go
 model_revoke_consumption_user_role_request.go
@@ -1536,6 +1566,8 @@ model_update_user_request.go
 model_update_user_request2.go
 model_upgrade_resource_instance_version_request.go
 model_upgrade_resource_instance_version_request2.go
+model_upload_deployment_artifact_request.go
+model_upload_deployment_artifact_request2.go
 model_usage_per_dimension.go
 model_v_unit_health_report.go
 model_validate_token_request.go
@@ -1561,6 +1593,7 @@ test/api_contactus_api_test.go
 test/api_custom_domain_api_test.go
 test/api_custom_network_api_test.go
 test/api_demo_api_test.go
+test/api_deployment_artifact_api_test.go
 test/api_deployment_config_api_test.go
 test/api_expression_evaluator_api_test.go
 test/api_global_api_test.go

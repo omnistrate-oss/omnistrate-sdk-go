@@ -22,6 +22,21 @@ func Test_fleet_UsageApiAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test UsageApiAPIService UsageApiGetConsolidatedUsage", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var environmentId string
+
+		resp, httpRes, err := apiClient.UsageApiAPI.UsageApiGetConsolidatedUsage(context.Background(), serviceId, environmentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test UsageApiAPIService UsageApiGetCurrentUsage", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

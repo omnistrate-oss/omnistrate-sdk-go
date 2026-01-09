@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **EndTime** | Pointer to **string** | End time of the Deployment Cell Workflow in RFC3339 format | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **HostClusterID** | **string** | ID of the Host Cluster | 
+**OciTenancyID** | Pointer to **string** | The Tenancy OCID for Oracle Cloud Infrastructure | [optional] 
 **OrgName** | **string** | The name of the deployment cell owner organization. | 
 **ParentId** | Pointer to **string** | The parent workflow&#39;s id for the execution. | [optional] 
 **StartTime** | **string** | Start time of the Deployment Cell Workflow in RFC3339 format | 
@@ -201,6 +202,31 @@ and a boolean to check if the value has been set.
 
 SetHostClusterID sets HostClusterID field to given value.
 
+
+### GetOciTenancyID
+
+`func (o *DeploymentCellWorkflow) GetOciTenancyID() string`
+
+GetOciTenancyID returns the OciTenancyID field if non-nil, zero value otherwise.
+
+### GetOciTenancyIDOk
+
+`func (o *DeploymentCellWorkflow) GetOciTenancyIDOk() (*string, bool)`
+
+GetOciTenancyIDOk returns a tuple with the OciTenancyID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciTenancyID
+
+`func (o *DeploymentCellWorkflow) SetOciTenancyID(v string)`
+
+SetOciTenancyID sets OciTenancyID field to given value.
+
+### HasOciTenancyID
+
+`func (o *DeploymentCellWorkflow) HasOciTenancyID() bool`
+
+HasOciTenancyID returns a boolean if a field has been set.
 
 ### GetOrgName
 

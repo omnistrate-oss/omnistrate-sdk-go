@@ -951,6 +951,13 @@ type ApiResourceApiDeleteResourceRequest struct {
 	ApiService ResourceApiAPI
 	serviceId string
 	id string
+	dryRun *bool
+}
+
+// If true, validates the deletion without actually deleting the resource
+func (r ApiResourceApiDeleteResourceRequest) DryRun(dryRun bool) ApiResourceApiDeleteResourceRequest {
+	r.dryRun = &dryRun
+	return r
 }
 
 func (r ApiResourceApiDeleteResourceRequest) Execute() (*http.Response, error) {
@@ -995,6 +1002,12 @@ func (a *ResourceApiAPIService) ResourceApiDeleteResourceExecute(r ApiResourceAp
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.dryRun != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "dryRun", r.dryRun, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.dryRun = &defaultValue
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
