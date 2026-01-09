@@ -24,6 +24,8 @@ type BackupConfiguration struct {
 	BackupPeriodInHours int64 `json:"backupPeriodInHours"`
 	// The number of days to retain backups
 	BackupRetentionInDays int64 `json:"backupRetentionInDays"`
+	// Controls whether a final manual snapshot is automatically created before resource deletion. Defaults to false (disabled) if not specified.
+	SnapshotBeforeDeletion *bool `json:"snapshotBeforeDeletion,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -96,6 +98,29 @@ func (o *BackupConfiguration) SetBackupRetentionInDays(v int64) {
 	o.BackupRetentionInDays = v
 }
 
+// GetSnapshotBeforeDeletion returns the SnapshotBeforeDeletion field value if set, zero value otherwise.
+func (o *BackupConfiguration) GetSnapshotBeforeDeletion() bool {
+	if o == nil || IsNil(o.SnapshotBeforeDeletion) {
+		var ret bool
+		return ret
+	}
+	return *o.SnapshotBeforeDeletion
+}
+
+// GetSnapshotBeforeDeletionOk returns a tuple with the SnapshotBeforeDeletion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BackupConfiguration) GetSnapshotBeforeDeletionOk() (*bool, bool) {
+	if o == nil || IsNil(o.SnapshotBeforeDeletion) {
+		return nil, false
+	}
+	return o.SnapshotBeforeDeletion, true
+}
+
+// SetSnapshotBeforeDeletion gets a reference to the given bool and assigns it to the SnapshotBeforeDeletion field.
+func (o *BackupConfiguration) SetSnapshotBeforeDeletion(v bool) {
+	o.SnapshotBeforeDeletion = &v
+}
+
 func (o BackupConfiguration) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -108,6 +133,9 @@ func (o BackupConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["backupPeriodInHours"] = o.BackupPeriodInHours
 	toSerialize["backupRetentionInDays"] = o.BackupRetentionInDays
+	if !IsNil(o.SnapshotBeforeDeletion) {
+		toSerialize["snapshotBeforeDeletion"] = o.SnapshotBeforeDeletion
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -154,6 +182,7 @@ func (o *BackupConfiguration) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "backupPeriodInHours")
 		delete(additionalProperties, "backupRetentionInDays")
+		delete(additionalProperties, "snapshotBeforeDeletion")
 		o.AdditionalProperties = additionalProperties
 	}
 
@@ -195,4 +224,5 @@ func (v *NullableBackupConfiguration) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BackupPeriodInHours** | **int64** | The period in hours to take backups | 
 **BackupRetentionInDays** | **int64** | The number of days to retain backups | 
+**SnapshotBeforeDeletion** | Pointer to **bool** | Controls whether a final manual snapshot is automatically created before resource deletion. Defaults to false (disabled) if not specified. | [optional] 
 
 ## Methods
 
@@ -65,6 +66,31 @@ and a boolean to check if the value has been set.
 
 SetBackupRetentionInDays sets BackupRetentionInDays field to given value.
 
+
+### GetSnapshotBeforeDeletion
+
+`func (o *BackupConfiguration) GetSnapshotBeforeDeletion() bool`
+
+GetSnapshotBeforeDeletion returns the SnapshotBeforeDeletion field if non-nil, zero value otherwise.
+
+### GetSnapshotBeforeDeletionOk
+
+`func (o *BackupConfiguration) GetSnapshotBeforeDeletionOk() (*bool, bool)`
+
+GetSnapshotBeforeDeletionOk returns a tuple with the SnapshotBeforeDeletion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSnapshotBeforeDeletion
+
+`func (o *BackupConfiguration) SetSnapshotBeforeDeletion(v bool)`
+
+SetSnapshotBeforeDeletion sets SnapshotBeforeDeletion field to given value.
+
+### HasSnapshotBeforeDeletion
+
+`func (o *BackupConfiguration) HasSnapshotBeforeDeletion() bool`
+
+HasSnapshotBeforeDeletion returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

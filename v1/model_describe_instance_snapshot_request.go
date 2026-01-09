@@ -15,13 +15,13 @@ import (
 	"fmt"
 )
 
-// checks if the DeleteResourceInstanceSnapshotRequest type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &DeleteResourceInstanceSnapshotRequest{}
+// checks if the DescribeInstanceSnapshotRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &DescribeInstanceSnapshotRequest{}
 
-// DeleteResourceInstanceSnapshotRequest struct for DeleteResourceInstanceSnapshotRequest
-type DeleteResourceInstanceSnapshotRequest struct {
-	// The instance snapshot ID
-	SnapshotId string `json:"snapshotId"`
+// DescribeInstanceSnapshotRequest struct for DescribeInstanceSnapshotRequest
+type DescribeInstanceSnapshotRequest struct {
+	// ID of a Resource Instance Snapshot
+	Id string `json:"id"`
 	// The subscription ID
 	SubscriptionId *string `json:"subscriptionId,omitempty"`
 	// JWT token used to perform authorization
@@ -29,53 +29,53 @@ type DeleteResourceInstanceSnapshotRequest struct {
 	AdditionalProperties map[string]interface{}
 }
 
-type _DeleteResourceInstanceSnapshotRequest DeleteResourceInstanceSnapshotRequest
+type _DescribeInstanceSnapshotRequest DescribeInstanceSnapshotRequest
 
-// NewDeleteResourceInstanceSnapshotRequest instantiates a new DeleteResourceInstanceSnapshotRequest object
+// NewDescribeInstanceSnapshotRequest instantiates a new DescribeInstanceSnapshotRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDeleteResourceInstanceSnapshotRequest(snapshotId string, token string) *DeleteResourceInstanceSnapshotRequest {
-	this := DeleteResourceInstanceSnapshotRequest{}
-	this.SnapshotId = snapshotId
+func NewDescribeInstanceSnapshotRequest(id string, token string) *DescribeInstanceSnapshotRequest {
+	this := DescribeInstanceSnapshotRequest{}
+	this.Id = id
 	this.Token = token
 	return &this
 }
 
-// NewDeleteResourceInstanceSnapshotRequestWithDefaults instantiates a new DeleteResourceInstanceSnapshotRequest object
+// NewDescribeInstanceSnapshotRequestWithDefaults instantiates a new DescribeInstanceSnapshotRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewDeleteResourceInstanceSnapshotRequestWithDefaults() *DeleteResourceInstanceSnapshotRequest {
-	this := DeleteResourceInstanceSnapshotRequest{}
+func NewDescribeInstanceSnapshotRequestWithDefaults() *DescribeInstanceSnapshotRequest {
+	this := DescribeInstanceSnapshotRequest{}
 	return &this
 }
 
-// GetSnapshotId returns the SnapshotId field value
-func (o *DeleteResourceInstanceSnapshotRequest) GetSnapshotId() string {
+// GetId returns the Id field value
+func (o *DescribeInstanceSnapshotRequest) GetId() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.SnapshotId
+	return o.Id
 }
 
-// GetSnapshotIdOk returns a tuple with the SnapshotId field value
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *DeleteResourceInstanceSnapshotRequest) GetSnapshotIdOk() (*string, bool) {
+func (o *DescribeInstanceSnapshotRequest) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.SnapshotId, true
+	return &o.Id, true
 }
 
-// SetSnapshotId sets field value
-func (o *DeleteResourceInstanceSnapshotRequest) SetSnapshotId(v string) {
-	o.SnapshotId = v
+// SetId sets field value
+func (o *DescribeInstanceSnapshotRequest) SetId(v string) {
+	o.Id = v
 }
 
 // GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
-func (o *DeleteResourceInstanceSnapshotRequest) GetSubscriptionId() string {
+func (o *DescribeInstanceSnapshotRequest) GetSubscriptionId() string {
 	if o == nil || IsNil(o.SubscriptionId) {
 		var ret string
 		return ret
@@ -85,7 +85,7 @@ func (o *DeleteResourceInstanceSnapshotRequest) GetSubscriptionId() string {
 
 // GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DeleteResourceInstanceSnapshotRequest) GetSubscriptionIdOk() (*string, bool) {
+func (o *DescribeInstanceSnapshotRequest) GetSubscriptionIdOk() (*string, bool) {
 	if o == nil || IsNil(o.SubscriptionId) {
 		return nil, false
 	}
@@ -93,12 +93,12 @@ func (o *DeleteResourceInstanceSnapshotRequest) GetSubscriptionIdOk() (*string, 
 }
 
 // SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
-func (o *DeleteResourceInstanceSnapshotRequest) SetSubscriptionId(v string) {
+func (o *DescribeInstanceSnapshotRequest) SetSubscriptionId(v string) {
 	o.SubscriptionId = &v
 }
 
 // GetToken returns the Token field value
-func (o *DeleteResourceInstanceSnapshotRequest) GetToken() string {
+func (o *DescribeInstanceSnapshotRequest) GetToken() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -109,7 +109,7 @@ func (o *DeleteResourceInstanceSnapshotRequest) GetToken() string {
 
 // GetTokenOk returns a tuple with the Token field value
 // and a boolean to check if the value has been set.
-func (o *DeleteResourceInstanceSnapshotRequest) GetTokenOk() (*string, bool) {
+func (o *DescribeInstanceSnapshotRequest) GetTokenOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -117,11 +117,11 @@ func (o *DeleteResourceInstanceSnapshotRequest) GetTokenOk() (*string, bool) {
 }
 
 // SetToken sets field value
-func (o *DeleteResourceInstanceSnapshotRequest) SetToken(v string) {
+func (o *DescribeInstanceSnapshotRequest) SetToken(v string) {
 	o.Token = v
 }
 
-func (o DeleteResourceInstanceSnapshotRequest) MarshalJSON() ([]byte, error) {
+func (o DescribeInstanceSnapshotRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -129,9 +129,9 @@ func (o DeleteResourceInstanceSnapshotRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o DeleteResourceInstanceSnapshotRequest) ToMap() (map[string]interface{}, error) {
+func (o DescribeInstanceSnapshotRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["snapshotId"] = o.SnapshotId
+	toSerialize["id"] = o.Id
 	if !IsNil(o.SubscriptionId) {
 		toSerialize["subscriptionId"] = o.SubscriptionId
 	}
@@ -144,12 +144,12 @@ func (o DeleteResourceInstanceSnapshotRequest) ToMap() (map[string]interface{}, 
 	return toSerialize, nil
 }
 
-func (o *DeleteResourceInstanceSnapshotRequest) UnmarshalJSON(data []byte) (err error) {
+func (o *DescribeInstanceSnapshotRequest) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"snapshotId",
+		"id",
 		"token",
 	}
 
@@ -167,20 +167,20 @@ func (o *DeleteResourceInstanceSnapshotRequest) UnmarshalJSON(data []byte) (err 
 		}
 	}
 
-	varDeleteResourceInstanceSnapshotRequest := _DeleteResourceInstanceSnapshotRequest{}
+	varDescribeInstanceSnapshotRequest := _DescribeInstanceSnapshotRequest{}
 
-	err = json.Unmarshal(data, &varDeleteResourceInstanceSnapshotRequest)
+	err = json.Unmarshal(data, &varDescribeInstanceSnapshotRequest)
 
 	if err != nil {
 		return err
 	}
 
-	*o = DeleteResourceInstanceSnapshotRequest(varDeleteResourceInstanceSnapshotRequest)
+	*o = DescribeInstanceSnapshotRequest(varDescribeInstanceSnapshotRequest)
 
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "snapshotId")
+		delete(additionalProperties, "id")
 		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
@@ -189,39 +189,40 @@ func (o *DeleteResourceInstanceSnapshotRequest) UnmarshalJSON(data []byte) (err 
 	return err
 }
 
-type NullableDeleteResourceInstanceSnapshotRequest struct {
-	value *DeleteResourceInstanceSnapshotRequest
+type NullableDescribeInstanceSnapshotRequest struct {
+	value *DescribeInstanceSnapshotRequest
 	isSet bool
 }
 
-func (v NullableDeleteResourceInstanceSnapshotRequest) Get() *DeleteResourceInstanceSnapshotRequest {
+func (v NullableDescribeInstanceSnapshotRequest) Get() *DescribeInstanceSnapshotRequest {
 	return v.value
 }
 
-func (v *NullableDeleteResourceInstanceSnapshotRequest) Set(val *DeleteResourceInstanceSnapshotRequest) {
+func (v *NullableDescribeInstanceSnapshotRequest) Set(val *DescribeInstanceSnapshotRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableDeleteResourceInstanceSnapshotRequest) IsSet() bool {
+func (v NullableDescribeInstanceSnapshotRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableDeleteResourceInstanceSnapshotRequest) Unset() {
+func (v *NullableDescribeInstanceSnapshotRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableDeleteResourceInstanceSnapshotRequest(val *DeleteResourceInstanceSnapshotRequest) *NullableDeleteResourceInstanceSnapshotRequest {
-	return &NullableDeleteResourceInstanceSnapshotRequest{value: val, isSet: true}
+func NewNullableDescribeInstanceSnapshotRequest(val *DescribeInstanceSnapshotRequest) *NullableDescribeInstanceSnapshotRequest {
+	return &NullableDescribeInstanceSnapshotRequest{value: val, isSet: true}
 }
 
-func (v NullableDeleteResourceInstanceSnapshotRequest) MarshalJSON() ([]byte, error) {
+func (v NullableDescribeInstanceSnapshotRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableDeleteResourceInstanceSnapshotRequest) UnmarshalJSON(src []byte) error {
+func (v *NullableDescribeInstanceSnapshotRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

@@ -22,6 +22,10 @@ Name | Type | Description | Notes
 **GcpServiceAccountEmail** | Pointer to **string** | The GCP service account email | [optional] 
 **Id** | **string** | ID of an Account Config | 
 **Name** | **string** | The name of the account | 
+**OciBootstrapShellCommand** | Pointer to **string** | The Azure bootstrap shell command | [optional] 
+**OciDisconnectShellCommand** | Pointer to **string** | The Azure disconnect shell command | [optional] 
+**OciDomainID** | Pointer to **string** | The Domain OCID for Oracle Cloud Infrastructure | [optional] 
+**OciTenancyID** | Pointer to **string** | The Tenancy OCID for Oracle Cloud Infrastructure | [optional] 
 **Status** | **string** | The status of the account configuration | 
 **StatusMessage** | **string** | The status message of the account | 
 
@@ -473,6 +477,106 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetOciBootstrapShellCommand
+
+`func (o *FleetDescribeAccountConfigResult) GetOciBootstrapShellCommand() string`
+
+GetOciBootstrapShellCommand returns the OciBootstrapShellCommand field if non-nil, zero value otherwise.
+
+### GetOciBootstrapShellCommandOk
+
+`func (o *FleetDescribeAccountConfigResult) GetOciBootstrapShellCommandOk() (*string, bool)`
+
+GetOciBootstrapShellCommandOk returns a tuple with the OciBootstrapShellCommand field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciBootstrapShellCommand
+
+`func (o *FleetDescribeAccountConfigResult) SetOciBootstrapShellCommand(v string)`
+
+SetOciBootstrapShellCommand sets OciBootstrapShellCommand field to given value.
+
+### HasOciBootstrapShellCommand
+
+`func (o *FleetDescribeAccountConfigResult) HasOciBootstrapShellCommand() bool`
+
+HasOciBootstrapShellCommand returns a boolean if a field has been set.
+
+### GetOciDisconnectShellCommand
+
+`func (o *FleetDescribeAccountConfigResult) GetOciDisconnectShellCommand() string`
+
+GetOciDisconnectShellCommand returns the OciDisconnectShellCommand field if non-nil, zero value otherwise.
+
+### GetOciDisconnectShellCommandOk
+
+`func (o *FleetDescribeAccountConfigResult) GetOciDisconnectShellCommandOk() (*string, bool)`
+
+GetOciDisconnectShellCommandOk returns a tuple with the OciDisconnectShellCommand field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciDisconnectShellCommand
+
+`func (o *FleetDescribeAccountConfigResult) SetOciDisconnectShellCommand(v string)`
+
+SetOciDisconnectShellCommand sets OciDisconnectShellCommand field to given value.
+
+### HasOciDisconnectShellCommand
+
+`func (o *FleetDescribeAccountConfigResult) HasOciDisconnectShellCommand() bool`
+
+HasOciDisconnectShellCommand returns a boolean if a field has been set.
+
+### GetOciDomainID
+
+`func (o *FleetDescribeAccountConfigResult) GetOciDomainID() string`
+
+GetOciDomainID returns the OciDomainID field if non-nil, zero value otherwise.
+
+### GetOciDomainIDOk
+
+`func (o *FleetDescribeAccountConfigResult) GetOciDomainIDOk() (*string, bool)`
+
+GetOciDomainIDOk returns a tuple with the OciDomainID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciDomainID
+
+`func (o *FleetDescribeAccountConfigResult) SetOciDomainID(v string)`
+
+SetOciDomainID sets OciDomainID field to given value.
+
+### HasOciDomainID
+
+`func (o *FleetDescribeAccountConfigResult) HasOciDomainID() bool`
+
+HasOciDomainID returns a boolean if a field has been set.
+
+### GetOciTenancyID
+
+`func (o *FleetDescribeAccountConfigResult) GetOciTenancyID() string`
+
+GetOciTenancyID returns the OciTenancyID field if non-nil, zero value otherwise.
+
+### GetOciTenancyIDOk
+
+`func (o *FleetDescribeAccountConfigResult) GetOciTenancyIDOk() (*string, bool)`
+
+GetOciTenancyIDOk returns a tuple with the OciTenancyID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciTenancyID
+
+`func (o *FleetDescribeAccountConfigResult) SetOciTenancyID(v string)`
+
+SetOciTenancyID sets OciTenancyID field to given value.
+
+### HasOciTenancyID
+
+`func (o *FleetDescribeAccountConfigResult) HasOciTenancyID() bool`
+
+HasOciTenancyID returns a boolean if a field has been set.
 
 ### GetStatus
 

@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **MaintenanceTasks** | Pointer to **map[string]interface{}** | Pending actions or maintenance tasks for the resource instance, with action type as key and reference key as value. | [optional] 
 **ManagedResourceType** | Pointer to **string** | The managed resource type of instance | [optional] 
 **ManualOverride** | Pointer to [**ManualOverride**](ManualOverride.md) |  | [optional] 
+**OciTenancyID** | Pointer to **string** | The Tenancy OCID for Oracle Cloud Infrastructure | [optional] 
 **OrganizationId** | **string** | ID of an Org | 
 **OrganizationName** | **string** | The organization name of the resource instance. | 
 **PortsRegistrationStatus** | Pointer to **map[string][]int64** | The ports registration status of ports based proxy instance | [optional] 
@@ -406,6 +407,31 @@ SetManualOverride sets ManualOverride field to given value.
 `func (o *ResourceInstance) HasManualOverride() bool`
 
 HasManualOverride returns a boolean if a field has been set.
+
+### GetOciTenancyID
+
+`func (o *ResourceInstance) GetOciTenancyID() string`
+
+GetOciTenancyID returns the OciTenancyID field if non-nil, zero value otherwise.
+
+### GetOciTenancyIDOk
+
+`func (o *ResourceInstance) GetOciTenancyIDOk() (*string, bool)`
+
+GetOciTenancyIDOk returns a tuple with the OciTenancyID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciTenancyID
+
+`func (o *ResourceInstance) SetOciTenancyID(v string)`
+
+SetOciTenancyID sets OciTenancyID field to given value.
+
+### HasOciTenancyID
+
+`func (o *ResourceInstance) HasOciTenancyID() bool`
+
+HasOciTenancyID returns a boolean if a field has been set.
 
 ### GetOrganizationId
 

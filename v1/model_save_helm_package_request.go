@@ -195,3 +195,4 @@ func (v *NullableSaveHelmPackageRequest) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
+

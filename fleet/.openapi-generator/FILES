@@ -64,6 +64,7 @@ docs/CompleteOAuthConnectionResult.md
 docs/ConsumptionServiceAuthRequest.md
 docs/ConsumptionServiceAuthResult.md
 docs/ContactusRequest.md
+docs/CopyInstanceSnapshotRequest.md
 docs/CopyProductTierRequest.md
 docs/CopyResourceInstanceSnapshotRequest.md
 docs/CopyServiceModelRequest.md
@@ -73,6 +74,7 @@ docs/CountWithRecent.md
 docs/CreateCustomerOnboardingRequest.md
 docs/CreateCustomerOnboardingRequest2.md
 docs/CreateIdentityProviderRequest.md
+docs/CreateInstanceSnapshotRequest.md
 docs/CreateNotificationChannelRequest.md
 docs/CreateNotificationChannelRequest2.md
 docs/CreatePipelineRequest.md
@@ -117,12 +119,12 @@ docs/DeleteCustomerOnboardingRequest.md
 docs/DeleteEntityRequest.md
 docs/DeleteHostClusterRequest.md
 docs/DeleteIdentityProviderRequest.md
+docs/DeleteInstanceSnapshotRequest.md
 docs/DeleteNotificationChannelRequest.md
 docs/DeletePipelineRequest.md
 docs/DeleteProductTierRequest.md
 docs/DeleteProxyResourceInstanceRequest.md
 docs/DeleteResourceInstanceRequest.md
-docs/DeleteResourceInstanceSnapshotRequest.md
 docs/DeleteSaaSPortalCustomDomainRequest.md
 docs/DeleteSecretRequest.md
 docs/DeleteServiceEnvironmentRequest.md
@@ -167,6 +169,8 @@ docs/DescribeHostClusterRequest.md
 docs/DescribeIdentityProviderRequest.md
 docs/DescribeIdentityProviderResult.md
 docs/DescribeIdentityProviderTypeResult.md
+docs/DescribeInstanceSnapshotRequest.md
+docs/DescribeInstanceSnapshotResult.md
 docs/DescribeInventorySummary.md
 docs/DescribeInventorySummaryResult.md
 docs/DescribeInvoiceRequest.md
@@ -266,6 +270,7 @@ docs/FleetCreateConsumptionUserRequest2.md
 docs/FleetCreateCustomNetworkRequest.md
 docs/FleetCreateCustomNetworkRequest2.md
 docs/FleetCreateInstanceSnapshotRequest.md
+docs/FleetCreateInstanceSnapshotRequest2.md
 docs/FleetCreateInstanceSnapshotResult.md
 docs/FleetCreateResourceInstanceRequest.md
 docs/FleetCreateResourceInstanceRequest2.md
@@ -310,12 +315,15 @@ docs/FleetFailoverResourceInstanceRequest.md
 docs/FleetFailoverResourceInstanceRequest2.md
 docs/FleetGenerateTokenForHostClusterDashboardRequest.md
 docs/FleetGenerateTokenForHostClusterDashboardResult.md
+docs/FleetGetConsolidatedUsageRequest.md
+docs/FleetGetConsolidatedUsageResult.md
 docs/FleetGetCurrentUsageRequest.md
 docs/FleetGetUsagePerDayRequest.md
 docs/FleetGetUsageResult.md
 docs/FleetInvoice.md
 docs/FleetListAccountConfigsRequest.md
 docs/FleetListAccountConfigsRequest2.md
+docs/FleetListAllInstanceSnapshotRequest.md
 docs/FleetListAllUsers.md
 docs/FleetListAllUsersResult.md
 docs/FleetListCustomNetworksRequest.md
@@ -368,6 +376,8 @@ docs/FleetUpdateCustomNetworkRequest.md
 docs/FleetUpdateCustomNetworkRequest2.md
 docs/FleetUpdateResourceInstanceDebugModeRequest.md
 docs/FleetUpdateResourceInstanceDebugModeRequest2.md
+docs/FleetUpdateResourceInstanceMetadataRequest.md
+docs/FleetUpdateResourceInstanceMetadataRequest2.md
 docs/FleetUpdateResourceInstanceRequest.md
 docs/FleetUpdateResourceInstanceRequest2.md
 docs/FleetUpdateSubscriptionRequest.md
@@ -423,6 +433,7 @@ docs/InstanceTypeCost.md
 docs/InstanceUpgrade.md
 docs/IntegrationStatus.md
 docs/IntegrationsHealth.md
+docs/IntermediaryAccountDetail.md
 docs/InventoryApiAPI.md
 docs/InventoryDescribeServiceOfferingRequest.md
 docs/InventoryDescribeServiceOfferingResourceRequest.md
@@ -444,6 +455,7 @@ docs/Limits.md
 docs/List.md
 docs/ListAccountConfigsResult.md
 docs/ListActiveOrganizationsRequest.md
+docs/ListAllInstanceSnapshotsRequest.md
 docs/ListAllInstancesInHostClusterRequest.md
 docs/ListAllInstancesInHostClusterResult.md
 docs/ListAllOrganizationsRequest.md
@@ -480,6 +492,7 @@ docs/ListIdentityProviderTypesRequest.md
 docs/ListIdentityProviderTypesResult.md
 docs/ListIdentityProvidersRequest.md
 docs/ListIdentityProvidersResult.md
+docs/ListInstanceSnapshotResult.md
 docs/ListInvoicesRequest.md
 docs/ListInvoicesResult.md
 docs/ListNotificationChannelsRequest.md
@@ -551,6 +564,7 @@ docs/OneOffPatchResourceInstanceRequest2.md
 docs/OperationsApiAPI.md
 docs/OrgUsers.md
 docs/Organization.md
+docs/OutputParameter.md
 docs/OutputParameterEntity.md
 docs/PagerDutyConfiguration.md
 docs/PerCloudProviderCost.md
@@ -599,6 +613,7 @@ docs/ResourceSearchRecord.md
 docs/ResourceVersionSummary.md
 docs/RestartHostClusterDeploymentRequest.md
 docs/RestartResourceInstanceRequest.md
+docs/RestoreFromInstanceSnapshotRequest.md
 docs/RestoreResourceInstanceFromSnapshotRequest.md
 docs/RestoreResourceInstanceRequest.md
 docs/RevokeConsumptionUserRoleRequest.md
@@ -730,6 +745,7 @@ model_complete_o_auth_connection_result.go
 model_consumption_service_auth_request.go
 model_consumption_service_auth_result.go
 model_contactus_request.go
+model_copy_instance_snapshot_request.go
 model_copy_product_tier_request.go
 model_copy_resource_instance_snapshot_request.go
 model_copy_service_model_request.go
@@ -738,6 +754,7 @@ model_count_with_recent.go
 model_create_customer_onboarding_request.go
 model_create_customer_onboarding_request2.go
 model_create_identity_provider_request.go
+model_create_instance_snapshot_request.go
 model_create_notification_channel_request.go
 model_create_notification_channel_request2.go
 model_create_pipeline_request.go
@@ -781,12 +798,12 @@ model_delete_customer_onboarding_request.go
 model_delete_entity_request.go
 model_delete_host_cluster_request.go
 model_delete_identity_provider_request.go
+model_delete_instance_snapshot_request.go
 model_delete_notification_channel_request.go
 model_delete_pipeline_request.go
 model_delete_product_tier_request.go
 model_delete_proxy_resource_instance_request.go
 model_delete_resource_instance_request.go
-model_delete_resource_instance_snapshot_request.go
 model_delete_saa_s_portal_custom_domain_request.go
 model_delete_secret_request.go
 model_delete_service_environment_request.go
@@ -831,6 +848,8 @@ model_describe_host_cluster_request.go
 model_describe_identity_provider_request.go
 model_describe_identity_provider_result.go
 model_describe_identity_provider_type_result.go
+model_describe_instance_snapshot_request.go
+model_describe_instance_snapshot_result.go
 model_describe_inventory_summary.go
 model_describe_inventory_summary_result.go
 model_describe_invoice_request.go
@@ -929,6 +948,7 @@ model_fleet_create_consumption_user_request2.go
 model_fleet_create_custom_network_request.go
 model_fleet_create_custom_network_request2.go
 model_fleet_create_instance_snapshot_request.go
+model_fleet_create_instance_snapshot_request2.go
 model_fleet_create_instance_snapshot_result.go
 model_fleet_create_resource_instance_request.go
 model_fleet_create_resource_instance_request2.go
@@ -972,12 +992,15 @@ model_fleet_failover_resource_instance_request.go
 model_fleet_failover_resource_instance_request2.go
 model_fleet_generate_token_for_host_cluster_dashboard_request.go
 model_fleet_generate_token_for_host_cluster_dashboard_result.go
+model_fleet_get_consolidated_usage_request.go
+model_fleet_get_consolidated_usage_result.go
 model_fleet_get_current_usage_request.go
 model_fleet_get_usage_per_day_request.go
 model_fleet_get_usage_result.go
 model_fleet_invoice.go
 model_fleet_list_account_configs_request.go
 model_fleet_list_account_configs_request2.go
+model_fleet_list_all_instance_snapshot_request.go
 model_fleet_list_all_users.go
 model_fleet_list_all_users_result.go
 model_fleet_list_custom_networks_request.go
@@ -1030,6 +1053,8 @@ model_fleet_update_custom_network_request.go
 model_fleet_update_custom_network_request2.go
 model_fleet_update_resource_instance_debug_mode_request.go
 model_fleet_update_resource_instance_debug_mode_request2.go
+model_fleet_update_resource_instance_metadata_request.go
+model_fleet_update_resource_instance_metadata_request2.go
 model_fleet_update_resource_instance_request.go
 model_fleet_update_resource_instance_request2.go
 model_fleet_update_subscription_request.go
@@ -1082,6 +1107,7 @@ model_instance_type_cost.go
 model_instance_upgrade.go
 model_integration_status.go
 model_integrations_health.go
+model_intermediary_account_detail.go
 model_inventory_describe_service_offering_request.go
 model_inventory_describe_service_offering_resource_request.go
 model_inventory_describe_service_offering_resource_result.go
@@ -1101,6 +1127,7 @@ model_limits.go
 model_list.go
 model_list_account_configs_result.go
 model_list_active_organizations_request.go
+model_list_all_instance_snapshots_request.go
 model_list_all_instances_in_host_cluster_request.go
 model_list_all_instances_in_host_cluster_result.go
 model_list_all_organizations_request.go
@@ -1137,6 +1164,7 @@ model_list_identity_provider_types_request.go
 model_list_identity_provider_types_result.go
 model_list_identity_providers_request.go
 model_list_identity_providers_result.go
+model_list_instance_snapshot_result.go
 model_list_invoices_request.go
 model_list_invoices_result.go
 model_list_notification_channels_request.go
@@ -1206,6 +1234,7 @@ model_one_off_patch_resource_instance_request.go
 model_one_off_patch_resource_instance_request2.go
 model_org_users.go
 model_organization.go
+model_output_parameter.go
 model_output_parameter_entity.go
 model_pager_duty_configuration.go
 model_per_cloud_provider_cost.go
@@ -1253,6 +1282,7 @@ model_resource_search_record.go
 model_resource_version_summary.go
 model_restart_host_cluster_deployment_request.go
 model_restart_resource_instance_request.go
+model_restore_from_instance_snapshot_request.go
 model_restore_resource_instance_from_snapshot_request.go
 model_restore_resource_instance_request.go
 model_revoke_consumption_user_role_request.go

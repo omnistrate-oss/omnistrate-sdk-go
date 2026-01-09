@@ -165,3 +165,4 @@ func (v *NullableRegenerateTokenRequest) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
+

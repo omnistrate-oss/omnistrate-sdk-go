@@ -38,6 +38,8 @@ type DescribeAuditEventResult struct {
 	SubscriptionId string `json:"subscriptionId"`
 	// The event time
 	Time string `json:"time"`
+	// The User-Agent string of the client that caused the event
+	UserAgent *string `json:"userAgent,omitempty"`
 	// ID of a User
 	UserId *string `json:"userId,omitempty"`
 	// The user name of the user that caused the event
@@ -285,6 +287,29 @@ func (o *DescribeAuditEventResult) SetTime(v string) {
 	o.Time = v
 }
 
+// GetUserAgent returns the UserAgent field value if set, zero value otherwise.
+func (o *DescribeAuditEventResult) GetUserAgent() string {
+	if o == nil || IsNil(o.UserAgent) {
+		var ret string
+		return ret
+	}
+	return *o.UserAgent
+}
+
+// GetUserAgentOk returns a tuple with the UserAgent field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAuditEventResult) GetUserAgentOk() (*string, bool) {
+	if o == nil || IsNil(o.UserAgent) {
+		return nil, false
+	}
+	return o.UserAgent, true
+}
+
+// SetUserAgent gets a reference to the given string and assigns it to the UserAgent field.
+func (o *DescribeAuditEventResult) SetUserAgent(v string) {
+	o.UserAgent = &v
+}
+
 // GetUserId returns the UserId field value if set, zero value otherwise.
 func (o *DescribeAuditEventResult) GetUserId() string {
 	if o == nil || IsNil(o.UserId) {
@@ -379,6 +404,9 @@ func (o DescribeAuditEventResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["resourceName"] = o.ResourceName
 	toSerialize["subscriptionId"] = o.SubscriptionId
 	toSerialize["time"] = o.Time
+	if !IsNil(o.UserAgent) {
+		toSerialize["userAgent"] = o.UserAgent
+	}
 	if !IsNil(o.UserId) {
 		toSerialize["userId"] = o.UserId
 	}
@@ -445,6 +473,7 @@ func (o *DescribeAuditEventResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "resourceName")
 		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "time")
+		delete(additionalProperties, "userAgent")
 		delete(additionalProperties, "userId")
 		delete(additionalProperties, "userName")
 		delete(additionalProperties, "workflowFailures")
@@ -489,4 +518,5 @@ func (v *NullableDescribeAuditEventResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

@@ -48,6 +48,8 @@ type ResourceInstance struct {
 	// The managed resource type of instance
 	ManagedResourceType *string `json:"managedResourceType,omitempty"`
 	ManualOverride *ManualOverride `json:"manualOverride,omitempty"`
+	// The Tenancy OCID for Oracle Cloud Infrastructure
+	OciTenancyID *string `json:"ociTenancyID,omitempty"`
 	// ID of an Org
 	OrganizationId string `json:"organizationId"`
 	// The organization name of the resource instance.
@@ -559,6 +561,38 @@ func (o *ResourceInstance) HasManualOverride() bool {
 // SetManualOverride gets a reference to the given ManualOverride and assigns it to the ManualOverride field.
 func (o *ResourceInstance) SetManualOverride(v ManualOverride) {
 	o.ManualOverride = &v
+}
+
+// GetOciTenancyID returns the OciTenancyID field value if set, zero value otherwise.
+func (o *ResourceInstance) GetOciTenancyID() string {
+	if o == nil || IsNil(o.OciTenancyID) {
+		var ret string
+		return ret
+	}
+	return *o.OciTenancyID
+}
+
+// GetOciTenancyIDOk returns a tuple with the OciTenancyID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceInstance) GetOciTenancyIDOk() (*string, bool) {
+	if o == nil || IsNil(o.OciTenancyID) {
+		return nil, false
+	}
+	return o.OciTenancyID, true
+}
+
+// HasOciTenancyID returns a boolean if a field has been set.
+func (o *ResourceInstance) HasOciTenancyID() bool {
+	if o != nil && !IsNil(o.OciTenancyID) {
+		return true
+	}
+
+	return false
+}
+
+// SetOciTenancyID gets a reference to the given string and assigns it to the OciTenancyID field.
+func (o *ResourceInstance) SetOciTenancyID(v string) {
+	o.OciTenancyID = &v
 }
 
 // GetOrganizationId returns the OrganizationId field value
@@ -1186,6 +1220,9 @@ func (o ResourceInstance) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ManualOverride) {
 		toSerialize["manualOverride"] = o.ManualOverride
 	}
+	if !IsNil(o.OciTenancyID) {
+		toSerialize["ociTenancyID"] = o.OciTenancyID
+	}
 	toSerialize["organizationId"] = o.OrganizationId
 	toSerialize["organizationName"] = o.OrganizationName
 	if !IsNil(o.PortsRegistrationStatus) {
@@ -1301,6 +1338,7 @@ func (o *ResourceInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "maintenanceTasks")
 		delete(additionalProperties, "managedResourceType")
 		delete(additionalProperties, "manualOverride")
+		delete(additionalProperties, "ociTenancyID")
 		delete(additionalProperties, "organizationId")
 		delete(additionalProperties, "organizationName")
 		delete(additionalProperties, "portsRegistrationStatus")

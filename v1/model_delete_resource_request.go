@@ -20,6 +20,8 @@ var _ MappedNullable = &DeleteResourceRequest{}
 
 // DeleteResourceRequest struct for DeleteResourceRequest
 type DeleteResourceRequest struct {
+	// If true, validates the deletion without actually deleting the resource
+	DryRun *bool `json:"dryRun,omitempty"`
 	// ID of a resource
 	Id string `json:"id"`
 	// ID of a Service
@@ -37,6 +39,8 @@ type _DeleteResourceRequest DeleteResourceRequest
 // will change when the set of required properties is changed
 func NewDeleteResourceRequest(id string, serviceId string, token string) *DeleteResourceRequest {
 	this := DeleteResourceRequest{}
+	var dryRun bool = false
+	this.DryRun = &dryRun
 	this.Id = id
 	this.ServiceId = serviceId
 	this.Token = token
@@ -48,7 +52,32 @@ func NewDeleteResourceRequest(id string, serviceId string, token string) *Delete
 // but it doesn't guarantee that properties required by API are set
 func NewDeleteResourceRequestWithDefaults() *DeleteResourceRequest {
 	this := DeleteResourceRequest{}
+	var dryRun bool = false
+	this.DryRun = &dryRun
 	return &this
+}
+
+// GetDryRun returns the DryRun field value if set, zero value otherwise.
+func (o *DeleteResourceRequest) GetDryRun() bool {
+	if o == nil || IsNil(o.DryRun) {
+		var ret bool
+		return ret
+	}
+	return *o.DryRun
+}
+
+// GetDryRunOk returns a tuple with the DryRun field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeleteResourceRequest) GetDryRunOk() (*bool, bool) {
+	if o == nil || IsNil(o.DryRun) {
+		return nil, false
+	}
+	return o.DryRun, true
+}
+
+// SetDryRun gets a reference to the given bool and assigns it to the DryRun field.
+func (o *DeleteResourceRequest) SetDryRun(v bool) {
+	o.DryRun = &v
 }
 
 // GetId returns the Id field value
@@ -133,6 +162,9 @@ func (o DeleteResourceRequest) MarshalJSON() ([]byte, error) {
 
 func (o DeleteResourceRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.DryRun) {
+		toSerialize["dryRun"] = o.DryRun
+	}
 	toSerialize["id"] = o.Id
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["token"] = o.Token
@@ -181,6 +213,7 @@ func (o *DeleteResourceRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "dryRun")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "token")
@@ -225,4 +258,5 @@ func (v *NullableDeleteResourceRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

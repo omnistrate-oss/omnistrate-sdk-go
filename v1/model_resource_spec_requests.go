@@ -173,3 +173,4 @@ func (v *NullableResourceSpecRequests) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
+

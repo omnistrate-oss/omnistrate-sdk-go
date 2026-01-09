@@ -165,3 +165,4 @@ func (v *NullableCustomerInviteUserRequest2) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
+

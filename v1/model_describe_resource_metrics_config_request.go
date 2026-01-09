@@ -284,3 +284,4 @@ func (v *NullableDescribeResourceMetricsConfigRequest) UnmarshalJSON(src []byte)
 	return json.Unmarshal(src, &v.value)
 }
 
+

@@ -426,3 +426,4 @@ func (v *NullableSaaSPortal) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
+
