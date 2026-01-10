@@ -572,8 +572,14 @@ func (a *SubscriptionApiAPIService) SubscriptionApiDescribeSubscriptionExecute(r
 type ApiSubscriptionApiListSubscriptionsRequest struct {
 	ctx context.Context
 	ApiService SubscriptionApiAPI
+	listSubscriptionsRequest2 *ListSubscriptionsRequest2
 	serviceId *string
 	environmentType *string
+}
+
+func (r ApiSubscriptionApiListSubscriptionsRequest) ListSubscriptionsRequest2(listSubscriptionsRequest2 ListSubscriptionsRequest2) ApiSubscriptionApiListSubscriptionsRequest {
+	r.listSubscriptionsRequest2 = &listSubscriptionsRequest2
+	return r
 }
 
 // Service Id
@@ -625,6 +631,9 @@ func (a *SubscriptionApiAPIService) SubscriptionApiListSubscriptionsExecute(r Ap
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.listSubscriptionsRequest2 == nil {
+		return localVarReturnValue, nil, reportError("listSubscriptionsRequest2 is required and must be specified")
+	}
 
 	if r.serviceId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "serviceId", r.serviceId, "form", "")
@@ -633,7 +642,7 @@ func (a *SubscriptionApiAPIService) SubscriptionApiListSubscriptionsExecute(r Ap
 		parameterAddToHeaderOrQuery(localVarQueryParams, "environmentType", r.environmentType, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -649,6 +658,8 @@ func (a *SubscriptionApiAPIService) SubscriptionApiListSubscriptionsExecute(r Ap
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.listSubscriptionsRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

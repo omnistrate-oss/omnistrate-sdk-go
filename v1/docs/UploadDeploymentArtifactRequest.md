@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Artifact** | **[]*os.File** | The deployment artifact file content | 
+**AccountConfigID** | **string** | The account config ID associated with the deployment artifact | 
 **ArtifactPath** | **string** | The path to the deployment artifact | 
+**Base64EncodedArtifact** | **string** | The deployment artifact file content with base64 encoding, and expected to be a .tar.gz file | 
 **ProductTierName** | **string** | The name of the product tier | 
 **ServiceName** | **string** | The name of the service | 
 **Token** | **string** | JWT token used to perform authorization | 
@@ -14,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewUploadDeploymentArtifactRequest
 
-`func NewUploadDeploymentArtifactRequest(artifact []*os.File, artifactPath string, productTierName string, serviceName string, token string, ) *UploadDeploymentArtifactRequest`
+`func NewUploadDeploymentArtifactRequest(accountConfigID string, artifactPath string, base64EncodedArtifact string, productTierName string, serviceName string, token string, ) *UploadDeploymentArtifactRequest`
 
 NewUploadDeploymentArtifactRequest instantiates a new UploadDeploymentArtifactRequest object
 This constructor will assign default values to properties that have it defined,
@@ -29,24 +30,24 @@ NewUploadDeploymentArtifactRequestWithDefaults instantiates a new UploadDeployme
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetArtifact
+### GetAccountConfigID
 
-`func (o *UploadDeploymentArtifactRequest) GetArtifact() []*os.File`
+`func (o *UploadDeploymentArtifactRequest) GetAccountConfigID() string`
 
-GetArtifact returns the Artifact field if non-nil, zero value otherwise.
+GetAccountConfigID returns the AccountConfigID field if non-nil, zero value otherwise.
 
-### GetArtifactOk
+### GetAccountConfigIDOk
 
-`func (o *UploadDeploymentArtifactRequest) GetArtifactOk() (*[]*os.File, bool)`
+`func (o *UploadDeploymentArtifactRequest) GetAccountConfigIDOk() (*string, bool)`
 
-GetArtifactOk returns a tuple with the Artifact field if it's non-nil, zero value otherwise
+GetAccountConfigIDOk returns a tuple with the AccountConfigID field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetArtifact
+### SetAccountConfigID
 
-`func (o *UploadDeploymentArtifactRequest) SetArtifact(v []*os.File)`
+`func (o *UploadDeploymentArtifactRequest) SetAccountConfigID(v string)`
 
-SetArtifact sets Artifact field to given value.
+SetAccountConfigID sets AccountConfigID field to given value.
 
 
 ### GetArtifactPath
@@ -67,6 +68,26 @@ and a boolean to check if the value has been set.
 `func (o *UploadDeploymentArtifactRequest) SetArtifactPath(v string)`
 
 SetArtifactPath sets ArtifactPath field to given value.
+
+
+### GetBase64EncodedArtifact
+
+`func (o *UploadDeploymentArtifactRequest) GetBase64EncodedArtifact() string`
+
+GetBase64EncodedArtifact returns the Base64EncodedArtifact field if non-nil, zero value otherwise.
+
+### GetBase64EncodedArtifactOk
+
+`func (o *UploadDeploymentArtifactRequest) GetBase64EncodedArtifactOk() (*string, bool)`
+
+GetBase64EncodedArtifactOk returns a tuple with the Base64EncodedArtifact field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBase64EncodedArtifact
+
+`func (o *UploadDeploymentArtifactRequest) SetBase64EncodedArtifact(v string)`
+
+SetBase64EncodedArtifact sets Base64EncodedArtifact field to given value.
 
 
 ### GetProductTierName

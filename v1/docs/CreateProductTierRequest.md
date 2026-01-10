@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **DeploymentConfiguration** | Pointer to [**ProductTierDeploymentConfiguration**](ProductTierDeploymentConfiguration.md) |  | [optional] 
 **Description** | **string** | A brief description of the product tier | 
 **Documentation** | Pointer to **string** | Documentation | [optional] 
+**EnableDeletionProtection** | Pointer to **bool** | Enable deletion protection for the product tier | [optional] 
 **ExportUsageMetering** | Pointer to **bool** | Export usage metering data | [optional] 
 **ExportUsageMeteringConfig** | Pointer to **map[string]interface{}** | Export usage metering data configuration | [optional] 
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this product tier is available on | [optional] 
@@ -295,6 +296,31 @@ SetDocumentation sets Documentation field to given value.
 `func (o *CreateProductTierRequest) HasDocumentation() bool`
 
 HasDocumentation returns a boolean if a field has been set.
+
+### GetEnableDeletionProtection
+
+`func (o *CreateProductTierRequest) GetEnableDeletionProtection() bool`
+
+GetEnableDeletionProtection returns the EnableDeletionProtection field if non-nil, zero value otherwise.
+
+### GetEnableDeletionProtectionOk
+
+`func (o *CreateProductTierRequest) GetEnableDeletionProtectionOk() (*bool, bool)`
+
+GetEnableDeletionProtectionOk returns a tuple with the EnableDeletionProtection field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableDeletionProtection
+
+`func (o *CreateProductTierRequest) SetEnableDeletionProtection(v bool)`
+
+SetEnableDeletionProtection sets EnableDeletionProtection field to given value.
+
+### HasEnableDeletionProtection
+
+`func (o *CreateProductTierRequest) HasEnableDeletionProtection() bool`
+
+HasEnableDeletionProtection returns a boolean if a field has been set.
 
 ### GetExportUsageMetering
 

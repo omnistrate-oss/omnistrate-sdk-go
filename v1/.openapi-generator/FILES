@@ -591,6 +591,7 @@ docs/ListStorageVolumeConfigsResult.md
 docs/ListSubscriptionRequestsRequest.md
 docs/ListSubscriptionRequestsResult.md
 docs/ListSubscriptionsRequest.md
+docs/ListSubscriptionsRequest2.md
 docs/ListSubscriptionsResult.md
 docs/ListTierVersionSetSpecsRequest.md
 docs/ListTierVersionSetSpecsResult.md
@@ -609,6 +610,7 @@ docs/ModifyServiceProviderOrganizationRequest.md
 docs/ModifyServiceProviderOrganizationRequest2.md
 docs/ModifyServicesOrchestrationRequest.md
 docs/ModifyServicesOrchestrationRequest2.md
+docs/NamedPortSpec.md
 docs/NetworkConfigApiAPI.md
 docs/NetworkFeaturesConfiguration.md
 docs/NodeHealthSummary.md
@@ -627,6 +629,7 @@ docs/OutputParameter.md
 docs/OutputParameterApiAPI.md
 docs/OutputParameterEntity.md
 docs/PlanApiAPI.md
+docs/PortsRange.md
 docs/PrivateLinkConfiguration.md
 docs/PrivateNetworkingConfiguration.md
 docs/ProductTierApiAPI.md
@@ -1351,6 +1354,7 @@ model_list_storage_volume_configs_result.go
 model_list_subscription_requests_request.go
 model_list_subscription_requests_result.go
 model_list_subscriptions_request.go
+model_list_subscriptions_request2.go
 model_list_subscriptions_result.go
 model_list_tier_version_set_specs_request.go
 model_list_tier_version_set_specs_result.go
@@ -1369,6 +1373,7 @@ model_modify_service_provider_organization_request.go
 model_modify_service_provider_organization_request2.go
 model_modify_services_orchestration_request.go
 model_modify_services_orchestration_request2.go
+model_named_port_spec.go
 model_network_features_configuration.go
 model_node_health_summary.go
 model_node_network_topology_result.go
@@ -1384,6 +1389,7 @@ model_operator_helm_chart_dependency.go
 model_org_users.go
 model_output_parameter.go
 model_output_parameter_entity.go
+model_ports_range.go
 model_private_link_configuration.go
 model_private_networking_configuration.go
 model_product_tier_deployment_configuration.go

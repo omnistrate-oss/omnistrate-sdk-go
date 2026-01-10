@@ -13,9 +13,11 @@ Name | Type | Description | Notes
 **BillingProviders** | Pointer to **[]string** | List of billing providers to be used for the product tier | [optional] 
 **CloudProvidersConfigReadiness** | Pointer to **map[string]map[string]string** | The readiness of the cloud providers configurations | [optional] 
 **DefaultBillingProvider** | Pointer to **string** | The billing provider type | [optional] 
+**DeploymentArtifactIDs** | Pointer to **[]string** | List of deployment artifact IDs associated with this product tier | [optional] 
 **DeploymentConfiguration** | Pointer to [**ProductTierDeploymentConfiguration**](ProductTierDeploymentConfiguration.md) |  | [optional] 
 **Description** | **string** | A brief description of the product tier | 
 **Documentation** | **string** | Documentation | 
+**EnableDeletionProtection** | **bool** | Enable deletion protection for the product tier | 
 **EnabledFeatures** | Pointer to [**[]ProductTierFeatureDetail**](ProductTierFeatureDetail.md) | The features that are enabled for this product tier, including scope details and configuration | [optional] 
 **ExportUsageMetering** | Pointer to **bool** | Export usage metering data | [optional] 
 **ExportUsageMeteringConfig** | Pointer to **map[string]interface{}** | Export usage metering data configuration | [optional] 
@@ -41,7 +43,7 @@ Name | Type | Description | Notes
 
 ### NewDescribeProductTierResult
 
-`func NewDescribeProductTierResult(description string, documentation string, id string, isDisabled bool, key string, name string, planDescription string, pricing interface{}, serviceId string, serviceModelId string, support string, tierType string, ) *DescribeProductTierResult`
+`func NewDescribeProductTierResult(description string, documentation string, enableDeletionProtection bool, id string, isDisabled bool, key string, name string, planDescription string, pricing interface{}, serviceId string, serviceModelId string, support string, tierType string, ) *DescribeProductTierResult`
 
 NewDescribeProductTierResult instantiates a new DescribeProductTierResult object
 This constructor will assign default values to properties that have it defined,
@@ -281,6 +283,31 @@ SetDefaultBillingProvider sets DefaultBillingProvider field to given value.
 
 HasDefaultBillingProvider returns a boolean if a field has been set.
 
+### GetDeploymentArtifactIDs
+
+`func (o *DescribeProductTierResult) GetDeploymentArtifactIDs() []string`
+
+GetDeploymentArtifactIDs returns the DeploymentArtifactIDs field if non-nil, zero value otherwise.
+
+### GetDeploymentArtifactIDsOk
+
+`func (o *DescribeProductTierResult) GetDeploymentArtifactIDsOk() (*[]string, bool)`
+
+GetDeploymentArtifactIDsOk returns a tuple with the DeploymentArtifactIDs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeploymentArtifactIDs
+
+`func (o *DescribeProductTierResult) SetDeploymentArtifactIDs(v []string)`
+
+SetDeploymentArtifactIDs sets DeploymentArtifactIDs field to given value.
+
+### HasDeploymentArtifactIDs
+
+`func (o *DescribeProductTierResult) HasDeploymentArtifactIDs() bool`
+
+HasDeploymentArtifactIDs returns a boolean if a field has been set.
+
 ### GetDeploymentConfiguration
 
 `func (o *DescribeProductTierResult) GetDeploymentConfiguration() ProductTierDeploymentConfiguration`
@@ -344,6 +371,26 @@ and a boolean to check if the value has been set.
 `func (o *DescribeProductTierResult) SetDocumentation(v string)`
 
 SetDocumentation sets Documentation field to given value.
+
+
+### GetEnableDeletionProtection
+
+`func (o *DescribeProductTierResult) GetEnableDeletionProtection() bool`
+
+GetEnableDeletionProtection returns the EnableDeletionProtection field if non-nil, zero value otherwise.
+
+### GetEnableDeletionProtectionOk
+
+`func (o *DescribeProductTierResult) GetEnableDeletionProtectionOk() (*bool, bool)`
+
+GetEnableDeletionProtectionOk returns a tuple with the EnableDeletionProtection field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableDeletionProtection
+
+`func (o *DescribeProductTierResult) SetEnableDeletionProtection(v bool)`
+
+SetEnableDeletionProtection sets EnableDeletionProtection field to given value.
 
 
 ### GetEnabledFeatures
