@@ -172,7 +172,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service that this output parameter belongs to
 	id := "op-12345678" // string | The ID of the output parameter
-	productTierVersion := "Debitis quidem harum ipsa et animi." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Ad sit." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the resource to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -247,7 +247,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service that this output parameter belongs to
 	resourceId := "r-12345678" // string | The ID of the resource that this output parameter belongs to
-	productTierVersion := "Eligendi libero." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Tenetur quia et veniam libero necessitatibus." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the resource to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()

@@ -30,7 +30,7 @@ import (
 )
 
 func main() {
-	createSubscriptionRequest2 := *openapiclient.NewCreateSubscriptionRequest2("Maiores aut iure blanditiis.", "s-123456") // CreateSubscriptionRequest2 | 
+	createSubscriptionRequest2 := *openapiclient.NewCreateSubscriptionRequest2("Omnis expedita temporibus unde dolorem.", "s-123456") // CreateSubscriptionRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 ## SubscriptionApiListSubscriptions
 
-> ListSubscriptionsResult SubscriptionApiListSubscriptions(ctx).ServiceId(serviceId).EnvironmentType(environmentType).Execute()
+> ListSubscriptionsResult SubscriptionApiListSubscriptions(ctx).ListSubscriptionsRequest2(listSubscriptionsRequest2).ServiceId(serviceId).EnvironmentType(environmentType).Execute()
 
 ListSubscriptions subscription-api
 
@@ -228,12 +228,13 @@ import (
 )
 
 func main() {
+	listSubscriptionsRequest2 := *openapiclient.NewListSubscriptionsRequest2() // ListSubscriptionsRequest2 | 
 	serviceId := "service-12345678" // string | Service Id (optional)
 	environmentType := "DEV" // string | The environment type to filter by (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SubscriptionApiAPI.SubscriptionApiListSubscriptions(context.Background()).ServiceId(serviceId).EnvironmentType(environmentType).Execute()
+	resp, r, err := apiClient.SubscriptionApiAPI.SubscriptionApiListSubscriptions(context.Background()).ListSubscriptionsRequest2(listSubscriptionsRequest2).ServiceId(serviceId).EnvironmentType(environmentType).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApiAPI.SubscriptionApiListSubscriptions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -254,6 +255,7 @@ Other parameters are passed through a pointer to a apiSubscriptionApiListSubscri
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **listSubscriptionsRequest2** | [**ListSubscriptionsRequest2**](ListSubscriptionsRequest2.md) |  | 
  **serviceId** | **string** | Service Id | 
  **environmentType** | **string** | The environment type to filter by | 
 
@@ -267,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

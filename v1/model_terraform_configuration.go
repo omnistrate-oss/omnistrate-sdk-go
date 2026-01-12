@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"os"
 	"fmt"
 )
 
@@ -32,8 +31,8 @@ type TerraformConfiguration struct {
 	TerraformExecutionIdentity *string `json:"terraformExecutionIdentity,omitempty"`
 	// The path to the terraform files directory
 	TerraformPath string `json:"terraformPath"`
-	// The variables values file override for the Terraform configuration
-	VariablesValuesFileOverride **os.File `json:"variablesValuesFileOverride,omitempty"`
+	// The variables values file override in base64 format for the Terraform configuration
+	VariablesValuesFileOverride *string `json:"variablesValuesFileOverride,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -197,9 +196,9 @@ func (o *TerraformConfiguration) SetTerraformPath(v string) {
 }
 
 // GetVariablesValuesFileOverride returns the VariablesValuesFileOverride field value if set, zero value otherwise.
-func (o *TerraformConfiguration) GetVariablesValuesFileOverride() *os.File {
+func (o *TerraformConfiguration) GetVariablesValuesFileOverride() string {
 	if o == nil || IsNil(o.VariablesValuesFileOverride) {
-		var ret *os.File
+		var ret string
 		return ret
 	}
 	return *o.VariablesValuesFileOverride
@@ -207,15 +206,15 @@ func (o *TerraformConfiguration) GetVariablesValuesFileOverride() *os.File {
 
 // GetVariablesValuesFileOverrideOk returns a tuple with the VariablesValuesFileOverride field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TerraformConfiguration) GetVariablesValuesFileOverrideOk() (**os.File, bool) {
+func (o *TerraformConfiguration) GetVariablesValuesFileOverrideOk() (*string, bool) {
 	if o == nil || IsNil(o.VariablesValuesFileOverride) {
 		return nil, false
 	}
 	return o.VariablesValuesFileOverride, true
 }
 
-// SetVariablesValuesFileOverride gets a reference to the given *os.File and assigns it to the VariablesValuesFileOverride field.
-func (o *TerraformConfiguration) SetVariablesValuesFileOverride(v *os.File) {
+// SetVariablesValuesFileOverride gets a reference to the given string and assigns it to the VariablesValuesFileOverride field.
+func (o *TerraformConfiguration) SetVariablesValuesFileOverride(v string) {
 	o.VariablesValuesFileOverride = &v
 }
 
