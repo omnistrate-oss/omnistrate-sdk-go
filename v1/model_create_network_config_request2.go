@@ -28,6 +28,8 @@ type CreateNetworkConfigRequest2 struct {
 	Internal *bool `json:"internal,omitempty"`
 	// Name of the network config
 	Name string `json:"name"`
+	// Named ports to map to the generated DNS endpoint
+	NamedOpenPorts *map[string]NamedPortSpec `json:"namedOpenPorts,omitempty"`
 	// Ports to map to the generated DNS endpoint
 	OpenPorts []int64 `json:"openPorts,omitempty"`
 	PrivateNetworkingConfiguration *PrivateNetworkingConfiguration `json:"privateNetworkingConfiguration,omitempty"`
@@ -160,6 +162,29 @@ func (o *CreateNetworkConfigRequest2) GetNameOk() (*string, bool) {
 // SetName sets field value
 func (o *CreateNetworkConfigRequest2) SetName(v string) {
 	o.Name = v
+}
+
+// GetNamedOpenPorts returns the NamedOpenPorts field value if set, zero value otherwise.
+func (o *CreateNetworkConfigRequest2) GetNamedOpenPorts() map[string]NamedPortSpec {
+	if o == nil || IsNil(o.NamedOpenPorts) {
+		var ret map[string]NamedPortSpec
+		return ret
+	}
+	return *o.NamedOpenPorts
+}
+
+// GetNamedOpenPortsOk returns a tuple with the NamedOpenPorts field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateNetworkConfigRequest2) GetNamedOpenPortsOk() (*map[string]NamedPortSpec, bool) {
+	if o == nil || IsNil(o.NamedOpenPorts) {
+		return nil, false
+	}
+	return o.NamedOpenPorts, true
+}
+
+// SetNamedOpenPorts gets a reference to the given map[string]NamedPortSpec and assigns it to the NamedOpenPorts field.
+func (o *CreateNetworkConfigRequest2) SetNamedOpenPorts(v map[string]NamedPortSpec) {
+	o.NamedOpenPorts = &v
 }
 
 // GetOpenPorts returns the OpenPorts field value if set, zero value otherwise.
@@ -316,6 +341,9 @@ func (o CreateNetworkConfigRequest2) ToMap() (map[string]interface{}, error) {
 		toSerialize["internal"] = o.Internal
 	}
 	toSerialize["name"] = o.Name
+	if !IsNil(o.NamedOpenPorts) {
+		toSerialize["namedOpenPorts"] = o.NamedOpenPorts
+	}
 	if !IsNil(o.OpenPorts) {
 		toSerialize["openPorts"] = o.OpenPorts
 	}
@@ -383,6 +411,7 @@ func (o *CreateNetworkConfigRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "endpointPerReplica")
 		delete(additionalProperties, "internal")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "namedOpenPorts")
 		delete(additionalProperties, "openPorts")
 		delete(additionalProperties, "privateNetworkingConfiguration")
 		delete(additionalProperties, "publicNetworkingConfiguration")

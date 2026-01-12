@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"os"
 	"fmt"
 )
 
@@ -21,10 +20,12 @@ var _ MappedNullable = &UploadDeploymentArtifactRequest{}
 
 // UploadDeploymentArtifactRequest struct for UploadDeploymentArtifactRequest
 type UploadDeploymentArtifactRequest struct {
-	// The deployment artifact file content
-	Artifact []*os.File `json:"artifact"`
+	// The account config ID associated with the deployment artifact
+	AccountConfigID string `json:"accountConfigID"`
 	// The path to the deployment artifact
 	ArtifactPath string `json:"artifactPath"`
+	// The deployment artifact file content with base64 encoding, and expected to be a .tar.gz file
+	Base64EncodedArtifact string `json:"base64EncodedArtifact"`
 	// The name of the product tier
 	ProductTierName string `json:"productTierName"`
 	// The name of the service
@@ -40,10 +41,11 @@ type _UploadDeploymentArtifactRequest UploadDeploymentArtifactRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUploadDeploymentArtifactRequest(artifact []*os.File, artifactPath string, productTierName string, serviceName string, token string) *UploadDeploymentArtifactRequest {
+func NewUploadDeploymentArtifactRequest(accountConfigID string, artifactPath string, base64EncodedArtifact string, productTierName string, serviceName string, token string) *UploadDeploymentArtifactRequest {
 	this := UploadDeploymentArtifactRequest{}
-	this.Artifact = artifact
+	this.AccountConfigID = accountConfigID
 	this.ArtifactPath = artifactPath
+	this.Base64EncodedArtifact = base64EncodedArtifact
 	this.ProductTierName = productTierName
 	this.ServiceName = serviceName
 	this.Token = token
@@ -58,28 +60,28 @@ func NewUploadDeploymentArtifactRequestWithDefaults() *UploadDeploymentArtifactR
 	return &this
 }
 
-// GetArtifact returns the Artifact field value
-func (o *UploadDeploymentArtifactRequest) GetArtifact() []*os.File {
+// GetAccountConfigID returns the AccountConfigID field value
+func (o *UploadDeploymentArtifactRequest) GetAccountConfigID() string {
 	if o == nil {
-		var ret []*os.File
+		var ret string
 		return ret
 	}
 
-	return o.Artifact
+	return o.AccountConfigID
 }
 
-// GetArtifactOk returns a tuple with the Artifact field value
+// GetAccountConfigIDOk returns a tuple with the AccountConfigID field value
 // and a boolean to check if the value has been set.
-func (o *UploadDeploymentArtifactRequest) GetArtifactOk() ([]*os.File, bool) {
+func (o *UploadDeploymentArtifactRequest) GetAccountConfigIDOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Artifact, true
+	return &o.AccountConfigID, true
 }
 
-// SetArtifact sets field value
-func (o *UploadDeploymentArtifactRequest) SetArtifact(v []*os.File) {
-	o.Artifact = v
+// SetAccountConfigID sets field value
+func (o *UploadDeploymentArtifactRequest) SetAccountConfigID(v string) {
+	o.AccountConfigID = v
 }
 
 // GetArtifactPath returns the ArtifactPath field value
@@ -104,6 +106,30 @@ func (o *UploadDeploymentArtifactRequest) GetArtifactPathOk() (*string, bool) {
 // SetArtifactPath sets field value
 func (o *UploadDeploymentArtifactRequest) SetArtifactPath(v string) {
 	o.ArtifactPath = v
+}
+
+// GetBase64EncodedArtifact returns the Base64EncodedArtifact field value
+func (o *UploadDeploymentArtifactRequest) GetBase64EncodedArtifact() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Base64EncodedArtifact
+}
+
+// GetBase64EncodedArtifactOk returns a tuple with the Base64EncodedArtifact field value
+// and a boolean to check if the value has been set.
+func (o *UploadDeploymentArtifactRequest) GetBase64EncodedArtifactOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Base64EncodedArtifact, true
+}
+
+// SetBase64EncodedArtifact sets field value
+func (o *UploadDeploymentArtifactRequest) SetBase64EncodedArtifact(v string) {
+	o.Base64EncodedArtifact = v
 }
 
 // GetProductTierName returns the ProductTierName field value
@@ -188,8 +214,9 @@ func (o UploadDeploymentArtifactRequest) MarshalJSON() ([]byte, error) {
 
 func (o UploadDeploymentArtifactRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["artifact"] = o.Artifact
+	toSerialize["accountConfigID"] = o.AccountConfigID
 	toSerialize["artifactPath"] = o.ArtifactPath
+	toSerialize["base64EncodedArtifact"] = o.Base64EncodedArtifact
 	toSerialize["productTierName"] = o.ProductTierName
 	toSerialize["serviceName"] = o.ServiceName
 	toSerialize["token"] = o.Token
@@ -206,8 +233,9 @@ func (o *UploadDeploymentArtifactRequest) UnmarshalJSON(data []byte) (err error)
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"artifact",
+		"accountConfigID",
 		"artifactPath",
+		"base64EncodedArtifact",
 		"productTierName",
 		"serviceName",
 		"token",
@@ -240,8 +268,9 @@ func (o *UploadDeploymentArtifactRequest) UnmarshalJSON(data []byte) (err error)
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "artifact")
+		delete(additionalProperties, "accountConfigID")
 		delete(additionalProperties, "artifactPath")
+		delete(additionalProperties, "base64EncodedArtifact")
 		delete(additionalProperties, "productTierName")
 		delete(additionalProperties, "serviceName")
 		delete(additionalProperties, "token")

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **BillingProductID** | Pointer to **string** | Optional billing product ID for tax purposes | [optional] 
 **Description** | **string** | A brief description of the product tier | 
 **Documentation** | Pointer to **string** | Documentation | [optional] 
+**EnableDeletionProtection** | Pointer to **bool** | Enable deletion protection for the product tier | [optional] 
 **ExportUsageMetering** | Pointer to **bool** | Export usage metering data | [optional] 
 **ExportUsageMeteringConfig** | Pointer to **map[string]interface{}** | Export usage metering data configuration | [optional] 
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this product tier is available on | [optional] 
@@ -217,6 +218,31 @@ SetDocumentation sets Documentation field to given value.
 `func (o *CopyProductTierRequest) HasDocumentation() bool`
 
 HasDocumentation returns a boolean if a field has been set.
+
+### GetEnableDeletionProtection
+
+`func (o *CopyProductTierRequest) GetEnableDeletionProtection() bool`
+
+GetEnableDeletionProtection returns the EnableDeletionProtection field if non-nil, zero value otherwise.
+
+### GetEnableDeletionProtectionOk
+
+`func (o *CopyProductTierRequest) GetEnableDeletionProtectionOk() (*bool, bool)`
+
+GetEnableDeletionProtectionOk returns a tuple with the EnableDeletionProtection field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableDeletionProtection
+
+`func (o *CopyProductTierRequest) SetEnableDeletionProtection(v bool)`
+
+SetEnableDeletionProtection sets EnableDeletionProtection field to given value.
+
+### HasEnableDeletionProtection
+
+`func (o *CopyProductTierRequest) HasEnableDeletionProtection() bool`
+
+HasEnableDeletionProtection returns a boolean if a field has been set.
 
 ### GetExportUsageMetering
 

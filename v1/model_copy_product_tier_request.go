@@ -34,6 +34,8 @@ type CopyProductTierRequest struct {
 	Description string `json:"description"`
 	// Documentation
 	Documentation *string `json:"documentation,omitempty"`
+	// Enable deletion protection for the product tier
+	EnableDeletionProtection *bool `json:"enableDeletionProtection,omitempty"`
 	// Export usage metering data
 	ExportUsageMetering *bool `json:"exportUsageMetering,omitempty"`
 	// Export usage metering data configuration
@@ -256,6 +258,29 @@ func (o *CopyProductTierRequest) GetDocumentationOk() (*string, bool) {
 // SetDocumentation gets a reference to the given string and assigns it to the Documentation field.
 func (o *CopyProductTierRequest) SetDocumentation(v string) {
 	o.Documentation = &v
+}
+
+// GetEnableDeletionProtection returns the EnableDeletionProtection field value if set, zero value otherwise.
+func (o *CopyProductTierRequest) GetEnableDeletionProtection() bool {
+	if o == nil || IsNil(o.EnableDeletionProtection) {
+		var ret bool
+		return ret
+	}
+	return *o.EnableDeletionProtection
+}
+
+// GetEnableDeletionProtectionOk returns a tuple with the EnableDeletionProtection field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CopyProductTierRequest) GetEnableDeletionProtectionOk() (*bool, bool) {
+	if o == nil || IsNil(o.EnableDeletionProtection) {
+		return nil, false
+	}
+	return o.EnableDeletionProtection, true
+}
+
+// SetEnableDeletionProtection gets a reference to the given bool and assigns it to the EnableDeletionProtection field.
+func (o *CopyProductTierRequest) SetEnableDeletionProtection(v bool) {
+	o.EnableDeletionProtection = &v
 }
 
 // GetExportUsageMetering returns the ExportUsageMetering field value if set, zero value otherwise.
@@ -684,6 +709,9 @@ func (o CopyProductTierRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Documentation) {
 		toSerialize["documentation"] = o.Documentation
 	}
+	if !IsNil(o.EnableDeletionProtection) {
+		toSerialize["enableDeletionProtection"] = o.EnableDeletionProtection
+	}
 	if !IsNil(o.ExportUsageMetering) {
 		toSerialize["exportUsageMetering"] = o.ExportUsageMetering
 	}
@@ -780,6 +808,7 @@ func (o *CopyProductTierRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "billingProductID")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "documentation")
+		delete(additionalProperties, "enableDeletionProtection")
 		delete(additionalProperties, "exportUsageMetering")
 		delete(additionalProperties, "exportUsageMeteringConfig")
 		delete(additionalProperties, "gcpRegions")

@@ -27,7 +27,7 @@ import (
 )
 
 func main() {
-	uploadDeploymentArtifactRequest2 := *openapiclient.NewUploadDeploymentArtifactRequest2([]*os.File{"TODO"}, "/path/to", "standard", "my-service") // UploadDeploymentArtifactRequest2 | 
+	uploadDeploymentArtifactRequest2 := *openapiclient.NewUploadDeploymentArtifactRequest2("ac-1234567890", "/path/to", "Et ut culpa aspernatur.", "standard", "my-service") // UploadDeploymentArtifactRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
