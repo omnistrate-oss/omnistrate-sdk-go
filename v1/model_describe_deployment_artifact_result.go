@@ -231,4 +231,3 @@ func (v *NullableDescribeDeploymentArtifactResult) UnmarshalJSON(src []byte) err
 	return json.Unmarshal(src, &v.value)
 }
 
-

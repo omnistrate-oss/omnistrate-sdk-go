@@ -550,4 +550,3 @@ func (v *NullableDescribeServiceEnvironmentResult) UnmarshalJSON(src []byte) err
 	return json.Unmarshal(src, &v.value)
 }
 
-

@@ -195,4 +195,3 @@ func (v *NullableAddCustomDNSToResourceInstanceRequest2) UnmarshalJSON(src []byt
 	return json.Unmarshal(src, &v.value)
 }
 
-

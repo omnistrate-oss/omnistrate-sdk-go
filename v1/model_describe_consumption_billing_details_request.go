@@ -195,4 +195,3 @@ func (v *NullableDescribeConsumptionBillingDetailsRequest) UnmarshalJSON(src []b
 	return json.Unmarshal(src, &v.value)
 }
 
-

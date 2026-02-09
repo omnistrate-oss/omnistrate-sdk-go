@@ -196,4 +196,3 @@ func (v *NullableDescribeUsersBySubscriptionResult) UnmarshalJSON(src []byte) er
 	return json.Unmarshal(src, &v.value)
 }
 
-
