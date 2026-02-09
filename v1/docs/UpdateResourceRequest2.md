@@ -5,13 +5,17 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AdditionalSecurityContext** | Pointer to [**AdditionalSecurityContext**](AdditionalSecurityContext.md) |  | [optional] 
+**AgentConfiguration** | Pointer to [**AgentConfiguration**](AgentConfiguration.md) |  | [optional] 
 **BackupConfiguration** | Pointer to [**BackupConfiguration**](BackupConfiguration.md) |  | [optional] 
+**ContainerImagesRegistryCopyConfiguration** | Pointer to [**ContainerImagesRegistryCopyConfiguration**](ContainerImagesRegistryCopyConfiguration.md) |  | [optional] 
 **CustomLabels** | Pointer to **map[string]string** | Custom labels for the resource | [optional] 
 **CustomSysCTLs** | Pointer to **map[string]string** | Custom sysctl settings for the resource | [optional] 
 **CustomULimits** | Pointer to [**[]CustomULimits**](CustomULimits.md) | Custom ulimits for the resource | [optional] 
 **Dependencies** | Pointer to [**[]ResourceDependency**](ResourceDependency.md) |  | [optional] 
 **Description** | Pointer to **string** | A brief description of the resource | [optional] 
+**Disable** | Pointer to **string** | Allows resource to be disabled. Expression returning true/false can be used as value. Resource is enabled by default, if this property is not set. | [optional] 
 **EnvironmentVariables** | Pointer to [**[]EnvironmentVariable**](EnvironmentVariable.md) | The environment variables that this resource requires | [optional] 
+**FileSystemConfiguration** | Pointer to [**FileSystemConfiguration**](FileSystemConfiguration.md) |  | [optional] 
 **HelmChartConfiguration** | Pointer to [**HelmChartConfiguration**](HelmChartConfiguration.md) |  | [optional] 
 **ImageConfigId** | Pointer to **string** | The ID of the image configuration that this resource refers to | [optional] 
 **InfraConfigId** | Pointer to **string** | The ID of the infrastructure configuration that this resource refers to | [optional] 
@@ -20,6 +24,7 @@ Name | Type | Description | Notes
 **L4LoadBalancerConfiguration** | Pointer to [**L4LoadBalancerConfiguration**](L4LoadBalancerConfiguration.md) |  | [optional] 
 **L7LoadBalancerConfiguration** | Pointer to [**L7LoadBalancerConfiguration**](L7LoadBalancerConfiguration.md) |  | [optional] 
 **Name** | Pointer to **string** | Name of the resource | [optional] 
+**OnPremTerraformConfigurations** | Pointer to [**map[string]TerraformConfiguration**](TerraformConfiguration.md) | The Terraform configurations for various OnPrem platforms | [optional] 
 **OperatorCRDConfiguration** | Pointer to [**OperatorCRDConfiguration**](OperatorCRDConfiguration.md) |  | [optional] 
 **TerraformConfigurations** | Pointer to [**map[string]TerraformConfiguration**](TerraformConfiguration.md) | The Terraform configurations for various cloud providers | [optional] 
 
@@ -67,6 +72,31 @@ SetAdditionalSecurityContext sets AdditionalSecurityContext field to given value
 
 HasAdditionalSecurityContext returns a boolean if a field has been set.
 
+### GetAgentConfiguration
+
+`func (o *UpdateResourceRequest2) GetAgentConfiguration() AgentConfiguration`
+
+GetAgentConfiguration returns the AgentConfiguration field if non-nil, zero value otherwise.
+
+### GetAgentConfigurationOk
+
+`func (o *UpdateResourceRequest2) GetAgentConfigurationOk() (*AgentConfiguration, bool)`
+
+GetAgentConfigurationOk returns a tuple with the AgentConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAgentConfiguration
+
+`func (o *UpdateResourceRequest2) SetAgentConfiguration(v AgentConfiguration)`
+
+SetAgentConfiguration sets AgentConfiguration field to given value.
+
+### HasAgentConfiguration
+
+`func (o *UpdateResourceRequest2) HasAgentConfiguration() bool`
+
+HasAgentConfiguration returns a boolean if a field has been set.
+
 ### GetBackupConfiguration
 
 `func (o *UpdateResourceRequest2) GetBackupConfiguration() BackupConfiguration`
@@ -91,6 +121,31 @@ SetBackupConfiguration sets BackupConfiguration field to given value.
 `func (o *UpdateResourceRequest2) HasBackupConfiguration() bool`
 
 HasBackupConfiguration returns a boolean if a field has been set.
+
+### GetContainerImagesRegistryCopyConfiguration
+
+`func (o *UpdateResourceRequest2) GetContainerImagesRegistryCopyConfiguration() ContainerImagesRegistryCopyConfiguration`
+
+GetContainerImagesRegistryCopyConfiguration returns the ContainerImagesRegistryCopyConfiguration field if non-nil, zero value otherwise.
+
+### GetContainerImagesRegistryCopyConfigurationOk
+
+`func (o *UpdateResourceRequest2) GetContainerImagesRegistryCopyConfigurationOk() (*ContainerImagesRegistryCopyConfiguration, bool)`
+
+GetContainerImagesRegistryCopyConfigurationOk returns a tuple with the ContainerImagesRegistryCopyConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContainerImagesRegistryCopyConfiguration
+
+`func (o *UpdateResourceRequest2) SetContainerImagesRegistryCopyConfiguration(v ContainerImagesRegistryCopyConfiguration)`
+
+SetContainerImagesRegistryCopyConfiguration sets ContainerImagesRegistryCopyConfiguration field to given value.
+
+### HasContainerImagesRegistryCopyConfiguration
+
+`func (o *UpdateResourceRequest2) HasContainerImagesRegistryCopyConfiguration() bool`
+
+HasContainerImagesRegistryCopyConfiguration returns a boolean if a field has been set.
 
 ### GetCustomLabels
 
@@ -217,6 +272,31 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetDisable
+
+`func (o *UpdateResourceRequest2) GetDisable() string`
+
+GetDisable returns the Disable field if non-nil, zero value otherwise.
+
+### GetDisableOk
+
+`func (o *UpdateResourceRequest2) GetDisableOk() (*string, bool)`
+
+GetDisableOk returns a tuple with the Disable field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisable
+
+`func (o *UpdateResourceRequest2) SetDisable(v string)`
+
+SetDisable sets Disable field to given value.
+
+### HasDisable
+
+`func (o *UpdateResourceRequest2) HasDisable() bool`
+
+HasDisable returns a boolean if a field has been set.
+
 ### GetEnvironmentVariables
 
 `func (o *UpdateResourceRequest2) GetEnvironmentVariables() []EnvironmentVariable`
@@ -241,6 +321,31 @@ SetEnvironmentVariables sets EnvironmentVariables field to given value.
 `func (o *UpdateResourceRequest2) HasEnvironmentVariables() bool`
 
 HasEnvironmentVariables returns a boolean if a field has been set.
+
+### GetFileSystemConfiguration
+
+`func (o *UpdateResourceRequest2) GetFileSystemConfiguration() FileSystemConfiguration`
+
+GetFileSystemConfiguration returns the FileSystemConfiguration field if non-nil, zero value otherwise.
+
+### GetFileSystemConfigurationOk
+
+`func (o *UpdateResourceRequest2) GetFileSystemConfigurationOk() (*FileSystemConfiguration, bool)`
+
+GetFileSystemConfigurationOk returns a tuple with the FileSystemConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFileSystemConfiguration
+
+`func (o *UpdateResourceRequest2) SetFileSystemConfiguration(v FileSystemConfiguration)`
+
+SetFileSystemConfiguration sets FileSystemConfiguration field to given value.
+
+### HasFileSystemConfiguration
+
+`func (o *UpdateResourceRequest2) HasFileSystemConfiguration() bool`
+
+HasFileSystemConfiguration returns a boolean if a field has been set.
 
 ### GetHelmChartConfiguration
 
@@ -441,6 +546,31 @@ SetName sets Name field to given value.
 `func (o *UpdateResourceRequest2) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetOnPremTerraformConfigurations
+
+`func (o *UpdateResourceRequest2) GetOnPremTerraformConfigurations() map[string]TerraformConfiguration`
+
+GetOnPremTerraformConfigurations returns the OnPremTerraformConfigurations field if non-nil, zero value otherwise.
+
+### GetOnPremTerraformConfigurationsOk
+
+`func (o *UpdateResourceRequest2) GetOnPremTerraformConfigurationsOk() (*map[string]TerraformConfiguration, bool)`
+
+GetOnPremTerraformConfigurationsOk returns a tuple with the OnPremTerraformConfigurations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnPremTerraformConfigurations
+
+`func (o *UpdateResourceRequest2) SetOnPremTerraformConfigurations(v map[string]TerraformConfiguration)`
+
+SetOnPremTerraformConfigurations sets OnPremTerraformConfigurations field to given value.
+
+### HasOnPremTerraformConfigurations
+
+`func (o *UpdateResourceRequest2) HasOnPremTerraformConfigurations() bool`
+
+HasOnPremTerraformConfigurations returns a boolean if a field has been set.
 
 ### GetOperatorCRDConfiguration
 

@@ -22,10 +22,12 @@ var _ MappedNullable = &DescribeOutputParameterResult{}
 type DescribeOutputParameterResult struct {
 	// Description of the output variable being exported
 	Description string `json:"description"`
+	GenericCommandValueProvider *GenericCommandValueProviderConfig `json:"genericCommandValueProvider,omitempty"`
 	// ID of an Output Parameter
 	Id string `json:"id"`
 	// Key of the output variable being exported
 	Key string `json:"key"`
+	KubectlValueProvider *KubectlValueProviderConfig `json:"kubectlValueProvider,omitempty"`
 	// External name of the output variable being exported
 	Name string `json:"name"`
 	// ID of a resource
@@ -90,6 +92,29 @@ func (o *DescribeOutputParameterResult) SetDescription(v string) {
 	o.Description = v
 }
 
+// GetGenericCommandValueProvider returns the GenericCommandValueProvider field value if set, zero value otherwise.
+func (o *DescribeOutputParameterResult) GetGenericCommandValueProvider() GenericCommandValueProviderConfig {
+	if o == nil || IsNil(o.GenericCommandValueProvider) {
+		var ret GenericCommandValueProviderConfig
+		return ret
+	}
+	return *o.GenericCommandValueProvider
+}
+
+// GetGenericCommandValueProviderOk returns a tuple with the GenericCommandValueProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeOutputParameterResult) GetGenericCommandValueProviderOk() (*GenericCommandValueProviderConfig, bool) {
+	if o == nil || IsNil(o.GenericCommandValueProvider) {
+		return nil, false
+	}
+	return o.GenericCommandValueProvider, true
+}
+
+// SetGenericCommandValueProvider gets a reference to the given GenericCommandValueProviderConfig and assigns it to the GenericCommandValueProvider field.
+func (o *DescribeOutputParameterResult) SetGenericCommandValueProvider(v GenericCommandValueProviderConfig) {
+	o.GenericCommandValueProvider = &v
+}
+
 // GetId returns the Id field value
 func (o *DescribeOutputParameterResult) GetId() string {
 	if o == nil {
@@ -136,6 +161,29 @@ func (o *DescribeOutputParameterResult) GetKeyOk() (*string, bool) {
 // SetKey sets field value
 func (o *DescribeOutputParameterResult) SetKey(v string) {
 	o.Key = v
+}
+
+// GetKubectlValueProvider returns the KubectlValueProvider field value if set, zero value otherwise.
+func (o *DescribeOutputParameterResult) GetKubectlValueProvider() KubectlValueProviderConfig {
+	if o == nil || IsNil(o.KubectlValueProvider) {
+		var ret KubectlValueProviderConfig
+		return ret
+	}
+	return *o.KubectlValueProvider
+}
+
+// GetKubectlValueProviderOk returns a tuple with the KubectlValueProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeOutputParameterResult) GetKubectlValueProviderOk() (*KubectlValueProviderConfig, bool) {
+	if o == nil || IsNil(o.KubectlValueProvider) {
+		return nil, false
+	}
+	return o.KubectlValueProvider, true
+}
+
+// SetKubectlValueProvider gets a reference to the given KubectlValueProviderConfig and assigns it to the KubectlValueProvider field.
+func (o *DescribeOutputParameterResult) SetKubectlValueProvider(v KubectlValueProviderConfig) {
+	o.KubectlValueProvider = &v
 }
 
 // GetName returns the Name field value
@@ -290,8 +338,14 @@ func (o DescribeOutputParameterResult) MarshalJSON() ([]byte, error) {
 func (o DescribeOutputParameterResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["description"] = o.Description
+	if !IsNil(o.GenericCommandValueProvider) {
+		toSerialize["genericCommandValueProvider"] = o.GenericCommandValueProvider
+	}
 	toSerialize["id"] = o.Id
 	toSerialize["key"] = o.Key
+	if !IsNil(o.KubectlValueProvider) {
+		toSerialize["kubectlValueProvider"] = o.KubectlValueProvider
+	}
 	toSerialize["name"] = o.Name
 	toSerialize["resourceId"] = o.ResourceId
 	toSerialize["serviceId"] = o.ServiceId
@@ -353,8 +407,10 @@ func (o *DescribeOutputParameterResult) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "description")
+		delete(additionalProperties, "genericCommandValueProvider")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "key")
+		delete(additionalProperties, "kubectlValueProvider")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "resourceId")
 		delete(additionalProperties, "serviceId")

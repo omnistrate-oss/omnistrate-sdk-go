@@ -20,6 +20,9 @@ var _ MappedNullable = &HelmChartConfiguration{}
 
 // HelmChartConfiguration struct for HelmChartConfiguration
 type HelmChartConfiguration struct {
+	// The tag to auto-discover and update in the Helm chart values (if the chartValues or layeredChartValues contain an image tag placeholder like {{ .Values.image.tag }}, this field specifies which tag to replace it with)
+	AutoDiscoverImagesTag *string `json:"autoDiscoverImagesTag,omitempty"`
+	ChartAffinityControl *HelmChartAffinityControl `json:"chartAffinityControl,omitempty"`
 	// The chart name of the Helm package
 	ChartName string `json:"chartName"`
 	// The chart repository name of the Helm package
@@ -34,8 +37,12 @@ type HelmChartConfiguration struct {
 	EndpointConfiguration *map[string]Endpoint `json:"endpointConfiguration,omitempty"`
 	// Layered chart values configuration with conditional scoping (mutually exclusive with chartValues). Values are processed in order - later entries override earlier ones for the same keys.
 	LayeredChartValues []ChartValuesRef `json:"layeredChartValues,omitempty"`
+	// The namespace to deploy the Helm chart into (only applicable to OnPrem hosting model)
+	Namespace *string `json:"namespace,omitempty"`
 	// The password to authenticate with the registry
 	Password *string `json:"password,omitempty"`
+	// The release name of the Helm package (defaults to chartName if not provided)
+	ReleaseName *string `json:"releaseName,omitempty"`
 	RuntimeConfiguration *HelmRuntimeConfiguration `json:"runtimeConfiguration,omitempty"`
 	// The username to authenticate with the registry
 	Username *string `json:"username,omitempty"`
@@ -63,6 +70,52 @@ func NewHelmChartConfiguration(chartName string, chartRepoName string, chartRepo
 func NewHelmChartConfigurationWithDefaults() *HelmChartConfiguration {
 	this := HelmChartConfiguration{}
 	return &this
+}
+
+// GetAutoDiscoverImagesTag returns the AutoDiscoverImagesTag field value if set, zero value otherwise.
+func (o *HelmChartConfiguration) GetAutoDiscoverImagesTag() string {
+	if o == nil || IsNil(o.AutoDiscoverImagesTag) {
+		var ret string
+		return ret
+	}
+	return *o.AutoDiscoverImagesTag
+}
+
+// GetAutoDiscoverImagesTagOk returns a tuple with the AutoDiscoverImagesTag field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HelmChartConfiguration) GetAutoDiscoverImagesTagOk() (*string, bool) {
+	if o == nil || IsNil(o.AutoDiscoverImagesTag) {
+		return nil, false
+	}
+	return o.AutoDiscoverImagesTag, true
+}
+
+// SetAutoDiscoverImagesTag gets a reference to the given string and assigns it to the AutoDiscoverImagesTag field.
+func (o *HelmChartConfiguration) SetAutoDiscoverImagesTag(v string) {
+	o.AutoDiscoverImagesTag = &v
+}
+
+// GetChartAffinityControl returns the ChartAffinityControl field value if set, zero value otherwise.
+func (o *HelmChartConfiguration) GetChartAffinityControl() HelmChartAffinityControl {
+	if o == nil || IsNil(o.ChartAffinityControl) {
+		var ret HelmChartAffinityControl
+		return ret
+	}
+	return *o.ChartAffinityControl
+}
+
+// GetChartAffinityControlOk returns a tuple with the ChartAffinityControl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HelmChartConfiguration) GetChartAffinityControlOk() (*HelmChartAffinityControl, bool) {
+	if o == nil || IsNil(o.ChartAffinityControl) {
+		return nil, false
+	}
+	return o.ChartAffinityControl, true
+}
+
+// SetChartAffinityControl gets a reference to the given HelmChartAffinityControl and assigns it to the ChartAffinityControl field.
+func (o *HelmChartConfiguration) SetChartAffinityControl(v HelmChartAffinityControl) {
+	o.ChartAffinityControl = &v
 }
 
 // GetChartName returns the ChartName field value
@@ -230,6 +283,29 @@ func (o *HelmChartConfiguration) SetLayeredChartValues(v []ChartValuesRef) {
 	o.LayeredChartValues = v
 }
 
+// GetNamespace returns the Namespace field value if set, zero value otherwise.
+func (o *HelmChartConfiguration) GetNamespace() string {
+	if o == nil || IsNil(o.Namespace) {
+		var ret string
+		return ret
+	}
+	return *o.Namespace
+}
+
+// GetNamespaceOk returns a tuple with the Namespace field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HelmChartConfiguration) GetNamespaceOk() (*string, bool) {
+	if o == nil || IsNil(o.Namespace) {
+		return nil, false
+	}
+	return o.Namespace, true
+}
+
+// SetNamespace gets a reference to the given string and assigns it to the Namespace field.
+func (o *HelmChartConfiguration) SetNamespace(v string) {
+	o.Namespace = &v
+}
+
 // GetPassword returns the Password field value if set, zero value otherwise.
 func (o *HelmChartConfiguration) GetPassword() string {
 	if o == nil || IsNil(o.Password) {
@@ -251,6 +327,29 @@ func (o *HelmChartConfiguration) GetPasswordOk() (*string, bool) {
 // SetPassword gets a reference to the given string and assigns it to the Password field.
 func (o *HelmChartConfiguration) SetPassword(v string) {
 	o.Password = &v
+}
+
+// GetReleaseName returns the ReleaseName field value if set, zero value otherwise.
+func (o *HelmChartConfiguration) GetReleaseName() string {
+	if o == nil || IsNil(o.ReleaseName) {
+		var ret string
+		return ret
+	}
+	return *o.ReleaseName
+}
+
+// GetReleaseNameOk returns a tuple with the ReleaseName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HelmChartConfiguration) GetReleaseNameOk() (*string, bool) {
+	if o == nil || IsNil(o.ReleaseName) {
+		return nil, false
+	}
+	return o.ReleaseName, true
+}
+
+// SetReleaseName gets a reference to the given string and assigns it to the ReleaseName field.
+func (o *HelmChartConfiguration) SetReleaseName(v string) {
+	o.ReleaseName = &v
 }
 
 // GetRuntimeConfiguration returns the RuntimeConfiguration field value if set, zero value otherwise.
@@ -309,6 +408,12 @@ func (o HelmChartConfiguration) MarshalJSON() ([]byte, error) {
 
 func (o HelmChartConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AutoDiscoverImagesTag) {
+		toSerialize["autoDiscoverImagesTag"] = o.AutoDiscoverImagesTag
+	}
+	if !IsNil(o.ChartAffinityControl) {
+		toSerialize["chartAffinityControl"] = o.ChartAffinityControl
+	}
 	toSerialize["chartName"] = o.ChartName
 	toSerialize["chartRepoName"] = o.ChartRepoName
 	toSerialize["chartRepoUrl"] = o.ChartRepoUrl
@@ -322,8 +427,14 @@ func (o HelmChartConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.LayeredChartValues) {
 		toSerialize["layeredChartValues"] = o.LayeredChartValues
 	}
+	if !IsNil(o.Namespace) {
+		toSerialize["namespace"] = o.Namespace
+	}
 	if !IsNil(o.Password) {
 		toSerialize["password"] = o.Password
+	}
+	if !IsNil(o.ReleaseName) {
+		toSerialize["releaseName"] = o.ReleaseName
 	}
 	if !IsNil(o.RuntimeConfiguration) {
 		toSerialize["runtimeConfiguration"] = o.RuntimeConfiguration
@@ -377,6 +488,8 @@ func (o *HelmChartConfiguration) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "autoDiscoverImagesTag")
+		delete(additionalProperties, "chartAffinityControl")
 		delete(additionalProperties, "chartName")
 		delete(additionalProperties, "chartRepoName")
 		delete(additionalProperties, "chartRepoUrl")
@@ -384,7 +497,9 @@ func (o *HelmChartConfiguration) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "chartVersion")
 		delete(additionalProperties, "endpointConfiguration")
 		delete(additionalProperties, "layeredChartValues")
+		delete(additionalProperties, "namespace")
 		delete(additionalProperties, "password")
+		delete(additionalProperties, "releaseName")
 		delete(additionalProperties, "runtimeConfiguration")
 		delete(additionalProperties, "username")
 		o.AdditionalProperties = additionalProperties

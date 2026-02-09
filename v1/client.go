@@ -77,7 +77,11 @@ type APIClient struct {
 
 	DemoApiAPI DemoApiAPI
 
+	DeploymentArtifactApiAPI DeploymentArtifactApiAPI
+
 	DeploymentConfigApiAPI DeploymentConfigApiAPI
+
+	ExpressionEvaluatorApiAPI ExpressionEvaluatorApiAPI
 
 	GlobalApiAPI GlobalApiAPI
 
@@ -92,6 +96,8 @@ type APIClient struct {
 	InfraConfigApiAPI InfraConfigApiAPI
 
 	InputParameterApiAPI InputParameterApiAPI
+
+	InstanceSnapshotApiAPI InstanceSnapshotApiAPI
 
 	InvoiceApiAPI InvoiceApiAPI
 
@@ -112,6 +118,8 @@ type APIClient struct {
 	ResourceInstanceApiAPI ResourceInstanceApiAPI
 
 	SaasPortalApiAPI SaasPortalApiAPI
+
+	SchemaApiAPI SchemaApiAPI
 
 	SecretsApiAPI SecretsApiAPI
 
@@ -186,7 +194,9 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.CustomDomainApiAPI = (*CustomDomainApiAPIService)(&c.common)
 	c.CustomNetworkApiAPI = (*CustomNetworkApiAPIService)(&c.common)
 	c.DemoApiAPI = (*DemoApiAPIService)(&c.common)
+	c.DeploymentArtifactApiAPI = (*DeploymentArtifactApiAPIService)(&c.common)
 	c.DeploymentConfigApiAPI = (*DeploymentConfigApiAPIService)(&c.common)
+	c.ExpressionEvaluatorApiAPI = (*ExpressionEvaluatorApiAPIService)(&c.common)
 	c.GlobalApiAPI = (*GlobalApiAPIService)(&c.common)
 	c.HelmPackageApiAPI = (*HelmPackageApiAPIService)(&c.common)
 	c.IdentityProviderApiAPI = (*IdentityProviderApiAPIService)(&c.common)
@@ -194,6 +204,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ImageRegistryApiAPI = (*ImageRegistryApiAPIService)(&c.common)
 	c.InfraConfigApiAPI = (*InfraConfigApiAPIService)(&c.common)
 	c.InputParameterApiAPI = (*InputParameterApiAPIService)(&c.common)
+	c.InstanceSnapshotApiAPI = (*InstanceSnapshotApiAPIService)(&c.common)
 	c.InvoiceApiAPI = (*InvoiceApiAPIService)(&c.common)
 	c.LimitApiAPI = (*LimitApiAPIService)(&c.common)
 	c.NetworkConfigApiAPI = (*NetworkConfigApiAPIService)(&c.common)
@@ -204,6 +215,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ResourceApiAPI = (*ResourceApiAPIService)(&c.common)
 	c.ResourceInstanceApiAPI = (*ResourceInstanceApiAPIService)(&c.common)
 	c.SaasPortalApiAPI = (*SaasPortalApiAPIService)(&c.common)
+	c.SchemaApiAPI = (*SchemaApiAPIService)(&c.common)
 	c.SecretsApiAPI = (*SecretsApiAPIService)(&c.common)
 	c.ServiceApiAPI = (*ServiceApiAPIService)(&c.common)
 	c.ServiceApiApiAPI = (*ServiceApiApiAPIService)(&c.common)

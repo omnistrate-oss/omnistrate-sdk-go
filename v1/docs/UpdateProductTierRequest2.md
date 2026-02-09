@@ -11,14 +11,18 @@ Name | Type | Description | Notes
 **BillingProductID** | Pointer to **string** | Optional billing product ID for tax purposes | [optional] 
 **BillingProviders** | Pointer to **[]string** | List of billing providers to be used for the product tier | [optional] 
 **DefaultBillingProvider** | Pointer to **string** | The default billing provider to be used for the product tier | [optional] 
+**DeploymentConfiguration** | Pointer to [**ProductTierDeploymentConfiguration**](ProductTierDeploymentConfiguration.md) |  | [optional] 
 **Description** | Pointer to **string** | A brief description of the product tier | [optional] 
 **Documentation** | Pointer to **string** | Documentation | [optional] 
+**EnableDeletionProtection** | Pointer to **bool** | Enable deletion protection for the product tier | [optional] 
 **ExportUsageMetering** | Pointer to **bool** | Export usage metering data | [optional] 
 **ExportUsageMeteringConfig** | Pointer to **map[string]interface{}** | Export usage metering data configuration | [optional] 
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this product tier is available on | [optional] 
 **IsDisabled** | Pointer to **bool** | Update the product tier&#39;s state as enabled/disabled. Enabling the product tier will let end-customers subscribe and use the service plan. | [optional] 
 **MaxNumberOfInstances** | Pointer to **int64** | Maximum number of instances. Set to -1 for unlimited. | [optional] 
 **Name** | Pointer to **string** | Name of the product tier | [optional] 
+**OciRegions** | Pointer to **[]string** | The OCI regions that this product tier is available on | [optional] 
+**OnPremPlatforms** | Pointer to **[]string** | The on prem platforms that this product tier is available on | [optional] 
 **PlanDescription** | Pointer to **string** | A brief description for the end user of the product tier | [optional] 
 **PricePerUnit** | Pointer to **map[string]interface{}** | Price per unit. | [optional] 
 **Pricing** | Pointer to **interface{}** | Pricing | [optional] 
@@ -220,6 +224,31 @@ SetDefaultBillingProvider sets DefaultBillingProvider field to given value.
 
 HasDefaultBillingProvider returns a boolean if a field has been set.
 
+### GetDeploymentConfiguration
+
+`func (o *UpdateProductTierRequest2) GetDeploymentConfiguration() ProductTierDeploymentConfiguration`
+
+GetDeploymentConfiguration returns the DeploymentConfiguration field if non-nil, zero value otherwise.
+
+### GetDeploymentConfigurationOk
+
+`func (o *UpdateProductTierRequest2) GetDeploymentConfigurationOk() (*ProductTierDeploymentConfiguration, bool)`
+
+GetDeploymentConfigurationOk returns a tuple with the DeploymentConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeploymentConfiguration
+
+`func (o *UpdateProductTierRequest2) SetDeploymentConfiguration(v ProductTierDeploymentConfiguration)`
+
+SetDeploymentConfiguration sets DeploymentConfiguration field to given value.
+
+### HasDeploymentConfiguration
+
+`func (o *UpdateProductTierRequest2) HasDeploymentConfiguration() bool`
+
+HasDeploymentConfiguration returns a boolean if a field has been set.
+
 ### GetDescription
 
 `func (o *UpdateProductTierRequest2) GetDescription() string`
@@ -269,6 +298,31 @@ SetDocumentation sets Documentation field to given value.
 `func (o *UpdateProductTierRequest2) HasDocumentation() bool`
 
 HasDocumentation returns a boolean if a field has been set.
+
+### GetEnableDeletionProtection
+
+`func (o *UpdateProductTierRequest2) GetEnableDeletionProtection() bool`
+
+GetEnableDeletionProtection returns the EnableDeletionProtection field if non-nil, zero value otherwise.
+
+### GetEnableDeletionProtectionOk
+
+`func (o *UpdateProductTierRequest2) GetEnableDeletionProtectionOk() (*bool, bool)`
+
+GetEnableDeletionProtectionOk returns a tuple with the EnableDeletionProtection field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableDeletionProtection
+
+`func (o *UpdateProductTierRequest2) SetEnableDeletionProtection(v bool)`
+
+SetEnableDeletionProtection sets EnableDeletionProtection field to given value.
+
+### HasEnableDeletionProtection
+
+`func (o *UpdateProductTierRequest2) HasEnableDeletionProtection() bool`
+
+HasEnableDeletionProtection returns a boolean if a field has been set.
 
 ### GetExportUsageMetering
 
@@ -419,6 +473,56 @@ SetName sets Name field to given value.
 `func (o *UpdateProductTierRequest2) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetOciRegions
+
+`func (o *UpdateProductTierRequest2) GetOciRegions() []string`
+
+GetOciRegions returns the OciRegions field if non-nil, zero value otherwise.
+
+### GetOciRegionsOk
+
+`func (o *UpdateProductTierRequest2) GetOciRegionsOk() (*[]string, bool)`
+
+GetOciRegionsOk returns a tuple with the OciRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciRegions
+
+`func (o *UpdateProductTierRequest2) SetOciRegions(v []string)`
+
+SetOciRegions sets OciRegions field to given value.
+
+### HasOciRegions
+
+`func (o *UpdateProductTierRequest2) HasOciRegions() bool`
+
+HasOciRegions returns a boolean if a field has been set.
+
+### GetOnPremPlatforms
+
+`func (o *UpdateProductTierRequest2) GetOnPremPlatforms() []string`
+
+GetOnPremPlatforms returns the OnPremPlatforms field if non-nil, zero value otherwise.
+
+### GetOnPremPlatformsOk
+
+`func (o *UpdateProductTierRequest2) GetOnPremPlatformsOk() (*[]string, bool)`
+
+GetOnPremPlatformsOk returns a tuple with the OnPremPlatforms field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnPremPlatforms
+
+`func (o *UpdateProductTierRequest2) SetOnPremPlatforms(v []string)`
+
+SetOnPremPlatforms sets OnPremPlatforms field to given value.
+
+### HasOnPremPlatforms
+
+`func (o *UpdateProductTierRequest2) HasOnPremPlatforms() bool`
+
+HasOnPremPlatforms returns a boolean if a field has been set.
 
 ### GetPlanDescription
 

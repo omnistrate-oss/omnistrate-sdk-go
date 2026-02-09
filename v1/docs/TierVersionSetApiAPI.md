@@ -8,11 +8,15 @@ Method | HTTP request | Description
 [**TierVersionSetApiCustomerListTierVersionSets**](TierVersionSetApiAPI.md#TierVersionSetApiCustomerListTierVersionSets) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/customer-version-set | CustomerListTierVersionSets tier-version-set-api
 [**TierVersionSetApiDeprecateTierVersionSet**](TierVersionSetApiAPI.md#TierVersionSetApiDeprecateTierVersionSet) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/deprecate | DeprecateTierVersionSet tier-version-set-api
 [**TierVersionSetApiDescribeTierVersionSet**](TierVersionSetApiAPI.md#TierVersionSetApiDescribeTierVersionSet) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version} | DescribeTierVersionSet tier-version-set-api
+[**TierVersionSetApiDescribeTierVersionSetMetadata**](TierVersionSetApiAPI.md#TierVersionSetApiDescribeTierVersionSetMetadata) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/metadata | DescribeTierVersionSetMetadata tier-version-set-api
 [**TierVersionSetApiDiffTierVersionSets**](TierVersionSetApiAPI.md#TierVersionSetApiDiffTierVersionSets) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/diff/{anotherVersion} | DiffTierVersionSets tier-version-set-api
+[**TierVersionSetApiGetTierVersionSetSpec**](TierVersionSetApiAPI.md#TierVersionSetApiGetTierVersionSetSpec) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/spec | GetTierVersionSetSpec tier-version-set-api
+[**TierVersionSetApiListTierVersionSetSpecs**](TierVersionSetApiAPI.md#TierVersionSetApiListTierVersionSetSpecs) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/specs | ListTierVersionSetSpecs tier-version-set-api
 [**TierVersionSetApiListTierVersionSets**](TierVersionSetApiAPI.md#TierVersionSetApiListTierVersionSets) | **Get** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set | ListTierVersionSets tier-version-set-api
 [**TierVersionSetApiPromoteTierVersionSet**](TierVersionSetApiAPI.md#TierVersionSetApiPromoteTierVersionSet) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/promote | PromoteTierVersionSet tier-version-set-api
 [**TierVersionSetApiReleaseTierVersionSet**](TierVersionSetApiAPI.md#TierVersionSetApiReleaseTierVersionSet) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/release | ReleaseTierVersionSet tier-version-set-api
 [**TierVersionSetApiUpdateTierVersionSet**](TierVersionSetApiAPI.md#TierVersionSetApiUpdateTierVersionSet) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version} | UpdateTierVersionSet tier-version-set-api
+[**TierVersionSetApiUpdateTierVersionSetMetadata**](TierVersionSetApiAPI.md#TierVersionSetApiUpdateTierVersionSetMetadata) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/metadata | UpdateTierVersionSetMetadata tier-version-set-api
 
 
 
@@ -312,6 +316,80 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## TierVersionSetApiDescribeTierVersionSetMetadata
+
+> TierVersionSetMetadata TierVersionSetApiDescribeTierVersionSetMetadata(ctx, serviceId, productTierId, version).Execute()
+
+DescribeTierVersionSetMetadata tier-version-set-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | ID of the Service
+	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
+	version := "3.0" // string | The version number for the specific version set.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiDescribeTierVersionSetMetadata(context.Background(), serviceId, productTierId, version).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TierVersionSetApiAPI.TierVersionSetApiDescribeTierVersionSetMetadata``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `TierVersionSetApiDescribeTierVersionSetMetadata`: TierVersionSetMetadata
+	fmt.Fprintf(os.Stdout, "Response from `TierVersionSetApiAPI.TierVersionSetApiDescribeTierVersionSetMetadata`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | ID of the Service | 
+**productTierId** | **string** | The product tier ID that this version set belongs to. | 
+**version** | **string** | The version number for the specific version set. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiTierVersionSetApiDescribeTierVersionSetMetadataRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+### Return type
+
+[**TierVersionSetMetadata**](TierVersionSetMetadata.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## TierVersionSetApiDiffTierVersionSets
 
 > DiffTierVersionSetsResult TierVersionSetApiDiffTierVersionSets(ctx, serviceId, productTierId, version, anotherVersion).Execute()
@@ -374,6 +452,150 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DiffTierVersionSetsResult**](DiffTierVersionSetsResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## TierVersionSetApiGetTierVersionSetSpec
+
+> GetTierVersionSetSpecResult TierVersionSetApiGetTierVersionSetSpec(ctx, serviceId, productTierId).Version(version).Execute()
+
+GetTierVersionSetSpec tier-version-set-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | ID of the Service
+	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
+	version := "3.0" // string | The version number for the specific version set. If not specified, returns the latest preferred or active version. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiGetTierVersionSetSpec(context.Background(), serviceId, productTierId).Version(version).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TierVersionSetApiAPI.TierVersionSetApiGetTierVersionSetSpec``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `TierVersionSetApiGetTierVersionSetSpec`: GetTierVersionSetSpecResult
+	fmt.Fprintf(os.Stdout, "Response from `TierVersionSetApiAPI.TierVersionSetApiGetTierVersionSetSpec`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | ID of the Service | 
+**productTierId** | **string** | The product tier ID that this version set belongs to. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiTierVersionSetApiGetTierVersionSetSpecRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **version** | **string** | The version number for the specific version set. If not specified, returns the latest preferred or active version. | 
+
+### Return type
+
+[**GetTierVersionSetSpecResult**](GetTierVersionSetSpecResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## TierVersionSetApiListTierVersionSetSpecs
+
+> ListTierVersionSetSpecsResult TierVersionSetApiListTierVersionSetSpecs(ctx, serviceId, productTierId).Execute()
+
+ListTierVersionSetSpecs tier-version-set-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | ID of the Service
+	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiListTierVersionSetSpecs(context.Background(), serviceId, productTierId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TierVersionSetApiAPI.TierVersionSetApiListTierVersionSetSpecs``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `TierVersionSetApiListTierVersionSetSpecs`: ListTierVersionSetSpecsResult
+	fmt.Fprintf(os.Stdout, "Response from `TierVersionSetApiAPI.TierVersionSetApiListTierVersionSetSpecs`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | ID of the Service | 
+**productTierId** | **string** | The product tier ID that this version set belongs to. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiTierVersionSetApiListTierVersionSetSpecsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**ListTierVersionSetSpecsResult**](ListTierVersionSetSpecsResult.md)
 
 ### Authorization
 
@@ -679,6 +901,82 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TierVersionSet**](TierVersionSet.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## TierVersionSetApiUpdateTierVersionSetMetadata
+
+> TierVersionSetMetadata TierVersionSetApiUpdateTierVersionSetMetadata(ctx, serviceId, productTierId, version).UpdateTierVersionSetMetadataRequest2(updateTierVersionSetMetadataRequest2).Execute()
+
+UpdateTierVersionSetMetadata tier-version-set-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | ID of the Service
+	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
+	version := "3.0" // string | The version number for the specific version set.
+	updateTierVersionSetMetadataRequest2 := *openapiclient.NewUpdateTierVersionSetMetadataRequest2() // UpdateTierVersionSetMetadataRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiUpdateTierVersionSetMetadata(context.Background(), serviceId, productTierId, version).UpdateTierVersionSetMetadataRequest2(updateTierVersionSetMetadataRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TierVersionSetApiAPI.TierVersionSetApiUpdateTierVersionSetMetadata``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `TierVersionSetApiUpdateTierVersionSetMetadata`: TierVersionSetMetadata
+	fmt.Fprintf(os.Stdout, "Response from `TierVersionSetApiAPI.TierVersionSetApiUpdateTierVersionSetMetadata`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | ID of the Service | 
+**productTierId** | **string** | The product tier ID that this version set belongs to. | 
+**version** | **string** | The version number for the specific version set. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiTierVersionSetApiUpdateTierVersionSetMetadataRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **updateTierVersionSetMetadataRequest2** | [**UpdateTierVersionSetMetadataRequest2**](UpdateTierVersionSetMetadataRequest2.md) |  | 
+
+### Return type
+
+[**TierVersionSetMetadata**](TierVersionSetMetadata.md)
 
 ### Authorization
 

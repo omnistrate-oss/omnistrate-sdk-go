@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Vunits** | Pointer to **map[string]interface{}** | The health of each vunit under this service environment | [optional] 
+**Vunits** | Pointer to **map[string]string** | The health of each vunit under this service environment | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetVunits
 
-`func (o *VUnitHealthReport) GetVunits() map[string]interface{}`
+`func (o *VUnitHealthReport) GetVunits() map[string]string`
 
 GetVunits returns the Vunits field if non-nil, zero value otherwise.
 
 ### GetVunitsOk
 
-`func (o *VUnitHealthReport) GetVunitsOk() (*map[string]interface{}, bool)`
+`func (o *VUnitHealthReport) GetVunitsOk() (*map[string]string, bool)`
 
 GetVunitsOk returns a tuple with the Vunits field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVunits
 
-`func (o *VUnitHealthReport) SetVunits(v map[string]interface{})`
+`func (o *VUnitHealthReport) SetVunits(v map[string]string)`
 
 SetVunits sets Vunits field to given value.
 

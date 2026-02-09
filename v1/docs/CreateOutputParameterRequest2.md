@@ -5,7 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | **string** | Description of the output variable being exported | 
+**GenericCommandValueProvider** | Pointer to [**GenericCommandValueProviderConfig**](GenericCommandValueProviderConfig.md) |  | [optional] 
 **Key** | **string** | Key of the output variable being exported | 
+**KubectlValueProvider** | Pointer to [**KubectlValueProviderConfig**](KubectlValueProviderConfig.md) |  | [optional] 
 **Name** | **string** | External name of the output variable being exported | 
 **ResourceId** | **string** | The ID of the resource that this output parameter belongs to | 
 **Value** | Pointer to **string** | Value of the output variable being exported | [optional] 
@@ -51,6 +53,31 @@ and a boolean to check if the value has been set.
 SetDescription sets Description field to given value.
 
 
+### GetGenericCommandValueProvider
+
+`func (o *CreateOutputParameterRequest2) GetGenericCommandValueProvider() GenericCommandValueProviderConfig`
+
+GetGenericCommandValueProvider returns the GenericCommandValueProvider field if non-nil, zero value otherwise.
+
+### GetGenericCommandValueProviderOk
+
+`func (o *CreateOutputParameterRequest2) GetGenericCommandValueProviderOk() (*GenericCommandValueProviderConfig, bool)`
+
+GetGenericCommandValueProviderOk returns a tuple with the GenericCommandValueProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGenericCommandValueProvider
+
+`func (o *CreateOutputParameterRequest2) SetGenericCommandValueProvider(v GenericCommandValueProviderConfig)`
+
+SetGenericCommandValueProvider sets GenericCommandValueProvider field to given value.
+
+### HasGenericCommandValueProvider
+
+`func (o *CreateOutputParameterRequest2) HasGenericCommandValueProvider() bool`
+
+HasGenericCommandValueProvider returns a boolean if a field has been set.
+
 ### GetKey
 
 `func (o *CreateOutputParameterRequest2) GetKey() string`
@@ -70,6 +97,31 @@ and a boolean to check if the value has been set.
 
 SetKey sets Key field to given value.
 
+
+### GetKubectlValueProvider
+
+`func (o *CreateOutputParameterRequest2) GetKubectlValueProvider() KubectlValueProviderConfig`
+
+GetKubectlValueProvider returns the KubectlValueProvider field if non-nil, zero value otherwise.
+
+### GetKubectlValueProviderOk
+
+`func (o *CreateOutputParameterRequest2) GetKubectlValueProviderOk() (*KubectlValueProviderConfig, bool)`
+
+GetKubectlValueProviderOk returns a tuple with the KubectlValueProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKubectlValueProvider
+
+`func (o *CreateOutputParameterRequest2) SetKubectlValueProvider(v KubectlValueProviderConfig)`
+
+SetKubectlValueProvider sets KubectlValueProvider field to given value.
+
+### HasKubectlValueProvider
+
+`func (o *CreateOutputParameterRequest2) HasKubectlValueProvider() bool`
+
+HasKubectlValueProvider returns a boolean if a field has been set.
 
 ### GetName
 

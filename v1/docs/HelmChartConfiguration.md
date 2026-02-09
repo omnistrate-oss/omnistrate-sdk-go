@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AutoDiscoverImagesTag** | Pointer to **string** | The tag to auto-discover and update in the Helm chart values (if the chartValues or layeredChartValues contain an image tag placeholder like {{ .Values.image.tag }}, this field specifies which tag to replace it with) | [optional] 
+**ChartAffinityControl** | Pointer to [**HelmChartAffinityControl**](HelmChartAffinityControl.md) |  | [optional] 
 **ChartName** | **string** | The chart name of the Helm package | 
 **ChartRepoName** | **string** | The chart repository name of the Helm package | 
 **ChartRepoUrl** | **string** | The chart repository URL of the Helm package | 
@@ -11,7 +13,9 @@ Name | Type | Description | Notes
 **ChartVersion** | **string** | The chart version of the Helm package | 
 **EndpointConfiguration** | Pointer to [**map[string]Endpoint**](Endpoint.md) | The endpoints from the Helm Deployment to expose to the customer | [optional] 
 **LayeredChartValues** | Pointer to [**[]ChartValuesRef**](ChartValuesRef.md) | Layered chart values configuration with conditional scoping (mutually exclusive with chartValues). Values are processed in order - later entries override earlier ones for the same keys. | [optional] 
+**Namespace** | Pointer to **string** | The namespace to deploy the Helm chart into (only applicable to OnPrem hosting model) | [optional] 
 **Password** | Pointer to **string** | The password to authenticate with the registry | [optional] 
+**ReleaseName** | Pointer to **string** | The release name of the Helm package (defaults to chartName if not provided) | [optional] 
 **RuntimeConfiguration** | Pointer to [**HelmRuntimeConfiguration**](HelmRuntimeConfiguration.md) |  | [optional] 
 **Username** | Pointer to **string** | The username to authenticate with the registry | [optional] 
 
@@ -33,6 +37,56 @@ will change when the set of required properties is changed
 NewHelmChartConfigurationWithDefaults instantiates a new HelmChartConfiguration object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAutoDiscoverImagesTag
+
+`func (o *HelmChartConfiguration) GetAutoDiscoverImagesTag() string`
+
+GetAutoDiscoverImagesTag returns the AutoDiscoverImagesTag field if non-nil, zero value otherwise.
+
+### GetAutoDiscoverImagesTagOk
+
+`func (o *HelmChartConfiguration) GetAutoDiscoverImagesTagOk() (*string, bool)`
+
+GetAutoDiscoverImagesTagOk returns a tuple with the AutoDiscoverImagesTag field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoDiscoverImagesTag
+
+`func (o *HelmChartConfiguration) SetAutoDiscoverImagesTag(v string)`
+
+SetAutoDiscoverImagesTag sets AutoDiscoverImagesTag field to given value.
+
+### HasAutoDiscoverImagesTag
+
+`func (o *HelmChartConfiguration) HasAutoDiscoverImagesTag() bool`
+
+HasAutoDiscoverImagesTag returns a boolean if a field has been set.
+
+### GetChartAffinityControl
+
+`func (o *HelmChartConfiguration) GetChartAffinityControl() HelmChartAffinityControl`
+
+GetChartAffinityControl returns the ChartAffinityControl field if non-nil, zero value otherwise.
+
+### GetChartAffinityControlOk
+
+`func (o *HelmChartConfiguration) GetChartAffinityControlOk() (*HelmChartAffinityControl, bool)`
+
+GetChartAffinityControlOk returns a tuple with the ChartAffinityControl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChartAffinityControl
+
+`func (o *HelmChartConfiguration) SetChartAffinityControl(v HelmChartAffinityControl)`
+
+SetChartAffinityControl sets ChartAffinityControl field to given value.
+
+### HasChartAffinityControl
+
+`func (o *HelmChartConfiguration) HasChartAffinityControl() bool`
+
+HasChartAffinityControl returns a boolean if a field has been set.
 
 ### GetChartName
 
@@ -189,6 +243,31 @@ SetLayeredChartValues sets LayeredChartValues field to given value.
 
 HasLayeredChartValues returns a boolean if a field has been set.
 
+### GetNamespace
+
+`func (o *HelmChartConfiguration) GetNamespace() string`
+
+GetNamespace returns the Namespace field if non-nil, zero value otherwise.
+
+### GetNamespaceOk
+
+`func (o *HelmChartConfiguration) GetNamespaceOk() (*string, bool)`
+
+GetNamespaceOk returns a tuple with the Namespace field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNamespace
+
+`func (o *HelmChartConfiguration) SetNamespace(v string)`
+
+SetNamespace sets Namespace field to given value.
+
+### HasNamespace
+
+`func (o *HelmChartConfiguration) HasNamespace() bool`
+
+HasNamespace returns a boolean if a field has been set.
+
 ### GetPassword
 
 `func (o *HelmChartConfiguration) GetPassword() string`
@@ -213,6 +292,31 @@ SetPassword sets Password field to given value.
 `func (o *HelmChartConfiguration) HasPassword() bool`
 
 HasPassword returns a boolean if a field has been set.
+
+### GetReleaseName
+
+`func (o *HelmChartConfiguration) GetReleaseName() string`
+
+GetReleaseName returns the ReleaseName field if non-nil, zero value otherwise.
+
+### GetReleaseNameOk
+
+`func (o *HelmChartConfiguration) GetReleaseNameOk() (*string, bool)`
+
+GetReleaseNameOk returns a tuple with the ReleaseName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReleaseName
+
+`func (o *HelmChartConfiguration) SetReleaseName(v string)`
+
+SetReleaseName sets ReleaseName field to given value.
+
+### HasReleaseName
+
+`func (o *HelmChartConfiguration) HasReleaseName() bool`
+
+HasReleaseName returns a boolean if a field has been set.
 
 ### GetRuntimeConfiguration
 

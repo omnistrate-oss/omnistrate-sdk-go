@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **DisableMonitoring** | Pointer to **bool** | Whether to disable monitoring for this endpoint | [optional] [default to false]
 **Host** | Pointer to **string** | The host of the endpoint | [optional] [default to ""]
 **NetworkingType** | Pointer to **string** | The networking type of the endpoint | [optional] [default to "PUBLIC"]
+**PortExpressions** | Pointer to **[]string** | The port expressions that will be evaluated to generate dynamic ports | [optional] 
 **Ports** | Pointer to **[]int64** | The ports of the endpoint | [optional] 
 **Primary** | Pointer to **bool** | Whether this is the primary endpoint to highlight | [optional] [default to false]
 
@@ -103,6 +104,31 @@ SetNetworkingType sets NetworkingType field to given value.
 `func (o *Endpoint) HasNetworkingType() bool`
 
 HasNetworkingType returns a boolean if a field has been set.
+
+### GetPortExpressions
+
+`func (o *Endpoint) GetPortExpressions() []string`
+
+GetPortExpressions returns the PortExpressions field if non-nil, zero value otherwise.
+
+### GetPortExpressionsOk
+
+`func (o *Endpoint) GetPortExpressionsOk() (*[]string, bool)`
+
+GetPortExpressionsOk returns a tuple with the PortExpressions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPortExpressions
+
+`func (o *Endpoint) SetPortExpressions(v []string)`
+
+SetPortExpressions sets PortExpressions field to given value.
+
+### HasPortExpressions
+
+`func (o *Endpoint) HasPortExpressions() bool`
+
+HasPortExpressions returns a boolean if a field has been set.
 
 ### GetPorts
 

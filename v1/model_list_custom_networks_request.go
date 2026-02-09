@@ -26,6 +26,8 @@ type ListCustomNetworksRequest struct {
 	CloudProviderRegion *string `json:"cloudProviderRegion,omitempty"`
 	// Flag indicating whether to return only custom networks, or to include default and imported networks as well
 	CustomNetworksOnly *bool `json:"customNetworksOnly,omitempty"`
+	// ID of a Subscription
+	SubscriptionId *string `json:"subscriptionId,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -120,6 +122,29 @@ func (o *ListCustomNetworksRequest) SetCustomNetworksOnly(v bool) {
 	o.CustomNetworksOnly = &v
 }
 
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+func (o *ListCustomNetworksRequest) GetSubscriptionId() string {
+	if o == nil || IsNil(o.SubscriptionId) {
+		var ret string
+		return ret
+	}
+	return *o.SubscriptionId
+}
+
+// GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListCustomNetworksRequest) GetSubscriptionIdOk() (*string, bool) {
+	if o == nil || IsNil(o.SubscriptionId) {
+		return nil, false
+	}
+	return o.SubscriptionId, true
+}
+
+// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+func (o *ListCustomNetworksRequest) SetSubscriptionId(v string) {
+	o.SubscriptionId = &v
+}
+
 // GetToken returns the Token field value
 func (o *ListCustomNetworksRequest) GetToken() string {
 	if o == nil {
@@ -162,6 +187,9 @@ func (o ListCustomNetworksRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.CustomNetworksOnly) {
 		toSerialize["customNetworksOnly"] = o.CustomNetworksOnly
+	}
+	if !IsNil(o.SubscriptionId) {
+		toSerialize["subscriptionId"] = o.SubscriptionId
 	}
 	toSerialize["token"] = o.Token
 
@@ -210,6 +238,7 @@ func (o *ListCustomNetworksRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "cloudProviderName")
 		delete(additionalProperties, "cloudProviderRegion")
 		delete(additionalProperties, "customNetworksOnly")
+		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

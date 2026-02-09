@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**IsNewServicePlanVersionCreated** | Pointer to **bool** | Indicates if a new service plan version was created | [optional] 
 **ProductTierID** | **string** | ID of a Product Tier | 
 **ServiceEnvironmentID** | **string** | ID of a Service Environment | 
 **ServiceID** | **string** | ID of a Service | 
@@ -27,6 +28,31 @@ will change when the set of required properties is changed
 NewBuildServiceFromComposeSpecResultWithDefaults instantiates a new BuildServiceFromComposeSpecResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetIsNewServicePlanVersionCreated
+
+`func (o *BuildServiceFromComposeSpecResult) GetIsNewServicePlanVersionCreated() bool`
+
+GetIsNewServicePlanVersionCreated returns the IsNewServicePlanVersionCreated field if non-nil, zero value otherwise.
+
+### GetIsNewServicePlanVersionCreatedOk
+
+`func (o *BuildServiceFromComposeSpecResult) GetIsNewServicePlanVersionCreatedOk() (*bool, bool)`
+
+GetIsNewServicePlanVersionCreatedOk returns a tuple with the IsNewServicePlanVersionCreated field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsNewServicePlanVersionCreated
+
+`func (o *BuildServiceFromComposeSpecResult) SetIsNewServicePlanVersionCreated(v bool)`
+
+SetIsNewServicePlanVersionCreated sets IsNewServicePlanVersionCreated field to given value.
+
+### HasIsNewServicePlanVersionCreated
+
+`func (o *BuildServiceFromComposeSpecResult) HasIsNewServicePlanVersionCreated() bool`
+
+HasIsNewServicePlanVersionCreated returns a boolean if a field has been set.
 
 ### GetProductTierID
 

@@ -38,8 +38,11 @@ type InputParameterEntity struct {
 	Modifiable bool `json:"modifiable"`
 	// The parameter options
 	Options []string `json:"options,omitempty"`
+	// The parameter regex for validation
+	Regex *string `json:"regex,omitempty"`
 	// Whether the parameter is required
 	Required bool `json:"required"`
+	Scope *InputParameterScope `json:"scope,omitempty"`
 	// Index for parameter ordering in the SaaS portal
 	TabIndex *int64 `json:"tabIndex,omitempty"`
 	// The parameter type
@@ -291,6 +294,29 @@ func (o *InputParameterEntity) SetOptions(v []string) {
 	o.Options = v
 }
 
+// GetRegex returns the Regex field value if set, zero value otherwise.
+func (o *InputParameterEntity) GetRegex() string {
+	if o == nil || IsNil(o.Regex) {
+		var ret string
+		return ret
+	}
+	return *o.Regex
+}
+
+// GetRegexOk returns a tuple with the Regex field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InputParameterEntity) GetRegexOk() (*string, bool) {
+	if o == nil || IsNil(o.Regex) {
+		return nil, false
+	}
+	return o.Regex, true
+}
+
+// SetRegex gets a reference to the given string and assigns it to the Regex field.
+func (o *InputParameterEntity) SetRegex(v string) {
+	o.Regex = &v
+}
+
 // GetRequired returns the Required field value
 func (o *InputParameterEntity) GetRequired() bool {
 	if o == nil {
@@ -313,6 +339,29 @@ func (o *InputParameterEntity) GetRequiredOk() (*bool, bool) {
 // SetRequired sets field value
 func (o *InputParameterEntity) SetRequired(v bool) {
 	o.Required = v
+}
+
+// GetScope returns the Scope field value if set, zero value otherwise.
+func (o *InputParameterEntity) GetScope() InputParameterScope {
+	if o == nil || IsNil(o.Scope) {
+		var ret InputParameterScope
+		return ret
+	}
+	return *o.Scope
+}
+
+// GetScopeOk returns a tuple with the Scope field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InputParameterEntity) GetScopeOk() (*InputParameterScope, bool) {
+	if o == nil || IsNil(o.Scope) {
+		return nil, false
+	}
+	return o.Scope, true
+}
+
+// SetScope gets a reference to the given InputParameterScope and assigns it to the Scope field.
+func (o *InputParameterEntity) SetScope(v InputParameterScope) {
+	o.Scope = &v
 }
 
 // GetTabIndex returns the TabIndex field value if set, zero value otherwise.
@@ -387,7 +436,13 @@ func (o InputParameterEntity) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Options) {
 		toSerialize["options"] = o.Options
 	}
+	if !IsNil(o.Regex) {
+		toSerialize["regex"] = o.Regex
+	}
 	toSerialize["required"] = o.Required
+	if !IsNil(o.Scope) {
+		toSerialize["scope"] = o.Scope
+	}
 	if !IsNil(o.TabIndex) {
 		toSerialize["tabIndex"] = o.TabIndex
 	}
@@ -451,7 +506,9 @@ func (o *InputParameterEntity) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "key")
 		delete(additionalProperties, "modifiable")
 		delete(additionalProperties, "options")
+		delete(additionalProperties, "regex")
 		delete(additionalProperties, "required")
+		delete(additionalProperties, "scope")
 		delete(additionalProperties, "tabIndex")
 		delete(additionalProperties, "type")
 		o.AdditionalProperties = additionalProperties

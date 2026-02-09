@@ -4,22 +4,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DisableHooks** | **bool** | Disable Helm hooks | 
-**Recreate** | **bool** | Recreate the Helm package if it already exists | 
-**ResetThenReuseValues** | **bool** | Reset then reuse values for the Helm package before applying | 
-**ResetValues** | **bool** | Reset values for the Helm package before applying | 
-**ReuseValues** | **bool** | Reuse values for the Helm package before applying | 
-**SkipCRDs** | **bool** | Skip CRDs for the Helm package | 
-**TimeoutNanos** | **int64** | Timeout (nanos) for the Helm package to be deployed | 
-**UpgradeCRDs** | **bool** | Upgrade CRDs for the Helm package | 
-**Wait** | **bool** | Wait for the Helm package to be deployed | 
-**WaitForJobs** | **bool** | Wait for all jobs to be completed | 
+**DisableHooks** | Pointer to **bool** | Disable Helm hooks | [optional] 
+**DisableReconciliation** | Pointer to **bool** | Flag to disable drift reconciliation for the Helm package | [optional] 
+**Recreate** | Pointer to **bool** | Recreate the Helm package if it already exists | [optional] 
+**ResetThenReuseValues** | Pointer to **bool** | Reset then reuse values for the Helm package before applying | [optional] 
+**ResetValues** | Pointer to **bool** | Reset values for the Helm package before applying | [optional] 
+**ReuseValues** | Pointer to **bool** | Reuse values for the Helm package before applying | [optional] 
+**SkipCRDs** | Pointer to **bool** | Skip CRDs for the Helm package | [optional] 
+**TimeoutNanos** | Pointer to **int64** | Timeout (nanos) for the Helm package to be deployed | [optional] 
+**UpgradeCRDs** | Pointer to **bool** | Upgrade CRDs for the Helm package | [optional] 
+**Wait** | Pointer to **bool** | Wait for the Helm package to be deployed | [optional] 
+**WaitForJobs** | Pointer to **bool** | Wait for all jobs to be completed | [optional] 
 
 ## Methods
 
 ### NewHelmRuntimeConfiguration
 
-`func NewHelmRuntimeConfiguration(disableHooks bool, recreate bool, resetThenReuseValues bool, resetValues bool, reuseValues bool, skipCRDs bool, timeoutNanos int64, upgradeCRDs bool, wait bool, waitForJobs bool, ) *HelmRuntimeConfiguration`
+`func NewHelmRuntimeConfiguration() *HelmRuntimeConfiguration`
 
 NewHelmRuntimeConfiguration instantiates a new HelmRuntimeConfiguration object
 This constructor will assign default values to properties that have it defined,
@@ -53,6 +54,36 @@ and a boolean to check if the value has been set.
 
 SetDisableHooks sets DisableHooks field to given value.
 
+### HasDisableHooks
+
+`func (o *HelmRuntimeConfiguration) HasDisableHooks() bool`
+
+HasDisableHooks returns a boolean if a field has been set.
+
+### GetDisableReconciliation
+
+`func (o *HelmRuntimeConfiguration) GetDisableReconciliation() bool`
+
+GetDisableReconciliation returns the DisableReconciliation field if non-nil, zero value otherwise.
+
+### GetDisableReconciliationOk
+
+`func (o *HelmRuntimeConfiguration) GetDisableReconciliationOk() (*bool, bool)`
+
+GetDisableReconciliationOk returns a tuple with the DisableReconciliation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisableReconciliation
+
+`func (o *HelmRuntimeConfiguration) SetDisableReconciliation(v bool)`
+
+SetDisableReconciliation sets DisableReconciliation field to given value.
+
+### HasDisableReconciliation
+
+`func (o *HelmRuntimeConfiguration) HasDisableReconciliation() bool`
+
+HasDisableReconciliation returns a boolean if a field has been set.
 
 ### GetRecreate
 
@@ -73,6 +104,11 @@ and a boolean to check if the value has been set.
 
 SetRecreate sets Recreate field to given value.
 
+### HasRecreate
+
+`func (o *HelmRuntimeConfiguration) HasRecreate() bool`
+
+HasRecreate returns a boolean if a field has been set.
 
 ### GetResetThenReuseValues
 
@@ -93,6 +129,11 @@ and a boolean to check if the value has been set.
 
 SetResetThenReuseValues sets ResetThenReuseValues field to given value.
 
+### HasResetThenReuseValues
+
+`func (o *HelmRuntimeConfiguration) HasResetThenReuseValues() bool`
+
+HasResetThenReuseValues returns a boolean if a field has been set.
 
 ### GetResetValues
 
@@ -113,6 +154,11 @@ and a boolean to check if the value has been set.
 
 SetResetValues sets ResetValues field to given value.
 
+### HasResetValues
+
+`func (o *HelmRuntimeConfiguration) HasResetValues() bool`
+
+HasResetValues returns a boolean if a field has been set.
 
 ### GetReuseValues
 
@@ -133,6 +179,11 @@ and a boolean to check if the value has been set.
 
 SetReuseValues sets ReuseValues field to given value.
 
+### HasReuseValues
+
+`func (o *HelmRuntimeConfiguration) HasReuseValues() bool`
+
+HasReuseValues returns a boolean if a field has been set.
 
 ### GetSkipCRDs
 
@@ -153,6 +204,11 @@ and a boolean to check if the value has been set.
 
 SetSkipCRDs sets SkipCRDs field to given value.
 
+### HasSkipCRDs
+
+`func (o *HelmRuntimeConfiguration) HasSkipCRDs() bool`
+
+HasSkipCRDs returns a boolean if a field has been set.
 
 ### GetTimeoutNanos
 
@@ -173,6 +229,11 @@ and a boolean to check if the value has been set.
 
 SetTimeoutNanos sets TimeoutNanos field to given value.
 
+### HasTimeoutNanos
+
+`func (o *HelmRuntimeConfiguration) HasTimeoutNanos() bool`
+
+HasTimeoutNanos returns a boolean if a field has been set.
 
 ### GetUpgradeCRDs
 
@@ -193,6 +254,11 @@ and a boolean to check if the value has been set.
 
 SetUpgradeCRDs sets UpgradeCRDs field to given value.
 
+### HasUpgradeCRDs
+
+`func (o *HelmRuntimeConfiguration) HasUpgradeCRDs() bool`
+
+HasUpgradeCRDs returns a boolean if a field has been set.
 
 ### GetWait
 
@@ -213,6 +279,11 @@ and a boolean to check if the value has been set.
 
 SetWait sets Wait field to given value.
 
+### HasWait
+
+`func (o *HelmRuntimeConfiguration) HasWait() bool`
+
+HasWait returns a boolean if a field has been set.
 
 ### GetWaitForJobs
 
@@ -233,6 +304,11 @@ and a boolean to check if the value has been set.
 
 SetWaitForJobs sets WaitForJobs field to given value.
 
+### HasWaitForJobs
+
+`func (o *HelmRuntimeConfiguration) HasWaitForJobs() bool`
+
+HasWaitForJobs returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

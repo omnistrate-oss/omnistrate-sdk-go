@@ -39,6 +39,8 @@ type CustomNetwork struct {
 	OwningUserId *string `json:"owningUserId,omitempty"`
 	// The name of the user that created and owns the custom network
 	OwningUserName *string `json:"owningUserName,omitempty"`
+	// The status of an operation
+	Status *string `json:"status,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -301,6 +303,29 @@ func (o *CustomNetwork) SetOwningUserName(v string) {
 	o.OwningUserName = &v
 }
 
+// GetStatus returns the Status field value if set, zero value otherwise.
+func (o *CustomNetwork) GetStatus() string {
+	if o == nil || IsNil(o.Status) {
+		var ret string
+		return ret
+	}
+	return *o.Status
+}
+
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomNetwork) GetStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.Status) {
+		return nil, false
+	}
+	return o.Status, true
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
+func (o *CustomNetwork) SetStatus(v string) {
+	o.Status = &v
+}
+
 func (o CustomNetwork) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -334,6 +359,9 @@ func (o CustomNetwork) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.OwningUserName) {
 		toSerialize["owningUserName"] = o.OwningUserName
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -390,6 +418,7 @@ func (o *CustomNetwork) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "networkInstances")
 		delete(additionalProperties, "owningUserId")
 		delete(additionalProperties, "owningUserName")
+		delete(additionalProperties, "status")
 		o.AdditionalProperties = additionalProperties
 	}
 

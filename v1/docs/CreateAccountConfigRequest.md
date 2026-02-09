@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **GcpServiceAccountEmail** | Pointer to **string** | The GCP service account email | [optional] 
 **GcpServiceAccountKey** | Pointer to **string** | The GCP service account key | [optional] 
 **Name** | **string** | The name of the account | 
+**OciDomainID** | Pointer to **string** | The Domain OCID for Oracle Cloud Infrastructure | [optional] 
+**OciTenancyID** | Pointer to **string** | The Tenancy OCID for Oracle Cloud Infrastructure | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
@@ -373,6 +375,56 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetOciDomainID
+
+`func (o *CreateAccountConfigRequest) GetOciDomainID() string`
+
+GetOciDomainID returns the OciDomainID field if non-nil, zero value otherwise.
+
+### GetOciDomainIDOk
+
+`func (o *CreateAccountConfigRequest) GetOciDomainIDOk() (*string, bool)`
+
+GetOciDomainIDOk returns a tuple with the OciDomainID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciDomainID
+
+`func (o *CreateAccountConfigRequest) SetOciDomainID(v string)`
+
+SetOciDomainID sets OciDomainID field to given value.
+
+### HasOciDomainID
+
+`func (o *CreateAccountConfigRequest) HasOciDomainID() bool`
+
+HasOciDomainID returns a boolean if a field has been set.
+
+### GetOciTenancyID
+
+`func (o *CreateAccountConfigRequest) GetOciTenancyID() string`
+
+GetOciTenancyID returns the OciTenancyID field if non-nil, zero value otherwise.
+
+### GetOciTenancyIDOk
+
+`func (o *CreateAccountConfigRequest) GetOciTenancyIDOk() (*string, bool)`
+
+GetOciTenancyIDOk returns a tuple with the OciTenancyID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciTenancyID
+
+`func (o *CreateAccountConfigRequest) SetOciTenancyID(v string)`
+
+SetOciTenancyID sets OciTenancyID field to given value.
+
+### HasOciTenancyID
+
+`func (o *CreateAccountConfigRequest) HasOciTenancyID() bool`
+
+HasOciTenancyID returns a boolean if a field has been set.
 
 ### GetToken
 

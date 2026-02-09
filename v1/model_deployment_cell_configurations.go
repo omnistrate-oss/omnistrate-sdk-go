@@ -20,7 +20,7 @@ var _ MappedNullable = &DeploymentCellConfigurations{}
 // DeploymentCellConfigurations struct for DeploymentCellConfigurations
 type DeploymentCellConfigurations struct {
 	// The deployment cell configurations per cloud provider.
-	DeploymentCellConfigurationPerCloudProvider map[string]interface{} `json:"DeploymentCellConfigurationPerCloudProvider,omitempty"`
+	DeploymentCellConfigurationPerCloudProvider *map[string]DeploymentCellConfiguration `json:"DeploymentCellConfigurationPerCloudProvider,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -44,26 +44,26 @@ func NewDeploymentCellConfigurationsWithDefaults() *DeploymentCellConfigurations
 }
 
 // GetDeploymentCellConfigurationPerCloudProvider returns the DeploymentCellConfigurationPerCloudProvider field value if set, zero value otherwise.
-func (o *DeploymentCellConfigurations) GetDeploymentCellConfigurationPerCloudProvider() map[string]interface{} {
+func (o *DeploymentCellConfigurations) GetDeploymentCellConfigurationPerCloudProvider() map[string]DeploymentCellConfiguration {
 	if o == nil || IsNil(o.DeploymentCellConfigurationPerCloudProvider) {
-		var ret map[string]interface{}
+		var ret map[string]DeploymentCellConfiguration
 		return ret
 	}
-	return o.DeploymentCellConfigurationPerCloudProvider
+	return *o.DeploymentCellConfigurationPerCloudProvider
 }
 
 // GetDeploymentCellConfigurationPerCloudProviderOk returns a tuple with the DeploymentCellConfigurationPerCloudProvider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DeploymentCellConfigurations) GetDeploymentCellConfigurationPerCloudProviderOk() (map[string]interface{}, bool) {
+func (o *DeploymentCellConfigurations) GetDeploymentCellConfigurationPerCloudProviderOk() (*map[string]DeploymentCellConfiguration, bool) {
 	if o == nil || IsNil(o.DeploymentCellConfigurationPerCloudProvider) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.DeploymentCellConfigurationPerCloudProvider, true
 }
 
-// SetDeploymentCellConfigurationPerCloudProvider gets a reference to the given map[string]interface{} and assigns it to the DeploymentCellConfigurationPerCloudProvider field.
-func (o *DeploymentCellConfigurations) SetDeploymentCellConfigurationPerCloudProvider(v map[string]interface{}) {
-	o.DeploymentCellConfigurationPerCloudProvider = v
+// SetDeploymentCellConfigurationPerCloudProvider gets a reference to the given map[string]DeploymentCellConfiguration and assigns it to the DeploymentCellConfigurationPerCloudProvider field.
+func (o *DeploymentCellConfigurations) SetDeploymentCellConfigurationPerCloudProvider(v map[string]DeploymentCellConfiguration) {
+	o.DeploymentCellConfigurationPerCloudProvider = &v
 }
 
 func (o DeploymentCellConfigurations) MarshalJSON() ([]byte, error) {

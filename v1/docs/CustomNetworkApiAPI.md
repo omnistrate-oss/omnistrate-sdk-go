@@ -31,7 +31,7 @@ import (
 )
 
 func main() {
-	createCustomNetworkRequest2 := *openapiclient.NewCreateCustomNetworkRequest2("aws", "us-east-1") // CreateCustomNetworkRequest2 | 
+	createCustomNetworkRequest2 := *openapiclient.NewCreateCustomNetworkRequest2("aws|azure|gcp|all", "us-east-1") // CreateCustomNetworkRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 ## CustomNetworkApiListCustomNetworks
 
-> ListCustomNetworksResult CustomNetworkApiListCustomNetworks(ctx).CloudProviderName(cloudProviderName).CloudProviderRegion(cloudProviderRegion).CustomNetworksOnly(customNetworksOnly).Execute()
+> ListCustomNetworksResult CustomNetworkApiListCustomNetworks(ctx).CloudProviderName(cloudProviderName).CloudProviderRegion(cloudProviderRegion).CustomNetworksOnly(customNetworksOnly).SubscriptionId(subscriptionId).Execute()
 
 ListCustomNetworks custom-network-api
 
@@ -229,13 +229,14 @@ import (
 )
 
 func main() {
-	cloudProviderName := "aws" // string | The name of the cloud provider that custom network should be created in (optional)
-	cloudProviderRegion := "us-east-1" // string | The region of the cloud provider that the network should be created in (optional)
+	cloudProviderName := "aws" // string | The name of the cloud provider to filter custom networks by (optional)
+	cloudProviderRegion := "us-east-1" // string | The region of the cloud provider to filter custom networks by (optional)
 	customNetworksOnly := false // bool | Flag indicating whether to return only custom networks, or to include default and imported networks as well (optional)
+	subscriptionId := "sub-12345678" // string | List available custom networks for the given subscription ID (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CustomNetworkApiAPI.CustomNetworkApiListCustomNetworks(context.Background()).CloudProviderName(cloudProviderName).CloudProviderRegion(cloudProviderRegion).CustomNetworksOnly(customNetworksOnly).Execute()
+	resp, r, err := apiClient.CustomNetworkApiAPI.CustomNetworkApiListCustomNetworks(context.Background()).CloudProviderName(cloudProviderName).CloudProviderRegion(cloudProviderRegion).CustomNetworksOnly(customNetworksOnly).SubscriptionId(subscriptionId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CustomNetworkApiAPI.CustomNetworkApiListCustomNetworks``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -256,9 +257,10 @@ Other parameters are passed through a pointer to a apiCustomNetworkApiListCustom
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cloudProviderName** | **string** | The name of the cloud provider that custom network should be created in | 
- **cloudProviderRegion** | **string** | The region of the cloud provider that the network should be created in | 
+ **cloudProviderName** | **string** | The name of the cloud provider to filter custom networks by | 
+ **cloudProviderRegion** | **string** | The region of the cloud provider to filter custom networks by | 
  **customNetworksOnly** | **bool** | Flag indicating whether to return only custom networks, or to include default and imported networks as well | 
+ **subscriptionId** | **string** | List available custom networks for the given subscription ID | 
 
 ### Return type
 

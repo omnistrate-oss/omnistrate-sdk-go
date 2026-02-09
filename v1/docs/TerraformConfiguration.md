@@ -4,12 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ArtifactsLocalPath** | Pointer to **string** | The local path to store artifacts generated during Terraform execution | [optional] 
 **GitConfiguration** | Pointer to [**GitConfiguration**](GitConfiguration.md) |  | [optional] 
 **PrivateModuleGitAccessTokens** | Pointer to **map[string]string** | The git access tokens for private modules | [optional] 
 **RequiredOutputKeys** | Pointer to **[]string** | The required output keys to export | [optional] 
 **RequiredOutputs** | Pointer to [**[]TerraformOutput**](TerraformOutput.md) | The required output keys to export | [optional] 
 **TerraformExecutionIdentity** | Pointer to **string** | The identity to use for terraform execution | [optional] 
 **TerraformPath** | **string** | The path to the terraform files directory | 
+**VariablesValuesFileOverride** | Pointer to **string** | The variables values file override in base64 format for the Terraform configuration | [optional] 
 
 ## Methods
 
@@ -29,6 +31,31 @@ will change when the set of required properties is changed
 NewTerraformConfigurationWithDefaults instantiates a new TerraformConfiguration object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetArtifactsLocalPath
+
+`func (o *TerraformConfiguration) GetArtifactsLocalPath() string`
+
+GetArtifactsLocalPath returns the ArtifactsLocalPath field if non-nil, zero value otherwise.
+
+### GetArtifactsLocalPathOk
+
+`func (o *TerraformConfiguration) GetArtifactsLocalPathOk() (*string, bool)`
+
+GetArtifactsLocalPathOk returns a tuple with the ArtifactsLocalPath field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetArtifactsLocalPath
+
+`func (o *TerraformConfiguration) SetArtifactsLocalPath(v string)`
+
+SetArtifactsLocalPath sets ArtifactsLocalPath field to given value.
+
+### HasArtifactsLocalPath
+
+`func (o *TerraformConfiguration) HasArtifactsLocalPath() bool`
+
+HasArtifactsLocalPath returns a boolean if a field has been set.
 
 ### GetGitConfiguration
 
@@ -174,6 +201,31 @@ and a boolean to check if the value has been set.
 
 SetTerraformPath sets TerraformPath field to given value.
 
+
+### GetVariablesValuesFileOverride
+
+`func (o *TerraformConfiguration) GetVariablesValuesFileOverride() string`
+
+GetVariablesValuesFileOverride returns the VariablesValuesFileOverride field if non-nil, zero value otherwise.
+
+### GetVariablesValuesFileOverrideOk
+
+`func (o *TerraformConfiguration) GetVariablesValuesFileOverrideOk() (*string, bool)`
+
+GetVariablesValuesFileOverrideOk returns a tuple with the VariablesValuesFileOverride field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVariablesValuesFileOverride
+
+`func (o *TerraformConfiguration) SetVariablesValuesFileOverride(v string)`
+
+SetVariablesValuesFileOverride sets VariablesValuesFileOverride field to given value.
+
+### HasVariablesValuesFileOverride
+
+`func (o *TerraformConfiguration) HasVariablesValuesFileOverride() bool`
+
+HasVariablesValuesFileOverride returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

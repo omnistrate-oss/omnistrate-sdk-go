@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **InfraConfigIDs** | Pointer to **[]string** | The list of infra config IDs associated with the compute config. | [optional] 
 **Internal** | **bool** | Restrict access to this network config to the internal network | 
 **Name** | **string** | Name of the network config | 
+**NamedOpenPorts** | Pointer to [**map[string]NamedPortSpec**](NamedPortSpec.md) | Map of port names to port specifications | [optional] 
 **OpenPorts** | **[]int64** | Ports to map to the generated DNS endpoint | 
 **PrivateNetworkingConfiguration** | Pointer to [**PrivateNetworkingConfiguration**](PrivateNetworkingConfiguration.md) |  | [optional] 
 **PublicNetworkingConfiguration** | Pointer to [**PublicNetworkingConfiguration**](PublicNetworkingConfiguration.md) |  | [optional] 
@@ -161,6 +162,31 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetNamedOpenPorts
+
+`func (o *DescribeNetworkConfigResult) GetNamedOpenPorts() map[string]NamedPortSpec`
+
+GetNamedOpenPorts returns the NamedOpenPorts field if non-nil, zero value otherwise.
+
+### GetNamedOpenPortsOk
+
+`func (o *DescribeNetworkConfigResult) GetNamedOpenPortsOk() (*map[string]NamedPortSpec, bool)`
+
+GetNamedOpenPortsOk returns a tuple with the NamedOpenPorts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNamedOpenPorts
+
+`func (o *DescribeNetworkConfigResult) SetNamedOpenPorts(v map[string]NamedPortSpec)`
+
+SetNamedOpenPorts sets NamedOpenPorts field to given value.
+
+### HasNamedOpenPorts
+
+`func (o *DescribeNetworkConfigResult) HasNamedOpenPorts() bool`
+
+HasNamedOpenPorts returns a boolean if a field has been set.
 
 ### GetOpenPorts
 

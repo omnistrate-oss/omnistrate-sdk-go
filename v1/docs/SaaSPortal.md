@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CustomDomain** | Pointer to **string** | The custom domain of the SaaS portal | [optional] 
 **CustomDomainStatus** | Pointer to **string** | The status of an operation | [optional] 
-**DetailedNetworkTopology** | Pointer to **map[string]interface{}** | The detailed network topology of the SaaS portal | [optional] 
+**DetailedNetworkTopology** | Pointer to [**map[string]ResourceNetworkTopologyResult**](ResourceNetworkTopologyResult.md) | The detailed network topology of the SaaS portal | [optional] 
 **DisablePasswordLogin** | Pointer to **bool** | Whether to disable password login for the SaaS portal | [optional] 
 **EmailConfig** | Pointer to [**SaaSPortalEmailConfig**](SaaSPortalEmailConfig.md) |  | [optional] 
 **Endpoint** | Pointer to **string** | The endpoint of the SaaS portal for this environment type | [optional] 
@@ -86,20 +86,20 @@ HasCustomDomainStatus returns a boolean if a field has been set.
 
 ### GetDetailedNetworkTopology
 
-`func (o *SaaSPortal) GetDetailedNetworkTopology() map[string]interface{}`
+`func (o *SaaSPortal) GetDetailedNetworkTopology() map[string]ResourceNetworkTopologyResult`
 
 GetDetailedNetworkTopology returns the DetailedNetworkTopology field if non-nil, zero value otherwise.
 
 ### GetDetailedNetworkTopologyOk
 
-`func (o *SaaSPortal) GetDetailedNetworkTopologyOk() (*map[string]interface{}, bool)`
+`func (o *SaaSPortal) GetDetailedNetworkTopologyOk() (*map[string]ResourceNetworkTopologyResult, bool)`
 
 GetDetailedNetworkTopologyOk returns a tuple with the DetailedNetworkTopology field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDetailedNetworkTopology
 
-`func (o *SaaSPortal) SetDetailedNetworkTopology(v map[string]interface{})`
+`func (o *SaaSPortal) SetDetailedNetworkTopology(v map[string]ResourceNetworkTopologyResult)`
 
 SetDetailedNetworkTopology sets DetailedNetworkTopology field to given value.
 

@@ -21,7 +21,9 @@ var _ MappedNullable = &ChangeSet{}
 // ChangeSet struct for ChangeSet
 type ChangeSet struct {
 	// Summary of all changes within a resource for each category (ie. image, infra, product tier feature, etc.)
-	CategorizedResourceChanges map[string]interface{} `json:"categorizedResourceChanges"`
+	CategorizedResourceChanges map[string]ChangeSummary `json:"categorizedResourceChanges"`
+	// State of the configuration change
+	DeploymentArtifactChanges *string `json:"deploymentArtifactChanges,omitempty"`
 	ImageConfigChanges *ImageConfigChangeSummary `json:"imageConfigChanges,omitempty"`
 	InfraConfigChanges *InfraConfigChangeSummary `json:"infraConfigChanges,omitempty"`
 	// Summary status of the changes
@@ -41,7 +43,7 @@ type _ChangeSet ChangeSet
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewChangeSet(categorizedResourceChanges map[string]interface{}, overallResourceStatus string) *ChangeSet {
+func NewChangeSet(categorizedResourceChanges map[string]ChangeSummary, overallResourceStatus string) *ChangeSet {
 	this := ChangeSet{}
 	this.CategorizedResourceChanges = categorizedResourceChanges
 	this.OverallResourceStatus = overallResourceStatus
@@ -57,9 +59,9 @@ func NewChangeSetWithDefaults() *ChangeSet {
 }
 
 // GetCategorizedResourceChanges returns the CategorizedResourceChanges field value
-func (o *ChangeSet) GetCategorizedResourceChanges() map[string]interface{} {
+func (o *ChangeSet) GetCategorizedResourceChanges() map[string]ChangeSummary {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret map[string]ChangeSummary
 		return ret
 	}
 
@@ -68,16 +70,39 @@ func (o *ChangeSet) GetCategorizedResourceChanges() map[string]interface{} {
 
 // GetCategorizedResourceChangesOk returns a tuple with the CategorizedResourceChanges field value
 // and a boolean to check if the value has been set.
-func (o *ChangeSet) GetCategorizedResourceChangesOk() (map[string]interface{}, bool) {
+func (o *ChangeSet) GetCategorizedResourceChangesOk() (*map[string]ChangeSummary, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.CategorizedResourceChanges, true
+	return &o.CategorizedResourceChanges, true
 }
 
 // SetCategorizedResourceChanges sets field value
-func (o *ChangeSet) SetCategorizedResourceChanges(v map[string]interface{}) {
+func (o *ChangeSet) SetCategorizedResourceChanges(v map[string]ChangeSummary) {
 	o.CategorizedResourceChanges = v
+}
+
+// GetDeploymentArtifactChanges returns the DeploymentArtifactChanges field value if set, zero value otherwise.
+func (o *ChangeSet) GetDeploymentArtifactChanges() string {
+	if o == nil || IsNil(o.DeploymentArtifactChanges) {
+		var ret string
+		return ret
+	}
+	return *o.DeploymentArtifactChanges
+}
+
+// GetDeploymentArtifactChangesOk returns a tuple with the DeploymentArtifactChanges field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ChangeSet) GetDeploymentArtifactChangesOk() (*string, bool) {
+	if o == nil || IsNil(o.DeploymentArtifactChanges) {
+		return nil, false
+	}
+	return o.DeploymentArtifactChanges, true
+}
+
+// SetDeploymentArtifactChanges gets a reference to the given string and assigns it to the DeploymentArtifactChanges field.
+func (o *ChangeSet) SetDeploymentArtifactChanges(v string) {
+	o.DeploymentArtifactChanges = &v
 }
 
 // GetImageConfigChanges returns the ImageConfigChanges field value if set, zero value otherwise.
@@ -230,6 +255,9 @@ func (o ChangeSet) MarshalJSON() ([]byte, error) {
 func (o ChangeSet) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["categorizedResourceChanges"] = o.CategorizedResourceChanges
+	if !IsNil(o.DeploymentArtifactChanges) {
+		toSerialize["deploymentArtifactChanges"] = o.DeploymentArtifactChanges
+	}
 	if !IsNil(o.ImageConfigChanges) {
 		toSerialize["imageConfigChanges"] = o.ImageConfigChanges
 	}
@@ -291,6 +319,7 @@ func (o *ChangeSet) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "categorizedResourceChanges")
+		delete(additionalProperties, "deploymentArtifactChanges")
 		delete(additionalProperties, "imageConfigChanges")
 		delete(additionalProperties, "infraConfigChanges")
 		delete(additionalProperties, "overallResourceStatus")

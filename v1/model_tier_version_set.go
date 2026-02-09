@@ -33,7 +33,7 @@ type TierVersionSet struct {
 	// The features that are enabled for this product tier, including scope details and configuration
 	EnabledFeatures []ProductTierFeatureDetail `json:"enabledFeatures"`
 	// The features that are enabled / disabled for this product tier
-	Features map[string]interface{} `json:"features"`
+	Features map[string]bool `json:"features"`
 	// The number of instances that are currently running this version set.
 	InstanceCount *int64 `json:"instanceCount,omitempty"`
 	// ID of an Upgrade Path
@@ -71,7 +71,7 @@ type _TierVersionSet TierVersionSet
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTierVersionSet(baseVersion string, createdAt string, enabledFeatures []ProductTierFeatureDetail, features map[string]interface{}, productTierId string, releasedAt string, serviceId string, serviceModelId string, status string, type_ string, updatedAt string, version string) *TierVersionSet {
+func NewTierVersionSet(baseVersion string, createdAt string, enabledFeatures []ProductTierFeatureDetail, features map[string]bool, productTierId string, releasedAt string, serviceId string, serviceModelId string, status string, type_ string, updatedAt string, version string) *TierVersionSet {
 	this := TierVersionSet{}
 	this.BaseVersion = baseVersion
 	this.CreatedAt = createdAt
@@ -238,9 +238,9 @@ func (o *TierVersionSet) SetEnabledFeatures(v []ProductTierFeatureDetail) {
 }
 
 // GetFeatures returns the Features field value
-func (o *TierVersionSet) GetFeatures() map[string]interface{} {
+func (o *TierVersionSet) GetFeatures() map[string]bool {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret map[string]bool
 		return ret
 	}
 
@@ -249,15 +249,15 @@ func (o *TierVersionSet) GetFeatures() map[string]interface{} {
 
 // GetFeaturesOk returns a tuple with the Features field value
 // and a boolean to check if the value has been set.
-func (o *TierVersionSet) GetFeaturesOk() (map[string]interface{}, bool) {
+func (o *TierVersionSet) GetFeaturesOk() (*map[string]bool, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.Features, true
+	return &o.Features, true
 }
 
 // SetFeatures sets field value
-func (o *TierVersionSet) SetFeatures(v map[string]interface{}) {
+func (o *TierVersionSet) SetFeatures(v map[string]bool) {
 	o.Features = v
 }
 

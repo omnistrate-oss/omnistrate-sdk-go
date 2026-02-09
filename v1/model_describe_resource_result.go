@@ -23,10 +23,12 @@ type DescribeResourceResult struct {
 	// The action hooks that this resource supports
 	ActionHooks []ActionHook `json:"actionHooks,omitempty"`
 	AdditionalSecurityContext *AdditionalSecurityContext `json:"additionalSecurityContext,omitempty"`
+	AgentConfiguration *AgentConfiguration `json:"agentConfiguration,omitempty"`
 	BackupConfiguration *BackupConfiguration `json:"backupConfiguration,omitempty"`
 	BlobStorageConfiguration *BlobStorageConfiguration `json:"blobStorageConfiguration,omitempty"`
 	// The capabilities enabled for the resource
 	Capabilities []ResourceCapability `json:"capabilities,omitempty"`
+	ContainerImagesRegistryCopyConfiguration *ContainerImagesRegistryCopyConfiguration `json:"containerImagesRegistryCopyConfiguration,omitempty"`
 	// Custom labels for the resource
 	CustomLabels *map[string]string `json:"customLabels,omitempty"`
 	// Custom sysctl settings for the resource
@@ -36,6 +38,8 @@ type DescribeResourceResult struct {
 	Dependencies []ResourceDependency `json:"dependencies,omitempty"`
 	// A brief description of the resource
 	Description string `json:"description"`
+	// Allows resource to be disabled. Expression returning true/false can be used as value. Resource is enabled by default, if this property is not set.
+	Disable *string `json:"disable,omitempty"`
 	// The environment variables that this resource requires
 	EnvironmentVariables []EnvironmentVariable `json:"environmentVariables,omitempty"`
 	FileSystemConfiguration *FileSystemConfiguration `json:"fileSystemConfiguration,omitempty"`
@@ -58,6 +62,8 @@ type DescribeResourceResult struct {
 	L7LoadBalancerConfiguration *L7LoadBalancerConfiguration `json:"l7LoadBalancerConfiguration,omitempty"`
 	// Name of the resource
 	Name string `json:"name"`
+	// The Terraform configurations for an OnPrem platform
+	OnPremTerraformConfigurations *map[string]TerraformConfiguration `json:"onPremTerraformConfigurations,omitempty"`
 	OperatorCRDConfiguration *OperatorCRDConfiguration `json:"operatorCRDConfiguration,omitempty"`
 	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
@@ -68,7 +74,7 @@ type DescribeResourceResult struct {
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The Terraform configurations for cloud providers
-	TerraformConfigurations map[string]interface{} `json:"terraformConfigurations,omitempty"`
+	TerraformConfigurations *map[string]TerraformConfiguration `json:"terraformConfigurations,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -150,6 +156,29 @@ func (o *DescribeResourceResult) SetAdditionalSecurityContext(v AdditionalSecuri
 	o.AdditionalSecurityContext = &v
 }
 
+// GetAgentConfiguration returns the AgentConfiguration field value if set, zero value otherwise.
+func (o *DescribeResourceResult) GetAgentConfiguration() AgentConfiguration {
+	if o == nil || IsNil(o.AgentConfiguration) {
+		var ret AgentConfiguration
+		return ret
+	}
+	return *o.AgentConfiguration
+}
+
+// GetAgentConfigurationOk returns a tuple with the AgentConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceResult) GetAgentConfigurationOk() (*AgentConfiguration, bool) {
+	if o == nil || IsNil(o.AgentConfiguration) {
+		return nil, false
+	}
+	return o.AgentConfiguration, true
+}
+
+// SetAgentConfiguration gets a reference to the given AgentConfiguration and assigns it to the AgentConfiguration field.
+func (o *DescribeResourceResult) SetAgentConfiguration(v AgentConfiguration) {
+	o.AgentConfiguration = &v
+}
+
 // GetBackupConfiguration returns the BackupConfiguration field value if set, zero value otherwise.
 func (o *DescribeResourceResult) GetBackupConfiguration() BackupConfiguration {
 	if o == nil || IsNil(o.BackupConfiguration) {
@@ -217,6 +246,29 @@ func (o *DescribeResourceResult) GetCapabilitiesOk() ([]ResourceCapability, bool
 // SetCapabilities gets a reference to the given []ResourceCapability and assigns it to the Capabilities field.
 func (o *DescribeResourceResult) SetCapabilities(v []ResourceCapability) {
 	o.Capabilities = v
+}
+
+// GetContainerImagesRegistryCopyConfiguration returns the ContainerImagesRegistryCopyConfiguration field value if set, zero value otherwise.
+func (o *DescribeResourceResult) GetContainerImagesRegistryCopyConfiguration() ContainerImagesRegistryCopyConfiguration {
+	if o == nil || IsNil(o.ContainerImagesRegistryCopyConfiguration) {
+		var ret ContainerImagesRegistryCopyConfiguration
+		return ret
+	}
+	return *o.ContainerImagesRegistryCopyConfiguration
+}
+
+// GetContainerImagesRegistryCopyConfigurationOk returns a tuple with the ContainerImagesRegistryCopyConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceResult) GetContainerImagesRegistryCopyConfigurationOk() (*ContainerImagesRegistryCopyConfiguration, bool) {
+	if o == nil || IsNil(o.ContainerImagesRegistryCopyConfiguration) {
+		return nil, false
+	}
+	return o.ContainerImagesRegistryCopyConfiguration, true
+}
+
+// SetContainerImagesRegistryCopyConfiguration gets a reference to the given ContainerImagesRegistryCopyConfiguration and assigns it to the ContainerImagesRegistryCopyConfiguration field.
+func (o *DescribeResourceResult) SetContainerImagesRegistryCopyConfiguration(v ContainerImagesRegistryCopyConfiguration) {
+	o.ContainerImagesRegistryCopyConfiguration = &v
 }
 
 // GetCustomLabels returns the CustomLabels field value if set, zero value otherwise.
@@ -333,6 +385,29 @@ func (o *DescribeResourceResult) GetDescriptionOk() (*string, bool) {
 // SetDescription sets field value
 func (o *DescribeResourceResult) SetDescription(v string) {
 	o.Description = v
+}
+
+// GetDisable returns the Disable field value if set, zero value otherwise.
+func (o *DescribeResourceResult) GetDisable() string {
+	if o == nil || IsNil(o.Disable) {
+		var ret string
+		return ret
+	}
+	return *o.Disable
+}
+
+// GetDisableOk returns a tuple with the Disable field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceResult) GetDisableOk() (*string, bool) {
+	if o == nil || IsNil(o.Disable) {
+		return nil, false
+	}
+	return o.Disable, true
+}
+
+// SetDisable gets a reference to the given string and assigns it to the Disable field.
+func (o *DescribeResourceResult) SetDisable(v string) {
+	o.Disable = &v
 }
 
 // GetEnvironmentVariables returns the EnvironmentVariables field value if set, zero value otherwise.
@@ -662,6 +737,29 @@ func (o *DescribeResourceResult) SetName(v string) {
 	o.Name = v
 }
 
+// GetOnPremTerraformConfigurations returns the OnPremTerraformConfigurations field value if set, zero value otherwise.
+func (o *DescribeResourceResult) GetOnPremTerraformConfigurations() map[string]TerraformConfiguration {
+	if o == nil || IsNil(o.OnPremTerraformConfigurations) {
+		var ret map[string]TerraformConfiguration
+		return ret
+	}
+	return *o.OnPremTerraformConfigurations
+}
+
+// GetOnPremTerraformConfigurationsOk returns a tuple with the OnPremTerraformConfigurations field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceResult) GetOnPremTerraformConfigurationsOk() (*map[string]TerraformConfiguration, bool) {
+	if o == nil || IsNil(o.OnPremTerraformConfigurations) {
+		return nil, false
+	}
+	return o.OnPremTerraformConfigurations, true
+}
+
+// SetOnPremTerraformConfigurations gets a reference to the given map[string]TerraformConfiguration and assigns it to the OnPremTerraformConfigurations field.
+func (o *DescribeResourceResult) SetOnPremTerraformConfigurations(v map[string]TerraformConfiguration) {
+	o.OnPremTerraformConfigurations = &v
+}
+
 // GetOperatorCRDConfiguration returns the OperatorCRDConfiguration field value if set, zero value otherwise.
 func (o *DescribeResourceResult) GetOperatorCRDConfiguration() OperatorCRDConfiguration {
 	if o == nil || IsNil(o.OperatorCRDConfiguration) {
@@ -781,26 +879,26 @@ func (o *DescribeResourceResult) SetServiceId(v string) {
 }
 
 // GetTerraformConfigurations returns the TerraformConfigurations field value if set, zero value otherwise.
-func (o *DescribeResourceResult) GetTerraformConfigurations() map[string]interface{} {
+func (o *DescribeResourceResult) GetTerraformConfigurations() map[string]TerraformConfiguration {
 	if o == nil || IsNil(o.TerraformConfigurations) {
-		var ret map[string]interface{}
+		var ret map[string]TerraformConfiguration
 		return ret
 	}
-	return o.TerraformConfigurations
+	return *o.TerraformConfigurations
 }
 
 // GetTerraformConfigurationsOk returns a tuple with the TerraformConfigurations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeResourceResult) GetTerraformConfigurationsOk() (map[string]interface{}, bool) {
+func (o *DescribeResourceResult) GetTerraformConfigurationsOk() (*map[string]TerraformConfiguration, bool) {
 	if o == nil || IsNil(o.TerraformConfigurations) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.TerraformConfigurations, true
 }
 
-// SetTerraformConfigurations gets a reference to the given map[string]interface{} and assigns it to the TerraformConfigurations field.
-func (o *DescribeResourceResult) SetTerraformConfigurations(v map[string]interface{}) {
-	o.TerraformConfigurations = v
+// SetTerraformConfigurations gets a reference to the given map[string]TerraformConfiguration and assigns it to the TerraformConfigurations field.
+func (o *DescribeResourceResult) SetTerraformConfigurations(v map[string]TerraformConfiguration) {
+	o.TerraformConfigurations = &v
 }
 
 func (o DescribeResourceResult) MarshalJSON() ([]byte, error) {
@@ -819,6 +917,9 @@ func (o DescribeResourceResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AdditionalSecurityContext) {
 		toSerialize["additionalSecurityContext"] = o.AdditionalSecurityContext
 	}
+	if !IsNil(o.AgentConfiguration) {
+		toSerialize["agentConfiguration"] = o.AgentConfiguration
+	}
 	if !IsNil(o.BackupConfiguration) {
 		toSerialize["backupConfiguration"] = o.BackupConfiguration
 	}
@@ -827,6 +928,9 @@ func (o DescribeResourceResult) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Capabilities) {
 		toSerialize["capabilities"] = o.Capabilities
+	}
+	if !IsNil(o.ContainerImagesRegistryCopyConfiguration) {
+		toSerialize["containerImagesRegistryCopyConfiguration"] = o.ContainerImagesRegistryCopyConfiguration
 	}
 	if !IsNil(o.CustomLabels) {
 		toSerialize["customLabels"] = o.CustomLabels
@@ -841,6 +945,9 @@ func (o DescribeResourceResult) ToMap() (map[string]interface{}, error) {
 		toSerialize["dependencies"] = o.Dependencies
 	}
 	toSerialize["description"] = o.Description
+	if !IsNil(o.Disable) {
+		toSerialize["disable"] = o.Disable
+	}
 	if !IsNil(o.EnvironmentVariables) {
 		toSerialize["environmentVariables"] = o.EnvironmentVariables
 	}
@@ -873,6 +980,9 @@ func (o DescribeResourceResult) ToMap() (map[string]interface{}, error) {
 		toSerialize["l7LoadBalancerConfiguration"] = o.L7LoadBalancerConfiguration
 	}
 	toSerialize["name"] = o.Name
+	if !IsNil(o.OnPremTerraformConfigurations) {
+		toSerialize["onPremTerraformConfigurations"] = o.OnPremTerraformConfigurations
+	}
 	if !IsNil(o.OperatorCRDConfiguration) {
 		toSerialize["operatorCRDConfiguration"] = o.OperatorCRDConfiguration
 	}
@@ -938,14 +1048,17 @@ func (o *DescribeResourceResult) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "actionHooks")
 		delete(additionalProperties, "additionalSecurityContext")
+		delete(additionalProperties, "agentConfiguration")
 		delete(additionalProperties, "backupConfiguration")
 		delete(additionalProperties, "blobStorageConfiguration")
 		delete(additionalProperties, "capabilities")
+		delete(additionalProperties, "containerImagesRegistryCopyConfiguration")
 		delete(additionalProperties, "customLabels")
 		delete(additionalProperties, "customSysCTLs")
 		delete(additionalProperties, "customULimits")
 		delete(additionalProperties, "dependencies")
 		delete(additionalProperties, "description")
+		delete(additionalProperties, "disable")
 		delete(additionalProperties, "environmentVariables")
 		delete(additionalProperties, "fileSystemConfiguration")
 		delete(additionalProperties, "helmChartConfiguration")
@@ -960,6 +1073,7 @@ func (o *DescribeResourceResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "l4LoadBalancerConfiguration")
 		delete(additionalProperties, "l7LoadBalancerConfiguration")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "onPremTerraformConfigurations")
 		delete(additionalProperties, "operatorCRDConfiguration")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "proxyType")

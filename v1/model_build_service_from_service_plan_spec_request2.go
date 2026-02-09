@@ -30,6 +30,8 @@ type BuildServiceFromServicePlanSpecRequest2 struct {
 	EnvironmentType *string `json:"environmentType,omitempty"`
 	// Base64 encoded Compose Spec YAML in service plan configuration format
 	FileContent string `json:"fileContent"`
+	// Force create a new service plan version when the service is released
+	ForceCreateNewServicePlanVersion *bool `json:"forceCreateNewServicePlanVersion,omitempty"`
 	// Name of the Service
 	Name string `json:"name"`
 	// Release the service after building
@@ -180,6 +182,29 @@ func (o *BuildServiceFromServicePlanSpecRequest2) SetFileContent(v string) {
 	o.FileContent = v
 }
 
+// GetForceCreateNewServicePlanVersion returns the ForceCreateNewServicePlanVersion field value if set, zero value otherwise.
+func (o *BuildServiceFromServicePlanSpecRequest2) GetForceCreateNewServicePlanVersion() bool {
+	if o == nil || IsNil(o.ForceCreateNewServicePlanVersion) {
+		var ret bool
+		return ret
+	}
+	return *o.ForceCreateNewServicePlanVersion
+}
+
+// GetForceCreateNewServicePlanVersionOk returns a tuple with the ForceCreateNewServicePlanVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BuildServiceFromServicePlanSpecRequest2) GetForceCreateNewServicePlanVersionOk() (*bool, bool) {
+	if o == nil || IsNil(o.ForceCreateNewServicePlanVersion) {
+		return nil, false
+	}
+	return o.ForceCreateNewServicePlanVersion, true
+}
+
+// SetForceCreateNewServicePlanVersion gets a reference to the given bool and assigns it to the ForceCreateNewServicePlanVersion field.
+func (o *BuildServiceFromServicePlanSpecRequest2) SetForceCreateNewServicePlanVersion(v bool) {
+	o.ForceCreateNewServicePlanVersion = &v
+}
+
 // GetName returns the Name field value
 func (o *BuildServiceFromServicePlanSpecRequest2) GetName() string {
 	if o == nil {
@@ -319,6 +344,9 @@ func (o BuildServiceFromServicePlanSpecRequest2) ToMap() (map[string]interface{}
 		toSerialize["environmentType"] = o.EnvironmentType
 	}
 	toSerialize["fileContent"] = o.FileContent
+	if !IsNil(o.ForceCreateNewServicePlanVersion) {
+		toSerialize["forceCreateNewServicePlanVersion"] = o.ForceCreateNewServicePlanVersion
+	}
 	toSerialize["name"] = o.Name
 	if !IsNil(o.Release) {
 		toSerialize["release"] = o.Release
@@ -381,6 +409,7 @@ func (o *BuildServiceFromServicePlanSpecRequest2) UnmarshalJSON(data []byte) (er
 		delete(additionalProperties, "environment")
 		delete(additionalProperties, "environmentType")
 		delete(additionalProperties, "fileContent")
+		delete(additionalProperties, "forceCreateNewServicePlanVersion")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "release")
 		delete(additionalProperties, "releaseAsPreferred")

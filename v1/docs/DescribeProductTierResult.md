@@ -5,26 +5,31 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AllowCreatesWhenPaymentNotConfigured** | Pointer to **bool** | Allow creates when payment not configured | [optional] 
-**ApiGroups** | Pointer to **map[string]interface{}** | The resources that belong to this service API bundle and their active versions | [optional] 
+**ApiGroups** | Pointer to **map[string]string** | The resources that belong to this service API bundle and their active versions | [optional] 
 **AutoApproveSubscription** | Pointer to **bool** | Auto approve subscription or not | [optional] 
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this product tier is available on | [optional] 
 **AzureRegions** | Pointer to **[]string** | The Azure regions that this product tier is available on | [optional] 
 **BillingProductID** | Pointer to **string** | Optional billing product ID for tax purposes | [optional] 
 **BillingProviders** | Pointer to **[]string** | List of billing providers to be used for the product tier | [optional] 
-**CloudProvidersConfigReadiness** | Pointer to **map[string]interface{}** | The readiness of the cloud providers configurations | [optional] 
+**CloudProvidersConfigReadiness** | Pointer to **map[string]map[string]string** | The readiness of the cloud providers configurations | [optional] 
 **DefaultBillingProvider** | Pointer to **string** | The billing provider type | [optional] 
+**DeploymentArtifactIDs** | Pointer to **[]string** | List of deployment artifact IDs associated with this product tier | [optional] 
+**DeploymentConfiguration** | Pointer to [**ProductTierDeploymentConfiguration**](ProductTierDeploymentConfiguration.md) |  | [optional] 
 **Description** | **string** | A brief description of the product tier | 
 **Documentation** | **string** | Documentation | 
+**EnableDeletionProtection** | **bool** | Enable deletion protection for the product tier | 
 **EnabledFeatures** | Pointer to [**[]ProductTierFeatureDetail**](ProductTierFeatureDetail.md) | The features that are enabled for this product tier, including scope details and configuration | [optional] 
 **ExportUsageMetering** | Pointer to **bool** | Export usage metering data | [optional] 
 **ExportUsageMeteringConfig** | Pointer to **map[string]interface{}** | Export usage metering data configuration | [optional] 
-**Features** | Pointer to **map[string]interface{}** | The features that are enabled / disabled for this product tier | [optional] 
+**Features** | Pointer to **map[string]bool** | The features that are enabled / disabled for this product tier | [optional] 
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this product tier is available on | [optional] 
 **Id** | **string** | ID of a Product Tier | 
 **IsDisabled** | **bool** | Flag to indicate if the product tier is disabled. | 
 **Key** | **string** | Unique Key of the product tier | 
 **MaxNumberOfInstances** | Pointer to **int64** | Maximum number of instances | [optional] 
 **Name** | **string** | Name of the product tier | 
+**OciRegions** | Pointer to **[]string** | The OCI regions that this product tier is available on | [optional] 
+**OnPremPlatforms** | Pointer to **[]string** | The on prem platforms that this product tier is available on | [optional] 
 **PlanDescription** | **string** | A brief description for the end user of the product tier | 
 **PricePerUnit** | Pointer to **map[string]interface{}** | Price per unit. | [optional] 
 **Pricing** | **interface{}** | Pricing | 
@@ -38,7 +43,7 @@ Name | Type | Description | Notes
 
 ### NewDescribeProductTierResult
 
-`func NewDescribeProductTierResult(description string, documentation string, id string, isDisabled bool, key string, name string, planDescription string, pricing interface{}, serviceId string, serviceModelId string, support string, tierType string, ) *DescribeProductTierResult`
+`func NewDescribeProductTierResult(description string, documentation string, enableDeletionProtection bool, id string, isDisabled bool, key string, name string, planDescription string, pricing interface{}, serviceId string, serviceModelId string, support string, tierType string, ) *DescribeProductTierResult`
 
 NewDescribeProductTierResult instantiates a new DescribeProductTierResult object
 This constructor will assign default values to properties that have it defined,
@@ -80,20 +85,20 @@ HasAllowCreatesWhenPaymentNotConfigured returns a boolean if a field has been se
 
 ### GetApiGroups
 
-`func (o *DescribeProductTierResult) GetApiGroups() map[string]interface{}`
+`func (o *DescribeProductTierResult) GetApiGroups() map[string]string`
 
 GetApiGroups returns the ApiGroups field if non-nil, zero value otherwise.
 
 ### GetApiGroupsOk
 
-`func (o *DescribeProductTierResult) GetApiGroupsOk() (*map[string]interface{}, bool)`
+`func (o *DescribeProductTierResult) GetApiGroupsOk() (*map[string]string, bool)`
 
 GetApiGroupsOk returns a tuple with the ApiGroups field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetApiGroups
 
-`func (o *DescribeProductTierResult) SetApiGroups(v map[string]interface{})`
+`func (o *DescribeProductTierResult) SetApiGroups(v map[string]string)`
 
 SetApiGroups sets ApiGroups field to given value.
 
@@ -230,20 +235,20 @@ HasBillingProviders returns a boolean if a field has been set.
 
 ### GetCloudProvidersConfigReadiness
 
-`func (o *DescribeProductTierResult) GetCloudProvidersConfigReadiness() map[string]interface{}`
+`func (o *DescribeProductTierResult) GetCloudProvidersConfigReadiness() map[string]map[string]string`
 
 GetCloudProvidersConfigReadiness returns the CloudProvidersConfigReadiness field if non-nil, zero value otherwise.
 
 ### GetCloudProvidersConfigReadinessOk
 
-`func (o *DescribeProductTierResult) GetCloudProvidersConfigReadinessOk() (*map[string]interface{}, bool)`
+`func (o *DescribeProductTierResult) GetCloudProvidersConfigReadinessOk() (*map[string]map[string]string, bool)`
 
 GetCloudProvidersConfigReadinessOk returns a tuple with the CloudProvidersConfigReadiness field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCloudProvidersConfigReadiness
 
-`func (o *DescribeProductTierResult) SetCloudProvidersConfigReadiness(v map[string]interface{})`
+`func (o *DescribeProductTierResult) SetCloudProvidersConfigReadiness(v map[string]map[string]string)`
 
 SetCloudProvidersConfigReadiness sets CloudProvidersConfigReadiness field to given value.
 
@@ -277,6 +282,56 @@ SetDefaultBillingProvider sets DefaultBillingProvider field to given value.
 `func (o *DescribeProductTierResult) HasDefaultBillingProvider() bool`
 
 HasDefaultBillingProvider returns a boolean if a field has been set.
+
+### GetDeploymentArtifactIDs
+
+`func (o *DescribeProductTierResult) GetDeploymentArtifactIDs() []string`
+
+GetDeploymentArtifactIDs returns the DeploymentArtifactIDs field if non-nil, zero value otherwise.
+
+### GetDeploymentArtifactIDsOk
+
+`func (o *DescribeProductTierResult) GetDeploymentArtifactIDsOk() (*[]string, bool)`
+
+GetDeploymentArtifactIDsOk returns a tuple with the DeploymentArtifactIDs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeploymentArtifactIDs
+
+`func (o *DescribeProductTierResult) SetDeploymentArtifactIDs(v []string)`
+
+SetDeploymentArtifactIDs sets DeploymentArtifactIDs field to given value.
+
+### HasDeploymentArtifactIDs
+
+`func (o *DescribeProductTierResult) HasDeploymentArtifactIDs() bool`
+
+HasDeploymentArtifactIDs returns a boolean if a field has been set.
+
+### GetDeploymentConfiguration
+
+`func (o *DescribeProductTierResult) GetDeploymentConfiguration() ProductTierDeploymentConfiguration`
+
+GetDeploymentConfiguration returns the DeploymentConfiguration field if non-nil, zero value otherwise.
+
+### GetDeploymentConfigurationOk
+
+`func (o *DescribeProductTierResult) GetDeploymentConfigurationOk() (*ProductTierDeploymentConfiguration, bool)`
+
+GetDeploymentConfigurationOk returns a tuple with the DeploymentConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeploymentConfiguration
+
+`func (o *DescribeProductTierResult) SetDeploymentConfiguration(v ProductTierDeploymentConfiguration)`
+
+SetDeploymentConfiguration sets DeploymentConfiguration field to given value.
+
+### HasDeploymentConfiguration
+
+`func (o *DescribeProductTierResult) HasDeploymentConfiguration() bool`
+
+HasDeploymentConfiguration returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -316,6 +371,26 @@ and a boolean to check if the value has been set.
 `func (o *DescribeProductTierResult) SetDocumentation(v string)`
 
 SetDocumentation sets Documentation field to given value.
+
+
+### GetEnableDeletionProtection
+
+`func (o *DescribeProductTierResult) GetEnableDeletionProtection() bool`
+
+GetEnableDeletionProtection returns the EnableDeletionProtection field if non-nil, zero value otherwise.
+
+### GetEnableDeletionProtectionOk
+
+`func (o *DescribeProductTierResult) GetEnableDeletionProtectionOk() (*bool, bool)`
+
+GetEnableDeletionProtectionOk returns a tuple with the EnableDeletionProtection field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableDeletionProtection
+
+`func (o *DescribeProductTierResult) SetEnableDeletionProtection(v bool)`
+
+SetEnableDeletionProtection sets EnableDeletionProtection field to given value.
 
 
 ### GetEnabledFeatures
@@ -395,20 +470,20 @@ HasExportUsageMeteringConfig returns a boolean if a field has been set.
 
 ### GetFeatures
 
-`func (o *DescribeProductTierResult) GetFeatures() map[string]interface{}`
+`func (o *DescribeProductTierResult) GetFeatures() map[string]bool`
 
 GetFeatures returns the Features field if non-nil, zero value otherwise.
 
 ### GetFeaturesOk
 
-`func (o *DescribeProductTierResult) GetFeaturesOk() (*map[string]interface{}, bool)`
+`func (o *DescribeProductTierResult) GetFeaturesOk() (*map[string]bool, bool)`
 
 GetFeaturesOk returns a tuple with the Features field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFeatures
 
-`func (o *DescribeProductTierResult) SetFeatures(v map[string]interface{})`
+`func (o *DescribeProductTierResult) SetFeatures(v map[string]bool)`
 
 SetFeatures sets Features field to given value.
 
@@ -547,6 +622,56 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetOciRegions
+
+`func (o *DescribeProductTierResult) GetOciRegions() []string`
+
+GetOciRegions returns the OciRegions field if non-nil, zero value otherwise.
+
+### GetOciRegionsOk
+
+`func (o *DescribeProductTierResult) GetOciRegionsOk() (*[]string, bool)`
+
+GetOciRegionsOk returns a tuple with the OciRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciRegions
+
+`func (o *DescribeProductTierResult) SetOciRegions(v []string)`
+
+SetOciRegions sets OciRegions field to given value.
+
+### HasOciRegions
+
+`func (o *DescribeProductTierResult) HasOciRegions() bool`
+
+HasOciRegions returns a boolean if a field has been set.
+
+### GetOnPremPlatforms
+
+`func (o *DescribeProductTierResult) GetOnPremPlatforms() []string`
+
+GetOnPremPlatforms returns the OnPremPlatforms field if non-nil, zero value otherwise.
+
+### GetOnPremPlatformsOk
+
+`func (o *DescribeProductTierResult) GetOnPremPlatformsOk() (*[]string, bool)`
+
+GetOnPremPlatformsOk returns a tuple with the OnPremPlatforms field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnPremPlatforms
+
+`func (o *DescribeProductTierResult) SetOnPremPlatforms(v []string)`
+
+SetOnPremPlatforms sets OnPremPlatforms field to given value.
+
+### HasOnPremPlatforms
+
+`func (o *DescribeProductTierResult) HasOnPremPlatforms() bool`
+
+HasOnPremPlatforms returns a boolean if a field has been set.
 
 ### GetPlanDescription
 

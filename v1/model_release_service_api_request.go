@@ -20,6 +20,8 @@ var _ MappedNullable = &ReleaseServiceAPIRequest{}
 
 // ReleaseServiceAPIRequest struct for ReleaseServiceAPIRequest
 type ReleaseServiceAPIRequest struct {
+	// When true, copies the specification from the previous version during the release operation.
+	CopySpecFromPreviousVersion *bool `json:"copySpecFromPreviousVersion,omitempty"`
 	// When true, performs a dry run of the release operation without making any actual changes to the current pending changes and the service API.
 	DryRun *bool `json:"dryRun,omitempty"`
 	// ID of a Service API
@@ -47,6 +49,8 @@ type _ReleaseServiceAPIRequest ReleaseServiceAPIRequest
 // will change when the set of required properties is changed
 func NewReleaseServiceAPIRequest(id string, serviceId string, token string) *ReleaseServiceAPIRequest {
 	this := ReleaseServiceAPIRequest{}
+	var copySpecFromPreviousVersion bool = false
+	this.CopySpecFromPreviousVersion = &copySpecFromPreviousVersion
 	var dryRun bool = false
 	this.DryRun = &dryRun
 	this.Id = id
@@ -62,11 +66,36 @@ func NewReleaseServiceAPIRequest(id string, serviceId string, token string) *Rel
 // but it doesn't guarantee that properties required by API are set
 func NewReleaseServiceAPIRequestWithDefaults() *ReleaseServiceAPIRequest {
 	this := ReleaseServiceAPIRequest{}
+	var copySpecFromPreviousVersion bool = false
+	this.CopySpecFromPreviousVersion = &copySpecFromPreviousVersion
 	var dryRun bool = false
 	this.DryRun = &dryRun
 	var isPreferred bool = false
 	this.IsPreferred = &isPreferred
 	return &this
+}
+
+// GetCopySpecFromPreviousVersion returns the CopySpecFromPreviousVersion field value if set, zero value otherwise.
+func (o *ReleaseServiceAPIRequest) GetCopySpecFromPreviousVersion() bool {
+	if o == nil || IsNil(o.CopySpecFromPreviousVersion) {
+		var ret bool
+		return ret
+	}
+	return *o.CopySpecFromPreviousVersion
+}
+
+// GetCopySpecFromPreviousVersionOk returns a tuple with the CopySpecFromPreviousVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ReleaseServiceAPIRequest) GetCopySpecFromPreviousVersionOk() (*bool, bool) {
+	if o == nil || IsNil(o.CopySpecFromPreviousVersion) {
+		return nil, false
+	}
+	return o.CopySpecFromPreviousVersion, true
+}
+
+// SetCopySpecFromPreviousVersion gets a reference to the given bool and assigns it to the CopySpecFromPreviousVersion field.
+func (o *ReleaseServiceAPIRequest) SetCopySpecFromPreviousVersion(v bool) {
+	o.CopySpecFromPreviousVersion = &v
 }
 
 // GetDryRun returns the DryRun field value if set, zero value otherwise.
@@ -266,6 +295,9 @@ func (o ReleaseServiceAPIRequest) MarshalJSON() ([]byte, error) {
 
 func (o ReleaseServiceAPIRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CopySpecFromPreviousVersion) {
+		toSerialize["copySpecFromPreviousVersion"] = o.CopySpecFromPreviousVersion
+	}
 	if !IsNil(o.DryRun) {
 		toSerialize["dryRun"] = o.DryRun
 	}
@@ -329,6 +361,7 @@ func (o *ReleaseServiceAPIRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "copySpecFromPreviousVersion")
 		delete(additionalProperties, "dryRun")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "isPreferred")

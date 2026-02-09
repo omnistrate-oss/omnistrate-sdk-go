@@ -29,6 +29,8 @@ type CreateCustomNetworkRequest2 struct {
 	// User friendly network name to help distinguish networks with same CIDRs
 	Name *string `json:"name,omitempty"`
 	NetworkFeaturesConfiguration *NetworkFeaturesConfiguration `json:"networkFeaturesConfiguration,omitempty"`
+	// The ID of the organization that owns the custom network
+	OrgId *string `json:"orgId,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -174,6 +176,29 @@ func (o *CreateCustomNetworkRequest2) SetNetworkFeaturesConfiguration(v NetworkF
 	o.NetworkFeaturesConfiguration = &v
 }
 
+// GetOrgId returns the OrgId field value if set, zero value otherwise.
+func (o *CreateCustomNetworkRequest2) GetOrgId() string {
+	if o == nil || IsNil(o.OrgId) {
+		var ret string
+		return ret
+	}
+	return *o.OrgId
+}
+
+// GetOrgIdOk returns a tuple with the OrgId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateCustomNetworkRequest2) GetOrgIdOk() (*string, bool) {
+	if o == nil || IsNil(o.OrgId) {
+		return nil, false
+	}
+	return o.OrgId, true
+}
+
+// SetOrgId gets a reference to the given string and assigns it to the OrgId field.
+func (o *CreateCustomNetworkRequest2) SetOrgId(v string) {
+	o.OrgId = &v
+}
+
 func (o CreateCustomNetworkRequest2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -194,6 +219,9 @@ func (o CreateCustomNetworkRequest2) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.NetworkFeaturesConfiguration) {
 		toSerialize["networkFeaturesConfiguration"] = o.NetworkFeaturesConfiguration
+	}
+	if !IsNil(o.OrgId) {
+		toSerialize["orgId"] = o.OrgId
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -244,6 +272,7 @@ func (o *CreateCustomNetworkRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "cloudProviderRegion")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "networkFeaturesConfiguration")
+		delete(additionalProperties, "orgId")
 		o.AdditionalProperties = additionalProperties
 	}
 

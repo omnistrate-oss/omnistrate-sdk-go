@@ -29,6 +29,8 @@ type CreateCustomNetworkRequest struct {
 	// User friendly network name to help distinguish networks with same CIDRs
 	Name *string `json:"name,omitempty"`
 	NetworkFeaturesConfiguration *NetworkFeaturesConfiguration `json:"networkFeaturesConfiguration,omitempty"`
+	// ID of an Org
+	OrgId *string `json:"orgId,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -177,6 +179,29 @@ func (o *CreateCustomNetworkRequest) SetNetworkFeaturesConfiguration(v NetworkFe
 	o.NetworkFeaturesConfiguration = &v
 }
 
+// GetOrgId returns the OrgId field value if set, zero value otherwise.
+func (o *CreateCustomNetworkRequest) GetOrgId() string {
+	if o == nil || IsNil(o.OrgId) {
+		var ret string
+		return ret
+	}
+	return *o.OrgId
+}
+
+// GetOrgIdOk returns a tuple with the OrgId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateCustomNetworkRequest) GetOrgIdOk() (*string, bool) {
+	if o == nil || IsNil(o.OrgId) {
+		return nil, false
+	}
+	return o.OrgId, true
+}
+
+// SetOrgId gets a reference to the given string and assigns it to the OrgId field.
+func (o *CreateCustomNetworkRequest) SetOrgId(v string) {
+	o.OrgId = &v
+}
+
 // GetToken returns the Token field value
 func (o *CreateCustomNetworkRequest) GetToken() string {
 	if o == nil {
@@ -221,6 +246,9 @@ func (o CreateCustomNetworkRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.NetworkFeaturesConfiguration) {
 		toSerialize["networkFeaturesConfiguration"] = o.NetworkFeaturesConfiguration
+	}
+	if !IsNil(o.OrgId) {
+		toSerialize["orgId"] = o.OrgId
 	}
 	toSerialize["token"] = o.Token
 
@@ -273,6 +301,7 @@ func (o *CreateCustomNetworkRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "cloudProviderRegion")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "networkFeaturesConfiguration")
+		delete(additionalProperties, "orgId")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

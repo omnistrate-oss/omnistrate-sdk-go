@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AutoscalingPolicy** | Pointer to [**AutoscalingPolicy**](AutoscalingPolicy.md) |  | [optional] 
-**ComputeInstanceTypeConfigOverrides** | Pointer to **map[string]interface{}** | The compute instance type config overrides for this compute config | [optional] 
+**ComputeInstanceTypeConfigOverrides** | Pointer to [**map[string]map[string]ComputeInstanceTypeConfigOverride**](map.md) | The compute instance type config overrides for this compute config | [optional] 
 **CpuArchitecture** | Pointer to **string** | Processor architecture | [optional] 
 **Description** | **string** | Description of the compute config | 
 **Id** | **string** | ID of a Compute Config | 
 **InfraConfigIDs** | Pointer to **[]string** | The list of infra config IDs associated with the compute config. | [optional] 
-**InstanceTypes** | Pointer to **map[string]interface{}** | The instance types for this compute config | [optional] 
+**InstanceTypes** | Pointer to **map[string][]string** | The instance types for this compute config | [optional] 
 **Name** | **string** | Name of the compute config | 
 **ReplicaCount** | **string** | Number of replicas to provision for this logical pool of nodes per instance of the resource | 
 **Resources** | Pointer to [**ResourceSpec**](ResourceSpec.md) |  | [optional] 
@@ -64,20 +64,20 @@ HasAutoscalingPolicy returns a boolean if a field has been set.
 
 ### GetComputeInstanceTypeConfigOverrides
 
-`func (o *DescribeComputeConfigResult) GetComputeInstanceTypeConfigOverrides() map[string]interface{}`
+`func (o *DescribeComputeConfigResult) GetComputeInstanceTypeConfigOverrides() map[string]map[string]ComputeInstanceTypeConfigOverride`
 
 GetComputeInstanceTypeConfigOverrides returns the ComputeInstanceTypeConfigOverrides field if non-nil, zero value otherwise.
 
 ### GetComputeInstanceTypeConfigOverridesOk
 
-`func (o *DescribeComputeConfigResult) GetComputeInstanceTypeConfigOverridesOk() (*map[string]interface{}, bool)`
+`func (o *DescribeComputeConfigResult) GetComputeInstanceTypeConfigOverridesOk() (*map[string]map[string]ComputeInstanceTypeConfigOverride, bool)`
 
 GetComputeInstanceTypeConfigOverridesOk returns a tuple with the ComputeInstanceTypeConfigOverrides field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetComputeInstanceTypeConfigOverrides
 
-`func (o *DescribeComputeConfigResult) SetComputeInstanceTypeConfigOverrides(v map[string]interface{})`
+`func (o *DescribeComputeConfigResult) SetComputeInstanceTypeConfigOverrides(v map[string]map[string]ComputeInstanceTypeConfigOverride)`
 
 SetComputeInstanceTypeConfigOverrides sets ComputeInstanceTypeConfigOverrides field to given value.
 
@@ -179,20 +179,20 @@ HasInfraConfigIDs returns a boolean if a field has been set.
 
 ### GetInstanceTypes
 
-`func (o *DescribeComputeConfigResult) GetInstanceTypes() map[string]interface{}`
+`func (o *DescribeComputeConfigResult) GetInstanceTypes() map[string][]string`
 
 GetInstanceTypes returns the InstanceTypes field if non-nil, zero value otherwise.
 
 ### GetInstanceTypesOk
 
-`func (o *DescribeComputeConfigResult) GetInstanceTypesOk() (*map[string]interface{}, bool)`
+`func (o *DescribeComputeConfigResult) GetInstanceTypesOk() (*map[string][]string, bool)`
 
 GetInstanceTypesOk returns a tuple with the InstanceTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInstanceTypes
 
-`func (o *DescribeComputeConfigResult) SetInstanceTypes(v map[string]interface{})`
+`func (o *DescribeComputeConfigResult) SetInstanceTypes(v map[string][]string)`
 
 SetInstanceTypes sets InstanceTypes field to given value.
 

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Address** | Pointer to [**Address**](Address.md) |  | [optional] 
+**Attributes** | Pointer to **map[string]string** | Additional attributes of the user. | [optional] 
 **Name** | Pointer to **string** | The name of the user | [optional] 
 **OrgCookiePolicy** | Pointer to **string** | The cookie policy for the org that this user owns in an HTML format | [optional] 
 **OrgDescription** | Pointer to **string** | The description of the org that this user owns | [optional] 
@@ -59,6 +60,31 @@ SetAddress sets Address field to given value.
 `func (o *UpdateUserRequest2) HasAddress() bool`
 
 HasAddress returns a boolean if a field has been set.
+
+### GetAttributes
+
+`func (o *UpdateUserRequest2) GetAttributes() map[string]string`
+
+GetAttributes returns the Attributes field if non-nil, zero value otherwise.
+
+### GetAttributesOk
+
+`func (o *UpdateUserRequest2) GetAttributesOk() (*map[string]string, bool)`
+
+GetAttributesOk returns a tuple with the Attributes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttributes
+
+`func (o *UpdateUserRequest2) SetAttributes(v map[string]string)`
+
+SetAttributes sets Attributes field to given value.
+
+### HasAttributes
+
+`func (o *UpdateUserRequest2) HasAttributes() bool`
+
+HasAttributes returns a boolean if a field has been set.
 
 ### GetName
 

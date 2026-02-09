@@ -34,6 +34,8 @@ type ResourceSummary struct {
 	ManagedResourceType *string `json:"managedResourceType,omitempty"`
 	// The name of the resource
 	Name string `json:"name"`
+	// The URL key of the resource
+	UrlKey *string `json:"urlKey,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -225,6 +227,29 @@ func (o *ResourceSummary) SetName(v string) {
 	o.Name = v
 }
 
+// GetUrlKey returns the UrlKey field value if set, zero value otherwise.
+func (o *ResourceSummary) GetUrlKey() string {
+	if o == nil || IsNil(o.UrlKey) {
+		var ret string
+		return ret
+	}
+	return *o.UrlKey
+}
+
+// GetUrlKeyOk returns a tuple with the UrlKey field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceSummary) GetUrlKeyOk() (*string, bool) {
+	if o == nil || IsNil(o.UrlKey) {
+		return nil, false
+	}
+	return o.UrlKey, true
+}
+
+// SetUrlKey gets a reference to the given string and assigns it to the UrlKey field.
+func (o *ResourceSummary) SetUrlKey(v string) {
+	o.UrlKey = &v
+}
+
 func (o ResourceSummary) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -248,6 +273,9 @@ func (o ResourceSummary) ToMap() (map[string]interface{}, error) {
 		toSerialize["managedResourceType"] = o.ManagedResourceType
 	}
 	toSerialize["name"] = o.Name
+	if !IsNil(o.UrlKey) {
+		toSerialize["urlKey"] = o.UrlKey
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -301,6 +329,7 @@ func (o *ResourceSummary) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "isExternal")
 		delete(additionalProperties, "managedResourceType")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "urlKey")
 		o.AdditionalProperties = additionalProperties
 	}
 

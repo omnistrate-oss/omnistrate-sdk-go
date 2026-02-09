@@ -574,6 +574,7 @@ type ApiSubscriptionApiListSubscriptionsRequest struct {
 	ApiService SubscriptionApiAPI
 	serviceId *string
 	environmentType *string
+	includeInactive *bool
 }
 
 // Service Id
@@ -585,6 +586,12 @@ func (r ApiSubscriptionApiListSubscriptionsRequest) ServiceId(serviceId string) 
 // The environment type to filter by
 func (r ApiSubscriptionApiListSubscriptionsRequest) EnvironmentType(environmentType string) ApiSubscriptionApiListSubscriptionsRequest {
 	r.environmentType = &environmentType
+	return r
+}
+
+// Flag indicating whether to include inactive (suspended, cancelled, terminated) subscriptions
+func (r ApiSubscriptionApiListSubscriptionsRequest) IncludeInactive(includeInactive bool) ApiSubscriptionApiListSubscriptionsRequest {
+	r.includeInactive = &includeInactive
 	return r
 }
 
@@ -631,6 +638,9 @@ func (a *SubscriptionApiAPIService) SubscriptionApiListSubscriptionsExecute(r Ap
 	}
 	if r.environmentType != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "environmentType", r.environmentType, "form", "")
+	}
+	if r.includeInactive != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeInactive", r.includeInactive, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

@@ -478,15 +478,16 @@ type ApiCustomNetworkApiListCustomNetworksRequest struct {
 	cloudProviderName *string
 	cloudProviderRegion *string
 	customNetworksOnly *bool
+	subscriptionId *string
 }
 
-// The name of the cloud provider that custom network should be created in
+// The name of the cloud provider to filter custom networks by
 func (r ApiCustomNetworkApiListCustomNetworksRequest) CloudProviderName(cloudProviderName string) ApiCustomNetworkApiListCustomNetworksRequest {
 	r.cloudProviderName = &cloudProviderName
 	return r
 }
 
-// The region of the cloud provider that the network should be created in
+// The region of the cloud provider to filter custom networks by
 func (r ApiCustomNetworkApiListCustomNetworksRequest) CloudProviderRegion(cloudProviderRegion string) ApiCustomNetworkApiListCustomNetworksRequest {
 	r.cloudProviderRegion = &cloudProviderRegion
 	return r
@@ -495,6 +496,12 @@ func (r ApiCustomNetworkApiListCustomNetworksRequest) CloudProviderRegion(cloudP
 // Flag indicating whether to return only custom networks, or to include default and imported networks as well
 func (r ApiCustomNetworkApiListCustomNetworksRequest) CustomNetworksOnly(customNetworksOnly bool) ApiCustomNetworkApiListCustomNetworksRequest {
 	r.customNetworksOnly = &customNetworksOnly
+	return r
+}
+
+// List available custom networks for the given subscription ID
+func (r ApiCustomNetworkApiListCustomNetworksRequest) SubscriptionId(subscriptionId string) ApiCustomNetworkApiListCustomNetworksRequest {
+	r.subscriptionId = &subscriptionId
 	return r
 }
 
@@ -544,6 +551,9 @@ func (a *CustomNetworkApiAPIService) CustomNetworkApiListCustomNetworksExecute(r
 	}
 	if r.customNetworksOnly != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "customNetworksOnly", r.customNetworksOnly, "form", "")
+	}
+	if r.subscriptionId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "subscriptionId", r.subscriptionId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

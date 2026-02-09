@@ -21,7 +21,7 @@ var _ MappedNullable = &ModifyServiceProviderOrganizationRequest{}
 // ModifyServiceProviderOrganizationRequest struct for ModifyServiceProviderOrganizationRequest
 type ModifyServiceProviderOrganizationRequest struct {
 	// The default deployment cell configurations for the organization per environment.
-	DeploymentCellConfigurations map[string]interface{} `json:"DeploymentCellConfigurations,omitempty"`
+	DeploymentCellConfigurations *map[string]DeploymentCellConfigurations `json:"DeploymentCellConfigurations,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -48,26 +48,26 @@ func NewModifyServiceProviderOrganizationRequestWithDefaults() *ModifyServicePro
 }
 
 // GetDeploymentCellConfigurations returns the DeploymentCellConfigurations field value if set, zero value otherwise.
-func (o *ModifyServiceProviderOrganizationRequest) GetDeploymentCellConfigurations() map[string]interface{} {
+func (o *ModifyServiceProviderOrganizationRequest) GetDeploymentCellConfigurations() map[string]DeploymentCellConfigurations {
 	if o == nil || IsNil(o.DeploymentCellConfigurations) {
-		var ret map[string]interface{}
+		var ret map[string]DeploymentCellConfigurations
 		return ret
 	}
-	return o.DeploymentCellConfigurations
+	return *o.DeploymentCellConfigurations
 }
 
 // GetDeploymentCellConfigurationsOk returns a tuple with the DeploymentCellConfigurations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModifyServiceProviderOrganizationRequest) GetDeploymentCellConfigurationsOk() (map[string]interface{}, bool) {
+func (o *ModifyServiceProviderOrganizationRequest) GetDeploymentCellConfigurationsOk() (*map[string]DeploymentCellConfigurations, bool) {
 	if o == nil || IsNil(o.DeploymentCellConfigurations) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.DeploymentCellConfigurations, true
 }
 
-// SetDeploymentCellConfigurations gets a reference to the given map[string]interface{} and assigns it to the DeploymentCellConfigurations field.
-func (o *ModifyServiceProviderOrganizationRequest) SetDeploymentCellConfigurations(v map[string]interface{}) {
-	o.DeploymentCellConfigurations = v
+// SetDeploymentCellConfigurations gets a reference to the given map[string]DeploymentCellConfigurations and assigns it to the DeploymentCellConfigurations field.
+func (o *ModifyServiceProviderOrganizationRequest) SetDeploymentCellConfigurations(v map[string]DeploymentCellConfigurations) {
+	o.DeploymentCellConfigurations = &v
 }
 
 // GetToken returns the Token field value

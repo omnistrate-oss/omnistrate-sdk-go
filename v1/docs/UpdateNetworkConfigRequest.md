@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Id** | **string** | ID of a Network Config | 
 **Internal** | Pointer to **bool** | Restrict access to this network config to the internal network | [optional] 
 **Name** | Pointer to **string** | Name of the network config | [optional] 
+**NamedOpenPorts** | Pointer to [**map[string]NamedPortSpec**](NamedPortSpec.md) | Map of port names to port specifications | [optional] 
 **OpenPorts** | Pointer to **[]int64** | Ports to map to the generated DNS endpoint | [optional] 
 **PrivateNetworkingConfiguration** | Pointer to [**PrivateNetworkingConfiguration**](PrivateNetworkingConfiguration.md) |  | [optional] 
 **PublicNetworkingConfiguration** | Pointer to [**PublicNetworkingConfiguration**](PublicNetworkingConfiguration.md) |  | [optional] 
@@ -156,6 +157,31 @@ SetName sets Name field to given value.
 `func (o *UpdateNetworkConfigRequest) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetNamedOpenPorts
+
+`func (o *UpdateNetworkConfigRequest) GetNamedOpenPorts() map[string]NamedPortSpec`
+
+GetNamedOpenPorts returns the NamedOpenPorts field if non-nil, zero value otherwise.
+
+### GetNamedOpenPortsOk
+
+`func (o *UpdateNetworkConfigRequest) GetNamedOpenPortsOk() (*map[string]NamedPortSpec, bool)`
+
+GetNamedOpenPortsOk returns a tuple with the NamedOpenPorts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNamedOpenPorts
+
+`func (o *UpdateNetworkConfigRequest) SetNamedOpenPorts(v map[string]NamedPortSpec)`
+
+SetNamedOpenPorts sets NamedOpenPorts field to given value.
+
+### HasNamedOpenPorts
+
+`func (o *UpdateNetworkConfigRequest) HasNamedOpenPorts() bool`
+
+HasNamedOpenPorts returns a boolean if a field has been set.
 
 ### GetOpenPorts
 

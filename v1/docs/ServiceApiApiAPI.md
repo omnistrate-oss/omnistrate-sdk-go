@@ -36,7 +36,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
-	createServiceAPIRequest2 := *openapiclient.NewCreateServiceAPIRequest2("A MySQL SaaS API specializing in multi-writer multi-tenant clusters for high availability", "se-12345678") // CreateServiceAPIRequest2 | 
+	createServiceAPIRequest2 := *openapiclient.NewCreateServiceAPIRequest2("A MySQL SaaS API specializing in multi-writer multi-tenant clusters for high availability", "se-123456") // CreateServiceAPIRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

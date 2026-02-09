@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**DryRun** | Pointer to **bool** | If true, validates the deletion without actually deleting the resource | [optional] [default to false]
 **Id** | **string** | ID of a resource | 
 **ServiceId** | **string** | ID of a Service | 
 **Token** | **string** | JWT token used to perform authorization | 
@@ -26,6 +27,31 @@ will change when the set of required properties is changed
 NewDeleteResourceRequestWithDefaults instantiates a new DeleteResourceRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetDryRun
+
+`func (o *DeleteResourceRequest) GetDryRun() bool`
+
+GetDryRun returns the DryRun field if non-nil, zero value otherwise.
+
+### GetDryRunOk
+
+`func (o *DeleteResourceRequest) GetDryRunOk() (*bool, bool)`
+
+GetDryRunOk returns a tuple with the DryRun field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDryRun
+
+`func (o *DeleteResourceRequest) SetDryRun(v bool)`
+
+SetDryRun sets DryRun field to given value.
+
+### HasDryRun
+
+`func (o *DeleteResourceRequest) HasDryRun() bool`
+
+HasDryRun returns a boolean if a field has been set.
 
 ### GetId
 

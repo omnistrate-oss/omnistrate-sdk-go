@@ -41,6 +41,7 @@ type UpdateInputParameterRequest struct {
 	Regex *string `json:"regex,omitempty"`
 	// Enforces the input parameter as a required parameter
 	Required *bool `json:"required,omitempty"`
+	Scope *InputParameterScope `json:"scope,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// Index for parameter ordering in the SaaS portal
@@ -330,6 +331,29 @@ func (o *UpdateInputParameterRequest) SetRequired(v bool) {
 	o.Required = &v
 }
 
+// GetScope returns the Scope field value if set, zero value otherwise.
+func (o *UpdateInputParameterRequest) GetScope() InputParameterScope {
+	if o == nil || IsNil(o.Scope) {
+		var ret InputParameterScope
+		return ret
+	}
+	return *o.Scope
+}
+
+// GetScopeOk returns a tuple with the Scope field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateInputParameterRequest) GetScopeOk() (*InputParameterScope, bool) {
+	if o == nil || IsNil(o.Scope) {
+		return nil, false
+	}
+	return o.Scope, true
+}
+
+// SetScope gets a reference to the given InputParameterScope and assigns it to the Scope field.
+func (o *UpdateInputParameterRequest) SetScope(v InputParameterScope) {
+	o.Scope = &v
+}
+
 // GetServiceId returns the ServiceId field value
 func (o *UpdateInputParameterRequest) GetServiceId() string {
 	if o == nil {
@@ -442,6 +466,9 @@ func (o UpdateInputParameterRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Required) {
 		toSerialize["required"] = o.Required
 	}
+	if !IsNil(o.Scope) {
+		toSerialize["scope"] = o.Scope
+	}
 	toSerialize["serviceId"] = o.ServiceId
 	if !IsNil(o.TabIndex) {
 		toSerialize["tabIndex"] = o.TabIndex
@@ -503,6 +530,7 @@ func (o *UpdateInputParameterRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "options")
 		delete(additionalProperties, "regex")
 		delete(additionalProperties, "required")
+		delete(additionalProperties, "scope")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "tabIndex")
 		delete(additionalProperties, "token")

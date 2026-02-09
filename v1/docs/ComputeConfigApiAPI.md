@@ -36,7 +36,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "cc-12345678" // string | ID of the compute config
-	addComputeInstanceTypeRequest2 := *openapiclient.NewAddComputeInstanceTypeRequest2("aws", "t3.micro") // AddComputeInstanceTypeRequest2 | 
+	addComputeInstanceTypeRequest2 := *openapiclient.NewAddComputeInstanceTypeRequest2("aws|azure|gcp|all", "t3.micro") // AddComputeInstanceTypeRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -246,7 +246,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "cc-12345678" // string | ID of the compute config
-	productTierVersion := "Alias omnis voluptas." // string | Product tier version of the compute config to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Quibusdam voluptas aut." // string | Product tier version of the compute config to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the compute config to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -462,7 +462,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "cc-12345678" // string | ID of the compute config
-	removeComputeInstanceTypeRequest2 := *openapiclient.NewRemoveComputeInstanceTypeRequest2("aws", "t3.micro") // RemoveComputeInstanceTypeRequest2 | 
+	removeComputeInstanceTypeRequest2 := *openapiclient.NewRemoveComputeInstanceTypeRequest2("aws|azure|gcp|all", "t3.micro") // RemoveComputeInstanceTypeRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

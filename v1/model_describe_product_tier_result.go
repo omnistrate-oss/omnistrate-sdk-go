@@ -23,7 +23,7 @@ type DescribeProductTierResult struct {
 	// Allow creates when payment not configured
 	AllowCreatesWhenPaymentNotConfigured *bool `json:"allowCreatesWhenPaymentNotConfigured,omitempty"`
 	// The resources that belong to this service API bundle and their active versions
-	ApiGroups map[string]interface{} `json:"apiGroups,omitempty"`
+	ApiGroups *map[string]string `json:"apiGroups,omitempty"`
 	// Auto approve subscription or not
 	AutoApproveSubscription *bool `json:"autoApproveSubscription,omitempty"`
 	// The AWS regions that this product tier is available on
@@ -35,13 +35,18 @@ type DescribeProductTierResult struct {
 	// List of billing providers to be used for the product tier
 	BillingProviders []string `json:"billingProviders,omitempty"`
 	// The readiness of the cloud providers configurations
-	CloudProvidersConfigReadiness map[string]interface{} `json:"cloudProvidersConfigReadiness,omitempty"`
+	CloudProvidersConfigReadiness *map[string]map[string]string `json:"cloudProvidersConfigReadiness,omitempty"`
 	// The billing provider type
 	DefaultBillingProvider *string `json:"defaultBillingProvider,omitempty"`
+	// List of deployment artifact IDs associated with this product tier
+	DeploymentArtifactIDs []string `json:"deploymentArtifactIDs,omitempty"`
+	DeploymentConfiguration *ProductTierDeploymentConfiguration `json:"deploymentConfiguration,omitempty"`
 	// A brief description of the product tier
 	Description string `json:"description"`
 	// Documentation
 	Documentation string `json:"documentation"`
+	// Enable deletion protection for the product tier
+	EnableDeletionProtection bool `json:"enableDeletionProtection"`
 	// The features that are enabled for this product tier, including scope details and configuration
 	EnabledFeatures []ProductTierFeatureDetail `json:"enabledFeatures,omitempty"`
 	// Export usage metering data
@@ -49,7 +54,7 @@ type DescribeProductTierResult struct {
 	// Export usage metering data configuration
 	ExportUsageMeteringConfig map[string]interface{} `json:"exportUsageMeteringConfig,omitempty"`
 	// The features that are enabled / disabled for this product tier
-	Features map[string]interface{} `json:"features,omitempty"`
+	Features *map[string]bool `json:"features,omitempty"`
 	// The GCP regions that this product tier is available on
 	GcpRegions []string `json:"gcpRegions,omitempty"`
 	// ID of a Product Tier
@@ -62,6 +67,10 @@ type DescribeProductTierResult struct {
 	MaxNumberOfInstances *int64 `json:"maxNumberOfInstances,omitempty"`
 	// Name of the product tier
 	Name string `json:"name"`
+	// The OCI regions that this product tier is available on
+	OciRegions []string `json:"ociRegions,omitempty"`
+	// The on prem platforms that this product tier is available on
+	OnPremPlatforms []string `json:"onPremPlatforms,omitempty"`
 	// A brief description for the end user of the product tier
 	PlanDescription string `json:"planDescription"`
 	// Price per unit.
@@ -87,10 +96,11 @@ type _DescribeProductTierResult DescribeProductTierResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDescribeProductTierResult(description string, documentation string, id string, isDisabled bool, key string, name string, planDescription string, pricing interface{}, serviceId string, serviceModelId string, support string, tierType string) *DescribeProductTierResult {
+func NewDescribeProductTierResult(description string, documentation string, enableDeletionProtection bool, id string, isDisabled bool, key string, name string, planDescription string, pricing interface{}, serviceId string, serviceModelId string, support string, tierType string) *DescribeProductTierResult {
 	this := DescribeProductTierResult{}
 	this.Description = description
 	this.Documentation = documentation
+	this.EnableDeletionProtection = enableDeletionProtection
 	this.Id = id
 	this.IsDisabled = isDisabled
 	this.Key = key
@@ -136,26 +146,26 @@ func (o *DescribeProductTierResult) SetAllowCreatesWhenPaymentNotConfigured(v bo
 }
 
 // GetApiGroups returns the ApiGroups field value if set, zero value otherwise.
-func (o *DescribeProductTierResult) GetApiGroups() map[string]interface{} {
+func (o *DescribeProductTierResult) GetApiGroups() map[string]string {
 	if o == nil || IsNil(o.ApiGroups) {
-		var ret map[string]interface{}
+		var ret map[string]string
 		return ret
 	}
-	return o.ApiGroups
+	return *o.ApiGroups
 }
 
 // GetApiGroupsOk returns a tuple with the ApiGroups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeProductTierResult) GetApiGroupsOk() (map[string]interface{}, bool) {
+func (o *DescribeProductTierResult) GetApiGroupsOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.ApiGroups) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.ApiGroups, true
 }
 
-// SetApiGroups gets a reference to the given map[string]interface{} and assigns it to the ApiGroups field.
-func (o *DescribeProductTierResult) SetApiGroups(v map[string]interface{}) {
-	o.ApiGroups = v
+// SetApiGroups gets a reference to the given map[string]string and assigns it to the ApiGroups field.
+func (o *DescribeProductTierResult) SetApiGroups(v map[string]string) {
+	o.ApiGroups = &v
 }
 
 // GetAutoApproveSubscription returns the AutoApproveSubscription field value if set, zero value otherwise.
@@ -274,26 +284,26 @@ func (o *DescribeProductTierResult) SetBillingProviders(v []string) {
 }
 
 // GetCloudProvidersConfigReadiness returns the CloudProvidersConfigReadiness field value if set, zero value otherwise.
-func (o *DescribeProductTierResult) GetCloudProvidersConfigReadiness() map[string]interface{} {
+func (o *DescribeProductTierResult) GetCloudProvidersConfigReadiness() map[string]map[string]string {
 	if o == nil || IsNil(o.CloudProvidersConfigReadiness) {
-		var ret map[string]interface{}
+		var ret map[string]map[string]string
 		return ret
 	}
-	return o.CloudProvidersConfigReadiness
+	return *o.CloudProvidersConfigReadiness
 }
 
 // GetCloudProvidersConfigReadinessOk returns a tuple with the CloudProvidersConfigReadiness field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeProductTierResult) GetCloudProvidersConfigReadinessOk() (map[string]interface{}, bool) {
+func (o *DescribeProductTierResult) GetCloudProvidersConfigReadinessOk() (*map[string]map[string]string, bool) {
 	if o == nil || IsNil(o.CloudProvidersConfigReadiness) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.CloudProvidersConfigReadiness, true
 }
 
-// SetCloudProvidersConfigReadiness gets a reference to the given map[string]interface{} and assigns it to the CloudProvidersConfigReadiness field.
-func (o *DescribeProductTierResult) SetCloudProvidersConfigReadiness(v map[string]interface{}) {
-	o.CloudProvidersConfigReadiness = v
+// SetCloudProvidersConfigReadiness gets a reference to the given map[string]map[string]string and assigns it to the CloudProvidersConfigReadiness field.
+func (o *DescribeProductTierResult) SetCloudProvidersConfigReadiness(v map[string]map[string]string) {
+	o.CloudProvidersConfigReadiness = &v
 }
 
 // GetDefaultBillingProvider returns the DefaultBillingProvider field value if set, zero value otherwise.
@@ -317,6 +327,52 @@ func (o *DescribeProductTierResult) GetDefaultBillingProviderOk() (*string, bool
 // SetDefaultBillingProvider gets a reference to the given string and assigns it to the DefaultBillingProvider field.
 func (o *DescribeProductTierResult) SetDefaultBillingProvider(v string) {
 	o.DefaultBillingProvider = &v
+}
+
+// GetDeploymentArtifactIDs returns the DeploymentArtifactIDs field value if set, zero value otherwise.
+func (o *DescribeProductTierResult) GetDeploymentArtifactIDs() []string {
+	if o == nil || IsNil(o.DeploymentArtifactIDs) {
+		var ret []string
+		return ret
+	}
+	return o.DeploymentArtifactIDs
+}
+
+// GetDeploymentArtifactIDsOk returns a tuple with the DeploymentArtifactIDs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeProductTierResult) GetDeploymentArtifactIDsOk() ([]string, bool) {
+	if o == nil || IsNil(o.DeploymentArtifactIDs) {
+		return nil, false
+	}
+	return o.DeploymentArtifactIDs, true
+}
+
+// SetDeploymentArtifactIDs gets a reference to the given []string and assigns it to the DeploymentArtifactIDs field.
+func (o *DescribeProductTierResult) SetDeploymentArtifactIDs(v []string) {
+	o.DeploymentArtifactIDs = v
+}
+
+// GetDeploymentConfiguration returns the DeploymentConfiguration field value if set, zero value otherwise.
+func (o *DescribeProductTierResult) GetDeploymentConfiguration() ProductTierDeploymentConfiguration {
+	if o == nil || IsNil(o.DeploymentConfiguration) {
+		var ret ProductTierDeploymentConfiguration
+		return ret
+	}
+	return *o.DeploymentConfiguration
+}
+
+// GetDeploymentConfigurationOk returns a tuple with the DeploymentConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeProductTierResult) GetDeploymentConfigurationOk() (*ProductTierDeploymentConfiguration, bool) {
+	if o == nil || IsNil(o.DeploymentConfiguration) {
+		return nil, false
+	}
+	return o.DeploymentConfiguration, true
+}
+
+// SetDeploymentConfiguration gets a reference to the given ProductTierDeploymentConfiguration and assigns it to the DeploymentConfiguration field.
+func (o *DescribeProductTierResult) SetDeploymentConfiguration(v ProductTierDeploymentConfiguration) {
+	o.DeploymentConfiguration = &v
 }
 
 // GetDescription returns the Description field value
@@ -365,6 +421,30 @@ func (o *DescribeProductTierResult) GetDocumentationOk() (*string, bool) {
 // SetDocumentation sets field value
 func (o *DescribeProductTierResult) SetDocumentation(v string) {
 	o.Documentation = v
+}
+
+// GetEnableDeletionProtection returns the EnableDeletionProtection field value
+func (o *DescribeProductTierResult) GetEnableDeletionProtection() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.EnableDeletionProtection
+}
+
+// GetEnableDeletionProtectionOk returns a tuple with the EnableDeletionProtection field value
+// and a boolean to check if the value has been set.
+func (o *DescribeProductTierResult) GetEnableDeletionProtectionOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EnableDeletionProtection, true
+}
+
+// SetEnableDeletionProtection sets field value
+func (o *DescribeProductTierResult) SetEnableDeletionProtection(v bool) {
+	o.EnableDeletionProtection = v
 }
 
 // GetEnabledFeatures returns the EnabledFeatures field value if set, zero value otherwise.
@@ -437,26 +517,26 @@ func (o *DescribeProductTierResult) SetExportUsageMeteringConfig(v map[string]in
 }
 
 // GetFeatures returns the Features field value if set, zero value otherwise.
-func (o *DescribeProductTierResult) GetFeatures() map[string]interface{} {
+func (o *DescribeProductTierResult) GetFeatures() map[string]bool {
 	if o == nil || IsNil(o.Features) {
-		var ret map[string]interface{}
+		var ret map[string]bool
 		return ret
 	}
-	return o.Features
+	return *o.Features
 }
 
 // GetFeaturesOk returns a tuple with the Features field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeProductTierResult) GetFeaturesOk() (map[string]interface{}, bool) {
+func (o *DescribeProductTierResult) GetFeaturesOk() (*map[string]bool, bool) {
 	if o == nil || IsNil(o.Features) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.Features, true
 }
 
-// SetFeatures gets a reference to the given map[string]interface{} and assigns it to the Features field.
-func (o *DescribeProductTierResult) SetFeatures(v map[string]interface{}) {
-	o.Features = v
+// SetFeatures gets a reference to the given map[string]bool and assigns it to the Features field.
+func (o *DescribeProductTierResult) SetFeatures(v map[string]bool) {
+	o.Features = &v
 }
 
 // GetGcpRegions returns the GcpRegions field value if set, zero value otherwise.
@@ -599,6 +679,52 @@ func (o *DescribeProductTierResult) GetNameOk() (*string, bool) {
 // SetName sets field value
 func (o *DescribeProductTierResult) SetName(v string) {
 	o.Name = v
+}
+
+// GetOciRegions returns the OciRegions field value if set, zero value otherwise.
+func (o *DescribeProductTierResult) GetOciRegions() []string {
+	if o == nil || IsNil(o.OciRegions) {
+		var ret []string
+		return ret
+	}
+	return o.OciRegions
+}
+
+// GetOciRegionsOk returns a tuple with the OciRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeProductTierResult) GetOciRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.OciRegions) {
+		return nil, false
+	}
+	return o.OciRegions, true
+}
+
+// SetOciRegions gets a reference to the given []string and assigns it to the OciRegions field.
+func (o *DescribeProductTierResult) SetOciRegions(v []string) {
+	o.OciRegions = v
+}
+
+// GetOnPremPlatforms returns the OnPremPlatforms field value if set, zero value otherwise.
+func (o *DescribeProductTierResult) GetOnPremPlatforms() []string {
+	if o == nil || IsNil(o.OnPremPlatforms) {
+		var ret []string
+		return ret
+	}
+	return o.OnPremPlatforms
+}
+
+// GetOnPremPlatformsOk returns a tuple with the OnPremPlatforms field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeProductTierResult) GetOnPremPlatformsOk() ([]string, bool) {
+	if o == nil || IsNil(o.OnPremPlatforms) {
+		return nil, false
+	}
+	return o.OnPremPlatforms, true
+}
+
+// SetOnPremPlatforms gets a reference to the given []string and assigns it to the OnPremPlatforms field.
+func (o *DescribeProductTierResult) SetOnPremPlatforms(v []string) {
+	o.OnPremPlatforms = v
 }
 
 // GetPlanDescription returns the PlanDescription field value
@@ -830,8 +956,15 @@ func (o DescribeProductTierResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DefaultBillingProvider) {
 		toSerialize["defaultBillingProvider"] = o.DefaultBillingProvider
 	}
+	if !IsNil(o.DeploymentArtifactIDs) {
+		toSerialize["deploymentArtifactIDs"] = o.DeploymentArtifactIDs
+	}
+	if !IsNil(o.DeploymentConfiguration) {
+		toSerialize["deploymentConfiguration"] = o.DeploymentConfiguration
+	}
 	toSerialize["description"] = o.Description
 	toSerialize["documentation"] = o.Documentation
+	toSerialize["enableDeletionProtection"] = o.EnableDeletionProtection
 	if !IsNil(o.EnabledFeatures) {
 		toSerialize["enabledFeatures"] = o.EnabledFeatures
 	}
@@ -854,6 +987,12 @@ func (o DescribeProductTierResult) ToMap() (map[string]interface{}, error) {
 		toSerialize["maxNumberOfInstances"] = o.MaxNumberOfInstances
 	}
 	toSerialize["name"] = o.Name
+	if !IsNil(o.OciRegions) {
+		toSerialize["ociRegions"] = o.OciRegions
+	}
+	if !IsNil(o.OnPremPlatforms) {
+		toSerialize["onPremPlatforms"] = o.OnPremPlatforms
+	}
 	toSerialize["planDescription"] = o.PlanDescription
 	if !IsNil(o.PricePerUnit) {
 		toSerialize["pricePerUnit"] = o.PricePerUnit
@@ -883,6 +1022,7 @@ func (o *DescribeProductTierResult) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"description",
 		"documentation",
+		"enableDeletionProtection",
 		"id",
 		"isDisabled",
 		"key",
@@ -931,8 +1071,11 @@ func (o *DescribeProductTierResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "billingProviders")
 		delete(additionalProperties, "cloudProvidersConfigReadiness")
 		delete(additionalProperties, "defaultBillingProvider")
+		delete(additionalProperties, "deploymentArtifactIDs")
+		delete(additionalProperties, "deploymentConfiguration")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "documentation")
+		delete(additionalProperties, "enableDeletionProtection")
 		delete(additionalProperties, "enabledFeatures")
 		delete(additionalProperties, "exportUsageMetering")
 		delete(additionalProperties, "exportUsageMeteringConfig")
@@ -943,6 +1086,8 @@ func (o *DescribeProductTierResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "key")
 		delete(additionalProperties, "maxNumberOfInstances")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "ociRegions")
+		delete(additionalProperties, "onPremPlatforms")
 		delete(additionalProperties, "planDescription")
 		delete(additionalProperties, "pricePerUnit")
 		delete(additionalProperties, "pricing")

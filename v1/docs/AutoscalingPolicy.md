@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **IdleMinutesBeforeScalingDown** | Pointer to **int64** | Minutes before scaling down the compute nodes in idle state | [optional] [default to 5]
 **IdleThreshold** | Pointer to **int64** | Metric value below threshold will be considered to be idle | [optional] [default to 20]
+**ManagementPolicy** | Pointer to **string** | The autoscaling policy type | [optional] [default to "managed"]
 **MaxReplicas** | **string** | Maximum number of compute nodes to provision | 
 **MinReplicas** | **string** | Minimum number of compute nodes to provision | 
 **OverUtilizedMinutesBeforeScalingUp** | Pointer to **int64** | Minutes before scaling up the compute nodes in overUtilized state | [optional] [default to 5]
@@ -80,6 +81,31 @@ SetIdleThreshold sets IdleThreshold field to given value.
 `func (o *AutoscalingPolicy) HasIdleThreshold() bool`
 
 HasIdleThreshold returns a boolean if a field has been set.
+
+### GetManagementPolicy
+
+`func (o *AutoscalingPolicy) GetManagementPolicy() string`
+
+GetManagementPolicy returns the ManagementPolicy field if non-nil, zero value otherwise.
+
+### GetManagementPolicyOk
+
+`func (o *AutoscalingPolicy) GetManagementPolicyOk() (*string, bool)`
+
+GetManagementPolicyOk returns a tuple with the ManagementPolicy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManagementPolicy
+
+`func (o *AutoscalingPolicy) SetManagementPolicy(v string)`
+
+SetManagementPolicy sets ManagementPolicy field to given value.
+
+### HasManagementPolicy
+
+`func (o *AutoscalingPolicy) HasManagementPolicy() bool`
+
+HasManagementPolicy returns a boolean if a field has been set.
 
 ### GetMaxReplicas
 

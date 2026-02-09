@@ -47,6 +47,7 @@ type CreateInputParameterRequest2 struct {
 	Required bool `json:"required"`
 	// The ID of the resource that this input parameter belongs to
 	ResourceId string `json:"resourceId"`
+	Scope *InputParameterScope `json:"scope,omitempty"`
 	// Index for parameter ordering in the SaaS portal
 	TabIndex *int64 `json:"tabIndex,omitempty"`
 	Type string `json:"type"`
@@ -419,6 +420,29 @@ func (o *CreateInputParameterRequest2) SetResourceId(v string) {
 	o.ResourceId = v
 }
 
+// GetScope returns the Scope field value if set, zero value otherwise.
+func (o *CreateInputParameterRequest2) GetScope() InputParameterScope {
+	if o == nil || IsNil(o.Scope) {
+		var ret InputParameterScope
+		return ret
+	}
+	return *o.Scope
+}
+
+// GetScopeOk returns a tuple with the Scope field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateInputParameterRequest2) GetScopeOk() (*InputParameterScope, bool) {
+	if o == nil || IsNil(o.Scope) {
+		return nil, false
+	}
+	return o.Scope, true
+}
+
+// SetScope gets a reference to the given InputParameterScope and assigns it to the Scope field.
+func (o *CreateInputParameterRequest2) SetScope(v InputParameterScope) {
+	o.Scope = &v
+}
+
 // GetTabIndex returns the TabIndex field value if set, zero value otherwise.
 func (o *CreateInputParameterRequest2) GetTabIndex() int64 {
 	if o == nil || IsNil(o.TabIndex) {
@@ -506,6 +530,9 @@ func (o CreateInputParameterRequest2) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["required"] = o.Required
 	toSerialize["resourceId"] = o.ResourceId
+	if !IsNil(o.Scope) {
+		toSerialize["scope"] = o.Scope
+	}
 	if !IsNil(o.TabIndex) {
 		toSerialize["tabIndex"] = o.TabIndex
 	}
@@ -573,6 +600,7 @@ func (o *CreateInputParameterRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "regex")
 		delete(additionalProperties, "required")
 		delete(additionalProperties, "resourceId")
+		delete(additionalProperties, "scope")
 		delete(additionalProperties, "tabIndex")
 		delete(additionalProperties, "type")
 		o.AdditionalProperties = additionalProperties

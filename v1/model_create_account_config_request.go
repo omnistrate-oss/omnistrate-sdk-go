@@ -48,6 +48,10 @@ type CreateAccountConfigRequest struct {
 	GcpServiceAccountKey *string `json:"gcpServiceAccountKey,omitempty"`
 	// The name of the account
 	Name string `json:"name"`
+	// The Domain OCID for Oracle Cloud Infrastructure
+	OciDomainID *string `json:"ociDomainID,omitempty"`
+	// The Tenancy OCID for Oracle Cloud Infrastructure
+	OciTenancyID *string `json:"ociTenancyID,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -401,6 +405,52 @@ func (o *CreateAccountConfigRequest) SetName(v string) {
 	o.Name = v
 }
 
+// GetOciDomainID returns the OciDomainID field value if set, zero value otherwise.
+func (o *CreateAccountConfigRequest) GetOciDomainID() string {
+	if o == nil || IsNil(o.OciDomainID) {
+		var ret string
+		return ret
+	}
+	return *o.OciDomainID
+}
+
+// GetOciDomainIDOk returns a tuple with the OciDomainID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateAccountConfigRequest) GetOciDomainIDOk() (*string, bool) {
+	if o == nil || IsNil(o.OciDomainID) {
+		return nil, false
+	}
+	return o.OciDomainID, true
+}
+
+// SetOciDomainID gets a reference to the given string and assigns it to the OciDomainID field.
+func (o *CreateAccountConfigRequest) SetOciDomainID(v string) {
+	o.OciDomainID = &v
+}
+
+// GetOciTenancyID returns the OciTenancyID field value if set, zero value otherwise.
+func (o *CreateAccountConfigRequest) GetOciTenancyID() string {
+	if o == nil || IsNil(o.OciTenancyID) {
+		var ret string
+		return ret
+	}
+	return *o.OciTenancyID
+}
+
+// GetOciTenancyIDOk returns a tuple with the OciTenancyID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateAccountConfigRequest) GetOciTenancyIDOk() (*string, bool) {
+	if o == nil || IsNil(o.OciTenancyID) {
+		return nil, false
+	}
+	return o.OciTenancyID, true
+}
+
+// SetOciTenancyID gets a reference to the given string and assigns it to the OciTenancyID field.
+func (o *CreateAccountConfigRequest) SetOciTenancyID(v string) {
+	o.OciTenancyID = &v
+}
+
 // GetToken returns the Token field value
 func (o *CreateAccountConfigRequest) GetToken() string {
 	if o == nil {
@@ -471,6 +521,12 @@ func (o CreateAccountConfigRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["gcpServiceAccountKey"] = o.GcpServiceAccountKey
 	}
 	toSerialize["name"] = o.Name
+	if !IsNil(o.OciDomainID) {
+		toSerialize["ociDomainID"] = o.OciDomainID
+	}
+	if !IsNil(o.OciTenancyID) {
+		toSerialize["ociTenancyID"] = o.OciTenancyID
+	}
 	toSerialize["token"] = o.Token
 
 	for key, value := range o.AdditionalProperties {
@@ -532,6 +588,8 @@ func (o *CreateAccountConfigRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "gcpServiceAccountEmail")
 		delete(additionalProperties, "gcpServiceAccountKey")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "ociDomainID")
+		delete(additionalProperties, "ociTenancyID")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

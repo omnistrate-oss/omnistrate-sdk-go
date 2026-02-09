@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**AccountConfigApiDescribeAccountConfigByAWSAccountID**](AccountConfigApiAPI.md#AccountConfigApiDescribeAccountConfigByAWSAccountID) | **Get** /2022-09-01-00/accountconfig/aws/{awsAccountID} | DescribeAccountConfigByAWSAccountID account-config-api
 [**AccountConfigApiDescribeAccountConfigByAzureSubscriptionID**](AccountConfigApiAPI.md#AccountConfigApiDescribeAccountConfigByAzureSubscriptionID) | **Get** /2022-09-01-00/accountconfig/azure/{azureSubscriptionID} | DescribeAccountConfigByAzureSubscriptionID account-config-api
 [**AccountConfigApiDescribeAccountConfigByGCPProjectID**](AccountConfigApiAPI.md#AccountConfigApiDescribeAccountConfigByGCPProjectID) | **Get** /2022-09-01-00/accountconfig/gcp/{gcpProjectID} | DescribeAccountConfigByGCPProjectID account-config-api
+[**AccountConfigApiDescribeAccountConfigByOCITenancyID**](AccountConfigApiAPI.md#AccountConfigApiDescribeAccountConfigByOCITenancyID) | **Get** /2022-09-01-00/accountconfig/oci/{ociTenancyID} | DescribeAccountConfigByOCITenancyID account-config-api
 [**AccountConfigApiListAccountConfig**](AccountConfigApiAPI.md#AccountConfigApiListAccountConfig) | **Get** /2022-09-01-00/accountconfig/cloudprovider/{cloudProviderName} | ListAccountConfig account-config-api
 [**AccountConfigApiListBYOAConfig**](AccountConfigApiAPI.md#AccountConfigApiListBYOAConfig) | **Get** /2022-09-01-00/accountconfig/byoa | ListBYOAConfig account-config-api
 [**AccountConfigApiVerifyAccountConfig**](AccountConfigApiAPI.md#AccountConfigApiVerifyAccountConfig) | **Post** /2022-09-01-00/accountconfig/verify/{id} | VerifyAccountConfig account-config-api
@@ -97,7 +98,7 @@ import (
 )
 
 func main() {
-	createAccountConfigRequest2 := *openapiclient.NewCreateAccountConfigRequest2("infra-12345678", "An AWS account hosting multiple dev environments", "Dev AWS account") // CreateAccountConfigRequest2 | 
+	createAccountConfigRequest2 := *openapiclient.NewCreateAccountConfigRequest2("Asperiores fuga.", "An AWS account hosting multiple dev environments", "Dev AWS account") // CreateAccountConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -480,6 +481,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## AccountConfigApiDescribeAccountConfigByOCITenancyID
+
+> DescribeAccountConfigByOCITenancyIDResult AccountConfigApiDescribeAccountConfigByOCITenancyID(ctx, ociTenancyID).Execute()
+
+DescribeAccountConfigByOCITenancyID account-config-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	ociTenancyID := "ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" // string | The Tenancy OCID for Oracle Cloud Infrastructure
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountConfigApiAPI.AccountConfigApiDescribeAccountConfigByOCITenancyID(context.Background(), ociTenancyID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountConfigApiAPI.AccountConfigApiDescribeAccountConfigByOCITenancyID``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AccountConfigApiDescribeAccountConfigByOCITenancyID`: DescribeAccountConfigByOCITenancyIDResult
+	fmt.Fprintf(os.Stdout, "Response from `AccountConfigApiAPI.AccountConfigApiDescribeAccountConfigByOCITenancyID`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ociTenancyID** | **string** | The Tenancy OCID for Oracle Cloud Infrastructure | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAccountConfigApiDescribeAccountConfigByOCITenancyIDRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**DescribeAccountConfigByOCITenancyIDResult**](DescribeAccountConfigByOCITenancyIDResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## AccountConfigApiListAccountConfig
 
 > ListAccountConfigResult AccountConfigApiListAccountConfig(ctx, cloudProviderName).Execute()
@@ -567,7 +636,7 @@ import (
 )
 
 func main() {
-	listBYOAConfigRequest2 := *openapiclient.NewListBYOAConfigRequest2("aws") // ListBYOAConfigRequest2 | 
+	listBYOAConfigRequest2 := *openapiclient.NewListBYOAConfigRequest2("aws|azure|gcp|all") // ListBYOAConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

@@ -20,6 +20,8 @@ var _ MappedNullable = &UpdateResourceInstanceRequest{}
 
 // UpdateResourceInstanceRequest struct for UpdateResourceInstanceRequest
 type UpdateResourceInstanceRequest struct {
+	// The custom tag for the resource instance
+	CustomTags []CustomTag `json:"customTags,omitempty"`
 	// The instance ID
 	Id string `json:"id"`
 	// The network type
@@ -73,6 +75,29 @@ func NewUpdateResourceInstanceRequest(id string, productTierKey string, resource
 func NewUpdateResourceInstanceRequestWithDefaults() *UpdateResourceInstanceRequest {
 	this := UpdateResourceInstanceRequest{}
 	return &this
+}
+
+// GetCustomTags returns the CustomTags field value if set, zero value otherwise.
+func (o *UpdateResourceInstanceRequest) GetCustomTags() []CustomTag {
+	if o == nil || IsNil(o.CustomTags) {
+		var ret []CustomTag
+		return ret
+	}
+	return o.CustomTags
+}
+
+// GetCustomTagsOk returns a tuple with the CustomTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateResourceInstanceRequest) GetCustomTagsOk() ([]CustomTag, bool) {
+	if o == nil || IsNil(o.CustomTags) {
+		return nil, false
+	}
+	return o.CustomTags, true
+}
+
+// SetCustomTags gets a reference to the given []CustomTag and assigns it to the CustomTags field.
+func (o *UpdateResourceInstanceRequest) SetCustomTags(v []CustomTag) {
+	o.CustomTags = v
 }
 
 // GetId returns the Id field value
@@ -371,6 +396,9 @@ func (o UpdateResourceInstanceRequest) MarshalJSON() ([]byte, error) {
 
 func (o UpdateResourceInstanceRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CustomTags) {
+		toSerialize["customTags"] = o.CustomTags
+	}
 	toSerialize["id"] = o.Id
 	if !IsNil(o.NetworkType) {
 		toSerialize["network_type"] = o.NetworkType
@@ -440,6 +468,7 @@ func (o *UpdateResourceInstanceRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "customTags")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "network_type")
 		delete(additionalProperties, "productTierKey")

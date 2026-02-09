@@ -47,6 +47,7 @@ type CreateInputParameterRequest struct {
 	Required bool `json:"required"`
 	// ID of a resource
 	ResourceId string `json:"resourceId"`
+	Scope *InputParameterScope `json:"scope,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// Index for parameter ordering in the SaaS portal
@@ -426,6 +427,29 @@ func (o *CreateInputParameterRequest) SetResourceId(v string) {
 	o.ResourceId = v
 }
 
+// GetScope returns the Scope field value if set, zero value otherwise.
+func (o *CreateInputParameterRequest) GetScope() InputParameterScope {
+	if o == nil || IsNil(o.Scope) {
+		var ret InputParameterScope
+		return ret
+	}
+	return *o.Scope
+}
+
+// GetScopeOk returns a tuple with the Scope field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateInputParameterRequest) GetScopeOk() (*InputParameterScope, bool) {
+	if o == nil || IsNil(o.Scope) {
+		return nil, false
+	}
+	return o.Scope, true
+}
+
+// SetScope gets a reference to the given InputParameterScope and assigns it to the Scope field.
+func (o *CreateInputParameterRequest) SetScope(v InputParameterScope) {
+	o.Scope = &v
+}
+
 // GetServiceId returns the ServiceId field value
 func (o *CreateInputParameterRequest) GetServiceId() string {
 	if o == nil {
@@ -561,6 +585,9 @@ func (o CreateInputParameterRequest) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["required"] = o.Required
 	toSerialize["resourceId"] = o.ResourceId
+	if !IsNil(o.Scope) {
+		toSerialize["scope"] = o.Scope
+	}
 	toSerialize["serviceId"] = o.ServiceId
 	if !IsNil(o.TabIndex) {
 		toSerialize["tabIndex"] = o.TabIndex
@@ -632,6 +659,7 @@ func (o *CreateInputParameterRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "regex")
 		delete(additionalProperties, "required")
 		delete(additionalProperties, "resourceId")
+		delete(additionalProperties, "scope")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "tabIndex")
 		delete(additionalProperties, "token")

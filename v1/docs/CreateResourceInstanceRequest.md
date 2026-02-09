@@ -6,8 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudProvider** | Pointer to **string** | The cloud provider name | [optional] 
 **CustomNetworkId** | Pointer to **string** | Custom network for resource | [optional] 
+**CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The custom tags for the resource instance | [optional] 
 **ExternalBillingId** | Pointer to **string** | This externalBillingId is deprecated and will be removed in the future | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
+**OnpremPlatform** | Pointer to **string** | OnPrem platform | [optional] 
 **ProductTierKey** | **string** | The product tier name | 
 **ProductTierVersion** | Pointer to **string** | The product tier version | [optional] 
 **Region** | Pointer to **string** | The region code | [optional] 
@@ -90,6 +92,31 @@ SetCustomNetworkId sets CustomNetworkId field to given value.
 
 HasCustomNetworkId returns a boolean if a field has been set.
 
+### GetCustomTags
+
+`func (o *CreateResourceInstanceRequest) GetCustomTags() []CustomTag`
+
+GetCustomTags returns the CustomTags field if non-nil, zero value otherwise.
+
+### GetCustomTagsOk
+
+`func (o *CreateResourceInstanceRequest) GetCustomTagsOk() (*[]CustomTag, bool)`
+
+GetCustomTagsOk returns a tuple with the CustomTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomTags
+
+`func (o *CreateResourceInstanceRequest) SetCustomTags(v []CustomTag)`
+
+SetCustomTags sets CustomTags field to given value.
+
+### HasCustomTags
+
+`func (o *CreateResourceInstanceRequest) HasCustomTags() bool`
+
+HasCustomTags returns a boolean if a field has been set.
+
 ### GetExternalBillingId
 
 `func (o *CreateResourceInstanceRequest) GetExternalBillingId() string`
@@ -139,6 +166,31 @@ SetNetworkType sets NetworkType field to given value.
 `func (o *CreateResourceInstanceRequest) HasNetworkType() bool`
 
 HasNetworkType returns a boolean if a field has been set.
+
+### GetOnpremPlatform
+
+`func (o *CreateResourceInstanceRequest) GetOnpremPlatform() string`
+
+GetOnpremPlatform returns the OnpremPlatform field if non-nil, zero value otherwise.
+
+### GetOnpremPlatformOk
+
+`func (o *CreateResourceInstanceRequest) GetOnpremPlatformOk() (*string, bool)`
+
+GetOnpremPlatformOk returns a tuple with the OnpremPlatform field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnpremPlatform
+
+`func (o *CreateResourceInstanceRequest) SetOnpremPlatform(v string)`
+
+SetOnpremPlatform sets OnpremPlatform field to given value.
+
+### HasOnpremPlatform
+
+`func (o *CreateResourceInstanceRequest) HasOnpremPlatform() bool`
+
+HasOnpremPlatform returns a boolean if a field has been set.
 
 ### GetProductTierKey
 

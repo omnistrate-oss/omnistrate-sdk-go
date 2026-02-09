@@ -173,7 +173,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | Service ID for the VUnit
 	serviceModelId := "sm-12345678" // string | Service Model ID for the VUnit
-	listVUnitsRequest2 := *openapiclient.NewListVUnitsRequest2("aws", "us-west-2") // ListVUnitsRequest2 | 
+	listVUnitsRequest2 := *openapiclient.NewListVUnitsRequest2("aws|azure|gcp|all", "us-west-2") // ListVUnitsRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

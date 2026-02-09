@@ -38,6 +38,7 @@ type UpdateInputParameterRequest2 struct {
 	Regex *string `json:"regex,omitempty"`
 	// Enforces the input parameter as a required parameter
 	Required *bool `json:"required,omitempty"`
+	Scope *InputParameterScope `json:"scope,omitempty"`
 	// Index for parameter ordering in the SaaS portal
 	TabIndex *int64 `json:"tabIndex,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -296,6 +297,29 @@ func (o *UpdateInputParameterRequest2) SetRequired(v bool) {
 	o.Required = &v
 }
 
+// GetScope returns the Scope field value if set, zero value otherwise.
+func (o *UpdateInputParameterRequest2) GetScope() InputParameterScope {
+	if o == nil || IsNil(o.Scope) {
+		var ret InputParameterScope
+		return ret
+	}
+	return *o.Scope
+}
+
+// GetScopeOk returns a tuple with the Scope field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateInputParameterRequest2) GetScopeOk() (*InputParameterScope, bool) {
+	if o == nil || IsNil(o.Scope) {
+		return nil, false
+	}
+	return o.Scope, true
+}
+
+// SetScope gets a reference to the given InputParameterScope and assigns it to the Scope field.
+func (o *UpdateInputParameterRequest2) SetScope(v InputParameterScope) {
+	o.Scope = &v
+}
+
 // GetTabIndex returns the TabIndex field value if set, zero value otherwise.
 func (o *UpdateInputParameterRequest2) GetTabIndex() int64 {
 	if o == nil || IsNil(o.TabIndex) {
@@ -359,6 +383,9 @@ func (o UpdateInputParameterRequest2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Required) {
 		toSerialize["required"] = o.Required
 	}
+	if !IsNil(o.Scope) {
+		toSerialize["scope"] = o.Scope
+	}
 	if !IsNil(o.TabIndex) {
 		toSerialize["tabIndex"] = o.TabIndex
 	}
@@ -394,6 +421,7 @@ func (o *UpdateInputParameterRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "options")
 		delete(additionalProperties, "regex")
 		delete(additionalProperties, "required")
+		delete(additionalProperties, "scope")
 		delete(additionalProperties, "tabIndex")
 		o.AdditionalProperties = additionalProperties
 	}

@@ -35,12 +35,18 @@ type ServiceOffering struct {
 	GcpRegions []string `json:"gcpRegions,omitempty"`
 	// Maximum number of instances
 	MaxNumberOfInstances *int64 `json:"maxNumberOfInstances,omitempty"`
+	// The OCI regions that this service offering is available on
+	OciRegions []string `json:"ociRegions,omitempty"`
+	// The on prem platforms that this service offering is available on
+	OnPremPlatforms []string `json:"onPremPlatforms,omitempty"`
 	// The Private regions that this service offering is available on
 	PrivateRegions []string `json:"privateRegions,omitempty"`
 	// A brief description of the product tier
 	ProductTierDescription *string `json:"productTierDescription,omitempty"`
 	// Documentation
 	ProductTierDocumentation string `json:"productTierDocumentation"`
+	// Enabled product tier features
+	ProductTierFeatures []ProductTierFeatureDetail `json:"productTierFeatures,omitempty"`
 	// ID of a Product Tier
 	ProductTierID string `json:"productTierID"`
 	// The product tier name
@@ -319,6 +325,52 @@ func (o *ServiceOffering) SetMaxNumberOfInstances(v int64) {
 	o.MaxNumberOfInstances = &v
 }
 
+// GetOciRegions returns the OciRegions field value if set, zero value otherwise.
+func (o *ServiceOffering) GetOciRegions() []string {
+	if o == nil || IsNil(o.OciRegions) {
+		var ret []string
+		return ret
+	}
+	return o.OciRegions
+}
+
+// GetOciRegionsOk returns a tuple with the OciRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceOffering) GetOciRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.OciRegions) {
+		return nil, false
+	}
+	return o.OciRegions, true
+}
+
+// SetOciRegions gets a reference to the given []string and assigns it to the OciRegions field.
+func (o *ServiceOffering) SetOciRegions(v []string) {
+	o.OciRegions = v
+}
+
+// GetOnPremPlatforms returns the OnPremPlatforms field value if set, zero value otherwise.
+func (o *ServiceOffering) GetOnPremPlatforms() []string {
+	if o == nil || IsNil(o.OnPremPlatforms) {
+		var ret []string
+		return ret
+	}
+	return o.OnPremPlatforms
+}
+
+// GetOnPremPlatformsOk returns a tuple with the OnPremPlatforms field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceOffering) GetOnPremPlatformsOk() ([]string, bool) {
+	if o == nil || IsNil(o.OnPremPlatforms) {
+		return nil, false
+	}
+	return o.OnPremPlatforms, true
+}
+
+// SetOnPremPlatforms gets a reference to the given []string and assigns it to the OnPremPlatforms field.
+func (o *ServiceOffering) SetOnPremPlatforms(v []string) {
+	o.OnPremPlatforms = v
+}
+
 // GetPrivateRegions returns the PrivateRegions field value if set, zero value otherwise.
 func (o *ServiceOffering) GetPrivateRegions() []string {
 	if o == nil || IsNil(o.PrivateRegions) {
@@ -387,6 +439,29 @@ func (o *ServiceOffering) GetProductTierDocumentationOk() (*string, bool) {
 // SetProductTierDocumentation sets field value
 func (o *ServiceOffering) SetProductTierDocumentation(v string) {
 	o.ProductTierDocumentation = v
+}
+
+// GetProductTierFeatures returns the ProductTierFeatures field value if set, zero value otherwise.
+func (o *ServiceOffering) GetProductTierFeatures() []ProductTierFeatureDetail {
+	if o == nil || IsNil(o.ProductTierFeatures) {
+		var ret []ProductTierFeatureDetail
+		return ret
+	}
+	return o.ProductTierFeatures
+}
+
+// GetProductTierFeaturesOk returns a tuple with the ProductTierFeatures field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceOffering) GetProductTierFeaturesOk() ([]ProductTierFeatureDetail, bool) {
+	if o == nil || IsNil(o.ProductTierFeatures) {
+		return nil, false
+	}
+	return o.ProductTierFeatures, true
+}
+
+// SetProductTierFeatures gets a reference to the given []ProductTierFeatureDetail and assigns it to the ProductTierFeatures field.
+func (o *ServiceOffering) SetProductTierFeatures(v []ProductTierFeatureDetail) {
+	o.ProductTierFeatures = v
 }
 
 // GetProductTierID returns the ProductTierID field value
@@ -996,6 +1071,12 @@ func (o ServiceOffering) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.MaxNumberOfInstances) {
 		toSerialize["maxNumberOfInstances"] = o.MaxNumberOfInstances
 	}
+	if !IsNil(o.OciRegions) {
+		toSerialize["ociRegions"] = o.OciRegions
+	}
+	if !IsNil(o.OnPremPlatforms) {
+		toSerialize["onPremPlatforms"] = o.OnPremPlatforms
+	}
 	if !IsNil(o.PrivateRegions) {
 		toSerialize["privateRegions"] = o.PrivateRegions
 	}
@@ -1003,6 +1084,9 @@ func (o ServiceOffering) ToMap() (map[string]interface{}, error) {
 		toSerialize["productTierDescription"] = o.ProductTierDescription
 	}
 	toSerialize["productTierDocumentation"] = o.ProductTierDocumentation
+	if !IsNil(o.ProductTierFeatures) {
+		toSerialize["productTierFeatures"] = o.ProductTierFeatures
+	}
 	toSerialize["productTierID"] = o.ProductTierID
 	toSerialize["productTierName"] = o.ProductTierName
 	if !IsNil(o.ProductTierPlanDescription) {
@@ -1108,9 +1192,12 @@ func (o *ServiceOffering) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "cloudProviders")
 		delete(additionalProperties, "gcpRegions")
 		delete(additionalProperties, "maxNumberOfInstances")
+		delete(additionalProperties, "ociRegions")
+		delete(additionalProperties, "onPremPlatforms")
 		delete(additionalProperties, "privateRegions")
 		delete(additionalProperties, "productTierDescription")
 		delete(additionalProperties, "productTierDocumentation")
+		delete(additionalProperties, "productTierFeatures")
 		delete(additionalProperties, "productTierID")
 		delete(additionalProperties, "productTierName")
 		delete(additionalProperties, "productTierPlanDescription")
