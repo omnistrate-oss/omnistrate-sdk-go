@@ -173,3 +173,4 @@ func (v *NullableOnPremInstallerDetails) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
+

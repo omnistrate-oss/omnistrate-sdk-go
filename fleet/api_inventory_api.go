@@ -1176,6 +1176,18 @@ type InventoryApiAPI interface {
 	InventoryApiUpdateAccountConfigResourceInstanceExecute(r ApiInventoryApiUpdateAccountConfigResourceInstanceRequest) (*http.Response, error)
 
 	/*
+	InventoryApiUpdateConsumptionUser UpdateConsumptionUser inventory-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId The user ID
+	@return ApiInventoryApiUpdateConsumptionUserRequest
+	*/
+	InventoryApiUpdateConsumptionUser(ctx context.Context, userId string) ApiInventoryApiUpdateConsumptionUserRequest
+
+	// InventoryApiUpdateConsumptionUserExecute executes the request
+	InventoryApiUpdateConsumptionUserExecute(r ApiInventoryApiUpdateConsumptionUserRequest) (*http.Response, error)
+
+	/*
 	InventoryApiUpdateResourceInstance UpdateResourceInstance inventory-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -6219,9 +6231,8 @@ func (a *InventoryApiAPIService) InventoryApiDescribeResourceInstanceExecute(r A
 	if r.detail != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "detail", r.detail, "form", "")
 	} else {
-        var defaultValue bool = false
-        parameterAddToHeaderOrQuery(localVarQueryParams, "detail", defaultValue, "form", "")
-        r.detail = &defaultValue
+		var defaultValue bool = false
+		r.detail = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -10809,9 +10820,8 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstancesExecute(r ApiI
 	if r.excludeDetail != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ExcludeDetail", r.excludeDetail, "form", "")
 	} else {
-        var defaultValue bool = false
-        parameterAddToHeaderOrQuery(localVarQueryParams, "ExcludeDetail", defaultValue, "form", "")
-        r.excludeDetail = &defaultValue
+		var defaultValue bool = false
+		r.excludeDetail = &defaultValue
 	}
 	if r.nextPageToken != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")
@@ -11488,6 +11498,7 @@ type ApiInventoryApiListSubscriptionRequest struct {
 	serviceId string
 	environmentId string
 	productTierId *string
+	includeInactive *bool
 	nextPageToken *string
 	pageSize *int64
 }
@@ -11495,6 +11506,12 @@ type ApiInventoryApiListSubscriptionRequest struct {
 // The product tier Id
 func (r ApiInventoryApiListSubscriptionRequest) ProductTierId(productTierId string) ApiInventoryApiListSubscriptionRequest {
 	r.productTierId = &productTierId
+	return r
+}
+
+// Whether to include inactive subscriptions
+func (r ApiInventoryApiListSubscriptionRequest) IncludeInactive(includeInactive bool) ApiInventoryApiListSubscriptionRequest {
+	r.includeInactive = &includeInactive
 	return r
 }
 
@@ -11554,6 +11571,9 @@ func (a *InventoryApiAPIService) InventoryApiListSubscriptionExecute(r ApiInvent
 
 	if r.productTierId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "productTierId", r.productTierId, "form", "")
+	}
+	if r.includeInactive != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeInactive", r.includeInactive, "form", "")
 	}
 	if r.nextPageToken != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")
@@ -15707,6 +15727,172 @@ func (a *InventoryApiAPIService) InventoryApiUpdateAccountConfigResourceInstance
 	return localVarHTTPResponse, nil
 }
 
+type ApiInventoryApiUpdateConsumptionUserRequest struct {
+	ctx context.Context
+	ApiService InventoryApiAPI
+	userId string
+	fleetUpdateConsumptionUserRequest2 *FleetUpdateConsumptionUserRequest2
+}
+
+func (r ApiInventoryApiUpdateConsumptionUserRequest) FleetUpdateConsumptionUserRequest2(fleetUpdateConsumptionUserRequest2 FleetUpdateConsumptionUserRequest2) ApiInventoryApiUpdateConsumptionUserRequest {
+	r.fleetUpdateConsumptionUserRequest2 = &fleetUpdateConsumptionUserRequest2
+	return r
+}
+
+func (r ApiInventoryApiUpdateConsumptionUserRequest) Execute() (*http.Response, error) {
+	return r.ApiService.InventoryApiUpdateConsumptionUserExecute(r)
+}
+
+/*
+InventoryApiUpdateConsumptionUser UpdateConsumptionUser inventory-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param userId The user ID
+ @return ApiInventoryApiUpdateConsumptionUserRequest
+*/
+func (a *InventoryApiAPIService) InventoryApiUpdateConsumptionUser(ctx context.Context, userId string) ApiInventoryApiUpdateConsumptionUserRequest {
+	return ApiInventoryApiUpdateConsumptionUserRequest{
+		ApiService: a,
+		ctx: ctx,
+		userId: userId,
+	}
+}
+
+// Execute executes the request
+func (a *InventoryApiAPIService) InventoryApiUpdateConsumptionUserExecute(r ApiInventoryApiUpdateConsumptionUserRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiUpdateConsumptionUser")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/user/{userId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.fleetUpdateConsumptionUserRequest2 == nil {
+		return nil, reportError("fleetUpdateConsumptionUserRequest2 is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.fleetUpdateConsumptionUserRequest2
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiInventoryApiUpdateResourceInstanceRequest struct {
 	ctx context.Context
 	ApiService InventoryApiAPI
@@ -16095,7 +16281,7 @@ func (a *InventoryApiAPIService) InventoryApiUpdateResourceInstanceMetadata(ctx 
 // Execute executes the request
 func (a *InventoryApiAPIService) InventoryApiUpdateResourceInstanceMetadataExecute(r ApiInventoryApiUpdateResourceInstanceMetadataRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
+		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
@@ -16192,6 +16378,17 @@ func (a *InventoryApiAPIService) InventoryApiUpdateResourceInstanceMetadataExecu
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

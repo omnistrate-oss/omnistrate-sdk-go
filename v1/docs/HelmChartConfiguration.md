@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AutoDiscoverImagesTag** | Pointer to **string** | The tag to auto-discover and update in the Helm chart values (if the chartValues or layeredChartValues contain an image tag placeholder like {{ .Values.image.tag }}, this field specifies which tag to replace it with) | [optional] 
+**ChartAffinityControl** | Pointer to [**HelmChartAffinityControl**](HelmChartAffinityControl.md) |  | [optional] 
 **ChartName** | **string** | The chart name of the Helm package | 
 **ChartRepoName** | **string** | The chart repository name of the Helm package | 
 **ChartRepoUrl** | **string** | The chart repository URL of the Helm package | 
@@ -61,6 +62,31 @@ SetAutoDiscoverImagesTag sets AutoDiscoverImagesTag field to given value.
 `func (o *HelmChartConfiguration) HasAutoDiscoverImagesTag() bool`
 
 HasAutoDiscoverImagesTag returns a boolean if a field has been set.
+
+### GetChartAffinityControl
+
+`func (o *HelmChartConfiguration) GetChartAffinityControl() HelmChartAffinityControl`
+
+GetChartAffinityControl returns the ChartAffinityControl field if non-nil, zero value otherwise.
+
+### GetChartAffinityControlOk
+
+`func (o *HelmChartConfiguration) GetChartAffinityControlOk() (*HelmChartAffinityControl, bool)`
+
+GetChartAffinityControlOk returns a tuple with the ChartAffinityControl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChartAffinityControl
+
+`func (o *HelmChartConfiguration) SetChartAffinityControl(v HelmChartAffinityControl)`
+
+SetChartAffinityControl sets ChartAffinityControl field to given value.
+
+### HasChartAffinityControl
+
+`func (o *HelmChartConfiguration) HasChartAffinityControl() bool`
+
+HasChartAffinityControl returns a boolean if a field has been set.
 
 ### GetChartName
 

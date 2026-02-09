@@ -20,8 +20,12 @@ var _ MappedNullable = &FleetUpdateResourceInstanceMetadataRequest{}
 
 // FleetUpdateResourceInstanceMetadataRequest struct for FleetUpdateResourceInstanceMetadataRequest
 type FleetUpdateResourceInstanceMetadataRequest struct {
-	// Set to true to enable deletion protection, false to disable it, or omit to use plan defaults
-	DeletionProtectionOverride *bool `json:"deletionProtectionOverride,omitempty"`
+	// The custom tags for the resource instance.
+	CustomTags []CustomTag `json:"customTags,omitempty"`
+	// Set to true to enable deletion protection or false to disable it
+	DeletionProtection *bool `json:"deletionProtection,omitempty"`
+	// Enable debug mode
+	EnableDebugMode *bool `json:"enableDebugMode,omitempty"`
 	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
 	// ID of a Resource Instance
@@ -56,36 +60,100 @@ func NewFleetUpdateResourceInstanceMetadataRequestWithDefaults() *FleetUpdateRes
 	return &this
 }
 
-// GetDeletionProtectionOverride returns the DeletionProtectionOverride field value if set, zero value otherwise.
-func (o *FleetUpdateResourceInstanceMetadataRequest) GetDeletionProtectionOverride() bool {
-	if o == nil || IsNil(o.DeletionProtectionOverride) {
-		var ret bool
+// GetCustomTags returns the CustomTags field value if set, zero value otherwise.
+func (o *FleetUpdateResourceInstanceMetadataRequest) GetCustomTags() []CustomTag {
+	if o == nil || IsNil(o.CustomTags) {
+		var ret []CustomTag
 		return ret
 	}
-	return *o.DeletionProtectionOverride
+	return o.CustomTags
 }
 
-// GetDeletionProtectionOverrideOk returns a tuple with the DeletionProtectionOverride field value if set, nil otherwise
+// GetCustomTagsOk returns a tuple with the CustomTags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FleetUpdateResourceInstanceMetadataRequest) GetDeletionProtectionOverrideOk() (*bool, bool) {
-	if o == nil || IsNil(o.DeletionProtectionOverride) {
+func (o *FleetUpdateResourceInstanceMetadataRequest) GetCustomTagsOk() ([]CustomTag, bool) {
+	if o == nil || IsNil(o.CustomTags) {
 		return nil, false
 	}
-	return o.DeletionProtectionOverride, true
+	return o.CustomTags, true
 }
 
-// HasDeletionProtectionOverride returns a boolean if a field has been set.
-func (o *FleetUpdateResourceInstanceMetadataRequest) HasDeletionProtectionOverride() bool {
-	if o != nil && !IsNil(o.DeletionProtectionOverride) {
+// HasCustomTags returns a boolean if a field has been set.
+func (o *FleetUpdateResourceInstanceMetadataRequest) HasCustomTags() bool {
+	if o != nil && !IsNil(o.CustomTags) {
 		return true
 	}
 
 	return false
 }
 
-// SetDeletionProtectionOverride gets a reference to the given bool and assigns it to the DeletionProtectionOverride field.
-func (o *FleetUpdateResourceInstanceMetadataRequest) SetDeletionProtectionOverride(v bool) {
-	o.DeletionProtectionOverride = &v
+// SetCustomTags gets a reference to the given []CustomTag and assigns it to the CustomTags field.
+func (o *FleetUpdateResourceInstanceMetadataRequest) SetCustomTags(v []CustomTag) {
+	o.CustomTags = v
+}
+
+// GetDeletionProtection returns the DeletionProtection field value if set, zero value otherwise.
+func (o *FleetUpdateResourceInstanceMetadataRequest) GetDeletionProtection() bool {
+	if o == nil || IsNil(o.DeletionProtection) {
+		var ret bool
+		return ret
+	}
+	return *o.DeletionProtection
+}
+
+// GetDeletionProtectionOk returns a tuple with the DeletionProtection field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetUpdateResourceInstanceMetadataRequest) GetDeletionProtectionOk() (*bool, bool) {
+	if o == nil || IsNil(o.DeletionProtection) {
+		return nil, false
+	}
+	return o.DeletionProtection, true
+}
+
+// HasDeletionProtection returns a boolean if a field has been set.
+func (o *FleetUpdateResourceInstanceMetadataRequest) HasDeletionProtection() bool {
+	if o != nil && !IsNil(o.DeletionProtection) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeletionProtection gets a reference to the given bool and assigns it to the DeletionProtection field.
+func (o *FleetUpdateResourceInstanceMetadataRequest) SetDeletionProtection(v bool) {
+	o.DeletionProtection = &v
+}
+
+// GetEnableDebugMode returns the EnableDebugMode field value if set, zero value otherwise.
+func (o *FleetUpdateResourceInstanceMetadataRequest) GetEnableDebugMode() bool {
+	if o == nil || IsNil(o.EnableDebugMode) {
+		var ret bool
+		return ret
+	}
+	return *o.EnableDebugMode
+}
+
+// GetEnableDebugModeOk returns a tuple with the EnableDebugMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetUpdateResourceInstanceMetadataRequest) GetEnableDebugModeOk() (*bool, bool) {
+	if o == nil || IsNil(o.EnableDebugMode) {
+		return nil, false
+	}
+	return o.EnableDebugMode, true
+}
+
+// HasEnableDebugMode returns a boolean if a field has been set.
+func (o *FleetUpdateResourceInstanceMetadataRequest) HasEnableDebugMode() bool {
+	if o != nil && !IsNil(o.EnableDebugMode) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnableDebugMode gets a reference to the given bool and assigns it to the EnableDebugMode field.
+func (o *FleetUpdateResourceInstanceMetadataRequest) SetEnableDebugMode(v bool) {
+	o.EnableDebugMode = &v
 }
 
 // GetEnvironmentId returns the EnvironmentId field value
@@ -194,8 +262,14 @@ func (o FleetUpdateResourceInstanceMetadataRequest) MarshalJSON() ([]byte, error
 
 func (o FleetUpdateResourceInstanceMetadataRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.DeletionProtectionOverride) {
-		toSerialize["deletionProtectionOverride"] = o.DeletionProtectionOverride
+	if !IsNil(o.CustomTags) {
+		toSerialize["customTags"] = o.CustomTags
+	}
+	if !IsNil(o.DeletionProtection) {
+		toSerialize["deletionProtection"] = o.DeletionProtection
+	}
+	if !IsNil(o.EnableDebugMode) {
+		toSerialize["enableDebugMode"] = o.EnableDebugMode
 	}
 	toSerialize["environmentId"] = o.EnvironmentId
 	toSerialize["instanceId"] = o.InstanceId
@@ -247,7 +321,9 @@ func (o *FleetUpdateResourceInstanceMetadataRequest) UnmarshalJSON(data []byte) 
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "deletionProtectionOverride")
+		delete(additionalProperties, "customTags")
+		delete(additionalProperties, "deletionProtection")
+		delete(additionalProperties, "enableDebugMode")
 		delete(additionalProperties, "environmentId")
 		delete(additionalProperties, "instanceId")
 		delete(additionalProperties, "serviceId")

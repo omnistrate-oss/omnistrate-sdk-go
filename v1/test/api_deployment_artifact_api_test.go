@@ -22,6 +22,20 @@ func Test_v1_DeploymentArtifactApiAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test DeploymentArtifactApiAPIService DeploymentArtifactApiDescribeDeploymentArtifact", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		resp, httpRes, err := apiClient.DeploymentArtifactApiAPI.DeploymentArtifactApiDescribeDeploymentArtifact(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test DeploymentArtifactApiAPIService DeploymentArtifactApiUploadDeploymentArtifact", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

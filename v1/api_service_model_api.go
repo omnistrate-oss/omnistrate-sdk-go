@@ -38,6 +38,8 @@ type ServiceModelApiAPI interface {
 	/*
 	ServiceModelApiCopyServiceModel CopyServiceModel service-model-api
 
+	DEPRECATED: Create a new service model from spec instead
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param serviceId The service ID this model belongs to
 	@param sourceId The source service model ID
@@ -376,6 +378,8 @@ func (r ApiServiceModelApiCopyServiceModelRequest) Execute() (string, *http.Resp
 
 /*
 ServiceModelApiCopyServiceModel CopyServiceModel service-model-api
+
+DEPRECATED: Create a new service model from spec instead
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param serviceId The service ID this model belongs to

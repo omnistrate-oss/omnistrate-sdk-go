@@ -523,3 +523,4 @@ func (v *NullableUpdateResourceInstanceRequest) UnmarshalJSON(src []byte) error 
 	return json.Unmarshal(src, &v.value)
 }
 
+

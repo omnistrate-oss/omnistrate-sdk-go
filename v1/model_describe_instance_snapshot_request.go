@@ -225,3 +225,4 @@ func (v *NullableDescribeInstanceSnapshotRequest) UnmarshalJSON(src []byte) erro
 	return json.Unmarshal(src, &v.value)
 }
 
+

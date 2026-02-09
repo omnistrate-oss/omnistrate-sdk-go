@@ -4,7 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DeletionProtectionOverride** | Pointer to **bool** | Set to true to enable deletion protection, false to disable it, or omit to use plan defaults | [optional] 
+**CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The custom tags for the resource instance. | [optional] 
+**DeletionProtection** | Pointer to **bool** | Set to true to enable deletion protection or false to disable it | [optional] 
+**EnableDebugMode** | Pointer to **bool** | Enable debug mode | [optional] 
 **EnvironmentId** | **string** | ID of a Service Environment | 
 **InstanceId** | **string** | ID of a Resource Instance | 
 **ServiceId** | **string** | ID of a Service | 
@@ -29,30 +31,80 @@ NewFleetUpdateResourceInstanceMetadataRequestWithDefaults instantiates a new Fle
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetDeletionProtectionOverride
+### GetCustomTags
 
-`func (o *FleetUpdateResourceInstanceMetadataRequest) GetDeletionProtectionOverride() bool`
+`func (o *FleetUpdateResourceInstanceMetadataRequest) GetCustomTags() []CustomTag`
 
-GetDeletionProtectionOverride returns the DeletionProtectionOverride field if non-nil, zero value otherwise.
+GetCustomTags returns the CustomTags field if non-nil, zero value otherwise.
 
-### GetDeletionProtectionOverrideOk
+### GetCustomTagsOk
 
-`func (o *FleetUpdateResourceInstanceMetadataRequest) GetDeletionProtectionOverrideOk() (*bool, bool)`
+`func (o *FleetUpdateResourceInstanceMetadataRequest) GetCustomTagsOk() (*[]CustomTag, bool)`
 
-GetDeletionProtectionOverrideOk returns a tuple with the DeletionProtectionOverride field if it's non-nil, zero value otherwise
+GetCustomTagsOk returns a tuple with the CustomTags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDeletionProtectionOverride
+### SetCustomTags
 
-`func (o *FleetUpdateResourceInstanceMetadataRequest) SetDeletionProtectionOverride(v bool)`
+`func (o *FleetUpdateResourceInstanceMetadataRequest) SetCustomTags(v []CustomTag)`
 
-SetDeletionProtectionOverride sets DeletionProtectionOverride field to given value.
+SetCustomTags sets CustomTags field to given value.
 
-### HasDeletionProtectionOverride
+### HasCustomTags
 
-`func (o *FleetUpdateResourceInstanceMetadataRequest) HasDeletionProtectionOverride() bool`
+`func (o *FleetUpdateResourceInstanceMetadataRequest) HasCustomTags() bool`
 
-HasDeletionProtectionOverride returns a boolean if a field has been set.
+HasCustomTags returns a boolean if a field has been set.
+
+### GetDeletionProtection
+
+`func (o *FleetUpdateResourceInstanceMetadataRequest) GetDeletionProtection() bool`
+
+GetDeletionProtection returns the DeletionProtection field if non-nil, zero value otherwise.
+
+### GetDeletionProtectionOk
+
+`func (o *FleetUpdateResourceInstanceMetadataRequest) GetDeletionProtectionOk() (*bool, bool)`
+
+GetDeletionProtectionOk returns a tuple with the DeletionProtection field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeletionProtection
+
+`func (o *FleetUpdateResourceInstanceMetadataRequest) SetDeletionProtection(v bool)`
+
+SetDeletionProtection sets DeletionProtection field to given value.
+
+### HasDeletionProtection
+
+`func (o *FleetUpdateResourceInstanceMetadataRequest) HasDeletionProtection() bool`
+
+HasDeletionProtection returns a boolean if a field has been set.
+
+### GetEnableDebugMode
+
+`func (o *FleetUpdateResourceInstanceMetadataRequest) GetEnableDebugMode() bool`
+
+GetEnableDebugMode returns the EnableDebugMode field if non-nil, zero value otherwise.
+
+### GetEnableDebugModeOk
+
+`func (o *FleetUpdateResourceInstanceMetadataRequest) GetEnableDebugModeOk() (*bool, bool)`
+
+GetEnableDebugModeOk returns a tuple with the EnableDebugMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableDebugMode
+
+`func (o *FleetUpdateResourceInstanceMetadataRequest) SetEnableDebugMode(v bool)`
+
+SetEnableDebugMode sets EnableDebugMode field to given value.
+
+### HasEnableDebugMode
+
+`func (o *FleetUpdateResourceInstanceMetadataRequest) HasEnableDebugMode() bool`
+
+HasEnableDebugMode returns a boolean if a field has been set.
 
 ### GetEnvironmentId
 

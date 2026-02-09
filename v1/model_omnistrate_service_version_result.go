@@ -226,3 +226,4 @@ func (v *NullableOmnistrateServiceVersionResult) UnmarshalJSON(src []byte) error
 	return json.Unmarshal(src, &v.value)
 }
 
+

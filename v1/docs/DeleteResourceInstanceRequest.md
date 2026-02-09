@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **ServiceKey** | **string** | The service name | 
 **ServiceModelKey** | **string** | The service model name | 
 **ServiceProviderId** | **string** | ID of a Service Provider | 
+**SkipFinalSnapshot** | Pointer to **bool** | Skip taking final snapshot before deletion. If false (default), a final snapshot will be taken before deletion if snapshot-before-deletion is enabled on the plan. | [optional] [default to false]
 **SubscriptionId** | Pointer to **string** | The subscription ID | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
@@ -193,6 +194,31 @@ and a boolean to check if the value has been set.
 
 SetServiceProviderId sets ServiceProviderId field to given value.
 
+
+### GetSkipFinalSnapshot
+
+`func (o *DeleteResourceInstanceRequest) GetSkipFinalSnapshot() bool`
+
+GetSkipFinalSnapshot returns the SkipFinalSnapshot field if non-nil, zero value otherwise.
+
+### GetSkipFinalSnapshotOk
+
+`func (o *DeleteResourceInstanceRequest) GetSkipFinalSnapshotOk() (*bool, bool)`
+
+GetSkipFinalSnapshotOk returns a tuple with the SkipFinalSnapshot field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSkipFinalSnapshot
+
+`func (o *DeleteResourceInstanceRequest) SetSkipFinalSnapshot(v bool)`
+
+SetSkipFinalSnapshot sets SkipFinalSnapshot field to given value.
+
+### HasSkipFinalSnapshot
+
+`func (o *DeleteResourceInstanceRequest) HasSkipFinalSnapshot() bool`
+
+HasSkipFinalSnapshot returns a boolean if a field has been set.
 
 ### GetSubscriptionId
 

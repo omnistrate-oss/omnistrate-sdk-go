@@ -20,6 +20,8 @@ var _ MappedNullable = &TerraformConfiguration{}
 
 // TerraformConfiguration struct for TerraformConfiguration
 type TerraformConfiguration struct {
+	// The local path to store artifacts generated during Terraform execution
+	ArtifactsLocalPath *string `json:"artifactsLocalPath,omitempty"`
 	GitConfiguration *GitConfiguration `json:"gitConfiguration,omitempty"`
 	// The git access tokens for private modules
 	PrivateModuleGitAccessTokens *map[string]string `json:"privateModuleGitAccessTokens,omitempty"`
@@ -54,6 +56,29 @@ func NewTerraformConfiguration(terraformPath string) *TerraformConfiguration {
 func NewTerraformConfigurationWithDefaults() *TerraformConfiguration {
 	this := TerraformConfiguration{}
 	return &this
+}
+
+// GetArtifactsLocalPath returns the ArtifactsLocalPath field value if set, zero value otherwise.
+func (o *TerraformConfiguration) GetArtifactsLocalPath() string {
+	if o == nil || IsNil(o.ArtifactsLocalPath) {
+		var ret string
+		return ret
+	}
+	return *o.ArtifactsLocalPath
+}
+
+// GetArtifactsLocalPathOk returns a tuple with the ArtifactsLocalPath field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TerraformConfiguration) GetArtifactsLocalPathOk() (*string, bool) {
+	if o == nil || IsNil(o.ArtifactsLocalPath) {
+		return nil, false
+	}
+	return o.ArtifactsLocalPath, true
+}
+
+// SetArtifactsLocalPath gets a reference to the given string and assigns it to the ArtifactsLocalPath field.
+func (o *TerraformConfiguration) SetArtifactsLocalPath(v string) {
+	o.ArtifactsLocalPath = &v
 }
 
 // GetGitConfiguration returns the GitConfiguration field value if set, zero value otherwise.
@@ -228,6 +253,9 @@ func (o TerraformConfiguration) MarshalJSON() ([]byte, error) {
 
 func (o TerraformConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ArtifactsLocalPath) {
+		toSerialize["artifactsLocalPath"] = o.ArtifactsLocalPath
+	}
 	if !IsNil(o.GitConfiguration) {
 		toSerialize["gitConfiguration"] = o.GitConfiguration
 	}
@@ -290,6 +318,7 @@ func (o *TerraformConfiguration) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "artifactsLocalPath")
 		delete(additionalProperties, "gitConfiguration")
 		delete(additionalProperties, "privateModuleGitAccessTokens")
 		delete(additionalProperties, "requiredOutputKeys")
@@ -338,4 +367,5 @@ func (v *NullableTerraformConfiguration) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

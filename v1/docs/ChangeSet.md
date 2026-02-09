@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CategorizedResourceChanges** | [**map[string]ChangeSummary**](ChangeSummary.md) | Summary of all changes within a resource for each category (ie. image, infra, product tier feature, etc.) | 
+**DeploymentArtifactChanges** | Pointer to **string** | State of the configuration change | [optional] 
 **ImageConfigChanges** | Pointer to [**ImageConfigChangeSummary**](ImageConfigChangeSummary.md) |  | [optional] 
 **InfraConfigChanges** | Pointer to [**InfraConfigChangeSummary**](InfraConfigChangeSummary.md) |  | [optional] 
 **OverallResourceStatus** | **string** | Summary status of the changes | 
@@ -50,6 +51,31 @@ and a boolean to check if the value has been set.
 
 SetCategorizedResourceChanges sets CategorizedResourceChanges field to given value.
 
+
+### GetDeploymentArtifactChanges
+
+`func (o *ChangeSet) GetDeploymentArtifactChanges() string`
+
+GetDeploymentArtifactChanges returns the DeploymentArtifactChanges field if non-nil, zero value otherwise.
+
+### GetDeploymentArtifactChangesOk
+
+`func (o *ChangeSet) GetDeploymentArtifactChangesOk() (*string, bool)`
+
+GetDeploymentArtifactChangesOk returns a tuple with the DeploymentArtifactChanges field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeploymentArtifactChanges
+
+`func (o *ChangeSet) SetDeploymentArtifactChanges(v string)`
+
+SetDeploymentArtifactChanges sets DeploymentArtifactChanges field to given value.
+
+### HasDeploymentArtifactChanges
+
+`func (o *ChangeSet) HasDeploymentArtifactChanges() bool`
+
+HasDeploymentArtifactChanges returns a boolean if a field has been set.
 
 ### GetImageConfigChanges
 

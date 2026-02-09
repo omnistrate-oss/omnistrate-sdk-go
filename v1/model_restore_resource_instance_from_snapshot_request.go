@@ -493,3 +493,4 @@ func (v *NullableRestoreResourceInstanceFromSnapshotRequest) UnmarshalJSON(src [
 	return json.Unmarshal(src, &v.value)
 }
 
+

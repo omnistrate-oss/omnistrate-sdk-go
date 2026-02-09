@@ -35,8 +35,10 @@ Name | Type | Description | Notes
 **ProductTierVersionDetail** | Pointer to [**ProductTierVersionDetail**](ProductTierVersionDetail.md) |  | [optional] 
 **Region** | Pointer to **string** | The region code | [optional] 
 **ResourceID** | Pointer to **string** | ID of a resource | [optional] 
+**ResourceInstanceMetadata** | Pointer to [**ResourceInstanceMetadata**](ResourceInstanceMetadata.md) |  | [optional] 
 **ResultParams** | Pointer to **interface{}** | Custom result parameters | [optional] 
 **ServerlessEnabled** | Pointer to **bool** | Whether the instance has serverless enabled | [optional] 
+**SnapshotBeforeDeletionEnabled** | Pointer to **bool** | Whether snapshot-before-deletion is enabled for this instance. If true, a final snapshot will be taken before deletion unless skipFinalSnapshot is specified. | [optional] 
 **SourceSnapshotID** | Pointer to **string** | The source snapshot ID if the instance is restored from snapshot | [optional] 
 **Status** | Pointer to **string** | The status of an operation | [optional] 
 **SubscriptionId** | Pointer to **string** | Subscription ID | [optional] 
@@ -838,6 +840,31 @@ SetResourceID sets ResourceID field to given value.
 
 HasResourceID returns a boolean if a field has been set.
 
+### GetResourceInstanceMetadata
+
+`func (o *DescribeResourceInstanceResult) GetResourceInstanceMetadata() ResourceInstanceMetadata`
+
+GetResourceInstanceMetadata returns the ResourceInstanceMetadata field if non-nil, zero value otherwise.
+
+### GetResourceInstanceMetadataOk
+
+`func (o *DescribeResourceInstanceResult) GetResourceInstanceMetadataOk() (*ResourceInstanceMetadata, bool)`
+
+GetResourceInstanceMetadataOk returns a tuple with the ResourceInstanceMetadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceInstanceMetadata
+
+`func (o *DescribeResourceInstanceResult) SetResourceInstanceMetadata(v ResourceInstanceMetadata)`
+
+SetResourceInstanceMetadata sets ResourceInstanceMetadata field to given value.
+
+### HasResourceInstanceMetadata
+
+`func (o *DescribeResourceInstanceResult) HasResourceInstanceMetadata() bool`
+
+HasResourceInstanceMetadata returns a boolean if a field has been set.
+
 ### GetResultParams
 
 `func (o *DescribeResourceInstanceResult) GetResultParams() interface{}`
@@ -897,6 +924,31 @@ SetServerlessEnabled sets ServerlessEnabled field to given value.
 `func (o *DescribeResourceInstanceResult) HasServerlessEnabled() bool`
 
 HasServerlessEnabled returns a boolean if a field has been set.
+
+### GetSnapshotBeforeDeletionEnabled
+
+`func (o *DescribeResourceInstanceResult) GetSnapshotBeforeDeletionEnabled() bool`
+
+GetSnapshotBeforeDeletionEnabled returns the SnapshotBeforeDeletionEnabled field if non-nil, zero value otherwise.
+
+### GetSnapshotBeforeDeletionEnabledOk
+
+`func (o *DescribeResourceInstanceResult) GetSnapshotBeforeDeletionEnabledOk() (*bool, bool)`
+
+GetSnapshotBeforeDeletionEnabledOk returns a tuple with the SnapshotBeforeDeletionEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSnapshotBeforeDeletionEnabled
+
+`func (o *DescribeResourceInstanceResult) SetSnapshotBeforeDeletionEnabled(v bool)`
+
+SetSnapshotBeforeDeletionEnabled sets SnapshotBeforeDeletionEnabled field to given value.
+
+### HasSnapshotBeforeDeletionEnabled
+
+`func (o *DescribeResourceInstanceResult) HasSnapshotBeforeDeletionEnabled() bool`
+
+HasSnapshotBeforeDeletionEnabled returns a boolean if a field has been set.
 
 ### GetSourceSnapshotID
 

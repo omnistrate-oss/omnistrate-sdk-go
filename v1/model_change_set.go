@@ -22,6 +22,8 @@ var _ MappedNullable = &ChangeSet{}
 type ChangeSet struct {
 	// Summary of all changes within a resource for each category (ie. image, infra, product tier feature, etc.)
 	CategorizedResourceChanges map[string]ChangeSummary `json:"categorizedResourceChanges"`
+	// State of the configuration change
+	DeploymentArtifactChanges *string `json:"deploymentArtifactChanges,omitempty"`
 	ImageConfigChanges *ImageConfigChangeSummary `json:"imageConfigChanges,omitempty"`
 	InfraConfigChanges *InfraConfigChangeSummary `json:"infraConfigChanges,omitempty"`
 	// Summary status of the changes
@@ -78,6 +80,29 @@ func (o *ChangeSet) GetCategorizedResourceChangesOk() (*map[string]ChangeSummary
 // SetCategorizedResourceChanges sets field value
 func (o *ChangeSet) SetCategorizedResourceChanges(v map[string]ChangeSummary) {
 	o.CategorizedResourceChanges = v
+}
+
+// GetDeploymentArtifactChanges returns the DeploymentArtifactChanges field value if set, zero value otherwise.
+func (o *ChangeSet) GetDeploymentArtifactChanges() string {
+	if o == nil || IsNil(o.DeploymentArtifactChanges) {
+		var ret string
+		return ret
+	}
+	return *o.DeploymentArtifactChanges
+}
+
+// GetDeploymentArtifactChangesOk returns a tuple with the DeploymentArtifactChanges field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ChangeSet) GetDeploymentArtifactChangesOk() (*string, bool) {
+	if o == nil || IsNil(o.DeploymentArtifactChanges) {
+		return nil, false
+	}
+	return o.DeploymentArtifactChanges, true
+}
+
+// SetDeploymentArtifactChanges gets a reference to the given string and assigns it to the DeploymentArtifactChanges field.
+func (o *ChangeSet) SetDeploymentArtifactChanges(v string) {
+	o.DeploymentArtifactChanges = &v
 }
 
 // GetImageConfigChanges returns the ImageConfigChanges field value if set, zero value otherwise.
@@ -230,6 +255,9 @@ func (o ChangeSet) MarshalJSON() ([]byte, error) {
 func (o ChangeSet) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["categorizedResourceChanges"] = o.CategorizedResourceChanges
+	if !IsNil(o.DeploymentArtifactChanges) {
+		toSerialize["deploymentArtifactChanges"] = o.DeploymentArtifactChanges
+	}
 	if !IsNil(o.ImageConfigChanges) {
 		toSerialize["imageConfigChanges"] = o.ImageConfigChanges
 	}
@@ -291,6 +319,7 @@ func (o *ChangeSet) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "categorizedResourceChanges")
+		delete(additionalProperties, "deploymentArtifactChanges")
 		delete(additionalProperties, "imageConfigChanges")
 		delete(additionalProperties, "infraConfigChanges")
 		delete(additionalProperties, "overallResourceStatus")
@@ -338,4 +367,5 @@ func (v *NullableChangeSet) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

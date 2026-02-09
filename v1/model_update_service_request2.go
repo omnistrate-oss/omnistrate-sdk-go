@@ -21,6 +21,8 @@ var _ MappedNullable = &UpdateServiceRequest2{}
 type UpdateServiceRequest2 struct {
 	// A brief description of the service
 	Description *string `json:"description,omitempty"`
+	// If set to true, performs a dry run of the update operation without making any changes
+	DryRun *bool `json:"dryRun,omitempty"`
 	// Name of the Service
 	Name *string `json:"name,omitempty"`
 	// The logo for the service
@@ -68,6 +70,29 @@ func (o *UpdateServiceRequest2) GetDescriptionOk() (*string, bool) {
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *UpdateServiceRequest2) SetDescription(v string) {
 	o.Description = &v
+}
+
+// GetDryRun returns the DryRun field value if set, zero value otherwise.
+func (o *UpdateServiceRequest2) GetDryRun() bool {
+	if o == nil || IsNil(o.DryRun) {
+		var ret bool
+		return ret
+	}
+	return *o.DryRun
+}
+
+// GetDryRunOk returns a tuple with the DryRun field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateServiceRequest2) GetDryRunOk() (*bool, bool) {
+	if o == nil || IsNil(o.DryRun) {
+		return nil, false
+	}
+	return o.DryRun, true
+}
+
+// SetDryRun gets a reference to the given bool and assigns it to the DryRun field.
+func (o *UpdateServiceRequest2) SetDryRun(v bool) {
+	o.DryRun = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -129,6 +154,9 @@ func (o UpdateServiceRequest2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
+	if !IsNil(o.DryRun) {
+		toSerialize["dryRun"] = o.DryRun
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
@@ -158,6 +186,7 @@ func (o *UpdateServiceRequest2) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "description")
+		delete(additionalProperties, "dryRun")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "serviceLogoURL")
 		o.AdditionalProperties = additionalProperties
@@ -201,4 +230,5 @@ func (v *NullableUpdateServiceRequest2) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

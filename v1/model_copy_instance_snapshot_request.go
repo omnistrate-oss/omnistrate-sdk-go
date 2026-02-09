@@ -255,3 +255,4 @@ func (v *NullableCopyInstanceSnapshotRequest) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
+

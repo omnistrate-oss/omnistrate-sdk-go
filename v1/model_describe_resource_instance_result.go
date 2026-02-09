@@ -76,10 +76,13 @@ type DescribeResourceInstanceResult struct {
 	Region *string `json:"region,omitempty"`
 	// ID of a resource
 	ResourceID *string `json:"resourceID,omitempty"`
+	ResourceInstanceMetadata *ResourceInstanceMetadata `json:"resourceInstanceMetadata,omitempty"`
 	// Custom result parameters
 	ResultParams interface{} `json:"result_params,omitempty"`
 	// Whether the instance has serverless enabled
 	ServerlessEnabled *bool `json:"serverlessEnabled,omitempty"`
+	// Whether snapshot-before-deletion is enabled for this instance. If true, a final snapshot will be taken before deletion unless skipFinalSnapshot is specified.
+	SnapshotBeforeDeletionEnabled *bool `json:"snapshotBeforeDeletionEnabled,omitempty"`
 	// The source snapshot ID if the instance is restored from snapshot
 	SourceSnapshotID *string `json:"sourceSnapshotID,omitempty"`
 	// The status of an operation
@@ -826,6 +829,29 @@ func (o *DescribeResourceInstanceResult) SetResourceID(v string) {
 	o.ResourceID = &v
 }
 
+// GetResourceInstanceMetadata returns the ResourceInstanceMetadata field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetResourceInstanceMetadata() ResourceInstanceMetadata {
+	if o == nil || IsNil(o.ResourceInstanceMetadata) {
+		var ret ResourceInstanceMetadata
+		return ret
+	}
+	return *o.ResourceInstanceMetadata
+}
+
+// GetResourceInstanceMetadataOk returns a tuple with the ResourceInstanceMetadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetResourceInstanceMetadataOk() (*ResourceInstanceMetadata, bool) {
+	if o == nil || IsNil(o.ResourceInstanceMetadata) {
+		return nil, false
+	}
+	return o.ResourceInstanceMetadata, true
+}
+
+// SetResourceInstanceMetadata gets a reference to the given ResourceInstanceMetadata and assigns it to the ResourceInstanceMetadata field.
+func (o *DescribeResourceInstanceResult) SetResourceInstanceMetadata(v ResourceInstanceMetadata) {
+	o.ResourceInstanceMetadata = &v
+}
+
 // GetResultParams returns the ResultParams field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DescribeResourceInstanceResult) GetResultParams() interface{} {
 	if o == nil {
@@ -871,6 +897,29 @@ func (o *DescribeResourceInstanceResult) GetServerlessEnabledOk() (*bool, bool) 
 // SetServerlessEnabled gets a reference to the given bool and assigns it to the ServerlessEnabled field.
 func (o *DescribeResourceInstanceResult) SetServerlessEnabled(v bool) {
 	o.ServerlessEnabled = &v
+}
+
+// GetSnapshotBeforeDeletionEnabled returns the SnapshotBeforeDeletionEnabled field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetSnapshotBeforeDeletionEnabled() bool {
+	if o == nil || IsNil(o.SnapshotBeforeDeletionEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.SnapshotBeforeDeletionEnabled
+}
+
+// GetSnapshotBeforeDeletionEnabledOk returns a tuple with the SnapshotBeforeDeletionEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetSnapshotBeforeDeletionEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.SnapshotBeforeDeletionEnabled) {
+		return nil, false
+	}
+	return o.SnapshotBeforeDeletionEnabled, true
+}
+
+// SetSnapshotBeforeDeletionEnabled gets a reference to the given bool and assigns it to the SnapshotBeforeDeletionEnabled field.
+func (o *DescribeResourceInstanceResult) SetSnapshotBeforeDeletionEnabled(v bool) {
+	o.SnapshotBeforeDeletionEnabled = &v
 }
 
 // GetSourceSnapshotID returns the SourceSnapshotID field value if set, zero value otherwise.
@@ -1114,11 +1163,17 @@ func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.ResourceID) {
 		toSerialize["resourceID"] = o.ResourceID
 	}
+	if !IsNil(o.ResourceInstanceMetadata) {
+		toSerialize["resourceInstanceMetadata"] = o.ResourceInstanceMetadata
+	}
 	if o.ResultParams != nil {
 		toSerialize["result_params"] = o.ResultParams
 	}
 	if !IsNil(o.ServerlessEnabled) {
 		toSerialize["serverlessEnabled"] = o.ServerlessEnabled
+	}
+	if !IsNil(o.SnapshotBeforeDeletionEnabled) {
+		toSerialize["snapshotBeforeDeletionEnabled"] = o.SnapshotBeforeDeletionEnabled
 	}
 	if !IsNil(o.SourceSnapshotID) {
 		toSerialize["sourceSnapshotID"] = o.SourceSnapshotID
@@ -1191,8 +1246,10 @@ func (o *DescribeResourceInstanceResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "productTierVersionDetail")
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "resourceID")
+		delete(additionalProperties, "resourceInstanceMetadata")
 		delete(additionalProperties, "result_params")
 		delete(additionalProperties, "serverlessEnabled")
+		delete(additionalProperties, "snapshotBeforeDeletionEnabled")
 		delete(additionalProperties, "sourceSnapshotID")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "subscriptionId")
@@ -1240,4 +1297,5 @@ func (v *NullableDescribeResourceInstanceResult) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

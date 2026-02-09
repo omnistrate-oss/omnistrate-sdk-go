@@ -98,7 +98,7 @@ import (
 )
 
 func main() {
-	createAccountConfigRequest2 := *openapiclient.NewCreateAccountConfigRequest2("Officiis aut.", "An AWS account hosting multiple dev environments", "Dev AWS account") // CreateAccountConfigRequest2 | 
+	createAccountConfigRequest2 := *openapiclient.NewCreateAccountConfigRequest2("Asperiores fuga.", "An AWS account hosting multiple dev environments", "Dev AWS account") // CreateAccountConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

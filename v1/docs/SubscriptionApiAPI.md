@@ -30,7 +30,7 @@ import (
 )
 
 func main() {
-	createSubscriptionRequest2 := *openapiclient.NewCreateSubscriptionRequest2("Omnis expedita temporibus unde dolorem.", "s-123456") // CreateSubscriptionRequest2 | 
+	createSubscriptionRequest2 := *openapiclient.NewCreateSubscriptionRequest2("Eaque dolor optio cum porro fugit.", "s-123456") // CreateSubscriptionRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 ## SubscriptionApiListSubscriptions
 
-> ListSubscriptionsResult SubscriptionApiListSubscriptions(ctx).ListSubscriptionsRequest2(listSubscriptionsRequest2).ServiceId(serviceId).EnvironmentType(environmentType).Execute()
+> ListSubscriptionsResult SubscriptionApiListSubscriptions(ctx).ServiceId(serviceId).EnvironmentType(environmentType).IncludeInactive(includeInactive).Execute()
 
 ListSubscriptions subscription-api
 
@@ -228,13 +228,13 @@ import (
 )
 
 func main() {
-	listSubscriptionsRequest2 := *openapiclient.NewListSubscriptionsRequest2() // ListSubscriptionsRequest2 | 
 	serviceId := "service-12345678" // string | Service Id (optional)
 	environmentType := "DEV" // string | The environment type to filter by (optional)
+	includeInactive := false // bool | Flag indicating whether to include inactive (suspended, cancelled, terminated) subscriptions (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SubscriptionApiAPI.SubscriptionApiListSubscriptions(context.Background()).ListSubscriptionsRequest2(listSubscriptionsRequest2).ServiceId(serviceId).EnvironmentType(environmentType).Execute()
+	resp, r, err := apiClient.SubscriptionApiAPI.SubscriptionApiListSubscriptions(context.Background()).ServiceId(serviceId).EnvironmentType(environmentType).IncludeInactive(includeInactive).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApiAPI.SubscriptionApiListSubscriptions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -255,9 +255,9 @@ Other parameters are passed through a pointer to a apiSubscriptionApiListSubscri
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listSubscriptionsRequest2** | [**ListSubscriptionsRequest2**](ListSubscriptionsRequest2.md) |  | 
  **serviceId** | **string** | Service Id | 
  **environmentType** | **string** | The environment type to filter by | 
+ **includeInactive** | **bool** | Flag indicating whether to include inactive (suspended, cancelled, terminated) subscriptions | 
 
 ### Return type
 
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

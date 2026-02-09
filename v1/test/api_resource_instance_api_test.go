@@ -423,6 +423,26 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiUpdateResourceInstanceMetadata", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceProviderId string
+		var serviceKey string
+		var serviceAPIVersion string
+		var serviceEnvironmentKey string
+		var serviceModelKey string
+		var productTierKey string
+		var resourceKey string
+		var id string
+
+		httpRes, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiUpdateResourceInstanceMetadata(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiUpgradeResourceInstanceVersion", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

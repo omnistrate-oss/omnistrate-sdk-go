@@ -38,6 +38,8 @@ type DescribeProductTierResult struct {
 	CloudProvidersConfigReadiness *map[string]map[string]string `json:"cloudProvidersConfigReadiness,omitempty"`
 	// The billing provider type
 	DefaultBillingProvider *string `json:"defaultBillingProvider,omitempty"`
+	// List of deployment artifact IDs associated with this product tier
+	DeploymentArtifactIDs []string `json:"deploymentArtifactIDs,omitempty"`
 	DeploymentConfiguration *ProductTierDeploymentConfiguration `json:"deploymentConfiguration,omitempty"`
 	// A brief description of the product tier
 	Description string `json:"description"`
@@ -406,6 +408,38 @@ func (o *DescribeProductTierResult) HasDefaultBillingProvider() bool {
 // SetDefaultBillingProvider gets a reference to the given string and assigns it to the DefaultBillingProvider field.
 func (o *DescribeProductTierResult) SetDefaultBillingProvider(v string) {
 	o.DefaultBillingProvider = &v
+}
+
+// GetDeploymentArtifactIDs returns the DeploymentArtifactIDs field value if set, zero value otherwise.
+func (o *DescribeProductTierResult) GetDeploymentArtifactIDs() []string {
+	if o == nil || IsNil(o.DeploymentArtifactIDs) {
+		var ret []string
+		return ret
+	}
+	return o.DeploymentArtifactIDs
+}
+
+// GetDeploymentArtifactIDsOk returns a tuple with the DeploymentArtifactIDs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeProductTierResult) GetDeploymentArtifactIDsOk() ([]string, bool) {
+	if o == nil || IsNil(o.DeploymentArtifactIDs) {
+		return nil, false
+	}
+	return o.DeploymentArtifactIDs, true
+}
+
+// HasDeploymentArtifactIDs returns a boolean if a field has been set.
+func (o *DescribeProductTierResult) HasDeploymentArtifactIDs() bool {
+	if o != nil && !IsNil(o.DeploymentArtifactIDs) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeploymentArtifactIDs gets a reference to the given []string and assigns it to the DeploymentArtifactIDs field.
+func (o *DescribeProductTierResult) SetDeploymentArtifactIDs(v []string) {
+	o.DeploymentArtifactIDs = v
 }
 
 // GetDeploymentConfiguration returns the DeploymentConfiguration field value if set, zero value otherwise.
@@ -1111,6 +1145,9 @@ func (o DescribeProductTierResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DefaultBillingProvider) {
 		toSerialize["defaultBillingProvider"] = o.DefaultBillingProvider
 	}
+	if !IsNil(o.DeploymentArtifactIDs) {
+		toSerialize["deploymentArtifactIDs"] = o.DeploymentArtifactIDs
+	}
 	if !IsNil(o.DeploymentConfiguration) {
 		toSerialize["deploymentConfiguration"] = o.DeploymentConfiguration
 	}
@@ -1223,6 +1260,7 @@ func (o *DescribeProductTierResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "billingProviders")
 		delete(additionalProperties, "cloudProvidersConfigReadiness")
 		delete(additionalProperties, "defaultBillingProvider")
+		delete(additionalProperties, "deploymentArtifactIDs")
 		delete(additionalProperties, "deploymentConfiguration")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "documentation")

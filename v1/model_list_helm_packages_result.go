@@ -144,3 +144,4 @@ func (v *NullableListHelmPackagesResult) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
+

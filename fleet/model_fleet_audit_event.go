@@ -48,6 +48,8 @@ type FleetAuditEvent struct {
 	ServicePlanName string `json:"servicePlanName"`
 	// ID of a Event
 	Time string `json:"time"`
+	// The User-Agent string of the client that caused the event
+	UserAgent *string `json:"userAgent,omitempty"`
 	// ID of a User
 	UserId *string `json:"userId,omitempty"`
 	// The user name of the user that caused the event
@@ -449,6 +451,38 @@ func (o *FleetAuditEvent) SetTime(v string) {
 	o.Time = v
 }
 
+// GetUserAgent returns the UserAgent field value if set, zero value otherwise.
+func (o *FleetAuditEvent) GetUserAgent() string {
+	if o == nil || IsNil(o.UserAgent) {
+		var ret string
+		return ret
+	}
+	return *o.UserAgent
+}
+
+// GetUserAgentOk returns a tuple with the UserAgent field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAuditEvent) GetUserAgentOk() (*string, bool) {
+	if o == nil || IsNil(o.UserAgent) {
+		return nil, false
+	}
+	return o.UserAgent, true
+}
+
+// HasUserAgent returns a boolean if a field has been set.
+func (o *FleetAuditEvent) HasUserAgent() bool {
+	if o != nil && !IsNil(o.UserAgent) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserAgent gets a reference to the given string and assigns it to the UserAgent field.
+func (o *FleetAuditEvent) SetUserAgent(v string) {
+	o.UserAgent = &v
+}
+
 // GetUserId returns the UserId field value if set, zero value otherwise.
 func (o *FleetAuditEvent) GetUserId() string {
 	if o == nil || IsNil(o.UserId) {
@@ -607,6 +641,9 @@ func (o FleetAuditEvent) ToMap() (map[string]interface{}, error) {
 	toSerialize["serviceName"] = o.ServiceName
 	toSerialize["servicePlanName"] = o.ServicePlanName
 	toSerialize["time"] = o.Time
+	if !IsNil(o.UserAgent) {
+		toSerialize["userAgent"] = o.UserAgent
+	}
 	if !IsNil(o.UserId) {
 		toSerialize["userId"] = o.UserId
 	}
@@ -686,6 +723,7 @@ func (o *FleetAuditEvent) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "serviceName")
 		delete(additionalProperties, "servicePlanName")
 		delete(additionalProperties, "time")
+		delete(additionalProperties, "userAgent")
 		delete(additionalProperties, "userId")
 		delete(additionalProperties, "userName")
 		delete(additionalProperties, "workflowFailures")

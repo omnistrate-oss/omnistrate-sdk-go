@@ -372,6 +372,8 @@ docs/FleetTerminateSubscriptionRequest.md
 docs/FleetUnsuspendUserRequest.md
 docs/FleetUpdateAccountConfigResourceInstanceRequest.md
 docs/FleetUpdateAccountConfigResourceInstanceRequest2.md
+docs/FleetUpdateConsumptionUserRequest.md
+docs/FleetUpdateConsumptionUserRequest2.md
 docs/FleetUpdateCustomNetworkRequest.md
 docs/FleetUpdateCustomNetworkRequest2.md
 docs/FleetUpdateResourceInstanceDebugModeRequest.md
@@ -605,6 +607,7 @@ docs/ResourceDeploymentStatus.md
 docs/ResourceEntity.md
 docs/ResourceHealthSummary.md
 docs/ResourceInstance.md
+docs/ResourceInstanceMetadata.md
 docs/ResourceInstanceProvisionerSetupKitRequest.md
 docs/ResourceInstanceSearchRecord.md
 docs/ResourceNetworkTopologyResult.md
@@ -673,6 +676,7 @@ docs/UpdateNotificationChannelRequest2.md
 docs/UpdatePasswordRequest.md
 docs/UpdatePipelineRequest.md
 docs/UpdateProductTierRequest.md
+docs/UpdateResourceInstanceMetadataRequest.md
 docs/UpdateResourceInstanceRequest.md
 docs/UpdateSaaSPortalCustomDomainRequest.md
 docs/UpdateSaaSPortalRequest.md
@@ -1049,6 +1053,8 @@ model_fleet_terminate_subscription_request.go
 model_fleet_unsuspend_user_request.go
 model_fleet_update_account_config_resource_instance_request.go
 model_fleet_update_account_config_resource_instance_request2.go
+model_fleet_update_consumption_user_request.go
+model_fleet_update_consumption_user_request2.go
 model_fleet_update_custom_network_request.go
 model_fleet_update_custom_network_request2.go
 model_fleet_update_resource_instance_debug_mode_request.go
@@ -1274,6 +1280,7 @@ model_resource_deployment_status.go
 model_resource_entity.go
 model_resource_health_summary.go
 model_resource_instance.go
+model_resource_instance_metadata.go
 model_resource_instance_provisioner_setup_kit_request.go
 model_resource_instance_search_record.go
 model_resource_network_topology_result.go
@@ -1342,6 +1349,7 @@ model_update_notification_channel_request2.go
 model_update_password_request.go
 model_update_pipeline_request.go
 model_update_product_tier_request.go
+model_update_resource_instance_metadata_request.go
 model_update_resource_instance_request.go
 model_update_saa_s_portal_custom_domain_request.go
 model_update_saa_s_portal_request.go

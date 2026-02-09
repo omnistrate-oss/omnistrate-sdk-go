@@ -572,14 +572,9 @@ func (a *SubscriptionApiAPIService) SubscriptionApiDescribeSubscriptionExecute(r
 type ApiSubscriptionApiListSubscriptionsRequest struct {
 	ctx context.Context
 	ApiService SubscriptionApiAPI
-	listSubscriptionsRequest2 *ListSubscriptionsRequest2
 	serviceId *string
 	environmentType *string
-}
-
-func (r ApiSubscriptionApiListSubscriptionsRequest) ListSubscriptionsRequest2(listSubscriptionsRequest2 ListSubscriptionsRequest2) ApiSubscriptionApiListSubscriptionsRequest {
-	r.listSubscriptionsRequest2 = &listSubscriptionsRequest2
-	return r
+	includeInactive *bool
 }
 
 // Service Id
@@ -591,6 +586,12 @@ func (r ApiSubscriptionApiListSubscriptionsRequest) ServiceId(serviceId string) 
 // The environment type to filter by
 func (r ApiSubscriptionApiListSubscriptionsRequest) EnvironmentType(environmentType string) ApiSubscriptionApiListSubscriptionsRequest {
 	r.environmentType = &environmentType
+	return r
+}
+
+// Flag indicating whether to include inactive (suspended, cancelled, terminated) subscriptions
+func (r ApiSubscriptionApiListSubscriptionsRequest) IncludeInactive(includeInactive bool) ApiSubscriptionApiListSubscriptionsRequest {
+	r.includeInactive = &includeInactive
 	return r
 }
 
@@ -631,9 +632,6 @@ func (a *SubscriptionApiAPIService) SubscriptionApiListSubscriptionsExecute(r Ap
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.listSubscriptionsRequest2 == nil {
-		return localVarReturnValue, nil, reportError("listSubscriptionsRequest2 is required and must be specified")
-	}
 
 	if r.serviceId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "serviceId", r.serviceId, "form", "")
@@ -641,8 +639,11 @@ func (a *SubscriptionApiAPIService) SubscriptionApiListSubscriptionsExecute(r Ap
 	if r.environmentType != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "environmentType", r.environmentType, "form", "")
 	}
+	if r.includeInactive != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeInactive", r.includeInactive, "form", "")
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -658,8 +659,6 @@ func (a *SubscriptionApiAPIService) SubscriptionApiListSubscriptionsExecute(r Ap
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.listSubscriptionsRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
