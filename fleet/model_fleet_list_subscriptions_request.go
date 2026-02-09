@@ -22,6 +22,8 @@ var _ MappedNullable = &FleetListSubscriptionsRequest{}
 type FleetListSubscriptionsRequest struct {
 	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
+	// Whether to include inactive (suspended, cancelled, terminated) subscriptions
+	IncludeInactive *bool `json:"includeInactive,omitempty"`
 	// The next token to use for pagination
 	NextPageToken *string `json:"nextPageToken,omitempty"`
 	// The number of resources to return per page
@@ -79,6 +81,38 @@ func (o *FleetListSubscriptionsRequest) GetEnvironmentIdOk() (*string, bool) {
 // SetEnvironmentId sets field value
 func (o *FleetListSubscriptionsRequest) SetEnvironmentId(v string) {
 	o.EnvironmentId = v
+}
+
+// GetIncludeInactive returns the IncludeInactive field value if set, zero value otherwise.
+func (o *FleetListSubscriptionsRequest) GetIncludeInactive() bool {
+	if o == nil || IsNil(o.IncludeInactive) {
+		var ret bool
+		return ret
+	}
+	return *o.IncludeInactive
+}
+
+// GetIncludeInactiveOk returns a tuple with the IncludeInactive field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetListSubscriptionsRequest) GetIncludeInactiveOk() (*bool, bool) {
+	if o == nil || IsNil(o.IncludeInactive) {
+		return nil, false
+	}
+	return o.IncludeInactive, true
+}
+
+// HasIncludeInactive returns a boolean if a field has been set.
+func (o *FleetListSubscriptionsRequest) HasIncludeInactive() bool {
+	if o != nil && !IsNil(o.IncludeInactive) {
+		return true
+	}
+
+	return false
+}
+
+// SetIncludeInactive gets a reference to the given bool and assigns it to the IncludeInactive field.
+func (o *FleetListSubscriptionsRequest) SetIncludeInactive(v bool) {
+	o.IncludeInactive = &v
 }
 
 // GetNextPageToken returns the NextPageToken field value if set, zero value otherwise.
@@ -236,6 +270,9 @@ func (o FleetListSubscriptionsRequest) MarshalJSON() ([]byte, error) {
 func (o FleetListSubscriptionsRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["environmentId"] = o.EnvironmentId
+	if !IsNil(o.IncludeInactive) {
+		toSerialize["includeInactive"] = o.IncludeInactive
+	}
 	if !IsNil(o.NextPageToken) {
 		toSerialize["nextPageToken"] = o.NextPageToken
 	}
@@ -293,6 +330,7 @@ func (o *FleetListSubscriptionsRequest) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "includeInactive")
 		delete(additionalProperties, "nextPageToken")
 		delete(additionalProperties, "pageSize")
 		delete(additionalProperties, "productTierId")

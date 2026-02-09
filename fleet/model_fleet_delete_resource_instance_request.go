@@ -28,6 +28,8 @@ type FleetDeleteResourceInstanceRequest struct {
 	ResourceId string `json:"resourceId"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
+	// If true, skip the automatic final snapshot before deletion even if snapshotBeforeDeletion is enabled for the resource.
+	SkipFinalSnapshot *bool `json:"skipFinalSnapshot,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -45,6 +47,8 @@ func NewFleetDeleteResourceInstanceRequest(environmentId string, instanceId stri
 	this.InstanceId = instanceId
 	this.ResourceId = resourceId
 	this.ServiceId = serviceId
+	var skipFinalSnapshot bool = false
+	this.SkipFinalSnapshot = &skipFinalSnapshot
 	this.Token = token
 	return &this
 }
@@ -54,6 +58,8 @@ func NewFleetDeleteResourceInstanceRequest(environmentId string, instanceId stri
 // but it doesn't guarantee that properties required by API are set
 func NewFleetDeleteResourceInstanceRequestWithDefaults() *FleetDeleteResourceInstanceRequest {
 	this := FleetDeleteResourceInstanceRequest{}
+	var skipFinalSnapshot bool = false
+	this.SkipFinalSnapshot = &skipFinalSnapshot
 	return &this
 }
 
@@ -153,6 +159,38 @@ func (o *FleetDeleteResourceInstanceRequest) SetServiceId(v string) {
 	o.ServiceId = v
 }
 
+// GetSkipFinalSnapshot returns the SkipFinalSnapshot field value if set, zero value otherwise.
+func (o *FleetDeleteResourceInstanceRequest) GetSkipFinalSnapshot() bool {
+	if o == nil || IsNil(o.SkipFinalSnapshot) {
+		var ret bool
+		return ret
+	}
+	return *o.SkipFinalSnapshot
+}
+
+// GetSkipFinalSnapshotOk returns a tuple with the SkipFinalSnapshot field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDeleteResourceInstanceRequest) GetSkipFinalSnapshotOk() (*bool, bool) {
+	if o == nil || IsNil(o.SkipFinalSnapshot) {
+		return nil, false
+	}
+	return o.SkipFinalSnapshot, true
+}
+
+// HasSkipFinalSnapshot returns a boolean if a field has been set.
+func (o *FleetDeleteResourceInstanceRequest) HasSkipFinalSnapshot() bool {
+	if o != nil && !IsNil(o.SkipFinalSnapshot) {
+		return true
+	}
+
+	return false
+}
+
+// SetSkipFinalSnapshot gets a reference to the given bool and assigns it to the SkipFinalSnapshot field.
+func (o *FleetDeleteResourceInstanceRequest) SetSkipFinalSnapshot(v bool) {
+	o.SkipFinalSnapshot = &v
+}
+
 // GetToken returns the Token field value
 func (o *FleetDeleteResourceInstanceRequest) GetToken() string {
 	if o == nil {
@@ -191,6 +229,9 @@ func (o FleetDeleteResourceInstanceRequest) ToMap() (map[string]interface{}, err
 	toSerialize["instanceId"] = o.InstanceId
 	toSerialize["resourceId"] = o.ResourceId
 	toSerialize["serviceId"] = o.ServiceId
+	if !IsNil(o.SkipFinalSnapshot) {
+		toSerialize["skipFinalSnapshot"] = o.SkipFinalSnapshot
+	}
 	toSerialize["token"] = o.Token
 
 	for key, value := range o.AdditionalProperties {
@@ -243,6 +284,7 @@ func (o *FleetDeleteResourceInstanceRequest) UnmarshalJSON(data []byte) (err err
 		delete(additionalProperties, "instanceId")
 		delete(additionalProperties, "resourceId")
 		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "skipFinalSnapshot")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

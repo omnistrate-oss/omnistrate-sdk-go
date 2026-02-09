@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**ResourceInstanceApiStopResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiStopResourceInstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/stop | StopResourceInstance resource-instance-api
 [**ResourceInstanceApiUpdateAccountConfigResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiUpdateAccountConfigResourceInstance) | **Post** /2022-09-01-00/resource-instance/account-config/{id} | UpdateAccountConfigResourceInstance resource-instance-api
 [**ResourceInstanceApiUpdateResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiUpdateResourceInstance) | **Patch** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id} | UpdateResourceInstance resource-instance-api
+[**ResourceInstanceApiUpdateResourceInstanceMetadata**](ResourceInstanceApiAPI.md#ResourceInstanceApiUpdateResourceInstanceMetadata) | **Patch** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/metadata | UpdateResourceInstanceMetadata resource-instance-api
 [**ResourceInstanceApiUpgradeResourceInstanceVersion**](ResourceInstanceApiAPI.md#ResourceInstanceApiUpgradeResourceInstanceVersion) | **Post** /2022-09-01-00/resource-instance/{id}/version-upgrade | UpgradeResourceInstanceVersion resource-instance-api
 
 
@@ -396,7 +397,7 @@ Name | Type | Description  | Notes
 
 ## ResourceInstanceApiDeleteResourceInstance
 
-> ResourceInstanceApiDeleteResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).SubscriptionId(subscriptionId).Execute()
+> ResourceInstanceApiDeleteResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).SubscriptionId(subscriptionId).SkipFinalSnapshot(skipFinalSnapshot).Execute()
 
 DeleteResourceInstance resource-instance-api
 
@@ -422,10 +423,11 @@ func main() {
 	resourceKey := "mysql" // string | The resource key
 	id := "instance-abcd1234" // string | The instance ID
 	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
+	skipFinalSnapshot := true // bool | Skip taking final snapshot before deletion. If false (default), a final snapshot will be taken before deletion if snapshot-before-deletion is enabled on the plan. (optional) (default to false)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiDeleteResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).SubscriptionId(subscriptionId).Execute()
+	r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiDeleteResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).SubscriptionId(subscriptionId).SkipFinalSnapshot(skipFinalSnapshot).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiDeleteResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -464,6 +466,7 @@ Name | Type | Description  | Notes
 
 
  **subscriptionId** | **string** | Subscription Id | 
+ **skipFinalSnapshot** | **bool** | Skip taking final snapshot before deletion. If false (default), a final snapshot will be taken before deletion if snapshot-before-deletion is enabled on the plan. | [default to false]
 
 ### Return type
 
@@ -1850,6 +1853,97 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ResourceInstanceApiUpdateResourceInstanceMetadata
+
+> ResourceInstanceApiUpdateResourceInstanceMetadata(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).UpdateResourceInstanceMetadataRequest2(updateResourceInstanceMetadataRequest2).SubscriptionId(subscriptionId).Execute()
+
+UpdateResourceInstanceMetadata resource-instance-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	serviceProviderId := "omnistrate" // string | The service provider ID
+	serviceKey := "service-orchestration" // string | The service name
+	serviceAPIVersion := "v1" // string | The service API version
+	serviceEnvironmentKey := "dev" // string | The service environment name
+	serviceModelKey := "hosted" // string | The service model name
+	productTierKey := "premium" // string | The product tier name
+	resourceKey := "mysql" // string | The resource key
+	id := "instance-abcd1234" // string | The instance ID
+	updateResourceInstanceMetadataRequest2 := *openapiclient.NewUpdateResourceInstanceMetadataRequest2() // UpdateResourceInstanceMetadataRequest2 | 
+	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiUpdateResourceInstanceMetadata(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).UpdateResourceInstanceMetadataRequest2(updateResourceInstanceMetadataRequest2).SubscriptionId(subscriptionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiUpdateResourceInstanceMetadata``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceProviderId** | **string** | The service provider ID | 
+**serviceKey** | **string** | The service name | 
+**serviceAPIVersion** | **string** | The service API version | 
+**serviceEnvironmentKey** | **string** | The service environment name | 
+**serviceModelKey** | **string** | The service model name | 
+**productTierKey** | **string** | The product tier name | 
+**resourceKey** | **string** | The resource key | 
+**id** | **string** | The instance ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiResourceInstanceApiUpdateResourceInstanceMetadataRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+
+
+
+
+ **updateResourceInstanceMetadataRequest2** | [**UpdateResourceInstanceMetadataRequest2**](UpdateResourceInstanceMetadataRequest2.md) |  | 
+ **subscriptionId** | **string** | Subscription Id | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ResourceInstanceApiUpgradeResourceInstanceVersion
 
 > ResourceInstanceApiUpgradeResourceInstanceVersion(ctx, id).UpgradeResourceInstanceVersionRequest2(upgradeResourceInstanceVersionRequest2).SubscriptionId(subscriptionId).Execute()
@@ -1870,7 +1964,7 @@ import (
 
 func main() {
 	id := "instance-abcd1234" // string | The instance ID
-	upgradeResourceInstanceVersionRequest2 := *openapiclient.NewUpgradeResourceInstanceVersionRequest2("premium", "mysql", "v1", "dev", "service-orchestration", "hosted", "Ab alias.") // UpgradeResourceInstanceVersionRequest2 | 
+	upgradeResourceInstanceVersionRequest2 := *openapiclient.NewUpgradeResourceInstanceVersionRequest2("premium", "mysql", "v1", "dev", "service-orchestration", "hosted", "Inventore numquam et.") // UpgradeResourceInstanceVersionRequest2 | 
 	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
 
 	configuration := openapiclient.NewConfiguration()

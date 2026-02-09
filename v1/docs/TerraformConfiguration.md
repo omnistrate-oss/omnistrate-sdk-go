@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ArtifactsLocalPath** | Pointer to **string** | The local path to store artifacts generated during Terraform execution | [optional] 
 **GitConfiguration** | Pointer to [**GitConfiguration**](GitConfiguration.md) |  | [optional] 
 **PrivateModuleGitAccessTokens** | Pointer to **map[string]string** | The git access tokens for private modules | [optional] 
 **RequiredOutputKeys** | Pointer to **[]string** | The required output keys to export | [optional] 
@@ -30,6 +31,31 @@ will change when the set of required properties is changed
 NewTerraformConfigurationWithDefaults instantiates a new TerraformConfiguration object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetArtifactsLocalPath
+
+`func (o *TerraformConfiguration) GetArtifactsLocalPath() string`
+
+GetArtifactsLocalPath returns the ArtifactsLocalPath field if non-nil, zero value otherwise.
+
+### GetArtifactsLocalPathOk
+
+`func (o *TerraformConfiguration) GetArtifactsLocalPathOk() (*string, bool)`
+
+GetArtifactsLocalPathOk returns a tuple with the ArtifactsLocalPath field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetArtifactsLocalPath
+
+`func (o *TerraformConfiguration) SetArtifactsLocalPath(v string)`
+
+SetArtifactsLocalPath sets ArtifactsLocalPath field to given value.
+
+### HasArtifactsLocalPath
+
+`func (o *TerraformConfiguration) HasArtifactsLocalPath() bool`
+
+HasArtifactsLocalPath returns a boolean if a field has been set.
 
 ### GetGitConfiguration
 

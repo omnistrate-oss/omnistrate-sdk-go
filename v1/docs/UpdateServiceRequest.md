@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | Pointer to **string** | A brief description of the service | [optional] 
+**DryRun** | Pointer to **bool** | If set to true, performs a dry run of the update operation without making any changes | [optional] 
 **Id** | **string** | ID of a Service | 
 **Name** | Pointer to **string** | Name of the Service | [optional] 
 **ServiceLogoURL** | Pointer to **string** | The logo for the service | [optional] 
@@ -53,6 +54,31 @@ SetDescription sets Description field to given value.
 `func (o *UpdateServiceRequest) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
+
+### GetDryRun
+
+`func (o *UpdateServiceRequest) GetDryRun() bool`
+
+GetDryRun returns the DryRun field if non-nil, zero value otherwise.
+
+### GetDryRunOk
+
+`func (o *UpdateServiceRequest) GetDryRunOk() (*bool, bool)`
+
+GetDryRunOk returns a tuple with the DryRun field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDryRun
+
+`func (o *UpdateServiceRequest) SetDryRun(v bool)`
+
+SetDryRun sets DryRun field to given value.
+
+### HasDryRun
+
+`func (o *UpdateServiceRequest) HasDryRun() bool`
+
+HasDryRun returns a boolean if a field has been set.
 
 ### GetId
 

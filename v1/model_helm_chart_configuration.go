@@ -22,6 +22,7 @@ var _ MappedNullable = &HelmChartConfiguration{}
 type HelmChartConfiguration struct {
 	// The tag to auto-discover and update in the Helm chart values (if the chartValues or layeredChartValues contain an image tag placeholder like {{ .Values.image.tag }}, this field specifies which tag to replace it with)
 	AutoDiscoverImagesTag *string `json:"autoDiscoverImagesTag,omitempty"`
+	ChartAffinityControl *HelmChartAffinityControl `json:"chartAffinityControl,omitempty"`
 	// The chart name of the Helm package
 	ChartName string `json:"chartName"`
 	// The chart repository name of the Helm package
@@ -92,6 +93,29 @@ func (o *HelmChartConfiguration) GetAutoDiscoverImagesTagOk() (*string, bool) {
 // SetAutoDiscoverImagesTag gets a reference to the given string and assigns it to the AutoDiscoverImagesTag field.
 func (o *HelmChartConfiguration) SetAutoDiscoverImagesTag(v string) {
 	o.AutoDiscoverImagesTag = &v
+}
+
+// GetChartAffinityControl returns the ChartAffinityControl field value if set, zero value otherwise.
+func (o *HelmChartConfiguration) GetChartAffinityControl() HelmChartAffinityControl {
+	if o == nil || IsNil(o.ChartAffinityControl) {
+		var ret HelmChartAffinityControl
+		return ret
+	}
+	return *o.ChartAffinityControl
+}
+
+// GetChartAffinityControlOk returns a tuple with the ChartAffinityControl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HelmChartConfiguration) GetChartAffinityControlOk() (*HelmChartAffinityControl, bool) {
+	if o == nil || IsNil(o.ChartAffinityControl) {
+		return nil, false
+	}
+	return o.ChartAffinityControl, true
+}
+
+// SetChartAffinityControl gets a reference to the given HelmChartAffinityControl and assigns it to the ChartAffinityControl field.
+func (o *HelmChartConfiguration) SetChartAffinityControl(v HelmChartAffinityControl) {
+	o.ChartAffinityControl = &v
 }
 
 // GetChartName returns the ChartName field value
@@ -387,6 +411,9 @@ func (o HelmChartConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AutoDiscoverImagesTag) {
 		toSerialize["autoDiscoverImagesTag"] = o.AutoDiscoverImagesTag
 	}
+	if !IsNil(o.ChartAffinityControl) {
+		toSerialize["chartAffinityControl"] = o.ChartAffinityControl
+	}
 	toSerialize["chartName"] = o.ChartName
 	toSerialize["chartRepoName"] = o.ChartRepoName
 	toSerialize["chartRepoUrl"] = o.ChartRepoUrl
@@ -462,6 +489,7 @@ func (o *HelmChartConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "autoDiscoverImagesTag")
+		delete(additionalProperties, "chartAffinityControl")
 		delete(additionalProperties, "chartName")
 		delete(additionalProperties, "chartRepoName")
 		delete(additionalProperties, "chartRepoUrl")

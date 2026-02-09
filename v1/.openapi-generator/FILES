@@ -309,6 +309,8 @@ docs/DescribeConsumptionUserBillingDetailsResult.md
 docs/DescribeCustomDomainRequest.md
 docs/DescribeCustomDomainResult.md
 docs/DescribeCustomNetworkRequest.md
+docs/DescribeDeploymentArtifactRequest.md
+docs/DescribeDeploymentArtifactResult.md
 docs/DescribeDeploymentConfigRequest.md
 docs/DescribeDeploymentConfigResult.md
 docs/DescribeHelmPackageRequest.md
@@ -452,6 +454,7 @@ docs/GetUsageRequest.md
 docs/GetUsageResult.md
 docs/GitConfiguration.md
 docs/GlobalApiAPI.md
+docs/HelmChartAffinityControl.md
 docs/HelmChartConfiguration.md
 docs/HelmPackage.md
 docs/HelmPackageApiAPI.md
@@ -591,7 +594,6 @@ docs/ListStorageVolumeConfigsResult.md
 docs/ListSubscriptionRequestsRequest.md
 docs/ListSubscriptionRequestsResult.md
 docs/ListSubscriptionsRequest.md
-docs/ListSubscriptionsRequest2.md
 docs/ListSubscriptionsResult.md
 docs/ListTierVersionSetSpecsRequest.md
 docs/ListTierVersionSetSpecsResult.md
@@ -684,6 +686,7 @@ docs/ResourceDependency.md
 docs/ResourceEntity.md
 docs/ResourceHealthSummary.md
 docs/ResourceInstanceApiAPI.md
+docs/ResourceInstanceMetadata.md
 docs/ResourceInstanceProvisionerSetupKitRequest.md
 docs/ResourceNetworkTopologyResult.md
 docs/ResourceSpec.md
@@ -805,6 +808,8 @@ docs/UpdatePasswordRequest2.md
 docs/UpdatePipelineRequest.md
 docs/UpdateProductTierRequest.md
 docs/UpdateProductTierRequest2.md
+docs/UpdateResourceInstanceMetadataRequest.md
+docs/UpdateResourceInstanceMetadataRequest2.md
 docs/UpdateResourceInstanceRequest.md
 docs/UpdateResourceInstanceRequest2.md
 docs/UpdateResourceRequest.md
@@ -1083,6 +1088,8 @@ model_describe_consumption_user_billing_details_result.go
 model_describe_custom_domain_request.go
 model_describe_custom_domain_result.go
 model_describe_custom_network_request.go
+model_describe_deployment_artifact_request.go
+model_describe_deployment_artifact_result.go
 model_describe_deployment_config_request.go
 model_describe_deployment_config_result.go
 model_describe_helm_package_request.go
@@ -1224,6 +1231,7 @@ model_get_tier_version_set_spec_result.go
 model_get_usage_request.go
 model_get_usage_result.go
 model_git_configuration.go
+model_helm_chart_affinity_control.go
 model_helm_chart_configuration.go
 model_helm_package.go
 model_helm_runtime_configuration.go
@@ -1354,7 +1362,6 @@ model_list_storage_volume_configs_result.go
 model_list_subscription_requests_request.go
 model_list_subscription_requests_result.go
 model_list_subscriptions_request.go
-model_list_subscriptions_request2.go
 model_list_subscriptions_result.go
 model_list_tier_version_set_specs_request.go
 model_list_tier_version_set_specs_result.go
@@ -1440,6 +1447,7 @@ model_resource_capability.go
 model_resource_dependency.go
 model_resource_entity.go
 model_resource_health_summary.go
+model_resource_instance_metadata.go
 model_resource_instance_provisioner_setup_kit_request.go
 model_resource_network_topology_result.go
 model_resource_spec.go
@@ -1541,6 +1549,8 @@ model_update_password_request2.go
 model_update_pipeline_request.go
 model_update_product_tier_request.go
 model_update_product_tier_request2.go
+model_update_resource_instance_metadata_request.go
+model_update_resource_instance_metadata_request2.go
 model_update_resource_instance_request.go
 model_update_resource_instance_request2.go
 model_update_resource_request.go

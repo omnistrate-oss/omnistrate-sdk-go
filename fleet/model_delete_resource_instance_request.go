@@ -36,6 +36,8 @@ type DeleteResourceInstanceRequest struct {
 	ServiceModelKey string `json:"serviceModelKey"`
 	// ID of a Service Provider
 	ServiceProviderId string `json:"serviceProviderId"`
+	// Skip taking final snapshot before deletion. If false (default), a final snapshot will be taken before deletion if snapshot-before-deletion is enabled on the plan.
+	SkipFinalSnapshot *bool `json:"skipFinalSnapshot,omitempty"`
 	// The subscription ID
 	SubscriptionId *string `json:"subscriptionId,omitempty"`
 	// JWT token used to perform authorization
@@ -59,6 +61,8 @@ func NewDeleteResourceInstanceRequest(id string, productTierKey string, resource
 	this.ServiceKey = serviceKey
 	this.ServiceModelKey = serviceModelKey
 	this.ServiceProviderId = serviceProviderId
+	var skipFinalSnapshot bool = false
+	this.SkipFinalSnapshot = &skipFinalSnapshot
 	this.Token = token
 	return &this
 }
@@ -68,6 +72,8 @@ func NewDeleteResourceInstanceRequest(id string, productTierKey string, resource
 // but it doesn't guarantee that properties required by API are set
 func NewDeleteResourceInstanceRequestWithDefaults() *DeleteResourceInstanceRequest {
 	this := DeleteResourceInstanceRequest{}
+	var skipFinalSnapshot bool = false
+	this.SkipFinalSnapshot = &skipFinalSnapshot
 	return &this
 }
 
@@ -263,6 +269,38 @@ func (o *DeleteResourceInstanceRequest) SetServiceProviderId(v string) {
 	o.ServiceProviderId = v
 }
 
+// GetSkipFinalSnapshot returns the SkipFinalSnapshot field value if set, zero value otherwise.
+func (o *DeleteResourceInstanceRequest) GetSkipFinalSnapshot() bool {
+	if o == nil || IsNil(o.SkipFinalSnapshot) {
+		var ret bool
+		return ret
+	}
+	return *o.SkipFinalSnapshot
+}
+
+// GetSkipFinalSnapshotOk returns a tuple with the SkipFinalSnapshot field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeleteResourceInstanceRequest) GetSkipFinalSnapshotOk() (*bool, bool) {
+	if o == nil || IsNil(o.SkipFinalSnapshot) {
+		return nil, false
+	}
+	return o.SkipFinalSnapshot, true
+}
+
+// HasSkipFinalSnapshot returns a boolean if a field has been set.
+func (o *DeleteResourceInstanceRequest) HasSkipFinalSnapshot() bool {
+	if o != nil && !IsNil(o.SkipFinalSnapshot) {
+		return true
+	}
+
+	return false
+}
+
+// SetSkipFinalSnapshot gets a reference to the given bool and assigns it to the SkipFinalSnapshot field.
+func (o *DeleteResourceInstanceRequest) SetSkipFinalSnapshot(v bool) {
+	o.SkipFinalSnapshot = &v
+}
+
 // GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
 func (o *DeleteResourceInstanceRequest) GetSubscriptionId() string {
 	if o == nil || IsNil(o.SubscriptionId) {
@@ -337,6 +375,9 @@ func (o DeleteResourceInstanceRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["serviceKey"] = o.ServiceKey
 	toSerialize["serviceModelKey"] = o.ServiceModelKey
 	toSerialize["serviceProviderId"] = o.ServiceProviderId
+	if !IsNil(o.SkipFinalSnapshot) {
+		toSerialize["skipFinalSnapshot"] = o.SkipFinalSnapshot
+	}
 	if !IsNil(o.SubscriptionId) {
 		toSerialize["subscriptionId"] = o.SubscriptionId
 	}
@@ -400,6 +441,7 @@ func (o *DeleteResourceInstanceRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "serviceKey")
 		delete(additionalProperties, "serviceModelKey")
 		delete(additionalProperties, "serviceProviderId")
+		delete(additionalProperties, "skipFinalSnapshot")
 		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties

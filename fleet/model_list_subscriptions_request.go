@@ -22,6 +22,8 @@ var _ MappedNullable = &ListSubscriptionsRequest{}
 type ListSubscriptionsRequest struct {
 	// The type of service environment
 	EnvironmentType *string `json:"environmentType,omitempty"`
+	// Whether to include inactive (suspended, cancelled, terminated) subscriptions
+	IncludeInactive *bool `json:"includeInactive,omitempty"`
 	// ID of a Service
 	ServiceId *string `json:"serviceId,omitempty"`
 	// JWT token used to perform authorization
@@ -79,6 +81,38 @@ func (o *ListSubscriptionsRequest) HasEnvironmentType() bool {
 // SetEnvironmentType gets a reference to the given string and assigns it to the EnvironmentType field.
 func (o *ListSubscriptionsRequest) SetEnvironmentType(v string) {
 	o.EnvironmentType = &v
+}
+
+// GetIncludeInactive returns the IncludeInactive field value if set, zero value otherwise.
+func (o *ListSubscriptionsRequest) GetIncludeInactive() bool {
+	if o == nil || IsNil(o.IncludeInactive) {
+		var ret bool
+		return ret
+	}
+	return *o.IncludeInactive
+}
+
+// GetIncludeInactiveOk returns a tuple with the IncludeInactive field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListSubscriptionsRequest) GetIncludeInactiveOk() (*bool, bool) {
+	if o == nil || IsNil(o.IncludeInactive) {
+		return nil, false
+	}
+	return o.IncludeInactive, true
+}
+
+// HasIncludeInactive returns a boolean if a field has been set.
+func (o *ListSubscriptionsRequest) HasIncludeInactive() bool {
+	if o != nil && !IsNil(o.IncludeInactive) {
+		return true
+	}
+
+	return false
+}
+
+// SetIncludeInactive gets a reference to the given bool and assigns it to the IncludeInactive field.
+func (o *ListSubscriptionsRequest) SetIncludeInactive(v bool) {
+	o.IncludeInactive = &v
 }
 
 // GetServiceId returns the ServiceId field value if set, zero value otherwise.
@@ -150,6 +184,9 @@ func (o ListSubscriptionsRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EnvironmentType) {
 		toSerialize["environmentType"] = o.EnvironmentType
 	}
+	if !IsNil(o.IncludeInactive) {
+		toSerialize["includeInactive"] = o.IncludeInactive
+	}
 	if !IsNil(o.ServiceId) {
 		toSerialize["serviceId"] = o.ServiceId
 	}
@@ -198,6 +235,7 @@ func (o *ListSubscriptionsRequest) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "environmentType")
+		delete(additionalProperties, "includeInactive")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties

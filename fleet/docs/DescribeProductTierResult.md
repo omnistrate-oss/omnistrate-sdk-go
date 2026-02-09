@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **BillingProviders** | Pointer to **[]string** | List of billing providers to be used for the product tier | [optional] 
 **CloudProvidersConfigReadiness** | Pointer to **map[string]map[string]string** | The readiness of the cloud providers configurations | [optional] 
 **DefaultBillingProvider** | Pointer to **string** | The billing provider type | [optional] 
+**DeploymentArtifactIDs** | Pointer to **[]string** | List of deployment artifact IDs associated with this product tier | [optional] 
 **DeploymentConfiguration** | Pointer to [**ProductTierDeploymentConfiguration**](ProductTierDeploymentConfiguration.md) |  | [optional] 
 **Description** | **string** | A brief description of the product tier | 
 **Documentation** | **string** | Documentation | 
@@ -281,6 +282,31 @@ SetDefaultBillingProvider sets DefaultBillingProvider field to given value.
 `func (o *DescribeProductTierResult) HasDefaultBillingProvider() bool`
 
 HasDefaultBillingProvider returns a boolean if a field has been set.
+
+### GetDeploymentArtifactIDs
+
+`func (o *DescribeProductTierResult) GetDeploymentArtifactIDs() []string`
+
+GetDeploymentArtifactIDs returns the DeploymentArtifactIDs field if non-nil, zero value otherwise.
+
+### GetDeploymentArtifactIDsOk
+
+`func (o *DescribeProductTierResult) GetDeploymentArtifactIDsOk() (*[]string, bool)`
+
+GetDeploymentArtifactIDsOk returns a tuple with the DeploymentArtifactIDs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeploymentArtifactIDs
+
+`func (o *DescribeProductTierResult) SetDeploymentArtifactIDs(v []string)`
+
+SetDeploymentArtifactIDs sets DeploymentArtifactIDs field to given value.
+
+### HasDeploymentArtifactIDs
+
+`func (o *DescribeProductTierResult) HasDeploymentArtifactIDs() bool`
+
+HasDeploymentArtifactIDs returns a boolean if a field has been set.
 
 ### GetDeploymentConfiguration
 

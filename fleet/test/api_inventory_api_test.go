@@ -1245,6 +1245,19 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test InventoryApiAPIService InventoryApiUpdateConsumptionUser", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var userId string
+
+		httpRes, err := apiClient.InventoryApiAPI.InventoryApiUpdateConsumptionUser(context.Background(), userId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test InventoryApiAPIService InventoryApiUpdateResourceInstance", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

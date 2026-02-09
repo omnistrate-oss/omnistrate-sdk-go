@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
+**IncludeInactive** | Pointer to **bool** | Whether to include inactive (suspended, cancelled, terminated) subscriptions | [optional] 
 **ServiceId** | Pointer to **string** | ID of a Service | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
@@ -51,6 +52,31 @@ SetEnvironmentType sets EnvironmentType field to given value.
 `func (o *ListSubscriptionsRequest) HasEnvironmentType() bool`
 
 HasEnvironmentType returns a boolean if a field has been set.
+
+### GetIncludeInactive
+
+`func (o *ListSubscriptionsRequest) GetIncludeInactive() bool`
+
+GetIncludeInactive returns the IncludeInactive field if non-nil, zero value otherwise.
+
+### GetIncludeInactiveOk
+
+`func (o *ListSubscriptionsRequest) GetIncludeInactiveOk() (*bool, bool)`
+
+GetIncludeInactiveOk returns a tuple with the IncludeInactive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIncludeInactive
+
+`func (o *ListSubscriptionsRequest) SetIncludeInactive(v bool)`
+
+SetIncludeInactive sets IncludeInactive field to given value.
+
+### HasIncludeInactive
+
+`func (o *ListSubscriptionsRequest) HasIncludeInactive() bool`
+
+HasIncludeInactive returns a boolean if a field has been set.
 
 ### GetServiceId
 
