@@ -21,6 +21,8 @@ var _ MappedNullable = &UpdateUserRequest{}
 // UpdateUserRequest struct for UpdateUserRequest
 type UpdateUserRequest struct {
 	Address *Address `json:"address,omitempty"`
+	// Additional attributes of the user.
+	Attributes *map[string]string `json:"attributes,omitempty"`
 	// The User ID
 	Id string `json:"id"`
 	// The name of the user
@@ -99,6 +101,38 @@ func (o *UpdateUserRequest) HasAddress() bool {
 // SetAddress gets a reference to the given Address and assigns it to the Address field.
 func (o *UpdateUserRequest) SetAddress(v Address) {
 	o.Address = &v
+}
+
+// GetAttributes returns the Attributes field value if set, zero value otherwise.
+func (o *UpdateUserRequest) GetAttributes() map[string]string {
+	if o == nil || IsNil(o.Attributes) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.Attributes
+}
+
+// GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateUserRequest) GetAttributesOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.Attributes) {
+		return nil, false
+	}
+	return o.Attributes, true
+}
+
+// HasAttributes returns a boolean if a field has been set.
+func (o *UpdateUserRequest) HasAttributes() bool {
+	if o != nil && !IsNil(o.Attributes) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttributes gets a reference to the given map[string]string and assigns it to the Attributes field.
+func (o *UpdateUserRequest) SetAttributes(v map[string]string) {
+	o.Attributes = &v
 }
 
 // GetId returns the Id field value
@@ -482,6 +516,9 @@ func (o UpdateUserRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Address) {
 		toSerialize["address"] = o.Address
 	}
+	if !IsNil(o.Attributes) {
+		toSerialize["attributes"] = o.Attributes
+	}
 	toSerialize["id"] = o.Id
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
@@ -559,6 +596,7 @@ func (o *UpdateUserRequest) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "address")
+		delete(additionalProperties, "attributes")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "orgCookiePolicy")

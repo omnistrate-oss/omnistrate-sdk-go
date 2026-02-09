@@ -115,6 +115,20 @@ func Test_v1_AccountConfigApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test AccountConfigApiAPIService AccountConfigApiDescribeAccountConfigByOCITenancyID", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var ociTenancyID string
+
+		resp, httpRes, err := apiClient.AccountConfigApiAPI.AccountConfigApiDescribeAccountConfigByOCITenancyID(context.Background(), ociTenancyID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test AccountConfigApiAPIService AccountConfigApiListAccountConfig", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

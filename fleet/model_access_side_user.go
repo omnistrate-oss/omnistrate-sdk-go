@@ -19,6 +19,8 @@ var _ MappedNullable = &AccessSideUser{}
 
 // AccessSideUser struct for AccessSideUser
 type AccessSideUser struct {
+	// Additional attributes of the user.
+	Attributes *map[string]string `json:"attributes,omitempty"`
 	// The time the user was created.
 	CreatedAt *string `json:"createdAt,omitempty"`
 	// The user email.
@@ -69,6 +71,38 @@ func NewAccessSideUser() *AccessSideUser {
 func NewAccessSideUserWithDefaults() *AccessSideUser {
 	this := AccessSideUser{}
 	return &this
+}
+
+// GetAttributes returns the Attributes field value if set, zero value otherwise.
+func (o *AccessSideUser) GetAttributes() map[string]string {
+	if o == nil || IsNil(o.Attributes) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.Attributes
+}
+
+// GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AccessSideUser) GetAttributesOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.Attributes) {
+		return nil, false
+	}
+	return o.Attributes, true
+}
+
+// HasAttributes returns a boolean if a field has been set.
+func (o *AccessSideUser) HasAttributes() bool {
+	if o != nil && !IsNil(o.Attributes) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttributes gets a reference to the given map[string]string and assigns it to the Attributes field.
+func (o *AccessSideUser) SetAttributes(v map[string]string) {
+	o.Attributes = &v
 }
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
@@ -561,6 +595,9 @@ func (o AccessSideUser) MarshalJSON() ([]byte, error) {
 
 func (o AccessSideUser) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Attributes) {
+		toSerialize["attributes"] = o.Attributes
+	}
 	if !IsNil(o.CreatedAt) {
 		toSerialize["createdAt"] = o.CreatedAt
 	}
@@ -628,6 +665,7 @@ func (o *AccessSideUser) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "attributes")
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "email")
 		delete(additionalProperties, "enabled")

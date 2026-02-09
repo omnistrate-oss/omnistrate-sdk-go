@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DeploymentCellCosts** | Pointer to **map[string]interface{}** | The cost data for each deployment cell | [optional] 
+**DeploymentCellCosts** | Pointer to [**map[string]PerDeploymentCellCost**](PerDeploymentCellCost.md) | The cost data for each deployment cell | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDeploymentCellCosts
 
-`func (o *DescribeDeploymentCellCostResult) GetDeploymentCellCosts() map[string]interface{}`
+`func (o *DescribeDeploymentCellCostResult) GetDeploymentCellCosts() map[string]PerDeploymentCellCost`
 
 GetDeploymentCellCosts returns the DeploymentCellCosts field if non-nil, zero value otherwise.
 
 ### GetDeploymentCellCostsOk
 
-`func (o *DescribeDeploymentCellCostResult) GetDeploymentCellCostsOk() (*map[string]interface{}, bool)`
+`func (o *DescribeDeploymentCellCostResult) GetDeploymentCellCostsOk() (*map[string]PerDeploymentCellCost, bool)`
 
 GetDeploymentCellCostsOk returns a tuple with the DeploymentCellCosts field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeploymentCellCosts
 
-`func (o *DescribeDeploymentCellCostResult) SetDeploymentCellCosts(v map[string]interface{})`
+`func (o *DescribeDeploymentCellCostResult) SetDeploymentCellCosts(v map[string]PerDeploymentCellCost)`
 
 SetDeploymentCellCosts sets DeploymentCellCosts field to given value.
 

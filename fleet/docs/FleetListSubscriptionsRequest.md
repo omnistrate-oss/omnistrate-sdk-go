@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EnvironmentId** | **string** | ID of a Service Environment | 
+**IncludeInactive** | Pointer to **bool** | Whether to include inactive (suspended, cancelled, terminated) subscriptions | [optional] 
 **NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
 **PageSize** | Pointer to **int64** | The number of resources to return per page | [optional] 
 **ProductTierId** | Pointer to **string** | ID of a Product Tier | [optional] 
@@ -49,6 +50,31 @@ and a boolean to check if the value has been set.
 
 SetEnvironmentId sets EnvironmentId field to given value.
 
+
+### GetIncludeInactive
+
+`func (o *FleetListSubscriptionsRequest) GetIncludeInactive() bool`
+
+GetIncludeInactive returns the IncludeInactive field if non-nil, zero value otherwise.
+
+### GetIncludeInactiveOk
+
+`func (o *FleetListSubscriptionsRequest) GetIncludeInactiveOk() (*bool, bool)`
+
+GetIncludeInactiveOk returns a tuple with the IncludeInactive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIncludeInactive
+
+`func (o *FleetListSubscriptionsRequest) SetIncludeInactive(v bool)`
+
+SetIncludeInactive sets IncludeInactive field to given value.
+
+### HasIncludeInactive
+
+`func (o *FleetListSubscriptionsRequest) HasIncludeInactive() bool`
+
+HasIncludeInactive returns a boolean if a field has been set.
 
 ### GetNextPageToken
 

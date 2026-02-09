@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CustomNetworkId** | Pointer to **string** | Custom network for resource | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
 **ProductTierKey** | **string** | The product tier name | 
 **ResourceKey** | **string** | The resource key | 
@@ -34,6 +35,31 @@ will change when the set of required properties is changed
 NewRestoreResourceInstanceFromSnapshotRequestWithDefaults instantiates a new RestoreResourceInstanceFromSnapshotRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCustomNetworkId
+
+`func (o *RestoreResourceInstanceFromSnapshotRequest) GetCustomNetworkId() string`
+
+GetCustomNetworkId returns the CustomNetworkId field if non-nil, zero value otherwise.
+
+### GetCustomNetworkIdOk
+
+`func (o *RestoreResourceInstanceFromSnapshotRequest) GetCustomNetworkIdOk() (*string, bool)`
+
+GetCustomNetworkIdOk returns a tuple with the CustomNetworkId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomNetworkId
+
+`func (o *RestoreResourceInstanceFromSnapshotRequest) SetCustomNetworkId(v string)`
+
+SetCustomNetworkId sets CustomNetworkId field to given value.
+
+### HasCustomNetworkId
+
+`func (o *RestoreResourceInstanceFromSnapshotRequest) HasCustomNetworkId() bool`
+
+HasCustomNetworkId returns a boolean if a field has been set.
 
 ### GetNetworkType
 

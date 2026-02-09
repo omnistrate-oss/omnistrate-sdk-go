@@ -7,9 +7,11 @@ Name | Type | Description | Notes
 **AwsAccountID** | Pointer to **string** | The AWS account ID | [optional] 
 **AzureSubscriptionID** | Pointer to **string** | The Azure subscription ID | [optional] 
 **CloudProvider** | **string** | Name of the Infra Provider | 
+**CreatedAt** | Pointer to **string** | The timestamp when the host cluster was created | [optional] 
 **DashboardEndpoint** | Pointer to **string** | The endpoint to access the dashboard | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **Id** | **string** | ID of a Host Cluster | 
+**OciTenancyID** | Pointer to **string** | The Tenancy OCID for Oracle Cloud Infrastructure | [optional] 
 **Region** | **string** | The region of the host cluster | 
 **Status** | **string** | The status of an operation | 
 **Type** | **string** |  | 
@@ -103,6 +105,31 @@ and a boolean to check if the value has been set.
 SetCloudProvider sets CloudProvider field to given value.
 
 
+### GetCreatedAt
+
+`func (o *FleetDescribeHostClusterResult) GetCreatedAt() string`
+
+GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
+
+### GetCreatedAtOk
+
+`func (o *FleetDescribeHostClusterResult) GetCreatedAtOk() (*string, bool)`
+
+GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedAt
+
+`func (o *FleetDescribeHostClusterResult) SetCreatedAt(v string)`
+
+SetCreatedAt sets CreatedAt field to given value.
+
+### HasCreatedAt
+
+`func (o *FleetDescribeHostClusterResult) HasCreatedAt() bool`
+
+HasCreatedAt returns a boolean if a field has been set.
+
 ### GetDashboardEndpoint
 
 `func (o *FleetDescribeHostClusterResult) GetDashboardEndpoint() string`
@@ -172,6 +199,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetOciTenancyID
+
+`func (o *FleetDescribeHostClusterResult) GetOciTenancyID() string`
+
+GetOciTenancyID returns the OciTenancyID field if non-nil, zero value otherwise.
+
+### GetOciTenancyIDOk
+
+`func (o *FleetDescribeHostClusterResult) GetOciTenancyIDOk() (*string, bool)`
+
+GetOciTenancyIDOk returns a tuple with the OciTenancyID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciTenancyID
+
+`func (o *FleetDescribeHostClusterResult) SetOciTenancyID(v string)`
+
+SetOciTenancyID sets OciTenancyID field to given value.
+
+### HasOciTenancyID
+
+`func (o *FleetDescribeHostClusterResult) HasOciTenancyID() bool`
+
+HasOciTenancyID returns a boolean if a field has been set.
 
 ### GetRegion
 

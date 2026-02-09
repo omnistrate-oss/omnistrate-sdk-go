@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **ServiceName** | **string** | The service name | 
 **ServicePlanName** | **string** | The name of the service plan | 
 **Time** | **string** | ID of a Event | 
+**UserAgent** | Pointer to **string** | The User-Agent string of the client that caused the event | [optional] 
 **UserId** | Pointer to **string** | ID of a User | [optional] 
 **UserName** | Pointer to **string** | The user name of the user that caused the event | [optional] 
 **WorkflowFailures** | Pointer to [**[]WorkflowFailure**](WorkflowFailure.md) | The list of workflow events that indicate failures | [optional] 
@@ -336,6 +337,31 @@ and a boolean to check if the value has been set.
 
 SetTime sets Time field to given value.
 
+
+### GetUserAgent
+
+`func (o *FleetAuditEvent) GetUserAgent() string`
+
+GetUserAgent returns the UserAgent field if non-nil, zero value otherwise.
+
+### GetUserAgentOk
+
+`func (o *FleetAuditEvent) GetUserAgentOk() (*string, bool)`
+
+GetUserAgentOk returns a tuple with the UserAgent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserAgent
+
+`func (o *FleetAuditEvent) SetUserAgent(v string)`
+
+SetUserAgent sets UserAgent field to given value.
+
+### HasUserAgent
+
+`func (o *FleetAuditEvent) HasUserAgent() bool`
+
+HasUserAgent returns a boolean if a field has been set.
 
 ### GetUserId
 

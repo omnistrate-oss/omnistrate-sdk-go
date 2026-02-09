@@ -20,7 +20,7 @@ var _ MappedNullable = &ListVUnitsResult{}
 // ListVUnitsResult struct for ListVUnitsResult
 type ListVUnitsResult struct {
 	// List of VUnit IDs per Cloud provider
-	Ids map[string]interface{} `json:"ids,omitempty"`
+	Ids *map[string][]string `json:"ids,omitempty"`
 	// Next page token
 	NextPageToken *string `json:"nextPageToken,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -46,19 +46,19 @@ func NewListVUnitsResultWithDefaults() *ListVUnitsResult {
 }
 
 // GetIds returns the Ids field value if set, zero value otherwise.
-func (o *ListVUnitsResult) GetIds() map[string]interface{} {
+func (o *ListVUnitsResult) GetIds() map[string][]string {
 	if o == nil || IsNil(o.Ids) {
-		var ret map[string]interface{}
+		var ret map[string][]string
 		return ret
 	}
-	return o.Ids
+	return *o.Ids
 }
 
 // GetIdsOk returns a tuple with the Ids field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListVUnitsResult) GetIdsOk() (map[string]interface{}, bool) {
+func (o *ListVUnitsResult) GetIdsOk() (*map[string][]string, bool) {
 	if o == nil || IsNil(o.Ids) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.Ids, true
 }
@@ -72,9 +72,9 @@ func (o *ListVUnitsResult) HasIds() bool {
 	return false
 }
 
-// SetIds gets a reference to the given map[string]interface{} and assigns it to the Ids field.
-func (o *ListVUnitsResult) SetIds(v map[string]interface{}) {
-	o.Ids = v
+// SetIds gets a reference to the given map[string][]string and assigns it to the Ids field.
+func (o *ListVUnitsResult) SetIds(v map[string][]string) {
+	o.Ids = &v
 }
 
 // GetNextPageToken returns the NextPageToken field value if set, zero value otherwise.

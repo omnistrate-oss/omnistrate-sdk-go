@@ -20,6 +20,8 @@ var _ MappedNullable = &FleetUpdateResourceInstanceRequest{}
 
 // FleetUpdateResourceInstanceRequest struct for FleetUpdateResourceInstanceRequest
 type FleetUpdateResourceInstanceRequest struct {
+	// The custom tags for the resource instance.
+	CustomTags []CustomTag `json:"customTags,omitempty"`
 	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
 	// ID of a Resource Instance
@@ -59,6 +61,38 @@ func NewFleetUpdateResourceInstanceRequest(environmentId string, instanceId stri
 func NewFleetUpdateResourceInstanceRequestWithDefaults() *FleetUpdateResourceInstanceRequest {
 	this := FleetUpdateResourceInstanceRequest{}
 	return &this
+}
+
+// GetCustomTags returns the CustomTags field value if set, zero value otherwise.
+func (o *FleetUpdateResourceInstanceRequest) GetCustomTags() []CustomTag {
+	if o == nil || IsNil(o.CustomTags) {
+		var ret []CustomTag
+		return ret
+	}
+	return o.CustomTags
+}
+
+// GetCustomTagsOk returns a tuple with the CustomTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetUpdateResourceInstanceRequest) GetCustomTagsOk() ([]CustomTag, bool) {
+	if o == nil || IsNil(o.CustomTags) {
+		return nil, false
+	}
+	return o.CustomTags, true
+}
+
+// HasCustomTags returns a boolean if a field has been set.
+func (o *FleetUpdateResourceInstanceRequest) HasCustomTags() bool {
+	if o != nil && !IsNil(o.CustomTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomTags gets a reference to the given []CustomTag and assigns it to the CustomTags field.
+func (o *FleetUpdateResourceInstanceRequest) SetCustomTags(v []CustomTag) {
+	o.CustomTags = v
 }
 
 // GetEnvironmentId returns the EnvironmentId field value
@@ -256,6 +290,9 @@ func (o FleetUpdateResourceInstanceRequest) MarshalJSON() ([]byte, error) {
 
 func (o FleetUpdateResourceInstanceRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CustomTags) {
+		toSerialize["customTags"] = o.CustomTags
+	}
 	toSerialize["environmentId"] = o.EnvironmentId
 	toSerialize["instanceId"] = o.InstanceId
 	if !IsNil(o.NetworkType) {
@@ -314,6 +351,7 @@ func (o *FleetUpdateResourceInstanceRequest) UnmarshalJSON(data []byte) (err err
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "customTags")
 		delete(additionalProperties, "environmentId")
 		delete(additionalProperties, "instanceId")
 		delete(additionalProperties, "network_type")

@@ -30,6 +30,8 @@ type HostCluster struct {
 	Amenities []Amenity `json:"amenities,omitempty"`
 	// Name of the Infra Provider
 	CloudProvider string `json:"cloudProvider"`
+	// The timestamp when the host cluster was created
+	CreatedAt *string `json:"createdAt,omitempty"`
 	// The current number of deployments on the host cluster
 	CurrentNumberOfDeployments int64 `json:"currentNumberOfDeployments"`
 	CustomNetworkDetail *CustomNetworkFleetDetail `json:"customNetworkDetail,omitempty"`
@@ -45,6 +47,7 @@ type HostCluster struct {
 	HelmPackages []HelmPackage `json:"helmPackages,omitempty"`
 	// ID of a Host Cluster
 	Id string `json:"id"`
+	IntermediaryAccountDetail *IntermediaryAccountDetail `json:"intermediaryAccountDetail,omitempty"`
 	// Indicates if the host cluster is a custom deployment
 	IsCustomDeployment bool `json:"isCustomDeployment"`
 	// Whether the host cluster is in sync with the org template
@@ -234,6 +237,38 @@ func (o *HostCluster) GetCloudProviderOk() (*string, bool) {
 // SetCloudProvider sets field value
 func (o *HostCluster) SetCloudProvider(v string) {
 	o.CloudProvider = v
+}
+
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
+func (o *HostCluster) GetCreatedAt() string {
+	if o == nil || IsNil(o.CreatedAt) {
+		var ret string
+		return ret
+	}
+	return *o.CreatedAt
+}
+
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetCreatedAtOk() (*string, bool) {
+	if o == nil || IsNil(o.CreatedAt) {
+		return nil, false
+	}
+	return o.CreatedAt, true
+}
+
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *HostCluster) HasCreatedAt() bool {
+	if o != nil && !IsNil(o.CreatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
+func (o *HostCluster) SetCreatedAt(v string) {
+	o.CreatedAt = &v
 }
 
 // GetCurrentNumberOfDeployments returns the CurrentNumberOfDeployments field value
@@ -498,6 +533,38 @@ func (o *HostCluster) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *HostCluster) SetId(v string) {
 	o.Id = v
+}
+
+// GetIntermediaryAccountDetail returns the IntermediaryAccountDetail field value if set, zero value otherwise.
+func (o *HostCluster) GetIntermediaryAccountDetail() IntermediaryAccountDetail {
+	if o == nil || IsNil(o.IntermediaryAccountDetail) {
+		var ret IntermediaryAccountDetail
+		return ret
+	}
+	return *o.IntermediaryAccountDetail
+}
+
+// GetIntermediaryAccountDetailOk returns a tuple with the IntermediaryAccountDetail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetIntermediaryAccountDetailOk() (*IntermediaryAccountDetail, bool) {
+	if o == nil || IsNil(o.IntermediaryAccountDetail) {
+		return nil, false
+	}
+	return o.IntermediaryAccountDetail, true
+}
+
+// HasIntermediaryAccountDetail returns a boolean if a field has been set.
+func (o *HostCluster) HasIntermediaryAccountDetail() bool {
+	if o != nil && !IsNil(o.IntermediaryAccountDetail) {
+		return true
+	}
+
+	return false
+}
+
+// SetIntermediaryAccountDetail gets a reference to the given IntermediaryAccountDetail and assigns it to the IntermediaryAccountDetail field.
+func (o *HostCluster) SetIntermediaryAccountDetail(v IntermediaryAccountDetail) {
+	o.IntermediaryAccountDetail = &v
 }
 
 // GetIsCustomDeployment returns the IsCustomDeployment field value
@@ -823,6 +890,9 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 		toSerialize["amenities"] = o.Amenities
 	}
 	toSerialize["cloudProvider"] = o.CloudProvider
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
 	toSerialize["currentNumberOfDeployments"] = o.CurrentNumberOfDeployments
 	if !IsNil(o.CustomNetworkDetail) {
 		toSerialize["customNetworkDetail"] = o.CustomNetworkDetail
@@ -844,6 +914,9 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 		toSerialize["helmPackages"] = o.HelmPackages
 	}
 	toSerialize["id"] = o.Id
+	if !IsNil(o.IntermediaryAccountDetail) {
+		toSerialize["intermediaryAccountDetail"] = o.IntermediaryAccountDetail
+	}
 	toSerialize["isCustomDeployment"] = o.IsCustomDeployment
 	if !IsNil(o.IsInSyncWithOrgTemplate) {
 		toSerialize["isInSyncWithOrgTemplate"] = o.IsInSyncWithOrgTemplate
@@ -924,6 +997,7 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "accountID")
 		delete(additionalProperties, "amenities")
 		delete(additionalProperties, "cloudProvider")
+		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "currentNumberOfDeployments")
 		delete(additionalProperties, "customNetworkDetail")
 		delete(additionalProperties, "customerEmail")
@@ -933,6 +1007,7 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "healthStatus")
 		delete(additionalProperties, "helmPackages")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "intermediaryAccountDetail")
 		delete(additionalProperties, "isCustomDeployment")
 		delete(additionalProperties, "isInSyncWithOrgTemplate")
 		delete(additionalProperties, "key")

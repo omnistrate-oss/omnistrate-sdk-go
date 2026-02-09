@@ -22,8 +22,6 @@ var _ MappedNullable = &FleetDeleteInstanceSnapshotRequest{}
 type FleetDeleteInstanceSnapshotRequest struct {
 	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
-	// ID of a Resource Instance
-	InstanceId string `json:"instanceId"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// The instance snapshot ID
@@ -39,10 +37,9 @@ type _FleetDeleteInstanceSnapshotRequest FleetDeleteInstanceSnapshotRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFleetDeleteInstanceSnapshotRequest(environmentId string, instanceId string, serviceId string, snapshotId string, token string) *FleetDeleteInstanceSnapshotRequest {
+func NewFleetDeleteInstanceSnapshotRequest(environmentId string, serviceId string, snapshotId string, token string) *FleetDeleteInstanceSnapshotRequest {
 	this := FleetDeleteInstanceSnapshotRequest{}
 	this.EnvironmentId = environmentId
-	this.InstanceId = instanceId
 	this.ServiceId = serviceId
 	this.SnapshotId = snapshotId
 	this.Token = token
@@ -79,30 +76,6 @@ func (o *FleetDeleteInstanceSnapshotRequest) GetEnvironmentIdOk() (*string, bool
 // SetEnvironmentId sets field value
 func (o *FleetDeleteInstanceSnapshotRequest) SetEnvironmentId(v string) {
 	o.EnvironmentId = v
-}
-
-// GetInstanceId returns the InstanceId field value
-func (o *FleetDeleteInstanceSnapshotRequest) GetInstanceId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.InstanceId
-}
-
-// GetInstanceIdOk returns a tuple with the InstanceId field value
-// and a boolean to check if the value has been set.
-func (o *FleetDeleteInstanceSnapshotRequest) GetInstanceIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.InstanceId, true
-}
-
-// SetInstanceId sets field value
-func (o *FleetDeleteInstanceSnapshotRequest) SetInstanceId(v string) {
-	o.InstanceId = v
 }
 
 // GetServiceId returns the ServiceId field value
@@ -188,7 +161,6 @@ func (o FleetDeleteInstanceSnapshotRequest) MarshalJSON() ([]byte, error) {
 func (o FleetDeleteInstanceSnapshotRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["environmentId"] = o.EnvironmentId
-	toSerialize["instanceId"] = o.InstanceId
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["snapshotId"] = o.SnapshotId
 	toSerialize["token"] = o.Token
@@ -206,7 +178,6 @@ func (o *FleetDeleteInstanceSnapshotRequest) UnmarshalJSON(data []byte) (err err
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"environmentId",
-		"instanceId",
 		"serviceId",
 		"snapshotId",
 		"token",
@@ -240,7 +211,6 @@ func (o *FleetDeleteInstanceSnapshotRequest) UnmarshalJSON(data []byte) (err err
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "environmentId")
-		delete(additionalProperties, "instanceId")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "snapshotId")
 		delete(additionalProperties, "token")

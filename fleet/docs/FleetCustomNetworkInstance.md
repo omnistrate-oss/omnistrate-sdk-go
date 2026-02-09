@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **GcpProjectNumber** | Pointer to **string** | The GCP project number | [optional] 
 **HostClusterID** | Pointer to **string** | ID of a Host Cluster | [optional] 
+**OciDomainID** | Pointer to **string** | The Domain OCID for Oracle Cloud Infrastructure | [optional] 
+**OciTenancyID** | Pointer to **string** | The Tenancy OCID for Oracle Cloud Infrastructure | [optional] 
 
 ## Methods
 
@@ -205,6 +207,56 @@ SetHostClusterID sets HostClusterID field to given value.
 `func (o *FleetCustomNetworkInstance) HasHostClusterID() bool`
 
 HasHostClusterID returns a boolean if a field has been set.
+
+### GetOciDomainID
+
+`func (o *FleetCustomNetworkInstance) GetOciDomainID() string`
+
+GetOciDomainID returns the OciDomainID field if non-nil, zero value otherwise.
+
+### GetOciDomainIDOk
+
+`func (o *FleetCustomNetworkInstance) GetOciDomainIDOk() (*string, bool)`
+
+GetOciDomainIDOk returns a tuple with the OciDomainID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciDomainID
+
+`func (o *FleetCustomNetworkInstance) SetOciDomainID(v string)`
+
+SetOciDomainID sets OciDomainID field to given value.
+
+### HasOciDomainID
+
+`func (o *FleetCustomNetworkInstance) HasOciDomainID() bool`
+
+HasOciDomainID returns a boolean if a field has been set.
+
+### GetOciTenancyID
+
+`func (o *FleetCustomNetworkInstance) GetOciTenancyID() string`
+
+GetOciTenancyID returns the OciTenancyID field if non-nil, zero value otherwise.
+
+### GetOciTenancyIDOk
+
+`func (o *FleetCustomNetworkInstance) GetOciTenancyIDOk() (*string, bool)`
+
+GetOciTenancyIDOk returns a tuple with the OciTenancyID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciTenancyID
+
+`func (o *FleetCustomNetworkInstance) SetOciTenancyID(v string)`
+
+SetOciTenancyID sets OciTenancyID field to given value.
+
+### HasOciTenancyID
+
+`func (o *FleetCustomNetworkInstance) HasOciTenancyID() bool`
+
+HasOciTenancyID returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

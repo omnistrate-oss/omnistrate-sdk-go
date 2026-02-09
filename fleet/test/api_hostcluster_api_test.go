@@ -34,6 +34,61 @@ func Test_fleet_HostclusterApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test HostclusterApiAPIService HostclusterApiApplyPendingChangesToHostCluster", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		httpRes, err := apiClient.HostclusterApiAPI.HostclusterApiApplyPendingChangesToHostCluster(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HostclusterApiAPIService HostclusterApiCancelHostClusterDeployment", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		httpRes, err := apiClient.HostclusterApiAPI.HostclusterApiCancelHostClusterDeployment(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HostclusterApiAPIService HostclusterApiDebugHostCluster", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		resp, httpRes, err := apiClient.HostclusterApiAPI.HostclusterApiDebugHostCluster(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HostclusterApiAPIService HostclusterApiDeleteEntity", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var hostClusterID string
+		var entityType string
+		var entityID string
+
+		httpRes, err := apiClient.HostclusterApiAPI.HostclusterApiDeleteEntity(context.Background(), hostClusterID, entityType, entityID).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test HostclusterApiAPIService HostclusterApiDeleteHostCluster", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -47,6 +102,21 @@ func Test_fleet_HostclusterApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test HostclusterApiAPIService HostclusterApiDescribeDeploymentCellWorkflow", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var hostClusterID string
+		var workflowID string
+
+		resp, httpRes, err := apiClient.HostclusterApiAPI.HostclusterApiDescribeDeploymentCellWorkflow(context.Background(), hostClusterID, workflowID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test HostclusterApiAPIService HostclusterApiDescribeHostCluster", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -54,6 +124,22 @@ func Test_fleet_HostclusterApiAPIService(t *testing.T) {
 		var id string
 
 		resp, httpRes, err := apiClient.HostclusterApiAPI.HostclusterApiDescribeHostCluster(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HostclusterApiAPIService HostclusterApiDescribeHostClusterEntity", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var hostClusterID string
+		var entityType string
+		var entityID string
+
+		resp, httpRes, err := apiClient.HostclusterApiAPI.HostclusterApiDescribeHostClusterEntity(context.Background(), hostClusterID, entityType, entityID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -75,6 +161,21 @@ func Test_fleet_HostclusterApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test HostclusterApiAPIService HostclusterApiGetDeploymentCellWorkflowEvents", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var hostClusterID string
+		var workflowID string
+
+		resp, httpRes, err := apiClient.HostclusterApiAPI.HostclusterApiGetDeploymentCellWorkflowEvents(context.Background(), hostClusterID, workflowID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test HostclusterApiAPIService HostclusterApiKubeConfigHostCluster", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -82,6 +183,35 @@ func Test_fleet_HostclusterApiAPIService(t *testing.T) {
 		var id string
 
 		resp, httpRes, err := apiClient.HostclusterApiAPI.HostclusterApiKubeConfigHostCluster(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HostclusterApiAPIService HostclusterApiListDeploymentCellWorkflows", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var hostClusterID string
+
+		resp, httpRes, err := apiClient.HostclusterApiAPI.HostclusterApiListDeploymentCellWorkflows(context.Background(), hostClusterID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HostclusterApiAPIService HostclusterApiListHostClusterEntities", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var hostClusterID string
+		var entityType string
+
+		resp, httpRes, err := apiClient.HostclusterApiAPI.HostclusterApiListHostClusterEntities(context.Background(), hostClusterID, entityType).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -97,6 +227,46 @@ func Test_fleet_HostclusterApiAPIService(t *testing.T) {
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HostclusterApiAPIService HostclusterApiRestartHostClusterDeployment", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		httpRes, err := apiClient.HostclusterApiAPI.HostclusterApiRestartHostClusterDeployment(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HostclusterApiAPIService HostclusterApiSetNodePoolProperty", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var hostClusterID string
+		var nodePoolName string
+
+		httpRes, err := apiClient.HostclusterApiAPI.HostclusterApiSetNodePoolProperty(context.Background(), hostClusterID, nodePoolName).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HostclusterApiAPIService HostclusterApiUpdateHostCluster", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		httpRes, err := apiClient.HostclusterApiAPI.HostclusterApiUpdateHostCluster(context.Background(), id).Execute()
+
+		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

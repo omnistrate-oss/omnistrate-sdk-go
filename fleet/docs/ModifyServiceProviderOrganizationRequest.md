@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DeploymentCellConfigurations** | Pointer to **map[string]interface{}** | The default deployment cell configurations for the organization per environment. | [optional] 
+**DeploymentCellConfigurations** | Pointer to [**map[string]DeploymentCellConfigurations**](DeploymentCellConfigurations.md) | The default deployment cell configurations for the organization per environment. | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDeploymentCellConfigurations
 
-`func (o *ModifyServiceProviderOrganizationRequest) GetDeploymentCellConfigurations() map[string]interface{}`
+`func (o *ModifyServiceProviderOrganizationRequest) GetDeploymentCellConfigurations() map[string]DeploymentCellConfigurations`
 
 GetDeploymentCellConfigurations returns the DeploymentCellConfigurations field if non-nil, zero value otherwise.
 
 ### GetDeploymentCellConfigurationsOk
 
-`func (o *ModifyServiceProviderOrganizationRequest) GetDeploymentCellConfigurationsOk() (*map[string]interface{}, bool)`
+`func (o *ModifyServiceProviderOrganizationRequest) GetDeploymentCellConfigurationsOk() (*map[string]DeploymentCellConfigurations, bool)`
 
 GetDeploymentCellConfigurationsOk returns a tuple with the DeploymentCellConfigurations field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeploymentCellConfigurations
 
-`func (o *ModifyServiceProviderOrganizationRequest) SetDeploymentCellConfigurations(v map[string]interface{})`
+`func (o *ModifyServiceProviderOrganizationRequest) SetDeploymentCellConfigurations(v map[string]DeploymentCellConfigurations)`
 
 SetDeploymentCellConfigurations sets DeploymentCellConfigurations field to given value.
 

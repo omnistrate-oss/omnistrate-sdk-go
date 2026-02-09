@@ -25,7 +25,7 @@ type GetServicePlanResult struct {
 	// The infrastructure account configuration ID list
 	AccountConfigIds []string `json:"accountConfigIds,omitempty"`
 	// The active infrastructure account configuration IDs per cloud provider
-	ActiveAccountConfigIds map[string]interface{} `json:"activeAccountConfigIds,omitempty"`
+	ActiveAccountConfigIds *map[string]string `json:"activeAccountConfigIds,omitempty"`
 	// The external version of the API
 	ApiVersion string `json:"apiVersion"`
 	// The AWS regions that this service plan is available on
@@ -44,6 +44,10 @@ type GetServicePlanResult struct {
 	LatestMajorVersion string `json:"latestMajorVersion"`
 	// The model type encapsulating this service
 	ModelType string `json:"modelType"`
+	// The OCI regions that this service plan is available on
+	OciRegions []string `json:"ociRegions,omitempty"`
+	// The on prem platforms that this service plan is available on
+	OnPremPlatforms []string `json:"onPremPlatforms,omitempty"`
 	// The Private regions that this service plan is available on
 	PrivateRegions []string `json:"privateRegions,omitempty"`
 	// A brief description of the product tier
@@ -51,7 +55,7 @@ type GetServicePlanResult struct {
 	// Documentation
 	ProductTierDocumentation string `json:"productTierDocumentation"`
 	// The features that are enabled / disabled for this product tier
-	ProductTierFeatures map[string]interface{} `json:"productTierFeatures,omitempty"`
+	ProductTierFeatures *map[string]bool `json:"productTierFeatures,omitempty"`
 	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// Unique Key of the product tier
@@ -183,19 +187,19 @@ func (o *GetServicePlanResult) SetAccountConfigIds(v []string) {
 }
 
 // GetActiveAccountConfigIds returns the ActiveAccountConfigIds field value if set, zero value otherwise.
-func (o *GetServicePlanResult) GetActiveAccountConfigIds() map[string]interface{} {
+func (o *GetServicePlanResult) GetActiveAccountConfigIds() map[string]string {
 	if o == nil || IsNil(o.ActiveAccountConfigIds) {
-		var ret map[string]interface{}
+		var ret map[string]string
 		return ret
 	}
-	return o.ActiveAccountConfigIds
+	return *o.ActiveAccountConfigIds
 }
 
 // GetActiveAccountConfigIdsOk returns a tuple with the ActiveAccountConfigIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetServicePlanResult) GetActiveAccountConfigIdsOk() (map[string]interface{}, bool) {
+func (o *GetServicePlanResult) GetActiveAccountConfigIdsOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.ActiveAccountConfigIds) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.ActiveAccountConfigIds, true
 }
@@ -209,9 +213,9 @@ func (o *GetServicePlanResult) HasActiveAccountConfigIds() bool {
 	return false
 }
 
-// SetActiveAccountConfigIds gets a reference to the given map[string]interface{} and assigns it to the ActiveAccountConfigIds field.
-func (o *GetServicePlanResult) SetActiveAccountConfigIds(v map[string]interface{}) {
-	o.ActiveAccountConfigIds = v
+// SetActiveAccountConfigIds gets a reference to the given map[string]string and assigns it to the ActiveAccountConfigIds field.
+func (o *GetServicePlanResult) SetActiveAccountConfigIds(v map[string]string) {
+	o.ActiveAccountConfigIds = &v
 }
 
 // GetApiVersion returns the ApiVersion field value
@@ -462,6 +466,70 @@ func (o *GetServicePlanResult) SetModelType(v string) {
 	o.ModelType = v
 }
 
+// GetOciRegions returns the OciRegions field value if set, zero value otherwise.
+func (o *GetServicePlanResult) GetOciRegions() []string {
+	if o == nil || IsNil(o.OciRegions) {
+		var ret []string
+		return ret
+	}
+	return o.OciRegions
+}
+
+// GetOciRegionsOk returns a tuple with the OciRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetServicePlanResult) GetOciRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.OciRegions) {
+		return nil, false
+	}
+	return o.OciRegions, true
+}
+
+// HasOciRegions returns a boolean if a field has been set.
+func (o *GetServicePlanResult) HasOciRegions() bool {
+	if o != nil && !IsNil(o.OciRegions) {
+		return true
+	}
+
+	return false
+}
+
+// SetOciRegions gets a reference to the given []string and assigns it to the OciRegions field.
+func (o *GetServicePlanResult) SetOciRegions(v []string) {
+	o.OciRegions = v
+}
+
+// GetOnPremPlatforms returns the OnPremPlatforms field value if set, zero value otherwise.
+func (o *GetServicePlanResult) GetOnPremPlatforms() []string {
+	if o == nil || IsNil(o.OnPremPlatforms) {
+		var ret []string
+		return ret
+	}
+	return o.OnPremPlatforms
+}
+
+// GetOnPremPlatformsOk returns a tuple with the OnPremPlatforms field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetServicePlanResult) GetOnPremPlatformsOk() ([]string, bool) {
+	if o == nil || IsNil(o.OnPremPlatforms) {
+		return nil, false
+	}
+	return o.OnPremPlatforms, true
+}
+
+// HasOnPremPlatforms returns a boolean if a field has been set.
+func (o *GetServicePlanResult) HasOnPremPlatforms() bool {
+	if o != nil && !IsNil(o.OnPremPlatforms) {
+		return true
+	}
+
+	return false
+}
+
+// SetOnPremPlatforms gets a reference to the given []string and assigns it to the OnPremPlatforms field.
+func (o *GetServicePlanResult) SetOnPremPlatforms(v []string) {
+	o.OnPremPlatforms = v
+}
+
 // GetPrivateRegions returns the PrivateRegions field value if set, zero value otherwise.
 func (o *GetServicePlanResult) GetPrivateRegions() []string {
 	if o == nil || IsNil(o.PrivateRegions) {
@@ -543,19 +611,19 @@ func (o *GetServicePlanResult) SetProductTierDocumentation(v string) {
 }
 
 // GetProductTierFeatures returns the ProductTierFeatures field value if set, zero value otherwise.
-func (o *GetServicePlanResult) GetProductTierFeatures() map[string]interface{} {
+func (o *GetServicePlanResult) GetProductTierFeatures() map[string]bool {
 	if o == nil || IsNil(o.ProductTierFeatures) {
-		var ret map[string]interface{}
+		var ret map[string]bool
 		return ret
 	}
-	return o.ProductTierFeatures
+	return *o.ProductTierFeatures
 }
 
 // GetProductTierFeaturesOk returns a tuple with the ProductTierFeatures field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetServicePlanResult) GetProductTierFeaturesOk() (map[string]interface{}, bool) {
+func (o *GetServicePlanResult) GetProductTierFeaturesOk() (*map[string]bool, bool) {
 	if o == nil || IsNil(o.ProductTierFeatures) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.ProductTierFeatures, true
 }
@@ -569,9 +637,9 @@ func (o *GetServicePlanResult) HasProductTierFeatures() bool {
 	return false
 }
 
-// SetProductTierFeatures gets a reference to the given map[string]interface{} and assigns it to the ProductTierFeatures field.
-func (o *GetServicePlanResult) SetProductTierFeatures(v map[string]interface{}) {
-	o.ProductTierFeatures = v
+// SetProductTierFeatures gets a reference to the given map[string]bool and assigns it to the ProductTierFeatures field.
+func (o *GetServicePlanResult) SetProductTierFeatures(v map[string]bool) {
+	o.ProductTierFeatures = &v
 }
 
 // GetProductTierId returns the ProductTierId field value
@@ -978,6 +1046,12 @@ func (o GetServicePlanResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["isProductTierDisabled"] = o.IsProductTierDisabled
 	toSerialize["latestMajorVersion"] = o.LatestMajorVersion
 	toSerialize["modelType"] = o.ModelType
+	if !IsNil(o.OciRegions) {
+		toSerialize["ociRegions"] = o.OciRegions
+	}
+	if !IsNil(o.OnPremPlatforms) {
+		toSerialize["onPremPlatforms"] = o.OnPremPlatforms
+	}
 	if !IsNil(o.PrivateRegions) {
 		toSerialize["privateRegions"] = o.PrivateRegions
 	}
@@ -1081,6 +1155,8 @@ func (o *GetServicePlanResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "isProductTierDisabled")
 		delete(additionalProperties, "latestMajorVersion")
 		delete(additionalProperties, "modelType")
+		delete(additionalProperties, "ociRegions")
+		delete(additionalProperties, "onPremPlatforms")
 		delete(additionalProperties, "privateRegions")
 		delete(additionalProperties, "productTierDescription")
 		delete(additionalProperties, "productTierDocumentation")

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **AccountID** | **string** | The actual account ID (AWS Account ID, GCP Project ID, Azure Subscription ID) or &#39;Omnistrate Hosted&#39; for managed accounts | 
 **Amenities** | Pointer to [**[]Amenity**](Amenity.md) | The amenities available in the host cluster | [optional] 
 **CloudProvider** | **string** | Name of the Infra Provider | 
+**CreatedAt** | Pointer to **string** | The timestamp when the host cluster was created | [optional] 
 **CurrentNumberOfDeployments** | **int64** | The current number of deployments on the host cluster | 
 **CustomNetworkDetail** | Pointer to [**CustomNetworkFleetDetail**](CustomNetworkFleetDetail.md) |  | [optional] 
 **CustomerEmail** | Pointer to **string** | Email of the customer who owns the host cluster in case this is a BYOC / Adopted host cluster | [optional] 
@@ -18,6 +19,7 @@ Name | Type | Description | Notes
 **HealthStatus** | Pointer to [**HostClusterHealthStatus**](HostClusterHealthStatus.md) |  | [optional] 
 **HelmPackages** | Pointer to [**[]HelmPackage**](HelmPackage.md) | Helm packages installed on the host cluster | [optional] 
 **Id** | **string** | ID of a Host Cluster | 
+**IntermediaryAccountDetail** | Pointer to [**IntermediaryAccountDetail**](IntermediaryAccountDetail.md) |  | [optional] 
 **IsCustomDeployment** | **bool** | Indicates if the host cluster is a custom deployment | 
 **IsInSyncWithOrgTemplate** | Pointer to **bool** | Whether the host cluster is in sync with the org template | [optional] 
 **Key** | **string** | Unique key for the host cluster, used for identification | 
@@ -158,6 +160,31 @@ and a boolean to check if the value has been set.
 
 SetCloudProvider sets CloudProvider field to given value.
 
+
+### GetCreatedAt
+
+`func (o *HostCluster) GetCreatedAt() string`
+
+GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
+
+### GetCreatedAtOk
+
+`func (o *HostCluster) GetCreatedAtOk() (*string, bool)`
+
+GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedAt
+
+`func (o *HostCluster) SetCreatedAt(v string)`
+
+SetCreatedAt sets CreatedAt field to given value.
+
+### HasCreatedAt
+
+`func (o *HostCluster) HasCreatedAt() bool`
+
+HasCreatedAt returns a boolean if a field has been set.
 
 ### GetCurrentNumberOfDeployments
 
@@ -368,6 +395,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetIntermediaryAccountDetail
+
+`func (o *HostCluster) GetIntermediaryAccountDetail() IntermediaryAccountDetail`
+
+GetIntermediaryAccountDetail returns the IntermediaryAccountDetail field if non-nil, zero value otherwise.
+
+### GetIntermediaryAccountDetailOk
+
+`func (o *HostCluster) GetIntermediaryAccountDetailOk() (*IntermediaryAccountDetail, bool)`
+
+GetIntermediaryAccountDetailOk returns a tuple with the IntermediaryAccountDetail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIntermediaryAccountDetail
+
+`func (o *HostCluster) SetIntermediaryAccountDetail(v IntermediaryAccountDetail)`
+
+SetIntermediaryAccountDetail sets IntermediaryAccountDetail field to given value.
+
+### HasIntermediaryAccountDetail
+
+`func (o *HostCluster) HasIntermediaryAccountDetail() bool`
+
+HasIntermediaryAccountDetail returns a boolean if a field has been set.
 
 ### GetIsCustomDeployment
 

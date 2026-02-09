@@ -62,6 +62,27 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiCopyResourceInstanceSnapshot", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceProviderId string
+		var serviceKey string
+		var serviceAPIVersion string
+		var serviceEnvironmentKey string
+		var serviceModelKey string
+		var productTierKey string
+		var resourceKey string
+		var id string
+
+		resp, httpRes, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiCopyResourceInstanceSnapshot(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiCreateResourceInstance", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -396,6 +417,26 @@ func Test_v1_ResourceInstanceApiAPIService(t *testing.T) {
 		var id string
 
 		httpRes, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiUpdateResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ResourceInstanceApiAPIService ResourceInstanceApiUpdateResourceInstanceMetadata", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceProviderId string
+		var serviceKey string
+		var serviceAPIVersion string
+		var serviceEnvironmentKey string
+		var serviceModelKey string
+		var productTierKey string
+		var resourceKey string
+		var id string
+
+		httpRes, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiUpdateResourceInstanceMetadata(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

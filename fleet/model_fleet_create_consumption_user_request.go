@@ -20,6 +20,8 @@ var _ MappedNullable = &FleetCreateConsumptionUserRequest{}
 
 // FleetCreateConsumptionUserRequest struct for FleetCreateConsumptionUserRequest
 type FleetCreateConsumptionUserRequest struct {
+	// Additional attributes of the user.
+	Attributes *map[string]string `json:"attributes,omitempty"`
 	// Company URL of the user.
 	CompanyUrl *string `json:"companyUrl,omitempty"`
 	// Email address of the user
@@ -60,6 +62,38 @@ func NewFleetCreateConsumptionUserRequest(email string, enableAutoVerification b
 func NewFleetCreateConsumptionUserRequestWithDefaults() *FleetCreateConsumptionUserRequest {
 	this := FleetCreateConsumptionUserRequest{}
 	return &this
+}
+
+// GetAttributes returns the Attributes field value if set, zero value otherwise.
+func (o *FleetCreateConsumptionUserRequest) GetAttributes() map[string]string {
+	if o == nil || IsNil(o.Attributes) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.Attributes
+}
+
+// GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCreateConsumptionUserRequest) GetAttributesOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.Attributes) {
+		return nil, false
+	}
+	return o.Attributes, true
+}
+
+// HasAttributes returns a boolean if a field has been set.
+func (o *FleetCreateConsumptionUserRequest) HasAttributes() bool {
+	if o != nil && !IsNil(o.Attributes) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttributes gets a reference to the given map[string]string and assigns it to the Attributes field.
+func (o *FleetCreateConsumptionUserRequest) SetAttributes(v map[string]string) {
+	o.Attributes = &v
 }
 
 // GetCompanyUrl returns the CompanyUrl field value if set, zero value otherwise.
@@ -248,6 +282,9 @@ func (o FleetCreateConsumptionUserRequest) MarshalJSON() ([]byte, error) {
 
 func (o FleetCreateConsumptionUserRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Attributes) {
+		toSerialize["attributes"] = o.Attributes
+	}
 	if !IsNil(o.CompanyUrl) {
 		toSerialize["companyUrl"] = o.CompanyUrl
 	}
@@ -305,6 +342,7 @@ func (o *FleetCreateConsumptionUserRequest) UnmarshalJSON(data []byte) (err erro
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "attributes")
 		delete(additionalProperties, "companyUrl")
 		delete(additionalProperties, "email")
 		delete(additionalProperties, "enableAutoVerification")

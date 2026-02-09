@@ -28,8 +28,12 @@ type InstanceSnapshot struct {
 	Encrypted bool `json:"encrypted"`
 	// The backup progress. 0-100
 	Progress int64 `json:"progress"`
+	// The region name where the snapshot is stored
+	Region string `json:"region"`
 	// ID of a Resource Instance Snapshot
 	SnapshotId string `json:"snapshotId"`
+	// The snapshot type
+	SnapshotType string `json:"snapshotType"`
 	// The snapshot status
 	Status string `json:"status"`
 	AdditionalProperties map[string]interface{}
@@ -41,13 +45,15 @@ type _InstanceSnapshot InstanceSnapshot
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInstanceSnapshot(completeTime string, createdTime string, encrypted bool, progress int64, snapshotId string, status string) *InstanceSnapshot {
+func NewInstanceSnapshot(completeTime string, createdTime string, encrypted bool, progress int64, region string, snapshotId string, snapshotType string, status string) *InstanceSnapshot {
 	this := InstanceSnapshot{}
 	this.CompleteTime = completeTime
 	this.CreatedTime = createdTime
 	this.Encrypted = encrypted
 	this.Progress = progress
+	this.Region = region
 	this.SnapshotId = snapshotId
+	this.SnapshotType = snapshotType
 	this.Status = status
 	return &this
 }
@@ -156,6 +162,30 @@ func (o *InstanceSnapshot) SetProgress(v int64) {
 	o.Progress = v
 }
 
+// GetRegion returns the Region field value
+func (o *InstanceSnapshot) GetRegion() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Region
+}
+
+// GetRegionOk returns a tuple with the Region field value
+// and a boolean to check if the value has been set.
+func (o *InstanceSnapshot) GetRegionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Region, true
+}
+
+// SetRegion sets field value
+func (o *InstanceSnapshot) SetRegion(v string) {
+	o.Region = v
+}
+
 // GetSnapshotId returns the SnapshotId field value
 func (o *InstanceSnapshot) GetSnapshotId() string {
 	if o == nil {
@@ -178,6 +208,30 @@ func (o *InstanceSnapshot) GetSnapshotIdOk() (*string, bool) {
 // SetSnapshotId sets field value
 func (o *InstanceSnapshot) SetSnapshotId(v string) {
 	o.SnapshotId = v
+}
+
+// GetSnapshotType returns the SnapshotType field value
+func (o *InstanceSnapshot) GetSnapshotType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SnapshotType
+}
+
+// GetSnapshotTypeOk returns a tuple with the SnapshotType field value
+// and a boolean to check if the value has been set.
+func (o *InstanceSnapshot) GetSnapshotTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SnapshotType, true
+}
+
+// SetSnapshotType sets field value
+func (o *InstanceSnapshot) SetSnapshotType(v string) {
+	o.SnapshotType = v
 }
 
 // GetStatus returns the Status field value
@@ -218,7 +272,9 @@ func (o InstanceSnapshot) ToMap() (map[string]interface{}, error) {
 	toSerialize["createdTime"] = o.CreatedTime
 	toSerialize["encrypted"] = o.Encrypted
 	toSerialize["progress"] = o.Progress
+	toSerialize["region"] = o.Region
 	toSerialize["snapshotId"] = o.SnapshotId
+	toSerialize["snapshotType"] = o.SnapshotType
 	toSerialize["status"] = o.Status
 
 	for key, value := range o.AdditionalProperties {
@@ -237,7 +293,9 @@ func (o *InstanceSnapshot) UnmarshalJSON(data []byte) (err error) {
 		"createdTime",
 		"encrypted",
 		"progress",
+		"region",
 		"snapshotId",
+		"snapshotType",
 		"status",
 	}
 
@@ -272,7 +330,9 @@ func (o *InstanceSnapshot) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "createdTime")
 		delete(additionalProperties, "encrypted")
 		delete(additionalProperties, "progress")
+		delete(additionalProperties, "region")
 		delete(additionalProperties, "snapshotId")
+		delete(additionalProperties, "snapshotType")
 		delete(additionalProperties, "status")
 		o.AdditionalProperties = additionalProperties
 	}

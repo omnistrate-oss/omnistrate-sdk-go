@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **CloudProviderName** | Pointer to **string** | Name of the Infra Provider | [optional] 
 **CloudProviderRegion** | Pointer to **string** | The region of the cloud provider that the instance is running in. | [optional] 
 **CustomNetworksOnly** | Pointer to **bool** | Flag indicating whether to return only custom networks, or to include default and imported networks as well | [optional] 
+**OwningOrgID** | Pointer to **string** | ID of the owning organization | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
@@ -102,6 +103,31 @@ SetCustomNetworksOnly sets CustomNetworksOnly field to given value.
 `func (o *FleetListCustomNetworksRequest) HasCustomNetworksOnly() bool`
 
 HasCustomNetworksOnly returns a boolean if a field has been set.
+
+### GetOwningOrgID
+
+`func (o *FleetListCustomNetworksRequest) GetOwningOrgID() string`
+
+GetOwningOrgID returns the OwningOrgID field if non-nil, zero value otherwise.
+
+### GetOwningOrgIDOk
+
+`func (o *FleetListCustomNetworksRequest) GetOwningOrgIDOk() (*string, bool)`
+
+GetOwningOrgIDOk returns a tuple with the OwningOrgID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwningOrgID
+
+`func (o *FleetListCustomNetworksRequest) SetOwningOrgID(v string)`
+
+SetOwningOrgID sets OwningOrgID field to given value.
+
+### HasOwningOrgID
+
+`func (o *FleetListCustomNetworksRequest) HasOwningOrgID() bool`
+
+HasOwningOrgID returns a boolean if a field has been set.
 
 ### GetToken
 

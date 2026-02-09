@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **Id** | **string** | ID of the ServiceWorkflow | 
 **ManualOverride** | Pointer to [**ManualOverride**](ManualOverride.md) |  | [optional] 
+**OciTenancyID** | Pointer to **string** | The Tenancy OCID for Oracle Cloud Infrastructure | [optional] 
 **OrgName** | **string** | The name of the instance owner organization. | 
 **ParentId** | Pointer to **string** | The parent workflow&#39;s id for the execution. | [optional] 
 **PlanType** | Pointer to **string** | The plan type of the instance owner organization. | [optional] 
@@ -300,6 +301,31 @@ SetManualOverride sets ManualOverride field to given value.
 `func (o *ServiceWorkflow) HasManualOverride() bool`
 
 HasManualOverride returns a boolean if a field has been set.
+
+### GetOciTenancyID
+
+`func (o *ServiceWorkflow) GetOciTenancyID() string`
+
+GetOciTenancyID returns the OciTenancyID field if non-nil, zero value otherwise.
+
+### GetOciTenancyIDOk
+
+`func (o *ServiceWorkflow) GetOciTenancyIDOk() (*string, bool)`
+
+GetOciTenancyIDOk returns a tuple with the OciTenancyID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciTenancyID
+
+`func (o *ServiceWorkflow) SetOciTenancyID(v string)`
+
+SetOciTenancyID sets OciTenancyID field to given value.
+
+### HasOciTenancyID
+
+`func (o *ServiceWorkflow) HasOciTenancyID() bool`
+
+HasOciTenancyID returns a boolean if a field has been set.
 
 ### GetOrgName
 

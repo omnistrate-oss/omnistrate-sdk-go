@@ -41,6 +41,8 @@ type ServiceWorkflow struct {
 	// ID of the ServiceWorkflow
 	Id string `json:"id"`
 	ManualOverride *ManualOverride `json:"manualOverride,omitempty"`
+	// The Tenancy OCID for Oracle Cloud Infrastructure
+	OciTenancyID *string `json:"ociTenancyID,omitempty"`
 	// The name of the instance owner organization.
 	OrgName string `json:"orgName"`
 	// The parent workflow's id for the execution.
@@ -409,6 +411,38 @@ func (o *ServiceWorkflow) SetManualOverride(v ManualOverride) {
 	o.ManualOverride = &v
 }
 
+// GetOciTenancyID returns the OciTenancyID field value if set, zero value otherwise.
+func (o *ServiceWorkflow) GetOciTenancyID() string {
+	if o == nil || IsNil(o.OciTenancyID) {
+		var ret string
+		return ret
+	}
+	return *o.OciTenancyID
+}
+
+// GetOciTenancyIDOk returns a tuple with the OciTenancyID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceWorkflow) GetOciTenancyIDOk() (*string, bool) {
+	if o == nil || IsNil(o.OciTenancyID) {
+		return nil, false
+	}
+	return o.OciTenancyID, true
+}
+
+// HasOciTenancyID returns a boolean if a field has been set.
+func (o *ServiceWorkflow) HasOciTenancyID() bool {
+	if o != nil && !IsNil(o.OciTenancyID) {
+		return true
+	}
+
+	return false
+}
+
+// SetOciTenancyID gets a reference to the given string and assigns it to the OciTenancyID field.
+func (o *ServiceWorkflow) SetOciTenancyID(v string) {
+	o.OciTenancyID = &v
+}
+
 // GetOrgName returns the OrgName field value
 func (o *ServiceWorkflow) GetOrgName() string {
 	if o == nil {
@@ -614,6 +648,9 @@ func (o ServiceWorkflow) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ManualOverride) {
 		toSerialize["manualOverride"] = o.ManualOverride
 	}
+	if !IsNil(o.OciTenancyID) {
+		toSerialize["ociTenancyID"] = o.OciTenancyID
+	}
 	toSerialize["orgName"] = o.OrgName
 	if !IsNil(o.ParentId) {
 		toSerialize["parentId"] = o.ParentId
@@ -685,6 +722,7 @@ func (o *ServiceWorkflow) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "manualOverride")
+		delete(additionalProperties, "ociTenancyID")
 		delete(additionalProperties, "orgName")
 		delete(additionalProperties, "parentId")
 		delete(additionalProperties, "planType")

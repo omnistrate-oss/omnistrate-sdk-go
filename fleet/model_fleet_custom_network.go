@@ -43,6 +43,8 @@ type FleetCustomNetwork struct {
 	OwningUserID *string `json:"owningUserID,omitempty"`
 	// Name of the owning user
 	OwningUserName *string `json:"owningUserName,omitempty"`
+	// The status of an operation
+	Status *string `json:"status,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -409,6 +411,38 @@ func (o *FleetCustomNetwork) SetOwningUserName(v string) {
 	o.OwningUserName = &v
 }
 
+// GetStatus returns the Status field value if set, zero value otherwise.
+func (o *FleetCustomNetwork) GetStatus() string {
+	if o == nil || IsNil(o.Status) {
+		var ret string
+		return ret
+	}
+	return *o.Status
+}
+
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCustomNetwork) GetStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.Status) {
+		return nil, false
+	}
+	return o.Status, true
+}
+
+// HasStatus returns a boolean if a field has been set.
+func (o *FleetCustomNetwork) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
+func (o *FleetCustomNetwork) SetStatus(v string) {
+	o.Status = &v
+}
+
 func (o FleetCustomNetwork) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -442,6 +476,9 @@ func (o FleetCustomNetwork) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.OwningUserName) {
 		toSerialize["owningUserName"] = o.OwningUserName
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -503,6 +540,7 @@ func (o *FleetCustomNetwork) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "owningOrgName")
 		delete(additionalProperties, "owningUserID")
 		delete(additionalProperties, "owningUserName")
+		delete(additionalProperties, "status")
 		o.AdditionalProperties = additionalProperties
 	}
 

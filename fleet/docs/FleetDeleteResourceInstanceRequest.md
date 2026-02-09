@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **InstanceId** | **string** | ID of a Resource Instance | 
 **ResourceId** | **string** | ID of a resource | 
 **ServiceId** | **string** | ID of a Service | 
+**SkipFinalSnapshot** | Pointer to **bool** | If true, skip the automatic final snapshot before deletion even if snapshotBeforeDeletion is enabled for the resource. | [optional] [default to false]
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
@@ -108,6 +109,31 @@ and a boolean to check if the value has been set.
 
 SetServiceId sets ServiceId field to given value.
 
+
+### GetSkipFinalSnapshot
+
+`func (o *FleetDeleteResourceInstanceRequest) GetSkipFinalSnapshot() bool`
+
+GetSkipFinalSnapshot returns the SkipFinalSnapshot field if non-nil, zero value otherwise.
+
+### GetSkipFinalSnapshotOk
+
+`func (o *FleetDeleteResourceInstanceRequest) GetSkipFinalSnapshotOk() (*bool, bool)`
+
+GetSkipFinalSnapshotOk returns a tuple with the SkipFinalSnapshot field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSkipFinalSnapshot
+
+`func (o *FleetDeleteResourceInstanceRequest) SetSkipFinalSnapshot(v bool)`
+
+SetSkipFinalSnapshot sets SkipFinalSnapshot field to given value.
+
+### HasSkipFinalSnapshot
+
+`func (o *FleetDeleteResourceInstanceRequest) HasSkipFinalSnapshot() bool`
+
+HasSkipFinalSnapshot returns a boolean if a field has been set.
 
 ### GetToken
 

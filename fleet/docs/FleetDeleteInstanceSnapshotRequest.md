@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EnvironmentId** | **string** | ID of a Service Environment | 
-**InstanceId** | **string** | ID of a Resource Instance | 
 **ServiceId** | **string** | ID of a Service | 
 **SnapshotId** | **string** | The instance snapshot ID | 
 **Token** | **string** | JWT token used to perform authorization | 
@@ -14,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewFleetDeleteInstanceSnapshotRequest
 
-`func NewFleetDeleteInstanceSnapshotRequest(environmentId string, instanceId string, serviceId string, snapshotId string, token string, ) *FleetDeleteInstanceSnapshotRequest`
+`func NewFleetDeleteInstanceSnapshotRequest(environmentId string, serviceId string, snapshotId string, token string, ) *FleetDeleteInstanceSnapshotRequest`
 
 NewFleetDeleteInstanceSnapshotRequest instantiates a new FleetDeleteInstanceSnapshotRequest object
 This constructor will assign default values to properties that have it defined,
@@ -47,26 +46,6 @@ and a boolean to check if the value has been set.
 `func (o *FleetDeleteInstanceSnapshotRequest) SetEnvironmentId(v string)`
 
 SetEnvironmentId sets EnvironmentId field to given value.
-
-
-### GetInstanceId
-
-`func (o *FleetDeleteInstanceSnapshotRequest) GetInstanceId() string`
-
-GetInstanceId returns the InstanceId field if non-nil, zero value otherwise.
-
-### GetInstanceIdOk
-
-`func (o *FleetDeleteInstanceSnapshotRequest) GetInstanceIdOk() (*string, bool)`
-
-GetInstanceIdOk returns a tuple with the InstanceId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetInstanceId
-
-`func (o *FleetDeleteInstanceSnapshotRequest) SetInstanceId(v string)`
-
-SetInstanceId sets InstanceId field to given value.
 
 
 ### GetServiceId

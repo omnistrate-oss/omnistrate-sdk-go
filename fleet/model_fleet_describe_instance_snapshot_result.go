@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the FleetDescribeInstanceSnapshotResult type satisfies the MappedNullable interface at compile time
@@ -20,28 +19,52 @@ var _ MappedNullable = &FleetDescribeInstanceSnapshotResult{}
 
 // FleetDescribeInstanceSnapshotResult struct for FleetDescribeInstanceSnapshotResult
 type FleetDescribeInstanceSnapshotResult struct {
+	// Name of the Infra Provider
+	CloudProvider *string `json:"cloudProvider,omitempty"`
 	// The snapshot time
-	CompleteTime string `json:"completeTime"`
+	CompleteTime *string `json:"completeTime,omitempty"`
 	// The snapshot creation time
-	CreatedTime string `json:"createdTime"`
+	CreatedTime *string `json:"createdTime,omitempty"`
 	// Whether the snapshot is encrypted
-	Encrypted bool `json:"encrypted"`
+	Encrypted *bool `json:"encrypted,omitempty"`
 	// ID of a Service Environment
-	EnvironmentId string `json:"environmentId"`
+	EnvironmentId *string `json:"environmentId,omitempty"`
+	// Custom output parameters
+	OutputParams []OutputParameter `json:"outputParams,omitempty"`
 	// ID of a Product Tier
-	ProductTierId string `json:"productTierId"`
+	ProductTierId *string `json:"productTierId,omitempty"`
+	// The product tier name
+	ProductTierName *string `json:"productTierName,omitempty"`
 	// The product tier version
-	ProductTierVersion string `json:"productTierVersion"`
+	ProductTierVersion *string `json:"productTierVersion,omitempty"`
+	// The product tier version description
+	ProductTierVersionDescription *string `json:"productTierVersionDescription,omitempty"`
 	// The backup progress. 0-100
-	Progress int64 `json:"progress"`
+	Progress *int64 `json:"progress,omitempty"`
+	// The region name where the snapshot is stored
+	Region *string `json:"region,omitempty"`
 	// ID of a Service
-	ServiceId string `json:"serviceId"`
+	ServiceId *string `json:"serviceId,omitempty"`
+	// The service name
+	ServiceName *string `json:"serviceName,omitempty"`
 	// ID of a Resource Instance Snapshot
-	SnapshotId string `json:"snapshotId"`
+	SnapshotId *string `json:"snapshotId,omitempty"`
+	// The snapshot type
+	SnapshotType *string `json:"snapshotType,omitempty"`
 	// ID of a Resource Instance
-	SourceInstanceId string `json:"sourceInstanceId"`
+	SourceInstanceId *string `json:"sourceInstanceId,omitempty"`
 	// The snapshot status
-	Status string `json:"status"`
+	Status *string `json:"status,omitempty"`
+	// ID of a Subscription
+	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	// ID of an Org
+	SubscriptionOwnerOrgId *string `json:"subscriptionOwnerOrgId,omitempty"`
+	// The subscription owner org name
+	SubscriptionOwnerOrgName *string `json:"subscriptionOwnerOrgName,omitempty"`
+	// ID of a User
+	SubscriptionOwnerUserId *string `json:"subscriptionOwnerUserId,omitempty"`
+	// The subscription owner user name
+	SubscriptionOwnerUserName *string `json:"subscriptionOwnerUserName,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -51,19 +74,8 @@ type _FleetDescribeInstanceSnapshotResult FleetDescribeInstanceSnapshotResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFleetDescribeInstanceSnapshotResult(completeTime string, createdTime string, encrypted bool, environmentId string, productTierId string, productTierVersion string, progress int64, serviceId string, snapshotId string, sourceInstanceId string, status string) *FleetDescribeInstanceSnapshotResult {
+func NewFleetDescribeInstanceSnapshotResult() *FleetDescribeInstanceSnapshotResult {
 	this := FleetDescribeInstanceSnapshotResult{}
-	this.CompleteTime = completeTime
-	this.CreatedTime = createdTime
-	this.Encrypted = encrypted
-	this.EnvironmentId = environmentId
-	this.ProductTierId = productTierId
-	this.ProductTierVersion = productTierVersion
-	this.Progress = progress
-	this.ServiceId = serviceId
-	this.SnapshotId = snapshotId
-	this.SourceInstanceId = sourceInstanceId
-	this.Status = status
 	return &this
 }
 
@@ -75,268 +87,740 @@ func NewFleetDescribeInstanceSnapshotResultWithDefaults() *FleetDescribeInstance
 	return &this
 }
 
-// GetCompleteTime returns the CompleteTime field value
-func (o *FleetDescribeInstanceSnapshotResult) GetCompleteTime() string {
-	if o == nil {
+// GetCloudProvider returns the CloudProvider field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetCloudProvider() string {
+	if o == nil || IsNil(o.CloudProvider) {
 		var ret string
 		return ret
 	}
-
-	return o.CompleteTime
+	return *o.CloudProvider
 }
 
-// GetCompleteTimeOk returns a tuple with the CompleteTime field value
+// GetCloudProviderOk returns a tuple with the CloudProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetCloudProviderOk() (*string, bool) {
+	if o == nil || IsNil(o.CloudProvider) {
+		return nil, false
+	}
+	return o.CloudProvider, true
+}
+
+// HasCloudProvider returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasCloudProvider() bool {
+	if o != nil && !IsNil(o.CloudProvider) {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudProvider gets a reference to the given string and assigns it to the CloudProvider field.
+func (o *FleetDescribeInstanceSnapshotResult) SetCloudProvider(v string) {
+	o.CloudProvider = &v
+}
+
+// GetCompleteTime returns the CompleteTime field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetCompleteTime() string {
+	if o == nil || IsNil(o.CompleteTime) {
+		var ret string
+		return ret
+	}
+	return *o.CompleteTime
+}
+
+// GetCompleteTimeOk returns a tuple with the CompleteTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FleetDescribeInstanceSnapshotResult) GetCompleteTimeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CompleteTime) {
 		return nil, false
 	}
-	return &o.CompleteTime, true
+	return o.CompleteTime, true
 }
 
-// SetCompleteTime sets field value
+// HasCompleteTime returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasCompleteTime() bool {
+	if o != nil && !IsNil(o.CompleteTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetCompleteTime gets a reference to the given string and assigns it to the CompleteTime field.
 func (o *FleetDescribeInstanceSnapshotResult) SetCompleteTime(v string) {
-	o.CompleteTime = v
+	o.CompleteTime = &v
 }
 
-// GetCreatedTime returns the CreatedTime field value
+// GetCreatedTime returns the CreatedTime field value if set, zero value otherwise.
 func (o *FleetDescribeInstanceSnapshotResult) GetCreatedTime() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedTime) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedTime
+	return *o.CreatedTime
 }
 
-// GetCreatedTimeOk returns a tuple with the CreatedTime field value
+// GetCreatedTimeOk returns a tuple with the CreatedTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FleetDescribeInstanceSnapshotResult) GetCreatedTimeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedTime) {
 		return nil, false
 	}
-	return &o.CreatedTime, true
+	return o.CreatedTime, true
 }
 
-// SetCreatedTime sets field value
+// HasCreatedTime returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasCreatedTime() bool {
+	if o != nil && !IsNil(o.CreatedTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedTime gets a reference to the given string and assigns it to the CreatedTime field.
 func (o *FleetDescribeInstanceSnapshotResult) SetCreatedTime(v string) {
-	o.CreatedTime = v
+	o.CreatedTime = &v
 }
 
-// GetEncrypted returns the Encrypted field value
+// GetEncrypted returns the Encrypted field value if set, zero value otherwise.
 func (o *FleetDescribeInstanceSnapshotResult) GetEncrypted() bool {
-	if o == nil {
+	if o == nil || IsNil(o.Encrypted) {
 		var ret bool
 		return ret
 	}
-
-	return o.Encrypted
+	return *o.Encrypted
 }
 
-// GetEncryptedOk returns a tuple with the Encrypted field value
+// GetEncryptedOk returns a tuple with the Encrypted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FleetDescribeInstanceSnapshotResult) GetEncryptedOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Encrypted) {
 		return nil, false
 	}
-	return &o.Encrypted, true
+	return o.Encrypted, true
 }
 
-// SetEncrypted sets field value
+// HasEncrypted returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasEncrypted() bool {
+	if o != nil && !IsNil(o.Encrypted) {
+		return true
+	}
+
+	return false
+}
+
+// SetEncrypted gets a reference to the given bool and assigns it to the Encrypted field.
 func (o *FleetDescribeInstanceSnapshotResult) SetEncrypted(v bool) {
-	o.Encrypted = v
+	o.Encrypted = &v
 }
 
-// GetEnvironmentId returns the EnvironmentId field value
+// GetEnvironmentId returns the EnvironmentId field value if set, zero value otherwise.
 func (o *FleetDescribeInstanceSnapshotResult) GetEnvironmentId() string {
-	if o == nil {
+	if o == nil || IsNil(o.EnvironmentId) {
 		var ret string
 		return ret
 	}
-
-	return o.EnvironmentId
+	return *o.EnvironmentId
 }
 
-// GetEnvironmentIdOk returns a tuple with the EnvironmentId field value
+// GetEnvironmentIdOk returns a tuple with the EnvironmentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FleetDescribeInstanceSnapshotResult) GetEnvironmentIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EnvironmentId) {
 		return nil, false
 	}
-	return &o.EnvironmentId, true
+	return o.EnvironmentId, true
 }
 
-// SetEnvironmentId sets field value
+// HasEnvironmentId returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasEnvironmentId() bool {
+	if o != nil && !IsNil(o.EnvironmentId) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnvironmentId gets a reference to the given string and assigns it to the EnvironmentId field.
 func (o *FleetDescribeInstanceSnapshotResult) SetEnvironmentId(v string) {
-	o.EnvironmentId = v
+	o.EnvironmentId = &v
 }
 
-// GetProductTierId returns the ProductTierId field value
+// GetOutputParams returns the OutputParams field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetOutputParams() []OutputParameter {
+	if o == nil || IsNil(o.OutputParams) {
+		var ret []OutputParameter
+		return ret
+	}
+	return o.OutputParams
+}
+
+// GetOutputParamsOk returns a tuple with the OutputParams field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetOutputParamsOk() ([]OutputParameter, bool) {
+	if o == nil || IsNil(o.OutputParams) {
+		return nil, false
+	}
+	return o.OutputParams, true
+}
+
+// HasOutputParams returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasOutputParams() bool {
+	if o != nil && !IsNil(o.OutputParams) {
+		return true
+	}
+
+	return false
+}
+
+// SetOutputParams gets a reference to the given []OutputParameter and assigns it to the OutputParams field.
+func (o *FleetDescribeInstanceSnapshotResult) SetOutputParams(v []OutputParameter) {
+	o.OutputParams = v
+}
+
+// GetProductTierId returns the ProductTierId field value if set, zero value otherwise.
 func (o *FleetDescribeInstanceSnapshotResult) GetProductTierId() string {
-	if o == nil {
+	if o == nil || IsNil(o.ProductTierId) {
 		var ret string
 		return ret
 	}
-
-	return o.ProductTierId
+	return *o.ProductTierId
 }
 
-// GetProductTierIdOk returns a tuple with the ProductTierId field value
+// GetProductTierIdOk returns a tuple with the ProductTierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FleetDescribeInstanceSnapshotResult) GetProductTierIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProductTierId) {
 		return nil, false
 	}
-	return &o.ProductTierId, true
+	return o.ProductTierId, true
 }
 
-// SetProductTierId sets field value
+// HasProductTierId returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasProductTierId() bool {
+	if o != nil && !IsNil(o.ProductTierId) {
+		return true
+	}
+
+	return false
+}
+
+// SetProductTierId gets a reference to the given string and assigns it to the ProductTierId field.
 func (o *FleetDescribeInstanceSnapshotResult) SetProductTierId(v string) {
-	o.ProductTierId = v
+	o.ProductTierId = &v
 }
 
-// GetProductTierVersion returns the ProductTierVersion field value
-func (o *FleetDescribeInstanceSnapshotResult) GetProductTierVersion() string {
-	if o == nil {
+// GetProductTierName returns the ProductTierName field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetProductTierName() string {
+	if o == nil || IsNil(o.ProductTierName) {
 		var ret string
 		return ret
 	}
-
-	return o.ProductTierVersion
+	return *o.ProductTierName
 }
 
-// GetProductTierVersionOk returns a tuple with the ProductTierVersion field value
+// GetProductTierNameOk returns a tuple with the ProductTierName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FleetDescribeInstanceSnapshotResult) GetProductTierVersionOk() (*string, bool) {
-	if o == nil {
+func (o *FleetDescribeInstanceSnapshotResult) GetProductTierNameOk() (*string, bool) {
+	if o == nil || IsNil(o.ProductTierName) {
 		return nil, false
 	}
-	return &o.ProductTierVersion, true
+	return o.ProductTierName, true
 }
 
-// SetProductTierVersion sets field value
+// HasProductTierName returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasProductTierName() bool {
+	if o != nil && !IsNil(o.ProductTierName) {
+		return true
+	}
+
+	return false
+}
+
+// SetProductTierName gets a reference to the given string and assigns it to the ProductTierName field.
+func (o *FleetDescribeInstanceSnapshotResult) SetProductTierName(v string) {
+	o.ProductTierName = &v
+}
+
+// GetProductTierVersion returns the ProductTierVersion field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetProductTierVersion() string {
+	if o == nil || IsNil(o.ProductTierVersion) {
+		var ret string
+		return ret
+	}
+	return *o.ProductTierVersion
+}
+
+// GetProductTierVersionOk returns a tuple with the ProductTierVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetProductTierVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.ProductTierVersion) {
+		return nil, false
+	}
+	return o.ProductTierVersion, true
+}
+
+// HasProductTierVersion returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasProductTierVersion() bool {
+	if o != nil && !IsNil(o.ProductTierVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetProductTierVersion gets a reference to the given string and assigns it to the ProductTierVersion field.
 func (o *FleetDescribeInstanceSnapshotResult) SetProductTierVersion(v string) {
-	o.ProductTierVersion = v
+	o.ProductTierVersion = &v
 }
 
-// GetProgress returns the Progress field value
+// GetProductTierVersionDescription returns the ProductTierVersionDescription field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetProductTierVersionDescription() string {
+	if o == nil || IsNil(o.ProductTierVersionDescription) {
+		var ret string
+		return ret
+	}
+	return *o.ProductTierVersionDescription
+}
+
+// GetProductTierVersionDescriptionOk returns a tuple with the ProductTierVersionDescription field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetProductTierVersionDescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.ProductTierVersionDescription) {
+		return nil, false
+	}
+	return o.ProductTierVersionDescription, true
+}
+
+// HasProductTierVersionDescription returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasProductTierVersionDescription() bool {
+	if o != nil && !IsNil(o.ProductTierVersionDescription) {
+		return true
+	}
+
+	return false
+}
+
+// SetProductTierVersionDescription gets a reference to the given string and assigns it to the ProductTierVersionDescription field.
+func (o *FleetDescribeInstanceSnapshotResult) SetProductTierVersionDescription(v string) {
+	o.ProductTierVersionDescription = &v
+}
+
+// GetProgress returns the Progress field value if set, zero value otherwise.
 func (o *FleetDescribeInstanceSnapshotResult) GetProgress() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.Progress) {
 		var ret int64
 		return ret
 	}
-
-	return o.Progress
+	return *o.Progress
 }
 
-// GetProgressOk returns a tuple with the Progress field value
+// GetProgressOk returns a tuple with the Progress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FleetDescribeInstanceSnapshotResult) GetProgressOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Progress) {
 		return nil, false
 	}
-	return &o.Progress, true
+	return o.Progress, true
 }
 
-// SetProgress sets field value
+// HasProgress returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasProgress() bool {
+	if o != nil && !IsNil(o.Progress) {
+		return true
+	}
+
+	return false
+}
+
+// SetProgress gets a reference to the given int64 and assigns it to the Progress field.
 func (o *FleetDescribeInstanceSnapshotResult) SetProgress(v int64) {
-	o.Progress = v
+	o.Progress = &v
 }
 
-// GetServiceId returns the ServiceId field value
-func (o *FleetDescribeInstanceSnapshotResult) GetServiceId() string {
-	if o == nil {
+// GetRegion returns the Region field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetRegion() string {
+	if o == nil || IsNil(o.Region) {
 		var ret string
 		return ret
 	}
-
-	return o.ServiceId
+	return *o.Region
 }
 
-// GetServiceIdOk returns a tuple with the ServiceId field value
+// GetRegionOk returns a tuple with the Region field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetRegionOk() (*string, bool) {
+	if o == nil || IsNil(o.Region) {
+		return nil, false
+	}
+	return o.Region, true
+}
+
+// HasRegion returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasRegion() bool {
+	if o != nil && !IsNil(o.Region) {
+		return true
+	}
+
+	return false
+}
+
+// SetRegion gets a reference to the given string and assigns it to the Region field.
+func (o *FleetDescribeInstanceSnapshotResult) SetRegion(v string) {
+	o.Region = &v
+}
+
+// GetServiceId returns the ServiceId field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetServiceId() string {
+	if o == nil || IsNil(o.ServiceId) {
+		var ret string
+		return ret
+	}
+	return *o.ServiceId
+}
+
+// GetServiceIdOk returns a tuple with the ServiceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FleetDescribeInstanceSnapshotResult) GetServiceIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceId) {
 		return nil, false
 	}
-	return &o.ServiceId, true
+	return o.ServiceId, true
 }
 
-// SetServiceId sets field value
+// HasServiceId returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasServiceId() bool {
+	if o != nil && !IsNil(o.ServiceId) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceId gets a reference to the given string and assigns it to the ServiceId field.
 func (o *FleetDescribeInstanceSnapshotResult) SetServiceId(v string) {
-	o.ServiceId = v
+	o.ServiceId = &v
 }
 
-// GetSnapshotId returns the SnapshotId field value
-func (o *FleetDescribeInstanceSnapshotResult) GetSnapshotId() string {
-	if o == nil {
+// GetServiceName returns the ServiceName field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetServiceName() string {
+	if o == nil || IsNil(o.ServiceName) {
 		var ret string
 		return ret
 	}
-
-	return o.SnapshotId
+	return *o.ServiceName
 }
 
-// GetSnapshotIdOk returns a tuple with the SnapshotId field value
+// GetServiceNameOk returns a tuple with the ServiceName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetServiceNameOk() (*string, bool) {
+	if o == nil || IsNil(o.ServiceName) {
+		return nil, false
+	}
+	return o.ServiceName, true
+}
+
+// HasServiceName returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasServiceName() bool {
+	if o != nil && !IsNil(o.ServiceName) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceName gets a reference to the given string and assigns it to the ServiceName field.
+func (o *FleetDescribeInstanceSnapshotResult) SetServiceName(v string) {
+	o.ServiceName = &v
+}
+
+// GetSnapshotId returns the SnapshotId field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetSnapshotId() string {
+	if o == nil || IsNil(o.SnapshotId) {
+		var ret string
+		return ret
+	}
+	return *o.SnapshotId
+}
+
+// GetSnapshotIdOk returns a tuple with the SnapshotId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FleetDescribeInstanceSnapshotResult) GetSnapshotIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SnapshotId) {
 		return nil, false
 	}
-	return &o.SnapshotId, true
+	return o.SnapshotId, true
 }
 
-// SetSnapshotId sets field value
+// HasSnapshotId returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasSnapshotId() bool {
+	if o != nil && !IsNil(o.SnapshotId) {
+		return true
+	}
+
+	return false
+}
+
+// SetSnapshotId gets a reference to the given string and assigns it to the SnapshotId field.
 func (o *FleetDescribeInstanceSnapshotResult) SetSnapshotId(v string) {
-	o.SnapshotId = v
+	o.SnapshotId = &v
 }
 
-// GetSourceInstanceId returns the SourceInstanceId field value
-func (o *FleetDescribeInstanceSnapshotResult) GetSourceInstanceId() string {
-	if o == nil {
+// GetSnapshotType returns the SnapshotType field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetSnapshotType() string {
+	if o == nil || IsNil(o.SnapshotType) {
 		var ret string
 		return ret
 	}
-
-	return o.SourceInstanceId
+	return *o.SnapshotType
 }
 
-// GetSourceInstanceIdOk returns a tuple with the SourceInstanceId field value
+// GetSnapshotTypeOk returns a tuple with the SnapshotType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetSnapshotTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.SnapshotType) {
+		return nil, false
+	}
+	return o.SnapshotType, true
+}
+
+// HasSnapshotType returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasSnapshotType() bool {
+	if o != nil && !IsNil(o.SnapshotType) {
+		return true
+	}
+
+	return false
+}
+
+// SetSnapshotType gets a reference to the given string and assigns it to the SnapshotType field.
+func (o *FleetDescribeInstanceSnapshotResult) SetSnapshotType(v string) {
+	o.SnapshotType = &v
+}
+
+// GetSourceInstanceId returns the SourceInstanceId field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetSourceInstanceId() string {
+	if o == nil || IsNil(o.SourceInstanceId) {
+		var ret string
+		return ret
+	}
+	return *o.SourceInstanceId
+}
+
+// GetSourceInstanceIdOk returns a tuple with the SourceInstanceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FleetDescribeInstanceSnapshotResult) GetSourceInstanceIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SourceInstanceId) {
 		return nil, false
 	}
-	return &o.SourceInstanceId, true
+	return o.SourceInstanceId, true
 }
 
-// SetSourceInstanceId sets field value
+// HasSourceInstanceId returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasSourceInstanceId() bool {
+	if o != nil && !IsNil(o.SourceInstanceId) {
+		return true
+	}
+
+	return false
+}
+
+// SetSourceInstanceId gets a reference to the given string and assigns it to the SourceInstanceId field.
 func (o *FleetDescribeInstanceSnapshotResult) SetSourceInstanceId(v string) {
-	o.SourceInstanceId = v
+	o.SourceInstanceId = &v
 }
 
-// GetStatus returns the Status field value
+// GetStatus returns the Status field value if set, zero value otherwise.
 func (o *FleetDescribeInstanceSnapshotResult) GetStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
-
-	return o.Status
+	return *o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FleetDescribeInstanceSnapshotResult) GetStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return &o.Status, true
+	return o.Status, true
 }
 
-// SetStatus sets field value
+// HasStatus returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
 func (o *FleetDescribeInstanceSnapshotResult) SetStatus(v string) {
-	o.Status = v
+	o.Status = &v
+}
+
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetSubscriptionId() string {
+	if o == nil || IsNil(o.SubscriptionId) {
+		var ret string
+		return ret
+	}
+	return *o.SubscriptionId
+}
+
+// GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetSubscriptionIdOk() (*string, bool) {
+	if o == nil || IsNil(o.SubscriptionId) {
+		return nil, false
+	}
+	return o.SubscriptionId, true
+}
+
+// HasSubscriptionId returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasSubscriptionId() bool {
+	if o != nil && !IsNil(o.SubscriptionId) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+func (o *FleetDescribeInstanceSnapshotResult) SetSubscriptionId(v string) {
+	o.SubscriptionId = &v
+}
+
+// GetSubscriptionOwnerOrgId returns the SubscriptionOwnerOrgId field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetSubscriptionOwnerOrgId() string {
+	if o == nil || IsNil(o.SubscriptionOwnerOrgId) {
+		var ret string
+		return ret
+	}
+	return *o.SubscriptionOwnerOrgId
+}
+
+// GetSubscriptionOwnerOrgIdOk returns a tuple with the SubscriptionOwnerOrgId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetSubscriptionOwnerOrgIdOk() (*string, bool) {
+	if o == nil || IsNil(o.SubscriptionOwnerOrgId) {
+		return nil, false
+	}
+	return o.SubscriptionOwnerOrgId, true
+}
+
+// HasSubscriptionOwnerOrgId returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasSubscriptionOwnerOrgId() bool {
+	if o != nil && !IsNil(o.SubscriptionOwnerOrgId) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionOwnerOrgId gets a reference to the given string and assigns it to the SubscriptionOwnerOrgId field.
+func (o *FleetDescribeInstanceSnapshotResult) SetSubscriptionOwnerOrgId(v string) {
+	o.SubscriptionOwnerOrgId = &v
+}
+
+// GetSubscriptionOwnerOrgName returns the SubscriptionOwnerOrgName field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetSubscriptionOwnerOrgName() string {
+	if o == nil || IsNil(o.SubscriptionOwnerOrgName) {
+		var ret string
+		return ret
+	}
+	return *o.SubscriptionOwnerOrgName
+}
+
+// GetSubscriptionOwnerOrgNameOk returns a tuple with the SubscriptionOwnerOrgName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetSubscriptionOwnerOrgNameOk() (*string, bool) {
+	if o == nil || IsNil(o.SubscriptionOwnerOrgName) {
+		return nil, false
+	}
+	return o.SubscriptionOwnerOrgName, true
+}
+
+// HasSubscriptionOwnerOrgName returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasSubscriptionOwnerOrgName() bool {
+	if o != nil && !IsNil(o.SubscriptionOwnerOrgName) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionOwnerOrgName gets a reference to the given string and assigns it to the SubscriptionOwnerOrgName field.
+func (o *FleetDescribeInstanceSnapshotResult) SetSubscriptionOwnerOrgName(v string) {
+	o.SubscriptionOwnerOrgName = &v
+}
+
+// GetSubscriptionOwnerUserId returns the SubscriptionOwnerUserId field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetSubscriptionOwnerUserId() string {
+	if o == nil || IsNil(o.SubscriptionOwnerUserId) {
+		var ret string
+		return ret
+	}
+	return *o.SubscriptionOwnerUserId
+}
+
+// GetSubscriptionOwnerUserIdOk returns a tuple with the SubscriptionOwnerUserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetSubscriptionOwnerUserIdOk() (*string, bool) {
+	if o == nil || IsNil(o.SubscriptionOwnerUserId) {
+		return nil, false
+	}
+	return o.SubscriptionOwnerUserId, true
+}
+
+// HasSubscriptionOwnerUserId returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasSubscriptionOwnerUserId() bool {
+	if o != nil && !IsNil(o.SubscriptionOwnerUserId) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionOwnerUserId gets a reference to the given string and assigns it to the SubscriptionOwnerUserId field.
+func (o *FleetDescribeInstanceSnapshotResult) SetSubscriptionOwnerUserId(v string) {
+	o.SubscriptionOwnerUserId = &v
+}
+
+// GetSubscriptionOwnerUserName returns the SubscriptionOwnerUserName field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetSubscriptionOwnerUserName() string {
+	if o == nil || IsNil(o.SubscriptionOwnerUserName) {
+		var ret string
+		return ret
+	}
+	return *o.SubscriptionOwnerUserName
+}
+
+// GetSubscriptionOwnerUserNameOk returns a tuple with the SubscriptionOwnerUserName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetSubscriptionOwnerUserNameOk() (*string, bool) {
+	if o == nil || IsNil(o.SubscriptionOwnerUserName) {
+		return nil, false
+	}
+	return o.SubscriptionOwnerUserName, true
+}
+
+// HasSubscriptionOwnerUserName returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasSubscriptionOwnerUserName() bool {
+	if o != nil && !IsNil(o.SubscriptionOwnerUserName) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionOwnerUserName gets a reference to the given string and assigns it to the SubscriptionOwnerUserName field.
+func (o *FleetDescribeInstanceSnapshotResult) SetSubscriptionOwnerUserName(v string) {
+	o.SubscriptionOwnerUserName = &v
 }
 
 func (o FleetDescribeInstanceSnapshotResult) MarshalJSON() ([]byte, error) {
@@ -349,17 +833,75 @@ func (o FleetDescribeInstanceSnapshotResult) MarshalJSON() ([]byte, error) {
 
 func (o FleetDescribeInstanceSnapshotResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["completeTime"] = o.CompleteTime
-	toSerialize["createdTime"] = o.CreatedTime
-	toSerialize["encrypted"] = o.Encrypted
-	toSerialize["environmentId"] = o.EnvironmentId
-	toSerialize["productTierId"] = o.ProductTierId
-	toSerialize["productTierVersion"] = o.ProductTierVersion
-	toSerialize["progress"] = o.Progress
-	toSerialize["serviceId"] = o.ServiceId
-	toSerialize["snapshotId"] = o.SnapshotId
-	toSerialize["sourceInstanceId"] = o.SourceInstanceId
-	toSerialize["status"] = o.Status
+	if !IsNil(o.CloudProvider) {
+		toSerialize["cloudProvider"] = o.CloudProvider
+	}
+	if !IsNil(o.CompleteTime) {
+		toSerialize["completeTime"] = o.CompleteTime
+	}
+	if !IsNil(o.CreatedTime) {
+		toSerialize["createdTime"] = o.CreatedTime
+	}
+	if !IsNil(o.Encrypted) {
+		toSerialize["encrypted"] = o.Encrypted
+	}
+	if !IsNil(o.EnvironmentId) {
+		toSerialize["environmentId"] = o.EnvironmentId
+	}
+	if !IsNil(o.OutputParams) {
+		toSerialize["outputParams"] = o.OutputParams
+	}
+	if !IsNil(o.ProductTierId) {
+		toSerialize["productTierId"] = o.ProductTierId
+	}
+	if !IsNil(o.ProductTierName) {
+		toSerialize["productTierName"] = o.ProductTierName
+	}
+	if !IsNil(o.ProductTierVersion) {
+		toSerialize["productTierVersion"] = o.ProductTierVersion
+	}
+	if !IsNil(o.ProductTierVersionDescription) {
+		toSerialize["productTierVersionDescription"] = o.ProductTierVersionDescription
+	}
+	if !IsNil(o.Progress) {
+		toSerialize["progress"] = o.Progress
+	}
+	if !IsNil(o.Region) {
+		toSerialize["region"] = o.Region
+	}
+	if !IsNil(o.ServiceId) {
+		toSerialize["serviceId"] = o.ServiceId
+	}
+	if !IsNil(o.ServiceName) {
+		toSerialize["serviceName"] = o.ServiceName
+	}
+	if !IsNil(o.SnapshotId) {
+		toSerialize["snapshotId"] = o.SnapshotId
+	}
+	if !IsNil(o.SnapshotType) {
+		toSerialize["snapshotType"] = o.SnapshotType
+	}
+	if !IsNil(o.SourceInstanceId) {
+		toSerialize["sourceInstanceId"] = o.SourceInstanceId
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
+	if !IsNil(o.SubscriptionId) {
+		toSerialize["subscriptionId"] = o.SubscriptionId
+	}
+	if !IsNil(o.SubscriptionOwnerOrgId) {
+		toSerialize["subscriptionOwnerOrgId"] = o.SubscriptionOwnerOrgId
+	}
+	if !IsNil(o.SubscriptionOwnerOrgName) {
+		toSerialize["subscriptionOwnerOrgName"] = o.SubscriptionOwnerOrgName
+	}
+	if !IsNil(o.SubscriptionOwnerUserId) {
+		toSerialize["subscriptionOwnerUserId"] = o.SubscriptionOwnerUserId
+	}
+	if !IsNil(o.SubscriptionOwnerUserName) {
+		toSerialize["subscriptionOwnerUserName"] = o.SubscriptionOwnerUserName
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -369,37 +911,6 @@ func (o FleetDescribeInstanceSnapshotResult) ToMap() (map[string]interface{}, er
 }
 
 func (o *FleetDescribeInstanceSnapshotResult) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"completeTime",
-		"createdTime",
-		"encrypted",
-		"environmentId",
-		"productTierId",
-		"productTierVersion",
-		"progress",
-		"serviceId",
-		"snapshotId",
-		"sourceInstanceId",
-		"status",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varFleetDescribeInstanceSnapshotResult := _FleetDescribeInstanceSnapshotResult{}
 
 	err = json.Unmarshal(data, &varFleetDescribeInstanceSnapshotResult)
@@ -413,17 +924,29 @@ func (o *FleetDescribeInstanceSnapshotResult) UnmarshalJSON(data []byte) (err er
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cloudProvider")
 		delete(additionalProperties, "completeTime")
 		delete(additionalProperties, "createdTime")
 		delete(additionalProperties, "encrypted")
 		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "outputParams")
 		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "productTierName")
 		delete(additionalProperties, "productTierVersion")
+		delete(additionalProperties, "productTierVersionDescription")
 		delete(additionalProperties, "progress")
+		delete(additionalProperties, "region")
 		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "serviceName")
 		delete(additionalProperties, "snapshotId")
+		delete(additionalProperties, "snapshotType")
 		delete(additionalProperties, "sourceInstanceId")
 		delete(additionalProperties, "status")
+		delete(additionalProperties, "subscriptionId")
+		delete(additionalProperties, "subscriptionOwnerOrgId")
+		delete(additionalProperties, "subscriptionOwnerOrgName")
+		delete(additionalProperties, "subscriptionOwnerUserId")
+		delete(additionalProperties, "subscriptionOwnerUserName")
 		o.AdditionalProperties = additionalProperties
 	}
 

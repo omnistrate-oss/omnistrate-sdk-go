@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **CloudProviderName** | **string** | The name of the cloud provider that the instance is running on. | 
 **CloudProviderRegion** | **string** | The region of the cloud provider that the instance is running in. | 
 **CreatedAt** | **string** | The timestamp when the instance was created. | 
+**CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The custom tags associated with the resource instance. | [optional] 
 **HealthStatus** | Pointer to **string** | The heath status of a resource | [optional] 
 **InstanceId** | **string** | ID of a Resource Instance | 
 **LifecycleStatus** | **string** | The status of an operation | 
@@ -98,6 +99,31 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
+
+### GetCustomTags
+
+`func (o *InstanceUpgrade) GetCustomTags() []CustomTag`
+
+GetCustomTags returns the CustomTags field if non-nil, zero value otherwise.
+
+### GetCustomTagsOk
+
+`func (o *InstanceUpgrade) GetCustomTagsOk() (*[]CustomTag, bool)`
+
+GetCustomTagsOk returns a tuple with the CustomTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomTags
+
+`func (o *InstanceUpgrade) SetCustomTags(v []CustomTag)`
+
+SetCustomTags sets CustomTags field to given value.
+
+### HasCustomTags
+
+`func (o *InstanceUpgrade) HasCustomTags() bool`
+
+HasCustomTags returns a boolean if a field has been set.
 
 ### GetHealthStatus
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DeployingInstances** | **int64** | The number of instances currently deploying | 
-**DeploymentCellHealthSummary** | **map[string]interface{}** | The summary of health by deployment cell | 
+**DeploymentCellHealthSummary** | [**map[string]DeploymentCellHealthSummary**](DeploymentCellHealthSummary.md) | The summary of health by deployment cell | 
 **HealthyInstances** | **int64** | The number of healthy instances in the region | 
 **Message** | **string** | The status message | 
 **Region** | **string** | The region | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewRegionalHealthSummary
 
-`func NewRegionalHealthSummary(deployingInstances int64, deploymentCellHealthSummary map[string]interface{}, healthyInstances int64, message string, region string, status string, totalInstances int64, unhealthyInstances int64, ) *RegionalHealthSummary`
+`func NewRegionalHealthSummary(deployingInstances int64, deploymentCellHealthSummary map[string]DeploymentCellHealthSummary, healthyInstances int64, message string, region string, status string, totalInstances int64, unhealthyInstances int64, ) *RegionalHealthSummary`
 
 NewRegionalHealthSummary instantiates a new RegionalHealthSummary object
 This constructor will assign default values to properties that have it defined,
@@ -55,20 +55,20 @@ SetDeployingInstances sets DeployingInstances field to given value.
 
 ### GetDeploymentCellHealthSummary
 
-`func (o *RegionalHealthSummary) GetDeploymentCellHealthSummary() map[string]interface{}`
+`func (o *RegionalHealthSummary) GetDeploymentCellHealthSummary() map[string]DeploymentCellHealthSummary`
 
 GetDeploymentCellHealthSummary returns the DeploymentCellHealthSummary field if non-nil, zero value otherwise.
 
 ### GetDeploymentCellHealthSummaryOk
 
-`func (o *RegionalHealthSummary) GetDeploymentCellHealthSummaryOk() (*map[string]interface{}, bool)`
+`func (o *RegionalHealthSummary) GetDeploymentCellHealthSummaryOk() (*map[string]DeploymentCellHealthSummary, bool)`
 
 GetDeploymentCellHealthSummaryOk returns a tuple with the DeploymentCellHealthSummary field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeploymentCellHealthSummary
 
-`func (o *RegionalHealthSummary) SetDeploymentCellHealthSummary(v map[string]interface{})`
+`func (o *RegionalHealthSummary) SetDeploymentCellHealthSummary(v map[string]DeploymentCellHealthSummary)`
 
 SetDeploymentCellHealthSummary sets DeploymentCellHealthSummary field to given value.
 

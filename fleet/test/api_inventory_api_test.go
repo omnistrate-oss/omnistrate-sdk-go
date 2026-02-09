@@ -70,21 +70,6 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test InventoryApiAPIService InventoryApiApplyPendingChangesToHostCluster", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var serviceId string
-		var environmentId string
-		var id string
-
-		httpRes, err := apiClient.InventoryApiAPI.InventoryApiApplyPendingChangesToHostCluster(context.Background(), serviceId, environmentId, id).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test InventoryApiAPIService InventoryApiApproveSubscriptionRequest", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -109,6 +94,22 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 		var upgradePathId string
 
 		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiCancelUpgradePath(context.Background(), serviceId, productTierId, upgradePathId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InventoryApiAPIService InventoryApiCopyResourceInstanceSnapshot", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var environmentId string
+		var instanceId string
+
+		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiCopyResourceInstanceSnapshot(context.Background(), serviceId, environmentId, instanceId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -295,10 +296,9 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 		var serviceId string
 		var environmentId string
-		var instanceId string
 		var snapshotId string
 
-		httpRes, err := apiClient.InventoryApiAPI.InventoryApiDeleteResourceInstanceSnapshot(context.Background(), serviceId, environmentId, instanceId, snapshotId).Execute()
+		httpRes, err := apiClient.InventoryApiAPI.InventoryApiDeleteResourceInstanceSnapshot(context.Background(), serviceId, environmentId, snapshotId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -465,6 +465,22 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 		var instanceId string
 
 		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiDescribeResourceInstance(context.Background(), serviceId, environmentId, instanceId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InventoryApiAPIService InventoryApiDescribeResourceInstanceInstaller", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var environmentId string
+		var instanceId string
+
+		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiDescribeResourceInstanceInstaller(context.Background(), serviceId, environmentId, instanceId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -690,6 +706,21 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiListAllOrganizations(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InventoryApiAPIService InventoryApiListAllResourceInstanceSnapshots", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var environmentId string
+
+		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiListAllResourceInstanceSnapshots(context.Background(), serviceId, environmentId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -996,6 +1027,19 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test InventoryApiAPIService InventoryApiResendVerificationEmail", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var userId string
+
+		httpRes, err := apiClient.InventoryApiAPI.InventoryApiResendVerificationEmail(context.Background(), userId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test InventoryApiAPIService InventoryApiRestartResourceInstance", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -1201,15 +1245,13 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test InventoryApiAPIService InventoryApiUpdateHostCluster", func(t *testing.T) {
+	t.Run("Test InventoryApiAPIService InventoryApiUpdateConsumptionUser", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var serviceId string
-		var environmentId string
-		var id string
+		var userId string
 
-		httpRes, err := apiClient.InventoryApiAPI.InventoryApiUpdateHostCluster(context.Background(), serviceId, environmentId, id).Execute()
+		httpRes, err := apiClient.InventoryApiAPI.InventoryApiUpdateConsumptionUser(context.Background(), userId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -1240,6 +1282,21 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 		var instanceId string
 
 		httpRes, err := apiClient.InventoryApiAPI.InventoryApiUpdateResourceInstanceDebugMode(context.Background(), serviceId, environmentId, instanceId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InventoryApiAPIService InventoryApiUpdateResourceInstanceMetadata", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var environmentId string
+		var instanceId string
+
+		httpRes, err := apiClient.InventoryApiAPI.InventoryApiUpdateResourceInstanceMetadata(context.Background(), serviceId, environmentId, instanceId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

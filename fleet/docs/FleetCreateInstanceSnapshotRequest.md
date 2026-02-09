@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **EnvironmentId** | **string** | ID of a Service Environment | 
 **InstanceId** | **string** | ID of a Resource Instance | 
 **ServiceId** | **string** | ID of a Service | 
+**TargetRegion** | Pointer to **string** | The target region to create the snapshot in. If not specified, use the same region as the instance | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
@@ -87,6 +88,31 @@ and a boolean to check if the value has been set.
 
 SetServiceId sets ServiceId field to given value.
 
+
+### GetTargetRegion
+
+`func (o *FleetCreateInstanceSnapshotRequest) GetTargetRegion() string`
+
+GetTargetRegion returns the TargetRegion field if non-nil, zero value otherwise.
+
+### GetTargetRegionOk
+
+`func (o *FleetCreateInstanceSnapshotRequest) GetTargetRegionOk() (*string, bool)`
+
+GetTargetRegionOk returns a tuple with the TargetRegion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTargetRegion
+
+`func (o *FleetCreateInstanceSnapshotRequest) SetTargetRegion(v string)`
+
+SetTargetRegion sets TargetRegion field to given value.
+
+### HasTargetRegion
+
+`func (o *FleetCreateInstanceSnapshotRequest) HasTargetRegion() bool`
+
+HasTargetRegion returns a boolean if a field has been set.
 
 ### GetToken
 

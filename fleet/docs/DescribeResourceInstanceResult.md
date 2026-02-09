@@ -15,7 +15,8 @@ Name | Type | Description | Notes
 **CreatedByUserName** | Pointer to **string** | The name of the user that created the resource instance | [optional] 
 **CurrentReplicas** | Pointer to **string** | The current number of replicas | [optional] 
 **CustomNetworkDetail** | Pointer to [**CustomNetworkResourceDetail**](CustomNetworkResourceDetail.md) |  | [optional] 
-**DetailedNetworkTopology** | Pointer to **map[string]interface{}** | The detailed network topology | [optional] 
+**CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The custom tag for the resource instance | [optional] 
+**DetailedNetworkTopology** | Pointer to [**map[string]ResourceNetworkTopologyResult**](ResourceNetworkTopologyResult.md) | The detailed network topology | [optional] 
 **ExternalPayerId** | Pointer to **string** | The external payer id to record which customer should pay for this resource instance | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **HighAvailability** | Pointer to **bool** | Whether the instance is High Availability | [optional] 
@@ -27,11 +28,18 @@ Name | Type | Description | Notes
 **MaxReplicas** | Pointer to **string** | The maximum number of replicas | [optional] 
 **MinReplicas** | Pointer to **string** | The minimum number of replicas | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
+**OciTenancyID** | Pointer to **string** | The Tenancy OCID for Oracle Cloud Infrastructure | [optional] 
+**OnPremInstallerDetails** | Pointer to [**OnPremInstallerDetails**](OnPremInstallerDetails.md) |  | [optional] 
+**OnpremPlatform** | Pointer to **string** | OnPrem model platform | [optional] 
 **ProductTierFeatures** | Pointer to **map[string]interface{}** | The product tier features | [optional] 
+**ProductTierVersionDetail** | Pointer to [**ProductTierVersionDetail**](ProductTierVersionDetail.md) |  | [optional] 
 **Region** | Pointer to **string** | The region code | [optional] 
 **ResourceID** | Pointer to **string** | ID of a resource | [optional] 
+**ResourceInstanceMetadata** | Pointer to [**ResourceInstanceMetadata**](ResourceInstanceMetadata.md) |  | [optional] 
 **ResultParams** | Pointer to **interface{}** | Custom result parameters | [optional] 
 **ServerlessEnabled** | Pointer to **bool** | Whether the instance has serverless enabled | [optional] 
+**SnapshotBeforeDeletionEnabled** | Pointer to **bool** | Whether snapshot-before-deletion is enabled for this instance. If true, a final snapshot will be taken before deletion unless skipFinalSnapshot is specified. | [optional] 
+**SourceSnapshotID** | Pointer to **string** | The source snapshot ID if the instance is restored from snapshot | [optional] 
 **Status** | Pointer to **string** | The status of an operation | [optional] 
 **SubscriptionId** | Pointer to **string** | Subscription ID | [optional] 
 **SubscriptionLicense** | Pointer to [**SubscriptionLicense**](SubscriptionLicense.md) |  | [optional] 
@@ -332,22 +340,47 @@ SetCustomNetworkDetail sets CustomNetworkDetail field to given value.
 
 HasCustomNetworkDetail returns a boolean if a field has been set.
 
+### GetCustomTags
+
+`func (o *DescribeResourceInstanceResult) GetCustomTags() []CustomTag`
+
+GetCustomTags returns the CustomTags field if non-nil, zero value otherwise.
+
+### GetCustomTagsOk
+
+`func (o *DescribeResourceInstanceResult) GetCustomTagsOk() (*[]CustomTag, bool)`
+
+GetCustomTagsOk returns a tuple with the CustomTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomTags
+
+`func (o *DescribeResourceInstanceResult) SetCustomTags(v []CustomTag)`
+
+SetCustomTags sets CustomTags field to given value.
+
+### HasCustomTags
+
+`func (o *DescribeResourceInstanceResult) HasCustomTags() bool`
+
+HasCustomTags returns a boolean if a field has been set.
+
 ### GetDetailedNetworkTopology
 
-`func (o *DescribeResourceInstanceResult) GetDetailedNetworkTopology() map[string]interface{}`
+`func (o *DescribeResourceInstanceResult) GetDetailedNetworkTopology() map[string]ResourceNetworkTopologyResult`
 
 GetDetailedNetworkTopology returns the DetailedNetworkTopology field if non-nil, zero value otherwise.
 
 ### GetDetailedNetworkTopologyOk
 
-`func (o *DescribeResourceInstanceResult) GetDetailedNetworkTopologyOk() (*map[string]interface{}, bool)`
+`func (o *DescribeResourceInstanceResult) GetDetailedNetworkTopologyOk() (*map[string]ResourceNetworkTopologyResult, bool)`
 
 GetDetailedNetworkTopologyOk returns a tuple with the DetailedNetworkTopology field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDetailedNetworkTopology
 
-`func (o *DescribeResourceInstanceResult) SetDetailedNetworkTopology(v map[string]interface{})`
+`func (o *DescribeResourceInstanceResult) SetDetailedNetworkTopology(v map[string]ResourceNetworkTopologyResult)`
 
 SetDetailedNetworkTopology sets DetailedNetworkTopology field to given value.
 
@@ -632,6 +665,81 @@ SetNetworkType sets NetworkType field to given value.
 
 HasNetworkType returns a boolean if a field has been set.
 
+### GetOciTenancyID
+
+`func (o *DescribeResourceInstanceResult) GetOciTenancyID() string`
+
+GetOciTenancyID returns the OciTenancyID field if non-nil, zero value otherwise.
+
+### GetOciTenancyIDOk
+
+`func (o *DescribeResourceInstanceResult) GetOciTenancyIDOk() (*string, bool)`
+
+GetOciTenancyIDOk returns a tuple with the OciTenancyID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciTenancyID
+
+`func (o *DescribeResourceInstanceResult) SetOciTenancyID(v string)`
+
+SetOciTenancyID sets OciTenancyID field to given value.
+
+### HasOciTenancyID
+
+`func (o *DescribeResourceInstanceResult) HasOciTenancyID() bool`
+
+HasOciTenancyID returns a boolean if a field has been set.
+
+### GetOnPremInstallerDetails
+
+`func (o *DescribeResourceInstanceResult) GetOnPremInstallerDetails() OnPremInstallerDetails`
+
+GetOnPremInstallerDetails returns the OnPremInstallerDetails field if non-nil, zero value otherwise.
+
+### GetOnPremInstallerDetailsOk
+
+`func (o *DescribeResourceInstanceResult) GetOnPremInstallerDetailsOk() (*OnPremInstallerDetails, bool)`
+
+GetOnPremInstallerDetailsOk returns a tuple with the OnPremInstallerDetails field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnPremInstallerDetails
+
+`func (o *DescribeResourceInstanceResult) SetOnPremInstallerDetails(v OnPremInstallerDetails)`
+
+SetOnPremInstallerDetails sets OnPremInstallerDetails field to given value.
+
+### HasOnPremInstallerDetails
+
+`func (o *DescribeResourceInstanceResult) HasOnPremInstallerDetails() bool`
+
+HasOnPremInstallerDetails returns a boolean if a field has been set.
+
+### GetOnpremPlatform
+
+`func (o *DescribeResourceInstanceResult) GetOnpremPlatform() string`
+
+GetOnpremPlatform returns the OnpremPlatform field if non-nil, zero value otherwise.
+
+### GetOnpremPlatformOk
+
+`func (o *DescribeResourceInstanceResult) GetOnpremPlatformOk() (*string, bool)`
+
+GetOnpremPlatformOk returns a tuple with the OnpremPlatform field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnpremPlatform
+
+`func (o *DescribeResourceInstanceResult) SetOnpremPlatform(v string)`
+
+SetOnpremPlatform sets OnpremPlatform field to given value.
+
+### HasOnpremPlatform
+
+`func (o *DescribeResourceInstanceResult) HasOnpremPlatform() bool`
+
+HasOnpremPlatform returns a boolean if a field has been set.
+
 ### GetProductTierFeatures
 
 `func (o *DescribeResourceInstanceResult) GetProductTierFeatures() map[string]interface{}`
@@ -656,6 +764,31 @@ SetProductTierFeatures sets ProductTierFeatures field to given value.
 `func (o *DescribeResourceInstanceResult) HasProductTierFeatures() bool`
 
 HasProductTierFeatures returns a boolean if a field has been set.
+
+### GetProductTierVersionDetail
+
+`func (o *DescribeResourceInstanceResult) GetProductTierVersionDetail() ProductTierVersionDetail`
+
+GetProductTierVersionDetail returns the ProductTierVersionDetail field if non-nil, zero value otherwise.
+
+### GetProductTierVersionDetailOk
+
+`func (o *DescribeResourceInstanceResult) GetProductTierVersionDetailOk() (*ProductTierVersionDetail, bool)`
+
+GetProductTierVersionDetailOk returns a tuple with the ProductTierVersionDetail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductTierVersionDetail
+
+`func (o *DescribeResourceInstanceResult) SetProductTierVersionDetail(v ProductTierVersionDetail)`
+
+SetProductTierVersionDetail sets ProductTierVersionDetail field to given value.
+
+### HasProductTierVersionDetail
+
+`func (o *DescribeResourceInstanceResult) HasProductTierVersionDetail() bool`
+
+HasProductTierVersionDetail returns a boolean if a field has been set.
 
 ### GetRegion
 
@@ -706,6 +839,31 @@ SetResourceID sets ResourceID field to given value.
 `func (o *DescribeResourceInstanceResult) HasResourceID() bool`
 
 HasResourceID returns a boolean if a field has been set.
+
+### GetResourceInstanceMetadata
+
+`func (o *DescribeResourceInstanceResult) GetResourceInstanceMetadata() ResourceInstanceMetadata`
+
+GetResourceInstanceMetadata returns the ResourceInstanceMetadata field if non-nil, zero value otherwise.
+
+### GetResourceInstanceMetadataOk
+
+`func (o *DescribeResourceInstanceResult) GetResourceInstanceMetadataOk() (*ResourceInstanceMetadata, bool)`
+
+GetResourceInstanceMetadataOk returns a tuple with the ResourceInstanceMetadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceInstanceMetadata
+
+`func (o *DescribeResourceInstanceResult) SetResourceInstanceMetadata(v ResourceInstanceMetadata)`
+
+SetResourceInstanceMetadata sets ResourceInstanceMetadata field to given value.
+
+### HasResourceInstanceMetadata
+
+`func (o *DescribeResourceInstanceResult) HasResourceInstanceMetadata() bool`
+
+HasResourceInstanceMetadata returns a boolean if a field has been set.
 
 ### GetResultParams
 
@@ -766,6 +924,56 @@ SetServerlessEnabled sets ServerlessEnabled field to given value.
 `func (o *DescribeResourceInstanceResult) HasServerlessEnabled() bool`
 
 HasServerlessEnabled returns a boolean if a field has been set.
+
+### GetSnapshotBeforeDeletionEnabled
+
+`func (o *DescribeResourceInstanceResult) GetSnapshotBeforeDeletionEnabled() bool`
+
+GetSnapshotBeforeDeletionEnabled returns the SnapshotBeforeDeletionEnabled field if non-nil, zero value otherwise.
+
+### GetSnapshotBeforeDeletionEnabledOk
+
+`func (o *DescribeResourceInstanceResult) GetSnapshotBeforeDeletionEnabledOk() (*bool, bool)`
+
+GetSnapshotBeforeDeletionEnabledOk returns a tuple with the SnapshotBeforeDeletionEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSnapshotBeforeDeletionEnabled
+
+`func (o *DescribeResourceInstanceResult) SetSnapshotBeforeDeletionEnabled(v bool)`
+
+SetSnapshotBeforeDeletionEnabled sets SnapshotBeforeDeletionEnabled field to given value.
+
+### HasSnapshotBeforeDeletionEnabled
+
+`func (o *DescribeResourceInstanceResult) HasSnapshotBeforeDeletionEnabled() bool`
+
+HasSnapshotBeforeDeletionEnabled returns a boolean if a field has been set.
+
+### GetSourceSnapshotID
+
+`func (o *DescribeResourceInstanceResult) GetSourceSnapshotID() string`
+
+GetSourceSnapshotID returns the SourceSnapshotID field if non-nil, zero value otherwise.
+
+### GetSourceSnapshotIDOk
+
+`func (o *DescribeResourceInstanceResult) GetSourceSnapshotIDOk() (*string, bool)`
+
+GetSourceSnapshotIDOk returns a tuple with the SourceSnapshotID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceSnapshotID
+
+`func (o *DescribeResourceInstanceResult) SetSourceSnapshotID(v string)`
+
+SetSourceSnapshotID sets SourceSnapshotID field to given value.
+
+### HasSourceSnapshotID
+
+`func (o *DescribeResourceInstanceResult) HasSourceSnapshotID() bool`
+
+HasSourceSnapshotID returns a boolean if a field has been set.
 
 ### GetStatus
 
