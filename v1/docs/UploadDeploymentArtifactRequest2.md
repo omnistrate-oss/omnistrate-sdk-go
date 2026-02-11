@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **AccountConfigID** | **string** | The account config ID associated with the deployment artifact | 
 **ArtifactPath** | **string** | The path to the deployment artifact | 
 **Base64EncodedArtifact** | **string** | The deployment artifact file content with base64 encoding, and expected to be a .tar.gz file | 
+**EnvironmentType** | **string** | The environment type for the deployment artifact | 
 **ProductTierName** | **string** | The name of the product tier | 
 **ServiceName** | **string** | The name of the service | 
 
@@ -14,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewUploadDeploymentArtifactRequest2
 
-`func NewUploadDeploymentArtifactRequest2(accountConfigID string, artifactPath string, base64EncodedArtifact string, productTierName string, serviceName string, ) *UploadDeploymentArtifactRequest2`
+`func NewUploadDeploymentArtifactRequest2(accountConfigID string, artifactPath string, base64EncodedArtifact string, environmentType string, productTierName string, serviceName string, ) *UploadDeploymentArtifactRequest2`
 
 NewUploadDeploymentArtifactRequest2 instantiates a new UploadDeploymentArtifactRequest2 object
 This constructor will assign default values to properties that have it defined,
@@ -87,6 +88,26 @@ and a boolean to check if the value has been set.
 `func (o *UploadDeploymentArtifactRequest2) SetBase64EncodedArtifact(v string)`
 
 SetBase64EncodedArtifact sets Base64EncodedArtifact field to given value.
+
+
+### GetEnvironmentType
+
+`func (o *UploadDeploymentArtifactRequest2) GetEnvironmentType() string`
+
+GetEnvironmentType returns the EnvironmentType field if non-nil, zero value otherwise.
+
+### GetEnvironmentTypeOk
+
+`func (o *UploadDeploymentArtifactRequest2) GetEnvironmentTypeOk() (*string, bool)`
+
+GetEnvironmentTypeOk returns a tuple with the EnvironmentType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnvironmentType
+
+`func (o *UploadDeploymentArtifactRequest2) SetEnvironmentType(v string)`
+
+SetEnvironmentType sets EnvironmentType field to given value.
 
 
 ### GetProductTierName

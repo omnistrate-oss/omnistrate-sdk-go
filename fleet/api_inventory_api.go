@@ -11142,14 +11142,7 @@ func (a *InventoryApiAPIService) InventoryApiListResourcesExecute(r ApiInventory
 type ApiInventoryApiListServiceOfferingsRequest struct {
 	ctx context.Context
 	ApiService InventoryApiAPI
-	orgId *string
 	visibility *string
-}
-
-// Org Id
-func (r ApiInventoryApiListServiceOfferingsRequest) OrgId(orgId string) ApiInventoryApiListServiceOfferingsRequest {
-	r.orgId = &orgId
-	return r
 }
 
 // The visibility of service offering
@@ -11196,9 +11189,6 @@ func (a *InventoryApiAPIService) InventoryApiListServiceOfferingsExecute(r ApiIn
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.orgId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "form", "")
-	}
 	if r.visibility != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "visibility", r.visibility, "form", "")
 	}

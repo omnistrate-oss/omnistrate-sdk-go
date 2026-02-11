@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OrgId** | Pointer to **string** | ID of an Org | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 **Visibility** | Pointer to **string** | This parameter is used to configure the visibility of the service control-plane APIs | [optional] 
 
@@ -26,31 +25,6 @@ will change when the set of required properties is changed
 NewInventoryListServiceOfferingsRequestWithDefaults instantiates a new InventoryListServiceOfferingsRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetOrgId
-
-`func (o *InventoryListServiceOfferingsRequest) GetOrgId() string`
-
-GetOrgId returns the OrgId field if non-nil, zero value otherwise.
-
-### GetOrgIdOk
-
-`func (o *InventoryListServiceOfferingsRequest) GetOrgIdOk() (*string, bool)`
-
-GetOrgIdOk returns a tuple with the OrgId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOrgId
-
-`func (o *InventoryListServiceOfferingsRequest) SetOrgId(v string)`
-
-SetOrgId sets OrgId field to given value.
-
-### HasOrgId
-
-`func (o *InventoryListServiceOfferingsRequest) HasOrgId() bool`
-
-HasOrgId returns a boolean if a field has been set.
 
 ### GetToken
 

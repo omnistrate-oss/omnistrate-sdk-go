@@ -20,8 +20,6 @@ var _ MappedNullable = &InventoryListServiceOfferingsRequest{}
 
 // InventoryListServiceOfferingsRequest struct for InventoryListServiceOfferingsRequest
 type InventoryListServiceOfferingsRequest struct {
-	// ID of an Org
-	OrgId *string `json:"orgId,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	// This parameter is used to configure the visibility of the service control-plane APIs
@@ -47,38 +45,6 @@ func NewInventoryListServiceOfferingsRequest(token string) *InventoryListService
 func NewInventoryListServiceOfferingsRequestWithDefaults() *InventoryListServiceOfferingsRequest {
 	this := InventoryListServiceOfferingsRequest{}
 	return &this
-}
-
-// GetOrgId returns the OrgId field value if set, zero value otherwise.
-func (o *InventoryListServiceOfferingsRequest) GetOrgId() string {
-	if o == nil || IsNil(o.OrgId) {
-		var ret string
-		return ret
-	}
-	return *o.OrgId
-}
-
-// GetOrgIdOk returns a tuple with the OrgId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *InventoryListServiceOfferingsRequest) GetOrgIdOk() (*string, bool) {
-	if o == nil || IsNil(o.OrgId) {
-		return nil, false
-	}
-	return o.OrgId, true
-}
-
-// HasOrgId returns a boolean if a field has been set.
-func (o *InventoryListServiceOfferingsRequest) HasOrgId() bool {
-	if o != nil && !IsNil(o.OrgId) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrgId gets a reference to the given string and assigns it to the OrgId field.
-func (o *InventoryListServiceOfferingsRequest) SetOrgId(v string) {
-	o.OrgId = &v
 }
 
 // GetToken returns the Token field value
@@ -147,9 +113,6 @@ func (o InventoryListServiceOfferingsRequest) MarshalJSON() ([]byte, error) {
 
 func (o InventoryListServiceOfferingsRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.OrgId) {
-		toSerialize["orgId"] = o.OrgId
-	}
 	toSerialize["token"] = o.Token
 	if !IsNil(o.Visibility) {
 		toSerialize["visibility"] = o.Visibility
@@ -197,7 +160,6 @@ func (o *InventoryListServiceOfferingsRequest) UnmarshalJSON(data []byte) (err e
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "orgId")
 		delete(additionalProperties, "token")
 		delete(additionalProperties, "visibility")
 		o.AdditionalProperties = additionalProperties

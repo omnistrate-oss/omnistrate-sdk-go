@@ -698,6 +698,7 @@ Class | Method | HTTP request | Description
  - [ListIdentityProvidersRequest](docs/ListIdentityProvidersRequest.md)
  - [ListIdentityProvidersResult](docs/ListIdentityProvidersResult.md)
  - [ListInstanceSnapshotResult](docs/ListInstanceSnapshotResult.md)
+ - [ListInstanceSnapshotsResult](docs/ListInstanceSnapshotsResult.md)
  - [ListInvoicesRequest](docs/ListInvoicesRequest.md)
  - [ListInvoicesResult](docs/ListInvoicesResult.md)
  - [ListNotificationChannelsRequest](docs/ListNotificationChannelsRequest.md)
