@@ -26,6 +26,8 @@ type UploadDeploymentArtifactRequest2 struct {
 	ArtifactPath string `json:"artifactPath"`
 	// The deployment artifact file content with base64 encoding, and expected to be a .tar.gz file
 	Base64EncodedArtifact string `json:"base64EncodedArtifact"`
+	// The environment type for the deployment artifact
+	EnvironmentType string `json:"environmentType"`
 	// The name of the product tier
 	ProductTierName string `json:"productTierName"`
 	// The name of the service
@@ -39,11 +41,12 @@ type _UploadDeploymentArtifactRequest2 UploadDeploymentArtifactRequest2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUploadDeploymentArtifactRequest2(accountConfigID string, artifactPath string, base64EncodedArtifact string, productTierName string, serviceName string) *UploadDeploymentArtifactRequest2 {
+func NewUploadDeploymentArtifactRequest2(accountConfigID string, artifactPath string, base64EncodedArtifact string, environmentType string, productTierName string, serviceName string) *UploadDeploymentArtifactRequest2 {
 	this := UploadDeploymentArtifactRequest2{}
 	this.AccountConfigID = accountConfigID
 	this.ArtifactPath = artifactPath
 	this.Base64EncodedArtifact = base64EncodedArtifact
+	this.EnvironmentType = environmentType
 	this.ProductTierName = productTierName
 	this.ServiceName = serviceName
 	return &this
@@ -129,6 +132,30 @@ func (o *UploadDeploymentArtifactRequest2) SetBase64EncodedArtifact(v string) {
 	o.Base64EncodedArtifact = v
 }
 
+// GetEnvironmentType returns the EnvironmentType field value
+func (o *UploadDeploymentArtifactRequest2) GetEnvironmentType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.EnvironmentType
+}
+
+// GetEnvironmentTypeOk returns a tuple with the EnvironmentType field value
+// and a boolean to check if the value has been set.
+func (o *UploadDeploymentArtifactRequest2) GetEnvironmentTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EnvironmentType, true
+}
+
+// SetEnvironmentType sets field value
+func (o *UploadDeploymentArtifactRequest2) SetEnvironmentType(v string) {
+	o.EnvironmentType = v
+}
+
 // GetProductTierName returns the ProductTierName field value
 func (o *UploadDeploymentArtifactRequest2) GetProductTierName() string {
 	if o == nil {
@@ -190,6 +217,7 @@ func (o UploadDeploymentArtifactRequest2) ToMap() (map[string]interface{}, error
 	toSerialize["accountConfigID"] = o.AccountConfigID
 	toSerialize["artifactPath"] = o.ArtifactPath
 	toSerialize["base64EncodedArtifact"] = o.Base64EncodedArtifact
+	toSerialize["environmentType"] = o.EnvironmentType
 	toSerialize["productTierName"] = o.ProductTierName
 	toSerialize["serviceName"] = o.ServiceName
 
@@ -208,6 +236,7 @@ func (o *UploadDeploymentArtifactRequest2) UnmarshalJSON(data []byte) (err error
 		"accountConfigID",
 		"artifactPath",
 		"base64EncodedArtifact",
+		"environmentType",
 		"productTierName",
 		"serviceName",
 	}
@@ -242,6 +271,7 @@ func (o *UploadDeploymentArtifactRequest2) UnmarshalJSON(data []byte) (err error
 		delete(additionalProperties, "accountConfigID")
 		delete(additionalProperties, "artifactPath")
 		delete(additionalProperties, "base64EncodedArtifact")
+		delete(additionalProperties, "environmentType")
 		delete(additionalProperties, "productTierName")
 		delete(additionalProperties, "serviceName")
 		o.AdditionalProperties = additionalProperties
