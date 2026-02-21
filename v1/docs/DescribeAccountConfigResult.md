@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **AwsCloudFormationTemplateURL** | Pointer to **string** | The URL to the CloudFormation template | [optional] 
 **AzureBootstrapShellCommand** | Pointer to **string** | The Azure bootstrap shell command | [optional] 
 **AzureDisconnectShellCommand** | Pointer to **string** | The Azure disconnect shell command | [optional] 
+**AzureOffboardShellCommand** | Pointer to **string** | The Azure offboard shell command | [optional] 
 **AzureSubscriptionID** | Pointer to **string** | The Azure subscription ID | [optional] 
 **AzureTenantID** | Pointer to **string** | The Azure tenant ID | [optional] 
 **ByoaInstanceIDs** | Pointer to **[]string** | The BYOA instance IDs that this account config is tied to | [optional] 
@@ -17,6 +18,7 @@ Name | Type | Description | Notes
 **Description** | **string** | The description for the account | 
 **GcpBootstrapShellCommand** | Pointer to **string** | The GCP bootstrap shell command | [optional] 
 **GcpDisconnectShellCommand** | Pointer to **string** | The GCP disconnect shell command | [optional] 
+**GcpOffboardShellCommand** | Pointer to **string** | The GCP offboard shell command | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **GcpProjectNumber** | Pointer to **string** | The GCP project number | [optional] 
 **GcpServiceAccountEmail** | Pointer to **string** | The GCP service account email | [optional] 
@@ -25,6 +27,7 @@ Name | Type | Description | Notes
 **OciBootstrapShellCommand** | Pointer to **string** | The OCI bootstrap shell command | [optional] 
 **OciDisconnectShellCommand** | Pointer to **string** | The OCI disconnect shell command | [optional] 
 **OciDomainID** | Pointer to **string** | The Domain OCID for Oracle Cloud Infrastructure | [optional] 
+**OciOffboardShellCommand** | Pointer to **string** | The OCI offboard shell command | [optional] 
 **OciTenancyID** | Pointer to **string** | The Tenancy OCID for Oracle Cloud Infrastructure | [optional] 
 **Status** | **string** | The status of the account configuration | 
 **StatusMessage** | **string** | The status message of the account | 
@@ -198,6 +201,31 @@ SetAzureDisconnectShellCommand sets AzureDisconnectShellCommand field to given v
 
 HasAzureDisconnectShellCommand returns a boolean if a field has been set.
 
+### GetAzureOffboardShellCommand
+
+`func (o *DescribeAccountConfigResult) GetAzureOffboardShellCommand() string`
+
+GetAzureOffboardShellCommand returns the AzureOffboardShellCommand field if non-nil, zero value otherwise.
+
+### GetAzureOffboardShellCommandOk
+
+`func (o *DescribeAccountConfigResult) GetAzureOffboardShellCommandOk() (*string, bool)`
+
+GetAzureOffboardShellCommandOk returns a tuple with the AzureOffboardShellCommand field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAzureOffboardShellCommand
+
+`func (o *DescribeAccountConfigResult) SetAzureOffboardShellCommand(v string)`
+
+SetAzureOffboardShellCommand sets AzureOffboardShellCommand field to given value.
+
+### HasAzureOffboardShellCommand
+
+`func (o *DescribeAccountConfigResult) HasAzureOffboardShellCommand() bool`
+
+HasAzureOffboardShellCommand returns a boolean if a field has been set.
+
 ### GetAzureSubscriptionID
 
 `func (o *DescribeAccountConfigResult) GetAzureSubscriptionID() string`
@@ -362,6 +390,31 @@ SetGcpDisconnectShellCommand sets GcpDisconnectShellCommand field to given value
 `func (o *DescribeAccountConfigResult) HasGcpDisconnectShellCommand() bool`
 
 HasGcpDisconnectShellCommand returns a boolean if a field has been set.
+
+### GetGcpOffboardShellCommand
+
+`func (o *DescribeAccountConfigResult) GetGcpOffboardShellCommand() string`
+
+GetGcpOffboardShellCommand returns the GcpOffboardShellCommand field if non-nil, zero value otherwise.
+
+### GetGcpOffboardShellCommandOk
+
+`func (o *DescribeAccountConfigResult) GetGcpOffboardShellCommandOk() (*string, bool)`
+
+GetGcpOffboardShellCommandOk returns a tuple with the GcpOffboardShellCommand field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGcpOffboardShellCommand
+
+`func (o *DescribeAccountConfigResult) SetGcpOffboardShellCommand(v string)`
+
+SetGcpOffboardShellCommand sets GcpOffboardShellCommand field to given value.
+
+### HasGcpOffboardShellCommand
+
+`func (o *DescribeAccountConfigResult) HasGcpOffboardShellCommand() bool`
+
+HasGcpOffboardShellCommand returns a boolean if a field has been set.
 
 ### GetGcpProjectID
 
@@ -552,6 +605,31 @@ SetOciDomainID sets OciDomainID field to given value.
 `func (o *DescribeAccountConfigResult) HasOciDomainID() bool`
 
 HasOciDomainID returns a boolean if a field has been set.
+
+### GetOciOffboardShellCommand
+
+`func (o *DescribeAccountConfigResult) GetOciOffboardShellCommand() string`
+
+GetOciOffboardShellCommand returns the OciOffboardShellCommand field if non-nil, zero value otherwise.
+
+### GetOciOffboardShellCommandOk
+
+`func (o *DescribeAccountConfigResult) GetOciOffboardShellCommandOk() (*string, bool)`
+
+GetOciOffboardShellCommandOk returns a tuple with the OciOffboardShellCommand field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciOffboardShellCommand
+
+`func (o *DescribeAccountConfigResult) SetOciOffboardShellCommand(v string)`
+
+SetOciOffboardShellCommand sets OciOffboardShellCommand field to given value.
+
+### HasOciOffboardShellCommand
+
+`func (o *DescribeAccountConfigResult) HasOciOffboardShellCommand() bool`
+
+HasOciOffboardShellCommand returns a boolean if a field has been set.
 
 ### GetOciTenancyID
 

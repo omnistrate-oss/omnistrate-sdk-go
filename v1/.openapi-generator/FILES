@@ -544,6 +544,7 @@ docs/ListInfraConfigResult.md
 docs/ListInputParametersRequest.md
 docs/ListInputParametersResult.md
 docs/ListInstanceSnapshotResult.md
+docs/ListInstanceSnapshotsResult.md
 docs/ListInvoicesRequest.md
 docs/ListInvoicesResult.md
 docs/ListLimitRequest.md
@@ -1312,6 +1313,7 @@ model_list_infra_config_result.go
 model_list_input_parameters_request.go
 model_list_input_parameters_result.go
 model_list_instance_snapshot_result.go
+model_list_instance_snapshots_result.go
 model_list_invoices_request.go
 model_list_invoices_result.go
 model_list_limit_request.go

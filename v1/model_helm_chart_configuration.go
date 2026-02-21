@@ -20,6 +20,8 @@ var _ MappedNullable = &HelmChartConfiguration{}
 
 // HelmChartConfiguration struct for HelmChartConfiguration
 type HelmChartConfiguration struct {
+	// The local path to the helm chart artifact
+	ArtifactsLocalPath *string `json:"artifactsLocalPath,omitempty"`
 	// The tag to auto-discover and update in the Helm chart values (if the chartValues or layeredChartValues contain an image tag placeholder like {{ .Values.image.tag }}, this field specifies which tag to replace it with)
 	AutoDiscoverImagesTag *string `json:"autoDiscoverImagesTag,omitempty"`
 	ChartAffinityControl *HelmChartAffinityControl `json:"chartAffinityControl,omitempty"`
@@ -70,6 +72,29 @@ func NewHelmChartConfiguration(chartName string, chartRepoName string, chartRepo
 func NewHelmChartConfigurationWithDefaults() *HelmChartConfiguration {
 	this := HelmChartConfiguration{}
 	return &this
+}
+
+// GetArtifactsLocalPath returns the ArtifactsLocalPath field value if set, zero value otherwise.
+func (o *HelmChartConfiguration) GetArtifactsLocalPath() string {
+	if o == nil || IsNil(o.ArtifactsLocalPath) {
+		var ret string
+		return ret
+	}
+	return *o.ArtifactsLocalPath
+}
+
+// GetArtifactsLocalPathOk returns a tuple with the ArtifactsLocalPath field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HelmChartConfiguration) GetArtifactsLocalPathOk() (*string, bool) {
+	if o == nil || IsNil(o.ArtifactsLocalPath) {
+		return nil, false
+	}
+	return o.ArtifactsLocalPath, true
+}
+
+// SetArtifactsLocalPath gets a reference to the given string and assigns it to the ArtifactsLocalPath field.
+func (o *HelmChartConfiguration) SetArtifactsLocalPath(v string) {
+	o.ArtifactsLocalPath = &v
 }
 
 // GetAutoDiscoverImagesTag returns the AutoDiscoverImagesTag field value if set, zero value otherwise.
@@ -408,6 +433,9 @@ func (o HelmChartConfiguration) MarshalJSON() ([]byte, error) {
 
 func (o HelmChartConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ArtifactsLocalPath) {
+		toSerialize["artifactsLocalPath"] = o.ArtifactsLocalPath
+	}
 	if !IsNil(o.AutoDiscoverImagesTag) {
 		toSerialize["autoDiscoverImagesTag"] = o.AutoDiscoverImagesTag
 	}
@@ -488,6 +516,7 @@ func (o *HelmChartConfiguration) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "artifactsLocalPath")
 		delete(additionalProperties, "autoDiscoverImagesTag")
 		delete(additionalProperties, "chartAffinityControl")
 		delete(additionalProperties, "chartName")

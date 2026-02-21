@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**NotificationsApiCreateNotificationChannel**](NotificationsApiAPI.md#NotificationsApiCreateNotificationChannel) | **Post** /2022-09-01-00/fleet/notification-channel | CreateNotificationChannel notifications-api
 [**NotificationsApiDeleteNotificationChannel**](NotificationsApiAPI.md#NotificationsApiDeleteNotificationChannel) | **Delete** /2022-09-01-00/fleet/notification-channel/{id} | DeleteNotificationChannel notifications-api
 [**NotificationsApiDescribeNotificationChannel**](NotificationsApiAPI.md#NotificationsApiDescribeNotificationChannel) | **Get** /2022-09-01-00/fleet/notification-channel/{id} | DescribeNotificationChannel notifications-api
+[**NotificationsApiGetEventCategoryTypeMap**](NotificationsApiAPI.md#NotificationsApiGetEventCategoryTypeMap) | **Get** /2022-09-01-00/fleet/notification-channel/event-category-type-map | GetEventCategoryTypeMap notifications-api
 [**NotificationsApiListNotificationChannels**](NotificationsApiAPI.md#NotificationsApiListNotificationChannels) | **Get** /2022-09-01-00/fleet/notification-channel | ListNotificationChannels notifications-api
 [**NotificationsApiNotificationChannelEventHistory**](NotificationsApiAPI.md#NotificationsApiNotificationChannelEventHistory) | **Get** /2022-09-01-00/fleet/notification-channel/{id}/event-history | NotificationChannelEventHistory notifications-api
 [**NotificationsApiReplayEvent**](NotificationsApiAPI.md#NotificationsApiReplayEvent) | **Post** /2022-09-01-00/fleet/notification-event/{id}/replay | ReplayEvent notifications-api
@@ -197,6 +198,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Channel**](Channel.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## NotificationsApiGetEventCategoryTypeMap
+
+> GetEventCategoryTypeMapResult NotificationsApiGetEventCategoryTypeMap(ctx).Execute()
+
+GetEventCategoryTypeMap notifications-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.NotificationsApiAPI.NotificationsApiGetEventCategoryTypeMap(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsApiAPI.NotificationsApiGetEventCategoryTypeMap``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `NotificationsApiGetEventCategoryTypeMap`: GetEventCategoryTypeMapResult
+	fmt.Fprintf(os.Stdout, "Response from `NotificationsApiAPI.NotificationsApiGetEventCategoryTypeMap`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiNotificationsApiGetEventCategoryTypeMapRequest struct via the builder pattern
+
+
+### Return type
+
+[**GetEventCategoryTypeMapResult**](GetEventCategoryTypeMapResult.md)
 
 ### Authorization
 

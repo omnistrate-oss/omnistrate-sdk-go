@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ArtifactsLocalPath** | Pointer to **string** | The local path to store artifacts generated during Terraform execution | [optional] 
+**ArtifactsLocalPath** | Pointer to **string** | The local path to the terraform artifacts | [optional] 
 **GitConfiguration** | Pointer to [**GitConfiguration**](GitConfiguration.md) |  | [optional] 
 **PrivateModuleGitAccessTokens** | Pointer to **map[string]string** | The git access tokens for private modules | [optional] 
 **RequiredOutputKeys** | Pointer to **[]string** | The required output keys to export | [optional] 

@@ -32,7 +32,7 @@ func main() {
 	pageSize := int64(10) // int64 |  (optional)
 	serviceID := "s-123456" // string | The service ID to list events for (optional)
 	environmentType := "PROD|PRIVATE|CANARY|STAGING|QA|DEV|GLOBAL" // string |  (optional)
-	eventSourceTypes := []string{"Magni maiores eum."} // []string | The event types to filter by (optional)
+	eventSourceTypes := []string{"Ipsum in soluta."} // []string | The event types to filter by (optional)
 	instanceID := "instance-12345678" // string | The instance ID to list events for (optional)
 	productTierID := "Et iusto eos." // string |  (optional)
 	startDate := time.Now() // time.Time | Start date of the events (optional)

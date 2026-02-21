@@ -81,8 +81,8 @@ type InstanceSnapshotApiAPI interface {
 	InstanceSnapshotApiListAllInstanceSnapshots(ctx context.Context) ApiInstanceSnapshotApiListAllInstanceSnapshotsRequest
 
 	// InstanceSnapshotApiListAllInstanceSnapshotsExecute executes the request
-	//  @return ListInstanceSnapshotResult
-	InstanceSnapshotApiListAllInstanceSnapshotsExecute(r ApiInstanceSnapshotApiListAllInstanceSnapshotsRequest) (*ListInstanceSnapshotResult, *http.Response, error)
+	//  @return ListInstanceSnapshotsResult
+	InstanceSnapshotApiListAllInstanceSnapshotsExecute(r ApiInstanceSnapshotApiListAllInstanceSnapshotsRequest) (*ListInstanceSnapshotsResult, *http.Response, error)
 
 	/*
 	InstanceSnapshotApiRestoreResourceInstanceFromSnapshot RestoreResourceInstanceFromSnapshot instance-snapshot-api
@@ -820,7 +820,7 @@ func (r ApiInstanceSnapshotApiListAllInstanceSnapshotsRequest) SnapshotType(snap
 	return r
 }
 
-func (r ApiInstanceSnapshotApiListAllInstanceSnapshotsRequest) Execute() (*ListInstanceSnapshotResult, *http.Response, error) {
+func (r ApiInstanceSnapshotApiListAllInstanceSnapshotsRequest) Execute() (*ListInstanceSnapshotsResult, *http.Response, error) {
 	return r.ApiService.InstanceSnapshotApiListAllInstanceSnapshotsExecute(r)
 }
 
@@ -838,13 +838,13 @@ func (a *InstanceSnapshotApiAPIService) InstanceSnapshotApiListAllInstanceSnapsh
 }
 
 // Execute executes the request
-//  @return ListInstanceSnapshotResult
-func (a *InstanceSnapshotApiAPIService) InstanceSnapshotApiListAllInstanceSnapshotsExecute(r ApiInstanceSnapshotApiListAllInstanceSnapshotsRequest) (*ListInstanceSnapshotResult, *http.Response, error) {
+//  @return ListInstanceSnapshotsResult
+func (a *InstanceSnapshotApiAPIService) InstanceSnapshotApiListAllInstanceSnapshotsExecute(r ApiInstanceSnapshotApiListAllInstanceSnapshotsRequest) (*ListInstanceSnapshotsResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListInstanceSnapshotResult
+		localVarReturnValue  *ListInstanceSnapshotsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstanceSnapshotApiAPIService.InstanceSnapshotApiListAllInstanceSnapshots")

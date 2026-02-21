@@ -246,7 +246,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "cc-12345678" // string | ID of the compute config
-	productTierVersion := "Nemo harum quis." // string | Product tier version of the compute config to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Quibusdam voluptas aut." // string | Product tier version of the compute config to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Beatae beatae." // string | ProductTierId of the compute config to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
