@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 
 ## InstanceSnapshotApiListAllInstanceSnapshots
 
-> ListInstanceSnapshotResult InstanceSnapshotApiListAllInstanceSnapshots(ctx).EnvironmentType(environmentType).SnapshotType(snapshotType).Execute()
+> ListInstanceSnapshotsResult InstanceSnapshotApiListAllInstanceSnapshots(ctx).EnvironmentType(environmentType).SnapshotType(snapshotType).Execute()
 
 ListAllInstanceSnapshots instance-snapshot-api
 
@@ -318,7 +318,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `InstanceSnapshotApiAPI.InstanceSnapshotApiListAllInstanceSnapshots``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `InstanceSnapshotApiListAllInstanceSnapshots`: ListInstanceSnapshotResult
+	// response from `InstanceSnapshotApiListAllInstanceSnapshots`: ListInstanceSnapshotsResult
 	fmt.Fprintf(os.Stdout, "Response from `InstanceSnapshotApiAPI.InstanceSnapshotApiListAllInstanceSnapshots`: %v\n", resp)
 }
 ```
@@ -339,7 +339,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListInstanceSnapshotResult**](ListInstanceSnapshotResult.md)
+[**ListInstanceSnapshotsResult**](ListInstanceSnapshotsResult.md)
 
 ### Authorization
 

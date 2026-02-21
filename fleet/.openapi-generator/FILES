@@ -404,6 +404,8 @@ docs/GetCurrentConsumptionUsageRequest.md
 docs/GetCurrentUsageRequest.md
 docs/GetDeploymentCellWorkflowEventsRequest.md
 docs/GetDeploymentCellWorkflowEventsResult.md
+docs/GetEventCategoryTypeMapRequest.md
+docs/GetEventCategoryTypeMapResult.md
 docs/GetRegionByCodeRequest.md
 docs/GetSecretRequest.md
 docs/GetSecretResult.md
@@ -1085,6 +1087,8 @@ model_get_current_consumption_usage_request.go
 model_get_current_usage_request.go
 model_get_deployment_cell_workflow_events_request.go
 model_get_deployment_cell_workflow_events_result.go
+model_get_event_category_type_map_request.go
+model_get_event_category_type_map_result.go
 model_get_region_by_code_request.go
 model_get_secret_request.go
 model_get_secret_result.go

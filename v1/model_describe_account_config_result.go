@@ -32,6 +32,8 @@ type DescribeAccountConfigResult struct {
 	AzureBootstrapShellCommand *string `json:"azureBootstrapShellCommand,omitempty"`
 	// The Azure disconnect shell command
 	AzureDisconnectShellCommand *string `json:"azureDisconnectShellCommand,omitempty"`
+	// The Azure offboard shell command
+	AzureOffboardShellCommand *string `json:"azureOffboardShellCommand,omitempty"`
 	// The Azure subscription ID
 	AzureSubscriptionID *string `json:"azureSubscriptionID,omitempty"`
 	// The Azure tenant ID
@@ -46,6 +48,8 @@ type DescribeAccountConfigResult struct {
 	GcpBootstrapShellCommand *string `json:"gcpBootstrapShellCommand,omitempty"`
 	// The GCP disconnect shell command
 	GcpDisconnectShellCommand *string `json:"gcpDisconnectShellCommand,omitempty"`
+	// The GCP offboard shell command
+	GcpOffboardShellCommand *string `json:"gcpOffboardShellCommand,omitempty"`
 	// The GCP project ID
 	GcpProjectID *string `json:"gcpProjectID,omitempty"`
 	// The GCP project number
@@ -62,6 +66,8 @@ type DescribeAccountConfigResult struct {
 	OciDisconnectShellCommand *string `json:"ociDisconnectShellCommand,omitempty"`
 	// The Domain OCID for Oracle Cloud Infrastructure
 	OciDomainID *string `json:"ociDomainID,omitempty"`
+	// The OCI offboard shell command
+	OciOffboardShellCommand *string `json:"ociOffboardShellCommand,omitempty"`
 	// The Tenancy OCID for Oracle Cloud Infrastructure
 	OciTenancyID *string `json:"ociTenancyID,omitempty"`
 	// The status of the account configuration
@@ -234,6 +240,29 @@ func (o *DescribeAccountConfigResult) SetAzureDisconnectShellCommand(v string) {
 	o.AzureDisconnectShellCommand = &v
 }
 
+// GetAzureOffboardShellCommand returns the AzureOffboardShellCommand field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetAzureOffboardShellCommand() string {
+	if o == nil || IsNil(o.AzureOffboardShellCommand) {
+		var ret string
+		return ret
+	}
+	return *o.AzureOffboardShellCommand
+}
+
+// GetAzureOffboardShellCommandOk returns a tuple with the AzureOffboardShellCommand field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetAzureOffboardShellCommandOk() (*string, bool) {
+	if o == nil || IsNil(o.AzureOffboardShellCommand) {
+		return nil, false
+	}
+	return o.AzureOffboardShellCommand, true
+}
+
+// SetAzureOffboardShellCommand gets a reference to the given string and assigns it to the AzureOffboardShellCommand field.
+func (o *DescribeAccountConfigResult) SetAzureOffboardShellCommand(v string) {
+	o.AzureOffboardShellCommand = &v
+}
+
 // GetAzureSubscriptionID returns the AzureSubscriptionID field value if set, zero value otherwise.
 func (o *DescribeAccountConfigResult) GetAzureSubscriptionID() string {
 	if o == nil || IsNil(o.AzureSubscriptionID) {
@@ -395,6 +424,29 @@ func (o *DescribeAccountConfigResult) GetGcpDisconnectShellCommandOk() (*string,
 // SetGcpDisconnectShellCommand gets a reference to the given string and assigns it to the GcpDisconnectShellCommand field.
 func (o *DescribeAccountConfigResult) SetGcpDisconnectShellCommand(v string) {
 	o.GcpDisconnectShellCommand = &v
+}
+
+// GetGcpOffboardShellCommand returns the GcpOffboardShellCommand field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetGcpOffboardShellCommand() string {
+	if o == nil || IsNil(o.GcpOffboardShellCommand) {
+		var ret string
+		return ret
+	}
+	return *o.GcpOffboardShellCommand
+}
+
+// GetGcpOffboardShellCommandOk returns a tuple with the GcpOffboardShellCommand field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetGcpOffboardShellCommandOk() (*string, bool) {
+	if o == nil || IsNil(o.GcpOffboardShellCommand) {
+		return nil, false
+	}
+	return o.GcpOffboardShellCommand, true
+}
+
+// SetGcpOffboardShellCommand gets a reference to the given string and assigns it to the GcpOffboardShellCommand field.
+func (o *DescribeAccountConfigResult) SetGcpOffboardShellCommand(v string) {
+	o.GcpOffboardShellCommand = &v
 }
 
 // GetGcpProjectID returns the GcpProjectID field value if set, zero value otherwise.
@@ -583,6 +635,29 @@ func (o *DescribeAccountConfigResult) SetOciDomainID(v string) {
 	o.OciDomainID = &v
 }
 
+// GetOciOffboardShellCommand returns the OciOffboardShellCommand field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetOciOffboardShellCommand() string {
+	if o == nil || IsNil(o.OciOffboardShellCommand) {
+		var ret string
+		return ret
+	}
+	return *o.OciOffboardShellCommand
+}
+
+// GetOciOffboardShellCommandOk returns a tuple with the OciOffboardShellCommand field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetOciOffboardShellCommandOk() (*string, bool) {
+	if o == nil || IsNil(o.OciOffboardShellCommand) {
+		return nil, false
+	}
+	return o.OciOffboardShellCommand, true
+}
+
+// SetOciOffboardShellCommand gets a reference to the given string and assigns it to the OciOffboardShellCommand field.
+func (o *DescribeAccountConfigResult) SetOciOffboardShellCommand(v string) {
+	o.OciOffboardShellCommand = &v
+}
+
 // GetOciTenancyID returns the OciTenancyID field value if set, zero value otherwise.
 func (o *DescribeAccountConfigResult) GetOciTenancyID() string {
 	if o == nil || IsNil(o.OciTenancyID) {
@@ -682,6 +757,9 @@ func (o DescribeAccountConfigResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AzureDisconnectShellCommand) {
 		toSerialize["azureDisconnectShellCommand"] = o.AzureDisconnectShellCommand
 	}
+	if !IsNil(o.AzureOffboardShellCommand) {
+		toSerialize["azureOffboardShellCommand"] = o.AzureOffboardShellCommand
+	}
 	if !IsNil(o.AzureSubscriptionID) {
 		toSerialize["azureSubscriptionID"] = o.AzureSubscriptionID
 	}
@@ -698,6 +776,9 @@ func (o DescribeAccountConfigResult) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.GcpDisconnectShellCommand) {
 		toSerialize["gcpDisconnectShellCommand"] = o.GcpDisconnectShellCommand
+	}
+	if !IsNil(o.GcpOffboardShellCommand) {
+		toSerialize["gcpOffboardShellCommand"] = o.GcpOffboardShellCommand
 	}
 	if !IsNil(o.GcpProjectID) {
 		toSerialize["gcpProjectID"] = o.GcpProjectID
@@ -718,6 +799,9 @@ func (o DescribeAccountConfigResult) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.OciDomainID) {
 		toSerialize["ociDomainID"] = o.OciDomainID
+	}
+	if !IsNil(o.OciOffboardShellCommand) {
+		toSerialize["ociOffboardShellCommand"] = o.OciOffboardShellCommand
 	}
 	if !IsNil(o.OciTenancyID) {
 		toSerialize["ociTenancyID"] = o.OciTenancyID
@@ -778,6 +862,7 @@ func (o *DescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "awsCloudFormationTemplateURL")
 		delete(additionalProperties, "azureBootstrapShellCommand")
 		delete(additionalProperties, "azureDisconnectShellCommand")
+		delete(additionalProperties, "azureOffboardShellCommand")
 		delete(additionalProperties, "azureSubscriptionID")
 		delete(additionalProperties, "azureTenantID")
 		delete(additionalProperties, "byoaInstanceIDs")
@@ -785,6 +870,7 @@ func (o *DescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "gcpBootstrapShellCommand")
 		delete(additionalProperties, "gcpDisconnectShellCommand")
+		delete(additionalProperties, "gcpOffboardShellCommand")
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "gcpProjectNumber")
 		delete(additionalProperties, "gcpServiceAccountEmail")
@@ -793,6 +879,7 @@ func (o *DescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "ociBootstrapShellCommand")
 		delete(additionalProperties, "ociDisconnectShellCommand")
 		delete(additionalProperties, "ociDomainID")
+		delete(additionalProperties, "ociOffboardShellCommand")
 		delete(additionalProperties, "ociTenancyID")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "statusMessage")

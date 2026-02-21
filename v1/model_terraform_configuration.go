@@ -20,7 +20,7 @@ var _ MappedNullable = &TerraformConfiguration{}
 
 // TerraformConfiguration struct for TerraformConfiguration
 type TerraformConfiguration struct {
-	// The local path to store artifacts generated during Terraform execution
+	// The local path to the terraform artifacts
 	ArtifactsLocalPath *string `json:"artifactsLocalPath,omitempty"`
 	GitConfiguration *GitConfiguration `json:"gitConfiguration,omitempty"`
 	// The git access tokens for private modules

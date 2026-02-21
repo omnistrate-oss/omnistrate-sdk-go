@@ -61,6 +61,18 @@ func Test_fleet_NotificationsApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test NotificationsApiAPIService NotificationsApiGetEventCategoryTypeMap", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.NotificationsApiAPI.NotificationsApiGetEventCategoryTypeMap(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test NotificationsApiAPIService NotificationsApiListNotificationChannels", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ArtifactsLocalPath** | Pointer to **string** | The local path to the helm chart artifact | [optional] 
 **AutoDiscoverImagesTag** | Pointer to **string** | The tag to auto-discover and update in the Helm chart values (if the chartValues or layeredChartValues contain an image tag placeholder like {{ .Values.image.tag }}, this field specifies which tag to replace it with) | [optional] 
 **ChartAffinityControl** | Pointer to [**HelmChartAffinityControl**](HelmChartAffinityControl.md) |  | [optional] 
 **ChartName** | **string** | The chart name of the Helm package | 
@@ -37,6 +38,31 @@ will change when the set of required properties is changed
 NewHelmChartConfigurationWithDefaults instantiates a new HelmChartConfiguration object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetArtifactsLocalPath
+
+`func (o *HelmChartConfiguration) GetArtifactsLocalPath() string`
+
+GetArtifactsLocalPath returns the ArtifactsLocalPath field if non-nil, zero value otherwise.
+
+### GetArtifactsLocalPathOk
+
+`func (o *HelmChartConfiguration) GetArtifactsLocalPathOk() (*string, bool)`
+
+GetArtifactsLocalPathOk returns a tuple with the ArtifactsLocalPath field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetArtifactsLocalPath
+
+`func (o *HelmChartConfiguration) SetArtifactsLocalPath(v string)`
+
+SetArtifactsLocalPath sets ArtifactsLocalPath field to given value.
+
+### HasArtifactsLocalPath
+
+`func (o *HelmChartConfiguration) HasArtifactsLocalPath() bool`
+
+HasArtifactsLocalPath returns a boolean if a field has been set.
 
 ### GetAutoDiscoverImagesTag
 
