@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **CreatedAt** | **string** | The timestamp when the upgrade path was created. | 
 **CreatedBy** | Pointer to **string** | The name of the user who created the upgrade path. | [optional] 
 **FailedCount** | **int64** | The number of instances that have failed the upgrade. | 
+**FailedInstanceReasons** | Pointer to [**map[string]InstanceFailureDetail**](InstanceFailureDetail.md) | A map of instance IDs to their failure details for instances that were not eligible for upgrade. | [optional] 
 **InProgressCount** | **int64** | The number of instances that are in progress of the upgrade. | 
 **LastModifiedBy** | Pointer to **string** | The name of the user who created the upgrade path. | [optional] 
 **LastRequestedAction** | Pointer to **string** | The action to perform on an ongoing resource workflow | [optional] 
@@ -24,6 +25,7 @@ Name | Type | Description | Notes
 **SourceVersion** | **string** | The source version of the upgrade path. | 
 **SourceVersionName** | **string** | The source version name of the upgrade path. | 
 **Status** | **string** | The status of the upgrade path. | 
+**StatusMessage** | Pointer to **string** | A human-readable message explaining the current status of the upgrade path, such as why it was cancelled or failed. | [optional] 
 **TargetVersion** | **string** | The target version of the upgrade path. | 
 **TargetVersionName** | **string** | The target version name of the upgrade path. | 
 **TotalCount** | **int64** | The total number of instances that are eligible for the upgrade. | 
@@ -159,6 +161,31 @@ and a boolean to check if the value has been set.
 
 SetFailedCount sets FailedCount field to given value.
 
+
+### GetFailedInstanceReasons
+
+`func (o *UpgradePath) GetFailedInstanceReasons() map[string]InstanceFailureDetail`
+
+GetFailedInstanceReasons returns the FailedInstanceReasons field if non-nil, zero value otherwise.
+
+### GetFailedInstanceReasonsOk
+
+`func (o *UpgradePath) GetFailedInstanceReasonsOk() (*map[string]InstanceFailureDetail, bool)`
+
+GetFailedInstanceReasonsOk returns a tuple with the FailedInstanceReasons field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFailedInstanceReasons
+
+`func (o *UpgradePath) SetFailedInstanceReasons(v map[string]InstanceFailureDetail)`
+
+SetFailedInstanceReasons sets FailedInstanceReasons field to given value.
+
+### HasFailedInstanceReasons
+
+`func (o *UpgradePath) HasFailedInstanceReasons() bool`
+
+HasFailedInstanceReasons returns a boolean if a field has been set.
 
 ### GetInProgressCount
 
@@ -489,6 +516,31 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
+
+### GetStatusMessage
+
+`func (o *UpgradePath) GetStatusMessage() string`
+
+GetStatusMessage returns the StatusMessage field if non-nil, zero value otherwise.
+
+### GetStatusMessageOk
+
+`func (o *UpgradePath) GetStatusMessageOk() (*string, bool)`
+
+GetStatusMessageOk returns a tuple with the StatusMessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatusMessage
+
+`func (o *UpgradePath) SetStatusMessage(v string)`
+
+SetStatusMessage sets StatusMessage field to given value.
+
+### HasStatusMessage
+
+`func (o *UpgradePath) HasStatusMessage() bool`
+
+HasStatusMessage returns a boolean if a field has been set.
 
 ### GetTargetVersion
 

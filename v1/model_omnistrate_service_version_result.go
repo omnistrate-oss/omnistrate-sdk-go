@@ -26,6 +26,8 @@ type OmnistrateServiceVersionResult struct {
 	BuildCommitSHA string `json:"buildCommitSHA"`
 	// The timestamp of the build
 	BuildTimestamp string `json:"buildTimestamp"`
+	// Service component tag identifying the running version
+	ComponentVersion string `json:"componentVersion"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -35,11 +37,12 @@ type _OmnistrateServiceVersionResult OmnistrateServiceVersionResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOmnistrateServiceVersionResult(apiVersion string, buildCommitSHA string, buildTimestamp string) *OmnistrateServiceVersionResult {
+func NewOmnistrateServiceVersionResult(apiVersion string, buildCommitSHA string, buildTimestamp string, componentVersion string) *OmnistrateServiceVersionResult {
 	this := OmnistrateServiceVersionResult{}
 	this.ApiVersion = apiVersion
 	this.BuildCommitSHA = buildCommitSHA
 	this.BuildTimestamp = buildTimestamp
+	this.ComponentVersion = componentVersion
 	return &this
 }
 
@@ -123,6 +126,30 @@ func (o *OmnistrateServiceVersionResult) SetBuildTimestamp(v string) {
 	o.BuildTimestamp = v
 }
 
+// GetComponentVersion returns the ComponentVersion field value
+func (o *OmnistrateServiceVersionResult) GetComponentVersion() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ComponentVersion
+}
+
+// GetComponentVersionOk returns a tuple with the ComponentVersion field value
+// and a boolean to check if the value has been set.
+func (o *OmnistrateServiceVersionResult) GetComponentVersionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ComponentVersion, true
+}
+
+// SetComponentVersion sets field value
+func (o *OmnistrateServiceVersionResult) SetComponentVersion(v string) {
+	o.ComponentVersion = v
+}
+
 func (o OmnistrateServiceVersionResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -136,6 +163,7 @@ func (o OmnistrateServiceVersionResult) ToMap() (map[string]interface{}, error) 
 	toSerialize["apiVersion"] = o.ApiVersion
 	toSerialize["buildCommitSHA"] = o.BuildCommitSHA
 	toSerialize["buildTimestamp"] = o.BuildTimestamp
+	toSerialize["componentVersion"] = o.ComponentVersion
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -152,6 +180,7 @@ func (o *OmnistrateServiceVersionResult) UnmarshalJSON(data []byte) (err error) 
 		"apiVersion",
 		"buildCommitSHA",
 		"buildTimestamp",
+		"componentVersion",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -184,6 +213,7 @@ func (o *OmnistrateServiceVersionResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "apiVersion")
 		delete(additionalProperties, "buildCommitSHA")
 		delete(additionalProperties, "buildTimestamp")
+		delete(additionalProperties, "componentVersion")
 		o.AdditionalProperties = additionalProperties
 	}
 

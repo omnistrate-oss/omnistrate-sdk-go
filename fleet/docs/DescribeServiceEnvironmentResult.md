@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Id** | **string** | ID of a Service Environment | 
 **Key** | **string** | Unique Key of the Service Environment | 
 **Name** | **string** | Name of the Service Environment | 
+**PromotionStatus** | Pointer to [**[]EnvironmentPromotionStatus**](EnvironmentPromotionStatus.md) | The promotion status of this environment to its downstream targets. Only populated when this environment is a source for promotion. | [optional] 
 **RoleType** | Pointer to **string** | Type of the role | [optional] 
 **SaasPortalStatus** | Pointer to **string** | The status of an operation | [optional] 
 **SaasPortalUrl** | Pointer to **string** | The URL of the SaaS portal for this environment type | [optional] 
@@ -162,6 +163,31 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetPromotionStatus
+
+`func (o *DescribeServiceEnvironmentResult) GetPromotionStatus() []EnvironmentPromotionStatus`
+
+GetPromotionStatus returns the PromotionStatus field if non-nil, zero value otherwise.
+
+### GetPromotionStatusOk
+
+`func (o *DescribeServiceEnvironmentResult) GetPromotionStatusOk() (*[]EnvironmentPromotionStatus, bool)`
+
+GetPromotionStatusOk returns a tuple with the PromotionStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPromotionStatus
+
+`func (o *DescribeServiceEnvironmentResult) SetPromotionStatus(v []EnvironmentPromotionStatus)`
+
+SetPromotionStatus sets PromotionStatus field to given value.
+
+### HasPromotionStatus
+
+`func (o *DescribeServiceEnvironmentResult) HasPromotionStatus() bool`
+
+HasPromotionStatus returns a boolean if a field has been set.
 
 ### GetRoleType
 

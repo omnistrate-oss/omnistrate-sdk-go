@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AcceleratorConfiguration** | Pointer to [**AcceleratorConfiguration**](AcceleratorConfiguration.md) |  | [optional] 
+**EphemeralStorageLocalSsdConfig** | Pointer to [**EphemeralStorageLocalSsdConfig**](EphemeralStorageLocalSsdConfig.md) |  | [optional] 
 **InstanceLifeCycleType** | Pointer to **string** | The instance life cycle type for this compute instance type config | [optional] 
 **Labels** | Pointer to **map[string]string** | Labels for the compute instance type config | [optional] 
 **RootVolumeSizeGi** | Pointer to **int64** | Size of the root volume in Gi | [optional] 
@@ -55,6 +56,31 @@ SetAcceleratorConfiguration sets AcceleratorConfiguration field to given value.
 `func (o *ComputeInstanceTypeConfigOverride) HasAcceleratorConfiguration() bool`
 
 HasAcceleratorConfiguration returns a boolean if a field has been set.
+
+### GetEphemeralStorageLocalSsdConfig
+
+`func (o *ComputeInstanceTypeConfigOverride) GetEphemeralStorageLocalSsdConfig() EphemeralStorageLocalSsdConfig`
+
+GetEphemeralStorageLocalSsdConfig returns the EphemeralStorageLocalSsdConfig field if non-nil, zero value otherwise.
+
+### GetEphemeralStorageLocalSsdConfigOk
+
+`func (o *ComputeInstanceTypeConfigOverride) GetEphemeralStorageLocalSsdConfigOk() (*EphemeralStorageLocalSsdConfig, bool)`
+
+GetEphemeralStorageLocalSsdConfigOk returns a tuple with the EphemeralStorageLocalSsdConfig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEphemeralStorageLocalSsdConfig
+
+`func (o *ComputeInstanceTypeConfigOverride) SetEphemeralStorageLocalSsdConfig(v EphemeralStorageLocalSsdConfig)`
+
+SetEphemeralStorageLocalSsdConfig sets EphemeralStorageLocalSsdConfig field to given value.
+
+### HasEphemeralStorageLocalSsdConfig
+
+`func (o *ComputeInstanceTypeConfigOverride) HasEphemeralStorageLocalSsdConfig() bool`
+
+HasEphemeralStorageLocalSsdConfig returns a boolean if a field has been set.
 
 ### GetInstanceLifeCycleType
 

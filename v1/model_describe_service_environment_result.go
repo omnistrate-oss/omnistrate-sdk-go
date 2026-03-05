@@ -32,6 +32,8 @@ type DescribeServiceEnvironmentResult struct {
 	Key string `json:"key"`
 	// Name of the Service Environment
 	Name string `json:"name"`
+	// The promotion status of this environment to its downstream targets. Only populated when this environment is a source for promotion.
+	PromotionStatus []EnvironmentPromotionStatus `json:"promotionStatus,omitempty"`
 	// Type of the role
 	RoleType *string `json:"roleType,omitempty"`
 	// The status of an operation
@@ -219,6 +221,29 @@ func (o *DescribeServiceEnvironmentResult) GetNameOk() (*string, bool) {
 // SetName sets field value
 func (o *DescribeServiceEnvironmentResult) SetName(v string) {
 	o.Name = v
+}
+
+// GetPromotionStatus returns the PromotionStatus field value if set, zero value otherwise.
+func (o *DescribeServiceEnvironmentResult) GetPromotionStatus() []EnvironmentPromotionStatus {
+	if o == nil || IsNil(o.PromotionStatus) {
+		var ret []EnvironmentPromotionStatus
+		return ret
+	}
+	return o.PromotionStatus
+}
+
+// GetPromotionStatusOk returns a tuple with the PromotionStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeServiceEnvironmentResult) GetPromotionStatusOk() ([]EnvironmentPromotionStatus, bool) {
+	if o == nil || IsNil(o.PromotionStatus) {
+		return nil, false
+	}
+	return o.PromotionStatus, true
+}
+
+// SetPromotionStatus gets a reference to the given []EnvironmentPromotionStatus and assigns it to the PromotionStatus field.
+func (o *DescribeServiceEnvironmentResult) SetPromotionStatus(v []EnvironmentPromotionStatus) {
+	o.PromotionStatus = v
 }
 
 // GetRoleType returns the RoleType field value if set, zero value otherwise.
@@ -426,6 +451,9 @@ func (o DescribeServiceEnvironmentResult) ToMap() (map[string]interface{}, error
 	toSerialize["id"] = o.Id
 	toSerialize["key"] = o.Key
 	toSerialize["name"] = o.Name
+	if !IsNil(o.PromotionStatus) {
+		toSerialize["promotionStatus"] = o.PromotionStatus
+	}
 	if !IsNil(o.RoleType) {
 		toSerialize["roleType"] = o.RoleType
 	}
@@ -500,6 +528,7 @@ func (o *DescribeServiceEnvironmentResult) UnmarshalJSON(data []byte) (err error
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "key")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "promotionStatus")
 		delete(additionalProperties, "roleType")
 		delete(additionalProperties, "saasPortalStatus")
 		delete(additionalProperties, "saasPortalUrl")

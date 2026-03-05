@@ -7,12 +7,13 @@ Name | Type | Description | Notes
 **ApiVersion** | **string** | Version of the Entity to operate on | 
 **BuildCommitSHA** | **string** | The commit hash of the build | 
 **BuildTimestamp** | **string** | The timestamp of the build | 
+**ComponentVersion** | **string** | Service component tag identifying the running version | 
 
 ## Methods
 
 ### NewOmnistrateServiceVersionResult
 
-`func NewOmnistrateServiceVersionResult(apiVersion string, buildCommitSHA string, buildTimestamp string, ) *OmnistrateServiceVersionResult`
+`func NewOmnistrateServiceVersionResult(apiVersion string, buildCommitSHA string, buildTimestamp string, componentVersion string, ) *OmnistrateServiceVersionResult`
 
 NewOmnistrateServiceVersionResult instantiates a new OmnistrateServiceVersionResult object
 This constructor will assign default values to properties that have it defined,
@@ -85,6 +86,26 @@ and a boolean to check if the value has been set.
 `func (o *OmnistrateServiceVersionResult) SetBuildTimestamp(v string)`
 
 SetBuildTimestamp sets BuildTimestamp field to given value.
+
+
+### GetComponentVersion
+
+`func (o *OmnistrateServiceVersionResult) GetComponentVersion() string`
+
+GetComponentVersion returns the ComponentVersion field if non-nil, zero value otherwise.
+
+### GetComponentVersionOk
+
+`func (o *OmnistrateServiceVersionResult) GetComponentVersionOk() (*string, bool)`
+
+GetComponentVersionOk returns a tuple with the ComponentVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComponentVersion
+
+`func (o *OmnistrateServiceVersionResult) SetComponentVersion(v string)`
+
+SetComponentVersion sets ComponentVersion field to given value.
 
 
 
