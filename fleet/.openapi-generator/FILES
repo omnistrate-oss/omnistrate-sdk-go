@@ -431,6 +431,7 @@ docs/ImageConfigChangeSummary.md
 docs/InfraConfigChangeSummary.md
 docs/InputParameterEntity.md
 docs/InputParameterScope.md
+docs/InstanceFailureDetail.md
 docs/InstanceHealthSummary.md
 docs/InstanceSnapshot.md
 docs/InstanceTypeCost.md
@@ -1112,6 +1113,7 @@ model_image_config_change_summary.go
 model_infra_config_change_summary.go
 model_input_parameter_entity.go
 model_input_parameter_scope.go
+model_instance_failure_detail.go
 model_instance_health_summary.go
 model_instance_snapshot.go
 model_instance_type_cost.go

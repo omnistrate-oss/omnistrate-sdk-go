@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**ServiceApiDeleteService**](ServiceApiAPI.md#ServiceApiDeleteService) | **Delete** /2022-09-01-00/service/{id} | DeleteService service-api
 [**ServiceApiDescribeService**](ServiceApiAPI.md#ServiceApiDescribeService) | **Get** /2022-09-01-00/service/{id} | DescribeService service-api
 [**ServiceApiListService**](ServiceApiAPI.md#ServiceApiListService) | **Get** /2022-09-01-00/service | ListService service-api
+[**ServiceApiPrepareServiceFromServicePlanSpec**](ServiceApiAPI.md#ServiceApiPrepareServiceFromServicePlanSpec) | **Put** /2022-09-01-00/service/serviceplanspec/prepare | PrepareServiceFromServicePlanSpec service-api
 [**ServiceApiServiceHealth**](ServiceApiAPI.md#ServiceApiServiceHealth) | **Get** /2022-09-01-00/service/{id}/health | ServiceHealth service-api
 [**ServiceApiUpdateService**](ServiceApiAPI.md#ServiceApiUpdateService) | **Patch** /2022-09-01-00/service/{id} | UpdateService service-api
 
@@ -35,7 +36,7 @@ import (
 )
 
 func main() {
-	buildServiceFromComposeSpecRequest2 := *openapiclient.NewBuildServiceFromComposeSpecRequest2("Iusto et.", "MySQL multi-writer service") // BuildServiceFromComposeSpecRequest2 | 
+	buildServiceFromComposeSpecRequest2 := *openapiclient.NewBuildServiceFromComposeSpecRequest2("Explicabo fugiat ex.", "MySQL multi-writer service") // BuildServiceFromComposeSpecRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -99,7 +100,7 @@ import (
 )
 
 func main() {
-	buildServiceFromServicePlanSpecRequest2 := *openapiclient.NewBuildServiceFromServicePlanSpecRequest2("Facere repudiandae adipisci et consequuntur.", "MySQL multi-writer service") // BuildServiceFromServicePlanSpecRequest2 | 
+	buildServiceFromServicePlanSpecRequest2 := *openapiclient.NewBuildServiceFromServicePlanSpecRequest2("Ipsum labore id saepe.", "MySQL multi-writer service") // BuildServiceFromServicePlanSpecRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -227,7 +228,7 @@ import (
 )
 
 func main() {
-	createServiceFromComposeSpecRequest2 := *openapiclient.NewCreateServiceFromComposeSpecRequest2("A MySQL SaaS specializing in multi-writer clusters for high availability", "Ad blanditiis.", "text/plain", "mysql.yaml", "MySQL multi-writer service") // CreateServiceFromComposeSpecRequest2 | 
+	createServiceFromComposeSpecRequest2 := *openapiclient.NewCreateServiceFromComposeSpecRequest2("A MySQL SaaS specializing in multi-writer clusters for high availability", "Dolores odit officia vitae non reiciendis.", "text/plain", "mysql.yaml", "MySQL multi-writer service") // CreateServiceFromComposeSpecRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -458,6 +459,70 @@ Other parameters are passed through a pointer to a apiServiceApiListServiceReque
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ServiceApiPrepareServiceFromServicePlanSpec
+
+> PrepareServiceFromServicePlanSpecResult ServiceApiPrepareServiceFromServicePlanSpec(ctx).PrepareServiceFromServicePlanSpecRequest2(prepareServiceFromServicePlanSpecRequest2).Execute()
+
+PrepareServiceFromServicePlanSpec service-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	prepareServiceFromServicePlanSpecRequest2 := *openapiclient.NewPrepareServiceFromServicePlanSpecRequest2("dev", "PROD|PRIVATE|CANARY|STAGING|QA|DEV|GLOBAL", "Consequatur animi illum vitae corporis qui.", "MySQL multi-writer service") // PrepareServiceFromServicePlanSpecRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ServiceApiAPI.ServiceApiPrepareServiceFromServicePlanSpec(context.Background()).PrepareServiceFromServicePlanSpecRequest2(prepareServiceFromServicePlanSpecRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ServiceApiAPI.ServiceApiPrepareServiceFromServicePlanSpec``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ServiceApiPrepareServiceFromServicePlanSpec`: PrepareServiceFromServicePlanSpecResult
+	fmt.Fprintf(os.Stdout, "Response from `ServiceApiAPI.ServiceApiPrepareServiceFromServicePlanSpec`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiServiceApiPrepareServiceFromServicePlanSpecRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **prepareServiceFromServicePlanSpecRequest2** | [**PrepareServiceFromServicePlanSpecRequest2**](PrepareServiceFromServicePlanSpecRequest2.md) |  | 
+
+### Return type
+
+[**PrepareServiceFromServicePlanSpecResult**](PrepareServiceFromServicePlanSpecResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

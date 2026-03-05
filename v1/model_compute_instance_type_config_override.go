@@ -20,6 +20,7 @@ var _ MappedNullable = &ComputeInstanceTypeConfigOverride{}
 // ComputeInstanceTypeConfigOverride struct for ComputeInstanceTypeConfigOverride
 type ComputeInstanceTypeConfigOverride struct {
 	AcceleratorConfiguration *AcceleratorConfiguration `json:"acceleratorConfiguration,omitempty"`
+	EphemeralStorageLocalSsdConfig *EphemeralStorageLocalSsdConfig `json:"ephemeralStorageLocalSsdConfig,omitempty"`
 	// The instance life cycle type for this compute instance type config
 	InstanceLifeCycleType *string `json:"instanceLifeCycleType,omitempty"`
 	// Labels for the compute instance type config
@@ -74,6 +75,29 @@ func (o *ComputeInstanceTypeConfigOverride) GetAcceleratorConfigurationOk() (*Ac
 // SetAcceleratorConfiguration gets a reference to the given AcceleratorConfiguration and assigns it to the AcceleratorConfiguration field.
 func (o *ComputeInstanceTypeConfigOverride) SetAcceleratorConfiguration(v AcceleratorConfiguration) {
 	o.AcceleratorConfiguration = &v
+}
+
+// GetEphemeralStorageLocalSsdConfig returns the EphemeralStorageLocalSsdConfig field value if set, zero value otherwise.
+func (o *ComputeInstanceTypeConfigOverride) GetEphemeralStorageLocalSsdConfig() EphemeralStorageLocalSsdConfig {
+	if o == nil || IsNil(o.EphemeralStorageLocalSsdConfig) {
+		var ret EphemeralStorageLocalSsdConfig
+		return ret
+	}
+	return *o.EphemeralStorageLocalSsdConfig
+}
+
+// GetEphemeralStorageLocalSsdConfigOk returns a tuple with the EphemeralStorageLocalSsdConfig field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeInstanceTypeConfigOverride) GetEphemeralStorageLocalSsdConfigOk() (*EphemeralStorageLocalSsdConfig, bool) {
+	if o == nil || IsNil(o.EphemeralStorageLocalSsdConfig) {
+		return nil, false
+	}
+	return o.EphemeralStorageLocalSsdConfig, true
+}
+
+// SetEphemeralStorageLocalSsdConfig gets a reference to the given EphemeralStorageLocalSsdConfig and assigns it to the EphemeralStorageLocalSsdConfig field.
+func (o *ComputeInstanceTypeConfigOverride) SetEphemeralStorageLocalSsdConfig(v EphemeralStorageLocalSsdConfig) {
+	o.EphemeralStorageLocalSsdConfig = &v
 }
 
 // GetInstanceLifeCycleType returns the InstanceLifeCycleType field value if set, zero value otherwise.
@@ -227,6 +251,9 @@ func (o ComputeInstanceTypeConfigOverride) ToMap() (map[string]interface{}, erro
 	if !IsNil(o.AcceleratorConfiguration) {
 		toSerialize["acceleratorConfiguration"] = o.AcceleratorConfiguration
 	}
+	if !IsNil(o.EphemeralStorageLocalSsdConfig) {
+		toSerialize["ephemeralStorageLocalSsdConfig"] = o.EphemeralStorageLocalSsdConfig
+	}
 	if !IsNil(o.InstanceLifeCycleType) {
 		toSerialize["instanceLifeCycleType"] = o.InstanceLifeCycleType
 	}
@@ -268,6 +295,7 @@ func (o *ComputeInstanceTypeConfigOverride) UnmarshalJSON(data []byte) (err erro
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "acceleratorConfiguration")
+		delete(additionalProperties, "ephemeralStorageLocalSsdConfig")
 		delete(additionalProperties, "instanceLifeCycleType")
 		delete(additionalProperties, "labels")
 		delete(additionalProperties, "rootVolumeSizeGi")

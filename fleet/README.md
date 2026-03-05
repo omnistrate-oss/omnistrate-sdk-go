@@ -637,6 +637,7 @@ Class | Method | HTTP request | Description
  - [InfraConfigChangeSummary](docs/InfraConfigChangeSummary.md)
  - [InputParameterEntity](docs/InputParameterEntity.md)
  - [InputParameterScope](docs/InputParameterScope.md)
+ - [InstanceFailureDetail](docs/InstanceFailureDetail.md)
  - [InstanceHealthSummary](docs/InstanceHealthSummary.md)
  - [InstanceSnapshot](docs/InstanceSnapshot.md)
  - [InstanceTypeCost](docs/InstanceTypeCost.md)

@@ -418,6 +418,7 @@ docs/Endpoint.md
 docs/EnvironmentHealthReport.md
 docs/EnvironmentPromotionStatus.md
 docs/EnvironmentVariable.md
+docs/EphemeralStorageLocalSsdConfig.md
 docs/Error.md
 docs/ExpressionEvaluatorApiAPI.md
 docs/ExpressionEvaluatorRequest.md
@@ -633,6 +634,9 @@ docs/OutputParameterApiAPI.md
 docs/OutputParameterEntity.md
 docs/PlanApiAPI.md
 docs/PortsRange.md
+docs/PrepareServiceFromServicePlanSpecRequest.md
+docs/PrepareServiceFromServicePlanSpecRequest2.md
+docs/PrepareServiceFromServicePlanSpecResult.md
 docs/PrivateLinkConfiguration.md
 docs/PrivateNetworkingConfiguration.md
 docs/ProductTierApiAPI.md
@@ -1198,6 +1202,7 @@ model_endpoint.go
 model_environment_health_report.go
 model_environment_promotion_status.go
 model_environment_variable.go
+model_ephemeral_storage_local_ssd_config.go
 model_error.go
 model_expression_evaluator_request.go
 model_expression_evaluator_request2.go
@@ -1399,6 +1404,9 @@ model_org_users.go
 model_output_parameter.go
 model_output_parameter_entity.go
 model_ports_range.go
+model_prepare_service_from_service_plan_spec_request.go
+model_prepare_service_from_service_plan_spec_request2.go
+model_prepare_service_from_service_plan_spec_result.go
 model_private_link_configuration.go
 model_private_networking_configuration.go
 model_product_tier_deployment_configuration.go

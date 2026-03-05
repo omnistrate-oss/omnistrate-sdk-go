@@ -22108,6 +22108,11 @@ paths:
                 createdAt: 2020-01-01T00:00:00Z
                 createdBy: John Doe
                 failedCount: 4
+                failedInstanceReasons:
+                  instance-abc123:
+                    reason: instance has a pending upgrade on upgrade path up-xyz789
+                  instance-def456:
+                    reason: instance is in a terminal state
                 inProgressCount: 7
                 lastModifiedBy: John Doe
                 lastRequestedAction: pause|cancel|resume|skip-instances|notify-customer
@@ -22123,6 +22128,8 @@ paths:
                 sourceVersion: "1.0"
                 sourceVersionName: Alias blanditiis rem enim.
                 status: IN_PROGRESS|COMPLETE|SCHEDULED|PENDING|FAILED|PAUSED|CANCELLED
+                statusMessage: "Upgrade path auto-cancelled: paused for longer than\
+                  \ 24h0m0s without being resumed"
                 targetVersion: "2.0"
                 targetVersionName: Est dolores.
                 totalCount: 16
@@ -22223,6 +22230,11 @@ paths:
                 createdAt: 2020-01-01T00:00:00Z
                 createdBy: John Doe
                 failedCount: 4
+                failedInstanceReasons:
+                  instance-abc123:
+                    reason: instance has a pending upgrade on upgrade path up-xyz789
+                  instance-def456:
+                    reason: instance is in a terminal state
                 inProgressCount: 7
                 lastModifiedBy: John Doe
                 lastRequestedAction: pause|cancel|resume|skip-instances|notify-customer
@@ -22238,6 +22250,8 @@ paths:
                 sourceVersion: "1.0"
                 sourceVersionName: Dolor aut quia perferendis mollitia magni.
                 status: IN_PROGRESS|COMPLETE|SCHEDULED|PENDING|FAILED|PAUSED|CANCELLED
+                statusMessage: "Upgrade path auto-cancelled: paused for longer than\
+                  \ 24h0m0s without being resumed"
                 targetVersion: "2.0"
                 targetVersionName: Qui in.
                 totalCount: 16
@@ -22338,6 +22352,11 @@ paths:
                 createdAt: 2020-01-01T00:00:00Z
                 createdBy: John Doe
                 failedCount: 4
+                failedInstanceReasons:
+                  instance-abc123:
+                    reason: instance has a pending upgrade on upgrade path up-xyz789
+                  instance-def456:
+                    reason: instance is in a terminal state
                 inProgressCount: 7
                 lastModifiedBy: John Doe
                 lastRequestedAction: pause|cancel|resume|skip-instances|notify-customer
@@ -22353,6 +22372,8 @@ paths:
                 sourceVersion: "1.0"
                 sourceVersionName: Voluptas atque.
                 status: IN_PROGRESS|COMPLETE|SCHEDULED|PENDING|FAILED|PAUSED|CANCELLED
+                statusMessage: "Upgrade path auto-cancelled: paused for longer than\
+                  \ 24h0m0s without being resumed"
                 targetVersion: "2.0"
                 targetVersionName: Aut deserunt.
                 totalCount: 16
@@ -22600,6 +22621,11 @@ paths:
                 createdAt: 2020-01-01T00:00:00Z
                 createdBy: John Doe
                 failedCount: 4
+                failedInstanceReasons:
+                  instance-abc123:
+                    reason: instance has a pending upgrade on upgrade path up-xyz789
+                  instance-def456:
+                    reason: instance is in a terminal state
                 inProgressCount: 7
                 lastModifiedBy: John Doe
                 lastRequestedAction: pause|cancel|resume|skip-instances|notify-customer
@@ -22615,6 +22641,8 @@ paths:
                 sourceVersion: "1.0"
                 sourceVersionName: Qui consequatur voluptate velit natus est voluptate.
                 status: IN_PROGRESS|COMPLETE|SCHEDULED|PENDING|FAILED|PAUSED|CANCELLED
+                statusMessage: "Upgrade path auto-cancelled: paused for longer than\
+                  \ 24h0m0s without being resumed"
                 targetVersion: "2.0"
                 targetVersionName: Asperiores aut voluptatum dignissimos assumenda
                   id rem.
@@ -22778,6 +22806,11 @@ paths:
                   createdAt: 2020-01-01T00:00:00Z
                   createdBy: John Doe
                   failedCount: 4
+                  failedInstanceReasons:
+                    instance-abc123:
+                      reason: instance has a pending upgrade on upgrade path up-xyz789
+                    instance-def456:
+                      reason: instance is in a terminal state
                   inProgressCount: 7
                   lastModifiedBy: John Doe
                   lastRequestedAction: pause|cancel|resume|skip-instances|notify-customer
@@ -22793,6 +22826,8 @@ paths:
                   sourceVersion: "1.0"
                   sourceVersionName: Facilis in natus molestiae.
                   status: IN_PROGRESS|COMPLETE|SCHEDULED|PENDING|FAILED|PAUSED|CANCELLED
+                  statusMessage: "Upgrade path auto-cancelled: paused for longer than\
+                    \ 24h0m0s without being resumed"
                   targetVersion: "2.0"
                   targetVersionName: Itaque eveniet quo.
                   totalCount: 16
@@ -22804,6 +22839,11 @@ paths:
                   createdAt: 2020-01-01T00:00:00Z
                   createdBy: John Doe
                   failedCount: 4
+                  failedInstanceReasons:
+                    instance-abc123:
+                      reason: instance has a pending upgrade on upgrade path up-xyz789
+                    instance-def456:
+                      reason: instance is in a terminal state
                   inProgressCount: 7
                   lastModifiedBy: John Doe
                   lastRequestedAction: pause|cancel|resume|skip-instances|notify-customer
@@ -22819,6 +22859,8 @@ paths:
                   sourceVersion: "1.0"
                   sourceVersionName: Facilis in natus molestiae.
                   status: IN_PROGRESS|COMPLETE|SCHEDULED|PENDING|FAILED|PAUSED|CANCELLED
+                  statusMessage: "Upgrade path auto-cancelled: paused for longer than\
+                    \ 24h0m0s without being resumed"
                   targetVersion: "2.0"
                   targetVersionName: Itaque eveniet quo.
                   totalCount: 16
@@ -22830,6 +22872,11 @@ paths:
                   createdAt: 2020-01-01T00:00:00Z
                   createdBy: John Doe
                   failedCount: 4
+                  failedInstanceReasons:
+                    instance-abc123:
+                      reason: instance has a pending upgrade on upgrade path up-xyz789
+                    instance-def456:
+                      reason: instance is in a terminal state
                   inProgressCount: 7
                   lastModifiedBy: John Doe
                   lastRequestedAction: pause|cancel|resume|skip-instances|notify-customer
@@ -22845,6 +22892,8 @@ paths:
                   sourceVersion: "1.0"
                   sourceVersionName: Facilis in natus molestiae.
                   status: IN_PROGRESS|COMPLETE|SCHEDULED|PENDING|FAILED|PAUSED|CANCELLED
+                  statusMessage: "Upgrade path auto-cancelled: paused for longer than\
+                    \ 24h0m0s without being resumed"
                   targetVersion: "2.0"
                   targetVersionName: Itaque eveniet quo.
                   totalCount: 16
@@ -22856,6 +22905,11 @@ paths:
                   createdAt: 2020-01-01T00:00:00Z
                   createdBy: John Doe
                   failedCount: 4
+                  failedInstanceReasons:
+                    instance-abc123:
+                      reason: instance has a pending upgrade on upgrade path up-xyz789
+                    instance-def456:
+                      reason: instance is in a terminal state
                   inProgressCount: 7
                   lastModifiedBy: John Doe
                   lastRequestedAction: pause|cancel|resume|skip-instances|notify-customer
@@ -22871,6 +22925,8 @@ paths:
                   sourceVersion: "1.0"
                   sourceVersionName: Facilis in natus molestiae.
                   status: IN_PROGRESS|COMPLETE|SCHEDULED|PENDING|FAILED|PAUSED|CANCELLED
+                  statusMessage: "Upgrade path auto-cancelled: paused for longer than\
+                    \ 24h0m0s without being resumed"
                   targetVersion: "2.0"
                   targetVersionName: Itaque eveniet quo.
                   totalCount: 16
@@ -26816,8 +26872,8 @@ components:
     CreateIdentityProviderRequest:
       example:
         authorizationEndpoint: https://accounts.google.com/o/oauth2/auth
-        clientId: 205376496935-vtfpdnseqmjhsynlh0bsufl38k0test.apps.googleusercontent.com
-        clientSecret: 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
+        clientId: exampleclientid.apps.googleusercontent.com
+        clientSecret: exampleclientsecret
         disabled: false
         emailIdentifiers: company.com
         environmentType: Rerum voluptatem cupiditate.
@@ -26836,11 +26892,11 @@ components:
           type: string
         clientId:
           description: The Client ID of the Identity Provider
-          example: 205376496935-vtfpdnseqmjhsynlh0bsufl38k0test.apps.googleusercontent.com
+          example: exampleclientid.apps.googleusercontent.com
           type: string
         clientSecret:
           description: The Client Secret of the Identity Provider
-          example: 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
+          example: exampleclientsecret
           type: string
         disabled:
           description: Whether the Identity Provider is disabled
@@ -27699,14 +27755,11 @@ components:
         - configuration:
             status: "ON"
           feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
-        - configuration:
-            status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
         modelType: CUSTOMER_HOSTED
         name: MySQL multi-writer service hosted model
         serviceApiId: sa-12345678
         serviceId: s-12345678
-        token: k
+        token: u
       properties:
         accountConfigIds:
           description: The infrastructure account configuration ID list
@@ -27715,7 +27768,7 @@ components:
           - ac-23456789
           items:
             description: ID of an Account Config
-            example: Et aut.
+            example: Ipsum quod voluptate eaque.
             type: string
           type: array
         description:
@@ -27726,9 +27779,6 @@ components:
         features:
           description: Enabled service model features
           example:
-          - configuration:
-              status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
           - configuration:
               status: "ON"
             feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
@@ -27748,7 +27798,7 @@ components:
           type: string
         serviceApiId:
           description: ID of a Service API
-          example: Quidem sed hic et illum illo excepturi.
+          example: Illum illo excepturi minima et aut.
           type: string
         serviceId:
           description: ID of a Service
@@ -27756,7 +27806,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: "31"
+          example: g5e
           minLength: 1
           type: string
       required:
@@ -29018,7 +29068,7 @@ components:
       example:
         id: se-12345678
         serviceId: s-12345678
-        token: ve
+        token: "31"
       properties:
         id:
           description: ID of a Service Environment
@@ -29030,7 +29080,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: bn
+          example: ve
           minLength: 1
           type: string
       required:
@@ -32465,6 +32515,16 @@ components:
         id: se-12345678
         key: production
         name: Production
+        promotionStatus:
+        - computing: false
+          status: IN_SYNC|OUT_OF_SYNC|UNKNOWN
+          targetEnvironmentID: se-12345678
+        - computing: false
+          status: IN_SYNC|OUT_OF_SYNC|UNKNOWN
+          targetEnvironmentID: se-12345678
+        - computing: false
+          status: IN_SYNC|OUT_OF_SYNC|UNKNOWN
+          targetEnvironmentID: se-12345678
         roleType: admin
         saasPortalStatus: READY
         saasPortalUrl: https://saas-portal.example.com
@@ -32502,6 +32562,19 @@ components:
           description: Name of the Service Environment
           example: Production
           type: string
+        promotionStatus:
+          description: The promotion status of this environment to its downstream
+            targets. Only populated when this environment is a source for promotion.
+          example:
+          - computing: false
+            status: IN_SYNC|OUT_OF_SYNC|UNKNOWN
+            targetEnvironmentID: se-12345678
+          - computing: false
+            status: IN_SYNC|OUT_OF_SYNC|UNKNOWN
+            targetEnvironmentID: se-12345678
+          items:
+            $ref: "#/components/schemas/EnvironmentPromotionStatus"
+          type: array
         roleType:
           description: Type of the role
           example: root|editor|reader|service_editor|service_reader|admin|service_operator
@@ -34598,7 +34671,7 @@ components:
           type: string
         id:
           description: ID of a Service Model
-          example: Dolore molestiae est qui voluptate non harum.
+          example: Qui voluptate non harum.
           type: string
         serviceId:
           description: ID of a Service
@@ -34606,7 +34679,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: o6u
+          example: t
           minLength: 1
           type: string
       required:
@@ -34782,9 +34855,14 @@ components:
       type: object
     EnvironmentPromotionStatus:
       example:
+        computing: false
         status: IN_SYNC|OUT_OF_SYNC|UNKNOWN
         targetEnvironmentID: se-12345678
       properties:
+        computing:
+          description: Whether the promotion status is currently being recomputed
+          example: false
+          type: boolean
         status:
           description: The status of the promotion
           example: IN_SYNC|OUT_OF_SYNC|UNKNOWN
@@ -48035,6 +48113,18 @@ components:
             type: string
           type: array
       type: object
+    InstanceFailureDetail:
+      description: Details about why an instance was not eligible for upgrade.
+      example:
+        reason: instance has a pending upgrade on upgrade path up-xyz789
+      properties:
+        reason:
+          description: The reason the instance was not eligible for upgrade.
+          example: instance has a pending upgrade on upgrade path up-xyz789
+          type: string
+      required:
+      - reason
+      type: object
     InstanceHealthSummary:
       example:
         instanceID: instance-12345678
@@ -58538,7 +58628,7 @@ components:
     ListServiceEnvironmentsRequest:
       example:
         serviceId: s-12345678
-        token: yd
+        token: bn
       properties:
         serviceId:
           description: ID of a Service
@@ -58546,7 +58636,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: v
+          example: yd
           minLength: 1
           type: string
       required:
@@ -60748,6 +60838,11 @@ components:
           createdAt: 2020-01-01T00:00:00Z
           createdBy: John Doe
           failedCount: 4
+          failedInstanceReasons:
+            instance-abc123:
+              reason: instance has a pending upgrade on upgrade path up-xyz789
+            instance-def456:
+              reason: instance is in a terminal state
           inProgressCount: 7
           lastModifiedBy: John Doe
           lastRequestedAction: pause|cancel|resume|skip-instances|notify-customer
@@ -60763,6 +60858,8 @@ components:
           sourceVersion: "1.0"
           sourceVersionName: Dolorum dolor ipsum quam voluptas minus doloribus.
           status: COMPLETE
+          statusMessage: "Upgrade path auto-cancelled: paused for longer than 24h0m0s\
+            \ without being resumed"
           targetVersion: "2.0"
           targetVersionName: Commodi nobis voluptatem vero.
           totalCount: 16
@@ -60774,6 +60871,11 @@ components:
           createdAt: 2020-01-01T00:00:00Z
           createdBy: John Doe
           failedCount: 4
+          failedInstanceReasons:
+            instance-abc123:
+              reason: instance has a pending upgrade on upgrade path up-xyz789
+            instance-def456:
+              reason: instance is in a terminal state
           inProgressCount: 7
           lastModifiedBy: John Doe
           lastRequestedAction: pause|cancel|resume|skip-instances|notify-customer
@@ -60789,6 +60891,8 @@ components:
           sourceVersion: "1.0"
           sourceVersionName: Dolorum dolor ipsum quam voluptas minus doloribus.
           status: COMPLETE
+          statusMessage: "Upgrade path auto-cancelled: paused for longer than 24h0m0s\
+            \ without being resumed"
           targetVersion: "2.0"
           targetVersionName: Commodi nobis voluptatem vero.
           totalCount: 16
@@ -60800,6 +60904,11 @@ components:
           createdAt: 2020-01-01T00:00:00Z
           createdBy: John Doe
           failedCount: 4
+          failedInstanceReasons:
+            instance-abc123:
+              reason: instance has a pending upgrade on upgrade path up-xyz789
+            instance-def456:
+              reason: instance is in a terminal state
           inProgressCount: 7
           lastModifiedBy: John Doe
           lastRequestedAction: pause|cancel|resume|skip-instances|notify-customer
@@ -60815,6 +60924,8 @@ components:
           sourceVersion: "1.0"
           sourceVersionName: Dolorum dolor ipsum quam voluptas minus doloribus.
           status: COMPLETE
+          statusMessage: "Upgrade path auto-cancelled: paused for longer than 24h0m0s\
+            \ without being resumed"
           targetVersion: "2.0"
           targetVersionName: Commodi nobis voluptatem vero.
           totalCount: 16
@@ -60834,6 +60945,11 @@ components:
             createdAt: 2020-01-01T00:00:00Z
             createdBy: John Doe
             failedCount: 4
+            failedInstanceReasons:
+              instance-abc123:
+                reason: instance has a pending upgrade on upgrade path up-xyz789
+              instance-def456:
+                reason: instance is in a terminal state
             inProgressCount: 7
             lastModifiedBy: John Doe
             lastRequestedAction: pause|cancel|resume|skip-instances|notify-customer
@@ -60849,6 +60965,8 @@ components:
             sourceVersion: "1.0"
             sourceVersionName: Dolorum dolor ipsum quam voluptas minus doloribus.
             status: COMPLETE
+            statusMessage: "Upgrade path auto-cancelled: paused for longer than 24h0m0s\
+              \ without being resumed"
             targetVersion: "2.0"
             targetVersionName: Commodi nobis voluptatem vero.
             totalCount: 16
@@ -60860,6 +60978,11 @@ components:
             createdAt: 2020-01-01T00:00:00Z
             createdBy: John Doe
             failedCount: 4
+            failedInstanceReasons:
+              instance-abc123:
+                reason: instance has a pending upgrade on upgrade path up-xyz789
+              instance-def456:
+                reason: instance is in a terminal state
             inProgressCount: 7
             lastModifiedBy: John Doe
             lastRequestedAction: pause|cancel|resume|skip-instances|notify-customer
@@ -60875,6 +60998,8 @@ components:
             sourceVersion: "1.0"
             sourceVersionName: Dolorum dolor ipsum quam voluptas minus doloribus.
             status: COMPLETE
+            statusMessage: "Upgrade path auto-cancelled: paused for longer than 24h0m0s\
+              \ without being resumed"
             targetVersion: "2.0"
             targetVersionName: Commodi nobis voluptatem vero.
             totalCount: 16
@@ -61539,6 +61664,7 @@ components:
         apiVersion: "1.0"
         buildCommitSHA: 1234567890abcdef1234567890abcdef12345678
         buildTimestamp: 2020-01-01T00:00:00Z
+        componentVersion: v0.47.96
       properties:
         apiVersion:
           description: Version of the Entity to operate on
@@ -61553,10 +61679,15 @@ components:
           description: The timestamp of the build
           example: 2020-01-01T00:00:00Z
           type: string
+        componentVersion:
+          description: Service component tag identifying the running version
+          example: v0.47.96
+          type: string
       required:
       - apiVersion
       - buildCommitSHA
       - buildTimestamp
+      - componentVersion
       type: object
     OnPremCustomUserScript:
       example:
@@ -62825,9 +62956,11 @@ components:
       type: object
     PromoteServiceEnvironmentStatusResult:
       example:
-      - status: IN_SYNC|OUT_OF_SYNC|UNKNOWN
+      - computing: false
+        status: IN_SYNC|OUT_OF_SYNC|UNKNOWN
         targetEnvironmentID: se-12345678
-      - status: IN_SYNC|OUT_OF_SYNC|UNKNOWN
+      - computing: false
+        status: IN_SYNC|OUT_OF_SYNC|UNKNOWN
         targetEnvironmentID: se-12345678
       items:
         $ref: "#/components/schemas/EnvironmentPromotionStatus"
@@ -70022,6 +70155,11 @@ components:
         createdAt: 2020-01-01T00:00:00Z
         createdBy: John Doe
         failedCount: 4
+        failedInstanceReasons:
+          instance-abc123:
+            reason: instance has a pending upgrade on upgrade path up-xyz789
+          instance-def456:
+            reason: instance is in a terminal state
         inProgressCount: 7
         lastModifiedBy: John Doe
         lastRequestedAction: pause|cancel|resume|skip-instances|notify-customer
@@ -70037,6 +70175,8 @@ components:
         sourceVersion: "1.0"
         sourceVersionName: Voluptatem ipsum ducimus.
         status: COMPLETE
+        statusMessage: "Upgrade path auto-cancelled: paused for longer than 24h0m0s\
+          \ without being resumed"
         targetVersion: "2.0"
         targetVersionName: Commodi minima autem laboriosam quasi magnam deserunt.
         totalCount: 16
@@ -70066,6 +70206,17 @@ components:
           example: 4
           format: int64
           type: integer
+        failedInstanceReasons:
+          additionalProperties:
+            $ref: "#/components/schemas/InstanceFailureDetail"
+          description: A map of instance IDs to their failure details for instances
+            that were not eligible for upgrade.
+          example:
+            instance-abc123:
+              reason: instance has a pending upgrade on upgrade path up-xyz789
+            instance-def456:
+              reason: instance is in a terminal state
+          type: object
         inProgressCount:
           description: The number of instances that are in progress of the upgrade.
           example: 7
@@ -70131,6 +70282,12 @@ components:
         status:
           description: The status of the upgrade path.
           example: IN_PROGRESS|COMPLETE|SCHEDULED|PENDING|FAILED|PAUSED|CANCELLED
+          type: string
+        statusMessage:
+          description: "A human-readable message explaining the current status of\
+            \ the upgrade path, such as why it was cancelled or failed."
+          example: "Upgrade path auto-cancelled: paused for longer than 24h0m0s without\
+            \ being resumed"
           type: string
         targetVersion:
           description: The target version of the upgrade path.

@@ -293,6 +293,7 @@ Class | Method | HTTP request | Description
 *ServiceApiAPI* | [**ServiceApiDeleteService**](docs/ServiceApiAPI.md#serviceapideleteservice) | **Delete** /2022-09-01-00/service/{id} | DeleteService service-api
 *ServiceApiAPI* | [**ServiceApiDescribeService**](docs/ServiceApiAPI.md#serviceapidescribeservice) | **Get** /2022-09-01-00/service/{id} | DescribeService service-api
 *ServiceApiAPI* | [**ServiceApiListService**](docs/ServiceApiAPI.md#serviceapilistservice) | **Get** /2022-09-01-00/service | ListService service-api
+*ServiceApiAPI* | [**ServiceApiPrepareServiceFromServicePlanSpec**](docs/ServiceApiAPI.md#serviceapiprepareservicefromserviceplanspec) | **Put** /2022-09-01-00/service/serviceplanspec/prepare | PrepareServiceFromServicePlanSpec service-api
 *ServiceApiAPI* | [**ServiceApiServiceHealth**](docs/ServiceApiAPI.md#serviceapiservicehealth) | **Get** /2022-09-01-00/service/{id}/health | ServiceHealth service-api
 *ServiceApiAPI* | [**ServiceApiUpdateService**](docs/ServiceApiAPI.md#serviceapiupdateservice) | **Patch** /2022-09-01-00/service/{id} | UpdateService service-api
 *ServiceApiApiAPI* | [**ServiceApiApiCreateServiceAPI**](docs/ServiceApiApiAPI.md#serviceapiapicreateserviceapi) | **Post** /2022-09-01-00/service/{serviceId}/service-api | CreateServiceAPI service-api-api
@@ -747,6 +748,7 @@ Class | Method | HTTP request | Description
  - [EnvironmentHealthReport](docs/EnvironmentHealthReport.md)
  - [EnvironmentPromotionStatus](docs/EnvironmentPromotionStatus.md)
  - [EnvironmentVariable](docs/EnvironmentVariable.md)
+ - [EphemeralStorageLocalSsdConfig](docs/EphemeralStorageLocalSsdConfig.md)
  - [Error](docs/Error.md)
  - [ExpressionEvaluatorRequest](docs/ExpressionEvaluatorRequest.md)
  - [ExpressionEvaluatorRequest2](docs/ExpressionEvaluatorRequest2.md)
@@ -948,6 +950,9 @@ Class | Method | HTTP request | Description
  - [OutputParameter](docs/OutputParameter.md)
  - [OutputParameterEntity](docs/OutputParameterEntity.md)
  - [PortsRange](docs/PortsRange.md)
+ - [PrepareServiceFromServicePlanSpecRequest](docs/PrepareServiceFromServicePlanSpecRequest.md)
+ - [PrepareServiceFromServicePlanSpecRequest2](docs/PrepareServiceFromServicePlanSpecRequest2.md)
+ - [PrepareServiceFromServicePlanSpecResult](docs/PrepareServiceFromServicePlanSpecResult.md)
  - [PrivateLinkConfiguration](docs/PrivateLinkConfiguration.md)
  - [PrivateNetworkingConfiguration](docs/PrivateNetworkingConfiguration.md)
  - [ProductTierDeploymentConfiguration](docs/ProductTierDeploymentConfiguration.md)

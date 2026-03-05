@@ -30,6 +30,8 @@ type UpgradePath struct {
 	CreatedBy *string `json:"createdBy,omitempty"`
 	// The number of instances that have failed the upgrade.
 	FailedCount int64 `json:"failedCount"`
+	// A map of instance IDs to their failure details for instances that were not eligible for upgrade.
+	FailedInstanceReasons *map[string]InstanceFailureDetail `json:"failedInstanceReasons,omitempty"`
 	// The number of instances that are in progress of the upgrade.
 	InProgressCount int64 `json:"inProgressCount"`
 	// The name of the user who created the upgrade path.
@@ -60,6 +62,8 @@ type UpgradePath struct {
 	SourceVersionName string `json:"sourceVersionName"`
 	// The status of the upgrade path.
 	Status string `json:"status"`
+	// A human-readable message explaining the current status of the upgrade path, such as why it was cancelled or failed.
+	StatusMessage *string `json:"statusMessage,omitempty"`
 	// The target version of the upgrade path.
 	TargetVersion string `json:"targetVersion"`
 	// The target version name of the upgrade path.
@@ -246,6 +250,38 @@ func (o *UpgradePath) GetFailedCountOk() (*int64, bool) {
 // SetFailedCount sets field value
 func (o *UpgradePath) SetFailedCount(v int64) {
 	o.FailedCount = v
+}
+
+// GetFailedInstanceReasons returns the FailedInstanceReasons field value if set, zero value otherwise.
+func (o *UpgradePath) GetFailedInstanceReasons() map[string]InstanceFailureDetail {
+	if o == nil || IsNil(o.FailedInstanceReasons) {
+		var ret map[string]InstanceFailureDetail
+		return ret
+	}
+	return *o.FailedInstanceReasons
+}
+
+// GetFailedInstanceReasonsOk returns a tuple with the FailedInstanceReasons field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpgradePath) GetFailedInstanceReasonsOk() (*map[string]InstanceFailureDetail, bool) {
+	if o == nil || IsNil(o.FailedInstanceReasons) {
+		return nil, false
+	}
+	return o.FailedInstanceReasons, true
+}
+
+// HasFailedInstanceReasons returns a boolean if a field has been set.
+func (o *UpgradePath) HasFailedInstanceReasons() bool {
+	if o != nil && !IsNil(o.FailedInstanceReasons) {
+		return true
+	}
+
+	return false
+}
+
+// SetFailedInstanceReasons gets a reference to the given map[string]InstanceFailureDetail and assigns it to the FailedInstanceReasons field.
+func (o *UpgradePath) SetFailedInstanceReasons(v map[string]InstanceFailureDetail) {
+	o.FailedInstanceReasons = &v
 }
 
 // GetInProgressCount returns the InProgressCount field value
@@ -656,6 +692,38 @@ func (o *UpgradePath) SetStatus(v string) {
 	o.Status = v
 }
 
+// GetStatusMessage returns the StatusMessage field value if set, zero value otherwise.
+func (o *UpgradePath) GetStatusMessage() string {
+	if o == nil || IsNil(o.StatusMessage) {
+		var ret string
+		return ret
+	}
+	return *o.StatusMessage
+}
+
+// GetStatusMessageOk returns a tuple with the StatusMessage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpgradePath) GetStatusMessageOk() (*string, bool) {
+	if o == nil || IsNil(o.StatusMessage) {
+		return nil, false
+	}
+	return o.StatusMessage, true
+}
+
+// HasStatusMessage returns a boolean if a field has been set.
+func (o *UpgradePath) HasStatusMessage() bool {
+	if o != nil && !IsNil(o.StatusMessage) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatusMessage gets a reference to the given string and assigns it to the StatusMessage field.
+func (o *UpgradePath) SetStatusMessage(v string) {
+	o.StatusMessage = &v
+}
+
 // GetTargetVersion returns the TargetVersion field value
 func (o *UpgradePath) GetTargetVersion() string {
 	if o == nil {
@@ -819,6 +887,9 @@ func (o UpgradePath) ToMap() (map[string]interface{}, error) {
 		toSerialize["createdBy"] = o.CreatedBy
 	}
 	toSerialize["failedCount"] = o.FailedCount
+	if !IsNil(o.FailedInstanceReasons) {
+		toSerialize["failedInstanceReasons"] = o.FailedInstanceReasons
+	}
 	toSerialize["inProgressCount"] = o.InProgressCount
 	if !IsNil(o.LastModifiedBy) {
 		toSerialize["lastModifiedBy"] = o.LastModifiedBy
@@ -846,6 +917,9 @@ func (o UpgradePath) ToMap() (map[string]interface{}, error) {
 	toSerialize["sourceVersion"] = o.SourceVersion
 	toSerialize["sourceVersionName"] = o.SourceVersionName
 	toSerialize["status"] = o.Status
+	if !IsNil(o.StatusMessage) {
+		toSerialize["statusMessage"] = o.StatusMessage
+	}
 	toSerialize["targetVersion"] = o.TargetVersion
 	toSerialize["targetVersionName"] = o.TargetVersionName
 	toSerialize["totalCount"] = o.TotalCount
@@ -917,6 +991,7 @@ func (o *UpgradePath) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "createdBy")
 		delete(additionalProperties, "failedCount")
+		delete(additionalProperties, "failedInstanceReasons")
 		delete(additionalProperties, "inProgressCount")
 		delete(additionalProperties, "lastModifiedBy")
 		delete(additionalProperties, "lastRequestedAction")
@@ -932,6 +1007,7 @@ func (o *UpgradePath) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "sourceVersion")
 		delete(additionalProperties, "sourceVersionName")
 		delete(additionalProperties, "status")
+		delete(additionalProperties, "statusMessage")
 		delete(additionalProperties, "targetVersion")
 		delete(additionalProperties, "targetVersionName")
 		delete(additionalProperties, "totalCount")
