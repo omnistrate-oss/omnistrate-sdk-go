@@ -3430,8 +3430,8 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	productTierId := "Et iusto eos." // string | The product tier id to filter by (optional)
-	subscriptionId := "Ab veritatis rerum quam voluptates." // string | The subscription id to filter by (optional)
+	productTierId := "Veritatis rerum quam voluptates eum." // string | The product tier id to filter by (optional)
+	subscriptionId := "Autem voluptates aut minus dolores officiis." // string | The subscription id to filter by (optional)
 	snapshotType := "AutomatedSnapshot|ManualSnapshot" // string | The type of snapshot to filter by. Valid values are: 'ManualSnapshot' and 'AutomatedSnapshot' (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -4029,8 +4029,8 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	productTierVersion := "Ratione doloribus." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
-	productTierId := "Et iusto eos." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
-	subscriptionId := "Ab veritatis rerum quam voluptates." // string | Subscription id of the instance to describe. (optional)
+	productTierId := "Veritatis rerum quam voluptates eum." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
+	subscriptionId := "Autem voluptates aut minus dolores officiis." // string | Subscription id of the instance to describe. (optional)
 	filter := "onlyCloudAccounts" // string | Filter to apply to the list of instances. (optional)
 	excludeDetail := true // bool | Whether to exclude detailed information about the resource instances. (optional) (default to false)
 	nextPageToken := "token" // string |  (optional)

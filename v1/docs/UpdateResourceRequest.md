@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **CustomSysCTLs** | Pointer to **map[string]string** | Custom sysctl settings for the resource | [optional] 
 **CustomULimits** | Pointer to [**[]CustomULimits**](CustomULimits.md) | Custom ulimits for the resource | [optional] 
 **Dependencies** | Pointer to [**[]ResourceDependency**](ResourceDependency.md) |  | [optional] 
+**DeploymentTarget** | Pointer to [**DeploymentTarget**](DeploymentTarget.md) |  | [optional] 
 **Description** | Pointer to **string** | A brief description of the resource | [optional] 
 **Disable** | Pointer to **string** | Allows resource to be disabled. Expression returning true/false can be used as value. Resource is enabled by default, if this property is not set. | [optional] 
 **EnvironmentVariables** | Pointer to [**[]EnvironmentVariable**](EnvironmentVariable.md) | The environment variables that this resource requires | [optional] 
@@ -249,6 +250,31 @@ SetDependencies sets Dependencies field to given value.
 `func (o *UpdateResourceRequest) HasDependencies() bool`
 
 HasDependencies returns a boolean if a field has been set.
+
+### GetDeploymentTarget
+
+`func (o *UpdateResourceRequest) GetDeploymentTarget() DeploymentTarget`
+
+GetDeploymentTarget returns the DeploymentTarget field if non-nil, zero value otherwise.
+
+### GetDeploymentTargetOk
+
+`func (o *UpdateResourceRequest) GetDeploymentTargetOk() (*DeploymentTarget, bool)`
+
+GetDeploymentTargetOk returns a tuple with the DeploymentTarget field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeploymentTarget
+
+`func (o *UpdateResourceRequest) SetDeploymentTarget(v DeploymentTarget)`
+
+SetDeploymentTarget sets DeploymentTarget field to given value.
+
+### HasDeploymentTarget
+
+`func (o *UpdateResourceRequest) HasDeploymentTarget() bool`
+
+HasDeploymentTarget returns a boolean if a field has been set.
 
 ### GetDescription
 

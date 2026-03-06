@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **ServiceProviderId** | **string** | ID of a Service Provider | 
 **SubscriptionId** | Pointer to **string** | ID of a Subscription | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
+**WorkflowBreakpoints** | Pointer to [**[]WorkflowBreakpoint**](WorkflowBreakpoint.md) | The workflow breakpoints for the resource instance. | [optional] 
 
 ## Methods
 
@@ -461,6 +462,31 @@ and a boolean to check if the value has been set.
 
 SetToken sets Token field to given value.
 
+
+### GetWorkflowBreakpoints
+
+`func (o *FleetCreateResourceInstanceRequest) GetWorkflowBreakpoints() []WorkflowBreakpoint`
+
+GetWorkflowBreakpoints returns the WorkflowBreakpoints field if non-nil, zero value otherwise.
+
+### GetWorkflowBreakpointsOk
+
+`func (o *FleetCreateResourceInstanceRequest) GetWorkflowBreakpointsOk() (*[]WorkflowBreakpoint, bool)`
+
+GetWorkflowBreakpointsOk returns a tuple with the WorkflowBreakpoints field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkflowBreakpoints
+
+`func (o *FleetCreateResourceInstanceRequest) SetWorkflowBreakpoints(v []WorkflowBreakpoint)`
+
+SetWorkflowBreakpoints sets WorkflowBreakpoints field to given value.
+
+### HasWorkflowBreakpoints
+
+`func (o *FleetCreateResourceInstanceRequest) HasWorkflowBreakpoints() bool`
+
+HasWorkflowBreakpoints returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

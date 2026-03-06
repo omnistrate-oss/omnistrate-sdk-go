@@ -56,6 +56,8 @@ type FleetCreateResourceInstanceRequest struct {
 	SubscriptionId *string `json:"subscriptionId,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
+	// The workflow breakpoints for the resource instance.
+	WorkflowBreakpoints []WorkflowBreakpoint `json:"workflowBreakpoints,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -599,6 +601,38 @@ func (o *FleetCreateResourceInstanceRequest) SetToken(v string) {
 	o.Token = v
 }
 
+// GetWorkflowBreakpoints returns the WorkflowBreakpoints field value if set, zero value otherwise.
+func (o *FleetCreateResourceInstanceRequest) GetWorkflowBreakpoints() []WorkflowBreakpoint {
+	if o == nil || IsNil(o.WorkflowBreakpoints) {
+		var ret []WorkflowBreakpoint
+		return ret
+	}
+	return o.WorkflowBreakpoints
+}
+
+// GetWorkflowBreakpointsOk returns a tuple with the WorkflowBreakpoints field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCreateResourceInstanceRequest) GetWorkflowBreakpointsOk() ([]WorkflowBreakpoint, bool) {
+	if o == nil || IsNil(o.WorkflowBreakpoints) {
+		return nil, false
+	}
+	return o.WorkflowBreakpoints, true
+}
+
+// HasWorkflowBreakpoints returns a boolean if a field has been set.
+func (o *FleetCreateResourceInstanceRequest) HasWorkflowBreakpoints() bool {
+	if o != nil && !IsNil(o.WorkflowBreakpoints) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkflowBreakpoints gets a reference to the given []WorkflowBreakpoint and assigns it to the WorkflowBreakpoints field.
+func (o *FleetCreateResourceInstanceRequest) SetWorkflowBreakpoints(v []WorkflowBreakpoint) {
+	o.WorkflowBreakpoints = v
+}
+
 func (o FleetCreateResourceInstanceRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -647,6 +681,9 @@ func (o FleetCreateResourceInstanceRequest) ToMap() (map[string]interface{}, err
 		toSerialize["subscriptionId"] = o.SubscriptionId
 	}
 	toSerialize["token"] = o.Token
+	if !IsNil(o.WorkflowBreakpoints) {
+		toSerialize["workflowBreakpoints"] = o.WorkflowBreakpoints
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -715,6 +752,7 @@ func (o *FleetCreateResourceInstanceRequest) UnmarshalJSON(data []byte) (err err
 		delete(additionalProperties, "serviceProviderId")
 		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "token")
+		delete(additionalProperties, "workflowBreakpoints")
 		o.AdditionalProperties = additionalProperties
 	}
 

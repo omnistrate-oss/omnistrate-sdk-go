@@ -20,8 +20,6 @@ var _ MappedNullable = &EnvironmentPromotionStatus{}
 
 // EnvironmentPromotionStatus struct for EnvironmentPromotionStatus
 type EnvironmentPromotionStatus struct {
-	// Whether the promotion status is currently being recomputed
-	Computing *bool `json:"computing,omitempty"`
 	// The status of the promotion
 	Status string `json:"status"`
 	// ID of a Service Environment
@@ -48,38 +46,6 @@ func NewEnvironmentPromotionStatus(status string, targetEnvironmentID string) *E
 func NewEnvironmentPromotionStatusWithDefaults() *EnvironmentPromotionStatus {
 	this := EnvironmentPromotionStatus{}
 	return &this
-}
-
-// GetComputing returns the Computing field value if set, zero value otherwise.
-func (o *EnvironmentPromotionStatus) GetComputing() bool {
-	if o == nil || IsNil(o.Computing) {
-		var ret bool
-		return ret
-	}
-	return *o.Computing
-}
-
-// GetComputingOk returns a tuple with the Computing field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EnvironmentPromotionStatus) GetComputingOk() (*bool, bool) {
-	if o == nil || IsNil(o.Computing) {
-		return nil, false
-	}
-	return o.Computing, true
-}
-
-// HasComputing returns a boolean if a field has been set.
-func (o *EnvironmentPromotionStatus) HasComputing() bool {
-	if o != nil && !IsNil(o.Computing) {
-		return true
-	}
-
-	return false
-}
-
-// SetComputing gets a reference to the given bool and assigns it to the Computing field.
-func (o *EnvironmentPromotionStatus) SetComputing(v bool) {
-	o.Computing = &v
 }
 
 // GetStatus returns the Status field value
@@ -140,9 +106,6 @@ func (o EnvironmentPromotionStatus) MarshalJSON() ([]byte, error) {
 
 func (o EnvironmentPromotionStatus) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Computing) {
-		toSerialize["computing"] = o.Computing
-	}
 	toSerialize["status"] = o.Status
 	toSerialize["targetEnvironmentID"] = o.TargetEnvironmentID
 
@@ -189,7 +152,6 @@ func (o *EnvironmentPromotionStatus) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "computing")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "targetEnvironmentID")
 		o.AdditionalProperties = additionalProperties

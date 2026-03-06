@@ -20,6 +20,8 @@ var _ MappedNullable = &ResourceInstance{}
 
 // ResourceInstance struct for ResourceInstance
 type ResourceInstance struct {
+	// The active workflow breakpoints for the resource instance that are currently being hit or pending.
+	ActiveBreakpoints []WorkflowBreakpointWithStatus `json:"activeBreakpoints,omitempty"`
 	// Whether the resource instance is adopted.
 	Adopted bool `json:"adopted"`
 	// The AWS account ID
@@ -143,6 +145,38 @@ func NewResourceInstance(adopted bool, cloudProvider string, consumptionResource
 func NewResourceInstanceWithDefaults() *ResourceInstance {
 	this := ResourceInstance{}
 	return &this
+}
+
+// GetActiveBreakpoints returns the ActiveBreakpoints field value if set, zero value otherwise.
+func (o *ResourceInstance) GetActiveBreakpoints() []WorkflowBreakpointWithStatus {
+	if o == nil || IsNil(o.ActiveBreakpoints) {
+		var ret []WorkflowBreakpointWithStatus
+		return ret
+	}
+	return o.ActiveBreakpoints
+}
+
+// GetActiveBreakpointsOk returns a tuple with the ActiveBreakpoints field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceInstance) GetActiveBreakpointsOk() ([]WorkflowBreakpointWithStatus, bool) {
+	if o == nil || IsNil(o.ActiveBreakpoints) {
+		return nil, false
+	}
+	return o.ActiveBreakpoints, true
+}
+
+// HasActiveBreakpoints returns a boolean if a field has been set.
+func (o *ResourceInstance) HasActiveBreakpoints() bool {
+	if o != nil && !IsNil(o.ActiveBreakpoints) {
+		return true
+	}
+
+	return false
+}
+
+// SetActiveBreakpoints gets a reference to the given []WorkflowBreakpointWithStatus and assigns it to the ActiveBreakpoints field.
+func (o *ResourceInstance) SetActiveBreakpoints(v []WorkflowBreakpointWithStatus) {
+	o.ActiveBreakpoints = v
 }
 
 // GetAdopted returns the Adopted field value
@@ -1189,6 +1223,9 @@ func (o ResourceInstance) MarshalJSON() ([]byte, error) {
 
 func (o ResourceInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ActiveBreakpoints) {
+		toSerialize["activeBreakpoints"] = o.ActiveBreakpoints
+	}
 	toSerialize["adopted"] = o.Adopted
 	if !IsNil(o.AwsAccountID) {
 		toSerialize["awsAccountID"] = o.AwsAccountID
@@ -1323,6 +1360,7 @@ func (o *ResourceInstance) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "activeBreakpoints")
 		delete(additionalProperties, "adopted")
 		delete(additionalProperties, "awsAccountID")
 		delete(additionalProperties, "azureSubscriptionID")

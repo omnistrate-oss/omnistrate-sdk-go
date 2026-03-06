@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ActiveBreakpoints** | Pointer to [**[]WorkflowBreakpointWithStatus**](WorkflowBreakpointWithStatus.md) | The active workflow breakpoints for the resource instance that are currently being hit or pending. | [optional] 
 **Adopted** | **bool** | Whether the resource instance is adopted. | 
 **AwsAccountID** | Pointer to **string** | The AWS account ID | [optional] 
 **AzureSubscriptionID** | Pointer to **string** | The Azure subscription ID | [optional] 
@@ -62,6 +63,31 @@ will change when the set of required properties is changed
 NewResourceInstanceWithDefaults instantiates a new ResourceInstance object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetActiveBreakpoints
+
+`func (o *ResourceInstance) GetActiveBreakpoints() []WorkflowBreakpointWithStatus`
+
+GetActiveBreakpoints returns the ActiveBreakpoints field if non-nil, zero value otherwise.
+
+### GetActiveBreakpointsOk
+
+`func (o *ResourceInstance) GetActiveBreakpointsOk() (*[]WorkflowBreakpointWithStatus, bool)`
+
+GetActiveBreakpointsOk returns a tuple with the ActiveBreakpoints field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActiveBreakpoints
+
+`func (o *ResourceInstance) SetActiveBreakpoints(v []WorkflowBreakpointWithStatus)`
+
+SetActiveBreakpoints sets ActiveBreakpoints field to given value.
+
+### HasActiveBreakpoints
+
+`func (o *ResourceInstance) HasActiveBreakpoints() bool`
+
+HasActiveBreakpoints returns a boolean if a field has been set.
 
 ### GetAdopted
 

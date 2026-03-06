@@ -31,6 +31,7 @@ type CreateResourceRequest struct {
 	CustomSysCTLs *map[string]string `json:"customSysCTLs,omitempty"`
 	// Custom ulimits for the resource
 	CustomULimits []CustomULimits `json:"customULimits,omitempty"`
+	DeploymentTarget *DeploymentTarget `json:"deploymentTarget,omitempty"`
 	// A brief description of the resource
 	Description string `json:"description"`
 	// Allows resource to be disabled. Expression returning true/false can be used as value. Resource is enabled by default, if this property is not set.
@@ -292,6 +293,29 @@ func (o *CreateResourceRequest) GetCustomULimitsOk() ([]CustomULimits, bool) {
 // SetCustomULimits gets a reference to the given []CustomULimits and assigns it to the CustomULimits field.
 func (o *CreateResourceRequest) SetCustomULimits(v []CustomULimits) {
 	o.CustomULimits = v
+}
+
+// GetDeploymentTarget returns the DeploymentTarget field value if set, zero value otherwise.
+func (o *CreateResourceRequest) GetDeploymentTarget() DeploymentTarget {
+	if o == nil || IsNil(o.DeploymentTarget) {
+		var ret DeploymentTarget
+		return ret
+	}
+	return *o.DeploymentTarget
+}
+
+// GetDeploymentTargetOk returns a tuple with the DeploymentTarget field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateResourceRequest) GetDeploymentTargetOk() (*DeploymentTarget, bool) {
+	if o == nil || IsNil(o.DeploymentTarget) {
+		return nil, false
+	}
+	return o.DeploymentTarget, true
+}
+
+// SetDeploymentTarget gets a reference to the given DeploymentTarget and assigns it to the DeploymentTarget field.
+func (o *CreateResourceRequest) SetDeploymentTarget(v DeploymentTarget) {
+	o.DeploymentTarget = &v
 }
 
 // GetDescription returns the Description field value
@@ -885,6 +909,9 @@ func (o CreateResourceRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CustomULimits) {
 		toSerialize["customULimits"] = o.CustomULimits
 	}
+	if !IsNil(o.DeploymentTarget) {
+		toSerialize["deploymentTarget"] = o.DeploymentTarget
+	}
 	toSerialize["description"] = o.Description
 	if !IsNil(o.Disable) {
 		toSerialize["disable"] = o.Disable
@@ -1002,6 +1029,7 @@ func (o *CreateResourceRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "customLabels")
 		delete(additionalProperties, "customSysCTLs")
 		delete(additionalProperties, "customULimits")
+		delete(additionalProperties, "deploymentTarget")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "disable")
 		delete(additionalProperties, "environmentVariables")
