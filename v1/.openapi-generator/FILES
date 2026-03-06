@@ -92,6 +92,7 @@ docs/AgentMemoryConfiguration.md
 docs/AgentMonitoringConfiguration.md
 docs/AgentVectorStoreConfiguration.md
 docs/Amenity.md
+docs/ArtifactUploadingTask.md
 docs/AuditEventsApiAPI.md
 docs/AutoScalingMetricSpec.md
 docs/AutoscalingPolicy.md
@@ -277,6 +278,7 @@ docs/DeploymentCellHealthDetail.md
 docs/DeploymentCellHealthRequest.md
 docs/DeploymentCellHealthSummary.md
 docs/DeploymentConfigApiAPI.md
+docs/DeploymentTarget.md
 docs/DeprecateResourceRequest.md
 docs/DeprecateServiceAPIRequest.md
 docs/DeprecateTierVersionSetRequest.md
@@ -890,6 +892,7 @@ model_agent_monitoring_configuration.go
 model_agent_vector_store_configuration.go
 model_amenity.go
 model_api_entity.go
+model_artifact_uploading_task.go
 model_auto_scaling_metric_spec.go
 model_autoscaling_policy.go
 model_aws_private_link_configuration.go
@@ -1061,6 +1064,7 @@ model_deployment_cell_configurations.go
 model_deployment_cell_health_detail.go
 model_deployment_cell_health_request.go
 model_deployment_cell_health_summary.go
+model_deployment_target.go
 model_deprecate_resource_request.go
 model_deprecate_service_api_request.go
 model_deprecate_tier_version_set_request.go

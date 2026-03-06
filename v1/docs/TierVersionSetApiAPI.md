@@ -40,7 +40,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | ID of the Service
-	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
+	productTierId := "Qui consequatur a voluptatem." // string | The product tier ID that this version set belongs to.
 	createTierVersionSetRequest2 := *openapiclient.NewCreateTierVersionSetRequest2("Major|Incremental|UserDefined") // CreateTierVersionSetRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
@@ -113,7 +113,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | ID of the Service
-	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
+	productTierId := "Qui consequatur a voluptatem." // string | The product tier ID that this version set belongs to.
 	nextPageToken := "token" // string |  (optional)
 	pageSize := int64(10) // int64 |  (optional)
 
@@ -188,7 +188,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | ID of the Service
-	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
+	productTierId := "Qui consequatur a voluptatem." // string | The product tier ID that this version set belongs to.
 	version := "3.0" // string | The version number for the specific version set.
 
 	configuration := openapiclient.NewConfiguration()
@@ -262,7 +262,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | ID of the Service
-	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
+	productTierId := "Qui consequatur a voluptatem." // string | The product tier ID that this version set belongs to.
 	version := "3.0" // string | The version number for the specific version set.
 
 	configuration := openapiclient.NewConfiguration()
@@ -336,7 +336,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | ID of the Service
-	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
+	productTierId := "Qui consequatur a voluptatem." // string | The product tier ID that this version set belongs to.
 	version := "3.0" // string | The version number for the specific version set.
 
 	configuration := openapiclient.NewConfiguration()
@@ -410,7 +410,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | ID of the Service
-	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
+	productTierId := "Qui consequatur a voluptatem." // string | The product tier ID that this version set belongs to.
 	version := "3.0" // string | The version number for the version set.
 	anotherVersion := "3.1" // string | The target version to compare against.
 
@@ -487,7 +487,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | ID of the Service
-	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
+	productTierId := "Qui consequatur a voluptatem." // string | The product tier ID that this version set belongs to.
 	version := "3.0" // string | The version number for the specific version set. If not specified, returns the latest preferred or active version. (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -560,7 +560,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | ID of the Service
-	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
+	productTierId := "Qui consequatur a voluptatem." // string | The product tier ID that this version set belongs to.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -631,7 +631,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | ID of the Service
-	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
+	productTierId := "Qui consequatur a voluptatem." // string | The product tier ID that this version set belongs to.
 	latestMajorVersionOnly := true // bool | If true, the latest major version is returned. The parameter needs to be specified in isolation. (optional)
 	latestIncrementalVersionForMajorVersion := "3.0" // string | Returns the latest incremental version for the given major version. The paramenter needs to be specified in isolation. (optional)
 	nextPageToken := "token" // string |  (optional)
@@ -710,7 +710,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | ID of the Service
-	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
+	productTierId := "Qui consequatur a voluptatem." // string | The product tier ID that this version set belongs to.
 	version := "3.0" // string | The version number for the specific version set.
 
 	configuration := openapiclient.NewConfiguration()
@@ -784,7 +784,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | ID of the Service
-	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
+	productTierId := "Qui consequatur a voluptatem." // string | The product tier ID that this version set belongs to.
 	version := "3.0" // string | The version number for the specific version set.
 	releaseTierVersionSetRequest2 := *openapiclient.NewReleaseTierVersionSetRequest2() // ReleaseTierVersionSetRequest2 | 
 
@@ -860,7 +860,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | ID of the Service
-	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
+	productTierId := "Qui consequatur a voluptatem." // string | The product tier ID that this version set belongs to.
 	version := "3.0" // string | The version number for the specific version set.
 	updateTierVersionSetRequest2 := *openapiclient.NewUpdateTierVersionSetRequest2("Updated version set name") // UpdateTierVersionSetRequest2 | 
 
@@ -936,7 +936,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | ID of the Service
-	productTierId := "Beatae beatae." // string | The product tier ID that this version set belongs to.
+	productTierId := "Qui consequatur a voluptatem." // string | The product tier ID that this version set belongs to.
 	version := "3.0" // string | The version number for the specific version set.
 	updateTierVersionSetMetadataRequest2 := *openapiclient.NewUpdateTierVersionSetMetadataRequest2() // UpdateTierVersionSetMetadataRequest2 | 
 

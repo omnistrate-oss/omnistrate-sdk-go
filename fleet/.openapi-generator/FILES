@@ -579,6 +579,8 @@ docs/PerInstanceCost.md
 docs/PerRegionCost.md
 docs/PerUserCost.md
 docs/PodEvent.md
+docs/PrepareServiceFromServicePlanSpecRequest.md
+docs/PrepareServiceFromServicePlanSpecResult.md
 docs/ProductTierDeploymentConfiguration.md
 docs/ProductTierDeploymentRequirements.md
 docs/ProductTierFeatureDetail.md
@@ -706,6 +708,8 @@ docs/VerifyIdentityProviderRequest.md
 docs/VerifyIdentityProviderResult.md
 docs/WebhookConfiguration.md
 docs/WebhooksApiAPI.md
+docs/WorkflowBreakpoint.md
+docs/WorkflowBreakpointWithStatus.md
 docs/WorkflowEvent.md
 docs/WorkflowFailure.md
 docs/WorkflowSearchRecord.md
@@ -1257,6 +1261,8 @@ model_per_instance_cost.go
 model_per_region_cost.go
 model_per_user_cost.go
 model_pod_event.go
+model_prepare_service_from_service_plan_spec_request.go
+model_prepare_service_from_service_plan_spec_result.go
 model_product_tier_deployment_configuration.go
 model_product_tier_deployment_requirements.go
 model_product_tier_feature_detail.go
@@ -1381,6 +1387,8 @@ model_values_file.go
 model_verify_identity_provider_request.go
 model_verify_identity_provider_result.go
 model_webhook_configuration.go
+model_workflow_breakpoint.go
+model_workflow_breakpoint_with_status.go
 model_workflow_event.go
 model_workflow_failure.go
 model_workflow_search_record.go

@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Computing** | Pointer to **bool** | Whether the promotion status is currently being recomputed | [optional] 
 **Status** | **string** | The status of the promotion | 
 **TargetEnvironmentID** | **string** | ID of a Service Environment | 
 
@@ -26,31 +25,6 @@ will change when the set of required properties is changed
 NewEnvironmentPromotionStatusWithDefaults instantiates a new EnvironmentPromotionStatus object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetComputing
-
-`func (o *EnvironmentPromotionStatus) GetComputing() bool`
-
-GetComputing returns the Computing field if non-nil, zero value otherwise.
-
-### GetComputingOk
-
-`func (o *EnvironmentPromotionStatus) GetComputingOk() (*bool, bool)`
-
-GetComputingOk returns a tuple with the Computing field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetComputing
-
-`func (o *EnvironmentPromotionStatus) SetComputing(v bool)`
-
-SetComputing sets Computing field to given value.
-
-### HasComputing
-
-`func (o *EnvironmentPromotionStatus) HasComputing() bool`
-
-HasComputing returns a boolean if a field has been set.
 
 ### GetStatus
 

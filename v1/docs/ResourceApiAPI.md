@@ -561,7 +561,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
 	productTierVersion := "At cumque itaque suscipit." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
-	productTierId := "Beatae beatae." // string | ProductTierId of the resource to describe. Needs to specified in combination with the product tier version (optional)
+	productTierId := "Qui consequatur a voluptatem." // string | ProductTierId of the resource to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -636,7 +636,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
 	productTierVersion := "Et iste porro sunt quidem." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
-	productTierId := "Beatae beatae." // string | ProductTierId of the resource to describe. Needs to specified in combination with the product tier version (optional)
+	productTierId := "Qui consequatur a voluptatem." // string | ProductTierId of the resource to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1148,7 +1148,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID that this API bundle belongs to
 	id := "r-12345678" // string | The ID of the resource
 	productTierVersion := "Aut totam." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
-	productTierId := "Beatae beatae." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
+	productTierId := "Qui consequatur a voluptatem." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
