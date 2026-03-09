@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DataCacheCount** | Pointer to **int64** | Number of local SSDs to use for data cache | [optional] 
-**LocalSsdCount** | **int64** | Number of local SSDs to use for ephemeral storage | 
+**LocalSsdCount** | Pointer to **int64** | Number of local SSDs to use for ephemeral storage | [optional] 
 
 ## Methods
 
 ### NewEphemeralStorageLocalSsdConfig
 
-`func NewEphemeralStorageLocalSsdConfig(localSsdCount int64, ) *EphemeralStorageLocalSsdConfig`
+`func NewEphemeralStorageLocalSsdConfig() *EphemeralStorageLocalSsdConfig`
 
 NewEphemeralStorageLocalSsdConfig instantiates a new EphemeralStorageLocalSsdConfig object
 This constructor will assign default values to properties that have it defined,
@@ -70,6 +70,11 @@ and a boolean to check if the value has been set.
 
 SetLocalSsdCount sets LocalSsdCount field to given value.
 
+### HasLocalSsdCount
+
+`func (o *EphemeralStorageLocalSsdConfig) HasLocalSsdCount() bool`
+
+HasLocalSsdCount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
