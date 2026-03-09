@@ -31516,6 +31516,7 @@ paths:
                   environmentType: PROD|PRIVATE|CANARY|STAGING|QA|DEV|GLOBAL
                   productTierName: Basic
                   serviceName: mysql
+                isNewProductTierCreated: true
                 productTierID: Iusto expedita voluptatibus rem accusamus inventore.
                 serviceEnvironmentID: se-123456
                 serviceID: s-123456
@@ -51052,14 +51053,14 @@ components:
     EphemeralStorageLocalSsdConfig:
       description: Ephemeral storage configuration backed by local SSDs
       example:
-        dataCacheCount: 0
+        dataCacheCount: 1
         localSsdCount: 1
       properties:
         dataCacheCount:
           description: Number of local SSDs to use for data cache
-          example: 0
+          example: 1
           format: int64
-          minimum: 0
+          minimum: 1
           type: integer
         localSsdCount:
           description: Number of local SSDs to use for ephemeral storage
@@ -51067,8 +51068,6 @@ components:
           format: int64
           minimum: 1
           type: integer
-      required:
-      - localSsdCount
       type: object
     Error:
       example:
@@ -65148,6 +65147,7 @@ components:
           environmentType: DEV
           productTierName: Basic
           serviceName: mysql
+        isNewProductTierCreated: true
         productTierID: pt-12345678
         serviceEnvironmentID: se-12345678
         serviceID: s-12345678
@@ -65180,6 +65180,10 @@ components:
           items:
             $ref: "#/components/schemas/ArtifactUploadingTask"
           type: array
+        isNewProductTierCreated:
+          description: Indicates if a new product tier was created
+          example: true
+          type: boolean
         productTierID:
           description: ID of a Product Tier
           example: Non quibusdam doloremque.

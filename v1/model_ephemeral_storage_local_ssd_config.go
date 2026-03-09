@@ -12,7 +12,6 @@ package v1
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the EphemeralStorageLocalSsdConfig type satisfies the MappedNullable interface at compile time
@@ -23,7 +22,7 @@ type EphemeralStorageLocalSsdConfig struct {
 	// Number of local SSDs to use for data cache
 	DataCacheCount *int64 `json:"dataCacheCount,omitempty"`
 	// Number of local SSDs to use for ephemeral storage
-	LocalSsdCount int64 `json:"localSsdCount"`
+	LocalSsdCount *int64 `json:"localSsdCount,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -33,9 +32,8 @@ type _EphemeralStorageLocalSsdConfig EphemeralStorageLocalSsdConfig
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEphemeralStorageLocalSsdConfig(localSsdCount int64) *EphemeralStorageLocalSsdConfig {
+func NewEphemeralStorageLocalSsdConfig() *EphemeralStorageLocalSsdConfig {
 	this := EphemeralStorageLocalSsdConfig{}
-	this.LocalSsdCount = localSsdCount
 	return &this
 }
 
@@ -70,28 +68,27 @@ func (o *EphemeralStorageLocalSsdConfig) SetDataCacheCount(v int64) {
 	o.DataCacheCount = &v
 }
 
-// GetLocalSsdCount returns the LocalSsdCount field value
+// GetLocalSsdCount returns the LocalSsdCount field value if set, zero value otherwise.
 func (o *EphemeralStorageLocalSsdConfig) GetLocalSsdCount() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.LocalSsdCount) {
 		var ret int64
 		return ret
 	}
-
-	return o.LocalSsdCount
+	return *o.LocalSsdCount
 }
 
-// GetLocalSsdCountOk returns a tuple with the LocalSsdCount field value
+// GetLocalSsdCountOk returns a tuple with the LocalSsdCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EphemeralStorageLocalSsdConfig) GetLocalSsdCountOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LocalSsdCount) {
 		return nil, false
 	}
-	return &o.LocalSsdCount, true
+	return o.LocalSsdCount, true
 }
 
-// SetLocalSsdCount sets field value
+// SetLocalSsdCount gets a reference to the given int64 and assigns it to the LocalSsdCount field.
 func (o *EphemeralStorageLocalSsdConfig) SetLocalSsdCount(v int64) {
-	o.LocalSsdCount = v
+	o.LocalSsdCount = &v
 }
 
 func (o EphemeralStorageLocalSsdConfig) MarshalJSON() ([]byte, error) {
@@ -107,7 +104,9 @@ func (o EphemeralStorageLocalSsdConfig) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.DataCacheCount) {
 		toSerialize["dataCacheCount"] = o.DataCacheCount
 	}
-	toSerialize["localSsdCount"] = o.LocalSsdCount
+	if !IsNil(o.LocalSsdCount) {
+		toSerialize["localSsdCount"] = o.LocalSsdCount
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -117,27 +116,6 @@ func (o EphemeralStorageLocalSsdConfig) ToMap() (map[string]interface{}, error) 
 }
 
 func (o *EphemeralStorageLocalSsdConfig) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"localSsdCount",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varEphemeralStorageLocalSsdConfig := _EphemeralStorageLocalSsdConfig{}
 
 	err = json.Unmarshal(data, &varEphemeralStorageLocalSsdConfig)
