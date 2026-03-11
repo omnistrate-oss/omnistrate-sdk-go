@@ -249,6 +249,7 @@ Class | Method | HTTP request | Description
  - [Amenity](docs/Amenity.md)
  - [ApplyPendingChangesToHostClusterRequest](docs/ApplyPendingChangesToHostClusterRequest.md)
  - [ApproveSubscriptionRequestRequest](docs/ApproveSubscriptionRequestRequest.md)
+ - [ArtifactUploadingTask](docs/ArtifactUploadingTask.md)
  - [BackupStatus](docs/BackupStatus.md)
  - [BillingProvider](docs/BillingProvider.md)
  - [BuildServiceFromComposeSpecRequest](docs/BuildServiceFromComposeSpecRequest.md)
