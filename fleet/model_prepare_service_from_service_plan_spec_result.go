@@ -19,6 +19,10 @@ var _ MappedNullable = &PrepareServiceFromServicePlanSpecResult{}
 
 // PrepareServiceFromServicePlanSpecResult struct for PrepareServiceFromServicePlanSpecResult
 type PrepareServiceFromServicePlanSpecResult struct {
+	// List of artifact uploading tasks to be performed by the caller. Each task contains the artifact type and the presigned URL to upload the artifact to.
+	ArtifactUploadingTasks []ArtifactUploadingTask `json:"artifactUploadingTasks,omitempty"`
+	// Indicates if a new product tier was created
+	IsNewProductTierCreated *bool `json:"isNewProductTierCreated,omitempty"`
 	// ID of a Product Tier
 	ProductTierID *string `json:"productTierID,omitempty"`
 	// ID of a Service Environment
@@ -45,6 +49,70 @@ func NewPrepareServiceFromServicePlanSpecResult() *PrepareServiceFromServicePlan
 func NewPrepareServiceFromServicePlanSpecResultWithDefaults() *PrepareServiceFromServicePlanSpecResult {
 	this := PrepareServiceFromServicePlanSpecResult{}
 	return &this
+}
+
+// GetArtifactUploadingTasks returns the ArtifactUploadingTasks field value if set, zero value otherwise.
+func (o *PrepareServiceFromServicePlanSpecResult) GetArtifactUploadingTasks() []ArtifactUploadingTask {
+	if o == nil || IsNil(o.ArtifactUploadingTasks) {
+		var ret []ArtifactUploadingTask
+		return ret
+	}
+	return o.ArtifactUploadingTasks
+}
+
+// GetArtifactUploadingTasksOk returns a tuple with the ArtifactUploadingTasks field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PrepareServiceFromServicePlanSpecResult) GetArtifactUploadingTasksOk() ([]ArtifactUploadingTask, bool) {
+	if o == nil || IsNil(o.ArtifactUploadingTasks) {
+		return nil, false
+	}
+	return o.ArtifactUploadingTasks, true
+}
+
+// HasArtifactUploadingTasks returns a boolean if a field has been set.
+func (o *PrepareServiceFromServicePlanSpecResult) HasArtifactUploadingTasks() bool {
+	if o != nil && !IsNil(o.ArtifactUploadingTasks) {
+		return true
+	}
+
+	return false
+}
+
+// SetArtifactUploadingTasks gets a reference to the given []ArtifactUploadingTask and assigns it to the ArtifactUploadingTasks field.
+func (o *PrepareServiceFromServicePlanSpecResult) SetArtifactUploadingTasks(v []ArtifactUploadingTask) {
+	o.ArtifactUploadingTasks = v
+}
+
+// GetIsNewProductTierCreated returns the IsNewProductTierCreated field value if set, zero value otherwise.
+func (o *PrepareServiceFromServicePlanSpecResult) GetIsNewProductTierCreated() bool {
+	if o == nil || IsNil(o.IsNewProductTierCreated) {
+		var ret bool
+		return ret
+	}
+	return *o.IsNewProductTierCreated
+}
+
+// GetIsNewProductTierCreatedOk returns a tuple with the IsNewProductTierCreated field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PrepareServiceFromServicePlanSpecResult) GetIsNewProductTierCreatedOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsNewProductTierCreated) {
+		return nil, false
+	}
+	return o.IsNewProductTierCreated, true
+}
+
+// HasIsNewProductTierCreated returns a boolean if a field has been set.
+func (o *PrepareServiceFromServicePlanSpecResult) HasIsNewProductTierCreated() bool {
+	if o != nil && !IsNil(o.IsNewProductTierCreated) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsNewProductTierCreated gets a reference to the given bool and assigns it to the IsNewProductTierCreated field.
+func (o *PrepareServiceFromServicePlanSpecResult) SetIsNewProductTierCreated(v bool) {
+	o.IsNewProductTierCreated = &v
 }
 
 // GetProductTierID returns the ProductTierID field value if set, zero value otherwise.
@@ -153,6 +221,12 @@ func (o PrepareServiceFromServicePlanSpecResult) MarshalJSON() ([]byte, error) {
 
 func (o PrepareServiceFromServicePlanSpecResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ArtifactUploadingTasks) {
+		toSerialize["artifactUploadingTasks"] = o.ArtifactUploadingTasks
+	}
+	if !IsNil(o.IsNewProductTierCreated) {
+		toSerialize["isNewProductTierCreated"] = o.IsNewProductTierCreated
+	}
 	if !IsNil(o.ProductTierID) {
 		toSerialize["productTierID"] = o.ProductTierID
 	}
@@ -184,6 +258,8 @@ func (o *PrepareServiceFromServicePlanSpecResult) UnmarshalJSON(data []byte) (er
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "artifactUploadingTasks")
+		delete(additionalProperties, "isNewProductTierCreated")
 		delete(additionalProperties, "productTierID")
 		delete(additionalProperties, "serviceEnvironmentID")
 		delete(additionalProperties, "serviceID")

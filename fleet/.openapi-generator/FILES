@@ -35,6 +35,7 @@ docs/AdoptResourceInstanceRequest2.md
 docs/Amenity.md
 docs/ApplyPendingChangesToHostClusterRequest.md
 docs/ApproveSubscriptionRequestRequest.md
+docs/ArtifactUploadingTask.md
 docs/AuditEventsApiAPI.md
 docs/BackupStatus.md
 docs/BillingProvider.md
@@ -729,6 +730,7 @@ model_amenity.go
 model_api_entity.go
 model_apply_pending_changes_to_host_cluster_request.go
 model_approve_subscription_request_request.go
+model_artifact_uploading_task.go
 model_backup_status.go
 model_billing_provider.go
 model_build_service_from_compose_spec_request.go
