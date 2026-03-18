@@ -4301,7 +4301,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiListSubscription
 
-> FleetListSubscriptionsResult InventoryApiListSubscription(ctx, serviceId, environmentId).ProductTierId(productTierId).IncludeInactive(includeInactive).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
+> FleetListSubscriptionsResult InventoryApiListSubscription(ctx, serviceId, environmentId).ProductTierId(productTierId).IncludeInactive(includeInactive).ExcludePricing(excludePricing).ExcludeStats(excludeStats).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
 
 ListSubscription inventory-api
 
@@ -4322,12 +4322,14 @@ func main() {
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier Id (optional)
 	includeInactive := false // bool | Whether to include inactive subscriptions (optional)
+	excludePricing := false // bool | Whether to exclude billing details from the response (optional)
+	excludeStats := false // bool | Whether to exclude subscription statistics from the response (optional)
 	nextPageToken := "token" // string |  (optional)
 	pageSize := int64(10) // int64 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListSubscription(context.Background(), serviceId, environmentId).ProductTierId(productTierId).IncludeInactive(includeInactive).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiListSubscription(context.Background(), serviceId, environmentId).ProductTierId(productTierId).IncludeInactive(includeInactive).ExcludePricing(excludePricing).ExcludeStats(excludeStats).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiListSubscription``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4357,6 +4359,8 @@ Name | Type | Description  | Notes
 
  **productTierId** | **string** | The product tier Id | 
  **includeInactive** | **bool** | Whether to include inactive subscriptions | 
+ **excludePricing** | **bool** | Whether to exclude billing details from the response | 
+ **excludeStats** | **bool** | Whether to exclude subscription statistics from the response | 
  **nextPageToken** | **string** |  | 
  **pageSize** | **int64** |  | 
 

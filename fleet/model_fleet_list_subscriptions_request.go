@@ -22,6 +22,10 @@ var _ MappedNullable = &FleetListSubscriptionsRequest{}
 type FleetListSubscriptionsRequest struct {
 	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
+	// Whether to exclude billing details (active pricing, scheduled pricing, audit logs, billing provider) from the response
+	ExcludePricing *bool `json:"excludePricing,omitempty"`
+	// Whether to exclude subscription statistics (user count, instance count, first usage time) from the response
+	ExcludeStats *bool `json:"excludeStats,omitempty"`
 	// Whether to include inactive (suspended, cancelled, terminated) subscriptions
 	IncludeInactive *bool `json:"includeInactive,omitempty"`
 	// The next token to use for pagination
@@ -81,6 +85,70 @@ func (o *FleetListSubscriptionsRequest) GetEnvironmentIdOk() (*string, bool) {
 // SetEnvironmentId sets field value
 func (o *FleetListSubscriptionsRequest) SetEnvironmentId(v string) {
 	o.EnvironmentId = v
+}
+
+// GetExcludePricing returns the ExcludePricing field value if set, zero value otherwise.
+func (o *FleetListSubscriptionsRequest) GetExcludePricing() bool {
+	if o == nil || IsNil(o.ExcludePricing) {
+		var ret bool
+		return ret
+	}
+	return *o.ExcludePricing
+}
+
+// GetExcludePricingOk returns a tuple with the ExcludePricing field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetListSubscriptionsRequest) GetExcludePricingOk() (*bool, bool) {
+	if o == nil || IsNil(o.ExcludePricing) {
+		return nil, false
+	}
+	return o.ExcludePricing, true
+}
+
+// HasExcludePricing returns a boolean if a field has been set.
+func (o *FleetListSubscriptionsRequest) HasExcludePricing() bool {
+	if o != nil && !IsNil(o.ExcludePricing) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludePricing gets a reference to the given bool and assigns it to the ExcludePricing field.
+func (o *FleetListSubscriptionsRequest) SetExcludePricing(v bool) {
+	o.ExcludePricing = &v
+}
+
+// GetExcludeStats returns the ExcludeStats field value if set, zero value otherwise.
+func (o *FleetListSubscriptionsRequest) GetExcludeStats() bool {
+	if o == nil || IsNil(o.ExcludeStats) {
+		var ret bool
+		return ret
+	}
+	return *o.ExcludeStats
+}
+
+// GetExcludeStatsOk returns a tuple with the ExcludeStats field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetListSubscriptionsRequest) GetExcludeStatsOk() (*bool, bool) {
+	if o == nil || IsNil(o.ExcludeStats) {
+		return nil, false
+	}
+	return o.ExcludeStats, true
+}
+
+// HasExcludeStats returns a boolean if a field has been set.
+func (o *FleetListSubscriptionsRequest) HasExcludeStats() bool {
+	if o != nil && !IsNil(o.ExcludeStats) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludeStats gets a reference to the given bool and assigns it to the ExcludeStats field.
+func (o *FleetListSubscriptionsRequest) SetExcludeStats(v bool) {
+	o.ExcludeStats = &v
 }
 
 // GetIncludeInactive returns the IncludeInactive field value if set, zero value otherwise.
@@ -270,6 +338,12 @@ func (o FleetListSubscriptionsRequest) MarshalJSON() ([]byte, error) {
 func (o FleetListSubscriptionsRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["environmentId"] = o.EnvironmentId
+	if !IsNil(o.ExcludePricing) {
+		toSerialize["excludePricing"] = o.ExcludePricing
+	}
+	if !IsNil(o.ExcludeStats) {
+		toSerialize["excludeStats"] = o.ExcludeStats
+	}
 	if !IsNil(o.IncludeInactive) {
 		toSerialize["includeInactive"] = o.IncludeInactive
 	}
@@ -330,6 +404,8 @@ func (o *FleetListSubscriptionsRequest) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "excludePricing")
+		delete(additionalProperties, "excludeStats")
 		delete(additionalProperties, "includeInactive")
 		delete(additionalProperties, "nextPageToken")
 		delete(additionalProperties, "pageSize")

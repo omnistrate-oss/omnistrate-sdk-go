@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EnvironmentId** | **string** | ID of a Service Environment | 
+**ExcludePricing** | Pointer to **bool** | Whether to exclude billing details (active pricing, scheduled pricing, audit logs, billing provider) from the response | [optional] 
+**ExcludeStats** | Pointer to **bool** | Whether to exclude subscription statistics (user count, instance count, first usage time) from the response | [optional] 
 **IncludeInactive** | Pointer to **bool** | Whether to include inactive (suspended, cancelled, terminated) subscriptions | [optional] 
 **NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
 **PageSize** | Pointer to **int64** | The number of resources to return per page | [optional] 
@@ -50,6 +52,56 @@ and a boolean to check if the value has been set.
 
 SetEnvironmentId sets EnvironmentId field to given value.
 
+
+### GetExcludePricing
+
+`func (o *FleetListSubscriptionsRequest) GetExcludePricing() bool`
+
+GetExcludePricing returns the ExcludePricing field if non-nil, zero value otherwise.
+
+### GetExcludePricingOk
+
+`func (o *FleetListSubscriptionsRequest) GetExcludePricingOk() (*bool, bool)`
+
+GetExcludePricingOk returns a tuple with the ExcludePricing field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludePricing
+
+`func (o *FleetListSubscriptionsRequest) SetExcludePricing(v bool)`
+
+SetExcludePricing sets ExcludePricing field to given value.
+
+### HasExcludePricing
+
+`func (o *FleetListSubscriptionsRequest) HasExcludePricing() bool`
+
+HasExcludePricing returns a boolean if a field has been set.
+
+### GetExcludeStats
+
+`func (o *FleetListSubscriptionsRequest) GetExcludeStats() bool`
+
+GetExcludeStats returns the ExcludeStats field if non-nil, zero value otherwise.
+
+### GetExcludeStatsOk
+
+`func (o *FleetListSubscriptionsRequest) GetExcludeStatsOk() (*bool, bool)`
+
+GetExcludeStatsOk returns a tuple with the ExcludeStats field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeStats
+
+`func (o *FleetListSubscriptionsRequest) SetExcludeStats(v bool)`
+
+SetExcludeStats sets ExcludeStats field to given value.
+
+### HasExcludeStats
+
+`func (o *FleetListSubscriptionsRequest) HasExcludeStats() bool`
+
+HasExcludeStats returns a boolean if a field has been set.
 
 ### GetIncludeInactive
 
