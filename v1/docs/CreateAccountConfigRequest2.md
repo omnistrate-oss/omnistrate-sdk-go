@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **Name** | **string** | The name of the account | 
 **OciDomainID** | Pointer to **string** | The Domain OCID for Oracle Cloud Infrastructure | [optional] 
 **OciTenancyID** | Pointer to **string** | The Tenancy OCID for Oracle Cloud Infrastructure | [optional] 
+**PrivateOnly** | Pointer to **bool** | Whether all provisioned dataplanes from this provisioner account must be fully private (no public subnets, NAT gateway, or IGW) | [optional] 
 
 ## Methods
 
@@ -424,6 +425,31 @@ SetOciTenancyID sets OciTenancyID field to given value.
 `func (o *CreateAccountConfigRequest2) HasOciTenancyID() bool`
 
 HasOciTenancyID returns a boolean if a field has been set.
+
+### GetPrivateOnly
+
+`func (o *CreateAccountConfigRequest2) GetPrivateOnly() bool`
+
+GetPrivateOnly returns the PrivateOnly field if non-nil, zero value otherwise.
+
+### GetPrivateOnlyOk
+
+`func (o *CreateAccountConfigRequest2) GetPrivateOnlyOk() (*bool, bool)`
+
+GetPrivateOnlyOk returns a tuple with the PrivateOnly field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrivateOnly
+
+`func (o *CreateAccountConfigRequest2) SetPrivateOnly(v bool)`
+
+SetPrivateOnly sets PrivateOnly field to given value.
+
+### HasPrivateOnly
+
+`func (o *CreateAccountConfigRequest2) HasPrivateOnly() bool`
+
+HasPrivateOnly returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

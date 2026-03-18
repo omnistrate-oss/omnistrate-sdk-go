@@ -141,6 +141,7 @@ paths:
               name: Dev AWS account
               ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
               ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+              privateOnly: true
             schema:
               $ref: "#/components/schemas/CreateAccountConfigRequest2"
         required: true
@@ -282,6 +283,7 @@ paths:
                 ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                 ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
                 ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                privateOnly: true
                 status: PENDING|VERIFYING|READY|FAILED|DELETING|READY_TO_OFFBOARD
                 statusMessage: Account is ready
               schema:
@@ -533,6 +535,7 @@ paths:
                   ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                   ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
                   ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                  privateOnly: true
                   status: PENDING|VERIFYING|READY|FAILED|DELETING|READY_TO_OFFBOARD
                   statusMessage: Account is ready
                 - awsAccountID: "123456789012"
@@ -562,6 +565,7 @@ paths:
                   ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                   ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
                   ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                  privateOnly: true
                   status: PENDING|VERIFYING|READY|FAILED|DELETING|READY_TO_OFFBOARD
                   statusMessage: Account is ready
                 - awsAccountID: "123456789012"
@@ -591,6 +595,7 @@ paths:
                   ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                   ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
                   ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                  privateOnly: true
                   status: PENDING|VERIFYING|READY|FAILED|DELETING|READY_TO_OFFBOARD
                   statusMessage: Account is ready
                 ids:
@@ -692,6 +697,7 @@ paths:
                   ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                   ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
                   ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                  privateOnly: true
                   status: PENDING|VERIFYING|READY|FAILED|DELETING|READY_TO_OFFBOARD
                   statusMessage: Account is ready
                 - awsAccountID: "123456789012"
@@ -721,6 +727,7 @@ paths:
                   ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                   ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
                   ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                  privateOnly: true
                   status: PENDING|VERIFYING|READY|FAILED|DELETING|READY_TO_OFFBOARD
                   statusMessage: Account is ready
                 - awsAccountID: "123456789012"
@@ -750,6 +757,7 @@ paths:
                   ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                   ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
                   ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                  privateOnly: true
                   status: PENDING|VERIFYING|READY|FAILED|DELETING|READY_TO_OFFBOARD
                   statusMessage: Account is ready
                 - awsAccountID: "123456789012"
@@ -779,6 +787,7 @@ paths:
                   ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                   ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
                   ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                  privateOnly: true
                   status: PENDING|VERIFYING|READY|FAILED|DELETING|READY_TO_OFFBOARD
                   statusMessage: Account is ready
                 ids:
@@ -36741,6 +36750,7 @@ components:
         name: Dev AWS account
         ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
         ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        privateOnly: true
         token: xrp
       properties:
         awsAccessKey:
@@ -36808,6 +36818,11 @@ components:
           description: The Tenancy OCID for Oracle Cloud Infrastructure
           example: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
           type: string
+        privateOnly:
+          description: "Whether all provisioned dataplanes from this provisioner account\
+            \ must be fully private (no public subnets, NAT gateway, or IGW)"
+          example: true
+          type: boolean
         token:
           description: JWT token used to perform authorization
           example: "38"
@@ -36837,6 +36852,7 @@ components:
         name: Dev AWS account
         ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
         ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        privateOnly: true
       properties:
         awsAccessKey:
           description: The AWS access key
@@ -36903,6 +36919,11 @@ components:
           description: The Tenancy OCID for Oracle Cloud Infrastructure
           example: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
           type: string
+        privateOnly:
+          description: "Whether all provisioned dataplanes from this provisioner account\
+            \ must be fully private (no public subnets, NAT gateway, or IGW)"
+          example: true
+          type: boolean
       required:
       - cloudProviderId
       - description
@@ -44359,6 +44380,7 @@ components:
         ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
         ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
         ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        privateOnly: true
         status: READY
         statusMessage: Account is ready
       properties:
@@ -44469,6 +44491,11 @@ components:
           description: The Tenancy OCID for Oracle Cloud Infrastructure
           example: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
           type: string
+        privateOnly:
+          description: "Whether all provisioned dataplanes from this provisioner account\
+            \ must be fully private (no public subnets, NAT gateway, or IGW)"
+          example: true
+          type: boolean
         status:
           description: The status of the account configuration
           example: PENDING|VERIFYING|READY|FAILED|DELETING|READY_TO_OFFBOARD
@@ -53804,6 +53831,7 @@ components:
           ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
           ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
           ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          privateOnly: true
           status: READY
           statusMessage: Account is ready
         - awsAccountID: "123456789012"
@@ -53833,6 +53861,7 @@ components:
           ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
           ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
           ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          privateOnly: true
           status: READY
           statusMessage: Account is ready
         ids:
@@ -53871,6 +53900,7 @@ components:
             ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
             ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
             ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            privateOnly: true
             status: READY
             statusMessage: Account is ready
           - awsAccountID: "123456789012"
@@ -53900,6 +53930,7 @@ components:
             ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
             ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
             ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            privateOnly: true
             status: READY
             statusMessage: Account is ready
           items:
@@ -55343,6 +55374,7 @@ components:
           ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
           ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
           ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          privateOnly: true
           status: READY
           statusMessage: Account is ready
         - awsAccountID: "123456789012"
@@ -55372,6 +55404,7 @@ components:
           ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
           ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
           ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          privateOnly: true
           status: READY
           statusMessage: Account is ready
         - awsAccountID: "123456789012"
@@ -55401,6 +55434,7 @@ components:
           ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
           ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
           ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          privateOnly: true
           status: READY
           statusMessage: Account is ready
         - awsAccountID: "123456789012"
@@ -55430,6 +55464,7 @@ components:
           ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
           ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
           ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          privateOnly: true
           status: READY
           statusMessage: Account is ready
         ids:
@@ -55468,6 +55503,7 @@ components:
             ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
             ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
             ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            privateOnly: true
             status: READY
             statusMessage: Account is ready
           - awsAccountID: "123456789012"
@@ -55497,6 +55533,7 @@ components:
             ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
             ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
             ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            privateOnly: true
             status: READY
             statusMessage: Account is ready
           items:

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **AzureSubscriptionID** | Pointer to **string** | The Azure subscription ID | [optional] 
 **CloudProvider** | **string** | Name of the Infra Provider | 
 **ConsumptionResourceInstanceResult** | [**DescribeResourceInstanceResult**](DescribeResourceInstanceResult.md) |  | 
+**ControlPlaneDeploymentCellID** | Pointer to **string** | ID of a Host Cluster | [optional] 
 **DefaultSubscription** | **bool** | Whether the subscription is the default subscription | 
 **DeploymentCellID** | Pointer to **string** | ID of a Host Cluster | [optional] 
 **EnvironmentId** | **string** | ID of a Service Environment | 
@@ -198,6 +199,31 @@ and a boolean to check if the value has been set.
 
 SetConsumptionResourceInstanceResult sets ConsumptionResourceInstanceResult field to given value.
 
+
+### GetControlPlaneDeploymentCellID
+
+`func (o *ResourceInstance) GetControlPlaneDeploymentCellID() string`
+
+GetControlPlaneDeploymentCellID returns the ControlPlaneDeploymentCellID field if non-nil, zero value otherwise.
+
+### GetControlPlaneDeploymentCellIDOk
+
+`func (o *ResourceInstance) GetControlPlaneDeploymentCellIDOk() (*string, bool)`
+
+GetControlPlaneDeploymentCellIDOk returns a tuple with the ControlPlaneDeploymentCellID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetControlPlaneDeploymentCellID
+
+`func (o *ResourceInstance) SetControlPlaneDeploymentCellID(v string)`
+
+SetControlPlaneDeploymentCellID sets ControlPlaneDeploymentCellID field to given value.
+
+### HasControlPlaneDeploymentCellID
+
+`func (o *ResourceInstance) HasControlPlaneDeploymentCellID() bool`
+
+HasControlPlaneDeploymentCellID returns a boolean if a field has been set.
 
 ### GetDefaultSubscription
 

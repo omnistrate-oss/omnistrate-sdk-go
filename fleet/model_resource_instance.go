@@ -31,6 +31,8 @@ type ResourceInstance struct {
 	// Name of the Infra Provider
 	CloudProvider string `json:"cloudProvider"`
 	ConsumptionResourceInstanceResult DescribeResourceInstanceResult `json:"consumptionResourceInstanceResult"`
+	// ID of a Host Cluster
+	ControlPlaneDeploymentCellID *string `json:"controlPlaneDeploymentCellID,omitempty"`
 	// Whether the subscription is the default subscription
 	DefaultSubscription bool `json:"defaultSubscription"`
 	// ID of a Host Cluster
@@ -313,6 +315,38 @@ func (o *ResourceInstance) GetConsumptionResourceInstanceResultOk() (*DescribeRe
 // SetConsumptionResourceInstanceResult sets field value
 func (o *ResourceInstance) SetConsumptionResourceInstanceResult(v DescribeResourceInstanceResult) {
 	o.ConsumptionResourceInstanceResult = v
+}
+
+// GetControlPlaneDeploymentCellID returns the ControlPlaneDeploymentCellID field value if set, zero value otherwise.
+func (o *ResourceInstance) GetControlPlaneDeploymentCellID() string {
+	if o == nil || IsNil(o.ControlPlaneDeploymentCellID) {
+		var ret string
+		return ret
+	}
+	return *o.ControlPlaneDeploymentCellID
+}
+
+// GetControlPlaneDeploymentCellIDOk returns a tuple with the ControlPlaneDeploymentCellID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceInstance) GetControlPlaneDeploymentCellIDOk() (*string, bool) {
+	if o == nil || IsNil(o.ControlPlaneDeploymentCellID) {
+		return nil, false
+	}
+	return o.ControlPlaneDeploymentCellID, true
+}
+
+// HasControlPlaneDeploymentCellID returns a boolean if a field has been set.
+func (o *ResourceInstance) HasControlPlaneDeploymentCellID() bool {
+	if o != nil && !IsNil(o.ControlPlaneDeploymentCellID) {
+		return true
+	}
+
+	return false
+}
+
+// SetControlPlaneDeploymentCellID gets a reference to the given string and assigns it to the ControlPlaneDeploymentCellID field.
+func (o *ResourceInstance) SetControlPlaneDeploymentCellID(v string) {
+	o.ControlPlaneDeploymentCellID = &v
 }
 
 // GetDefaultSubscription returns the DefaultSubscription field value
@@ -1235,6 +1269,9 @@ func (o ResourceInstance) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["cloudProvider"] = o.CloudProvider
 	toSerialize["consumptionResourceInstanceResult"] = o.ConsumptionResourceInstanceResult
+	if !IsNil(o.ControlPlaneDeploymentCellID) {
+		toSerialize["controlPlaneDeploymentCellID"] = o.ControlPlaneDeploymentCellID
+	}
 	toSerialize["defaultSubscription"] = o.DefaultSubscription
 	if !IsNil(o.DeploymentCellID) {
 		toSerialize["deploymentCellID"] = o.DeploymentCellID
@@ -1366,6 +1403,7 @@ func (o *ResourceInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "azureSubscriptionID")
 		delete(additionalProperties, "cloudProvider")
 		delete(additionalProperties, "consumptionResourceInstanceResult")
+		delete(additionalProperties, "controlPlaneDeploymentCellID")
 		delete(additionalProperties, "defaultSubscription")
 		delete(additionalProperties, "deploymentCellID")
 		delete(additionalProperties, "environmentId")

@@ -11491,6 +11491,8 @@ type ApiInventoryApiListSubscriptionRequest struct {
 	environmentId string
 	productTierId *string
 	includeInactive *bool
+	excludePricing *bool
+	excludeStats *bool
 	nextPageToken *string
 	pageSize *int64
 }
@@ -11504,6 +11506,18 @@ func (r ApiInventoryApiListSubscriptionRequest) ProductTierId(productTierId stri
 // Whether to include inactive subscriptions
 func (r ApiInventoryApiListSubscriptionRequest) IncludeInactive(includeInactive bool) ApiInventoryApiListSubscriptionRequest {
 	r.includeInactive = &includeInactive
+	return r
+}
+
+// Whether to exclude billing details from the response
+func (r ApiInventoryApiListSubscriptionRequest) ExcludePricing(excludePricing bool) ApiInventoryApiListSubscriptionRequest {
+	r.excludePricing = &excludePricing
+	return r
+}
+
+// Whether to exclude subscription statistics from the response
+func (r ApiInventoryApiListSubscriptionRequest) ExcludeStats(excludeStats bool) ApiInventoryApiListSubscriptionRequest {
+	r.excludeStats = &excludeStats
 	return r
 }
 
@@ -11566,6 +11580,12 @@ func (a *InventoryApiAPIService) InventoryApiListSubscriptionExecute(r ApiInvent
 	}
 	if r.includeInactive != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includeInactive", r.includeInactive, "form", "")
+	}
+	if r.excludePricing != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "excludePricing", r.excludePricing, "form", "")
+	}
+	if r.excludeStats != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeStats", r.excludeStats, "form", "")
 	}
 	if r.nextPageToken != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")

@@ -20,6 +20,8 @@ var _ MappedNullable = &OmnistrateServiceVersionResult{}
 
 // OmnistrateServiceVersionResult struct for OmnistrateServiceVersionResult
 type OmnistrateServiceVersionResult struct {
+	// Additional component specific versions
+	AdditionalVersions *map[string]string `json:"additionalVersions,omitempty"`
 	// Version of the Entity to operate on
 	ApiVersion string `json:"apiVersion"`
 	// The commit hash of the build
@@ -52,6 +54,38 @@ func NewOmnistrateServiceVersionResult(apiVersion string, buildCommitSHA string,
 func NewOmnistrateServiceVersionResultWithDefaults() *OmnistrateServiceVersionResult {
 	this := OmnistrateServiceVersionResult{}
 	return &this
+}
+
+// GetAdditionalVersions returns the AdditionalVersions field value if set, zero value otherwise.
+func (o *OmnistrateServiceVersionResult) GetAdditionalVersions() map[string]string {
+	if o == nil || IsNil(o.AdditionalVersions) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.AdditionalVersions
+}
+
+// GetAdditionalVersionsOk returns a tuple with the AdditionalVersions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OmnistrateServiceVersionResult) GetAdditionalVersionsOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.AdditionalVersions) {
+		return nil, false
+	}
+	return o.AdditionalVersions, true
+}
+
+// HasAdditionalVersions returns a boolean if a field has been set.
+func (o *OmnistrateServiceVersionResult) HasAdditionalVersions() bool {
+	if o != nil && !IsNil(o.AdditionalVersions) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdditionalVersions gets a reference to the given map[string]string and assigns it to the AdditionalVersions field.
+func (o *OmnistrateServiceVersionResult) SetAdditionalVersions(v map[string]string) {
+	o.AdditionalVersions = &v
 }
 
 // GetApiVersion returns the ApiVersion field value
@@ -160,6 +194,9 @@ func (o OmnistrateServiceVersionResult) MarshalJSON() ([]byte, error) {
 
 func (o OmnistrateServiceVersionResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AdditionalVersions) {
+		toSerialize["additionalVersions"] = o.AdditionalVersions
+	}
 	toSerialize["apiVersion"] = o.ApiVersion
 	toSerialize["buildCommitSHA"] = o.BuildCommitSHA
 	toSerialize["buildTimestamp"] = o.BuildTimestamp
@@ -210,6 +247,7 @@ func (o *OmnistrateServiceVersionResult) UnmarshalJSON(data []byte) (err error) 
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "additionalVersions")
 		delete(additionalProperties, "apiVersion")
 		delete(additionalProperties, "buildCommitSHA")
 		delete(additionalProperties, "buildTimestamp")
