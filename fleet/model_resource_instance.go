@@ -109,14 +109,13 @@ type _ResourceInstance ResourceInstance
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewResourceInstance(adopted bool, cloudProvider string, consumptionResourceInstanceResult DescribeResourceInstanceResult, defaultSubscription bool, environmentId string, inputParams interface{}, instanceDebugCommands []string, integrationsStatus []IntegrationStatus, organizationId string, organizationName string, productTierId string, productTierName string, productTierType string, resourceVersionSummaries []ResourceVersionSummary, serviceEnvName string, serviceId string, serviceModelId string, serviceModelName string, serviceModelType string, serviceName string, subscriptionId string, subscriptionOwnerName string, tierVersion string, tierVersionReleasedAt string, tierVersionReleasedByUserId string, tierVersionReleasedByUserName string, tierVersionStatus string) *ResourceInstance {
+func NewResourceInstance(adopted bool, cloudProvider string, consumptionResourceInstanceResult DescribeResourceInstanceResult, defaultSubscription bool, environmentId string, instanceDebugCommands []string, integrationsStatus []IntegrationStatus, organizationId string, organizationName string, productTierId string, productTierName string, productTierType string, resourceVersionSummaries []ResourceVersionSummary, serviceEnvName string, serviceId string, serviceModelId string, serviceModelName string, serviceModelType string, serviceName string, subscriptionId string, subscriptionOwnerName string, tierVersion string, tierVersionReleasedAt string, tierVersionReleasedByUserId string, tierVersionReleasedByUserName string, tierVersionStatus string) *ResourceInstance {
 	this := ResourceInstance{}
 	this.Adopted = adopted
 	this.CloudProvider = cloudProvider
 	this.ConsumptionResourceInstanceResult = consumptionResourceInstanceResult
 	this.DefaultSubscription = defaultSubscription
 	this.EnvironmentId = environmentId
-	this.InputParams = inputParams
 	this.InstanceDebugCommands = instanceDebugCommands
 	this.IntegrationsStatus = integrationsStatus
 	this.OrganizationId = organizationId
@@ -1346,7 +1345,6 @@ func (o *ResourceInstance) UnmarshalJSON(data []byte) (err error) {
 		"consumptionResourceInstanceResult",
 		"defaultSubscription",
 		"environmentId",
-		"input_params",
 		"instanceDebugCommands",
 		"integrationsStatus",
 		"organizationId",
