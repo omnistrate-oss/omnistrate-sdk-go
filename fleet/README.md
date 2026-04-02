@@ -264,6 +264,7 @@ Class | Method | HTTP request | Description
  - [ChangePlanRequest](docs/ChangePlanRequest.md)
  - [ChangeSet](docs/ChangeSet.md)
  - [ChangeSummary](docs/ChangeSummary.md)
+ - [ChangeUserRoleRequest](docs/ChangeUserRoleRequest.md)
  - [Channel](docs/Channel.md)
  - [ChannelEventHistoryRequest](docs/ChannelEventHistoryRequest.md)
  - [ChannelEventHistoryResult](docs/ChannelEventHistoryResult.md)

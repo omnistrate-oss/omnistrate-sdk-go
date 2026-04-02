@@ -113,6 +113,19 @@ type AccountConfigApiAPI interface {
 	AccountConfigApiDescribeAccountConfigByGCPProjectIDExecute(r ApiAccountConfigApiDescribeAccountConfigByGCPProjectIDRequest) (*DescribeAccountConfigByGCPProjectIDResult, *http.Response, error)
 
 	/*
+	AccountConfigApiDescribeAccountConfigByNebiusTenantID DescribeAccountConfigByNebiusTenantID account-config-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nebiusTenantID The Nebius tenant ID
+	@return ApiAccountConfigApiDescribeAccountConfigByNebiusTenantIDRequest
+	*/
+	AccountConfigApiDescribeAccountConfigByNebiusTenantID(ctx context.Context, nebiusTenantID string) ApiAccountConfigApiDescribeAccountConfigByNebiusTenantIDRequest
+
+	// AccountConfigApiDescribeAccountConfigByNebiusTenantIDExecute executes the request
+	//  @return DescribeAccountConfigByNebiusTenantIDResult
+	AccountConfigApiDescribeAccountConfigByNebiusTenantIDExecute(r ApiAccountConfigApiDescribeAccountConfigByNebiusTenantIDRequest) (*DescribeAccountConfigByNebiusTenantIDResult, *http.Response, error)
+
+	/*
 	AccountConfigApiDescribeAccountConfigByOCITenancyID DescribeAccountConfigByOCITenancyID account-config-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1110,6 +1123,172 @@ func (a *AccountConfigApiAPIService) AccountConfigApiDescribeAccountConfigByGCPP
 
 	localVarPath := localBasePath + "/2022-09-01-00/accountconfig/gcp/{gcpProjectID}"
 	localVarPath = strings.Replace(localVarPath, "{"+"gcpProjectID"+"}", url.PathEscape(parameterValueToString(r.gcpProjectID, "gcpProjectID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiAccountConfigApiDescribeAccountConfigByNebiusTenantIDRequest struct {
+	ctx context.Context
+	ApiService AccountConfigApiAPI
+	nebiusTenantID string
+}
+
+func (r ApiAccountConfigApiDescribeAccountConfigByNebiusTenantIDRequest) Execute() (*DescribeAccountConfigByNebiusTenantIDResult, *http.Response, error) {
+	return r.ApiService.AccountConfigApiDescribeAccountConfigByNebiusTenantIDExecute(r)
+}
+
+/*
+AccountConfigApiDescribeAccountConfigByNebiusTenantID DescribeAccountConfigByNebiusTenantID account-config-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param nebiusTenantID The Nebius tenant ID
+ @return ApiAccountConfigApiDescribeAccountConfigByNebiusTenantIDRequest
+*/
+func (a *AccountConfigApiAPIService) AccountConfigApiDescribeAccountConfigByNebiusTenantID(ctx context.Context, nebiusTenantID string) ApiAccountConfigApiDescribeAccountConfigByNebiusTenantIDRequest {
+	return ApiAccountConfigApiDescribeAccountConfigByNebiusTenantIDRequest{
+		ApiService: a,
+		ctx: ctx,
+		nebiusTenantID: nebiusTenantID,
+	}
+}
+
+// Execute executes the request
+//  @return DescribeAccountConfigByNebiusTenantIDResult
+func (a *AccountConfigApiAPIService) AccountConfigApiDescribeAccountConfigByNebiusTenantIDExecute(r ApiAccountConfigApiDescribeAccountConfigByNebiusTenantIDRequest) (*DescribeAccountConfigByNebiusTenantIDResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DescribeAccountConfigByNebiusTenantIDResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountConfigApiAPIService.AccountConfigApiDescribeAccountConfigByNebiusTenantID")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/accountconfig/nebius/tenant/{nebiusTenantID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"nebiusTenantID"+"}", url.PathEscape(parameterValueToString(r.nebiusTenantID, "nebiusTenantID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

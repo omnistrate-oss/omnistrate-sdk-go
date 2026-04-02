@@ -22,6 +22,12 @@ var _ MappedNullable = &FleetListLinkedInstancesRequest{}
 type FleetListLinkedInstancesRequest struct {
 	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
+	// Whether to exclude high availability and autoscaling status from the response
+	ExcludeHAStatus *bool `json:"excludeHAStatus,omitempty"`
+	// Whether to exclude integration statuses (e.g. OpenTelemetry) from the response
+	ExcludeIntegrations *bool `json:"excludeIntegrations,omitempty"`
+	// Whether to exclude network topology details from the response
+	ExcludeNetworkTopology *bool `json:"excludeNetworkTopology,omitempty"`
 	// ID of a Resource Instance
 	InstanceId string `json:"instanceId"`
 	// ID of a Service
@@ -76,6 +82,102 @@ func (o *FleetListLinkedInstancesRequest) GetEnvironmentIdOk() (*string, bool) {
 // SetEnvironmentId sets field value
 func (o *FleetListLinkedInstancesRequest) SetEnvironmentId(v string) {
 	o.EnvironmentId = v
+}
+
+// GetExcludeHAStatus returns the ExcludeHAStatus field value if set, zero value otherwise.
+func (o *FleetListLinkedInstancesRequest) GetExcludeHAStatus() bool {
+	if o == nil || IsNil(o.ExcludeHAStatus) {
+		var ret bool
+		return ret
+	}
+	return *o.ExcludeHAStatus
+}
+
+// GetExcludeHAStatusOk returns a tuple with the ExcludeHAStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetListLinkedInstancesRequest) GetExcludeHAStatusOk() (*bool, bool) {
+	if o == nil || IsNil(o.ExcludeHAStatus) {
+		return nil, false
+	}
+	return o.ExcludeHAStatus, true
+}
+
+// HasExcludeHAStatus returns a boolean if a field has been set.
+func (o *FleetListLinkedInstancesRequest) HasExcludeHAStatus() bool {
+	if o != nil && !IsNil(o.ExcludeHAStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludeHAStatus gets a reference to the given bool and assigns it to the ExcludeHAStatus field.
+func (o *FleetListLinkedInstancesRequest) SetExcludeHAStatus(v bool) {
+	o.ExcludeHAStatus = &v
+}
+
+// GetExcludeIntegrations returns the ExcludeIntegrations field value if set, zero value otherwise.
+func (o *FleetListLinkedInstancesRequest) GetExcludeIntegrations() bool {
+	if o == nil || IsNil(o.ExcludeIntegrations) {
+		var ret bool
+		return ret
+	}
+	return *o.ExcludeIntegrations
+}
+
+// GetExcludeIntegrationsOk returns a tuple with the ExcludeIntegrations field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetListLinkedInstancesRequest) GetExcludeIntegrationsOk() (*bool, bool) {
+	if o == nil || IsNil(o.ExcludeIntegrations) {
+		return nil, false
+	}
+	return o.ExcludeIntegrations, true
+}
+
+// HasExcludeIntegrations returns a boolean if a field has been set.
+func (o *FleetListLinkedInstancesRequest) HasExcludeIntegrations() bool {
+	if o != nil && !IsNil(o.ExcludeIntegrations) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludeIntegrations gets a reference to the given bool and assigns it to the ExcludeIntegrations field.
+func (o *FleetListLinkedInstancesRequest) SetExcludeIntegrations(v bool) {
+	o.ExcludeIntegrations = &v
+}
+
+// GetExcludeNetworkTopology returns the ExcludeNetworkTopology field value if set, zero value otherwise.
+func (o *FleetListLinkedInstancesRequest) GetExcludeNetworkTopology() bool {
+	if o == nil || IsNil(o.ExcludeNetworkTopology) {
+		var ret bool
+		return ret
+	}
+	return *o.ExcludeNetworkTopology
+}
+
+// GetExcludeNetworkTopologyOk returns a tuple with the ExcludeNetworkTopology field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetListLinkedInstancesRequest) GetExcludeNetworkTopologyOk() (*bool, bool) {
+	if o == nil || IsNil(o.ExcludeNetworkTopology) {
+		return nil, false
+	}
+	return o.ExcludeNetworkTopology, true
+}
+
+// HasExcludeNetworkTopology returns a boolean if a field has been set.
+func (o *FleetListLinkedInstancesRequest) HasExcludeNetworkTopology() bool {
+	if o != nil && !IsNil(o.ExcludeNetworkTopology) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludeNetworkTopology gets a reference to the given bool and assigns it to the ExcludeNetworkTopology field.
+func (o *FleetListLinkedInstancesRequest) SetExcludeNetworkTopology(v bool) {
+	o.ExcludeNetworkTopology = &v
 }
 
 // GetInstanceId returns the InstanceId field value
@@ -161,6 +263,15 @@ func (o FleetListLinkedInstancesRequest) MarshalJSON() ([]byte, error) {
 func (o FleetListLinkedInstancesRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["environmentId"] = o.EnvironmentId
+	if !IsNil(o.ExcludeHAStatus) {
+		toSerialize["excludeHAStatus"] = o.ExcludeHAStatus
+	}
+	if !IsNil(o.ExcludeIntegrations) {
+		toSerialize["excludeIntegrations"] = o.ExcludeIntegrations
+	}
+	if !IsNil(o.ExcludeNetworkTopology) {
+		toSerialize["excludeNetworkTopology"] = o.ExcludeNetworkTopology
+	}
 	toSerialize["instanceId"] = o.InstanceId
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["token"] = o.Token
@@ -211,6 +322,9 @@ func (o *FleetListLinkedInstancesRequest) UnmarshalJSON(data []byte) (err error)
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "excludeHAStatus")
+		delete(additionalProperties, "excludeIntegrations")
+		delete(additionalProperties, "excludeNetworkTopology")
 		delete(additionalProperties, "instanceId")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "token")

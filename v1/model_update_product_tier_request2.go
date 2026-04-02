@@ -52,6 +52,8 @@ type UpdateProductTierRequest2 struct {
 	MaxNumberOfInstances *int64 `json:"maxNumberOfInstances,omitempty"`
 	// Name of the product tier
 	Name *string `json:"name,omitempty"`
+	// The Nebius regions that this product tier is available on
+	NebiusRegions []string `json:"nebiusRegions,omitempty"`
 	// The OCI regions that this product tier is available on
 	OciRegions []string `json:"ociRegions,omitempty"`
 	// The on prem platforms that this product tier is available on
@@ -481,6 +483,29 @@ func (o *UpdateProductTierRequest2) SetName(v string) {
 	o.Name = &v
 }
 
+// GetNebiusRegions returns the NebiusRegions field value if set, zero value otherwise.
+func (o *UpdateProductTierRequest2) GetNebiusRegions() []string {
+	if o == nil || IsNil(o.NebiusRegions) {
+		var ret []string
+		return ret
+	}
+	return o.NebiusRegions
+}
+
+// GetNebiusRegionsOk returns a tuple with the NebiusRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateProductTierRequest2) GetNebiusRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.NebiusRegions) {
+		return nil, false
+	}
+	return o.NebiusRegions, true
+}
+
+// SetNebiusRegions gets a reference to the given []string and assigns it to the NebiusRegions field.
+func (o *UpdateProductTierRequest2) SetNebiusRegions(v []string) {
+	o.NebiusRegions = v
+}
+
 // GetOciRegions returns the OciRegions field value if set, zero value otherwise.
 func (o *UpdateProductTierRequest2) GetOciRegions() []string {
 	if o == nil || IsNil(o.OciRegions) {
@@ -727,6 +752,9 @@ func (o UpdateProductTierRequest2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
+	if !IsNil(o.NebiusRegions) {
+		toSerialize["nebiusRegions"] = o.NebiusRegions
+	}
 	if !IsNil(o.OciRegions) {
 		toSerialize["ociRegions"] = o.OciRegions
 	}
@@ -790,6 +818,7 @@ func (o *UpdateProductTierRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "isDisabled")
 		delete(additionalProperties, "maxNumberOfInstances")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "nebiusRegions")
 		delete(additionalProperties, "ociRegions")
 		delete(additionalProperties, "onPremPlatforms")
 		delete(additionalProperties, "planDescription")

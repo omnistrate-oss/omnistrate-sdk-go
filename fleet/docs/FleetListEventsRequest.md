@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EndTime** | Pointer to **string** | Filter events that occurred before this time | [optional] 
 **EnvironmentId** | **string** | ID of a Service Environment | 
+**ExcludeWorkflowFailures** | Pointer to **bool** | Whether to exclude workflow failure details from the response. | [optional] 
 **InstanceId** | **string** | ID of a Resource Instance | 
 **ServiceId** | **string** | ID of a Service | 
 **StartTime** | Pointer to **string** | Filter events that occurred after this time | [optional] 
@@ -74,6 +75,31 @@ and a boolean to check if the value has been set.
 
 SetEnvironmentId sets EnvironmentId field to given value.
 
+
+### GetExcludeWorkflowFailures
+
+`func (o *FleetListEventsRequest) GetExcludeWorkflowFailures() bool`
+
+GetExcludeWorkflowFailures returns the ExcludeWorkflowFailures field if non-nil, zero value otherwise.
+
+### GetExcludeWorkflowFailuresOk
+
+`func (o *FleetListEventsRequest) GetExcludeWorkflowFailuresOk() (*bool, bool)`
+
+GetExcludeWorkflowFailuresOk returns a tuple with the ExcludeWorkflowFailures field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeWorkflowFailures
+
+`func (o *FleetListEventsRequest) SetExcludeWorkflowFailures(v bool)`
+
+SetExcludeWorkflowFailures sets ExcludeWorkflowFailures field to given value.
+
+### HasExcludeWorkflowFailures
+
+`func (o *FleetListEventsRequest) HasExcludeWorkflowFailures() bool`
+
+HasExcludeWorkflowFailures returns a boolean if a field has been set.
 
 ### GetInstanceId
 

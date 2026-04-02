@@ -25,6 +25,8 @@ type ListServiceWorkflowsRequest struct {
 	EndDate *time.Time `json:"endDate,omitempty"`
 	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
+	// Whether to exclude expensive stats (e.g. per-workflow resource count) from the response.
+	ExcludeStats *bool `json:"excludeStats,omitempty"`
 	// ID of a Resource Instance
 	InstanceId *string `json:"instanceId,omitempty"`
 	// The next token to use for pagination
@@ -116,6 +118,38 @@ func (o *ListServiceWorkflowsRequest) GetEnvironmentIdOk() (*string, bool) {
 // SetEnvironmentId sets field value
 func (o *ListServiceWorkflowsRequest) SetEnvironmentId(v string) {
 	o.EnvironmentId = v
+}
+
+// GetExcludeStats returns the ExcludeStats field value if set, zero value otherwise.
+func (o *ListServiceWorkflowsRequest) GetExcludeStats() bool {
+	if o == nil || IsNil(o.ExcludeStats) {
+		var ret bool
+		return ret
+	}
+	return *o.ExcludeStats
+}
+
+// GetExcludeStatsOk returns a tuple with the ExcludeStats field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListServiceWorkflowsRequest) GetExcludeStatsOk() (*bool, bool) {
+	if o == nil || IsNil(o.ExcludeStats) {
+		return nil, false
+	}
+	return o.ExcludeStats, true
+}
+
+// HasExcludeStats returns a boolean if a field has been set.
+func (o *ListServiceWorkflowsRequest) HasExcludeStats() bool {
+	if o != nil && !IsNil(o.ExcludeStats) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludeStats gets a reference to the given bool and assigns it to the ExcludeStats field.
+func (o *ListServiceWorkflowsRequest) SetExcludeStats(v bool) {
+	o.ExcludeStats = &v
 }
 
 // GetInstanceId returns the InstanceId field value if set, zero value otherwise.
@@ -308,6 +342,9 @@ func (o ListServiceWorkflowsRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["endDate"] = o.EndDate
 	}
 	toSerialize["environmentId"] = o.EnvironmentId
+	if !IsNil(o.ExcludeStats) {
+		toSerialize["excludeStats"] = o.ExcludeStats
+	}
 	if !IsNil(o.InstanceId) {
 		toSerialize["instanceId"] = o.InstanceId
 	}
@@ -369,6 +406,7 @@ func (o *ListServiceWorkflowsRequest) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "endDate")
 		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "excludeStats")
 		delete(additionalProperties, "instanceId")
 		delete(additionalProperties, "nextPageToken")
 		delete(additionalProperties, "pageSize")

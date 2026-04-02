@@ -643,6 +643,7 @@ type ApiFleetWorkflowsApiListServiceWorkflowsRequest struct {
 	instanceId *string
 	startDate *time.Time
 	endDate *time.Time
+	excludeStats *bool
 }
 
 func (r ApiFleetWorkflowsApiListServiceWorkflowsRequest) NextPageToken(nextPageToken string) ApiFleetWorkflowsApiListServiceWorkflowsRequest {
@@ -670,6 +671,12 @@ func (r ApiFleetWorkflowsApiListServiceWorkflowsRequest) StartDate(startDate tim
 // End date of the workflows
 func (r ApiFleetWorkflowsApiListServiceWorkflowsRequest) EndDate(endDate time.Time) ApiFleetWorkflowsApiListServiceWorkflowsRequest {
 	r.endDate = &endDate
+	return r
+}
+
+// Whether to exclude expensive stats (e.g. per-workflow resource count) from the response.
+func (r ApiFleetWorkflowsApiListServiceWorkflowsRequest) ExcludeStats(excludeStats bool) ApiFleetWorkflowsApiListServiceWorkflowsRequest {
+	r.excludeStats = &excludeStats
 	return r
 }
 
@@ -731,6 +738,9 @@ func (a *FleetWorkflowsApiAPIService) FleetWorkflowsApiListServiceWorkflowsExecu
 	}
 	if r.endDate != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "endDate", r.endDate, "form", "")
+	}
+	if r.excludeStats != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeStats", r.excludeStats, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

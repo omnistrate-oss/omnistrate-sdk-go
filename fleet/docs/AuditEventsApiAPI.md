@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## AuditEventsApiAuditEvents
 
-> FleetAuditEventsResult AuditEventsApiAuditEvents(ctx).NextPageToken(nextPageToken).PageSize(pageSize).ServiceID(serviceID).EnvironmentType(environmentType).EventSourceTypes(eventSourceTypes).InstanceID(instanceID).ProductTierID(productTierID).StartDate(startDate).EndDate(endDate).Execute()
+> FleetAuditEventsResult AuditEventsApiAuditEvents(ctx).NextPageToken(nextPageToken).PageSize(pageSize).ServiceID(serviceID).EnvironmentType(environmentType).EventSourceTypes(eventSourceTypes).InstanceID(instanceID).ProductTierID(productTierID).StartDate(startDate).EndDate(endDate).ExcludeWorkflowFailures(excludeWorkflowFailures).Execute()
 
 AuditEvents audit-events-api
 
@@ -32,15 +32,16 @@ func main() {
 	pageSize := int64(10) // int64 |  (optional)
 	serviceID := "s-123456" // string | The service ID to list events for (optional)
 	environmentType := "PROD|PRIVATE|CANARY|STAGING|QA|DEV|GLOBAL" // string |  (optional)
-	eventSourceTypes := []string{"Ipsum in soluta."} // []string | The event types to filter by (optional)
+	eventSourceTypes := []string{"Molestiae vel accusantium voluptates enim at."} // []string | The event types to filter by (optional)
 	instanceID := "instance-12345678" // string | The instance ID to list events for (optional)
 	productTierID := "Veritatis rerum quam voluptates eum." // string |  (optional)
 	startDate := time.Now() // time.Time | Start date of the events (optional)
 	endDate := time.Now() // time.Time | End date of the events (optional)
+	excludeWorkflowFailures := true // bool | Whether to exclude workflow failure details from the response. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AuditEventsApiAPI.AuditEventsApiAuditEvents(context.Background()).NextPageToken(nextPageToken).PageSize(pageSize).ServiceID(serviceID).EnvironmentType(environmentType).EventSourceTypes(eventSourceTypes).InstanceID(instanceID).ProductTierID(productTierID).StartDate(startDate).EndDate(endDate).Execute()
+	resp, r, err := apiClient.AuditEventsApiAPI.AuditEventsApiAuditEvents(context.Background()).NextPageToken(nextPageToken).PageSize(pageSize).ServiceID(serviceID).EnvironmentType(environmentType).EventSourceTypes(eventSourceTypes).InstanceID(instanceID).ProductTierID(productTierID).StartDate(startDate).EndDate(endDate).ExcludeWorkflowFailures(excludeWorkflowFailures).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AuditEventsApiAPI.AuditEventsApiAuditEvents``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -70,6 +71,7 @@ Name | Type | Description  | Notes
  **productTierID** | **string** |  | 
  **startDate** | **time.Time** | Start date of the events | 
  **endDate** | **time.Time** | End date of the events | 
+ **excludeWorkflowFailures** | **bool** | Whether to exclude workflow failure details from the response. | 
 
 ### Return type
 

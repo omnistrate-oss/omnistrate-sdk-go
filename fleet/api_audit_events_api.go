@@ -51,6 +51,7 @@ type ApiAuditEventsApiAuditEventsRequest struct {
 	productTierID *string
 	startDate *time.Time
 	endDate *time.Time
+	excludeWorkflowFailures *bool
 }
 
 func (r ApiAuditEventsApiAuditEventsRequest) NextPageToken(nextPageToken string) ApiAuditEventsApiAuditEventsRequest {
@@ -100,6 +101,12 @@ func (r ApiAuditEventsApiAuditEventsRequest) StartDate(startDate time.Time) ApiA
 // End date of the events
 func (r ApiAuditEventsApiAuditEventsRequest) EndDate(endDate time.Time) ApiAuditEventsApiAuditEventsRequest {
 	r.endDate = &endDate
+	return r
+}
+
+// Whether to exclude workflow failure details from the response.
+func (r ApiAuditEventsApiAuditEventsRequest) ExcludeWorkflowFailures(excludeWorkflowFailures bool) ApiAuditEventsApiAuditEventsRequest {
+	r.excludeWorkflowFailures = &excludeWorkflowFailures
 	return r
 }
 
@@ -175,6 +182,9 @@ func (a *AuditEventsApiAPIService) AuditEventsApiAuditEventsExecute(r ApiAuditEv
 	}
 	if r.endDate != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "endDate", r.endDate, "form", "")
+	}
+	if r.excludeWorkflowFailures != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeWorkflowFailures", r.excludeWorkflowFailures, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

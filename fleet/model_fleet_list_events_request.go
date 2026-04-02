@@ -24,6 +24,8 @@ type FleetListEventsRequest struct {
 	EndTime *string `json:"endTime,omitempty"`
 	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
+	// Whether to exclude workflow failure details from the response.
+	ExcludeWorkflowFailures *bool `json:"excludeWorkflowFailures,omitempty"`
 	// ID of a Resource Instance
 	InstanceId string `json:"instanceId"`
 	// ID of a Service
@@ -112,6 +114,38 @@ func (o *FleetListEventsRequest) GetEnvironmentIdOk() (*string, bool) {
 // SetEnvironmentId sets field value
 func (o *FleetListEventsRequest) SetEnvironmentId(v string) {
 	o.EnvironmentId = v
+}
+
+// GetExcludeWorkflowFailures returns the ExcludeWorkflowFailures field value if set, zero value otherwise.
+func (o *FleetListEventsRequest) GetExcludeWorkflowFailures() bool {
+	if o == nil || IsNil(o.ExcludeWorkflowFailures) {
+		var ret bool
+		return ret
+	}
+	return *o.ExcludeWorkflowFailures
+}
+
+// GetExcludeWorkflowFailuresOk returns a tuple with the ExcludeWorkflowFailures field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetListEventsRequest) GetExcludeWorkflowFailuresOk() (*bool, bool) {
+	if o == nil || IsNil(o.ExcludeWorkflowFailures) {
+		return nil, false
+	}
+	return o.ExcludeWorkflowFailures, true
+}
+
+// HasExcludeWorkflowFailures returns a boolean if a field has been set.
+func (o *FleetListEventsRequest) HasExcludeWorkflowFailures() bool {
+	if o != nil && !IsNil(o.ExcludeWorkflowFailures) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludeWorkflowFailures gets a reference to the given bool and assigns it to the ExcludeWorkflowFailures field.
+func (o *FleetListEventsRequest) SetExcludeWorkflowFailures(v bool) {
+	o.ExcludeWorkflowFailures = &v
 }
 
 // GetInstanceId returns the InstanceId field value
@@ -232,6 +266,9 @@ func (o FleetListEventsRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["endTime"] = o.EndTime
 	}
 	toSerialize["environmentId"] = o.EnvironmentId
+	if !IsNil(o.ExcludeWorkflowFailures) {
+		toSerialize["excludeWorkflowFailures"] = o.ExcludeWorkflowFailures
+	}
 	toSerialize["instanceId"] = o.InstanceId
 	toSerialize["serviceId"] = o.ServiceId
 	if !IsNil(o.StartTime) {
@@ -286,6 +323,7 @@ func (o *FleetListEventsRequest) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "endTime")
 		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "excludeWorkflowFailures")
 		delete(additionalProperties, "instanceId")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "startTime")

@@ -30,6 +30,8 @@ type FleetDescribeAccountConfigResult struct {
 	AwsCloudFormationTemplateURL *string `json:"awsCloudFormationTemplateURL,omitempty"`
 	// The Azure bootstrap shell command
 	AzureBootstrapShellCommand *string `json:"azureBootstrapShellCommand,omitempty"`
+	// The client ID of the Azure bootstrap user
+	AzureBootstrapUserClientID *string `json:"azureBootstrapUserClientID,omitempty"`
 	// The Azure disconnect shell command
 	AzureDisconnectShellCommand *string `json:"azureDisconnectShellCommand,omitempty"`
 	// The Azure offboard shell command
@@ -62,6 +64,8 @@ type FleetDescribeAccountConfigResult struct {
 	Name string `json:"name"`
 	// The OCI bootstrap shell command
 	OciBootstrapShellCommand *string `json:"ociBootstrapShellCommand,omitempty"`
+	// The OCID of the bootstrap user
+	OciBootstrapUserID *string `json:"ociBootstrapUserID,omitempty"`
 	// The OCI disconnect shell command
 	OciDisconnectShellCommand *string `json:"ociDisconnectShellCommand,omitempty"`
 	// The Domain OCID for Oracle Cloud Infrastructure
@@ -260,6 +264,38 @@ func (o *FleetDescribeAccountConfigResult) HasAzureBootstrapShellCommand() bool 
 // SetAzureBootstrapShellCommand gets a reference to the given string and assigns it to the AzureBootstrapShellCommand field.
 func (o *FleetDescribeAccountConfigResult) SetAzureBootstrapShellCommand(v string) {
 	o.AzureBootstrapShellCommand = &v
+}
+
+// GetAzureBootstrapUserClientID returns the AzureBootstrapUserClientID field value if set, zero value otherwise.
+func (o *FleetDescribeAccountConfigResult) GetAzureBootstrapUserClientID() string {
+	if o == nil || IsNil(o.AzureBootstrapUserClientID) {
+		var ret string
+		return ret
+	}
+	return *o.AzureBootstrapUserClientID
+}
+
+// GetAzureBootstrapUserClientIDOk returns a tuple with the AzureBootstrapUserClientID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeAccountConfigResult) GetAzureBootstrapUserClientIDOk() (*string, bool) {
+	if o == nil || IsNil(o.AzureBootstrapUserClientID) {
+		return nil, false
+	}
+	return o.AzureBootstrapUserClientID, true
+}
+
+// HasAzureBootstrapUserClientID returns a boolean if a field has been set.
+func (o *FleetDescribeAccountConfigResult) HasAzureBootstrapUserClientID() bool {
+	if o != nil && !IsNil(o.AzureBootstrapUserClientID) {
+		return true
+	}
+
+	return false
+}
+
+// SetAzureBootstrapUserClientID gets a reference to the given string and assigns it to the AzureBootstrapUserClientID field.
+func (o *FleetDescribeAccountConfigResult) SetAzureBootstrapUserClientID(v string) {
+	o.AzureBootstrapUserClientID = &v
 }
 
 // GetAzureDisconnectShellCommand returns the AzureDisconnectShellCommand field value if set, zero value otherwise.
@@ -742,6 +778,38 @@ func (o *FleetDescribeAccountConfigResult) SetOciBootstrapShellCommand(v string)
 	o.OciBootstrapShellCommand = &v
 }
 
+// GetOciBootstrapUserID returns the OciBootstrapUserID field value if set, zero value otherwise.
+func (o *FleetDescribeAccountConfigResult) GetOciBootstrapUserID() string {
+	if o == nil || IsNil(o.OciBootstrapUserID) {
+		var ret string
+		return ret
+	}
+	return *o.OciBootstrapUserID
+}
+
+// GetOciBootstrapUserIDOk returns a tuple with the OciBootstrapUserID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeAccountConfigResult) GetOciBootstrapUserIDOk() (*string, bool) {
+	if o == nil || IsNil(o.OciBootstrapUserID) {
+		return nil, false
+	}
+	return o.OciBootstrapUserID, true
+}
+
+// HasOciBootstrapUserID returns a boolean if a field has been set.
+func (o *FleetDescribeAccountConfigResult) HasOciBootstrapUserID() bool {
+	if o != nil && !IsNil(o.OciBootstrapUserID) {
+		return true
+	}
+
+	return false
+}
+
+// SetOciBootstrapUserID gets a reference to the given string and assigns it to the OciBootstrapUserID field.
+func (o *FleetDescribeAccountConfigResult) SetOciBootstrapUserID(v string) {
+	o.OciBootstrapUserID = &v
+}
+
 // GetOciDisconnectShellCommand returns the OciDisconnectShellCommand field value if set, zero value otherwise.
 func (o *FleetDescribeAccountConfigResult) GetOciDisconnectShellCommand() string {
 	if o == nil || IsNil(o.OciDisconnectShellCommand) {
@@ -943,6 +1011,9 @@ func (o FleetDescribeAccountConfigResult) ToMap() (map[string]interface{}, error
 	if !IsNil(o.AzureBootstrapShellCommand) {
 		toSerialize["azureBootstrapShellCommand"] = o.AzureBootstrapShellCommand
 	}
+	if !IsNil(o.AzureBootstrapUserClientID) {
+		toSerialize["azureBootstrapUserClientID"] = o.AzureBootstrapUserClientID
+	}
 	if !IsNil(o.AzureDisconnectShellCommand) {
 		toSerialize["azureDisconnectShellCommand"] = o.AzureDisconnectShellCommand
 	}
@@ -982,6 +1053,9 @@ func (o FleetDescribeAccountConfigResult) ToMap() (map[string]interface{}, error
 	toSerialize["name"] = o.Name
 	if !IsNil(o.OciBootstrapShellCommand) {
 		toSerialize["ociBootstrapShellCommand"] = o.OciBootstrapShellCommand
+	}
+	if !IsNil(o.OciBootstrapUserID) {
+		toSerialize["ociBootstrapUserID"] = o.OciBootstrapUserID
 	}
 	if !IsNil(o.OciDisconnectShellCommand) {
 		toSerialize["ociDisconnectShellCommand"] = o.OciDisconnectShellCommand
@@ -1050,6 +1124,7 @@ func (o *FleetDescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error
 		delete(additionalProperties, "awsCloudFormationNoLBTemplateURL")
 		delete(additionalProperties, "awsCloudFormationTemplateURL")
 		delete(additionalProperties, "azureBootstrapShellCommand")
+		delete(additionalProperties, "azureBootstrapUserClientID")
 		delete(additionalProperties, "azureDisconnectShellCommand")
 		delete(additionalProperties, "azureOffboardShellCommand")
 		delete(additionalProperties, "azureSubscriptionID")
@@ -1066,6 +1141,7 @@ func (o *FleetDescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "ociBootstrapShellCommand")
+		delete(additionalProperties, "ociBootstrapUserID")
 		delete(additionalProperties, "ociDisconnectShellCommand")
 		delete(additionalProperties, "ociDomainID")
 		delete(additionalProperties, "ociOffboardShellCommand")

@@ -27,6 +27,8 @@ type FleetAuditEventsRequest struct {
 	EnvironmentType *string `json:"environmentType,omitempty"`
 	// The event types to filter by
 	EventSourceTypes []string `json:"eventSourceTypes,omitempty"`
+	// Whether to exclude workflow failure details from the response.
+	ExcludeWorkflowFailures *bool `json:"excludeWorkflowFailures,omitempty"`
 	// ID of a Resource Instance
 	InstanceID *string `json:"instanceID,omitempty"`
 	// The next token to use for pagination
@@ -158,6 +160,38 @@ func (o *FleetAuditEventsRequest) HasEventSourceTypes() bool {
 // SetEventSourceTypes gets a reference to the given []string and assigns it to the EventSourceTypes field.
 func (o *FleetAuditEventsRequest) SetEventSourceTypes(v []string) {
 	o.EventSourceTypes = v
+}
+
+// GetExcludeWorkflowFailures returns the ExcludeWorkflowFailures field value if set, zero value otherwise.
+func (o *FleetAuditEventsRequest) GetExcludeWorkflowFailures() bool {
+	if o == nil || IsNil(o.ExcludeWorkflowFailures) {
+		var ret bool
+		return ret
+	}
+	return *o.ExcludeWorkflowFailures
+}
+
+// GetExcludeWorkflowFailuresOk returns a tuple with the ExcludeWorkflowFailures field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAuditEventsRequest) GetExcludeWorkflowFailuresOk() (*bool, bool) {
+	if o == nil || IsNil(o.ExcludeWorkflowFailures) {
+		return nil, false
+	}
+	return o.ExcludeWorkflowFailures, true
+}
+
+// HasExcludeWorkflowFailures returns a boolean if a field has been set.
+func (o *FleetAuditEventsRequest) HasExcludeWorkflowFailures() bool {
+	if o != nil && !IsNil(o.ExcludeWorkflowFailures) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludeWorkflowFailures gets a reference to the given bool and assigns it to the ExcludeWorkflowFailures field.
+func (o *FleetAuditEventsRequest) SetExcludeWorkflowFailures(v bool) {
+	o.ExcludeWorkflowFailures = &v
 }
 
 // GetInstanceID returns the InstanceID field value if set, zero value otherwise.
@@ -395,6 +429,9 @@ func (o FleetAuditEventsRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EventSourceTypes) {
 		toSerialize["eventSourceTypes"] = o.EventSourceTypes
 	}
+	if !IsNil(o.ExcludeWorkflowFailures) {
+		toSerialize["excludeWorkflowFailures"] = o.ExcludeWorkflowFailures
+	}
 	if !IsNil(o.InstanceID) {
 		toSerialize["instanceID"] = o.InstanceID
 	}
@@ -460,6 +497,7 @@ func (o *FleetAuditEventsRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "endDate")
 		delete(additionalProperties, "environmentType")
 		delete(additionalProperties, "eventSourceTypes")
+		delete(additionalProperties, "excludeWorkflowFailures")
 		delete(additionalProperties, "instanceID")
 		delete(additionalProperties, "nextPageToken")
 		delete(additionalProperties, "pageSize")

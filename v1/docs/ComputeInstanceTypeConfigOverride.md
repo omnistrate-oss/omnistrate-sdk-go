@@ -6,8 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AcceleratorConfiguration** | Pointer to [**AcceleratorConfiguration**](AcceleratorConfiguration.md) |  | [optional] 
 **EphemeralStorageLocalSsdConfig** | Pointer to [**EphemeralStorageLocalSsdConfig**](EphemeralStorageLocalSsdConfig.md) |  | [optional] 
+**GpuClusterID** | Pointer to **string** | GPU cluster attachment identifier for providers that support explicit GPU cluster placement (for example Nebius) | [optional] 
 **InstanceLifeCycleType** | Pointer to **string** | The instance life cycle type for this compute instance type config | [optional] 
 **Labels** | Pointer to **map[string]string** | Labels for the compute instance type config | [optional] 
+**LocalNvmeSsdBlockConfig** | Pointer to [**LocalNvmeSsdBlockConfig**](LocalNvmeSsdBlockConfig.md) |  | [optional] 
+**OsFamily** | Pointer to **string** | Operating system family for AWS instance type override (supported only for AWS) | [optional] 
+**Platform** | Pointer to **string** | First-class platform selector for cloud providers that require more than a single instance type string (for example Nebius) | [optional] 
 **RootVolumeSizeGi** | Pointer to **int64** | Size of the root volume in Gi | [optional] 
 **RootVolumeSizeGiAPIParam** | Pointer to **string** | Size of the root volume in Gi as a string | [optional] 
 **Taints** | Pointer to [**[]TaintConfiguration**](TaintConfiguration.md) | Taints for the compute instance type config | [optional] 
@@ -82,6 +86,31 @@ SetEphemeralStorageLocalSsdConfig sets EphemeralStorageLocalSsdConfig field to g
 
 HasEphemeralStorageLocalSsdConfig returns a boolean if a field has been set.
 
+### GetGpuClusterID
+
+`func (o *ComputeInstanceTypeConfigOverride) GetGpuClusterID() string`
+
+GetGpuClusterID returns the GpuClusterID field if non-nil, zero value otherwise.
+
+### GetGpuClusterIDOk
+
+`func (o *ComputeInstanceTypeConfigOverride) GetGpuClusterIDOk() (*string, bool)`
+
+GetGpuClusterIDOk returns a tuple with the GpuClusterID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGpuClusterID
+
+`func (o *ComputeInstanceTypeConfigOverride) SetGpuClusterID(v string)`
+
+SetGpuClusterID sets GpuClusterID field to given value.
+
+### HasGpuClusterID
+
+`func (o *ComputeInstanceTypeConfigOverride) HasGpuClusterID() bool`
+
+HasGpuClusterID returns a boolean if a field has been set.
+
 ### GetInstanceLifeCycleType
 
 `func (o *ComputeInstanceTypeConfigOverride) GetInstanceLifeCycleType() string`
@@ -131,6 +160,81 @@ SetLabels sets Labels field to given value.
 `func (o *ComputeInstanceTypeConfigOverride) HasLabels() bool`
 
 HasLabels returns a boolean if a field has been set.
+
+### GetLocalNvmeSsdBlockConfig
+
+`func (o *ComputeInstanceTypeConfigOverride) GetLocalNvmeSsdBlockConfig() LocalNvmeSsdBlockConfig`
+
+GetLocalNvmeSsdBlockConfig returns the LocalNvmeSsdBlockConfig field if non-nil, zero value otherwise.
+
+### GetLocalNvmeSsdBlockConfigOk
+
+`func (o *ComputeInstanceTypeConfigOverride) GetLocalNvmeSsdBlockConfigOk() (*LocalNvmeSsdBlockConfig, bool)`
+
+GetLocalNvmeSsdBlockConfigOk returns a tuple with the LocalNvmeSsdBlockConfig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLocalNvmeSsdBlockConfig
+
+`func (o *ComputeInstanceTypeConfigOverride) SetLocalNvmeSsdBlockConfig(v LocalNvmeSsdBlockConfig)`
+
+SetLocalNvmeSsdBlockConfig sets LocalNvmeSsdBlockConfig field to given value.
+
+### HasLocalNvmeSsdBlockConfig
+
+`func (o *ComputeInstanceTypeConfigOverride) HasLocalNvmeSsdBlockConfig() bool`
+
+HasLocalNvmeSsdBlockConfig returns a boolean if a field has been set.
+
+### GetOsFamily
+
+`func (o *ComputeInstanceTypeConfigOverride) GetOsFamily() string`
+
+GetOsFamily returns the OsFamily field if non-nil, zero value otherwise.
+
+### GetOsFamilyOk
+
+`func (o *ComputeInstanceTypeConfigOverride) GetOsFamilyOk() (*string, bool)`
+
+GetOsFamilyOk returns a tuple with the OsFamily field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOsFamily
+
+`func (o *ComputeInstanceTypeConfigOverride) SetOsFamily(v string)`
+
+SetOsFamily sets OsFamily field to given value.
+
+### HasOsFamily
+
+`func (o *ComputeInstanceTypeConfigOverride) HasOsFamily() bool`
+
+HasOsFamily returns a boolean if a field has been set.
+
+### GetPlatform
+
+`func (o *ComputeInstanceTypeConfigOverride) GetPlatform() string`
+
+GetPlatform returns the Platform field if non-nil, zero value otherwise.
+
+### GetPlatformOk
+
+`func (o *ComputeInstanceTypeConfigOverride) GetPlatformOk() (*string, bool)`
+
+GetPlatformOk returns a tuple with the Platform field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPlatform
+
+`func (o *ComputeInstanceTypeConfigOverride) SetPlatform(v string)`
+
+SetPlatform sets Platform field to given value.
+
+### HasPlatform
+
+`func (o *ComputeInstanceTypeConfigOverride) HasPlatform() bool`
+
+HasPlatform returns a boolean if a field has been set.
 
 ### GetRootVolumeSizeGi
 

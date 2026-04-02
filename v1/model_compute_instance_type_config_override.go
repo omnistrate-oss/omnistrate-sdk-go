@@ -21,10 +21,17 @@ var _ MappedNullable = &ComputeInstanceTypeConfigOverride{}
 type ComputeInstanceTypeConfigOverride struct {
 	AcceleratorConfiguration *AcceleratorConfiguration `json:"acceleratorConfiguration,omitempty"`
 	EphemeralStorageLocalSsdConfig *EphemeralStorageLocalSsdConfig `json:"ephemeralStorageLocalSsdConfig,omitempty"`
+	// GPU cluster attachment identifier for providers that support explicit GPU cluster placement (for example Nebius)
+	GpuClusterID *string `json:"gpuClusterID,omitempty"`
 	// The instance life cycle type for this compute instance type config
 	InstanceLifeCycleType *string `json:"instanceLifeCycleType,omitempty"`
 	// Labels for the compute instance type config
 	Labels *map[string]string `json:"labels,omitempty"`
+	LocalNvmeSsdBlockConfig *LocalNvmeSsdBlockConfig `json:"localNvmeSsdBlockConfig,omitempty"`
+	// Operating system family for AWS instance type override (supported only for AWS)
+	OsFamily *string `json:"osFamily,omitempty"`
+	// First-class platform selector for cloud providers that require more than a single instance type string (for example Nebius)
+	Platform *string `json:"platform,omitempty"`
 	// Size of the root volume in Gi
 	RootVolumeSizeGi *int64 `json:"rootVolumeSizeGi,omitempty"`
 	// Size of the root volume in Gi as a string
@@ -100,6 +107,29 @@ func (o *ComputeInstanceTypeConfigOverride) SetEphemeralStorageLocalSsdConfig(v 
 	o.EphemeralStorageLocalSsdConfig = &v
 }
 
+// GetGpuClusterID returns the GpuClusterID field value if set, zero value otherwise.
+func (o *ComputeInstanceTypeConfigOverride) GetGpuClusterID() string {
+	if o == nil || IsNil(o.GpuClusterID) {
+		var ret string
+		return ret
+	}
+	return *o.GpuClusterID
+}
+
+// GetGpuClusterIDOk returns a tuple with the GpuClusterID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeInstanceTypeConfigOverride) GetGpuClusterIDOk() (*string, bool) {
+	if o == nil || IsNil(o.GpuClusterID) {
+		return nil, false
+	}
+	return o.GpuClusterID, true
+}
+
+// SetGpuClusterID gets a reference to the given string and assigns it to the GpuClusterID field.
+func (o *ComputeInstanceTypeConfigOverride) SetGpuClusterID(v string) {
+	o.GpuClusterID = &v
+}
+
 // GetInstanceLifeCycleType returns the InstanceLifeCycleType field value if set, zero value otherwise.
 func (o *ComputeInstanceTypeConfigOverride) GetInstanceLifeCycleType() string {
 	if o == nil || IsNil(o.InstanceLifeCycleType) {
@@ -144,6 +174,75 @@ func (o *ComputeInstanceTypeConfigOverride) GetLabelsOk() (*map[string]string, b
 // SetLabels gets a reference to the given map[string]string and assigns it to the Labels field.
 func (o *ComputeInstanceTypeConfigOverride) SetLabels(v map[string]string) {
 	o.Labels = &v
+}
+
+// GetLocalNvmeSsdBlockConfig returns the LocalNvmeSsdBlockConfig field value if set, zero value otherwise.
+func (o *ComputeInstanceTypeConfigOverride) GetLocalNvmeSsdBlockConfig() LocalNvmeSsdBlockConfig {
+	if o == nil || IsNil(o.LocalNvmeSsdBlockConfig) {
+		var ret LocalNvmeSsdBlockConfig
+		return ret
+	}
+	return *o.LocalNvmeSsdBlockConfig
+}
+
+// GetLocalNvmeSsdBlockConfigOk returns a tuple with the LocalNvmeSsdBlockConfig field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeInstanceTypeConfigOverride) GetLocalNvmeSsdBlockConfigOk() (*LocalNvmeSsdBlockConfig, bool) {
+	if o == nil || IsNil(o.LocalNvmeSsdBlockConfig) {
+		return nil, false
+	}
+	return o.LocalNvmeSsdBlockConfig, true
+}
+
+// SetLocalNvmeSsdBlockConfig gets a reference to the given LocalNvmeSsdBlockConfig and assigns it to the LocalNvmeSsdBlockConfig field.
+func (o *ComputeInstanceTypeConfigOverride) SetLocalNvmeSsdBlockConfig(v LocalNvmeSsdBlockConfig) {
+	o.LocalNvmeSsdBlockConfig = &v
+}
+
+// GetOsFamily returns the OsFamily field value if set, zero value otherwise.
+func (o *ComputeInstanceTypeConfigOverride) GetOsFamily() string {
+	if o == nil || IsNil(o.OsFamily) {
+		var ret string
+		return ret
+	}
+	return *o.OsFamily
+}
+
+// GetOsFamilyOk returns a tuple with the OsFamily field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeInstanceTypeConfigOverride) GetOsFamilyOk() (*string, bool) {
+	if o == nil || IsNil(o.OsFamily) {
+		return nil, false
+	}
+	return o.OsFamily, true
+}
+
+// SetOsFamily gets a reference to the given string and assigns it to the OsFamily field.
+func (o *ComputeInstanceTypeConfigOverride) SetOsFamily(v string) {
+	o.OsFamily = &v
+}
+
+// GetPlatform returns the Platform field value if set, zero value otherwise.
+func (o *ComputeInstanceTypeConfigOverride) GetPlatform() string {
+	if o == nil || IsNil(o.Platform) {
+		var ret string
+		return ret
+	}
+	return *o.Platform
+}
+
+// GetPlatformOk returns a tuple with the Platform field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeInstanceTypeConfigOverride) GetPlatformOk() (*string, bool) {
+	if o == nil || IsNil(o.Platform) {
+		return nil, false
+	}
+	return o.Platform, true
+}
+
+// SetPlatform gets a reference to the given string and assigns it to the Platform field.
+func (o *ComputeInstanceTypeConfigOverride) SetPlatform(v string) {
+	o.Platform = &v
 }
 
 // GetRootVolumeSizeGi returns the RootVolumeSizeGi field value if set, zero value otherwise.
@@ -254,11 +353,23 @@ func (o ComputeInstanceTypeConfigOverride) ToMap() (map[string]interface{}, erro
 	if !IsNil(o.EphemeralStorageLocalSsdConfig) {
 		toSerialize["ephemeralStorageLocalSsdConfig"] = o.EphemeralStorageLocalSsdConfig
 	}
+	if !IsNil(o.GpuClusterID) {
+		toSerialize["gpuClusterID"] = o.GpuClusterID
+	}
 	if !IsNil(o.InstanceLifeCycleType) {
 		toSerialize["instanceLifeCycleType"] = o.InstanceLifeCycleType
 	}
 	if !IsNil(o.Labels) {
 		toSerialize["labels"] = o.Labels
+	}
+	if !IsNil(o.LocalNvmeSsdBlockConfig) {
+		toSerialize["localNvmeSsdBlockConfig"] = o.LocalNvmeSsdBlockConfig
+	}
+	if !IsNil(o.OsFamily) {
+		toSerialize["osFamily"] = o.OsFamily
+	}
+	if !IsNil(o.Platform) {
+		toSerialize["platform"] = o.Platform
 	}
 	if !IsNil(o.RootVolumeSizeGi) {
 		toSerialize["rootVolumeSizeGi"] = o.RootVolumeSizeGi
@@ -296,8 +407,12 @@ func (o *ComputeInstanceTypeConfigOverride) UnmarshalJSON(data []byte) (err erro
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "acceleratorConfiguration")
 		delete(additionalProperties, "ephemeralStorageLocalSsdConfig")
+		delete(additionalProperties, "gpuClusterID")
 		delete(additionalProperties, "instanceLifeCycleType")
 		delete(additionalProperties, "labels")
+		delete(additionalProperties, "localNvmeSsdBlockConfig")
+		delete(additionalProperties, "osFamily")
+		delete(additionalProperties, "platform")
 		delete(additionalProperties, "rootVolumeSizeGi")
 		delete(additionalProperties, "rootVolumeSizeGiAPIParam")
 		delete(additionalProperties, "taints")
