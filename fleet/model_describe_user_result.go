@@ -39,6 +39,8 @@ type DescribeUserResult struct {
 	OrgCookiePolicy *string `json:"orgCookiePolicy,omitempty"`
 	// The description of the org that this user owns
 	OrgDescription *string `json:"orgDescription,omitempty"`
+	// Whether password login is disabled for the org that this user owns
+	OrgDisablePasswordLogin *bool `json:"orgDisablePasswordLogin,omitempty"`
 	// The favicon of the org that this user owns
 	OrgFavIconURL *string `json:"orgFavIconURL,omitempty"`
 	// The ID of the org that this user owns
@@ -394,6 +396,38 @@ func (o *DescribeUserResult) HasOrgDescription() bool {
 // SetOrgDescription gets a reference to the given string and assigns it to the OrgDescription field.
 func (o *DescribeUserResult) SetOrgDescription(v string) {
 	o.OrgDescription = &v
+}
+
+// GetOrgDisablePasswordLogin returns the OrgDisablePasswordLogin field value if set, zero value otherwise.
+func (o *DescribeUserResult) GetOrgDisablePasswordLogin() bool {
+	if o == nil || IsNil(o.OrgDisablePasswordLogin) {
+		var ret bool
+		return ret
+	}
+	return *o.OrgDisablePasswordLogin
+}
+
+// GetOrgDisablePasswordLoginOk returns a tuple with the OrgDisablePasswordLogin field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeUserResult) GetOrgDisablePasswordLoginOk() (*bool, bool) {
+	if o == nil || IsNil(o.OrgDisablePasswordLogin) {
+		return nil, false
+	}
+	return o.OrgDisablePasswordLogin, true
+}
+
+// HasOrgDisablePasswordLogin returns a boolean if a field has been set.
+func (o *DescribeUserResult) HasOrgDisablePasswordLogin() bool {
+	if o != nil && !IsNil(o.OrgDisablePasswordLogin) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgDisablePasswordLogin gets a reference to the given bool and assigns it to the OrgDisablePasswordLogin field.
+func (o *DescribeUserResult) SetOrgDisablePasswordLogin(v bool) {
+	o.OrgDisablePasswordLogin = &v
 }
 
 // GetOrgFavIconURL returns the OrgFavIconURL field value if set, zero value otherwise.
@@ -786,6 +820,9 @@ func (o DescribeUserResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.OrgDescription) {
 		toSerialize["orgDescription"] = o.OrgDescription
 	}
+	if !IsNil(o.OrgDisablePasswordLogin) {
+		toSerialize["orgDisablePasswordLogin"] = o.OrgDisablePasswordLogin
+	}
 	if !IsNil(o.OrgFavIconURL) {
 		toSerialize["orgFavIconURL"] = o.OrgFavIconURL
 	}
@@ -872,6 +909,7 @@ func (o *DescribeUserResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "orgCookiePolicy")
 		delete(additionalProperties, "orgDescription")
+		delete(additionalProperties, "orgDisablePasswordLogin")
 		delete(additionalProperties, "orgFavIconURL")
 		delete(additionalProperties, "orgId")
 		delete(additionalProperties, "orgLogoURL")

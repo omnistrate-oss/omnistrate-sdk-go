@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**DependsOn** | Pointer to **[]string** | The names of other amenities that this amenity depends on. Amenities must be present in the list of amenities and will be installed prior to this amenity. This setting is used to control installation order. | [optional] 
 **Description** | Pointer to **string** | A description of the amenity. | [optional] 
 **IsManaged** | Pointer to **bool** | Whether the amenity is managed by the system. | [optional] 
 **Name** | Pointer to **string** | The name of the amenity. | [optional] 
@@ -28,6 +29,31 @@ will change when the set of required properties is changed
 NewAmenityWithDefaults instantiates a new Amenity object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetDependsOn
+
+`func (o *Amenity) GetDependsOn() []string`
+
+GetDependsOn returns the DependsOn field if non-nil, zero value otherwise.
+
+### GetDependsOnOk
+
+`func (o *Amenity) GetDependsOnOk() (*[]string, bool)`
+
+GetDependsOnOk returns a tuple with the DependsOn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDependsOn
+
+`func (o *Amenity) SetDependsOn(v []string)`
+
+SetDependsOn sets DependsOn field to given value.
+
+### HasDependsOn
+
+`func (o *Amenity) HasDependsOn() bool`
+
+HasDependsOn returns a boolean if a field has been set.
 
 ### GetDescription
 

@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **Key** | **string** | Unique Key of the product tier | 
 **MaxNumberOfInstances** | Pointer to **int64** | Maximum number of instances | [optional] 
 **Name** | **string** | Name of the product tier | 
+**NebiusRegions** | Pointer to **[]string** | The Nebius regions that this product tier is available on | [optional] 
 **OciRegions** | Pointer to **[]string** | The OCI regions that this product tier is available on | [optional] 
 **OnPremPlatforms** | Pointer to **[]string** | The on prem platforms that this product tier is available on | [optional] 
 **PlanDescription** | **string** | A brief description for the end user of the product tier | 
@@ -622,6 +623,31 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetNebiusRegions
+
+`func (o *DescribeProductTierResult) GetNebiusRegions() []string`
+
+GetNebiusRegions returns the NebiusRegions field if non-nil, zero value otherwise.
+
+### GetNebiusRegionsOk
+
+`func (o *DescribeProductTierResult) GetNebiusRegionsOk() (*[]string, bool)`
+
+GetNebiusRegionsOk returns a tuple with the NebiusRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNebiusRegions
+
+`func (o *DescribeProductTierResult) SetNebiusRegions(v []string)`
+
+SetNebiusRegions sets NebiusRegions field to given value.
+
+### HasNebiusRegions
+
+`func (o *DescribeProductTierResult) HasNebiusRegions() bool`
+
+HasNebiusRegions returns a boolean if a field has been set.
 
 ### GetOciRegions
 

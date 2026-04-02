@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** | The name of the user | [optional] 
 **OrgCookiePolicy** | Pointer to **string** | The cookie policy for the org that this user owns in an HTML format | [optional] 
 **OrgDescription** | Pointer to **string** | The description of the org that this user owns | [optional] 
+**OrgDisablePasswordLogin** | Pointer to **bool** | Whether password login is disabled for the org that this user owns | [optional] 
 **OrgFavIconURL** | Pointer to **string** | The favicon of the org that this user owns | [optional] 
 **OrgLogoURL** | Pointer to **string** | The logo of the org that this user owns | [optional] 
 **OrgName** | Pointer to **string** | The org name that this user owns | [optional] 
@@ -182,6 +183,31 @@ SetOrgDescription sets OrgDescription field to given value.
 `func (o *UpdateUserRequest) HasOrgDescription() bool`
 
 HasOrgDescription returns a boolean if a field has been set.
+
+### GetOrgDisablePasswordLogin
+
+`func (o *UpdateUserRequest) GetOrgDisablePasswordLogin() bool`
+
+GetOrgDisablePasswordLogin returns the OrgDisablePasswordLogin field if non-nil, zero value otherwise.
+
+### GetOrgDisablePasswordLoginOk
+
+`func (o *UpdateUserRequest) GetOrgDisablePasswordLoginOk() (*bool, bool)`
+
+GetOrgDisablePasswordLoginOk returns a tuple with the OrgDisablePasswordLogin field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrgDisablePasswordLogin
+
+`func (o *UpdateUserRequest) SetOrgDisablePasswordLogin(v bool)`
+
+SetOrgDisablePasswordLogin sets OrgDisablePasswordLogin field to given value.
+
+### HasOrgDisablePasswordLogin
+
+`func (o *UpdateUserRequest) HasOrgDisablePasswordLogin() bool`
+
+HasOrgDisablePasswordLogin returns a boolean if a field has been set.
 
 ### GetOrgFavIconURL
 

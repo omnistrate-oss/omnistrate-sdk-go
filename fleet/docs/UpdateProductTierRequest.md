@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **IsDisabled** | Pointer to **bool** | Update the product tier&#39;s state as enabled/disabled. Enabling the product tier will let end-customers subscribe and use the service plan. | [optional] 
 **MaxNumberOfInstances** | Pointer to **int64** | Maximum number of instances. Set to -1 for unlimited. | [optional] 
 **Name** | Pointer to **string** | Name of the product tier | [optional] 
+**NebiusRegions** | Pointer to **[]string** | The Nebius regions that this product tier is available on | [optional] 
 **OciRegions** | Pointer to **[]string** | The OCI regions that this product tier is available on | [optional] 
 **OnPremPlatforms** | Pointer to **[]string** | The on prem platforms that this product tier is available on | [optional] 
 **PlanDescription** | Pointer to **string** | A brief description for the end user of the product tier | [optional] 
@@ -496,6 +497,31 @@ SetName sets Name field to given value.
 `func (o *UpdateProductTierRequest) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetNebiusRegions
+
+`func (o *UpdateProductTierRequest) GetNebiusRegions() []string`
+
+GetNebiusRegions returns the NebiusRegions field if non-nil, zero value otherwise.
+
+### GetNebiusRegionsOk
+
+`func (o *UpdateProductTierRequest) GetNebiusRegionsOk() (*[]string, bool)`
+
+GetNebiusRegionsOk returns a tuple with the NebiusRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNebiusRegions
+
+`func (o *UpdateProductTierRequest) SetNebiusRegions(v []string)`
+
+SetNebiusRegions sets NebiusRegions field to given value.
+
+### HasNebiusRegions
+
+`func (o *UpdateProductTierRequest) HasNebiusRegions() bool`
+
+HasNebiusRegions returns a boolean if a field has been set.
 
 ### GetOciRegions
 
