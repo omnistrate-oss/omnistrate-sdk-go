@@ -44,6 +44,8 @@ type GetServicePlanResult struct {
 	LatestMajorVersion string `json:"latestMajorVersion"`
 	// The model type encapsulating this service
 	ModelType string `json:"modelType"`
+	// The Nebius regions that this service plan is available on
+	NebiusRegions []string `json:"nebiusRegions,omitempty"`
 	// The OCI regions that this service plan is available on
 	OciRegions []string `json:"ociRegions,omitempty"`
 	// The on prem platforms that this service plan is available on
@@ -410,6 +412,29 @@ func (o *GetServicePlanResult) GetModelTypeOk() (*string, bool) {
 // SetModelType sets field value
 func (o *GetServicePlanResult) SetModelType(v string) {
 	o.ModelType = v
+}
+
+// GetNebiusRegions returns the NebiusRegions field value if set, zero value otherwise.
+func (o *GetServicePlanResult) GetNebiusRegions() []string {
+	if o == nil || IsNil(o.NebiusRegions) {
+		var ret []string
+		return ret
+	}
+	return o.NebiusRegions
+}
+
+// GetNebiusRegionsOk returns a tuple with the NebiusRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetServicePlanResult) GetNebiusRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.NebiusRegions) {
+		return nil, false
+	}
+	return o.NebiusRegions, true
+}
+
+// SetNebiusRegions gets a reference to the given []string and assigns it to the NebiusRegions field.
+func (o *GetServicePlanResult) SetNebiusRegions(v []string) {
+	o.NebiusRegions = v
 }
 
 // GetOciRegions returns the OciRegions field value if set, zero value otherwise.
@@ -947,6 +972,9 @@ func (o GetServicePlanResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["isProductTierDisabled"] = o.IsProductTierDisabled
 	toSerialize["latestMajorVersion"] = o.LatestMajorVersion
 	toSerialize["modelType"] = o.ModelType
+	if !IsNil(o.NebiusRegions) {
+		toSerialize["nebiusRegions"] = o.NebiusRegions
+	}
 	if !IsNil(o.OciRegions) {
 		toSerialize["ociRegions"] = o.OciRegions
 	}
@@ -1056,6 +1084,7 @@ func (o *GetServicePlanResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "isProductTierDisabled")
 		delete(additionalProperties, "latestMajorVersion")
 		delete(additionalProperties, "modelType")
+		delete(additionalProperties, "nebiusRegions")
 		delete(additionalProperties, "ociRegions")
 		delete(additionalProperties, "onPremPlatforms")
 		delete(additionalProperties, "privateRegions")

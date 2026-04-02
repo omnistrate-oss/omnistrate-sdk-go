@@ -37,6 +37,8 @@ type Resource struct {
 	ServiceId *string `json:"serviceId,omitempty"`
 	// The service model type
 	ServiceModelType *string `json:"serviceModelType,omitempty"`
+	// Whether this resource version supports public network connectivity
+	SupportsPublicNetwork *bool `json:"supportsPublicNetwork,omitempty"`
 	// The latest version of the resource.
 	Version *string `json:"version,omitempty"`
 	// The version history of the resource.
@@ -351,6 +353,38 @@ func (o *Resource) SetServiceModelType(v string) {
 	o.ServiceModelType = &v
 }
 
+// GetSupportsPublicNetwork returns the SupportsPublicNetwork field value if set, zero value otherwise.
+func (o *Resource) GetSupportsPublicNetwork() bool {
+	if o == nil || IsNil(o.SupportsPublicNetwork) {
+		var ret bool
+		return ret
+	}
+	return *o.SupportsPublicNetwork
+}
+
+// GetSupportsPublicNetworkOk returns a tuple with the SupportsPublicNetwork field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Resource) GetSupportsPublicNetworkOk() (*bool, bool) {
+	if o == nil || IsNil(o.SupportsPublicNetwork) {
+		return nil, false
+	}
+	return o.SupportsPublicNetwork, true
+}
+
+// HasSupportsPublicNetwork returns a boolean if a field has been set.
+func (o *Resource) HasSupportsPublicNetwork() bool {
+	if o != nil && !IsNil(o.SupportsPublicNetwork) {
+		return true
+	}
+
+	return false
+}
+
+// SetSupportsPublicNetwork gets a reference to the given bool and assigns it to the SupportsPublicNetwork field.
+func (o *Resource) SetSupportsPublicNetwork(v bool) {
+	o.SupportsPublicNetwork = &v
+}
+
 // GetVersion returns the Version field value if set, zero value otherwise.
 func (o *Resource) GetVersion() string {
 	if o == nil || IsNil(o.Version) {
@@ -452,6 +486,9 @@ func (o Resource) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ServiceModelType) {
 		toSerialize["serviceModelType"] = o.ServiceModelType
 	}
+	if !IsNil(o.SupportsPublicNetwork) {
+		toSerialize["supportsPublicNetwork"] = o.SupportsPublicNetwork
+	}
 	if !IsNil(o.Version) {
 		toSerialize["version"] = o.Version
 	}
@@ -489,6 +526,7 @@ func (o *Resource) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "resourceId")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "serviceModelType")
+		delete(additionalProperties, "supportsPublicNetwork")
 		delete(additionalProperties, "version")
 		delete(additionalProperties, "versionHistory")
 		o.AdditionalProperties = additionalProperties

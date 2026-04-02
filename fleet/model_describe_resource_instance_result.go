@@ -56,6 +56,8 @@ type DescribeResourceInstanceResult struct {
 	KubernetesDashboardEndpoint *KubernetesDashboardEndpoint `json:"kubernetesDashboardEndpoint,omitempty"`
 	// The instance update time
 	LastModifiedAt *string `json:"last_modified_at,omitempty"`
+	// Launch-time customer input parameters. Only available when result_params were not rendered (e.g. failed-early workflows). Excludes parameters with export: false.
+	LaunchInputParams interface{} `json:"launch_input_params,omitempty"`
 	// Pending actions or maintenance tasks for the resource instance, with action type as key and reference key as value.
 	MaintenanceTasks map[string]interface{} `json:"maintenanceTasks,omitempty"`
 	// The maximum number of replicas
@@ -754,6 +756,39 @@ func (o *DescribeResourceInstanceResult) HasLastModifiedAt() bool {
 // SetLastModifiedAt gets a reference to the given string and assigns it to the LastModifiedAt field.
 func (o *DescribeResourceInstanceResult) SetLastModifiedAt(v string) {
 	o.LastModifiedAt = &v
+}
+
+// GetLaunchInputParams returns the LaunchInputParams field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DescribeResourceInstanceResult) GetLaunchInputParams() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.LaunchInputParams
+}
+
+// GetLaunchInputParamsOk returns a tuple with the LaunchInputParams field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DescribeResourceInstanceResult) GetLaunchInputParamsOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.LaunchInputParams) {
+		return nil, false
+	}
+	return &o.LaunchInputParams, true
+}
+
+// HasLaunchInputParams returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasLaunchInputParams() bool {
+	if o != nil && !IsNil(o.LaunchInputParams) {
+		return true
+	}
+
+	return false
+}
+
+// SetLaunchInputParams gets a reference to the given interface{} and assigns it to the LaunchInputParams field.
+func (o *DescribeResourceInstanceResult) SetLaunchInputParams(v interface{}) {
+	o.LaunchInputParams = v
 }
 
 // GetMaintenanceTasks returns the MaintenanceTasks field value if set, zero value otherwise.
@@ -1499,6 +1534,9 @@ func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.LastModifiedAt) {
 		toSerialize["last_modified_at"] = o.LastModifiedAt
 	}
+	if o.LaunchInputParams != nil {
+		toSerialize["launch_input_params"] = o.LaunchInputParams
+	}
 	if !IsNil(o.MaintenanceTasks) {
 		toSerialize["maintenanceTasks"] = o.MaintenanceTasks
 	}
@@ -1604,6 +1642,7 @@ func (o *DescribeResourceInstanceResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "instanceLoadStatus")
 		delete(additionalProperties, "kubernetesDashboardEndpoint")
 		delete(additionalProperties, "last_modified_at")
+		delete(additionalProperties, "launch_input_params")
 		delete(additionalProperties, "maintenanceTasks")
 		delete(additionalProperties, "maxReplicas")
 		delete(additionalProperties, "minReplicas")

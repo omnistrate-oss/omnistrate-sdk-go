@@ -51,6 +51,7 @@ docs/ChangePasswordRequest.md
 docs/ChangePlanRequest.md
 docs/ChangeSet.md
 docs/ChangeSummary.md
+docs/ChangeUserRoleRequest.md
 docs/Channel.md
 docs/ChannelEventHistoryRequest.md
 docs/ChannelEventHistoryResult.md
@@ -745,6 +746,7 @@ model_change_password_request.go
 model_change_plan_request.go
 model_change_set.go
 model_change_summary.go
+model_change_user_role_request.go
 model_channel.go
 model_channel_event_history_request.go
 model_channel_event_history_result.go

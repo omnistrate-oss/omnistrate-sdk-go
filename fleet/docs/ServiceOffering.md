@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **CloudProviders** | Pointer to **[]string** | List of supported cloud providers for this product tier. | [optional] 
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this service offering is available on | [optional] 
 **MaxNumberOfInstances** | Pointer to **int64** | Maximum number of instances | [optional] 
+**NebiusRegions** | Pointer to **[]string** | The Nebius regions that this service offering is available on | [optional] 
 **OciRegions** | Pointer to **[]string** | The OCI regions that this service offering is available on | [optional] 
 **OnPremPlatforms** | Pointer to **[]string** | The on prem platforms that this service offering is available on | [optional] 
 **PrivateRegions** | Pointer to **[]string** | The Private regions that this service offering is available on | [optional] 
@@ -256,6 +257,31 @@ SetMaxNumberOfInstances sets MaxNumberOfInstances field to given value.
 `func (o *ServiceOffering) HasMaxNumberOfInstances() bool`
 
 HasMaxNumberOfInstances returns a boolean if a field has been set.
+
+### GetNebiusRegions
+
+`func (o *ServiceOffering) GetNebiusRegions() []string`
+
+GetNebiusRegions returns the NebiusRegions field if non-nil, zero value otherwise.
+
+### GetNebiusRegionsOk
+
+`func (o *ServiceOffering) GetNebiusRegionsOk() (*[]string, bool)`
+
+GetNebiusRegionsOk returns a tuple with the NebiusRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNebiusRegions
+
+`func (o *ServiceOffering) SetNebiusRegions(v []string)`
+
+SetNebiusRegions sets NebiusRegions field to given value.
+
+### HasNebiusRegions
+
+`func (o *ServiceOffering) HasNebiusRegions() bool`
+
+HasNebiusRegions returns a boolean if a field has been set.
 
 ### GetOciRegions
 

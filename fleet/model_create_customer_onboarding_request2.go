@@ -21,6 +21,8 @@ var _ MappedNullable = &CreateCustomerOnboardingRequest2{}
 type CreateCustomerOnboardingRequest2 struct {
 	// DEPRECATED: Name will be generated automatically.
 	Name *string `json:"name,omitempty"`
+	// The type of onboarding to create.
+	OnboardingType *string `json:"onboardingType,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -75,6 +77,38 @@ func (o *CreateCustomerOnboardingRequest2) SetName(v string) {
 	o.Name = &v
 }
 
+// GetOnboardingType returns the OnboardingType field value if set, zero value otherwise.
+func (o *CreateCustomerOnboardingRequest2) GetOnboardingType() string {
+	if o == nil || IsNil(o.OnboardingType) {
+		var ret string
+		return ret
+	}
+	return *o.OnboardingType
+}
+
+// GetOnboardingTypeOk returns a tuple with the OnboardingType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateCustomerOnboardingRequest2) GetOnboardingTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.OnboardingType) {
+		return nil, false
+	}
+	return o.OnboardingType, true
+}
+
+// HasOnboardingType returns a boolean if a field has been set.
+func (o *CreateCustomerOnboardingRequest2) HasOnboardingType() bool {
+	if o != nil && !IsNil(o.OnboardingType) {
+		return true
+	}
+
+	return false
+}
+
+// SetOnboardingType gets a reference to the given string and assigns it to the OnboardingType field.
+func (o *CreateCustomerOnboardingRequest2) SetOnboardingType(v string) {
+	o.OnboardingType = &v
+}
+
 func (o CreateCustomerOnboardingRequest2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -87,6 +121,9 @@ func (o CreateCustomerOnboardingRequest2) ToMap() (map[string]interface{}, error
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.OnboardingType) {
+		toSerialize["onboardingType"] = o.OnboardingType
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -111,6 +148,7 @@ func (o *CreateCustomerOnboardingRequest2) UnmarshalJSON(data []byte) (err error
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "onboardingType")
 		o.AdditionalProperties = additionalProperties
 	}
 

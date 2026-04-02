@@ -19,6 +19,8 @@ var _ MappedNullable = &Amenity{}
 
 // Amenity struct for Amenity
 type Amenity struct {
+	// The names of other amenities that this amenity depends on. Amenities must be present in the list of amenities and will be installed prior to this amenity. This setting is used to control installation order.
+	DependsOn []string `json:"DependsOn,omitempty"`
 	// A description of the amenity.
 	Description *string `json:"Description,omitempty"`
 	// Whether the amenity is managed by the system.
@@ -49,6 +51,29 @@ func NewAmenity() *Amenity {
 func NewAmenityWithDefaults() *Amenity {
 	this := Amenity{}
 	return &this
+}
+
+// GetDependsOn returns the DependsOn field value if set, zero value otherwise.
+func (o *Amenity) GetDependsOn() []string {
+	if o == nil || IsNil(o.DependsOn) {
+		var ret []string
+		return ret
+	}
+	return o.DependsOn
+}
+
+// GetDependsOnOk returns a tuple with the DependsOn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Amenity) GetDependsOnOk() ([]string, bool) {
+	if o == nil || IsNil(o.DependsOn) {
+		return nil, false
+	}
+	return o.DependsOn, true
+}
+
+// SetDependsOn gets a reference to the given []string and assigns it to the DependsOn field.
+func (o *Amenity) SetDependsOn(v []string) {
+	o.DependsOn = v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -176,6 +201,9 @@ func (o Amenity) MarshalJSON() ([]byte, error) {
 
 func (o Amenity) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.DependsOn) {
+		toSerialize["DependsOn"] = o.DependsOn
+	}
 	if !IsNil(o.Description) {
 		toSerialize["Description"] = o.Description
 	}
@@ -213,6 +241,7 @@ func (o *Amenity) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "DependsOn")
 		delete(additionalProperties, "Description")
 		delete(additionalProperties, "IsManaged")
 		delete(additionalProperties, "Name")

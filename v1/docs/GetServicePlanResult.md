@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **IsProductTierDisabled** | **bool** | Whether the product tier is disabled | 
 **LatestMajorVersion** | **string** | The version number for the latest major version set. | 
 **ModelType** | **string** | The model type encapsulating this service | 
+**NebiusRegions** | Pointer to **[]string** | The Nebius regions that this service plan is available on | [optional] 
 **OciRegions** | Pointer to **[]string** | The OCI regions that this service plan is available on | [optional] 
 **OnPremPlatforms** | Pointer to **[]string** | The on prem platforms that this service plan is available on | [optional] 
 **PrivateRegions** | Pointer to **[]string** | The Private regions that this service plan is available on | [optional] 
@@ -326,6 +327,31 @@ and a boolean to check if the value has been set.
 
 SetModelType sets ModelType field to given value.
 
+
+### GetNebiusRegions
+
+`func (o *GetServicePlanResult) GetNebiusRegions() []string`
+
+GetNebiusRegions returns the NebiusRegions field if non-nil, zero value otherwise.
+
+### GetNebiusRegionsOk
+
+`func (o *GetServicePlanResult) GetNebiusRegionsOk() (*[]string, bool)`
+
+GetNebiusRegionsOk returns a tuple with the NebiusRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNebiusRegions
+
+`func (o *GetServicePlanResult) SetNebiusRegions(v []string)`
+
+SetNebiusRegions sets NebiusRegions field to given value.
+
+### HasNebiusRegions
+
+`func (o *GetServicePlanResult) HasNebiusRegions() bool`
+
+HasNebiusRegions returns a boolean if a field has been set.
 
 ### GetOciRegions
 

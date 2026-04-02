@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 ## FleetWorkflowsApiListServiceWorkflows
 
-> ListServiceWorkflowsResult FleetWorkflowsApiListServiceWorkflows(ctx, serviceId, environmentId).NextPageToken(nextPageToken).PageSize(pageSize).InstanceId(instanceId).StartDate(startDate).EndDate(endDate).Execute()
+> ListServiceWorkflowsResult FleetWorkflowsApiListServiceWorkflows(ctx, serviceId, environmentId).NextPageToken(nextPageToken).PageSize(pageSize).InstanceId(instanceId).StartDate(startDate).EndDate(endDate).ExcludeStats(excludeStats).Execute()
 
 ListServiceWorkflows fleet-workflows-api
 
@@ -259,10 +259,11 @@ func main() {
 	instanceId := "instance-12345678" // string | The instance ID of the workflow (optional)
 	startDate := time.Now() // time.Time | Start date of the workflows (optional)
 	endDate := time.Now() // time.Time | End date of the workflows (optional)
+	excludeStats := true // bool | Whether to exclude expensive stats (e.g. per-workflow resource count) from the response. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FleetWorkflowsApiAPI.FleetWorkflowsApiListServiceWorkflows(context.Background(), serviceId, environmentId).NextPageToken(nextPageToken).PageSize(pageSize).InstanceId(instanceId).StartDate(startDate).EndDate(endDate).Execute()
+	resp, r, err := apiClient.FleetWorkflowsApiAPI.FleetWorkflowsApiListServiceWorkflows(context.Background(), serviceId, environmentId).NextPageToken(nextPageToken).PageSize(pageSize).InstanceId(instanceId).StartDate(startDate).EndDate(endDate).ExcludeStats(excludeStats).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FleetWorkflowsApiAPI.FleetWorkflowsApiListServiceWorkflows``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -295,6 +296,7 @@ Name | Type | Description  | Notes
  **instanceId** | **string** | The instance ID of the workflow | 
  **startDate** | **time.Time** | Start date of the workflows | 
  **endDate** | **time.Time** | End date of the workflows | 
+ **excludeStats** | **bool** | Whether to exclude expensive stats (e.g. per-workflow resource count) from the response. | 
 
 ### Return type
 

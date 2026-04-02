@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EndDate** | Pointer to **time.Time** | End time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start. | [optional] 
 **EnvironmentId** | **string** | ID of a Service Environment | 
+**ExcludeStats** | Pointer to **bool** | Whether to exclude expensive stats (e.g. per-workflow resource count) from the response. | [optional] 
 **InstanceId** | Pointer to **string** | ID of a Resource Instance | [optional] 
 **NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
 **PageSize** | Pointer to **int64** | The number of resources to return per page | [optional] 
@@ -76,6 +77,31 @@ and a boolean to check if the value has been set.
 
 SetEnvironmentId sets EnvironmentId field to given value.
 
+
+### GetExcludeStats
+
+`func (o *ListServiceWorkflowsRequest) GetExcludeStats() bool`
+
+GetExcludeStats returns the ExcludeStats field if non-nil, zero value otherwise.
+
+### GetExcludeStatsOk
+
+`func (o *ListServiceWorkflowsRequest) GetExcludeStatsOk() (*bool, bool)`
+
+GetExcludeStatsOk returns a tuple with the ExcludeStats field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeStats
+
+`func (o *ListServiceWorkflowsRequest) SetExcludeStats(v bool)`
+
+SetExcludeStats sets ExcludeStats field to given value.
+
+### HasExcludeStats
+
+`func (o *ListServiceWorkflowsRequest) HasExcludeStats() bool`
+
+HasExcludeStats returns a boolean if a field has been set.
 
 ### GetInstanceId
 

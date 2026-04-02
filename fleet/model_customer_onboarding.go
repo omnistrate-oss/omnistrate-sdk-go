@@ -24,8 +24,12 @@ type CustomerOnboarding struct {
 	Id string `json:"id"`
 	// Whether the onboarding is completed.
 	IsCompleted bool `json:"isCompleted"`
+	// Additional metadata associated with the onboarding.
+	Metadata map[string]interface{} `json:"metadata,omitempty"`
 	// The name of the onboarding.
 	Name *string `json:"name,omitempty"`
+	// The type of onboarding to create.
+	OnboardingType *string `json:"onboardingType,omitempty"`
 	// ID of an Org
 	OrgId string `json:"orgId"`
 	// The ID of the service associated with this onboarding.
@@ -109,6 +113,38 @@ func (o *CustomerOnboarding) SetIsCompleted(v bool) {
 	o.IsCompleted = v
 }
 
+// GetMetadata returns the Metadata field value if set, zero value otherwise.
+func (o *CustomerOnboarding) GetMetadata() map[string]interface{} {
+	if o == nil || IsNil(o.Metadata) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Metadata
+}
+
+// GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomerOnboarding) GetMetadataOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Metadata) {
+		return map[string]interface{}{}, false
+	}
+	return o.Metadata, true
+}
+
+// HasMetadata returns a boolean if a field has been set.
+func (o *CustomerOnboarding) HasMetadata() bool {
+	if o != nil && !IsNil(o.Metadata) {
+		return true
+	}
+
+	return false
+}
+
+// SetMetadata gets a reference to the given map[string]interface{} and assigns it to the Metadata field.
+func (o *CustomerOnboarding) SetMetadata(v map[string]interface{}) {
+	o.Metadata = v
+}
+
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *CustomerOnboarding) GetName() string {
 	if o == nil || IsNil(o.Name) {
@@ -139,6 +175,38 @@ func (o *CustomerOnboarding) HasName() bool {
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *CustomerOnboarding) SetName(v string) {
 	o.Name = &v
+}
+
+// GetOnboardingType returns the OnboardingType field value if set, zero value otherwise.
+func (o *CustomerOnboarding) GetOnboardingType() string {
+	if o == nil || IsNil(o.OnboardingType) {
+		var ret string
+		return ret
+	}
+	return *o.OnboardingType
+}
+
+// GetOnboardingTypeOk returns a tuple with the OnboardingType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomerOnboarding) GetOnboardingTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.OnboardingType) {
+		return nil, false
+	}
+	return o.OnboardingType, true
+}
+
+// HasOnboardingType returns a boolean if a field has been set.
+func (o *CustomerOnboarding) HasOnboardingType() bool {
+	if o != nil && !IsNil(o.OnboardingType) {
+		return true
+	}
+
+	return false
+}
+
+// SetOnboardingType gets a reference to the given string and assigns it to the OnboardingType field.
+func (o *CustomerOnboarding) SetOnboardingType(v string) {
+	o.OnboardingType = &v
 }
 
 // GetOrgId returns the OrgId field value
@@ -257,8 +325,14 @@ func (o CustomerOnboarding) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["isCompleted"] = o.IsCompleted
+	if !IsNil(o.Metadata) {
+		toSerialize["metadata"] = o.Metadata
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.OnboardingType) {
+		toSerialize["onboardingType"] = o.OnboardingType
 	}
 	toSerialize["orgId"] = o.OrgId
 	if !IsNil(o.ServiceId) {
@@ -315,7 +389,9 @@ func (o *CustomerOnboarding) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "isCompleted")
+		delete(additionalProperties, "metadata")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "onboardingType")
 		delete(additionalProperties, "orgId")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "stages")

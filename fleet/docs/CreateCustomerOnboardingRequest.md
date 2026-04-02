@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** | DEPRECATED: Name will be generated automatically. | [optional] 
+**OnboardingType** | Pointer to **string** | The type of onboarding to create. | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
@@ -50,6 +51,31 @@ SetName sets Name field to given value.
 `func (o *CreateCustomerOnboardingRequest) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetOnboardingType
+
+`func (o *CreateCustomerOnboardingRequest) GetOnboardingType() string`
+
+GetOnboardingType returns the OnboardingType field if non-nil, zero value otherwise.
+
+### GetOnboardingTypeOk
+
+`func (o *CreateCustomerOnboardingRequest) GetOnboardingTypeOk() (*string, bool)`
+
+GetOnboardingTypeOk returns a tuple with the OnboardingType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnboardingType
+
+`func (o *CreateCustomerOnboardingRequest) SetOnboardingType(v string)`
+
+SetOnboardingType sets OnboardingType field to given value.
+
+### HasOnboardingType
+
+`func (o *CreateCustomerOnboardingRequest) HasOnboardingType() bool`
+
+HasOnboardingType returns a boolean if a field has been set.
 
 ### GetToken
 

@@ -35,6 +35,8 @@ type ServiceOffering struct {
 	GcpRegions []string `json:"gcpRegions,omitempty"`
 	// Maximum number of instances
 	MaxNumberOfInstances *int64 `json:"maxNumberOfInstances,omitempty"`
+	// The Nebius regions that this service offering is available on
+	NebiusRegions []string `json:"nebiusRegions,omitempty"`
 	// The OCI regions that this service offering is available on
 	OciRegions []string `json:"ociRegions,omitempty"`
 	// The on prem platforms that this service offering is available on
@@ -386,6 +388,38 @@ func (o *ServiceOffering) HasMaxNumberOfInstances() bool {
 // SetMaxNumberOfInstances gets a reference to the given int64 and assigns it to the MaxNumberOfInstances field.
 func (o *ServiceOffering) SetMaxNumberOfInstances(v int64) {
 	o.MaxNumberOfInstances = &v
+}
+
+// GetNebiusRegions returns the NebiusRegions field value if set, zero value otherwise.
+func (o *ServiceOffering) GetNebiusRegions() []string {
+	if o == nil || IsNil(o.NebiusRegions) {
+		var ret []string
+		return ret
+	}
+	return o.NebiusRegions
+}
+
+// GetNebiusRegionsOk returns a tuple with the NebiusRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceOffering) GetNebiusRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.NebiusRegions) {
+		return nil, false
+	}
+	return o.NebiusRegions, true
+}
+
+// HasNebiusRegions returns a boolean if a field has been set.
+func (o *ServiceOffering) HasNebiusRegions() bool {
+	if o != nil && !IsNil(o.NebiusRegions) {
+		return true
+	}
+
+	return false
+}
+
+// SetNebiusRegions gets a reference to the given []string and assigns it to the NebiusRegions field.
+func (o *ServiceOffering) SetNebiusRegions(v []string) {
+	o.NebiusRegions = v
 }
 
 // GetOciRegions returns the OciRegions field value if set, zero value otherwise.
@@ -1206,6 +1240,9 @@ func (o ServiceOffering) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.MaxNumberOfInstances) {
 		toSerialize["maxNumberOfInstances"] = o.MaxNumberOfInstances
 	}
+	if !IsNil(o.NebiusRegions) {
+		toSerialize["nebiusRegions"] = o.NebiusRegions
+	}
 	if !IsNil(o.OciRegions) {
 		toSerialize["ociRegions"] = o.OciRegions
 	}
@@ -1327,6 +1364,7 @@ func (o *ServiceOffering) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "cloudProviders")
 		delete(additionalProperties, "gcpRegions")
 		delete(additionalProperties, "maxNumberOfInstances")
+		delete(additionalProperties, "nebiusRegions")
 		delete(additionalProperties, "ociRegions")
 		delete(additionalProperties, "onPremPlatforms")
 		delete(additionalProperties, "privateRegions")

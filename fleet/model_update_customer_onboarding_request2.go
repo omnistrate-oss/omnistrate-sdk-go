@@ -19,6 +19,8 @@ var _ MappedNullable = &UpdateCustomerOnboardingRequest2{}
 
 // UpdateCustomerOnboardingRequest2 struct for UpdateCustomerOnboardingRequest2
 type UpdateCustomerOnboardingRequest2 struct {
+	// Additional metadata associated with the onboarding.
+	Metadata map[string]interface{} `json:"metadata,omitempty"`
 	// The ID of the service associated with this onboarding.
 	ServiceId *string `json:"serviceId,omitempty"`
 	Stage *OnboardingStage `json:"stage,omitempty"`
@@ -42,6 +44,38 @@ func NewUpdateCustomerOnboardingRequest2() *UpdateCustomerOnboardingRequest2 {
 func NewUpdateCustomerOnboardingRequest2WithDefaults() *UpdateCustomerOnboardingRequest2 {
 	this := UpdateCustomerOnboardingRequest2{}
 	return &this
+}
+
+// GetMetadata returns the Metadata field value if set, zero value otherwise.
+func (o *UpdateCustomerOnboardingRequest2) GetMetadata() map[string]interface{} {
+	if o == nil || IsNil(o.Metadata) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Metadata
+}
+
+// GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateCustomerOnboardingRequest2) GetMetadataOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Metadata) {
+		return map[string]interface{}{}, false
+	}
+	return o.Metadata, true
+}
+
+// HasMetadata returns a boolean if a field has been set.
+func (o *UpdateCustomerOnboardingRequest2) HasMetadata() bool {
+	if o != nil && !IsNil(o.Metadata) {
+		return true
+	}
+
+	return false
+}
+
+// SetMetadata gets a reference to the given map[string]interface{} and assigns it to the Metadata field.
+func (o *UpdateCustomerOnboardingRequest2) SetMetadata(v map[string]interface{}) {
+	o.Metadata = v
 }
 
 // GetServiceId returns the ServiceId field value if set, zero value otherwise.
@@ -118,6 +152,9 @@ func (o UpdateCustomerOnboardingRequest2) MarshalJSON() ([]byte, error) {
 
 func (o UpdateCustomerOnboardingRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Metadata) {
+		toSerialize["metadata"] = o.Metadata
+	}
 	if !IsNil(o.ServiceId) {
 		toSerialize["serviceId"] = o.ServiceId
 	}
@@ -146,6 +183,7 @@ func (o *UpdateCustomerOnboardingRequest2) UnmarshalJSON(data []byte) (err error
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "metadata")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "stage")
 		o.AdditionalProperties = additionalProperties

@@ -6,7 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | ID of a Customer Onboarding | 
 **IsCompleted** | **bool** | Whether the onboarding is completed. | 
+**Metadata** | Pointer to **map[string]interface{}** | Additional metadata associated with the onboarding. | [optional] 
 **Name** | Pointer to **string** | The name of the onboarding. | [optional] 
+**OnboardingType** | Pointer to **string** | The type of onboarding to create. | [optional] 
 **OrgId** | **string** | ID of an Org | 
 **ServiceId** | Pointer to **string** | The ID of the service associated with this onboarding. | [optional] 
 **Stages** | [**[]OnboardingStage**](OnboardingStage.md) | The stages of the onboarding. | 
@@ -71,6 +73,31 @@ and a boolean to check if the value has been set.
 SetIsCompleted sets IsCompleted field to given value.
 
 
+### GetMetadata
+
+`func (o *CustomerOnboarding) GetMetadata() map[string]interface{}`
+
+GetMetadata returns the Metadata field if non-nil, zero value otherwise.
+
+### GetMetadataOk
+
+`func (o *CustomerOnboarding) GetMetadataOk() (*map[string]interface{}, bool)`
+
+GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMetadata
+
+`func (o *CustomerOnboarding) SetMetadata(v map[string]interface{})`
+
+SetMetadata sets Metadata field to given value.
+
+### HasMetadata
+
+`func (o *CustomerOnboarding) HasMetadata() bool`
+
+HasMetadata returns a boolean if a field has been set.
+
 ### GetName
 
 `func (o *CustomerOnboarding) GetName() string`
@@ -95,6 +122,31 @@ SetName sets Name field to given value.
 `func (o *CustomerOnboarding) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetOnboardingType
+
+`func (o *CustomerOnboarding) GetOnboardingType() string`
+
+GetOnboardingType returns the OnboardingType field if non-nil, zero value otherwise.
+
+### GetOnboardingTypeOk
+
+`func (o *CustomerOnboarding) GetOnboardingTypeOk() (*string, bool)`
+
+GetOnboardingTypeOk returns a tuple with the OnboardingType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnboardingType
+
+`func (o *CustomerOnboarding) SetOnboardingType(v string)`
+
+SetOnboardingType sets OnboardingType field to given value.
+
+### HasOnboardingType
+
+`func (o *CustomerOnboarding) HasOnboardingType() bool`
+
+HasOnboardingType returns a boolean if a field has been set.
 
 ### GetOrgId
 

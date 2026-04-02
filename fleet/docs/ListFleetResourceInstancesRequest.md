@@ -10,6 +10,9 @@ Name | Type | Description | Notes
 **ProductTierVersion** | Pointer to **string** | The product tier version of the infra config to describe. If not specified, the latest version is described. | [optional] 
 **SubscriptionId** | Pointer to **string** | ID of a Subscription | [optional] 
 **EnvironmentId** | **string** | ID of a Service Environment | 
+**ExcludeHAStatus** | Pointer to **bool** | Whether to exclude high availability and autoscaling status from the response | [optional] 
+**ExcludeIntegrations** | Pointer to **bool** | Whether to exclude integration statuses (e.g. OpenTelemetry) from the response | [optional] 
+**ExcludeNetworkTopology** | Pointer to **bool** | Whether to exclude network topology details from the response | [optional] 
 **NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
 **PageSize** | Pointer to **int64** | The number of resources to return per page | [optional] 
 **ServiceId** | **string** | ID of a Service | 
@@ -178,6 +181,81 @@ and a boolean to check if the value has been set.
 
 SetEnvironmentId sets EnvironmentId field to given value.
 
+
+### GetExcludeHAStatus
+
+`func (o *ListFleetResourceInstancesRequest) GetExcludeHAStatus() bool`
+
+GetExcludeHAStatus returns the ExcludeHAStatus field if non-nil, zero value otherwise.
+
+### GetExcludeHAStatusOk
+
+`func (o *ListFleetResourceInstancesRequest) GetExcludeHAStatusOk() (*bool, bool)`
+
+GetExcludeHAStatusOk returns a tuple with the ExcludeHAStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeHAStatus
+
+`func (o *ListFleetResourceInstancesRequest) SetExcludeHAStatus(v bool)`
+
+SetExcludeHAStatus sets ExcludeHAStatus field to given value.
+
+### HasExcludeHAStatus
+
+`func (o *ListFleetResourceInstancesRequest) HasExcludeHAStatus() bool`
+
+HasExcludeHAStatus returns a boolean if a field has been set.
+
+### GetExcludeIntegrations
+
+`func (o *ListFleetResourceInstancesRequest) GetExcludeIntegrations() bool`
+
+GetExcludeIntegrations returns the ExcludeIntegrations field if non-nil, zero value otherwise.
+
+### GetExcludeIntegrationsOk
+
+`func (o *ListFleetResourceInstancesRequest) GetExcludeIntegrationsOk() (*bool, bool)`
+
+GetExcludeIntegrationsOk returns a tuple with the ExcludeIntegrations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeIntegrations
+
+`func (o *ListFleetResourceInstancesRequest) SetExcludeIntegrations(v bool)`
+
+SetExcludeIntegrations sets ExcludeIntegrations field to given value.
+
+### HasExcludeIntegrations
+
+`func (o *ListFleetResourceInstancesRequest) HasExcludeIntegrations() bool`
+
+HasExcludeIntegrations returns a boolean if a field has been set.
+
+### GetExcludeNetworkTopology
+
+`func (o *ListFleetResourceInstancesRequest) GetExcludeNetworkTopology() bool`
+
+GetExcludeNetworkTopology returns the ExcludeNetworkTopology field if non-nil, zero value otherwise.
+
+### GetExcludeNetworkTopologyOk
+
+`func (o *ListFleetResourceInstancesRequest) GetExcludeNetworkTopologyOk() (*bool, bool)`
+
+GetExcludeNetworkTopologyOk returns a tuple with the ExcludeNetworkTopology field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeNetworkTopology
+
+`func (o *ListFleetResourceInstancesRequest) SetExcludeNetworkTopology(v bool)`
+
+SetExcludeNetworkTopology sets ExcludeNetworkTopology field to given value.
+
+### HasExcludeNetworkTopology
+
+`func (o *ListFleetResourceInstancesRequest) HasExcludeNetworkTopology() bool`
+
+HasExcludeNetworkTopology returns a boolean if a field has been set.
 
 ### GetNextPageToken
 

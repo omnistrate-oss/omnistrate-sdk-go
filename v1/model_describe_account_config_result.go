@@ -60,6 +60,10 @@ type DescribeAccountConfigResult struct {
 	Id string `json:"id"`
 	// The name of the account
 	Name string `json:"name"`
+	// The safe per-region Nebius bindings configured under this tenant account configuration
+	NebiusBindings []NebiusAccountBindingResult `json:"nebiusBindings,omitempty"`
+	// The Nebius tenant ID for the tenant-scoped Nebius account configuration
+	NebiusTenantID *string `json:"nebiusTenantID,omitempty"`
 	// The OCI bootstrap shell command
 	OciBootstrapShellCommand *string `json:"ociBootstrapShellCommand,omitempty"`
 	// The OCI disconnect shell command
@@ -568,6 +572,52 @@ func (o *DescribeAccountConfigResult) SetName(v string) {
 	o.Name = v
 }
 
+// GetNebiusBindings returns the NebiusBindings field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetNebiusBindings() []NebiusAccountBindingResult {
+	if o == nil || IsNil(o.NebiusBindings) {
+		var ret []NebiusAccountBindingResult
+		return ret
+	}
+	return o.NebiusBindings
+}
+
+// GetNebiusBindingsOk returns a tuple with the NebiusBindings field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetNebiusBindingsOk() ([]NebiusAccountBindingResult, bool) {
+	if o == nil || IsNil(o.NebiusBindings) {
+		return nil, false
+	}
+	return o.NebiusBindings, true
+}
+
+// SetNebiusBindings gets a reference to the given []NebiusAccountBindingResult and assigns it to the NebiusBindings field.
+func (o *DescribeAccountConfigResult) SetNebiusBindings(v []NebiusAccountBindingResult) {
+	o.NebiusBindings = v
+}
+
+// GetNebiusTenantID returns the NebiusTenantID field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetNebiusTenantID() string {
+	if o == nil || IsNil(o.NebiusTenantID) {
+		var ret string
+		return ret
+	}
+	return *o.NebiusTenantID
+}
+
+// GetNebiusTenantIDOk returns a tuple with the NebiusTenantID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetNebiusTenantIDOk() (*string, bool) {
+	if o == nil || IsNil(o.NebiusTenantID) {
+		return nil, false
+	}
+	return o.NebiusTenantID, true
+}
+
+// SetNebiusTenantID gets a reference to the given string and assigns it to the NebiusTenantID field.
+func (o *DescribeAccountConfigResult) SetNebiusTenantID(v string) {
+	o.NebiusTenantID = &v
+}
+
 // GetOciBootstrapShellCommand returns the OciBootstrapShellCommand field value if set, zero value otherwise.
 func (o *DescribeAccountConfigResult) GetOciBootstrapShellCommand() string {
 	if o == nil || IsNil(o.OciBootstrapShellCommand) {
@@ -816,6 +866,12 @@ func (o DescribeAccountConfigResult) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
+	if !IsNil(o.NebiusBindings) {
+		toSerialize["nebiusBindings"] = o.NebiusBindings
+	}
+	if !IsNil(o.NebiusTenantID) {
+		toSerialize["nebiusTenantID"] = o.NebiusTenantID
+	}
 	if !IsNil(o.OciBootstrapShellCommand) {
 		toSerialize["ociBootstrapShellCommand"] = o.OciBootstrapShellCommand
 	}
@@ -904,6 +960,8 @@ func (o *DescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "gcpServiceAccountEmail")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "nebiusBindings")
+		delete(additionalProperties, "nebiusTenantID")
 		delete(additionalProperties, "ociBootstrapShellCommand")
 		delete(additionalProperties, "ociDisconnectShellCommand")
 		delete(additionalProperties, "ociDomainID")

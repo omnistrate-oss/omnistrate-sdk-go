@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **ResourceId** | Pointer to **string** | ID of a resource | [optional] 
 **ServiceId** | Pointer to **string** | ID of a Service | [optional] 
 **ServiceModelType** | Pointer to **string** | The service model type | [optional] 
+**SupportsPublicNetwork** | Pointer to **bool** | Whether this resource version supports public network connectivity | [optional] 
 **Version** | Pointer to **string** | The latest version of the resource. | [optional] 
 **VersionHistory** | Pointer to **[]string** | The version history of the resource. | [optional] 
 
@@ -259,6 +260,31 @@ SetServiceModelType sets ServiceModelType field to given value.
 `func (o *Resource) HasServiceModelType() bool`
 
 HasServiceModelType returns a boolean if a field has been set.
+
+### GetSupportsPublicNetwork
+
+`func (o *Resource) GetSupportsPublicNetwork() bool`
+
+GetSupportsPublicNetwork returns the SupportsPublicNetwork field if non-nil, zero value otherwise.
+
+### GetSupportsPublicNetworkOk
+
+`func (o *Resource) GetSupportsPublicNetworkOk() (*bool, bool)`
+
+GetSupportsPublicNetworkOk returns a tuple with the SupportsPublicNetwork field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportsPublicNetwork
+
+`func (o *Resource) SetSupportsPublicNetwork(v bool)`
+
+SetSupportsPublicNetwork sets SupportsPublicNetwork field to given value.
+
+### HasSupportsPublicNetwork
+
+`func (o *Resource) HasSupportsPublicNetwork() bool`
+
+HasSupportsPublicNetwork returns a boolean if a field has been set.
 
 ### GetVersion
 

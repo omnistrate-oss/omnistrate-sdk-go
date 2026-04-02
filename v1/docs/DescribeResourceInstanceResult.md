@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **InstanceLoadStatus** | Pointer to **string** | The load status of a pod | [optional] 
 **KubernetesDashboardEndpoint** | Pointer to [**KubernetesDashboardEndpoint**](KubernetesDashboardEndpoint.md) |  | [optional] 
 **LastModifiedAt** | Pointer to **string** | The instance update time | [optional] 
+**LaunchInputParams** | Pointer to **interface{}** | Launch-time customer input parameters. Only available when result_params were not rendered (e.g. failed-early workflows). Excludes parameters with export: false. | [optional] 
 **MaintenanceTasks** | Pointer to **map[string]interface{}** | Pending actions or maintenance tasks for the resource instance, with action type as key and reference key as value. | [optional] 
 **MaxReplicas** | Pointer to **string** | The maximum number of replicas | [optional] 
 **MinReplicas** | Pointer to **string** | The minimum number of replicas | [optional] 
@@ -565,6 +566,41 @@ SetLastModifiedAt sets LastModifiedAt field to given value.
 
 HasLastModifiedAt returns a boolean if a field has been set.
 
+### GetLaunchInputParams
+
+`func (o *DescribeResourceInstanceResult) GetLaunchInputParams() interface{}`
+
+GetLaunchInputParams returns the LaunchInputParams field if non-nil, zero value otherwise.
+
+### GetLaunchInputParamsOk
+
+`func (o *DescribeResourceInstanceResult) GetLaunchInputParamsOk() (*interface{}, bool)`
+
+GetLaunchInputParamsOk returns a tuple with the LaunchInputParams field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLaunchInputParams
+
+`func (o *DescribeResourceInstanceResult) SetLaunchInputParams(v interface{})`
+
+SetLaunchInputParams sets LaunchInputParams field to given value.
+
+### HasLaunchInputParams
+
+`func (o *DescribeResourceInstanceResult) HasLaunchInputParams() bool`
+
+HasLaunchInputParams returns a boolean if a field has been set.
+
+### SetLaunchInputParamsNil
+
+`func (o *DescribeResourceInstanceResult) SetLaunchInputParamsNil(b bool)`
+
+ SetLaunchInputParamsNil sets the value for LaunchInputParams to be an explicit nil
+
+### UnsetLaunchInputParams
+`func (o *DescribeResourceInstanceResult) UnsetLaunchInputParams()`
+
+UnsetLaunchInputParams ensures that no value is present for LaunchInputParams, not even an explicit nil
 ### GetMaintenanceTasks
 
 `func (o *DescribeResourceInstanceResult) GetMaintenanceTasks() map[string]interface{}`

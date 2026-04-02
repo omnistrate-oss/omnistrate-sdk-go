@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **EndDate** | Pointer to **time.Time** | End time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start. | [optional] 
 **EnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
 **EventSourceTypes** | Pointer to **[]string** | The event types to filter by | [optional] 
+**ExcludeWorkflowFailures** | Pointer to **bool** | Whether to exclude workflow failure details from the response. | [optional] 
 **InstanceID** | Pointer to **string** | ID of a Resource Instance | [optional] 
 **NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
 **PageSize** | Pointer to **int64** | The number of resources to return per page | [optional] 
@@ -108,6 +109,31 @@ SetEventSourceTypes sets EventSourceTypes field to given value.
 `func (o *FleetAuditEventsRequest) HasEventSourceTypes() bool`
 
 HasEventSourceTypes returns a boolean if a field has been set.
+
+### GetExcludeWorkflowFailures
+
+`func (o *FleetAuditEventsRequest) GetExcludeWorkflowFailures() bool`
+
+GetExcludeWorkflowFailures returns the ExcludeWorkflowFailures field if non-nil, zero value otherwise.
+
+### GetExcludeWorkflowFailuresOk
+
+`func (o *FleetAuditEventsRequest) GetExcludeWorkflowFailuresOk() (*bool, bool)`
+
+GetExcludeWorkflowFailuresOk returns a tuple with the ExcludeWorkflowFailures field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeWorkflowFailures
+
+`func (o *FleetAuditEventsRequest) SetExcludeWorkflowFailures(v bool)`
+
+SetExcludeWorkflowFailures sets ExcludeWorkflowFailures field to given value.
+
+### HasExcludeWorkflowFailures
+
+`func (o *FleetAuditEventsRequest) HasExcludeWorkflowFailures() bool`
+
+HasExcludeWorkflowFailures returns a boolean if a field has been set.
 
 ### GetInstanceID
 
