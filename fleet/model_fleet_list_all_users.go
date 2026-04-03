@@ -20,6 +20,8 @@ var _ MappedNullable = &FleetListAllUsers{}
 
 // FleetListAllUsers struct for FleetListAllUsers
 type FleetListAllUsers struct {
+	// Whether to exclude user statistics (instance count, subscription count) from the response
+	ExcludeStats *bool `json:"excludeStats,omitempty"`
 	// The next token to use for pagination
 	NextPageToken *string `json:"nextPageToken,omitempty"`
 	// The number of resources to return per page
@@ -49,6 +51,38 @@ func NewFleetListAllUsers(token string) *FleetListAllUsers {
 func NewFleetListAllUsersWithDefaults() *FleetListAllUsers {
 	this := FleetListAllUsers{}
 	return &this
+}
+
+// GetExcludeStats returns the ExcludeStats field value if set, zero value otherwise.
+func (o *FleetListAllUsers) GetExcludeStats() bool {
+	if o == nil || IsNil(o.ExcludeStats) {
+		var ret bool
+		return ret
+	}
+	return *o.ExcludeStats
+}
+
+// GetExcludeStatsOk returns a tuple with the ExcludeStats field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetListAllUsers) GetExcludeStatsOk() (*bool, bool) {
+	if o == nil || IsNil(o.ExcludeStats) {
+		return nil, false
+	}
+	return o.ExcludeStats, true
+}
+
+// HasExcludeStats returns a boolean if a field has been set.
+func (o *FleetListAllUsers) HasExcludeStats() bool {
+	if o != nil && !IsNil(o.ExcludeStats) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludeStats gets a reference to the given bool and assigns it to the ExcludeStats field.
+func (o *FleetListAllUsers) SetExcludeStats(v bool) {
+	o.ExcludeStats = &v
 }
 
 // GetNextPageToken returns the NextPageToken field value if set, zero value otherwise.
@@ -181,6 +215,9 @@ func (o FleetListAllUsers) MarshalJSON() ([]byte, error) {
 
 func (o FleetListAllUsers) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ExcludeStats) {
+		toSerialize["excludeStats"] = o.ExcludeStats
+	}
 	if !IsNil(o.NextPageToken) {
 		toSerialize["nextPageToken"] = o.NextPageToken
 	}
@@ -234,6 +271,7 @@ func (o *FleetListAllUsers) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "excludeStats")
 		delete(additionalProperties, "nextPageToken")
 		delete(additionalProperties, "pageSize")
 		delete(additionalProperties, "serviceId")

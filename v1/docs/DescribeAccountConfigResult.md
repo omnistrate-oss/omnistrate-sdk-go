@@ -24,6 +24,8 @@ Name | Type | Description | Notes
 **GcpServiceAccountEmail** | Pointer to **string** | The GCP service account email | [optional] 
 **Id** | **string** | ID of an Account Config | 
 **Name** | **string** | The name of the account | 
+**NebiusBindings** | Pointer to [**[]NebiusAccountBindingResult**](NebiusAccountBindingResult.md) | The safe per-region Nebius bindings configured under this tenant account configuration | [optional] 
+**NebiusTenantID** | Pointer to **string** | The Nebius tenant ID for the tenant-scoped Nebius account configuration | [optional] 
 **OciBootstrapShellCommand** | Pointer to **string** | The OCI bootstrap shell command | [optional] 
 **OciDisconnectShellCommand** | Pointer to **string** | The OCI disconnect shell command | [optional] 
 **OciDomainID** | Pointer to **string** | The Domain OCID for Oracle Cloud Infrastructure | [optional] 
@@ -531,6 +533,56 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetNebiusBindings
+
+`func (o *DescribeAccountConfigResult) GetNebiusBindings() []NebiusAccountBindingResult`
+
+GetNebiusBindings returns the NebiusBindings field if non-nil, zero value otherwise.
+
+### GetNebiusBindingsOk
+
+`func (o *DescribeAccountConfigResult) GetNebiusBindingsOk() (*[]NebiusAccountBindingResult, bool)`
+
+GetNebiusBindingsOk returns a tuple with the NebiusBindings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNebiusBindings
+
+`func (o *DescribeAccountConfigResult) SetNebiusBindings(v []NebiusAccountBindingResult)`
+
+SetNebiusBindings sets NebiusBindings field to given value.
+
+### HasNebiusBindings
+
+`func (o *DescribeAccountConfigResult) HasNebiusBindings() bool`
+
+HasNebiusBindings returns a boolean if a field has been set.
+
+### GetNebiusTenantID
+
+`func (o *DescribeAccountConfigResult) GetNebiusTenantID() string`
+
+GetNebiusTenantID returns the NebiusTenantID field if non-nil, zero value otherwise.
+
+### GetNebiusTenantIDOk
+
+`func (o *DescribeAccountConfigResult) GetNebiusTenantIDOk() (*string, bool)`
+
+GetNebiusTenantIDOk returns a tuple with the NebiusTenantID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNebiusTenantID
+
+`func (o *DescribeAccountConfigResult) SetNebiusTenantID(v string)`
+
+SetNebiusTenantID sets NebiusTenantID field to given value.
+
+### HasNebiusTenantID
+
+`func (o *DescribeAccountConfigResult) HasNebiusTenantID() bool`
+
+HasNebiusTenantID returns a boolean if a field has been set.
 
 ### GetOciBootstrapShellCommand
 

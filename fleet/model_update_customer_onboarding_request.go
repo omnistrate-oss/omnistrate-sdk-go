@@ -22,6 +22,8 @@ var _ MappedNullable = &UpdateCustomerOnboardingRequest{}
 type UpdateCustomerOnboardingRequest struct {
 	// ID of a Customer Onboarding
 	Id string `json:"id"`
+	// Additional metadata associated with the onboarding.
+	Metadata map[string]interface{} `json:"metadata,omitempty"`
 	// The ID of the service associated with this onboarding.
 	ServiceId *string `json:"serviceId,omitempty"`
 	Stage *OnboardingStage `json:"stage,omitempty"`
@@ -73,6 +75,38 @@ func (o *UpdateCustomerOnboardingRequest) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *UpdateCustomerOnboardingRequest) SetId(v string) {
 	o.Id = v
+}
+
+// GetMetadata returns the Metadata field value if set, zero value otherwise.
+func (o *UpdateCustomerOnboardingRequest) GetMetadata() map[string]interface{} {
+	if o == nil || IsNil(o.Metadata) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Metadata
+}
+
+// GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateCustomerOnboardingRequest) GetMetadataOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Metadata) {
+		return map[string]interface{}{}, false
+	}
+	return o.Metadata, true
+}
+
+// HasMetadata returns a boolean if a field has been set.
+func (o *UpdateCustomerOnboardingRequest) HasMetadata() bool {
+	if o != nil && !IsNil(o.Metadata) {
+		return true
+	}
+
+	return false
+}
+
+// SetMetadata gets a reference to the given map[string]interface{} and assigns it to the Metadata field.
+func (o *UpdateCustomerOnboardingRequest) SetMetadata(v map[string]interface{}) {
+	o.Metadata = v
 }
 
 // GetServiceId returns the ServiceId field value if set, zero value otherwise.
@@ -174,6 +208,9 @@ func (o UpdateCustomerOnboardingRequest) MarshalJSON() ([]byte, error) {
 func (o UpdateCustomerOnboardingRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
+	if !IsNil(o.Metadata) {
+		toSerialize["metadata"] = o.Metadata
+	}
 	if !IsNil(o.ServiceId) {
 		toSerialize["serviceId"] = o.ServiceId
 	}
@@ -226,6 +263,7 @@ func (o *UpdateCustomerOnboardingRequest) UnmarshalJSON(data []byte) (err error)
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "metadata")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "stage")
 		delete(additionalProperties, "token")

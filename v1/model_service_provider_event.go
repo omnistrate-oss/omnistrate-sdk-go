@@ -44,6 +44,8 @@ type ServiceProviderEvent struct {
 	Scope string `json:"scope"`
 	// ID of a Service Environment
 	ServiceEnvironmentID *string `json:"serviceEnvironmentID,omitempty"`
+	// The type of service environment
+	ServiceEnvironmentType *string `json:"serviceEnvironmentType,omitempty"`
 	// ID of a Service
 	ServiceID *string `json:"serviceID,omitempty"`
 	// The name of the service
@@ -367,6 +369,29 @@ func (o *ServiceProviderEvent) SetServiceEnvironmentID(v string) {
 	o.ServiceEnvironmentID = &v
 }
 
+// GetServiceEnvironmentType returns the ServiceEnvironmentType field value if set, zero value otherwise.
+func (o *ServiceProviderEvent) GetServiceEnvironmentType() string {
+	if o == nil || IsNil(o.ServiceEnvironmentType) {
+		var ret string
+		return ret
+	}
+	return *o.ServiceEnvironmentType
+}
+
+// GetServiceEnvironmentTypeOk returns a tuple with the ServiceEnvironmentType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceProviderEvent) GetServiceEnvironmentTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.ServiceEnvironmentType) {
+		return nil, false
+	}
+	return o.ServiceEnvironmentType, true
+}
+
+// SetServiceEnvironmentType gets a reference to the given string and assigns it to the ServiceEnvironmentType field.
+func (o *ServiceProviderEvent) SetServiceEnvironmentType(v string) {
+	o.ServiceEnvironmentType = &v
+}
+
 // GetServiceID returns the ServiceID field value if set, zero value otherwise.
 func (o *ServiceProviderEvent) GetServiceID() string {
 	if o == nil || IsNil(o.ServiceID) {
@@ -490,6 +515,9 @@ func (o ServiceProviderEvent) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ServiceEnvironmentID) {
 		toSerialize["serviceEnvironmentID"] = o.ServiceEnvironmentID
 	}
+	if !IsNil(o.ServiceEnvironmentType) {
+		toSerialize["serviceEnvironmentType"] = o.ServiceEnvironmentType
+	}
 	if !IsNil(o.ServiceID) {
 		toSerialize["serviceID"] = o.ServiceID
 	}
@@ -563,6 +591,7 @@ func (o *ServiceProviderEvent) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "resourceName")
 		delete(additionalProperties, "scope")
 		delete(additionalProperties, "serviceEnvironmentID")
+		delete(additionalProperties, "serviceEnvironmentType")
 		delete(additionalProperties, "serviceID")
 		delete(additionalProperties, "serviceName")
 		delete(additionalProperties, "servicePlanName")

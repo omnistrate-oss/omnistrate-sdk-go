@@ -84,6 +84,7 @@ Class | Method | HTTP request | Description
 *AccountConfigApiAPI* | [**AccountConfigApiDescribeAccountConfigByAWSAccountID**](docs/AccountConfigApiAPI.md#accountconfigapidescribeaccountconfigbyawsaccountid) | **Get** /2022-09-01-00/accountconfig/aws/{awsAccountID} | DescribeAccountConfigByAWSAccountID account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiDescribeAccountConfigByAzureSubscriptionID**](docs/AccountConfigApiAPI.md#accountconfigapidescribeaccountconfigbyazuresubscriptionid) | **Get** /2022-09-01-00/accountconfig/azure/{azureSubscriptionID} | DescribeAccountConfigByAzureSubscriptionID account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiDescribeAccountConfigByGCPProjectID**](docs/AccountConfigApiAPI.md#accountconfigapidescribeaccountconfigbygcpprojectid) | **Get** /2022-09-01-00/accountconfig/gcp/{gcpProjectID} | DescribeAccountConfigByGCPProjectID account-config-api
+*AccountConfigApiAPI* | [**AccountConfigApiDescribeAccountConfigByNebiusTenantID**](docs/AccountConfigApiAPI.md#accountconfigapidescribeaccountconfigbynebiustenantid) | **Get** /2022-09-01-00/accountconfig/nebius/tenant/{nebiusTenantID} | DescribeAccountConfigByNebiusTenantID account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiDescribeAccountConfigByOCITenancyID**](docs/AccountConfigApiAPI.md#accountconfigapidescribeaccountconfigbyocitenancyid) | **Get** /2022-09-01-00/accountconfig/oci/{ociTenancyID} | DescribeAccountConfigByOCITenancyID account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiListAccountConfig**](docs/AccountConfigApiAPI.md#accountconfigapilistaccountconfig) | **Get** /2022-09-01-00/accountconfig/cloudprovider/{cloudProviderName} | ListAccountConfig account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiListBYOAConfig**](docs/AccountConfigApiAPI.md#accountconfigapilistbyoaconfig) | **Get** /2022-09-01-00/accountconfig/byoa | ListBYOAConfig account-config-api
@@ -387,6 +388,7 @@ Class | Method | HTTP request | Description
 *TierVersionSetApiAPI* | [**TierVersionSetApiUpdateTierVersionSetMetadata**](docs/TierVersionSetApiAPI.md#tierversionsetapiupdatetierversionsetmetadata) | **Patch** /2022-09-01-00/service/{serviceId}/productTier/{productTierId}/version-set/{version}/metadata | UpdateTierVersionSetMetadata tier-version-set-api
 *UsageApiAPI* | [**UsageApiGetCurrentUsage**](docs/UsageApiAPI.md#usageapigetcurrentusage) | **Get** /2022-09-01-00/usage | GetCurrentUsage usage-api
 *UsageApiAPI* | [**UsageApiGetUsagePerDay**](docs/UsageApiAPI.md#usageapigetusageperday) | **Get** /2022-09-01-00/usage-per-day | GetUsagePerDay usage-api
+*UsersApiAPI* | [**UsersApiChangeUserRole**](docs/UsersApiAPI.md#usersapichangeuserrole) | **Post** /2022-09-01-00/change-user-role | ChangeUserRole users-api
 *UsersApiAPI* | [**UsersApiCustomerDeleteUser**](docs/UsersApiAPI.md#usersapicustomerdeleteuser) | **Delete** /2022-09-01-00/customer-delete-user | CustomerDeleteUser users-api
 *UsersApiAPI* | [**UsersApiCustomerInviteUser**](docs/UsersApiAPI.md#usersapicustomerinviteuser) | **Post** /2022-09-01-00/customer-invite-user | CustomerInviteUser users-api
 *UsersApiAPI* | [**UsersApiCustomerLoginWithIdentityProvider**](docs/UsersApiAPI.md#usersapicustomerloginwithidentityprovider) | **Post** /2022-09-01-00/customer-login-with-identity-provider | CustomerLoginWithIdentityProvider users-api
@@ -459,6 +461,8 @@ Class | Method | HTTP request | Description
  - [ChangePlanRequest2](docs/ChangePlanRequest2.md)
  - [ChangeSet](docs/ChangeSet.md)
  - [ChangeSummary](docs/ChangeSummary.md)
+ - [ChangeUserRoleRequest](docs/ChangeUserRoleRequest.md)
+ - [ChangeUserRoleRequest2](docs/ChangeUserRoleRequest2.md)
  - [ChartValuesRef](docs/ChartValuesRef.md)
  - [CheckIfContainerImageAccessibleRequest](docs/CheckIfContainerImageAccessibleRequest.md)
  - [CheckIfContainerImageAccessibleResult](docs/CheckIfContainerImageAccessibleResult.md)
@@ -620,6 +624,8 @@ Class | Method | HTTP request | Description
  - [DescribeAccountConfigByAzureSubscriptionIDResult](docs/DescribeAccountConfigByAzureSubscriptionIDResult.md)
  - [DescribeAccountConfigByGCPProjectIDRequest](docs/DescribeAccountConfigByGCPProjectIDRequest.md)
  - [DescribeAccountConfigByGCPProjectIDResult](docs/DescribeAccountConfigByGCPProjectIDResult.md)
+ - [DescribeAccountConfigByNebiusTenantIDRequest](docs/DescribeAccountConfigByNebiusTenantIDRequest.md)
+ - [DescribeAccountConfigByNebiusTenantIDResult](docs/DescribeAccountConfigByNebiusTenantIDResult.md)
  - [DescribeAccountConfigByOCITenancyIDRequest](docs/DescribeAccountConfigByOCITenancyIDRequest.md)
  - [DescribeAccountConfigByOCITenancyIDResult](docs/DescribeAccountConfigByOCITenancyIDResult.md)
  - [DescribeAccountConfigRequest](docs/DescribeAccountConfigRequest.md)
@@ -928,6 +934,7 @@ Class | Method | HTTP request | Description
  - [ListVUnitsRequest2](docs/ListVUnitsRequest2.md)
  - [ListVUnitsResult](docs/ListVUnitsResult.md)
  - [LoadBalancerPathConfiguration](docs/LoadBalancerPathConfiguration.md)
+ - [LocalNvmeSsdBlockConfig](docs/LocalNvmeSsdBlockConfig.md)
  - [LoginWithIdentityProviderRequest](docs/LoginWithIdentityProviderRequest.md)
  - [LoginWithIdentityProviderResult](docs/LoginWithIdentityProviderResult.md)
  - [LogoutRequest](docs/LogoutRequest.md)
@@ -936,6 +943,8 @@ Class | Method | HTTP request | Description
  - [ModifyServicesOrchestrationRequest](docs/ModifyServicesOrchestrationRequest.md)
  - [ModifyServicesOrchestrationRequest2](docs/ModifyServicesOrchestrationRequest2.md)
  - [NamedPortSpec](docs/NamedPortSpec.md)
+ - [NebiusAccountBindingInput](docs/NebiusAccountBindingInput.md)
+ - [NebiusAccountBindingResult](docs/NebiusAccountBindingResult.md)
  - [NetworkFeaturesConfiguration](docs/NetworkFeaturesConfiguration.md)
  - [NodeHealthSummary](docs/NodeHealthSummary.md)
  - [NodeNetworkTopologyResult](docs/NodeNetworkTopologyResult.md)

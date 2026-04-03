@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **ResourceName** | Pointer to **string** | The name of the resource | [optional] 
 **Scope** | **string** | The scope of the event | 
 **ServiceEnvironmentID** | Pointer to **string** | ID of a Service Environment | [optional] 
+**ServiceEnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
 **ServiceID** | Pointer to **string** | ID of a Service | [optional] 
 **ServiceName** | Pointer to **string** | The name of the service | [optional] 
 **ServicePlanName** | Pointer to **string** | The name of the service plan | [optional] 
@@ -299,6 +300,31 @@ SetServiceEnvironmentID sets ServiceEnvironmentID field to given value.
 `func (o *ServiceProviderEvent) HasServiceEnvironmentID() bool`
 
 HasServiceEnvironmentID returns a boolean if a field has been set.
+
+### GetServiceEnvironmentType
+
+`func (o *ServiceProviderEvent) GetServiceEnvironmentType() string`
+
+GetServiceEnvironmentType returns the ServiceEnvironmentType field if non-nil, zero value otherwise.
+
+### GetServiceEnvironmentTypeOk
+
+`func (o *ServiceProviderEvent) GetServiceEnvironmentTypeOk() (*string, bool)`
+
+GetServiceEnvironmentTypeOk returns a tuple with the ServiceEnvironmentType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceEnvironmentType
+
+`func (o *ServiceProviderEvent) SetServiceEnvironmentType(v string)`
+
+SetServiceEnvironmentType sets ServiceEnvironmentType field to given value.
+
+### HasServiceEnvironmentType
+
+`func (o *ServiceProviderEvent) HasServiceEnvironmentType() bool`
+
+HasServiceEnvironmentType returns a boolean if a field has been set.
 
 ### GetServiceID
 

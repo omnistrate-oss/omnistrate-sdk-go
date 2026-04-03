@@ -9428,6 +9428,7 @@ type ApiInventoryApiListAllUsersRequest struct {
 	nextPageToken *string
 	pageSize *int64
 	serviceId *string
+	excludeStats *bool
 }
 
 func (r ApiInventoryApiListAllUsersRequest) NextPageToken(nextPageToken string) ApiInventoryApiListAllUsersRequest {
@@ -9443,6 +9444,12 @@ func (r ApiInventoryApiListAllUsersRequest) PageSize(pageSize int64) ApiInventor
 // The service ID of the users
 func (r ApiInventoryApiListAllUsersRequest) ServiceId(serviceId string) ApiInventoryApiListAllUsersRequest {
 	r.serviceId = &serviceId
+	return r
+}
+
+// Whether to exclude user statistics from the response
+func (r ApiInventoryApiListAllUsersRequest) ExcludeStats(excludeStats bool) ApiInventoryApiListAllUsersRequest {
+	r.excludeStats = &excludeStats
 	return r
 }
 
@@ -9492,6 +9499,9 @@ func (a *InventoryApiAPIService) InventoryApiListAllUsersExecute(r ApiInventoryA
 	}
 	if r.serviceId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "serviceId", r.serviceId, "form", "")
+	}
+	if r.excludeStats != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeStats", r.excludeStats, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -10174,6 +10184,7 @@ type ApiInventoryApiListInstanceEventsRequest struct {
 	instanceId string
 	startTime *string
 	endTime *string
+	excludeWorkflowFailures *bool
 }
 
 // Filter events that occurred after this time
@@ -10185,6 +10196,12 @@ func (r ApiInventoryApiListInstanceEventsRequest) StartTime(startTime string) Ap
 // Filter events that occurred before this time
 func (r ApiInventoryApiListInstanceEventsRequest) EndTime(endTime string) ApiInventoryApiListInstanceEventsRequest {
 	r.endTime = &endTime
+	return r
+}
+
+// Whether to exclude workflow failure details from the response.
+func (r ApiInventoryApiListInstanceEventsRequest) ExcludeWorkflowFailures(excludeWorkflowFailures bool) ApiInventoryApiListInstanceEventsRequest {
+	r.excludeWorkflowFailures = &excludeWorkflowFailures
 	return r
 }
 
@@ -10240,6 +10257,9 @@ func (a *InventoryApiAPIService) InventoryApiListInstanceEventsExecute(r ApiInve
 	}
 	if r.endTime != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "endTime", r.endTime, "form", "")
+	}
+	if r.excludeWorkflowFailures != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeWorkflowFailures", r.excludeWorkflowFailures, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -10366,6 +10386,27 @@ type ApiInventoryApiListLinkedInstancesRequest struct {
 	serviceId string
 	environmentId string
 	instanceId string
+	excludeNetworkTopology *bool
+	excludeHAStatus *bool
+	excludeIntegrations *bool
+}
+
+// Whether to exclude network topology details from the response.
+func (r ApiInventoryApiListLinkedInstancesRequest) ExcludeNetworkTopology(excludeNetworkTopology bool) ApiInventoryApiListLinkedInstancesRequest {
+	r.excludeNetworkTopology = &excludeNetworkTopology
+	return r
+}
+
+// Whether to exclude high availability and autoscaling status from the response.
+func (r ApiInventoryApiListLinkedInstancesRequest) ExcludeHAStatus(excludeHAStatus bool) ApiInventoryApiListLinkedInstancesRequest {
+	r.excludeHAStatus = &excludeHAStatus
+	return r
+}
+
+// Whether to exclude integration statuses from the response.
+func (r ApiInventoryApiListLinkedInstancesRequest) ExcludeIntegrations(excludeIntegrations bool) ApiInventoryApiListLinkedInstancesRequest {
+	r.excludeIntegrations = &excludeIntegrations
+	return r
 }
 
 func (r ApiInventoryApiListLinkedInstancesRequest) Execute() (*FleetListLinkedInstancesResult, *http.Response, error) {
@@ -10415,6 +10456,15 @@ func (a *InventoryApiAPIService) InventoryApiListLinkedInstancesExecute(r ApiInv
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.excludeNetworkTopology != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeNetworkTopology", r.excludeNetworkTopology, "form", "")
+	}
+	if r.excludeHAStatus != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeHAStatus", r.excludeHAStatus, "form", "")
+	}
+	if r.excludeIntegrations != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeIntegrations", r.excludeIntegrations, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -10718,6 +10768,9 @@ type ApiInventoryApiListResourceInstancesRequest struct {
 	subscriptionId *string
 	filter *string
 	excludeDetail *bool
+	excludeNetworkTopology *bool
+	excludeHAStatus *bool
+	excludeIntegrations *bool
 	nextPageToken *string
 	pageSize *int64
 }
@@ -10749,6 +10802,24 @@ func (r ApiInventoryApiListResourceInstancesRequest) Filter(filter string) ApiIn
 // Whether to exclude detailed information about the resource instances.
 func (r ApiInventoryApiListResourceInstancesRequest) ExcludeDetail(excludeDetail bool) ApiInventoryApiListResourceInstancesRequest {
 	r.excludeDetail = &excludeDetail
+	return r
+}
+
+// Whether to exclude network topology details from the response.
+func (r ApiInventoryApiListResourceInstancesRequest) ExcludeNetworkTopology(excludeNetworkTopology bool) ApiInventoryApiListResourceInstancesRequest {
+	r.excludeNetworkTopology = &excludeNetworkTopology
+	return r
+}
+
+// Whether to exclude high availability and autoscaling status from the response.
+func (r ApiInventoryApiListResourceInstancesRequest) ExcludeHAStatus(excludeHAStatus bool) ApiInventoryApiListResourceInstancesRequest {
+	r.excludeHAStatus = &excludeHAStatus
+	return r
+}
+
+// Whether to exclude integration statuses from the response.
+func (r ApiInventoryApiListResourceInstancesRequest) ExcludeIntegrations(excludeIntegrations bool) ApiInventoryApiListResourceInstancesRequest {
+	r.excludeIntegrations = &excludeIntegrations
 	return r
 }
 
@@ -10824,6 +10895,15 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstancesExecute(r ApiI
 		var defaultValue bool = false
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ExcludeDetail", defaultValue, "form", "")
 		r.excludeDetail = &defaultValue
+	}
+	if r.excludeNetworkTopology != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeNetworkTopology", r.excludeNetworkTopology, "form", "")
+	}
+	if r.excludeHAStatus != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeHAStatus", r.excludeHAStatus, "form", "")
+	}
+	if r.excludeIntegrations != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeIntegrations", r.excludeIntegrations, "form", "")
 	}
 	if r.nextPageToken != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")
@@ -12128,6 +12208,7 @@ type ApiInventoryApiListUsersRequest struct {
 	nextPageToken *string
 	pageSize *int64
 	subscriptionId *string
+	excludeStats *bool
 }
 
 func (r ApiInventoryApiListUsersRequest) NextPageToken(nextPageToken string) ApiInventoryApiListUsersRequest {
@@ -12143,6 +12224,12 @@ func (r ApiInventoryApiListUsersRequest) PageSize(pageSize int64) ApiInventoryAp
 // The subscription ID of the user
 func (r ApiInventoryApiListUsersRequest) SubscriptionId(subscriptionId string) ApiInventoryApiListUsersRequest {
 	r.subscriptionId = &subscriptionId
+	return r
+}
+
+// Whether to exclude user statistics from the response
+func (r ApiInventoryApiListUsersRequest) ExcludeStats(excludeStats bool) ApiInventoryApiListUsersRequest {
+	r.excludeStats = &excludeStats
 	return r
 }
 
@@ -12198,6 +12285,9 @@ func (a *InventoryApiAPIService) InventoryApiListUsersExecute(r ApiInventoryApiL
 	}
 	if r.subscriptionId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "subscriptionId", r.subscriptionId, "form", "")
+	}
+	if r.excludeStats != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeStats", r.excludeStats, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

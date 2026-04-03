@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **AwsCloudFormationNoLBTemplateURL** | Pointer to **string** | The URL to the CloudFormation template (no LoadBalancer policy version) | [optional] 
 **AwsCloudFormationTemplateURL** | Pointer to **string** | The URL to the CloudFormation template | [optional] 
 **AzureBootstrapShellCommand** | Pointer to **string** | The Azure bootstrap shell command | [optional] 
+**AzureBootstrapUserClientID** | Pointer to **string** | The client ID of the Azure bootstrap user | [optional] 
 **AzureDisconnectShellCommand** | Pointer to **string** | The Azure disconnect shell command | [optional] 
 **AzureOffboardShellCommand** | Pointer to **string** | The Azure offboard shell command | [optional] 
 **AzureSubscriptionID** | Pointer to **string** | The Azure subscription ID | [optional] 
@@ -25,6 +26,7 @@ Name | Type | Description | Notes
 **Id** | **string** | ID of an Account Config | 
 **Name** | **string** | The name of the account | 
 **OciBootstrapShellCommand** | Pointer to **string** | The OCI bootstrap shell command | [optional] 
+**OciBootstrapUserID** | Pointer to **string** | The OCID of the bootstrap user | [optional] 
 **OciDisconnectShellCommand** | Pointer to **string** | The OCI disconnect shell command | [optional] 
 **OciDomainID** | Pointer to **string** | The Domain OCID for Oracle Cloud Infrastructure | [optional] 
 **OciOffboardShellCommand** | Pointer to **string** | The OCI offboard shell command | [optional] 
@@ -175,6 +177,31 @@ SetAzureBootstrapShellCommand sets AzureBootstrapShellCommand field to given val
 `func (o *FleetDescribeAccountConfigResult) HasAzureBootstrapShellCommand() bool`
 
 HasAzureBootstrapShellCommand returns a boolean if a field has been set.
+
+### GetAzureBootstrapUserClientID
+
+`func (o *FleetDescribeAccountConfigResult) GetAzureBootstrapUserClientID() string`
+
+GetAzureBootstrapUserClientID returns the AzureBootstrapUserClientID field if non-nil, zero value otherwise.
+
+### GetAzureBootstrapUserClientIDOk
+
+`func (o *FleetDescribeAccountConfigResult) GetAzureBootstrapUserClientIDOk() (*string, bool)`
+
+GetAzureBootstrapUserClientIDOk returns a tuple with the AzureBootstrapUserClientID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAzureBootstrapUserClientID
+
+`func (o *FleetDescribeAccountConfigResult) SetAzureBootstrapUserClientID(v string)`
+
+SetAzureBootstrapUserClientID sets AzureBootstrapUserClientID field to given value.
+
+### HasAzureBootstrapUserClientID
+
+`func (o *FleetDescribeAccountConfigResult) HasAzureBootstrapUserClientID() bool`
+
+HasAzureBootstrapUserClientID returns a boolean if a field has been set.
 
 ### GetAzureDisconnectShellCommand
 
@@ -555,6 +582,31 @@ SetOciBootstrapShellCommand sets OciBootstrapShellCommand field to given value.
 `func (o *FleetDescribeAccountConfigResult) HasOciBootstrapShellCommand() bool`
 
 HasOciBootstrapShellCommand returns a boolean if a field has been set.
+
+### GetOciBootstrapUserID
+
+`func (o *FleetDescribeAccountConfigResult) GetOciBootstrapUserID() string`
+
+GetOciBootstrapUserID returns the OciBootstrapUserID field if non-nil, zero value otherwise.
+
+### GetOciBootstrapUserIDOk
+
+`func (o *FleetDescribeAccountConfigResult) GetOciBootstrapUserIDOk() (*string, bool)`
+
+GetOciBootstrapUserIDOk returns a tuple with the OciBootstrapUserID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciBootstrapUserID
+
+`func (o *FleetDescribeAccountConfigResult) SetOciBootstrapUserID(v string)`
+
+SetOciBootstrapUserID sets OciBootstrapUserID field to given value.
+
+### HasOciBootstrapUserID
+
+`func (o *FleetDescribeAccountConfigResult) HasOciBootstrapUserID() bool`
+
+HasOciBootstrapUserID returns a boolean if a field has been set.
 
 ### GetOciDisconnectShellCommand
 

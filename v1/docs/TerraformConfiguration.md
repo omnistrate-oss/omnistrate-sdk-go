@@ -6,9 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ArtifactsLocalPath** | Pointer to **string** | The local path to the terraform artifacts | [optional] 
 **GitConfiguration** | Pointer to [**GitConfiguration**](GitConfiguration.md) |  | [optional] 
+**PrivateKeyPEM** | Pointer to **string** | The Nebius private key PEM for terraform execution. This may be provided inline or as a $secret reference. | [optional] 
 **PrivateModuleGitAccessTokens** | Pointer to **map[string]string** | The git access tokens for private modules | [optional] 
+**PublicKeyID** | Pointer to **string** | The Nebius public key ID paired with the terraform service account private key | [optional] 
 **RequiredOutputKeys** | Pointer to **[]string** | The required output keys to export | [optional] 
 **RequiredOutputs** | Pointer to [**[]TerraformOutput**](TerraformOutput.md) | The required output keys to export | [optional] 
+**ServiceAccountID** | Pointer to **string** | The Nebius service account ID to use for terraform execution | [optional] 
 **TerraformExecutionIdentity** | Pointer to **string** | The identity to use for terraform execution | [optional] 
 **TerraformPath** | **string** | The path to the terraform files directory | 
 **VariablesValuesFileOverride** | Pointer to **string** | The variables values file override in base64 format for the Terraform configuration | [optional] 
@@ -82,6 +85,31 @@ SetGitConfiguration sets GitConfiguration field to given value.
 
 HasGitConfiguration returns a boolean if a field has been set.
 
+### GetPrivateKeyPEM
+
+`func (o *TerraformConfiguration) GetPrivateKeyPEM() string`
+
+GetPrivateKeyPEM returns the PrivateKeyPEM field if non-nil, zero value otherwise.
+
+### GetPrivateKeyPEMOk
+
+`func (o *TerraformConfiguration) GetPrivateKeyPEMOk() (*string, bool)`
+
+GetPrivateKeyPEMOk returns a tuple with the PrivateKeyPEM field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrivateKeyPEM
+
+`func (o *TerraformConfiguration) SetPrivateKeyPEM(v string)`
+
+SetPrivateKeyPEM sets PrivateKeyPEM field to given value.
+
+### HasPrivateKeyPEM
+
+`func (o *TerraformConfiguration) HasPrivateKeyPEM() bool`
+
+HasPrivateKeyPEM returns a boolean if a field has been set.
+
 ### GetPrivateModuleGitAccessTokens
 
 `func (o *TerraformConfiguration) GetPrivateModuleGitAccessTokens() map[string]string`
@@ -106,6 +134,31 @@ SetPrivateModuleGitAccessTokens sets PrivateModuleGitAccessTokens field to given
 `func (o *TerraformConfiguration) HasPrivateModuleGitAccessTokens() bool`
 
 HasPrivateModuleGitAccessTokens returns a boolean if a field has been set.
+
+### GetPublicKeyID
+
+`func (o *TerraformConfiguration) GetPublicKeyID() string`
+
+GetPublicKeyID returns the PublicKeyID field if non-nil, zero value otherwise.
+
+### GetPublicKeyIDOk
+
+`func (o *TerraformConfiguration) GetPublicKeyIDOk() (*string, bool)`
+
+GetPublicKeyIDOk returns a tuple with the PublicKeyID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPublicKeyID
+
+`func (o *TerraformConfiguration) SetPublicKeyID(v string)`
+
+SetPublicKeyID sets PublicKeyID field to given value.
+
+### HasPublicKeyID
+
+`func (o *TerraformConfiguration) HasPublicKeyID() bool`
+
+HasPublicKeyID returns a boolean if a field has been set.
 
 ### GetRequiredOutputKeys
 
@@ -156,6 +209,31 @@ SetRequiredOutputs sets RequiredOutputs field to given value.
 `func (o *TerraformConfiguration) HasRequiredOutputs() bool`
 
 HasRequiredOutputs returns a boolean if a field has been set.
+
+### GetServiceAccountID
+
+`func (o *TerraformConfiguration) GetServiceAccountID() string`
+
+GetServiceAccountID returns the ServiceAccountID field if non-nil, zero value otherwise.
+
+### GetServiceAccountIDOk
+
+`func (o *TerraformConfiguration) GetServiceAccountIDOk() (*string, bool)`
+
+GetServiceAccountIDOk returns a tuple with the ServiceAccountID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceAccountID
+
+`func (o *TerraformConfiguration) SetServiceAccountID(v string)`
+
+SetServiceAccountID sets ServiceAccountID field to given value.
+
+### HasServiceAccountID
+
+`func (o *TerraformConfiguration) HasServiceAccountID() bool`
+
+HasServiceAccountID returns a boolean if a field has been set.
 
 ### GetTerraformExecutionIdentity
 

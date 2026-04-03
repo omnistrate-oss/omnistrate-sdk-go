@@ -23,12 +23,18 @@ type TerraformConfiguration struct {
 	// The local path to the terraform artifacts
 	ArtifactsLocalPath *string `json:"artifactsLocalPath,omitempty"`
 	GitConfiguration *GitConfiguration `json:"gitConfiguration,omitempty"`
+	// The Nebius private key PEM for terraform execution. This may be provided inline or as a $secret reference.
+	PrivateKeyPEM *string `json:"privateKeyPEM,omitempty"`
 	// The git access tokens for private modules
 	PrivateModuleGitAccessTokens *map[string]string `json:"privateModuleGitAccessTokens,omitempty"`
+	// The Nebius public key ID paired with the terraform service account private key
+	PublicKeyID *string `json:"publicKeyID,omitempty"`
 	// The required output keys to export
 	RequiredOutputKeys []string `json:"requiredOutputKeys,omitempty"`
 	// The required output keys to export
 	RequiredOutputs []TerraformOutput `json:"requiredOutputs,omitempty"`
+	// The Nebius service account ID to use for terraform execution
+	ServiceAccountID *string `json:"serviceAccountID,omitempty"`
 	// The identity to use for terraform execution
 	TerraformExecutionIdentity *string `json:"terraformExecutionIdentity,omitempty"`
 	// The path to the terraform files directory
@@ -104,6 +110,29 @@ func (o *TerraformConfiguration) SetGitConfiguration(v GitConfiguration) {
 	o.GitConfiguration = &v
 }
 
+// GetPrivateKeyPEM returns the PrivateKeyPEM field value if set, zero value otherwise.
+func (o *TerraformConfiguration) GetPrivateKeyPEM() string {
+	if o == nil || IsNil(o.PrivateKeyPEM) {
+		var ret string
+		return ret
+	}
+	return *o.PrivateKeyPEM
+}
+
+// GetPrivateKeyPEMOk returns a tuple with the PrivateKeyPEM field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TerraformConfiguration) GetPrivateKeyPEMOk() (*string, bool) {
+	if o == nil || IsNil(o.PrivateKeyPEM) {
+		return nil, false
+	}
+	return o.PrivateKeyPEM, true
+}
+
+// SetPrivateKeyPEM gets a reference to the given string and assigns it to the PrivateKeyPEM field.
+func (o *TerraformConfiguration) SetPrivateKeyPEM(v string) {
+	o.PrivateKeyPEM = &v
+}
+
 // GetPrivateModuleGitAccessTokens returns the PrivateModuleGitAccessTokens field value if set, zero value otherwise.
 func (o *TerraformConfiguration) GetPrivateModuleGitAccessTokens() map[string]string {
 	if o == nil || IsNil(o.PrivateModuleGitAccessTokens) {
@@ -125,6 +154,29 @@ func (o *TerraformConfiguration) GetPrivateModuleGitAccessTokensOk() (*map[strin
 // SetPrivateModuleGitAccessTokens gets a reference to the given map[string]string and assigns it to the PrivateModuleGitAccessTokens field.
 func (o *TerraformConfiguration) SetPrivateModuleGitAccessTokens(v map[string]string) {
 	o.PrivateModuleGitAccessTokens = &v
+}
+
+// GetPublicKeyID returns the PublicKeyID field value if set, zero value otherwise.
+func (o *TerraformConfiguration) GetPublicKeyID() string {
+	if o == nil || IsNil(o.PublicKeyID) {
+		var ret string
+		return ret
+	}
+	return *o.PublicKeyID
+}
+
+// GetPublicKeyIDOk returns a tuple with the PublicKeyID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TerraformConfiguration) GetPublicKeyIDOk() (*string, bool) {
+	if o == nil || IsNil(o.PublicKeyID) {
+		return nil, false
+	}
+	return o.PublicKeyID, true
+}
+
+// SetPublicKeyID gets a reference to the given string and assigns it to the PublicKeyID field.
+func (o *TerraformConfiguration) SetPublicKeyID(v string) {
+	o.PublicKeyID = &v
 }
 
 // GetRequiredOutputKeys returns the RequiredOutputKeys field value if set, zero value otherwise.
@@ -171,6 +223,29 @@ func (o *TerraformConfiguration) GetRequiredOutputsOk() ([]TerraformOutput, bool
 // SetRequiredOutputs gets a reference to the given []TerraformOutput and assigns it to the RequiredOutputs field.
 func (o *TerraformConfiguration) SetRequiredOutputs(v []TerraformOutput) {
 	o.RequiredOutputs = v
+}
+
+// GetServiceAccountID returns the ServiceAccountID field value if set, zero value otherwise.
+func (o *TerraformConfiguration) GetServiceAccountID() string {
+	if o == nil || IsNil(o.ServiceAccountID) {
+		var ret string
+		return ret
+	}
+	return *o.ServiceAccountID
+}
+
+// GetServiceAccountIDOk returns a tuple with the ServiceAccountID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TerraformConfiguration) GetServiceAccountIDOk() (*string, bool) {
+	if o == nil || IsNil(o.ServiceAccountID) {
+		return nil, false
+	}
+	return o.ServiceAccountID, true
+}
+
+// SetServiceAccountID gets a reference to the given string and assigns it to the ServiceAccountID field.
+func (o *TerraformConfiguration) SetServiceAccountID(v string) {
+	o.ServiceAccountID = &v
 }
 
 // GetTerraformExecutionIdentity returns the TerraformExecutionIdentity field value if set, zero value otherwise.
@@ -259,14 +334,23 @@ func (o TerraformConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.GitConfiguration) {
 		toSerialize["gitConfiguration"] = o.GitConfiguration
 	}
+	if !IsNil(o.PrivateKeyPEM) {
+		toSerialize["privateKeyPEM"] = o.PrivateKeyPEM
+	}
 	if !IsNil(o.PrivateModuleGitAccessTokens) {
 		toSerialize["privateModuleGitAccessTokens"] = o.PrivateModuleGitAccessTokens
+	}
+	if !IsNil(o.PublicKeyID) {
+		toSerialize["publicKeyID"] = o.PublicKeyID
 	}
 	if !IsNil(o.RequiredOutputKeys) {
 		toSerialize["requiredOutputKeys"] = o.RequiredOutputKeys
 	}
 	if !IsNil(o.RequiredOutputs) {
 		toSerialize["requiredOutputs"] = o.RequiredOutputs
+	}
+	if !IsNil(o.ServiceAccountID) {
+		toSerialize["serviceAccountID"] = o.ServiceAccountID
 	}
 	if !IsNil(o.TerraformExecutionIdentity) {
 		toSerialize["terraformExecutionIdentity"] = o.TerraformExecutionIdentity
@@ -320,9 +404,12 @@ func (o *TerraformConfiguration) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "artifactsLocalPath")
 		delete(additionalProperties, "gitConfiguration")
+		delete(additionalProperties, "privateKeyPEM")
 		delete(additionalProperties, "privateModuleGitAccessTokens")
+		delete(additionalProperties, "publicKeyID")
 		delete(additionalProperties, "requiredOutputKeys")
 		delete(additionalProperties, "requiredOutputs")
+		delete(additionalProperties, "serviceAccountID")
 		delete(additionalProperties, "terraformExecutionIdentity")
 		delete(additionalProperties, "terraformPath")
 		delete(additionalProperties, "variablesValuesFileOverride")

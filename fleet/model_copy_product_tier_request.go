@@ -46,6 +46,8 @@ type CopyProductTierRequest struct {
 	MaxNumberOfInstances *int64 `json:"maxNumberOfInstances,omitempty"`
 	// Name of the product tier
 	Name string `json:"name"`
+	// The Nebius regions that this product tier is available on
+	NebiusRegions []string `json:"nebiusRegions,omitempty"`
 	// The OCI regions that this product tier is available on
 	OciRegions []string `json:"ociRegions,omitempty"`
 	// The on prem platforms that this product tier is available on
@@ -498,6 +500,38 @@ func (o *CopyProductTierRequest) SetName(v string) {
 	o.Name = v
 }
 
+// GetNebiusRegions returns the NebiusRegions field value if set, zero value otherwise.
+func (o *CopyProductTierRequest) GetNebiusRegions() []string {
+	if o == nil || IsNil(o.NebiusRegions) {
+		var ret []string
+		return ret
+	}
+	return o.NebiusRegions
+}
+
+// GetNebiusRegionsOk returns a tuple with the NebiusRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CopyProductTierRequest) GetNebiusRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.NebiusRegions) {
+		return nil, false
+	}
+	return o.NebiusRegions, true
+}
+
+// HasNebiusRegions returns a boolean if a field has been set.
+func (o *CopyProductTierRequest) HasNebiusRegions() bool {
+	if o != nil && !IsNil(o.NebiusRegions) {
+		return true
+	}
+
+	return false
+}
+
+// SetNebiusRegions gets a reference to the given []string and assigns it to the NebiusRegions field.
+func (o *CopyProductTierRequest) SetNebiusRegions(v []string) {
+	o.NebiusRegions = v
+}
+
 // GetOciRegions returns the OciRegions field value if set, zero value otherwise.
 func (o *CopyProductTierRequest) GetOciRegions() []string {
 	if o == nil || IsNil(o.OciRegions) {
@@ -896,6 +930,9 @@ func (o CopyProductTierRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["maxNumberOfInstances"] = o.MaxNumberOfInstances
 	}
 	toSerialize["name"] = o.Name
+	if !IsNil(o.NebiusRegions) {
+		toSerialize["nebiusRegions"] = o.NebiusRegions
+	}
 	if !IsNil(o.OciRegions) {
 		toSerialize["ociRegions"] = o.OciRegions
 	}
@@ -985,6 +1022,7 @@ func (o *CopyProductTierRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "gcpRegions")
 		delete(additionalProperties, "maxNumberOfInstances")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "nebiusRegions")
 		delete(additionalProperties, "ociRegions")
 		delete(additionalProperties, "onPremPlatforms")
 		delete(additionalProperties, "planDescription")

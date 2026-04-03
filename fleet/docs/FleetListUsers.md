@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EnvironmentId** | Pointer to **string** | ID of a Service Environment | [optional] 
+**ExcludeStats** | Pointer to **bool** | Whether to exclude user statistics (instance count, subscription count) from the response | [optional] 
 **NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
 **PageSize** | Pointer to **int64** | The number of resources to return per page | [optional] 
 **ServiceId** | Pointer to **string** | ID of a Service | [optional] 
@@ -54,6 +55,31 @@ SetEnvironmentId sets EnvironmentId field to given value.
 `func (o *FleetListUsers) HasEnvironmentId() bool`
 
 HasEnvironmentId returns a boolean if a field has been set.
+
+### GetExcludeStats
+
+`func (o *FleetListUsers) GetExcludeStats() bool`
+
+GetExcludeStats returns the ExcludeStats field if non-nil, zero value otherwise.
+
+### GetExcludeStatsOk
+
+`func (o *FleetListUsers) GetExcludeStatsOk() (*bool, bool)`
+
+GetExcludeStatsOk returns a tuple with the ExcludeStats field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeStats
+
+`func (o *FleetListUsers) SetExcludeStats(v bool)`
+
+SetExcludeStats sets ExcludeStats field to given value.
+
+### HasExcludeStats
+
+`func (o *FleetListUsers) HasExcludeStats() bool`
+
+HasExcludeStats returns a boolean if a field has been set.
 
 ### GetNextPageToken
 

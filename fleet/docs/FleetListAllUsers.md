@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ExcludeStats** | Pointer to **bool** | Whether to exclude user statistics (instance count, subscription count) from the response | [optional] 
 **NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
 **PageSize** | Pointer to **int64** | The number of resources to return per page | [optional] 
 **ServiceId** | Pointer to **string** | ID of a Service | [optional] 
@@ -27,6 +28,31 @@ will change when the set of required properties is changed
 NewFleetListAllUsersWithDefaults instantiates a new FleetListAllUsers object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetExcludeStats
+
+`func (o *FleetListAllUsers) GetExcludeStats() bool`
+
+GetExcludeStats returns the ExcludeStats field if non-nil, zero value otherwise.
+
+### GetExcludeStatsOk
+
+`func (o *FleetListAllUsers) GetExcludeStatsOk() (*bool, bool)`
+
+GetExcludeStatsOk returns a tuple with the ExcludeStats field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeStats
+
+`func (o *FleetListAllUsers) SetExcludeStats(v bool)`
+
+SetExcludeStats sets ExcludeStats field to given value.
+
+### HasExcludeStats
+
+`func (o *FleetListAllUsers) HasExcludeStats() bool`
+
+HasExcludeStats returns a boolean if a field has been set.
 
 ### GetNextPageToken
 

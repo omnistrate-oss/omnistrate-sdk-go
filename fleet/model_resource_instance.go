@@ -47,6 +47,8 @@ type ResourceInstance struct {
 	InstanceDebugCommands []string `json:"instanceDebugCommands"`
 	// List of individual integrations and their statuses for the instance
 	IntegrationsStatus []IntegrationStatus `json:"integrationsStatus"`
+	// Launch-time customer input parameters. This is only available if input parameters were not rendered.
+	LaunchInputParams interface{} `json:"launch_input_params,omitempty"`
 	// Pending actions or maintenance tasks for the resource instance, with action type as key and reference key as value.
 	MaintenanceTasks map[string]interface{} `json:"maintenanceTasks,omitempty"`
 	// The managed resource type of instance
@@ -533,6 +535,39 @@ func (o *ResourceInstance) GetIntegrationsStatusOk() ([]IntegrationStatus, bool)
 // SetIntegrationsStatus sets field value
 func (o *ResourceInstance) SetIntegrationsStatus(v []IntegrationStatus) {
 	o.IntegrationsStatus = v
+}
+
+// GetLaunchInputParams returns the LaunchInputParams field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ResourceInstance) GetLaunchInputParams() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.LaunchInputParams
+}
+
+// GetLaunchInputParamsOk returns a tuple with the LaunchInputParams field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ResourceInstance) GetLaunchInputParamsOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.LaunchInputParams) {
+		return nil, false
+	}
+	return &o.LaunchInputParams, true
+}
+
+// HasLaunchInputParams returns a boolean if a field has been set.
+func (o *ResourceInstance) HasLaunchInputParams() bool {
+	if o != nil && !IsNil(o.LaunchInputParams) {
+		return true
+	}
+
+	return false
+}
+
+// SetLaunchInputParams gets a reference to the given interface{} and assigns it to the LaunchInputParams field.
+func (o *ResourceInstance) SetLaunchInputParams(v interface{}) {
+	o.LaunchInputParams = v
 }
 
 // GetMaintenanceTasks returns the MaintenanceTasks field value if set, zero value otherwise.
@@ -1285,6 +1320,9 @@ func (o ResourceInstance) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["instanceDebugCommands"] = o.InstanceDebugCommands
 	toSerialize["integrationsStatus"] = o.IntegrationsStatus
+	if o.LaunchInputParams != nil {
+		toSerialize["launch_input_params"] = o.LaunchInputParams
+	}
 	if !IsNil(o.MaintenanceTasks) {
 		toSerialize["maintenanceTasks"] = o.MaintenanceTasks
 	}
@@ -1411,6 +1449,7 @@ func (o *ResourceInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "input_params")
 		delete(additionalProperties, "instanceDebugCommands")
 		delete(additionalProperties, "integrationsStatus")
+		delete(additionalProperties, "launch_input_params")
 		delete(additionalProperties, "maintenanceTasks")
 		delete(additionalProperties, "managedResourceType")
 		delete(additionalProperties, "manualOverride")

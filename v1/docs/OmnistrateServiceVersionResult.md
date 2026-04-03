@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AdditionalVersions** | Pointer to **map[string]string** | Additional component specific versions | [optional] 
 **ApiVersion** | **string** | Version of the Entity to operate on | 
 **BuildCommitSHA** | **string** | The commit hash of the build | 
 **BuildTimestamp** | **string** | The timestamp of the build | 
@@ -27,6 +28,31 @@ will change when the set of required properties is changed
 NewOmnistrateServiceVersionResultWithDefaults instantiates a new OmnistrateServiceVersionResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAdditionalVersions
+
+`func (o *OmnistrateServiceVersionResult) GetAdditionalVersions() map[string]string`
+
+GetAdditionalVersions returns the AdditionalVersions field if non-nil, zero value otherwise.
+
+### GetAdditionalVersionsOk
+
+`func (o *OmnistrateServiceVersionResult) GetAdditionalVersionsOk() (*map[string]string, bool)`
+
+GetAdditionalVersionsOk returns a tuple with the AdditionalVersions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdditionalVersions
+
+`func (o *OmnistrateServiceVersionResult) SetAdditionalVersions(v map[string]string)`
+
+SetAdditionalVersions sets AdditionalVersions field to given value.
+
+### HasAdditionalVersions
+
+`func (o *OmnistrateServiceVersionResult) HasAdditionalVersions() bool`
+
+HasAdditionalVersions returns a boolean if a field has been set.
 
 ### GetApiVersion
 

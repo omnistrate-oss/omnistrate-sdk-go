@@ -22,6 +22,8 @@ var _ MappedNullable = &FleetListUsers{}
 type FleetListUsers struct {
 	// ID of a Service Environment
 	EnvironmentId *string `json:"environmentId,omitempty"`
+	// Whether to exclude user statistics (instance count, subscription count) from the response
+	ExcludeStats *bool `json:"excludeStats,omitempty"`
 	// The next token to use for pagination
 	NextPageToken *string `json:"nextPageToken,omitempty"`
 	// The number of resources to return per page
@@ -85,6 +87,38 @@ func (o *FleetListUsers) HasEnvironmentId() bool {
 // SetEnvironmentId gets a reference to the given string and assigns it to the EnvironmentId field.
 func (o *FleetListUsers) SetEnvironmentId(v string) {
 	o.EnvironmentId = &v
+}
+
+// GetExcludeStats returns the ExcludeStats field value if set, zero value otherwise.
+func (o *FleetListUsers) GetExcludeStats() bool {
+	if o == nil || IsNil(o.ExcludeStats) {
+		var ret bool
+		return ret
+	}
+	return *o.ExcludeStats
+}
+
+// GetExcludeStatsOk returns a tuple with the ExcludeStats field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetListUsers) GetExcludeStatsOk() (*bool, bool) {
+	if o == nil || IsNil(o.ExcludeStats) {
+		return nil, false
+	}
+	return o.ExcludeStats, true
+}
+
+// HasExcludeStats returns a boolean if a field has been set.
+func (o *FleetListUsers) HasExcludeStats() bool {
+	if o != nil && !IsNil(o.ExcludeStats) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludeStats gets a reference to the given bool and assigns it to the ExcludeStats field.
+func (o *FleetListUsers) SetExcludeStats(v bool) {
+	o.ExcludeStats = &v
 }
 
 // GetNextPageToken returns the NextPageToken field value if set, zero value otherwise.
@@ -252,6 +286,9 @@ func (o FleetListUsers) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EnvironmentId) {
 		toSerialize["environmentId"] = o.EnvironmentId
 	}
+	if !IsNil(o.ExcludeStats) {
+		toSerialize["excludeStats"] = o.ExcludeStats
+	}
 	if !IsNil(o.NextPageToken) {
 		toSerialize["nextPageToken"] = o.NextPageToken
 	}
@@ -309,6 +346,7 @@ func (o *FleetListUsers) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "excludeStats")
 		delete(additionalProperties, "nextPageToken")
 		delete(additionalProperties, "pageSize")
 		delete(additionalProperties, "serviceId")

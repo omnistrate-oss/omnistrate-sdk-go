@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **InputParams** | **interface{}** | Custom input parameters | 
 **InstanceDebugCommands** | **[]string** | The debug commands to access the instance | 
 **IntegrationsStatus** | [**[]IntegrationStatus**](IntegrationStatus.md) | List of individual integrations and their statuses for the instance | 
+**LaunchInputParams** | Pointer to **interface{}** | Launch-time customer input parameters. This is only available if input parameters were not rendered. | [optional] 
 **MaintenanceTasks** | Pointer to **map[string]interface{}** | Pending actions or maintenance tasks for the resource instance, with action type as key and reference key as value. | [optional] 
 **ManagedResourceType** | Pointer to **string** | The managed resource type of instance | [optional] 
 **ManualOverride** | Pointer to [**ManualOverride**](ManualOverride.md) |  | [optional] 
@@ -385,6 +386,41 @@ and a boolean to check if the value has been set.
 SetIntegrationsStatus sets IntegrationsStatus field to given value.
 
 
+### GetLaunchInputParams
+
+`func (o *ResourceInstance) GetLaunchInputParams() interface{}`
+
+GetLaunchInputParams returns the LaunchInputParams field if non-nil, zero value otherwise.
+
+### GetLaunchInputParamsOk
+
+`func (o *ResourceInstance) GetLaunchInputParamsOk() (*interface{}, bool)`
+
+GetLaunchInputParamsOk returns a tuple with the LaunchInputParams field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLaunchInputParams
+
+`func (o *ResourceInstance) SetLaunchInputParams(v interface{})`
+
+SetLaunchInputParams sets LaunchInputParams field to given value.
+
+### HasLaunchInputParams
+
+`func (o *ResourceInstance) HasLaunchInputParams() bool`
+
+HasLaunchInputParams returns a boolean if a field has been set.
+
+### SetLaunchInputParamsNil
+
+`func (o *ResourceInstance) SetLaunchInputParamsNil(b bool)`
+
+ SetLaunchInputParamsNil sets the value for LaunchInputParams to be an explicit nil
+
+### UnsetLaunchInputParams
+`func (o *ResourceInstance) UnsetLaunchInputParams()`
+
+UnsetLaunchInputParams ensures that no value is present for LaunchInputParams, not even an explicit nil
 ### GetMaintenanceTasks
 
 `func (o *ResourceInstance) GetMaintenanceTasks() map[string]interface{}`

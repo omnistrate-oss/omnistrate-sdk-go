@@ -48,6 +48,10 @@ type CreateAccountConfigRequest2 struct {
 	GcpServiceAccountKey *string `json:"gcpServiceAccountKey,omitempty"`
 	// The name of the account
 	Name string `json:"name"`
+	// The Nebius per-region project/service-account bindings for the tenant-scoped Nebius account configuration
+	NebiusBindings []NebiusAccountBindingInput `json:"nebiusBindings,omitempty"`
+	// The Nebius tenant ID for the tenant-scoped Nebius account configuration
+	NebiusTenantID *string `json:"nebiusTenantID,omitempty"`
 	// The Domain OCID for Oracle Cloud Infrastructure
 	OciDomainID *string `json:"ociDomainID,omitempty"`
 	// The Tenancy OCID for Oracle Cloud Infrastructure
@@ -404,6 +408,52 @@ func (o *CreateAccountConfigRequest2) SetName(v string) {
 	o.Name = v
 }
 
+// GetNebiusBindings returns the NebiusBindings field value if set, zero value otherwise.
+func (o *CreateAccountConfigRequest2) GetNebiusBindings() []NebiusAccountBindingInput {
+	if o == nil || IsNil(o.NebiusBindings) {
+		var ret []NebiusAccountBindingInput
+		return ret
+	}
+	return o.NebiusBindings
+}
+
+// GetNebiusBindingsOk returns a tuple with the NebiusBindings field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateAccountConfigRequest2) GetNebiusBindingsOk() ([]NebiusAccountBindingInput, bool) {
+	if o == nil || IsNil(o.NebiusBindings) {
+		return nil, false
+	}
+	return o.NebiusBindings, true
+}
+
+// SetNebiusBindings gets a reference to the given []NebiusAccountBindingInput and assigns it to the NebiusBindings field.
+func (o *CreateAccountConfigRequest2) SetNebiusBindings(v []NebiusAccountBindingInput) {
+	o.NebiusBindings = v
+}
+
+// GetNebiusTenantID returns the NebiusTenantID field value if set, zero value otherwise.
+func (o *CreateAccountConfigRequest2) GetNebiusTenantID() string {
+	if o == nil || IsNil(o.NebiusTenantID) {
+		var ret string
+		return ret
+	}
+	return *o.NebiusTenantID
+}
+
+// GetNebiusTenantIDOk returns a tuple with the NebiusTenantID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateAccountConfigRequest2) GetNebiusTenantIDOk() (*string, bool) {
+	if o == nil || IsNil(o.NebiusTenantID) {
+		return nil, false
+	}
+	return o.NebiusTenantID, true
+}
+
+// SetNebiusTenantID gets a reference to the given string and assigns it to the NebiusTenantID field.
+func (o *CreateAccountConfigRequest2) SetNebiusTenantID(v string) {
+	o.NebiusTenantID = &v
+}
+
 // GetOciDomainID returns the OciDomainID field value if set, zero value otherwise.
 func (o *CreateAccountConfigRequest2) GetOciDomainID() string {
 	if o == nil || IsNil(o.OciDomainID) {
@@ -519,6 +569,12 @@ func (o CreateAccountConfigRequest2) ToMap() (map[string]interface{}, error) {
 		toSerialize["gcpServiceAccountKey"] = o.GcpServiceAccountKey
 	}
 	toSerialize["name"] = o.Name
+	if !IsNil(o.NebiusBindings) {
+		toSerialize["nebiusBindings"] = o.NebiusBindings
+	}
+	if !IsNil(o.NebiusTenantID) {
+		toSerialize["nebiusTenantID"] = o.NebiusTenantID
+	}
 	if !IsNil(o.OciDomainID) {
 		toSerialize["ociDomainID"] = o.OciDomainID
 	}
@@ -587,6 +643,8 @@ func (o *CreateAccountConfigRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "gcpServiceAccountEmail")
 		delete(additionalProperties, "gcpServiceAccountKey")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "nebiusBindings")
+		delete(additionalProperties, "nebiusTenantID")
 		delete(additionalProperties, "ociDomainID")
 		delete(additionalProperties, "ociTenancyID")
 		delete(additionalProperties, "privateOnly")

@@ -4,6 +4,7 @@ All URIs are relative to *https://api.omnistrate.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**UsersApiChangeUserRole**](UsersApiAPI.md#UsersApiChangeUserRole) | **Post** /2022-09-01-00/change-user-role | ChangeUserRole users-api
 [**UsersApiCustomerDeleteUser**](UsersApiAPI.md#UsersApiCustomerDeleteUser) | **Delete** /2022-09-01-00/customer-delete-user | CustomerDeleteUser users-api
 [**UsersApiCustomerInviteUser**](UsersApiAPI.md#UsersApiCustomerInviteUser) | **Post** /2022-09-01-00/customer-invite-user | CustomerInviteUser users-api
 [**UsersApiCustomerLoginWithIdentityProvider**](UsersApiAPI.md#UsersApiCustomerLoginWithIdentityProvider) | **Post** /2022-09-01-00/customer-login-with-identity-provider | CustomerLoginWithIdentityProvider users-api
@@ -19,6 +20,68 @@ Method | HTTP request | Description
 [**UsersApiUpdatePassword**](UsersApiAPI.md#UsersApiUpdatePassword) | **Post** /2022-09-01-00/update-password | UpdatePassword users-api
 [**UsersApiUpdateUser**](UsersApiAPI.md#UsersApiUpdateUser) | **Patch** /2022-09-01-00/user/{id} | UpdateUser users-api
 
+
+
+## UsersApiChangeUserRole
+
+> UsersApiChangeUserRole(ctx).ChangeUserRoleRequest2(changeUserRoleRequest2).Execute()
+
+ChangeUserRole users-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	changeUserRoleRequest2 := *openapiclient.NewChangeUserRoleRequest2("abc@gmail.com", "root|editor|reader|service_editor|service_reader|admin|service_operator") // ChangeUserRoleRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.UsersApiAPI.UsersApiChangeUserRole(context.Background()).ChangeUserRoleRequest2(changeUserRoleRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersApiAPI.UsersApiChangeUserRole``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUsersApiChangeUserRoleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **changeUserRoleRequest2** | [**ChangeUserRoleRequest2**](ChangeUserRoleRequest2.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## UsersApiCustomerDeleteUser

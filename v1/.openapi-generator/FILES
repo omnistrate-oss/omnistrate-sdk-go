@@ -116,6 +116,8 @@ docs/ChangePlanRequest.md
 docs/ChangePlanRequest2.md
 docs/ChangeSet.md
 docs/ChangeSummary.md
+docs/ChangeUserRoleRequest.md
+docs/ChangeUserRoleRequest2.md
 docs/ChartValuesRef.md
 docs/CheckIfContainerImageAccessibleRequest.md
 docs/CheckIfContainerImageAccessibleResult.md
@@ -290,6 +292,8 @@ docs/DescribeAccountConfigByAzureSubscriptionIDRequest.md
 docs/DescribeAccountConfigByAzureSubscriptionIDResult.md
 docs/DescribeAccountConfigByGCPProjectIDRequest.md
 docs/DescribeAccountConfigByGCPProjectIDResult.md
+docs/DescribeAccountConfigByNebiusTenantIDRequest.md
+docs/DescribeAccountConfigByNebiusTenantIDResult.md
 docs/DescribeAccountConfigByOCITenancyIDRequest.md
 docs/DescribeAccountConfigByOCITenancyIDResult.md
 docs/DescribeAccountConfigRequest.md
@@ -609,6 +613,7 @@ docs/ListVUnitsRequest.md
 docs/ListVUnitsRequest2.md
 docs/ListVUnitsResult.md
 docs/LoadBalancerPathConfiguration.md
+docs/LocalNvmeSsdBlockConfig.md
 docs/LoginWithIdentityProviderRequest.md
 docs/LoginWithIdentityProviderResult.md
 docs/LogoutRequest.md
@@ -617,6 +622,8 @@ docs/ModifyServiceProviderOrganizationRequest2.md
 docs/ModifyServicesOrchestrationRequest.md
 docs/ModifyServicesOrchestrationRequest2.md
 docs/NamedPortSpec.md
+docs/NebiusAccountBindingInput.md
+docs/NebiusAccountBindingResult.md
 docs/NetworkConfigApiAPI.md
 docs/NetworkFeaturesConfiguration.md
 docs/NodeHealthSummary.md
@@ -915,6 +922,8 @@ model_change_plan_request.go
 model_change_plan_request2.go
 model_change_set.go
 model_change_summary.go
+model_change_user_role_request.go
+model_change_user_role_request2.go
 model_chart_values_ref.go
 model_check_if_container_image_accessible_request.go
 model_check_if_container_image_accessible_result.go
@@ -1076,6 +1085,8 @@ model_describe_account_config_by_azure_subscription_id_request.go
 model_describe_account_config_by_azure_subscription_id_result.go
 model_describe_account_config_by_gcp_project_id_request.go
 model_describe_account_config_by_gcp_project_id_result.go
+model_describe_account_config_by_nebius_tenant_id_request.go
+model_describe_account_config_by_nebius_tenant_id_result.go
 model_describe_account_config_by_oci_tenancy_id_request.go
 model_describe_account_config_by_oci_tenancy_id_result.go
 model_describe_account_config_request.go
@@ -1384,6 +1395,7 @@ model_list_v_units_request.go
 model_list_v_units_request2.go
 model_list_v_units_result.go
 model_load_balancer_path_configuration.go
+model_local_nvme_ssd_block_config.go
 model_login_with_identity_provider_request.go
 model_login_with_identity_provider_result.go
 model_logout_request.go
@@ -1392,6 +1404,8 @@ model_modify_service_provider_organization_request2.go
 model_modify_services_orchestration_request.go
 model_modify_services_orchestration_request2.go
 model_named_port_spec.go
+model_nebius_account_binding_input.go
+model_nebius_account_binding_result.go
 model_network_features_configuration.go
 model_node_health_summary.go
 model_node_network_topology_result.go
