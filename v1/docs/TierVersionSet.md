@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** | The name of the product-tier version set. | [optional] 
 **ParentVersion** | Pointer to **string** | The parent version of this release. | [optional] 
 **ProductTierId** | **string** | ID of a Product Tier | 
+**ReleaseNotes** | Pointer to **string** | Release notes for the version set. | [optional] 
 **ReleasedAt** | **string** | The timestamp when the version set was released. | 
 **ReleasedBy** | Pointer to **string** | The name of the user who released the version set. | [optional] 
 **Resources** | Pointer to [**[]ResourceSummary**](ResourceSummary.md) | List of resources that are part of this version set. | [optional] 
@@ -319,6 +320,31 @@ and a boolean to check if the value has been set.
 
 SetProductTierId sets ProductTierId field to given value.
 
+
+### GetReleaseNotes
+
+`func (o *TierVersionSet) GetReleaseNotes() string`
+
+GetReleaseNotes returns the ReleaseNotes field if non-nil, zero value otherwise.
+
+### GetReleaseNotesOk
+
+`func (o *TierVersionSet) GetReleaseNotesOk() (*string, bool)`
+
+GetReleaseNotesOk returns a tuple with the ReleaseNotes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReleaseNotes
+
+`func (o *TierVersionSet) SetReleaseNotes(v string)`
+
+SetReleaseNotes sets ReleaseNotes field to given value.
+
+### HasReleaseNotes
+
+`func (o *TierVersionSet) HasReleaseNotes() bool`
+
+HasReleaseNotes returns a boolean if a field has been set.
 
 ### GetReleasedAt
 

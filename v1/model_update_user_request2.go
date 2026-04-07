@@ -28,6 +28,8 @@ type UpdateUserRequest2 struct {
 	OrgCookiePolicy *string `json:"orgCookiePolicy,omitempty"`
 	// The description of the org that this user owns
 	OrgDescription *string `json:"orgDescription,omitempty"`
+	// Whether password login is disabled for the org that this user owns
+	OrgDisablePasswordLogin *bool `json:"orgDisablePasswordLogin,omitempty"`
 	// The favicon of the org that this user owns
 	OrgFavIconURL *string `json:"orgFavIconURL,omitempty"`
 	// The logo of the org that this user owns
@@ -177,6 +179,29 @@ func (o *UpdateUserRequest2) GetOrgDescriptionOk() (*string, bool) {
 // SetOrgDescription gets a reference to the given string and assigns it to the OrgDescription field.
 func (o *UpdateUserRequest2) SetOrgDescription(v string) {
 	o.OrgDescription = &v
+}
+
+// GetOrgDisablePasswordLogin returns the OrgDisablePasswordLogin field value if set, zero value otherwise.
+func (o *UpdateUserRequest2) GetOrgDisablePasswordLogin() bool {
+	if o == nil || IsNil(o.OrgDisablePasswordLogin) {
+		var ret bool
+		return ret
+	}
+	return *o.OrgDisablePasswordLogin
+}
+
+// GetOrgDisablePasswordLoginOk returns a tuple with the OrgDisablePasswordLogin field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateUserRequest2) GetOrgDisablePasswordLoginOk() (*bool, bool) {
+	if o == nil || IsNil(o.OrgDisablePasswordLogin) {
+		return nil, false
+	}
+	return o.OrgDisablePasswordLogin, true
+}
+
+// SetOrgDisablePasswordLogin gets a reference to the given bool and assigns it to the OrgDisablePasswordLogin field.
+func (o *UpdateUserRequest2) SetOrgDisablePasswordLogin(v bool) {
+	o.OrgDisablePasswordLogin = &v
 }
 
 // GetOrgFavIconURL returns the OrgFavIconURL field value if set, zero value otherwise.
@@ -365,6 +390,9 @@ func (o UpdateUserRequest2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.OrgDescription) {
 		toSerialize["orgDescription"] = o.OrgDescription
 	}
+	if !IsNil(o.OrgDisablePasswordLogin) {
+		toSerialize["orgDisablePasswordLogin"] = o.OrgDisablePasswordLogin
+	}
 	if !IsNil(o.OrgFavIconURL) {
 		toSerialize["orgFavIconURL"] = o.OrgFavIconURL
 	}
@@ -413,6 +441,7 @@ func (o *UpdateUserRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "orgCookiePolicy")
 		delete(additionalProperties, "orgDescription")
+		delete(additionalProperties, "orgDisablePasswordLogin")
 		delete(additionalProperties, "orgFavIconURL")
 		delete(additionalProperties, "orgLogoURL")
 		delete(additionalProperties, "orgName")

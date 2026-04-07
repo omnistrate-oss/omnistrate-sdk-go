@@ -18,7 +18,7 @@ import (
 // checks if the NebiusAccountBindingInput type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &NebiusAccountBindingInput{}
 
-// NebiusAccountBindingInput A Nebius tenant binding for one deployable region/project pair
+// NebiusAccountBindingInput A Nebius tenant binding for one deployable project/service-account pair
 type NebiusAccountBindingInput struct {
 	// The Nebius private key PEM for this binding. This is input-only and must never be returned in safe describe/list responses
 	PrivateKeyPEM string `json:"privateKeyPEM"`
@@ -26,8 +26,6 @@ type NebiusAccountBindingInput struct {
 	ProjectID string `json:"projectID"`
 	// The Nebius public key ID for this binding
 	PublicKeyID string `json:"publicKeyID"`
-	// The Nebius region served by this binding
-	Region string `json:"region"`
 	// The Nebius service account ID for this binding
 	ServiceAccountID string `json:"serviceAccountID"`
 	AdditionalProperties map[string]interface{}
@@ -39,12 +37,11 @@ type _NebiusAccountBindingInput NebiusAccountBindingInput
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNebiusAccountBindingInput(privateKeyPEM string, projectID string, publicKeyID string, region string, serviceAccountID string) *NebiusAccountBindingInput {
+func NewNebiusAccountBindingInput(privateKeyPEM string, projectID string, publicKeyID string, serviceAccountID string) *NebiusAccountBindingInput {
 	this := NebiusAccountBindingInput{}
 	this.PrivateKeyPEM = privateKeyPEM
 	this.ProjectID = projectID
 	this.PublicKeyID = publicKeyID
-	this.Region = region
 	this.ServiceAccountID = serviceAccountID
 	return &this
 }
@@ -129,30 +126,6 @@ func (o *NebiusAccountBindingInput) SetPublicKeyID(v string) {
 	o.PublicKeyID = v
 }
 
-// GetRegion returns the Region field value
-func (o *NebiusAccountBindingInput) GetRegion() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Region
-}
-
-// GetRegionOk returns a tuple with the Region field value
-// and a boolean to check if the value has been set.
-func (o *NebiusAccountBindingInput) GetRegionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Region, true
-}
-
-// SetRegion sets field value
-func (o *NebiusAccountBindingInput) SetRegion(v string) {
-	o.Region = v
-}
-
 // GetServiceAccountID returns the ServiceAccountID field value
 func (o *NebiusAccountBindingInput) GetServiceAccountID() string {
 	if o == nil {
@@ -190,7 +163,6 @@ func (o NebiusAccountBindingInput) ToMap() (map[string]interface{}, error) {
 	toSerialize["privateKeyPEM"] = o.PrivateKeyPEM
 	toSerialize["projectID"] = o.ProjectID
 	toSerialize["publicKeyID"] = o.PublicKeyID
-	toSerialize["region"] = o.Region
 	toSerialize["serviceAccountID"] = o.ServiceAccountID
 
 	for key, value := range o.AdditionalProperties {
@@ -208,7 +180,6 @@ func (o *NebiusAccountBindingInput) UnmarshalJSON(data []byte) (err error) {
 		"privateKeyPEM",
 		"projectID",
 		"publicKeyID",
-		"region",
 		"serviceAccountID",
 	}
 
@@ -242,7 +213,6 @@ func (o *NebiusAccountBindingInput) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "privateKeyPEM")
 		delete(additionalProperties, "projectID")
 		delete(additionalProperties, "publicKeyID")
-		delete(additionalProperties, "region")
 		delete(additionalProperties, "serviceAccountID")
 		o.AdditionalProperties = additionalProperties
 	}

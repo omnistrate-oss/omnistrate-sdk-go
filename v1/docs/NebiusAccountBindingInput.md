@@ -7,14 +7,13 @@ Name | Type | Description | Notes
 **PrivateKeyPEM** | **string** | The Nebius private key PEM for this binding. This is input-only and must never be returned in safe describe/list responses | 
 **ProjectID** | **string** | The Nebius project ID for this binding | 
 **PublicKeyID** | **string** | The Nebius public key ID for this binding | 
-**Region** | **string** | The Nebius region served by this binding | 
 **ServiceAccountID** | **string** | The Nebius service account ID for this binding | 
 
 ## Methods
 
 ### NewNebiusAccountBindingInput
 
-`func NewNebiusAccountBindingInput(privateKeyPEM string, projectID string, publicKeyID string, region string, serviceAccountID string, ) *NebiusAccountBindingInput`
+`func NewNebiusAccountBindingInput(privateKeyPEM string, projectID string, publicKeyID string, serviceAccountID string, ) *NebiusAccountBindingInput`
 
 NewNebiusAccountBindingInput instantiates a new NebiusAccountBindingInput object
 This constructor will assign default values to properties that have it defined,
@@ -87,26 +86,6 @@ and a boolean to check if the value has been set.
 `func (o *NebiusAccountBindingInput) SetPublicKeyID(v string)`
 
 SetPublicKeyID sets PublicKeyID field to given value.
-
-
-### GetRegion
-
-`func (o *NebiusAccountBindingInput) GetRegion() string`
-
-GetRegion returns the Region field if non-nil, zero value otherwise.
-
-### GetRegionOk
-
-`func (o *NebiusAccountBindingInput) GetRegionOk() (*string, bool)`
-
-GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRegion
-
-`func (o *NebiusAccountBindingInput) SetRegion(v string)`
-
-SetRegion sets Region field to given value.
 
 
 ### GetServiceAccountID
