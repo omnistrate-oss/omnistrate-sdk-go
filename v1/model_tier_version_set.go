@@ -44,6 +44,8 @@ type TierVersionSet struct {
 	ParentVersion *string `json:"parentVersion,omitempty"`
 	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
+	// Release notes for the version set.
+	ReleaseNotes *string `json:"releaseNotes,omitempty"`
 	// The timestamp when the version set was released.
 	ReleasedAt string `json:"releasedAt"`
 	// The name of the user who released the version set.
@@ -377,6 +379,29 @@ func (o *TierVersionSet) SetProductTierId(v string) {
 	o.ProductTierId = v
 }
 
+// GetReleaseNotes returns the ReleaseNotes field value if set, zero value otherwise.
+func (o *TierVersionSet) GetReleaseNotes() string {
+	if o == nil || IsNil(o.ReleaseNotes) {
+		var ret string
+		return ret
+	}
+	return *o.ReleaseNotes
+}
+
+// GetReleaseNotesOk returns a tuple with the ReleaseNotes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TierVersionSet) GetReleaseNotesOk() (*string, bool) {
+	if o == nil || IsNil(o.ReleaseNotes) {
+		return nil, false
+	}
+	return o.ReleaseNotes, true
+}
+
+// SetReleaseNotes gets a reference to the given string and assigns it to the ReleaseNotes field.
+func (o *TierVersionSet) SetReleaseNotes(v string) {
+	o.ReleaseNotes = &v
+}
+
 // GetReleasedAt returns the ReleasedAt field value
 func (o *TierVersionSet) GetReleasedAt() string {
 	if o == nil {
@@ -627,6 +652,9 @@ func (o TierVersionSet) ToMap() (map[string]interface{}, error) {
 		toSerialize["parentVersion"] = o.ParentVersion
 	}
 	toSerialize["productTierId"] = o.ProductTierId
+	if !IsNil(o.ReleaseNotes) {
+		toSerialize["releaseNotes"] = o.ReleaseNotes
+	}
 	toSerialize["releasedAt"] = o.ReleasedAt
 	if !IsNil(o.ReleasedBy) {
 		toSerialize["releasedBy"] = o.ReleasedBy
@@ -706,6 +734,7 @@ func (o *TierVersionSet) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "parentVersion")
 		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "releaseNotes")
 		delete(additionalProperties, "releasedAt")
 		delete(additionalProperties, "releasedBy")
 		delete(additionalProperties, "resources")
