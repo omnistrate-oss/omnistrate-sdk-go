@@ -5,6 +5,7 @@ All URIs are relative to *https://api.omnistrate.cloud*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**SigninApiLoginWithIdentityProvider**](SigninApiAPI.md#SigninApiLoginWithIdentityProvider) | **Post** /2022-09-01-00/login-with-identity-provider | LoginWithIdentityProvider signin-api
+[**SigninApiRefreshToken**](SigninApiAPI.md#SigninApiRefreshToken) | **Post** /2022-09-01-00/refresh-token | RefreshToken signin-api
 [**SigninApiSignin**](SigninApiAPI.md#SigninApiSignin) | **Post** /2022-09-01-00/signin | Signin signin-api
 
 
@@ -58,6 +59,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**LoginWithIdentityProviderResult**](LoginWithIdentityProviderResult.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SigninApiRefreshToken
+
+> RefreshTokenResult SigninApiRefreshToken(ctx).RefreshTokenRequest(refreshTokenRequest).Execute()
+
+RefreshToken signin-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	refreshTokenRequest := *openapiclient.NewRefreshTokenRequest() // RefreshTokenRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SigninApiAPI.SigninApiRefreshToken(context.Background()).RefreshTokenRequest(refreshTokenRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SigninApiAPI.SigninApiRefreshToken``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SigninApiRefreshToken`: RefreshTokenResult
+	fmt.Fprintf(os.Stdout, "Response from `SigninApiAPI.SigninApiRefreshToken`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSigninApiRefreshTokenRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **refreshTokenRequest** | [**RefreshTokenRequest**](RefreshTokenRequest.md) |  | 
+
+### Return type
+
+[**RefreshTokenResult**](RefreshTokenResult.md)
 
 ### Authorization
 

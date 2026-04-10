@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Base64GeneratedSpec** | Pointer to **string** | The generated base64 encoded plan spec or compose spec associated with the onboarding. | [optional] 
 **Id** | **string** | ID of a Customer Onboarding | 
 **IsCompleted** | **bool** | Whether the onboarding is completed. | 
 **Metadata** | Pointer to **map[string]interface{}** | Additional metadata associated with the onboarding. | [optional] 
@@ -32,6 +33,31 @@ will change when the set of required properties is changed
 NewCustomerOnboardingWithDefaults instantiates a new CustomerOnboarding object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetBase64GeneratedSpec
+
+`func (o *CustomerOnboarding) GetBase64GeneratedSpec() string`
+
+GetBase64GeneratedSpec returns the Base64GeneratedSpec field if non-nil, zero value otherwise.
+
+### GetBase64GeneratedSpecOk
+
+`func (o *CustomerOnboarding) GetBase64GeneratedSpecOk() (*string, bool)`
+
+GetBase64GeneratedSpecOk returns a tuple with the Base64GeneratedSpec field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBase64GeneratedSpec
+
+`func (o *CustomerOnboarding) SetBase64GeneratedSpec(v string)`
+
+SetBase64GeneratedSpec sets Base64GeneratedSpec field to given value.
+
+### HasBase64GeneratedSpec
+
+`func (o *CustomerOnboarding) HasBase64GeneratedSpec() bool`
+
+HasBase64GeneratedSpec returns a boolean if a field has been set.
 
 ### GetId
 

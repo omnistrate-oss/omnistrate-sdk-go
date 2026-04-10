@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | The instance ID | 
+**NebiusBindings** | Pointer to [**[]UpdateAccountConfigNebiusBindingInput**](UpdateAccountConfigNebiusBindingInput.md) | Full replacement set of Nebius bindings for this account config instance | [optional] 
 **ServiceId** | **string** | The service ID | 
 **SetConnection** | Pointer to **bool** | set account config instance connection | [optional] 
 **SubscriptionId** | **string** | The subscription ID | 
@@ -48,6 +49,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetNebiusBindings
+
+`func (o *UpdateAccountConfigResourceInstanceRequest) GetNebiusBindings() []UpdateAccountConfigNebiusBindingInput`
+
+GetNebiusBindings returns the NebiusBindings field if non-nil, zero value otherwise.
+
+### GetNebiusBindingsOk
+
+`func (o *UpdateAccountConfigResourceInstanceRequest) GetNebiusBindingsOk() (*[]UpdateAccountConfigNebiusBindingInput, bool)`
+
+GetNebiusBindingsOk returns a tuple with the NebiusBindings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNebiusBindings
+
+`func (o *UpdateAccountConfigResourceInstanceRequest) SetNebiusBindings(v []UpdateAccountConfigNebiusBindingInput)`
+
+SetNebiusBindings sets NebiusBindings field to given value.
+
+### HasNebiusBindings
+
+`func (o *UpdateAccountConfigResourceInstanceRequest) HasNebiusBindings() bool`
+
+HasNebiusBindings returns a boolean if a field has been set.
 
 ### GetServiceId
 

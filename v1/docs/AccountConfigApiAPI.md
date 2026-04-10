@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**AccountConfigApiDescribeAccountConfigByOCITenancyID**](AccountConfigApiAPI.md#AccountConfigApiDescribeAccountConfigByOCITenancyID) | **Get** /2022-09-01-00/accountconfig/oci/{ociTenancyID} | DescribeAccountConfigByOCITenancyID account-config-api
 [**AccountConfigApiListAccountConfig**](AccountConfigApiAPI.md#AccountConfigApiListAccountConfig) | **Get** /2022-09-01-00/accountconfig/cloudprovider/{cloudProviderName} | ListAccountConfig account-config-api
 [**AccountConfigApiListBYOAConfig**](AccountConfigApiAPI.md#AccountConfigApiListBYOAConfig) | **Get** /2022-09-01-00/accountconfig/byoa | ListBYOAConfig account-config-api
+[**AccountConfigApiUpdateAccountConfig**](AccountConfigApiAPI.md#AccountConfigApiUpdateAccountConfig) | **Put** /2022-09-01-00/accountconfig/{id} | UpdateAccountConfig account-config-api
 [**AccountConfigApiVerifyAccountConfig**](AccountConfigApiAPI.md#AccountConfigApiVerifyAccountConfig) | **Post** /2022-09-01-00/accountconfig/verify/{id} | VerifyAccountConfig account-config-api
 
 
@@ -99,7 +100,7 @@ import (
 )
 
 func main() {
-	createAccountConfigRequest2 := *openapiclient.NewCreateAccountConfigRequest2("Quisquam quo voluptatum modi voluptates quidem.", "An AWS account hosting multiple dev environments", "Dev AWS account") // CreateAccountConfigRequest2 | 
+	createAccountConfigRequest2 := *openapiclient.NewCreateAccountConfigRequest2("Soluta nihil velit iste corporis ut.", "An AWS account hosting multiple dev environments", "Dev AWS account") // CreateAccountConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -735,6 +736,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ListBYOAConfigResult**](ListBYOAConfigResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AccountConfigApiUpdateAccountConfig
+
+> string AccountConfigApiUpdateAccountConfig(ctx, id).UpdateAccountConfigRequest2(updateAccountConfigRequest2).Execute()
+
+UpdateAccountConfig account-config-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	id := "ac-12345678" // string | Account Config ID to operate on
+	updateAccountConfigRequest2 := *openapiclient.NewUpdateAccountConfigRequest2() // UpdateAccountConfigRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountConfigApiAPI.AccountConfigApiUpdateAccountConfig(context.Background(), id).UpdateAccountConfigRequest2(updateAccountConfigRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountConfigApiAPI.AccountConfigApiUpdateAccountConfig``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AccountConfigApiUpdateAccountConfig`: string
+	fmt.Fprintf(os.Stdout, "Response from `AccountConfigApiAPI.AccountConfigApiUpdateAccountConfig`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Account Config ID to operate on | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAccountConfigApiUpdateAccountConfigRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **updateAccountConfigRequest2** | [**UpdateAccountConfigRequest2**](UpdateAccountConfigRequest2.md) |  | 
+
+### Return type
+
+**string**
 
 ### Authorization
 

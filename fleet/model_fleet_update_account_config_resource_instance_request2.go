@@ -19,6 +19,8 @@ var _ MappedNullable = &FleetUpdateAccountConfigResourceInstanceRequest2{}
 
 // FleetUpdateAccountConfigResourceInstanceRequest2 struct for FleetUpdateAccountConfigResourceInstanceRequest2
 type FleetUpdateAccountConfigResourceInstanceRequest2 struct {
+	// Full replacement set of Nebius bindings for this account config instance
+	NebiusBindings []FleetUpdateAccountConfigNebiusBindingInput `json:"nebiusBindings,omitempty"`
 	// set account config instance connection
 	SetConnection *bool `json:"setConnection,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -41,6 +43,38 @@ func NewFleetUpdateAccountConfigResourceInstanceRequest2() *FleetUpdateAccountCo
 func NewFleetUpdateAccountConfigResourceInstanceRequest2WithDefaults() *FleetUpdateAccountConfigResourceInstanceRequest2 {
 	this := FleetUpdateAccountConfigResourceInstanceRequest2{}
 	return &this
+}
+
+// GetNebiusBindings returns the NebiusBindings field value if set, zero value otherwise.
+func (o *FleetUpdateAccountConfigResourceInstanceRequest2) GetNebiusBindings() []FleetUpdateAccountConfigNebiusBindingInput {
+	if o == nil || IsNil(o.NebiusBindings) {
+		var ret []FleetUpdateAccountConfigNebiusBindingInput
+		return ret
+	}
+	return o.NebiusBindings
+}
+
+// GetNebiusBindingsOk returns a tuple with the NebiusBindings field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetUpdateAccountConfigResourceInstanceRequest2) GetNebiusBindingsOk() ([]FleetUpdateAccountConfigNebiusBindingInput, bool) {
+	if o == nil || IsNil(o.NebiusBindings) {
+		return nil, false
+	}
+	return o.NebiusBindings, true
+}
+
+// HasNebiusBindings returns a boolean if a field has been set.
+func (o *FleetUpdateAccountConfigResourceInstanceRequest2) HasNebiusBindings() bool {
+	if o != nil && !IsNil(o.NebiusBindings) {
+		return true
+	}
+
+	return false
+}
+
+// SetNebiusBindings gets a reference to the given []FleetUpdateAccountConfigNebiusBindingInput and assigns it to the NebiusBindings field.
+func (o *FleetUpdateAccountConfigResourceInstanceRequest2) SetNebiusBindings(v []FleetUpdateAccountConfigNebiusBindingInput) {
+	o.NebiusBindings = v
 }
 
 // GetSetConnection returns the SetConnection field value if set, zero value otherwise.
@@ -85,6 +119,9 @@ func (o FleetUpdateAccountConfigResourceInstanceRequest2) MarshalJSON() ([]byte,
 
 func (o FleetUpdateAccountConfigResourceInstanceRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.NebiusBindings) {
+		toSerialize["nebiusBindings"] = o.NebiusBindings
+	}
 	if !IsNil(o.SetConnection) {
 		toSerialize["setConnection"] = o.SetConnection
 	}
@@ -110,6 +147,7 @@ func (o *FleetUpdateAccountConfigResourceInstanceRequest2) UnmarshalJSON(data []
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "nebiusBindings")
 		delete(additionalProperties, "setConnection")
 		o.AdditionalProperties = additionalProperties
 	}

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InstanceId** | **string** | ID of a Resource Instance | 
+**NebiusBindings** | Pointer to [**[]FleetUpdateAccountConfigNebiusBindingInput**](FleetUpdateAccountConfigNebiusBindingInput.md) | Full replacement set of Nebius bindings for this account config instance | [optional] 
 **ServiceId** | **string** | ID of a Service | 
 **SetConnection** | Pointer to **bool** | set account config instance connection | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
@@ -47,6 +48,31 @@ and a boolean to check if the value has been set.
 
 SetInstanceId sets InstanceId field to given value.
 
+
+### GetNebiusBindings
+
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest) GetNebiusBindings() []FleetUpdateAccountConfigNebiusBindingInput`
+
+GetNebiusBindings returns the NebiusBindings field if non-nil, zero value otherwise.
+
+### GetNebiusBindingsOk
+
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest) GetNebiusBindingsOk() (*[]FleetUpdateAccountConfigNebiusBindingInput, bool)`
+
+GetNebiusBindingsOk returns a tuple with the NebiusBindings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNebiusBindings
+
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest) SetNebiusBindings(v []FleetUpdateAccountConfigNebiusBindingInput)`
+
+SetNebiusBindings sets NebiusBindings field to given value.
+
+### HasNebiusBindings
+
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest) HasNebiusBindings() bool`
+
+HasNebiusBindings returns a boolean if a field has been set.
 
 ### GetServiceId
 

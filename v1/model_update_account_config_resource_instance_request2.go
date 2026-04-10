@@ -20,6 +20,8 @@ var _ MappedNullable = &UpdateAccountConfigResourceInstanceRequest2{}
 
 // UpdateAccountConfigResourceInstanceRequest2 struct for UpdateAccountConfigResourceInstanceRequest2
 type UpdateAccountConfigResourceInstanceRequest2 struct {
+	// Full replacement set of Nebius bindings for this account config instance
+	NebiusBindings []UpdateAccountConfigNebiusBindingInput `json:"nebiusBindings,omitempty"`
 	// The service ID
 	ServiceId string `json:"serviceId"`
 	// set account config instance connection
@@ -48,6 +50,29 @@ func NewUpdateAccountConfigResourceInstanceRequest2(serviceId string, subscripti
 func NewUpdateAccountConfigResourceInstanceRequest2WithDefaults() *UpdateAccountConfigResourceInstanceRequest2 {
 	this := UpdateAccountConfigResourceInstanceRequest2{}
 	return &this
+}
+
+// GetNebiusBindings returns the NebiusBindings field value if set, zero value otherwise.
+func (o *UpdateAccountConfigResourceInstanceRequest2) GetNebiusBindings() []UpdateAccountConfigNebiusBindingInput {
+	if o == nil || IsNil(o.NebiusBindings) {
+		var ret []UpdateAccountConfigNebiusBindingInput
+		return ret
+	}
+	return o.NebiusBindings
+}
+
+// GetNebiusBindingsOk returns a tuple with the NebiusBindings field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateAccountConfigResourceInstanceRequest2) GetNebiusBindingsOk() ([]UpdateAccountConfigNebiusBindingInput, bool) {
+	if o == nil || IsNil(o.NebiusBindings) {
+		return nil, false
+	}
+	return o.NebiusBindings, true
+}
+
+// SetNebiusBindings gets a reference to the given []UpdateAccountConfigNebiusBindingInput and assigns it to the NebiusBindings field.
+func (o *UpdateAccountConfigResourceInstanceRequest2) SetNebiusBindings(v []UpdateAccountConfigNebiusBindingInput) {
+	o.NebiusBindings = v
 }
 
 // GetServiceId returns the ServiceId field value
@@ -131,6 +156,9 @@ func (o UpdateAccountConfigResourceInstanceRequest2) MarshalJSON() ([]byte, erro
 
 func (o UpdateAccountConfigResourceInstanceRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.NebiusBindings) {
+		toSerialize["nebiusBindings"] = o.NebiusBindings
+	}
 	toSerialize["serviceId"] = o.ServiceId
 	if !IsNil(o.SetConnection) {
 		toSerialize["setConnection"] = o.SetConnection
@@ -180,6 +208,7 @@ func (o *UpdateAccountConfigResourceInstanceRequest2) UnmarshalJSON(data []byte)
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "nebiusBindings")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "setConnection")
 		delete(additionalProperties, "subscriptionId")

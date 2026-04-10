@@ -22,6 +22,8 @@ var _ MappedNullable = &SigninResult{}
 type SigninResult struct {
 	// The jwt token
 	JwtToken string `json:"jwtToken"`
+	// Opaque refresh token for obtaining new JWT tokens
+	RefreshToken *string `json:"refreshToken,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -69,6 +71,29 @@ func (o *SigninResult) SetJwtToken(v string) {
 	o.JwtToken = v
 }
 
+// GetRefreshToken returns the RefreshToken field value if set, zero value otherwise.
+func (o *SigninResult) GetRefreshToken() string {
+	if o == nil || IsNil(o.RefreshToken) {
+		var ret string
+		return ret
+	}
+	return *o.RefreshToken
+}
+
+// GetRefreshTokenOk returns a tuple with the RefreshToken field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SigninResult) GetRefreshTokenOk() (*string, bool) {
+	if o == nil || IsNil(o.RefreshToken) {
+		return nil, false
+	}
+	return o.RefreshToken, true
+}
+
+// SetRefreshToken gets a reference to the given string and assigns it to the RefreshToken field.
+func (o *SigninResult) SetRefreshToken(v string) {
+	o.RefreshToken = &v
+}
+
 func (o SigninResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -80,6 +105,9 @@ func (o SigninResult) MarshalJSON() ([]byte, error) {
 func (o SigninResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["jwtToken"] = o.JwtToken
+	if !IsNil(o.RefreshToken) {
+		toSerialize["refreshToken"] = o.RefreshToken
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -124,6 +152,7 @@ func (o *SigninResult) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "jwtToken")
+		delete(additionalProperties, "refreshToken")
 		o.AdditionalProperties = additionalProperties
 	}
 

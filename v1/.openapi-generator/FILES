@@ -660,6 +660,8 @@ docs/PromoteTierVersionSetRequest.md
 docs/ProxyEndpoint.md
 docs/PublicNetworkingConfiguration.md
 docs/RecentDeploymentFailureStatus.md
+docs/RefreshTokenRequest.md
+docs/RefreshTokenResult.md
 docs/RegenerateTokenRequest.md
 docs/RegionApiAPI.md
 docs/RegionalHealthSummary.md
@@ -788,6 +790,9 @@ docs/TierVersionSetSpecSummary.md
 docs/UndeprecateResourceRequest.md
 docs/UnsetEnvironmentVariablesRequest.md
 docs/UnsetEnvironmentVariablesRequest2.md
+docs/UpdateAccountConfigNebiusBindingInput.md
+docs/UpdateAccountConfigRequest.md
+docs/UpdateAccountConfigRequest2.md
 docs/UpdateAccountConfigResourceInstanceRequest.md
 docs/UpdateAccountConfigResourceInstanceRequest2.md
 docs/UpdateComputeConfigRequest.md
@@ -1438,6 +1443,8 @@ model_promote_tier_version_set_request.go
 model_proxy_endpoint.go
 model_public_networking_configuration.go
 model_recent_deployment_failure_status.go
+model_refresh_token_request.go
+model_refresh_token_result.go
 model_regenerate_token_request.go
 model_regional_health_summary.go
 model_register_action_hook_request.go
@@ -1543,6 +1550,9 @@ model_tier_version_set_spec_summary.go
 model_undeprecate_resource_request.go
 model_unset_environment_variables_request.go
 model_unset_environment_variables_request2.go
+model_update_account_config_nebius_binding_input.go
+model_update_account_config_request.go
+model_update_account_config_request2.go
 model_update_account_config_resource_instance_request.go
 model_update_account_config_resource_instance_request2.go
 model_update_compute_config_request.go
