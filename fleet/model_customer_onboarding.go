@@ -20,6 +20,8 @@ var _ MappedNullable = &CustomerOnboarding{}
 
 // CustomerOnboarding struct for CustomerOnboarding
 type CustomerOnboarding struct {
+	// The generated base64 encoded plan spec or compose spec associated with the onboarding.
+	Base64GeneratedSpec *string `json:"base64GeneratedSpec,omitempty"`
 	// ID of a Customer Onboarding
 	Id string `json:"id"`
 	// Whether the onboarding is completed.
@@ -63,6 +65,38 @@ func NewCustomerOnboarding(id string, isCompleted bool, orgId string, stages []O
 func NewCustomerOnboardingWithDefaults() *CustomerOnboarding {
 	this := CustomerOnboarding{}
 	return &this
+}
+
+// GetBase64GeneratedSpec returns the Base64GeneratedSpec field value if set, zero value otherwise.
+func (o *CustomerOnboarding) GetBase64GeneratedSpec() string {
+	if o == nil || IsNil(o.Base64GeneratedSpec) {
+		var ret string
+		return ret
+	}
+	return *o.Base64GeneratedSpec
+}
+
+// GetBase64GeneratedSpecOk returns a tuple with the Base64GeneratedSpec field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomerOnboarding) GetBase64GeneratedSpecOk() (*string, bool) {
+	if o == nil || IsNil(o.Base64GeneratedSpec) {
+		return nil, false
+	}
+	return o.Base64GeneratedSpec, true
+}
+
+// HasBase64GeneratedSpec returns a boolean if a field has been set.
+func (o *CustomerOnboarding) HasBase64GeneratedSpec() bool {
+	if o != nil && !IsNil(o.Base64GeneratedSpec) {
+		return true
+	}
+
+	return false
+}
+
+// SetBase64GeneratedSpec gets a reference to the given string and assigns it to the Base64GeneratedSpec field.
+func (o *CustomerOnboarding) SetBase64GeneratedSpec(v string) {
+	o.Base64GeneratedSpec = &v
 }
 
 // GetId returns the Id field value
@@ -323,6 +357,9 @@ func (o CustomerOnboarding) MarshalJSON() ([]byte, error) {
 
 func (o CustomerOnboarding) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Base64GeneratedSpec) {
+		toSerialize["base64GeneratedSpec"] = o.Base64GeneratedSpec
+	}
 	toSerialize["id"] = o.Id
 	toSerialize["isCompleted"] = o.IsCompleted
 	if !IsNil(o.Metadata) {
@@ -387,6 +424,7 @@ func (o *CustomerOnboarding) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "base64GeneratedSpec")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "isCompleted")
 		delete(additionalProperties, "metadata")

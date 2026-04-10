@@ -22,6 +22,8 @@ var _ MappedNullable = &CustomerSigninResult{}
 type CustomerSigninResult struct {
 	// The jwt token
 	JwtToken string `json:"jwtToken"`
+	// Opaque refresh token for obtaining new JWT tokens
+	RefreshToken *string `json:"refreshToken,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -69,6 +71,38 @@ func (o *CustomerSigninResult) SetJwtToken(v string) {
 	o.JwtToken = v
 }
 
+// GetRefreshToken returns the RefreshToken field value if set, zero value otherwise.
+func (o *CustomerSigninResult) GetRefreshToken() string {
+	if o == nil || IsNil(o.RefreshToken) {
+		var ret string
+		return ret
+	}
+	return *o.RefreshToken
+}
+
+// GetRefreshTokenOk returns a tuple with the RefreshToken field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomerSigninResult) GetRefreshTokenOk() (*string, bool) {
+	if o == nil || IsNil(o.RefreshToken) {
+		return nil, false
+	}
+	return o.RefreshToken, true
+}
+
+// HasRefreshToken returns a boolean if a field has been set.
+func (o *CustomerSigninResult) HasRefreshToken() bool {
+	if o != nil && !IsNil(o.RefreshToken) {
+		return true
+	}
+
+	return false
+}
+
+// SetRefreshToken gets a reference to the given string and assigns it to the RefreshToken field.
+func (o *CustomerSigninResult) SetRefreshToken(v string) {
+	o.RefreshToken = &v
+}
+
 func (o CustomerSigninResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -80,6 +114,9 @@ func (o CustomerSigninResult) MarshalJSON() ([]byte, error) {
 func (o CustomerSigninResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["jwtToken"] = o.JwtToken
+	if !IsNil(o.RefreshToken) {
+		toSerialize["refreshToken"] = o.RefreshToken
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -124,6 +161,7 @@ func (o *CustomerSigninResult) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "jwtToken")
+		delete(additionalProperties, "refreshToken")
 		o.AdditionalProperties = additionalProperties
 	}
 

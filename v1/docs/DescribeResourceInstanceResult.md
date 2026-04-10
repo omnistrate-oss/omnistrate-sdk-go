@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **MaintenanceTasks** | Pointer to **map[string]interface{}** | Pending actions or maintenance tasks for the resource instance, with action type as key and reference key as value. | [optional] 
 **MaxReplicas** | Pointer to **string** | The maximum number of replicas | [optional] 
 **MinReplicas** | Pointer to **string** | The minimum number of replicas | [optional] 
+**NebiusTenantID** | Pointer to **string** | The Nebius tenant ID | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
 **OciTenancyID** | Pointer to **string** | The Tenancy OCID for Oracle Cloud Infrastructure | [optional] 
 **OnPremInstallerDetails** | Pointer to [**OnPremInstallerDetails**](OnPremInstallerDetails.md) |  | [optional] 
@@ -675,6 +676,31 @@ SetMinReplicas sets MinReplicas field to given value.
 `func (o *DescribeResourceInstanceResult) HasMinReplicas() bool`
 
 HasMinReplicas returns a boolean if a field has been set.
+
+### GetNebiusTenantID
+
+`func (o *DescribeResourceInstanceResult) GetNebiusTenantID() string`
+
+GetNebiusTenantID returns the NebiusTenantID field if non-nil, zero value otherwise.
+
+### GetNebiusTenantIDOk
+
+`func (o *DescribeResourceInstanceResult) GetNebiusTenantIDOk() (*string, bool)`
+
+GetNebiusTenantIDOk returns a tuple with the NebiusTenantID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNebiusTenantID
+
+`func (o *DescribeResourceInstanceResult) SetNebiusTenantID(v string)`
+
+SetNebiusTenantID sets NebiusTenantID field to given value.
+
+### HasNebiusTenantID
+
+`func (o *DescribeResourceInstanceResult) HasNebiusTenantID() bool`
+
+HasNebiusTenantID returns a boolean if a field has been set.
 
 ### GetNetworkType
 

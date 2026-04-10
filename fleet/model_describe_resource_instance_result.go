@@ -64,6 +64,8 @@ type DescribeResourceInstanceResult struct {
 	MaxReplicas *string `json:"maxReplicas,omitempty"`
 	// The minimum number of replicas
 	MinReplicas *string `json:"minReplicas,omitempty"`
+	// The Nebius tenant ID
+	NebiusTenantID *string `json:"nebiusTenantID,omitempty"`
 	// The network type
 	NetworkType *string `json:"network_type,omitempty"`
 	// The Tenancy OCID for Oracle Cloud Infrastructure
@@ -887,6 +889,38 @@ func (o *DescribeResourceInstanceResult) SetMinReplicas(v string) {
 	o.MinReplicas = &v
 }
 
+// GetNebiusTenantID returns the NebiusTenantID field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetNebiusTenantID() string {
+	if o == nil || IsNil(o.NebiusTenantID) {
+		var ret string
+		return ret
+	}
+	return *o.NebiusTenantID
+}
+
+// GetNebiusTenantIDOk returns a tuple with the NebiusTenantID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetNebiusTenantIDOk() (*string, bool) {
+	if o == nil || IsNil(o.NebiusTenantID) {
+		return nil, false
+	}
+	return o.NebiusTenantID, true
+}
+
+// HasNebiusTenantID returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasNebiusTenantID() bool {
+	if o != nil && !IsNil(o.NebiusTenantID) {
+		return true
+	}
+
+	return false
+}
+
+// SetNebiusTenantID gets a reference to the given string and assigns it to the NebiusTenantID field.
+func (o *DescribeResourceInstanceResult) SetNebiusTenantID(v string) {
+	o.NebiusTenantID = &v
+}
+
 // GetNetworkType returns the NetworkType field value if set, zero value otherwise.
 func (o *DescribeResourceInstanceResult) GetNetworkType() string {
 	if o == nil || IsNil(o.NetworkType) {
@@ -1546,6 +1580,9 @@ func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.MinReplicas) {
 		toSerialize["minReplicas"] = o.MinReplicas
 	}
+	if !IsNil(o.NebiusTenantID) {
+		toSerialize["nebiusTenantID"] = o.NebiusTenantID
+	}
 	if !IsNil(o.NetworkType) {
 		toSerialize["network_type"] = o.NetworkType
 	}
@@ -1646,6 +1683,7 @@ func (o *DescribeResourceInstanceResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "maintenanceTasks")
 		delete(additionalProperties, "maxReplicas")
 		delete(additionalProperties, "minReplicas")
+		delete(additionalProperties, "nebiusTenantID")
 		delete(additionalProperties, "network_type")
 		delete(additionalProperties, "ociTenancyID")
 		delete(additionalProperties, "onPremInstallerDetails")

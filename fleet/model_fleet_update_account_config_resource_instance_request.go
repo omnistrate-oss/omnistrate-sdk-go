@@ -22,6 +22,8 @@ var _ MappedNullable = &FleetUpdateAccountConfigResourceInstanceRequest{}
 type FleetUpdateAccountConfigResourceInstanceRequest struct {
 	// ID of a Resource Instance
 	InstanceId string `json:"instanceId"`
+	// Full replacement set of Nebius bindings for this account config instance
+	NebiusBindings []FleetUpdateAccountConfigNebiusBindingInput `json:"nebiusBindings,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// set account config instance connection
@@ -75,6 +77,38 @@ func (o *FleetUpdateAccountConfigResourceInstanceRequest) GetInstanceIdOk() (*st
 // SetInstanceId sets field value
 func (o *FleetUpdateAccountConfigResourceInstanceRequest) SetInstanceId(v string) {
 	o.InstanceId = v
+}
+
+// GetNebiusBindings returns the NebiusBindings field value if set, zero value otherwise.
+func (o *FleetUpdateAccountConfigResourceInstanceRequest) GetNebiusBindings() []FleetUpdateAccountConfigNebiusBindingInput {
+	if o == nil || IsNil(o.NebiusBindings) {
+		var ret []FleetUpdateAccountConfigNebiusBindingInput
+		return ret
+	}
+	return o.NebiusBindings
+}
+
+// GetNebiusBindingsOk returns a tuple with the NebiusBindings field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetUpdateAccountConfigResourceInstanceRequest) GetNebiusBindingsOk() ([]FleetUpdateAccountConfigNebiusBindingInput, bool) {
+	if o == nil || IsNil(o.NebiusBindings) {
+		return nil, false
+	}
+	return o.NebiusBindings, true
+}
+
+// HasNebiusBindings returns a boolean if a field has been set.
+func (o *FleetUpdateAccountConfigResourceInstanceRequest) HasNebiusBindings() bool {
+	if o != nil && !IsNil(o.NebiusBindings) {
+		return true
+	}
+
+	return false
+}
+
+// SetNebiusBindings gets a reference to the given []FleetUpdateAccountConfigNebiusBindingInput and assigns it to the NebiusBindings field.
+func (o *FleetUpdateAccountConfigResourceInstanceRequest) SetNebiusBindings(v []FleetUpdateAccountConfigNebiusBindingInput) {
+	o.NebiusBindings = v
 }
 
 // GetServiceId returns the ServiceId field value
@@ -168,6 +202,9 @@ func (o FleetUpdateAccountConfigResourceInstanceRequest) MarshalJSON() ([]byte, 
 func (o FleetUpdateAccountConfigResourceInstanceRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["instanceId"] = o.InstanceId
+	if !IsNil(o.NebiusBindings) {
+		toSerialize["nebiusBindings"] = o.NebiusBindings
+	}
 	toSerialize["serviceId"] = o.ServiceId
 	if !IsNil(o.SetConnection) {
 		toSerialize["setConnection"] = o.SetConnection
@@ -219,6 +256,7 @@ func (o *FleetUpdateAccountConfigResourceInstanceRequest) UnmarshalJSON(data []b
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "instanceId")
+		delete(additionalProperties, "nebiusBindings")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "setConnection")
 		delete(additionalProperties, "token")

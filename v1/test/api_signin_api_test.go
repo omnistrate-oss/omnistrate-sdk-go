@@ -34,6 +34,18 @@ func Test_v1_SigninApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test SigninApiAPIService SigninApiRefreshToken", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SigninApiAPI.SigninApiRefreshToken(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test SigninApiAPIService SigninApiSignin", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

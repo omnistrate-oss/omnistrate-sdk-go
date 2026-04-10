@@ -62,6 +62,10 @@ type FleetDescribeAccountConfigResult struct {
 	Id string `json:"id"`
 	// The name of the account
 	Name string `json:"name"`
+	// The safe Nebius bindings configured for this account
+	NebiusBindings []FleetNebiusAccountBindingResult `json:"nebiusBindings,omitempty"`
+	// The Nebius tenant ID
+	NebiusTenantID *string `json:"nebiusTenantID,omitempty"`
 	// The OCI bootstrap shell command
 	OciBootstrapShellCommand *string `json:"ociBootstrapShellCommand,omitempty"`
 	// The OCID of the bootstrap user
@@ -746,6 +750,70 @@ func (o *FleetDescribeAccountConfigResult) SetName(v string) {
 	o.Name = v
 }
 
+// GetNebiusBindings returns the NebiusBindings field value if set, zero value otherwise.
+func (o *FleetDescribeAccountConfigResult) GetNebiusBindings() []FleetNebiusAccountBindingResult {
+	if o == nil || IsNil(o.NebiusBindings) {
+		var ret []FleetNebiusAccountBindingResult
+		return ret
+	}
+	return o.NebiusBindings
+}
+
+// GetNebiusBindingsOk returns a tuple with the NebiusBindings field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeAccountConfigResult) GetNebiusBindingsOk() ([]FleetNebiusAccountBindingResult, bool) {
+	if o == nil || IsNil(o.NebiusBindings) {
+		return nil, false
+	}
+	return o.NebiusBindings, true
+}
+
+// HasNebiusBindings returns a boolean if a field has been set.
+func (o *FleetDescribeAccountConfigResult) HasNebiusBindings() bool {
+	if o != nil && !IsNil(o.NebiusBindings) {
+		return true
+	}
+
+	return false
+}
+
+// SetNebiusBindings gets a reference to the given []FleetNebiusAccountBindingResult and assigns it to the NebiusBindings field.
+func (o *FleetDescribeAccountConfigResult) SetNebiusBindings(v []FleetNebiusAccountBindingResult) {
+	o.NebiusBindings = v
+}
+
+// GetNebiusTenantID returns the NebiusTenantID field value if set, zero value otherwise.
+func (o *FleetDescribeAccountConfigResult) GetNebiusTenantID() string {
+	if o == nil || IsNil(o.NebiusTenantID) {
+		var ret string
+		return ret
+	}
+	return *o.NebiusTenantID
+}
+
+// GetNebiusTenantIDOk returns a tuple with the NebiusTenantID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeAccountConfigResult) GetNebiusTenantIDOk() (*string, bool) {
+	if o == nil || IsNil(o.NebiusTenantID) {
+		return nil, false
+	}
+	return o.NebiusTenantID, true
+}
+
+// HasNebiusTenantID returns a boolean if a field has been set.
+func (o *FleetDescribeAccountConfigResult) HasNebiusTenantID() bool {
+	if o != nil && !IsNil(o.NebiusTenantID) {
+		return true
+	}
+
+	return false
+}
+
+// SetNebiusTenantID gets a reference to the given string and assigns it to the NebiusTenantID field.
+func (o *FleetDescribeAccountConfigResult) SetNebiusTenantID(v string) {
+	o.NebiusTenantID = &v
+}
+
 // GetOciBootstrapShellCommand returns the OciBootstrapShellCommand field value if set, zero value otherwise.
 func (o *FleetDescribeAccountConfigResult) GetOciBootstrapShellCommand() string {
 	if o == nil || IsNil(o.OciBootstrapShellCommand) {
@@ -1051,6 +1119,12 @@ func (o FleetDescribeAccountConfigResult) ToMap() (map[string]interface{}, error
 	}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
+	if !IsNil(o.NebiusBindings) {
+		toSerialize["nebiusBindings"] = o.NebiusBindings
+	}
+	if !IsNil(o.NebiusTenantID) {
+		toSerialize["nebiusTenantID"] = o.NebiusTenantID
+	}
 	if !IsNil(o.OciBootstrapShellCommand) {
 		toSerialize["ociBootstrapShellCommand"] = o.OciBootstrapShellCommand
 	}
@@ -1140,6 +1214,8 @@ func (o *FleetDescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error
 		delete(additionalProperties, "gcpServiceAccountEmail")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "nebiusBindings")
+		delete(additionalProperties, "nebiusTenantID")
 		delete(additionalProperties, "ociBootstrapShellCommand")
 		delete(additionalProperties, "ociBootstrapUserID")
 		delete(additionalProperties, "ociDisconnectShellCommand")

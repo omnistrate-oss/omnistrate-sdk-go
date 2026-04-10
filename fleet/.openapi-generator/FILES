@@ -350,6 +350,7 @@ docs/FleetListUsers.md
 docs/FleetListUsersResult.md
 docs/FleetModifyServicesOrchestrationRequest.md
 docs/FleetModifyServicesOrchestrationRequest2.md
+docs/FleetNebiusAccountBindingResult.md
 docs/FleetNetworkFeaturesConfiguration.md
 docs/FleetRemoveCapacityFromResourceInstanceRequest.md
 docs/FleetRemoveCapacityFromResourceInstanceRequest2.md
@@ -372,6 +373,7 @@ docs/FleetSuspendSubscriptionRequest.md
 docs/FleetSuspendUserRequest.md
 docs/FleetTerminateSubscriptionRequest.md
 docs/FleetUnsuspendUserRequest.md
+docs/FleetUpdateAccountConfigNebiusBindingInput.md
 docs/FleetUpdateAccountConfigResourceInstanceRequest.md
 docs/FleetUpdateAccountConfigResourceInstanceRequest2.md
 docs/FleetUpdateConsumptionUserRequest.md
@@ -392,6 +394,8 @@ docs/FleetVoidInvoiceRequest.md
 docs/FleetWorkflowsApiAPI.md
 docs/GenerateComposeSpecFromContainerImageRequest.md
 docs/GenerateComposeSpecFromContainerImageResult.md
+docs/GenerateServicePlanSpecOrComposeSpecForOnboardingRequest.md
+docs/GenerateServicePlanSpecOrComposeSpecForOnboardingResult.md
 docs/GenerateTokenForDeploymentCellDashboardRequest.md
 docs/GenerateTokenForDeploymentCellDashboardResult.md
 docs/GenerateTokenForHostClusterDashboardRequest.md
@@ -593,6 +597,8 @@ docs/ProxyEndpoint.md
 docs/ProxyInstanceSearchRecord.md
 docs/ReceiveWebhookRequest.md
 docs/RecentDeploymentFailureStatus.md
+docs/RefreshTokenRequest.md
+docs/RefreshTokenResult.md
 docs/RegenerateTokenRequest.md
 docs/RegionalHealthSummary.md
 docs/ReleaseServiceModelRequest.md
@@ -673,6 +679,7 @@ docs/SubscriptionSearchRecord.md
 docs/SubscriptionUsers.md
 docs/TerminateServiceWorkflowRequest.md
 docs/TerraformDeploymentConfiguration.md
+docs/UpdateAccountConfigNebiusBindingInput.md
 docs/UpdateAccountConfigResourceInstanceRequest.md
 docs/UpdateCustomerOnboardingRequest.md
 docs/UpdateCustomerOnboardingRequest2.md
@@ -1041,6 +1048,7 @@ model_fleet_list_users.go
 model_fleet_list_users_result.go
 model_fleet_modify_services_orchestration_request.go
 model_fleet_modify_services_orchestration_request2.go
+model_fleet_nebius_account_binding_result.go
 model_fleet_network_features_configuration.go
 model_fleet_remove_capacity_from_resource_instance_request.go
 model_fleet_remove_capacity_from_resource_instance_request2.go
@@ -1063,6 +1071,7 @@ model_fleet_suspend_subscription_request.go
 model_fleet_suspend_user_request.go
 model_fleet_terminate_subscription_request.go
 model_fleet_unsuspend_user_request.go
+model_fleet_update_account_config_nebius_binding_input.go
 model_fleet_update_account_config_resource_instance_request.go
 model_fleet_update_account_config_resource_instance_request2.go
 model_fleet_update_consumption_user_request.go
@@ -1082,6 +1091,8 @@ model_fleet_update_subscriptions_request2.go
 model_fleet_void_invoice_request.go
 model_generate_compose_spec_from_container_image_request.go
 model_generate_compose_spec_from_container_image_result.go
+model_generate_service_plan_spec_or_compose_spec_for_onboarding_request.go
+model_generate_service_plan_spec_or_compose_spec_for_onboarding_result.go
 model_generate_token_for_deployment_cell_dashboard_request.go
 model_generate_token_for_deployment_cell_dashboard_result.go
 model_generate_token_for_host_cluster_dashboard_request.go
@@ -1277,6 +1288,8 @@ model_proxy_endpoint.go
 model_proxy_instance_search_record.go
 model_receive_webhook_request.go
 model_recent_deployment_failure_status.go
+model_refresh_token_request.go
+model_refresh_token_result.go
 model_regenerate_token_request.go
 model_regional_health_summary.go
 model_release_service_model_request.go
@@ -1356,6 +1369,7 @@ model_subscription_search_record.go
 model_subscription_users.go
 model_terminate_service_workflow_request.go
 model_terraform_deployment_configuration.go
+model_update_account_config_nebius_binding_input.go
 model_update_account_config_resource_instance_request.go
 model_update_customer_onboarding_request.go
 model_update_customer_onboarding_request2.go

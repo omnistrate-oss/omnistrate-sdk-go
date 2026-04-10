@@ -61,6 +61,20 @@ func Test_fleet_CustomerOnboardingsApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test CustomerOnboardingsApiAPIService CustomerOnboardingsApiGenerateServicePlanSpecOrComposeSpecForOnboarding", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		resp, httpRes, err := apiClient.CustomerOnboardingsApiAPI.CustomerOnboardingsApiGenerateServicePlanSpecOrComposeSpecForOnboarding(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test CustomerOnboardingsApiAPIService CustomerOnboardingsApiListCustomerOnboardingStages", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

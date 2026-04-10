@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**NebiusBindings** | Pointer to [**[]FleetUpdateAccountConfigNebiusBindingInput**](FleetUpdateAccountConfigNebiusBindingInput.md) | Full replacement set of Nebius bindings for this account config instance | [optional] 
 **SetConnection** | Pointer to **bool** | set account config instance connection | [optional] 
 
 ## Methods
@@ -24,6 +25,31 @@ will change when the set of required properties is changed
 NewFleetUpdateAccountConfigResourceInstanceRequest2WithDefaults instantiates a new FleetUpdateAccountConfigResourceInstanceRequest2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetNebiusBindings
+
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest2) GetNebiusBindings() []FleetUpdateAccountConfigNebiusBindingInput`
+
+GetNebiusBindings returns the NebiusBindings field if non-nil, zero value otherwise.
+
+### GetNebiusBindingsOk
+
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest2) GetNebiusBindingsOk() (*[]FleetUpdateAccountConfigNebiusBindingInput, bool)`
+
+GetNebiusBindingsOk returns a tuple with the NebiusBindings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNebiusBindings
+
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest2) SetNebiusBindings(v []FleetUpdateAccountConfigNebiusBindingInput)`
+
+SetNebiusBindings sets NebiusBindings field to given value.
+
+### HasNebiusBindings
+
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest2) HasNebiusBindings() bool`
+
+HasNebiusBindings returns a boolean if a field has been set.
 
 ### GetSetConnection
 
