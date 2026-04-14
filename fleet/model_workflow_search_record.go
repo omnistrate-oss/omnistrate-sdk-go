@@ -20,24 +20,28 @@ var _ MappedNullable = &WorkflowSearchRecord{}
 
 // WorkflowSearchRecord struct for WorkflowSearchRecord
 type WorkflowSearchRecord struct {
+	// ID of a Host Cluster
+	HostClusterId *string `json:"hostClusterId,omitempty"`
 	// The ID of the workflow.
 	Id string `json:"id"`
-	// The name of the resource associated with the workflow.
-	ResourceName string `json:"resourceName"`
+	// The name of the resource associated with the workflow. Empty for deployment cell workflows.
+	ResourceName *string `json:"resourceName,omitempty"`
 	// ID of a Service Environment
-	ServiceEnvironmentId string `json:"serviceEnvironmentId"`
-	// The service environment name of the workflow.
-	ServiceEnvironmentName string `json:"serviceEnvironmentName"`
+	ServiceEnvironmentId *string `json:"serviceEnvironmentId,omitempty"`
+	// The service environment name of the workflow. Empty for deployment cell workflows.
+	ServiceEnvironmentName *string `json:"serviceEnvironmentName,omitempty"`
 	// The type of service environment
 	ServiceEnvironmentType *string `json:"serviceEnvironmentType,omitempty"`
 	// ID of a Service
-	ServiceId string `json:"serviceId"`
-	// The service name of the workflow.
-	ServiceName string `json:"serviceName"`
+	ServiceId *string `json:"serviceId,omitempty"`
+	// The service name of the workflow. Empty for deployment cell workflows.
+	ServiceName *string `json:"serviceName,omitempty"`
 	// The status of an operation
 	Status string `json:"status"`
 	// The workflow type.
 	Type string `json:"type"`
+	// The target entity type of the workflow. 'Instance' for service instance workflows, 'DeploymentCell' for deployment cell workflows.
+	WorkflowTarget string `json:"workflowTarget"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -47,16 +51,12 @@ type _WorkflowSearchRecord WorkflowSearchRecord
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkflowSearchRecord(id string, resourceName string, serviceEnvironmentId string, serviceEnvironmentName string, serviceId string, serviceName string, status string, type_ string) *WorkflowSearchRecord {
+func NewWorkflowSearchRecord(id string, status string, type_ string, workflowTarget string) *WorkflowSearchRecord {
 	this := WorkflowSearchRecord{}
 	this.Id = id
-	this.ResourceName = resourceName
-	this.ServiceEnvironmentId = serviceEnvironmentId
-	this.ServiceEnvironmentName = serviceEnvironmentName
-	this.ServiceId = serviceId
-	this.ServiceName = serviceName
 	this.Status = status
 	this.Type = type_
+	this.WorkflowTarget = workflowTarget
 	return &this
 }
 
@@ -66,6 +66,38 @@ func NewWorkflowSearchRecord(id string, resourceName string, serviceEnvironmentI
 func NewWorkflowSearchRecordWithDefaults() *WorkflowSearchRecord {
 	this := WorkflowSearchRecord{}
 	return &this
+}
+
+// GetHostClusterId returns the HostClusterId field value if set, zero value otherwise.
+func (o *WorkflowSearchRecord) GetHostClusterId() string {
+	if o == nil || IsNil(o.HostClusterId) {
+		var ret string
+		return ret
+	}
+	return *o.HostClusterId
+}
+
+// GetHostClusterIdOk returns a tuple with the HostClusterId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowSearchRecord) GetHostClusterIdOk() (*string, bool) {
+	if o == nil || IsNil(o.HostClusterId) {
+		return nil, false
+	}
+	return o.HostClusterId, true
+}
+
+// HasHostClusterId returns a boolean if a field has been set.
+func (o *WorkflowSearchRecord) HasHostClusterId() bool {
+	if o != nil && !IsNil(o.HostClusterId) {
+		return true
+	}
+
+	return false
+}
+
+// SetHostClusterId gets a reference to the given string and assigns it to the HostClusterId field.
+func (o *WorkflowSearchRecord) SetHostClusterId(v string) {
+	o.HostClusterId = &v
 }
 
 // GetId returns the Id field value
@@ -92,76 +124,100 @@ func (o *WorkflowSearchRecord) SetId(v string) {
 	o.Id = v
 }
 
-// GetResourceName returns the ResourceName field value
+// GetResourceName returns the ResourceName field value if set, zero value otherwise.
 func (o *WorkflowSearchRecord) GetResourceName() string {
-	if o == nil {
+	if o == nil || IsNil(o.ResourceName) {
 		var ret string
 		return ret
 	}
-
-	return o.ResourceName
+	return *o.ResourceName
 }
 
-// GetResourceNameOk returns a tuple with the ResourceName field value
+// GetResourceNameOk returns a tuple with the ResourceName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WorkflowSearchRecord) GetResourceNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ResourceName) {
 		return nil, false
 	}
-	return &o.ResourceName, true
+	return o.ResourceName, true
 }
 
-// SetResourceName sets field value
+// HasResourceName returns a boolean if a field has been set.
+func (o *WorkflowSearchRecord) HasResourceName() bool {
+	if o != nil && !IsNil(o.ResourceName) {
+		return true
+	}
+
+	return false
+}
+
+// SetResourceName gets a reference to the given string and assigns it to the ResourceName field.
 func (o *WorkflowSearchRecord) SetResourceName(v string) {
-	o.ResourceName = v
+	o.ResourceName = &v
 }
 
-// GetServiceEnvironmentId returns the ServiceEnvironmentId field value
+// GetServiceEnvironmentId returns the ServiceEnvironmentId field value if set, zero value otherwise.
 func (o *WorkflowSearchRecord) GetServiceEnvironmentId() string {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceEnvironmentId) {
 		var ret string
 		return ret
 	}
-
-	return o.ServiceEnvironmentId
+	return *o.ServiceEnvironmentId
 }
 
-// GetServiceEnvironmentIdOk returns a tuple with the ServiceEnvironmentId field value
+// GetServiceEnvironmentIdOk returns a tuple with the ServiceEnvironmentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WorkflowSearchRecord) GetServiceEnvironmentIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceEnvironmentId) {
 		return nil, false
 	}
-	return &o.ServiceEnvironmentId, true
+	return o.ServiceEnvironmentId, true
 }
 
-// SetServiceEnvironmentId sets field value
+// HasServiceEnvironmentId returns a boolean if a field has been set.
+func (o *WorkflowSearchRecord) HasServiceEnvironmentId() bool {
+	if o != nil && !IsNil(o.ServiceEnvironmentId) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceEnvironmentId gets a reference to the given string and assigns it to the ServiceEnvironmentId field.
 func (o *WorkflowSearchRecord) SetServiceEnvironmentId(v string) {
-	o.ServiceEnvironmentId = v
+	o.ServiceEnvironmentId = &v
 }
 
-// GetServiceEnvironmentName returns the ServiceEnvironmentName field value
+// GetServiceEnvironmentName returns the ServiceEnvironmentName field value if set, zero value otherwise.
 func (o *WorkflowSearchRecord) GetServiceEnvironmentName() string {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceEnvironmentName) {
 		var ret string
 		return ret
 	}
-
-	return o.ServiceEnvironmentName
+	return *o.ServiceEnvironmentName
 }
 
-// GetServiceEnvironmentNameOk returns a tuple with the ServiceEnvironmentName field value
+// GetServiceEnvironmentNameOk returns a tuple with the ServiceEnvironmentName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WorkflowSearchRecord) GetServiceEnvironmentNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceEnvironmentName) {
 		return nil, false
 	}
-	return &o.ServiceEnvironmentName, true
+	return o.ServiceEnvironmentName, true
 }
 
-// SetServiceEnvironmentName sets field value
+// HasServiceEnvironmentName returns a boolean if a field has been set.
+func (o *WorkflowSearchRecord) HasServiceEnvironmentName() bool {
+	if o != nil && !IsNil(o.ServiceEnvironmentName) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceEnvironmentName gets a reference to the given string and assigns it to the ServiceEnvironmentName field.
 func (o *WorkflowSearchRecord) SetServiceEnvironmentName(v string) {
-	o.ServiceEnvironmentName = v
+	o.ServiceEnvironmentName = &v
 }
 
 // GetServiceEnvironmentType returns the ServiceEnvironmentType field value if set, zero value otherwise.
@@ -196,52 +252,68 @@ func (o *WorkflowSearchRecord) SetServiceEnvironmentType(v string) {
 	o.ServiceEnvironmentType = &v
 }
 
-// GetServiceId returns the ServiceId field value
+// GetServiceId returns the ServiceId field value if set, zero value otherwise.
 func (o *WorkflowSearchRecord) GetServiceId() string {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceId) {
 		var ret string
 		return ret
 	}
-
-	return o.ServiceId
+	return *o.ServiceId
 }
 
-// GetServiceIdOk returns a tuple with the ServiceId field value
+// GetServiceIdOk returns a tuple with the ServiceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WorkflowSearchRecord) GetServiceIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceId) {
 		return nil, false
 	}
-	return &o.ServiceId, true
+	return o.ServiceId, true
 }
 
-// SetServiceId sets field value
+// HasServiceId returns a boolean if a field has been set.
+func (o *WorkflowSearchRecord) HasServiceId() bool {
+	if o != nil && !IsNil(o.ServiceId) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceId gets a reference to the given string and assigns it to the ServiceId field.
 func (o *WorkflowSearchRecord) SetServiceId(v string) {
-	o.ServiceId = v
+	o.ServiceId = &v
 }
 
-// GetServiceName returns the ServiceName field value
+// GetServiceName returns the ServiceName field value if set, zero value otherwise.
 func (o *WorkflowSearchRecord) GetServiceName() string {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceName) {
 		var ret string
 		return ret
 	}
-
-	return o.ServiceName
+	return *o.ServiceName
 }
 
-// GetServiceNameOk returns a tuple with the ServiceName field value
+// GetServiceNameOk returns a tuple with the ServiceName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WorkflowSearchRecord) GetServiceNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceName) {
 		return nil, false
 	}
-	return &o.ServiceName, true
+	return o.ServiceName, true
 }
 
-// SetServiceName sets field value
+// HasServiceName returns a boolean if a field has been set.
+func (o *WorkflowSearchRecord) HasServiceName() bool {
+	if o != nil && !IsNil(o.ServiceName) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceName gets a reference to the given string and assigns it to the ServiceName field.
 func (o *WorkflowSearchRecord) SetServiceName(v string) {
-	o.ServiceName = v
+	o.ServiceName = &v
 }
 
 // GetStatus returns the Status field value
@@ -292,6 +364,30 @@ func (o *WorkflowSearchRecord) SetType(v string) {
 	o.Type = v
 }
 
+// GetWorkflowTarget returns the WorkflowTarget field value
+func (o *WorkflowSearchRecord) GetWorkflowTarget() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.WorkflowTarget
+}
+
+// GetWorkflowTargetOk returns a tuple with the WorkflowTarget field value
+// and a boolean to check if the value has been set.
+func (o *WorkflowSearchRecord) GetWorkflowTargetOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.WorkflowTarget, true
+}
+
+// SetWorkflowTarget sets field value
+func (o *WorkflowSearchRecord) SetWorkflowTarget(v string) {
+	o.WorkflowTarget = v
+}
+
 func (o WorkflowSearchRecord) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -302,17 +398,31 @@ func (o WorkflowSearchRecord) MarshalJSON() ([]byte, error) {
 
 func (o WorkflowSearchRecord) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.HostClusterId) {
+		toSerialize["hostClusterId"] = o.HostClusterId
+	}
 	toSerialize["id"] = o.Id
-	toSerialize["resourceName"] = o.ResourceName
-	toSerialize["serviceEnvironmentId"] = o.ServiceEnvironmentId
-	toSerialize["serviceEnvironmentName"] = o.ServiceEnvironmentName
+	if !IsNil(o.ResourceName) {
+		toSerialize["resourceName"] = o.ResourceName
+	}
+	if !IsNil(o.ServiceEnvironmentId) {
+		toSerialize["serviceEnvironmentId"] = o.ServiceEnvironmentId
+	}
+	if !IsNil(o.ServiceEnvironmentName) {
+		toSerialize["serviceEnvironmentName"] = o.ServiceEnvironmentName
+	}
 	if !IsNil(o.ServiceEnvironmentType) {
 		toSerialize["serviceEnvironmentType"] = o.ServiceEnvironmentType
 	}
-	toSerialize["serviceId"] = o.ServiceId
-	toSerialize["serviceName"] = o.ServiceName
+	if !IsNil(o.ServiceId) {
+		toSerialize["serviceId"] = o.ServiceId
+	}
+	if !IsNil(o.ServiceName) {
+		toSerialize["serviceName"] = o.ServiceName
+	}
 	toSerialize["status"] = o.Status
 	toSerialize["type"] = o.Type
+	toSerialize["workflowTarget"] = o.WorkflowTarget
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -327,13 +437,9 @@ func (o *WorkflowSearchRecord) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"id",
-		"resourceName",
-		"serviceEnvironmentId",
-		"serviceEnvironmentName",
-		"serviceId",
-		"serviceName",
 		"status",
 		"type",
+		"workflowTarget",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -363,6 +469,7 @@ func (o *WorkflowSearchRecord) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "hostClusterId")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "resourceName")
 		delete(additionalProperties, "serviceEnvironmentId")
@@ -372,6 +479,7 @@ func (o *WorkflowSearchRecord) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "serviceName")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "type")
+		delete(additionalProperties, "workflowTarget")
 		o.AdditionalProperties = additionalProperties
 	}
 

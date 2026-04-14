@@ -761,6 +761,21 @@ type InventoryApiAPI interface {
 	InventoryApiListInstanceEventsExecute(r ApiInventoryApiListInstanceEventsRequest) (*FleetListEventsResult, *http.Response, error)
 
 	/*
+	InventoryApiListInstanceUpgradeHistory ListInstanceUpgradeHistory inventory-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@return ApiInventoryApiListInstanceUpgradeHistoryRequest
+	*/
+	InventoryApiListInstanceUpgradeHistory(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiListInstanceUpgradeHistoryRequest
+
+	// InventoryApiListInstanceUpgradeHistoryExecute executes the request
+	//  @return ListInstanceUpgradeHistoryResult
+	InventoryApiListInstanceUpgradeHistoryExecute(r ApiInventoryApiListInstanceUpgradeHistoryRequest) (*ListInstanceUpgradeHistoryResult, *http.Response, error)
+
+	/*
 	InventoryApiListLinkedInstances ListLinkedInstances inventory-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -10380,6 +10395,198 @@ func (a *InventoryApiAPIService) InventoryApiListInstanceEventsExecute(r ApiInve
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiInventoryApiListInstanceUpgradeHistoryRequest struct {
+	ctx context.Context
+	ApiService InventoryApiAPI
+	serviceId string
+	environmentId string
+	instanceId string
+	nextPageToken *string
+	pageSize *int64
+}
+
+func (r ApiInventoryApiListInstanceUpgradeHistoryRequest) NextPageToken(nextPageToken string) ApiInventoryApiListInstanceUpgradeHistoryRequest {
+	r.nextPageToken = &nextPageToken
+	return r
+}
+
+func (r ApiInventoryApiListInstanceUpgradeHistoryRequest) PageSize(pageSize int64) ApiInventoryApiListInstanceUpgradeHistoryRequest {
+	r.pageSize = &pageSize
+	return r
+}
+
+func (r ApiInventoryApiListInstanceUpgradeHistoryRequest) Execute() (*ListInstanceUpgradeHistoryResult, *http.Response, error) {
+	return r.ApiService.InventoryApiListInstanceUpgradeHistoryExecute(r)
+}
+
+/*
+InventoryApiListInstanceUpgradeHistory ListInstanceUpgradeHistory inventory-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serviceId The service ID this workflow belongs to.
+ @param environmentId The service environment ID this workflow belongs to.
+ @param instanceId The resource instance ID.
+ @return ApiInventoryApiListInstanceUpgradeHistoryRequest
+*/
+func (a *InventoryApiAPIService) InventoryApiListInstanceUpgradeHistory(ctx context.Context, serviceId string, environmentId string, instanceId string) ApiInventoryApiListInstanceUpgradeHistoryRequest {
+	return ApiInventoryApiListInstanceUpgradeHistoryRequest{
+		ApiService: a,
+		ctx: ctx,
+		serviceId: serviceId,
+		environmentId: environmentId,
+		instanceId: instanceId,
+	}
+}
+
+// Execute executes the request
+//  @return ListInstanceUpgradeHistoryResult
+func (a *InventoryApiAPIService) InventoryApiListInstanceUpgradeHistoryExecute(r ApiInventoryApiListInstanceUpgradeHistoryRequest) (*ListInstanceUpgradeHistoryResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListInstanceUpgradeHistoryResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiListInstanceUpgradeHistory")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/upgrade-history"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentId"+"}", url.PathEscape(parameterValueToString(r.environmentId, "environmentId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.nextPageToken != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")
+	}
+	if r.pageSize != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiInventoryApiListLinkedInstancesRequest struct {
 	ctx context.Context
 	ApiService InventoryApiAPI
@@ -10389,6 +10596,7 @@ type ApiInventoryApiListLinkedInstancesRequest struct {
 	excludeNetworkTopology *bool
 	excludeHAStatus *bool
 	excludeIntegrations *bool
+	excludeMaintenanceTasks *bool
 }
 
 // Whether to exclude network topology details from the response.
@@ -10406,6 +10614,12 @@ func (r ApiInventoryApiListLinkedInstancesRequest) ExcludeHAStatus(excludeHAStat
 // Whether to exclude integration statuses from the response.
 func (r ApiInventoryApiListLinkedInstancesRequest) ExcludeIntegrations(excludeIntegrations bool) ApiInventoryApiListLinkedInstancesRequest {
 	r.excludeIntegrations = &excludeIntegrations
+	return r
+}
+
+// Whether to exclude maintenance tasks from the response.
+func (r ApiInventoryApiListLinkedInstancesRequest) ExcludeMaintenanceTasks(excludeMaintenanceTasks bool) ApiInventoryApiListLinkedInstancesRequest {
+	r.excludeMaintenanceTasks = &excludeMaintenanceTasks
 	return r
 }
 
@@ -10464,6 +10678,9 @@ func (a *InventoryApiAPIService) InventoryApiListLinkedInstancesExecute(r ApiInv
 	}
 	if r.excludeIntegrations != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeIntegrations", r.excludeIntegrations, "form", "")
+	}
+	if r.excludeMaintenanceTasks != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeMaintenanceTasks", r.excludeMaintenanceTasks, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -10771,6 +10988,7 @@ type ApiInventoryApiListResourceInstancesRequest struct {
 	excludeNetworkTopology *bool
 	excludeHAStatus *bool
 	excludeIntegrations *bool
+	excludeMaintenanceTasks *bool
 	nextPageToken *string
 	pageSize *int64
 }
@@ -10820,6 +11038,12 @@ func (r ApiInventoryApiListResourceInstancesRequest) ExcludeHAStatus(excludeHASt
 // Whether to exclude integration statuses from the response.
 func (r ApiInventoryApiListResourceInstancesRequest) ExcludeIntegrations(excludeIntegrations bool) ApiInventoryApiListResourceInstancesRequest {
 	r.excludeIntegrations = &excludeIntegrations
+	return r
+}
+
+// Whether to exclude maintenance tasks from the response.
+func (r ApiInventoryApiListResourceInstancesRequest) ExcludeMaintenanceTasks(excludeMaintenanceTasks bool) ApiInventoryApiListResourceInstancesRequest {
+	r.excludeMaintenanceTasks = &excludeMaintenanceTasks
 	return r
 }
 
@@ -10904,6 +11128,9 @@ func (a *InventoryApiAPIService) InventoryApiListResourceInstancesExecute(r ApiI
 	}
 	if r.excludeIntegrations != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeIntegrations", r.excludeIntegrations, "form", "")
+	}
+	if r.excludeMaintenanceTasks != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeMaintenanceTasks", r.excludeMaintenanceTasks, "form", "")
 	}
 	if r.nextPageToken != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **KeyExpiresAt** | Pointer to **time.Time** | When the live Nebius auth public key expires for this binding | [optional] 
 **KeyFingerprint** | Pointer to **string** | The Nebius fingerprint reported by the live auth public key during verification for this binding | [optional] 
 **KeyState** | Pointer to **string** | The live Nebius auth public key state returned during verification for this binding | [optional] 
+**OwnsArtifactBucket** | Pointer to **bool** | Whether this binding owns the Nebius artifact bucket for the account config | [optional] 
 **ProjectID** | Pointer to **string** | The Nebius project ID for this binding | [optional] 
 **PublicKeyID** | Pointer to **string** | The Nebius public key ID for this binding | [optional] 
 **PublicKeyIDMatches** | Pointer to **bool** | Whether the configured Nebius public key ID resolves to a live auth public key whose key material matches the configured private key for this binding | [optional] 
@@ -135,6 +136,31 @@ SetKeyState sets KeyState field to given value.
 `func (o *FleetNebiusAccountBindingResult) HasKeyState() bool`
 
 HasKeyState returns a boolean if a field has been set.
+
+### GetOwnsArtifactBucket
+
+`func (o *FleetNebiusAccountBindingResult) GetOwnsArtifactBucket() bool`
+
+GetOwnsArtifactBucket returns the OwnsArtifactBucket field if non-nil, zero value otherwise.
+
+### GetOwnsArtifactBucketOk
+
+`func (o *FleetNebiusAccountBindingResult) GetOwnsArtifactBucketOk() (*bool, bool)`
+
+GetOwnsArtifactBucketOk returns a tuple with the OwnsArtifactBucket field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwnsArtifactBucket
+
+`func (o *FleetNebiusAccountBindingResult) SetOwnsArtifactBucket(v bool)`
+
+SetOwnsArtifactBucket sets OwnsArtifactBucket field to given value.
+
+### HasOwnsArtifactBucket
+
+`func (o *FleetNebiusAccountBindingResult) HasOwnsArtifactBucket() bool`
+
+HasOwnsArtifactBucket returns a boolean if a field has been set.
 
 ### GetProjectID
 

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **InputParametersOverride** | Pointer to **interface{}** | Custom input parameters override | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
 **ProductTierVersionOverride** | Pointer to **string** | The product tier version | [optional] 
+**RestoreToSourceInstance** | Pointer to **bool** | If true, restore to the same instance ID as the previously deleted source instance. This preserves the original instance ID and endpoint. | [optional] 
 
 ## Methods
 
@@ -137,6 +138,31 @@ SetProductTierVersionOverride sets ProductTierVersionOverride field to given val
 `func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) HasProductTierVersionOverride() bool`
 
 HasProductTierVersionOverride returns a boolean if a field has been set.
+
+### GetRestoreToSourceInstance
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) GetRestoreToSourceInstance() bool`
+
+GetRestoreToSourceInstance returns the RestoreToSourceInstance field if non-nil, zero value otherwise.
+
+### GetRestoreToSourceInstanceOk
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) GetRestoreToSourceInstanceOk() (*bool, bool)`
+
+GetRestoreToSourceInstanceOk returns a tuple with the RestoreToSourceInstance field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRestoreToSourceInstance
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) SetRestoreToSourceInstance(v bool)`
+
+SetRestoreToSourceInstance sets RestoreToSourceInstance field to given value.
+
+### HasRestoreToSourceInstance
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) HasRestoreToSourceInstance() bool`
+
+HasRestoreToSourceInstance returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

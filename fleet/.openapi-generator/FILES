@@ -442,6 +442,7 @@ docs/InstanceHealthSummary.md
 docs/InstanceSnapshot.md
 docs/InstanceTypeCost.md
 docs/InstanceUpgrade.md
+docs/InstanceUpgradeHistory.md
 docs/IntegrationStatus.md
 docs/IntegrationsHealth.md
 docs/IntermediaryAccountDetail.md
@@ -505,6 +506,8 @@ docs/ListIdentityProvidersRequest.md
 docs/ListIdentityProvidersResult.md
 docs/ListInstanceSnapshotResult.md
 docs/ListInstanceSnapshotsResult.md
+docs/ListInstanceUpgradeHistoryRequest.md
+docs/ListInstanceUpgradeHistoryResult.md
 docs/ListInvoicesRequest.md
 docs/ListInvoicesResult.md
 docs/ListNotificationChannelsRequest.md
@@ -669,6 +672,7 @@ docs/SigninRequest.md
 docs/SigninResult.md
 docs/SignupRequest.md
 docs/SlackConfiguration.md
+docs/SnapshotSearchRecord.md
 docs/StartResourceInstanceRequest.md
 docs/StopResourceInstanceRequest.md
 docs/StripeAuthorizeURLRequest.md
@@ -677,12 +681,15 @@ docs/SubscriptionLicense.md
 docs/SubscriptionPricing.md
 docs/SubscriptionSearchRecord.md
 docs/SubscriptionUsers.md
+docs/TerminateDeploymentCellWorkflowRequest.md
 docs/TerminateServiceWorkflowRequest.md
 docs/TerraformDeploymentConfiguration.md
 docs/UpdateAccountConfigNebiusBindingInput.md
 docs/UpdateAccountConfigResourceInstanceRequest.md
 docs/UpdateCustomerOnboardingRequest.md
 docs/UpdateCustomerOnboardingRequest2.md
+docs/UpdateDeploymentCellWorkflowRequest.md
+docs/UpdateDeploymentCellWorkflowRequest2.md
 docs/UpdateHostClusterRequest.md
 docs/UpdateHostClusterRequest2.md
 docs/UpdateIdentityProviderRequest.md
@@ -1137,6 +1144,7 @@ model_instance_health_summary.go
 model_instance_snapshot.go
 model_instance_type_cost.go
 model_instance_upgrade.go
+model_instance_upgrade_history.go
 model_integration_status.go
 model_integrations_health.go
 model_intermediary_account_detail.go
@@ -1198,6 +1206,8 @@ model_list_identity_providers_request.go
 model_list_identity_providers_result.go
 model_list_instance_snapshot_result.go
 model_list_instance_snapshots_result.go
+model_list_instance_upgrade_history_request.go
+model_list_instance_upgrade_history_result.go
 model_list_invoices_request.go
 model_list_invoices_result.go
 model_list_notification_channels_request.go
@@ -1359,6 +1369,7 @@ model_signin_request.go
 model_signin_result.go
 model_signup_request.go
 model_slack_configuration.go
+model_snapshot_search_record.go
 model_start_resource_instance_request.go
 model_stop_resource_instance_request.go
 model_stripe_authorize_url_request.go
@@ -1367,12 +1378,15 @@ model_subscription_license.go
 model_subscription_pricing.go
 model_subscription_search_record.go
 model_subscription_users.go
+model_terminate_deployment_cell_workflow_request.go
 model_terminate_service_workflow_request.go
 model_terraform_deployment_configuration.go
 model_update_account_config_nebius_binding_input.go
 model_update_account_config_resource_instance_request.go
 model_update_customer_onboarding_request.go
 model_update_customer_onboarding_request2.go
+model_update_deployment_cell_workflow_request.go
+model_update_deployment_cell_workflow_request2.go
 model_update_host_cluster_request.go
 model_update_host_cluster_request2.go
 model_update_identity_provider_request.go

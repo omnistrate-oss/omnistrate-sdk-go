@@ -140,19 +140,23 @@ paths:
               gcpServiceAccountKey: Veniam aut soluta sit cumque dolores explicabo.
               name: Dev AWS account
               nebiusBindings:
-              - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+              - ownsArtifactBucket: true
+                privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
                 projectID: project-e00b497fpr00n5hg8wbh2d
                 publicKeyID: publickey-e00ngem85mc6pr5v63
                 serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-              - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+              - ownsArtifactBucket: true
+                privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
                 projectID: project-e00b497fpr00n5hg8wbh2d
                 publicKeyID: publickey-e00ngem85mc6pr5v63
                 serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-              - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+              - ownsArtifactBucket: true
+                privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
                 projectID: project-e00b497fpr00n5hg8wbh2d
                 publicKeyID: publickey-e00ngem85mc6pr5v63
                 serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-              - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+              - ownsArtifactBucket: true
+                privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
                 projectID: project-e00b497fpr00n5hg8wbh2d
                 publicKeyID: publickey-e00ngem85mc6pr5v63
                 serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
@@ -301,6 +305,7 @@ paths:
                   keyExpiresAt: 2026-04-15T12:00:00Z
                   keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                   keyState: ACTIVE
+                  ownsArtifactBucket: true
                   projectID: project-e00b497fpr00n5hg8wbh2d
                   publicKeyID: publickey-e00ngem85mc6pr5v63
                   publicKeyIDMatches: true
@@ -313,6 +318,7 @@ paths:
                   keyExpiresAt: 2026-04-15T12:00:00Z
                   keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                   keyState: ACTIVE
+                  ownsArtifactBucket: true
                   projectID: project-e00b497fpr00n5hg8wbh2d
                   publicKeyID: publickey-e00ngem85mc6pr5v63
                   publicKeyIDMatches: true
@@ -325,6 +331,7 @@ paths:
                   keyExpiresAt: 2026-04-15T12:00:00Z
                   keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                   keyState: ACTIVE
+                  ownsArtifactBucket: true
                   projectID: project-e00b497fpr00n5hg8wbh2d
                   publicKeyID: publickey-e00ngem85mc6pr5v63
                   publicKeyIDMatches: true
@@ -410,19 +417,23 @@ paths:
               description: Nebius account for eu-north1 and eu-west1 projects
               name: Updated Nebius account
               nebiusBindings:
-              - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+              - ownsArtifactBucket: true
+                privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
                 projectID: project-e00b497fpr00n5hg8wbh2d
                 publicKeyID: publickey-e00ngem85mc6pr5v63
                 serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-              - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+              - ownsArtifactBucket: true
+                privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
                 projectID: project-e00b497fpr00n5hg8wbh2d
                 publicKeyID: publickey-e00ngem85mc6pr5v63
                 serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-              - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+              - ownsArtifactBucket: true
+                privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
                 projectID: project-e00b497fpr00n5hg8wbh2d
                 publicKeyID: publickey-e00ngem85mc6pr5v63
                 serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-              - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+              - ownsArtifactBucket: true
+                privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
                 projectID: project-e00b497fpr00n5hg8wbh2d
                 publicKeyID: publickey-e00ngem85mc6pr5v63
                 serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
@@ -685,6 +696,7 @@ paths:
                     keyExpiresAt: 2026-04-15T12:00:00Z
                     keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                     keyState: ACTIVE
+                    ownsArtifactBucket: true
                     projectID: project-e00b497fpr00n5hg8wbh2d
                     publicKeyID: publickey-e00ngem85mc6pr5v63
                     publicKeyIDMatches: true
@@ -697,6 +709,7 @@ paths:
                     keyExpiresAt: 2026-04-15T12:00:00Z
                     keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                     keyState: ACTIVE
+                    ownsArtifactBucket: true
                     projectID: project-e00b497fpr00n5hg8wbh2d
                     publicKeyID: publickey-e00ngem85mc6pr5v63
                     publicKeyIDMatches: true
@@ -709,6 +722,7 @@ paths:
                     keyExpiresAt: 2026-04-15T12:00:00Z
                     keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                     keyState: ACTIVE
+                    ownsArtifactBucket: true
                     projectID: project-e00b497fpr00n5hg8wbh2d
                     publicKeyID: publickey-e00ngem85mc6pr5v63
                     publicKeyIDMatches: true
@@ -721,6 +735,7 @@ paths:
                     keyExpiresAt: 2026-04-15T12:00:00Z
                     keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                     keyState: ACTIVE
+                    ownsArtifactBucket: true
                     projectID: project-e00b497fpr00n5hg8wbh2d
                     publicKeyID: publickey-e00ngem85mc6pr5v63
                     publicKeyIDMatches: true
@@ -765,6 +780,7 @@ paths:
                     keyExpiresAt: 2026-04-15T12:00:00Z
                     keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                     keyState: ACTIVE
+                    ownsArtifactBucket: true
                     projectID: project-e00b497fpr00n5hg8wbh2d
                     publicKeyID: publickey-e00ngem85mc6pr5v63
                     publicKeyIDMatches: true
@@ -777,6 +793,7 @@ paths:
                     keyExpiresAt: 2026-04-15T12:00:00Z
                     keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                     keyState: ACTIVE
+                    ownsArtifactBucket: true
                     projectID: project-e00b497fpr00n5hg8wbh2d
                     publicKeyID: publickey-e00ngem85mc6pr5v63
                     publicKeyIDMatches: true
@@ -789,6 +806,7 @@ paths:
                     keyExpiresAt: 2026-04-15T12:00:00Z
                     keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                     keyState: ACTIVE
+                    ownsArtifactBucket: true
                     projectID: project-e00b497fpr00n5hg8wbh2d
                     publicKeyID: publickey-e00ngem85mc6pr5v63
                     publicKeyIDMatches: true
@@ -801,6 +819,7 @@ paths:
                     keyExpiresAt: 2026-04-15T12:00:00Z
                     keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                     keyState: ACTIVE
+                    ownsArtifactBucket: true
                     projectID: project-e00b497fpr00n5hg8wbh2d
                     publicKeyID: publickey-e00ngem85mc6pr5v63
                     publicKeyIDMatches: true
@@ -917,6 +936,7 @@ paths:
                     keyExpiresAt: 2026-04-15T12:00:00Z
                     keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                     keyState: ACTIVE
+                    ownsArtifactBucket: true
                     projectID: project-e00b497fpr00n5hg8wbh2d
                     publicKeyID: publickey-e00ngem85mc6pr5v63
                     publicKeyIDMatches: true
@@ -929,6 +949,7 @@ paths:
                     keyExpiresAt: 2026-04-15T12:00:00Z
                     keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                     keyState: ACTIVE
+                    ownsArtifactBucket: true
                     projectID: project-e00b497fpr00n5hg8wbh2d
                     publicKeyID: publickey-e00ngem85mc6pr5v63
                     publicKeyIDMatches: true
@@ -941,6 +962,7 @@ paths:
                     keyExpiresAt: 2026-04-15T12:00:00Z
                     keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                     keyState: ACTIVE
+                    ownsArtifactBucket: true
                     projectID: project-e00b497fpr00n5hg8wbh2d
                     publicKeyID: publickey-e00ngem85mc6pr5v63
                     publicKeyIDMatches: true
@@ -953,6 +975,7 @@ paths:
                     keyExpiresAt: 2026-04-15T12:00:00Z
                     keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                     keyState: ACTIVE
+                    ownsArtifactBucket: true
                     projectID: project-e00b497fpr00n5hg8wbh2d
                     publicKeyID: publickey-e00ngem85mc6pr5v63
                     publicKeyIDMatches: true
@@ -997,6 +1020,7 @@ paths:
                     keyExpiresAt: 2026-04-15T12:00:00Z
                     keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                     keyState: ACTIVE
+                    ownsArtifactBucket: true
                     projectID: project-e00b497fpr00n5hg8wbh2d
                     publicKeyID: publickey-e00ngem85mc6pr5v63
                     publicKeyIDMatches: true
@@ -1009,6 +1033,7 @@ paths:
                     keyExpiresAt: 2026-04-15T12:00:00Z
                     keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                     keyState: ACTIVE
+                    ownsArtifactBucket: true
                     projectID: project-e00b497fpr00n5hg8wbh2d
                     publicKeyID: publickey-e00ngem85mc6pr5v63
                     publicKeyIDMatches: true
@@ -1021,6 +1046,7 @@ paths:
                     keyExpiresAt: 2026-04-15T12:00:00Z
                     keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                     keyState: ACTIVE
+                    ownsArtifactBucket: true
                     projectID: project-e00b497fpr00n5hg8wbh2d
                     publicKeyID: publickey-e00ngem85mc6pr5v63
                     publicKeyIDMatches: true
@@ -1033,6 +1059,7 @@ paths:
                     keyExpiresAt: 2026-04-15T12:00:00Z
                     keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                     keyState: ACTIVE
+                    ownsArtifactBucket: true
                     projectID: project-e00b497fpr00n5hg8wbh2d
                     publicKeyID: publickey-e00ngem85mc6pr5v63
                     publicKeyIDMatches: true
@@ -1245,6 +1272,7 @@ paths:
                   keyExpiresAt: 2026-04-15T12:00:00Z
                   keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                   keyState: ACTIVE
+                  ownsArtifactBucket: true
                   projectID: project-e00b497fpr00n5hg8wbh2d
                   publicKeyID: publickey-e00ngem85mc6pr5v63
                   publicKeyIDMatches: true
@@ -1257,6 +1285,7 @@ paths:
                   keyExpiresAt: 2026-04-15T12:00:00Z
                   keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                   keyState: ACTIVE
+                  ownsArtifactBucket: true
                   projectID: project-e00b497fpr00n5hg8wbh2d
                   publicKeyID: publickey-e00ngem85mc6pr5v63
                   publicKeyIDMatches: true
@@ -1269,6 +1298,7 @@ paths:
                   keyExpiresAt: 2026-04-15T12:00:00Z
                   keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                   keyState: ACTIVE
+                  ownsArtifactBucket: true
                   projectID: project-e00b497fpr00n5hg8wbh2d
                   publicKeyID: publickey-e00ngem85mc6pr5v63
                   publicKeyIDMatches: true
@@ -1281,6 +1311,7 @@ paths:
                   keyExpiresAt: 2026-04-15T12:00:00Z
                   keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
                   keyState: ACTIVE
+                  ownsArtifactBucket: true
                   projectID: project-e00b497fpr00n5hg8wbh2d
                   publicKeyID: publickey-e00ngem85mc6pr5v63
                   publicKeyIDMatches: true
@@ -38189,19 +38220,23 @@ components:
         gcpServiceAccountKey: Enim architecto vero.
         name: Dev AWS account
         nebiusBindings:
-        - privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
+        - ownsArtifactBucket: true
+          privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-        - privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
+        - ownsArtifactBucket: true
+          privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-        - privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
+        - ownsArtifactBucket: true
+          privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-        - privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
+        - ownsArtifactBucket: true
+          privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
@@ -38272,19 +38307,23 @@ components:
           description: The Nebius per-region project/service-account bindings for
             the tenant-scoped Nebius account configuration
           example:
-          - privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
+          - ownsArtifactBucket: true
+            privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-          - privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
+          - ownsArtifactBucket: true
+            privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-          - privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
+          - ownsArtifactBucket: true
+            privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-          - privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
+          - ownsArtifactBucket: true
+            privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
@@ -38336,19 +38375,23 @@ components:
         gcpServiceAccountKey: Debitis itaque consequatur et.
         name: Dev AWS account
         nebiusBindings:
-        - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+        - ownsArtifactBucket: true
+          privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-        - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+        - ownsArtifactBucket: true
+          privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-        - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+        - ownsArtifactBucket: true
+          privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-        - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+        - ownsArtifactBucket: true
+          privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
@@ -38418,15 +38461,18 @@ components:
           description: The Nebius per-region project/service-account bindings for
             the tenant-scoped Nebius account configuration
           example:
-          - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+          - ownsArtifactBucket: true
+            privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-          - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+          - ownsArtifactBucket: true
+            privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-          - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+          - ownsArtifactBucket: true
+            privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
@@ -46034,6 +46080,7 @@ components:
           keyExpiresAt: 2026-04-15T12:00:00Z
           keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
           keyState: ACTIVE
+          ownsArtifactBucket: true
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           publicKeyIDMatches: true
@@ -46046,6 +46093,7 @@ components:
           keyExpiresAt: 2026-04-15T12:00:00Z
           keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
           keyState: ACTIVE
+          ownsArtifactBucket: true
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           publicKeyIDMatches: true
@@ -46058,6 +46106,7 @@ components:
           keyExpiresAt: 2026-04-15T12:00:00Z
           keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
           keyState: ACTIVE
+          ownsArtifactBucket: true
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           publicKeyIDMatches: true
@@ -46070,6 +46119,7 @@ components:
           keyExpiresAt: 2026-04-15T12:00:00Z
           keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
           keyState: ACTIVE
+          ownsArtifactBucket: true
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           publicKeyIDMatches: true
@@ -46115,6 +46165,7 @@ components:
             keyExpiresAt: 2026-04-15T12:00:00Z
             keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
             keyState: ACTIVE
+            ownsArtifactBucket: true
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             publicKeyIDMatches: true
@@ -46127,6 +46178,7 @@ components:
             keyExpiresAt: 2026-04-15T12:00:00Z
             keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
             keyState: ACTIVE
+            ownsArtifactBucket: true
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             publicKeyIDMatches: true
@@ -46291,6 +46343,7 @@ components:
           keyExpiresAt: 2026-04-15T12:00:00Z
           keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
           keyState: ACTIVE
+          ownsArtifactBucket: true
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           publicKeyIDMatches: true
@@ -46303,6 +46356,7 @@ components:
           keyExpiresAt: 2026-04-15T12:00:00Z
           keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
           keyState: ACTIVE
+          ownsArtifactBucket: true
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           publicKeyIDMatches: true
@@ -46315,6 +46369,7 @@ components:
           keyExpiresAt: 2026-04-15T12:00:00Z
           keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
           keyState: ACTIVE
+          ownsArtifactBucket: true
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           publicKeyIDMatches: true
@@ -46327,6 +46382,7 @@ components:
           keyExpiresAt: 2026-04-15T12:00:00Z
           keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
           keyState: ACTIVE
+          ownsArtifactBucket: true
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           publicKeyIDMatches: true
@@ -46440,6 +46496,7 @@ components:
             keyExpiresAt: 2026-04-15T12:00:00Z
             keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
             keyState: ACTIVE
+            ownsArtifactBucket: true
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             publicKeyIDMatches: true
@@ -46452,6 +46509,7 @@ components:
             keyExpiresAt: 2026-04-15T12:00:00Z
             keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
             keyState: ACTIVE
+            ownsArtifactBucket: true
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             publicKeyIDMatches: true
@@ -55947,6 +56005,7 @@ components:
             keyExpiresAt: 2026-04-15T12:00:00Z
             keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
             keyState: ACTIVE
+            ownsArtifactBucket: true
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             publicKeyIDMatches: true
@@ -55959,6 +56018,7 @@ components:
             keyExpiresAt: 2026-04-15T12:00:00Z
             keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
             keyState: ACTIVE
+            ownsArtifactBucket: true
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             publicKeyIDMatches: true
@@ -56003,6 +56063,7 @@ components:
             keyExpiresAt: 2026-04-15T12:00:00Z
             keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
             keyState: ACTIVE
+            ownsArtifactBucket: true
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             publicKeyIDMatches: true
@@ -56015,6 +56076,7 @@ components:
             keyExpiresAt: 2026-04-15T12:00:00Z
             keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
             keyState: ACTIVE
+            ownsArtifactBucket: true
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             publicKeyIDMatches: true
@@ -56068,6 +56130,7 @@ components:
               keyExpiresAt: 2026-04-15T12:00:00Z
               keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
               keyState: ACTIVE
+              ownsArtifactBucket: true
               projectID: project-e00b497fpr00n5hg8wbh2d
               publicKeyID: publickey-e00ngem85mc6pr5v63
               publicKeyIDMatches: true
@@ -56080,6 +56143,7 @@ components:
               keyExpiresAt: 2026-04-15T12:00:00Z
               keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
               keyState: ACTIVE
+              ownsArtifactBucket: true
               projectID: project-e00b497fpr00n5hg8wbh2d
               publicKeyID: publickey-e00ngem85mc6pr5v63
               publicKeyIDMatches: true
@@ -56124,6 +56188,7 @@ components:
               keyExpiresAt: 2026-04-15T12:00:00Z
               keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
               keyState: ACTIVE
+              ownsArtifactBucket: true
               projectID: project-e00b497fpr00n5hg8wbh2d
               publicKeyID: publickey-e00ngem85mc6pr5v63
               publicKeyIDMatches: true
@@ -56136,6 +56201,7 @@ components:
               keyExpiresAt: 2026-04-15T12:00:00Z
               keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
               keyState: ACTIVE
+              ownsArtifactBucket: true
               projectID: project-e00b497fpr00n5hg8wbh2d
               publicKeyID: publickey-e00ngem85mc6pr5v63
               publicKeyIDMatches: true
@@ -57452,6 +57518,7 @@ components:
             keyExpiresAt: 2026-04-15T12:00:00Z
             keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
             keyState: ACTIVE
+            ownsArtifactBucket: true
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             publicKeyIDMatches: true
@@ -57464,62 +57531,7 @@ components:
             keyExpiresAt: 2026-04-15T12:00:00Z
             keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
             keyState: ACTIVE
-            projectID: project-e00b497fpr00n5hg8wbh2d
-            publicKeyID: publickey-e00ngem85mc6pr5v63
-            publicKeyIDMatches: true
-            region: eu-north1
-            serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-            serviceAccountKeyValidated: true
-            status: READY
-            statusMessage: Binding is ready
-          nebiusTenantID: tenant-e00abc123
-          ociBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
-          ociDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
-          ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
-          ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          privateOnly: true
-          status: READY
-          statusMessage: Account is ready
-        - awsAccountID: "123456789012"
-          awsBootstrapRoleARN: arn:aws:iam::<ACCOUNT_ID>:role/<ROLE_NAME>
-          awsCloudFormationNoLBTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template-no-lb-policy.yaml
-          awsCloudFormationTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template.yaml
-          azureBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
-          azureDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
-          azureOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-offboard.sh?account_config_id=ac-MOju2uwKM0)"
-          azureSubscriptionID: 12345678-1234-1234-1234-123456789012
-          azureTenantID: 12345678-1234-1234-1234-123456789012
-          byoaInstanceIDs:
-          - instance-12345678
-          - instance-abcdefgh
-          cloudProviderId: infra-12345678
-          description: An AWS account hosting multiple dev environments
-          gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
-          gcpDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
-          gcpOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-offboard.sh?account_config_id=ac-MOju2uwKM0)"
-          gcpProjectID: my-project
-          gcpProjectNumber: "123456789012"
-          gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
-          id: ac-12345678
-          name: Dev AWS account
-          nebiusBindings:
-          - derivedPublicKeyFingerprint: SHA256:derived-public-key-fingerprint
-            keyExpiresAt: 2026-04-15T12:00:00Z
-            keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
-            keyState: ACTIVE
-            projectID: project-e00b497fpr00n5hg8wbh2d
-            publicKeyID: publickey-e00ngem85mc6pr5v63
-            publicKeyIDMatches: true
-            region: eu-north1
-            serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-            serviceAccountKeyValidated: true
-            status: READY
-            statusMessage: Binding is ready
-          - derivedPublicKeyFingerprint: SHA256:derived-public-key-fingerprint
-            keyExpiresAt: 2026-04-15T12:00:00Z
-            keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
-            keyState: ACTIVE
+            ownsArtifactBucket: true
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             publicKeyIDMatches: true
@@ -57564,6 +57576,7 @@ components:
             keyExpiresAt: 2026-04-15T12:00:00Z
             keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
             keyState: ACTIVE
+            ownsArtifactBucket: true
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             publicKeyIDMatches: true
@@ -57576,6 +57589,7 @@ components:
             keyExpiresAt: 2026-04-15T12:00:00Z
             keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
             keyState: ACTIVE
+            ownsArtifactBucket: true
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             publicKeyIDMatches: true
@@ -57620,6 +57634,7 @@ components:
             keyExpiresAt: 2026-04-15T12:00:00Z
             keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
             keyState: ACTIVE
+            ownsArtifactBucket: true
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             publicKeyIDMatches: true
@@ -57632,6 +57647,65 @@ components:
             keyExpiresAt: 2026-04-15T12:00:00Z
             keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
             keyState: ACTIVE
+            ownsArtifactBucket: true
+            projectID: project-e00b497fpr00n5hg8wbh2d
+            publicKeyID: publickey-e00ngem85mc6pr5v63
+            publicKeyIDMatches: true
+            region: eu-north1
+            serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
+            serviceAccountKeyValidated: true
+            status: READY
+            statusMessage: Binding is ready
+          nebiusTenantID: tenant-e00abc123
+          ociBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
+          ociDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
+          ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
+          ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          privateOnly: true
+          status: READY
+          statusMessage: Account is ready
+        - awsAccountID: "123456789012"
+          awsBootstrapRoleARN: arn:aws:iam::<ACCOUNT_ID>:role/<ROLE_NAME>
+          awsCloudFormationNoLBTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template-no-lb-policy.yaml
+          awsCloudFormationTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template.yaml
+          azureBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
+          azureDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
+          azureOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-offboard.sh?account_config_id=ac-MOju2uwKM0)"
+          azureSubscriptionID: 12345678-1234-1234-1234-123456789012
+          azureTenantID: 12345678-1234-1234-1234-123456789012
+          byoaInstanceIDs:
+          - instance-12345678
+          - instance-abcdefgh
+          cloudProviderId: infra-12345678
+          description: An AWS account hosting multiple dev environments
+          gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
+          gcpDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
+          gcpOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-offboard.sh?account_config_id=ac-MOju2uwKM0)"
+          gcpProjectID: my-project
+          gcpProjectNumber: "123456789012"
+          gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
+          id: ac-12345678
+          name: Dev AWS account
+          nebiusBindings:
+          - derivedPublicKeyFingerprint: SHA256:derived-public-key-fingerprint
+            keyExpiresAt: 2026-04-15T12:00:00Z
+            keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
+            keyState: ACTIVE
+            ownsArtifactBucket: true
+            projectID: project-e00b497fpr00n5hg8wbh2d
+            publicKeyID: publickey-e00ngem85mc6pr5v63
+            publicKeyIDMatches: true
+            region: eu-north1
+            serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
+            serviceAccountKeyValidated: true
+            status: READY
+            statusMessage: Binding is ready
+          - derivedPublicKeyFingerprint: SHA256:derived-public-key-fingerprint
+            keyExpiresAt: 2026-04-15T12:00:00Z
+            keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
+            keyState: ACTIVE
+            ownsArtifactBucket: true
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             publicKeyIDMatches: true
@@ -57685,6 +57759,7 @@ components:
               keyExpiresAt: 2026-04-15T12:00:00Z
               keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
               keyState: ACTIVE
+              ownsArtifactBucket: true
               projectID: project-e00b497fpr00n5hg8wbh2d
               publicKeyID: publickey-e00ngem85mc6pr5v63
               publicKeyIDMatches: true
@@ -57697,62 +57772,7 @@ components:
               keyExpiresAt: 2026-04-15T12:00:00Z
               keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
               keyState: ACTIVE
-              projectID: project-e00b497fpr00n5hg8wbh2d
-              publicKeyID: publickey-e00ngem85mc6pr5v63
-              publicKeyIDMatches: true
-              region: eu-north1
-              serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-              serviceAccountKeyValidated: true
-              status: READY
-              statusMessage: Binding is ready
-            nebiusTenantID: tenant-e00abc123
-            ociBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
-            ociDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
-            ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
-            ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            privateOnly: true
-            status: READY
-            statusMessage: Account is ready
-          - awsAccountID: "123456789012"
-            awsBootstrapRoleARN: arn:aws:iam::<ACCOUNT_ID>:role/<ROLE_NAME>
-            awsCloudFormationNoLBTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template-no-lb-policy.yaml
-            awsCloudFormationTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template.yaml
-            azureBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
-            azureDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
-            azureOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-offboard.sh?account_config_id=ac-MOju2uwKM0)"
-            azureSubscriptionID: 12345678-1234-1234-1234-123456789012
-            azureTenantID: 12345678-1234-1234-1234-123456789012
-            byoaInstanceIDs:
-            - instance-12345678
-            - instance-abcdefgh
-            cloudProviderId: infra-12345678
-            description: An AWS account hosting multiple dev environments
-            gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
-            gcpDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
-            gcpOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-offboard.sh?account_config_id=ac-MOju2uwKM0)"
-            gcpProjectID: my-project
-            gcpProjectNumber: "123456789012"
-            gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
-            id: ac-12345678
-            name: Dev AWS account
-            nebiusBindings:
-            - derivedPublicKeyFingerprint: SHA256:derived-public-key-fingerprint
-              keyExpiresAt: 2026-04-15T12:00:00Z
-              keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
-              keyState: ACTIVE
-              projectID: project-e00b497fpr00n5hg8wbh2d
-              publicKeyID: publickey-e00ngem85mc6pr5v63
-              publicKeyIDMatches: true
-              region: eu-north1
-              serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-              serviceAccountKeyValidated: true
-              status: READY
-              statusMessage: Binding is ready
-            - derivedPublicKeyFingerprint: SHA256:derived-public-key-fingerprint
-              keyExpiresAt: 2026-04-15T12:00:00Z
-              keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
-              keyState: ACTIVE
+              ownsArtifactBucket: true
               projectID: project-e00b497fpr00n5hg8wbh2d
               publicKeyID: publickey-e00ngem85mc6pr5v63
               publicKeyIDMatches: true
@@ -57797,6 +57817,7 @@ components:
               keyExpiresAt: 2026-04-15T12:00:00Z
               keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
               keyState: ACTIVE
+              ownsArtifactBucket: true
               projectID: project-e00b497fpr00n5hg8wbh2d
               publicKeyID: publickey-e00ngem85mc6pr5v63
               publicKeyIDMatches: true
@@ -57809,6 +57830,7 @@ components:
               keyExpiresAt: 2026-04-15T12:00:00Z
               keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
               keyState: ACTIVE
+              ownsArtifactBucket: true
               projectID: project-e00b497fpr00n5hg8wbh2d
               publicKeyID: publickey-e00ngem85mc6pr5v63
               publicKeyIDMatches: true
@@ -57853,6 +57875,7 @@ components:
               keyExpiresAt: 2026-04-15T12:00:00Z
               keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
               keyState: ACTIVE
+              ownsArtifactBucket: true
               projectID: project-e00b497fpr00n5hg8wbh2d
               publicKeyID: publickey-e00ngem85mc6pr5v63
               publicKeyIDMatches: true
@@ -57865,6 +57888,65 @@ components:
               keyExpiresAt: 2026-04-15T12:00:00Z
               keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
               keyState: ACTIVE
+              ownsArtifactBucket: true
+              projectID: project-e00b497fpr00n5hg8wbh2d
+              publicKeyID: publickey-e00ngem85mc6pr5v63
+              publicKeyIDMatches: true
+              region: eu-north1
+              serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
+              serviceAccountKeyValidated: true
+              status: READY
+              statusMessage: Binding is ready
+            nebiusTenantID: tenant-e00abc123
+            ociBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
+            ociDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
+            ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-MOju2uwKM0)"
+            ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            privateOnly: true
+            status: READY
+            statusMessage: Account is ready
+          - awsAccountID: "123456789012"
+            awsBootstrapRoleARN: arn:aws:iam::<ACCOUNT_ID>:role/<ROLE_NAME>
+            awsCloudFormationNoLBTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template-no-lb-policy.yaml
+            awsCloudFormationTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template.yaml
+            azureBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
+            azureDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
+            azureOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-offboard.sh?account_config_id=ac-MOju2uwKM0)"
+            azureSubscriptionID: 12345678-1234-1234-1234-123456789012
+            azureTenantID: 12345678-1234-1234-1234-123456789012
+            byoaInstanceIDs:
+            - instance-12345678
+            - instance-abcdefgh
+            cloudProviderId: infra-12345678
+            description: An AWS account hosting multiple dev environments
+            gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
+            gcpDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
+            gcpOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-offboard.sh?account_config_id=ac-MOju2uwKM0)"
+            gcpProjectID: my-project
+            gcpProjectNumber: "123456789012"
+            gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
+            id: ac-12345678
+            name: Dev AWS account
+            nebiusBindings:
+            - derivedPublicKeyFingerprint: SHA256:derived-public-key-fingerprint
+              keyExpiresAt: 2026-04-15T12:00:00Z
+              keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
+              keyState: ACTIVE
+              ownsArtifactBucket: true
+              projectID: project-e00b497fpr00n5hg8wbh2d
+              publicKeyID: publickey-e00ngem85mc6pr5v63
+              publicKeyIDMatches: true
+              region: eu-north1
+              serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
+              serviceAccountKeyValidated: true
+              status: READY
+              statusMessage: Binding is ready
+            - derivedPublicKeyFingerprint: SHA256:derived-public-key-fingerprint
+              keyExpiresAt: 2026-04-15T12:00:00Z
+              keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
+              keyState: ACTIVE
+              ownsArtifactBucket: true
               projectID: project-e00b497fpr00n5hg8wbh2d
               publicKeyID: publickey-e00ngem85mc6pr5v63
               publicKeyIDMatches: true
@@ -66979,11 +67061,17 @@ components:
       description: A Nebius tenant binding for one deployable project/service-account
         pair
       example:
+        ownsArtifactBucket: true
         privateKeyPEM: Vitae id odit quas.
         projectID: project-e00b497fpr00n5hg8wbh2d
         publicKeyID: publickey-e00ngem85mc6pr5v63
         serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
       properties:
+        ownsArtifactBucket:
+          description: Whether this binding owns the Nebius artifact bucket for the
+            account config
+          example: true
+          type: boolean
         privateKeyPEM:
           description: The Nebius private key PEM for this binding. This is input-only
             and must never be returned in safe describe/list responses
@@ -67015,6 +67103,7 @@ components:
         keyExpiresAt: 2026-04-15T12:00:00Z
         keyFingerprint: SHA256:live-nebius-auth-public-key-fingerprint
         keyState: ACTIVE
+        ownsArtifactBucket: true
         projectID: project-e00b497fpr00n5hg8wbh2d
         publicKeyID: publickey-e00ngem85mc6pr5v63
         publicKeyIDMatches: true
@@ -67044,6 +67133,11 @@ components:
             for this binding
           example: ACTIVE
           type: string
+        ownsArtifactBucket:
+          description: Whether this binding owns the Nebius artifact bucket for the
+            account config
+          example: true
+          type: boolean
         projectID:
           description: The Nebius project ID for this binding
           example: project-e00b497fpr00n5hg8wbh2d
@@ -72975,11 +73069,13 @@ components:
         id: ac-12345678
         name: Updated Nebius account
         nebiusBindings:
-        - privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
+        - ownsArtifactBucket: true
+          privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-        - privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
+        - ownsArtifactBucket: true
+          privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
@@ -73001,11 +73097,13 @@ components:
           description: Full replacement set of Nebius project/service-account bindings
             for an existing tenant-scoped Nebius account configuration
           example:
-          - privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
+          - ownsArtifactBucket: true
+            privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-          - privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
+          - ownsArtifactBucket: true
+            privateKeyPEM: Ipsum temporibus nesciunt libero sed molestias.
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
@@ -73026,19 +73124,23 @@ components:
         description: Nebius account for eu-north1 and eu-west1 projects
         name: Updated Nebius account
         nebiusBindings:
-        - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+        - ownsArtifactBucket: true
+          privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-        - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+        - ownsArtifactBucket: true
+          privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-        - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+        - ownsArtifactBucket: true
+          privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-        - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+        - ownsArtifactBucket: true
+          privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
           projectID: project-e00b497fpr00n5hg8wbh2d
           publicKeyID: publickey-e00ngem85mc6pr5v63
           serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
@@ -73055,15 +73157,18 @@ components:
           description: Full replacement set of Nebius project/service-account bindings
             for an existing tenant-scoped Nebius account configuration
           example:
-          - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+          - ownsArtifactBucket: true
+            privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-          - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+          - ownsArtifactBucket: true
+            privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-          - privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
+          - ownsArtifactBucket: true
+            privateKeyPEM: Aliquam incidunt porro ducimus iure ut iste.
             projectID: project-e00b497fpr00n5hg8wbh2d
             publicKeyID: publickey-e00ngem85mc6pr5v63
             serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8

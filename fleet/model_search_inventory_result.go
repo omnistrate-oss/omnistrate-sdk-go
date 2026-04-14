@@ -35,6 +35,8 @@ type SearchInventoryResult struct {
 	ServicePlanResults []ServicePlanSearchRecord `json:"servicePlanResults,omitempty"`
 	// The service search results
 	ServiceResults []ServiceSearchRecord `json:"serviceResults,omitempty"`
+	// The snapshot search results
+	SnapshotResults []SnapshotSearchRecord `json:"snapshotResults,omitempty"`
 	// The subscription search results
 	SubscriptionResults []SubscriptionSearchRecord `json:"subscriptionResults,omitempty"`
 	// The upgrade path search results
@@ -321,6 +323,38 @@ func (o *SearchInventoryResult) SetServiceResults(v []ServiceSearchRecord) {
 	o.ServiceResults = v
 }
 
+// GetSnapshotResults returns the SnapshotResults field value if set, zero value otherwise.
+func (o *SearchInventoryResult) GetSnapshotResults() []SnapshotSearchRecord {
+	if o == nil || IsNil(o.SnapshotResults) {
+		var ret []SnapshotSearchRecord
+		return ret
+	}
+	return o.SnapshotResults
+}
+
+// GetSnapshotResultsOk returns a tuple with the SnapshotResults field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SearchInventoryResult) GetSnapshotResultsOk() ([]SnapshotSearchRecord, bool) {
+	if o == nil || IsNil(o.SnapshotResults) {
+		return nil, false
+	}
+	return o.SnapshotResults, true
+}
+
+// HasSnapshotResults returns a boolean if a field has been set.
+func (o *SearchInventoryResult) HasSnapshotResults() bool {
+	if o != nil && !IsNil(o.SnapshotResults) {
+		return true
+	}
+
+	return false
+}
+
+// SetSnapshotResults gets a reference to the given []SnapshotSearchRecord and assigns it to the SnapshotResults field.
+func (o *SearchInventoryResult) SetSnapshotResults(v []SnapshotSearchRecord) {
+	o.SnapshotResults = v
+}
+
 // GetSubscriptionResults returns the SubscriptionResults field value if set, zero value otherwise.
 func (o *SearchInventoryResult) GetSubscriptionResults() []SubscriptionSearchRecord {
 	if o == nil || IsNil(o.SubscriptionResults) {
@@ -483,6 +517,9 @@ func (o SearchInventoryResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ServiceResults) {
 		toSerialize["serviceResults"] = o.ServiceResults
 	}
+	if !IsNil(o.SnapshotResults) {
+		toSerialize["snapshotResults"] = o.SnapshotResults
+	}
 	if !IsNil(o.SubscriptionResults) {
 		toSerialize["subscriptionResults"] = o.SubscriptionResults
 	}
@@ -525,6 +562,7 @@ func (o *SearchInventoryResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "serverlessProxyResults")
 		delete(additionalProperties, "servicePlanResults")
 		delete(additionalProperties, "serviceResults")
+		delete(additionalProperties, "snapshotResults")
 		delete(additionalProperties, "subscriptionResults")
 		delete(additionalProperties, "upgradePathResults")
 		delete(additionalProperties, "userResults")

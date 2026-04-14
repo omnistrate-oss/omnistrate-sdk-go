@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **CustomNetworkId** | Pointer to **string** | Custom network for resource | [optional] 
 **CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The custom tags for the resource instance. | [optional] 
 **ExternalPayerId** | Pointer to **string** | The external payer id to record which customer should pay for this resource instance. This will override the subscription level external payer id if set. | [optional] 
+**InstanceId** | Pointer to **string** | The ID of a previously deleted instance to restore. When provided, the instance will be re-provisioned with the same ID. | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
 **OnpremPlatform** | Pointer to **string** | OnPrem platform | [optional] 
 **ProductTierVersion** | Pointer to **string** | The product tier version | [optional] 
@@ -134,6 +135,31 @@ SetExternalPayerId sets ExternalPayerId field to given value.
 `func (o *FleetCreateResourceInstanceRequest2) HasExternalPayerId() bool`
 
 HasExternalPayerId returns a boolean if a field has been set.
+
+### GetInstanceId
+
+`func (o *FleetCreateResourceInstanceRequest2) GetInstanceId() string`
+
+GetInstanceId returns the InstanceId field if non-nil, zero value otherwise.
+
+### GetInstanceIdOk
+
+`func (o *FleetCreateResourceInstanceRequest2) GetInstanceIdOk() (*string, bool)`
+
+GetInstanceIdOk returns a tuple with the InstanceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstanceId
+
+`func (o *FleetCreateResourceInstanceRequest2) SetInstanceId(v string)`
+
+SetInstanceId sets InstanceId field to given value.
+
+### HasInstanceId
+
+`func (o *FleetCreateResourceInstanceRequest2) HasInstanceId() bool`
+
+HasInstanceId returns a boolean if a field has been set.
 
 ### GetNetworkType
 

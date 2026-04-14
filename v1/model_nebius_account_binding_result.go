@@ -29,6 +29,8 @@ type NebiusAccountBindingResult struct {
 	KeyFingerprint *string `json:"keyFingerprint,omitempty"`
 	// The live Nebius auth public key state returned during verification for this binding
 	KeyState *string `json:"keyState,omitempty"`
+	// Whether this binding owns the Nebius artifact bucket for the account config
+	OwnsArtifactBucket *bool `json:"ownsArtifactBucket,omitempty"`
 	// The Nebius project ID for this binding
 	ProjectID string `json:"projectID"`
 	// The Nebius public key ID for this binding
@@ -161,6 +163,29 @@ func (o *NebiusAccountBindingResult) GetKeyStateOk() (*string, bool) {
 // SetKeyState gets a reference to the given string and assigns it to the KeyState field.
 func (o *NebiusAccountBindingResult) SetKeyState(v string) {
 	o.KeyState = &v
+}
+
+// GetOwnsArtifactBucket returns the OwnsArtifactBucket field value if set, zero value otherwise.
+func (o *NebiusAccountBindingResult) GetOwnsArtifactBucket() bool {
+	if o == nil || IsNil(o.OwnsArtifactBucket) {
+		var ret bool
+		return ret
+	}
+	return *o.OwnsArtifactBucket
+}
+
+// GetOwnsArtifactBucketOk returns a tuple with the OwnsArtifactBucket field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NebiusAccountBindingResult) GetOwnsArtifactBucketOk() (*bool, bool) {
+	if o == nil || IsNil(o.OwnsArtifactBucket) {
+		return nil, false
+	}
+	return o.OwnsArtifactBucket, true
+}
+
+// SetOwnsArtifactBucket gets a reference to the given bool and assigns it to the OwnsArtifactBucket field.
+func (o *NebiusAccountBindingResult) SetOwnsArtifactBucket(v bool) {
+	o.OwnsArtifactBucket = &v
 }
 
 // GetProjectID returns the ProjectID field value
@@ -373,6 +398,9 @@ func (o NebiusAccountBindingResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.KeyState) {
 		toSerialize["keyState"] = o.KeyState
 	}
+	if !IsNil(o.OwnsArtifactBucket) {
+		toSerialize["ownsArtifactBucket"] = o.OwnsArtifactBucket
+	}
 	toSerialize["projectID"] = o.ProjectID
 	toSerialize["publicKeyID"] = o.PublicKeyID
 	if !IsNil(o.PublicKeyIDMatches) {
@@ -439,6 +467,7 @@ func (o *NebiusAccountBindingResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "keyExpiresAt")
 		delete(additionalProperties, "keyFingerprint")
 		delete(additionalProperties, "keyState")
+		delete(additionalProperties, "ownsArtifactBucket")
 		delete(additionalProperties, "projectID")
 		delete(additionalProperties, "publicKeyID")
 		delete(additionalProperties, "publicKeyIDMatches")

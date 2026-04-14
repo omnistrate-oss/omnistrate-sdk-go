@@ -20,6 +20,8 @@ var _ MappedNullable = &NebiusAccountBindingInput{}
 
 // NebiusAccountBindingInput A Nebius tenant binding for one deployable project/service-account pair
 type NebiusAccountBindingInput struct {
+	// Whether this binding owns the Nebius artifact bucket for the account config
+	OwnsArtifactBucket *bool `json:"ownsArtifactBucket,omitempty"`
 	// The Nebius private key PEM for this binding. This is input-only and must never be returned in safe describe/list responses
 	PrivateKeyPEM string `json:"privateKeyPEM"`
 	// The Nebius project ID for this binding
@@ -52,6 +54,29 @@ func NewNebiusAccountBindingInput(privateKeyPEM string, projectID string, public
 func NewNebiusAccountBindingInputWithDefaults() *NebiusAccountBindingInput {
 	this := NebiusAccountBindingInput{}
 	return &this
+}
+
+// GetOwnsArtifactBucket returns the OwnsArtifactBucket field value if set, zero value otherwise.
+func (o *NebiusAccountBindingInput) GetOwnsArtifactBucket() bool {
+	if o == nil || IsNil(o.OwnsArtifactBucket) {
+		var ret bool
+		return ret
+	}
+	return *o.OwnsArtifactBucket
+}
+
+// GetOwnsArtifactBucketOk returns a tuple with the OwnsArtifactBucket field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NebiusAccountBindingInput) GetOwnsArtifactBucketOk() (*bool, bool) {
+	if o == nil || IsNil(o.OwnsArtifactBucket) {
+		return nil, false
+	}
+	return o.OwnsArtifactBucket, true
+}
+
+// SetOwnsArtifactBucket gets a reference to the given bool and assigns it to the OwnsArtifactBucket field.
+func (o *NebiusAccountBindingInput) SetOwnsArtifactBucket(v bool) {
+	o.OwnsArtifactBucket = &v
 }
 
 // GetPrivateKeyPEM returns the PrivateKeyPEM field value
@@ -160,6 +185,9 @@ func (o NebiusAccountBindingInput) MarshalJSON() ([]byte, error) {
 
 func (o NebiusAccountBindingInput) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.OwnsArtifactBucket) {
+		toSerialize["ownsArtifactBucket"] = o.OwnsArtifactBucket
+	}
 	toSerialize["privateKeyPEM"] = o.PrivateKeyPEM
 	toSerialize["projectID"] = o.ProjectID
 	toSerialize["publicKeyID"] = o.PublicKeyID
@@ -210,6 +238,7 @@ func (o *NebiusAccountBindingInput) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "ownsArtifactBucket")
 		delete(additionalProperties, "privateKeyPEM")
 		delete(additionalProperties, "projectID")
 		delete(additionalProperties, "publicKeyID")

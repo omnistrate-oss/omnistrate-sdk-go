@@ -4,21 +4,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**HostClusterId** | Pointer to **string** | ID of a Host Cluster | [optional] 
 **Id** | **string** | The ID of the workflow. | 
-**ResourceName** | **string** | The name of the resource associated with the workflow. | 
-**ServiceEnvironmentId** | **string** | ID of a Service Environment | 
-**ServiceEnvironmentName** | **string** | The service environment name of the workflow. | 
+**ResourceName** | Pointer to **string** | The name of the resource associated with the workflow. Empty for deployment cell workflows. | [optional] 
+**ServiceEnvironmentId** | Pointer to **string** | ID of a Service Environment | [optional] 
+**ServiceEnvironmentName** | Pointer to **string** | The service environment name of the workflow. Empty for deployment cell workflows. | [optional] 
 **ServiceEnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
-**ServiceId** | **string** | ID of a Service | 
-**ServiceName** | **string** | The service name of the workflow. | 
+**ServiceId** | Pointer to **string** | ID of a Service | [optional] 
+**ServiceName** | Pointer to **string** | The service name of the workflow. Empty for deployment cell workflows. | [optional] 
 **Status** | **string** | The status of an operation | 
 **Type** | **string** | The workflow type. | 
+**WorkflowTarget** | **string** | The target entity type of the workflow. &#39;Instance&#39; for service instance workflows, &#39;DeploymentCell&#39; for deployment cell workflows. | 
 
 ## Methods
 
 ### NewWorkflowSearchRecord
 
-`func NewWorkflowSearchRecord(id string, resourceName string, serviceEnvironmentId string, serviceEnvironmentName string, serviceId string, serviceName string, status string, type_ string, ) *WorkflowSearchRecord`
+`func NewWorkflowSearchRecord(id string, status string, type_ string, workflowTarget string, ) *WorkflowSearchRecord`
 
 NewWorkflowSearchRecord instantiates a new WorkflowSearchRecord object
 This constructor will assign default values to properties that have it defined,
@@ -32,6 +34,31 @@ will change when the set of required properties is changed
 NewWorkflowSearchRecordWithDefaults instantiates a new WorkflowSearchRecord object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetHostClusterId
+
+`func (o *WorkflowSearchRecord) GetHostClusterId() string`
+
+GetHostClusterId returns the HostClusterId field if non-nil, zero value otherwise.
+
+### GetHostClusterIdOk
+
+`func (o *WorkflowSearchRecord) GetHostClusterIdOk() (*string, bool)`
+
+GetHostClusterIdOk returns a tuple with the HostClusterId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHostClusterId
+
+`func (o *WorkflowSearchRecord) SetHostClusterId(v string)`
+
+SetHostClusterId sets HostClusterId field to given value.
+
+### HasHostClusterId
+
+`func (o *WorkflowSearchRecord) HasHostClusterId() bool`
+
+HasHostClusterId returns a boolean if a field has been set.
 
 ### GetId
 
@@ -72,6 +99,11 @@ and a boolean to check if the value has been set.
 
 SetResourceName sets ResourceName field to given value.
 
+### HasResourceName
+
+`func (o *WorkflowSearchRecord) HasResourceName() bool`
+
+HasResourceName returns a boolean if a field has been set.
 
 ### GetServiceEnvironmentId
 
@@ -92,6 +124,11 @@ and a boolean to check if the value has been set.
 
 SetServiceEnvironmentId sets ServiceEnvironmentId field to given value.
 
+### HasServiceEnvironmentId
+
+`func (o *WorkflowSearchRecord) HasServiceEnvironmentId() bool`
+
+HasServiceEnvironmentId returns a boolean if a field has been set.
 
 ### GetServiceEnvironmentName
 
@@ -112,6 +149,11 @@ and a boolean to check if the value has been set.
 
 SetServiceEnvironmentName sets ServiceEnvironmentName field to given value.
 
+### HasServiceEnvironmentName
+
+`func (o *WorkflowSearchRecord) HasServiceEnvironmentName() bool`
+
+HasServiceEnvironmentName returns a boolean if a field has been set.
 
 ### GetServiceEnvironmentType
 
@@ -157,6 +199,11 @@ and a boolean to check if the value has been set.
 
 SetServiceId sets ServiceId field to given value.
 
+### HasServiceId
+
+`func (o *WorkflowSearchRecord) HasServiceId() bool`
+
+HasServiceId returns a boolean if a field has been set.
 
 ### GetServiceName
 
@@ -177,6 +224,11 @@ and a boolean to check if the value has been set.
 
 SetServiceName sets ServiceName field to given value.
 
+### HasServiceName
+
+`func (o *WorkflowSearchRecord) HasServiceName() bool`
+
+HasServiceName returns a boolean if a field has been set.
 
 ### GetStatus
 
@@ -216,6 +268,26 @@ and a boolean to check if the value has been set.
 `func (o *WorkflowSearchRecord) SetType(v string)`
 
 SetType sets Type field to given value.
+
+
+### GetWorkflowTarget
+
+`func (o *WorkflowSearchRecord) GetWorkflowTarget() string`
+
+GetWorkflowTarget returns the WorkflowTarget field if non-nil, zero value otherwise.
+
+### GetWorkflowTargetOk
+
+`func (o *WorkflowSearchRecord) GetWorkflowTargetOk() (*string, bool)`
+
+GetWorkflowTargetOk returns a tuple with the WorkflowTarget field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkflowTarget
+
+`func (o *WorkflowSearchRecord) SetWorkflowTarget(v string)`
+
+SetWorkflowTarget sets WorkflowTarget field to given value.
 
 
 

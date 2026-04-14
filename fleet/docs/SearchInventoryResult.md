@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **ServerlessProxyResults** | Pointer to [**[]ServerlessProxySearchRecord**](ServerlessProxySearchRecord.md) | The serverless proxy search results | [optional] 
 **ServicePlanResults** | Pointer to [**[]ServicePlanSearchRecord**](ServicePlanSearchRecord.md) | The service plan search results | [optional] 
 **ServiceResults** | Pointer to [**[]ServiceSearchRecord**](ServiceSearchRecord.md) | The service search results | [optional] 
+**SnapshotResults** | Pointer to [**[]SnapshotSearchRecord**](SnapshotSearchRecord.md) | The snapshot search results | [optional] 
 **SubscriptionResults** | Pointer to [**[]SubscriptionSearchRecord**](SubscriptionSearchRecord.md) | The subscription search results | [optional] 
 **UpgradePathResults** | Pointer to [**[]UpgradePathSearchRecord**](UpgradePathSearchRecord.md) | The upgrade path search results | [optional] 
 **UserResults** | Pointer to [**[]UserSearchRecord**](UserSearchRecord.md) | The user search results | [optional] 
@@ -235,6 +236,31 @@ SetServiceResults sets ServiceResults field to given value.
 `func (o *SearchInventoryResult) HasServiceResults() bool`
 
 HasServiceResults returns a boolean if a field has been set.
+
+### GetSnapshotResults
+
+`func (o *SearchInventoryResult) GetSnapshotResults() []SnapshotSearchRecord`
+
+GetSnapshotResults returns the SnapshotResults field if non-nil, zero value otherwise.
+
+### GetSnapshotResultsOk
+
+`func (o *SearchInventoryResult) GetSnapshotResultsOk() (*[]SnapshotSearchRecord, bool)`
+
+GetSnapshotResultsOk returns a tuple with the SnapshotResults field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSnapshotResults
+
+`func (o *SearchInventoryResult) SetSnapshotResults(v []SnapshotSearchRecord)`
+
+SetSnapshotResults sets SnapshotResults field to given value.
+
+### HasSnapshotResults
+
+`func (o *SearchInventoryResult) HasSnapshotResults() bool`
+
+HasSnapshotResults returns a boolean if a field has been set.
 
 ### GetSubscriptionResults
 

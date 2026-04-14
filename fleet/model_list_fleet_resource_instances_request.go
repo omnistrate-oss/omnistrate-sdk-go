@@ -36,6 +36,8 @@ type ListFleetResourceInstancesRequest struct {
 	ExcludeHAStatus *bool `json:"excludeHAStatus,omitempty"`
 	// Whether to exclude integration statuses (e.g. OpenTelemetry) from the response
 	ExcludeIntegrations *bool `json:"excludeIntegrations,omitempty"`
+	// Whether to exclude maintenance tasks (e.g. pending upgrades) from the response
+	ExcludeMaintenanceTasks *bool `json:"excludeMaintenanceTasks,omitempty"`
 	// Whether to exclude network topology details from the response
 	ExcludeNetworkTopology *bool `json:"excludeNetworkTopology,omitempty"`
 	// The next token to use for pagination
@@ -323,6 +325,38 @@ func (o *ListFleetResourceInstancesRequest) SetExcludeIntegrations(v bool) {
 	o.ExcludeIntegrations = &v
 }
 
+// GetExcludeMaintenanceTasks returns the ExcludeMaintenanceTasks field value if set, zero value otherwise.
+func (o *ListFleetResourceInstancesRequest) GetExcludeMaintenanceTasks() bool {
+	if o == nil || IsNil(o.ExcludeMaintenanceTasks) {
+		var ret bool
+		return ret
+	}
+	return *o.ExcludeMaintenanceTasks
+}
+
+// GetExcludeMaintenanceTasksOk returns a tuple with the ExcludeMaintenanceTasks field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListFleetResourceInstancesRequest) GetExcludeMaintenanceTasksOk() (*bool, bool) {
+	if o == nil || IsNil(o.ExcludeMaintenanceTasks) {
+		return nil, false
+	}
+	return o.ExcludeMaintenanceTasks, true
+}
+
+// HasExcludeMaintenanceTasks returns a boolean if a field has been set.
+func (o *ListFleetResourceInstancesRequest) HasExcludeMaintenanceTasks() bool {
+	if o != nil && !IsNil(o.ExcludeMaintenanceTasks) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludeMaintenanceTasks gets a reference to the given bool and assigns it to the ExcludeMaintenanceTasks field.
+func (o *ListFleetResourceInstancesRequest) SetExcludeMaintenanceTasks(v bool) {
+	o.ExcludeMaintenanceTasks = &v
+}
+
 // GetExcludeNetworkTopology returns the ExcludeNetworkTopology field value if set, zero value otherwise.
 func (o *ListFleetResourceInstancesRequest) GetExcludeNetworkTopology() bool {
 	if o == nil || IsNil(o.ExcludeNetworkTopology) {
@@ -499,6 +533,9 @@ func (o ListFleetResourceInstancesRequest) ToMap() (map[string]interface{}, erro
 	if !IsNil(o.ExcludeIntegrations) {
 		toSerialize["excludeIntegrations"] = o.ExcludeIntegrations
 	}
+	if !IsNil(o.ExcludeMaintenanceTasks) {
+		toSerialize["excludeMaintenanceTasks"] = o.ExcludeMaintenanceTasks
+	}
 	if !IsNil(o.ExcludeNetworkTopology) {
 		toSerialize["excludeNetworkTopology"] = o.ExcludeNetworkTopology
 	}
@@ -563,6 +600,7 @@ func (o *ListFleetResourceInstancesRequest) UnmarshalJSON(data []byte) (err erro
 		delete(additionalProperties, "environmentId")
 		delete(additionalProperties, "excludeHAStatus")
 		delete(additionalProperties, "excludeIntegrations")
+		delete(additionalProperties, "excludeMaintenanceTasks")
 		delete(additionalProperties, "excludeNetworkTopology")
 		delete(additionalProperties, "nextPageToken")
 		delete(additionalProperties, "pageSize")

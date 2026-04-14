@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Query** | **string** | The search query. | 
+**Query** | **string** | The search query. Supports prefixed searches such as &#39;service:&lt;value&gt;&#39;, &#39;user:&lt;value&gt;&#39;, &#39;subscription:&lt;value&gt;&#39;, &#39;deploymentcell:&lt;value&gt;&#39;, &#39;serviceplan:&lt;value&gt;&#39;, &#39;resource:&lt;value&gt;&#39;, &#39;serverlessproxy:&lt;value&gt;&#39;, &#39;resourceinstance:&lt;value&gt;&#39;, &#39;snapshot:&lt;value&gt;&#39;, &#39;notification:&lt;value&gt;&#39;, &#39;workflow:&lt;value&gt;&#39;, &#39;upgradepath:&lt;value&gt;&#39;, &#39;all:&lt;value&gt;&#39;. Without a prefix, performs a text search across resource instances, notifications, and workflows. | 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
