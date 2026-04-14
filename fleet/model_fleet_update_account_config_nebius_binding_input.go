@@ -20,6 +20,8 @@ var _ MappedNullable = &FleetUpdateAccountConfigNebiusBindingInput{}
 
 // FleetUpdateAccountConfigNebiusBindingInput Full Nebius binding replacement payload used when updating a Nebius BYOA account-config instance
 type FleetUpdateAccountConfigNebiusBindingInput struct {
+	// Whether this binding owns the Nebius artifact bucket for the account config
+	OwnsArtifactBucket *bool `json:"ownsArtifactBucket,omitempty"`
 	// The PEM-encoded Nebius private key for this binding
 	PrivateKeyPEM string `json:"privateKeyPEM"`
 	// The Nebius project ID for this binding
@@ -52,6 +54,38 @@ func NewFleetUpdateAccountConfigNebiusBindingInput(privateKeyPEM string, project
 func NewFleetUpdateAccountConfigNebiusBindingInputWithDefaults() *FleetUpdateAccountConfigNebiusBindingInput {
 	this := FleetUpdateAccountConfigNebiusBindingInput{}
 	return &this
+}
+
+// GetOwnsArtifactBucket returns the OwnsArtifactBucket field value if set, zero value otherwise.
+func (o *FleetUpdateAccountConfigNebiusBindingInput) GetOwnsArtifactBucket() bool {
+	if o == nil || IsNil(o.OwnsArtifactBucket) {
+		var ret bool
+		return ret
+	}
+	return *o.OwnsArtifactBucket
+}
+
+// GetOwnsArtifactBucketOk returns a tuple with the OwnsArtifactBucket field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetUpdateAccountConfigNebiusBindingInput) GetOwnsArtifactBucketOk() (*bool, bool) {
+	if o == nil || IsNil(o.OwnsArtifactBucket) {
+		return nil, false
+	}
+	return o.OwnsArtifactBucket, true
+}
+
+// HasOwnsArtifactBucket returns a boolean if a field has been set.
+func (o *FleetUpdateAccountConfigNebiusBindingInput) HasOwnsArtifactBucket() bool {
+	if o != nil && !IsNil(o.OwnsArtifactBucket) {
+		return true
+	}
+
+	return false
+}
+
+// SetOwnsArtifactBucket gets a reference to the given bool and assigns it to the OwnsArtifactBucket field.
+func (o *FleetUpdateAccountConfigNebiusBindingInput) SetOwnsArtifactBucket(v bool) {
+	o.OwnsArtifactBucket = &v
 }
 
 // GetPrivateKeyPEM returns the PrivateKeyPEM field value
@@ -160,6 +194,9 @@ func (o FleetUpdateAccountConfigNebiusBindingInput) MarshalJSON() ([]byte, error
 
 func (o FleetUpdateAccountConfigNebiusBindingInput) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.OwnsArtifactBucket) {
+		toSerialize["ownsArtifactBucket"] = o.OwnsArtifactBucket
+	}
 	toSerialize["privateKeyPEM"] = o.PrivateKeyPEM
 	toSerialize["projectID"] = o.ProjectID
 	toSerialize["publicKeyID"] = o.PublicKeyID
@@ -210,6 +247,7 @@ func (o *FleetUpdateAccountConfigNebiusBindingInput) UnmarshalJSON(data []byte) 
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "ownsArtifactBucket")
 		delete(additionalProperties, "privateKeyPEM")
 		delete(additionalProperties, "projectID")
 		delete(additionalProperties, "publicKeyID")

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**OwnsArtifactBucket** | Pointer to **bool** | Whether this binding owns the Nebius artifact bucket for the account config | [optional] 
 **PrivateKeyPEM** | **string** | The PEM-encoded Nebius private key for this binding | 
 **ProjectID** | **string** | The Nebius project ID for this binding | 
 **PublicKeyID** | **string** | The Nebius public key ID for this binding | 
@@ -27,6 +28,31 @@ will change when the set of required properties is changed
 NewFleetUpdateAccountConfigNebiusBindingInputWithDefaults instantiates a new FleetUpdateAccountConfigNebiusBindingInput object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetOwnsArtifactBucket
+
+`func (o *FleetUpdateAccountConfigNebiusBindingInput) GetOwnsArtifactBucket() bool`
+
+GetOwnsArtifactBucket returns the OwnsArtifactBucket field if non-nil, zero value otherwise.
+
+### GetOwnsArtifactBucketOk
+
+`func (o *FleetUpdateAccountConfigNebiusBindingInput) GetOwnsArtifactBucketOk() (*bool, bool)`
+
+GetOwnsArtifactBucketOk returns a tuple with the OwnsArtifactBucket field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwnsArtifactBucket
+
+`func (o *FleetUpdateAccountConfigNebiusBindingInput) SetOwnsArtifactBucket(v bool)`
+
+SetOwnsArtifactBucket sets OwnsArtifactBucket field to given value.
+
+### HasOwnsArtifactBucket
+
+`func (o *FleetUpdateAccountConfigNebiusBindingInput) HasOwnsArtifactBucket() bool`
+
+HasOwnsArtifactBucket returns a boolean if a field has been set.
 
 ### GetPrivateKeyPEM
 

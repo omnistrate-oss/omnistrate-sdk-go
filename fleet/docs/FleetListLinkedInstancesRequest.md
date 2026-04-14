@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **EnvironmentId** | **string** | ID of a Service Environment | 
 **ExcludeHAStatus** | Pointer to **bool** | Whether to exclude high availability and autoscaling status from the response | [optional] 
 **ExcludeIntegrations** | Pointer to **bool** | Whether to exclude integration statuses (e.g. OpenTelemetry) from the response | [optional] 
+**ExcludeMaintenanceTasks** | Pointer to **bool** | Whether to exclude maintenance tasks (e.g. pending upgrades) from the response | [optional] 
 **ExcludeNetworkTopology** | Pointer to **bool** | Whether to exclude network topology details from the response | [optional] 
 **InstanceId** | **string** | ID of a Resource Instance | 
 **ServiceId** | **string** | ID of a Service | 
@@ -100,6 +101,31 @@ SetExcludeIntegrations sets ExcludeIntegrations field to given value.
 `func (o *FleetListLinkedInstancesRequest) HasExcludeIntegrations() bool`
 
 HasExcludeIntegrations returns a boolean if a field has been set.
+
+### GetExcludeMaintenanceTasks
+
+`func (o *FleetListLinkedInstancesRequest) GetExcludeMaintenanceTasks() bool`
+
+GetExcludeMaintenanceTasks returns the ExcludeMaintenanceTasks field if non-nil, zero value otherwise.
+
+### GetExcludeMaintenanceTasksOk
+
+`func (o *FleetListLinkedInstancesRequest) GetExcludeMaintenanceTasksOk() (*bool, bool)`
+
+GetExcludeMaintenanceTasksOk returns a tuple with the ExcludeMaintenanceTasks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeMaintenanceTasks
+
+`func (o *FleetListLinkedInstancesRequest) SetExcludeMaintenanceTasks(v bool)`
+
+SetExcludeMaintenanceTasks sets ExcludeMaintenanceTasks field to given value.
+
+### HasExcludeMaintenanceTasks
+
+`func (o *FleetListLinkedInstancesRequest) HasExcludeMaintenanceTasks() bool`
+
+HasExcludeMaintenanceTasks returns a boolean if a field has been set.
 
 ### GetExcludeNetworkTopology
 

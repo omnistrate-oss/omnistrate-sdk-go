@@ -20,7 +20,7 @@ var _ MappedNullable = &SearchServiceInventoryRequest2{}
 
 // SearchServiceInventoryRequest2 struct for SearchServiceInventoryRequest2
 type SearchServiceInventoryRequest2 struct {
-	// The search query.
+	// The search query. Supports prefixed searches such as 'user:<value>', 'org:<value>', 'image:<value>', 'infra:<value>', 'sc:<value>', 'sci:<value>', 'snapshot:<value>'. Without a prefix, performs a general text search.
 	Query string `json:"query"`
 	AdditionalProperties map[string]interface{}
 }

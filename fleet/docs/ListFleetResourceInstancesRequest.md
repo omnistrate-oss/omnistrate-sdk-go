@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **EnvironmentId** | **string** | ID of a Service Environment | 
 **ExcludeHAStatus** | Pointer to **bool** | Whether to exclude high availability and autoscaling status from the response | [optional] 
 **ExcludeIntegrations** | Pointer to **bool** | Whether to exclude integration statuses (e.g. OpenTelemetry) from the response | [optional] 
+**ExcludeMaintenanceTasks** | Pointer to **bool** | Whether to exclude maintenance tasks (e.g. pending upgrades) from the response | [optional] 
 **ExcludeNetworkTopology** | Pointer to **bool** | Whether to exclude network topology details from the response | [optional] 
 **NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
 **PageSize** | Pointer to **int64** | The number of resources to return per page | [optional] 
@@ -231,6 +232,31 @@ SetExcludeIntegrations sets ExcludeIntegrations field to given value.
 `func (o *ListFleetResourceInstancesRequest) HasExcludeIntegrations() bool`
 
 HasExcludeIntegrations returns a boolean if a field has been set.
+
+### GetExcludeMaintenanceTasks
+
+`func (o *ListFleetResourceInstancesRequest) GetExcludeMaintenanceTasks() bool`
+
+GetExcludeMaintenanceTasks returns the ExcludeMaintenanceTasks field if non-nil, zero value otherwise.
+
+### GetExcludeMaintenanceTasksOk
+
+`func (o *ListFleetResourceInstancesRequest) GetExcludeMaintenanceTasksOk() (*bool, bool)`
+
+GetExcludeMaintenanceTasksOk returns a tuple with the ExcludeMaintenanceTasks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeMaintenanceTasks
+
+`func (o *ListFleetResourceInstancesRequest) SetExcludeMaintenanceTasks(v bool)`
+
+SetExcludeMaintenanceTasks sets ExcludeMaintenanceTasks field to given value.
+
+### HasExcludeMaintenanceTasks
+
+`func (o *ListFleetResourceInstancesRequest) HasExcludeMaintenanceTasks() bool`
+
+HasExcludeMaintenanceTasks returns a boolean if a field has been set.
 
 ### GetExcludeNetworkTopology
 

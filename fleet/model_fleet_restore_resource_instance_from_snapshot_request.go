@@ -30,6 +30,8 @@ type FleetRestoreResourceInstanceFromSnapshotRequest struct {
 	NetworkType *string `json:"network_type,omitempty"`
 	// The product tier version
 	ProductTierVersionOverride *string `json:"productTierVersionOverride,omitempty"`
+	// If true, restore to the same instance ID as the previously deleted source instance. This preserves the original instance ID and endpoint.
+	RestoreToSourceInstance *bool `json:"restoreToSourceInstance,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// ID of a Resource Instance Snapshot
@@ -215,6 +217,38 @@ func (o *FleetRestoreResourceInstanceFromSnapshotRequest) SetProductTierVersionO
 	o.ProductTierVersionOverride = &v
 }
 
+// GetRestoreToSourceInstance returns the RestoreToSourceInstance field value if set, zero value otherwise.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest) GetRestoreToSourceInstance() bool {
+	if o == nil || IsNil(o.RestoreToSourceInstance) {
+		var ret bool
+		return ret
+	}
+	return *o.RestoreToSourceInstance
+}
+
+// GetRestoreToSourceInstanceOk returns a tuple with the RestoreToSourceInstance field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest) GetRestoreToSourceInstanceOk() (*bool, bool) {
+	if o == nil || IsNil(o.RestoreToSourceInstance) {
+		return nil, false
+	}
+	return o.RestoreToSourceInstance, true
+}
+
+// HasRestoreToSourceInstance returns a boolean if a field has been set.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest) HasRestoreToSourceInstance() bool {
+	if o != nil && !IsNil(o.RestoreToSourceInstance) {
+		return true
+	}
+
+	return false
+}
+
+// SetRestoreToSourceInstance gets a reference to the given bool and assigns it to the RestoreToSourceInstance field.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest) SetRestoreToSourceInstance(v bool) {
+	o.RestoreToSourceInstance = &v
+}
+
 // GetServiceId returns the ServiceId field value
 func (o *FleetRestoreResourceInstanceFromSnapshotRequest) GetServiceId() string {
 	if o == nil {
@@ -310,6 +344,9 @@ func (o FleetRestoreResourceInstanceFromSnapshotRequest) ToMap() (map[string]int
 	if !IsNil(o.ProductTierVersionOverride) {
 		toSerialize["productTierVersionOverride"] = o.ProductTierVersionOverride
 	}
+	if !IsNil(o.RestoreToSourceInstance) {
+		toSerialize["restoreToSourceInstance"] = o.RestoreToSourceInstance
+	}
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["snapshotId"] = o.SnapshotId
 	toSerialize["token"] = o.Token
@@ -364,6 +401,7 @@ func (o *FleetRestoreResourceInstanceFromSnapshotRequest) UnmarshalJSON(data []b
 		delete(additionalProperties, "inputParametersOverride")
 		delete(additionalProperties, "network_type")
 		delete(additionalProperties, "productTierVersionOverride")
+		delete(additionalProperties, "restoreToSourceInstance")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "snapshotId")
 		delete(additionalProperties, "token")

@@ -22,7 +22,7 @@ var _ MappedNullable = &SearchServiceInventoryRequest{}
 type SearchServiceInventoryRequest struct {
 	// ID of a Service Environment
 	EnvironmentId *string `json:"environmentId,omitempty"`
-	// The search query.
+	// The search query. Supports prefixed searches such as 'user:<value>', 'org:<value>', 'image:<value>', 'infra:<value>', 'sc:<value>', 'sci:<value>', 'snapshot:<value>'. Without a prefix, performs a general text search.
 	Query string `json:"query"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`

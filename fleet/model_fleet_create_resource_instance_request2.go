@@ -27,6 +27,8 @@ type FleetCreateResourceInstanceRequest2 struct {
 	CustomTags []CustomTag `json:"customTags,omitempty"`
 	// The external payer id to record which customer should pay for this resource instance. This will override the subscription level external payer id if set.
 	ExternalPayerId *string `json:"externalPayerId,omitempty"`
+	// The ID of a previously deleted instance to restore. When provided, the instance will be re-provisioned with the same ID.
+	InstanceId *string `json:"instanceId,omitempty"`
 	// The network type
 	NetworkType *string `json:"network_type,omitempty"`
 	// OnPrem platform
@@ -189,6 +191,38 @@ func (o *FleetCreateResourceInstanceRequest2) HasExternalPayerId() bool {
 // SetExternalPayerId gets a reference to the given string and assigns it to the ExternalPayerId field.
 func (o *FleetCreateResourceInstanceRequest2) SetExternalPayerId(v string) {
 	o.ExternalPayerId = &v
+}
+
+// GetInstanceId returns the InstanceId field value if set, zero value otherwise.
+func (o *FleetCreateResourceInstanceRequest2) GetInstanceId() string {
+	if o == nil || IsNil(o.InstanceId) {
+		var ret string
+		return ret
+	}
+	return *o.InstanceId
+}
+
+// GetInstanceIdOk returns a tuple with the InstanceId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCreateResourceInstanceRequest2) GetInstanceIdOk() (*string, bool) {
+	if o == nil || IsNil(o.InstanceId) {
+		return nil, false
+	}
+	return o.InstanceId, true
+}
+
+// HasInstanceId returns a boolean if a field has been set.
+func (o *FleetCreateResourceInstanceRequest2) HasInstanceId() bool {
+	if o != nil && !IsNil(o.InstanceId) {
+		return true
+	}
+
+	return false
+}
+
+// SetInstanceId gets a reference to the given string and assigns it to the InstanceId field.
+func (o *FleetCreateResourceInstanceRequest2) SetInstanceId(v string) {
+	o.InstanceId = &v
 }
 
 // GetNetworkType returns the NetworkType field value if set, zero value otherwise.
@@ -438,6 +472,9 @@ func (o FleetCreateResourceInstanceRequest2) ToMap() (map[string]interface{}, er
 	if !IsNil(o.ExternalPayerId) {
 		toSerialize["externalPayerId"] = o.ExternalPayerId
 	}
+	if !IsNil(o.InstanceId) {
+		toSerialize["instanceId"] = o.InstanceId
+	}
 	if !IsNil(o.NetworkType) {
 		toSerialize["network_type"] = o.NetworkType
 	}
@@ -485,6 +522,7 @@ func (o *FleetCreateResourceInstanceRequest2) UnmarshalJSON(data []byte) (err er
 		delete(additionalProperties, "custom_network_id")
 		delete(additionalProperties, "customTags")
 		delete(additionalProperties, "externalPayerId")
+		delete(additionalProperties, "instanceId")
 		delete(additionalProperties, "network_type")
 		delete(additionalProperties, "onprem_platform")
 		delete(additionalProperties, "productTierVersion")

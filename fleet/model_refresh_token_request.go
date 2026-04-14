@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the RefreshTokenRequest type satisfies the MappedNullable interface at compile time
@@ -20,8 +19,8 @@ var _ MappedNullable = &RefreshTokenRequest{}
 
 // RefreshTokenRequest struct for RefreshTokenRequest
 type RefreshTokenRequest struct {
-	// The refresh token to exchange for a new JWT token
-	RefreshToken string `json:"refreshToken"`
+	// The refresh token to exchange for a new JWT token. Optional when the refresh token is provided via httpOnly cookie.
+	RefreshToken *string `json:"refreshToken,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -31,9 +30,8 @@ type _RefreshTokenRequest RefreshTokenRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRefreshTokenRequest(refreshToken string) *RefreshTokenRequest {
+func NewRefreshTokenRequest() *RefreshTokenRequest {
 	this := RefreshTokenRequest{}
-	this.RefreshToken = refreshToken
 	return &this
 }
 
@@ -45,28 +43,36 @@ func NewRefreshTokenRequestWithDefaults() *RefreshTokenRequest {
 	return &this
 }
 
-// GetRefreshToken returns the RefreshToken field value
+// GetRefreshToken returns the RefreshToken field value if set, zero value otherwise.
 func (o *RefreshTokenRequest) GetRefreshToken() string {
-	if o == nil {
+	if o == nil || IsNil(o.RefreshToken) {
 		var ret string
 		return ret
 	}
-
-	return o.RefreshToken
+	return *o.RefreshToken
 }
 
-// GetRefreshTokenOk returns a tuple with the RefreshToken field value
+// GetRefreshTokenOk returns a tuple with the RefreshToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RefreshTokenRequest) GetRefreshTokenOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RefreshToken) {
 		return nil, false
 	}
-	return &o.RefreshToken, true
+	return o.RefreshToken, true
 }
 
-// SetRefreshToken sets field value
+// HasRefreshToken returns a boolean if a field has been set.
+func (o *RefreshTokenRequest) HasRefreshToken() bool {
+	if o != nil && !IsNil(o.RefreshToken) {
+		return true
+	}
+
+	return false
+}
+
+// SetRefreshToken gets a reference to the given string and assigns it to the RefreshToken field.
 func (o *RefreshTokenRequest) SetRefreshToken(v string) {
-	o.RefreshToken = v
+	o.RefreshToken = &v
 }
 
 func (o RefreshTokenRequest) MarshalJSON() ([]byte, error) {
@@ -79,7 +85,9 @@ func (o RefreshTokenRequest) MarshalJSON() ([]byte, error) {
 
 func (o RefreshTokenRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["refreshToken"] = o.RefreshToken
+	if !IsNil(o.RefreshToken) {
+		toSerialize["refreshToken"] = o.RefreshToken
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -89,27 +97,6 @@ func (o RefreshTokenRequest) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *RefreshTokenRequest) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"refreshToken",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varRefreshTokenRequest := _RefreshTokenRequest{}
 
 	err = json.Unmarshal(data, &varRefreshTokenRequest)

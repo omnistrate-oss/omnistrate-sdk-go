@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Query** | **string** | The search query. | 
+**Query** | **string** | The search query. Supports prefixed searches such as &#39;user:&lt;value&gt;&#39;, &#39;org:&lt;value&gt;&#39;, &#39;image:&lt;value&gt;&#39;, &#39;infra:&lt;value&gt;&#39;, &#39;sc:&lt;value&gt;&#39;, &#39;sci:&lt;value&gt;&#39;, &#39;snapshot:&lt;value&gt;&#39;. Without a prefix, performs a general text search. | 
 
 ## Methods
 

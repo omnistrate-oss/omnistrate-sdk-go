@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RefreshToken** | **string** | The refresh token to exchange for a new JWT token | 
+**RefreshToken** | Pointer to **string** | The refresh token to exchange for a new JWT token. Optional when the refresh token is provided via httpOnly cookie. | [optional] 
 
 ## Methods
 
 ### NewRefreshTokenRequest
 
-`func NewRefreshTokenRequest(refreshToken string, ) *RefreshTokenRequest`
+`func NewRefreshTokenRequest() *RefreshTokenRequest`
 
 NewRefreshTokenRequest instantiates a new RefreshTokenRequest object
 This constructor will assign default values to properties that have it defined,
@@ -44,6 +44,11 @@ and a boolean to check if the value has been set.
 
 SetRefreshToken sets RefreshToken field to given value.
 
+### HasRefreshToken
+
+`func (o *RefreshTokenRequest) HasRefreshToken() bool`
+
+HasRefreshToken returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

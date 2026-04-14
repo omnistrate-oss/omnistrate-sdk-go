@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EnvironmentId** | Pointer to **string** | ID of a Service Environment | [optional] 
-**Query** | **string** | The search query. | 
+**Query** | **string** | The search query. Supports prefixed searches such as &#39;user:&lt;value&gt;&#39;, &#39;org:&lt;value&gt;&#39;, &#39;image:&lt;value&gt;&#39;, &#39;infra:&lt;value&gt;&#39;, &#39;sc:&lt;value&gt;&#39;, &#39;sci:&lt;value&gt;&#39;, &#39;snapshot:&lt;value&gt;&#39;. Without a prefix, performs a general text search. | 
 **ServiceId** | **string** | ID of a Service | 
 **Token** | **string** | JWT token used to perform authorization | 
 
