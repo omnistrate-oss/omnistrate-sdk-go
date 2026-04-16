@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AllowNewCloudNativeNetworkCreation** | Pointer to **bool** | Whether Omnistrate is allowed to create new CloudNativeNetworks in this account when no registered cloud native network is selected at deployment time | [optional] 
 **Description** | Pointer to **string** | The updated description for the account | [optional] 
 **Name** | Pointer to **string** | The updated name of the account | [optional] 
 **NebiusBindings** | Pointer to [**[]NebiusAccountBindingInput**](NebiusAccountBindingInput.md) | Full replacement set of Nebius project/service-account bindings for an existing tenant-scoped Nebius account configuration | [optional] 
@@ -26,6 +27,31 @@ will change when the set of required properties is changed
 NewUpdateAccountConfigRequest2WithDefaults instantiates a new UpdateAccountConfigRequest2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAllowNewCloudNativeNetworkCreation
+
+`func (o *UpdateAccountConfigRequest2) GetAllowNewCloudNativeNetworkCreation() bool`
+
+GetAllowNewCloudNativeNetworkCreation returns the AllowNewCloudNativeNetworkCreation field if non-nil, zero value otherwise.
+
+### GetAllowNewCloudNativeNetworkCreationOk
+
+`func (o *UpdateAccountConfigRequest2) GetAllowNewCloudNativeNetworkCreationOk() (*bool, bool)`
+
+GetAllowNewCloudNativeNetworkCreationOk returns a tuple with the AllowNewCloudNativeNetworkCreation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowNewCloudNativeNetworkCreation
+
+`func (o *UpdateAccountConfigRequest2) SetAllowNewCloudNativeNetworkCreation(v bool)`
+
+SetAllowNewCloudNativeNetworkCreation sets AllowNewCloudNativeNetworkCreation field to given value.
+
+### HasAllowNewCloudNativeNetworkCreation
+
+`func (o *UpdateAccountConfigRequest2) HasAllowNewCloudNativeNetworkCreation() bool`
+
+HasAllowNewCloudNativeNetworkCreation returns a boolean if a field has been set.
 
 ### GetDescription
 

@@ -19,6 +19,8 @@ var _ MappedNullable = &UpdateAccountConfigRequest2{}
 
 // UpdateAccountConfigRequest2 struct for UpdateAccountConfigRequest2
 type UpdateAccountConfigRequest2 struct {
+	// Whether Omnistrate is allowed to create new CloudNativeNetworks in this account when no registered cloud native network is selected at deployment time
+	AllowNewCloudNativeNetworkCreation *bool `json:"allowNewCloudNativeNetworkCreation,omitempty"`
 	// The updated description for the account
 	Description *string `json:"description,omitempty"`
 	// The updated name of the account
@@ -45,6 +47,29 @@ func NewUpdateAccountConfigRequest2() *UpdateAccountConfigRequest2 {
 func NewUpdateAccountConfigRequest2WithDefaults() *UpdateAccountConfigRequest2 {
 	this := UpdateAccountConfigRequest2{}
 	return &this
+}
+
+// GetAllowNewCloudNativeNetworkCreation returns the AllowNewCloudNativeNetworkCreation field value if set, zero value otherwise.
+func (o *UpdateAccountConfigRequest2) GetAllowNewCloudNativeNetworkCreation() bool {
+	if o == nil || IsNil(o.AllowNewCloudNativeNetworkCreation) {
+		var ret bool
+		return ret
+	}
+	return *o.AllowNewCloudNativeNetworkCreation
+}
+
+// GetAllowNewCloudNativeNetworkCreationOk returns a tuple with the AllowNewCloudNativeNetworkCreation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateAccountConfigRequest2) GetAllowNewCloudNativeNetworkCreationOk() (*bool, bool) {
+	if o == nil || IsNil(o.AllowNewCloudNativeNetworkCreation) {
+		return nil, false
+	}
+	return o.AllowNewCloudNativeNetworkCreation, true
+}
+
+// SetAllowNewCloudNativeNetworkCreation gets a reference to the given bool and assigns it to the AllowNewCloudNativeNetworkCreation field.
+func (o *UpdateAccountConfigRequest2) SetAllowNewCloudNativeNetworkCreation(v bool) {
+	o.AllowNewCloudNativeNetworkCreation = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -126,6 +151,9 @@ func (o UpdateAccountConfigRequest2) MarshalJSON() ([]byte, error) {
 
 func (o UpdateAccountConfigRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AllowNewCloudNativeNetworkCreation) {
+		toSerialize["allowNewCloudNativeNetworkCreation"] = o.AllowNewCloudNativeNetworkCreation
+	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
@@ -157,6 +185,7 @@ func (o *UpdateAccountConfigRequest2) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "allowNewCloudNativeNetworkCreation")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "nebiusBindings")

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AllowNewCloudNativeNetworkCreation** | Pointer to **bool** | Whether Omnistrate is allowed to create new CloudNativeNetworks in this account when no registered cloud native network is selected at deployment time | [optional] 
 **AwsAccessKey** | Pointer to **string** | The AWS access key | [optional] 
 **AwsAccountID** | Pointer to **string** | The AWS account ID | [optional] 
 **AwsBootstrapRoleARN** | Pointer to **string** | The security role ARN or service account ARN that grants access to operate the infra | [optional] 
@@ -22,7 +23,7 @@ Name | Type | Description | Notes
 **NebiusTenantID** | Pointer to **string** | The Nebius tenant ID for the tenant-scoped Nebius account configuration | [optional] 
 **OciDomainID** | Pointer to **string** | The Domain OCID for Oracle Cloud Infrastructure | [optional] 
 **OciTenancyID** | Pointer to **string** | The Tenancy OCID for Oracle Cloud Infrastructure | [optional] 
-**PrivateOnly** | Pointer to **bool** | Whether all provisioned dataplanes from this provisioner account must be fully private (no public subnets, NAT gateway, or IGW) | [optional] 
+**PrivateLink** | Pointer to **bool** | Whether to enable AWS PrivateLink connectivity for services deployed in this account | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
@@ -43,6 +44,31 @@ will change when the set of required properties is changed
 NewCreateAccountConfigRequestWithDefaults instantiates a new CreateAccountConfigRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAllowNewCloudNativeNetworkCreation
+
+`func (o *CreateAccountConfigRequest) GetAllowNewCloudNativeNetworkCreation() bool`
+
+GetAllowNewCloudNativeNetworkCreation returns the AllowNewCloudNativeNetworkCreation field if non-nil, zero value otherwise.
+
+### GetAllowNewCloudNativeNetworkCreationOk
+
+`func (o *CreateAccountConfigRequest) GetAllowNewCloudNativeNetworkCreationOk() (*bool, bool)`
+
+GetAllowNewCloudNativeNetworkCreationOk returns a tuple with the AllowNewCloudNativeNetworkCreation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowNewCloudNativeNetworkCreation
+
+`func (o *CreateAccountConfigRequest) SetAllowNewCloudNativeNetworkCreation(v bool)`
+
+SetAllowNewCloudNativeNetworkCreation sets AllowNewCloudNativeNetworkCreation field to given value.
+
+### HasAllowNewCloudNativeNetworkCreation
+
+`func (o *CreateAccountConfigRequest) HasAllowNewCloudNativeNetworkCreation() bool`
+
+HasAllowNewCloudNativeNetworkCreation returns a boolean if a field has been set.
 
 ### GetAwsAccessKey
 
@@ -479,30 +505,30 @@ SetOciTenancyID sets OciTenancyID field to given value.
 
 HasOciTenancyID returns a boolean if a field has been set.
 
-### GetPrivateOnly
+### GetPrivateLink
 
-`func (o *CreateAccountConfigRequest) GetPrivateOnly() bool`
+`func (o *CreateAccountConfigRequest) GetPrivateLink() bool`
 
-GetPrivateOnly returns the PrivateOnly field if non-nil, zero value otherwise.
+GetPrivateLink returns the PrivateLink field if non-nil, zero value otherwise.
 
-### GetPrivateOnlyOk
+### GetPrivateLinkOk
 
-`func (o *CreateAccountConfigRequest) GetPrivateOnlyOk() (*bool, bool)`
+`func (o *CreateAccountConfigRequest) GetPrivateLinkOk() (*bool, bool)`
 
-GetPrivateOnlyOk returns a tuple with the PrivateOnly field if it's non-nil, zero value otherwise
+GetPrivateLinkOk returns a tuple with the PrivateLink field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPrivateOnly
+### SetPrivateLink
 
-`func (o *CreateAccountConfigRequest) SetPrivateOnly(v bool)`
+`func (o *CreateAccountConfigRequest) SetPrivateLink(v bool)`
 
-SetPrivateOnly sets PrivateOnly field to given value.
+SetPrivateLink sets PrivateLink field to given value.
 
-### HasPrivateOnly
+### HasPrivateLink
 
-`func (o *CreateAccountConfigRequest) HasPrivateOnly() bool`
+`func (o *CreateAccountConfigRequest) HasPrivateLink() bool`
 
-HasPrivateOnly returns a boolean if a field has been set.
+HasPrivateLink returns a boolean if a field has been set.
 
 ### GetToken
 

@@ -20,6 +20,8 @@ var _ MappedNullable = &CreateAccountConfigRequest{}
 
 // CreateAccountConfigRequest Account configuration including the role required to access
 type CreateAccountConfigRequest struct {
+	// Whether Omnistrate is allowed to create new CloudNativeNetworks in this account when no registered cloud native network is selected at deployment time
+	AllowNewCloudNativeNetworkCreation *bool `json:"allowNewCloudNativeNetworkCreation,omitempty"`
 	// The AWS access key
 	AwsAccessKey *string `json:"awsAccessKey,omitempty"`
 	// The AWS account ID
@@ -56,8 +58,8 @@ type CreateAccountConfigRequest struct {
 	OciDomainID *string `json:"ociDomainID,omitempty"`
 	// The Tenancy OCID for Oracle Cloud Infrastructure
 	OciTenancyID *string `json:"ociTenancyID,omitempty"`
-	// Whether all provisioned dataplanes from this provisioner account must be fully private (no public subnets, NAT gateway, or IGW)
-	PrivateOnly *bool `json:"privateOnly,omitempty"`
+	// Whether to enable AWS PrivateLink connectivity for services deployed in this account
+	PrivateLink *bool `json:"privateLink,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -84,6 +86,29 @@ func NewCreateAccountConfigRequest(cloudProviderId string, description string, n
 func NewCreateAccountConfigRequestWithDefaults() *CreateAccountConfigRequest {
 	this := CreateAccountConfigRequest{}
 	return &this
+}
+
+// GetAllowNewCloudNativeNetworkCreation returns the AllowNewCloudNativeNetworkCreation field value if set, zero value otherwise.
+func (o *CreateAccountConfigRequest) GetAllowNewCloudNativeNetworkCreation() bool {
+	if o == nil || IsNil(o.AllowNewCloudNativeNetworkCreation) {
+		var ret bool
+		return ret
+	}
+	return *o.AllowNewCloudNativeNetworkCreation
+}
+
+// GetAllowNewCloudNativeNetworkCreationOk returns a tuple with the AllowNewCloudNativeNetworkCreation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateAccountConfigRequest) GetAllowNewCloudNativeNetworkCreationOk() (*bool, bool) {
+	if o == nil || IsNil(o.AllowNewCloudNativeNetworkCreation) {
+		return nil, false
+	}
+	return o.AllowNewCloudNativeNetworkCreation, true
+}
+
+// SetAllowNewCloudNativeNetworkCreation gets a reference to the given bool and assigns it to the AllowNewCloudNativeNetworkCreation field.
+func (o *CreateAccountConfigRequest) SetAllowNewCloudNativeNetworkCreation(v bool) {
+	o.AllowNewCloudNativeNetworkCreation = &v
 }
 
 // GetAwsAccessKey returns the AwsAccessKey field value if set, zero value otherwise.
@@ -503,27 +528,27 @@ func (o *CreateAccountConfigRequest) SetOciTenancyID(v string) {
 	o.OciTenancyID = &v
 }
 
-// GetPrivateOnly returns the PrivateOnly field value if set, zero value otherwise.
-func (o *CreateAccountConfigRequest) GetPrivateOnly() bool {
-	if o == nil || IsNil(o.PrivateOnly) {
+// GetPrivateLink returns the PrivateLink field value if set, zero value otherwise.
+func (o *CreateAccountConfigRequest) GetPrivateLink() bool {
+	if o == nil || IsNil(o.PrivateLink) {
 		var ret bool
 		return ret
 	}
-	return *o.PrivateOnly
+	return *o.PrivateLink
 }
 
-// GetPrivateOnlyOk returns a tuple with the PrivateOnly field value if set, nil otherwise
+// GetPrivateLinkOk returns a tuple with the PrivateLink field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateAccountConfigRequest) GetPrivateOnlyOk() (*bool, bool) {
-	if o == nil || IsNil(o.PrivateOnly) {
+func (o *CreateAccountConfigRequest) GetPrivateLinkOk() (*bool, bool) {
+	if o == nil || IsNil(o.PrivateLink) {
 		return nil, false
 	}
-	return o.PrivateOnly, true
+	return o.PrivateLink, true
 }
 
-// SetPrivateOnly gets a reference to the given bool and assigns it to the PrivateOnly field.
-func (o *CreateAccountConfigRequest) SetPrivateOnly(v bool) {
-	o.PrivateOnly = &v
+// SetPrivateLink gets a reference to the given bool and assigns it to the PrivateLink field.
+func (o *CreateAccountConfigRequest) SetPrivateLink(v bool) {
+	o.PrivateLink = &v
 }
 
 // GetToken returns the Token field value
@@ -560,6 +585,9 @@ func (o CreateAccountConfigRequest) MarshalJSON() ([]byte, error) {
 
 func (o CreateAccountConfigRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AllowNewCloudNativeNetworkCreation) {
+		toSerialize["allowNewCloudNativeNetworkCreation"] = o.AllowNewCloudNativeNetworkCreation
+	}
 	if !IsNil(o.AwsAccessKey) {
 		toSerialize["awsAccessKey"] = o.AwsAccessKey
 	}
@@ -608,8 +636,8 @@ func (o CreateAccountConfigRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.OciTenancyID) {
 		toSerialize["ociTenancyID"] = o.OciTenancyID
 	}
-	if !IsNil(o.PrivateOnly) {
-		toSerialize["privateOnly"] = o.PrivateOnly
+	if !IsNil(o.PrivateLink) {
+		toSerialize["privateLink"] = o.PrivateLink
 	}
 	toSerialize["token"] = o.Token
 
@@ -658,6 +686,7 @@ func (o *CreateAccountConfigRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "allowNewCloudNativeNetworkCreation")
 		delete(additionalProperties, "awsAccessKey")
 		delete(additionalProperties, "awsAccountID")
 		delete(additionalProperties, "awsBootstrapRoleARN")
@@ -676,7 +705,7 @@ func (o *CreateAccountConfigRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "nebiusTenantID")
 		delete(additionalProperties, "ociDomainID")
 		delete(additionalProperties, "ociTenancyID")
-		delete(additionalProperties, "privateOnly")
+		delete(additionalProperties, "privateLink")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

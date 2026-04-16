@@ -66,6 +66,8 @@ docs/APIEntity.md
 docs/AWSPrivateLinkConfiguration.md
 docs/AcceleratorConfiguration.md
 docs/AccountConfigApiAPI.md
+docs/AccountConfigCloudNativeNetworkOperation.md
+docs/AccountConfigCloudNativeNetworkResult.md
 docs/AccountConfigIdentityIDRequest.md
 docs/AccountConfigIdentityIDResult.md
 docs/AcknowledgeEventRequest.md
@@ -109,6 +111,8 @@ docs/BuildServiceFromComposeSpecResult.md
 docs/BuildServiceFromServicePlanSpecRequest.md
 docs/BuildServiceFromServicePlanSpecRequest2.md
 docs/BuildServiceFromServicePlanSpecResult.md
+docs/BulkImportAccountConfigCloudNativeNetworksRequest.md
+docs/BulkImportAccountConfigCloudNativeNetworksRequest2.md
 docs/CancelSubscriptionRequestRequest.md
 docs/Change.md
 docs/ChangePasswordRequest.md
@@ -470,6 +474,7 @@ docs/IdentityProviderApiAPI.md
 docs/ImageConfigApiAPI.md
 docs/ImageConfigChangeSummary.md
 docs/ImageRegistryApiAPI.md
+docs/ImportAccountConfigCloudNativeNetworkRequest.md
 docs/InfraConfigApiAPI.md
 docs/InfraConfigChangeSummary.md
 docs/InfraRollConfiguration.md
@@ -496,6 +501,8 @@ docs/L7LoadBalancerConfiguration.md
 docs/LimitApiAPI.md
 docs/Limits.md
 docs/List.md
+docs/ListAccountConfigCloudNativeNetworksRequest.md
+docs/ListAccountConfigCloudNativeNetworksResult.md
 docs/ListAccountConfigRequest.md
 docs/ListAccountConfigResult.md
 docs/ListActionHooksRequest.md
@@ -775,10 +782,13 @@ docs/StorageVolumeConfigApiAPI.md
 docs/StripeAuthorizeURLRequest.md
 docs/StripeAuthorizeURLResult.md
 docs/StripeConnectApiAPI.md
+docs/SubnetDetail.md
 docs/SubscriptionApiAPI.md
 docs/SubscriptionLicense.md
 docs/SubscriptionRequestApiAPI.md
 docs/SubscriptionUsers.md
+docs/SyncAccountConfigCloudNativeNetworksRequest.md
+docs/SyncAccountConfigCloudNativeNetworksRequest2.md
 docs/TaintConfiguration.md
 docs/TenantBillingApiAPI.md
 docs/TerraformConfiguration.md
@@ -788,6 +798,7 @@ docs/TierVersionSetApiAPI.md
 docs/TierVersionSetMetadata.md
 docs/TierVersionSetSpecSummary.md
 docs/UndeprecateResourceRequest.md
+docs/UnimportAccountConfigCloudNativeNetworkRequest.md
 docs/UnsetEnvironmentVariablesRequest.md
 docs/UnsetEnvironmentVariablesRequest2.md
 docs/UpdateAccountConfigNebiusBindingInput.md
@@ -877,6 +888,8 @@ docs/WarmPoolConfiguration.md
 docs/WorkflowFailure.md
 git_push.sh
 model_accelerator_configuration.go
+model_account_config_cloud_native_network_operation.go
+model_account_config_cloud_native_network_result.go
 model_account_config_identity_id_request.go
 model_account_config_identity_id_result.go
 model_acknowledge_event_request.go
@@ -920,6 +933,8 @@ model_build_service_from_compose_spec_result.go
 model_build_service_from_service_plan_spec_request.go
 model_build_service_from_service_plan_spec_request2.go
 model_build_service_from_service_plan_spec_result.go
+model_bulk_import_account_config_cloud_native_networks_request.go
+model_bulk_import_account_config_cloud_native_networks_request2.go
 model_cancel_subscription_request_request.go
 model_change.go
 model_change_password_request.go
@@ -1262,6 +1277,7 @@ model_helm_chart_configuration.go
 model_helm_package.go
 model_helm_runtime_configuration.go
 model_image_config_change_summary.go
+model_import_account_config_cloud_native_network_request.go
 model_infra_config_change_summary.go
 model_infra_roll_configuration.go
 model_input_parameter_entity.go
@@ -1283,6 +1299,8 @@ model_l4_load_balancer_configuration.go
 model_l7_load_balancer_configuration.go
 model_limits.go
 model_list.go
+model_list_account_config_cloud_native_networks_request.go
+model_list_account_config_cloud_native_networks_result.go
 model_list_account_config_request.go
 model_list_account_config_result.go
 model_list_action_hooks_request.go
@@ -1539,8 +1557,11 @@ model_start_resource_instance_request.go
 model_stop_resource_instance_request.go
 model_stripe_authorize_url_request.go
 model_stripe_authorize_url_result.go
+model_subnet_detail.go
 model_subscription_license.go
 model_subscription_users.go
+model_sync_account_config_cloud_native_networks_request.go
+model_sync_account_config_cloud_native_networks_request2.go
 model_taint_configuration.go
 model_terraform_configuration.go
 model_terraform_output.go
@@ -1548,6 +1569,7 @@ model_tier_version_set.go
 model_tier_version_set_metadata.go
 model_tier_version_set_spec_summary.go
 model_undeprecate_resource_request.go
+model_unimport_account_config_cloud_native_network_request.go
 model_unset_environment_variables_request.go
 model_unset_environment_variables_request2.go
 model_update_account_config_nebius_binding_input.go

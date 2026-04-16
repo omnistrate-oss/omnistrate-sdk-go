@@ -20,6 +20,8 @@ var _ MappedNullable = &DescribeAccountConfigResult{}
 
 // DescribeAccountConfigResult Account configuration including the role required to access
 type DescribeAccountConfigResult struct {
+	// Whether Omnistrate is allowed to create new CloudNativeNetworks in this account when no registered cloud native network is selected at deployment time
+	AllowNewCloudNativeNetworkCreation *bool `json:"allowNewCloudNativeNetworkCreation,omitempty"`
 	// The AWS account ID
 	AwsAccountID *string `json:"awsAccountID,omitempty"`
 	// The security role ARN or service account ARN that grants access to operate the infra
@@ -74,8 +76,8 @@ type DescribeAccountConfigResult struct {
 	OciOffboardShellCommand *string `json:"ociOffboardShellCommand,omitempty"`
 	// The Tenancy OCID for Oracle Cloud Infrastructure
 	OciTenancyID *string `json:"ociTenancyID,omitempty"`
-	// Whether all provisioned dataplanes from this provisioner account must be fully private (no public subnets, NAT gateway, or IGW)
-	PrivateOnly *bool `json:"privateOnly,omitempty"`
+	// Whether to enable AWS PrivateLink connectivity for services deployed in this account
+	PrivateLink *bool `json:"privateLink,omitempty"`
 	// The status of the account configuration
 	Status string `json:"status"`
 	// The status message of the account
@@ -106,6 +108,29 @@ func NewDescribeAccountConfigResult(cloudProviderId string, description string, 
 func NewDescribeAccountConfigResultWithDefaults() *DescribeAccountConfigResult {
 	this := DescribeAccountConfigResult{}
 	return &this
+}
+
+// GetAllowNewCloudNativeNetworkCreation returns the AllowNewCloudNativeNetworkCreation field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetAllowNewCloudNativeNetworkCreation() bool {
+	if o == nil || IsNil(o.AllowNewCloudNativeNetworkCreation) {
+		var ret bool
+		return ret
+	}
+	return *o.AllowNewCloudNativeNetworkCreation
+}
+
+// GetAllowNewCloudNativeNetworkCreationOk returns a tuple with the AllowNewCloudNativeNetworkCreation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetAllowNewCloudNativeNetworkCreationOk() (*bool, bool) {
+	if o == nil || IsNil(o.AllowNewCloudNativeNetworkCreation) {
+		return nil, false
+	}
+	return o.AllowNewCloudNativeNetworkCreation, true
+}
+
+// SetAllowNewCloudNativeNetworkCreation gets a reference to the given bool and assigns it to the AllowNewCloudNativeNetworkCreation field.
+func (o *DescribeAccountConfigResult) SetAllowNewCloudNativeNetworkCreation(v bool) {
+	o.AllowNewCloudNativeNetworkCreation = &v
 }
 
 // GetAwsAccountID returns the AwsAccountID field value if set, zero value otherwise.
@@ -733,27 +758,27 @@ func (o *DescribeAccountConfigResult) SetOciTenancyID(v string) {
 	o.OciTenancyID = &v
 }
 
-// GetPrivateOnly returns the PrivateOnly field value if set, zero value otherwise.
-func (o *DescribeAccountConfigResult) GetPrivateOnly() bool {
-	if o == nil || IsNil(o.PrivateOnly) {
+// GetPrivateLink returns the PrivateLink field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetPrivateLink() bool {
+	if o == nil || IsNil(o.PrivateLink) {
 		var ret bool
 		return ret
 	}
-	return *o.PrivateOnly
+	return *o.PrivateLink
 }
 
-// GetPrivateOnlyOk returns a tuple with the PrivateOnly field value if set, nil otherwise
+// GetPrivateLinkOk returns a tuple with the PrivateLink field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeAccountConfigResult) GetPrivateOnlyOk() (*bool, bool) {
-	if o == nil || IsNil(o.PrivateOnly) {
+func (o *DescribeAccountConfigResult) GetPrivateLinkOk() (*bool, bool) {
+	if o == nil || IsNil(o.PrivateLink) {
 		return nil, false
 	}
-	return o.PrivateOnly, true
+	return o.PrivateLink, true
 }
 
-// SetPrivateOnly gets a reference to the given bool and assigns it to the PrivateOnly field.
-func (o *DescribeAccountConfigResult) SetPrivateOnly(v bool) {
-	o.PrivateOnly = &v
+// SetPrivateLink gets a reference to the given bool and assigns it to the PrivateLink field.
+func (o *DescribeAccountConfigResult) SetPrivateLink(v bool) {
+	o.PrivateLink = &v
 }
 
 // GetStatus returns the Status field value
@@ -814,6 +839,9 @@ func (o DescribeAccountConfigResult) MarshalJSON() ([]byte, error) {
 
 func (o DescribeAccountConfigResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AllowNewCloudNativeNetworkCreation) {
+		toSerialize["allowNewCloudNativeNetworkCreation"] = o.AllowNewCloudNativeNetworkCreation
+	}
 	if !IsNil(o.AwsAccountID) {
 		toSerialize["awsAccountID"] = o.AwsAccountID
 	}
@@ -887,8 +915,8 @@ func (o DescribeAccountConfigResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.OciTenancyID) {
 		toSerialize["ociTenancyID"] = o.OciTenancyID
 	}
-	if !IsNil(o.PrivateOnly) {
-		toSerialize["privateOnly"] = o.PrivateOnly
+	if !IsNil(o.PrivateLink) {
+		toSerialize["privateLink"] = o.PrivateLink
 	}
 	toSerialize["status"] = o.Status
 	toSerialize["statusMessage"] = o.StatusMessage
@@ -940,6 +968,7 @@ func (o *DescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "allowNewCloudNativeNetworkCreation")
 		delete(additionalProperties, "awsAccountID")
 		delete(additionalProperties, "awsBootstrapRoleARN")
 		delete(additionalProperties, "awsCloudFormationNoLBTemplateURL")
@@ -967,7 +996,7 @@ func (o *DescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "ociDomainID")
 		delete(additionalProperties, "ociOffboardShellCommand")
 		delete(additionalProperties, "ociTenancyID")
-		delete(additionalProperties, "privateOnly")
+		delete(additionalProperties, "privateLink")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "statusMessage")
 		o.AdditionalProperties = additionalProperties

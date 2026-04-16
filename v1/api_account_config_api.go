@@ -37,6 +37,21 @@ type AccountConfigApiAPI interface {
 	AccountConfigApiAccountConfigIdentityIDExecute(r ApiAccountConfigApiAccountConfigIdentityIDRequest) (*AccountConfigIdentityIDResult, *http.Response, error)
 
 	/*
+	AccountConfigApiBulkImportAccountConfigCloudNativeNetworks BulkImportAccountConfigCloudNativeNetworks account-config-api
+
+	Bulk import or unimport CloudNativeNetworks for deployments
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id Account Config ID to operate on
+	@return ApiAccountConfigApiBulkImportAccountConfigCloudNativeNetworksRequest
+	*/
+	AccountConfigApiBulkImportAccountConfigCloudNativeNetworks(ctx context.Context, id string) ApiAccountConfigApiBulkImportAccountConfigCloudNativeNetworksRequest
+
+	// AccountConfigApiBulkImportAccountConfigCloudNativeNetworksExecute executes the request
+	//  @return ListAccountConfigCloudNativeNetworksResult
+	AccountConfigApiBulkImportAccountConfigCloudNativeNetworksExecute(r ApiAccountConfigApiBulkImportAccountConfigCloudNativeNetworksRequest) (*ListAccountConfigCloudNativeNetworksResult, *http.Response, error)
+
+	/*
 	AccountConfigApiCreateAccountConfig CreateAccountConfig account-config-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -139,6 +154,22 @@ type AccountConfigApiAPI interface {
 	AccountConfigApiDescribeAccountConfigByOCITenancyIDExecute(r ApiAccountConfigApiDescribeAccountConfigByOCITenancyIDRequest) (*DescribeAccountConfigByOCITenancyIDResult, *http.Response, error)
 
 	/*
+	AccountConfigApiImportAccountConfigCloudNativeNetwork ImportAccountConfigCloudNativeNetwork account-config-api
+
+	Import an available cloud native network for deployments (sets status to READY)
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id Account Config ID to operate on
+	@param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) to import for deployments
+	@return ApiAccountConfigApiImportAccountConfigCloudNativeNetworkRequest
+	*/
+	AccountConfigApiImportAccountConfigCloudNativeNetwork(ctx context.Context, id string, cloudNativeNetworkId string) ApiAccountConfigApiImportAccountConfigCloudNativeNetworkRequest
+
+	// AccountConfigApiImportAccountConfigCloudNativeNetworkExecute executes the request
+	//  @return ListAccountConfigCloudNativeNetworksResult
+	AccountConfigApiImportAccountConfigCloudNativeNetworkExecute(r ApiAccountConfigApiImportAccountConfigCloudNativeNetworkRequest) (*ListAccountConfigCloudNativeNetworksResult, *http.Response, error)
+
+	/*
 	AccountConfigApiListAccountConfig ListAccountConfig account-config-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -152,6 +183,21 @@ type AccountConfigApiAPI interface {
 	AccountConfigApiListAccountConfigExecute(r ApiAccountConfigApiListAccountConfigRequest) (*ListAccountConfigResult, *http.Response, error)
 
 	/*
+	AccountConfigApiListAccountConfigCloudNativeNetworks ListAccountConfigCloudNativeNetworks account-config-api
+
+	List all registered CloudNativeNetworks for an account configuration
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id Account Config ID to operate on
+	@return ApiAccountConfigApiListAccountConfigCloudNativeNetworksRequest
+	*/
+	AccountConfigApiListAccountConfigCloudNativeNetworks(ctx context.Context, id string) ApiAccountConfigApiListAccountConfigCloudNativeNetworksRequest
+
+	// AccountConfigApiListAccountConfigCloudNativeNetworksExecute executes the request
+	//  @return ListAccountConfigCloudNativeNetworksResult
+	AccountConfigApiListAccountConfigCloudNativeNetworksExecute(r ApiAccountConfigApiListAccountConfigCloudNativeNetworksRequest) (*ListAccountConfigCloudNativeNetworksResult, *http.Response, error)
+
+	/*
 	AccountConfigApiListBYOAConfig ListBYOAConfig account-config-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -162,6 +208,37 @@ type AccountConfigApiAPI interface {
 	// AccountConfigApiListBYOAConfigExecute executes the request
 	//  @return ListBYOAConfigResult
 	AccountConfigApiListBYOAConfigExecute(r ApiAccountConfigApiListBYOAConfigRequest) (*ListBYOAConfigResult, *http.Response, error)
+
+	/*
+	AccountConfigApiSyncAccountConfigCloudNativeNetworks SyncAccountConfigCloudNativeNetworks account-config-api
+
+	Sync CloudNativeNetworks from the customer's AWS account: discovers CloudNativeNetworks and upserts them into the database
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id Account Config ID to operate on
+	@return ApiAccountConfigApiSyncAccountConfigCloudNativeNetworksRequest
+	*/
+	AccountConfigApiSyncAccountConfigCloudNativeNetworks(ctx context.Context, id string) ApiAccountConfigApiSyncAccountConfigCloudNativeNetworksRequest
+
+	// AccountConfigApiSyncAccountConfigCloudNativeNetworksExecute executes the request
+	//  @return ListAccountConfigCloudNativeNetworksResult
+	AccountConfigApiSyncAccountConfigCloudNativeNetworksExecute(r ApiAccountConfigApiSyncAccountConfigCloudNativeNetworksRequest) (*ListAccountConfigCloudNativeNetworksResult, *http.Response, error)
+
+	/*
+	AccountConfigApiUnimportAccountConfigCloudNativeNetwork UnimportAccountConfigCloudNativeNetwork account-config-api
+
+	Unimport a cloud native network, reverting it from READY to AVAILABLE
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id Account Config ID to operate on
+	@param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) to unimport (revert from READY to AVAILABLE)
+	@return ApiAccountConfigApiUnimportAccountConfigCloudNativeNetworkRequest
+	*/
+	AccountConfigApiUnimportAccountConfigCloudNativeNetwork(ctx context.Context, id string, cloudNativeNetworkId string) ApiAccountConfigApiUnimportAccountConfigCloudNativeNetworkRequest
+
+	// AccountConfigApiUnimportAccountConfigCloudNativeNetworkExecute executes the request
+	//  @return ListAccountConfigCloudNativeNetworksResult
+	AccountConfigApiUnimportAccountConfigCloudNativeNetworkExecute(r ApiAccountConfigApiUnimportAccountConfigCloudNativeNetworkRequest) (*ListAccountConfigCloudNativeNetworksResult, *http.Response, error)
 
 	/*
 	AccountConfigApiUpdateAccountConfig UpdateAccountConfig account-config-api
@@ -277,6 +354,174 @@ func (a *AccountConfigApiAPIService) AccountConfigApiAccountConfigIdentityIDExec
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiAccountConfigApiBulkImportAccountConfigCloudNativeNetworksRequest struct {
+	ctx context.Context
+	ApiService AccountConfigApiAPI
+	id string
+	bulkImportAccountConfigCloudNativeNetworksRequest2 *BulkImportAccountConfigCloudNativeNetworksRequest2
+}
+
+func (r ApiAccountConfigApiBulkImportAccountConfigCloudNativeNetworksRequest) BulkImportAccountConfigCloudNativeNetworksRequest2(bulkImportAccountConfigCloudNativeNetworksRequest2 BulkImportAccountConfigCloudNativeNetworksRequest2) ApiAccountConfigApiBulkImportAccountConfigCloudNativeNetworksRequest {
+	r.bulkImportAccountConfigCloudNativeNetworksRequest2 = &bulkImportAccountConfigCloudNativeNetworksRequest2
+	return r
+}
+
+func (r ApiAccountConfigApiBulkImportAccountConfigCloudNativeNetworksRequest) Execute() (*ListAccountConfigCloudNativeNetworksResult, *http.Response, error) {
+	return r.ApiService.AccountConfigApiBulkImportAccountConfigCloudNativeNetworksExecute(r)
+}
+
+/*
+AccountConfigApiBulkImportAccountConfigCloudNativeNetworks BulkImportAccountConfigCloudNativeNetworks account-config-api
+
+Bulk import or unimport CloudNativeNetworks for deployments
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id Account Config ID to operate on
+ @return ApiAccountConfigApiBulkImportAccountConfigCloudNativeNetworksRequest
+*/
+func (a *AccountConfigApiAPIService) AccountConfigApiBulkImportAccountConfigCloudNativeNetworks(ctx context.Context, id string) ApiAccountConfigApiBulkImportAccountConfigCloudNativeNetworksRequest {
+	return ApiAccountConfigApiBulkImportAccountConfigCloudNativeNetworksRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+//  @return ListAccountConfigCloudNativeNetworksResult
+func (a *AccountConfigApiAPIService) AccountConfigApiBulkImportAccountConfigCloudNativeNetworksExecute(r ApiAccountConfigApiBulkImportAccountConfigCloudNativeNetworksRequest) (*ListAccountConfigCloudNativeNetworksResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListAccountConfigCloudNativeNetworksResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountConfigApiAPIService.AccountConfigApiBulkImportAccountConfigCloudNativeNetworks")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/accountconfig/{id}/cloud-native-networks/import"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.bulkImportAccountConfigCloudNativeNetworksRequest2 == nil {
+		return localVarReturnValue, nil, reportError("bulkImportAccountConfigCloudNativeNetworksRequest2 is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.bulkImportAccountConfigCloudNativeNetworksRequest2
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1592,6 +1837,167 @@ func (a *AccountConfigApiAPIService) AccountConfigApiDescribeAccountConfigByOCIT
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiAccountConfigApiImportAccountConfigCloudNativeNetworkRequest struct {
+	ctx context.Context
+	ApiService AccountConfigApiAPI
+	id string
+	cloudNativeNetworkId string
+}
+
+func (r ApiAccountConfigApiImportAccountConfigCloudNativeNetworkRequest) Execute() (*ListAccountConfigCloudNativeNetworksResult, *http.Response, error) {
+	return r.ApiService.AccountConfigApiImportAccountConfigCloudNativeNetworkExecute(r)
+}
+
+/*
+AccountConfigApiImportAccountConfigCloudNativeNetwork ImportAccountConfigCloudNativeNetwork account-config-api
+
+Import an available cloud native network for deployments (sets status to READY)
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id Account Config ID to operate on
+ @param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) to import for deployments
+ @return ApiAccountConfigApiImportAccountConfigCloudNativeNetworkRequest
+*/
+func (a *AccountConfigApiAPIService) AccountConfigApiImportAccountConfigCloudNativeNetwork(ctx context.Context, id string, cloudNativeNetworkId string) ApiAccountConfigApiImportAccountConfigCloudNativeNetworkRequest {
+	return ApiAccountConfigApiImportAccountConfigCloudNativeNetworkRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+		cloudNativeNetworkId: cloudNativeNetworkId,
+	}
+}
+
+// Execute executes the request
+//  @return ListAccountConfigCloudNativeNetworksResult
+func (a *AccountConfigApiAPIService) AccountConfigApiImportAccountConfigCloudNativeNetworkExecute(r ApiAccountConfigApiImportAccountConfigCloudNativeNetworkRequest) (*ListAccountConfigCloudNativeNetworksResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListAccountConfigCloudNativeNetworksResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountConfigApiAPIService.AccountConfigApiImportAccountConfigCloudNativeNetwork")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/accountconfig/{id}/cloud-native-networks/{cloudNativeNetworkId}/import"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"cloudNativeNetworkId"+"}", url.PathEscape(parameterValueToString(r.cloudNativeNetworkId, "cloudNativeNetworkId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiAccountConfigApiListAccountConfigRequest struct {
 	ctx context.Context
 	ApiService AccountConfigApiAPI
@@ -1723,6 +2129,152 @@ func (a *AccountConfigApiAPIService) AccountConfigApiListAccountConfigExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiAccountConfigApiListAccountConfigCloudNativeNetworksRequest struct {
+	ctx context.Context
+	ApiService AccountConfigApiAPI
+	id string
+}
+
+func (r ApiAccountConfigApiListAccountConfigCloudNativeNetworksRequest) Execute() (*ListAccountConfigCloudNativeNetworksResult, *http.Response, error) {
+	return r.ApiService.AccountConfigApiListAccountConfigCloudNativeNetworksExecute(r)
+}
+
+/*
+AccountConfigApiListAccountConfigCloudNativeNetworks ListAccountConfigCloudNativeNetworks account-config-api
+
+List all registered CloudNativeNetworks for an account configuration
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id Account Config ID to operate on
+ @return ApiAccountConfigApiListAccountConfigCloudNativeNetworksRequest
+*/
+func (a *AccountConfigApiAPIService) AccountConfigApiListAccountConfigCloudNativeNetworks(ctx context.Context, id string) ApiAccountConfigApiListAccountConfigCloudNativeNetworksRequest {
+	return ApiAccountConfigApiListAccountConfigCloudNativeNetworksRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+//  @return ListAccountConfigCloudNativeNetworksResult
+func (a *AccountConfigApiAPIService) AccountConfigApiListAccountConfigCloudNativeNetworksExecute(r ApiAccountConfigApiListAccountConfigCloudNativeNetworksRequest) (*ListAccountConfigCloudNativeNetworksResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListAccountConfigCloudNativeNetworksResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountConfigApiAPIService.AccountConfigApiListAccountConfigCloudNativeNetworks")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/accountconfig/{id}/cloud-native-networks"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1896,6 +2448,324 @@ func (a *AccountConfigApiAPIService) AccountConfigApiListBYOAConfigExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiAccountConfigApiSyncAccountConfigCloudNativeNetworksRequest struct {
+	ctx context.Context
+	ApiService AccountConfigApiAPI
+	id string
+	syncAccountConfigCloudNativeNetworksRequest2 *SyncAccountConfigCloudNativeNetworksRequest2
+}
+
+func (r ApiAccountConfigApiSyncAccountConfigCloudNativeNetworksRequest) SyncAccountConfigCloudNativeNetworksRequest2(syncAccountConfigCloudNativeNetworksRequest2 SyncAccountConfigCloudNativeNetworksRequest2) ApiAccountConfigApiSyncAccountConfigCloudNativeNetworksRequest {
+	r.syncAccountConfigCloudNativeNetworksRequest2 = &syncAccountConfigCloudNativeNetworksRequest2
+	return r
+}
+
+func (r ApiAccountConfigApiSyncAccountConfigCloudNativeNetworksRequest) Execute() (*ListAccountConfigCloudNativeNetworksResult, *http.Response, error) {
+	return r.ApiService.AccountConfigApiSyncAccountConfigCloudNativeNetworksExecute(r)
+}
+
+/*
+AccountConfigApiSyncAccountConfigCloudNativeNetworks SyncAccountConfigCloudNativeNetworks account-config-api
+
+Sync CloudNativeNetworks from the customer's AWS account: discovers CloudNativeNetworks and upserts them into the database
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id Account Config ID to operate on
+ @return ApiAccountConfigApiSyncAccountConfigCloudNativeNetworksRequest
+*/
+func (a *AccountConfigApiAPIService) AccountConfigApiSyncAccountConfigCloudNativeNetworks(ctx context.Context, id string) ApiAccountConfigApiSyncAccountConfigCloudNativeNetworksRequest {
+	return ApiAccountConfigApiSyncAccountConfigCloudNativeNetworksRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+//  @return ListAccountConfigCloudNativeNetworksResult
+func (a *AccountConfigApiAPIService) AccountConfigApiSyncAccountConfigCloudNativeNetworksExecute(r ApiAccountConfigApiSyncAccountConfigCloudNativeNetworksRequest) (*ListAccountConfigCloudNativeNetworksResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListAccountConfigCloudNativeNetworksResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountConfigApiAPIService.AccountConfigApiSyncAccountConfigCloudNativeNetworks")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/accountconfig/{id}/cloud-native-networks/sync"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.syncAccountConfigCloudNativeNetworksRequest2 == nil {
+		return localVarReturnValue, nil, reportError("syncAccountConfigCloudNativeNetworksRequest2 is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.syncAccountConfigCloudNativeNetworksRequest2
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiAccountConfigApiUnimportAccountConfigCloudNativeNetworkRequest struct {
+	ctx context.Context
+	ApiService AccountConfigApiAPI
+	id string
+	cloudNativeNetworkId string
+}
+
+func (r ApiAccountConfigApiUnimportAccountConfigCloudNativeNetworkRequest) Execute() (*ListAccountConfigCloudNativeNetworksResult, *http.Response, error) {
+	return r.ApiService.AccountConfigApiUnimportAccountConfigCloudNativeNetworkExecute(r)
+}
+
+/*
+AccountConfigApiUnimportAccountConfigCloudNativeNetwork UnimportAccountConfigCloudNativeNetwork account-config-api
+
+Unimport a cloud native network, reverting it from READY to AVAILABLE
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id Account Config ID to operate on
+ @param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) to unimport (revert from READY to AVAILABLE)
+ @return ApiAccountConfigApiUnimportAccountConfigCloudNativeNetworkRequest
+*/
+func (a *AccountConfigApiAPIService) AccountConfigApiUnimportAccountConfigCloudNativeNetwork(ctx context.Context, id string, cloudNativeNetworkId string) ApiAccountConfigApiUnimportAccountConfigCloudNativeNetworkRequest {
+	return ApiAccountConfigApiUnimportAccountConfigCloudNativeNetworkRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+		cloudNativeNetworkId: cloudNativeNetworkId,
+	}
+}
+
+// Execute executes the request
+//  @return ListAccountConfigCloudNativeNetworksResult
+func (a *AccountConfigApiAPIService) AccountConfigApiUnimportAccountConfigCloudNativeNetworkExecute(r ApiAccountConfigApiUnimportAccountConfigCloudNativeNetworkRequest) (*ListAccountConfigCloudNativeNetworksResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListAccountConfigCloudNativeNetworksResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountConfigApiAPIService.AccountConfigApiUnimportAccountConfigCloudNativeNetwork")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/accountconfig/{id}/cloud-native-networks/{cloudNativeNetworkId}/unimport"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"cloudNativeNetworkId"+"}", url.PathEscape(parameterValueToString(r.cloudNativeNetworkId, "cloudNativeNetworkId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

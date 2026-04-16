@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AllowNewCloudNativeNetworkCreation** | Pointer to **bool** | Whether Omnistrate is allowed to create new CloudNativeNetworks in this account when no registered cloud native network is selected at deployment time | [optional] 
 **Description** | Pointer to **string** | The updated description for the account | [optional] 
 **Id** | **string** | ID of an Account Config | 
 **Name** | Pointer to **string** | The updated name of the account | [optional] 
@@ -28,6 +29,31 @@ will change when the set of required properties is changed
 NewUpdateAccountConfigRequestWithDefaults instantiates a new UpdateAccountConfigRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAllowNewCloudNativeNetworkCreation
+
+`func (o *UpdateAccountConfigRequest) GetAllowNewCloudNativeNetworkCreation() bool`
+
+GetAllowNewCloudNativeNetworkCreation returns the AllowNewCloudNativeNetworkCreation field if non-nil, zero value otherwise.
+
+### GetAllowNewCloudNativeNetworkCreationOk
+
+`func (o *UpdateAccountConfigRequest) GetAllowNewCloudNativeNetworkCreationOk() (*bool, bool)`
+
+GetAllowNewCloudNativeNetworkCreationOk returns a tuple with the AllowNewCloudNativeNetworkCreation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowNewCloudNativeNetworkCreation
+
+`func (o *UpdateAccountConfigRequest) SetAllowNewCloudNativeNetworkCreation(v bool)`
+
+SetAllowNewCloudNativeNetworkCreation sets AllowNewCloudNativeNetworkCreation field to given value.
+
+### HasAllowNewCloudNativeNetworkCreation
+
+`func (o *UpdateAccountConfigRequest) HasAllowNewCloudNativeNetworkCreation() bool`
+
+HasAllowNewCloudNativeNetworkCreation returns a boolean if a field has been set.
 
 ### GetDescription
 
