@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **KubernetesDashboardEndpoint** | Pointer to **string** | Endpoint of the Kubernetes dashboard | [optional] 
 **ModelType** | Pointer to **string** | The model type encapsulating this service | [optional] 
 **PendingAmenities** | Pointer to [**[]Amenity**](Amenity.md) | The pending amenities for the host cluster | [optional] 
+**PrivateLinkEnabled** | Pointer to **bool** | Whether the host cluster is provisioned with PrivateLink network topology. For BYOA deployment cells, this is derived from the BYOA instance input parameters at creation time and is immutable thereafter; dataplane host cluster reuse is scoped to a single PrivateLink topology. | [optional] 
 **Region** | **string** | The actual region name of the host cluster | 
 **RegionId** | **string** | ID of a Region | 
 **Role** | Pointer to **string** |  | [optional] 
@@ -560,6 +561,31 @@ SetPendingAmenities sets PendingAmenities field to given value.
 `func (o *HostCluster) HasPendingAmenities() bool`
 
 HasPendingAmenities returns a boolean if a field has been set.
+
+### GetPrivateLinkEnabled
+
+`func (o *HostCluster) GetPrivateLinkEnabled() bool`
+
+GetPrivateLinkEnabled returns the PrivateLinkEnabled field if non-nil, zero value otherwise.
+
+### GetPrivateLinkEnabledOk
+
+`func (o *HostCluster) GetPrivateLinkEnabledOk() (*bool, bool)`
+
+GetPrivateLinkEnabledOk returns a tuple with the PrivateLinkEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrivateLinkEnabled
+
+`func (o *HostCluster) SetPrivateLinkEnabled(v bool)`
+
+SetPrivateLinkEnabled sets PrivateLinkEnabled field to given value.
+
+### HasPrivateLinkEnabled
+
+`func (o *HostCluster) HasPrivateLinkEnabled() bool`
+
+HasPrivateLinkEnabled returns a boolean if a field has been set.
 
 ### GetRegion
 

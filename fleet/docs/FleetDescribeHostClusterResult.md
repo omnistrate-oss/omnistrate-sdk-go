@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **Id** | **string** | ID of a Host Cluster | 
 **OciTenancyID** | Pointer to **string** | The Tenancy OCID for Oracle Cloud Infrastructure | [optional] 
+**PrivateLinkEnabled** | Pointer to **bool** | Whether the host cluster is provisioned with PrivateLink network topology (BYOA only). Immutable after creation. | [optional] 
 **Region** | **string** | The region of the host cluster | 
 **Status** | **string** | The status of an operation | 
 **Type** | **string** |  | 
@@ -224,6 +225,31 @@ SetOciTenancyID sets OciTenancyID field to given value.
 `func (o *FleetDescribeHostClusterResult) HasOciTenancyID() bool`
 
 HasOciTenancyID returns a boolean if a field has been set.
+
+### GetPrivateLinkEnabled
+
+`func (o *FleetDescribeHostClusterResult) GetPrivateLinkEnabled() bool`
+
+GetPrivateLinkEnabled returns the PrivateLinkEnabled field if non-nil, zero value otherwise.
+
+### GetPrivateLinkEnabledOk
+
+`func (o *FleetDescribeHostClusterResult) GetPrivateLinkEnabledOk() (*bool, bool)`
+
+GetPrivateLinkEnabledOk returns a tuple with the PrivateLinkEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrivateLinkEnabled
+
+`func (o *FleetDescribeHostClusterResult) SetPrivateLinkEnabled(v bool)`
+
+SetPrivateLinkEnabled sets PrivateLinkEnabled field to given value.
+
+### HasPrivateLinkEnabled
+
+`func (o *FleetDescribeHostClusterResult) HasPrivateLinkEnabled() bool`
+
+HasPrivateLinkEnabled returns a boolean if a field has been set.
 
 ### GetRegion
 

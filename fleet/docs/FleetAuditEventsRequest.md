@@ -4,17 +4,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**BillingProvider** | Pointer to **string** | The billing provider on the instance&#39;s subscription. Empty when no subscription is linked. | [optional] 
 **EndDate** | Pointer to **time.Time** | End time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start. | [optional] 
 **EnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
 **EventSourceTypes** | Pointer to **[]string** | The event types to filter by | [optional] 
 **ExcludeWorkflowFailures** | Pointer to **bool** | Whether to exclude workflow failure details from the response. | [optional] 
+**ExternalPayerId** | Pointer to **string** | The raw external payer ID on the instance&#39;s subscription. | [optional] 
 **InstanceID** | Pointer to **string** | ID of a Resource Instance | [optional] 
+**IpAddress** | Pointer to **string** | The IP address of the client that caused the event (exact match) | [optional] 
 **NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
+**OrgId** | Pointer to **string** | ID of an Org | [optional] 
 **PageSize** | Pointer to **int64** | The number of resources to return per page | [optional] 
 **ProductTierID** | Pointer to **string** | ID of a Product Tier | [optional] 
 **ServiceID** | Pointer to **string** | ID of a Service | [optional] 
 **StartDate** | Pointer to **time.Time** | Start time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start. | [optional] 
+**SubscriptionId** | Pointer to **string** | The subscription ID | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
+**UserId** | Pointer to **string** | ID of a User | [optional] 
 
 ## Methods
 
@@ -34,6 +40,31 @@ will change when the set of required properties is changed
 NewFleetAuditEventsRequestWithDefaults instantiates a new FleetAuditEventsRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetBillingProvider
+
+`func (o *FleetAuditEventsRequest) GetBillingProvider() string`
+
+GetBillingProvider returns the BillingProvider field if non-nil, zero value otherwise.
+
+### GetBillingProviderOk
+
+`func (o *FleetAuditEventsRequest) GetBillingProviderOk() (*string, bool)`
+
+GetBillingProviderOk returns a tuple with the BillingProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBillingProvider
+
+`func (o *FleetAuditEventsRequest) SetBillingProvider(v string)`
+
+SetBillingProvider sets BillingProvider field to given value.
+
+### HasBillingProvider
+
+`func (o *FleetAuditEventsRequest) HasBillingProvider() bool`
+
+HasBillingProvider returns a boolean if a field has been set.
 
 ### GetEndDate
 
@@ -135,6 +166,31 @@ SetExcludeWorkflowFailures sets ExcludeWorkflowFailures field to given value.
 
 HasExcludeWorkflowFailures returns a boolean if a field has been set.
 
+### GetExternalPayerId
+
+`func (o *FleetAuditEventsRequest) GetExternalPayerId() string`
+
+GetExternalPayerId returns the ExternalPayerId field if non-nil, zero value otherwise.
+
+### GetExternalPayerIdOk
+
+`func (o *FleetAuditEventsRequest) GetExternalPayerIdOk() (*string, bool)`
+
+GetExternalPayerIdOk returns a tuple with the ExternalPayerId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalPayerId
+
+`func (o *FleetAuditEventsRequest) SetExternalPayerId(v string)`
+
+SetExternalPayerId sets ExternalPayerId field to given value.
+
+### HasExternalPayerId
+
+`func (o *FleetAuditEventsRequest) HasExternalPayerId() bool`
+
+HasExternalPayerId returns a boolean if a field has been set.
+
 ### GetInstanceID
 
 `func (o *FleetAuditEventsRequest) GetInstanceID() string`
@@ -160,6 +216,31 @@ SetInstanceID sets InstanceID field to given value.
 
 HasInstanceID returns a boolean if a field has been set.
 
+### GetIpAddress
+
+`func (o *FleetAuditEventsRequest) GetIpAddress() string`
+
+GetIpAddress returns the IpAddress field if non-nil, zero value otherwise.
+
+### GetIpAddressOk
+
+`func (o *FleetAuditEventsRequest) GetIpAddressOk() (*string, bool)`
+
+GetIpAddressOk returns a tuple with the IpAddress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIpAddress
+
+`func (o *FleetAuditEventsRequest) SetIpAddress(v string)`
+
+SetIpAddress sets IpAddress field to given value.
+
+### HasIpAddress
+
+`func (o *FleetAuditEventsRequest) HasIpAddress() bool`
+
+HasIpAddress returns a boolean if a field has been set.
+
 ### GetNextPageToken
 
 `func (o *FleetAuditEventsRequest) GetNextPageToken() string`
@@ -184,6 +265,31 @@ SetNextPageToken sets NextPageToken field to given value.
 `func (o *FleetAuditEventsRequest) HasNextPageToken() bool`
 
 HasNextPageToken returns a boolean if a field has been set.
+
+### GetOrgId
+
+`func (o *FleetAuditEventsRequest) GetOrgId() string`
+
+GetOrgId returns the OrgId field if non-nil, zero value otherwise.
+
+### GetOrgIdOk
+
+`func (o *FleetAuditEventsRequest) GetOrgIdOk() (*string, bool)`
+
+GetOrgIdOk returns a tuple with the OrgId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrgId
+
+`func (o *FleetAuditEventsRequest) SetOrgId(v string)`
+
+SetOrgId sets OrgId field to given value.
+
+### HasOrgId
+
+`func (o *FleetAuditEventsRequest) HasOrgId() bool`
+
+HasOrgId returns a boolean if a field has been set.
 
 ### GetPageSize
 
@@ -285,6 +391,31 @@ SetStartDate sets StartDate field to given value.
 
 HasStartDate returns a boolean if a field has been set.
 
+### GetSubscriptionId
+
+`func (o *FleetAuditEventsRequest) GetSubscriptionId() string`
+
+GetSubscriptionId returns the SubscriptionId field if non-nil, zero value otherwise.
+
+### GetSubscriptionIdOk
+
+`func (o *FleetAuditEventsRequest) GetSubscriptionIdOk() (*string, bool)`
+
+GetSubscriptionIdOk returns a tuple with the SubscriptionId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscriptionId
+
+`func (o *FleetAuditEventsRequest) SetSubscriptionId(v string)`
+
+SetSubscriptionId sets SubscriptionId field to given value.
+
+### HasSubscriptionId
+
+`func (o *FleetAuditEventsRequest) HasSubscriptionId() bool`
+
+HasSubscriptionId returns a boolean if a field has been set.
+
 ### GetToken
 
 `func (o *FleetAuditEventsRequest) GetToken() string`
@@ -304,6 +435,31 @@ and a boolean to check if the value has been set.
 
 SetToken sets Token field to given value.
 
+
+### GetUserId
+
+`func (o *FleetAuditEventsRequest) GetUserId() string`
+
+GetUserId returns the UserId field if non-nil, zero value otherwise.
+
+### GetUserIdOk
+
+`func (o *FleetAuditEventsRequest) GetUserIdOk() (*string, bool)`
+
+GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserId
+
+`func (o *FleetAuditEventsRequest) SetUserId(v string)`
+
+SetUserId sets UserId field to given value.
+
+### HasUserId
+
+`func (o *FleetAuditEventsRequest) HasUserId() bool`
+
+HasUserId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

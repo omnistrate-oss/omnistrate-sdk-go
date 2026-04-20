@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## AuditEventsApiAuditEvents
 
-> FleetAuditEventsResult AuditEventsApiAuditEvents(ctx).NextPageToken(nextPageToken).PageSize(pageSize).ServiceID(serviceID).EnvironmentType(environmentType).EventSourceTypes(eventSourceTypes).InstanceID(instanceID).ProductTierID(productTierID).StartDate(startDate).EndDate(endDate).ExcludeWorkflowFailures(excludeWorkflowFailures).Execute()
+> FleetAuditEventsResult AuditEventsApiAuditEvents(ctx).FleetAuditEventsRequest2(fleetAuditEventsRequest2).NextPageToken(nextPageToken).PageSize(pageSize).ServiceID(serviceID).EnvironmentType(environmentType).EventSourceTypes(eventSourceTypes).InstanceID(instanceID).ProductTierID(productTierID).StartDate(startDate).EndDate(endDate).ExcludeWorkflowFailures(excludeWorkflowFailures).Execute()
 
 AuditEvents audit-events-api
 
@@ -28,11 +28,12 @@ import (
 )
 
 func main() {
+	fleetAuditEventsRequest2 := *openapiclient.NewFleetAuditEventsRequest2() // FleetAuditEventsRequest2 | 
 	nextPageToken := "token" // string |  (optional)
 	pageSize := int64(10) // int64 |  (optional)
 	serviceID := "s-123456" // string | The service ID to list events for (optional)
 	environmentType := "PROD|PRIVATE|CANARY|STAGING|QA|DEV|GLOBAL" // string |  (optional)
-	eventSourceTypes := []string{"Esse est et assumenda."} // []string | The event types to filter by (optional)
+	eventSourceTypes := []string{"Autem eius eligendi quidem accusamus."} // []string | The event types to filter by (optional)
 	instanceID := "instance-12345678" // string | The instance ID to list events for (optional)
 	productTierID := "Veritatis rerum quam voluptates eum." // string |  (optional)
 	startDate := time.Now() // time.Time | Start date of the events (optional)
@@ -41,7 +42,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AuditEventsApiAPI.AuditEventsApiAuditEvents(context.Background()).NextPageToken(nextPageToken).PageSize(pageSize).ServiceID(serviceID).EnvironmentType(environmentType).EventSourceTypes(eventSourceTypes).InstanceID(instanceID).ProductTierID(productTierID).StartDate(startDate).EndDate(endDate).ExcludeWorkflowFailures(excludeWorkflowFailures).Execute()
+	resp, r, err := apiClient.AuditEventsApiAPI.AuditEventsApiAuditEvents(context.Background()).FleetAuditEventsRequest2(fleetAuditEventsRequest2).NextPageToken(nextPageToken).PageSize(pageSize).ServiceID(serviceID).EnvironmentType(environmentType).EventSourceTypes(eventSourceTypes).InstanceID(instanceID).ProductTierID(productTierID).StartDate(startDate).EndDate(endDate).ExcludeWorkflowFailures(excludeWorkflowFailures).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AuditEventsApiAPI.AuditEventsApiAuditEvents``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -62,6 +63,7 @@ Other parameters are passed through a pointer to a apiAuditEventsApiAuditEventsR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **fleetAuditEventsRequest2** | [**FleetAuditEventsRequest2**](FleetAuditEventsRequest2.md) |  | 
  **nextPageToken** | **string** |  | 
  **pageSize** | **int64** |  | 
  **serviceID** | **string** | The service ID to list events for | 
@@ -83,7 +85,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

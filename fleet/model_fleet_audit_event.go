@@ -20,14 +20,24 @@ var _ MappedNullable = &FleetAuditEvent{}
 
 // FleetAuditEvent struct for FleetAuditEvent
 type FleetAuditEvent struct {
+	// The billing provider on the instance's subscription. Empty when no subscription is linked.
+	BillingProvider *string `json:"billingProvider,omitempty"`
+	// The cloud provider name where the instance is deployed.
+	CloudProvider *string `json:"cloudProvider,omitempty"`
+	// The cloud provider account ID associated with the instance.
+	CloudProviderAccountId *string `json:"cloudProviderAccountId,omitempty"`
 	// ID of a Service Environment
 	EnvironmentId string `json:"environmentId"`
 	// The event source
 	EventSource *string `json:"eventSource,omitempty"`
+	// The raw external payer ID on the instance's subscription.
+	ExternalPayerId *string `json:"externalPayerId,omitempty"`
 	// ID of a Event
 	Id string `json:"id"`
 	// ID of a Resource Instance
 	InstanceId string `json:"instanceId"`
+	// The IP address of the client that caused the event.
+	IpAddress *string `json:"ipAddress,omitempty"`
 	// Resource Instance of message
 	Message string `json:"message"`
 	// ID of an Org
@@ -38,6 +48,8 @@ type FleetAuditEvent struct {
 	PlanVersion string `json:"planVersion"`
 	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
+	// The region code where the instance is deployed.
+	Region *string `json:"region,omitempty"`
 	// Name of the resource
 	ResourceName string `json:"resourceName"`
 	// ID of a Service
@@ -89,6 +101,102 @@ func NewFleetAuditEvent(environmentId string, id string, instanceId string, mess
 func NewFleetAuditEventWithDefaults() *FleetAuditEvent {
 	this := FleetAuditEvent{}
 	return &this
+}
+
+// GetBillingProvider returns the BillingProvider field value if set, zero value otherwise.
+func (o *FleetAuditEvent) GetBillingProvider() string {
+	if o == nil || IsNil(o.BillingProvider) {
+		var ret string
+		return ret
+	}
+	return *o.BillingProvider
+}
+
+// GetBillingProviderOk returns a tuple with the BillingProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAuditEvent) GetBillingProviderOk() (*string, bool) {
+	if o == nil || IsNil(o.BillingProvider) {
+		return nil, false
+	}
+	return o.BillingProvider, true
+}
+
+// HasBillingProvider returns a boolean if a field has been set.
+func (o *FleetAuditEvent) HasBillingProvider() bool {
+	if o != nil && !IsNil(o.BillingProvider) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingProvider gets a reference to the given string and assigns it to the BillingProvider field.
+func (o *FleetAuditEvent) SetBillingProvider(v string) {
+	o.BillingProvider = &v
+}
+
+// GetCloudProvider returns the CloudProvider field value if set, zero value otherwise.
+func (o *FleetAuditEvent) GetCloudProvider() string {
+	if o == nil || IsNil(o.CloudProvider) {
+		var ret string
+		return ret
+	}
+	return *o.CloudProvider
+}
+
+// GetCloudProviderOk returns a tuple with the CloudProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAuditEvent) GetCloudProviderOk() (*string, bool) {
+	if o == nil || IsNil(o.CloudProvider) {
+		return nil, false
+	}
+	return o.CloudProvider, true
+}
+
+// HasCloudProvider returns a boolean if a field has been set.
+func (o *FleetAuditEvent) HasCloudProvider() bool {
+	if o != nil && !IsNil(o.CloudProvider) {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudProvider gets a reference to the given string and assigns it to the CloudProvider field.
+func (o *FleetAuditEvent) SetCloudProvider(v string) {
+	o.CloudProvider = &v
+}
+
+// GetCloudProviderAccountId returns the CloudProviderAccountId field value if set, zero value otherwise.
+func (o *FleetAuditEvent) GetCloudProviderAccountId() string {
+	if o == nil || IsNil(o.CloudProviderAccountId) {
+		var ret string
+		return ret
+	}
+	return *o.CloudProviderAccountId
+}
+
+// GetCloudProviderAccountIdOk returns a tuple with the CloudProviderAccountId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAuditEvent) GetCloudProviderAccountIdOk() (*string, bool) {
+	if o == nil || IsNil(o.CloudProviderAccountId) {
+		return nil, false
+	}
+	return o.CloudProviderAccountId, true
+}
+
+// HasCloudProviderAccountId returns a boolean if a field has been set.
+func (o *FleetAuditEvent) HasCloudProviderAccountId() bool {
+	if o != nil && !IsNil(o.CloudProviderAccountId) {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudProviderAccountId gets a reference to the given string and assigns it to the CloudProviderAccountId field.
+func (o *FleetAuditEvent) SetCloudProviderAccountId(v string) {
+	o.CloudProviderAccountId = &v
 }
 
 // GetEnvironmentId returns the EnvironmentId field value
@@ -147,6 +255,38 @@ func (o *FleetAuditEvent) SetEventSource(v string) {
 	o.EventSource = &v
 }
 
+// GetExternalPayerId returns the ExternalPayerId field value if set, zero value otherwise.
+func (o *FleetAuditEvent) GetExternalPayerId() string {
+	if o == nil || IsNil(o.ExternalPayerId) {
+		var ret string
+		return ret
+	}
+	return *o.ExternalPayerId
+}
+
+// GetExternalPayerIdOk returns a tuple with the ExternalPayerId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAuditEvent) GetExternalPayerIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ExternalPayerId) {
+		return nil, false
+	}
+	return o.ExternalPayerId, true
+}
+
+// HasExternalPayerId returns a boolean if a field has been set.
+func (o *FleetAuditEvent) HasExternalPayerId() bool {
+	if o != nil && !IsNil(o.ExternalPayerId) {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalPayerId gets a reference to the given string and assigns it to the ExternalPayerId field.
+func (o *FleetAuditEvent) SetExternalPayerId(v string) {
+	o.ExternalPayerId = &v
+}
+
 // GetId returns the Id field value
 func (o *FleetAuditEvent) GetId() string {
 	if o == nil {
@@ -193,6 +333,38 @@ func (o *FleetAuditEvent) GetInstanceIdOk() (*string, bool) {
 // SetInstanceId sets field value
 func (o *FleetAuditEvent) SetInstanceId(v string) {
 	o.InstanceId = v
+}
+
+// GetIpAddress returns the IpAddress field value if set, zero value otherwise.
+func (o *FleetAuditEvent) GetIpAddress() string {
+	if o == nil || IsNil(o.IpAddress) {
+		var ret string
+		return ret
+	}
+	return *o.IpAddress
+}
+
+// GetIpAddressOk returns a tuple with the IpAddress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAuditEvent) GetIpAddressOk() (*string, bool) {
+	if o == nil || IsNil(o.IpAddress) {
+		return nil, false
+	}
+	return o.IpAddress, true
+}
+
+// HasIpAddress returns a boolean if a field has been set.
+func (o *FleetAuditEvent) HasIpAddress() bool {
+	if o != nil && !IsNil(o.IpAddress) {
+		return true
+	}
+
+	return false
+}
+
+// SetIpAddress gets a reference to the given string and assigns it to the IpAddress field.
+func (o *FleetAuditEvent) SetIpAddress(v string) {
+	o.IpAddress = &v
 }
 
 // GetMessage returns the Message field value
@@ -329,6 +501,38 @@ func (o *FleetAuditEvent) GetProductTierIdOk() (*string, bool) {
 // SetProductTierId sets field value
 func (o *FleetAuditEvent) SetProductTierId(v string) {
 	o.ProductTierId = v
+}
+
+// GetRegion returns the Region field value if set, zero value otherwise.
+func (o *FleetAuditEvent) GetRegion() string {
+	if o == nil || IsNil(o.Region) {
+		var ret string
+		return ret
+	}
+	return *o.Region
+}
+
+// GetRegionOk returns a tuple with the Region field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAuditEvent) GetRegionOk() (*string, bool) {
+	if o == nil || IsNil(o.Region) {
+		return nil, false
+	}
+	return o.Region, true
+}
+
+// HasRegion returns a boolean if a field has been set.
+func (o *FleetAuditEvent) HasRegion() bool {
+	if o != nil && !IsNil(o.Region) {
+		return true
+	}
+
+	return false
+}
+
+// SetRegion gets a reference to the given string and assigns it to the Region field.
+func (o *FleetAuditEvent) SetRegion(v string) {
+	o.Region = &v
 }
 
 // GetResourceName returns the ResourceName field value
@@ -621,12 +825,27 @@ func (o FleetAuditEvent) MarshalJSON() ([]byte, error) {
 
 func (o FleetAuditEvent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.BillingProvider) {
+		toSerialize["billingProvider"] = o.BillingProvider
+	}
+	if !IsNil(o.CloudProvider) {
+		toSerialize["cloudProvider"] = o.CloudProvider
+	}
+	if !IsNil(o.CloudProviderAccountId) {
+		toSerialize["cloudProviderAccountId"] = o.CloudProviderAccountId
+	}
 	toSerialize["environmentId"] = o.EnvironmentId
 	if !IsNil(o.EventSource) {
 		toSerialize["eventSource"] = o.EventSource
 	}
+	if !IsNil(o.ExternalPayerId) {
+		toSerialize["externalPayerId"] = o.ExternalPayerId
+	}
 	toSerialize["id"] = o.Id
 	toSerialize["instanceId"] = o.InstanceId
+	if !IsNil(o.IpAddress) {
+		toSerialize["ipAddress"] = o.IpAddress
+	}
 	toSerialize["message"] = o.Message
 	if !IsNil(o.OrgId) {
 		toSerialize["orgId"] = o.OrgId
@@ -636,6 +855,9 @@ func (o FleetAuditEvent) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["planVersion"] = o.PlanVersion
 	toSerialize["productTierId"] = o.ProductTierId
+	if !IsNil(o.Region) {
+		toSerialize["region"] = o.Region
+	}
 	toSerialize["resourceName"] = o.ResourceName
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["serviceName"] = o.ServiceName
@@ -709,15 +931,21 @@ func (o *FleetAuditEvent) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "billingProvider")
+		delete(additionalProperties, "cloudProvider")
+		delete(additionalProperties, "cloudProviderAccountId")
 		delete(additionalProperties, "environmentId")
 		delete(additionalProperties, "eventSource")
+		delete(additionalProperties, "externalPayerId")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "instanceId")
+		delete(additionalProperties, "ipAddress")
 		delete(additionalProperties, "message")
 		delete(additionalProperties, "orgId")
 		delete(additionalProperties, "orgName")
 		delete(additionalProperties, "planVersion")
 		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "region")
 		delete(additionalProperties, "resourceName")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "serviceName")

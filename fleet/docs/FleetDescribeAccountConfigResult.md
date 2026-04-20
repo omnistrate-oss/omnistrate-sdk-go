@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **AzureSubscriptionID** | Pointer to **string** | The Azure subscription ID | [optional] 
 **AzureTenantID** | Pointer to **string** | The Azure tenant ID | [optional] 
 **ByoaInstanceIDs** | Pointer to **[]string** | The BYOA instance IDs that this account config is tied to | [optional] 
+**CloudNativeNetworks** | Pointer to [**[]FleetAccountConfigCloudNativeNetworkResult**](FleetAccountConfigCloudNativeNetworkResult.md) | Registered CloudNativeNetworks for this account configuration | [optional] 
 **CloudProviderId** | **string** | ID of an CloudProvider | 
 **Description** | **string** | The description for the account | 
 **GcpBootstrapShellCommand** | Pointer to **string** | The GCP bootstrap shell command | [optional] 
@@ -329,6 +330,31 @@ SetByoaInstanceIDs sets ByoaInstanceIDs field to given value.
 `func (o *FleetDescribeAccountConfigResult) HasByoaInstanceIDs() bool`
 
 HasByoaInstanceIDs returns a boolean if a field has been set.
+
+### GetCloudNativeNetworks
+
+`func (o *FleetDescribeAccountConfigResult) GetCloudNativeNetworks() []FleetAccountConfigCloudNativeNetworkResult`
+
+GetCloudNativeNetworks returns the CloudNativeNetworks field if non-nil, zero value otherwise.
+
+### GetCloudNativeNetworksOk
+
+`func (o *FleetDescribeAccountConfigResult) GetCloudNativeNetworksOk() (*[]FleetAccountConfigCloudNativeNetworkResult, bool)`
+
+GetCloudNativeNetworksOk returns a tuple with the CloudNativeNetworks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudNativeNetworks
+
+`func (o *FleetDescribeAccountConfigResult) SetCloudNativeNetworks(v []FleetAccountConfigCloudNativeNetworkResult)`
+
+SetCloudNativeNetworks sets CloudNativeNetworks field to given value.
+
+### HasCloudNativeNetworks
+
+`func (o *FleetDescribeAccountConfigResult) HasCloudNativeNetworks() bool`
+
+HasCloudNativeNetworks returns a boolean if a field has been set.
 
 ### GetCloudProviderId
 

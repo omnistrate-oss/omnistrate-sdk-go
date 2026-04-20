@@ -60,6 +60,8 @@ type HostCluster struct {
 	ModelType *string `json:"modelType,omitempty"`
 	// The pending amenities for the host cluster
 	PendingAmenities []Amenity `json:"pendingAmenities,omitempty"`
+	// Whether the host cluster is provisioned with PrivateLink network topology. For BYOA deployment cells, this is derived from the BYOA instance input parameters at creation time and is immutable thereafter; dataplane host cluster reuse is scoped to a single PrivateLink topology.
+	PrivateLinkEnabled *bool `json:"privateLinkEnabled,omitempty"`
 	// The actual region name of the host cluster
 	Region string `json:"region"`
 	// ID of a Region
@@ -743,6 +745,38 @@ func (o *HostCluster) SetPendingAmenities(v []Amenity) {
 	o.PendingAmenities = v
 }
 
+// GetPrivateLinkEnabled returns the PrivateLinkEnabled field value if set, zero value otherwise.
+func (o *HostCluster) GetPrivateLinkEnabled() bool {
+	if o == nil || IsNil(o.PrivateLinkEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.PrivateLinkEnabled
+}
+
+// GetPrivateLinkEnabledOk returns a tuple with the PrivateLinkEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetPrivateLinkEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.PrivateLinkEnabled) {
+		return nil, false
+	}
+	return o.PrivateLinkEnabled, true
+}
+
+// HasPrivateLinkEnabled returns a boolean if a field has been set.
+func (o *HostCluster) HasPrivateLinkEnabled() bool {
+	if o != nil && !IsNil(o.PrivateLinkEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrivateLinkEnabled gets a reference to the given bool and assigns it to the PrivateLinkEnabled field.
+func (o *HostCluster) SetPrivateLinkEnabled(v bool) {
+	o.PrivateLinkEnabled = &v
+}
+
 // GetRegion returns the Region field value
 func (o *HostCluster) GetRegion() string {
 	if o == nil {
@@ -931,6 +965,9 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PendingAmenities) {
 		toSerialize["pendingAmenities"] = o.PendingAmenities
 	}
+	if !IsNil(o.PrivateLinkEnabled) {
+		toSerialize["privateLinkEnabled"] = o.PrivateLinkEnabled
+	}
 	toSerialize["region"] = o.Region
 	toSerialize["regionId"] = o.RegionId
 	if !IsNil(o.Role) {
@@ -1014,6 +1051,7 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "kubernetesDashboardEndpoint")
 		delete(additionalProperties, "modelType")
 		delete(additionalProperties, "pendingAmenities")
+		delete(additionalProperties, "privateLinkEnabled")
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "regionId")
 		delete(additionalProperties, "role")

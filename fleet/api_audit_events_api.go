@@ -42,6 +42,7 @@ type AuditEventsApiAPIService service
 type ApiAuditEventsApiAuditEventsRequest struct {
 	ctx context.Context
 	ApiService AuditEventsApiAPI
+	fleetAuditEventsRequest2 *FleetAuditEventsRequest2
 	nextPageToken *string
 	pageSize *int64
 	serviceID *string
@@ -52,6 +53,11 @@ type ApiAuditEventsApiAuditEventsRequest struct {
 	startDate *time.Time
 	endDate *time.Time
 	excludeWorkflowFailures *bool
+}
+
+func (r ApiAuditEventsApiAuditEventsRequest) FleetAuditEventsRequest2(fleetAuditEventsRequest2 FleetAuditEventsRequest2) ApiAuditEventsApiAuditEventsRequest {
+	r.fleetAuditEventsRequest2 = &fleetAuditEventsRequest2
+	return r
 }
 
 func (r ApiAuditEventsApiAuditEventsRequest) NextPageToken(nextPageToken string) ApiAuditEventsApiAuditEventsRequest {
@@ -147,6 +153,9 @@ func (a *AuditEventsApiAPIService) AuditEventsApiAuditEventsExecute(r ApiAuditEv
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.fleetAuditEventsRequest2 == nil {
+		return localVarReturnValue, nil, reportError("fleetAuditEventsRequest2 is required and must be specified")
+	}
 
 	if r.nextPageToken != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")
@@ -187,7 +196,7 @@ func (a *AuditEventsApiAPIService) AuditEventsApiAuditEventsExecute(r ApiAuditEv
 		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeWorkflowFailures", r.excludeWorkflowFailures, "form", "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -203,6 +212,8 @@ func (a *AuditEventsApiAPIService) AuditEventsApiAuditEventsExecute(r ApiAuditEv
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.fleetAuditEventsRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

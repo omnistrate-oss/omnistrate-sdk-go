@@ -4,15 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**BillingProvider** | Pointer to **string** | The billing provider on the instance&#39;s subscription. Empty when no subscription is linked. | [optional] 
+**CloudProvider** | Pointer to **string** | The cloud provider name where the instance is deployed. | [optional] 
+**CloudProviderAccountId** | Pointer to **string** | The cloud provider account ID associated with the instance. | [optional] 
 **EnvironmentId** | **string** | ID of a Service Environment | 
 **EventSource** | Pointer to **string** | The event source | [optional] 
+**ExternalPayerId** | Pointer to **string** | The raw external payer ID on the instance&#39;s subscription. | [optional] 
 **Id** | **string** | ID of a Event | 
 **InstanceId** | **string** | ID of a Resource Instance | 
+**IpAddress** | Pointer to **string** | The IP address of the client that caused the event. | [optional] 
 **Message** | **string** | Resource Instance of message | 
 **OrgId** | Pointer to **string** | ID of an Org | [optional] 
 **OrgName** | Pointer to **string** | The organization name of the user that caused the event | [optional] 
 **PlanVersion** | **string** | The version of the plan | 
 **ProductTierId** | **string** | ID of a Product Tier | 
+**Region** | Pointer to **string** | The region code where the instance is deployed. | [optional] 
 **ResourceName** | **string** | Name of the resource | 
 **ServiceId** | **string** | ID of a Service | 
 **ServiceName** | **string** | The service name | 
@@ -42,6 +48,81 @@ will change when the set of required properties is changed
 NewFleetAuditEventWithDefaults instantiates a new FleetAuditEvent object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetBillingProvider
+
+`func (o *FleetAuditEvent) GetBillingProvider() string`
+
+GetBillingProvider returns the BillingProvider field if non-nil, zero value otherwise.
+
+### GetBillingProviderOk
+
+`func (o *FleetAuditEvent) GetBillingProviderOk() (*string, bool)`
+
+GetBillingProviderOk returns a tuple with the BillingProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBillingProvider
+
+`func (o *FleetAuditEvent) SetBillingProvider(v string)`
+
+SetBillingProvider sets BillingProvider field to given value.
+
+### HasBillingProvider
+
+`func (o *FleetAuditEvent) HasBillingProvider() bool`
+
+HasBillingProvider returns a boolean if a field has been set.
+
+### GetCloudProvider
+
+`func (o *FleetAuditEvent) GetCloudProvider() string`
+
+GetCloudProvider returns the CloudProvider field if non-nil, zero value otherwise.
+
+### GetCloudProviderOk
+
+`func (o *FleetAuditEvent) GetCloudProviderOk() (*string, bool)`
+
+GetCloudProviderOk returns a tuple with the CloudProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudProvider
+
+`func (o *FleetAuditEvent) SetCloudProvider(v string)`
+
+SetCloudProvider sets CloudProvider field to given value.
+
+### HasCloudProvider
+
+`func (o *FleetAuditEvent) HasCloudProvider() bool`
+
+HasCloudProvider returns a boolean if a field has been set.
+
+### GetCloudProviderAccountId
+
+`func (o *FleetAuditEvent) GetCloudProviderAccountId() string`
+
+GetCloudProviderAccountId returns the CloudProviderAccountId field if non-nil, zero value otherwise.
+
+### GetCloudProviderAccountIdOk
+
+`func (o *FleetAuditEvent) GetCloudProviderAccountIdOk() (*string, bool)`
+
+GetCloudProviderAccountIdOk returns a tuple with the CloudProviderAccountId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudProviderAccountId
+
+`func (o *FleetAuditEvent) SetCloudProviderAccountId(v string)`
+
+SetCloudProviderAccountId sets CloudProviderAccountId field to given value.
+
+### HasCloudProviderAccountId
+
+`func (o *FleetAuditEvent) HasCloudProviderAccountId() bool`
+
+HasCloudProviderAccountId returns a boolean if a field has been set.
 
 ### GetEnvironmentId
 
@@ -88,6 +169,31 @@ SetEventSource sets EventSource field to given value.
 
 HasEventSource returns a boolean if a field has been set.
 
+### GetExternalPayerId
+
+`func (o *FleetAuditEvent) GetExternalPayerId() string`
+
+GetExternalPayerId returns the ExternalPayerId field if non-nil, zero value otherwise.
+
+### GetExternalPayerIdOk
+
+`func (o *FleetAuditEvent) GetExternalPayerIdOk() (*string, bool)`
+
+GetExternalPayerIdOk returns a tuple with the ExternalPayerId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalPayerId
+
+`func (o *FleetAuditEvent) SetExternalPayerId(v string)`
+
+SetExternalPayerId sets ExternalPayerId field to given value.
+
+### HasExternalPayerId
+
+`func (o *FleetAuditEvent) HasExternalPayerId() bool`
+
+HasExternalPayerId returns a boolean if a field has been set.
+
 ### GetId
 
 `func (o *FleetAuditEvent) GetId() string`
@@ -127,6 +233,31 @@ and a boolean to check if the value has been set.
 
 SetInstanceId sets InstanceId field to given value.
 
+
+### GetIpAddress
+
+`func (o *FleetAuditEvent) GetIpAddress() string`
+
+GetIpAddress returns the IpAddress field if non-nil, zero value otherwise.
+
+### GetIpAddressOk
+
+`func (o *FleetAuditEvent) GetIpAddressOk() (*string, bool)`
+
+GetIpAddressOk returns a tuple with the IpAddress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIpAddress
+
+`func (o *FleetAuditEvent) SetIpAddress(v string)`
+
+SetIpAddress sets IpAddress field to given value.
+
+### HasIpAddress
+
+`func (o *FleetAuditEvent) HasIpAddress() bool`
+
+HasIpAddress returns a boolean if a field has been set.
 
 ### GetMessage
 
@@ -237,6 +368,31 @@ and a boolean to check if the value has been set.
 
 SetProductTierId sets ProductTierId field to given value.
 
+
+### GetRegion
+
+`func (o *FleetAuditEvent) GetRegion() string`
+
+GetRegion returns the Region field if non-nil, zero value otherwise.
+
+### GetRegionOk
+
+`func (o *FleetAuditEvent) GetRegionOk() (*string, bool)`
+
+GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegion
+
+`func (o *FleetAuditEvent) SetRegion(v string)`
+
+SetRegion sets Region field to given value.
+
+### HasRegion
+
+`func (o *FleetAuditEvent) HasRegion() bool`
+
+HasRegion returns a boolean if a field has been set.
 
 ### GetResourceName
 
