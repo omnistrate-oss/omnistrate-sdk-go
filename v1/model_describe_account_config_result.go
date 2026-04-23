@@ -74,8 +74,6 @@ type DescribeAccountConfigResult struct {
 	OciOffboardShellCommand *string `json:"ociOffboardShellCommand,omitempty"`
 	// The Tenancy OCID for Oracle Cloud Infrastructure
 	OciTenancyID *string `json:"ociTenancyID,omitempty"`
-	// Whether all provisioned dataplanes from this provisioner account must be fully private (no public subnets, NAT gateway, or IGW)
-	PrivateOnly *bool `json:"privateOnly,omitempty"`
 	// The status of the account configuration
 	Status string `json:"status"`
 	// The status message of the account
@@ -733,29 +731,6 @@ func (o *DescribeAccountConfigResult) SetOciTenancyID(v string) {
 	o.OciTenancyID = &v
 }
 
-// GetPrivateOnly returns the PrivateOnly field value if set, zero value otherwise.
-func (o *DescribeAccountConfigResult) GetPrivateOnly() bool {
-	if o == nil || IsNil(o.PrivateOnly) {
-		var ret bool
-		return ret
-	}
-	return *o.PrivateOnly
-}
-
-// GetPrivateOnlyOk returns a tuple with the PrivateOnly field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DescribeAccountConfigResult) GetPrivateOnlyOk() (*bool, bool) {
-	if o == nil || IsNil(o.PrivateOnly) {
-		return nil, false
-	}
-	return o.PrivateOnly, true
-}
-
-// SetPrivateOnly gets a reference to the given bool and assigns it to the PrivateOnly field.
-func (o *DescribeAccountConfigResult) SetPrivateOnly(v bool) {
-	o.PrivateOnly = &v
-}
-
 // GetStatus returns the Status field value
 func (o *DescribeAccountConfigResult) GetStatus() string {
 	if o == nil {
@@ -887,9 +862,6 @@ func (o DescribeAccountConfigResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.OciTenancyID) {
 		toSerialize["ociTenancyID"] = o.OciTenancyID
 	}
-	if !IsNil(o.PrivateOnly) {
-		toSerialize["privateOnly"] = o.PrivateOnly
-	}
 	toSerialize["status"] = o.Status
 	toSerialize["statusMessage"] = o.StatusMessage
 
@@ -967,7 +939,6 @@ func (o *DescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "ociDomainID")
 		delete(additionalProperties, "ociOffboardShellCommand")
 		delete(additionalProperties, "ociTenancyID")
-		delete(additionalProperties, "privateOnly")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "statusMessage")
 		o.AdditionalProperties = additionalProperties

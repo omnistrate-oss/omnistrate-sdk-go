@@ -52,6 +52,12 @@ type ApiAuditEventsApiAuditEventsRequest struct {
 	startDate *time.Time
 	endDate *time.Time
 	excludeWorkflowFailures *bool
+	userId *string
+	orgId *string
+	subscriptionId *string
+	ipAddress *string
+	billingProvider *string
+	externalPayerId *string
 }
 
 func (r ApiAuditEventsApiAuditEventsRequest) NextPageToken(nextPageToken string) ApiAuditEventsApiAuditEventsRequest {
@@ -107,6 +113,42 @@ func (r ApiAuditEventsApiAuditEventsRequest) EndDate(endDate time.Time) ApiAudit
 // Whether to exclude workflow failure details from the response.
 func (r ApiAuditEventsApiAuditEventsRequest) ExcludeWorkflowFailures(excludeWorkflowFailures bool) ApiAuditEventsApiAuditEventsRequest {
 	r.excludeWorkflowFailures = &excludeWorkflowFailures
+	return r
+}
+
+// The user ID to filter events by
+func (r ApiAuditEventsApiAuditEventsRequest) UserId(userId string) ApiAuditEventsApiAuditEventsRequest {
+	r.userId = &userId
+	return r
+}
+
+// The organization ID to filter events by
+func (r ApiAuditEventsApiAuditEventsRequest) OrgId(orgId string) ApiAuditEventsApiAuditEventsRequest {
+	r.orgId = &orgId
+	return r
+}
+
+// The subscription ID to filter events by
+func (r ApiAuditEventsApiAuditEventsRequest) SubscriptionId(subscriptionId string) ApiAuditEventsApiAuditEventsRequest {
+	r.subscriptionId = &subscriptionId
+	return r
+}
+
+// The IP address to filter events by (exact match)
+func (r ApiAuditEventsApiAuditEventsRequest) IpAddress(ipAddress string) ApiAuditEventsApiAuditEventsRequest {
+	r.ipAddress = &ipAddress
+	return r
+}
+
+// The billing provider on the instance&#39;s subscription. Empty when no subscription is linked.
+func (r ApiAuditEventsApiAuditEventsRequest) BillingProvider(billingProvider string) ApiAuditEventsApiAuditEventsRequest {
+	r.billingProvider = &billingProvider
+	return r
+}
+
+// The raw external payer ID on the instance&#39;s subscription.
+func (r ApiAuditEventsApiAuditEventsRequest) ExternalPayerId(externalPayerId string) ApiAuditEventsApiAuditEventsRequest {
+	r.externalPayerId = &externalPayerId
 	return r
 }
 
@@ -185,6 +227,24 @@ func (a *AuditEventsApiAPIService) AuditEventsApiAuditEventsExecute(r ApiAuditEv
 	}
 	if r.excludeWorkflowFailures != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeWorkflowFailures", r.excludeWorkflowFailures, "form", "")
+	}
+	if r.userId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "userId", r.userId, "form", "")
+	}
+	if r.orgId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "form", "")
+	}
+	if r.subscriptionId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "subscriptionId", r.subscriptionId, "form", "")
+	}
+	if r.ipAddress != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ipAddress", r.ipAddress, "form", "")
+	}
+	if r.billingProvider != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "billingProvider", r.billingProvider, "form", "")
+	}
+	if r.externalPayerId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "externalPayerId", r.externalPayerId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

@@ -254,6 +254,7 @@ docs/EventsPerWorkflowStep.md
 docs/ExpressionEvaluatorRequest.md
 docs/ExpressionEvaluatorResult.md
 docs/FailoverResourceInstanceRequest.md
+docs/FleetAccountConfigCloudNativeNetworkResult.md
 docs/FleetAddCapacityToResourceInstanceRequest.md
 docs/FleetAddCapacityToResourceInstanceRequest2.md
 docs/FleetAddCustomDNSToResourceInstanceRequest.md
@@ -323,6 +324,7 @@ docs/FleetGetCurrentUsageRequest.md
 docs/FleetGetUsagePerDayRequest.md
 docs/FleetGetUsageResult.md
 docs/FleetInvoice.md
+docs/FleetListAccountConfigCloudNativeNetworksResult.md
 docs/FleetListAccountConfigsRequest.md
 docs/FleetListAccountConfigsRequest2.md
 docs/FleetListAllInstanceSnapshotRequest.md
@@ -474,6 +476,8 @@ docs/ListAllOrganizationsRequest.md
 docs/ListAllOrganizationsResult.md
 docs/ListAllResourceInstancesRequest.md
 docs/ListAllResourceInstancesResult.md
+docs/ListAllSnapshotsInHostClusterRequest.md
+docs/ListAllSnapshotsInHostClusterResult.md
 docs/ListAllSubscriptionUsersRequest.md
 docs/ListAllSubscriptionUsersResult.md
 docs/ListAvailabilityZonesByRegionCodeRequest.md
@@ -677,6 +681,7 @@ docs/StartResourceInstanceRequest.md
 docs/StopResourceInstanceRequest.md
 docs/StripeAuthorizeURLRequest.md
 docs/StripeAuthorizeURLResult.md
+docs/SubnetDetail.md
 docs/SubscriptionLicense.md
 docs/SubscriptionPricing.md
 docs/SubscriptionSearchRecord.md
@@ -960,6 +965,7 @@ model_events_per_workflow_step.go
 model_expression_evaluator_request.go
 model_expression_evaluator_result.go
 model_failover_resource_instance_request.go
+model_fleet_account_config_cloud_native_network_result.go
 model_fleet_add_capacity_to_resource_instance_request.go
 model_fleet_add_capacity_to_resource_instance_request2.go
 model_fleet_add_custom_dnsto_resource_instance_request.go
@@ -1028,6 +1034,7 @@ model_fleet_get_current_usage_request.go
 model_fleet_get_usage_per_day_request.go
 model_fleet_get_usage_result.go
 model_fleet_invoice.go
+model_fleet_list_account_config_cloud_native_networks_result.go
 model_fleet_list_account_configs_request.go
 model_fleet_list_account_configs_request2.go
 model_fleet_list_all_instance_snapshot_request.go
@@ -1174,6 +1181,8 @@ model_list_all_organizations_request.go
 model_list_all_organizations_result.go
 model_list_all_resource_instances_request.go
 model_list_all_resource_instances_result.go
+model_list_all_snapshots_in_host_cluster_request.go
+model_list_all_snapshots_in_host_cluster_result.go
 model_list_all_subscription_users_request.go
 model_list_all_subscription_users_result.go
 model_list_availability_zones_by_region_code_request.go
@@ -1374,6 +1383,7 @@ model_start_resource_instance_request.go
 model_stop_resource_instance_request.go
 model_stripe_authorize_url_request.go
 model_stripe_authorize_url_result.go
+model_subnet_detail.go
 model_subscription_license.go
 model_subscription_pricing.go
 model_subscription_search_record.go

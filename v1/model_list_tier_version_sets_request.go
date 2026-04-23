@@ -20,6 +20,12 @@ var _ MappedNullable = &ListTierVersionSetsRequest{}
 
 // ListTierVersionSetsRequest struct for ListTierVersionSetsRequest
 type ListTierVersionSetsRequest struct {
+	// If set to true, the response will omit the features and enabledFeatures fields for each version set. Use this to speed up list responses when feature details are not needed.
+	ExcludeFeatures *bool `json:"excludeFeatures,omitempty"`
+	// If set to true, the response will omit the resources field for each version set. Use this to speed up list responses when resource details are not needed.
+	ExcludeResources *bool `json:"excludeResources,omitempty"`
+	// If set to true, the response will omit the runtime stats fields (such as instanceCount) for each version set. Use this to speed up list responses when runtime stats details are not needed.
+	ExcludeStats *bool `json:"excludeStats,omitempty"`
 	// Returns the latest incremental version for the given major version. The parameter needs to be specified in isolation
 	LatestIncrementalVersionForMajorVersion *string `json:"latestIncrementalVersionForMajorVersion,omitempty"`
 	// Indicates whether to return only the latest version set. The parameter needs to be specified in isolation.
@@ -57,6 +63,75 @@ func NewListTierVersionSetsRequest(productTierId string, serviceId string, token
 func NewListTierVersionSetsRequestWithDefaults() *ListTierVersionSetsRequest {
 	this := ListTierVersionSetsRequest{}
 	return &this
+}
+
+// GetExcludeFeatures returns the ExcludeFeatures field value if set, zero value otherwise.
+func (o *ListTierVersionSetsRequest) GetExcludeFeatures() bool {
+	if o == nil || IsNil(o.ExcludeFeatures) {
+		var ret bool
+		return ret
+	}
+	return *o.ExcludeFeatures
+}
+
+// GetExcludeFeaturesOk returns a tuple with the ExcludeFeatures field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListTierVersionSetsRequest) GetExcludeFeaturesOk() (*bool, bool) {
+	if o == nil || IsNil(o.ExcludeFeatures) {
+		return nil, false
+	}
+	return o.ExcludeFeatures, true
+}
+
+// SetExcludeFeatures gets a reference to the given bool and assigns it to the ExcludeFeatures field.
+func (o *ListTierVersionSetsRequest) SetExcludeFeatures(v bool) {
+	o.ExcludeFeatures = &v
+}
+
+// GetExcludeResources returns the ExcludeResources field value if set, zero value otherwise.
+func (o *ListTierVersionSetsRequest) GetExcludeResources() bool {
+	if o == nil || IsNil(o.ExcludeResources) {
+		var ret bool
+		return ret
+	}
+	return *o.ExcludeResources
+}
+
+// GetExcludeResourcesOk returns a tuple with the ExcludeResources field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListTierVersionSetsRequest) GetExcludeResourcesOk() (*bool, bool) {
+	if o == nil || IsNil(o.ExcludeResources) {
+		return nil, false
+	}
+	return o.ExcludeResources, true
+}
+
+// SetExcludeResources gets a reference to the given bool and assigns it to the ExcludeResources field.
+func (o *ListTierVersionSetsRequest) SetExcludeResources(v bool) {
+	o.ExcludeResources = &v
+}
+
+// GetExcludeStats returns the ExcludeStats field value if set, zero value otherwise.
+func (o *ListTierVersionSetsRequest) GetExcludeStats() bool {
+	if o == nil || IsNil(o.ExcludeStats) {
+		var ret bool
+		return ret
+	}
+	return *o.ExcludeStats
+}
+
+// GetExcludeStatsOk returns a tuple with the ExcludeStats field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListTierVersionSetsRequest) GetExcludeStatsOk() (*bool, bool) {
+	if o == nil || IsNil(o.ExcludeStats) {
+		return nil, false
+	}
+	return o.ExcludeStats, true
+}
+
+// SetExcludeStats gets a reference to the given bool and assigns it to the ExcludeStats field.
+func (o *ListTierVersionSetsRequest) SetExcludeStats(v bool) {
+	o.ExcludeStats = &v
 }
 
 // GetLatestIncrementalVersionForMajorVersion returns the LatestIncrementalVersionForMajorVersion field value if set, zero value otherwise.
@@ -233,6 +308,15 @@ func (o ListTierVersionSetsRequest) MarshalJSON() ([]byte, error) {
 
 func (o ListTierVersionSetsRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ExcludeFeatures) {
+		toSerialize["excludeFeatures"] = o.ExcludeFeatures
+	}
+	if !IsNil(o.ExcludeResources) {
+		toSerialize["excludeResources"] = o.ExcludeResources
+	}
+	if !IsNil(o.ExcludeStats) {
+		toSerialize["excludeStats"] = o.ExcludeStats
+	}
 	if !IsNil(o.LatestIncrementalVersionForMajorVersion) {
 		toSerialize["latestIncrementalVersionForMajorVersion"] = o.LatestIncrementalVersionForMajorVersion
 	}
@@ -293,6 +377,9 @@ func (o *ListTierVersionSetsRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "excludeFeatures")
+		delete(additionalProperties, "excludeResources")
+		delete(additionalProperties, "excludeStats")
 		delete(additionalProperties, "latestIncrementalVersionForMajorVersion")
 		delete(additionalProperties, "latestMajorVersionOnly")
 		delete(additionalProperties, "nextPageToken")

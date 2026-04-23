@@ -4,19 +4,29 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AuthMethod** | Pointer to **string** | The authentication method used by the caller for the request that produced the event. One of PASSWORD or API_KEY. Empty for events not originated by an authenticated user (e.g. internal sweeper actions). | [optional] 
+**BillingProvider** | Pointer to **string** | The billing provider on the instance&#39;s subscription. Empty when no subscription is linked. | [optional] 
+**CloudProvider** | Pointer to **string** | The cloud provider name where the instance is deployed. | [optional] 
+**CloudProviderAccountId** | Pointer to **string** | The cloud provider account ID associated with the instance. | [optional] 
 **EnvironmentId** | **string** | ID of a Service Environment | 
+**EnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
 **EventSource** | Pointer to **string** | The event source | [optional] 
+**ExternalPayerId** | Pointer to **string** | The raw external payer ID on the instance&#39;s subscription. | [optional] 
 **Id** | **string** | ID of a Event | 
 **InstanceId** | **string** | ID of a Resource Instance | 
+**IpAddress** | Pointer to **string** | The IP address of the client that caused the event. | [optional] 
 **Message** | **string** | Resource Instance of message | 
 **OrgId** | Pointer to **string** | ID of an Org | [optional] 
 **OrgName** | Pointer to **string** | The organization name of the user that caused the event | [optional] 
 **PlanVersion** | **string** | The version of the plan | 
 **ProductTierId** | **string** | ID of a Product Tier | 
+**Region** | Pointer to **string** | The region code where the instance is deployed. | [optional] 
 **ResourceName** | **string** | Name of the resource | 
+**RoleType** | Pointer to **string** | The role asserted by the user&#39;s credential at the time of the event. Captured from the token claims so the audit log reflects the role active at the moment of the action even after the user&#39;s role assignments change. | [optional] 
 **ServiceId** | **string** | ID of a Service | 
 **ServiceName** | **string** | The service name | 
 **ServicePlanName** | **string** | The name of the service plan | 
+**SessionId** | Pointer to **string** | The credential identifier used for the request that produced the event. For password-issued JWTs this is the token&#39;s unique ID (jti); for API-key issued JWTs this is the API key&#39;s persistent ID, allowing all events for that key to be correlated even across token refreshes. | [optional] 
 **Time** | **string** | ID of a Event | 
 **UserAgent** | Pointer to **string** | The User-Agent string of the client that caused the event | [optional] 
 **UserId** | Pointer to **string** | ID of a User | [optional] 
@@ -43,6 +53,106 @@ NewFleetAuditEventWithDefaults instantiates a new FleetAuditEvent object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetAuthMethod
+
+`func (o *FleetAuditEvent) GetAuthMethod() string`
+
+GetAuthMethod returns the AuthMethod field if non-nil, zero value otherwise.
+
+### GetAuthMethodOk
+
+`func (o *FleetAuditEvent) GetAuthMethodOk() (*string, bool)`
+
+GetAuthMethodOk returns a tuple with the AuthMethod field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAuthMethod
+
+`func (o *FleetAuditEvent) SetAuthMethod(v string)`
+
+SetAuthMethod sets AuthMethod field to given value.
+
+### HasAuthMethod
+
+`func (o *FleetAuditEvent) HasAuthMethod() bool`
+
+HasAuthMethod returns a boolean if a field has been set.
+
+### GetBillingProvider
+
+`func (o *FleetAuditEvent) GetBillingProvider() string`
+
+GetBillingProvider returns the BillingProvider field if non-nil, zero value otherwise.
+
+### GetBillingProviderOk
+
+`func (o *FleetAuditEvent) GetBillingProviderOk() (*string, bool)`
+
+GetBillingProviderOk returns a tuple with the BillingProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBillingProvider
+
+`func (o *FleetAuditEvent) SetBillingProvider(v string)`
+
+SetBillingProvider sets BillingProvider field to given value.
+
+### HasBillingProvider
+
+`func (o *FleetAuditEvent) HasBillingProvider() bool`
+
+HasBillingProvider returns a boolean if a field has been set.
+
+### GetCloudProvider
+
+`func (o *FleetAuditEvent) GetCloudProvider() string`
+
+GetCloudProvider returns the CloudProvider field if non-nil, zero value otherwise.
+
+### GetCloudProviderOk
+
+`func (o *FleetAuditEvent) GetCloudProviderOk() (*string, bool)`
+
+GetCloudProviderOk returns a tuple with the CloudProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudProvider
+
+`func (o *FleetAuditEvent) SetCloudProvider(v string)`
+
+SetCloudProvider sets CloudProvider field to given value.
+
+### HasCloudProvider
+
+`func (o *FleetAuditEvent) HasCloudProvider() bool`
+
+HasCloudProvider returns a boolean if a field has been set.
+
+### GetCloudProviderAccountId
+
+`func (o *FleetAuditEvent) GetCloudProviderAccountId() string`
+
+GetCloudProviderAccountId returns the CloudProviderAccountId field if non-nil, zero value otherwise.
+
+### GetCloudProviderAccountIdOk
+
+`func (o *FleetAuditEvent) GetCloudProviderAccountIdOk() (*string, bool)`
+
+GetCloudProviderAccountIdOk returns a tuple with the CloudProviderAccountId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudProviderAccountId
+
+`func (o *FleetAuditEvent) SetCloudProviderAccountId(v string)`
+
+SetCloudProviderAccountId sets CloudProviderAccountId field to given value.
+
+### HasCloudProviderAccountId
+
+`func (o *FleetAuditEvent) HasCloudProviderAccountId() bool`
+
+HasCloudProviderAccountId returns a boolean if a field has been set.
+
 ### GetEnvironmentId
 
 `func (o *FleetAuditEvent) GetEnvironmentId() string`
@@ -62,6 +172,31 @@ and a boolean to check if the value has been set.
 
 SetEnvironmentId sets EnvironmentId field to given value.
 
+
+### GetEnvironmentType
+
+`func (o *FleetAuditEvent) GetEnvironmentType() string`
+
+GetEnvironmentType returns the EnvironmentType field if non-nil, zero value otherwise.
+
+### GetEnvironmentTypeOk
+
+`func (o *FleetAuditEvent) GetEnvironmentTypeOk() (*string, bool)`
+
+GetEnvironmentTypeOk returns a tuple with the EnvironmentType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnvironmentType
+
+`func (o *FleetAuditEvent) SetEnvironmentType(v string)`
+
+SetEnvironmentType sets EnvironmentType field to given value.
+
+### HasEnvironmentType
+
+`func (o *FleetAuditEvent) HasEnvironmentType() bool`
+
+HasEnvironmentType returns a boolean if a field has been set.
 
 ### GetEventSource
 
@@ -87,6 +222,31 @@ SetEventSource sets EventSource field to given value.
 `func (o *FleetAuditEvent) HasEventSource() bool`
 
 HasEventSource returns a boolean if a field has been set.
+
+### GetExternalPayerId
+
+`func (o *FleetAuditEvent) GetExternalPayerId() string`
+
+GetExternalPayerId returns the ExternalPayerId field if non-nil, zero value otherwise.
+
+### GetExternalPayerIdOk
+
+`func (o *FleetAuditEvent) GetExternalPayerIdOk() (*string, bool)`
+
+GetExternalPayerIdOk returns a tuple with the ExternalPayerId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalPayerId
+
+`func (o *FleetAuditEvent) SetExternalPayerId(v string)`
+
+SetExternalPayerId sets ExternalPayerId field to given value.
+
+### HasExternalPayerId
+
+`func (o *FleetAuditEvent) HasExternalPayerId() bool`
+
+HasExternalPayerId returns a boolean if a field has been set.
 
 ### GetId
 
@@ -127,6 +287,31 @@ and a boolean to check if the value has been set.
 
 SetInstanceId sets InstanceId field to given value.
 
+
+### GetIpAddress
+
+`func (o *FleetAuditEvent) GetIpAddress() string`
+
+GetIpAddress returns the IpAddress field if non-nil, zero value otherwise.
+
+### GetIpAddressOk
+
+`func (o *FleetAuditEvent) GetIpAddressOk() (*string, bool)`
+
+GetIpAddressOk returns a tuple with the IpAddress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIpAddress
+
+`func (o *FleetAuditEvent) SetIpAddress(v string)`
+
+SetIpAddress sets IpAddress field to given value.
+
+### HasIpAddress
+
+`func (o *FleetAuditEvent) HasIpAddress() bool`
+
+HasIpAddress returns a boolean if a field has been set.
 
 ### GetMessage
 
@@ -238,6 +423,31 @@ and a boolean to check if the value has been set.
 SetProductTierId sets ProductTierId field to given value.
 
 
+### GetRegion
+
+`func (o *FleetAuditEvent) GetRegion() string`
+
+GetRegion returns the Region field if non-nil, zero value otherwise.
+
+### GetRegionOk
+
+`func (o *FleetAuditEvent) GetRegionOk() (*string, bool)`
+
+GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegion
+
+`func (o *FleetAuditEvent) SetRegion(v string)`
+
+SetRegion sets Region field to given value.
+
+### HasRegion
+
+`func (o *FleetAuditEvent) HasRegion() bool`
+
+HasRegion returns a boolean if a field has been set.
+
 ### GetResourceName
 
 `func (o *FleetAuditEvent) GetResourceName() string`
@@ -257,6 +467,31 @@ and a boolean to check if the value has been set.
 
 SetResourceName sets ResourceName field to given value.
 
+
+### GetRoleType
+
+`func (o *FleetAuditEvent) GetRoleType() string`
+
+GetRoleType returns the RoleType field if non-nil, zero value otherwise.
+
+### GetRoleTypeOk
+
+`func (o *FleetAuditEvent) GetRoleTypeOk() (*string, bool)`
+
+GetRoleTypeOk returns a tuple with the RoleType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRoleType
+
+`func (o *FleetAuditEvent) SetRoleType(v string)`
+
+SetRoleType sets RoleType field to given value.
+
+### HasRoleType
+
+`func (o *FleetAuditEvent) HasRoleType() bool`
+
+HasRoleType returns a boolean if a field has been set.
 
 ### GetServiceId
 
@@ -317,6 +552,31 @@ and a boolean to check if the value has been set.
 
 SetServicePlanName sets ServicePlanName field to given value.
 
+
+### GetSessionId
+
+`func (o *FleetAuditEvent) GetSessionId() string`
+
+GetSessionId returns the SessionId field if non-nil, zero value otherwise.
+
+### GetSessionIdOk
+
+`func (o *FleetAuditEvent) GetSessionIdOk() (*string, bool)`
+
+GetSessionIdOk returns a tuple with the SessionId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSessionId
+
+`func (o *FleetAuditEvent) SetSessionId(v string)`
+
+SetSessionId sets SessionId field to given value.
+
+### HasSessionId
+
+`func (o *FleetAuditEvent) HasSessionId() bool`
+
+HasSessionId returns a boolean if a field has been set.
 
 ### GetTime
 
