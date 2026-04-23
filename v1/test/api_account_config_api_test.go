@@ -34,6 +34,20 @@ func Test_v1_AccountConfigApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test AccountConfigApiAPIService AccountConfigApiBulkImportAccountConfigCloudNativeNetworks", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		resp, httpRes, err := apiClient.AccountConfigApiAPI.AccountConfigApiBulkImportAccountConfigCloudNativeNetworks(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test AccountConfigApiAPIService AccountConfigApiCreateAccountConfig", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -143,6 +157,21 @@ func Test_v1_AccountConfigApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test AccountConfigApiAPIService AccountConfigApiImportAccountConfigCloudNativeNetwork", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+		var cloudNativeNetworkId string
+
+		resp, httpRes, err := apiClient.AccountConfigApiAPI.AccountConfigApiImportAccountConfigCloudNativeNetwork(context.Background(), id, cloudNativeNetworkId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test AccountConfigApiAPIService AccountConfigApiListAccountConfig", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -157,11 +186,54 @@ func Test_v1_AccountConfigApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test AccountConfigApiAPIService AccountConfigApiListAccountConfigCloudNativeNetworks", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		resp, httpRes, err := apiClient.AccountConfigApiAPI.AccountConfigApiListAccountConfigCloudNativeNetworks(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test AccountConfigApiAPIService AccountConfigApiListBYOAConfig", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AccountConfigApiAPI.AccountConfigApiListBYOAConfig(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AccountConfigApiAPIService AccountConfigApiSyncAccountConfigCloudNativeNetworks", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		resp, httpRes, err := apiClient.AccountConfigApiAPI.AccountConfigApiSyncAccountConfigCloudNativeNetworks(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AccountConfigApiAPIService AccountConfigApiUnimportAccountConfigCloudNativeNetwork", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+		var cloudNativeNetworkId string
+
+		resp, httpRes, err := apiClient.AccountConfigApiAPI.AccountConfigApiUnimportAccountConfigCloudNativeNetwork(context.Background(), id, cloudNativeNetworkId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

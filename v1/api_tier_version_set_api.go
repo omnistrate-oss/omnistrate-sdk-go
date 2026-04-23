@@ -1643,6 +1643,9 @@ type ApiTierVersionSetApiListTierVersionSetsRequest struct {
 	productTierId string
 	latestMajorVersionOnly *bool
 	latestIncrementalVersionForMajorVersion *string
+	excludeFeatures *bool
+	excludeResources *bool
+	excludeStats *bool
 	nextPageToken *string
 	pageSize *int64
 }
@@ -1656,6 +1659,24 @@ func (r ApiTierVersionSetApiListTierVersionSetsRequest) LatestMajorVersionOnly(l
 // Returns the latest incremental version for the given major version. The paramenter needs to be specified in isolation.
 func (r ApiTierVersionSetApiListTierVersionSetsRequest) LatestIncrementalVersionForMajorVersion(latestIncrementalVersionForMajorVersion string) ApiTierVersionSetApiListTierVersionSetsRequest {
 	r.latestIncrementalVersionForMajorVersion = &latestIncrementalVersionForMajorVersion
+	return r
+}
+
+// If true, omit the features and enabledFeatures fields from each version set.
+func (r ApiTierVersionSetApiListTierVersionSetsRequest) ExcludeFeatures(excludeFeatures bool) ApiTierVersionSetApiListTierVersionSetsRequest {
+	r.excludeFeatures = &excludeFeatures
+	return r
+}
+
+// If true, omit the resources field from each version set.
+func (r ApiTierVersionSetApiListTierVersionSetsRequest) ExcludeResources(excludeResources bool) ApiTierVersionSetApiListTierVersionSetsRequest {
+	r.excludeResources = &excludeResources
+	return r
+}
+
+// If true, omit runtime stats fields such as instanceCount from each version set.
+func (r ApiTierVersionSetApiListTierVersionSetsRequest) ExcludeStats(excludeStats bool) ApiTierVersionSetApiListTierVersionSetsRequest {
+	r.excludeStats = &excludeStats
 	return r
 }
 
@@ -1718,6 +1739,15 @@ func (a *TierVersionSetApiAPIService) TierVersionSetApiListTierVersionSetsExecut
 	}
 	if r.latestIncrementalVersionForMajorVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "latestIncrementalVersionForMajorVersion", r.latestIncrementalVersionForMajorVersion, "form", "")
+	}
+	if r.excludeFeatures != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeFeatures", r.excludeFeatures, "form", "")
+	}
+	if r.excludeResources != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeResources", r.excludeResources, "form", "")
+	}
+	if r.excludeStats != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeStats", r.excludeStats, "form", "")
 	}
 	if r.nextPageToken != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")

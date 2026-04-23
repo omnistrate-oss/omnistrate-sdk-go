@@ -4,6 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ExcludeFeatures** | Pointer to **bool** | If set to true, the response will omit the features and enabledFeatures fields for each version set. Use this to speed up list responses when feature details are not needed. | [optional] 
+**ExcludeResources** | Pointer to **bool** | If set to true, the response will omit the resources field for each version set. Use this to speed up list responses when resource details are not needed. | [optional] 
+**ExcludeStats** | Pointer to **bool** | If set to true, the response will omit the runtime stats fields (such as instanceCount) for each version set. Use this to speed up list responses when runtime stats details are not needed. | [optional] 
 **LatestIncrementalVersionForMajorVersion** | Pointer to **string** | Returns the latest incremental version for the given major version. The parameter needs to be specified in isolation | [optional] 
 **LatestMajorVersionOnly** | Pointer to **bool** | Indicates whether to return only the latest version set. The parameter needs to be specified in isolation. | [optional] 
 **NextPageToken** | Pointer to **string** | The next token to use for pagination | [optional] 
@@ -30,6 +33,81 @@ will change when the set of required properties is changed
 NewListTierVersionSetsRequestWithDefaults instantiates a new ListTierVersionSetsRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetExcludeFeatures
+
+`func (o *ListTierVersionSetsRequest) GetExcludeFeatures() bool`
+
+GetExcludeFeatures returns the ExcludeFeatures field if non-nil, zero value otherwise.
+
+### GetExcludeFeaturesOk
+
+`func (o *ListTierVersionSetsRequest) GetExcludeFeaturesOk() (*bool, bool)`
+
+GetExcludeFeaturesOk returns a tuple with the ExcludeFeatures field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeFeatures
+
+`func (o *ListTierVersionSetsRequest) SetExcludeFeatures(v bool)`
+
+SetExcludeFeatures sets ExcludeFeatures field to given value.
+
+### HasExcludeFeatures
+
+`func (o *ListTierVersionSetsRequest) HasExcludeFeatures() bool`
+
+HasExcludeFeatures returns a boolean if a field has been set.
+
+### GetExcludeResources
+
+`func (o *ListTierVersionSetsRequest) GetExcludeResources() bool`
+
+GetExcludeResources returns the ExcludeResources field if non-nil, zero value otherwise.
+
+### GetExcludeResourcesOk
+
+`func (o *ListTierVersionSetsRequest) GetExcludeResourcesOk() (*bool, bool)`
+
+GetExcludeResourcesOk returns a tuple with the ExcludeResources field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeResources
+
+`func (o *ListTierVersionSetsRequest) SetExcludeResources(v bool)`
+
+SetExcludeResources sets ExcludeResources field to given value.
+
+### HasExcludeResources
+
+`func (o *ListTierVersionSetsRequest) HasExcludeResources() bool`
+
+HasExcludeResources returns a boolean if a field has been set.
+
+### GetExcludeStats
+
+`func (o *ListTierVersionSetsRequest) GetExcludeStats() bool`
+
+GetExcludeStats returns the ExcludeStats field if non-nil, zero value otherwise.
+
+### GetExcludeStatsOk
+
+`func (o *ListTierVersionSetsRequest) GetExcludeStatsOk() (*bool, bool)`
+
+GetExcludeStatsOk returns a tuple with the ExcludeStats field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeStats
+
+`func (o *ListTierVersionSetsRequest) SetExcludeStats(v bool)`
+
+SetExcludeStats sets ExcludeStats field to given value.
+
+### HasExcludeStats
+
+`func (o *ListTierVersionSetsRequest) HasExcludeStats() bool`
+
+HasExcludeStats returns a boolean if a field has been set.
 
 ### GetLatestIncrementalVersionForMajorVersion
 

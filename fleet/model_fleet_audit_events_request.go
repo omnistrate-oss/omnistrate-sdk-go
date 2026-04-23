@@ -21,6 +21,8 @@ var _ MappedNullable = &FleetAuditEventsRequest{}
 
 // FleetAuditEventsRequest struct for FleetAuditEventsRequest
 type FleetAuditEventsRequest struct {
+	// The billing provider on the instance's subscription. Empty when no subscription is linked.
+	BillingProvider *string `json:"billingProvider,omitempty"`
 	// End time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start.
 	EndDate *time.Time `json:"endDate,omitempty"`
 	// The type of service environment
@@ -29,10 +31,16 @@ type FleetAuditEventsRequest struct {
 	EventSourceTypes []string `json:"eventSourceTypes,omitempty"`
 	// Whether to exclude workflow failure details from the response.
 	ExcludeWorkflowFailures *bool `json:"excludeWorkflowFailures,omitempty"`
+	// The raw external payer ID on the instance's subscription.
+	ExternalPayerId *string `json:"externalPayerId,omitempty"`
 	// ID of a Resource Instance
 	InstanceID *string `json:"instanceID,omitempty"`
+	// The IP address of the client that caused the event (exact match)
+	IpAddress *string `json:"ipAddress,omitempty"`
 	// The next token to use for pagination
 	NextPageToken *string `json:"nextPageToken,omitempty"`
+	// ID of an Org
+	OrgId *string `json:"orgId,omitempty"`
 	// The number of resources to return per page
 	PageSize *int64 `json:"pageSize,omitempty"`
 	// ID of a Product Tier
@@ -41,8 +49,12 @@ type FleetAuditEventsRequest struct {
 	ServiceID *string `json:"serviceID,omitempty"`
 	// Start time of the window in RFC 3339 format. If omitted, the filter is open-ended at the start.
 	StartDate *time.Time `json:"startDate,omitempty"`
+	// The subscription ID
+	SubscriptionId *string `json:"subscriptionId,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
+	// ID of a User
+	UserId *string `json:"userId,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -64,6 +76,38 @@ func NewFleetAuditEventsRequest(token string) *FleetAuditEventsRequest {
 func NewFleetAuditEventsRequestWithDefaults() *FleetAuditEventsRequest {
 	this := FleetAuditEventsRequest{}
 	return &this
+}
+
+// GetBillingProvider returns the BillingProvider field value if set, zero value otherwise.
+func (o *FleetAuditEventsRequest) GetBillingProvider() string {
+	if o == nil || IsNil(o.BillingProvider) {
+		var ret string
+		return ret
+	}
+	return *o.BillingProvider
+}
+
+// GetBillingProviderOk returns a tuple with the BillingProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAuditEventsRequest) GetBillingProviderOk() (*string, bool) {
+	if o == nil || IsNil(o.BillingProvider) {
+		return nil, false
+	}
+	return o.BillingProvider, true
+}
+
+// HasBillingProvider returns a boolean if a field has been set.
+func (o *FleetAuditEventsRequest) HasBillingProvider() bool {
+	if o != nil && !IsNil(o.BillingProvider) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingProvider gets a reference to the given string and assigns it to the BillingProvider field.
+func (o *FleetAuditEventsRequest) SetBillingProvider(v string) {
+	o.BillingProvider = &v
 }
 
 // GetEndDate returns the EndDate field value if set, zero value otherwise.
@@ -194,6 +238,38 @@ func (o *FleetAuditEventsRequest) SetExcludeWorkflowFailures(v bool) {
 	o.ExcludeWorkflowFailures = &v
 }
 
+// GetExternalPayerId returns the ExternalPayerId field value if set, zero value otherwise.
+func (o *FleetAuditEventsRequest) GetExternalPayerId() string {
+	if o == nil || IsNil(o.ExternalPayerId) {
+		var ret string
+		return ret
+	}
+	return *o.ExternalPayerId
+}
+
+// GetExternalPayerIdOk returns a tuple with the ExternalPayerId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAuditEventsRequest) GetExternalPayerIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ExternalPayerId) {
+		return nil, false
+	}
+	return o.ExternalPayerId, true
+}
+
+// HasExternalPayerId returns a boolean if a field has been set.
+func (o *FleetAuditEventsRequest) HasExternalPayerId() bool {
+	if o != nil && !IsNil(o.ExternalPayerId) {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalPayerId gets a reference to the given string and assigns it to the ExternalPayerId field.
+func (o *FleetAuditEventsRequest) SetExternalPayerId(v string) {
+	o.ExternalPayerId = &v
+}
+
 // GetInstanceID returns the InstanceID field value if set, zero value otherwise.
 func (o *FleetAuditEventsRequest) GetInstanceID() string {
 	if o == nil || IsNil(o.InstanceID) {
@@ -226,6 +302,38 @@ func (o *FleetAuditEventsRequest) SetInstanceID(v string) {
 	o.InstanceID = &v
 }
 
+// GetIpAddress returns the IpAddress field value if set, zero value otherwise.
+func (o *FleetAuditEventsRequest) GetIpAddress() string {
+	if o == nil || IsNil(o.IpAddress) {
+		var ret string
+		return ret
+	}
+	return *o.IpAddress
+}
+
+// GetIpAddressOk returns a tuple with the IpAddress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAuditEventsRequest) GetIpAddressOk() (*string, bool) {
+	if o == nil || IsNil(o.IpAddress) {
+		return nil, false
+	}
+	return o.IpAddress, true
+}
+
+// HasIpAddress returns a boolean if a field has been set.
+func (o *FleetAuditEventsRequest) HasIpAddress() bool {
+	if o != nil && !IsNil(o.IpAddress) {
+		return true
+	}
+
+	return false
+}
+
+// SetIpAddress gets a reference to the given string and assigns it to the IpAddress field.
+func (o *FleetAuditEventsRequest) SetIpAddress(v string) {
+	o.IpAddress = &v
+}
+
 // GetNextPageToken returns the NextPageToken field value if set, zero value otherwise.
 func (o *FleetAuditEventsRequest) GetNextPageToken() string {
 	if o == nil || IsNil(o.NextPageToken) {
@@ -256,6 +364,38 @@ func (o *FleetAuditEventsRequest) HasNextPageToken() bool {
 // SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.
 func (o *FleetAuditEventsRequest) SetNextPageToken(v string) {
 	o.NextPageToken = &v
+}
+
+// GetOrgId returns the OrgId field value if set, zero value otherwise.
+func (o *FleetAuditEventsRequest) GetOrgId() string {
+	if o == nil || IsNil(o.OrgId) {
+		var ret string
+		return ret
+	}
+	return *o.OrgId
+}
+
+// GetOrgIdOk returns a tuple with the OrgId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAuditEventsRequest) GetOrgIdOk() (*string, bool) {
+	if o == nil || IsNil(o.OrgId) {
+		return nil, false
+	}
+	return o.OrgId, true
+}
+
+// HasOrgId returns a boolean if a field has been set.
+func (o *FleetAuditEventsRequest) HasOrgId() bool {
+	if o != nil && !IsNil(o.OrgId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgId gets a reference to the given string and assigns it to the OrgId field.
+func (o *FleetAuditEventsRequest) SetOrgId(v string) {
+	o.OrgId = &v
 }
 
 // GetPageSize returns the PageSize field value if set, zero value otherwise.
@@ -386,6 +526,38 @@ func (o *FleetAuditEventsRequest) SetStartDate(v time.Time) {
 	o.StartDate = &v
 }
 
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+func (o *FleetAuditEventsRequest) GetSubscriptionId() string {
+	if o == nil || IsNil(o.SubscriptionId) {
+		var ret string
+		return ret
+	}
+	return *o.SubscriptionId
+}
+
+// GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAuditEventsRequest) GetSubscriptionIdOk() (*string, bool) {
+	if o == nil || IsNil(o.SubscriptionId) {
+		return nil, false
+	}
+	return o.SubscriptionId, true
+}
+
+// HasSubscriptionId returns a boolean if a field has been set.
+func (o *FleetAuditEventsRequest) HasSubscriptionId() bool {
+	if o != nil && !IsNil(o.SubscriptionId) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+func (o *FleetAuditEventsRequest) SetSubscriptionId(v string) {
+	o.SubscriptionId = &v
+}
+
 // GetToken returns the Token field value
 func (o *FleetAuditEventsRequest) GetToken() string {
 	if o == nil {
@@ -410,6 +582,38 @@ func (o *FleetAuditEventsRequest) SetToken(v string) {
 	o.Token = v
 }
 
+// GetUserId returns the UserId field value if set, zero value otherwise.
+func (o *FleetAuditEventsRequest) GetUserId() string {
+	if o == nil || IsNil(o.UserId) {
+		var ret string
+		return ret
+	}
+	return *o.UserId
+}
+
+// GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAuditEventsRequest) GetUserIdOk() (*string, bool) {
+	if o == nil || IsNil(o.UserId) {
+		return nil, false
+	}
+	return o.UserId, true
+}
+
+// HasUserId returns a boolean if a field has been set.
+func (o *FleetAuditEventsRequest) HasUserId() bool {
+	if o != nil && !IsNil(o.UserId) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserId gets a reference to the given string and assigns it to the UserId field.
+func (o *FleetAuditEventsRequest) SetUserId(v string) {
+	o.UserId = &v
+}
+
 func (o FleetAuditEventsRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -420,6 +624,9 @@ func (o FleetAuditEventsRequest) MarshalJSON() ([]byte, error) {
 
 func (o FleetAuditEventsRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.BillingProvider) {
+		toSerialize["billingProvider"] = o.BillingProvider
+	}
 	if !IsNil(o.EndDate) {
 		toSerialize["endDate"] = o.EndDate
 	}
@@ -432,11 +639,20 @@ func (o FleetAuditEventsRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ExcludeWorkflowFailures) {
 		toSerialize["excludeWorkflowFailures"] = o.ExcludeWorkflowFailures
 	}
+	if !IsNil(o.ExternalPayerId) {
+		toSerialize["externalPayerId"] = o.ExternalPayerId
+	}
 	if !IsNil(o.InstanceID) {
 		toSerialize["instanceID"] = o.InstanceID
 	}
+	if !IsNil(o.IpAddress) {
+		toSerialize["ipAddress"] = o.IpAddress
+	}
 	if !IsNil(o.NextPageToken) {
 		toSerialize["nextPageToken"] = o.NextPageToken
+	}
+	if !IsNil(o.OrgId) {
+		toSerialize["orgId"] = o.OrgId
 	}
 	if !IsNil(o.PageSize) {
 		toSerialize["pageSize"] = o.PageSize
@@ -450,7 +666,13 @@ func (o FleetAuditEventsRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.StartDate) {
 		toSerialize["startDate"] = o.StartDate
 	}
+	if !IsNil(o.SubscriptionId) {
+		toSerialize["subscriptionId"] = o.SubscriptionId
+	}
 	toSerialize["token"] = o.Token
+	if !IsNil(o.UserId) {
+		toSerialize["userId"] = o.UserId
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -494,17 +716,23 @@ func (o *FleetAuditEventsRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "billingProvider")
 		delete(additionalProperties, "endDate")
 		delete(additionalProperties, "environmentType")
 		delete(additionalProperties, "eventSourceTypes")
 		delete(additionalProperties, "excludeWorkflowFailures")
+		delete(additionalProperties, "externalPayerId")
 		delete(additionalProperties, "instanceID")
+		delete(additionalProperties, "ipAddress")
 		delete(additionalProperties, "nextPageToken")
+		delete(additionalProperties, "orgId")
 		delete(additionalProperties, "pageSize")
 		delete(additionalProperties, "productTierID")
 		delete(additionalProperties, "serviceID")
 		delete(additionalProperties, "startDate")
+		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "token")
+		delete(additionalProperties, "userId")
 		o.AdditionalProperties = additionalProperties
 	}
 

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## AuditEventsApiAuditEvents
 
-> FleetAuditEventsResult AuditEventsApiAuditEvents(ctx).NextPageToken(nextPageToken).PageSize(pageSize).ServiceID(serviceID).EnvironmentType(environmentType).EventSourceTypes(eventSourceTypes).InstanceID(instanceID).ProductTierID(productTierID).StartDate(startDate).EndDate(endDate).ExcludeWorkflowFailures(excludeWorkflowFailures).Execute()
+> FleetAuditEventsResult AuditEventsApiAuditEvents(ctx).NextPageToken(nextPageToken).PageSize(pageSize).ServiceID(serviceID).EnvironmentType(environmentType).EventSourceTypes(eventSourceTypes).InstanceID(instanceID).ProductTierID(productTierID).StartDate(startDate).EndDate(endDate).ExcludeWorkflowFailures(excludeWorkflowFailures).UserId(userId).OrgId(orgId).SubscriptionId(subscriptionId).IpAddress(ipAddress).BillingProvider(billingProvider).ExternalPayerId(externalPayerId).Execute()
 
 AuditEvents audit-events-api
 
@@ -32,16 +32,22 @@ func main() {
 	pageSize := int64(10) // int64 |  (optional)
 	serviceID := "s-123456" // string | The service ID to list events for (optional)
 	environmentType := "PROD|PRIVATE|CANARY|STAGING|QA|DEV|GLOBAL" // string |  (optional)
-	eventSourceTypes := []string{"Esse est et assumenda."} // []string | The event types to filter by (optional)
+	eventSourceTypes := []string{"Facilis dolor eum sit."} // []string | The event types to filter by (optional)
 	instanceID := "instance-12345678" // string | The instance ID to list events for (optional)
 	productTierID := "Veritatis rerum quam voluptates eum." // string |  (optional)
 	startDate := time.Now() // time.Time | Start date of the events (optional)
 	endDate := time.Now() // time.Time | End date of the events (optional)
 	excludeWorkflowFailures := true // bool | Whether to exclude workflow failure details from the response. (optional)
+	userId := "Unde laudantium laudantium molestiae quia voluptas." // string | The user ID to filter events by (optional)
+	orgId := "Maxime aliquam doloribus sunt velit." // string | The organization ID to filter events by (optional)
+	subscriptionId := "sub-abcd1234" // string | The subscription ID to filter events by (optional)
+	ipAddress := "203.0.113.42" // string | The IP address to filter events by (exact match) (optional)
+	billingProvider := "STRIPE" // string | The billing provider on the instance's subscription. Empty when no subscription is linked. (optional)
+	externalPayerId := "cus_NXyz12345abcdef" // string | The raw external payer ID on the instance's subscription. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AuditEventsApiAPI.AuditEventsApiAuditEvents(context.Background()).NextPageToken(nextPageToken).PageSize(pageSize).ServiceID(serviceID).EnvironmentType(environmentType).EventSourceTypes(eventSourceTypes).InstanceID(instanceID).ProductTierID(productTierID).StartDate(startDate).EndDate(endDate).ExcludeWorkflowFailures(excludeWorkflowFailures).Execute()
+	resp, r, err := apiClient.AuditEventsApiAPI.AuditEventsApiAuditEvents(context.Background()).NextPageToken(nextPageToken).PageSize(pageSize).ServiceID(serviceID).EnvironmentType(environmentType).EventSourceTypes(eventSourceTypes).InstanceID(instanceID).ProductTierID(productTierID).StartDate(startDate).EndDate(endDate).ExcludeWorkflowFailures(excludeWorkflowFailures).UserId(userId).OrgId(orgId).SubscriptionId(subscriptionId).IpAddress(ipAddress).BillingProvider(billingProvider).ExternalPayerId(externalPayerId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AuditEventsApiAPI.AuditEventsApiAuditEvents``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -72,6 +78,12 @@ Name | Type | Description  | Notes
  **startDate** | **time.Time** | Start date of the events | 
  **endDate** | **time.Time** | End date of the events | 
  **excludeWorkflowFailures** | **bool** | Whether to exclude workflow failure details from the response. | 
+ **userId** | **string** | The user ID to filter events by | 
+ **orgId** | **string** | The organization ID to filter events by | 
+ **subscriptionId** | **string** | The subscription ID to filter events by | 
+ **ipAddress** | **string** | The IP address to filter events by (exact match) | 
+ **billingProvider** | **string** | The billing provider on the instance&#39;s subscription. Empty when no subscription is linked. | 
+ **externalPayerId** | **string** | The raw external payer ID on the instance&#39;s subscription. | 
 
 ### Return type
 

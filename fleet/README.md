@@ -158,11 +158,13 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiDescribeUser**](docs/InventoryApiAPI.md#inventoryapidescribeuser) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/user/{userId} | DescribeUser inventory-api
 *InventoryApiAPI* | [**InventoryApiFailoverResourceInstance**](docs/InventoryApiAPI.md#inventoryapifailoverresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/failover | FailoverResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiGenerateTokenForHostClusterDashboard**](docs/InventoryApiAPI.md#inventoryapigeneratetokenforhostclusterdashboard) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard inventory-api
+*InventoryApiAPI* | [**InventoryApiListAccountConfigCloudNativeNetworks**](docs/InventoryApiAPI.md#inventoryapilistaccountconfigcloudnativenetworks) | **Get** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks | ListAccountConfigCloudNativeNetworks inventory-api
 *InventoryApiAPI* | [**InventoryApiListAccountConfigs**](docs/InventoryApiAPI.md#inventoryapilistaccountconfigs) | **Get** /2022-09-01-00/fleet/account-configs | ListAccountConfigs inventory-api
 *InventoryApiAPI* | [**InventoryApiListActiveOrganizations**](docs/InventoryApiAPI.md#inventoryapilistactiveorganizations) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/organizations | ListActiveOrganizations inventory-api
 *InventoryApiAPI* | [**InventoryApiListAllInstancesInHostCluster**](docs/InventoryApiAPI.md#inventoryapilistallinstancesinhostcluster) | **Get** /2022-09-01-00/fleet/host-clusters/{hostClusterId}/instances | ListAllInstancesInHostCluster inventory-api
 *InventoryApiAPI* | [**InventoryApiListAllOrganizations**](docs/InventoryApiAPI.md#inventoryapilistallorganizations) | **Get** /2022-09-01-00/fleet/organizations | ListAllOrganizations inventory-api
 *InventoryApiAPI* | [**InventoryApiListAllResourceInstanceSnapshots**](docs/InventoryApiAPI.md#inventoryapilistallresourceinstancesnapshots) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/snapshot | ListAllResourceInstanceSnapshots inventory-api
+*InventoryApiAPI* | [**InventoryApiListAllSnapshotsInHostCluster**](docs/InventoryApiAPI.md#inventoryapilistallsnapshotsinhostcluster) | **Get** /2022-09-01-00/fleet/host-clusters/{hostClusterId}/snapshots | ListAllSnapshotsInHostCluster inventory-api
 *InventoryApiAPI* | [**InventoryApiListAllUsers**](docs/InventoryApiAPI.md#inventoryapilistallusers) | **Get** /2022-09-01-00/fleet/users | ListAllUsers inventory-api
 *InventoryApiAPI* | [**InventoryApiListDependentComponents**](docs/InventoryApiAPI.md#inventoryapilistdependentcomponents) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/dependent-components | ListDependentComponents inventory-api
 *InventoryApiAPI* | [**InventoryApiListEligibleInstancesPerUpgrade**](docs/InventoryApiAPI.md#inventoryapilisteligibleinstancesperupgrade) | **Get** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/eligible-instances | ListEligibleInstancesPerUpgrade inventory-api
@@ -461,6 +463,7 @@ Class | Method | HTTP request | Description
  - [ExpressionEvaluatorRequest](docs/ExpressionEvaluatorRequest.md)
  - [ExpressionEvaluatorResult](docs/ExpressionEvaluatorResult.md)
  - [FailoverResourceInstanceRequest](docs/FailoverResourceInstanceRequest.md)
+ - [FleetAccountConfigCloudNativeNetworkResult](docs/FleetAccountConfigCloudNativeNetworkResult.md)
  - [FleetAddCapacityToResourceInstanceRequest](docs/FleetAddCapacityToResourceInstanceRequest.md)
  - [FleetAddCapacityToResourceInstanceRequest2](docs/FleetAddCapacityToResourceInstanceRequest2.md)
  - [FleetAddCustomDNSToResourceInstanceRequest](docs/FleetAddCustomDNSToResourceInstanceRequest.md)
@@ -529,6 +532,7 @@ Class | Method | HTTP request | Description
  - [FleetGetUsagePerDayRequest](docs/FleetGetUsagePerDayRequest.md)
  - [FleetGetUsageResult](docs/FleetGetUsageResult.md)
  - [FleetInvoice](docs/FleetInvoice.md)
+ - [FleetListAccountConfigCloudNativeNetworksResult](docs/FleetListAccountConfigCloudNativeNetworksResult.md)
  - [FleetListAccountConfigsRequest](docs/FleetListAccountConfigsRequest.md)
  - [FleetListAccountConfigsRequest2](docs/FleetListAccountConfigsRequest2.md)
  - [FleetListAllInstanceSnapshotRequest](docs/FleetListAllInstanceSnapshotRequest.md)
@@ -675,6 +679,8 @@ Class | Method | HTTP request | Description
  - [ListAllOrganizationsResult](docs/ListAllOrganizationsResult.md)
  - [ListAllResourceInstancesRequest](docs/ListAllResourceInstancesRequest.md)
  - [ListAllResourceInstancesResult](docs/ListAllResourceInstancesResult.md)
+ - [ListAllSnapshotsInHostClusterRequest](docs/ListAllSnapshotsInHostClusterRequest.md)
+ - [ListAllSnapshotsInHostClusterResult](docs/ListAllSnapshotsInHostClusterResult.md)
  - [ListAllSubscriptionUsersRequest](docs/ListAllSubscriptionUsersRequest.md)
  - [ListAllSubscriptionUsersResult](docs/ListAllSubscriptionUsersResult.md)
  - [ListAvailabilityZonesByRegionCodeRequest](docs/ListAvailabilityZonesByRegionCodeRequest.md)
@@ -875,6 +881,7 @@ Class | Method | HTTP request | Description
  - [StopResourceInstanceRequest](docs/StopResourceInstanceRequest.md)
  - [StripeAuthorizeURLRequest](docs/StripeAuthorizeURLRequest.md)
  - [StripeAuthorizeURLResult](docs/StripeAuthorizeURLResult.md)
+ - [SubnetDetail](docs/SubnetDetail.md)
  - [SubscriptionLicense](docs/SubscriptionLicense.md)
  - [SubscriptionPricing](docs/SubscriptionPricing.md)
  - [SubscriptionSearchRecord](docs/SubscriptionSearchRecord.md)

@@ -613,7 +613,7 @@ Name | Type | Description  | Notes
 
 ## TierVersionSetApiListTierVersionSets
 
-> ListTierVersionSetsResult TierVersionSetApiListTierVersionSets(ctx, serviceId, productTierId).LatestMajorVersionOnly(latestMajorVersionOnly).LatestIncrementalVersionForMajorVersion(latestIncrementalVersionForMajorVersion).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
+> ListTierVersionSetsResult TierVersionSetApiListTierVersionSets(ctx, serviceId, productTierId).LatestMajorVersionOnly(latestMajorVersionOnly).LatestIncrementalVersionForMajorVersion(latestIncrementalVersionForMajorVersion).ExcludeFeatures(excludeFeatures).ExcludeResources(excludeResources).ExcludeStats(excludeStats).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
 
 ListTierVersionSets tier-version-set-api
 
@@ -634,12 +634,15 @@ func main() {
 	productTierId := "Qui consequatur a voluptatem." // string | The product tier ID that this version set belongs to.
 	latestMajorVersionOnly := true // bool | If true, the latest major version is returned. The parameter needs to be specified in isolation. (optional)
 	latestIncrementalVersionForMajorVersion := "3.0" // string | Returns the latest incremental version for the given major version. The paramenter needs to be specified in isolation. (optional)
+	excludeFeatures := true // bool | If true, omit the features and enabledFeatures fields from each version set. (optional)
+	excludeResources := true // bool | If true, omit the resources field from each version set. (optional)
+	excludeStats := true // bool | If true, omit runtime stats fields such as instanceCount from each version set. (optional)
 	nextPageToken := "token" // string |  (optional)
 	pageSize := int64(10) // int64 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiListTierVersionSets(context.Background(), serviceId, productTierId).LatestMajorVersionOnly(latestMajorVersionOnly).LatestIncrementalVersionForMajorVersion(latestIncrementalVersionForMajorVersion).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
+	resp, r, err := apiClient.TierVersionSetApiAPI.TierVersionSetApiListTierVersionSets(context.Background(), serviceId, productTierId).LatestMajorVersionOnly(latestMajorVersionOnly).LatestIncrementalVersionForMajorVersion(latestIncrementalVersionForMajorVersion).ExcludeFeatures(excludeFeatures).ExcludeResources(excludeResources).ExcludeStats(excludeStats).NextPageToken(nextPageToken).PageSize(pageSize).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TierVersionSetApiAPI.TierVersionSetApiListTierVersionSets``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -669,6 +672,9 @@ Name | Type | Description  | Notes
 
  **latestMajorVersionOnly** | **bool** | If true, the latest major version is returned. The parameter needs to be specified in isolation. | 
  **latestIncrementalVersionForMajorVersion** | **string** | Returns the latest incremental version for the given major version. The paramenter needs to be specified in isolation. | 
+ **excludeFeatures** | **bool** | If true, omit the features and enabledFeatures fields from each version set. | 
+ **excludeResources** | **bool** | If true, omit the resources field from each version set. | 
+ **excludeStats** | **bool** | If true, omit runtime stats fields such as instanceCount from each version set. | 
  **nextPageToken** | **string** |  | 
  **pageSize** | **int64** |  | 
 

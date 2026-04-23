@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **CreatedTime** | Pointer to **string** | The snapshot creation time | [optional] 
 **Encrypted** | Pointer to **bool** | Whether the snapshot is encrypted | [optional] 
 **EnvironmentId** | Pointer to **string** | ID of a Service Environment | [optional] 
+**EnvironmentName** | Pointer to **string** | The environment name | [optional] 
+**EnvironmentType** | Pointer to **string** | The environment type | [optional] 
 **OutputParams** | Pointer to [**[]OutputParameter**](OutputParameter.md) | Custom output parameters | [optional] 
 **ProductTierId** | Pointer to **string** | ID of a Product Tier | [optional] 
 **ProductTierName** | Pointer to **string** | The product tier name | [optional] 
@@ -171,6 +173,56 @@ SetEnvironmentId sets EnvironmentId field to given value.
 `func (o *FleetDescribeInstanceSnapshotResult) HasEnvironmentId() bool`
 
 HasEnvironmentId returns a boolean if a field has been set.
+
+### GetEnvironmentName
+
+`func (o *FleetDescribeInstanceSnapshotResult) GetEnvironmentName() string`
+
+GetEnvironmentName returns the EnvironmentName field if non-nil, zero value otherwise.
+
+### GetEnvironmentNameOk
+
+`func (o *FleetDescribeInstanceSnapshotResult) GetEnvironmentNameOk() (*string, bool)`
+
+GetEnvironmentNameOk returns a tuple with the EnvironmentName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnvironmentName
+
+`func (o *FleetDescribeInstanceSnapshotResult) SetEnvironmentName(v string)`
+
+SetEnvironmentName sets EnvironmentName field to given value.
+
+### HasEnvironmentName
+
+`func (o *FleetDescribeInstanceSnapshotResult) HasEnvironmentName() bool`
+
+HasEnvironmentName returns a boolean if a field has been set.
+
+### GetEnvironmentType
+
+`func (o *FleetDescribeInstanceSnapshotResult) GetEnvironmentType() string`
+
+GetEnvironmentType returns the EnvironmentType field if non-nil, zero value otherwise.
+
+### GetEnvironmentTypeOk
+
+`func (o *FleetDescribeInstanceSnapshotResult) GetEnvironmentTypeOk() (*string, bool)`
+
+GetEnvironmentTypeOk returns a tuple with the EnvironmentType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnvironmentType
+
+`func (o *FleetDescribeInstanceSnapshotResult) SetEnvironmentType(v string)`
+
+SetEnvironmentType sets EnvironmentType field to given value.
+
+### HasEnvironmentType
+
+`func (o *FleetDescribeInstanceSnapshotResult) HasEnvironmentType() bool`
+
+HasEnvironmentType returns a boolean if a field has been set.
 
 ### GetOutputParams
 

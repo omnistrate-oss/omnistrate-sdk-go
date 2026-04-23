@@ -36,6 +36,8 @@ type FleetDescribeHostClusterResult struct {
 	Id string `json:"id"`
 	// The Tenancy OCID for Oracle Cloud Infrastructure
 	OciTenancyID *string `json:"ociTenancyID,omitempty"`
+	// Whether the host cluster is provisioned with PrivateLink network topology (BYOA only). Immutable after creation.
+	PrivateLinkEnabled *bool `json:"privateLinkEnabled,omitempty"`
 	// The region of the host cluster
 	Region string `json:"region"`
 	// The status of an operation
@@ -308,6 +310,38 @@ func (o *FleetDescribeHostClusterResult) SetOciTenancyID(v string) {
 	o.OciTenancyID = &v
 }
 
+// GetPrivateLinkEnabled returns the PrivateLinkEnabled field value if set, zero value otherwise.
+func (o *FleetDescribeHostClusterResult) GetPrivateLinkEnabled() bool {
+	if o == nil || IsNil(o.PrivateLinkEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.PrivateLinkEnabled
+}
+
+// GetPrivateLinkEnabledOk returns a tuple with the PrivateLinkEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeHostClusterResult) GetPrivateLinkEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.PrivateLinkEnabled) {
+		return nil, false
+	}
+	return o.PrivateLinkEnabled, true
+}
+
+// HasPrivateLinkEnabled returns a boolean if a field has been set.
+func (o *FleetDescribeHostClusterResult) HasPrivateLinkEnabled() bool {
+	if o != nil && !IsNil(o.PrivateLinkEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrivateLinkEnabled gets a reference to the given bool and assigns it to the PrivateLinkEnabled field.
+func (o *FleetDescribeHostClusterResult) SetPrivateLinkEnabled(v bool) {
+	o.PrivateLinkEnabled = &v
+}
+
 // GetRegion returns the Region field value
 func (o *FleetDescribeHostClusterResult) GetRegion() string {
 	if o == nil {
@@ -410,6 +444,9 @@ func (o FleetDescribeHostClusterResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.OciTenancyID) {
 		toSerialize["ociTenancyID"] = o.OciTenancyID
 	}
+	if !IsNil(o.PrivateLinkEnabled) {
+		toSerialize["privateLinkEnabled"] = o.PrivateLinkEnabled
+	}
 	toSerialize["region"] = o.Region
 	toSerialize["status"] = o.Status
 	toSerialize["type"] = o.Type
@@ -468,6 +505,7 @@ func (o *FleetDescribeHostClusterResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "ociTenancyID")
+		delete(additionalProperties, "privateLinkEnabled")
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "type")

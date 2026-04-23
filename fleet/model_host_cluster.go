@@ -34,6 +34,8 @@ type HostCluster struct {
 	CreatedAt *string `json:"createdAt,omitempty"`
 	// The current number of deployments on the host cluster
 	CurrentNumberOfDeployments int64 `json:"currentNumberOfDeployments"`
+	// The current number of snapshots on the host cluster
+	CurrentNumberOfSnapshots *int64 `json:"currentNumberOfSnapshots,omitempty"`
 	CustomNetworkDetail *CustomNetworkFleetDetail `json:"customNetworkDetail,omitempty"`
 	// Email of the customer who owns the host cluster in case this is a BYOC / Adopted host cluster
 	CustomerEmail *string `json:"customerEmail,omitempty"`
@@ -60,6 +62,8 @@ type HostCluster struct {
 	ModelType *string `json:"modelType,omitempty"`
 	// The pending amenities for the host cluster
 	PendingAmenities []Amenity `json:"pendingAmenities,omitempty"`
+	// Whether the host cluster is provisioned with PrivateLink network topology. For BYOA deployment cells, this is derived from the BYOA instance input parameters at creation time and is immutable thereafter; dataplane host cluster reuse is scoped to a single PrivateLink topology.
+	PrivateLinkEnabled *bool `json:"privateLinkEnabled,omitempty"`
 	// The actual region name of the host cluster
 	Region string `json:"region"`
 	// ID of a Region
@@ -293,6 +297,38 @@ func (o *HostCluster) GetCurrentNumberOfDeploymentsOk() (*int64, bool) {
 // SetCurrentNumberOfDeployments sets field value
 func (o *HostCluster) SetCurrentNumberOfDeployments(v int64) {
 	o.CurrentNumberOfDeployments = v
+}
+
+// GetCurrentNumberOfSnapshots returns the CurrentNumberOfSnapshots field value if set, zero value otherwise.
+func (o *HostCluster) GetCurrentNumberOfSnapshots() int64 {
+	if o == nil || IsNil(o.CurrentNumberOfSnapshots) {
+		var ret int64
+		return ret
+	}
+	return *o.CurrentNumberOfSnapshots
+}
+
+// GetCurrentNumberOfSnapshotsOk returns a tuple with the CurrentNumberOfSnapshots field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetCurrentNumberOfSnapshotsOk() (*int64, bool) {
+	if o == nil || IsNil(o.CurrentNumberOfSnapshots) {
+		return nil, false
+	}
+	return o.CurrentNumberOfSnapshots, true
+}
+
+// HasCurrentNumberOfSnapshots returns a boolean if a field has been set.
+func (o *HostCluster) HasCurrentNumberOfSnapshots() bool {
+	if o != nil && !IsNil(o.CurrentNumberOfSnapshots) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrentNumberOfSnapshots gets a reference to the given int64 and assigns it to the CurrentNumberOfSnapshots field.
+func (o *HostCluster) SetCurrentNumberOfSnapshots(v int64) {
+	o.CurrentNumberOfSnapshots = &v
 }
 
 // GetCustomNetworkDetail returns the CustomNetworkDetail field value if set, zero value otherwise.
@@ -743,6 +779,38 @@ func (o *HostCluster) SetPendingAmenities(v []Amenity) {
 	o.PendingAmenities = v
 }
 
+// GetPrivateLinkEnabled returns the PrivateLinkEnabled field value if set, zero value otherwise.
+func (o *HostCluster) GetPrivateLinkEnabled() bool {
+	if o == nil || IsNil(o.PrivateLinkEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.PrivateLinkEnabled
+}
+
+// GetPrivateLinkEnabledOk returns a tuple with the PrivateLinkEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetPrivateLinkEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.PrivateLinkEnabled) {
+		return nil, false
+	}
+	return o.PrivateLinkEnabled, true
+}
+
+// HasPrivateLinkEnabled returns a boolean if a field has been set.
+func (o *HostCluster) HasPrivateLinkEnabled() bool {
+	if o != nil && !IsNil(o.PrivateLinkEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrivateLinkEnabled gets a reference to the given bool and assigns it to the PrivateLinkEnabled field.
+func (o *HostCluster) SetPrivateLinkEnabled(v bool) {
+	o.PrivateLinkEnabled = &v
+}
+
 // GetRegion returns the Region field value
 func (o *HostCluster) GetRegion() string {
 	if o == nil {
@@ -894,6 +962,9 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 		toSerialize["createdAt"] = o.CreatedAt
 	}
 	toSerialize["currentNumberOfDeployments"] = o.CurrentNumberOfDeployments
+	if !IsNil(o.CurrentNumberOfSnapshots) {
+		toSerialize["currentNumberOfSnapshots"] = o.CurrentNumberOfSnapshots
+	}
 	if !IsNil(o.CustomNetworkDetail) {
 		toSerialize["customNetworkDetail"] = o.CustomNetworkDetail
 	}
@@ -930,6 +1001,9 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.PendingAmenities) {
 		toSerialize["pendingAmenities"] = o.PendingAmenities
+	}
+	if !IsNil(o.PrivateLinkEnabled) {
+		toSerialize["privateLinkEnabled"] = o.PrivateLinkEnabled
 	}
 	toSerialize["region"] = o.Region
 	toSerialize["regionId"] = o.RegionId
@@ -999,6 +1073,7 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "cloudProvider")
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "currentNumberOfDeployments")
+		delete(additionalProperties, "currentNumberOfSnapshots")
 		delete(additionalProperties, "customNetworkDetail")
 		delete(additionalProperties, "customerEmail")
 		delete(additionalProperties, "customerOrganizationName")
@@ -1014,6 +1089,7 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "kubernetesDashboardEndpoint")
 		delete(additionalProperties, "modelType")
 		delete(additionalProperties, "pendingAmenities")
+		delete(additionalProperties, "privateLinkEnabled")
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "regionId")
 		delete(additionalProperties, "role")

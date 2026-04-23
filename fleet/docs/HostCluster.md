@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **CloudProvider** | **string** | Name of the Infra Provider | 
 **CreatedAt** | Pointer to **string** | The timestamp when the host cluster was created | [optional] 
 **CurrentNumberOfDeployments** | **int64** | The current number of deployments on the host cluster | 
+**CurrentNumberOfSnapshots** | Pointer to **int64** | The current number of snapshots on the host cluster | [optional] 
 **CustomNetworkDetail** | Pointer to [**CustomNetworkFleetDetail**](CustomNetworkFleetDetail.md) |  | [optional] 
 **CustomerEmail** | Pointer to **string** | Email of the customer who owns the host cluster in case this is a BYOC / Adopted host cluster | [optional] 
 **CustomerOrganizationName** | Pointer to **string** | Name of the customer organization that owns the host cluster in case this is a BYOC / Adopted host cluster | [optional] 
@@ -26,6 +27,7 @@ Name | Type | Description | Notes
 **KubernetesDashboardEndpoint** | Pointer to **string** | Endpoint of the Kubernetes dashboard | [optional] 
 **ModelType** | Pointer to **string** | The model type encapsulating this service | [optional] 
 **PendingAmenities** | Pointer to [**[]Amenity**](Amenity.md) | The pending amenities for the host cluster | [optional] 
+**PrivateLinkEnabled** | Pointer to **bool** | Whether the host cluster is provisioned with PrivateLink network topology. For BYOA deployment cells, this is derived from the BYOA instance input parameters at creation time and is immutable thereafter; dataplane host cluster reuse is scoped to a single PrivateLink topology. | [optional] 
 **Region** | **string** | The actual region name of the host cluster | 
 **RegionId** | **string** | ID of a Region | 
 **Role** | Pointer to **string** |  | [optional] 
@@ -205,6 +207,31 @@ and a boolean to check if the value has been set.
 
 SetCurrentNumberOfDeployments sets CurrentNumberOfDeployments field to given value.
 
+
+### GetCurrentNumberOfSnapshots
+
+`func (o *HostCluster) GetCurrentNumberOfSnapshots() int64`
+
+GetCurrentNumberOfSnapshots returns the CurrentNumberOfSnapshots field if non-nil, zero value otherwise.
+
+### GetCurrentNumberOfSnapshotsOk
+
+`func (o *HostCluster) GetCurrentNumberOfSnapshotsOk() (*int64, bool)`
+
+GetCurrentNumberOfSnapshotsOk returns a tuple with the CurrentNumberOfSnapshots field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrentNumberOfSnapshots
+
+`func (o *HostCluster) SetCurrentNumberOfSnapshots(v int64)`
+
+SetCurrentNumberOfSnapshots sets CurrentNumberOfSnapshots field to given value.
+
+### HasCurrentNumberOfSnapshots
+
+`func (o *HostCluster) HasCurrentNumberOfSnapshots() bool`
+
+HasCurrentNumberOfSnapshots returns a boolean if a field has been set.
 
 ### GetCustomNetworkDetail
 
@@ -560,6 +587,31 @@ SetPendingAmenities sets PendingAmenities field to given value.
 `func (o *HostCluster) HasPendingAmenities() bool`
 
 HasPendingAmenities returns a boolean if a field has been set.
+
+### GetPrivateLinkEnabled
+
+`func (o *HostCluster) GetPrivateLinkEnabled() bool`
+
+GetPrivateLinkEnabled returns the PrivateLinkEnabled field if non-nil, zero value otherwise.
+
+### GetPrivateLinkEnabledOk
+
+`func (o *HostCluster) GetPrivateLinkEnabledOk() (*bool, bool)`
+
+GetPrivateLinkEnabledOk returns a tuple with the PrivateLinkEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrivateLinkEnabled
+
+`func (o *HostCluster) SetPrivateLinkEnabled(v bool)`
+
+SetPrivateLinkEnabled sets PrivateLinkEnabled field to given value.
+
+### HasPrivateLinkEnabled
+
+`func (o *HostCluster) HasPrivateLinkEnabled() bool`
+
+HasPrivateLinkEnabled returns a boolean if a field has been set.
 
 ### GetRegion
 

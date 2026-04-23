@@ -5,6 +5,7 @@ All URIs are relative to *https://api.omnistrate.cloud*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AccountConfigApiAccountConfigIdentityID**](AccountConfigApiAPI.md#AccountConfigApiAccountConfigIdentityID) | **Get** /2022-09-01-00/accountconfig/identityid | AccountConfigIdentityID account-config-api
+[**AccountConfigApiBulkImportAccountConfigCloudNativeNetworks**](AccountConfigApiAPI.md#AccountConfigApiBulkImportAccountConfigCloudNativeNetworks) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/import | BulkImportAccountConfigCloudNativeNetworks account-config-api
 [**AccountConfigApiCreateAccountConfig**](AccountConfigApiAPI.md#AccountConfigApiCreateAccountConfig) | **Post** /2022-09-01-00/accountconfig | CreateAccountConfig account-config-api
 [**AccountConfigApiDeleteAccountConfig**](AccountConfigApiAPI.md#AccountConfigApiDeleteAccountConfig) | **Delete** /2022-09-01-00/accountconfig/{id} | DeleteAccountConfig account-config-api
 [**AccountConfigApiDescribeAccountConfig**](AccountConfigApiAPI.md#AccountConfigApiDescribeAccountConfig) | **Get** /2022-09-01-00/accountconfig/{id} | DescribeAccountConfig account-config-api
@@ -13,8 +14,12 @@ Method | HTTP request | Description
 [**AccountConfigApiDescribeAccountConfigByGCPProjectID**](AccountConfigApiAPI.md#AccountConfigApiDescribeAccountConfigByGCPProjectID) | **Get** /2022-09-01-00/accountconfig/gcp/{gcpProjectID} | DescribeAccountConfigByGCPProjectID account-config-api
 [**AccountConfigApiDescribeAccountConfigByNebiusTenantID**](AccountConfigApiAPI.md#AccountConfigApiDescribeAccountConfigByNebiusTenantID) | **Get** /2022-09-01-00/accountconfig/nebius/tenant/{nebiusTenantID} | DescribeAccountConfigByNebiusTenantID account-config-api
 [**AccountConfigApiDescribeAccountConfigByOCITenancyID**](AccountConfigApiAPI.md#AccountConfigApiDescribeAccountConfigByOCITenancyID) | **Get** /2022-09-01-00/accountconfig/oci/{ociTenancyID} | DescribeAccountConfigByOCITenancyID account-config-api
+[**AccountConfigApiImportAccountConfigCloudNativeNetwork**](AccountConfigApiAPI.md#AccountConfigApiImportAccountConfigCloudNativeNetwork) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/{cloudNativeNetworkId}/import | ImportAccountConfigCloudNativeNetwork account-config-api
 [**AccountConfigApiListAccountConfig**](AccountConfigApiAPI.md#AccountConfigApiListAccountConfig) | **Get** /2022-09-01-00/accountconfig/cloudprovider/{cloudProviderName} | ListAccountConfig account-config-api
+[**AccountConfigApiListAccountConfigCloudNativeNetworks**](AccountConfigApiAPI.md#AccountConfigApiListAccountConfigCloudNativeNetworks) | **Get** /2022-09-01-00/accountconfig/{id}/cloud-native-networks | ListAccountConfigCloudNativeNetworks account-config-api
 [**AccountConfigApiListBYOAConfig**](AccountConfigApiAPI.md#AccountConfigApiListBYOAConfig) | **Get** /2022-09-01-00/accountconfig/byoa | ListBYOAConfig account-config-api
+[**AccountConfigApiSyncAccountConfigCloudNativeNetworks**](AccountConfigApiAPI.md#AccountConfigApiSyncAccountConfigCloudNativeNetworks) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/sync | SyncAccountConfigCloudNativeNetworks account-config-api
+[**AccountConfigApiUnimportAccountConfigCloudNativeNetwork**](AccountConfigApiAPI.md#AccountConfigApiUnimportAccountConfigCloudNativeNetwork) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/{cloudNativeNetworkId}/unimport | UnimportAccountConfigCloudNativeNetwork account-config-api
 [**AccountConfigApiUpdateAccountConfig**](AccountConfigApiAPI.md#AccountConfigApiUpdateAccountConfig) | **Put** /2022-09-01-00/accountconfig/{id} | UpdateAccountConfig account-config-api
 [**AccountConfigApiVerifyAccountConfig**](AccountConfigApiAPI.md#AccountConfigApiVerifyAccountConfig) | **Post** /2022-09-01-00/accountconfig/verify/{id} | VerifyAccountConfig account-config-api
 
@@ -81,6 +86,78 @@ Other parameters are passed through a pointer to a apiAccountConfigApiAccountCon
 [[Back to README]](../README.md)
 
 
+## AccountConfigApiBulkImportAccountConfigCloudNativeNetworks
+
+> ListAccountConfigCloudNativeNetworksResult AccountConfigApiBulkImportAccountConfigCloudNativeNetworks(ctx, id).BulkImportAccountConfigCloudNativeNetworksRequest2(bulkImportAccountConfigCloudNativeNetworksRequest2).Execute()
+
+BulkImportAccountConfigCloudNativeNetworks account-config-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	id := "ac-12345678" // string | Account Config ID to operate on
+	bulkImportAccountConfigCloudNativeNetworksRequest2 := *openapiclient.NewBulkImportAccountConfigCloudNativeNetworksRequest2([]openapiclient.AccountConfigCloudNativeNetworkOperation{*openapiclient.NewAccountConfigCloudNativeNetworkOperation("vpc-0abc123def456", true)}) // BulkImportAccountConfigCloudNativeNetworksRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountConfigApiAPI.AccountConfigApiBulkImportAccountConfigCloudNativeNetworks(context.Background(), id).BulkImportAccountConfigCloudNativeNetworksRequest2(bulkImportAccountConfigCloudNativeNetworksRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountConfigApiAPI.AccountConfigApiBulkImportAccountConfigCloudNativeNetworks``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AccountConfigApiBulkImportAccountConfigCloudNativeNetworks`: ListAccountConfigCloudNativeNetworksResult
+	fmt.Fprintf(os.Stdout, "Response from `AccountConfigApiAPI.AccountConfigApiBulkImportAccountConfigCloudNativeNetworks`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Account Config ID to operate on | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAccountConfigApiBulkImportAccountConfigCloudNativeNetworksRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **bulkImportAccountConfigCloudNativeNetworksRequest2** | [**BulkImportAccountConfigCloudNativeNetworksRequest2**](BulkImportAccountConfigCloudNativeNetworksRequest2.md) |  | 
+
+### Return type
+
+[**ListAccountConfigCloudNativeNetworksResult**](ListAccountConfigCloudNativeNetworksResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## AccountConfigApiCreateAccountConfig
 
 > string AccountConfigApiCreateAccountConfig(ctx).CreateAccountConfigRequest2(createAccountConfigRequest2).Execute()
@@ -100,7 +177,7 @@ import (
 )
 
 func main() {
-	createAccountConfigRequest2 := *openapiclient.NewCreateAccountConfigRequest2("Soluta nihil velit iste corporis ut.", "An AWS account hosting multiple dev environments", "Dev AWS account") // CreateAccountConfigRequest2 | 
+	createAccountConfigRequest2 := *openapiclient.NewCreateAccountConfigRequest2("Est facere id odit quidem nam.", "An AWS account hosting multiple dev environments", "Dev AWS account") // CreateAccountConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -619,6 +696,79 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## AccountConfigApiImportAccountConfigCloudNativeNetwork
+
+> ListAccountConfigCloudNativeNetworksResult AccountConfigApiImportAccountConfigCloudNativeNetwork(ctx, id, cloudNativeNetworkId).Execute()
+
+ImportAccountConfigCloudNativeNetwork account-config-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	id := "ac-12345678" // string | Account Config ID to operate on
+	cloudNativeNetworkId := "vpc-0abc123def456" // string | The cloud provider network ID (e.g. AWS VPC ID) to import for deployments
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountConfigApiAPI.AccountConfigApiImportAccountConfigCloudNativeNetwork(context.Background(), id, cloudNativeNetworkId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountConfigApiAPI.AccountConfigApiImportAccountConfigCloudNativeNetwork``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AccountConfigApiImportAccountConfigCloudNativeNetwork`: ListAccountConfigCloudNativeNetworksResult
+	fmt.Fprintf(os.Stdout, "Response from `AccountConfigApiAPI.AccountConfigApiImportAccountConfigCloudNativeNetwork`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Account Config ID to operate on | 
+**cloudNativeNetworkId** | **string** | The cloud provider network ID (e.g. AWS VPC ID) to import for deployments | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAccountConfigApiImportAccountConfigCloudNativeNetworkRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**ListAccountConfigCloudNativeNetworksResult**](ListAccountConfigCloudNativeNetworksResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## AccountConfigApiListAccountConfig
 
 > ListAccountConfigResult AccountConfigApiListAccountConfig(ctx, cloudProviderName).Execute()
@@ -672,6 +822,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ListAccountConfigResult**](ListAccountConfigResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AccountConfigApiListAccountConfigCloudNativeNetworks
+
+> ListAccountConfigCloudNativeNetworksResult AccountConfigApiListAccountConfigCloudNativeNetworks(ctx, id).Execute()
+
+ListAccountConfigCloudNativeNetworks account-config-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	id := "ac-12345678" // string | Account Config ID to operate on
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountConfigApiAPI.AccountConfigApiListAccountConfigCloudNativeNetworks(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountConfigApiAPI.AccountConfigApiListAccountConfigCloudNativeNetworks``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AccountConfigApiListAccountConfigCloudNativeNetworks`: ListAccountConfigCloudNativeNetworksResult
+	fmt.Fprintf(os.Stdout, "Response from `AccountConfigApiAPI.AccountConfigApiListAccountConfigCloudNativeNetworks`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Account Config ID to operate on | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAccountConfigApiListAccountConfigCloudNativeNetworksRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ListAccountConfigCloudNativeNetworksResult**](ListAccountConfigCloudNativeNetworksResult.md)
 
 ### Authorization
 
@@ -744,6 +964,151 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AccountConfigApiSyncAccountConfigCloudNativeNetworks
+
+> ListAccountConfigCloudNativeNetworksResult AccountConfigApiSyncAccountConfigCloudNativeNetworks(ctx, id).SyncAccountConfigCloudNativeNetworksRequest2(syncAccountConfigCloudNativeNetworksRequest2).Execute()
+
+SyncAccountConfigCloudNativeNetworks account-config-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	id := "ac-12345678" // string | Account Config ID to operate on
+	syncAccountConfigCloudNativeNetworksRequest2 := *openapiclient.NewSyncAccountConfigCloudNativeNetworksRequest2() // SyncAccountConfigCloudNativeNetworksRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountConfigApiAPI.AccountConfigApiSyncAccountConfigCloudNativeNetworks(context.Background(), id).SyncAccountConfigCloudNativeNetworksRequest2(syncAccountConfigCloudNativeNetworksRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountConfigApiAPI.AccountConfigApiSyncAccountConfigCloudNativeNetworks``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AccountConfigApiSyncAccountConfigCloudNativeNetworks`: ListAccountConfigCloudNativeNetworksResult
+	fmt.Fprintf(os.Stdout, "Response from `AccountConfigApiAPI.AccountConfigApiSyncAccountConfigCloudNativeNetworks`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Account Config ID to operate on | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAccountConfigApiSyncAccountConfigCloudNativeNetworksRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **syncAccountConfigCloudNativeNetworksRequest2** | [**SyncAccountConfigCloudNativeNetworksRequest2**](SyncAccountConfigCloudNativeNetworksRequest2.md) |  | 
+
+### Return type
+
+[**ListAccountConfigCloudNativeNetworksResult**](ListAccountConfigCloudNativeNetworksResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AccountConfigApiUnimportAccountConfigCloudNativeNetwork
+
+> ListAccountConfigCloudNativeNetworksResult AccountConfigApiUnimportAccountConfigCloudNativeNetwork(ctx, id, cloudNativeNetworkId).Execute()
+
+UnimportAccountConfigCloudNativeNetwork account-config-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	id := "ac-12345678" // string | Account Config ID to operate on
+	cloudNativeNetworkId := "vpc-0abc123def456" // string | The cloud provider network ID (e.g. AWS VPC ID) to unimport (revert from READY to AVAILABLE)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountConfigApiAPI.AccountConfigApiUnimportAccountConfigCloudNativeNetwork(context.Background(), id, cloudNativeNetworkId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountConfigApiAPI.AccountConfigApiUnimportAccountConfigCloudNativeNetwork``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AccountConfigApiUnimportAccountConfigCloudNativeNetwork`: ListAccountConfigCloudNativeNetworksResult
+	fmt.Fprintf(os.Stdout, "Response from `AccountConfigApiAPI.AccountConfigApiUnimportAccountConfigCloudNativeNetwork`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Account Config ID to operate on | 
+**cloudNativeNetworkId** | **string** | The cloud provider network ID (e.g. AWS VPC ID) to unimport (revert from READY to AVAILABLE) | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAccountConfigApiUnimportAccountConfigCloudNativeNetworkRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**ListAccountConfigCloudNativeNetworksResult**](ListAccountConfigCloudNativeNetworksResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

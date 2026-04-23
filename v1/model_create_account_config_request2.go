@@ -56,8 +56,6 @@ type CreateAccountConfigRequest2 struct {
 	OciDomainID *string `json:"ociDomainID,omitempty"`
 	// The Tenancy OCID for Oracle Cloud Infrastructure
 	OciTenancyID *string `json:"ociTenancyID,omitempty"`
-	// Whether all provisioned dataplanes from this provisioner account must be fully private (no public subnets, NAT gateway, or IGW)
-	PrivateOnly *bool `json:"privateOnly,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -500,29 +498,6 @@ func (o *CreateAccountConfigRequest2) SetOciTenancyID(v string) {
 	o.OciTenancyID = &v
 }
 
-// GetPrivateOnly returns the PrivateOnly field value if set, zero value otherwise.
-func (o *CreateAccountConfigRequest2) GetPrivateOnly() bool {
-	if o == nil || IsNil(o.PrivateOnly) {
-		var ret bool
-		return ret
-	}
-	return *o.PrivateOnly
-}
-
-// GetPrivateOnlyOk returns a tuple with the PrivateOnly field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CreateAccountConfigRequest2) GetPrivateOnlyOk() (*bool, bool) {
-	if o == nil || IsNil(o.PrivateOnly) {
-		return nil, false
-	}
-	return o.PrivateOnly, true
-}
-
-// SetPrivateOnly gets a reference to the given bool and assigns it to the PrivateOnly field.
-func (o *CreateAccountConfigRequest2) SetPrivateOnly(v bool) {
-	o.PrivateOnly = &v
-}
-
 func (o CreateAccountConfigRequest2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -580,9 +555,6 @@ func (o CreateAccountConfigRequest2) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.OciTenancyID) {
 		toSerialize["ociTenancyID"] = o.OciTenancyID
-	}
-	if !IsNil(o.PrivateOnly) {
-		toSerialize["privateOnly"] = o.PrivateOnly
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -647,7 +619,6 @@ func (o *CreateAccountConfigRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "nebiusTenantID")
 		delete(additionalProperties, "ociDomainID")
 		delete(additionalProperties, "ociTenancyID")
-		delete(additionalProperties, "privateOnly")
 		o.AdditionalProperties = additionalProperties
 	}
 

@@ -42,6 +42,8 @@ type FleetDescribeAccountConfigResult struct {
 	AzureTenantID *string `json:"azureTenantID,omitempty"`
 	// The BYOA instance IDs that this account config is tied to
 	ByoaInstanceIDs []string `json:"byoaInstanceIDs,omitempty"`
+	// Registered CloudNativeNetworks for this account configuration
+	CloudNativeNetworks []FleetAccountConfigCloudNativeNetworkResult `json:"cloudNativeNetworks,omitempty"`
 	// ID of an CloudProvider
 	CloudProviderId string `json:"cloudProviderId"`
 	// The description for the account
@@ -460,6 +462,38 @@ func (o *FleetDescribeAccountConfigResult) HasByoaInstanceIDs() bool {
 // SetByoaInstanceIDs gets a reference to the given []string and assigns it to the ByoaInstanceIDs field.
 func (o *FleetDescribeAccountConfigResult) SetByoaInstanceIDs(v []string) {
 	o.ByoaInstanceIDs = v
+}
+
+// GetCloudNativeNetworks returns the CloudNativeNetworks field value if set, zero value otherwise.
+func (o *FleetDescribeAccountConfigResult) GetCloudNativeNetworks() []FleetAccountConfigCloudNativeNetworkResult {
+	if o == nil || IsNil(o.CloudNativeNetworks) {
+		var ret []FleetAccountConfigCloudNativeNetworkResult
+		return ret
+	}
+	return o.CloudNativeNetworks
+}
+
+// GetCloudNativeNetworksOk returns a tuple with the CloudNativeNetworks field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeAccountConfigResult) GetCloudNativeNetworksOk() ([]FleetAccountConfigCloudNativeNetworkResult, bool) {
+	if o == nil || IsNil(o.CloudNativeNetworks) {
+		return nil, false
+	}
+	return o.CloudNativeNetworks, true
+}
+
+// HasCloudNativeNetworks returns a boolean if a field has been set.
+func (o *FleetDescribeAccountConfigResult) HasCloudNativeNetworks() bool {
+	if o != nil && !IsNil(o.CloudNativeNetworks) {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudNativeNetworks gets a reference to the given []FleetAccountConfigCloudNativeNetworkResult and assigns it to the CloudNativeNetworks field.
+func (o *FleetDescribeAccountConfigResult) SetCloudNativeNetworks(v []FleetAccountConfigCloudNativeNetworkResult) {
+	o.CloudNativeNetworks = v
 }
 
 // GetCloudProviderId returns the CloudProviderId field value
@@ -1097,6 +1131,9 @@ func (o FleetDescribeAccountConfigResult) ToMap() (map[string]interface{}, error
 	if !IsNil(o.ByoaInstanceIDs) {
 		toSerialize["byoaInstanceIDs"] = o.ByoaInstanceIDs
 	}
+	if !IsNil(o.CloudNativeNetworks) {
+		toSerialize["cloudNativeNetworks"] = o.CloudNativeNetworks
+	}
 	toSerialize["cloudProviderId"] = o.CloudProviderId
 	toSerialize["description"] = o.Description
 	if !IsNil(o.GcpBootstrapShellCommand) {
@@ -1204,6 +1241,7 @@ func (o *FleetDescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error
 		delete(additionalProperties, "azureSubscriptionID")
 		delete(additionalProperties, "azureTenantID")
 		delete(additionalProperties, "byoaInstanceIDs")
+		delete(additionalProperties, "cloudNativeNetworks")
 		delete(additionalProperties, "cloudProviderId")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "gcpBootstrapShellCommand")

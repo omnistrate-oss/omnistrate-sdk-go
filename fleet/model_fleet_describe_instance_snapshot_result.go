@@ -29,6 +29,10 @@ type FleetDescribeInstanceSnapshotResult struct {
 	Encrypted *bool `json:"encrypted,omitempty"`
 	// ID of a Service Environment
 	EnvironmentId *string `json:"environmentId,omitempty"`
+	// The environment name
+	EnvironmentName *string `json:"environmentName,omitempty"`
+	// The environment type
+	EnvironmentType *string `json:"environmentType,omitempty"`
 	// Custom output parameters
 	OutputParams []OutputParameter `json:"outputParams,omitempty"`
 	// ID of a Product Tier
@@ -245,6 +249,70 @@ func (o *FleetDescribeInstanceSnapshotResult) HasEnvironmentId() bool {
 // SetEnvironmentId gets a reference to the given string and assigns it to the EnvironmentId field.
 func (o *FleetDescribeInstanceSnapshotResult) SetEnvironmentId(v string) {
 	o.EnvironmentId = &v
+}
+
+// GetEnvironmentName returns the EnvironmentName field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetEnvironmentName() string {
+	if o == nil || IsNil(o.EnvironmentName) {
+		var ret string
+		return ret
+	}
+	return *o.EnvironmentName
+}
+
+// GetEnvironmentNameOk returns a tuple with the EnvironmentName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetEnvironmentNameOk() (*string, bool) {
+	if o == nil || IsNil(o.EnvironmentName) {
+		return nil, false
+	}
+	return o.EnvironmentName, true
+}
+
+// HasEnvironmentName returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasEnvironmentName() bool {
+	if o != nil && !IsNil(o.EnvironmentName) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnvironmentName gets a reference to the given string and assigns it to the EnvironmentName field.
+func (o *FleetDescribeInstanceSnapshotResult) SetEnvironmentName(v string) {
+	o.EnvironmentName = &v
+}
+
+// GetEnvironmentType returns the EnvironmentType field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetEnvironmentType() string {
+	if o == nil || IsNil(o.EnvironmentType) {
+		var ret string
+		return ret
+	}
+	return *o.EnvironmentType
+}
+
+// GetEnvironmentTypeOk returns a tuple with the EnvironmentType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetEnvironmentTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.EnvironmentType) {
+		return nil, false
+	}
+	return o.EnvironmentType, true
+}
+
+// HasEnvironmentType returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasEnvironmentType() bool {
+	if o != nil && !IsNil(o.EnvironmentType) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnvironmentType gets a reference to the given string and assigns it to the EnvironmentType field.
+func (o *FleetDescribeInstanceSnapshotResult) SetEnvironmentType(v string) {
+	o.EnvironmentType = &v
 }
 
 // GetOutputParams returns the OutputParams field value if set, zero value otherwise.
@@ -848,6 +916,12 @@ func (o FleetDescribeInstanceSnapshotResult) ToMap() (map[string]interface{}, er
 	if !IsNil(o.EnvironmentId) {
 		toSerialize["environmentId"] = o.EnvironmentId
 	}
+	if !IsNil(o.EnvironmentName) {
+		toSerialize["environmentName"] = o.EnvironmentName
+	}
+	if !IsNil(o.EnvironmentType) {
+		toSerialize["environmentType"] = o.EnvironmentType
+	}
 	if !IsNil(o.OutputParams) {
 		toSerialize["outputParams"] = o.OutputParams
 	}
@@ -929,6 +1003,8 @@ func (o *FleetDescribeInstanceSnapshotResult) UnmarshalJSON(data []byte) (err er
 		delete(additionalProperties, "createdTime")
 		delete(additionalProperties, "encrypted")
 		delete(additionalProperties, "environmentId")
+		delete(additionalProperties, "environmentName")
+		delete(additionalProperties, "environmentType")
 		delete(additionalProperties, "outputParams")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "productTierName")
