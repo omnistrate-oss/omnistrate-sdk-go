@@ -8210,7 +8210,8 @@ paths:
             application/json:
               example:
                 events:
-                - billingProvider: STRIPE
+                - authMethod: API_KEY
+                  billingProvider: STRIPE
                   billingProviderId: payer_acme_corp_2024
                   cloudProvider: aws
                   cloudProviderAccountId: account-12345678
@@ -8227,9 +8228,11 @@ paths:
                   region: us-east-1
                   resourceInstanceId: instance-abcd1234
                   resourceName: Galera
+                  roleType: root
                   serviceId: s-123456
                   serviceName: mysql
                   servicePlanName: Basic Plan
+                  sessionId: ak-12345678
                   subscriptionId: sub-abcd1234
                   time: 2023-01-10T00:00:00Z
                   userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -8241,7 +8244,8 @@ paths:
                     message: Bootstrap failed for reason X
                   - eventTime: 2020-01-01T00:01:00Z
                     message: Compute failed for reason Y
-                - billingProvider: STRIPE
+                - authMethod: API_KEY
+                  billingProvider: STRIPE
                   billingProviderId: payer_acme_corp_2024
                   cloudProvider: aws
                   cloudProviderAccountId: account-12345678
@@ -8258,9 +8262,11 @@ paths:
                   region: us-east-1
                   resourceInstanceId: instance-abcd1234
                   resourceName: Galera
+                  roleType: root
                   serviceId: s-123456
                   serviceName: mysql
                   servicePlanName: Basic Plan
+                  sessionId: ak-12345678
                   subscriptionId: sub-abcd1234
                   time: 2023-01-10T00:00:00Z
                   userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -8272,7 +8278,8 @@ paths:
                     message: Bootstrap failed for reason X
                   - eventTime: 2020-01-01T00:01:00Z
                     message: Compute failed for reason Y
-                - billingProvider: STRIPE
+                - authMethod: API_KEY
+                  billingProvider: STRIPE
                   billingProviderId: payer_acme_corp_2024
                   cloudProvider: aws
                   cloudProviderAccountId: account-12345678
@@ -8289,9 +8296,11 @@ paths:
                   region: us-east-1
                   resourceInstanceId: instance-abcd1234
                   resourceName: Galera
+                  roleType: root
                   serviceId: s-123456
                   serviceName: mysql
                   servicePlanName: Basic Plan
+                  sessionId: ak-12345678
                   subscriptionId: sub-abcd1234
                   time: 2023-01-10T00:00:00Z
                   userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -8303,7 +8312,8 @@ paths:
                     message: Bootstrap failed for reason X
                   - eventTime: 2020-01-01T00:01:00Z
                     message: Compute failed for reason Y
-                - billingProvider: STRIPE
+                - authMethod: API_KEY
+                  billingProvider: STRIPE
                   billingProviderId: payer_acme_corp_2024
                   cloudProvider: aws
                   cloudProviderAccountId: account-12345678
@@ -8320,9 +8330,11 @@ paths:
                   region: us-east-1
                   resourceInstanceId: instance-abcd1234
                   resourceName: Galera
+                  roleType: root
                   serviceId: s-123456
                   serviceName: mysql
                   servicePlanName: Basic Plan
+                  sessionId: ak-12345678
                   subscriptionId: sub-abcd1234
                   time: 2023-01-10T00:00:00Z
                   userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -8416,7 +8428,8 @@ paths:
             application/json:
               example:
                 events:
-                - billingProvider: STRIPE
+                - authMethod: API_KEY
+                  billingProvider: STRIPE
                   billingProviderId: payer_acme_corp_2024
                   cloudProvider: aws
                   cloudProviderAccountId: account-12345678
@@ -8433,9 +8446,11 @@ paths:
                   region: us-east-1
                   resourceInstanceId: instance-abcd1234
                   resourceName: Galera
+                  roleType: root
                   serviceId: s-123456
                   serviceName: mysql
                   servicePlanName: Basic Plan
+                  sessionId: ak-12345678
                   subscriptionId: sub-abcd1234
                   time: 2023-01-10T00:00:00Z
                   userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -8447,7 +8462,8 @@ paths:
                     message: Bootstrap failed for reason X
                   - eventTime: 2020-01-01T00:01:00Z
                     message: Compute failed for reason Y
-                - billingProvider: STRIPE
+                - authMethod: API_KEY
+                  billingProvider: STRIPE
                   billingProviderId: payer_acme_corp_2024
                   cloudProvider: aws
                   cloudProviderAccountId: account-12345678
@@ -8464,9 +8480,11 @@ paths:
                   region: us-east-1
                   resourceInstanceId: instance-abcd1234
                   resourceName: Galera
+                  roleType: root
                   serviceId: s-123456
                   serviceName: mysql
                   servicePlanName: Basic Plan
+                  sessionId: ak-12345678
                   subscriptionId: sub-abcd1234
                   time: 2023-01-10T00:00:00Z
                   userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -8478,7 +8496,8 @@ paths:
                     message: Bootstrap failed for reason X
                   - eventTime: 2020-01-01T00:01:00Z
                     message: Compute failed for reason Y
-                - billingProvider: STRIPE
+                - authMethod: API_KEY
+                  billingProvider: STRIPE
                   billingProviderId: payer_acme_corp_2024
                   cloudProvider: aws
                   cloudProviderAccountId: account-12345678
@@ -8495,9 +8514,11 @@ paths:
                   region: us-east-1
                   resourceInstanceId: instance-abcd1234
                   resourceName: Galera
+                  roleType: root
                   serviceId: s-123456
                   serviceName: mysql
                   servicePlanName: Basic Plan
+                  sessionId: ak-12345678
                   subscriptionId: sub-abcd1234
                   time: 2023-01-10T00:00:00Z
                   userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -8509,7 +8530,8 @@ paths:
                     message: Bootstrap failed for reason X
                   - eventTime: 2020-01-01T00:01:00Z
                     message: Compute failed for reason Y
-                - billingProvider: STRIPE
+                - authMethod: API_KEY
+                  billingProvider: STRIPE
                   billingProviderId: payer_acme_corp_2024
                   cloudProvider: aws
                   cloudProviderAccountId: account-12345678
@@ -8526,9 +8548,11 @@ paths:
                   region: us-east-1
                   resourceInstanceId: instance-abcd1234
                   resourceName: Galera
+                  roleType: root
                   serviceId: s-123456
                   serviceName: mysql
                   servicePlanName: Basic Plan
+                  sessionId: ak-12345678
                   subscriptionId: sub-abcd1234
                   time: 2023-01-10T00:00:00Z
                   userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -11669,7 +11693,8 @@ paths:
             application/json:
               example:
                 events:
-                - billingProvider: STRIPE
+                - authMethod: API_KEY
+                  billingProvider: STRIPE
                   billingProviderId: payer_acme_corp_2024
                   cloudProvider: aws
                   cloudProviderAccountId: account-12345678
@@ -11686,9 +11711,11 @@ paths:
                   region: us-east-1
                   resourceInstanceId: instance-abcd1234
                   resourceName: Galera
+                  roleType: root
                   serviceId: s-123456
                   serviceName: mysql
                   servicePlanName: Basic Plan
+                  sessionId: ak-12345678
                   subscriptionId: sub-abcd1234
                   time: 2023-01-10T00:00:00Z
                   userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -11700,7 +11727,8 @@ paths:
                     message: Bootstrap failed for reason X
                   - eventTime: 2020-01-01T00:01:00Z
                     message: Compute failed for reason Y
-                - billingProvider: STRIPE
+                - authMethod: API_KEY
+                  billingProvider: STRIPE
                   billingProviderId: payer_acme_corp_2024
                   cloudProvider: aws
                   cloudProviderAccountId: account-12345678
@@ -11717,9 +11745,11 @@ paths:
                   region: us-east-1
                   resourceInstanceId: instance-abcd1234
                   resourceName: Galera
+                  roleType: root
                   serviceId: s-123456
                   serviceName: mysql
                   servicePlanName: Basic Plan
+                  sessionId: ak-12345678
                   subscriptionId: sub-abcd1234
                   time: 2023-01-10T00:00:00Z
                   userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -11731,7 +11761,8 @@ paths:
                     message: Bootstrap failed for reason X
                   - eventTime: 2020-01-01T00:01:00Z
                     message: Compute failed for reason Y
-                - billingProvider: STRIPE
+                - authMethod: API_KEY
+                  billingProvider: STRIPE
                   billingProviderId: payer_acme_corp_2024
                   cloudProvider: aws
                   cloudProviderAccountId: account-12345678
@@ -11748,9 +11779,11 @@ paths:
                   region: us-east-1
                   resourceInstanceId: instance-abcd1234
                   resourceName: Galera
+                  roleType: root
                   serviceId: s-123456
                   serviceName: mysql
                   servicePlanName: Basic Plan
+                  sessionId: ak-12345678
                   subscriptionId: sub-abcd1234
                   time: 2023-01-10T00:00:00Z
                   userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -11899,7 +11932,8 @@ paths:
             application/json:
               example:
                 events:
-                - billingProvider: STRIPE
+                - authMethod: API_KEY
+                  billingProvider: STRIPE
                   billingProviderId: payer_acme_corp_2024
                   cloudProvider: aws
                   cloudProviderAccountId: account-12345678
@@ -11916,9 +11950,11 @@ paths:
                   region: us-east-1
                   resourceInstanceId: instance-abcd1234
                   resourceName: Galera
+                  roleType: root
                   serviceId: s-123456
                   serviceName: mysql
                   servicePlanName: Basic Plan
+                  sessionId: ak-12345678
                   subscriptionId: sub-abcd1234
                   time: 2023-01-10T00:00:00Z
                   userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -11930,7 +11966,8 @@ paths:
                     message: Bootstrap failed for reason X
                   - eventTime: 2020-01-01T00:01:00Z
                     message: Compute failed for reason Y
-                - billingProvider: STRIPE
+                - authMethod: API_KEY
+                  billingProvider: STRIPE
                   billingProviderId: payer_acme_corp_2024
                   cloudProvider: aws
                   cloudProviderAccountId: account-12345678
@@ -11947,9 +11984,11 @@ paths:
                   region: us-east-1
                   resourceInstanceId: instance-abcd1234
                   resourceName: Galera
+                  roleType: root
                   serviceId: s-123456
                   serviceName: mysql
                   servicePlanName: Basic Plan
+                  sessionId: ak-12345678
                   subscriptionId: sub-abcd1234
                   time: 2023-01-10T00:00:00Z
                   userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -11961,7 +12000,8 @@ paths:
                     message: Bootstrap failed for reason X
                   - eventTime: 2020-01-01T00:01:00Z
                     message: Compute failed for reason Y
-                - billingProvider: STRIPE
+                - authMethod: API_KEY
+                  billingProvider: STRIPE
                   billingProviderId: payer_acme_corp_2024
                   cloudProvider: aws
                   cloudProviderAccountId: account-12345678
@@ -11978,9 +12018,11 @@ paths:
                   region: us-east-1
                   resourceInstanceId: instance-abcd1234
                   resourceName: Galera
+                  roleType: root
                   serviceId: s-123456
                   serviceName: mysql
                   servicePlanName: Basic Plan
+                  sessionId: ak-12345678
                   subscriptionId: sub-abcd1234
                   time: 2023-01-10T00:00:00Z
                   userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -12356,7 +12398,8 @@ paths:
             application/json:
               example:
                 events:
-                - billingProvider: STRIPE
+                - authMethod: API_KEY
+                  billingProvider: STRIPE
                   billingProviderId: payer_acme_corp_2024
                   cloudProvider: aws
                   cloudProviderAccountId: account-12345678
@@ -12373,9 +12416,11 @@ paths:
                   region: us-east-1
                   resourceInstanceId: instance-abcd1234
                   resourceName: Galera
+                  roleType: root
                   serviceId: s-123456
                   serviceName: mysql
                   servicePlanName: Basic Plan
+                  sessionId: ak-12345678
                   subscriptionId: sub-abcd1234
                   time: 2023-01-10T00:00:00Z
                   userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -12387,7 +12432,8 @@ paths:
                     message: Bootstrap failed for reason X
                   - eventTime: 2020-01-01T00:01:00Z
                     message: Compute failed for reason Y
-                - billingProvider: STRIPE
+                - authMethod: API_KEY
+                  billingProvider: STRIPE
                   billingProviderId: payer_acme_corp_2024
                   cloudProvider: aws
                   cloudProviderAccountId: account-12345678
@@ -12404,9 +12450,11 @@ paths:
                   region: us-east-1
                   resourceInstanceId: instance-abcd1234
                   resourceName: Galera
+                  roleType: root
                   serviceId: s-123456
                   serviceName: mysql
                   servicePlanName: Basic Plan
+                  sessionId: ak-12345678
                   subscriptionId: sub-abcd1234
                   time: 2023-01-10T00:00:00Z
                   userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -12418,7 +12466,8 @@ paths:
                     message: Bootstrap failed for reason X
                   - eventTime: 2020-01-01T00:01:00Z
                     message: Compute failed for reason Y
-                - billingProvider: STRIPE
+                - authMethod: API_KEY
+                  billingProvider: STRIPE
                   billingProviderId: payer_acme_corp_2024
                   cloudProvider: aws
                   cloudProviderAccountId: account-12345678
@@ -12435,9 +12484,11 @@ paths:
                   region: us-east-1
                   resourceInstanceId: instance-abcd1234
                   resourceName: Galera
+                  roleType: root
                   serviceId: s-123456
                   serviceName: mysql
                   servicePlanName: Basic Plan
+                  sessionId: ak-12345678
                   subscriptionId: sub-abcd1234
                   time: 2023-01-10T00:00:00Z
                   userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -12449,7 +12500,8 @@ paths:
                     message: Bootstrap failed for reason X
                   - eventTime: 2020-01-01T00:01:00Z
                     message: Compute failed for reason Y
-                - billingProvider: STRIPE
+                - authMethod: API_KEY
+                  billingProvider: STRIPE
                   billingProviderId: payer_acme_corp_2024
                   cloudProvider: aws
                   cloudProviderAccountId: account-12345678
@@ -12466,9 +12518,11 @@ paths:
                   region: us-east-1
                   resourceInstanceId: instance-abcd1234
                   resourceName: Galera
+                  roleType: root
                   serviceId: s-123456
                   serviceName: mysql
                   servicePlanName: Basic Plan
+                  sessionId: ak-12345678
                   subscriptionId: sub-abcd1234
                   time: 2023-01-10T00:00:00Z
                   userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -12561,6 +12615,7 @@ paths:
           content:
             application/json:
               example:
+                authMethod: API_KEY
                 billingProvider: STRIPE
                 billingProviderId: payer_acme_corp_2024
                 cloudProvider: aws
@@ -12578,9 +12633,11 @@ paths:
                 region: us-east-1
                 resourceInstanceId: instance-abcd1234
                 resourceName: Galera
+                roleType: root
                 serviceId: s-123456
                 serviceName: mysql
                 servicePlanName: Basic Plan
+                sessionId: ak-12345678
                 subscriptionId: sub-abcd1234
                 time: 2023-01-10T00:00:00Z
                 userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -13325,6 +13382,7 @@ paths:
           content:
             application/json:
               example:
+                authMethod: API_KEY
                 billingProvider: STRIPE
                 billingProviderId: payer_acme_corp_2024
                 cloudProvider: aws
@@ -13342,9 +13400,11 @@ paths:
                 region: us-east-1
                 resourceInstanceId: instance-abcd1234
                 resourceName: Galera
+                roleType: root
                 serviceId: s-123456
                 serviceName: mysql
                 servicePlanName: Basic Plan
+                sessionId: ak-12345678
                 subscriptionId: sub-abcd1234
                 time: 2023-01-10T00:00:00Z
                 userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0)
@@ -46667,6 +46727,7 @@ components:
       type: object
     DescribeAuditEventResult:
       example:
+        authMethod: API_KEY
         billingProvider: STRIPE
         billingProviderId: payer_acme_corp_2024
         cloudProvider: aws
@@ -46684,9 +46745,11 @@ components:
         region: us-east-1
         resourceInstanceId: instance-abcd1234
         resourceName: Galera
+        roleType: root
         serviceId: s-123456
         serviceName: mysql
         servicePlanName: Basic Plan
+        sessionId: ak-12345678
         subscriptionId: sub-abcd1234
         time: 2023-01-10T00:00:00Z
         userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0) Gecko/20100101
@@ -46699,6 +46762,12 @@ components:
         - eventTime: 2020-01-01T00:01:00Z
           message: Compute failed for reason Y
       properties:
+        authMethod:
+          description: The authentication method used by the caller for the request
+            that produced the event. One of PASSWORD or API_KEY. Empty for events
+            not originated by an authenticated user (e.g. internal sweeper actions).
+          example: API_KEY
+          type: string
         billingProvider:
           description: The billing provider on the instance's subscription at the
             time of the event. Empty when no subscription is linked.
@@ -46776,6 +46845,13 @@ components:
           description: Name of the resource
           example: Galera
           type: string
+        roleType:
+          description: The role asserted by the user's credential at the time of the
+            event. Captured from the token claims so the audit log reflects the role
+            active at the moment of the action even after the user's role assignments
+            change.
+          example: root
+          type: string
         serviceId:
           description: ID of a Service
           example: s-123456
@@ -46787,6 +46863,13 @@ components:
         servicePlanName:
           description: The name of the service plan
           example: Basic Plan
+          type: string
+        sessionId:
+          description: "The credential identifier used for the request that produced\
+            \ the event. For password-issued JWTs this is the token's unique ID (jti);\
+            \ for API-key issued JWTs this is the API key's persistent ID, allowing\
+            \ all events for that key to be correlated even across token refreshes."
+          example: ak-12345678
           type: string
         subscriptionId:
           description: The subscription ID
@@ -57996,7 +58079,8 @@ components:
     ListAuditEventsResult:
       example:
         events:
-        - billingProvider: STRIPE
+        - authMethod: API_KEY
+          billingProvider: STRIPE
           billingProviderId: payer_acme_corp_2024
           cloudProvider: aws
           cloudProviderAccountId: account-12345678
@@ -58013,9 +58097,11 @@ components:
           region: us-east-1
           resourceInstanceId: instance-abcd1234
           resourceName: Galera
+          roleType: root
           serviceId: s-123456
           serviceName: mysql
           servicePlanName: Basic Plan
+          sessionId: ak-12345678
           subscriptionId: sub-abcd1234
           time: 2023-01-10T00:00:00Z
           userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0) Gecko/20100101
@@ -58027,7 +58113,8 @@ components:
             message: Bootstrap failed for reason X
           - eventTime: 2020-01-01T00:01:00Z
             message: Compute failed for reason Y
-        - billingProvider: STRIPE
+        - authMethod: API_KEY
+          billingProvider: STRIPE
           billingProviderId: payer_acme_corp_2024
           cloudProvider: aws
           cloudProviderAccountId: account-12345678
@@ -58044,9 +58131,11 @@ components:
           region: us-east-1
           resourceInstanceId: instance-abcd1234
           resourceName: Galera
+          roleType: root
           serviceId: s-123456
           serviceName: mysql
           servicePlanName: Basic Plan
+          sessionId: ak-12345678
           subscriptionId: sub-abcd1234
           time: 2023-01-10T00:00:00Z
           userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0) Gecko/20100101
@@ -58058,7 +58147,8 @@ components:
             message: Bootstrap failed for reason X
           - eventTime: 2020-01-01T00:01:00Z
             message: Compute failed for reason Y
-        - billingProvider: STRIPE
+        - authMethod: API_KEY
+          billingProvider: STRIPE
           billingProviderId: payer_acme_corp_2024
           cloudProvider: aws
           cloudProviderAccountId: account-12345678
@@ -58075,9 +58165,11 @@ components:
           region: us-east-1
           resourceInstanceId: instance-abcd1234
           resourceName: Galera
+          roleType: root
           serviceId: s-123456
           serviceName: mysql
           servicePlanName: Basic Plan
+          sessionId: ak-12345678
           subscriptionId: sub-abcd1234
           time: 2023-01-10T00:00:00Z
           userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0) Gecko/20100101
@@ -58089,7 +58181,8 @@ components:
             message: Bootstrap failed for reason X
           - eventTime: 2020-01-01T00:01:00Z
             message: Compute failed for reason Y
-        - billingProvider: STRIPE
+        - authMethod: API_KEY
+          billingProvider: STRIPE
           billingProviderId: payer_acme_corp_2024
           cloudProvider: aws
           cloudProviderAccountId: account-12345678
@@ -58106,9 +58199,11 @@ components:
           region: us-east-1
           resourceInstanceId: instance-abcd1234
           resourceName: Galera
+          roleType: root
           serviceId: s-123456
           serviceName: mysql
           servicePlanName: Basic Plan
+          sessionId: ak-12345678
           subscriptionId: sub-abcd1234
           time: 2023-01-10T00:00:00Z
           userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0) Gecko/20100101
@@ -58127,7 +58222,8 @@ components:
         events:
           description: The list of events
           example:
-          - billingProvider: STRIPE
+          - authMethod: API_KEY
+            billingProvider: STRIPE
             billingProviderId: payer_acme_corp_2024
             cloudProvider: aws
             cloudProviderAccountId: account-12345678
@@ -58144,9 +58240,11 @@ components:
             region: us-east-1
             resourceInstanceId: instance-abcd1234
             resourceName: Galera
+            roleType: root
             serviceId: s-123456
             serviceName: mysql
             servicePlanName: Basic Plan
+            sessionId: ak-12345678
             subscriptionId: sub-abcd1234
             time: 2023-01-10T00:00:00Z
             userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0) Gecko/20100101
@@ -58158,7 +58256,8 @@ components:
               message: Bootstrap failed for reason X
             - eventTime: 2020-01-01T00:01:00Z
               message: Compute failed for reason Y
-          - billingProvider: STRIPE
+          - authMethod: API_KEY
+            billingProvider: STRIPE
             billingProviderId: payer_acme_corp_2024
             cloudProvider: aws
             cloudProviderAccountId: account-12345678
@@ -58175,9 +58274,11 @@ components:
             region: us-east-1
             resourceInstanceId: instance-abcd1234
             resourceName: Galera
+            roleType: root
             serviceId: s-123456
             serviceName: mysql
             servicePlanName: Basic Plan
+            sessionId: ak-12345678
             subscriptionId: sub-abcd1234
             time: 2023-01-10T00:00:00Z
             userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0) Gecko/20100101
@@ -58189,7 +58290,8 @@ components:
               message: Bootstrap failed for reason X
             - eventTime: 2020-01-01T00:01:00Z
               message: Compute failed for reason Y
-          - billingProvider: STRIPE
+          - authMethod: API_KEY
+            billingProvider: STRIPE
             billingProviderId: payer_acme_corp_2024
             cloudProvider: aws
             cloudProviderAccountId: account-12345678
@@ -58206,9 +58308,11 @@ components:
             region: us-east-1
             resourceInstanceId: instance-abcd1234
             resourceName: Galera
+            roleType: root
             serviceId: s-123456
             serviceName: mysql
             servicePlanName: Basic Plan
+            sessionId: ak-12345678
             subscriptionId: sub-abcd1234
             time: 2023-01-10T00:00:00Z
             userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0) Gecko/20100101

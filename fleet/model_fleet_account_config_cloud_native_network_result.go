@@ -31,6 +31,10 @@ type FleetAccountConfigCloudNativeNetworkResult struct {
 	CreatedAt time.Time `json:"createdAt"`
 	// Internal cloud native network registration ID
 	Id string `json:"id"`
+	// Whether this network has been imported for deployments via the import API. Independent of validation status.
+	Imported *bool `json:"imported,omitempty"`
+	// Whether this network is currently referenced by at least one host cluster. Unimport is rejected while true.
+	InUse *bool `json:"inUse,omitempty"`
 	// The name of the cloud native network
 	Name *string `json:"name,omitempty"`
 	// Private subnets in this cloud native network
@@ -39,7 +43,7 @@ type FleetAccountConfigCloudNativeNetworkResult struct {
 	PublicSubnets []SubnetDetail `json:"publicSubnets,omitempty"`
 	// The cloud region where the network resides
 	Region string `json:"region"`
-	// The status of a cloud native network registered under an account configuration
+	// The validation status of a cloud native network registered under an account configuration
 	Status string `json:"status"`
 	// Detailed status message
 	StatusMessage *string `json:"statusMessage,omitempty"`
@@ -204,6 +208,70 @@ func (o *FleetAccountConfigCloudNativeNetworkResult) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *FleetAccountConfigCloudNativeNetworkResult) SetId(v string) {
 	o.Id = v
+}
+
+// GetImported returns the Imported field value if set, zero value otherwise.
+func (o *FleetAccountConfigCloudNativeNetworkResult) GetImported() bool {
+	if o == nil || IsNil(o.Imported) {
+		var ret bool
+		return ret
+	}
+	return *o.Imported
+}
+
+// GetImportedOk returns a tuple with the Imported field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAccountConfigCloudNativeNetworkResult) GetImportedOk() (*bool, bool) {
+	if o == nil || IsNil(o.Imported) {
+		return nil, false
+	}
+	return o.Imported, true
+}
+
+// HasImported returns a boolean if a field has been set.
+func (o *FleetAccountConfigCloudNativeNetworkResult) HasImported() bool {
+	if o != nil && !IsNil(o.Imported) {
+		return true
+	}
+
+	return false
+}
+
+// SetImported gets a reference to the given bool and assigns it to the Imported field.
+func (o *FleetAccountConfigCloudNativeNetworkResult) SetImported(v bool) {
+	o.Imported = &v
+}
+
+// GetInUse returns the InUse field value if set, zero value otherwise.
+func (o *FleetAccountConfigCloudNativeNetworkResult) GetInUse() bool {
+	if o == nil || IsNil(o.InUse) {
+		var ret bool
+		return ret
+	}
+	return *o.InUse
+}
+
+// GetInUseOk returns a tuple with the InUse field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAccountConfigCloudNativeNetworkResult) GetInUseOk() (*bool, bool) {
+	if o == nil || IsNil(o.InUse) {
+		return nil, false
+	}
+	return o.InUse, true
+}
+
+// HasInUse returns a boolean if a field has been set.
+func (o *FleetAccountConfigCloudNativeNetworkResult) HasInUse() bool {
+	if o != nil && !IsNil(o.InUse) {
+		return true
+	}
+
+	return false
+}
+
+// SetInUse gets a reference to the given bool and assigns it to the InUse field.
+func (o *FleetAccountConfigCloudNativeNetworkResult) SetInUse(v bool) {
+	o.InUse = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -487,6 +555,12 @@ func (o FleetAccountConfigCloudNativeNetworkResult) ToMap() (map[string]interfac
 	toSerialize["cloudNativeNetworkId"] = o.CloudNativeNetworkId
 	toSerialize["createdAt"] = o.CreatedAt
 	toSerialize["id"] = o.Id
+	if !IsNil(o.Imported) {
+		toSerialize["imported"] = o.Imported
+	}
+	if !IsNil(o.InUse) {
+		toSerialize["inUse"] = o.InUse
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
@@ -562,6 +636,8 @@ func (o *FleetAccountConfigCloudNativeNetworkResult) UnmarshalJSON(data []byte) 
 		delete(additionalProperties, "cloudNativeNetworkId")
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "imported")
+		delete(additionalProperties, "inUse")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "privateSubnets")
 		delete(additionalProperties, "publicSubnets")

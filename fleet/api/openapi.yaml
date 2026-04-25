@@ -133,6 +133,8 @@ paths:
                   cloudNativeNetworkId: vpc-0abc123def456
                   createdAt: 2026-04-14T10:00:00Z
                   id: acvpc-12345678
+                  imported: true
+                  inUse: false
                   name: production-vpc
                   privateSubnets:
                   - az: us-east-1a
@@ -167,7 +169,7 @@ paths:
                     isPublic: false
                     isTagged: true
                   region: us-east-1
-                  status: PENDING|VERIFYING|AVAILABLE|READY|FAILED
+                  status: PENDING|VERIFYING|READY|FAILED
                   statusMessage: Cloud native network validated successfully
                   supportsPrivateDeployment: true
                   supportsPublicDeployment: true
@@ -177,6 +179,8 @@ paths:
                   cloudNativeNetworkId: vpc-0abc123def456
                   createdAt: 2026-04-14T10:00:00Z
                   id: acvpc-12345678
+                  imported: true
+                  inUse: false
                   name: production-vpc
                   privateSubnets:
                   - az: us-east-1a
@@ -211,7 +215,7 @@ paths:
                     isPublic: false
                     isTagged: true
                   region: us-east-1
-                  status: PENDING|VERIFYING|AVAILABLE|READY|FAILED
+                  status: PENDING|VERIFYING|READY|FAILED
                   statusMessage: Cloud native network validated successfully
                   supportsPrivateDeployment: true
                   supportsPublicDeployment: true
@@ -221,6 +225,8 @@ paths:
                   cloudNativeNetworkId: vpc-0abc123def456
                   createdAt: 2026-04-14T10:00:00Z
                   id: acvpc-12345678
+                  imported: true
+                  inUse: false
                   name: production-vpc
                   privateSubnets:
                   - az: us-east-1a
@@ -255,7 +261,7 @@ paths:
                     isPublic: false
                     isTagged: true
                   region: us-east-1
-                  status: PENDING|VERIFYING|AVAILABLE|READY|FAILED
+                  status: PENDING|VERIFYING|READY|FAILED
                   statusMessage: Cloud native network validated successfully
                   supportsPrivateDeployment: true
                   supportsPublicDeployment: true
@@ -380,6 +386,8 @@ paths:
                   cloudNativeNetworkId: vpc-0abc123def456
                   createdAt: 2026-04-14T10:00:00Z
                   id: acvpc-12345678
+                  imported: true
+                  inUse: false
                   name: production-vpc
                   privateSubnets:
                   - az: us-east-1a
@@ -414,7 +422,7 @@ paths:
                     isPublic: false
                     isTagged: true
                   region: us-east-1
-                  status: PENDING|VERIFYING|AVAILABLE|READY|FAILED
+                  status: PENDING|VERIFYING|READY|FAILED
                   statusMessage: Cloud native network validated successfully
                   supportsPrivateDeployment: true
                   supportsPublicDeployment: true
@@ -424,6 +432,8 @@ paths:
                   cloudNativeNetworkId: vpc-0abc123def456
                   createdAt: 2026-04-14T10:00:00Z
                   id: acvpc-12345678
+                  imported: true
+                  inUse: false
                   name: production-vpc
                   privateSubnets:
                   - az: us-east-1a
@@ -458,7 +468,7 @@ paths:
                     isPublic: false
                     isTagged: true
                   region: us-east-1
-                  status: PENDING|VERIFYING|AVAILABLE|READY|FAILED
+                  status: PENDING|VERIFYING|READY|FAILED
                   statusMessage: Cloud native network validated successfully
                   supportsPrivateDeployment: true
                   supportsPublicDeployment: true
@@ -468,6 +478,8 @@ paths:
                   cloudNativeNetworkId: vpc-0abc123def456
                   createdAt: 2026-04-14T10:00:00Z
                   id: acvpc-12345678
+                  imported: true
+                  inUse: false
                   name: production-vpc
                   privateSubnets:
                   - az: us-east-1a
@@ -502,7 +514,7 @@ paths:
                     isPublic: false
                     isTagged: true
                   region: us-east-1
-                  status: PENDING|VERIFYING|AVAILABLE|READY|FAILED
+                  status: PENDING|VERIFYING|READY|FAILED
                   statusMessage: Cloud native network validated successfully
                   supportsPrivateDeployment: true
                   supportsPublicDeployment: true
@@ -577,6 +589,8 @@ paths:
                     cloudNativeNetworkId: vpc-0abc123def456
                     createdAt: 2026-04-14T10:00:00Z
                     id: acvpc-12345678
+                    imported: true
+                    inUse: false
                     name: production-vpc
                     privateSubnets:
                     - az: us-east-1a
@@ -611,7 +625,7 @@ paths:
                       isPublic: false
                       isTagged: true
                     region: us-east-1
-                    status: PENDING|VERIFYING|AVAILABLE|READY|FAILED
+                    status: PENDING|VERIFYING|READY|FAILED
                     statusMessage: Cloud native network validated successfully
                     supportsPrivateDeployment: true
                     supportsPublicDeployment: true
@@ -621,6 +635,8 @@ paths:
                     cloudNativeNetworkId: vpc-0abc123def456
                     createdAt: 2026-04-14T10:00:00Z
                     id: acvpc-12345678
+                    imported: true
+                    inUse: false
                     name: production-vpc
                     privateSubnets:
                     - az: us-east-1a
@@ -655,155 +671,7 @@ paths:
                       isPublic: false
                       isTagged: true
                     region: us-east-1
-                    status: PENDING|VERIFYING|AVAILABLE|READY|FAILED
-                    statusMessage: Cloud native network validated successfully
-                    supportsPrivateDeployment: true
-                    supportsPublicDeployment: true
-                    updatedAt: 2026-04-14T10:05:00Z
-                  cloudProviderId: Quia sint.
-                  description: An AWS account hosting multiple dev environments
-                  gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
-                  gcpDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
-                  gcpOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-offboard.sh?account_config_id=ac-MOju2uwKM0)"
-                  gcpProjectID: my-project
-                  gcpProjectNumber: "123456789012"
-                  gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
-                  id: Quaerat eius esse tenetur sed.
-                  name: Dev AWS account
-                  nebiusBindings:
-                  - derivedPublicKeyFingerprint: SHA256:derived-public-key-fingerprint
-                    keyExpiresAt: 2026-04-15T12:00:00Z
-                    keyFingerprint: SHA256:live-key-fingerprint
-                    keyState: ACTIVE
-                    ownsArtifactBucket: true
-                    projectID: project-e00b497fpr00n5hg8wbh2d
-                    publicKeyID: publickey-e00ngem85mc6pr5v63
-                    publicKeyIDMatches: true
-                    region: eu-north1
-                    serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-                    serviceAccountKeyValidated: true
-                    status: PENDING|VERIFYING|READY|FAILED|DELETING|READY_TO_OFFBOARD
-                    statusMessage: Binding is ready
-                  - derivedPublicKeyFingerprint: SHA256:derived-public-key-fingerprint
-                    keyExpiresAt: 2026-04-15T12:00:00Z
-                    keyFingerprint: SHA256:live-key-fingerprint
-                    keyState: ACTIVE
-                    ownsArtifactBucket: true
-                    projectID: project-e00b497fpr00n5hg8wbh2d
-                    publicKeyID: publickey-e00ngem85mc6pr5v63
-                    publicKeyIDMatches: true
-                    region: eu-north1
-                    serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-                    serviceAccountKeyValidated: true
-                    status: PENDING|VERIFYING|READY|FAILED|DELETING|READY_TO_OFFBOARD
-                    statusMessage: Binding is ready
-                  nebiusTenantID: tenant-e00ezh17k22wmwq5f0
-                  ociBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-bootstrap.sh?account_config_id=ac-YpsR5dKPB6)"
-                  ociBootstrapUserID: ocid1.user.oc1..aaaaaaaaa6kkllecgcpbqt3ejal7sq5ig7xcxz3pgvn3j2hb2wlu7ny4vpyq
-                  ociDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-disconnect.sh?account_config_id=ac-YpsR5dKPB6)"
-                  ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                  ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-YpsR5dKPB6)"
-                  ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                  status: PENDING|VERIFYING|READY|FAILED|DELETING|READY_TO_OFFBOARD
-                  statusMessage: Account is ready
-                - awsAccountID: "123456789012"
-                  awsBootstrapRoleARN: arn:aws:iam::<ACCOUNT_ID>:role/<ROLE_NAME>
-                  awsCloudFormationNoLBTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template-no-lb-policy.yaml
-                  awsCloudFormationTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template.yaml
-                  azureBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
-                  azureBootstrapUserClientID: 3ec55e76-d2be-46a6-80d2-10984e0e17a1
-                  azureDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
-                  azureOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-offboard.sh?account_config_id=ac-MOju2uwKM0)"
-                  azureSubscriptionID: 12345678-1234-1234-1234-123456789012
-                  azureTenantID: 12345678-1234-1234-1234-123456789012
-                  byoaInstanceIDs:
-                  - instance-12345678
-                  - instance-abcdefgh
-                  cloudNativeNetworks:
-                  - accountConfigId: At amet.
-                    cidr: 10.0.0.0/16
-                    cloudNativeNetworkId: vpc-0abc123def456
-                    createdAt: 2026-04-14T10:00:00Z
-                    id: acvpc-12345678
-                    name: production-vpc
-                    privateSubnets:
-                    - az: us-east-1a
-                      cidr: 10.0.1.0/24
-                      id: subnet-0abc123def456
-                      isPublic: false
-                      isTagged: true
-                    - az: us-east-1a
-                      cidr: 10.0.1.0/24
-                      id: subnet-0abc123def456
-                      isPublic: false
-                      isTagged: true
-                    - az: us-east-1a
-                      cidr: 10.0.1.0/24
-                      id: subnet-0abc123def456
-                      isPublic: false
-                      isTagged: true
-                    - az: us-east-1a
-                      cidr: 10.0.1.0/24
-                      id: subnet-0abc123def456
-                      isPublic: false
-                      isTagged: true
-                    publicSubnets:
-                    - az: us-east-1a
-                      cidr: 10.0.1.0/24
-                      id: subnet-0abc123def456
-                      isPublic: false
-                      isTagged: true
-                    - az: us-east-1a
-                      cidr: 10.0.1.0/24
-                      id: subnet-0abc123def456
-                      isPublic: false
-                      isTagged: true
-                    region: us-east-1
-                    status: PENDING|VERIFYING|AVAILABLE|READY|FAILED
-                    statusMessage: Cloud native network validated successfully
-                    supportsPrivateDeployment: true
-                    supportsPublicDeployment: true
-                    updatedAt: 2026-04-14T10:05:00Z
-                  - accountConfigId: At amet.
-                    cidr: 10.0.0.0/16
-                    cloudNativeNetworkId: vpc-0abc123def456
-                    createdAt: 2026-04-14T10:00:00Z
-                    id: acvpc-12345678
-                    name: production-vpc
-                    privateSubnets:
-                    - az: us-east-1a
-                      cidr: 10.0.1.0/24
-                      id: subnet-0abc123def456
-                      isPublic: false
-                      isTagged: true
-                    - az: us-east-1a
-                      cidr: 10.0.1.0/24
-                      id: subnet-0abc123def456
-                      isPublic: false
-                      isTagged: true
-                    - az: us-east-1a
-                      cidr: 10.0.1.0/24
-                      id: subnet-0abc123def456
-                      isPublic: false
-                      isTagged: true
-                    - az: us-east-1a
-                      cidr: 10.0.1.0/24
-                      id: subnet-0abc123def456
-                      isPublic: false
-                      isTagged: true
-                    publicSubnets:
-                    - az: us-east-1a
-                      cidr: 10.0.1.0/24
-                      id: subnet-0abc123def456
-                      isPublic: false
-                      isTagged: true
-                    - az: us-east-1a
-                      cidr: 10.0.1.0/24
-                      id: subnet-0abc123def456
-                      isPublic: false
-                      isTagged: true
-                    region: us-east-1
-                    status: PENDING|VERIFYING|AVAILABLE|READY|FAILED
+                    status: PENDING|VERIFYING|READY|FAILED
                     statusMessage: Cloud native network validated successfully
                     supportsPrivateDeployment: true
                     supportsPublicDeployment: true
@@ -873,6 +741,8 @@ paths:
                     cloudNativeNetworkId: vpc-0abc123def456
                     createdAt: 2026-04-14T10:00:00Z
                     id: acvpc-12345678
+                    imported: true
+                    inUse: false
                     name: production-vpc
                     privateSubnets:
                     - az: us-east-1a
@@ -907,7 +777,7 @@ paths:
                       isPublic: false
                       isTagged: true
                     region: us-east-1
-                    status: PENDING|VERIFYING|AVAILABLE|READY|FAILED
+                    status: PENDING|VERIFYING|READY|FAILED
                     statusMessage: Cloud native network validated successfully
                     supportsPrivateDeployment: true
                     supportsPublicDeployment: true
@@ -917,6 +787,8 @@ paths:
                     cloudNativeNetworkId: vpc-0abc123def456
                     createdAt: 2026-04-14T10:00:00Z
                     id: acvpc-12345678
+                    imported: true
+                    inUse: false
                     name: production-vpc
                     privateSubnets:
                     - az: us-east-1a
@@ -951,7 +823,7 @@ paths:
                       isPublic: false
                       isTagged: true
                     region: us-east-1
-                    status: PENDING|VERIFYING|AVAILABLE|READY|FAILED
+                    status: PENDING|VERIFYING|READY|FAILED
                     statusMessage: Cloud native network validated successfully
                     supportsPrivateDeployment: true
                     supportsPublicDeployment: true
@@ -1021,6 +893,8 @@ paths:
                     cloudNativeNetworkId: vpc-0abc123def456
                     createdAt: 2026-04-14T10:00:00Z
                     id: acvpc-12345678
+                    imported: true
+                    inUse: false
                     name: production-vpc
                     privateSubnets:
                     - az: us-east-1a
@@ -1055,7 +929,7 @@ paths:
                       isPublic: false
                       isTagged: true
                     region: us-east-1
-                    status: PENDING|VERIFYING|AVAILABLE|READY|FAILED
+                    status: PENDING|VERIFYING|READY|FAILED
                     statusMessage: Cloud native network validated successfully
                     supportsPrivateDeployment: true
                     supportsPublicDeployment: true
@@ -1065,6 +939,8 @@ paths:
                     cloudNativeNetworkId: vpc-0abc123def456
                     createdAt: 2026-04-14T10:00:00Z
                     id: acvpc-12345678
+                    imported: true
+                    inUse: false
                     name: production-vpc
                     privateSubnets:
                     - az: us-east-1a
@@ -1099,7 +975,159 @@ paths:
                       isPublic: false
                       isTagged: true
                     region: us-east-1
-                    status: PENDING|VERIFYING|AVAILABLE|READY|FAILED
+                    status: PENDING|VERIFYING|READY|FAILED
+                    statusMessage: Cloud native network validated successfully
+                    supportsPrivateDeployment: true
+                    supportsPublicDeployment: true
+                    updatedAt: 2026-04-14T10:05:00Z
+                  cloudProviderId: Quia sint.
+                  description: An AWS account hosting multiple dev environments
+                  gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
+                  gcpDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
+                  gcpOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-offboard.sh?account_config_id=ac-MOju2uwKM0)"
+                  gcpProjectID: my-project
+                  gcpProjectNumber: "123456789012"
+                  gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
+                  id: Quaerat eius esse tenetur sed.
+                  name: Dev AWS account
+                  nebiusBindings:
+                  - derivedPublicKeyFingerprint: SHA256:derived-public-key-fingerprint
+                    keyExpiresAt: 2026-04-15T12:00:00Z
+                    keyFingerprint: SHA256:live-key-fingerprint
+                    keyState: ACTIVE
+                    ownsArtifactBucket: true
+                    projectID: project-e00b497fpr00n5hg8wbh2d
+                    publicKeyID: publickey-e00ngem85mc6pr5v63
+                    publicKeyIDMatches: true
+                    region: eu-north1
+                    serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
+                    serviceAccountKeyValidated: true
+                    status: PENDING|VERIFYING|READY|FAILED|DELETING|READY_TO_OFFBOARD
+                    statusMessage: Binding is ready
+                  - derivedPublicKeyFingerprint: SHA256:derived-public-key-fingerprint
+                    keyExpiresAt: 2026-04-15T12:00:00Z
+                    keyFingerprint: SHA256:live-key-fingerprint
+                    keyState: ACTIVE
+                    ownsArtifactBucket: true
+                    projectID: project-e00b497fpr00n5hg8wbh2d
+                    publicKeyID: publickey-e00ngem85mc6pr5v63
+                    publicKeyIDMatches: true
+                    region: eu-north1
+                    serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
+                    serviceAccountKeyValidated: true
+                    status: PENDING|VERIFYING|READY|FAILED|DELETING|READY_TO_OFFBOARD
+                    statusMessage: Binding is ready
+                  nebiusTenantID: tenant-e00ezh17k22wmwq5f0
+                  ociBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-bootstrap.sh?account_config_id=ac-YpsR5dKPB6)"
+                  ociBootstrapUserID: ocid1.user.oc1..aaaaaaaaa6kkllecgcpbqt3ejal7sq5ig7xcxz3pgvn3j2hb2wlu7ny4vpyq
+                  ociDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-disconnect.sh?account_config_id=ac-YpsR5dKPB6)"
+                  ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                  ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-YpsR5dKPB6)"
+                  ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                  status: PENDING|VERIFYING|READY|FAILED|DELETING|READY_TO_OFFBOARD
+                  statusMessage: Account is ready
+                - awsAccountID: "123456789012"
+                  awsBootstrapRoleARN: arn:aws:iam::<ACCOUNT_ID>:role/<ROLE_NAME>
+                  awsCloudFormationNoLBTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template-no-lb-policy.yaml
+                  awsCloudFormationTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template.yaml
+                  azureBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
+                  azureBootstrapUserClientID: 3ec55e76-d2be-46a6-80d2-10984e0e17a1
+                  azureDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
+                  azureOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-offboard.sh?account_config_id=ac-MOju2uwKM0)"
+                  azureSubscriptionID: 12345678-1234-1234-1234-123456789012
+                  azureTenantID: 12345678-1234-1234-1234-123456789012
+                  byoaInstanceIDs:
+                  - instance-12345678
+                  - instance-abcdefgh
+                  cloudNativeNetworks:
+                  - accountConfigId: At amet.
+                    cidr: 10.0.0.0/16
+                    cloudNativeNetworkId: vpc-0abc123def456
+                    createdAt: 2026-04-14T10:00:00Z
+                    id: acvpc-12345678
+                    imported: true
+                    inUse: false
+                    name: production-vpc
+                    privateSubnets:
+                    - az: us-east-1a
+                      cidr: 10.0.1.0/24
+                      id: subnet-0abc123def456
+                      isPublic: false
+                      isTagged: true
+                    - az: us-east-1a
+                      cidr: 10.0.1.0/24
+                      id: subnet-0abc123def456
+                      isPublic: false
+                      isTagged: true
+                    - az: us-east-1a
+                      cidr: 10.0.1.0/24
+                      id: subnet-0abc123def456
+                      isPublic: false
+                      isTagged: true
+                    - az: us-east-1a
+                      cidr: 10.0.1.0/24
+                      id: subnet-0abc123def456
+                      isPublic: false
+                      isTagged: true
+                    publicSubnets:
+                    - az: us-east-1a
+                      cidr: 10.0.1.0/24
+                      id: subnet-0abc123def456
+                      isPublic: false
+                      isTagged: true
+                    - az: us-east-1a
+                      cidr: 10.0.1.0/24
+                      id: subnet-0abc123def456
+                      isPublic: false
+                      isTagged: true
+                    region: us-east-1
+                    status: PENDING|VERIFYING|READY|FAILED
+                    statusMessage: Cloud native network validated successfully
+                    supportsPrivateDeployment: true
+                    supportsPublicDeployment: true
+                    updatedAt: 2026-04-14T10:05:00Z
+                  - accountConfigId: At amet.
+                    cidr: 10.0.0.0/16
+                    cloudNativeNetworkId: vpc-0abc123def456
+                    createdAt: 2026-04-14T10:00:00Z
+                    id: acvpc-12345678
+                    imported: true
+                    inUse: false
+                    name: production-vpc
+                    privateSubnets:
+                    - az: us-east-1a
+                      cidr: 10.0.1.0/24
+                      id: subnet-0abc123def456
+                      isPublic: false
+                      isTagged: true
+                    - az: us-east-1a
+                      cidr: 10.0.1.0/24
+                      id: subnet-0abc123def456
+                      isPublic: false
+                      isTagged: true
+                    - az: us-east-1a
+                      cidr: 10.0.1.0/24
+                      id: subnet-0abc123def456
+                      isPublic: false
+                      isTagged: true
+                    - az: us-east-1a
+                      cidr: 10.0.1.0/24
+                      id: subnet-0abc123def456
+                      isPublic: false
+                      isTagged: true
+                    publicSubnets:
+                    - az: us-east-1a
+                      cidr: 10.0.1.0/24
+                      id: subnet-0abc123def456
+                      isPublic: false
+                      isTagged: true
+                    - az: us-east-1a
+                      cidr: 10.0.1.0/24
+                      id: subnet-0abc123def456
+                      isPublic: false
+                      isTagged: true
+                    region: us-east-1
+                    status: PENDING|VERIFYING|READY|FAILED
                     statusMessage: Cloud native network validated successfully
                     supportsPrivateDeployment: true
                     supportsPublicDeployment: true
@@ -35517,6 +35545,8 @@ components:
         cloudNativeNetworkId: vpc-0abc123def456
         createdAt: 2026-04-14T10:00:00Z
         id: acvpc-12345678
+        imported: true
+        inUse: false
         name: production-vpc
         privateSubnets:
         - az: us-east-1a
@@ -35578,6 +35608,16 @@ components:
           description: Internal cloud native network registration ID
           example: acvpc-12345678
           type: string
+        imported:
+          description: Whether this network has been imported for deployments via
+            the import API. Independent of validation status.
+          example: true
+          type: boolean
+        inUse:
+          description: Whether this network is currently referenced by at least one
+            host cluster. Unimport is rejected while true.
+          example: false
+          type: boolean
         name:
           description: The name of the cloud native network
           example: production-vpc
@@ -35634,9 +35674,9 @@ components:
           example: us-east-1
           type: string
         status:
-          description: The status of a cloud native network registered under an account
-            configuration
-          example: PENDING|VERIFYING|AVAILABLE|READY|FAILED
+          description: The validation status of a cloud native network registered
+            under an account configuration
+          example: PENDING|VERIFYING|READY|FAILED
           type: string
         statusMessage:
           description: Detailed status message
@@ -37552,6 +37592,8 @@ components:
           cloudNativeNetworkId: vpc-0abc123def456
           createdAt: 2026-04-14T10:00:00Z
           id: acvpc-12345678
+          imported: true
+          inUse: false
           name: production-vpc
           privateSubnets:
           - az: us-east-1a
@@ -37606,6 +37648,8 @@ components:
           cloudNativeNetworkId: vpc-0abc123def456
           createdAt: 2026-04-14T10:00:00Z
           id: acvpc-12345678
+          imported: true
+          inUse: false
           name: production-vpc
           privateSubnets:
           - az: us-east-1a
@@ -37761,6 +37805,8 @@ components:
             cloudNativeNetworkId: vpc-0abc123def456
             createdAt: 2026-04-14T10:00:00Z
             id: acvpc-12345678
+            imported: true
+            inUse: false
             name: production-vpc
             privateSubnets:
             - az: us-east-1a
@@ -37815,6 +37861,8 @@ components:
             cloudNativeNetworkId: vpc-0abc123def456
             createdAt: 2026-04-14T10:00:00Z
             id: acvpc-12345678
+            imported: true
+            inUse: false
             name: production-vpc
             privateSubnets:
             - az: us-east-1a
@@ -39743,6 +39791,8 @@ components:
           cloudNativeNetworkId: vpc-0abc123def456
           createdAt: 2026-04-14T10:00:00Z
           id: acvpc-12345678
+          imported: true
+          inUse: false
           name: production-vpc
           privateSubnets:
           - az: us-east-1a
@@ -39797,6 +39847,8 @@ components:
           cloudNativeNetworkId: vpc-0abc123def456
           createdAt: 2026-04-14T10:00:00Z
           id: acvpc-12345678
+          imported: true
+          inUse: false
           name: production-vpc
           privateSubnets:
           - az: us-east-1a
@@ -39851,6 +39903,8 @@ components:
           cloudNativeNetworkId: vpc-0abc123def456
           createdAt: 2026-04-14T10:00:00Z
           id: acvpc-12345678
+          imported: true
+          inUse: false
           name: production-vpc
           privateSubnets:
           - az: us-east-1a
@@ -39905,6 +39959,8 @@ components:
           cloudNativeNetworkId: vpc-0abc123def456
           createdAt: 2026-04-14T10:00:00Z
           id: acvpc-12345678
+          imported: true
+          inUse: false
           name: production-vpc
           privateSubnets:
           - az: us-east-1a
@@ -39963,6 +40019,8 @@ components:
             cloudNativeNetworkId: vpc-0abc123def456
             createdAt: 2026-04-14T10:00:00Z
             id: acvpc-12345678
+            imported: true
+            inUse: false
             name: production-vpc
             privateSubnets:
             - az: us-east-1a
@@ -40017,6 +40075,8 @@ components:
             cloudNativeNetworkId: vpc-0abc123def456
             createdAt: 2026-04-14T10:00:00Z
             id: acvpc-12345678
+            imported: true
+            inUse: false
             name: production-vpc
             privateSubnets:
             - az: us-east-1a
@@ -50008,6 +50068,8 @@ components:
             cloudNativeNetworkId: vpc-0abc123def456
             createdAt: 2026-04-14T10:00:00Z
             id: acvpc-12345678
+            imported: true
+            inUse: false
             name: production-vpc
             privateSubnets:
             - az: us-east-1a
@@ -50062,6 +50124,8 @@ components:
             cloudNativeNetworkId: vpc-0abc123def456
             createdAt: 2026-04-14T10:00:00Z
             id: acvpc-12345678
+            imported: true
+            inUse: false
             name: production-vpc
             privateSubnets:
             - az: us-east-1a
@@ -50176,6 +50240,8 @@ components:
             cloudNativeNetworkId: vpc-0abc123def456
             createdAt: 2026-04-14T10:00:00Z
             id: acvpc-12345678
+            imported: true
+            inUse: false
             name: production-vpc
             privateSubnets:
             - az: us-east-1a
@@ -50230,6 +50296,8 @@ components:
             cloudNativeNetworkId: vpc-0abc123def456
             createdAt: 2026-04-14T10:00:00Z
             id: acvpc-12345678
+            imported: true
+            inUse: false
             name: production-vpc
             privateSubnets:
             - az: us-east-1a
@@ -50353,6 +50421,8 @@ components:
               cloudNativeNetworkId: vpc-0abc123def456
               createdAt: 2026-04-14T10:00:00Z
               id: acvpc-12345678
+              imported: true
+              inUse: false
               name: production-vpc
               privateSubnets:
               - az: us-east-1a
@@ -50407,174 +50477,8 @@ components:
               cloudNativeNetworkId: vpc-0abc123def456
               createdAt: 2026-04-14T10:00:00Z
               id: acvpc-12345678
-              name: production-vpc
-              privateSubnets:
-              - az: us-east-1a
-                cidr: 10.0.1.0/24
-                id: subnet-0abc123def456
-                isPublic: false
-                isTagged: true
-              - az: us-east-1a
-                cidr: 10.0.1.0/24
-                id: subnet-0abc123def456
-                isPublic: false
-                isTagged: true
-              - az: us-east-1a
-                cidr: 10.0.1.0/24
-                id: subnet-0abc123def456
-                isPublic: false
-                isTagged: true
-              - az: us-east-1a
-                cidr: 10.0.1.0/24
-                id: subnet-0abc123def456
-                isPublic: false
-                isTagged: true
-              publicSubnets:
-              - az: us-east-1a
-                cidr: 10.0.1.0/24
-                id: subnet-0abc123def456
-                isPublic: false
-                isTagged: true
-              - az: us-east-1a
-                cidr: 10.0.1.0/24
-                id: subnet-0abc123def456
-                isPublic: false
-                isTagged: true
-              - az: us-east-1a
-                cidr: 10.0.1.0/24
-                id: subnet-0abc123def456
-                isPublic: false
-                isTagged: true
-              - az: us-east-1a
-                cidr: 10.0.1.0/24
-                id: subnet-0abc123def456
-                isPublic: false
-                isTagged: true
-              region: us-east-1
-              status: READY
-              statusMessage: Cloud native network validated successfully
-              supportsPrivateDeployment: true
-              supportsPublicDeployment: true
-              updatedAt: 2026-04-14T10:05:00Z
-            cloudProviderId: infra-12345678
-            description: An AWS account hosting multiple dev environments
-            gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
-            gcpDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
-            gcpOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-offboard.sh?account_config_id=ac-MOju2uwKM0)"
-            gcpProjectID: my-project
-            gcpProjectNumber: "123456789012"
-            gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
-            id: ac-12345678
-            name: Dev AWS account
-            nebiusBindings:
-            - derivedPublicKeyFingerprint: SHA256:derived-public-key-fingerprint
-              keyExpiresAt: 2026-04-15T12:00:00Z
-              keyFingerprint: SHA256:live-key-fingerprint
-              keyState: ACTIVE
-              ownsArtifactBucket: true
-              projectID: project-e00b497fpr00n5hg8wbh2d
-              publicKeyID: publickey-e00ngem85mc6pr5v63
-              publicKeyIDMatches: true
-              region: eu-north1
-              serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-              serviceAccountKeyValidated: true
-              status: READY
-              statusMessage: Binding is ready
-            - derivedPublicKeyFingerprint: SHA256:derived-public-key-fingerprint
-              keyExpiresAt: 2026-04-15T12:00:00Z
-              keyFingerprint: SHA256:live-key-fingerprint
-              keyState: ACTIVE
-              ownsArtifactBucket: true
-              projectID: project-e00b497fpr00n5hg8wbh2d
-              publicKeyID: publickey-e00ngem85mc6pr5v63
-              publicKeyIDMatches: true
-              region: eu-north1
-              serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
-              serviceAccountKeyValidated: true
-              status: READY
-              statusMessage: Binding is ready
-            nebiusTenantID: tenant-e00ezh17k22wmwq5f0
-            ociBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-bootstrap.sh?account_config_id=ac-YpsR5dKPB6)"
-            ociBootstrapUserID: ocid1.user.oc1..aaaaaaaaa6kkllecgcpbqt3ejal7sq5ig7xcxz3pgvn3j2hb2wlu7ny4vpyq
-            ociDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-disconnect.sh?account_config_id=ac-YpsR5dKPB6)"
-            ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-YpsR5dKPB6)"
-            ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            status: READY
-            statusMessage: Account is ready
-          - awsAccountID: "123456789012"
-            awsBootstrapRoleARN: arn:aws:iam::<ACCOUNT_ID>:role/<ROLE_NAME>
-            awsCloudFormationNoLBTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template-no-lb-policy.yaml
-            awsCloudFormationTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template.yaml
-            azureBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
-            azureBootstrapUserClientID: 3ec55e76-d2be-46a6-80d2-10984e0e17a1
-            azureDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
-            azureOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-offboard.sh?account_config_id=ac-MOju2uwKM0)"
-            azureSubscriptionID: 12345678-1234-1234-1234-123456789012
-            azureTenantID: 12345678-1234-1234-1234-123456789012
-            byoaInstanceIDs:
-            - instance-12345678
-            - instance-abcdefgh
-            cloudNativeNetworks:
-            - accountConfigId: ac-12345678
-              cidr: 10.0.0.0/16
-              cloudNativeNetworkId: vpc-0abc123def456
-              createdAt: 2026-04-14T10:00:00Z
-              id: acvpc-12345678
-              name: production-vpc
-              privateSubnets:
-              - az: us-east-1a
-                cidr: 10.0.1.0/24
-                id: subnet-0abc123def456
-                isPublic: false
-                isTagged: true
-              - az: us-east-1a
-                cidr: 10.0.1.0/24
-                id: subnet-0abc123def456
-                isPublic: false
-                isTagged: true
-              - az: us-east-1a
-                cidr: 10.0.1.0/24
-                id: subnet-0abc123def456
-                isPublic: false
-                isTagged: true
-              - az: us-east-1a
-                cidr: 10.0.1.0/24
-                id: subnet-0abc123def456
-                isPublic: false
-                isTagged: true
-              publicSubnets:
-              - az: us-east-1a
-                cidr: 10.0.1.0/24
-                id: subnet-0abc123def456
-                isPublic: false
-                isTagged: true
-              - az: us-east-1a
-                cidr: 10.0.1.0/24
-                id: subnet-0abc123def456
-                isPublic: false
-                isTagged: true
-              - az: us-east-1a
-                cidr: 10.0.1.0/24
-                id: subnet-0abc123def456
-                isPublic: false
-                isTagged: true
-              - az: us-east-1a
-                cidr: 10.0.1.0/24
-                id: subnet-0abc123def456
-                isPublic: false
-                isTagged: true
-              region: us-east-1
-              status: READY
-              statusMessage: Cloud native network validated successfully
-              supportsPrivateDeployment: true
-              supportsPublicDeployment: true
-              updatedAt: 2026-04-14T10:05:00Z
-            - accountConfigId: ac-12345678
-              cidr: 10.0.0.0/16
-              cloudNativeNetworkId: vpc-0abc123def456
-              createdAt: 2026-04-14T10:00:00Z
-              id: acvpc-12345678
+              imported: true
+              inUse: false
               name: production-vpc
               privateSubnets:
               - az: us-east-1a
@@ -50689,6 +50593,8 @@ components:
               cloudNativeNetworkId: vpc-0abc123def456
               createdAt: 2026-04-14T10:00:00Z
               id: acvpc-12345678
+              imported: true
+              inUse: false
               name: production-vpc
               privateSubnets:
               - az: us-east-1a
@@ -50743,6 +50649,8 @@ components:
               cloudNativeNetworkId: vpc-0abc123def456
               createdAt: 2026-04-14T10:00:00Z
               id: acvpc-12345678
+              imported: true
+              inUse: false
               name: production-vpc
               privateSubnets:
               - az: us-east-1a
@@ -50857,6 +50765,8 @@ components:
               cloudNativeNetworkId: vpc-0abc123def456
               createdAt: 2026-04-14T10:00:00Z
               id: acvpc-12345678
+              imported: true
+              inUse: false
               name: production-vpc
               privateSubnets:
               - az: us-east-1a
@@ -50911,6 +50821,180 @@ components:
               cloudNativeNetworkId: vpc-0abc123def456
               createdAt: 2026-04-14T10:00:00Z
               id: acvpc-12345678
+              imported: true
+              inUse: false
+              name: production-vpc
+              privateSubnets:
+              - az: us-east-1a
+                cidr: 10.0.1.0/24
+                id: subnet-0abc123def456
+                isPublic: false
+                isTagged: true
+              - az: us-east-1a
+                cidr: 10.0.1.0/24
+                id: subnet-0abc123def456
+                isPublic: false
+                isTagged: true
+              - az: us-east-1a
+                cidr: 10.0.1.0/24
+                id: subnet-0abc123def456
+                isPublic: false
+                isTagged: true
+              - az: us-east-1a
+                cidr: 10.0.1.0/24
+                id: subnet-0abc123def456
+                isPublic: false
+                isTagged: true
+              publicSubnets:
+              - az: us-east-1a
+                cidr: 10.0.1.0/24
+                id: subnet-0abc123def456
+                isPublic: false
+                isTagged: true
+              - az: us-east-1a
+                cidr: 10.0.1.0/24
+                id: subnet-0abc123def456
+                isPublic: false
+                isTagged: true
+              - az: us-east-1a
+                cidr: 10.0.1.0/24
+                id: subnet-0abc123def456
+                isPublic: false
+                isTagged: true
+              - az: us-east-1a
+                cidr: 10.0.1.0/24
+                id: subnet-0abc123def456
+                isPublic: false
+                isTagged: true
+              region: us-east-1
+              status: READY
+              statusMessage: Cloud native network validated successfully
+              supportsPrivateDeployment: true
+              supportsPublicDeployment: true
+              updatedAt: 2026-04-14T10:05:00Z
+            cloudProviderId: infra-12345678
+            description: An AWS account hosting multiple dev environments
+            gcpBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
+            gcpDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
+            gcpOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/gcp-offboard.sh?account_config_id=ac-MOju2uwKM0)"
+            gcpProjectID: my-project
+            gcpProjectNumber: "123456789012"
+            gcpServiceAccountEmail: bootstrap@my-project.iam.gserviceaccount.com
+            id: ac-12345678
+            name: Dev AWS account
+            nebiusBindings:
+            - derivedPublicKeyFingerprint: SHA256:derived-public-key-fingerprint
+              keyExpiresAt: 2026-04-15T12:00:00Z
+              keyFingerprint: SHA256:live-key-fingerprint
+              keyState: ACTIVE
+              ownsArtifactBucket: true
+              projectID: project-e00b497fpr00n5hg8wbh2d
+              publicKeyID: publickey-e00ngem85mc6pr5v63
+              publicKeyIDMatches: true
+              region: eu-north1
+              serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
+              serviceAccountKeyValidated: true
+              status: READY
+              statusMessage: Binding is ready
+            - derivedPublicKeyFingerprint: SHA256:derived-public-key-fingerprint
+              keyExpiresAt: 2026-04-15T12:00:00Z
+              keyFingerprint: SHA256:live-key-fingerprint
+              keyState: ACTIVE
+              ownsArtifactBucket: true
+              projectID: project-e00b497fpr00n5hg8wbh2d
+              publicKeyID: publickey-e00ngem85mc6pr5v63
+              publicKeyIDMatches: true
+              region: eu-north1
+              serviceAccountID: serviceaccount-e00vqdp9fskhmmaan8
+              serviceAccountKeyValidated: true
+              status: READY
+              statusMessage: Binding is ready
+            nebiusTenantID: tenant-e00ezh17k22wmwq5f0
+            ociBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-bootstrap.sh?account_config_id=ac-YpsR5dKPB6)"
+            ociBootstrapUserID: ocid1.user.oc1..aaaaaaaaa6kkllecgcpbqt3ejal7sq5ig7xcxz3pgvn3j2hb2wlu7ny4vpyq
+            ociDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-disconnect.sh?account_config_id=ac-YpsR5dKPB6)"
+            ociDomainID: ocid1.domain.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            ociOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/oci-offboard.sh?account_config_id=ac-YpsR5dKPB6)"
+            ociTenancyID: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            status: READY
+            statusMessage: Account is ready
+          - awsAccountID: "123456789012"
+            awsBootstrapRoleARN: arn:aws:iam::<ACCOUNT_ID>:role/<ROLE_NAME>
+            awsCloudFormationNoLBTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template-no-lb-policy.yaml
+            awsCloudFormationTemplateURL: https://s3.amazonaws.com/omnistrate-cloudformation/org-EUVvex3bVm/account-config-setup-template.yaml
+            azureBootstrapShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-bootstrap.sh?account_config_id=ac-MOju2uwKM0)"
+            azureBootstrapUserClientID: 3ec55e76-d2be-46a6-80d2-10984e0e17a1
+            azureDisconnectShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-disconnect.sh?account_config_id=ac-MOju2uwKM0)"
+            azureOffboardShellCommand: bash -c "$(curl -fsSL https://omnistrate.com/account-setup/azure-offboard.sh?account_config_id=ac-MOju2uwKM0)"
+            azureSubscriptionID: 12345678-1234-1234-1234-123456789012
+            azureTenantID: 12345678-1234-1234-1234-123456789012
+            byoaInstanceIDs:
+            - instance-12345678
+            - instance-abcdefgh
+            cloudNativeNetworks:
+            - accountConfigId: ac-12345678
+              cidr: 10.0.0.0/16
+              cloudNativeNetworkId: vpc-0abc123def456
+              createdAt: 2026-04-14T10:00:00Z
+              id: acvpc-12345678
+              imported: true
+              inUse: false
+              name: production-vpc
+              privateSubnets:
+              - az: us-east-1a
+                cidr: 10.0.1.0/24
+                id: subnet-0abc123def456
+                isPublic: false
+                isTagged: true
+              - az: us-east-1a
+                cidr: 10.0.1.0/24
+                id: subnet-0abc123def456
+                isPublic: false
+                isTagged: true
+              - az: us-east-1a
+                cidr: 10.0.1.0/24
+                id: subnet-0abc123def456
+                isPublic: false
+                isTagged: true
+              - az: us-east-1a
+                cidr: 10.0.1.0/24
+                id: subnet-0abc123def456
+                isPublic: false
+                isTagged: true
+              publicSubnets:
+              - az: us-east-1a
+                cidr: 10.0.1.0/24
+                id: subnet-0abc123def456
+                isPublic: false
+                isTagged: true
+              - az: us-east-1a
+                cidr: 10.0.1.0/24
+                id: subnet-0abc123def456
+                isPublic: false
+                isTagged: true
+              - az: us-east-1a
+                cidr: 10.0.1.0/24
+                id: subnet-0abc123def456
+                isPublic: false
+                isTagged: true
+              - az: us-east-1a
+                cidr: 10.0.1.0/24
+                id: subnet-0abc123def456
+                isPublic: false
+                isTagged: true
+              region: us-east-1
+              status: READY
+              statusMessage: Cloud native network validated successfully
+              supportsPrivateDeployment: true
+              supportsPublicDeployment: true
+              updatedAt: 2026-04-14T10:05:00Z
+            - accountConfigId: ac-12345678
+              cidr: 10.0.0.0/16
+              cloudNativeNetworkId: vpc-0abc123def456
+              createdAt: 2026-04-14T10:00:00Z
+              id: acvpc-12345678
+              imported: true
+              inUse: false
               name: production-vpc
               privateSubnets:
               - az: us-east-1a

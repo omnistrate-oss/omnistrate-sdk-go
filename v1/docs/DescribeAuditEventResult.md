@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AuthMethod** | Pointer to **string** | The authentication method used by the caller for the request that produced the event. One of PASSWORD or API_KEY. Empty for events not originated by an authenticated user (e.g. internal sweeper actions). | [optional] 
 **BillingProvider** | Pointer to **string** | The billing provider on the instance&#39;s subscription at the time of the event. Empty when no subscription is linked. | [optional] 
 **BillingProviderId** | Pointer to **string** | The resolved billing-provider customer ID of the instance owner at the time of the event. Honors the instance owner-payer override when set; otherwise falls back to the subscription&#39;s external payer ID. Empty when no billing identity has been assigned. | [optional] 
 **CloudProvider** | Pointer to **string** | The cloud provider name where the instance is deployed. Derived from the instance&#39;s region; may be empty if unavailable. | [optional] 
@@ -21,9 +22,11 @@ Name | Type | Description | Notes
 **Region** | Pointer to **string** | The region code where the instance is deployed. Derived from the instance&#39;s region; may be empty if unavailable. | [optional] 
 **ResourceInstanceId** | **string** | Instance Id of the resource instance | 
 **ResourceName** | **string** | Name of the resource | 
+**RoleType** | Pointer to **string** | The role asserted by the user&#39;s credential at the time of the event. Captured from the token claims so the audit log reflects the role active at the moment of the action even after the user&#39;s role assignments change. | [optional] 
 **ServiceId** | Pointer to **string** | ID of a Service | [optional] 
 **ServiceName** | Pointer to **string** | The service name | [optional] 
 **ServicePlanName** | Pointer to **string** | The name of the service plan | [optional] 
+**SessionId** | Pointer to **string** | The credential identifier used for the request that produced the event. For password-issued JWTs this is the token&#39;s unique ID (jti); for API-key issued JWTs this is the API key&#39;s persistent ID, allowing all events for that key to be correlated even across token refreshes. | [optional] 
 **SubscriptionId** | **string** | The subscription ID | 
 **Time** | **string** | The event time | 
 **UserAgent** | Pointer to **string** | The User-Agent string of the client that caused the event | [optional] 
@@ -49,6 +52,31 @@ will change when the set of required properties is changed
 NewDescribeAuditEventResultWithDefaults instantiates a new DescribeAuditEventResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAuthMethod
+
+`func (o *DescribeAuditEventResult) GetAuthMethod() string`
+
+GetAuthMethod returns the AuthMethod field if non-nil, zero value otherwise.
+
+### GetAuthMethodOk
+
+`func (o *DescribeAuditEventResult) GetAuthMethodOk() (*string, bool)`
+
+GetAuthMethodOk returns a tuple with the AuthMethod field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAuthMethod
+
+`func (o *DescribeAuditEventResult) SetAuthMethod(v string)`
+
+SetAuthMethod sets AuthMethod field to given value.
+
+### HasAuthMethod
+
+`func (o *DescribeAuditEventResult) HasAuthMethod() bool`
+
+HasAuthMethod returns a boolean if a field has been set.
 
 ### GetBillingProvider
 
@@ -455,6 +483,31 @@ and a boolean to check if the value has been set.
 SetResourceName sets ResourceName field to given value.
 
 
+### GetRoleType
+
+`func (o *DescribeAuditEventResult) GetRoleType() string`
+
+GetRoleType returns the RoleType field if non-nil, zero value otherwise.
+
+### GetRoleTypeOk
+
+`func (o *DescribeAuditEventResult) GetRoleTypeOk() (*string, bool)`
+
+GetRoleTypeOk returns a tuple with the RoleType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRoleType
+
+`func (o *DescribeAuditEventResult) SetRoleType(v string)`
+
+SetRoleType sets RoleType field to given value.
+
+### HasRoleType
+
+`func (o *DescribeAuditEventResult) HasRoleType() bool`
+
+HasRoleType returns a boolean if a field has been set.
+
 ### GetServiceId
 
 `func (o *DescribeAuditEventResult) GetServiceId() string`
@@ -529,6 +582,31 @@ SetServicePlanName sets ServicePlanName field to given value.
 `func (o *DescribeAuditEventResult) HasServicePlanName() bool`
 
 HasServicePlanName returns a boolean if a field has been set.
+
+### GetSessionId
+
+`func (o *DescribeAuditEventResult) GetSessionId() string`
+
+GetSessionId returns the SessionId field if non-nil, zero value otherwise.
+
+### GetSessionIdOk
+
+`func (o *DescribeAuditEventResult) GetSessionIdOk() (*string, bool)`
+
+GetSessionIdOk returns a tuple with the SessionId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSessionId
+
+`func (o *DescribeAuditEventResult) SetSessionId(v string)`
+
+SetSessionId sets SessionId field to given value.
+
+### HasSessionId
+
+`func (o *DescribeAuditEventResult) HasSessionId() bool`
+
+HasSessionId returns a boolean if a field has been set.
 
 ### GetSubscriptionId
 
