@@ -65,3 +65,46 @@ Place it outside `v1/` and `fleet/` since those directories are wiped on `make c
 - **Never manually edit files in `v1/` or `fleet/`** — they will be overwritten on the next generation run.
 - The `src/` directory contains a Java-based OpenAPI Generator meta scaffold with placeholder logic — it is not used for actual SDK generation.
 - The `templates/go/` directory is the correct place to customize generated output.
+
+<!-- security-checklist-managed -->
+
+## Security Checklist
+
+This SDK is consumed by third parties. A security regression here is multiplied across every downstream user. Apply this checklist to every change.
+
+### Transport & Authentication
+- TLS verification must be **on** by default. Any opt-out (e.g., `InsecureSkipVerify`) must be explicit, named clearly, documented, and never the default.
+- Enforce minimum TLS 1.2.
+- Auth tokens passed by the caller must never be logged, included in error messages, or echoed back in responses.
+- Set a clear `User-Agent` identifying the SDK and version so server-side anomaly detection can attribute traffic.
+
+### Input & Output Handling
+- Validate caller-supplied URLs and host names before making requests; refuse non-HTTPS endpoints unless the caller explicitly enables it.
+- Bound response sizes to prevent unbounded memory growth from a malicious or misconfigured server.
+- Do not deserialize untrusted server responses into types that allow arbitrary code execution (no Java native serialization, no `eval`-like loaders).
+
+### Secrets Handling
+- The SDK must not persist credentials to disk on its own. If a token cache is offered, it must be opt-in and use a secure store on the host.
+- Redact tokens, signed URLs, and `Authorization` headers from any debug/trace logging the SDK emits or exposes via hooks.
+- No secrets, real account IDs, or customer data in tests, fixtures, or recorded HTTP interactions.
+
+### Logging Hygiene
+- The SDK should not log at `info` level by default. Provide a logger hook for the caller and ensure the default implementation does not leak request bodies, headers, or response bodies.
+- When surfacing upstream errors, wrap them — do not include raw response bodies that might contain tokens or PII.
+
+### Dependencies & Supply Chain
+- Keep the dependency surface minimal. Every new transitive dependency increases supply-chain risk for every consumer.
+- Run a real vulnerability scanner on dependency changes: `govulncheck` for Go; OWASP Dependency-Check, `osv-scanner`, or Dependabot/Snyk alerts for Java. `mvn versions:display-dependency-updates` is **not** a vulnerability check.
+- Pin direct dependency versions; review transitive bumps before release.
+- Releases must be reproducible and, for Java, signed and published to Maven Central with provenance. For Go, tag releases on signed commits where possible.
+- Pin GitHub Actions to commit SHAs.
+
+### API Stability & Backwards Compatibility
+- Do not silently change defaults that affect security posture (TLS, retries that could amplify attacks, auth header behavior). Treat such changes as breaking and call them out in release notes.
+
+### Generated Code (if applicable)
+- For auto-generated SDK code: do not hand-edit generated files. Apply security fixes in the generator templates / OpenAPI spec, then regenerate.
+- Review generator output diff for accidentally exposed internal endpoints or removed auth requirements.
+
+### What to do when unsure
+- If a change touches TLS, auth header handling, retry/backoff that could amplify load on a target, or default logging behavior, call it out explicitly in the PR description and request a security review.
