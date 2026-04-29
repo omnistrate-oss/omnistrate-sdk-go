@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudNativeNetworkId** | **string** | The cloud provider network ID (e.g. AWS VPC ID) to unimport (revert from READY to AVAILABLE) | 
+**CloudNativeNetworkId** | **string** | The cloud provider network ID (e.g. AWS VPC ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster. | 
 **Id** | **string** | ID of an Account Config | 
 **Token** | **string** | JWT token used to perform authorization | 
 

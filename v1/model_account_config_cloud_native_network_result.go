@@ -31,6 +31,10 @@ type AccountConfigCloudNativeNetworkResult struct {
 	CreatedAt time.Time `json:"createdAt"`
 	// Internal cloud native network registration ID
 	Id string `json:"id"`
+	// Whether this network has been imported for deployments via the import API. Independent of validation status.
+	Imported *bool `json:"imported,omitempty"`
+	// Whether this network is currently referenced by at least one host cluster. Unimport is rejected while true.
+	InUse *bool `json:"inUse,omitempty"`
 	// The name of the cloud native network
 	Name *string `json:"name,omitempty"`
 	// Private subnets in this cloud native network
@@ -39,7 +43,7 @@ type AccountConfigCloudNativeNetworkResult struct {
 	PublicSubnets []SubnetDetail `json:"publicSubnets,omitempty"`
 	// The cloud region where the network resides
 	Region string `json:"region"`
-	// The status of a cloud native network registered under an account configuration
+	// The validation status of a cloud native network registered under an account configuration
 	Status string `json:"status"`
 	// Detailed status message
 	StatusMessage *string `json:"statusMessage,omitempty"`
@@ -195,6 +199,52 @@ func (o *AccountConfigCloudNativeNetworkResult) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *AccountConfigCloudNativeNetworkResult) SetId(v string) {
 	o.Id = v
+}
+
+// GetImported returns the Imported field value if set, zero value otherwise.
+func (o *AccountConfigCloudNativeNetworkResult) GetImported() bool {
+	if o == nil || IsNil(o.Imported) {
+		var ret bool
+		return ret
+	}
+	return *o.Imported
+}
+
+// GetImportedOk returns a tuple with the Imported field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AccountConfigCloudNativeNetworkResult) GetImportedOk() (*bool, bool) {
+	if o == nil || IsNil(o.Imported) {
+		return nil, false
+	}
+	return o.Imported, true
+}
+
+// SetImported gets a reference to the given bool and assigns it to the Imported field.
+func (o *AccountConfigCloudNativeNetworkResult) SetImported(v bool) {
+	o.Imported = &v
+}
+
+// GetInUse returns the InUse field value if set, zero value otherwise.
+func (o *AccountConfigCloudNativeNetworkResult) GetInUse() bool {
+	if o == nil || IsNil(o.InUse) {
+		var ret bool
+		return ret
+	}
+	return *o.InUse
+}
+
+// GetInUseOk returns a tuple with the InUse field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AccountConfigCloudNativeNetworkResult) GetInUseOk() (*bool, bool) {
+	if o == nil || IsNil(o.InUse) {
+		return nil, false
+	}
+	return o.InUse, true
+}
+
+// SetInUse gets a reference to the given bool and assigns it to the InUse field.
+func (o *AccountConfigCloudNativeNetworkResult) SetInUse(v bool) {
+	o.InUse = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -424,6 +474,12 @@ func (o AccountConfigCloudNativeNetworkResult) ToMap() (map[string]interface{}, 
 	toSerialize["cloudNativeNetworkId"] = o.CloudNativeNetworkId
 	toSerialize["createdAt"] = o.CreatedAt
 	toSerialize["id"] = o.Id
+	if !IsNil(o.Imported) {
+		toSerialize["imported"] = o.Imported
+	}
+	if !IsNil(o.InUse) {
+		toSerialize["inUse"] = o.InUse
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
@@ -499,6 +555,8 @@ func (o *AccountConfigCloudNativeNetworkResult) UnmarshalJSON(data []byte) (err 
 		delete(additionalProperties, "cloudNativeNetworkId")
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "imported")
+		delete(additionalProperties, "inUse")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "privateSubnets")
 		delete(additionalProperties, "publicSubnets")

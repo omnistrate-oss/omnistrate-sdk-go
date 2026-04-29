@@ -9,11 +9,13 @@ Name | Type | Description | Notes
 **CloudNativeNetworkId** | **string** | The cloud provider network ID (e.g. AWS VPC ID) | 
 **CreatedAt** | **time.Time** | When this cloud native network was registered | 
 **Id** | **string** | Internal cloud native network registration ID | 
+**Imported** | Pointer to **bool** | Whether this network has been imported for deployments via the import API. Independent of validation status. | [optional] 
+**InUse** | Pointer to **bool** | Whether this network is currently referenced by at least one host cluster. Unimport is rejected while true. | [optional] 
 **Name** | Pointer to **string** | The name of the cloud native network | [optional] 
 **PrivateSubnets** | Pointer to [**[]SubnetDetail**](SubnetDetail.md) | Private subnets in this cloud native network | [optional] 
 **PublicSubnets** | Pointer to [**[]SubnetDetail**](SubnetDetail.md) | Public subnets in this cloud native network | [optional] 
 **Region** | **string** | The cloud region where the network resides | 
-**Status** | **string** | The status of a cloud native network registered under an account configuration | 
+**Status** | **string** | The validation status of a cloud native network registered under an account configuration | 
 **StatusMessage** | Pointer to **string** | Detailed status message | [optional] 
 **SupportsPrivateDeployment** | Pointer to **bool** | Whether this network supports private deployments (has private subnets with egress) | [optional] 
 **SupportsPublicDeployment** | Pointer to **bool** | Whether this network supports public deployments (has public subnets with IGW) | [optional] 
@@ -142,6 +144,56 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetImported
+
+`func (o *AccountConfigCloudNativeNetworkResult) GetImported() bool`
+
+GetImported returns the Imported field if non-nil, zero value otherwise.
+
+### GetImportedOk
+
+`func (o *AccountConfigCloudNativeNetworkResult) GetImportedOk() (*bool, bool)`
+
+GetImportedOk returns a tuple with the Imported field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetImported
+
+`func (o *AccountConfigCloudNativeNetworkResult) SetImported(v bool)`
+
+SetImported sets Imported field to given value.
+
+### HasImported
+
+`func (o *AccountConfigCloudNativeNetworkResult) HasImported() bool`
+
+HasImported returns a boolean if a field has been set.
+
+### GetInUse
+
+`func (o *AccountConfigCloudNativeNetworkResult) GetInUse() bool`
+
+GetInUse returns the InUse field if non-nil, zero value otherwise.
+
+### GetInUseOk
+
+`func (o *AccountConfigCloudNativeNetworkResult) GetInUseOk() (*bool, bool)`
+
+GetInUseOk returns a tuple with the InUse field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInUse
+
+`func (o *AccountConfigCloudNativeNetworkResult) SetInUse(v bool)`
+
+SetInUse sets InUse field to given value.
+
+### HasInUse
+
+`func (o *AccountConfigCloudNativeNetworkResult) HasInUse() bool`
+
+HasInUse returns a boolean if a field has been set.
 
 ### GetName
 

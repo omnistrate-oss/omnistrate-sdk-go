@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Regions** | Pointer to **[]string** | Cloud regions to discover CloudNativeNetworks in. If not provided, all regions from the service plan are used. | [optional] 
+**CloudNativeNetworks** | Pointer to [**[]SyncAccountConfigCloudNativeNetworkTarget**](SyncAccountConfigCloudNativeNetworkTarget.md) | Optional list of (region, cloudNativeNetworkId) targets to sync. Each target is {region (required), cloudNativeNetworkId (optional)}: with the network ID set, only that VPC is re-validated; with the network ID omitted, every VPC in the region is enumerated. If the entire list is empty, the sync sweeps every region the account is enabled in (derived from the service plan). | [optional] 
 
 ## Methods
 
@@ -25,30 +25,30 @@ NewSyncAccountConfigCloudNativeNetworksRequest2WithDefaults instantiates a new S
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetRegions
+### GetCloudNativeNetworks
 
-`func (o *SyncAccountConfigCloudNativeNetworksRequest2) GetRegions() []string`
+`func (o *SyncAccountConfigCloudNativeNetworksRequest2) GetCloudNativeNetworks() []SyncAccountConfigCloudNativeNetworkTarget`
 
-GetRegions returns the Regions field if non-nil, zero value otherwise.
+GetCloudNativeNetworks returns the CloudNativeNetworks field if non-nil, zero value otherwise.
 
-### GetRegionsOk
+### GetCloudNativeNetworksOk
 
-`func (o *SyncAccountConfigCloudNativeNetworksRequest2) GetRegionsOk() (*[]string, bool)`
+`func (o *SyncAccountConfigCloudNativeNetworksRequest2) GetCloudNativeNetworksOk() (*[]SyncAccountConfigCloudNativeNetworkTarget, bool)`
 
-GetRegionsOk returns a tuple with the Regions field if it's non-nil, zero value otherwise
+GetCloudNativeNetworksOk returns a tuple with the CloudNativeNetworks field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRegions
+### SetCloudNativeNetworks
 
-`func (o *SyncAccountConfigCloudNativeNetworksRequest2) SetRegions(v []string)`
+`func (o *SyncAccountConfigCloudNativeNetworksRequest2) SetCloudNativeNetworks(v []SyncAccountConfigCloudNativeNetworkTarget)`
 
-SetRegions sets Regions field to given value.
+SetCloudNativeNetworks sets CloudNativeNetworks field to given value.
 
-### HasRegions
+### HasCloudNativeNetworks
 
-`func (o *SyncAccountConfigCloudNativeNetworksRequest2) HasRegions() bool`
+`func (o *SyncAccountConfigCloudNativeNetworksRequest2) HasCloudNativeNetworks() bool`
 
-HasRegions returns a boolean if a field has been set.
+HasCloudNativeNetworks returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

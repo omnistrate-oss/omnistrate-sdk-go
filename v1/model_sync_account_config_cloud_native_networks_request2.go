@@ -19,8 +19,8 @@ var _ MappedNullable = &SyncAccountConfigCloudNativeNetworksRequest2{}
 
 // SyncAccountConfigCloudNativeNetworksRequest2 struct for SyncAccountConfigCloudNativeNetworksRequest2
 type SyncAccountConfigCloudNativeNetworksRequest2 struct {
-	// Cloud regions to discover CloudNativeNetworks in. If not provided, all regions from the service plan are used.
-	Regions []string `json:"regions,omitempty"`
+	// Optional list of (region, cloudNativeNetworkId) targets to sync. Each target is {region (required), cloudNativeNetworkId (optional)}: with the network ID set, only that VPC is re-validated; with the network ID omitted, every VPC in the region is enumerated. If the entire list is empty, the sync sweeps every region the account is enabled in (derived from the service plan).
+	CloudNativeNetworks []SyncAccountConfigCloudNativeNetworkTarget `json:"cloudNativeNetworks,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -43,27 +43,27 @@ func NewSyncAccountConfigCloudNativeNetworksRequest2WithDefaults() *SyncAccountC
 	return &this
 }
 
-// GetRegions returns the Regions field value if set, zero value otherwise.
-func (o *SyncAccountConfigCloudNativeNetworksRequest2) GetRegions() []string {
-	if o == nil || IsNil(o.Regions) {
-		var ret []string
+// GetCloudNativeNetworks returns the CloudNativeNetworks field value if set, zero value otherwise.
+func (o *SyncAccountConfigCloudNativeNetworksRequest2) GetCloudNativeNetworks() []SyncAccountConfigCloudNativeNetworkTarget {
+	if o == nil || IsNil(o.CloudNativeNetworks) {
+		var ret []SyncAccountConfigCloudNativeNetworkTarget
 		return ret
 	}
-	return o.Regions
+	return o.CloudNativeNetworks
 }
 
-// GetRegionsOk returns a tuple with the Regions field value if set, nil otherwise
+// GetCloudNativeNetworksOk returns a tuple with the CloudNativeNetworks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SyncAccountConfigCloudNativeNetworksRequest2) GetRegionsOk() ([]string, bool) {
-	if o == nil || IsNil(o.Regions) {
+func (o *SyncAccountConfigCloudNativeNetworksRequest2) GetCloudNativeNetworksOk() ([]SyncAccountConfigCloudNativeNetworkTarget, bool) {
+	if o == nil || IsNil(o.CloudNativeNetworks) {
 		return nil, false
 	}
-	return o.Regions, true
+	return o.CloudNativeNetworks, true
 }
 
-// SetRegions gets a reference to the given []string and assigns it to the Regions field.
-func (o *SyncAccountConfigCloudNativeNetworksRequest2) SetRegions(v []string) {
-	o.Regions = v
+// SetCloudNativeNetworks gets a reference to the given []SyncAccountConfigCloudNativeNetworkTarget and assigns it to the CloudNativeNetworks field.
+func (o *SyncAccountConfigCloudNativeNetworksRequest2) SetCloudNativeNetworks(v []SyncAccountConfigCloudNativeNetworkTarget) {
+	o.CloudNativeNetworks = v
 }
 
 func (o SyncAccountConfigCloudNativeNetworksRequest2) MarshalJSON() ([]byte, error) {
@@ -76,8 +76,8 @@ func (o SyncAccountConfigCloudNativeNetworksRequest2) MarshalJSON() ([]byte, err
 
 func (o SyncAccountConfigCloudNativeNetworksRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Regions) {
-		toSerialize["regions"] = o.Regions
+	if !IsNil(o.CloudNativeNetworks) {
+		toSerialize["cloudNativeNetworks"] = o.CloudNativeNetworks
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -101,7 +101,7 @@ func (o *SyncAccountConfigCloudNativeNetworksRequest2) UnmarshalJSON(data []byte
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "regions")
+		delete(additionalProperties, "cloudNativeNetworks")
 		o.AdditionalProperties = additionalProperties
 	}
 

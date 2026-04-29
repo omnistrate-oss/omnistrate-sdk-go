@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudNativeNetworkId** | **string** | The cloud provider network ID (e.g. AWS VPC ID) | 
-**Import** | **bool** | True to import (mark READY for deployments), false to unimport (revert to AVAILABLE) | 
+**Import** | **bool** | True to import (mark imported for deployments), false to unimport. Unimport is rejected if the network is in use by a host cluster. | 
 
 ## Methods
 

@@ -20,6 +20,8 @@ var _ MappedNullable = &DescribeAuditEventResult{}
 
 // DescribeAuditEventResult struct for DescribeAuditEventResult
 type DescribeAuditEventResult struct {
+	// The authentication method used by the caller for the request that produced the event. One of PASSWORD or API_KEY. Empty for events not originated by an authenticated user (e.g. internal sweeper actions).
+	AuthMethod *string `json:"authMethod,omitempty"`
 	// The billing provider on the instance's subscription at the time of the event. Empty when no subscription is linked.
 	BillingProvider *string `json:"billingProvider,omitempty"`
 	// The resolved billing-provider customer ID of the instance owner at the time of the event. Honors the instance owner-payer override when set; otherwise falls back to the subscription's external payer ID. Empty when no billing identity has been assigned.
@@ -54,12 +56,16 @@ type DescribeAuditEventResult struct {
 	ResourceInstanceId string `json:"resourceInstanceId"`
 	// Name of the resource
 	ResourceName string `json:"resourceName"`
+	// The role asserted by the user's credential at the time of the event. Captured from the token claims so the audit log reflects the role active at the moment of the action even after the user's role assignments change.
+	RoleType *string `json:"roleType,omitempty"`
 	// ID of a Service
 	ServiceId *string `json:"serviceId,omitempty"`
 	// The service name
 	ServiceName *string `json:"serviceName,omitempty"`
 	// The name of the service plan
 	ServicePlanName *string `json:"servicePlanName,omitempty"`
+	// The credential identifier used for the request that produced the event. For password-issued JWTs this is the token's unique ID (jti); for API-key issued JWTs this is the API key's persistent ID, allowing all events for that key to be correlated even across token refreshes.
+	SessionId *string `json:"sessionId,omitempty"`
 	// The subscription ID
 	SubscriptionId string `json:"subscriptionId"`
 	// The event time
@@ -98,6 +104,29 @@ func NewDescribeAuditEventResult(id string, message string, resourceInstanceId s
 func NewDescribeAuditEventResultWithDefaults() *DescribeAuditEventResult {
 	this := DescribeAuditEventResult{}
 	return &this
+}
+
+// GetAuthMethod returns the AuthMethod field value if set, zero value otherwise.
+func (o *DescribeAuditEventResult) GetAuthMethod() string {
+	if o == nil || IsNil(o.AuthMethod) {
+		var ret string
+		return ret
+	}
+	return *o.AuthMethod
+}
+
+// GetAuthMethodOk returns a tuple with the AuthMethod field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAuditEventResult) GetAuthMethodOk() (*string, bool) {
+	if o == nil || IsNil(o.AuthMethod) {
+		return nil, false
+	}
+	return o.AuthMethod, true
+}
+
+// SetAuthMethod gets a reference to the given string and assigns it to the AuthMethod field.
+func (o *DescribeAuditEventResult) SetAuthMethod(v string) {
+	o.AuthMethod = &v
 }
 
 // GetBillingProvider returns the BillingProvider field value if set, zero value otherwise.
@@ -495,6 +524,29 @@ func (o *DescribeAuditEventResult) SetResourceName(v string) {
 	o.ResourceName = v
 }
 
+// GetRoleType returns the RoleType field value if set, zero value otherwise.
+func (o *DescribeAuditEventResult) GetRoleType() string {
+	if o == nil || IsNil(o.RoleType) {
+		var ret string
+		return ret
+	}
+	return *o.RoleType
+}
+
+// GetRoleTypeOk returns a tuple with the RoleType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAuditEventResult) GetRoleTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.RoleType) {
+		return nil, false
+	}
+	return o.RoleType, true
+}
+
+// SetRoleType gets a reference to the given string and assigns it to the RoleType field.
+func (o *DescribeAuditEventResult) SetRoleType(v string) {
+	o.RoleType = &v
+}
+
 // GetServiceId returns the ServiceId field value if set, zero value otherwise.
 func (o *DescribeAuditEventResult) GetServiceId() string {
 	if o == nil || IsNil(o.ServiceId) {
@@ -562,6 +614,29 @@ func (o *DescribeAuditEventResult) GetServicePlanNameOk() (*string, bool) {
 // SetServicePlanName gets a reference to the given string and assigns it to the ServicePlanName field.
 func (o *DescribeAuditEventResult) SetServicePlanName(v string) {
 	o.ServicePlanName = &v
+}
+
+// GetSessionId returns the SessionId field value if set, zero value otherwise.
+func (o *DescribeAuditEventResult) GetSessionId() string {
+	if o == nil || IsNil(o.SessionId) {
+		var ret string
+		return ret
+	}
+	return *o.SessionId
+}
+
+// GetSessionIdOk returns a tuple with the SessionId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAuditEventResult) GetSessionIdOk() (*string, bool) {
+	if o == nil || IsNil(o.SessionId) {
+		return nil, false
+	}
+	return o.SessionId, true
+}
+
+// SetSessionId gets a reference to the given string and assigns it to the SessionId field.
+func (o *DescribeAuditEventResult) SetSessionId(v string) {
+	o.SessionId = &v
 }
 
 // GetSubscriptionId returns the SubscriptionId field value
@@ -714,6 +789,9 @@ func (o DescribeAuditEventResult) MarshalJSON() ([]byte, error) {
 
 func (o DescribeAuditEventResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AuthMethod) {
+		toSerialize["authMethod"] = o.AuthMethod
+	}
 	if !IsNil(o.BillingProvider) {
 		toSerialize["billingProvider"] = o.BillingProvider
 	}
@@ -757,6 +835,9 @@ func (o DescribeAuditEventResult) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["resourceInstanceId"] = o.ResourceInstanceId
 	toSerialize["resourceName"] = o.ResourceName
+	if !IsNil(o.RoleType) {
+		toSerialize["roleType"] = o.RoleType
+	}
 	if !IsNil(o.ServiceId) {
 		toSerialize["serviceId"] = o.ServiceId
 	}
@@ -765,6 +846,9 @@ func (o DescribeAuditEventResult) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ServicePlanName) {
 		toSerialize["servicePlanName"] = o.ServicePlanName
+	}
+	if !IsNil(o.SessionId) {
+		toSerialize["sessionId"] = o.SessionId
 	}
 	toSerialize["subscriptionId"] = o.SubscriptionId
 	toSerialize["time"] = o.Time
@@ -828,6 +912,7 @@ func (o *DescribeAuditEventResult) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "authMethod")
 		delete(additionalProperties, "billingProvider")
 		delete(additionalProperties, "billingProviderId")
 		delete(additionalProperties, "cloudProvider")
@@ -845,9 +930,11 @@ func (o *DescribeAuditEventResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "resourceInstanceId")
 		delete(additionalProperties, "resourceName")
+		delete(additionalProperties, "roleType")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "serviceName")
 		delete(additionalProperties, "servicePlanName")
+		delete(additionalProperties, "sessionId")
 		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "time")
 		delete(additionalProperties, "userAgent")

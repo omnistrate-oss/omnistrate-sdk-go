@@ -20,10 +20,10 @@ var _ MappedNullable = &SyncAccountConfigCloudNativeNetworksRequest{}
 
 // SyncAccountConfigCloudNativeNetworksRequest struct for SyncAccountConfigCloudNativeNetworksRequest
 type SyncAccountConfigCloudNativeNetworksRequest struct {
+	// Optional list of (region, cloudNativeNetworkId) targets to sync. Each target is {region (required), cloudNativeNetworkId (optional)}: with the network ID set, only that VPC is re-validated; with the network ID omitted, every VPC in the region is enumerated. If the entire list is empty, the sync sweeps every region the account is enabled in (derived from the service plan).
+	CloudNativeNetworks []SyncAccountConfigCloudNativeNetworkTarget `json:"cloudNativeNetworks,omitempty"`
 	// ID of an Account Config
 	Id string `json:"id"`
-	// Cloud regions to discover CloudNativeNetworks in. If not provided, all regions from the service plan are used.
-	Regions []string `json:"regions,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -50,6 +50,29 @@ func NewSyncAccountConfigCloudNativeNetworksRequestWithDefaults() *SyncAccountCo
 	return &this
 }
 
+// GetCloudNativeNetworks returns the CloudNativeNetworks field value if set, zero value otherwise.
+func (o *SyncAccountConfigCloudNativeNetworksRequest) GetCloudNativeNetworks() []SyncAccountConfigCloudNativeNetworkTarget {
+	if o == nil || IsNil(o.CloudNativeNetworks) {
+		var ret []SyncAccountConfigCloudNativeNetworkTarget
+		return ret
+	}
+	return o.CloudNativeNetworks
+}
+
+// GetCloudNativeNetworksOk returns a tuple with the CloudNativeNetworks field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SyncAccountConfigCloudNativeNetworksRequest) GetCloudNativeNetworksOk() ([]SyncAccountConfigCloudNativeNetworkTarget, bool) {
+	if o == nil || IsNil(o.CloudNativeNetworks) {
+		return nil, false
+	}
+	return o.CloudNativeNetworks, true
+}
+
+// SetCloudNativeNetworks gets a reference to the given []SyncAccountConfigCloudNativeNetworkTarget and assigns it to the CloudNativeNetworks field.
+func (o *SyncAccountConfigCloudNativeNetworksRequest) SetCloudNativeNetworks(v []SyncAccountConfigCloudNativeNetworkTarget) {
+	o.CloudNativeNetworks = v
+}
+
 // GetId returns the Id field value
 func (o *SyncAccountConfigCloudNativeNetworksRequest) GetId() string {
 	if o == nil {
@@ -72,29 +95,6 @@ func (o *SyncAccountConfigCloudNativeNetworksRequest) GetIdOk() (*string, bool) 
 // SetId sets field value
 func (o *SyncAccountConfigCloudNativeNetworksRequest) SetId(v string) {
 	o.Id = v
-}
-
-// GetRegions returns the Regions field value if set, zero value otherwise.
-func (o *SyncAccountConfigCloudNativeNetworksRequest) GetRegions() []string {
-	if o == nil || IsNil(o.Regions) {
-		var ret []string
-		return ret
-	}
-	return o.Regions
-}
-
-// GetRegionsOk returns a tuple with the Regions field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *SyncAccountConfigCloudNativeNetworksRequest) GetRegionsOk() ([]string, bool) {
-	if o == nil || IsNil(o.Regions) {
-		return nil, false
-	}
-	return o.Regions, true
-}
-
-// SetRegions gets a reference to the given []string and assigns it to the Regions field.
-func (o *SyncAccountConfigCloudNativeNetworksRequest) SetRegions(v []string) {
-	o.Regions = v
 }
 
 // GetToken returns the Token field value
@@ -131,10 +131,10 @@ func (o SyncAccountConfigCloudNativeNetworksRequest) MarshalJSON() ([]byte, erro
 
 func (o SyncAccountConfigCloudNativeNetworksRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	if !IsNil(o.Regions) {
-		toSerialize["regions"] = o.Regions
+	if !IsNil(o.CloudNativeNetworks) {
+		toSerialize["cloudNativeNetworks"] = o.CloudNativeNetworks
 	}
+	toSerialize["id"] = o.Id
 	toSerialize["token"] = o.Token
 
 	for key, value := range o.AdditionalProperties {
@@ -180,8 +180,8 @@ func (o *SyncAccountConfigCloudNativeNetworksRequest) UnmarshalJSON(data []byte)
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cloudNativeNetworks")
 		delete(additionalProperties, "id")
-		delete(additionalProperties, "regions")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}
