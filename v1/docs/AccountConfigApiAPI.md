@@ -177,7 +177,7 @@ import (
 )
 
 func main() {
-	createAccountConfigRequest2 := *openapiclient.NewCreateAccountConfigRequest2("Est facere id odit quidem nam.", "An AWS account hosting multiple dev environments", "Dev AWS account") // CreateAccountConfigRequest2 | 
+	createAccountConfigRequest2 := *openapiclient.NewCreateAccountConfigRequest2("Omnis nam quisquam modi in.", "An AWS account hosting multiple dev environments", "Dev AWS account") // CreateAccountConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1065,7 +1065,7 @@ import (
 
 func main() {
 	id := "ac-12345678" // string | Account Config ID to operate on
-	cloudNativeNetworkId := "vpc-0abc123def456" // string | The cloud provider network ID (e.g. AWS VPC ID) to unimport (revert from READY to AVAILABLE)
+	cloudNativeNetworkId := "vpc-0abc123def456" // string | The cloud provider network ID (e.g. AWS VPC ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1086,7 +1086,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **id** | **string** | Account Config ID to operate on | 
-**cloudNativeNetworkId** | **string** | The cloud provider network ID (e.g. AWS VPC ID) to unimport (revert from READY to AVAILABLE) | 
+**cloudNativeNetworkId** | **string** | The cloud provider network ID (e.g. AWS VPC ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster. | 
 
 ### Other Parameters
 

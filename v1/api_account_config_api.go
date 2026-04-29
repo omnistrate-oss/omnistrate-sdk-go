@@ -231,7 +231,7 @@ type AccountConfigApiAPI interface {
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param id Account Config ID to operate on
-	@param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) to unimport (revert from READY to AVAILABLE)
+	@param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
 	@return ApiAccountConfigApiUnimportAccountConfigCloudNativeNetworkRequest
 	*/
 	AccountConfigApiUnimportAccountConfigCloudNativeNetwork(ctx context.Context, id string, cloudNativeNetworkId string) ApiAccountConfigApiUnimportAccountConfigCloudNativeNetworkRequest
@@ -2658,7 +2658,7 @@ Unimport a cloud native network, reverting it from READY to AVAILABLE
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Account Config ID to operate on
- @param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) to unimport (revert from READY to AVAILABLE)
+ @param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
  @return ApiAccountConfigApiUnimportAccountConfigCloudNativeNetworkRequest
 */
 func (a *AccountConfigApiAPIService) AccountConfigApiUnimportAccountConfigCloudNativeNetwork(ctx context.Context, id string, cloudNativeNetworkId string) ApiAccountConfigApiUnimportAccountConfigCloudNativeNetworkRequest {

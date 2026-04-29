@@ -22,7 +22,7 @@ var _ MappedNullable = &AccountConfigCloudNativeNetworkOperation{}
 type AccountConfigCloudNativeNetworkOperation struct {
 	// The cloud provider network ID (e.g. AWS VPC ID)
 	CloudNativeNetworkId string `json:"cloudNativeNetworkId"`
-	// True to import (mark READY for deployments), false to unimport (revert to AVAILABLE)
+	// True to import (mark imported for deployments), false to unimport. Unimport is rejected if the network is in use by a host cluster.
 	Import bool `json:"import"`
 	AdditionalProperties map[string]interface{}
 }

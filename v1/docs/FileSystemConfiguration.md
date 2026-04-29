@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **AzureFileShareConfiguration** | Pointer to [**AzureFileShareConfiguration**](AzureFileShareConfiguration.md) |  | [optional] 
 **EFSFileSystemConfiguration** | Pointer to [**EFSFileSystemConfiguration**](EFSFileSystemConfiguration.md) |  | [optional] 
 **GCPFilestoreConfiguration** | Pointer to [**GCPFilestoreConfiguration**](GCPFilestoreConfiguration.md) |  | [optional] 
+**NebiusFileSystemConfiguration** | Pointer to [**NebiusFileSystemConfiguration**](NebiusFileSystemConfiguration.md) |  | [optional] 
 
 ## Methods
 
@@ -101,6 +102,31 @@ SetGCPFilestoreConfiguration sets GCPFilestoreConfiguration field to given value
 `func (o *FileSystemConfiguration) HasGCPFilestoreConfiguration() bool`
 
 HasGCPFilestoreConfiguration returns a boolean if a field has been set.
+
+### GetNebiusFileSystemConfiguration
+
+`func (o *FileSystemConfiguration) GetNebiusFileSystemConfiguration() NebiusFileSystemConfiguration`
+
+GetNebiusFileSystemConfiguration returns the NebiusFileSystemConfiguration field if non-nil, zero value otherwise.
+
+### GetNebiusFileSystemConfigurationOk
+
+`func (o *FileSystemConfiguration) GetNebiusFileSystemConfigurationOk() (*NebiusFileSystemConfiguration, bool)`
+
+GetNebiusFileSystemConfigurationOk returns a tuple with the NebiusFileSystemConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNebiusFileSystemConfiguration
+
+`func (o *FileSystemConfiguration) SetNebiusFileSystemConfiguration(v NebiusFileSystemConfiguration)`
+
+SetNebiusFileSystemConfiguration sets NebiusFileSystemConfiguration field to given value.
+
+### HasNebiusFileSystemConfiguration
+
+`func (o *FileSystemConfiguration) HasNebiusFileSystemConfiguration() bool`
+
+HasNebiusFileSystemConfiguration returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

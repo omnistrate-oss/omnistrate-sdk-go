@@ -22,6 +22,7 @@ type FileSystemConfiguration struct {
 	AzureFileShareConfiguration *AzureFileShareConfiguration `json:"AzureFileShareConfiguration,omitempty"`
 	EFSFileSystemConfiguration *EFSFileSystemConfiguration `json:"EFSFileSystemConfiguration,omitempty"`
 	GCPFilestoreConfiguration *GCPFilestoreConfiguration `json:"GCPFilestoreConfiguration,omitempty"`
+	NebiusFileSystemConfiguration *NebiusFileSystemConfiguration `json:"NebiusFileSystemConfiguration,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -113,6 +114,29 @@ func (o *FileSystemConfiguration) SetGCPFilestoreConfiguration(v GCPFilestoreCon
 	o.GCPFilestoreConfiguration = &v
 }
 
+// GetNebiusFileSystemConfiguration returns the NebiusFileSystemConfiguration field value if set, zero value otherwise.
+func (o *FileSystemConfiguration) GetNebiusFileSystemConfiguration() NebiusFileSystemConfiguration {
+	if o == nil || IsNil(o.NebiusFileSystemConfiguration) {
+		var ret NebiusFileSystemConfiguration
+		return ret
+	}
+	return *o.NebiusFileSystemConfiguration
+}
+
+// GetNebiusFileSystemConfigurationOk returns a tuple with the NebiusFileSystemConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FileSystemConfiguration) GetNebiusFileSystemConfigurationOk() (*NebiusFileSystemConfiguration, bool) {
+	if o == nil || IsNil(o.NebiusFileSystemConfiguration) {
+		return nil, false
+	}
+	return o.NebiusFileSystemConfiguration, true
+}
+
+// SetNebiusFileSystemConfiguration gets a reference to the given NebiusFileSystemConfiguration and assigns it to the NebiusFileSystemConfiguration field.
+func (o *FileSystemConfiguration) SetNebiusFileSystemConfiguration(v NebiusFileSystemConfiguration) {
+	o.NebiusFileSystemConfiguration = &v
+}
+
 func (o FileSystemConfiguration) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -131,6 +155,9 @@ func (o FileSystemConfiguration) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.GCPFilestoreConfiguration) {
 		toSerialize["GCPFilestoreConfiguration"] = o.GCPFilestoreConfiguration
+	}
+	if !IsNil(o.NebiusFileSystemConfiguration) {
+		toSerialize["NebiusFileSystemConfiguration"] = o.NebiusFileSystemConfiguration
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -157,6 +184,7 @@ func (o *FileSystemConfiguration) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "AzureFileShareConfiguration")
 		delete(additionalProperties, "EFSFileSystemConfiguration")
 		delete(additionalProperties, "GCPFilestoreConfiguration")
+		delete(additionalProperties, "NebiusFileSystemConfiguration")
 		o.AdditionalProperties = additionalProperties
 	}
 

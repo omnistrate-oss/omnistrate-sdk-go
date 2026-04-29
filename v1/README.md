@@ -95,6 +95,12 @@ Class | Method | HTTP request | Description
 *AccountConfigApiAPI* | [**AccountConfigApiUnimportAccountConfigCloudNativeNetwork**](docs/AccountConfigApiAPI.md#accountconfigapiunimportaccountconfigcloudnativenetwork) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/{cloudNativeNetworkId}/unimport | UnimportAccountConfigCloudNativeNetwork account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiUpdateAccountConfig**](docs/AccountConfigApiAPI.md#accountconfigapiupdateaccountconfig) | **Put** /2022-09-01-00/accountconfig/{id} | UpdateAccountConfig account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiVerifyAccountConfig**](docs/AccountConfigApiAPI.md#accountconfigapiverifyaccountconfig) | **Post** /2022-09-01-00/accountconfig/verify/{id} | VerifyAccountConfig account-config-api
+*ApiKeyApiAPI* | [**ApiKeyApiCreateAPIKey**](docs/ApiKeyApiAPI.md#apikeyapicreateapikey) | **Post** /2022-09-01-00/api-key | CreateAPIKey api-key-api
+*ApiKeyApiAPI* | [**ApiKeyApiDeleteAPIKey**](docs/ApiKeyApiAPI.md#apikeyapideleteapikey) | **Delete** /2022-09-01-00/api-key/{id} | DeleteAPIKey api-key-api
+*ApiKeyApiAPI* | [**ApiKeyApiDescribeAPIKey**](docs/ApiKeyApiAPI.md#apikeyapidescribeapikey) | **Get** /2022-09-01-00/api-key/{id} | DescribeAPIKey api-key-api
+*ApiKeyApiAPI* | [**ApiKeyApiListAPIKeys**](docs/ApiKeyApiAPI.md#apikeyapilistapikeys) | **Get** /2022-09-01-00/api-key | ListAPIKeys api-key-api
+*ApiKeyApiAPI* | [**ApiKeyApiRevokeAPIKey**](docs/ApiKeyApiAPI.md#apikeyapirevokeapikey) | **Post** /2022-09-01-00/api-key/{id}:revoke | RevokeAPIKey api-key-api
+*ApiKeyApiAPI* | [**ApiKeyApiUpdateAPIKeyMetadata**](docs/ApiKeyApiAPI.md#apikeyapiupdateapikeymetadata) | **Patch** /2022-09-01-00/api-key/{id} | UpdateAPIKeyMetadata api-key-api
 *AuditEventsApiAPI* | [**AuditEventsApiDeprecatedDescribeAuditEvent**](docs/AuditEventsApiAPI.md#auditeventsapideprecateddescribeauditevent) | **Get** /2022-09-01-00/resource-instance/event/{id} | DeprecatedDescribeAuditEvent audit-events-api
 *AuditEventsApiAPI* | [**AuditEventsApiDeprecatedListAuditEventsForInstance**](docs/AuditEventsApiAPI.md#auditeventsapideprecatedlistauditeventsforinstance) | **Get** /2022-09-01-00/resource-instance/{instanceId}/event | DeprecatedListAuditEventsForInstance audit-events-api
 *AuditEventsApiAPI* | [**AuditEventsApiDeprecatedListAuditEventsForServicePlan**](docs/AuditEventsApiAPI.md#auditeventsapideprecatedlistauditeventsforserviceplan) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/event | DeprecatedListAuditEventsForServicePlan audit-events-api
@@ -418,6 +424,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [APIEntity](docs/APIEntity.md)
+ - [APIKeyMetadata](docs/APIKeyMetadata.md)
  - [AWSPrivateLinkConfiguration](docs/AWSPrivateLinkConfiguration.md)
  - [AcceleratorConfiguration](docs/AcceleratorConfiguration.md)
  - [AccountConfigCloudNativeNetworkOperation](docs/AccountConfigCloudNativeNetworkOperation.md)
@@ -499,6 +506,9 @@ Class | Method | HTTP request | Description
  - [CopyResourceInstanceSnapshotResponseBody](docs/CopyResourceInstanceSnapshotResponseBody.md)
  - [CopyServiceModelRequest](docs/CopyServiceModelRequest.md)
  - [CopyServiceModelRequest2](docs/CopyServiceModelRequest2.md)
+ - [CreateAPIKeyRequest](docs/CreateAPIKeyRequest.md)
+ - [CreateAPIKeyRequest2](docs/CreateAPIKeyRequest2.md)
+ - [CreateAPIKeyResult](docs/CreateAPIKeyResult.md)
  - [CreateAccountConfigRequest](docs/CreateAccountConfigRequest.md)
  - [CreateAccountConfigRequest2](docs/CreateAccountConfigRequest2.md)
  - [CreateComputeConfigRequest](docs/CreateComputeConfigRequest.md)
@@ -629,6 +639,8 @@ Class | Method | HTTP request | Description
  - [DeprecateTierVersionSetRequest](docs/DeprecateTierVersionSetRequest.md)
  - [DeregisterActionHookRequest](docs/DeregisterActionHookRequest.md)
  - [DeregisterActionHookRequest2](docs/DeregisterActionHookRequest2.md)
+ - [DescribeAPIKeyRequest](docs/DescribeAPIKeyRequest.md)
+ - [DescribeAPIKeyResult](docs/DescribeAPIKeyResult.md)
  - [DescribeAccountConfigByAWSAccountIDRequest](docs/DescribeAccountConfigByAWSAccountIDRequest.md)
  - [DescribeAccountConfigByAWSAccountIDResult](docs/DescribeAccountConfigByAWSAccountIDResult.md)
  - [DescribeAccountConfigByAzureSubscriptionIDRequest](docs/DescribeAccountConfigByAzureSubscriptionIDRequest.md)
@@ -829,6 +841,8 @@ Class | Method | HTTP request | Description
  - [L7LoadBalancerConfiguration](docs/L7LoadBalancerConfiguration.md)
  - [Limits](docs/Limits.md)
  - [List](docs/List.md)
+ - [ListAPIKeysRequest](docs/ListAPIKeysRequest.md)
+ - [ListAPIKeysResult](docs/ListAPIKeysResult.md)
  - [ListAccountConfigCloudNativeNetworksRequest](docs/ListAccountConfigCloudNativeNetworksRequest.md)
  - [ListAccountConfigCloudNativeNetworksResult](docs/ListAccountConfigCloudNativeNetworksResult.md)
  - [ListAccountConfigRequest](docs/ListAccountConfigRequest.md)
@@ -959,6 +973,7 @@ Class | Method | HTTP request | Description
  - [NamedPortSpec](docs/NamedPortSpec.md)
  - [NebiusAccountBindingInput](docs/NebiusAccountBindingInput.md)
  - [NebiusAccountBindingResult](docs/NebiusAccountBindingResult.md)
+ - [NebiusFileSystemConfiguration](docs/NebiusFileSystemConfiguration.md)
  - [NetworkFeaturesConfiguration](docs/NetworkFeaturesConfiguration.md)
  - [NodeHealthSummary](docs/NodeHealthSummary.md)
  - [NodeNetworkTopologyResult](docs/NodeNetworkTopologyResult.md)
@@ -1045,6 +1060,8 @@ Class | Method | HTTP request | Description
  - [RestoreResourceInstanceFromSnapshotResponseBody](docs/RestoreResourceInstanceFromSnapshotResponseBody.md)
  - [RestoreResourceInstanceRequest](docs/RestoreResourceInstanceRequest.md)
  - [RestoreResourceInstanceRequest2](docs/RestoreResourceInstanceRequest2.md)
+ - [RevokeAPIKeyRequest](docs/RevokeAPIKeyRequest.md)
+ - [RevokeAPIKeyResult](docs/RevokeAPIKeyResult.md)
  - [RevokeConsumptionUserRoleRequest](docs/RevokeConsumptionUserRoleRequest.md)
  - [RevokeConsumptionUserRoleRequest2](docs/RevokeConsumptionUserRoleRequest2.md)
  - [RevokeUserRoleRequest](docs/RevokeUserRoleRequest.md)
@@ -1090,6 +1107,7 @@ Class | Method | HTTP request | Description
  - [SubnetDetail](docs/SubnetDetail.md)
  - [SubscriptionLicense](docs/SubscriptionLicense.md)
  - [SubscriptionUsers](docs/SubscriptionUsers.md)
+ - [SyncAccountConfigCloudNativeNetworkTarget](docs/SyncAccountConfigCloudNativeNetworkTarget.md)
  - [SyncAccountConfigCloudNativeNetworksRequest](docs/SyncAccountConfigCloudNativeNetworksRequest.md)
  - [SyncAccountConfigCloudNativeNetworksRequest2](docs/SyncAccountConfigCloudNativeNetworksRequest2.md)
  - [TaintConfiguration](docs/TaintConfiguration.md)
@@ -1102,6 +1120,9 @@ Class | Method | HTTP request | Description
  - [UnimportAccountConfigCloudNativeNetworkRequest](docs/UnimportAccountConfigCloudNativeNetworkRequest.md)
  - [UnsetEnvironmentVariablesRequest](docs/UnsetEnvironmentVariablesRequest.md)
  - [UnsetEnvironmentVariablesRequest2](docs/UnsetEnvironmentVariablesRequest2.md)
+ - [UpdateAPIKeyMetadataRequest](docs/UpdateAPIKeyMetadataRequest.md)
+ - [UpdateAPIKeyMetadataRequest2](docs/UpdateAPIKeyMetadataRequest2.md)
+ - [UpdateAPIKeyMetadataResult](docs/UpdateAPIKeyMetadataResult.md)
  - [UpdateAccountConfigNebiusBindingInput](docs/UpdateAccountConfigNebiusBindingInput.md)
  - [UpdateAccountConfigRequest](docs/UpdateAccountConfigRequest.md)
  - [UpdateAccountConfigRequest2](docs/UpdateAccountConfigRequest2.md)
