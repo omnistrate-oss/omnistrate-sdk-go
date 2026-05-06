@@ -36,7 +36,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "cc-12345678" // string | ID of the compute config
-	addComputeInstanceTypeRequest2 := *openapiclient.NewAddComputeInstanceTypeRequest2("aws|azure|gcp|nebius|oci|all", "t3.micro") // AddComputeInstanceTypeRequest2 | 
+	addComputeInstanceTypeRequest2 := *openapiclient.NewAddComputeInstanceTypeRequest2("aws|azure|gcp|nebius|oci|byoc-onprem|all", "t3.micro") // AddComputeInstanceTypeRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -462,7 +462,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "cc-12345678" // string | ID of the compute config
-	removeComputeInstanceTypeRequest2 := *openapiclient.NewRemoveComputeInstanceTypeRequest2("aws|azure|gcp|nebius|oci|all", "t3.micro") // RemoveComputeInstanceTypeRequest2 | 
+	removeComputeInstanceTypeRequest2 := *openapiclient.NewRemoveComputeInstanceTypeRequest2("aws|azure|gcp|nebius|oci|byoc-onprem|all", "t3.micro") // RemoveComputeInstanceTypeRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

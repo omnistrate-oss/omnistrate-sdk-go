@@ -54,6 +54,8 @@ type HostCluster struct {
 	IsCustomDeployment bool `json:"isCustomDeployment"`
 	// Whether the host cluster is in sync with the org template
 	IsInSyncWithOrgTemplate *bool `json:"isInSyncWithOrgTemplate,omitempty"`
+	// Whether the host cluster is a BYOC on-prem dataplane (customer-managed Kubernetes cluster connected via the dataplane agent).
+	IsOnPremDataplane *bool `json:"isOnPremDataplane,omitempty"`
 	// Unique key for the host cluster, used for identification
 	Key string `json:"key"`
 	// Endpoint of the Kubernetes dashboard
@@ -659,6 +661,38 @@ func (o *HostCluster) SetIsInSyncWithOrgTemplate(v bool) {
 	o.IsInSyncWithOrgTemplate = &v
 }
 
+// GetIsOnPremDataplane returns the IsOnPremDataplane field value if set, zero value otherwise.
+func (o *HostCluster) GetIsOnPremDataplane() bool {
+	if o == nil || IsNil(o.IsOnPremDataplane) {
+		var ret bool
+		return ret
+	}
+	return *o.IsOnPremDataplane
+}
+
+// GetIsOnPremDataplaneOk returns a tuple with the IsOnPremDataplane field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetIsOnPremDataplaneOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsOnPremDataplane) {
+		return nil, false
+	}
+	return o.IsOnPremDataplane, true
+}
+
+// HasIsOnPremDataplane returns a boolean if a field has been set.
+func (o *HostCluster) HasIsOnPremDataplane() bool {
+	if o != nil && !IsNil(o.IsOnPremDataplane) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsOnPremDataplane gets a reference to the given bool and assigns it to the IsOnPremDataplane field.
+func (o *HostCluster) SetIsOnPremDataplane(v bool) {
+	o.IsOnPremDataplane = &v
+}
+
 // GetKey returns the Key field value
 func (o *HostCluster) GetKey() string {
 	if o == nil {
@@ -992,6 +1026,9 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsInSyncWithOrgTemplate) {
 		toSerialize["isInSyncWithOrgTemplate"] = o.IsInSyncWithOrgTemplate
 	}
+	if !IsNil(o.IsOnPremDataplane) {
+		toSerialize["isOnPremDataplane"] = o.IsOnPremDataplane
+	}
 	toSerialize["key"] = o.Key
 	if !IsNil(o.KubernetesDashboardEndpoint) {
 		toSerialize["kubernetesDashboardEndpoint"] = o.KubernetesDashboardEndpoint
@@ -1085,6 +1122,7 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "intermediaryAccountDetail")
 		delete(additionalProperties, "isCustomDeployment")
 		delete(additionalProperties, "isInSyncWithOrgTemplate")
+		delete(additionalProperties, "isOnPremDataplane")
 		delete(additionalProperties, "key")
 		delete(additionalProperties, "kubernetesDashboardEndpoint")
 		delete(additionalProperties, "modelType")

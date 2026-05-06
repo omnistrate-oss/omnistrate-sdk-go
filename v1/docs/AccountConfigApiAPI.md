@@ -926,7 +926,7 @@ import (
 )
 
 func main() {
-	listBYOAConfigRequest2 := *openapiclient.NewListBYOAConfigRequest2("aws|azure|gcp|nebius|oci|all") // ListBYOAConfigRequest2 | 
+	listBYOAConfigRequest2 := *openapiclient.NewListBYOAConfigRequest2("aws|azure|gcp|nebius|oci|byoc-onprem|all") // ListBYOAConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

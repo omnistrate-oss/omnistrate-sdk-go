@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**SigninApiLoginWithIdentityProvider**](SigninApiAPI.md#SigninApiLoginWithIdentityProvider) | **Post** /2022-09-01-00/login-with-identity-provider | LoginWithIdentityProvider signin-api
 [**SigninApiRefreshToken**](SigninApiAPI.md#SigninApiRefreshToken) | **Post** /2022-09-01-00/refresh-token | RefreshToken signin-api
+[**SigninApiRevokeToken**](SigninApiAPI.md#SigninApiRevokeToken) | **Post** /2022-09-01-00/revoke-token | RevokeToken signin-api
 [**SigninApiSignin**](SigninApiAPI.md#SigninApiSignin) | **Post** /2022-09-01-00/signin | Signin signin-api
 
 
@@ -134,6 +135,70 @@ No authorization required
 
 - **Content-Type**: application/json
 - **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SigninApiRevokeToken
+
+> SigninApiRevokeToken(ctx).RevokeTokenRequest(revokeTokenRequest).Execute()
+
+RevokeToken signin-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	revokeTokenRequest := *openapiclient.NewRevokeTokenRequest() // RevokeTokenRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.SigninApiAPI.SigninApiRevokeToken(context.Background()).RevokeTokenRequest(revokeTokenRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SigninApiAPI.SigninApiRevokeToken``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSigninApiRevokeTokenRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **revokeTokenRequest** | [**RevokeTokenRequest**](RevokeTokenRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
