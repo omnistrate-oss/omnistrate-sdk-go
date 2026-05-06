@@ -48,6 +48,19 @@ type SigninApiAPI interface {
 	SigninApiRefreshTokenExecute(r ApiSigninApiRefreshTokenRequest) (*RefreshTokenResult, *http.Response, error)
 
 	/*
+	SigninApiRevokeToken RevokeToken signin-api
+
+	Revoke a single refresh token, preventing further JWT renewal from that session. The access JWT continues until its natural TTL expiry. Idempotent: revoking an unknown or already-revoked token returns success.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSigninApiRevokeTokenRequest
+	*/
+	SigninApiRevokeToken(ctx context.Context) ApiSigninApiRevokeTokenRequest
+
+	// SigninApiRevokeTokenExecute executes the request
+	SigninApiRevokeTokenExecute(r ApiSigninApiRevokeTokenRequest) (*http.Response, error)
+
+	/*
 	SigninApiSignin Signin signin-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -376,6 +389,115 @@ func (a *SigninApiAPIService) SigninApiRefreshTokenExecute(r ApiSigninApiRefresh
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiSigninApiRevokeTokenRequest struct {
+	ctx context.Context
+	ApiService SigninApiAPI
+	revokeTokenRequest *RevokeTokenRequest
+}
+
+func (r ApiSigninApiRevokeTokenRequest) RevokeTokenRequest(revokeTokenRequest RevokeTokenRequest) ApiSigninApiRevokeTokenRequest {
+	r.revokeTokenRequest = &revokeTokenRequest
+	return r
+}
+
+func (r ApiSigninApiRevokeTokenRequest) Execute() (*http.Response, error) {
+	return r.ApiService.SigninApiRevokeTokenExecute(r)
+}
+
+/*
+SigninApiRevokeToken RevokeToken signin-api
+
+Revoke a single refresh token, preventing further JWT renewal from that session. The access JWT continues until its natural TTL expiry. Idempotent: revoking an unknown or already-revoked token returns success.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiSigninApiRevokeTokenRequest
+*/
+func (a *SigninApiAPIService) SigninApiRevokeToken(ctx context.Context) ApiSigninApiRevokeTokenRequest {
+	return ApiSigninApiRevokeTokenRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+func (a *SigninApiAPIService) SigninApiRevokeTokenExecute(r ApiSigninApiRevokeTokenRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SigninApiAPIService.SigninApiRevokeToken")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/revoke-token"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.revokeTokenRequest == nil {
+		return nil, reportError("revokeTokenRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.revokeTokenRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
 }
 
 type ApiSigninApiSigninRequest struct {

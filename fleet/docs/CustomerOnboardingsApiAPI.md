@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**CustomerOnboardingsApiGenerateServicePlanSpecOrComposeSpecForOnboarding**](CustomerOnboardingsApiAPI.md#CustomerOnboardingsApiGenerateServicePlanSpecOrComposeSpecForOnboarding) | **Post** /2022-09-01-00/fleet/customer-onboarding/generate-spec/{id} | GenerateServicePlanSpecOrComposeSpecForOnboarding customer-onboardings-api
 [**CustomerOnboardingsApiListCustomerOnboardingStages**](CustomerOnboardingsApiAPI.md#CustomerOnboardingsApiListCustomerOnboardingStages) | **Get** /2022-09-01-00/fleet/customer-onboarding-stages | ListCustomerOnboardingStages customer-onboardings-api
 [**CustomerOnboardingsApiListCustomerOnboardings**](CustomerOnboardingsApiAPI.md#CustomerOnboardingsApiListCustomerOnboardings) | **Get** /2022-09-01-00/fleet/customer-onboarding | ListCustomerOnboardings customer-onboardings-api
+[**CustomerOnboardingsApiScrutinizeOnboardingDeploymentArtifact**](CustomerOnboardingsApiAPI.md#CustomerOnboardingsApiScrutinizeOnboardingDeploymentArtifact) | **Post** /2022-09-01-00/fleet/customer-onboarding/{id}/scrutinize-deployment-artifact | ScrutinizeOnboardingDeploymentArtifact customer-onboardings-api
 [**CustomerOnboardingsApiUpdateCustomerOnboarding**](CustomerOnboardingsApiAPI.md#CustomerOnboardingsApiUpdateCustomerOnboarding) | **Patch** /2022-09-01-00/fleet/customer-onboarding/{id} | UpdateCustomerOnboarding customer-onboardings-api
 
 
@@ -397,6 +398,72 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CustomerOnboardingsApiScrutinizeOnboardingDeploymentArtifact
+
+> CustomerOnboardingsApiScrutinizeOnboardingDeploymentArtifact(ctx, id).Execute()
+
+ScrutinizeOnboardingDeploymentArtifact customer-onboardings-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	id := "onboarding-1234567890" // string | The ID of the onboarding.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CustomerOnboardingsApiAPI.CustomerOnboardingsApiScrutinizeOnboardingDeploymentArtifact(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CustomerOnboardingsApiAPI.CustomerOnboardingsApiScrutinizeOnboardingDeploymentArtifact``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The ID of the onboarding. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCustomerOnboardingsApiScrutinizeOnboardingDeploymentArtifactRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

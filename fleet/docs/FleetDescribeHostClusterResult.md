@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **DashboardEndpoint** | Pointer to **string** | The endpoint to access the dashboard | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **Id** | **string** | ID of a Host Cluster | 
+**IsOnPremDataplane** | Pointer to **bool** | Whether the host cluster is a BYOC on-prem dataplane (customer-managed Kubernetes cluster connected via the dataplane agent). | [optional] 
 **OciTenancyID** | Pointer to **string** | The Tenancy OCID for Oracle Cloud Infrastructure | [optional] 
 **PrivateLinkEnabled** | Pointer to **bool** | Whether the host cluster is provisioned with PrivateLink network topology (BYOA only). Immutable after creation. | [optional] 
 **Region** | **string** | The region of the host cluster | 
@@ -200,6 +201,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetIsOnPremDataplane
+
+`func (o *FleetDescribeHostClusterResult) GetIsOnPremDataplane() bool`
+
+GetIsOnPremDataplane returns the IsOnPremDataplane field if non-nil, zero value otherwise.
+
+### GetIsOnPremDataplaneOk
+
+`func (o *FleetDescribeHostClusterResult) GetIsOnPremDataplaneOk() (*bool, bool)`
+
+GetIsOnPremDataplaneOk returns a tuple with the IsOnPremDataplane field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsOnPremDataplane
+
+`func (o *FleetDescribeHostClusterResult) SetIsOnPremDataplane(v bool)`
+
+SetIsOnPremDataplane sets IsOnPremDataplane field to given value.
+
+### HasIsOnPremDataplane
+
+`func (o *FleetDescribeHostClusterResult) HasIsOnPremDataplane() bool`
+
+HasIsOnPremDataplane returns a boolean if a field has been set.
 
 ### GetOciTenancyID
 

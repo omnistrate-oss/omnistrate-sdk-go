@@ -19,8 +19,9 @@ var _ MappedNullable = &UpdateCustomerOnboardingRequest2{}
 
 // UpdateCustomerOnboardingRequest2 struct for UpdateCustomerOnboardingRequest2
 type UpdateCustomerOnboardingRequest2 struct {
-	// Additional metadata associated with the onboarding.
-	Metadata map[string]interface{} `json:"metadata,omitempty"`
+	CloudNativeMetadata *CloudNativeOnboardingMetadata `json:"cloudNativeMetadata,omitempty"`
+	ContainerImageMetadata *ContainerImageOnboardingMetadata `json:"containerImageMetadata,omitempty"`
+	DockerComposeMetadata *DockerComposeOnboardingMetadata `json:"dockerComposeMetadata,omitempty"`
 	// The ID of the service associated with this onboarding.
 	ServiceId *string `json:"serviceId,omitempty"`
 	Stage *OnboardingStage `json:"stage,omitempty"`
@@ -46,36 +47,100 @@ func NewUpdateCustomerOnboardingRequest2WithDefaults() *UpdateCustomerOnboarding
 	return &this
 }
 
-// GetMetadata returns the Metadata field value if set, zero value otherwise.
-func (o *UpdateCustomerOnboardingRequest2) GetMetadata() map[string]interface{} {
-	if o == nil || IsNil(o.Metadata) {
-		var ret map[string]interface{}
+// GetCloudNativeMetadata returns the CloudNativeMetadata field value if set, zero value otherwise.
+func (o *UpdateCustomerOnboardingRequest2) GetCloudNativeMetadata() CloudNativeOnboardingMetadata {
+	if o == nil || IsNil(o.CloudNativeMetadata) {
+		var ret CloudNativeOnboardingMetadata
 		return ret
 	}
-	return o.Metadata
+	return *o.CloudNativeMetadata
 }
 
-// GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
+// GetCloudNativeMetadataOk returns a tuple with the CloudNativeMetadata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdateCustomerOnboardingRequest2) GetMetadataOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.Metadata) {
-		return map[string]interface{}{}, false
+func (o *UpdateCustomerOnboardingRequest2) GetCloudNativeMetadataOk() (*CloudNativeOnboardingMetadata, bool) {
+	if o == nil || IsNil(o.CloudNativeMetadata) {
+		return nil, false
 	}
-	return o.Metadata, true
+	return o.CloudNativeMetadata, true
 }
 
-// HasMetadata returns a boolean if a field has been set.
-func (o *UpdateCustomerOnboardingRequest2) HasMetadata() bool {
-	if o != nil && !IsNil(o.Metadata) {
+// HasCloudNativeMetadata returns a boolean if a field has been set.
+func (o *UpdateCustomerOnboardingRequest2) HasCloudNativeMetadata() bool {
+	if o != nil && !IsNil(o.CloudNativeMetadata) {
 		return true
 	}
 
 	return false
 }
 
-// SetMetadata gets a reference to the given map[string]interface{} and assigns it to the Metadata field.
-func (o *UpdateCustomerOnboardingRequest2) SetMetadata(v map[string]interface{}) {
-	o.Metadata = v
+// SetCloudNativeMetadata gets a reference to the given CloudNativeOnboardingMetadata and assigns it to the CloudNativeMetadata field.
+func (o *UpdateCustomerOnboardingRequest2) SetCloudNativeMetadata(v CloudNativeOnboardingMetadata) {
+	o.CloudNativeMetadata = &v
+}
+
+// GetContainerImageMetadata returns the ContainerImageMetadata field value if set, zero value otherwise.
+func (o *UpdateCustomerOnboardingRequest2) GetContainerImageMetadata() ContainerImageOnboardingMetadata {
+	if o == nil || IsNil(o.ContainerImageMetadata) {
+		var ret ContainerImageOnboardingMetadata
+		return ret
+	}
+	return *o.ContainerImageMetadata
+}
+
+// GetContainerImageMetadataOk returns a tuple with the ContainerImageMetadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateCustomerOnboardingRequest2) GetContainerImageMetadataOk() (*ContainerImageOnboardingMetadata, bool) {
+	if o == nil || IsNil(o.ContainerImageMetadata) {
+		return nil, false
+	}
+	return o.ContainerImageMetadata, true
+}
+
+// HasContainerImageMetadata returns a boolean if a field has been set.
+func (o *UpdateCustomerOnboardingRequest2) HasContainerImageMetadata() bool {
+	if o != nil && !IsNil(o.ContainerImageMetadata) {
+		return true
+	}
+
+	return false
+}
+
+// SetContainerImageMetadata gets a reference to the given ContainerImageOnboardingMetadata and assigns it to the ContainerImageMetadata field.
+func (o *UpdateCustomerOnboardingRequest2) SetContainerImageMetadata(v ContainerImageOnboardingMetadata) {
+	o.ContainerImageMetadata = &v
+}
+
+// GetDockerComposeMetadata returns the DockerComposeMetadata field value if set, zero value otherwise.
+func (o *UpdateCustomerOnboardingRequest2) GetDockerComposeMetadata() DockerComposeOnboardingMetadata {
+	if o == nil || IsNil(o.DockerComposeMetadata) {
+		var ret DockerComposeOnboardingMetadata
+		return ret
+	}
+	return *o.DockerComposeMetadata
+}
+
+// GetDockerComposeMetadataOk returns a tuple with the DockerComposeMetadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateCustomerOnboardingRequest2) GetDockerComposeMetadataOk() (*DockerComposeOnboardingMetadata, bool) {
+	if o == nil || IsNil(o.DockerComposeMetadata) {
+		return nil, false
+	}
+	return o.DockerComposeMetadata, true
+}
+
+// HasDockerComposeMetadata returns a boolean if a field has been set.
+func (o *UpdateCustomerOnboardingRequest2) HasDockerComposeMetadata() bool {
+	if o != nil && !IsNil(o.DockerComposeMetadata) {
+		return true
+	}
+
+	return false
+}
+
+// SetDockerComposeMetadata gets a reference to the given DockerComposeOnboardingMetadata and assigns it to the DockerComposeMetadata field.
+func (o *UpdateCustomerOnboardingRequest2) SetDockerComposeMetadata(v DockerComposeOnboardingMetadata) {
+	o.DockerComposeMetadata = &v
 }
 
 // GetServiceId returns the ServiceId field value if set, zero value otherwise.
@@ -152,8 +217,14 @@ func (o UpdateCustomerOnboardingRequest2) MarshalJSON() ([]byte, error) {
 
 func (o UpdateCustomerOnboardingRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Metadata) {
-		toSerialize["metadata"] = o.Metadata
+	if !IsNil(o.CloudNativeMetadata) {
+		toSerialize["cloudNativeMetadata"] = o.CloudNativeMetadata
+	}
+	if !IsNil(o.ContainerImageMetadata) {
+		toSerialize["containerImageMetadata"] = o.ContainerImageMetadata
+	}
+	if !IsNil(o.DockerComposeMetadata) {
+		toSerialize["dockerComposeMetadata"] = o.DockerComposeMetadata
 	}
 	if !IsNil(o.ServiceId) {
 		toSerialize["serviceId"] = o.ServiceId
@@ -183,7 +254,9 @@ func (o *UpdateCustomerOnboardingRequest2) UnmarshalJSON(data []byte) (err error
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "metadata")
+		delete(additionalProperties, "cloudNativeMetadata")
+		delete(additionalProperties, "containerImageMetadata")
+		delete(additionalProperties, "dockerComposeMetadata")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "stage")
 		o.AdditionalProperties = additionalProperties
