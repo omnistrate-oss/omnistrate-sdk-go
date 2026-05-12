@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CustomerOnboardingId** | Pointer to **string** | The ID of the onboarding of the service | [optional] 
 **Environment** | **string** | The environment to build the service in | 
 **EnvironmentType** | **string** | The type of the environment | 
 **FileContent** | **string** | Base64 encoded Compose Spec YAML in service plan configuration format | 
@@ -27,6 +28,31 @@ will change when the set of required properties is changed
 NewPrepareServiceFromServicePlanSpecRequest2WithDefaults instantiates a new PrepareServiceFromServicePlanSpecRequest2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCustomerOnboardingId
+
+`func (o *PrepareServiceFromServicePlanSpecRequest2) GetCustomerOnboardingId() string`
+
+GetCustomerOnboardingId returns the CustomerOnboardingId field if non-nil, zero value otherwise.
+
+### GetCustomerOnboardingIdOk
+
+`func (o *PrepareServiceFromServicePlanSpecRequest2) GetCustomerOnboardingIdOk() (*string, bool)`
+
+GetCustomerOnboardingIdOk returns a tuple with the CustomerOnboardingId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomerOnboardingId
+
+`func (o *PrepareServiceFromServicePlanSpecRequest2) SetCustomerOnboardingId(v string)`
+
+SetCustomerOnboardingId sets CustomerOnboardingId field to given value.
+
+### HasCustomerOnboardingId
+
+`func (o *PrepareServiceFromServicePlanSpecRequest2) HasCustomerOnboardingId() bool`
+
+HasCustomerOnboardingId returns a boolean if a field has been set.
 
 ### GetEnvironment
 

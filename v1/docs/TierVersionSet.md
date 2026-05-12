@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **BaseVersion** | **string** | The base version of the version set. | 
 **CreatedAt** | **string** | The timestamp when the version set was created. | 
 **CreatedBy** | Pointer to **string** | The name of the user who created the version set. | [optional] 
+**DeploymentArtifactsVersionedMetadata** | Pointer to [**[]DeploymentArtifactVersionedMetadata**](DeploymentArtifactVersionedMetadata.md) | List of deployment artifact metadata for each version of the deployment artifacts associated with this tier version set. | [optional] 
 **Description** | Pointer to **string** | A brief description of the product-tier version set. | [optional] 
 **EnabledFeatures** | [**[]ProductTierFeatureDetail**](ProductTierFeatureDetail.md) | The features that are enabled for this product tier, including scope details and configuration | 
 **Features** | **map[string]bool** | The features that are enabled / disabled for this product tier | 
@@ -135,6 +136,31 @@ SetCreatedBy sets CreatedBy field to given value.
 `func (o *TierVersionSet) HasCreatedBy() bool`
 
 HasCreatedBy returns a boolean if a field has been set.
+
+### GetDeploymentArtifactsVersionedMetadata
+
+`func (o *TierVersionSet) GetDeploymentArtifactsVersionedMetadata() []DeploymentArtifactVersionedMetadata`
+
+GetDeploymentArtifactsVersionedMetadata returns the DeploymentArtifactsVersionedMetadata field if non-nil, zero value otherwise.
+
+### GetDeploymentArtifactsVersionedMetadataOk
+
+`func (o *TierVersionSet) GetDeploymentArtifactsVersionedMetadataOk() (*[]DeploymentArtifactVersionedMetadata, bool)`
+
+GetDeploymentArtifactsVersionedMetadataOk returns a tuple with the DeploymentArtifactsVersionedMetadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeploymentArtifactsVersionedMetadata
+
+`func (o *TierVersionSet) SetDeploymentArtifactsVersionedMetadata(v []DeploymentArtifactVersionedMetadata)`
+
+SetDeploymentArtifactsVersionedMetadata sets DeploymentArtifactsVersionedMetadata field to given value.
+
+### HasDeploymentArtifactsVersionedMetadata
+
+`func (o *TierVersionSet) HasDeploymentArtifactsVersionedMetadata() bool`
+
+HasDeploymentArtifactsVersionedMetadata returns a boolean if a field has been set.
 
 ### GetDescription
 

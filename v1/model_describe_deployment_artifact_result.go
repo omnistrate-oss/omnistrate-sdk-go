@@ -25,6 +25,10 @@ type DescribeDeploymentArtifactResult struct {
 	Hash *string `json:"hash,omitempty"`
 	// ID of a Deployment Artifact
 	Id *string `json:"id,omitempty"`
+	// The last failed reason of the deployment artifact
+	LastFailedReason *string `json:"lastFailedReason,omitempty"`
+	// The presigned download url of the deployment artifact
+	PresignedDownloadUrl *string `json:"presignedDownloadUrl,omitempty"`
 	// The status of an operation
 	Status *string `json:"status,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -118,6 +122,52 @@ func (o *DescribeDeploymentArtifactResult) SetId(v string) {
 	o.Id = &v
 }
 
+// GetLastFailedReason returns the LastFailedReason field value if set, zero value otherwise.
+func (o *DescribeDeploymentArtifactResult) GetLastFailedReason() string {
+	if o == nil || IsNil(o.LastFailedReason) {
+		var ret string
+		return ret
+	}
+	return *o.LastFailedReason
+}
+
+// GetLastFailedReasonOk returns a tuple with the LastFailedReason field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeDeploymentArtifactResult) GetLastFailedReasonOk() (*string, bool) {
+	if o == nil || IsNil(o.LastFailedReason) {
+		return nil, false
+	}
+	return o.LastFailedReason, true
+}
+
+// SetLastFailedReason gets a reference to the given string and assigns it to the LastFailedReason field.
+func (o *DescribeDeploymentArtifactResult) SetLastFailedReason(v string) {
+	o.LastFailedReason = &v
+}
+
+// GetPresignedDownloadUrl returns the PresignedDownloadUrl field value if set, zero value otherwise.
+func (o *DescribeDeploymentArtifactResult) GetPresignedDownloadUrl() string {
+	if o == nil || IsNil(o.PresignedDownloadUrl) {
+		var ret string
+		return ret
+	}
+	return *o.PresignedDownloadUrl
+}
+
+// GetPresignedDownloadUrlOk returns a tuple with the PresignedDownloadUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeDeploymentArtifactResult) GetPresignedDownloadUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.PresignedDownloadUrl) {
+		return nil, false
+	}
+	return o.PresignedDownloadUrl, true
+}
+
+// SetPresignedDownloadUrl gets a reference to the given string and assigns it to the PresignedDownloadUrl field.
+func (o *DescribeDeploymentArtifactResult) SetPresignedDownloadUrl(v string) {
+	o.PresignedDownloadUrl = &v
+}
+
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *DescribeDeploymentArtifactResult) GetStatus() string {
 	if o == nil || IsNil(o.Status) {
@@ -160,6 +210,12 @@ func (o DescribeDeploymentArtifactResult) ToMap() (map[string]interface{}, error
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
+	if !IsNil(o.LastFailedReason) {
+		toSerialize["lastFailedReason"] = o.LastFailedReason
+	}
+	if !IsNil(o.PresignedDownloadUrl) {
+		toSerialize["presignedDownloadUrl"] = o.PresignedDownloadUrl
+	}
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
@@ -188,6 +244,8 @@ func (o *DescribeDeploymentArtifactResult) UnmarshalJSON(data []byte) (err error
 		delete(additionalProperties, "artifactPath")
 		delete(additionalProperties, "hash")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "lastFailedReason")
+		delete(additionalProperties, "presignedDownloadUrl")
 		delete(additionalProperties, "status")
 		o.AdditionalProperties = additionalProperties
 	}

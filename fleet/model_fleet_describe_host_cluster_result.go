@@ -35,6 +35,8 @@ type FleetDescribeHostClusterResult struct {
 	// ID of a Host Cluster
 	Id string `json:"id"`
 	// Whether the host cluster is a BYOC on-prem dataplane (customer-managed Kubernetes cluster connected via the dataplane agent).
+	IsBYOCOnPrem *bool `json:"isBYOCOnPrem,omitempty"`
+	// Whether the host cluster backs an on-prem copilot model (OnPremCopilotModel). Not to be confused with IsBYOCOnPrem which indicates a BYOC on-prem dataplane.
 	IsOnPremDataplane *bool `json:"isOnPremDataplane,omitempty"`
 	// The Tenancy OCID for Oracle Cloud Infrastructure
 	OciTenancyID *string `json:"ociTenancyID,omitempty"`
@@ -280,6 +282,38 @@ func (o *FleetDescribeHostClusterResult) SetId(v string) {
 	o.Id = v
 }
 
+// GetIsBYOCOnPrem returns the IsBYOCOnPrem field value if set, zero value otherwise.
+func (o *FleetDescribeHostClusterResult) GetIsBYOCOnPrem() bool {
+	if o == nil || IsNil(o.IsBYOCOnPrem) {
+		var ret bool
+		return ret
+	}
+	return *o.IsBYOCOnPrem
+}
+
+// GetIsBYOCOnPremOk returns a tuple with the IsBYOCOnPrem field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeHostClusterResult) GetIsBYOCOnPremOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsBYOCOnPrem) {
+		return nil, false
+	}
+	return o.IsBYOCOnPrem, true
+}
+
+// HasIsBYOCOnPrem returns a boolean if a field has been set.
+func (o *FleetDescribeHostClusterResult) HasIsBYOCOnPrem() bool {
+	if o != nil && !IsNil(o.IsBYOCOnPrem) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsBYOCOnPrem gets a reference to the given bool and assigns it to the IsBYOCOnPrem field.
+func (o *FleetDescribeHostClusterResult) SetIsBYOCOnPrem(v bool) {
+	o.IsBYOCOnPrem = &v
+}
+
 // GetIsOnPremDataplane returns the IsOnPremDataplane field value if set, zero value otherwise.
 func (o *FleetDescribeHostClusterResult) GetIsOnPremDataplane() bool {
 	if o == nil || IsNil(o.IsOnPremDataplane) {
@@ -475,6 +509,9 @@ func (o FleetDescribeHostClusterResult) ToMap() (map[string]interface{}, error) 
 		toSerialize["gcpProjectID"] = o.GcpProjectID
 	}
 	toSerialize["id"] = o.Id
+	if !IsNil(o.IsBYOCOnPrem) {
+		toSerialize["isBYOCOnPrem"] = o.IsBYOCOnPrem
+	}
 	if !IsNil(o.IsOnPremDataplane) {
 		toSerialize["isOnPremDataplane"] = o.IsOnPremDataplane
 	}
@@ -541,6 +578,7 @@ func (o *FleetDescribeHostClusterResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "dashboardEndpoint")
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "isBYOCOnPrem")
 		delete(additionalProperties, "isOnPremDataplane")
 		delete(additionalProperties, "ociTenancyID")
 		delete(additionalProperties, "privateLinkEnabled")

@@ -174,7 +174,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "svc-12345678" // string | The storage volume config ID
-	productTierVersion := "Qui qui alias omnis illum voluptas." // string | Product tier version of the network config to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Aut nihil eligendi." // string | Product tier version of the network config to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Qui consequatur a voluptatem." // string | ProductTierId of the network config to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()

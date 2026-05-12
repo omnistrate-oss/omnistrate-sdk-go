@@ -50,11 +50,13 @@ type HostCluster struct {
 	// ID of a Host Cluster
 	Id string `json:"id"`
 	IntermediaryAccountDetail *IntermediaryAccountDetail `json:"intermediaryAccountDetail,omitempty"`
+	// Whether the host cluster is a BYOC on-prem dataplane (customer-managed Kubernetes cluster connected via the dataplane agent).
+	IsBYOCOnPrem *bool `json:"isBYOCOnPrem,omitempty"`
 	// Indicates if the host cluster is a custom deployment
 	IsCustomDeployment bool `json:"isCustomDeployment"`
 	// Whether the host cluster is in sync with the org template
 	IsInSyncWithOrgTemplate *bool `json:"isInSyncWithOrgTemplate,omitempty"`
-	// Whether the host cluster is a BYOC on-prem dataplane (customer-managed Kubernetes cluster connected via the dataplane agent).
+	// Whether the host cluster is an on-prem dataplane for the OnPremCopilotModel. Not to be confused with isBYOCOnPrem which indicates a BYOC Anywhere on-prem cluster.
 	IsOnPremDataplane *bool `json:"isOnPremDataplane,omitempty"`
 	// Unique key for the host cluster, used for identification
 	Key string `json:"key"`
@@ -605,6 +607,38 @@ func (o *HostCluster) SetIntermediaryAccountDetail(v IntermediaryAccountDetail) 
 	o.IntermediaryAccountDetail = &v
 }
 
+// GetIsBYOCOnPrem returns the IsBYOCOnPrem field value if set, zero value otherwise.
+func (o *HostCluster) GetIsBYOCOnPrem() bool {
+	if o == nil || IsNil(o.IsBYOCOnPrem) {
+		var ret bool
+		return ret
+	}
+	return *o.IsBYOCOnPrem
+}
+
+// GetIsBYOCOnPremOk returns a tuple with the IsBYOCOnPrem field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetIsBYOCOnPremOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsBYOCOnPrem) {
+		return nil, false
+	}
+	return o.IsBYOCOnPrem, true
+}
+
+// HasIsBYOCOnPrem returns a boolean if a field has been set.
+func (o *HostCluster) HasIsBYOCOnPrem() bool {
+	if o != nil && !IsNil(o.IsBYOCOnPrem) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsBYOCOnPrem gets a reference to the given bool and assigns it to the IsBYOCOnPrem field.
+func (o *HostCluster) SetIsBYOCOnPrem(v bool) {
+	o.IsBYOCOnPrem = &v
+}
+
 // GetIsCustomDeployment returns the IsCustomDeployment field value
 func (o *HostCluster) GetIsCustomDeployment() bool {
 	if o == nil {
@@ -1022,6 +1056,9 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IntermediaryAccountDetail) {
 		toSerialize["intermediaryAccountDetail"] = o.IntermediaryAccountDetail
 	}
+	if !IsNil(o.IsBYOCOnPrem) {
+		toSerialize["isBYOCOnPrem"] = o.IsBYOCOnPrem
+	}
 	toSerialize["isCustomDeployment"] = o.IsCustomDeployment
 	if !IsNil(o.IsInSyncWithOrgTemplate) {
 		toSerialize["isInSyncWithOrgTemplate"] = o.IsInSyncWithOrgTemplate
@@ -1120,6 +1157,7 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "helmPackages")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "intermediaryAccountDetail")
+		delete(additionalProperties, "isBYOCOnPrem")
 		delete(additionalProperties, "isCustomDeployment")
 		delete(additionalProperties, "isInSyncWithOrgTemplate")
 		delete(additionalProperties, "isOnPremDataplane")

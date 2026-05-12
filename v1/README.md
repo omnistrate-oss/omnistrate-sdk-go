@@ -148,6 +148,11 @@ Class | Method | HTTP request | Description
 *CustomNetworkApiAPI* | [**CustomNetworkApiDescribeCustomNetwork**](docs/CustomNetworkApiAPI.md#customnetworkapidescribecustomnetwork) | **Get** /2022-09-01-00/resource-instance/custom-network/{id} | DescribeCustomNetwork custom-network-api
 *CustomNetworkApiAPI* | [**CustomNetworkApiListCustomNetworks**](docs/CustomNetworkApiAPI.md#customnetworkapilistcustomnetworks) | **Get** /2022-09-01-00/resource-instance/custom-network | ListCustomNetworks custom-network-api
 *CustomNetworkApiAPI* | [**CustomNetworkApiUpdateCustomNetwork**](docs/CustomNetworkApiAPI.md#customnetworkapiupdatecustomnetwork) | **Patch** /2022-09-01-00/resource-instance/custom-network/{id} | UpdateCustomNetwork custom-network-api
+*CustomWorkflowApiAPI* | [**CustomWorkflowApiCreateCustomWorkflow**](docs/CustomWorkflowApiAPI.md#customworkflowapicreatecustomworkflow) | **Post** /2022-09-01-00/service/{serviceId}/product-tier/{productTierId}/custom-workflow | CreateCustomWorkflow custom-workflow-api
+*CustomWorkflowApiAPI* | [**CustomWorkflowApiDeleteCustomWorkflow**](docs/CustomWorkflowApiAPI.md#customworkflowapideletecustomworkflow) | **Delete** /2022-09-01-00/service/{serviceId}/custom-workflow/{id} | DeleteCustomWorkflow custom-workflow-api
+*CustomWorkflowApiAPI* | [**CustomWorkflowApiDescribeCustomWorkflow**](docs/CustomWorkflowApiAPI.md#customworkflowapidescribecustomworkflow) | **Get** /2022-09-01-00/service/{serviceId}/custom-workflow/{id} | DescribeCustomWorkflow custom-workflow-api
+*CustomWorkflowApiAPI* | [**CustomWorkflowApiListCustomWorkflows**](docs/CustomWorkflowApiAPI.md#customworkflowapilistcustomworkflows) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{productTierId}/custom-workflow | ListCustomWorkflows custom-workflow-api
+*CustomWorkflowApiAPI* | [**CustomWorkflowApiUpdateCustomWorkflow**](docs/CustomWorkflowApiAPI.md#customworkflowapiupdatecustomworkflow) | **Patch** /2022-09-01-00/service/{serviceId}/custom-workflow/{id} | UpdateCustomWorkflow custom-workflow-api
 *DemoApiAPI* | [**DemoApiDemo**](docs/DemoApiAPI.md#demoapidemo) | **Post** /2022-09-01-00/demo | Demo demo-api
 *DeploymentArtifactApiAPI* | [**DeploymentArtifactApiDescribeDeploymentArtifact**](docs/DeploymentArtifactApiAPI.md#deploymentartifactapidescribedeploymentartifact) | **Get** /2022-09-01-00/deployment-artifact/{id} | DescribeDeploymentArtifact deployment-artifact-api
 *DeploymentArtifactApiAPI* | [**DeploymentArtifactApiUploadDeploymentArtifact**](docs/DeploymentArtifactApiAPI.md#deploymentartifactapiuploaddeploymentartifact) | **Post** /2022-09-01-00/deployment-artifact | UploadDeploymentArtifact deployment-artifact-api
@@ -518,6 +523,8 @@ Class | Method | HTTP request | Description
  - [CreateCustomDomainRequest2](docs/CreateCustomDomainRequest2.md)
  - [CreateCustomNetworkRequest](docs/CreateCustomNetworkRequest.md)
  - [CreateCustomNetworkRequest2](docs/CreateCustomNetworkRequest2.md)
+ - [CreateCustomWorkflowRequest](docs/CreateCustomWorkflowRequest.md)
+ - [CreateCustomWorkflowRequest2](docs/CreateCustomWorkflowRequest2.md)
  - [CreateDeploymentConfigRequest](docs/CreateDeploymentConfigRequest.md)
  - [CreateDeploymentConfigRequest2](docs/CreateDeploymentConfigRequest2.md)
  - [CreateIdentityProviderRequest](docs/CreateIdentityProviderRequest.md)
@@ -597,10 +604,12 @@ Class | Method | HTTP request | Description
  - [CustomerSignupRequest](docs/CustomerSignupRequest.md)
  - [CustomerSignupRequest2](docs/CustomerSignupRequest2.md)
  - [DeRegisterResourceMetricsConfigRequest](docs/DeRegisterResourceMetricsConfigRequest.md)
+ - [DeleteAPIKeyRequest](docs/DeleteAPIKeyRequest.md)
  - [DeleteAccountConfigRequest](docs/DeleteAccountConfigRequest.md)
  - [DeleteComputeConfigRequest](docs/DeleteComputeConfigRequest.md)
  - [DeleteCustomDomainRequest](docs/DeleteCustomDomainRequest.md)
  - [DeleteCustomNetworkRequest](docs/DeleteCustomNetworkRequest.md)
+ - [DeleteCustomWorkflowRequest](docs/DeleteCustomWorkflowRequest.md)
  - [DeleteDeploymentConfigRequest](docs/DeleteDeploymentConfigRequest.md)
  - [DeleteHelmPackageRequest](docs/DeleteHelmPackageRequest.md)
  - [DeleteIdentityProviderRequest](docs/DeleteIdentityProviderRequest.md)
@@ -629,6 +638,7 @@ Class | Method | HTTP request | Description
  - [DeleteUpgradePathRequest](docs/DeleteUpgradePathRequest.md)
  - [DeleteUserRequest](docs/DeleteUserRequest.md)
  - [DemoRequest](docs/DemoRequest.md)
+ - [DeploymentArtifactVersionedMetadata](docs/DeploymentArtifactVersionedMetadata.md)
  - [DeploymentCellConfiguration](docs/DeploymentCellConfiguration.md)
  - [DeploymentCellConfigurations](docs/DeploymentCellConfigurations.md)
  - [DeploymentCellHealthDetail](docs/DeploymentCellHealthDetail.md)
@@ -671,7 +681,10 @@ Class | Method | HTTP request | Description
  - [DescribeCustomDomainRequest](docs/DescribeCustomDomainRequest.md)
  - [DescribeCustomDomainResult](docs/DescribeCustomDomainResult.md)
  - [DescribeCustomNetworkRequest](docs/DescribeCustomNetworkRequest.md)
+ - [DescribeCustomWorkflowRequest](docs/DescribeCustomWorkflowRequest.md)
+ - [DescribeCustomWorkflowResult](docs/DescribeCustomWorkflowResult.md)
  - [DescribeDeploymentArtifactRequest](docs/DescribeDeploymentArtifactRequest.md)
+ - [DescribeDeploymentArtifactRequest2](docs/DescribeDeploymentArtifactRequest2.md)
  - [DescribeDeploymentArtifactResult](docs/DescribeDeploymentArtifactResult.md)
  - [DescribeDeploymentConfigRequest](docs/DescribeDeploymentConfigRequest.md)
  - [DescribeDeploymentConfigResult](docs/DescribeDeploymentConfigResult.md)
@@ -878,6 +891,8 @@ Class | Method | HTTP request | Description
  - [ListCustomDomainResult](docs/ListCustomDomainResult.md)
  - [ListCustomNetworksRequest](docs/ListCustomNetworksRequest.md)
  - [ListCustomNetworksResult](docs/ListCustomNetworksResult.md)
+ - [ListCustomWorkflowsRequest](docs/ListCustomWorkflowsRequest.md)
+ - [ListCustomWorkflowsResult](docs/ListCustomWorkflowsResult.md)
  - [ListDependentResourcesRequest](docs/ListDependentResourcesRequest.md)
  - [ListDependentResourcesResult](docs/ListDependentResourcesResult.md)
  - [ListDeploymentConfigsRequest](docs/ListDeploymentConfigsRequest.md)
@@ -1134,6 +1149,8 @@ Class | Method | HTTP request | Description
  - [UpdateComputeConfigRequest2](docs/UpdateComputeConfigRequest2.md)
  - [UpdateCustomNetworkRequest](docs/UpdateCustomNetworkRequest.md)
  - [UpdateCustomNetworkRequest2](docs/UpdateCustomNetworkRequest2.md)
+ - [UpdateCustomWorkflowRequest](docs/UpdateCustomWorkflowRequest.md)
+ - [UpdateCustomWorkflowRequest2](docs/UpdateCustomWorkflowRequest2.md)
  - [UpdateDeploymentConfigRequest](docs/UpdateDeploymentConfigRequest.md)
  - [UpdateDeploymentConfigRequest2](docs/UpdateDeploymentConfigRequest2.md)
  - [UpdateFileContentRequest](docs/UpdateFileContentRequest.md)

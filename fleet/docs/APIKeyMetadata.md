@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CreatedAt** | **time.Time** | Creation timestamp. | 
 **CreatedByUserId** | **string** | ID of a User | 
+**CreatedByUserName** | Pointer to **string** | Display name of the user that created the key. Null if the creating user has been hard-deleted. | [optional] 
 **Description** | Pointer to **string** | Optional free-text description. Editable via Update metadata. | [optional] 
 **ExpiresAt** | Pointer to **time.Time** | Optional expiry. Null for non-expiring keys. | [optional] 
 **Id** | **string** | ID of an API Key | 
@@ -14,6 +15,7 @@ Name | Type | Description | Notes
 **Prefix** | **string** | The fixed prefix label embedded in the plaintext at creation time. The only characters of the plaintext that are ever stored or returned after creation. Immutable. | 
 **RevokedAt** | Pointer to **time.Time** | Revocation timestamp. Null when the key is not revoked. System-managed; set by the Revoke endpoint. | [optional] 
 **RevokedByUserId** | Pointer to **string** | ID of a User | [optional] 
+**RevokedByUserName** | Pointer to **string** | Display name of the user that revoked the key. Null when the key is not revoked or if the revoking user has been hard-deleted. | [optional] 
 **RoleType** | **string** | Type of the role | 
 **Status** | **string** | Derived lifecycle status of the API key, computed from revokedAt and expiresAt at read time. | 
 
@@ -75,6 +77,31 @@ and a boolean to check if the value has been set.
 
 SetCreatedByUserId sets CreatedByUserId field to given value.
 
+
+### GetCreatedByUserName
+
+`func (o *APIKeyMetadata) GetCreatedByUserName() string`
+
+GetCreatedByUserName returns the CreatedByUserName field if non-nil, zero value otherwise.
+
+### GetCreatedByUserNameOk
+
+`func (o *APIKeyMetadata) GetCreatedByUserNameOk() (*string, bool)`
+
+GetCreatedByUserNameOk returns a tuple with the CreatedByUserName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedByUserName
+
+`func (o *APIKeyMetadata) SetCreatedByUserName(v string)`
+
+SetCreatedByUserName sets CreatedByUserName field to given value.
+
+### HasCreatedByUserName
+
+`func (o *APIKeyMetadata) HasCreatedByUserName() bool`
+
+HasCreatedByUserName returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -260,6 +287,31 @@ SetRevokedByUserId sets RevokedByUserId field to given value.
 `func (o *APIKeyMetadata) HasRevokedByUserId() bool`
 
 HasRevokedByUserId returns a boolean if a field has been set.
+
+### GetRevokedByUserName
+
+`func (o *APIKeyMetadata) GetRevokedByUserName() string`
+
+GetRevokedByUserName returns the RevokedByUserName field if non-nil, zero value otherwise.
+
+### GetRevokedByUserNameOk
+
+`func (o *APIKeyMetadata) GetRevokedByUserNameOk() (*string, bool)`
+
+GetRevokedByUserNameOk returns a tuple with the RevokedByUserName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRevokedByUserName
+
+`func (o *APIKeyMetadata) SetRevokedByUserName(v string)`
+
+SetRevokedByUserName sets RevokedByUserName field to given value.
+
+### HasRevokedByUserName
+
+`func (o *APIKeyMetadata) HasRevokedByUserName() bool`
+
+HasRevokedByUserName returns a boolean if a field has been set.
 
 ### GetRoleType
 

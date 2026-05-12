@@ -20,6 +20,8 @@ var _ MappedNullable = &DescribeDeploymentArtifactRequest{}
 
 // DescribeDeploymentArtifactRequest struct for DescribeDeploymentArtifactRequest
 type DescribeDeploymentArtifactRequest struct {
+	// The hash of the deployment artifact to be described. It is used as an additional filter criteria to ensure the id and the hash match for the same deployment artifact.
+	Hash *string `json:"hash,omitempty"`
 	// ID of a Deployment Artifact
 	Id string `json:"id"`
 	// JWT token used to perform authorization
@@ -46,6 +48,29 @@ func NewDescribeDeploymentArtifactRequest(id string, token string) *DescribeDepl
 func NewDescribeDeploymentArtifactRequestWithDefaults() *DescribeDeploymentArtifactRequest {
 	this := DescribeDeploymentArtifactRequest{}
 	return &this
+}
+
+// GetHash returns the Hash field value if set, zero value otherwise.
+func (o *DescribeDeploymentArtifactRequest) GetHash() string {
+	if o == nil || IsNil(o.Hash) {
+		var ret string
+		return ret
+	}
+	return *o.Hash
+}
+
+// GetHashOk returns a tuple with the Hash field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeDeploymentArtifactRequest) GetHashOk() (*string, bool) {
+	if o == nil || IsNil(o.Hash) {
+		return nil, false
+	}
+	return o.Hash, true
+}
+
+// SetHash gets a reference to the given string and assigns it to the Hash field.
+func (o *DescribeDeploymentArtifactRequest) SetHash(v string) {
+	o.Hash = &v
 }
 
 // GetId returns the Id field value
@@ -106,6 +131,9 @@ func (o DescribeDeploymentArtifactRequest) MarshalJSON() ([]byte, error) {
 
 func (o DescribeDeploymentArtifactRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Hash) {
+		toSerialize["hash"] = o.Hash
+	}
 	toSerialize["id"] = o.Id
 	toSerialize["token"] = o.Token
 
@@ -152,6 +180,7 @@ func (o *DescribeDeploymentArtifactRequest) UnmarshalJSON(data []byte) (err erro
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "hash")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties

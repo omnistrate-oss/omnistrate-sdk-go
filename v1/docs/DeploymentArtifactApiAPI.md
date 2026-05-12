@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## DeploymentArtifactApiDescribeDeploymentArtifact
 
-> DescribeDeploymentArtifactResult DeploymentArtifactApiDescribeDeploymentArtifact(ctx, id).Execute()
+> DescribeDeploymentArtifactResult DeploymentArtifactApiDescribeDeploymentArtifact(ctx, id).DescribeDeploymentArtifactRequest2(describeDeploymentArtifactRequest2).Execute()
 
 DescribeDeploymentArtifact deployment-artifact-api
 
@@ -29,10 +29,11 @@ import (
 
 func main() {
 	id := "da-12345678" // string | The ID of the deployment artifact
+	describeDeploymentArtifactRequest2 := *openapiclient.NewDescribeDeploymentArtifactRequest2() // DescribeDeploymentArtifactRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DeploymentArtifactApiAPI.DeploymentArtifactApiDescribeDeploymentArtifact(context.Background(), id).Execute()
+	resp, r, err := apiClient.DeploymentArtifactApiAPI.DeploymentArtifactApiDescribeDeploymentArtifact(context.Background(), id).DescribeDeploymentArtifactRequest2(describeDeploymentArtifactRequest2).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentArtifactApiAPI.DeploymentArtifactApiDescribeDeploymentArtifact``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -58,6 +59,7 @@ Other parameters are passed through a pointer to a apiDeploymentArtifactApiDescr
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **describeDeploymentArtifactRequest2** | [**DescribeDeploymentArtifactRequest2**](DescribeDeploymentArtifactRequest2.md) |  | 
 
 ### Return type
 
@@ -69,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -96,7 +98,7 @@ import (
 )
 
 func main() {
-	uploadDeploymentArtifactRequest2 := *openapiclient.NewUploadDeploymentArtifactRequest2("ac-1234567890", "/path/to", "Aut tenetur ea expedita.", "PROD|PRIVATE|CANARY|STAGING|QA|DEV|GLOBAL", "standard", "my-service") // UploadDeploymentArtifactRequest2 | 
+	uploadDeploymentArtifactRequest2 := *openapiclient.NewUploadDeploymentArtifactRequest2("ac-1234567890", "/path/to", "Id voluptatem culpa incidunt minima ut.", "PROD|PRIVATE|CANARY|STAGING|QA|DEV|GLOBAL", "standard", "my-service") // UploadDeploymentArtifactRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
