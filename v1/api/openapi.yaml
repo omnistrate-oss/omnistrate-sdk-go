@@ -1655,7 +1655,7 @@ paths:
         content:
           application/json:
             example:
-              cloudProviderName: aws|azure|gcp|nebius|oci|all
+              cloudProviderName: aws|azure|gcp|nebius|oci|byoc-onprem|all
             schema:
               $ref: "#/components/schemas/ListBYOAConfigRequest2"
         required: true
@@ -1899,7 +1899,7 @@ paths:
         required: true
         schema:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         style: simple
       responses:
@@ -2963,7 +2963,7 @@ paths:
           content:
             application/json:
               example:
-                cloudProviderName: aws|azure|gcp|nebius|oci|all
+                cloudProviderName: aws|azure|gcp|nebius|oci|byoc-onprem|all
                 code: us-east-1a
                 description: US East (N. Virginia) Availability Zone A
                 id: Totam quia voluptatibus sunt.
@@ -3027,7 +3027,7 @@ paths:
         required: true
         schema:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         style: simple
       responses:
@@ -3109,7 +3109,7 @@ paths:
         required: true
         schema:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         style: simple
       responses:
@@ -3186,7 +3186,7 @@ paths:
         required: true
         schema:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         style: simple
       responses:
@@ -7748,7 +7748,7 @@ paths:
             application/json:
               example:
                 cloudProviderId: Rem ut ut quia.
-                cloudProviderName: aws|azure|gcp|nebius|oci|all
+                cloudProviderName: aws|azure|gcp|nebius|oci|byoc-onprem|all
                 code: us-east-1
                 description: US East (N. Virginia)
                 id: Voluptatem saepe necessitatibus itaque architecto deleniti sit.
@@ -7862,7 +7862,7 @@ paths:
         required: true
         schema:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         style: simple
       responses:
@@ -7944,7 +7944,7 @@ paths:
         required: true
         schema:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         style: simple
       responses:
@@ -13330,7 +13330,7 @@ paths:
         required: false
         schema:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         style: form
       - allowEmptyValue: true
@@ -13379,7 +13379,7 @@ paths:
               example:
                 customNetworks:
                 - cidr: 10.0.0.0/16
-                  cloudProviderName: aws|azure|gcp|nebius|oci|all
+                  cloudProviderName: aws|azure|gcp|nebius|oci|byoc-onprem|all
                   cloudProviderRegion: us-east-1
                   id: Laboriosam ad culpa aut et.
                   name: Prod us-east-1
@@ -13427,7 +13427,7 @@ paths:
                   owningUserName: John Doe
                   status: FAILED|CANCELLED|PENDING_DEPENDENCY|PENDING|RUNNING|DEPLOYING|UPLOADING|READY|SUCCESS|COMPLETE|DELETING|DELETED|UNKNOWN|DISCONNECTED|DISCONNECTING|CONNECTING|DEACTIVATED
                 - cidr: 10.0.0.0/16
-                  cloudProviderName: aws|azure|gcp|nebius|oci|all
+                  cloudProviderName: aws|azure|gcp|nebius|oci|byoc-onprem|all
                   cloudProviderRegion: us-east-1
                   id: Laboriosam ad culpa aut et.
                   name: Prod us-east-1
@@ -13475,7 +13475,7 @@ paths:
                   owningUserName: John Doe
                   status: FAILED|CANCELLED|PENDING_DEPENDENCY|PENDING|RUNNING|DEPLOYING|UPLOADING|READY|SUCCESS|COMPLETE|DELETING|DELETED|UNKNOWN|DISCONNECTED|DISCONNECTING|CONNECTING|DEACTIVATED
                 - cidr: 10.0.0.0/16
-                  cloudProviderName: aws|azure|gcp|nebius|oci|all
+                  cloudProviderName: aws|azure|gcp|nebius|oci|byoc-onprem|all
                   cloudProviderRegion: us-east-1
                   id: Laboriosam ad culpa aut et.
                   name: Prod us-east-1
@@ -13549,7 +13549,7 @@ paths:
           application/json:
             example:
               cidr: 10.0.0.0/16
-              cloudProviderName: aws|azure|gcp|nebius|oci|all
+              cloudProviderName: aws|azure|gcp|nebius|oci|byoc-onprem|all
               cloudProviderRegion: us-east-1
               name: Prod us-east-1
               networkFeaturesConfiguration:
@@ -13564,7 +13564,7 @@ paths:
             application/json:
               example:
                 cidr: 10.0.0.0/16
-                cloudProviderName: aws|azure|gcp|nebius|oci|all
+                cloudProviderName: aws|azure|gcp|nebius|oci|byoc-onprem|all
                 cloudProviderRegion: us-east-1
                 id: Ea culpa amet.
                 name: Prod us-east-1
@@ -13696,7 +13696,7 @@ paths:
             application/json:
               example:
                 cidr: 10.0.0.0/16
-                cloudProviderName: aws|azure|gcp|nebius|oci|all
+                cloudProviderName: aws|azure|gcp|nebius|oci|byoc-onprem|all
                 cloudProviderRegion: us-east-1
                 id: Illo voluptatem non doloremque.
                 name: Prod us-east-1
@@ -13791,7 +13791,7 @@ paths:
             application/json:
               example:
                 cidr: 10.0.0.0/16
-                cloudProviderName: aws|azure|gcp|nebius|oci|all
+                cloudProviderName: aws|azure|gcp|nebius|oci|byoc-onprem|all
                 cloudProviderRegion: us-east-1
                 id: Ex soluta enim unde beatae est.
                 name: Prod us-east-1
@@ -14694,7 +14694,7 @@ paths:
             application/json:
               example:
                 snapshots:
-                - cloudProvider: aws|azure|gcp|nebius|oci|all
+                - cloudProvider: aws|azure|gcp|nebius|oci|byoc-onprem|all
                   completeTime: 2021-09-01T00:00:00Z
                   createdTime: 2021-09-01T00:00:00Z
                   encrypted: true
@@ -14716,7 +14716,7 @@ paths:
                   subscriptionOwnerOrgName: Example Inc.
                   subscriptionOwnerUserId: Reprehenderit voluptates aut.
                   subscriptionOwnerUserName: Admin
-                - cloudProvider: aws|azure|gcp|nebius|oci|all
+                - cloudProvider: aws|azure|gcp|nebius|oci|byoc-onprem|all
                   completeTime: 2021-09-01T00:00:00Z
                   createdTime: 2021-09-01T00:00:00Z
                   encrypted: true
@@ -14738,7 +14738,7 @@ paths:
                   subscriptionOwnerOrgName: Example Inc.
                   subscriptionOwnerUserId: Reprehenderit voluptates aut.
                   subscriptionOwnerUserName: Admin
-                - cloudProvider: aws|azure|gcp|nebius|oci|all
+                - cloudProvider: aws|azure|gcp|nebius|oci|byoc-onprem|all
                   completeTime: 2021-09-01T00:00:00Z
                   createdTime: 2021-09-01T00:00:00Z
                   encrypted: true
@@ -14981,7 +14981,7 @@ paths:
           content:
             application/json:
               example:
-                cloudProvider: aws|azure|gcp|nebius|oci|all
+                cloudProvider: aws|azure|gcp|nebius|oci|byoc-onprem|all
                 completeTime: 2021-09-01T00:00:00Z
                 createdTime: 2021-09-01T00:00:00Z
                 encrypted: true
@@ -15813,6 +15813,32 @@ paths:
       summary: consumptionServiceVersion global-api
       tags:
       - global-api
+  /2022-09-01-00/revoke-token:
+    post:
+      description: "Revoke a single refresh token, preventing further JWT renewal\
+        \ from that session. The access JWT continues until its natural TTL expiry.\
+        \ Idempotent: revoking an unknown or already-revoked token returns success."
+      operationId: signin-api#RevokeToken
+      requestBody:
+        content:
+          application/json:
+            example:
+              refreshToken: wd
+            schema:
+              $ref: "#/components/schemas/RevokeTokenRequest"
+        required: true
+      responses:
+        "204":
+          description: No Content response.
+        "400":
+          content:
+            application/vnd.goa.error:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: "bad_request: Response used when no refresh token is provided"
+      summary: RevokeToken signin-api
+      tags:
+      - signin-api
   /2022-09-01-00/revoke-user-role:
     delete:
       operationId: users-api#RevokeUserRole
@@ -18095,7 +18121,7 @@ paths:
         content:
           application/json:
             example:
-              cloudProviderName: aws|azure|gcp|nebius|oci|all
+              cloudProviderName: aws|azure|gcp|nebius|oci|byoc-onprem|all
               instanceType: t3.micro
             schema:
               $ref: "#/components/schemas/RemoveComputeInstanceTypeRequest2"
@@ -18176,7 +18202,7 @@ paths:
         content:
           application/json:
             example:
-              cloudProviderName: aws|azure|gcp|nebius|oci|all
+              cloudProviderName: aws|azure|gcp|nebius|oci|byoc-onprem|all
               configOverride:
                 instanceLifeCycleType: Spot
                 labels:
@@ -18262,7 +18288,7 @@ paths:
         required: true
         schema:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         style: simple
       responses:
@@ -19040,10 +19066,10 @@ paths:
                   serviceModelFeatures:
                   - configuration:
                       status: "ON"
-                    feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+                    feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
                   - configuration:
                       status: "ON"
-                    feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+                    feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
                   serviceModelId: Ut impedit.
                   serviceModelName: MySQL multi-writer service hosted model
                   tierType: OMNISTRATE_DEDICATED_TENANCY|OMNISTRATE_MULTI_TENANCY|CUSTOM_TENANCY
@@ -19098,10 +19124,10 @@ paths:
                   serviceModelFeatures:
                   - configuration:
                       status: "ON"
-                    feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+                    feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
                   - configuration:
                       status: "ON"
-                    feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+                    feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
                   serviceModelId: Ut impedit.
                   serviceModelName: MySQL multi-writer service hosted model
                   tierType: OMNISTRATE_DEDICATED_TENANCY|OMNISTRATE_MULTI_TENANCY|CUSTOM_TENANCY
@@ -19156,10 +19182,10 @@ paths:
                   serviceModelFeatures:
                   - configuration:
                       status: "ON"
-                    feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+                    feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
                   - configuration:
                       status: "ON"
-                    feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+                    feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
                   serviceModelId: Ut impedit.
                   serviceModelName: MySQL multi-writer service hosted model
                   tierType: OMNISTRATE_DEDICATED_TENANCY|OMNISTRATE_MULTI_TENANCY|CUSTOM_TENANCY
@@ -19214,10 +19240,10 @@ paths:
                   serviceModelFeatures:
                   - configuration:
                       status: "ON"
-                    feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+                    feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
                   - configuration:
                       status: "ON"
-                    feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+                    feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
                   serviceModelId: Ut impedit.
                   serviceModelName: MySQL multi-writer service hosted model
                   tierType: OMNISTRATE_DEDICATED_TENANCY|OMNISTRATE_MULTI_TENANCY|CUSTOM_TENANCY
@@ -21227,13 +21253,13 @@ paths:
               features:
               - configuration:
                   status: "ON"
-                feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+                feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
               - configuration:
                   status: "ON"
-                feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+                feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
               - configuration:
                   status: "ON"
-                feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+                feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
               modelType: OMNISTRATE_HOSTED|CUSTOMER_HOSTED|BYOA
               name: MySQL multi-writer service hosted model
               serviceApiId: Odio libero.
@@ -21408,13 +21434,13 @@ paths:
                 features:
                 - configuration:
                     status: "ON"
-                  feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+                  feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
                 - configuration:
                     status: "ON"
-                  feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+                  feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
                 - configuration:
                     status: "ON"
-                  feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+                  feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
                 id: Dolorum cumque id.
                 key: mysql-multi-writer-service-hosted-model
                 modelType: OMNISTRATE_HOSTED|CUSTOMER_HOSTED|BYOA
@@ -21829,7 +21855,7 @@ paths:
         content:
           application/json:
             example:
-              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
             schema:
               $ref: "#/components/schemas/DisableServiceModelFeatureRequest2"
         required: true
@@ -21911,7 +21937,7 @@ paths:
             example:
               configuration:
                 status: "ON"
-              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
             schema:
               $ref: "#/components/schemas/EnableServiceModelFeatureRequest2"
         required: true
@@ -22152,7 +22178,7 @@ paths:
         content:
           application/json:
             example:
-              cloudProvider: aws|azure|gcp|nebius|oci|all
+              cloudProvider: aws|azure|gcp|nebius|oci|byoc-onprem|all
               region: us-west-2
             schema:
               $ref: "#/components/schemas/ListVUnitsRequest2"
@@ -22254,13 +22280,13 @@ paths:
               features:
               - configuration:
                   status: "ON"
-                feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+                feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
               - configuration:
                   status: "ON"
-                feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+                feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
               - configuration:
                   status: "ON"
-                feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+                feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
               name: MySQL multi-writer service hosted model
               targetServiceModelType: OMNISTRATE_HOSTED|CUSTOMER_HOSTED|BYOA
               targetTierType: OMNISTRATE_DEDICATED_TENANCY|OMNISTRATE_MULTI_TENANCY|CUSTOM_TENANCY
@@ -24093,10 +24119,10 @@ paths:
                 serviceModelFeatures:
                 - configuration:
                     status: "ON"
-                  feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+                  feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
                 - configuration:
                     status: "ON"
-                  feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+                  feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
                 serviceModelId: Blanditiis doloribus consequatur quam aut omnis est.
                 serviceModelName: MySQL multi-writer service hosted model
                 tierType: OMNISTRATE_DEDICATED_TENANCY|OMNISTRATE_MULTI_TENANCY|CUSTOM_TENANCY
@@ -27008,6 +27034,7 @@ paths:
                   name: Galera
                   onPremTerraformConfigurations:
                     OpenShift:
+                      artifactsLocalPath: /local/path/to/artifacts
                       gitConfiguration:
                         referenceName: ref
                         repositoryUrl: gitUrl
@@ -27082,6 +27109,7 @@ paths:
                   serviceId: s-123456
                   terraformConfigurations:
                     aws:
+                      artifactsLocalPath: /local/path/to/artifacts
                       gitConfiguration:
                         referenceName: ref
                         repositoryUrl: gitUrl
@@ -27345,6 +27373,7 @@ paths:
                   name: Galera
                   onPremTerraformConfigurations:
                     OpenShift:
+                      artifactsLocalPath: /local/path/to/artifacts
                       gitConfiguration:
                         referenceName: ref
                         repositoryUrl: gitUrl
@@ -27419,6 +27448,7 @@ paths:
                   serviceId: s-123456
                   terraformConfigurations:
                     aws:
+                      artifactsLocalPath: /local/path/to/artifacts
                       gitConfiguration:
                         referenceName: ref
                         repositoryUrl: gitUrl
@@ -27682,6 +27712,7 @@ paths:
                   name: Galera
                   onPremTerraformConfigurations:
                     OpenShift:
+                      artifactsLocalPath: /local/path/to/artifacts
                       gitConfiguration:
                         referenceName: ref
                         repositoryUrl: gitUrl
@@ -27756,6 +27787,7 @@ paths:
                   serviceId: s-123456
                   terraformConfigurations:
                     aws:
+                      artifactsLocalPath: /local/path/to/artifacts
                       gitConfiguration:
                         referenceName: ref
                         repositoryUrl: gitUrl
@@ -28019,6 +28051,7 @@ paths:
                   name: Galera
                   onPremTerraformConfigurations:
                     OpenShift:
+                      artifactsLocalPath: /local/path/to/artifacts
                       gitConfiguration:
                         referenceName: ref
                         repositoryUrl: gitUrl
@@ -28093,6 +28126,7 @@ paths:
                   serviceId: s-123456
                   terraformConfigurations:
                     aws:
+                      artifactsLocalPath: /local/path/to/artifacts
                       gitConfiguration:
                         referenceName: ref
                         repositoryUrl: gitUrl
@@ -28390,6 +28424,7 @@ paths:
               name: Galera
               onPremTerraformConfigurations:
                 OpenShift:
+                  artifactsLocalPath: /local/path/to/artifacts
                   gitConfiguration:
                     referenceName: ref
                     repositoryUrl: gitUrl
@@ -28472,6 +28507,7 @@ paths:
               resourceType: '|Generic|PortsBasedProxy|L4LoadBalancer|L7LoadBalancer|FileSystem|OperatorCRD|HelmChart|Kustomize'
               terraformConfigurations:
                 aws:
+                  artifactsLocalPath: /local/path/to/artifacts
                   gitConfiguration:
                     referenceName: ref
                     repositoryUrl: gitUrl
@@ -28945,6 +28981,7 @@ paths:
                 name: Galera
                 onPremTerraformConfigurations:
                   OpenShift:
+                    artifactsLocalPath: /local/path/to/artifacts
                     gitConfiguration:
                       referenceName: ref
                       repositoryUrl: gitUrl
@@ -29019,6 +29056,7 @@ paths:
                 serviceId: s-123456
                 terraformConfigurations:
                   aws:
+                    artifactsLocalPath: /local/path/to/artifacts
                     gitConfiguration:
                       referenceName: ref
                       repositoryUrl: gitUrl
@@ -29329,6 +29367,7 @@ paths:
               name: Galera
               onPremTerraformConfigurations:
                 OpenShift:
+                  artifactsLocalPath: /local/path/to/artifacts
                   gitConfiguration:
                     referenceName: ref
                     repositoryUrl: gitUrl
@@ -29399,6 +29438,7 @@ paths:
                             class: nginx
               terraformConfigurations:
                 aws:
+                  artifactsLocalPath: /local/path/to/artifacts
                   gitConfiguration:
                     referenceName: ref
                     repositoryUrl: gitUrl
@@ -33804,7 +33844,7 @@ paths:
           content:
             application/json:
               example:
-                cloudProviderName: aws|azure|gcp|nebius|oci|all
+                cloudProviderName: aws|azure|gcp|nebius|oci|byoc-onprem|all
                 clusterStorageType: S3|$var.storageType|AWS::EFS
                 description: A storage volume set to store the MySQL data directory
                 disableBackup: false
@@ -34140,7 +34180,7 @@ paths:
           content:
             application/json:
               example:
-                cloudProvider: aws|azure|gcp|nebius|oci|all
+                cloudProvider: aws|azure|gcp|nebius|oci|byoc-onprem|all
                 id: Aut in odio.
                 networkIds:
                 - n-12345678
@@ -34704,7 +34744,7 @@ paths:
                             ChartVersion: 6.17.4
                             RepoURL: https://grafana.github.io/helm-charts
                           Type: HelmChart
-                id: Fuga nostrum.
+                id: Aut magni culpa harum.
                 isPerEnvClusterEnabled: true
               schema:
                 $ref: "#/components/schemas/DescribeServiceProviderOrganizationResult"
@@ -37138,7 +37178,7 @@ components:
       properties:
         cloudProviderName:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         configOverride:
           $ref: "#/components/schemas/ComputeInstanceTypeConfigOverride"
@@ -37168,7 +37208,7 @@ components:
       type: object
     AddComputeInstanceTypeRequest2:
       example:
-        cloudProviderName: aws|azure|gcp|nebius|oci|all
+        cloudProviderName: aws|azure|gcp|nebius|oci|byoc-onprem|all
         configOverride:
           instanceLifeCycleType: Spot
           labels:
@@ -37184,7 +37224,7 @@ components:
       properties:
         cloudProviderName:
           description: The cloud provider for this compute instance type config
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         configOverride:
           $ref: "#/components/schemas/ComputeInstanceTypeConfigOverride"
@@ -38734,7 +38774,7 @@ components:
       example:
         email: abc@gmail.com
         newRoleType: reader
-        token: 1fq
+        token: yry
       properties:
         email:
           example: abc@gmail.com
@@ -38747,7 +38787,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: ke7
+          example: 4l
           minLength: 1
           type: string
       required:
@@ -38912,7 +38952,7 @@ components:
       properties:
         cloudProvider:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         deployingInstances:
           description: The number of instances currently deploying
@@ -39902,13 +39942,13 @@ components:
         features:
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         name: MySQL multi-writer service hosted model
         serviceId: s-12345678
         sourceId: sm-12345678
@@ -39936,16 +39976,16 @@ components:
           example:
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           items:
             $ref: "#/components/schemas/ServiceModelFeatureDetail"
           type: array
@@ -39992,10 +40032,10 @@ components:
         features:
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         name: MySQL multi-writer service hosted model
         targetServiceModelType: OMNISTRATE_HOSTED|CUSTOMER_HOSTED|BYOA
         targetTierType: OMNISTRATE_DEDICATED_TENANCY|OMNISTRATE_MULTI_TENANCY|CUSTOM_TENANCY
@@ -40019,13 +40059,13 @@ components:
           example:
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           items:
             $ref: "#/components/schemas/ServiceModelFeatureDetail"
           type: array
@@ -40631,7 +40671,7 @@ components:
           type: string
         cloudProviderName:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         cloudProviderRegion:
           description: The region of the cloud provider that the instance is running
@@ -40662,7 +40702,7 @@ components:
     CreateCustomNetworkRequest2:
       example:
         cidr: 10.0.0.0/16
-        cloudProviderName: aws|azure|gcp|nebius|oci|all
+        cloudProviderName: aws|azure|gcp|nebius|oci|byoc-onprem|all
         cloudProviderRegion: us-east-1
         name: Prod us-east-1
         networkFeaturesConfiguration:
@@ -40678,7 +40718,7 @@ components:
         cloudProviderName:
           description: The name of the cloud provider that the instance is running
             on.
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         cloudProviderRegion:
           description: The region of the cloud provider that the instance is running
@@ -42848,6 +42888,7 @@ components:
         name: Galera
         onPremTerraformConfigurations:
           OpenShift:
+            artifactsLocalPath: /local/path/to/artifacts
             gitConfiguration:
               referenceName: ref
               repositoryUrl: gitUrl
@@ -42931,6 +42972,7 @@ components:
         serviceId: s-12345678
         terraformConfigurations:
           aws:
+            artifactsLocalPath: /local/path/to/artifacts
             gitConfiguration:
               referenceName: ref
               repositoryUrl: gitUrl
@@ -43042,6 +43084,7 @@ components:
           description: The Terraform configurations for an OnPrem platform
           example:
             OpenShift:
+              artifactsLocalPath: /local/path/to/artifacts
               gitConfiguration:
                 referenceName: ref
                 repositoryUrl: gitUrl
@@ -43087,6 +43130,7 @@ components:
           description: The Terraform configurations for cloud providers
           example:
             aws:
+              artifactsLocalPath: /local/path/to/artifacts
               gitConfiguration:
                 referenceName: ref
                 repositoryUrl: gitUrl
@@ -43334,6 +43378,7 @@ components:
         name: Galera
         onPremTerraformConfigurations:
           OpenShift:
+            artifactsLocalPath: /local/path/to/artifacts
             gitConfiguration:
               referenceName: ref
               repositoryUrl: gitUrl
@@ -43416,6 +43461,7 @@ components:
         resourceType: '|Generic|PortsBasedProxy|L4LoadBalancer|L7LoadBalancer|FileSystem|OperatorCRD|HelmChart|Kustomize'
         terraformConfigurations:
           aws:
+            artifactsLocalPath: /local/path/to/artifacts
             gitConfiguration:
               referenceName: ref
               repositoryUrl: gitUrl
@@ -43528,6 +43574,7 @@ components:
           description: The Terraform configurations for various OnPrem platforms
           example:
             OpenShift:
+              artifactsLocalPath: /local/path/to/artifacts
               gitConfiguration:
                 referenceName: ref
                 repositoryUrl: gitUrl
@@ -43569,6 +43616,7 @@ components:
           description: The Terraform configurations for various cloud providers
           example:
             aws:
+              artifactsLocalPath: /local/path/to/artifacts
               gitConfiguration:
                 referenceName: ref
                 repositoryUrl: gitUrl
@@ -43925,16 +43973,16 @@ components:
         features:
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         modelType: CUSTOMER_HOSTED
         name: MySQL multi-writer service hosted model
         serviceApiId: sa-12345678
@@ -43961,16 +44009,16 @@ components:
           example:
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           items:
             $ref: "#/components/schemas/ServiceModelFeatureDetail"
           type: array
@@ -44013,13 +44061,13 @@ components:
         features:
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         modelType: OMNISTRATE_HOSTED|CUSTOMER_HOSTED|BYOA
         name: MySQL multi-writer service hosted model
         serviceApiId: Hic voluptatem accusamus nobis dolorem.
@@ -44043,16 +44091,16 @@ components:
           example:
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           items:
             $ref: "#/components/schemas/ServiceModelFeatureDetail"
           type: array
@@ -44737,7 +44785,7 @@ components:
           type: string
         cloudProviderName:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         cloudProviderRegion:
           description: The region of the cloud provider that the instance is running
@@ -45689,7 +45737,7 @@ components:
     CustomerResetPasswordRequest:
       example:
         email: abc@example.com
-        token: 2rn
+        token: "n"
       properties:
         email:
           example: abc@example.com
@@ -45698,7 +45746,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: ho
+          example: ot2
           minLength: 1
           type: string
       required:
@@ -45723,7 +45771,7 @@ components:
         environmentType: DEV
         hashedPassword: deprecated
         password: password
-        token: zrd
+        token: rd4
       properties:
         email:
           example: abc@gmail.com
@@ -45744,7 +45792,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: 2aa
+          example: aa8
           minLength: 1
           type: string
       required:
@@ -45805,11 +45853,11 @@ components:
         legalCompanyName: mywebsite
         name: John Doe
         password: password
-        token: g2r
+        token: "8"
       properties:
         attributes:
           additionalProperties:
-            example: Omnis velit facilis sit eius.
+            example: Eos voluptate.
             type: string
           description: Additional attributes for the user signup
           example:
@@ -45844,7 +45892,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: 4l
+          example: c
           minLength: 1
           type: string
       required:
@@ -46643,11 +46691,11 @@ components:
       type: object
     DeleteUserRequest:
       example:
-        token: 6o
+        token: 9hb
       properties:
         token:
           description: JWT token used to perform authorization
-          example: r
+          example: c7
           minLength: 1
           type: string
       required:
@@ -46758,7 +46806,7 @@ components:
     DeploymentCellConfigurations:
       example:
         DeploymentCellConfigurationPerCloudProvider:
-          aws|azure|gcp|nebius|oci|all:
+          aws|azure|gcp|nebius|oci|byoc-onprem|all:
             Amenities:
             - DependsOn:
               - istio-base
@@ -46802,7 +46850,7 @@ components:
             $ref: "#/components/schemas/DeploymentCellConfiguration"
           description: The deployment cell configurations per cloud provider.
           example:
-            aws|azure|gcp|nebius|oci|all:
+            aws|azure|gcp|nebius|oci|byoc-onprem|all:
               Amenities:
               - DependsOn:
                 - istio-base
@@ -47108,7 +47156,7 @@ components:
       properties:
         cloudProvider:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         hostClusterID:
           description: ID of a Host Cluster
@@ -48684,7 +48732,7 @@ components:
       properties:
         cloudProviderName:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         code:
           description: Cloud-provider native availability zone code
@@ -49945,7 +49993,7 @@ components:
       properties:
         cloudProvider:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         completeTime:
           description: The snapshot time
@@ -51111,7 +51159,7 @@ components:
           type: string
         cloudProviderName:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         code:
           description: Cloud-provider native region code
@@ -51911,6 +51959,7 @@ components:
         name: Galera
         onPremTerraformConfigurations:
           OpenShift:
+            artifactsLocalPath: /local/path/to/artifacts
             gitConfiguration:
               referenceName: ref
               repositoryUrl: gitUrl
@@ -51985,6 +52034,7 @@ components:
         serviceId: s-12345678
         terraformConfigurations:
           aws:
+            artifactsLocalPath: /local/path/to/artifacts
             gitConfiguration:
               referenceName: ref
               repositoryUrl: gitUrl
@@ -52167,6 +52217,7 @@ components:
           description: The Terraform configurations for an OnPrem platform
           example:
             OpenShift:
+              artifactsLocalPath: /local/path/to/artifacts
               gitConfiguration:
                 referenceName: ref
                 repositoryUrl: gitUrl
@@ -52198,6 +52249,7 @@ components:
           description: The Terraform configurations for cloud providers
           example:
             aws:
+              artifactsLocalPath: /local/path/to/artifacts
               gitConfiguration:
                 referenceName: ref
                 repositoryUrl: gitUrl
@@ -52463,13 +52515,13 @@ components:
         features:
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         id: sm-12345678
         key: mysql-multi-writer-service-hosted-model
         modelType: CUSTOMER_HOSTED
@@ -52511,10 +52563,10 @@ components:
           example:
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           items:
             $ref: "#/components/schemas/ServiceModelFeatureDetail"
           type: array
@@ -53436,7 +53488,7 @@ components:
       properties:
         cloudProviderName:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         clusterStorageType:
           description: The type of the fixed storage for the cluster
@@ -54146,7 +54198,7 @@ components:
       properties:
         cloudProvider:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         id:
           description: ID of a VUnit
@@ -54570,14 +54622,14 @@ components:
       type: object
     DisableServiceModelFeatureRequest:
       example:
-        feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+        feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         id: sm-12345678
         serviceId: s-12345678
         token: t
       properties:
         feature:
           description: Name of the service model feature
-          example: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          example: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           type: string
         id:
           description: ID of a Service Model
@@ -54600,10 +54652,10 @@ components:
       type: object
     DisableServiceModelFeatureRequest2:
       example:
-        feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+        feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
       properties:
         feature:
-          example: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          example: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           type: string
       required:
       - feature
@@ -54887,7 +54939,7 @@ components:
       example:
         configuration:
           status: "ON"
-        feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+        feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         id: sm-12345678
         serviceId: s-12345678
         token: "2"
@@ -54900,7 +54952,7 @@ components:
           type: object
         feature:
           description: Name of the service model feature
-          example: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          example: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           type: string
         id:
           description: ID of a Service Model
@@ -54926,7 +54978,7 @@ components:
       example:
         configuration:
           status: "ON"
-        feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+        feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
       properties:
         configuration:
           additionalProperties: true
@@ -54934,7 +54986,7 @@ components:
             status: "ON"
           type: object
         feature:
-          example: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          example: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           type: string
       required:
       - configuration
@@ -55720,7 +55772,7 @@ components:
       properties:
         cloudProviderName:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         code:
           description: Cloud-provider native availability zone code
@@ -55892,7 +55944,7 @@ components:
       properties:
         cloudProviderName:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         code:
           description: Cloud-provider native region code
@@ -56032,10 +56084,10 @@ components:
         serviceModelFeatures:
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         serviceModelId: sm-12345678
         serviceModelName: MySQL multi-writer service hosted model
         tierType: OMNISTRATE_DEDICATED_TENANCY
@@ -56213,10 +56265,10 @@ components:
           example:
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           items:
             $ref: "#/components/schemas/ServiceModelFeatureDetail"
           type: array
@@ -58140,7 +58192,7 @@ components:
       properties:
         cloudProviderName:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         token:
           description: JWT token used to perform authorization
@@ -59878,7 +59930,7 @@ components:
       properties:
         cloudProviderName:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         regionCode:
           example: us-east-1
@@ -59923,7 +59975,7 @@ components:
       properties:
         cloudProviderName:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         token:
           description: JWT token used to perform authorization
@@ -59964,7 +60016,7 @@ components:
       properties:
         cloudProviderName:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         token:
           description: JWT token used to perform authorization
@@ -59977,11 +60029,11 @@ components:
       type: object
     ListBYOAConfigRequest2:
       example:
-        cloudProviderName: aws|azure|gcp|nebius|oci|all
+        cloudProviderName: aws|azure|gcp|nebius|oci|byoc-onprem|all
       properties:
         cloudProviderName:
           description: Cloud Provider name to filter on
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
       required:
       - cloudProviderName
@@ -60352,7 +60404,7 @@ components:
       properties:
         cloudProviderName:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         serviceId:
           description: ID of a Service
@@ -60500,7 +60552,7 @@ components:
       properties:
         cloudProviderName:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         cloudProviderRegion:
           description: The region of the cloud provider that the instance is running
@@ -62349,7 +62401,7 @@ components:
       properties:
         cloudProvider:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         completeTime:
           description: The snapshot time
@@ -63093,7 +63145,7 @@ components:
       properties:
         cloudProviderName:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         modelType:
           description: The model type encapsulating this service
@@ -63764,6 +63816,7 @@ components:
           name: Galera
           onPremTerraformConfigurations:
             OpenShift:
+              artifactsLocalPath: /local/path/to/artifacts
               gitConfiguration:
                 referenceName: ref
                 repositoryUrl: gitUrl
@@ -63838,6 +63891,7 @@ components:
           serviceId: s-12345678
           terraformConfigurations:
             aws:
+              artifactsLocalPath: /local/path/to/artifacts
               gitConfiguration:
                 referenceName: ref
                 repositoryUrl: gitUrl
@@ -64121,6 +64175,7 @@ components:
           name: Galera
           onPremTerraformConfigurations:
             OpenShift:
+              artifactsLocalPath: /local/path/to/artifacts
               gitConfiguration:
                 referenceName: ref
                 repositoryUrl: gitUrl
@@ -64195,6 +64250,7 @@ components:
           serviceId: s-12345678
           terraformConfigurations:
             aws:
+              artifactsLocalPath: /local/path/to/artifacts
               gitConfiguration:
                 referenceName: ref
                 repositoryUrl: gitUrl
@@ -64497,6 +64553,7 @@ components:
             name: Galera
             onPremTerraformConfigurations:
               OpenShift:
+                artifactsLocalPath: /local/path/to/artifacts
                 gitConfiguration:
                   referenceName: ref
                   repositoryUrl: gitUrl
@@ -64571,6 +64628,7 @@ components:
             serviceId: s-12345678
             terraformConfigurations:
               aws:
+                artifactsLocalPath: /local/path/to/artifacts
                 gitConfiguration:
                   referenceName: ref
                   repositoryUrl: gitUrl
@@ -64854,6 +64912,7 @@ components:
             name: Galera
             onPremTerraformConfigurations:
               OpenShift:
+                artifactsLocalPath: /local/path/to/artifacts
                 gitConfiguration:
                   referenceName: ref
                   repositoryUrl: gitUrl
@@ -64928,6 +64987,7 @@ components:
             serviceId: s-12345678
             terraformConfigurations:
               aws:
+                artifactsLocalPath: /local/path/to/artifacts
                 gitConfiguration:
                   referenceName: ref
                   repositoryUrl: gitUrl
@@ -65211,6 +65271,7 @@ components:
             name: Galera
             onPremTerraformConfigurations:
               OpenShift:
+                artifactsLocalPath: /local/path/to/artifacts
                 gitConfiguration:
                   referenceName: ref
                   repositoryUrl: gitUrl
@@ -65285,6 +65346,7 @@ components:
             serviceId: s-12345678
             terraformConfigurations:
               aws:
+                artifactsLocalPath: /local/path/to/artifacts
                 gitConfiguration:
                   referenceName: ref
                   repositoryUrl: gitUrl
@@ -66087,16 +66149,16 @@ components:
           serviceModelFeatures:
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           serviceModelId: sm-12345678
           serviceModelName: MySQL multi-writer service hosted model
           tierType: OMNISTRATE_DEDICATED_TENANCY
@@ -66151,16 +66213,16 @@ components:
           serviceModelFeatures:
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           serviceModelId: sm-12345678
           serviceModelName: MySQL multi-writer service hosted model
           tierType: OMNISTRATE_DEDICATED_TENANCY
@@ -66223,16 +66285,16 @@ components:
             serviceModelFeatures:
             - configuration:
                 status: "ON"
-              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
             - configuration:
                 status: "ON"
-              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
             - configuration:
                 status: "ON"
-              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
             - configuration:
                 status: "ON"
-              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
             serviceModelId: sm-12345678
             serviceModelName: MySQL multi-writer service hosted model
             tierType: OMNISTRATE_DEDICATED_TENANCY
@@ -66287,16 +66349,16 @@ components:
             serviceModelFeatures:
             - configuration:
                 status: "ON"
-              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
             - configuration:
                 status: "ON"
-              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
             - configuration:
                 status: "ON"
-              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
             - configuration:
                 status: "ON"
-              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+              feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
             serviceModelId: sm-12345678
             serviceModelName: MySQL multi-writer service hosted model
             tierType: OMNISTRATE_DEDICATED_TENANCY
@@ -67961,7 +68023,7 @@ components:
       properties:
         cloudProvider:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         region:
           description: Region code specific to the cloud-provider
@@ -67989,12 +68051,12 @@ components:
       type: object
     ListVUnitsRequest2:
       example:
-        cloudProvider: aws|azure|gcp|nebius|oci|all
+        cloudProvider: aws|azure|gcp|nebius|oci|byoc-onprem|all
         region: us-west-2
       properties:
         cloudProvider:
           description: The infra / cloud provider name
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         region:
           description: Region code specific to the cloud-provider
@@ -68154,11 +68216,11 @@ components:
       type: object
     LogoutRequest:
       example:
-        token: nxs
+        token: cw
       properties:
         token:
           description: JWT token used to perform authorization
-          example: gz
+          example: u
           minLength: 1
           type: string
       required:
@@ -68817,6 +68879,7 @@ components:
       description: The Terraform configurations for an OnPrem platform
       example:
         OpenShift:
+          artifactsLocalPath: /local/path/to/artifacts
           gitConfiguration:
             referenceName: ref
             repositoryUrl: gitUrl
@@ -70322,7 +70385,7 @@ components:
       properties:
         cloudProviderName:
           description: Name of the Infra Provider
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         id:
           description: ID of a Compute Config
@@ -70350,12 +70413,12 @@ components:
       type: object
     RemoveComputeInstanceTypeRequest2:
       example:
-        cloudProviderName: aws|azure|gcp|nebius|oci|all
+        cloudProviderName: aws|azure|gcp|nebius|oci|byoc-onprem|all
         instanceType: t3.micro
       properties:
         cloudProviderName:
           description: The cloud provider for this compute instance type config
-          example: aws|azure|gcp|nebius|oci|all
+          example: aws|azure|gcp|nebius|oci|byoc-onprem|all
           type: string
         instanceType:
           description: The instance type for this compute instance type config
@@ -71907,11 +71970,22 @@ components:
       - email
       - roleType
       type: object
+    RevokeTokenRequest:
+      example:
+        refreshToken: nxs
+      properties:
+        refreshToken:
+          description: The refresh token to revoke. Optional when the refresh token
+            is provided via httpOnly cookie.
+          example: gz
+          minLength: 1
+          type: string
+      type: object
     RevokeUserRoleRequest:
       example:
         email: abc@gmail.com
         roleType: reader
-        token: 9hb
+        token: 1fq
       properties:
         email:
           example: abc@gmail.com
@@ -71924,7 +71998,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: c7
+          example: ke7
           minLength: 1
           type: string
       required:
@@ -72725,7 +72799,7 @@ components:
     ServiceHealthSummary:
       example:
         cloudProviderHealthSummary:
-          aws|azure|gcp|nebius|oci|all:
+          aws|azure|gcp|nebius|oci|byoc-onprem|all:
             cloudProvider: aws
             deployingInstances: 1517967201531798324
             healthyInstances: 3634868179739126790
@@ -72787,7 +72861,7 @@ components:
             $ref: "#/components/schemas/CloudProviderHealthSummary"
           description: The summary of health by cloud provider
           example:
-            aws|azure|gcp|nebius|oci|all:
+            aws|azure|gcp|nebius|oci|byoc-onprem|all:
               cloudProvider: aws
               deployingInstances: 1517967201531798324
               healthyInstances: 3634868179739126790
@@ -72892,7 +72966,7 @@ components:
       example:
         configuration:
           status: "ON"
-        feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+        feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
       properties:
         configuration:
           additionalProperties: true
@@ -72902,7 +72976,7 @@ components:
           type: object
         feature:
           description: Name of the service model feature
-          example: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          example: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           type: string
       required:
       - configuration
@@ -72978,13 +73052,13 @@ components:
         serviceModelFeatures:
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         - configuration:
             status: "ON"
-          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+          feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
         serviceModelID: sm-12345678
         serviceModelName: Hosted
         serviceModelStatus: Ready
@@ -73190,16 +73264,16 @@ components:
           example:
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           - configuration:
               status: "ON"
-            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY
+            feature: CUSTOM_NETWORKS|CUSTOM_TERRAFORM_POLICY|CUSTOM_AGENT_RBAC
           items:
             $ref: "#/components/schemas/ServiceModelFeatureDetail"
           type: array
@@ -74108,6 +74182,7 @@ components:
       description: The Terraform configurations for cloud providers
       example:
         aws:
+          artifactsLocalPath: /local/path/to/artifacts
           gitConfiguration:
             referenceName: ref
             repositoryUrl: gitUrl
@@ -76272,7 +76347,7 @@ components:
         currentPassword: currentPassword
         currentPasswordHash: currentPasswordHash
         password: password
-        token: cw
+        token: 6o
       properties:
         currentPassword:
           example: currentPassword
@@ -76288,7 +76363,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: u
+          example: r
           minLength: 1
           type: string
       required:
@@ -77292,6 +77367,7 @@ components:
         name: Galera
         onPremTerraformConfigurations:
           OpenShift:
+            artifactsLocalPath: /local/path/to/artifacts
             gitConfiguration:
               referenceName: ref
               repositoryUrl: gitUrl
@@ -77363,6 +77439,7 @@ components:
         serviceId: s-12345678
         terraformConfigurations:
           aws:
+            artifactsLocalPath: /local/path/to/artifacts
             gitConfiguration:
               referenceName: ref
               repositoryUrl: gitUrl
@@ -77475,6 +77552,7 @@ components:
           description: The Terraform configurations for an OnPrem platform
           example:
             OpenShift:
+              artifactsLocalPath: /local/path/to/artifacts
               gitConfiguration:
                 referenceName: ref
                 repositoryUrl: gitUrl
@@ -77494,6 +77572,7 @@ components:
           description: The Terraform configurations for cloud providers
           example:
             aws:
+              artifactsLocalPath: /local/path/to/artifacts
               gitConfiguration:
                 referenceName: ref
                 repositoryUrl: gitUrl
@@ -77742,6 +77821,7 @@ components:
         name: Galera
         onPremTerraformConfigurations:
           OpenShift:
+            artifactsLocalPath: /local/path/to/artifacts
             gitConfiguration:
               referenceName: ref
               repositoryUrl: gitUrl
@@ -77812,6 +77892,7 @@ components:
                       class: nginx
         terraformConfigurations:
           aws:
+            artifactsLocalPath: /local/path/to/artifacts
             gitConfiguration:
               referenceName: ref
               repositoryUrl: gitUrl
@@ -77921,6 +78002,7 @@ components:
           description: The Terraform configurations for various OnPrem platforms
           example:
             OpenShift:
+              artifactsLocalPath: /local/path/to/artifacts
               gitConfiguration:
                 referenceName: ref
                 repositoryUrl: gitUrl
@@ -77936,6 +78018,7 @@ components:
           description: The Terraform configurations for various cloud providers
           example:
             aws:
+              artifactsLocalPath: /local/path/to/artifacts
               gitConfiguration:
                 referenceName: ref
                 repositoryUrl: gitUrl

@@ -34,6 +34,8 @@ type FleetDescribeHostClusterResult struct {
 	GcpProjectID *string `json:"gcpProjectID,omitempty"`
 	// ID of a Host Cluster
 	Id string `json:"id"`
+	// Whether the host cluster is a BYOC on-prem dataplane (customer-managed Kubernetes cluster connected via the dataplane agent).
+	IsOnPremDataplane *bool `json:"isOnPremDataplane,omitempty"`
 	// The Tenancy OCID for Oracle Cloud Infrastructure
 	OciTenancyID *string `json:"ociTenancyID,omitempty"`
 	// Whether the host cluster is provisioned with PrivateLink network topology (BYOA only). Immutable after creation.
@@ -278,6 +280,38 @@ func (o *FleetDescribeHostClusterResult) SetId(v string) {
 	o.Id = v
 }
 
+// GetIsOnPremDataplane returns the IsOnPremDataplane field value if set, zero value otherwise.
+func (o *FleetDescribeHostClusterResult) GetIsOnPremDataplane() bool {
+	if o == nil || IsNil(o.IsOnPremDataplane) {
+		var ret bool
+		return ret
+	}
+	return *o.IsOnPremDataplane
+}
+
+// GetIsOnPremDataplaneOk returns a tuple with the IsOnPremDataplane field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeHostClusterResult) GetIsOnPremDataplaneOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsOnPremDataplane) {
+		return nil, false
+	}
+	return o.IsOnPremDataplane, true
+}
+
+// HasIsOnPremDataplane returns a boolean if a field has been set.
+func (o *FleetDescribeHostClusterResult) HasIsOnPremDataplane() bool {
+	if o != nil && !IsNil(o.IsOnPremDataplane) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsOnPremDataplane gets a reference to the given bool and assigns it to the IsOnPremDataplane field.
+func (o *FleetDescribeHostClusterResult) SetIsOnPremDataplane(v bool) {
+	o.IsOnPremDataplane = &v
+}
+
 // GetOciTenancyID returns the OciTenancyID field value if set, zero value otherwise.
 func (o *FleetDescribeHostClusterResult) GetOciTenancyID() string {
 	if o == nil || IsNil(o.OciTenancyID) {
@@ -441,6 +475,9 @@ func (o FleetDescribeHostClusterResult) ToMap() (map[string]interface{}, error) 
 		toSerialize["gcpProjectID"] = o.GcpProjectID
 	}
 	toSerialize["id"] = o.Id
+	if !IsNil(o.IsOnPremDataplane) {
+		toSerialize["isOnPremDataplane"] = o.IsOnPremDataplane
+	}
 	if !IsNil(o.OciTenancyID) {
 		toSerialize["ociTenancyID"] = o.OciTenancyID
 	}
@@ -504,6 +541,7 @@ func (o *FleetDescribeHostClusterResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "dashboardEndpoint")
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "isOnPremDataplane")
 		delete(additionalProperties, "ociTenancyID")
 		delete(additionalProperties, "privateLinkEnabled")
 		delete(additionalProperties, "region")

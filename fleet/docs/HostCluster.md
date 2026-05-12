@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **IntermediaryAccountDetail** | Pointer to [**IntermediaryAccountDetail**](IntermediaryAccountDetail.md) |  | [optional] 
 **IsCustomDeployment** | **bool** | Indicates if the host cluster is a custom deployment | 
 **IsInSyncWithOrgTemplate** | Pointer to **bool** | Whether the host cluster is in sync with the org template | [optional] 
+**IsOnPremDataplane** | Pointer to **bool** | Whether the host cluster is a BYOC on-prem dataplane (customer-managed Kubernetes cluster connected via the dataplane agent). | [optional] 
 **Key** | **string** | Unique key for the host cluster, used for identification | 
 **KubernetesDashboardEndpoint** | Pointer to **string** | Endpoint of the Kubernetes dashboard | [optional] 
 **ModelType** | Pointer to **string** | The model type encapsulating this service | [optional] 
@@ -492,6 +493,31 @@ SetIsInSyncWithOrgTemplate sets IsInSyncWithOrgTemplate field to given value.
 `func (o *HostCluster) HasIsInSyncWithOrgTemplate() bool`
 
 HasIsInSyncWithOrgTemplate returns a boolean if a field has been set.
+
+### GetIsOnPremDataplane
+
+`func (o *HostCluster) GetIsOnPremDataplane() bool`
+
+GetIsOnPremDataplane returns the IsOnPremDataplane field if non-nil, zero value otherwise.
+
+### GetIsOnPremDataplaneOk
+
+`func (o *HostCluster) GetIsOnPremDataplaneOk() (*bool, bool)`
+
+GetIsOnPremDataplaneOk returns a tuple with the IsOnPremDataplane field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsOnPremDataplane
+
+`func (o *HostCluster) SetIsOnPremDataplane(v bool)`
+
+SetIsOnPremDataplane sets IsOnPremDataplane field to given value.
+
+### HasIsOnPremDataplane
+
+`func (o *HostCluster) HasIsOnPremDataplane() bool`
+
+HasIsOnPremDataplane returns a boolean if a field has been set.
 
 ### GetKey
 

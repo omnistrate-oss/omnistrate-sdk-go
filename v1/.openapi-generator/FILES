@@ -739,6 +739,7 @@ docs/RevokeAPIKeyRequest.md
 docs/RevokeAPIKeyResult.md
 docs/RevokeConsumptionUserRoleRequest.md
 docs/RevokeConsumptionUserRoleRequest2.md
+docs/RevokeTokenRequest.md
 docs/RevokeUserRoleRequest.md
 docs/RevokeUserRoleRequest2.md
 docs/RolloutFleetImageConfigRequest.md
@@ -1545,6 +1546,7 @@ model_revoke_api_key_request.go
 model_revoke_api_key_result.go
 model_revoke_consumption_user_role_request.go
 model_revoke_consumption_user_role_request2.go
+model_revoke_token_request.go
 model_revoke_user_role_request.go
 model_revoke_user_role_request2.go
 model_rollout_fleet_image_config_request.go

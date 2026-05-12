@@ -99,6 +99,19 @@ func Test_fleet_CustomerOnboardingsApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test CustomerOnboardingsApiAPIService CustomerOnboardingsApiScrutinizeOnboardingDeploymentArtifact", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		httpRes, err := apiClient.CustomerOnboardingsApiAPI.CustomerOnboardingsApiScrutinizeOnboardingDeploymentArtifact(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test CustomerOnboardingsApiAPIService CustomerOnboardingsApiUpdateCustomerOnboarding", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

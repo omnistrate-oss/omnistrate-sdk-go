@@ -5,9 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Base64GeneratedSpec** | Pointer to **string** | The generated base64 encoded plan spec or compose spec associated with the onboarding. | [optional] 
+**CloudNativeMetadata** | Pointer to [**CloudNativeOnboardingMetadata**](CloudNativeOnboardingMetadata.md) |  | [optional] 
+**ContainerImageMetadata** | Pointer to [**ContainerImageOnboardingMetadata**](ContainerImageOnboardingMetadata.md) |  | [optional] 
+**DockerComposeMetadata** | Pointer to [**DockerComposeOnboardingMetadata**](DockerComposeOnboardingMetadata.md) |  | [optional] 
 **Id** | **string** | ID of a Customer Onboarding | 
 **IsCompleted** | **bool** | Whether the onboarding is completed. | 
-**Metadata** | Pointer to **map[string]interface{}** | Additional metadata associated with the onboarding. | [optional] 
 **Name** | Pointer to **string** | The name of the onboarding. | [optional] 
 **OnboardingType** | Pointer to **string** | The type of onboarding to create. | [optional] 
 **OrgId** | **string** | ID of an Org | 
@@ -59,6 +61,81 @@ SetBase64GeneratedSpec sets Base64GeneratedSpec field to given value.
 
 HasBase64GeneratedSpec returns a boolean if a field has been set.
 
+### GetCloudNativeMetadata
+
+`func (o *CustomerOnboarding) GetCloudNativeMetadata() CloudNativeOnboardingMetadata`
+
+GetCloudNativeMetadata returns the CloudNativeMetadata field if non-nil, zero value otherwise.
+
+### GetCloudNativeMetadataOk
+
+`func (o *CustomerOnboarding) GetCloudNativeMetadataOk() (*CloudNativeOnboardingMetadata, bool)`
+
+GetCloudNativeMetadataOk returns a tuple with the CloudNativeMetadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudNativeMetadata
+
+`func (o *CustomerOnboarding) SetCloudNativeMetadata(v CloudNativeOnboardingMetadata)`
+
+SetCloudNativeMetadata sets CloudNativeMetadata field to given value.
+
+### HasCloudNativeMetadata
+
+`func (o *CustomerOnboarding) HasCloudNativeMetadata() bool`
+
+HasCloudNativeMetadata returns a boolean if a field has been set.
+
+### GetContainerImageMetadata
+
+`func (o *CustomerOnboarding) GetContainerImageMetadata() ContainerImageOnboardingMetadata`
+
+GetContainerImageMetadata returns the ContainerImageMetadata field if non-nil, zero value otherwise.
+
+### GetContainerImageMetadataOk
+
+`func (o *CustomerOnboarding) GetContainerImageMetadataOk() (*ContainerImageOnboardingMetadata, bool)`
+
+GetContainerImageMetadataOk returns a tuple with the ContainerImageMetadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContainerImageMetadata
+
+`func (o *CustomerOnboarding) SetContainerImageMetadata(v ContainerImageOnboardingMetadata)`
+
+SetContainerImageMetadata sets ContainerImageMetadata field to given value.
+
+### HasContainerImageMetadata
+
+`func (o *CustomerOnboarding) HasContainerImageMetadata() bool`
+
+HasContainerImageMetadata returns a boolean if a field has been set.
+
+### GetDockerComposeMetadata
+
+`func (o *CustomerOnboarding) GetDockerComposeMetadata() DockerComposeOnboardingMetadata`
+
+GetDockerComposeMetadata returns the DockerComposeMetadata field if non-nil, zero value otherwise.
+
+### GetDockerComposeMetadataOk
+
+`func (o *CustomerOnboarding) GetDockerComposeMetadataOk() (*DockerComposeOnboardingMetadata, bool)`
+
+GetDockerComposeMetadataOk returns a tuple with the DockerComposeMetadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDockerComposeMetadata
+
+`func (o *CustomerOnboarding) SetDockerComposeMetadata(v DockerComposeOnboardingMetadata)`
+
+SetDockerComposeMetadata sets DockerComposeMetadata field to given value.
+
+### HasDockerComposeMetadata
+
+`func (o *CustomerOnboarding) HasDockerComposeMetadata() bool`
+
+HasDockerComposeMetadata returns a boolean if a field has been set.
+
 ### GetId
 
 `func (o *CustomerOnboarding) GetId() string`
@@ -98,31 +175,6 @@ and a boolean to check if the value has been set.
 
 SetIsCompleted sets IsCompleted field to given value.
 
-
-### GetMetadata
-
-`func (o *CustomerOnboarding) GetMetadata() map[string]interface{}`
-
-GetMetadata returns the Metadata field if non-nil, zero value otherwise.
-
-### GetMetadataOk
-
-`func (o *CustomerOnboarding) GetMetadataOk() (*map[string]interface{}, bool)`
-
-GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMetadata
-
-`func (o *CustomerOnboarding) SetMetadata(v map[string]interface{})`
-
-SetMetadata sets Metadata field to given value.
-
-### HasMetadata
-
-`func (o *CustomerOnboarding) HasMetadata() bool`
-
-HasMetadata returns a boolean if a field has been set.
 
 ### GetName
 

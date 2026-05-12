@@ -46,6 +46,17 @@ func Test_v1_SigninApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test SigninApiAPIService SigninApiRevokeToken", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.SigninApiAPI.SigninApiRevokeToken(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test SigninApiAPIService SigninApiSignin", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
