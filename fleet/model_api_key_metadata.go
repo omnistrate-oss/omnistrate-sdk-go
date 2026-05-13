@@ -25,6 +25,8 @@ type APIKeyMetadata struct {
 	CreatedAt time.Time `json:"createdAt"`
 	// ID of a User
 	CreatedByUserId string `json:"createdByUserId"`
+	// Display name of the user that created the key. Null if the creating user has been hard-deleted.
+	CreatedByUserName *string `json:"createdByUserName,omitempty"`
 	// Optional free-text description. Editable via Update metadata.
 	Description *string `json:"description,omitempty"`
 	// Optional expiry. Null for non-expiring keys.
@@ -41,6 +43,8 @@ type APIKeyMetadata struct {
 	RevokedAt *time.Time `json:"revokedAt,omitempty"`
 	// ID of a User
 	RevokedByUserId *string `json:"revokedByUserId,omitempty"`
+	// Display name of the user that revoked the key. Null when the key is not revoked or if the revoking user has been hard-deleted.
+	RevokedByUserName *string `json:"revokedByUserName,omitempty"`
 	// Type of the role
 	RoleType string `json:"roleType"`
 	// Derived lifecycle status of the API key, computed from revokedAt and expiresAt at read time.
@@ -120,6 +124,38 @@ func (o *APIKeyMetadata) GetCreatedByUserIdOk() (*string, bool) {
 // SetCreatedByUserId sets field value
 func (o *APIKeyMetadata) SetCreatedByUserId(v string) {
 	o.CreatedByUserId = v
+}
+
+// GetCreatedByUserName returns the CreatedByUserName field value if set, zero value otherwise.
+func (o *APIKeyMetadata) GetCreatedByUserName() string {
+	if o == nil || IsNil(o.CreatedByUserName) {
+		var ret string
+		return ret
+	}
+	return *o.CreatedByUserName
+}
+
+// GetCreatedByUserNameOk returns a tuple with the CreatedByUserName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *APIKeyMetadata) GetCreatedByUserNameOk() (*string, bool) {
+	if o == nil || IsNil(o.CreatedByUserName) {
+		return nil, false
+	}
+	return o.CreatedByUserName, true
+}
+
+// HasCreatedByUserName returns a boolean if a field has been set.
+func (o *APIKeyMetadata) HasCreatedByUserName() bool {
+	if o != nil && !IsNil(o.CreatedByUserName) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedByUserName gets a reference to the given string and assigns it to the CreatedByUserName field.
+func (o *APIKeyMetadata) SetCreatedByUserName(v string) {
+	o.CreatedByUserName = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -354,6 +390,38 @@ func (o *APIKeyMetadata) SetRevokedByUserId(v string) {
 	o.RevokedByUserId = &v
 }
 
+// GetRevokedByUserName returns the RevokedByUserName field value if set, zero value otherwise.
+func (o *APIKeyMetadata) GetRevokedByUserName() string {
+	if o == nil || IsNil(o.RevokedByUserName) {
+		var ret string
+		return ret
+	}
+	return *o.RevokedByUserName
+}
+
+// GetRevokedByUserNameOk returns a tuple with the RevokedByUserName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *APIKeyMetadata) GetRevokedByUserNameOk() (*string, bool) {
+	if o == nil || IsNil(o.RevokedByUserName) {
+		return nil, false
+	}
+	return o.RevokedByUserName, true
+}
+
+// HasRevokedByUserName returns a boolean if a field has been set.
+func (o *APIKeyMetadata) HasRevokedByUserName() bool {
+	if o != nil && !IsNil(o.RevokedByUserName) {
+		return true
+	}
+
+	return false
+}
+
+// SetRevokedByUserName gets a reference to the given string and assigns it to the RevokedByUserName field.
+func (o *APIKeyMetadata) SetRevokedByUserName(v string) {
+	o.RevokedByUserName = &v
+}
+
 // GetRoleType returns the RoleType field value
 func (o *APIKeyMetadata) GetRoleType() string {
 	if o == nil {
@@ -414,6 +482,9 @@ func (o APIKeyMetadata) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["createdAt"] = o.CreatedAt
 	toSerialize["createdByUserId"] = o.CreatedByUserId
+	if !IsNil(o.CreatedByUserName) {
+		toSerialize["createdByUserName"] = o.CreatedByUserName
+	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
@@ -431,6 +502,9 @@ func (o APIKeyMetadata) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.RevokedByUserId) {
 		toSerialize["revokedByUserId"] = o.RevokedByUserId
+	}
+	if !IsNil(o.RevokedByUserName) {
+		toSerialize["revokedByUserName"] = o.RevokedByUserName
 	}
 	toSerialize["roleType"] = o.RoleType
 	toSerialize["status"] = o.Status
@@ -485,6 +559,7 @@ func (o *APIKeyMetadata) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "createdByUserId")
+		delete(additionalProperties, "createdByUserName")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "expiresAt")
 		delete(additionalProperties, "id")
@@ -493,6 +568,7 @@ func (o *APIKeyMetadata) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "prefix")
 		delete(additionalProperties, "revokedAt")
 		delete(additionalProperties, "revokedByUserId")
+		delete(additionalProperties, "revokedByUserName")
 		delete(additionalProperties, "roleType")
 		delete(additionalProperties, "status")
 		o.AdditionalProperties = additionalProperties

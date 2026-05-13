@@ -28,6 +28,8 @@ type TierVersionSet struct {
 	CreatedAt string `json:"createdAt"`
 	// The name of the user who created the version set.
 	CreatedBy *string `json:"createdBy,omitempty"`
+	// List of deployment artifact metadata for each version of the deployment artifacts associated with this tier version set.
+	DeploymentArtifactsVersionedMetadata []DeploymentArtifactVersionedMetadata `json:"deploymentArtifactsVersionedMetadata,omitempty"`
 	// A brief description of the product-tier version set.
 	Description *string `json:"description,omitempty"`
 	// The features that are enabled for this product tier, including scope details and configuration
@@ -190,6 +192,29 @@ func (o *TierVersionSet) GetCreatedByOk() (*string, bool) {
 // SetCreatedBy gets a reference to the given string and assigns it to the CreatedBy field.
 func (o *TierVersionSet) SetCreatedBy(v string) {
 	o.CreatedBy = &v
+}
+
+// GetDeploymentArtifactsVersionedMetadata returns the DeploymentArtifactsVersionedMetadata field value if set, zero value otherwise.
+func (o *TierVersionSet) GetDeploymentArtifactsVersionedMetadata() []DeploymentArtifactVersionedMetadata {
+	if o == nil || IsNil(o.DeploymentArtifactsVersionedMetadata) {
+		var ret []DeploymentArtifactVersionedMetadata
+		return ret
+	}
+	return o.DeploymentArtifactsVersionedMetadata
+}
+
+// GetDeploymentArtifactsVersionedMetadataOk returns a tuple with the DeploymentArtifactsVersionedMetadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TierVersionSet) GetDeploymentArtifactsVersionedMetadataOk() ([]DeploymentArtifactVersionedMetadata, bool) {
+	if o == nil || IsNil(o.DeploymentArtifactsVersionedMetadata) {
+		return nil, false
+	}
+	return o.DeploymentArtifactsVersionedMetadata, true
+}
+
+// SetDeploymentArtifactsVersionedMetadata gets a reference to the given []DeploymentArtifactVersionedMetadata and assigns it to the DeploymentArtifactsVersionedMetadata field.
+func (o *TierVersionSet) SetDeploymentArtifactsVersionedMetadata(v []DeploymentArtifactVersionedMetadata) {
+	o.DeploymentArtifactsVersionedMetadata = v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -634,6 +659,9 @@ func (o TierVersionSet) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CreatedBy) {
 		toSerialize["createdBy"] = o.CreatedBy
 	}
+	if !IsNil(o.DeploymentArtifactsVersionedMetadata) {
+		toSerialize["deploymentArtifactsVersionedMetadata"] = o.DeploymentArtifactsVersionedMetadata
+	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
@@ -726,6 +754,7 @@ func (o *TierVersionSet) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "baseVersion")
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "createdBy")
+		delete(additionalProperties, "deploymentArtifactsVersionedMetadata")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "enabledFeatures")
 		delete(additionalProperties, "features")

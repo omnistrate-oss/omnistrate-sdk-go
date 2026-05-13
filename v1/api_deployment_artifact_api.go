@@ -55,6 +55,12 @@ type ApiDeploymentArtifactApiDescribeDeploymentArtifactRequest struct {
 	ctx context.Context
 	ApiService DeploymentArtifactApiAPI
 	id string
+	describeDeploymentArtifactRequest2 *DescribeDeploymentArtifactRequest2
+}
+
+func (r ApiDeploymentArtifactApiDescribeDeploymentArtifactRequest) DescribeDeploymentArtifactRequest2(describeDeploymentArtifactRequest2 DescribeDeploymentArtifactRequest2) ApiDeploymentArtifactApiDescribeDeploymentArtifactRequest {
+	r.describeDeploymentArtifactRequest2 = &describeDeploymentArtifactRequest2
+	return r
 }
 
 func (r ApiDeploymentArtifactApiDescribeDeploymentArtifactRequest) Execute() (*DescribeDeploymentArtifactResult, *http.Response, error) {
@@ -97,9 +103,12 @@ func (a *DeploymentArtifactApiAPIService) DeploymentArtifactApiDescribeDeploymen
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.describeDeploymentArtifactRequest2 == nil {
+		return localVarReturnValue, nil, reportError("describeDeploymentArtifactRequest2 is required and must be specified")
+	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -115,6 +124,8 @@ func (a *DeploymentArtifactApiAPIService) DeploymentArtifactApiDescribeDeploymen
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.describeDeploymentArtifactRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

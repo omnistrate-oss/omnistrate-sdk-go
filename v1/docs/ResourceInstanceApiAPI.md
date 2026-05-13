@@ -1964,7 +1964,7 @@ import (
 
 func main() {
 	id := "instance-abcd1234" // string | The instance ID
-	upgradeResourceInstanceVersionRequest2 := *openapiclient.NewUpgradeResourceInstanceVersionRequest2("premium", "mysql", "v1", "dev", "service-orchestration", "hosted", "Non maxime ut.") // UpgradeResourceInstanceVersionRequest2 | 
+	upgradeResourceInstanceVersionRequest2 := *openapiclient.NewUpgradeResourceInstanceVersionRequest2("premium", "mysql", "v1", "dev", "service-orchestration", "hosted", "Quia in in.") // UpgradeResourceInstanceVersionRequest2 | 
 	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
 
 	configuration := openapiclient.NewConfiguration()

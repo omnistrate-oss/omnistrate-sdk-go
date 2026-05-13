@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **ArtifactPath** | Pointer to **string** | The path to the deployment artifact | [optional] 
 **Hash** | Pointer to **string** | The hash of the deployment artifact | [optional] 
 **Id** | Pointer to **string** | ID of a Deployment Artifact | [optional] 
+**LastFailedReason** | Pointer to **string** | The last failed reason of the deployment artifact | [optional] 
+**PresignedDownloadUrl** | Pointer to **string** | The presigned download url of the deployment artifact | [optional] 
 **Status** | Pointer to **string** | The status of an operation | [optional] 
 
 ## Methods
@@ -102,6 +104,56 @@ SetId sets Id field to given value.
 `func (o *DescribeDeploymentArtifactResult) HasId() bool`
 
 HasId returns a boolean if a field has been set.
+
+### GetLastFailedReason
+
+`func (o *DescribeDeploymentArtifactResult) GetLastFailedReason() string`
+
+GetLastFailedReason returns the LastFailedReason field if non-nil, zero value otherwise.
+
+### GetLastFailedReasonOk
+
+`func (o *DescribeDeploymentArtifactResult) GetLastFailedReasonOk() (*string, bool)`
+
+GetLastFailedReasonOk returns a tuple with the LastFailedReason field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastFailedReason
+
+`func (o *DescribeDeploymentArtifactResult) SetLastFailedReason(v string)`
+
+SetLastFailedReason sets LastFailedReason field to given value.
+
+### HasLastFailedReason
+
+`func (o *DescribeDeploymentArtifactResult) HasLastFailedReason() bool`
+
+HasLastFailedReason returns a boolean if a field has been set.
+
+### GetPresignedDownloadUrl
+
+`func (o *DescribeDeploymentArtifactResult) GetPresignedDownloadUrl() string`
+
+GetPresignedDownloadUrl returns the PresignedDownloadUrl field if non-nil, zero value otherwise.
+
+### GetPresignedDownloadUrlOk
+
+`func (o *DescribeDeploymentArtifactResult) GetPresignedDownloadUrlOk() (*string, bool)`
+
+GetPresignedDownloadUrlOk returns a tuple with the PresignedDownloadUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPresignedDownloadUrl
+
+`func (o *DescribeDeploymentArtifactResult) SetPresignedDownloadUrl(v string)`
+
+SetPresignedDownloadUrl sets PresignedDownloadUrl field to given value.
+
+### HasPresignedDownloadUrl
+
+`func (o *DescribeDeploymentArtifactResult) HasPresignedDownloadUrl() bool`
+
+HasPresignedDownloadUrl returns a boolean if a field has been set.
 
 ### GetStatus
 

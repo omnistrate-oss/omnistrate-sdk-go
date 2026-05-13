@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Hash** | Pointer to **string** | The hash of the deployment artifact to be described. It is used as an additional filter criteria to ensure the id and the hash match for the same deployment artifact. | [optional] 
 **Id** | **string** | ID of a Deployment Artifact | 
 **Token** | **string** | JWT token used to perform authorization | 
 
@@ -25,6 +26,31 @@ will change when the set of required properties is changed
 NewDescribeDeploymentArtifactRequestWithDefaults instantiates a new DescribeDeploymentArtifactRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetHash
+
+`func (o *DescribeDeploymentArtifactRequest) GetHash() string`
+
+GetHash returns the Hash field if non-nil, zero value otherwise.
+
+### GetHashOk
+
+`func (o *DescribeDeploymentArtifactRequest) GetHashOk() (*string, bool)`
+
+GetHashOk returns a tuple with the Hash field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHash
+
+`func (o *DescribeDeploymentArtifactRequest) SetHash(v string)`
+
+SetHash sets Hash field to given value.
+
+### HasHash
+
+`func (o *DescribeDeploymentArtifactRequest) HasHash() bool`
+
+HasHash returns a boolean if a field has been set.
 
 ### GetId
 

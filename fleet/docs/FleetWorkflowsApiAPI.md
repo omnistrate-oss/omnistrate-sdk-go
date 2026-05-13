@@ -259,7 +259,7 @@ func main() {
 	instanceId := "instance-12345678" // string | The instance ID of the workflow (optional)
 	startDate := time.Now() // time.Time | Start date of the workflows (optional)
 	endDate := time.Now() // time.Time | End date of the workflows (optional)
-	excludeStats := false // bool | Whether to exclude expensive stats (e.g. per-workflow resource count) from the response. (optional)
+	excludeStats := true // bool | Whether to exclude expensive stats (e.g. per-workflow resource count) from the response. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

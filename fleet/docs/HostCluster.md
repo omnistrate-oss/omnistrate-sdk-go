@@ -21,9 +21,10 @@ Name | Type | Description | Notes
 **HelmPackages** | Pointer to [**[]HelmPackage**](HelmPackage.md) | Helm packages installed on the host cluster | [optional] 
 **Id** | **string** | ID of a Host Cluster | 
 **IntermediaryAccountDetail** | Pointer to [**IntermediaryAccountDetail**](IntermediaryAccountDetail.md) |  | [optional] 
+**IsBYOCOnPrem** | Pointer to **bool** | Whether the host cluster is a BYOC on-prem dataplane (customer-managed Kubernetes cluster connected via the dataplane agent). | [optional] 
 **IsCustomDeployment** | **bool** | Indicates if the host cluster is a custom deployment | 
 **IsInSyncWithOrgTemplate** | Pointer to **bool** | Whether the host cluster is in sync with the org template | [optional] 
-**IsOnPremDataplane** | Pointer to **bool** | Whether the host cluster is a BYOC on-prem dataplane (customer-managed Kubernetes cluster connected via the dataplane agent). | [optional] 
+**IsOnPremDataplane** | Pointer to **bool** | Whether the host cluster is an on-prem dataplane for the OnPremCopilotModel. Not to be confused with isBYOCOnPrem which indicates a BYOC Anywhere on-prem cluster. | [optional] 
 **Key** | **string** | Unique key for the host cluster, used for identification | 
 **KubernetesDashboardEndpoint** | Pointer to **string** | Endpoint of the Kubernetes dashboard | [optional] 
 **ModelType** | Pointer to **string** | The model type encapsulating this service | [optional] 
@@ -448,6 +449,31 @@ SetIntermediaryAccountDetail sets IntermediaryAccountDetail field to given value
 `func (o *HostCluster) HasIntermediaryAccountDetail() bool`
 
 HasIntermediaryAccountDetail returns a boolean if a field has been set.
+
+### GetIsBYOCOnPrem
+
+`func (o *HostCluster) GetIsBYOCOnPrem() bool`
+
+GetIsBYOCOnPrem returns the IsBYOCOnPrem field if non-nil, zero value otherwise.
+
+### GetIsBYOCOnPremOk
+
+`func (o *HostCluster) GetIsBYOCOnPremOk() (*bool, bool)`
+
+GetIsBYOCOnPremOk returns a tuple with the IsBYOCOnPrem field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsBYOCOnPrem
+
+`func (o *HostCluster) SetIsBYOCOnPrem(v bool)`
+
+SetIsBYOCOnPrem sets IsBYOCOnPrem field to given value.
+
+### HasIsBYOCOnPrem
+
+`func (o *HostCluster) HasIsBYOCOnPrem() bool`
+
+HasIsBYOCOnPrem returns a boolean if a field has been set.
 
 ### GetIsCustomDeployment
 

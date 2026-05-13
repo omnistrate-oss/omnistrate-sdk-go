@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## ApiKeyApiDeleteAPIKey
 
-> RevokeAPIKeyResult ApiKeyApiDeleteAPIKey(ctx, id).Execute()
+> ApiKeyApiDeleteAPIKey(ctx, id).Execute()
 
 DeleteAPIKey api-key-api
 
@@ -100,13 +100,11 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ApiKeyApiAPI.ApiKeyApiDeleteAPIKey(context.Background(), id).Execute()
+	r, err := apiClient.ApiKeyApiAPI.ApiKeyApiDeleteAPIKey(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ApiKeyApiAPI.ApiKeyApiDeleteAPIKey``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiKeyApiDeleteAPIKey`: RevokeAPIKeyResult
-	fmt.Fprintf(os.Stdout, "Response from `ApiKeyApiAPI.ApiKeyApiDeleteAPIKey`: %v\n", resp)
 }
 ```
 
@@ -129,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RevokeAPIKeyResult**](RevokeAPIKeyResult.md)
+ (empty response body)
 
 ### Authorization
 
@@ -138,7 +136,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, application/vnd.goa.error
+- **Accept**: application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

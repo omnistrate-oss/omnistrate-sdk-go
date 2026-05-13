@@ -20,6 +20,8 @@ var _ MappedNullable = &PrepareServiceFromServicePlanSpecRequest{}
 
 // PrepareServiceFromServicePlanSpecRequest struct for PrepareServiceFromServicePlanSpecRequest
 type PrepareServiceFromServicePlanSpecRequest struct {
+	// The ID of the onboarding of the service
+	CustomerOnboardingId *string `json:"customerOnboardingId,omitempty"`
 	// The environment to build the service in
 	Environment string `json:"environment"`
 	// The type of service environment
@@ -55,6 +57,29 @@ func NewPrepareServiceFromServicePlanSpecRequest(environment string, environment
 func NewPrepareServiceFromServicePlanSpecRequestWithDefaults() *PrepareServiceFromServicePlanSpecRequest {
 	this := PrepareServiceFromServicePlanSpecRequest{}
 	return &this
+}
+
+// GetCustomerOnboardingId returns the CustomerOnboardingId field value if set, zero value otherwise.
+func (o *PrepareServiceFromServicePlanSpecRequest) GetCustomerOnboardingId() string {
+	if o == nil || IsNil(o.CustomerOnboardingId) {
+		var ret string
+		return ret
+	}
+	return *o.CustomerOnboardingId
+}
+
+// GetCustomerOnboardingIdOk returns a tuple with the CustomerOnboardingId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PrepareServiceFromServicePlanSpecRequest) GetCustomerOnboardingIdOk() (*string, bool) {
+	if o == nil || IsNil(o.CustomerOnboardingId) {
+		return nil, false
+	}
+	return o.CustomerOnboardingId, true
+}
+
+// SetCustomerOnboardingId gets a reference to the given string and assigns it to the CustomerOnboardingId field.
+func (o *PrepareServiceFromServicePlanSpecRequest) SetCustomerOnboardingId(v string) {
+	o.CustomerOnboardingId = &v
 }
 
 // GetEnvironment returns the Environment field value
@@ -187,6 +212,9 @@ func (o PrepareServiceFromServicePlanSpecRequest) MarshalJSON() ([]byte, error) 
 
 func (o PrepareServiceFromServicePlanSpecRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CustomerOnboardingId) {
+		toSerialize["customerOnboardingId"] = o.CustomerOnboardingId
+	}
 	toSerialize["environment"] = o.Environment
 	toSerialize["environmentType"] = o.EnvironmentType
 	toSerialize["fileContent"] = o.FileContent
@@ -239,6 +267,7 @@ func (o *PrepareServiceFromServicePlanSpecRequest) UnmarshalJSON(data []byte) (e
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "customerOnboardingId")
 		delete(additionalProperties, "environment")
 		delete(additionalProperties, "environmentType")
 		delete(additionalProperties, "fileContent")

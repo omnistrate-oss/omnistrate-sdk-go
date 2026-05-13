@@ -44,8 +44,7 @@ type ApiKeyApiAPI interface {
 	ApiKeyApiDeleteAPIKey(ctx context.Context, id string) ApiApiKeyApiDeleteAPIKeyRequest
 
 	// ApiKeyApiDeleteAPIKeyExecute executes the request
-	//  @return RevokeAPIKeyResult
-	ApiKeyApiDeleteAPIKeyExecute(r ApiApiKeyApiDeleteAPIKeyRequest) (*RevokeAPIKeyResult, *http.Response, error)
+	ApiKeyApiDeleteAPIKeyExecute(r ApiApiKeyApiDeleteAPIKeyRequest) (*http.Response, error)
 
 	/*
 	ApiKeyApiDescribeAPIKey DescribeAPIKey api-key-api
@@ -281,7 +280,7 @@ type ApiApiKeyApiDeleteAPIKeyRequest struct {
 	id string
 }
 
-func (r ApiApiKeyApiDeleteAPIKeyRequest) Execute() (*RevokeAPIKeyResult, *http.Response, error) {
+func (r ApiApiKeyApiDeleteAPIKeyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ApiKeyApiDeleteAPIKeyExecute(r)
 }
 
@@ -301,18 +300,16 @@ func (a *ApiKeyApiAPIService) ApiKeyApiDeleteAPIKey(ctx context.Context, id stri
 }
 
 // Execute executes the request
-//  @return RevokeAPIKeyResult
-func (a *ApiKeyApiAPIService) ApiKeyApiDeleteAPIKeyExecute(r ApiApiKeyApiDeleteAPIKeyRequest) (*RevokeAPIKeyResult, *http.Response, error) {
+func (a *ApiKeyApiAPIService) ApiKeyApiDeleteAPIKeyExecute(r ApiApiKeyApiDeleteAPIKeyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *RevokeAPIKeyResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiKeyApiAPIService.ApiKeyApiDeleteAPIKey")
 	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/2022-09-01-00/api-key/{id}"
@@ -332,7 +329,7 @@ func (a *ApiKeyApiAPIService) ApiKeyApiDeleteAPIKeyExecute(r ApiApiKeyApiDeleteA
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+	localVarHTTPHeaderAccepts := []string{"application/vnd.goa.error"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -341,19 +338,19 @@ func (a *ApiKeyApiAPIService) ApiKeyApiDeleteAPIKeyExecute(r ApiApiKeyApiDeleteA
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -366,68 +363,59 @@ func (a *ApiKeyApiAPIService) ApiKeyApiDeleteAPIKeyExecute(r ApiApiKeyApiDeleteA
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
+		return localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
+	return localVarHTTPResponse, nil
 }
 
 type ApiApiKeyApiDescribeAPIKeyRequest struct {

@@ -122,6 +122,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiAddCustomDNSToResourceInstance**](docs/InventoryApiAPI.md#inventoryapiaddcustomdnstoresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/{resourceKey}/instance/{instanceId}/custom-dns | AddCustomDNSToResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiAdoptResourceInstance**](docs/InventoryApiAPI.md#inventoryapiadoptresourceinstance) | **Post** /2022-09-01-00/fleet/resource-instance/{serviceID}/{servicePlanID}/{hostClusterID}/{primaryResourceKey}/adopt | AdoptResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiApproveSubscriptionRequest**](docs/InventoryApiAPI.md#inventoryapiapprovesubscriptionrequest) | **Put** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | ApproveSubscriptionRequest inventory-api
+*InventoryApiAPI* | [**InventoryApiBulkImportAccountConfigCloudNativeNetworks**](docs/InventoryApiAPI.md#inventoryapibulkimportaccountconfigcloudnativenetworks) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/import | BulkImportAccountConfigCloudNativeNetworks inventory-api
 *InventoryApiAPI* | [**InventoryApiCancelUpgradePath**](docs/InventoryApiAPI.md#inventoryapicancelupgradepath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/cancel | CancelUpgradePath inventory-api
 *InventoryApiAPI* | [**InventoryApiCopyResourceInstanceSnapshot**](docs/InventoryApiAPI.md#inventoryapicopyresourceinstancesnapshot) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/copy-snapshot | CopyResourceInstanceSnapshot inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateConsumptionUser**](docs/InventoryApiAPI.md#inventoryapicreateconsumptionuser) | **Post** /2022-09-01-00/fleet/user | CreateConsumptionUser inventory-api
@@ -159,6 +160,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiDescribeUser**](docs/InventoryApiAPI.md#inventoryapidescribeuser) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/user/{userId} | DescribeUser inventory-api
 *InventoryApiAPI* | [**InventoryApiFailoverResourceInstance**](docs/InventoryApiAPI.md#inventoryapifailoverresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/failover | FailoverResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiGenerateTokenForHostClusterDashboard**](docs/InventoryApiAPI.md#inventoryapigeneratetokenforhostclusterdashboard) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard inventory-api
+*InventoryApiAPI* | [**InventoryApiImportAccountConfigCloudNativeNetwork**](docs/InventoryApiAPI.md#inventoryapiimportaccountconfigcloudnativenetwork) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{cloudNativeNetworkId}/import | ImportAccountConfigCloudNativeNetwork inventory-api
 *InventoryApiAPI* | [**InventoryApiListAccountConfigCloudNativeNetworks**](docs/InventoryApiAPI.md#inventoryapilistaccountconfigcloudnativenetworks) | **Get** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks | ListAccountConfigCloudNativeNetworks inventory-api
 *InventoryApiAPI* | [**InventoryApiListAccountConfigs**](docs/InventoryApiAPI.md#inventoryapilistaccountconfigs) | **Get** /2022-09-01-00/fleet/account-configs | ListAccountConfigs inventory-api
 *InventoryApiAPI* | [**InventoryApiListActiveOrganizations**](docs/InventoryApiAPI.md#inventoryapilistactiveorganizations) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/organizations | ListActiveOrganizations inventory-api
@@ -198,8 +200,10 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiStopResourceInstance**](docs/InventoryApiAPI.md#inventoryapistopresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/stop | StopResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiSuspendSubscription**](docs/InventoryApiAPI.md#inventoryapisuspendsubscription) | **Put** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/{id}/suspend | SuspendSubscription inventory-api
 *InventoryApiAPI* | [**InventoryApiSuspendUser**](docs/InventoryApiAPI.md#inventoryapisuspenduser) | **Put** /2022-09-01-00/fleet/user/{userId}/suspend | SuspendUser inventory-api
+*InventoryApiAPI* | [**InventoryApiSyncAccountConfigCloudNativeNetworks**](docs/InventoryApiAPI.md#inventoryapisyncaccountconfigcloudnativenetworks) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/sync | SyncAccountConfigCloudNativeNetworks inventory-api
 *InventoryApiAPI* | [**InventoryApiTerminateSubscription**](docs/InventoryApiAPI.md#inventoryapiterminatesubscription) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/{id} | TerminateSubscription inventory-api
 *InventoryApiAPI* | [**InventoryApiTriggerAutomaticResourceInstanceSnapshotCreation**](docs/InventoryApiAPI.md#inventoryapitriggerautomaticresourceinstancesnapshotcreation) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/autosnapshot | TriggerAutomaticResourceInstanceSnapshotCreation inventory-api
+*InventoryApiAPI* | [**InventoryApiUnimportAccountConfigCloudNativeNetwork**](docs/InventoryApiAPI.md#inventoryapiunimportaccountconfigcloudnativenetwork) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{cloudNativeNetworkId}/unimport | UnimportAccountConfigCloudNativeNetwork inventory-api
 *InventoryApiAPI* | [**InventoryApiUnsuspendUser**](docs/InventoryApiAPI.md#inventoryapiunsuspenduser) | **Put** /2022-09-01-00/fleet/user/{userId}/unsuspend | UnsuspendUser inventory-api
 *InventoryApiAPI* | [**InventoryApiUpdateAccountConfigResourceInstance**](docs/InventoryApiAPI.md#inventoryapiupdateaccountconfigresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/account-config-instance/{instanceId} | UpdateAccountConfigResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiUpdateConsumptionUser**](docs/InventoryApiAPI.md#inventoryapiupdateconsumptionuser) | **Patch** /2022-09-01-00/fleet/user/{userId} | UpdateConsumptionUser inventory-api
@@ -332,6 +336,7 @@ Class | Method | HTTP request | Description
  - [DebugResourceInstanceRequest](docs/DebugResourceInstanceRequest.md)
  - [DebugResourceInstanceResult](docs/DebugResourceInstanceResult.md)
  - [DebugResourceResult](docs/DebugResourceResult.md)
+ - [DeleteAPIKeyRequest](docs/DeleteAPIKeyRequest.md)
  - [DeleteAccountConfigRequest](docs/DeleteAccountConfigRequest.md)
  - [DeleteCustomerOnboardingRequest](docs/DeleteCustomerOnboardingRequest.md)
  - [DeleteEntityRequest](docs/DeleteEntityRequest.md)
@@ -472,6 +477,7 @@ Class | Method | HTTP request | Description
  - [ExpressionEvaluatorRequest](docs/ExpressionEvaluatorRequest.md)
  - [ExpressionEvaluatorResult](docs/ExpressionEvaluatorResult.md)
  - [FailoverResourceInstanceRequest](docs/FailoverResourceInstanceRequest.md)
+ - [FleetAccountConfigCloudNativeNetworkOperation](docs/FleetAccountConfigCloudNativeNetworkOperation.md)
  - [FleetAccountConfigCloudNativeNetworkResult](docs/FleetAccountConfigCloudNativeNetworkResult.md)
  - [FleetAddCapacityToResourceInstanceRequest](docs/FleetAddCapacityToResourceInstanceRequest.md)
  - [FleetAddCapacityToResourceInstanceRequest2](docs/FleetAddCapacityToResourceInstanceRequest2.md)
@@ -483,6 +489,8 @@ Class | Method | HTTP request | Description
  - [FleetAuditEventsResult](docs/FleetAuditEventsResult.md)
  - [FleetAutomaticInstanceSnapshotCreationRequest](docs/FleetAutomaticInstanceSnapshotCreationRequest.md)
  - [FleetAutomaticInstanceSnapshotCreationResult](docs/FleetAutomaticInstanceSnapshotCreationResult.md)
+ - [FleetBulkImportAccountConfigCloudNativeNetworksRequest](docs/FleetBulkImportAccountConfigCloudNativeNetworksRequest.md)
+ - [FleetBulkImportAccountConfigCloudNativeNetworksRequest2](docs/FleetBulkImportAccountConfigCloudNativeNetworksRequest2.md)
  - [FleetCopyResourceInstanceSnapshotRequest](docs/FleetCopyResourceInstanceSnapshotRequest.md)
  - [FleetCopyResourceInstanceSnapshotRequest2](docs/FleetCopyResourceInstanceSnapshotRequest2.md)
  - [FleetCopyResourceInstanceSnapshotResult](docs/FleetCopyResourceInstanceSnapshotResult.md)
@@ -540,6 +548,7 @@ Class | Method | HTTP request | Description
  - [FleetGetCurrentUsageRequest](docs/FleetGetCurrentUsageRequest.md)
  - [FleetGetUsagePerDayRequest](docs/FleetGetUsagePerDayRequest.md)
  - [FleetGetUsageResult](docs/FleetGetUsageResult.md)
+ - [FleetImportAccountConfigCloudNativeNetworkRequest](docs/FleetImportAccountConfigCloudNativeNetworkRequest.md)
  - [FleetInvoice](docs/FleetInvoice.md)
  - [FleetListAccountConfigCloudNativeNetworksResult](docs/FleetListAccountConfigCloudNativeNetworksResult.md)
  - [FleetListAccountConfigsRequest](docs/FleetListAccountConfigsRequest.md)
@@ -590,7 +599,11 @@ Class | Method | HTTP request | Description
  - [FleetStopResourceInstanceRequest2](docs/FleetStopResourceInstanceRequest2.md)
  - [FleetSuspendSubscriptionRequest](docs/FleetSuspendSubscriptionRequest.md)
  - [FleetSuspendUserRequest](docs/FleetSuspendUserRequest.md)
+ - [FleetSyncAccountConfigCloudNativeNetworkTarget](docs/FleetSyncAccountConfigCloudNativeNetworkTarget.md)
+ - [FleetSyncAccountConfigCloudNativeNetworksRequest](docs/FleetSyncAccountConfigCloudNativeNetworksRequest.md)
+ - [FleetSyncAccountConfigCloudNativeNetworksRequest2](docs/FleetSyncAccountConfigCloudNativeNetworksRequest2.md)
  - [FleetTerminateSubscriptionRequest](docs/FleetTerminateSubscriptionRequest.md)
+ - [FleetUnimportAccountConfigCloudNativeNetworkRequest](docs/FleetUnimportAccountConfigCloudNativeNetworkRequest.md)
  - [FleetUnsuspendUserRequest](docs/FleetUnsuspendUserRequest.md)
  - [FleetUpdateAccountConfigNebiusBindingInput](docs/FleetUpdateAccountConfigNebiusBindingInput.md)
  - [FleetUpdateAccountConfigResourceInstanceRequest](docs/FleetUpdateAccountConfigResourceInstanceRequest.md)

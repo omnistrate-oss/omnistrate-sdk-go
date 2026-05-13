@@ -11,7 +11,8 @@ Name | Type | Description | Notes
 **DashboardEndpoint** | Pointer to **string** | The endpoint to access the dashboard | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **Id** | **string** | ID of a Host Cluster | 
-**IsOnPremDataplane** | Pointer to **bool** | Whether the host cluster is a BYOC on-prem dataplane (customer-managed Kubernetes cluster connected via the dataplane agent). | [optional] 
+**IsBYOCOnPrem** | Pointer to **bool** | Whether the host cluster is a BYOC on-prem dataplane (customer-managed Kubernetes cluster connected via the dataplane agent). | [optional] 
+**IsOnPremDataplane** | Pointer to **bool** | Whether the host cluster backs an on-prem copilot model (OnPremCopilotModel). Not to be confused with IsBYOCOnPrem which indicates a BYOC on-prem dataplane. | [optional] 
 **OciTenancyID** | Pointer to **string** | The Tenancy OCID for Oracle Cloud Infrastructure | [optional] 
 **PrivateLinkEnabled** | Pointer to **bool** | Whether the host cluster is provisioned with PrivateLink network topology (BYOA only). Immutable after creation. | [optional] 
 **Region** | **string** | The region of the host cluster | 
@@ -201,6 +202,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetIsBYOCOnPrem
+
+`func (o *FleetDescribeHostClusterResult) GetIsBYOCOnPrem() bool`
+
+GetIsBYOCOnPrem returns the IsBYOCOnPrem field if non-nil, zero value otherwise.
+
+### GetIsBYOCOnPremOk
+
+`func (o *FleetDescribeHostClusterResult) GetIsBYOCOnPremOk() (*bool, bool)`
+
+GetIsBYOCOnPremOk returns a tuple with the IsBYOCOnPrem field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsBYOCOnPrem
+
+`func (o *FleetDescribeHostClusterResult) SetIsBYOCOnPrem(v bool)`
+
+SetIsBYOCOnPrem sets IsBYOCOnPrem field to given value.
+
+### HasIsBYOCOnPrem
+
+`func (o *FleetDescribeHostClusterResult) HasIsBYOCOnPrem() bool`
+
+HasIsBYOCOnPrem returns a boolean if a field has been set.
 
 ### GetIsOnPremDataplane
 
