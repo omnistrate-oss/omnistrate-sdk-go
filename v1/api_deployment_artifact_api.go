@@ -55,11 +55,12 @@ type ApiDeploymentArtifactApiDescribeDeploymentArtifactRequest struct {
 	ctx context.Context
 	ApiService DeploymentArtifactApiAPI
 	id string
-	describeDeploymentArtifactRequest2 *DescribeDeploymentArtifactRequest2
+	hash *string
 }
 
-func (r ApiDeploymentArtifactApiDescribeDeploymentArtifactRequest) DescribeDeploymentArtifactRequest2(describeDeploymentArtifactRequest2 DescribeDeploymentArtifactRequest2) ApiDeploymentArtifactApiDescribeDeploymentArtifactRequest {
-	r.describeDeploymentArtifactRequest2 = &describeDeploymentArtifactRequest2
+// Hash of the deployment artifact to describe. If not specified, the latest version is described.
+func (r ApiDeploymentArtifactApiDescribeDeploymentArtifactRequest) Hash(hash string) ApiDeploymentArtifactApiDescribeDeploymentArtifactRequest {
+	r.hash = &hash
 	return r
 }
 
@@ -103,12 +104,12 @@ func (a *DeploymentArtifactApiAPIService) DeploymentArtifactApiDescribeDeploymen
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.describeDeploymentArtifactRequest2 == nil {
-		return localVarReturnValue, nil, reportError("describeDeploymentArtifactRequest2 is required and must be specified")
-	}
 
+	if r.hash != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hash", r.hash, "form", "")
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -124,8 +125,6 @@ func (a *DeploymentArtifactApiAPIService) DeploymentArtifactApiDescribeDeploymen
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.describeDeploymentArtifactRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -32,6 +32,8 @@ type GetServicePlanResult struct {
 	AwsRegions []string `json:"awsRegions,omitempty"`
 	// The Azure regions that this service plan is available on
 	AzureRegions []string `json:"azureRegions,omitempty"`
+	// The BYOC on-prem regions that this service plan is available on
+	ByocOnpremRegions []string `json:"byocOnpremRegions,omitempty"`
 	// ID of a Deployment Config
 	DeploymentConfigId string `json:"deploymentConfigId"`
 	// The GCP regions that this service plan is available on
@@ -306,6 +308,38 @@ func (o *GetServicePlanResult) HasAzureRegions() bool {
 // SetAzureRegions gets a reference to the given []string and assigns it to the AzureRegions field.
 func (o *GetServicePlanResult) SetAzureRegions(v []string) {
 	o.AzureRegions = v
+}
+
+// GetByocOnpremRegions returns the ByocOnpremRegions field value if set, zero value otherwise.
+func (o *GetServicePlanResult) GetByocOnpremRegions() []string {
+	if o == nil || IsNil(o.ByocOnpremRegions) {
+		var ret []string
+		return ret
+	}
+	return o.ByocOnpremRegions
+}
+
+// GetByocOnpremRegionsOk returns a tuple with the ByocOnpremRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetServicePlanResult) GetByocOnpremRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ByocOnpremRegions) {
+		return nil, false
+	}
+	return o.ByocOnpremRegions, true
+}
+
+// HasByocOnpremRegions returns a boolean if a field has been set.
+func (o *GetServicePlanResult) HasByocOnpremRegions() bool {
+	if o != nil && !IsNil(o.ByocOnpremRegions) {
+		return true
+	}
+
+	return false
+}
+
+// SetByocOnpremRegions gets a reference to the given []string and assigns it to the ByocOnpremRegions field.
+func (o *GetServicePlanResult) SetByocOnpremRegions(v []string) {
+	o.ByocOnpremRegions = v
 }
 
 // GetDeploymentConfigId returns the DeploymentConfigId field value
@@ -1070,6 +1104,9 @@ func (o GetServicePlanResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AzureRegions) {
 		toSerialize["azureRegions"] = o.AzureRegions
 	}
+	if !IsNil(o.ByocOnpremRegions) {
+		toSerialize["byocOnpremRegions"] = o.ByocOnpremRegions
+	}
 	toSerialize["deploymentConfigId"] = o.DeploymentConfigId
 	if !IsNil(o.GcpRegions) {
 		toSerialize["gcpRegions"] = o.GcpRegions
@@ -1186,6 +1223,7 @@ func (o *GetServicePlanResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "apiVersion")
 		delete(additionalProperties, "awsRegions")
 		delete(additionalProperties, "azureRegions")
+		delete(additionalProperties, "byocOnpremRegions")
 		delete(additionalProperties, "deploymentConfigId")
 		delete(additionalProperties, "gcpRegions")
 		delete(additionalProperties, "hasPendingChanges")

@@ -337,7 +337,6 @@ docs/DescribeCustomNetworkRequest.md
 docs/DescribeCustomWorkflowRequest.md
 docs/DescribeCustomWorkflowResult.md
 docs/DescribeDeploymentArtifactRequest.md
-docs/DescribeDeploymentArtifactRequest2.md
 docs/DescribeDeploymentArtifactResult.md
 docs/DescribeDeploymentConfigRequest.md
 docs/DescribeDeploymentConfigResult.md
@@ -1174,7 +1173,6 @@ model_describe_custom_network_request.go
 model_describe_custom_workflow_request.go
 model_describe_custom_workflow_result.go
 model_describe_deployment_artifact_request.go
-model_describe_deployment_artifact_request2.go
 model_describe_deployment_artifact_result.go
 model_describe_deployment_config_request.go
 model_describe_deployment_config_result.go

@@ -4720,6 +4720,20 @@ paths:
     get:
       operationId: deployment-artifact-api#DescribeDeploymentArtifact
       parameters:
+      - allowEmptyValue: true
+        description: "Hash of the deployment artifact to describe. If not specified,\
+          \ the latest version is described."
+        example: 3a7bd3e2360a3d4855f3c8d2f8f6e6c1
+        explode: true
+        in: query
+        name: hash
+        required: false
+        schema:
+          description: "Hash of the deployment artifact to describe. If not specified,\
+            \ the latest version is described."
+          example: 3a7bd3e2360a3d4855f3c8d2f8f6e6c1
+          type: string
+        style: form
       - description: The ID of the deployment artifact
         example: da-12345678
         explode: false
@@ -4731,14 +4745,6 @@ paths:
           example: Est recusandae sed sit ipsam laborum dignissimos.
           type: string
         style: simple
-      requestBody:
-        content:
-          application/json:
-            example:
-              hash: 3a7bd3e2360a3d4855f3c8d2f8f6e6c1
-            schema:
-              $ref: "#/components/schemas/DescribeDeploymentArtifactRequest2"
-        required: true
       responses:
         "200":
           content:
@@ -49787,17 +49793,6 @@ components:
       required:
       - id
       - token
-      type: object
-    DescribeDeploymentArtifactRequest2:
-      example:
-        hash: 3a7bd3e2360a3d4855f3c8d2f8f6e6c1
-      properties:
-        hash:
-          description: The hash of the deployment artifact to be described. It is
-            used as an additional filter criteria to ensure the id and the hash match
-            for the same deployment artifact.
-          example: 3a7bd3e2360a3d4855f3c8d2f8f6e6c1
-          type: string
       type: object
     DescribeDeploymentArtifactResult:
       example:

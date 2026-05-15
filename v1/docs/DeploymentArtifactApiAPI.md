@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## DeploymentArtifactApiDescribeDeploymentArtifact
 
-> DescribeDeploymentArtifactResult DeploymentArtifactApiDescribeDeploymentArtifact(ctx, id).DescribeDeploymentArtifactRequest2(describeDeploymentArtifactRequest2).Execute()
+> DescribeDeploymentArtifactResult DeploymentArtifactApiDescribeDeploymentArtifact(ctx, id).Hash(hash).Execute()
 
 DescribeDeploymentArtifact deployment-artifact-api
 
@@ -29,11 +29,11 @@ import (
 
 func main() {
 	id := "da-12345678" // string | The ID of the deployment artifact
-	describeDeploymentArtifactRequest2 := *openapiclient.NewDescribeDeploymentArtifactRequest2() // DescribeDeploymentArtifactRequest2 | 
+	hash := "3a7bd3e2360a3d4855f3c8d2f8f6e6c1" // string | Hash of the deployment artifact to describe. If not specified, the latest version is described. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DeploymentArtifactApiAPI.DeploymentArtifactApiDescribeDeploymentArtifact(context.Background(), id).DescribeDeploymentArtifactRequest2(describeDeploymentArtifactRequest2).Execute()
+	resp, r, err := apiClient.DeploymentArtifactApiAPI.DeploymentArtifactApiDescribeDeploymentArtifact(context.Background(), id).Hash(hash).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentArtifactApiAPI.DeploymentArtifactApiDescribeDeploymentArtifact``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -59,7 +59,7 @@ Other parameters are passed through a pointer to a apiDeploymentArtifactApiDescr
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **describeDeploymentArtifactRequest2** | [**DescribeDeploymentArtifactRequest2**](DescribeDeploymentArtifactRequest2.md) |  | 
+ **hash** | **string** | Hash of the deployment artifact to describe. If not specified, the latest version is described. | 
 
 ### Return type
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
