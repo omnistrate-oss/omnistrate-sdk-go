@@ -6,6 +6,7 @@ OPENAPI_GENERATOR_VERSION=7.22.0
 OPENAPI_GENERATOR_DIR=$(CURDIR)/.openapi-generator
 OPENAPI_GENERATOR_JAR=$(OPENAPI_GENERATOR_DIR)/openapi-generator-cli-$(OPENAPI_GENERATOR_VERSION).jar
 OPENAPI_GENERATOR_DOWNLOAD_URL=https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/$(OPENAPI_GENERATOR_VERSION)/openapi-generator-cli-$(OPENAPI_GENERATOR_VERSION).jar
+OPENAPI_GENERATOR_SHA256=3f1e6ce5c6ad4f15242c6170ab43aad4bad771622617eeece4a7d4f72ffaf329
 OPENAPI_GENERATOR=java -jar $(OPENAPI_GENERATOR_JAR)
 
 .DEFAULT_GOAL := all
@@ -13,6 +14,7 @@ OPENAPI_GENERATOR=java -jar $(OPENAPI_GENERATOR_JAR)
 $(OPENAPI_GENERATOR_JAR):
 	mkdir -p $(OPENAPI_GENERATOR_DIR)
 	curl -fsSL --retry 3 -o $@.tmp $(OPENAPI_GENERATOR_DOWNLOAD_URL)
+	printf '%s  %s\n' '$(OPENAPI_GENERATOR_SHA256)' '$@.tmp' | shasum -a 256 -c -
 	mv $@.tmp $@
 
 .PHONY: openapi-generator-version
@@ -40,10 +42,10 @@ gen-go-sdk: $(OPENAPI_GENERATOR_JAR)
 	  -i ${OPEN_API_SPEC} \
 	  -g go \
 	  -o v1 \
-  -t templates/go \
-  --additional-properties packageName=v1,withGoMod=false,isGoSubmodule=true,generateInterfaces=true,disallowAdditionalPropertiesIfNotPresent=false,structPrefix=false \
-  --git-user-id ${ORG_NAME} \
-  --git-repo-id ${REPO_NAME}
+	  -t templates/go \
+	  --additional-properties packageName=v1,withGoMod=false,isGoSubmodule=true,generateInterfaces=true,disallowAdditionalPropertiesIfNotPresent=false,structPrefix=false \
+	  --git-user-id ${ORG_NAME} \
+	  --git-repo-id ${REPO_NAME}
 
 .PHONY: gen-fleet-go-sdk
 gen-fleet-go-sdk: $(OPENAPI_GENERATOR_JAR)
@@ -52,9 +54,9 @@ gen-fleet-go-sdk: $(OPENAPI_GENERATOR_JAR)
 	  -i ${FLEET_OPEN_API_SPEC} \
 	  -g go \
 	  -o fleet \
-  --additional-properties packageName=fleet,withGoMod=false,isGoSubmodule=true,generateInterfaces=true,disallowAdditionalPropertiesIfNotPresent=false,structPrefix=false \
-  --git-user-id ${ORG_NAME} \
-  --git-repo-id ${REPO_NAME}
+	  --additional-properties packageName=fleet,withGoMod=false,isGoSubmodule=true,generateInterfaces=true,disallowAdditionalPropertiesIfNotPresent=false,structPrefix=false \
+	  --git-user-id ${ORG_NAME} \
+	  --git-repo-id ${REPO_NAME}
 
 .PHONY: validate
 validate: $(OPENAPI_GENERATOR_JAR)
