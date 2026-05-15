@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudProvider** | **string** | Name of the Infra Provider | 
+**CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The custom tags associated with resource instances in the deployment cell. | [optional] 
 **Description** | **string** | The deployment cell description. | 
 **Id** | **string** | The deployment cell ID. | 
 **RegionCode** | **string** | The region code of the deployment cell. | 
@@ -47,6 +48,31 @@ and a boolean to check if the value has been set.
 
 SetCloudProvider sets CloudProvider field to given value.
 
+
+### GetCustomTags
+
+`func (o *DeploymentCellSearchRecord) GetCustomTags() []CustomTag`
+
+GetCustomTags returns the CustomTags field if non-nil, zero value otherwise.
+
+### GetCustomTagsOk
+
+`func (o *DeploymentCellSearchRecord) GetCustomTagsOk() (*[]CustomTag, bool)`
+
+GetCustomTagsOk returns a tuple with the CustomTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomTags
+
+`func (o *DeploymentCellSearchRecord) SetCustomTags(v []CustomTag)`
+
+SetCustomTags sets CustomTags field to given value.
+
+### HasCustomTags
+
+`func (o *DeploymentCellSearchRecord) HasCustomTags() bool`
+
+HasCustomTags returns a boolean if a field has been set.
 
 ### GetDescription
 

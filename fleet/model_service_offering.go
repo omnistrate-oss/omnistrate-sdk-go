@@ -29,6 +29,8 @@ type ServiceOffering struct {
 	AwsRegions []string `json:"awsRegions,omitempty"`
 	// The Azure regions that this service offering is available on
 	AzureRegions []string `json:"azureRegions,omitempty"`
+	// The BYOC on-prem regions that this service offering is available on
+	ByocOnpremRegions []string `json:"byocOnpremRegions,omitempty"`
 	// List of supported cloud providers for this product tier.
 	CloudProviders []string `json:"cloudProviders,omitempty"`
 	// The GCP regions that this service offering is available on
@@ -292,6 +294,38 @@ func (o *ServiceOffering) HasAzureRegions() bool {
 // SetAzureRegions gets a reference to the given []string and assigns it to the AzureRegions field.
 func (o *ServiceOffering) SetAzureRegions(v []string) {
 	o.AzureRegions = v
+}
+
+// GetByocOnpremRegions returns the ByocOnpremRegions field value if set, zero value otherwise.
+func (o *ServiceOffering) GetByocOnpremRegions() []string {
+	if o == nil || IsNil(o.ByocOnpremRegions) {
+		var ret []string
+		return ret
+	}
+	return o.ByocOnpremRegions
+}
+
+// GetByocOnpremRegionsOk returns a tuple with the ByocOnpremRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceOffering) GetByocOnpremRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ByocOnpremRegions) {
+		return nil, false
+	}
+	return o.ByocOnpremRegions, true
+}
+
+// HasByocOnpremRegions returns a boolean if a field has been set.
+func (o *ServiceOffering) HasByocOnpremRegions() bool {
+	if o != nil && !IsNil(o.ByocOnpremRegions) {
+		return true
+	}
+
+	return false
+}
+
+// SetByocOnpremRegions gets a reference to the given []string and assigns it to the ByocOnpremRegions field.
+func (o *ServiceOffering) SetByocOnpremRegions(v []string) {
+	o.ByocOnpremRegions = v
 }
 
 // GetCloudProviders returns the CloudProviders field value if set, zero value otherwise.
@@ -1231,6 +1265,9 @@ func (o ServiceOffering) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AzureRegions) {
 		toSerialize["azureRegions"] = o.AzureRegions
 	}
+	if !IsNil(o.ByocOnpremRegions) {
+		toSerialize["byocOnpremRegions"] = o.ByocOnpremRegions
+	}
 	if !IsNil(o.CloudProviders) {
 		toSerialize["cloudProviders"] = o.CloudProviders
 	}
@@ -1361,6 +1398,7 @@ func (o *ServiceOffering) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "assets")
 		delete(additionalProperties, "awsRegions")
 		delete(additionalProperties, "azureRegions")
+		delete(additionalProperties, "byocOnpremRegions")
 		delete(additionalProperties, "cloudProviders")
 		delete(additionalProperties, "gcpRegions")
 		delete(additionalProperties, "maxNumberOfInstances")

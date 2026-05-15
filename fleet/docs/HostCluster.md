@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **CurrentNumberOfDeployments** | **int64** | The current number of deployments on the host cluster | 
 **CurrentNumberOfSnapshots** | Pointer to **int64** | The current number of snapshots on the host cluster | [optional] 
 **CustomNetworkDetail** | Pointer to [**CustomNetworkFleetDetail**](CustomNetworkFleetDetail.md) |  | [optional] 
+**CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The custom tags associated with resource instances in the host cluster. | [optional] 
 **CustomerEmail** | Pointer to **string** | Email of the customer who owns the host cluster in case this is a BYOC / Adopted host cluster | [optional] 
 **CustomerOrganizationName** | Pointer to **string** | Name of the customer organization that owns the host cluster in case this is a BYOC / Adopted host cluster | [optional] 
 **Description** | **string** |  | 
@@ -259,6 +260,31 @@ SetCustomNetworkDetail sets CustomNetworkDetail field to given value.
 `func (o *HostCluster) HasCustomNetworkDetail() bool`
 
 HasCustomNetworkDetail returns a boolean if a field has been set.
+
+### GetCustomTags
+
+`func (o *HostCluster) GetCustomTags() []CustomTag`
+
+GetCustomTags returns the CustomTags field if non-nil, zero value otherwise.
+
+### GetCustomTagsOk
+
+`func (o *HostCluster) GetCustomTagsOk() (*[]CustomTag, bool)`
+
+GetCustomTagsOk returns a tuple with the CustomTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomTags
+
+`func (o *HostCluster) SetCustomTags(v []CustomTag)`
+
+SetCustomTags sets CustomTags field to given value.
+
+### HasCustomTags
+
+`func (o *HostCluster) HasCustomTags() bool`
+
+HasCustomTags returns a boolean if a field has been set.
 
 ### GetCustomerEmail
 

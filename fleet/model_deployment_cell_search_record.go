@@ -22,6 +22,8 @@ var _ MappedNullable = &DeploymentCellSearchRecord{}
 type DeploymentCellSearchRecord struct {
 	// Name of the Infra Provider
 	CloudProvider string `json:"cloudProvider"`
+	// The custom tags associated with resource instances in the deployment cell.
+	CustomTags []CustomTag `json:"customTags,omitempty"`
 	// The deployment cell description.
 	Description string `json:"description"`
 	// The deployment cell ID.
@@ -76,6 +78,38 @@ func (o *DeploymentCellSearchRecord) GetCloudProviderOk() (*string, bool) {
 // SetCloudProvider sets field value
 func (o *DeploymentCellSearchRecord) SetCloudProvider(v string) {
 	o.CloudProvider = v
+}
+
+// GetCustomTags returns the CustomTags field value if set, zero value otherwise.
+func (o *DeploymentCellSearchRecord) GetCustomTags() []CustomTag {
+	if o == nil || IsNil(o.CustomTags) {
+		var ret []CustomTag
+		return ret
+	}
+	return o.CustomTags
+}
+
+// GetCustomTagsOk returns a tuple with the CustomTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellSearchRecord) GetCustomTagsOk() ([]CustomTag, bool) {
+	if o == nil || IsNil(o.CustomTags) {
+		return nil, false
+	}
+	return o.CustomTags, true
+}
+
+// HasCustomTags returns a boolean if a field has been set.
+func (o *DeploymentCellSearchRecord) HasCustomTags() bool {
+	if o != nil && !IsNil(o.CustomTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomTags gets a reference to the given []CustomTag and assigns it to the CustomTags field.
+func (o *DeploymentCellSearchRecord) SetCustomTags(v []CustomTag) {
+	o.CustomTags = v
 }
 
 // GetDescription returns the Description field value
@@ -161,6 +195,9 @@ func (o DeploymentCellSearchRecord) MarshalJSON() ([]byte, error) {
 func (o DeploymentCellSearchRecord) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["cloudProvider"] = o.CloudProvider
+	if !IsNil(o.CustomTags) {
+		toSerialize["customTags"] = o.CustomTags
+	}
 	toSerialize["description"] = o.Description
 	toSerialize["id"] = o.Id
 	toSerialize["regionCode"] = o.RegionCode
@@ -211,6 +248,7 @@ func (o *DeploymentCellSearchRecord) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "cloudProvider")
+		delete(additionalProperties, "customTags")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "regionCode")

@@ -78,6 +78,7 @@ docs/CostDataPerDate.md
 docs/CountWithRecent.md
 docs/CreateAPIKeyRequest.md
 docs/CreateAPIKeyResult.md
+docs/CreateConsumptionSetupIntentRequest.md
 docs/CreateCustomerOnboardingRequest.md
 docs/CreateCustomerOnboardingRequest2.md
 docs/CreateIdentityProviderRequest.md
@@ -96,6 +97,7 @@ docs/CreateServiceFromComposeSpecRequest.md
 docs/CreateServiceModelRequest.md
 docs/CreateServiceRequest.md
 docs/CreateServicesOrchestrationRequest.md
+docs/CreateSetupIntentResult.md
 docs/CreateSubscriptionRequest.md
 docs/CreateSubscriptionRequestRequest.md
 docs/CreateUpgradePathRequest.md
@@ -423,6 +425,7 @@ docs/GenericCommandValueProviderConfig.md
 docs/GenericResourceDeploymentConfiguration.md
 docs/GetAvailabilityZoneByCodeRequest.md
 docs/GetCloudProviderByNameRequest.md
+docs/GetConsumptionStripeConfigRequest.md
 docs/GetConsumptionUsageRequest.md
 docs/GetConsumptionUsageResult.md
 docs/GetCurrentConsumptionUsageRequest.md
@@ -505,6 +508,7 @@ docs/ListAvailabilityZonesRequest.md
 docs/ListAvailabilityZonesResult.md
 docs/ListCloudProvidersRequest.md
 docs/ListCloudProvidersResult.md
+docs/ListConsumptionPaymentMethodsRequest.md
 docs/ListCustomerOnboardingRequest.md
 docs/ListCustomerOnboardingResult.md
 docs/ListCustomerOnboardingStagesRequest.md
@@ -536,6 +540,7 @@ docs/ListInvoicesResult.md
 docs/ListNotificationChannelsRequest.md
 docs/ListNotificationChannelsResult.md
 docs/ListOrganizationsResult.md
+docs/ListPaymentMethodsResult.md
 docs/ListPipelinesRequest.md
 docs/ListPipelinesResult.md
 docs/ListProductTiersRequest.md
@@ -622,6 +627,7 @@ docs/Organization.md
 docs/OutputParameter.md
 docs/OutputParameterEntity.md
 docs/PagerDutyConfiguration.md
+docs/PaymentMethod.md
 docs/PerCloudProviderCost.md
 docs/PerDeploymentCellCost.md
 docs/PerInstanceCost.md
@@ -648,6 +654,7 @@ docs/ReleaseServiceModelRequest.md
 docs/ReleaseServiceModelResult.md
 docs/RemoveAccountConfigFromServiceModelRequest.md
 docs/RemoveCapacityFromResourceInstanceRequest.md
+docs/RemoveConsumptionPaymentMethodRequest.md
 docs/RemoveCustomDNSToResourceInstanceRequest.md
 docs/RenderIdentityProvidersRequest.md
 docs/RenderIdentityProvidersResult.md
@@ -667,6 +674,7 @@ docs/ResourceInstance.md
 docs/ResourceInstanceMetadata.md
 docs/ResourceInstanceProvisionerSetupKitRequest.md
 docs/ResourceInstanceSearchRecord.md
+docs/ResourceInstanceSupportedOperation.md
 docs/ResourceNetworkTopologyResult.md
 docs/ResourceOneOffPatchConfigurationOverride.md
 docs/ResourceSearchRecord.md
@@ -709,6 +717,7 @@ docs/ServiceProviderEventSummary.md
 docs/ServiceSearchRecord.md
 docs/ServiceWorkflow.md
 docs/SetActiveAccountConfigRequest.md
+docs/SetDefaultConsumptionPaymentMethodRequest.md
 docs/SetNodePoolPropertyRequest.md
 docs/SetNodePoolPropertyRequest2.md
 docs/SetSecretRequest.md
@@ -721,6 +730,7 @@ docs/StartResourceInstanceRequest.md
 docs/StopResourceInstanceRequest.md
 docs/StripeAuthorizeURLRequest.md
 docs/StripeAuthorizeURLResult.md
+docs/StripeConfigResult.md
 docs/SubnetDetail.md
 docs/SubscriptionLicense.md
 docs/SubscriptionPricing.md
@@ -833,6 +843,7 @@ model_cost_data_per_date.go
 model_count_with_recent.go
 model_create_api_key_request.go
 model_create_api_key_result.go
+model_create_consumption_setup_intent_request.go
 model_create_customer_onboarding_request.go
 model_create_customer_onboarding_request2.go
 model_create_identity_provider_request.go
@@ -851,6 +862,7 @@ model_create_service_from_compose_spec_request.go
 model_create_service_model_request.go
 model_create_service_request.go
 model_create_services_orchestration_request.go
+model_create_setup_intent_result.go
 model_create_subscription_request.go
 model_create_subscription_request_request.go
 model_create_upgrade_path_request.go
@@ -1174,6 +1186,7 @@ model_generic_command_value_provider_config.go
 model_generic_resource_deployment_configuration.go
 model_get_availability_zone_by_code_request.go
 model_get_cloud_provider_by_name_request.go
+model_get_consumption_stripe_config_request.go
 model_get_consumption_usage_request.go
 model_get_consumption_usage_result.go
 model_get_current_consumption_usage_request.go
@@ -1252,6 +1265,7 @@ model_list_availability_zones_request.go
 model_list_availability_zones_result.go
 model_list_cloud_providers_request.go
 model_list_cloud_providers_result.go
+model_list_consumption_payment_methods_request.go
 model_list_customer_onboarding_request.go
 model_list_customer_onboarding_result.go
 model_list_customer_onboarding_stages_request.go
@@ -1283,6 +1297,7 @@ model_list_invoices_result.go
 model_list_notification_channels_request.go
 model_list_notification_channels_result.go
 model_list_organizations_result.go
+model_list_payment_methods_result.go
 model_list_pipelines_request.go
 model_list_pipelines_result.go
 model_list_product_tiers_request.go
@@ -1367,6 +1382,7 @@ model_organization.go
 model_output_parameter.go
 model_output_parameter_entity.go
 model_pager_duty_configuration.go
+model_payment_method.go
 model_per_cloud_provider_cost.go
 model_per_deployment_cell_cost.go
 model_per_instance_cost.go
@@ -1393,6 +1409,7 @@ model_release_service_model_request.go
 model_release_service_model_result.go
 model_remove_account_config_from_service_model_request.go
 model_remove_capacity_from_resource_instance_request.go
+model_remove_consumption_payment_method_request.go
 model_remove_custom_dnsto_resource_instance_request.go
 model_render_identity_providers_request.go
 model_render_identity_providers_result.go
@@ -1411,6 +1428,7 @@ model_resource_instance.go
 model_resource_instance_metadata.go
 model_resource_instance_provisioner_setup_kit_request.go
 model_resource_instance_search_record.go
+model_resource_instance_supported_operation.go
 model_resource_network_topology_result.go
 model_resource_one_off_patch_configuration_override.go
 model_resource_search_record.go
@@ -1453,6 +1471,7 @@ model_service_provider_event_summary.go
 model_service_search_record.go
 model_service_workflow.go
 model_set_active_account_config_request.go
+model_set_default_consumption_payment_method_request.go
 model_set_node_pool_property_request.go
 model_set_node_pool_property_request2.go
 model_set_secret_request.go
@@ -1465,6 +1484,7 @@ model_start_resource_instance_request.go
 model_stop_resource_instance_request.go
 model_stripe_authorize_url_request.go
 model_stripe_authorize_url_result.go
+model_stripe_config_result.go
 model_subnet_detail.go
 model_subscription_license.go
 model_subscription_pricing.go

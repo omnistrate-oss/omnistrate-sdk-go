@@ -32,6 +32,8 @@ type UpdateProductTierRequest struct {
 	BillingProductID *string `json:"billingProductID,omitempty"`
 	// List of billing providers to be used for the product tier
 	BillingProviders []string `json:"billingProviders,omitempty"`
+	// The BYOC on-prem regions that this product tier is available on
+	ByocOnpremRegions []string `json:"byocOnpremRegions,omitempty"`
 	// The billing provider type
 	DefaultBillingProvider *string `json:"defaultBillingProvider,omitempty"`
 	DeploymentConfiguration *ProductTierDeploymentConfiguration `json:"deploymentConfiguration,omitempty"`
@@ -292,6 +294,38 @@ func (o *UpdateProductTierRequest) HasBillingProviders() bool {
 // SetBillingProviders gets a reference to the given []string and assigns it to the BillingProviders field.
 func (o *UpdateProductTierRequest) SetBillingProviders(v []string) {
 	o.BillingProviders = v
+}
+
+// GetByocOnpremRegions returns the ByocOnpremRegions field value if set, zero value otherwise.
+func (o *UpdateProductTierRequest) GetByocOnpremRegions() []string {
+	if o == nil || IsNil(o.ByocOnpremRegions) {
+		var ret []string
+		return ret
+	}
+	return o.ByocOnpremRegions
+}
+
+// GetByocOnpremRegionsOk returns a tuple with the ByocOnpremRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateProductTierRequest) GetByocOnpremRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ByocOnpremRegions) {
+		return nil, false
+	}
+	return o.ByocOnpremRegions, true
+}
+
+// HasByocOnpremRegions returns a boolean if a field has been set.
+func (o *UpdateProductTierRequest) HasByocOnpremRegions() bool {
+	if o != nil && !IsNil(o.ByocOnpremRegions) {
+		return true
+	}
+
+	return false
+}
+
+// SetByocOnpremRegions gets a reference to the given []string and assigns it to the ByocOnpremRegions field.
+func (o *UpdateProductTierRequest) SetByocOnpremRegions(v []string) {
+	o.ByocOnpremRegions = v
 }
 
 // GetDefaultBillingProvider returns the DefaultBillingProvider field value if set, zero value otherwise.
@@ -1035,6 +1069,9 @@ func (o UpdateProductTierRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.BillingProviders) {
 		toSerialize["billingProviders"] = o.BillingProviders
 	}
+	if !IsNil(o.ByocOnpremRegions) {
+		toSerialize["byocOnpremRegions"] = o.ByocOnpremRegions
+	}
 	if !IsNil(o.DefaultBillingProvider) {
 		toSerialize["defaultBillingProvider"] = o.DefaultBillingProvider
 	}
@@ -1149,6 +1186,7 @@ func (o *UpdateProductTierRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "azureRegions")
 		delete(additionalProperties, "billingProductID")
 		delete(additionalProperties, "billingProviders")
+		delete(additionalProperties, "byocOnpremRegions")
 		delete(additionalProperties, "defaultBillingProvider")
 		delete(additionalProperties, "deploymentConfiguration")
 		delete(additionalProperties, "description")

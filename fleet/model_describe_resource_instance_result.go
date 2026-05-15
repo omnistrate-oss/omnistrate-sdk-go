@@ -96,6 +96,8 @@ type DescribeResourceInstanceResult struct {
 	SubscriptionLicense *SubscriptionLicense `json:"subscriptionLicense,omitempty"`
 	// Subscription Status
 	SubscriptionStatus *string `json:"subscriptionStatus,omitempty"`
+	// Operations supported by this resource instance, including legacy operations, system workflows, and provider-defined custom workflows.
+	SupportedOperations []ResourceInstanceSupportedOperation `json:"supportedOperations,omitempty"`
 	// The tier version of the resource instance.
 	TierVersion *string `json:"tierVersion,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -1466,6 +1468,38 @@ func (o *DescribeResourceInstanceResult) SetSubscriptionStatus(v string) {
 	o.SubscriptionStatus = &v
 }
 
+// GetSupportedOperations returns the SupportedOperations field value if set, zero value otherwise.
+func (o *DescribeResourceInstanceResult) GetSupportedOperations() []ResourceInstanceSupportedOperation {
+	if o == nil || IsNil(o.SupportedOperations) {
+		var ret []ResourceInstanceSupportedOperation
+		return ret
+	}
+	return o.SupportedOperations
+}
+
+// GetSupportedOperationsOk returns a tuple with the SupportedOperations field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeResourceInstanceResult) GetSupportedOperationsOk() ([]ResourceInstanceSupportedOperation, bool) {
+	if o == nil || IsNil(o.SupportedOperations) {
+		return nil, false
+	}
+	return o.SupportedOperations, true
+}
+
+// HasSupportedOperations returns a boolean if a field has been set.
+func (o *DescribeResourceInstanceResult) HasSupportedOperations() bool {
+	if o != nil && !IsNil(o.SupportedOperations) {
+		return true
+	}
+
+	return false
+}
+
+// SetSupportedOperations gets a reference to the given []ResourceInstanceSupportedOperation and assigns it to the SupportedOperations field.
+func (o *DescribeResourceInstanceResult) SetSupportedOperations(v []ResourceInstanceSupportedOperation) {
+	o.SupportedOperations = v
+}
+
 // GetTierVersion returns the TierVersion field value if set, zero value otherwise.
 func (o *DescribeResourceInstanceResult) GetTierVersion() string {
 	if o == nil || IsNil(o.TierVersion) {
@@ -1634,6 +1668,9 @@ func (o DescribeResourceInstanceResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.SubscriptionStatus) {
 		toSerialize["subscriptionStatus"] = o.SubscriptionStatus
 	}
+	if !IsNil(o.SupportedOperations) {
+		toSerialize["supportedOperations"] = o.SupportedOperations
+	}
 	if !IsNil(o.TierVersion) {
 		toSerialize["tierVersion"] = o.TierVersion
 	}
@@ -1701,6 +1738,7 @@ func (o *DescribeResourceInstanceResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "subscriptionLicense")
 		delete(additionalProperties, "subscriptionStatus")
+		delete(additionalProperties, "supportedOperations")
 		delete(additionalProperties, "tierVersion")
 		o.AdditionalProperties = additionalProperties
 	}
