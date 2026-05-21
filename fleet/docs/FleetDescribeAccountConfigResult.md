@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **AzureSubscriptionID** | Pointer to **string** | The Azure subscription ID | [optional] 
 **AzureTenantID** | Pointer to **string** | The Azure tenant ID | [optional] 
 **ByoaInstanceIDs** | Pointer to **[]string** | The BYOA instance IDs that this account config is tied to | [optional] 
+**ByocOnPremInstallCommand** | Pointer to **string** | The BYOC on-prem install command | [optional] 
+**ByocOnPremUninstallCommand** | Pointer to **string** | The BYOC on-prem uninstall command | [optional] 
 **CloudNativeNetworks** | Pointer to [**[]FleetAccountConfigCloudNativeNetworkResult**](FleetAccountConfigCloudNativeNetworkResult.md) | Registered CloudNativeNetworks for this account configuration | [optional] 
 **CloudProviderId** | **string** | ID of an CloudProvider | 
 **Description** | **string** | The description for the account | 
@@ -330,6 +332,56 @@ SetByoaInstanceIDs sets ByoaInstanceIDs field to given value.
 `func (o *FleetDescribeAccountConfigResult) HasByoaInstanceIDs() bool`
 
 HasByoaInstanceIDs returns a boolean if a field has been set.
+
+### GetByocOnPremInstallCommand
+
+`func (o *FleetDescribeAccountConfigResult) GetByocOnPremInstallCommand() string`
+
+GetByocOnPremInstallCommand returns the ByocOnPremInstallCommand field if non-nil, zero value otherwise.
+
+### GetByocOnPremInstallCommandOk
+
+`func (o *FleetDescribeAccountConfigResult) GetByocOnPremInstallCommandOk() (*string, bool)`
+
+GetByocOnPremInstallCommandOk returns a tuple with the ByocOnPremInstallCommand field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetByocOnPremInstallCommand
+
+`func (o *FleetDescribeAccountConfigResult) SetByocOnPremInstallCommand(v string)`
+
+SetByocOnPremInstallCommand sets ByocOnPremInstallCommand field to given value.
+
+### HasByocOnPremInstallCommand
+
+`func (o *FleetDescribeAccountConfigResult) HasByocOnPremInstallCommand() bool`
+
+HasByocOnPremInstallCommand returns a boolean if a field has been set.
+
+### GetByocOnPremUninstallCommand
+
+`func (o *FleetDescribeAccountConfigResult) GetByocOnPremUninstallCommand() string`
+
+GetByocOnPremUninstallCommand returns the ByocOnPremUninstallCommand field if non-nil, zero value otherwise.
+
+### GetByocOnPremUninstallCommandOk
+
+`func (o *FleetDescribeAccountConfigResult) GetByocOnPremUninstallCommandOk() (*string, bool)`
+
+GetByocOnPremUninstallCommandOk returns a tuple with the ByocOnPremUninstallCommand field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetByocOnPremUninstallCommand
+
+`func (o *FleetDescribeAccountConfigResult) SetByocOnPremUninstallCommand(v string)`
+
+SetByocOnPremUninstallCommand sets ByocOnPremUninstallCommand field to given value.
+
+### HasByocOnPremUninstallCommand
+
+`func (o *FleetDescribeAccountConfigResult) HasByocOnPremUninstallCommand() bool`
+
+HasByocOnPremUninstallCommand returns a boolean if a field has been set.
 
 ### GetCloudNativeNetworks
 

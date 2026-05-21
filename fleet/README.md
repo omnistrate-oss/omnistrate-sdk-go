@@ -190,6 +190,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiRemoveCapacityFromResourceInstance**](docs/InventoryApiAPI.md#inventoryapiremovecapacityfromresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/remove-capacity | RemoveCapacityFromResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiRemoveCustomDNSFromResourceInstance**](docs/InventoryApiAPI.md#inventoryapiremovecustomdnsfromresourceinstance) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/{resourceKey}/instance/{instanceId}/custom-dns | RemoveCustomDNSFromResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiResendVerificationEmail**](docs/InventoryApiAPI.md#inventoryapiresendverificationemail) | **Post** /2022-09-01-00/fleet/user/{userId}/verification-email | ResendVerificationEmail inventory-api
+*InventoryApiAPI* | [**InventoryApiResourceInstanceCustomWorkflow**](docs/InventoryApiAPI.md#inventoryapiresourceinstancecustomworkflow) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/custom-workflow/{workflowId}/execute | ResourceInstanceCustomWorkflow inventory-api
 *InventoryApiAPI* | [**InventoryApiRestartResourceInstance**](docs/InventoryApiAPI.md#inventoryapirestartresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/restart | RestartResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiRestoreResourceInstance**](docs/InventoryApiAPI.md#inventoryapirestoreresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/restore | RestoreResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiRestoreResourceInstanceFromSnapshot**](docs/InventoryApiAPI.md#inventoryapirestoreresourceinstancefromsnapshot) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/snapshot/{snapshotId}/restore | RestoreResourceInstanceFromSnapshot inventory-api
@@ -587,6 +588,8 @@ Class | Method | HTTP request | Description
  - [FleetRemoveCustomDNSFromResourceInstanceRequest](docs/FleetRemoveCustomDNSFromResourceInstanceRequest.md)
  - [FleetResendInvoiceRequest](docs/FleetResendInvoiceRequest.md)
  - [FleetResendVerificationEmailRequest](docs/FleetResendVerificationEmailRequest.md)
+ - [FleetResourceInstanceCustomWorkflowRequest](docs/FleetResourceInstanceCustomWorkflowRequest.md)
+ - [FleetResourceInstanceCustomWorkflowRequest2](docs/FleetResourceInstanceCustomWorkflowRequest2.md)
  - [FleetRestartResourceInstanceRequest](docs/FleetRestartResourceInstanceRequest.md)
  - [FleetRestartResourceInstanceRequest2](docs/FleetRestartResourceInstanceRequest2.md)
  - [FleetRestoreResourceInstanceFromSnapshotRequest](docs/FleetRestoreResourceInstanceFromSnapshotRequest.md)
@@ -876,6 +879,8 @@ Class | Method | HTTP request | Description
  - [ResourceEntity](docs/ResourceEntity.md)
  - [ResourceHealthSummary](docs/ResourceHealthSummary.md)
  - [ResourceInstance](docs/ResourceInstance.md)
+ - [ResourceInstanceCustomWorkflowRequest](docs/ResourceInstanceCustomWorkflowRequest.md)
+ - [ResourceInstanceCustomWorkflowResult](docs/ResourceInstanceCustomWorkflowResult.md)
  - [ResourceInstanceMetadata](docs/ResourceInstanceMetadata.md)
  - [ResourceInstanceProvisionerSetupKitRequest](docs/ResourceInstanceProvisionerSetupKitRequest.md)
  - [ResourceInstanceSearchRecord](docs/ResourceInstanceSearchRecord.md)

@@ -37,12 +37,12 @@ type HostCluster struct {
 	// The current number of snapshots on the host cluster
 	CurrentNumberOfSnapshots *int64 `json:"currentNumberOfSnapshots,omitempty"`
 	CustomNetworkDetail *CustomNetworkFleetDetail `json:"customNetworkDetail,omitempty"`
-	// The custom tags associated with resource instances in the host cluster.
-	CustomTags []CustomTag `json:"customTags,omitempty"`
 	// Email of the customer who owns the host cluster in case this is a BYOC / Adopted host cluster
 	CustomerEmail *string `json:"customerEmail,omitempty"`
 	// Name of the customer organization that owns the host cluster in case this is a BYOC / Adopted host cluster
 	CustomerOrganizationName *string `json:"customerOrganizationName,omitempty"`
+	// The deployment instances tags associated with resource instances in the host cluster.
+	DeploymentInstancesTags []CustomTag `json:"deploymentInstancesTags,omitempty"`
 	Description string `json:"description"`
 	// Whether the host cluster has pending changes
 	HasPendingChanges *bool `json:"hasPendingChanges,omitempty"`
@@ -369,38 +369,6 @@ func (o *HostCluster) SetCustomNetworkDetail(v CustomNetworkFleetDetail) {
 	o.CustomNetworkDetail = &v
 }
 
-// GetCustomTags returns the CustomTags field value if set, zero value otherwise.
-func (o *HostCluster) GetCustomTags() []CustomTag {
-	if o == nil || IsNil(o.CustomTags) {
-		var ret []CustomTag
-		return ret
-	}
-	return o.CustomTags
-}
-
-// GetCustomTagsOk returns a tuple with the CustomTags field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *HostCluster) GetCustomTagsOk() ([]CustomTag, bool) {
-	if o == nil || IsNil(o.CustomTags) {
-		return nil, false
-	}
-	return o.CustomTags, true
-}
-
-// HasCustomTags returns a boolean if a field has been set.
-func (o *HostCluster) HasCustomTags() bool {
-	if o != nil && !IsNil(o.CustomTags) {
-		return true
-	}
-
-	return false
-}
-
-// SetCustomTags gets a reference to the given []CustomTag and assigns it to the CustomTags field.
-func (o *HostCluster) SetCustomTags(v []CustomTag) {
-	o.CustomTags = v
-}
-
 // GetCustomerEmail returns the CustomerEmail field value if set, zero value otherwise.
 func (o *HostCluster) GetCustomerEmail() string {
 	if o == nil || IsNil(o.CustomerEmail) {
@@ -463,6 +431,38 @@ func (o *HostCluster) HasCustomerOrganizationName() bool {
 // SetCustomerOrganizationName gets a reference to the given string and assigns it to the CustomerOrganizationName field.
 func (o *HostCluster) SetCustomerOrganizationName(v string) {
 	o.CustomerOrganizationName = &v
+}
+
+// GetDeploymentInstancesTags returns the DeploymentInstancesTags field value if set, zero value otherwise.
+func (o *HostCluster) GetDeploymentInstancesTags() []CustomTag {
+	if o == nil || IsNil(o.DeploymentInstancesTags) {
+		var ret []CustomTag
+		return ret
+	}
+	return o.DeploymentInstancesTags
+}
+
+// GetDeploymentInstancesTagsOk returns a tuple with the DeploymentInstancesTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetDeploymentInstancesTagsOk() ([]CustomTag, bool) {
+	if o == nil || IsNil(o.DeploymentInstancesTags) {
+		return nil, false
+	}
+	return o.DeploymentInstancesTags, true
+}
+
+// HasDeploymentInstancesTags returns a boolean if a field has been set.
+func (o *HostCluster) HasDeploymentInstancesTags() bool {
+	if o != nil && !IsNil(o.DeploymentInstancesTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeploymentInstancesTags gets a reference to the given []CustomTag and assigns it to the DeploymentInstancesTags field.
+func (o *HostCluster) SetDeploymentInstancesTags(v []CustomTag) {
+	o.DeploymentInstancesTags = v
 }
 
 // GetDescription returns the Description field value
@@ -1070,14 +1070,14 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CustomNetworkDetail) {
 		toSerialize["customNetworkDetail"] = o.CustomNetworkDetail
 	}
-	if !IsNil(o.CustomTags) {
-		toSerialize["customTags"] = o.CustomTags
-	}
 	if !IsNil(o.CustomerEmail) {
 		toSerialize["customerEmail"] = o.CustomerEmail
 	}
 	if !IsNil(o.CustomerOrganizationName) {
 		toSerialize["customerOrganizationName"] = o.CustomerOrganizationName
+	}
+	if !IsNil(o.DeploymentInstancesTags) {
+		toSerialize["deploymentInstancesTags"] = o.DeploymentInstancesTags
 	}
 	toSerialize["description"] = o.Description
 	if !IsNil(o.HasPendingChanges) {
@@ -1186,9 +1186,9 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "currentNumberOfDeployments")
 		delete(additionalProperties, "currentNumberOfSnapshots")
 		delete(additionalProperties, "customNetworkDetail")
-		delete(additionalProperties, "customTags")
 		delete(additionalProperties, "customerEmail")
 		delete(additionalProperties, "customerOrganizationName")
+		delete(additionalProperties, "deploymentInstancesTags")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "hasPendingChanges")
 		delete(additionalProperties, "healthStatus")

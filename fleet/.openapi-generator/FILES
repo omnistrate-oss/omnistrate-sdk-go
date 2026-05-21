@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -374,6 +373,8 @@ docs/FleetRemoveCapacityFromResourceInstanceRequest2.md
 docs/FleetRemoveCustomDNSFromResourceInstanceRequest.md
 docs/FleetResendInvoiceRequest.md
 docs/FleetResendVerificationEmailRequest.md
+docs/FleetResourceInstanceCustomWorkflowRequest.md
+docs/FleetResourceInstanceCustomWorkflowRequest2.md
 docs/FleetRestartResourceInstanceRequest.md
 docs/FleetRestartResourceInstanceRequest2.md
 docs/FleetRestoreResourceInstanceFromSnapshotRequest.md
@@ -671,6 +672,8 @@ docs/ResourceDeploymentStatus.md
 docs/ResourceEntity.md
 docs/ResourceHealthSummary.md
 docs/ResourceInstance.md
+docs/ResourceInstanceCustomWorkflowRequest.md
+docs/ResourceInstanceCustomWorkflowResult.md
 docs/ResourceInstanceMetadata.md
 docs/ResourceInstanceProvisionerSetupKitRequest.md
 docs/ResourceInstanceSearchRecord.md
@@ -1136,6 +1139,8 @@ model_fleet_remove_capacity_from_resource_instance_request2.go
 model_fleet_remove_custom_dns_from_resource_instance_request.go
 model_fleet_resend_invoice_request.go
 model_fleet_resend_verification_email_request.go
+model_fleet_resource_instance_custom_workflow_request.go
+model_fleet_resource_instance_custom_workflow_request2.go
 model_fleet_restart_resource_instance_request.go
 model_fleet_restart_resource_instance_request2.go
 model_fleet_restore_resource_instance_from_snapshot_request.go
@@ -1425,6 +1430,8 @@ model_resource_deployment_status.go
 model_resource_entity.go
 model_resource_health_summary.go
 model_resource_instance.go
+model_resource_instance_custom_workflow_request.go
+model_resource_instance_custom_workflow_result.go
 model_resource_instance_metadata.go
 model_resource_instance_provisioner_setup_kit_request.go
 model_resource_instance_search_record.go
@@ -1539,19 +1546,4 @@ model_workflow_event.go
 model_workflow_failure.go
 model_workflow_search_record.go
 response.go
-test/api_audit_events_api_test.go
-test/api_cost_api_test.go
-test/api_customer_onboardings_api_test.go
-test/api_events_api_test.go
-test/api_fleet_custom_network_api_test.go
-test/api_fleet_workflows_api_test.go
-test/api_helm_package_api_test.go
-test/api_hostcluster_api_test.go
-test/api_inventory_api_test.go
-test/api_invoice_api_test.go
-test/api_notifications_api_test.go
-test/api_operations_api_test.go
-test/api_report_api_test.go
-test/api_usage_api_test.go
-test/api_webhooks_api_test.go
 utils.go
