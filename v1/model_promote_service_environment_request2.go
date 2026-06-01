@@ -21,6 +21,8 @@ var _ MappedNullable = &PromoteServiceEnvironmentRequest2{}
 type PromoteServiceEnvironmentRequest2 struct {
 	// The ID of the product tier to use for the promotion
 	ProductTierId *string `json:"productTierId,omitempty"`
+	// The version of the product tier to use for the promotion
+	ProductTierVersion   *string `json:"productTierVersion,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -66,8 +68,31 @@ func (o *PromoteServiceEnvironmentRequest2) SetProductTierId(v string) {
 	o.ProductTierId = &v
 }
 
+// GetProductTierVersion returns the ProductTierVersion field value if set, zero value otherwise.
+func (o *PromoteServiceEnvironmentRequest2) GetProductTierVersion() string {
+	if o == nil || IsNil(o.ProductTierVersion) {
+		var ret string
+		return ret
+	}
+	return *o.ProductTierVersion
+}
+
+// GetProductTierVersionOk returns a tuple with the ProductTierVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PromoteServiceEnvironmentRequest2) GetProductTierVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.ProductTierVersion) {
+		return nil, false
+	}
+	return o.ProductTierVersion, true
+}
+
+// SetProductTierVersion gets a reference to the given string and assigns it to the ProductTierVersion field.
+func (o *PromoteServiceEnvironmentRequest2) SetProductTierVersion(v string) {
+	o.ProductTierVersion = &v
+}
+
 func (o PromoteServiceEnvironmentRequest2) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -78,6 +103,9 @@ func (o PromoteServiceEnvironmentRequest2) ToMap() (map[string]interface{}, erro
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.ProductTierId) {
 		toSerialize["productTierId"] = o.ProductTierId
+	}
+	if !IsNil(o.ProductTierVersion) {
+		toSerialize["productTierVersion"] = o.ProductTierVersion
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -102,6 +130,7 @@ func (o *PromoteServiceEnvironmentRequest2) UnmarshalJSON(data []byte) (err erro
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "productTierVersion")
 		o.AdditionalProperties = additionalProperties
 	}
 
@@ -143,4 +172,3 @@ func (v *NullablePromoteServiceEnvironmentRequest2) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

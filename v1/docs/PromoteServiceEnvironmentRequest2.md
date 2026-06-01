@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ProductTierId** | Pointer to **string** | The ID of the product tier to use for the promotion | [optional] 
+**ProductTierVersion** | Pointer to **string** | The version of the product tier to use for the promotion | [optional] 
 
 ## Methods
 
@@ -44,6 +45,25 @@ and a boolean to check if the value has been set.
 
 SetProductTierId sets ProductTierId field to given value.
 
+### GetProductTierVersion
+
+`func (o *PromoteServiceEnvironmentRequest2) GetProductTierVersion() string`
+
+GetProductTierVersion returns the ProductTierVersion field if non-nil, zero value otherwise.
+
+### GetProductTierVersionOk
+
+`func (o *PromoteServiceEnvironmentRequest2) GetProductTierVersionOk() (*string, bool)`
+
+GetProductTierVersionOk returns a tuple with the ProductTierVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductTierVersion
+
+`func (o *PromoteServiceEnvironmentRequest2) SetProductTierVersion(v string)`
+
+SetProductTierVersion sets ProductTierVersion field to given value.
+
 ### HasProductTierId
 
 `func (o *PromoteServiceEnvironmentRequest2) HasProductTierId() bool`
@@ -52,5 +72,4 @@ HasProductTierId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 
