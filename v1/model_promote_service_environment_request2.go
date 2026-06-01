@@ -21,8 +21,8 @@ var _ MappedNullable = &PromoteServiceEnvironmentRequest2{}
 type PromoteServiceEnvironmentRequest2 struct {
 	// The ID of the product tier to use for the promotion
 	ProductTierId *string `json:"productTierId,omitempty"`
-	// The version of the product tier to use for the promotion
-	ProductTierVersion   *string `json:"productTierVersion,omitempty"`
+	// The product tier version to use for the promotion
+	ProductTierVersion *string `json:"productTierVersion,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -92,7 +92,7 @@ func (o *PromoteServiceEnvironmentRequest2) SetProductTierVersion(v string) {
 }
 
 func (o PromoteServiceEnvironmentRequest2) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -172,3 +172,4 @@ func (v *NullablePromoteServiceEnvironmentRequest2) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

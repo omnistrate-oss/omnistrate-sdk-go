@@ -98,7 +98,7 @@ import (
 )
 
 func main() {
-	uploadDeploymentArtifactRequest2 := *openapiclient.NewUploadDeploymentArtifactRequest2("ac-1234567890", "/path/to", "Id voluptatem culpa incidunt minima ut.", "PROD|PRIVATE|CANARY|STAGING|QA|DEV|GLOBAL", "standard", "my-service") // UploadDeploymentArtifactRequest2 | 
+	uploadDeploymentArtifactRequest2 := *openapiclient.NewUploadDeploymentArtifactRequest2("ac-1234567890", "/path/to", "Incidunt asperiores quidem et voluptate occaecati.", "PROD|PRIVATE|CANARY|STAGING|QA|DEV|GLOBAL", "standard", "my-service") // UploadDeploymentArtifactRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

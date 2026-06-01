@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **AzureRegions** | Pointer to **[]string** | The Azure regions that this product tier is available on | [optional] 
 **BillingProductID** | Pointer to **string** | Optional billing product ID for tax purposes | [optional] 
 **BillingProviders** | Pointer to **[]string** | List of billing providers to be used for the product tier | [optional] 
+**ByocOnpremRegions** | Pointer to **[]string** | The BYOC on-prem regions that this product tier is available on | [optional] 
 **DefaultBillingProvider** | Pointer to **string** | The default billing provider to be used for the product tier | [optional] 
 **DeploymentConfiguration** | Pointer to [**ProductTierDeploymentConfiguration**](ProductTierDeploymentConfiguration.md) |  | [optional] 
 **Description** | **string** | A brief description of the product tier | 
@@ -200,6 +201,31 @@ SetBillingProviders sets BillingProviders field to given value.
 `func (o *CreateProductTierRequest2) HasBillingProviders() bool`
 
 HasBillingProviders returns a boolean if a field has been set.
+
+### GetByocOnpremRegions
+
+`func (o *CreateProductTierRequest2) GetByocOnpremRegions() []string`
+
+GetByocOnpremRegions returns the ByocOnpremRegions field if non-nil, zero value otherwise.
+
+### GetByocOnpremRegionsOk
+
+`func (o *CreateProductTierRequest2) GetByocOnpremRegionsOk() (*[]string, bool)`
+
+GetByocOnpremRegionsOk returns a tuple with the ByocOnpremRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetByocOnpremRegions
+
+`func (o *CreateProductTierRequest2) SetByocOnpremRegions(v []string)`
+
+SetByocOnpremRegions sets ByocOnpremRegions field to given value.
+
+### HasByocOnpremRegions
+
+`func (o *CreateProductTierRequest2) HasByocOnpremRegions() bool`
+
+HasByocOnpremRegions returns a boolean if a field has been set.
 
 ### GetDefaultBillingProvider
 

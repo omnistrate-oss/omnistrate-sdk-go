@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**ResourceInstanceApiListResourceInstances**](ResourceInstanceApiAPI.md#ResourceInstanceApiListResourceInstances) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey} | ListResourceInstances resource-instance-api
 [**ResourceInstanceApiRemoveCapacityFromResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiRemoveCapacityFromResourceInstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/remove-capacity | RemoveCapacityFromResourceInstance resource-instance-api
 [**ResourceInstanceApiRemoveCustomDNSFromResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiRemoveCustomDNSFromResourceInstance) | **Delete** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/custom-dns | RemoveCustomDNSFromResourceInstance resource-instance-api
+[**ResourceInstanceApiResourceInstanceCustomWorkflow**](ResourceInstanceApiAPI.md#ResourceInstanceApiResourceInstanceCustomWorkflow) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/custom-workflow/{workflowId}/execute | ResourceInstanceCustomWorkflow resource-instance-api
 [**ResourceInstanceApiResourceInstanceProvisionerSetupKit**](ResourceInstanceApiAPI.md#ResourceInstanceApiResourceInstanceProvisionerSetupKit) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/setup-kit | ResourceInstanceProvisionerSetupKit resource-instance-api
 [**ResourceInstanceApiRestartResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiRestartResourceInstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/restart | RestartResourceInstance resource-instance-api
 [**ResourceInstanceApiRestoreResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiRestoreResourceInstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/restore | RestoreResourceInstance resource-instance-api
@@ -1161,6 +1162,102 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ResourceInstanceApiResourceInstanceCustomWorkflow
+
+> ResourceInstanceCustomWorkflowResult ResourceInstanceApiResourceInstanceCustomWorkflow(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id, workflowId).ResourceInstanceCustomWorkflowRequest2(resourceInstanceCustomWorkflowRequest2).SubscriptionId(subscriptionId).Execute()
+
+ResourceInstanceCustomWorkflow resource-instance-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	serviceProviderId := "omnistrate" // string | The service provider ID
+	serviceKey := "service-orchestration" // string | The service name
+	serviceAPIVersion := "v1" // string | The service API version
+	serviceEnvironmentKey := "dev" // string | The service environment name
+	serviceModelKey := "hosted" // string | The service model name
+	productTierKey := "premium" // string | The product tier name
+	resourceKey := "postgres" // string | The resource key
+	id := "instance-abcd1234" // string | The instance ID
+	workflowId := "cwt-12345678" // string | The custom workflow ID from the instance's supportedOperations list.
+	resourceInstanceCustomWorkflowRequest2 := *openapiclient.NewResourceInstanceCustomWorkflowRequest2() // ResourceInstanceCustomWorkflowRequest2 | 
+	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiResourceInstanceCustomWorkflow(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id, workflowId).ResourceInstanceCustomWorkflowRequest2(resourceInstanceCustomWorkflowRequest2).SubscriptionId(subscriptionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiResourceInstanceCustomWorkflow``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ResourceInstanceApiResourceInstanceCustomWorkflow`: ResourceInstanceCustomWorkflowResult
+	fmt.Fprintf(os.Stdout, "Response from `ResourceInstanceApiAPI.ResourceInstanceApiResourceInstanceCustomWorkflow`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceProviderId** | **string** | The service provider ID | 
+**serviceKey** | **string** | The service name | 
+**serviceAPIVersion** | **string** | The service API version | 
+**serviceEnvironmentKey** | **string** | The service environment name | 
+**serviceModelKey** | **string** | The service model name | 
+**productTierKey** | **string** | The product tier name | 
+**resourceKey** | **string** | The resource key | 
+**id** | **string** | The instance ID | 
+**workflowId** | **string** | The custom workflow ID from the instance&#39;s supportedOperations list. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiResourceInstanceApiResourceInstanceCustomWorkflowRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+
+
+
+
+
+ **resourceInstanceCustomWorkflowRequest2** | [**ResourceInstanceCustomWorkflowRequest2**](ResourceInstanceCustomWorkflowRequest2.md) |  | 
+ **subscriptionId** | **string** | Subscription Id | 
+
+### Return type
+
+[**ResourceInstanceCustomWorkflowResult**](ResourceInstanceCustomWorkflowResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ResourceInstanceApiResourceInstanceProvisionerSetupKit
 
 > ResourceInstanceApiResourceInstanceProvisionerSetupKit(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey).SubscriptionId(subscriptionId).Execute()
@@ -1964,7 +2061,7 @@ import (
 
 func main() {
 	id := "instance-abcd1234" // string | The instance ID
-	upgradeResourceInstanceVersionRequest2 := *openapiclient.NewUpgradeResourceInstanceVersionRequest2("premium", "mysql", "v1", "dev", "service-orchestration", "hosted", "Quia in in.") // UpgradeResourceInstanceVersionRequest2 | 
+	upgradeResourceInstanceVersionRequest2 := *openapiclient.NewUpgradeResourceInstanceVersionRequest2("premium", "mysql", "v1", "dev", "service-orchestration", "hosted", "Sunt velit expedita et accusamus officia modi.") // UpgradeResourceInstanceVersionRequest2 | 
 	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
 
 	configuration := openapiclient.NewConfiguration()

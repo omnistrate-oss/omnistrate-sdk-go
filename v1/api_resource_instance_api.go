@@ -260,6 +260,27 @@ type ResourceInstanceApiAPI interface {
 	ResourceInstanceApiRemoveCustomDNSFromResourceInstanceExecute(r ApiResourceInstanceApiRemoveCustomDNSFromResourceInstanceRequest) (*http.Response, error)
 
 	/*
+	ResourceInstanceApiResourceInstanceCustomWorkflow ResourceInstanceCustomWorkflow resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@param workflowId The custom workflow ID from the instance's supportedOperations list.
+	@return ApiResourceInstanceApiResourceInstanceCustomWorkflowRequest
+	*/
+	ResourceInstanceApiResourceInstanceCustomWorkflow(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string, workflowId string) ApiResourceInstanceApiResourceInstanceCustomWorkflowRequest
+
+	// ResourceInstanceApiResourceInstanceCustomWorkflowExecute executes the request
+	//  @return ResourceInstanceCustomWorkflowResult
+	ResourceInstanceApiResourceInstanceCustomWorkflowExecute(r ApiResourceInstanceApiResourceInstanceCustomWorkflowRequest) (*ResourceInstanceCustomWorkflowResult, *http.Response, error)
+
+	/*
 	ResourceInstanceApiResourceInstanceProvisionerSetupKit ResourceInstanceProvisionerSetupKit resource-instance-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3023,6 +3044,225 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiRemoveCustomDNSFromRe
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+type ApiResourceInstanceApiResourceInstanceCustomWorkflowRequest struct {
+	ctx context.Context
+	ApiService ResourceInstanceApiAPI
+	serviceProviderId string
+	serviceKey string
+	serviceAPIVersion string
+	serviceEnvironmentKey string
+	serviceModelKey string
+	productTierKey string
+	resourceKey string
+	id string
+	workflowId string
+	resourceInstanceCustomWorkflowRequest2 *ResourceInstanceCustomWorkflowRequest2
+	subscriptionId *string
+}
+
+func (r ApiResourceInstanceApiResourceInstanceCustomWorkflowRequest) ResourceInstanceCustomWorkflowRequest2(resourceInstanceCustomWorkflowRequest2 ResourceInstanceCustomWorkflowRequest2) ApiResourceInstanceApiResourceInstanceCustomWorkflowRequest {
+	r.resourceInstanceCustomWorkflowRequest2 = &resourceInstanceCustomWorkflowRequest2
+	return r
+}
+
+// Subscription Id
+func (r ApiResourceInstanceApiResourceInstanceCustomWorkflowRequest) SubscriptionId(subscriptionId string) ApiResourceInstanceApiResourceInstanceCustomWorkflowRequest {
+	r.subscriptionId = &subscriptionId
+	return r
+}
+
+func (r ApiResourceInstanceApiResourceInstanceCustomWorkflowRequest) Execute() (*ResourceInstanceCustomWorkflowResult, *http.Response, error) {
+	return r.ApiService.ResourceInstanceApiResourceInstanceCustomWorkflowExecute(r)
+}
+
+/*
+ResourceInstanceApiResourceInstanceCustomWorkflow ResourceInstanceCustomWorkflow resource-instance-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serviceProviderId The service provider ID
+ @param serviceKey The service name
+ @param serviceAPIVersion The service API version
+ @param serviceEnvironmentKey The service environment name
+ @param serviceModelKey The service model name
+ @param productTierKey The product tier name
+ @param resourceKey The resource key
+ @param id The instance ID
+ @param workflowId The custom workflow ID from the instance's supportedOperations list.
+ @return ApiResourceInstanceApiResourceInstanceCustomWorkflowRequest
+*/
+func (a *ResourceInstanceApiAPIService) ResourceInstanceApiResourceInstanceCustomWorkflow(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string, workflowId string) ApiResourceInstanceApiResourceInstanceCustomWorkflowRequest {
+	return ApiResourceInstanceApiResourceInstanceCustomWorkflowRequest{
+		ApiService: a,
+		ctx: ctx,
+		serviceProviderId: serviceProviderId,
+		serviceKey: serviceKey,
+		serviceAPIVersion: serviceAPIVersion,
+		serviceEnvironmentKey: serviceEnvironmentKey,
+		serviceModelKey: serviceModelKey,
+		productTierKey: productTierKey,
+		resourceKey: resourceKey,
+		id: id,
+		workflowId: workflowId,
+	}
+}
+
+// Execute executes the request
+//  @return ResourceInstanceCustomWorkflowResult
+func (a *ResourceInstanceApiAPIService) ResourceInstanceApiResourceInstanceCustomWorkflowExecute(r ApiResourceInstanceApiResourceInstanceCustomWorkflowRequest) (*ResourceInstanceCustomWorkflowResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ResourceInstanceCustomWorkflowResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiResourceInstanceCustomWorkflow")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/custom-workflow/{workflowId}/execute"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceProviderId"+"}", url.PathEscape(parameterValueToString(r.serviceProviderId, "serviceProviderId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceKey"+"}", url.PathEscape(parameterValueToString(r.serviceKey, "serviceKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceAPIVersion"+"}", url.PathEscape(parameterValueToString(r.serviceAPIVersion, "serviceAPIVersion")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceEnvironmentKey"+"}", url.PathEscape(parameterValueToString(r.serviceEnvironmentKey, "serviceEnvironmentKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceModelKey"+"}", url.PathEscape(parameterValueToString(r.serviceModelKey, "serviceModelKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"productTierKey"+"}", url.PathEscape(parameterValueToString(r.productTierKey, "productTierKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"resourceKey"+"}", url.PathEscape(parameterValueToString(r.resourceKey, "resourceKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"workflowId"+"}", url.PathEscape(parameterValueToString(r.workflowId, "workflowId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.resourceInstanceCustomWorkflowRequest2 == nil {
+		return localVarReturnValue, nil, reportError("resourceInstanceCustomWorkflowRequest2 is required and must be specified")
+	}
+
+	if r.subscriptionId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "subscriptionId", r.subscriptionId, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.resourceInstanceCustomWorkflowRequest2
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiResourceInstanceApiResourceInstanceProvisionerSetupKitRequest struct {

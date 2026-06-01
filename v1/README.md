@@ -128,6 +128,11 @@ Class | Method | HTTP request | Description
 *ConsumptionBillingApiAPI* | [**ConsumptionBillingApiDescribeConsumptionBillingDetails**](docs/ConsumptionBillingApiAPI.md#consumptionbillingapidescribeconsumptionbillingdetails) | **Get** /2022-09-01-00/resource-instance/billing-details | DescribeConsumptionBillingDetails consumption-billing-api
 *ConsumptionBillingApiAPI* | [**ConsumptionBillingApiDescribeConsumptionBillingStatus**](docs/ConsumptionBillingApiAPI.md#consumptionbillingapidescribeconsumptionbillingstatus) | **Get** /2022-09-01-00/resource-instance/billing-status | DescribeConsumptionBillingStatus consumption-billing-api
 *ConsumptionInvoiceApiAPI* | [**ConsumptionInvoiceApiListConsumptionInvoices**](docs/ConsumptionInvoiceApiAPI.md#consumptioninvoiceapilistconsumptioninvoices) | **Get** /2022-09-01-00/resource-instance/invoice | ListConsumptionInvoices consumption-invoice-api
+*ConsumptionPaymentMethodApiAPI* | [**ConsumptionPaymentMethodApiCreateConsumptionSetupIntent**](docs/ConsumptionPaymentMethodApiAPI.md#consumptionpaymentmethodapicreateconsumptionsetupintent) | **Post** /2022-09-01-00/resource-instance/billing/stripe/payment-methods/setup-intent | CreateConsumptionSetupIntent consumption-payment-method-api
+*ConsumptionPaymentMethodApiAPI* | [**ConsumptionPaymentMethodApiGetConsumptionStripeConfig**](docs/ConsumptionPaymentMethodApiAPI.md#consumptionpaymentmethodapigetconsumptionstripeconfig) | **Get** /2022-09-01-00/resource-instance/billing/stripe/config | GetConsumptionStripeConfig consumption-payment-method-api
+*ConsumptionPaymentMethodApiAPI* | [**ConsumptionPaymentMethodApiListConsumptionPaymentMethods**](docs/ConsumptionPaymentMethodApiAPI.md#consumptionpaymentmethodapilistconsumptionpaymentmethods) | **Get** /2022-09-01-00/resource-instance/billing/stripe/payment-methods | ListConsumptionPaymentMethods consumption-payment-method-api
+*ConsumptionPaymentMethodApiAPI* | [**ConsumptionPaymentMethodApiRemoveConsumptionPaymentMethod**](docs/ConsumptionPaymentMethodApiAPI.md#consumptionpaymentmethodapiremoveconsumptionpaymentmethod) | **Delete** /2022-09-01-00/resource-instance/billing/stripe/payment-methods/{id} | RemoveConsumptionPaymentMethod consumption-payment-method-api
+*ConsumptionPaymentMethodApiAPI* | [**ConsumptionPaymentMethodApiSetDefaultConsumptionPaymentMethod**](docs/ConsumptionPaymentMethodApiAPI.md#consumptionpaymentmethodapisetdefaultconsumptionpaymentmethod) | **Post** /2022-09-01-00/resource-instance/billing/stripe/payment-methods/{id}/default | SetDefaultConsumptionPaymentMethod consumption-payment-method-api
 *ConsumptionUsageApiAPI* | [**ConsumptionUsageApiGetConsumptionUsagePerDay**](docs/ConsumptionUsageApiAPI.md#consumptionusageapigetconsumptionusageperday) | **Get** /2022-09-01-00/resource-instance/usage-per-day | GetConsumptionUsagePerDay consumption-usage-api
 *ConsumptionUsageApiAPI* | [**ConsumptionUsageApiGetCurrentConsumptionUsage**](docs/ConsumptionUsageApiAPI.md#consumptionusageapigetcurrentconsumptionusage) | **Get** /2022-09-01-00/resource-instance/usage | GetCurrentConsumptionUsage consumption-usage-api
 *ConsumptionUserApiAPI* | [**ConsumptionUserApiDescribeUserBillingDetails**](docs/ConsumptionUserApiAPI.md#consumptionuserapidescribeuserbillingdetails) | **Get** /2022-09-01-00/resource-instance/user/{id}/billing-details | DescribeUserBillingDetails consumption-user-api
@@ -283,6 +288,7 @@ Class | Method | HTTP request | Description
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiListResourceInstances**](docs/ResourceInstanceApiAPI.md#resourceinstanceapilistresourceinstances) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey} | ListResourceInstances resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiRemoveCapacityFromResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapiremovecapacityfromresourceinstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/remove-capacity | RemoveCapacityFromResourceInstance resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiRemoveCustomDNSFromResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapiremovecustomdnsfromresourceinstance) | **Delete** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/custom-dns | RemoveCustomDNSFromResourceInstance resource-instance-api
+*ResourceInstanceApiAPI* | [**ResourceInstanceApiResourceInstanceCustomWorkflow**](docs/ResourceInstanceApiAPI.md#resourceinstanceapiresourceinstancecustomworkflow) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/custom-workflow/{workflowId}/execute | ResourceInstanceCustomWorkflow resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiResourceInstanceProvisionerSetupKit**](docs/ResourceInstanceApiAPI.md#resourceinstanceapiresourceinstanceprovisionersetupkit) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/setup-kit | ResourceInstanceProvisionerSetupKit resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiRestartResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapirestartresourceinstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/restart | RestartResourceInstance resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiRestoreResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapirestoreresourceinstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/restore | RestoreResourceInstance resource-instance-api
@@ -519,6 +525,7 @@ Class | Method | HTTP request | Description
  - [CreateAccountConfigRequest2](docs/CreateAccountConfigRequest2.md)
  - [CreateComputeConfigRequest](docs/CreateComputeConfigRequest.md)
  - [CreateComputeConfigRequest2](docs/CreateComputeConfigRequest2.md)
+ - [CreateConsumptionSetupIntentRequest](docs/CreateConsumptionSetupIntentRequest.md)
  - [CreateCustomDomainRequest](docs/CreateCustomDomainRequest.md)
  - [CreateCustomDomainRequest2](docs/CreateCustomDomainRequest2.md)
  - [CreateCustomNetworkRequest](docs/CreateCustomNetworkRequest.md)
@@ -565,6 +572,7 @@ Class | Method | HTTP request | Description
  - [CreateServicesOrchestrationRequest](docs/CreateServicesOrchestrationRequest.md)
  - [CreateServicesOrchestrationRequest2](docs/CreateServicesOrchestrationRequest2.md)
  - [CreateServicesOrchestrationResponseBody](docs/CreateServicesOrchestrationResponseBody.md)
+ - [CreateSetupIntentResult](docs/CreateSetupIntentResult.md)
  - [CreateStorageConfigRequest](docs/CreateStorageConfigRequest.md)
  - [CreateStorageConfigRequest2](docs/CreateStorageConfigRequest2.md)
  - [CreateStorageVolumeConfigRequest](docs/CreateStorageVolumeConfigRequest.md)
@@ -810,6 +818,7 @@ Class | Method | HTTP request | Description
  - [GenericCommandValueProviderConfig](docs/GenericCommandValueProviderConfig.md)
  - [GetAvailabilityZoneByCodeRequest](docs/GetAvailabilityZoneByCodeRequest.md)
  - [GetCloudProviderByNameRequest](docs/GetCloudProviderByNameRequest.md)
+ - [GetConsumptionStripeConfigRequest](docs/GetConsumptionStripeConfigRequest.md)
  - [GetConsumptionUsageRequest](docs/GetConsumptionUsageRequest.md)
  - [GetConsumptionUsageResult](docs/GetConsumptionUsageResult.md)
  - [GetCurrentConsumptionUsageRequest](docs/GetCurrentConsumptionUsageRequest.md)
@@ -886,6 +895,7 @@ Class | Method | HTTP request | Description
  - [ListComputeConfigsResult](docs/ListComputeConfigsResult.md)
  - [ListComputeInstanceTypesRequest](docs/ListComputeInstanceTypesRequest.md)
  - [ListComputeInstanceTypesResult](docs/ListComputeInstanceTypesResult.md)
+ - [ListConsumptionPaymentMethodsRequest](docs/ListConsumptionPaymentMethodsRequest.md)
  - [ListCustomDomainRequest](docs/ListCustomDomainRequest.md)
  - [ListCustomDomainResult](docs/ListCustomDomainResult.md)
  - [ListCustomNetworksRequest](docs/ListCustomNetworksRequest.md)
@@ -925,6 +935,7 @@ Class | Method | HTTP request | Description
  - [ListNetworkConfigsResult](docs/ListNetworkConfigsResult.md)
  - [ListOutputParametersRequest](docs/ListOutputParametersRequest.md)
  - [ListOutputParametersResult](docs/ListOutputParametersResult.md)
+ - [ListPaymentMethodsResult](docs/ListPaymentMethodsResult.md)
  - [ListPipelinesRequest](docs/ListPipelinesRequest.md)
  - [ListPipelinesResult](docs/ListPipelinesResult.md)
  - [ListProductTiersRequest](docs/ListProductTiersRequest.md)
@@ -1004,6 +1015,7 @@ Class | Method | HTTP request | Description
  - [OrgUsers](docs/OrgUsers.md)
  - [OutputParameter](docs/OutputParameter.md)
  - [OutputParameterEntity](docs/OutputParameterEntity.md)
+ - [PaymentMethod](docs/PaymentMethod.md)
  - [PortsRange](docs/PortsRange.md)
  - [PrepareServiceFromServicePlanSpecRequest](docs/PrepareServiceFromServicePlanSpecRequest.md)
  - [PrepareServiceFromServicePlanSpecRequest2](docs/PrepareServiceFromServicePlanSpecRequest2.md)
@@ -1045,6 +1057,7 @@ Class | Method | HTTP request | Description
  - [RemoveCapacityFromResourceInstanceRequest2](docs/RemoveCapacityFromResourceInstanceRequest2.md)
  - [RemoveComputeInstanceTypeRequest](docs/RemoveComputeInstanceTypeRequest.md)
  - [RemoveComputeInstanceTypeRequest2](docs/RemoveComputeInstanceTypeRequest2.md)
+ - [RemoveConsumptionPaymentMethodRequest](docs/RemoveConsumptionPaymentMethodRequest.md)
  - [RemoveCustomDNSToResourceInstanceRequest](docs/RemoveCustomDNSToResourceInstanceRequest.md)
  - [RemoveFileRequest](docs/RemoveFileRequest.md)
  - [RemoveResourceDependencyRequest](docs/RemoveResourceDependencyRequest.md)
@@ -1060,8 +1073,12 @@ Class | Method | HTTP request | Description
  - [ResourceDependency](docs/ResourceDependency.md)
  - [ResourceEntity](docs/ResourceEntity.md)
  - [ResourceHealthSummary](docs/ResourceHealthSummary.md)
+ - [ResourceInstanceCustomWorkflowRequest](docs/ResourceInstanceCustomWorkflowRequest.md)
+ - [ResourceInstanceCustomWorkflowRequest2](docs/ResourceInstanceCustomWorkflowRequest2.md)
+ - [ResourceInstanceCustomWorkflowResult](docs/ResourceInstanceCustomWorkflowResult.md)
  - [ResourceInstanceMetadata](docs/ResourceInstanceMetadata.md)
  - [ResourceInstanceProvisionerSetupKitRequest](docs/ResourceInstanceProvisionerSetupKitRequest.md)
+ - [ResourceInstanceSupportedOperation](docs/ResourceInstanceSupportedOperation.md)
  - [ResourceNetworkTopologyResult](docs/ResourceNetworkTopologyResult.md)
  - [ResourceSpec](docs/ResourceSpec.md)
  - [ResourceSpecLimits](docs/ResourceSpecLimits.md)
@@ -1109,6 +1126,7 @@ Class | Method | HTTP request | Description
  - [ServiceProviderEvent](docs/ServiceProviderEvent.md)
  - [ServiceProviderEventSummary](docs/ServiceProviderEventSummary.md)
  - [SetActiveAccountConfigRequest](docs/SetActiveAccountConfigRequest.md)
+ - [SetDefaultConsumptionPaymentMethodRequest](docs/SetDefaultConsumptionPaymentMethodRequest.md)
  - [SetEnvironmentVariablesRequest](docs/SetEnvironmentVariablesRequest.md)
  - [SetEnvironmentVariablesRequest2](docs/SetEnvironmentVariablesRequest2.md)
  - [SetSecretRequest](docs/SetSecretRequest.md)
@@ -1120,6 +1138,7 @@ Class | Method | HTTP request | Description
  - [StopResourceInstanceRequest](docs/StopResourceInstanceRequest.md)
  - [StripeAuthorizeURLRequest](docs/StripeAuthorizeURLRequest.md)
  - [StripeAuthorizeURLResult](docs/StripeAuthorizeURLResult.md)
+ - [StripeConfigResult](docs/StripeConfigResult.md)
  - [SubnetDetail](docs/SubnetDetail.md)
  - [SubscriptionLicense](docs/SubscriptionLicense.md)
  - [SubscriptionUsers](docs/SubscriptionUsers.md)

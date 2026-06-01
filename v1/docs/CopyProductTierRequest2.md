@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this product tier is available on | [optional] 
 **AzureRegions** | Pointer to **[]string** | The Azure regions that this product tier is available on | [optional] 
 **BillingProductID** | Pointer to **string** | Optional billing product ID for tax purposes | [optional] 
+**ByocOnpremRegions** | Pointer to **[]string** | The BYOC on-prem regions that this product tier is available on | [optional] 
 **Description** | **string** | A brief description of the product tier | 
 **Documentation** | Pointer to **string** | Documentation | [optional] 
 **EnableDeletionProtection** | Pointer to **bool** | Enable deletion protection for the product tier | [optional] 
@@ -171,6 +172,31 @@ SetBillingProductID sets BillingProductID field to given value.
 `func (o *CopyProductTierRequest2) HasBillingProductID() bool`
 
 HasBillingProductID returns a boolean if a field has been set.
+
+### GetByocOnpremRegions
+
+`func (o *CopyProductTierRequest2) GetByocOnpremRegions() []string`
+
+GetByocOnpremRegions returns the ByocOnpremRegions field if non-nil, zero value otherwise.
+
+### GetByocOnpremRegionsOk
+
+`func (o *CopyProductTierRequest2) GetByocOnpremRegionsOk() (*[]string, bool)`
+
+GetByocOnpremRegionsOk returns a tuple with the ByocOnpremRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetByocOnpremRegions
+
+`func (o *CopyProductTierRequest2) SetByocOnpremRegions(v []string)`
+
+SetByocOnpremRegions sets ByocOnpremRegions field to given value.
+
+### HasByocOnpremRegions
+
+`func (o *CopyProductTierRequest2) HasByocOnpremRegions() bool`
+
+HasByocOnpremRegions returns a boolean if a field has been set.
 
 ### GetDescription
 
