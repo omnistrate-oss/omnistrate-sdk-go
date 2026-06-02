@@ -67,6 +67,8 @@ type APIClient struct {
 
 	ConsumptionInvoiceApiAPI ConsumptionInvoiceApiAPI
 
+	ConsumptionPaymentMethodApiAPI ConsumptionPaymentMethodApiAPI
+
 	ConsumptionUsageApiAPI ConsumptionUsageApiAPI
 
 	ConsumptionUserApiAPI ConsumptionUserApiAPI
@@ -193,6 +195,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ComputeConfigApiAPI = (*ComputeConfigApiAPIService)(&c.common)
 	c.ConsumptionBillingApiAPI = (*ConsumptionBillingApiAPIService)(&c.common)
 	c.ConsumptionInvoiceApiAPI = (*ConsumptionInvoiceApiAPIService)(&c.common)
+	c.ConsumptionPaymentMethodApiAPI = (*ConsumptionPaymentMethodApiAPIService)(&c.common)
 	c.ConsumptionUsageApiAPI = (*ConsumptionUsageApiAPIService)(&c.common)
 	c.ConsumptionUserApiAPI = (*ConsumptionUserApiAPIService)(&c.common)
 	c.ContactusApiAPI = (*ContactusApiAPIService)(&c.common)
