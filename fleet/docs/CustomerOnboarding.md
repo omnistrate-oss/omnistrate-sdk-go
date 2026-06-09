@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **OrgId** | **string** | ID of an Org | 
 **ServiceId** | Pointer to **string** | The ID of the service associated with this onboarding. | [optional] 
 **Stages** | [**[]OnboardingStage**](OnboardingStage.md) | The stages of the onboarding. | 
+**TerraformExecutionPolicies** | Pointer to [**map[string]OnboardingTerraformExecutionPolicy**](OnboardingTerraformExecutionPolicy.md) | Terraform execution policy metadata per cloud provider. | [optional] 
 **UserId** | **string** | ID of a User | 
 
 ## Methods
@@ -290,6 +291,31 @@ and a boolean to check if the value has been set.
 
 SetStages sets Stages field to given value.
 
+
+### GetTerraformExecutionPolicies
+
+`func (o *CustomerOnboarding) GetTerraformExecutionPolicies() map[string]OnboardingTerraformExecutionPolicy`
+
+GetTerraformExecutionPolicies returns the TerraformExecutionPolicies field if non-nil, zero value otherwise.
+
+### GetTerraformExecutionPoliciesOk
+
+`func (o *CustomerOnboarding) GetTerraformExecutionPoliciesOk() (*map[string]OnboardingTerraformExecutionPolicy, bool)`
+
+GetTerraformExecutionPoliciesOk returns a tuple with the TerraformExecutionPolicies field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTerraformExecutionPolicies
+
+`func (o *CustomerOnboarding) SetTerraformExecutionPolicies(v map[string]OnboardingTerraformExecutionPolicy)`
+
+SetTerraformExecutionPolicies sets TerraformExecutionPolicies field to given value.
+
+### HasTerraformExecutionPolicies
+
+`func (o *CustomerOnboarding) HasTerraformExecutionPolicies() bool`
+
+HasTerraformExecutionPolicies returns a boolean if a field has been set.
 
 ### GetUserId
 

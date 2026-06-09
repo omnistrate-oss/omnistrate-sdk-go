@@ -39,6 +39,8 @@ type CustomerOnboarding struct {
 	ServiceId *string `json:"serviceId,omitempty"`
 	// The stages of the onboarding.
 	Stages []OnboardingStage `json:"stages"`
+	// Terraform execution policy metadata per cloud provider.
+	TerraformExecutionPolicies *map[string]OnboardingTerraformExecutionPolicy `json:"terraformExecutionPolicies,omitempty"`
 	// ID of a User
 	UserId string `json:"userId"`
 	AdditionalProperties map[string]interface{}
@@ -388,6 +390,38 @@ func (o *CustomerOnboarding) SetStages(v []OnboardingStage) {
 	o.Stages = v
 }
 
+// GetTerraformExecutionPolicies returns the TerraformExecutionPolicies field value if set, zero value otherwise.
+func (o *CustomerOnboarding) GetTerraformExecutionPolicies() map[string]OnboardingTerraformExecutionPolicy {
+	if o == nil || IsNil(o.TerraformExecutionPolicies) {
+		var ret map[string]OnboardingTerraformExecutionPolicy
+		return ret
+	}
+	return *o.TerraformExecutionPolicies
+}
+
+// GetTerraformExecutionPoliciesOk returns a tuple with the TerraformExecutionPolicies field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomerOnboarding) GetTerraformExecutionPoliciesOk() (*map[string]OnboardingTerraformExecutionPolicy, bool) {
+	if o == nil || IsNil(o.TerraformExecutionPolicies) {
+		return nil, false
+	}
+	return o.TerraformExecutionPolicies, true
+}
+
+// HasTerraformExecutionPolicies returns a boolean if a field has been set.
+func (o *CustomerOnboarding) HasTerraformExecutionPolicies() bool {
+	if o != nil && !IsNil(o.TerraformExecutionPolicies) {
+		return true
+	}
+
+	return false
+}
+
+// SetTerraformExecutionPolicies gets a reference to the given map[string]OnboardingTerraformExecutionPolicy and assigns it to the TerraformExecutionPolicies field.
+func (o *CustomerOnboarding) SetTerraformExecutionPolicies(v map[string]OnboardingTerraformExecutionPolicy) {
+	o.TerraformExecutionPolicies = &v
+}
+
 // GetUserId returns the UserId field value
 func (o *CustomerOnboarding) GetUserId() string {
 	if o == nil {
@@ -447,6 +481,9 @@ func (o CustomerOnboarding) ToMap() (map[string]interface{}, error) {
 		toSerialize["serviceId"] = o.ServiceId
 	}
 	toSerialize["stages"] = o.Stages
+	if !IsNil(o.TerraformExecutionPolicies) {
+		toSerialize["terraformExecutionPolicies"] = o.TerraformExecutionPolicies
+	}
 	toSerialize["userId"] = o.UserId
 
 	for key, value := range o.AdditionalProperties {
@@ -506,6 +543,7 @@ func (o *CustomerOnboarding) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "orgId")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "stages")
+		delete(additionalProperties, "terraformExecutionPolicies")
 		delete(additionalProperties, "userId")
 		o.AdditionalProperties = additionalProperties
 	}

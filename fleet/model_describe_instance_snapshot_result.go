@@ -47,6 +47,8 @@ type DescribeInstanceSnapshotResult struct {
 	ServiceName *string `json:"serviceName,omitempty"`
 	// ID of a Resource Instance Snapshot
 	SnapshotId *string `json:"snapshotId,omitempty"`
+	// Additional metadata stored for the snapshot
+	SnapshotMetadata map[string]interface{} `json:"snapshotMetadata,omitempty"`
 	// The snapshot type
 	SnapshotType *string `json:"snapshotType,omitempty"`
 	// ID of a Resource Instance
@@ -533,6 +535,38 @@ func (o *DescribeInstanceSnapshotResult) SetSnapshotId(v string) {
 	o.SnapshotId = &v
 }
 
+// GetSnapshotMetadata returns the SnapshotMetadata field value if set, zero value otherwise.
+func (o *DescribeInstanceSnapshotResult) GetSnapshotMetadata() map[string]interface{} {
+	if o == nil || IsNil(o.SnapshotMetadata) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.SnapshotMetadata
+}
+
+// GetSnapshotMetadataOk returns a tuple with the SnapshotMetadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeInstanceSnapshotResult) GetSnapshotMetadataOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.SnapshotMetadata) {
+		return map[string]interface{}{}, false
+	}
+	return o.SnapshotMetadata, true
+}
+
+// HasSnapshotMetadata returns a boolean if a field has been set.
+func (o *DescribeInstanceSnapshotResult) HasSnapshotMetadata() bool {
+	if o != nil && !IsNil(o.SnapshotMetadata) {
+		return true
+	}
+
+	return false
+}
+
+// SetSnapshotMetadata gets a reference to the given map[string]interface{} and assigns it to the SnapshotMetadata field.
+func (o *DescribeInstanceSnapshotResult) SetSnapshotMetadata(v map[string]interface{}) {
+	o.SnapshotMetadata = v
+}
+
 // GetSnapshotType returns the SnapshotType field value if set, zero value otherwise.
 func (o *DescribeInstanceSnapshotResult) GetSnapshotType() string {
 	if o == nil || IsNil(o.SnapshotType) {
@@ -841,6 +875,9 @@ func (o DescribeInstanceSnapshotResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.SnapshotId) {
 		toSerialize["snapshotId"] = o.SnapshotId
 	}
+	if !IsNil(o.SnapshotMetadata) {
+		toSerialize["snapshotMetadata"] = o.SnapshotMetadata
+	}
 	if !IsNil(o.SnapshotType) {
 		toSerialize["snapshotType"] = o.SnapshotType
 	}
@@ -901,6 +938,7 @@ func (o *DescribeInstanceSnapshotResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "serviceName")
 		delete(additionalProperties, "snapshotId")
+		delete(additionalProperties, "snapshotMetadata")
 		delete(additionalProperties, "snapshotType")
 		delete(additionalProperties, "sourceInstanceId")
 		delete(additionalProperties, "status")

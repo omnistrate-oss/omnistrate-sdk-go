@@ -22,6 +22,8 @@ var _ MappedNullable = &FleetSyncAccountConfigCloudNativeNetworkTarget{}
 type FleetSyncAccountConfigCloudNativeNetworkTarget struct {
 	// Optional cloud provider network ID (e.g. AWS VPC ID). When omitted, every VPC in the region is enumerated.
 	CloudNativeNetworkId *string `json:"cloudNativeNetworkId,omitempty"`
+	// Whether to load list of host clusters within the cloud provider network.
+	IncludeHostClusters *bool `json:"includeHostClusters,omitempty"`
 	// The cloud region where the network resides
 	Region string `json:"region"`
 	AdditionalProperties map[string]interface{}
@@ -79,6 +81,38 @@ func (o *FleetSyncAccountConfigCloudNativeNetworkTarget) SetCloudNativeNetworkId
 	o.CloudNativeNetworkId = &v
 }
 
+// GetIncludeHostClusters returns the IncludeHostClusters field value if set, zero value otherwise.
+func (o *FleetSyncAccountConfigCloudNativeNetworkTarget) GetIncludeHostClusters() bool {
+	if o == nil || IsNil(o.IncludeHostClusters) {
+		var ret bool
+		return ret
+	}
+	return *o.IncludeHostClusters
+}
+
+// GetIncludeHostClustersOk returns a tuple with the IncludeHostClusters field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetSyncAccountConfigCloudNativeNetworkTarget) GetIncludeHostClustersOk() (*bool, bool) {
+	if o == nil || IsNil(o.IncludeHostClusters) {
+		return nil, false
+	}
+	return o.IncludeHostClusters, true
+}
+
+// HasIncludeHostClusters returns a boolean if a field has been set.
+func (o *FleetSyncAccountConfigCloudNativeNetworkTarget) HasIncludeHostClusters() bool {
+	if o != nil && !IsNil(o.IncludeHostClusters) {
+		return true
+	}
+
+	return false
+}
+
+// SetIncludeHostClusters gets a reference to the given bool and assigns it to the IncludeHostClusters field.
+func (o *FleetSyncAccountConfigCloudNativeNetworkTarget) SetIncludeHostClusters(v bool) {
+	o.IncludeHostClusters = &v
+}
+
 // GetRegion returns the Region field value
 func (o *FleetSyncAccountConfigCloudNativeNetworkTarget) GetRegion() string {
 	if o == nil {
@@ -115,6 +149,9 @@ func (o FleetSyncAccountConfigCloudNativeNetworkTarget) ToMap() (map[string]inte
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.CloudNativeNetworkId) {
 		toSerialize["cloudNativeNetworkId"] = o.CloudNativeNetworkId
+	}
+	if !IsNil(o.IncludeHostClusters) {
+		toSerialize["includeHostClusters"] = o.IncludeHostClusters
 	}
 	toSerialize["region"] = o.Region
 
@@ -161,6 +198,7 @@ func (o *FleetSyncAccountConfigCloudNativeNetworkTarget) UnmarshalJSON(data []by
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "cloudNativeNetworkId")
+		delete(additionalProperties, "includeHostClusters")
 		delete(additionalProperties, "region")
 		o.AdditionalProperties = additionalProperties
 	}

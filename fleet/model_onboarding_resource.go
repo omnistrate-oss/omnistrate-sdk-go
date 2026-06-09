@@ -34,6 +34,8 @@ type OnboardingResource struct {
 	// Output variables for this resource.
 	OutputVariables []OnboardingResourceOutputVariable `json:"outputVariables,omitempty"`
 	TerraformConfigurations *OnboardingTerraformConfigurations `json:"terraformConfigurations,omitempty"`
+	// Terraform execution policy metadata per cloud provider.
+	TerraformExecutionPolicies *map[string]OnboardingTerraformExecutionPolicy `json:"terraformExecutionPolicies,omitempty"`
 	// The resource type.
 	Type string `json:"type"`
 	AdditionalProperties map[string]interface{}
@@ -340,6 +342,38 @@ func (o *OnboardingResource) SetTerraformConfigurations(v OnboardingTerraformCon
 	o.TerraformConfigurations = &v
 }
 
+// GetTerraformExecutionPolicies returns the TerraformExecutionPolicies field value if set, zero value otherwise.
+func (o *OnboardingResource) GetTerraformExecutionPolicies() map[string]OnboardingTerraformExecutionPolicy {
+	if o == nil || IsNil(o.TerraformExecutionPolicies) {
+		var ret map[string]OnboardingTerraformExecutionPolicy
+		return ret
+	}
+	return *o.TerraformExecutionPolicies
+}
+
+// GetTerraformExecutionPoliciesOk returns a tuple with the TerraformExecutionPolicies field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OnboardingResource) GetTerraformExecutionPoliciesOk() (*map[string]OnboardingTerraformExecutionPolicy, bool) {
+	if o == nil || IsNil(o.TerraformExecutionPolicies) {
+		return nil, false
+	}
+	return o.TerraformExecutionPolicies, true
+}
+
+// HasTerraformExecutionPolicies returns a boolean if a field has been set.
+func (o *OnboardingResource) HasTerraformExecutionPolicies() bool {
+	if o != nil && !IsNil(o.TerraformExecutionPolicies) {
+		return true
+	}
+
+	return false
+}
+
+// SetTerraformExecutionPolicies gets a reference to the given map[string]OnboardingTerraformExecutionPolicy and assigns it to the TerraformExecutionPolicies field.
+func (o *OnboardingResource) SetTerraformExecutionPolicies(v map[string]OnboardingTerraformExecutionPolicy) {
+	o.TerraformExecutionPolicies = &v
+}
+
 // GetType returns the Type field value
 func (o *OnboardingResource) GetType() string {
 	if o == nil {
@@ -399,6 +433,9 @@ func (o OnboardingResource) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TerraformConfigurations) {
 		toSerialize["terraformConfigurations"] = o.TerraformConfigurations
 	}
+	if !IsNil(o.TerraformExecutionPolicies) {
+		toSerialize["terraformExecutionPolicies"] = o.TerraformExecutionPolicies
+	}
 	toSerialize["type"] = o.Type
 
 	for key, value := range o.AdditionalProperties {
@@ -453,6 +490,7 @@ func (o *OnboardingResource) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "operatorCRDConfiguration")
 		delete(additionalProperties, "outputVariables")
 		delete(additionalProperties, "terraformConfigurations")
+		delete(additionalProperties, "terraformExecutionPolicies")
 		delete(additionalProperties, "type")
 		o.AdditionalProperties = additionalProperties
 	}

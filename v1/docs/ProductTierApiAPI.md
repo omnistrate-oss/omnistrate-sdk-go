@@ -8,9 +8,12 @@ Method | HTTP request | Description
 [**ProductTierApiCreateProductTier**](ProductTierApiAPI.md#ProductTierApiCreateProductTier) | **Post** /2022-09-01-00/service/{serviceId}/product-tier | CreateProductTier product-tier-api
 [**ProductTierApiDeleteProductTier**](ProductTierApiAPI.md#ProductTierApiDeleteProductTier) | **Delete** /2022-09-01-00/service/{serviceId}/product-tier/{id} | DeleteProductTier product-tier-api
 [**ProductTierApiDescribeProductTier**](ProductTierApiAPI.md#ProductTierApiDescribeProductTier) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{id} | DescribeProductTier product-tier-api
+[**ProductTierApiDescribeProductTierWorkspaceArtifacts**](ProductTierApiAPI.md#ProductTierApiDescribeProductTierWorkspaceArtifacts) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{id}/workspace-artifacts/{workspaceArtifactId} | DescribeProductTierWorkspaceArtifacts product-tier-api
 [**ProductTierApiDisableProductTierFeature**](ProductTierApiAPI.md#ProductTierApiDisableProductTierFeature) | **Delete** /2022-09-01-00/service/{serviceId}/product-tier/{id}/feature | DisableProductTierFeature product-tier-api
 [**ProductTierApiEnableProductTierFeature**](ProductTierApiAPI.md#ProductTierApiEnableProductTierFeature) | **Put** /2022-09-01-00/service/{serviceId}/product-tier/{id}/feature | EnableProductTierFeature product-tier-api
+[**ProductTierApiGetProductTierWorkspaceArtifactsDownloadURL**](ProductTierApiAPI.md#ProductTierApiGetProductTierWorkspaceArtifactsDownloadURL) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{id}/workspace-artifacts/download-url | GetProductTierWorkspaceArtifactsDownloadURL product-tier-api
 [**ProductTierApiListProductTier**](ProductTierApiAPI.md#ProductTierApiListProductTier) | **Get** /2022-09-01-00/service/{serviceId}/model/{serviceModelId}/product-tier | ListProductTier product-tier-api
+[**ProductTierApiPrepareProductTierWorkspaceArtifacts**](ProductTierApiAPI.md#ProductTierApiPrepareProductTierWorkspaceArtifacts) | **Post** /2022-09-01-00/service/{serviceId}/product-tier/{id}/workspace-artifacts/prepare | PrepareProductTierWorkspaceArtifacts product-tier-api
 [**ProductTierApiUpdateProductTier**](ProductTierApiAPI.md#ProductTierApiUpdateProductTier) | **Patch** /2022-09-01-00/service/{serviceId}/product-tier/{id} | UpdateProductTier product-tier-api
 
 
@@ -36,7 +39,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | Service ID
 	sourceId := "pt-12345678" // string | The source product tier ID
-	copyProductTierRequest2 := *openapiclient.NewCopyProductTierRequest2("A premium product tier", "Premium", "Consequatur nihil perspiciatis.") // CopyProductTierRequest2 | 
+	copyProductTierRequest2 := *openapiclient.NewCopyProductTierRequest2("A premium product tier", "Premium", "Dolorum pariatur quod aut alias.") // CopyProductTierRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -108,7 +111,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | Service ID
-	createProductTierRequest2 := *openapiclient.NewCreateProductTierRequest2("A premium product tier", "Premium", "A premium plan", "Consequuntur sequi velit praesentium et unde tenetur.", "OMNISTRATE_DEDICATED_TENANCY|OMNISTRATE_MULTI_TENANCY|CUSTOM_TENANCY") // CreateProductTierRequest2 | 
+	createProductTierRequest2 := *openapiclient.NewCreateProductTierRequest2("A premium product tier", "Premium", "A premium plan", "Distinctio cupiditate ut perferendis eos.", "OMNISTRATE_DEDICATED_TENANCY|OMNISTRATE_MULTI_TENANCY|CUSTOM_TENANCY") // CreateProductTierRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -300,6 +303,82 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ProductTierApiDescribeProductTierWorkspaceArtifacts
+
+> WorkspaceArtifactsResult ProductTierApiDescribeProductTierWorkspaceArtifacts(ctx, serviceId, id, workspaceArtifactId).Version(version).Execute()
+
+DescribeProductTierWorkspaceArtifacts product-tier-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | Service ID
+	id := "pt-12345678" // string | Product tier ID
+	workspaceArtifactId := "ws-da-12345678" // string | The workspace artifact archive ID
+	version := "3.0" // string | The product tier version to use. If omitted, the latest product tier workspace artifacts are used. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProductTierApiAPI.ProductTierApiDescribeProductTierWorkspaceArtifacts(context.Background(), serviceId, id, workspaceArtifactId).Version(version).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProductTierApiAPI.ProductTierApiDescribeProductTierWorkspaceArtifacts``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductTierApiDescribeProductTierWorkspaceArtifacts`: WorkspaceArtifactsResult
+	fmt.Fprintf(os.Stdout, "Response from `ProductTierApiAPI.ProductTierApiDescribeProductTierWorkspaceArtifacts`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | Service ID | 
+**id** | **string** | Product tier ID | 
+**workspaceArtifactId** | **string** | The workspace artifact archive ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiProductTierApiDescribeProductTierWorkspaceArtifactsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **version** | **string** | The product tier version to use. If omitted, the latest product tier workspace artifacts are used. | 
+
+### Return type
+
+[**WorkspaceArtifactsResult**](WorkspaceArtifactsResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ProductTierApiDisableProductTierFeature
 
 > ProductTierApiDisableProductTierFeature(ctx, serviceId, id).DisableProductTierFeatureRequest2(disableProductTierFeatureRequest2).Execute()
@@ -442,6 +521,81 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ProductTierApiGetProductTierWorkspaceArtifactsDownloadURL
+
+> WorkspaceArtifactsDownloadURLResult ProductTierApiGetProductTierWorkspaceArtifactsDownloadURL(ctx, serviceId, id).WorkspaceArtifactId(workspaceArtifactId).Version(version).Execute()
+
+GetProductTierWorkspaceArtifactsDownloadURL product-tier-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | Service ID
+	id := "pt-12345678" // string | Product tier ID
+	workspaceArtifactId := "ws-da-12345678" // string | The workspace artifact archive ID to download. If omitted, the latest prepared workspace artifact archive is used. (optional)
+	version := "3.0" // string | The product tier version to use. If omitted, the latest product tier workspace artifacts are used. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProductTierApiAPI.ProductTierApiGetProductTierWorkspaceArtifactsDownloadURL(context.Background(), serviceId, id).WorkspaceArtifactId(workspaceArtifactId).Version(version).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProductTierApiAPI.ProductTierApiGetProductTierWorkspaceArtifactsDownloadURL``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductTierApiGetProductTierWorkspaceArtifactsDownloadURL`: WorkspaceArtifactsDownloadURLResult
+	fmt.Fprintf(os.Stdout, "Response from `ProductTierApiAPI.ProductTierApiGetProductTierWorkspaceArtifactsDownloadURL`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | Service ID | 
+**id** | **string** | Product tier ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiProductTierApiGetProductTierWorkspaceArtifactsDownloadURLRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **workspaceArtifactId** | **string** | The workspace artifact archive ID to download. If omitted, the latest prepared workspace artifact archive is used. | 
+ **version** | **string** | The product tier version to use. If omitted, the latest product tier workspace artifacts are used. | 
+
+### Return type
+
+[**WorkspaceArtifactsDownloadURLResult**](WorkspaceArtifactsDownloadURLResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ProductTierApiListProductTier
 
 > ListProductTiersResult ProductTierApiListProductTier(ctx, serviceId, serviceModelId).Execute()
@@ -498,6 +652,79 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ListProductTiersResult**](ListProductTiersResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ProductTierApiPrepareProductTierWorkspaceArtifacts
+
+> WorkspaceArtifactsResult ProductTierApiPrepareProductTierWorkspaceArtifacts(ctx, serviceId, id).Version(version).Execute()
+
+PrepareProductTierWorkspaceArtifacts product-tier-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | Service ID
+	id := "pt-12345678" // string | Product tier ID
+	version := "3.0" // string | The product tier version to use. If omitted, the latest product tier workspace artifacts are used. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProductTierApiAPI.ProductTierApiPrepareProductTierWorkspaceArtifacts(context.Background(), serviceId, id).Version(version).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProductTierApiAPI.ProductTierApiPrepareProductTierWorkspaceArtifacts``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductTierApiPrepareProductTierWorkspaceArtifacts`: WorkspaceArtifactsResult
+	fmt.Fprintf(os.Stdout, "Response from `ProductTierApiAPI.ProductTierApiPrepareProductTierWorkspaceArtifacts`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | Service ID | 
+**id** | **string** | Product tier ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiProductTierApiPrepareProductTierWorkspaceArtifactsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **version** | **string** | The product tier version to use. If omitted, the latest product tier workspace artifacts are used. | 
+
+### Return type
+
+[**WorkspaceArtifactsResult**](WorkspaceArtifactsResult.md)
 
 ### Authorization
 

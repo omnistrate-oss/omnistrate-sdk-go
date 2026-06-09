@@ -53,11 +53,18 @@ type ApiConsumptionBillingApiDescribeConsumptionBillingDetailsRequest struct {
 	ctx context.Context
 	ApiService ConsumptionBillingApiAPI
 	returnUrl *string
+	supportsCustomPaymentPortal *bool
 }
 
 // Return Url used to configure payment methods links
 func (r ApiConsumptionBillingApiDescribeConsumptionBillingDetailsRequest) ReturnUrl(returnUrl string) ApiConsumptionBillingApiDescribeConsumptionBillingDetailsRequest {
 	r.returnUrl = &returnUrl
+	return r
+}
+
+// Whether the caller supports inline custom payment method management
+func (r ApiConsumptionBillingApiDescribeConsumptionBillingDetailsRequest) SupportsCustomPaymentPortal(supportsCustomPaymentPortal bool) ApiConsumptionBillingApiDescribeConsumptionBillingDetailsRequest {
+	r.supportsCustomPaymentPortal = &supportsCustomPaymentPortal
 	return r
 }
 
@@ -101,6 +108,9 @@ func (a *ConsumptionBillingApiAPIService) ConsumptionBillingApiDescribeConsumpti
 
 	if r.returnUrl != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "returnUrl", r.returnUrl, "form", "")
+	}
+	if r.supportsCustomPaymentPortal != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "supportsCustomPaymentPortal", r.supportsCustomPaymentPortal, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

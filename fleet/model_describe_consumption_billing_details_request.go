@@ -22,6 +22,8 @@ var _ MappedNullable = &DescribeConsumptionBillingDetailsRequest{}
 type DescribeConsumptionBillingDetailsRequest struct {
 	// Return Url used to configure payment methods links
 	ReturnUrl *string `json:"returnUrl,omitempty"`
+	// Whether the caller supports inline custom payment method management
+	SupportsCustomPaymentPortal *bool `json:"supportsCustomPaymentPortal,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -79,6 +81,38 @@ func (o *DescribeConsumptionBillingDetailsRequest) SetReturnUrl(v string) {
 	o.ReturnUrl = &v
 }
 
+// GetSupportsCustomPaymentPortal returns the SupportsCustomPaymentPortal field value if set, zero value otherwise.
+func (o *DescribeConsumptionBillingDetailsRequest) GetSupportsCustomPaymentPortal() bool {
+	if o == nil || IsNil(o.SupportsCustomPaymentPortal) {
+		var ret bool
+		return ret
+	}
+	return *o.SupportsCustomPaymentPortal
+}
+
+// GetSupportsCustomPaymentPortalOk returns a tuple with the SupportsCustomPaymentPortal field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeConsumptionBillingDetailsRequest) GetSupportsCustomPaymentPortalOk() (*bool, bool) {
+	if o == nil || IsNil(o.SupportsCustomPaymentPortal) {
+		return nil, false
+	}
+	return o.SupportsCustomPaymentPortal, true
+}
+
+// HasSupportsCustomPaymentPortal returns a boolean if a field has been set.
+func (o *DescribeConsumptionBillingDetailsRequest) HasSupportsCustomPaymentPortal() bool {
+	if o != nil && !IsNil(o.SupportsCustomPaymentPortal) {
+		return true
+	}
+
+	return false
+}
+
+// SetSupportsCustomPaymentPortal gets a reference to the given bool and assigns it to the SupportsCustomPaymentPortal field.
+func (o *DescribeConsumptionBillingDetailsRequest) SetSupportsCustomPaymentPortal(v bool) {
+	o.SupportsCustomPaymentPortal = &v
+}
+
 // GetToken returns the Token field value
 func (o *DescribeConsumptionBillingDetailsRequest) GetToken() string {
 	if o == nil {
@@ -115,6 +149,9 @@ func (o DescribeConsumptionBillingDetailsRequest) ToMap() (map[string]interface{
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.ReturnUrl) {
 		toSerialize["returnUrl"] = o.ReturnUrl
+	}
+	if !IsNil(o.SupportsCustomPaymentPortal) {
+		toSerialize["supportsCustomPaymentPortal"] = o.SupportsCustomPaymentPortal
 	}
 	toSerialize["token"] = o.Token
 
@@ -161,6 +198,7 @@ func (o *DescribeConsumptionBillingDetailsRequest) UnmarshalJSON(data []byte) (e
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "returnUrl")
+		delete(additionalProperties, "supportsCustomPaymentPortal")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

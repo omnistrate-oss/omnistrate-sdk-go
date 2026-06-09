@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **OperatorCRDConfiguration** | Pointer to [**OnboardingOperatorCRDConfiguration**](OnboardingOperatorCRDConfiguration.md) |  | [optional] 
 **OutputVariables** | Pointer to [**[]OnboardingResourceOutputVariable**](OnboardingResourceOutputVariable.md) | Output variables for this resource. | [optional] 
 **TerraformConfigurations** | Pointer to [**OnboardingTerraformConfigurations**](OnboardingTerraformConfigurations.md) |  | [optional] 
+**TerraformExecutionPolicies** | Pointer to [**map[string]OnboardingTerraformExecutionPolicy**](OnboardingTerraformExecutionPolicy.md) | Terraform execution policy metadata per cloud provider. | [optional] 
 **Type** | **string** | The resource type. | 
 
 ## Methods
@@ -253,6 +254,31 @@ SetTerraformConfigurations sets TerraformConfigurations field to given value.
 `func (o *OnboardingResource) HasTerraformConfigurations() bool`
 
 HasTerraformConfigurations returns a boolean if a field has been set.
+
+### GetTerraformExecutionPolicies
+
+`func (o *OnboardingResource) GetTerraformExecutionPolicies() map[string]OnboardingTerraformExecutionPolicy`
+
+GetTerraformExecutionPolicies returns the TerraformExecutionPolicies field if non-nil, zero value otherwise.
+
+### GetTerraformExecutionPoliciesOk
+
+`func (o *OnboardingResource) GetTerraformExecutionPoliciesOk() (*map[string]OnboardingTerraformExecutionPolicy, bool)`
+
+GetTerraformExecutionPoliciesOk returns a tuple with the TerraformExecutionPolicies field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTerraformExecutionPolicies
+
+`func (o *OnboardingResource) SetTerraformExecutionPolicies(v map[string]OnboardingTerraformExecutionPolicy)`
+
+SetTerraformExecutionPolicies sets TerraformExecutionPolicies field to given value.
+
+### HasTerraformExecutionPolicies
+
+`func (o *OnboardingResource) HasTerraformExecutionPolicies() bool`
+
+HasTerraformExecutionPolicies returns a boolean if a field has been set.
 
 ### GetType
 

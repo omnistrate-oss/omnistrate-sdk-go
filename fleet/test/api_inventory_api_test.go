@@ -1113,6 +1113,23 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test InventoryApiAPIService InventoryApiResourceInstanceCustomWorkflow", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var environmentId string
+		var instanceId string
+		var workflowId string
+
+		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiResourceInstanceCustomWorkflow(context.Background(), serviceId, environmentId, instanceId, workflowId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test InventoryApiAPIService InventoryApiRestartResourceInstance", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

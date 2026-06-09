@@ -241,9 +241,12 @@ Class | Method | HTTP request | Description
 *ProductTierApiAPI* | [**ProductTierApiCreateProductTier**](docs/ProductTierApiAPI.md#producttierapicreateproducttier) | **Post** /2022-09-01-00/service/{serviceId}/product-tier | CreateProductTier product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiDeleteProductTier**](docs/ProductTierApiAPI.md#producttierapideleteproducttier) | **Delete** /2022-09-01-00/service/{serviceId}/product-tier/{id} | DeleteProductTier product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiDescribeProductTier**](docs/ProductTierApiAPI.md#producttierapidescribeproducttier) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{id} | DescribeProductTier product-tier-api
+*ProductTierApiAPI* | [**ProductTierApiDescribeProductTierWorkspaceArtifacts**](docs/ProductTierApiAPI.md#producttierapidescribeproducttierworkspaceartifacts) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{id}/workspace-artifacts/{workspaceArtifactId} | DescribeProductTierWorkspaceArtifacts product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiDisableProductTierFeature**](docs/ProductTierApiAPI.md#producttierapidisableproducttierfeature) | **Delete** /2022-09-01-00/service/{serviceId}/product-tier/{id}/feature | DisableProductTierFeature product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiEnableProductTierFeature**](docs/ProductTierApiAPI.md#producttierapienableproducttierfeature) | **Put** /2022-09-01-00/service/{serviceId}/product-tier/{id}/feature | EnableProductTierFeature product-tier-api
+*ProductTierApiAPI* | [**ProductTierApiGetProductTierWorkspaceArtifactsDownloadURL**](docs/ProductTierApiAPI.md#producttierapigetproducttierworkspaceartifactsdownloadurl) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{id}/workspace-artifacts/download-url | GetProductTierWorkspaceArtifactsDownloadURL product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiListProductTier**](docs/ProductTierApiAPI.md#producttierapilistproducttier) | **Get** /2022-09-01-00/service/{serviceId}/model/{serviceModelId}/product-tier | ListProductTier product-tier-api
+*ProductTierApiAPI* | [**ProductTierApiPrepareProductTierWorkspaceArtifacts**](docs/ProductTierApiAPI.md#producttierapiprepareproducttierworkspaceartifacts) | **Post** /2022-09-01-00/service/{serviceId}/product-tier/{id}/workspace-artifacts/prepare | PrepareProductTierWorkspaceArtifacts product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiUpdateProductTier**](docs/ProductTierApiAPI.md#producttierapiupdateproducttier) | **Patch** /2022-09-01-00/service/{serviceId}/product-tier/{id} | UpdateProductTier product-tier-api
 *RegionApiAPI* | [**RegionApiDescribeRegion**](docs/RegionApiAPI.md#regionapidescriberegion) | **Get** /2022-09-01-00/region/{id} | DescribeRegion region-api
 *RegionApiAPI* | [**RegionApiGetRegionByCode**](docs/RegionApiAPI.md#regionapigetregionbycode) | **Get** /2022-09-01-00/region/code/{code}/cloud-provider/{cloudProviderName} | GetRegionByCode region-api
@@ -726,6 +729,7 @@ Class | Method | HTTP request | Description
  - [DescribePlanResult](docs/DescribePlanResult.md)
  - [DescribeProductTierRequest](docs/DescribeProductTierRequest.md)
  - [DescribeProductTierResult](docs/DescribeProductTierResult.md)
+ - [DescribeProductTierWorkspaceArtifactsRequest](docs/DescribeProductTierWorkspaceArtifactsRequest.md)
  - [DescribeRegionRequest](docs/DescribeRegionRequest.md)
  - [DescribeRegionResult](docs/DescribeRegionResult.md)
  - [DescribeResourceInstanceRequest](docs/DescribeResourceInstanceRequest.md)
@@ -824,6 +828,7 @@ Class | Method | HTTP request | Description
  - [GetCurrentConsumptionUsageRequest](docs/GetCurrentConsumptionUsageRequest.md)
  - [GetCurrentUsageRequest](docs/GetCurrentUsageRequest.md)
  - [GetFileRequest](docs/GetFileRequest.md)
+ - [GetProductTierWorkspaceArtifactsDownloadURLRequest](docs/GetProductTierWorkspaceArtifactsDownloadURLRequest.md)
  - [GetRegionByCodeRequest](docs/GetRegionByCodeRequest.md)
  - [GetSecretRequest](docs/GetSecretRequest.md)
  - [GetSecretResult](docs/GetSecretResult.md)
@@ -855,6 +860,7 @@ Class | Method | HTTP request | Description
  - [InviteUserRequest2](docs/InviteUserRequest2.md)
  - [Invoice](docs/Invoice.md)
  - [JobConfig](docs/JobConfig.md)
+ - [JobConfigResult](docs/JobConfigResult.md)
  - [JobMetric](docs/JobMetric.md)
  - [KubectlValueProviderConfig](docs/KubectlValueProviderConfig.md)
  - [KubernetesDashboardEndpoint](docs/KubernetesDashboardEndpoint.md)
@@ -1017,6 +1023,7 @@ Class | Method | HTTP request | Description
  - [OutputParameterEntity](docs/OutputParameterEntity.md)
  - [PaymentMethod](docs/PaymentMethod.md)
  - [PortsRange](docs/PortsRange.md)
+ - [PrepareProductTierWorkspaceArtifactsRequest](docs/PrepareProductTierWorkspaceArtifactsRequest.md)
  - [PrepareServiceFromServicePlanSpecRequest](docs/PrepareServiceFromServicePlanSpecRequest.md)
  - [PrepareServiceFromServicePlanSpecRequest2](docs/PrepareServiceFromServicePlanSpecRequest2.md)
  - [PrepareServiceFromServicePlanSpecResult](docs/PrepareServiceFromServicePlanSpecResult.md)
@@ -1242,6 +1249,8 @@ Class | Method | HTTP request | Description
  - [VerifyIdentityProviderResult](docs/VerifyIdentityProviderResult.md)
  - [WarmPoolConfiguration](docs/WarmPoolConfiguration.md)
  - [WorkflowFailure](docs/WorkflowFailure.md)
+ - [WorkspaceArtifactsDownloadURLResult](docs/WorkspaceArtifactsDownloadURLResult.md)
+ - [WorkspaceArtifactsResult](docs/WorkspaceArtifactsResult.md)
 
 
 ## Documentation For Authorization

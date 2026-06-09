@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Progress** | **int64** | The backup progress. 0-100 | 
 **Region** | **string** | The region name where the snapshot is stored | 
 **SnapshotId** | **string** | ID of a Resource Instance Snapshot | 
+**SnapshotMetadata** | Pointer to **map[string]interface{}** | Additional metadata stored for the snapshot | [optional] 
 **SnapshotType** | **string** | The snapshot type | 
 **Status** | **string** | The snapshot status | 
 
@@ -151,6 +152,31 @@ and a boolean to check if the value has been set.
 
 SetSnapshotId sets SnapshotId field to given value.
 
+
+### GetSnapshotMetadata
+
+`func (o *InstanceSnapshot) GetSnapshotMetadata() map[string]interface{}`
+
+GetSnapshotMetadata returns the SnapshotMetadata field if non-nil, zero value otherwise.
+
+### GetSnapshotMetadataOk
+
+`func (o *InstanceSnapshot) GetSnapshotMetadataOk() (*map[string]interface{}, bool)`
+
+GetSnapshotMetadataOk returns a tuple with the SnapshotMetadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSnapshotMetadata
+
+`func (o *InstanceSnapshot) SetSnapshotMetadata(v map[string]interface{})`
+
+SetSnapshotMetadata sets SnapshotMetadata field to given value.
+
+### HasSnapshotMetadata
+
+`func (o *InstanceSnapshot) HasSnapshotMetadata() bool`
+
+HasSnapshotMetadata returns a boolean if a field has been set.
 
 ### GetSnapshotType
 
