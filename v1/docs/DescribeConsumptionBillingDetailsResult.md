@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BillingProviders** | Pointer to [**[]CustomerBillingProvider**](CustomerBillingProvider.md) | The billing providers available for the customer. | [optional] 
+**CustomPaymentPortalEnabled** | Pointer to **bool** | Whether inline custom payment method management is enabled for this customer response. | [optional] 
 **PaymentConfigured** | **bool** | Deprecated. Whether the customer has configured their payment information. | 
 **PaymentInfoPortalURL** | Pointer to **string** | Deprecated. The URL from the billing provide to redirect users to so they can enter their payment information.  Only present when first adding payment information | [optional] 
 
@@ -51,6 +52,31 @@ SetBillingProviders sets BillingProviders field to given value.
 `func (o *DescribeConsumptionBillingDetailsResult) HasBillingProviders() bool`
 
 HasBillingProviders returns a boolean if a field has been set.
+
+### GetCustomPaymentPortalEnabled
+
+`func (o *DescribeConsumptionBillingDetailsResult) GetCustomPaymentPortalEnabled() bool`
+
+GetCustomPaymentPortalEnabled returns the CustomPaymentPortalEnabled field if non-nil, zero value otherwise.
+
+### GetCustomPaymentPortalEnabledOk
+
+`func (o *DescribeConsumptionBillingDetailsResult) GetCustomPaymentPortalEnabledOk() (*bool, bool)`
+
+GetCustomPaymentPortalEnabledOk returns a tuple with the CustomPaymentPortalEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomPaymentPortalEnabled
+
+`func (o *DescribeConsumptionBillingDetailsResult) SetCustomPaymentPortalEnabled(v bool)`
+
+SetCustomPaymentPortalEnabled sets CustomPaymentPortalEnabled field to given value.
+
+### HasCustomPaymentPortalEnabled
+
+`func (o *DescribeConsumptionBillingDetailsResult) HasCustomPaymentPortalEnabled() bool`
+
+HasCustomPaymentPortalEnabled returns a boolean if a field has been set.
 
 ### GetPaymentConfigured
 

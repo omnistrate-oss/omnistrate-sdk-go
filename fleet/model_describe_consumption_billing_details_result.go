@@ -22,6 +22,8 @@ var _ MappedNullable = &DescribeConsumptionBillingDetailsResult{}
 type DescribeConsumptionBillingDetailsResult struct {
 	// The billing providers available for the customer.
 	BillingProviders []CustomerBillingProvider `json:"billingProviders,omitempty"`
+	// Whether inline custom payment method management is enabled for this customer response.
+	CustomPaymentPortalEnabled *bool `json:"customPaymentPortalEnabled,omitempty"`
 	// Deprecated. Whether the customer has configured their payment information.
 	PaymentConfigured bool `json:"paymentConfigured"`
 	// Deprecated. The URL from the billing provide to redirect users to so they can enter their payment information.  Only present when first adding payment information
@@ -79,6 +81,38 @@ func (o *DescribeConsumptionBillingDetailsResult) HasBillingProviders() bool {
 // SetBillingProviders gets a reference to the given []CustomerBillingProvider and assigns it to the BillingProviders field.
 func (o *DescribeConsumptionBillingDetailsResult) SetBillingProviders(v []CustomerBillingProvider) {
 	o.BillingProviders = v
+}
+
+// GetCustomPaymentPortalEnabled returns the CustomPaymentPortalEnabled field value if set, zero value otherwise.
+func (o *DescribeConsumptionBillingDetailsResult) GetCustomPaymentPortalEnabled() bool {
+	if o == nil || IsNil(o.CustomPaymentPortalEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.CustomPaymentPortalEnabled
+}
+
+// GetCustomPaymentPortalEnabledOk returns a tuple with the CustomPaymentPortalEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeConsumptionBillingDetailsResult) GetCustomPaymentPortalEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.CustomPaymentPortalEnabled) {
+		return nil, false
+	}
+	return o.CustomPaymentPortalEnabled, true
+}
+
+// HasCustomPaymentPortalEnabled returns a boolean if a field has been set.
+func (o *DescribeConsumptionBillingDetailsResult) HasCustomPaymentPortalEnabled() bool {
+	if o != nil && !IsNil(o.CustomPaymentPortalEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomPaymentPortalEnabled gets a reference to the given bool and assigns it to the CustomPaymentPortalEnabled field.
+func (o *DescribeConsumptionBillingDetailsResult) SetCustomPaymentPortalEnabled(v bool) {
+	o.CustomPaymentPortalEnabled = &v
 }
 
 // GetPaymentConfigured returns the PaymentConfigured field value
@@ -150,6 +184,9 @@ func (o DescribeConsumptionBillingDetailsResult) ToMap() (map[string]interface{}
 	if !IsNil(o.BillingProviders) {
 		toSerialize["billingProviders"] = o.BillingProviders
 	}
+	if !IsNil(o.CustomPaymentPortalEnabled) {
+		toSerialize["customPaymentPortalEnabled"] = o.CustomPaymentPortalEnabled
+	}
 	toSerialize["paymentConfigured"] = o.PaymentConfigured
 	if !IsNil(o.PaymentInfoPortalURL) {
 		toSerialize["paymentInfoPortalURL"] = o.PaymentInfoPortalURL
@@ -198,6 +235,7 @@ func (o *DescribeConsumptionBillingDetailsResult) UnmarshalJSON(data []byte) (er
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "billingProviders")
+		delete(additionalProperties, "customPaymentPortalEnabled")
 		delete(additionalProperties, "paymentConfigured")
 		delete(additionalProperties, "paymentInfoPortalURL")
 		o.AdditionalProperties = additionalProperties

@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **ServiceId** | Pointer to **string** | ID of a Service | [optional] 
 **ServiceName** | Pointer to **string** | The service name | [optional] 
 **SnapshotId** | Pointer to **string** | ID of a Resource Instance Snapshot | [optional] 
+**SnapshotMetadata** | Pointer to **map[string]interface{}** | Additional metadata stored for the snapshot | [optional] 
 **SnapshotType** | Pointer to **string** | The snapshot type | [optional] 
 **SourceInstanceId** | Pointer to **string** | ID of a Resource Instance | [optional] 
 **Status** | Pointer to **string** | The snapshot status | [optional] 
@@ -473,6 +474,31 @@ SetSnapshotId sets SnapshotId field to given value.
 `func (o *FleetDescribeInstanceSnapshotResult) HasSnapshotId() bool`
 
 HasSnapshotId returns a boolean if a field has been set.
+
+### GetSnapshotMetadata
+
+`func (o *FleetDescribeInstanceSnapshotResult) GetSnapshotMetadata() map[string]interface{}`
+
+GetSnapshotMetadata returns the SnapshotMetadata field if non-nil, zero value otherwise.
+
+### GetSnapshotMetadataOk
+
+`func (o *FleetDescribeInstanceSnapshotResult) GetSnapshotMetadataOk() (*map[string]interface{}, bool)`
+
+GetSnapshotMetadataOk returns a tuple with the SnapshotMetadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSnapshotMetadata
+
+`func (o *FleetDescribeInstanceSnapshotResult) SetSnapshotMetadata(v map[string]interface{})`
+
+SetSnapshotMetadata sets SnapshotMetadata field to given value.
+
+### HasSnapshotMetadata
+
+`func (o *FleetDescribeInstanceSnapshotResult) HasSnapshotMetadata() bool`
+
+HasSnapshotMetadata returns a boolean if a field has been set.
 
 ### GetSnapshotType
 

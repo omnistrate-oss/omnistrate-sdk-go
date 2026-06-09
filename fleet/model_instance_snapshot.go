@@ -32,6 +32,8 @@ type InstanceSnapshot struct {
 	Region string `json:"region"`
 	// ID of a Resource Instance Snapshot
 	SnapshotId string `json:"snapshotId"`
+	// Additional metadata stored for the snapshot
+	SnapshotMetadata map[string]interface{} `json:"snapshotMetadata,omitempty"`
 	// The snapshot type
 	SnapshotType string `json:"snapshotType"`
 	// The snapshot status
@@ -210,6 +212,38 @@ func (o *InstanceSnapshot) SetSnapshotId(v string) {
 	o.SnapshotId = v
 }
 
+// GetSnapshotMetadata returns the SnapshotMetadata field value if set, zero value otherwise.
+func (o *InstanceSnapshot) GetSnapshotMetadata() map[string]interface{} {
+	if o == nil || IsNil(o.SnapshotMetadata) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.SnapshotMetadata
+}
+
+// GetSnapshotMetadataOk returns a tuple with the SnapshotMetadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InstanceSnapshot) GetSnapshotMetadataOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.SnapshotMetadata) {
+		return map[string]interface{}{}, false
+	}
+	return o.SnapshotMetadata, true
+}
+
+// HasSnapshotMetadata returns a boolean if a field has been set.
+func (o *InstanceSnapshot) HasSnapshotMetadata() bool {
+	if o != nil && !IsNil(o.SnapshotMetadata) {
+		return true
+	}
+
+	return false
+}
+
+// SetSnapshotMetadata gets a reference to the given map[string]interface{} and assigns it to the SnapshotMetadata field.
+func (o *InstanceSnapshot) SetSnapshotMetadata(v map[string]interface{}) {
+	o.SnapshotMetadata = v
+}
+
 // GetSnapshotType returns the SnapshotType field value
 func (o *InstanceSnapshot) GetSnapshotType() string {
 	if o == nil {
@@ -274,6 +308,9 @@ func (o InstanceSnapshot) ToMap() (map[string]interface{}, error) {
 	toSerialize["progress"] = o.Progress
 	toSerialize["region"] = o.Region
 	toSerialize["snapshotId"] = o.SnapshotId
+	if !IsNil(o.SnapshotMetadata) {
+		toSerialize["snapshotMetadata"] = o.SnapshotMetadata
+	}
 	toSerialize["snapshotType"] = o.SnapshotType
 	toSerialize["status"] = o.Status
 
@@ -332,6 +369,7 @@ func (o *InstanceSnapshot) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "progress")
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "snapshotId")
+		delete(additionalProperties, "snapshotMetadata")
 		delete(additionalProperties, "snapshotType")
 		delete(additionalProperties, "status")
 		o.AdditionalProperties = additionalProperties

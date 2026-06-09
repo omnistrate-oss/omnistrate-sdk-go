@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ReturnUrl** | Pointer to **string** | Return Url used to configure payment methods links | [optional] 
+**SupportsCustomPaymentPortal** | Pointer to **bool** | Whether the caller supports inline custom payment method management | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
@@ -50,6 +51,31 @@ SetReturnUrl sets ReturnUrl field to given value.
 `func (o *DescribeConsumptionBillingDetailsRequest) HasReturnUrl() bool`
 
 HasReturnUrl returns a boolean if a field has been set.
+
+### GetSupportsCustomPaymentPortal
+
+`func (o *DescribeConsumptionBillingDetailsRequest) GetSupportsCustomPaymentPortal() bool`
+
+GetSupportsCustomPaymentPortal returns the SupportsCustomPaymentPortal field if non-nil, zero value otherwise.
+
+### GetSupportsCustomPaymentPortalOk
+
+`func (o *DescribeConsumptionBillingDetailsRequest) GetSupportsCustomPaymentPortalOk() (*bool, bool)`
+
+GetSupportsCustomPaymentPortalOk returns a tuple with the SupportsCustomPaymentPortal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportsCustomPaymentPortal
+
+`func (o *DescribeConsumptionBillingDetailsRequest) SetSupportsCustomPaymentPortal(v bool)`
+
+SetSupportsCustomPaymentPortal sets SupportsCustomPaymentPortal field to given value.
+
+### HasSupportsCustomPaymentPortal
+
+`func (o *DescribeConsumptionBillingDetailsRequest) HasSupportsCustomPaymentPortal() bool`
+
+HasSupportsCustomPaymentPortal returns a boolean if a field has been set.
 
 ### GetToken
 

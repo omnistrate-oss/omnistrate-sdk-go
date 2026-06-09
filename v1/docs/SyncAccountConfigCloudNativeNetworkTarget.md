@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudNativeNetworkId** | Pointer to **string** | Optional cloud provider network ID (e.g. AWS VPC ID). When omitted, every VPC in the region is enumerated. | [optional] 
+**IncludeHostClusters** | Pointer to **bool** | Whether to include host clusters when refreshing this target. | [optional] 
 **Region** | **string** | The cloud region where the network resides | 
 
 ## Methods
@@ -50,6 +51,31 @@ SetCloudNativeNetworkId sets CloudNativeNetworkId field to given value.
 `func (o *SyncAccountConfigCloudNativeNetworkTarget) HasCloudNativeNetworkId() bool`
 
 HasCloudNativeNetworkId returns a boolean if a field has been set.
+
+### GetIncludeHostClusters
+
+`func (o *SyncAccountConfigCloudNativeNetworkTarget) GetIncludeHostClusters() bool`
+
+GetIncludeHostClusters returns the IncludeHostClusters field if non-nil, zero value otherwise.
+
+### GetIncludeHostClustersOk
+
+`func (o *SyncAccountConfigCloudNativeNetworkTarget) GetIncludeHostClustersOk() (*bool, bool)`
+
+GetIncludeHostClustersOk returns a tuple with the IncludeHostClusters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIncludeHostClusters
+
+`func (o *SyncAccountConfigCloudNativeNetworkTarget) SetIncludeHostClusters(v bool)`
+
+SetIncludeHostClusters sets IncludeHostClusters field to given value.
+
+### HasIncludeHostClusters
+
+`func (o *SyncAccountConfigCloudNativeNetworkTarget) HasIncludeHostClusters() bool`
+
+HasIncludeHostClusters returns a boolean if a field has been set.
 
 ### GetRegion
 

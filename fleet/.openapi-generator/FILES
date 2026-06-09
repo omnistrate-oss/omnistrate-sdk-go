@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -195,6 +196,7 @@ docs/DescribePlanRequest.md
 docs/DescribePlanResult.md
 docs/DescribeProductTierRequest.md
 docs/DescribeProductTierResult.md
+docs/DescribeProductTierWorkspaceArtifactsRequest.md
 docs/DescribeRegionCostRequest.md
 docs/DescribeRegionCostResult.md
 docs/DescribeRegionRequest.md
@@ -435,6 +437,7 @@ docs/GetDeploymentCellWorkflowEventsRequest.md
 docs/GetDeploymentCellWorkflowEventsResult.md
 docs/GetEventCategoryTypeMapRequest.md
 docs/GetEventCategoryTypeMapResult.md
+docs/GetProductTierWorkspaceArtifactsDownloadURLRequest.md
 docs/GetRegionByCodeRequest.md
 docs/GetSecretRequest.md
 docs/GetSecretResult.md
@@ -619,6 +622,8 @@ docs/OnboardingServiceConfig.md
 docs/OnboardingStage.md
 docs/OnboardingTerraformConfiguration.md
 docs/OnboardingTerraformConfigurations.md
+docs/OnboardingTerraformExecutionPolicy.md
+docs/OnboardingTerraformExecutionRole.md
 docs/OnboardingTerraformOutput.md
 docs/OneOffPatchResourceInstanceRequest.md
 docs/OneOffPatchResourceInstanceRequest2.md
@@ -635,6 +640,7 @@ docs/PerInstanceCost.md
 docs/PerRegionCost.md
 docs/PerUserCost.md
 docs/PodEvent.md
+docs/PrepareProductTierWorkspaceArtifactsRequest.md
 docs/PrepareServiceFromServicePlanSpecRequest.md
 docs/PrepareServiceFromServicePlanSpecResult.md
 docs/ProductTierDeploymentConfiguration.md
@@ -789,6 +795,8 @@ docs/WorkflowBreakpointWithStatus.md
 docs/WorkflowEvent.md
 docs/WorkflowFailure.md
 docs/WorkflowSearchRecord.md
+docs/WorkspaceArtifactsDownloadURLResult.md
+docs/WorkspaceArtifactsResult.md
 git_push.sh
 model_access_side_user.go
 model_acknowledge_event_request.go
@@ -963,6 +971,7 @@ model_describe_plan_request.go
 model_describe_plan_result.go
 model_describe_product_tier_request.go
 model_describe_product_tier_result.go
+model_describe_product_tier_workspace_artifacts_request.go
 model_describe_region_cost_request.go
 model_describe_region_cost_result.go
 model_describe_region_request.go
@@ -1200,6 +1209,7 @@ model_get_deployment_cell_workflow_events_request.go
 model_get_deployment_cell_workflow_events_result.go
 model_get_event_category_type_map_request.go
 model_get_event_category_type_map_result.go
+model_get_product_tier_workspace_artifacts_download_url_request.go
 model_get_region_by_code_request.go
 model_get_secret_request.go
 model_get_secret_result.go
@@ -1379,6 +1389,8 @@ model_onboarding_service_config.go
 model_onboarding_stage.go
 model_onboarding_terraform_configuration.go
 model_onboarding_terraform_configurations.go
+model_onboarding_terraform_execution_policy.go
+model_onboarding_terraform_execution_role.go
 model_onboarding_terraform_output.go
 model_one_off_patch_resource_instance_request.go
 model_one_off_patch_resource_instance_request2.go
@@ -1394,6 +1406,7 @@ model_per_instance_cost.go
 model_per_region_cost.go
 model_per_user_cost.go
 model_pod_event.go
+model_prepare_product_tier_workspace_artifacts_request.go
 model_prepare_service_from_service_plan_spec_request.go
 model_prepare_service_from_service_plan_spec_result.go
 model_product_tier_deployment_configuration.go
@@ -1545,5 +1558,22 @@ model_workflow_breakpoint_with_status.go
 model_workflow_event.go
 model_workflow_failure.go
 model_workflow_search_record.go
+model_workspace_artifacts_download_url_result.go
+model_workspace_artifacts_result.go
 response.go
+test/api_audit_events_api_test.go
+test/api_cost_api_test.go
+test/api_customer_onboardings_api_test.go
+test/api_events_api_test.go
+test/api_fleet_custom_network_api_test.go
+test/api_fleet_workflows_api_test.go
+test/api_helm_package_api_test.go
+test/api_hostcluster_api_test.go
+test/api_inventory_api_test.go
+test/api_invoice_api_test.go
+test/api_notifications_api_test.go
+test/api_operations_api_test.go
+test/api_report_api_test.go
+test/api_usage_api_test.go
+test/api_webhooks_api_test.go
 utils.go

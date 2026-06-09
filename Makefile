@@ -61,8 +61,8 @@ gen-fleet-go-sdk: $(OPENAPI_GENERATOR_JAR)
 .PHONY: validate
 validate: $(OPENAPI_GENERATOR_JAR)
 	echo "Verify Go OpenAPI specs"
-	$(OPENAPI_GENERATOR) validate -i ${OPEN_API_SPEC}
-	$(OPENAPI_GENERATOR) validate -i ${FLEET_OPEN_API_SPEC}
+	_JAVA_OPTIONS=-DmaxYamlCodePoints=99999999 $(OPENAPI_GENERATOR) validate -i ${OPEN_API_SPEC}
+	_JAVA_OPTIONS=-DmaxYamlCodePoints=99999999 $(OPENAPI_GENERATOR) validate -i ${FLEET_OPEN_API_SPEC}
 
 .PHONY: tidy
 tidy:

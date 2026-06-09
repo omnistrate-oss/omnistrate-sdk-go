@@ -412,6 +412,7 @@ Class | Method | HTTP request | Description
  - [DescribePlanResult](docs/DescribePlanResult.md)
  - [DescribeProductTierRequest](docs/DescribeProductTierRequest.md)
  - [DescribeProductTierResult](docs/DescribeProductTierResult.md)
+ - [DescribeProductTierWorkspaceArtifactsRequest](docs/DescribeProductTierWorkspaceArtifactsRequest.md)
  - [DescribeRegionCostRequest](docs/DescribeRegionCostRequest.md)
  - [DescribeRegionCostResult](docs/DescribeRegionCostResult.md)
  - [DescribeRegionRequest](docs/DescribeRegionRequest.md)
@@ -649,6 +650,7 @@ Class | Method | HTTP request | Description
  - [GetDeploymentCellWorkflowEventsResult](docs/GetDeploymentCellWorkflowEventsResult.md)
  - [GetEventCategoryTypeMapRequest](docs/GetEventCategoryTypeMapRequest.md)
  - [GetEventCategoryTypeMapResult](docs/GetEventCategoryTypeMapResult.md)
+ - [GetProductTierWorkspaceArtifactsDownloadURLRequest](docs/GetProductTierWorkspaceArtifactsDownloadURLRequest.md)
  - [GetRegionByCodeRequest](docs/GetRegionByCodeRequest.md)
  - [GetSecretRequest](docs/GetSecretRequest.md)
  - [GetSecretResult](docs/GetSecretResult.md)
@@ -828,6 +830,8 @@ Class | Method | HTTP request | Description
  - [OnboardingStage](docs/OnboardingStage.md)
  - [OnboardingTerraformConfiguration](docs/OnboardingTerraformConfiguration.md)
  - [OnboardingTerraformConfigurations](docs/OnboardingTerraformConfigurations.md)
+ - [OnboardingTerraformExecutionPolicy](docs/OnboardingTerraformExecutionPolicy.md)
+ - [OnboardingTerraformExecutionRole](docs/OnboardingTerraformExecutionRole.md)
  - [OnboardingTerraformOutput](docs/OnboardingTerraformOutput.md)
  - [OneOffPatchResourceInstanceRequest](docs/OneOffPatchResourceInstanceRequest.md)
  - [OneOffPatchResourceInstanceRequest2](docs/OneOffPatchResourceInstanceRequest2.md)
@@ -843,6 +847,7 @@ Class | Method | HTTP request | Description
  - [PerRegionCost](docs/PerRegionCost.md)
  - [PerUserCost](docs/PerUserCost.md)
  - [PodEvent](docs/PodEvent.md)
+ - [PrepareProductTierWorkspaceArtifactsRequest](docs/PrepareProductTierWorkspaceArtifactsRequest.md)
  - [PrepareServiceFromServicePlanSpecRequest](docs/PrepareServiceFromServicePlanSpecRequest.md)
  - [PrepareServiceFromServicePlanSpecResult](docs/PrepareServiceFromServicePlanSpecResult.md)
  - [ProductTierDeploymentConfiguration](docs/ProductTierDeploymentConfiguration.md)
@@ -994,6 +999,8 @@ Class | Method | HTTP request | Description
  - [WorkflowEvent](docs/WorkflowEvent.md)
  - [WorkflowFailure](docs/WorkflowFailure.md)
  - [WorkflowSearchRecord](docs/WorkflowSearchRecord.md)
+ - [WorkspaceArtifactsDownloadURLResult](docs/WorkspaceArtifactsDownloadURLResult.md)
+ - [WorkspaceArtifactsResult](docs/WorkspaceArtifactsResult.md)
 
 
 ## Documentation For Authorization
