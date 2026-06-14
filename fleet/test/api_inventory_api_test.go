@@ -679,9 +679,27 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		var id string
+		var region string
 		var cloudNativeNetworkId string
 
-		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiImportAccountConfigCloudNativeNetwork(context.Background(), id, cloudNativeNetworkId).Execute()
+		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiImportAccountConfigCloudNativeNetwork(context.Background(), id, region, cloudNativeNetworkId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InventoryApiAPIService InventoryApiImportAccountConfigCloudNativeNetworkHostCluster", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+		var region string
+		var cloudNativeNetworkId string
+		var hostClusterName string
+
+		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiImportAccountConfigCloudNativeNetworkHostCluster(context.Background(), id, region, cloudNativeNetworkId, hostClusterName).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -1327,9 +1345,10 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		var id string
+		var region string
 		var cloudNativeNetworkId string
 
-		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiUnimportAccountConfigCloudNativeNetwork(context.Background(), id, cloudNativeNetworkId).Execute()
+		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiUnimportAccountConfigCloudNativeNetwork(context.Background(), id, region, cloudNativeNetworkId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

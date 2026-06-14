@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudNativeNetworkId** | Pointer to **string** | Optional cloud provider network ID (e.g. AWS VPC ID). When omitted, every VPC in the region is enumerated. | [optional] 
+**CloudNativeNetworkId** | Pointer to **string** | Optional provider-native network ID. When omitted, every supported network in the region is enumerated. | [optional] 
 **IncludeHostClusters** | Pointer to **bool** | Whether to load list of host clusters within the cloud provider network. | [optional] 
 **Region** | **string** | The cloud region where the network resides | 
 

@@ -22,6 +22,8 @@ var _ MappedNullable = &WorkflowBreakpointWithStatus{}
 type WorkflowBreakpointWithStatus struct {
 	// The conditions to break on
 	Conditions map[string]interface{} `json:"conditions,omitempty"`
+	// The resource event this breakpoint is waiting for. Empty means this is a resource-level breakpoint.
+	Event *string `json:"event,omitempty"`
 	// The ID or key of the resource to break on
 	Id string `json:"id"`
 	// The status of the breakpoint
@@ -80,6 +82,38 @@ func (o *WorkflowBreakpointWithStatus) HasConditions() bool {
 // SetConditions gets a reference to the given map[string]interface{} and assigns it to the Conditions field.
 func (o *WorkflowBreakpointWithStatus) SetConditions(v map[string]interface{}) {
 	o.Conditions = v
+}
+
+// GetEvent returns the Event field value if set, zero value otherwise.
+func (o *WorkflowBreakpointWithStatus) GetEvent() string {
+	if o == nil || IsNil(o.Event) {
+		var ret string
+		return ret
+	}
+	return *o.Event
+}
+
+// GetEventOk returns a tuple with the Event field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowBreakpointWithStatus) GetEventOk() (*string, bool) {
+	if o == nil || IsNil(o.Event) {
+		return nil, false
+	}
+	return o.Event, true
+}
+
+// HasEvent returns a boolean if a field has been set.
+func (o *WorkflowBreakpointWithStatus) HasEvent() bool {
+	if o != nil && !IsNil(o.Event) {
+		return true
+	}
+
+	return false
+}
+
+// SetEvent gets a reference to the given string and assigns it to the Event field.
+func (o *WorkflowBreakpointWithStatus) SetEvent(v string) {
+	o.Event = &v
 }
 
 // GetId returns the Id field value
@@ -143,6 +177,9 @@ func (o WorkflowBreakpointWithStatus) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Conditions) {
 		toSerialize["conditions"] = o.Conditions
 	}
+	if !IsNil(o.Event) {
+		toSerialize["event"] = o.Event
+	}
 	toSerialize["id"] = o.Id
 	toSerialize["status"] = o.Status
 
@@ -190,6 +227,7 @@ func (o *WorkflowBreakpointWithStatus) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "conditions")
+		delete(additionalProperties, "event")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "status")
 		o.AdditionalProperties = additionalProperties

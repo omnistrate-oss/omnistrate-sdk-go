@@ -70,6 +70,7 @@ docs/APIKeyMetadata.md
 docs/AWSPrivateLinkConfiguration.md
 docs/AcceleratorConfiguration.md
 docs/AccountConfigApiAPI.md
+docs/AccountConfigCloudNativeNetworkHostClusterResult.md
 docs/AccountConfigCloudNativeNetworkOperation.md
 docs/AccountConfigCloudNativeNetworkResult.md
 docs/AccountConfigIdentityIDRequest.md
@@ -498,6 +499,8 @@ docs/IdentityProviderApiAPI.md
 docs/ImageConfigApiAPI.md
 docs/ImageConfigChangeSummary.md
 docs/ImageRegistryApiAPI.md
+docs/ImportAccountConfigCloudNativeNetworkHostClusterRequest.md
+docs/ImportAccountConfigCloudNativeNetworkHostClusterResult.md
 docs/ImportAccountConfigCloudNativeNetworkRequest.md
 docs/InfraConfigApiAPI.md
 docs/InfraConfigChangeSummary.md
@@ -940,6 +943,7 @@ docs/WorkspaceArtifactsDownloadURLResult.md
 docs/WorkspaceArtifactsResult.md
 git_push.sh
 model_accelerator_configuration.go
+model_account_config_cloud_native_network_host_cluster_result.go
 model_account_config_cloud_native_network_operation.go
 model_account_config_cloud_native_network_result.go
 model_account_config_identity_id_request.go
@@ -1347,6 +1351,8 @@ model_helm_chart_configuration.go
 model_helm_package.go
 model_helm_runtime_configuration.go
 model_image_config_change_summary.go
+model_import_account_config_cloud_native_network_host_cluster_request.go
+model_import_account_config_cloud_native_network_host_cluster_result.go
 model_import_account_config_cloud_native_network_request.go
 model_infra_config_change_summary.go
 model_infra_roll_configuration.go

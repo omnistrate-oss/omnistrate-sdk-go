@@ -87,12 +87,13 @@ Class | Method | HTTP request | Description
 *AccountConfigApiAPI* | [**AccountConfigApiDescribeAccountConfigByGCPProjectID**](docs/AccountConfigApiAPI.md#accountconfigapidescribeaccountconfigbygcpprojectid) | **Get** /2022-09-01-00/accountconfig/gcp/{gcpProjectID} | DescribeAccountConfigByGCPProjectID account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiDescribeAccountConfigByNebiusTenantID**](docs/AccountConfigApiAPI.md#accountconfigapidescribeaccountconfigbynebiustenantid) | **Get** /2022-09-01-00/accountconfig/nebius/tenant/{nebiusTenantID} | DescribeAccountConfigByNebiusTenantID account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiDescribeAccountConfigByOCITenancyID**](docs/AccountConfigApiAPI.md#accountconfigapidescribeaccountconfigbyocitenancyid) | **Get** /2022-09-01-00/accountconfig/oci/{ociTenancyID} | DescribeAccountConfigByOCITenancyID account-config-api
-*AccountConfigApiAPI* | [**AccountConfigApiImportAccountConfigCloudNativeNetwork**](docs/AccountConfigApiAPI.md#accountconfigapiimportaccountconfigcloudnativenetwork) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/{cloudNativeNetworkId}/import | ImportAccountConfigCloudNativeNetwork account-config-api
+*AccountConfigApiAPI* | [**AccountConfigApiImportAccountConfigCloudNativeNetwork**](docs/AccountConfigApiAPI.md#accountconfigapiimportaccountconfigcloudnativenetwork) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/import | ImportAccountConfigCloudNativeNetwork account-config-api
+*AccountConfigApiAPI* | [**AccountConfigApiImportAccountConfigCloudNativeNetworkHostCluster**](docs/AccountConfigApiAPI.md#accountconfigapiimportaccountconfigcloudnativenetworkhostcluster) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/host-clusters/{hostClusterName}/import | ImportAccountConfigCloudNativeNetworkHostCluster account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiListAccountConfig**](docs/AccountConfigApiAPI.md#accountconfigapilistaccountconfig) | **Get** /2022-09-01-00/accountconfig/cloudprovider/{cloudProviderName} | ListAccountConfig account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiListAccountConfigCloudNativeNetworks**](docs/AccountConfigApiAPI.md#accountconfigapilistaccountconfigcloudnativenetworks) | **Get** /2022-09-01-00/accountconfig/{id}/cloud-native-networks | ListAccountConfigCloudNativeNetworks account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiListBYOAConfig**](docs/AccountConfigApiAPI.md#accountconfigapilistbyoaconfig) | **Get** /2022-09-01-00/accountconfig/byoa | ListBYOAConfig account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiSyncAccountConfigCloudNativeNetworks**](docs/AccountConfigApiAPI.md#accountconfigapisyncaccountconfigcloudnativenetworks) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/sync | SyncAccountConfigCloudNativeNetworks account-config-api
-*AccountConfigApiAPI* | [**AccountConfigApiUnimportAccountConfigCloudNativeNetwork**](docs/AccountConfigApiAPI.md#accountconfigapiunimportaccountconfigcloudnativenetwork) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/{cloudNativeNetworkId}/unimport | UnimportAccountConfigCloudNativeNetwork account-config-api
+*AccountConfigApiAPI* | [**AccountConfigApiUnimportAccountConfigCloudNativeNetwork**](docs/AccountConfigApiAPI.md#accountconfigapiunimportaccountconfigcloudnativenetwork) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/unimport | UnimportAccountConfigCloudNativeNetwork account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiUpdateAccountConfig**](docs/AccountConfigApiAPI.md#accountconfigapiupdateaccountconfig) | **Put** /2022-09-01-00/accountconfig/{id} | UpdateAccountConfig account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiVerifyAccountConfig**](docs/AccountConfigApiAPI.md#accountconfigapiverifyaccountconfig) | **Post** /2022-09-01-00/accountconfig/verify/{id} | VerifyAccountConfig account-config-api
 *ApiKeyApiAPI* | [**ApiKeyApiCreateAPIKey**](docs/ApiKeyApiAPI.md#apikeyapicreateapikey) | **Post** /2022-09-01-00/api-key | CreateAPIKey api-key-api
@@ -442,6 +443,7 @@ Class | Method | HTTP request | Description
  - [APIKeyMetadata](docs/APIKeyMetadata.md)
  - [AWSPrivateLinkConfiguration](docs/AWSPrivateLinkConfiguration.md)
  - [AcceleratorConfiguration](docs/AcceleratorConfiguration.md)
+ - [AccountConfigCloudNativeNetworkHostClusterResult](docs/AccountConfigCloudNativeNetworkHostClusterResult.md)
  - [AccountConfigCloudNativeNetworkOperation](docs/AccountConfigCloudNativeNetworkOperation.md)
  - [AccountConfigCloudNativeNetworkResult](docs/AccountConfigCloudNativeNetworkResult.md)
  - [AccountConfigIdentityIDRequest](docs/AccountConfigIdentityIDRequest.md)
@@ -846,6 +848,8 @@ Class | Method | HTTP request | Description
  - [HelmPackage](docs/HelmPackage.md)
  - [HelmRuntimeConfiguration](docs/HelmRuntimeConfiguration.md)
  - [ImageConfigChangeSummary](docs/ImageConfigChangeSummary.md)
+ - [ImportAccountConfigCloudNativeNetworkHostClusterRequest](docs/ImportAccountConfigCloudNativeNetworkHostClusterRequest.md)
+ - [ImportAccountConfigCloudNativeNetworkHostClusterResult](docs/ImportAccountConfigCloudNativeNetworkHostClusterResult.md)
  - [ImportAccountConfigCloudNativeNetworkRequest](docs/ImportAccountConfigCloudNativeNetworkRequest.md)
  - [InfraConfigChangeSummary](docs/InfraConfigChangeSummary.md)
  - [InfraRollConfiguration](docs/InfraRollConfiguration.md)

@@ -20,7 +20,7 @@ var _ MappedNullable = &FleetSyncAccountConfigCloudNativeNetworkTarget{}
 
 // FleetSyncAccountConfigCloudNativeNetworkTarget A targeted (region, cloudNativeNetworkId) pair that narrows a sync to specific networks.
 type FleetSyncAccountConfigCloudNativeNetworkTarget struct {
-	// Optional cloud provider network ID (e.g. AWS VPC ID). When omitted, every VPC in the region is enumerated.
+	// Optional provider-native network ID. When omitted, every supported network in the region is enumerated.
 	CloudNativeNetworkId *string `json:"cloudNativeNetworkId,omitempty"`
 	// Whether to load list of host clusters within the cloud provider network.
 	IncludeHostClusters *bool `json:"includeHostClusters,omitempty"`

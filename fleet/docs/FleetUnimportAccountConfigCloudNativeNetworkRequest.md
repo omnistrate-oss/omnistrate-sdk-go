@@ -4,15 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudNativeNetworkId** | **string** | The cloud provider network ID (e.g. AWS VPC ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster. | 
+**CloudNativeNetworkId** | **string** | The provider-native network ID to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster. | 
 **Id** | **string** | ID of an Account Config | 
+**Region** | **string** | The deployment region whose cloud native network row should be unimported | 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
 
 ### NewFleetUnimportAccountConfigCloudNativeNetworkRequest
 
-`func NewFleetUnimportAccountConfigCloudNativeNetworkRequest(cloudNativeNetworkId string, id string, token string, ) *FleetUnimportAccountConfigCloudNativeNetworkRequest`
+`func NewFleetUnimportAccountConfigCloudNativeNetworkRequest(cloudNativeNetworkId string, id string, region string, token string, ) *FleetUnimportAccountConfigCloudNativeNetworkRequest`
 
 NewFleetUnimportAccountConfigCloudNativeNetworkRequest instantiates a new FleetUnimportAccountConfigCloudNativeNetworkRequest object
 This constructor will assign default values to properties that have it defined,
@@ -65,6 +66,26 @@ and a boolean to check if the value has been set.
 `func (o *FleetUnimportAccountConfigCloudNativeNetworkRequest) SetId(v string)`
 
 SetId sets Id field to given value.
+
+
+### GetRegion
+
+`func (o *FleetUnimportAccountConfigCloudNativeNetworkRequest) GetRegion() string`
+
+GetRegion returns the Region field if non-nil, zero value otherwise.
+
+### GetRegionOk
+
+`func (o *FleetUnimportAccountConfigCloudNativeNetworkRequest) GetRegionOk() (*string, bool)`
+
+GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegion
+
+`func (o *FleetUnimportAccountConfigCloudNativeNetworkRequest) SetRegion(v string)`
+
+SetRegion sets Region field to given value.
 
 
 ### GetToken

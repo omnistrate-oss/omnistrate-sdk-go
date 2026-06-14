@@ -4,15 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudNativeNetworkId** | **string** | The cloud provider network ID (e.g. AWS VPC ID) to import for deployments | 
+**CloudNativeNetworkId** | **string** | The provider-native network ID to import for deployments | 
 **Id** | **string** | ID of an Account Config | 
+**Region** | **string** | The deployment region whose validated subnetworks should be imported | 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
 
 ### NewImportAccountConfigCloudNativeNetworkRequest
 
-`func NewImportAccountConfigCloudNativeNetworkRequest(cloudNativeNetworkId string, id string, token string, ) *ImportAccountConfigCloudNativeNetworkRequest`
+`func NewImportAccountConfigCloudNativeNetworkRequest(cloudNativeNetworkId string, id string, region string, token string, ) *ImportAccountConfigCloudNativeNetworkRequest`
 
 NewImportAccountConfigCloudNativeNetworkRequest instantiates a new ImportAccountConfigCloudNativeNetworkRequest object
 This constructor will assign default values to properties that have it defined,
@@ -65,6 +66,26 @@ and a boolean to check if the value has been set.
 `func (o *ImportAccountConfigCloudNativeNetworkRequest) SetId(v string)`
 
 SetId sets Id field to given value.
+
+
+### GetRegion
+
+`func (o *ImportAccountConfigCloudNativeNetworkRequest) GetRegion() string`
+
+GetRegion returns the Region field if non-nil, zero value otherwise.
+
+### GetRegionOk
+
+`func (o *ImportAccountConfigCloudNativeNetworkRequest) GetRegionOk() (*string, bool)`
+
+GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegion
+
+`func (o *ImportAccountConfigCloudNativeNetworkRequest) SetRegion(v string)`
+
+SetRegion sets Region field to given value.
 
 
 ### GetToken
