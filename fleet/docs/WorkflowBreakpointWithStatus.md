@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Conditions** | Pointer to **map[string]interface{}** | The conditions to break on | [optional] 
+**Event** | Pointer to **string** | The resource event this breakpoint is waiting for. Empty means this is a resource-level breakpoint. | [optional] 
 **Id** | **string** | The ID or key of the resource to break on | 
 **Status** | **string** | The status of the breakpoint | 
 
@@ -51,6 +52,31 @@ SetConditions sets Conditions field to given value.
 `func (o *WorkflowBreakpointWithStatus) HasConditions() bool`
 
 HasConditions returns a boolean if a field has been set.
+
+### GetEvent
+
+`func (o *WorkflowBreakpointWithStatus) GetEvent() string`
+
+GetEvent returns the Event field if non-nil, zero value otherwise.
+
+### GetEventOk
+
+`func (o *WorkflowBreakpointWithStatus) GetEventOk() (*string, bool)`
+
+GetEventOk returns a tuple with the Event field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEvent
+
+`func (o *WorkflowBreakpointWithStatus) SetEvent(v string)`
+
+SetEvent sets Event field to given value.
+
+### HasEvent
+
+`func (o *WorkflowBreakpointWithStatus) HasEvent() bool`
+
+HasEvent returns a boolean if a field has been set.
 
 ### GetId
 

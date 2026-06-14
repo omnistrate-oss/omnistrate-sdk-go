@@ -644,14 +644,33 @@ type InventoryApiAPI interface {
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param id Account Config ID to operate on
-	@param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) to import for deployments
+	@param region The deployment region whose validated subnetworks should be imported
+	@param cloudNativeNetworkId The provider-native network ID to import for deployments
 	@return ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest
 	*/
-	InventoryApiImportAccountConfigCloudNativeNetwork(ctx context.Context, id string, cloudNativeNetworkId string) ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest
+	InventoryApiImportAccountConfigCloudNativeNetwork(ctx context.Context, id string, region string, cloudNativeNetworkId string) ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest
 
 	// InventoryApiImportAccountConfigCloudNativeNetworkExecute executes the request
 	//  @return FleetListAccountConfigCloudNativeNetworksResult
 	InventoryApiImportAccountConfigCloudNativeNetworkExecute(r ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest) (*FleetListAccountConfigCloudNativeNetworksResult, *http.Response, error)
+
+	/*
+	InventoryApiImportAccountConfigCloudNativeNetworkHostCluster ImportAccountConfigCloudNativeNetworkHostCluster inventory-api
+
+	Import a discovered host cluster from an imported cloud native network
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id Account Config ID to operate on
+	@param region The deployment region where the host cluster resides
+	@param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) that contains the host cluster to import
+	@param hostClusterName The cloud provider host cluster name to import from this cloud native network
+	@return ApiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest
+	*/
+	InventoryApiImportAccountConfigCloudNativeNetworkHostCluster(ctx context.Context, id string, region string, cloudNativeNetworkId string, hostClusterName string) ApiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest
+
+	// InventoryApiImportAccountConfigCloudNativeNetworkHostClusterExecute executes the request
+	//  @return FleetImportAccountConfigCloudNativeNetworkHostClusterResult
+	InventoryApiImportAccountConfigCloudNativeNetworkHostClusterExecute(r ApiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest) (*FleetImportAccountConfigCloudNativeNetworkHostClusterResult, *http.Response, error)
 
 	/*
 	InventoryApiListAccountConfigCloudNativeNetworks ListAccountConfigCloudNativeNetworks inventory-api
@@ -1264,10 +1283,11 @@ type InventoryApiAPI interface {
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param id Account Config ID to operate on
-	@param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
+	@param region The deployment region whose cloud native network row should be unimported
+	@param cloudNativeNetworkId The provider-native network ID to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
 	@return ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest
 	*/
-	InventoryApiUnimportAccountConfigCloudNativeNetwork(ctx context.Context, id string, cloudNativeNetworkId string) ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest
+	InventoryApiUnimportAccountConfigCloudNativeNetwork(ctx context.Context, id string, region string, cloudNativeNetworkId string) ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest
 
 	// InventoryApiUnimportAccountConfigCloudNativeNetworkExecute executes the request
 	//  @return FleetListAccountConfigCloudNativeNetworksResult
@@ -8786,6 +8806,7 @@ type ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest struct {
 	ctx context.Context
 	ApiService InventoryApiAPI
 	id string
+	region string
 	cloudNativeNetworkId string
 }
 
@@ -8800,14 +8821,16 @@ Import an available cloud native network for deployments (sets status to READY)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Account Config ID to operate on
- @param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) to import for deployments
+ @param region The deployment region whose validated subnetworks should be imported
+ @param cloudNativeNetworkId The provider-native network ID to import for deployments
  @return ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest
 */
-func (a *InventoryApiAPIService) InventoryApiImportAccountConfigCloudNativeNetwork(ctx context.Context, id string, cloudNativeNetworkId string) ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest {
+func (a *InventoryApiAPIService) InventoryApiImportAccountConfigCloudNativeNetwork(ctx context.Context, id string, region string, cloudNativeNetworkId string) ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest {
 	return ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
+		region: region,
 		cloudNativeNetworkId: cloudNativeNetworkId,
 	}
 }
@@ -8827,9 +8850,179 @@ func (a *InventoryApiAPIService) InventoryApiImportAccountConfigCloudNativeNetwo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{cloudNativeNetworkId}/import"
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/import"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"region"+"}", url.PathEscape(parameterValueToString(r.region, "region")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"cloudNativeNetworkId"+"}", url.PathEscape(parameterValueToString(r.cloudNativeNetworkId, "cloudNativeNetworkId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest struct {
+	ctx context.Context
+	ApiService InventoryApiAPI
+	id string
+	region string
+	cloudNativeNetworkId string
+	hostClusterName string
+}
+
+func (r ApiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest) Execute() (*FleetImportAccountConfigCloudNativeNetworkHostClusterResult, *http.Response, error) {
+	return r.ApiService.InventoryApiImportAccountConfigCloudNativeNetworkHostClusterExecute(r)
+}
+
+/*
+InventoryApiImportAccountConfigCloudNativeNetworkHostCluster ImportAccountConfigCloudNativeNetworkHostCluster inventory-api
+
+Import a discovered host cluster from an imported cloud native network
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id Account Config ID to operate on
+ @param region The deployment region where the host cluster resides
+ @param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) that contains the host cluster to import
+ @param hostClusterName The cloud provider host cluster name to import from this cloud native network
+ @return ApiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest
+*/
+func (a *InventoryApiAPIService) InventoryApiImportAccountConfigCloudNativeNetworkHostCluster(ctx context.Context, id string, region string, cloudNativeNetworkId string, hostClusterName string) ApiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest {
+	return ApiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+		region: region,
+		cloudNativeNetworkId: cloudNativeNetworkId,
+		hostClusterName: hostClusterName,
+	}
+}
+
+// Execute executes the request
+//  @return FleetImportAccountConfigCloudNativeNetworkHostClusterResult
+func (a *InventoryApiAPIService) InventoryApiImportAccountConfigCloudNativeNetworkHostClusterExecute(r ApiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest) (*FleetImportAccountConfigCloudNativeNetworkHostClusterResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *FleetImportAccountConfigCloudNativeNetworkHostClusterResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiImportAccountConfigCloudNativeNetworkHostCluster")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/host-clusters/{hostClusterName}/import"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"region"+"}", url.PathEscape(parameterValueToString(r.region, "region")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"cloudNativeNetworkId"+"}", url.PathEscape(parameterValueToString(r.cloudNativeNetworkId, "cloudNativeNetworkId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"hostClusterName"+"}", url.PathEscape(parameterValueToString(r.hostClusterName, "hostClusterName")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -16850,6 +17043,7 @@ type ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest struct {
 	ctx context.Context
 	ApiService InventoryApiAPI
 	id string
+	region string
 	cloudNativeNetworkId string
 }
 
@@ -16864,14 +17058,16 @@ Unimport a cloud native network, reverting it from READY to AVAILABLE
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Account Config ID to operate on
- @param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
+ @param region The deployment region whose cloud native network row should be unimported
+ @param cloudNativeNetworkId The provider-native network ID to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
  @return ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest
 */
-func (a *InventoryApiAPIService) InventoryApiUnimportAccountConfigCloudNativeNetwork(ctx context.Context, id string, cloudNativeNetworkId string) ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest {
+func (a *InventoryApiAPIService) InventoryApiUnimportAccountConfigCloudNativeNetwork(ctx context.Context, id string, region string, cloudNativeNetworkId string) ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest {
 	return ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
+		region: region,
 		cloudNativeNetworkId: cloudNativeNetworkId,
 	}
 }
@@ -16891,8 +17087,9 @@ func (a *InventoryApiAPIService) InventoryApiUnimportAccountConfigCloudNativeNet
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{cloudNativeNetworkId}/unimport"
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/unimport"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"region"+"}", url.PathEscape(parameterValueToString(r.region, "region")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"cloudNativeNetworkId"+"}", url.PathEscape(parameterValueToString(r.cloudNativeNetworkId, "cloudNativeNetworkId")), -1)
 
 	localVarHeaderParams := make(map[string]string)

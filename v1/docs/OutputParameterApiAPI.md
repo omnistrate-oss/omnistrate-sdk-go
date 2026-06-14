@@ -32,7 +32,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service that this output parameter belongs to
-	createOutputParameterRequest2 := *openapiclient.NewCreateOutputParameterRequest2("Username of the user created in the target system", "username", "Username", "Enim quam similique.") // CreateOutputParameterRequest2 | 
+	createOutputParameterRequest2 := *openapiclient.NewCreateOutputParameterRequest2("Username of the user created in the target system", "username", "Username", "Voluptatem odio quod.") // CreateOutputParameterRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -172,7 +172,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service that this output parameter belongs to
 	id := "op-12345678" // string | The ID of the output parameter
-	productTierVersion := "Dolor ex veritatis." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Itaque amet quia nesciunt nulla necessitatibus similique." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Ad a officiis est nobis debitis eos." // string | ProductTierId of the resource to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -247,7 +247,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service that this output parameter belongs to
 	resourceId := "r-12345678" // string | The ID of the resource that this output parameter belongs to
-	productTierVersion := "Animi cupiditate corporis nihil sunt officia." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Dolor odio autem tempore vitae velit quidem." // string | Product tier version of the resource to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Ad a officiis est nobis debitis eos." // string | ProductTierId of the resource to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()

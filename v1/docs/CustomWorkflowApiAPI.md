@@ -175,7 +175,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service that this workflow belongs to
 	id := "cwt-12345678" // string | The custom workflow ID
-	productTierVersion := "Similique temporibus quaerat voluptas numquam quas." // string | Product tier version of the workflow to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Id provident ea repellendus non nihil quam." // string | Product tier version of the workflow to describe. If not specified, the latest version is described. (optional)
 	productTierId := "pt-12345678" // string | Product tier ID of the workflow to describe. Needs to be specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -250,7 +250,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service that the workflows belong to
 	productTierId := "pt-12345678" // string | The product tier ID
-	productTierVersion := "Ex exercitationem non voluptatum cumque." // string | Product tier version of the workflows to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Ullam dolores molestias." // string | Product tier version of the workflows to describe. If not specified, the latest version is described. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

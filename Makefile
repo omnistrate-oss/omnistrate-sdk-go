@@ -1,7 +1,7 @@
 ORG_NAME=omnistrate-oss
 REPO_NAME=omnistrate-sdk-go
-OPEN_API_SPEC?=https://api.omnistrate.cloud/2022-09-01-00/openapi.yaml
-FLEET_OPEN_API_SPEC?=https://api.omnistrate.cloud/2022-09-01-00/fleet/openapi.yaml
+OPEN_API_SPEC?=https://api.omnistrate.dev/2022-09-01-00/openapi.yaml
+FLEET_OPEN_API_SPEC?=https://api.omnistrate.dev/2022-09-01-00/fleet/openapi.yaml
 OPENAPI_GENERATOR_VERSION=7.22.0
 OPENAPI_GENERATOR_DIR=$(CURDIR)/.openapi-generator
 OPENAPI_GENERATOR_JAR=$(OPENAPI_GENERATOR_DIR)/openapi-generator-cli-$(OPENAPI_GENERATOR_VERSION).jar

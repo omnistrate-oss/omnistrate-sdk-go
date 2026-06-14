@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Conditions** | Pointer to **map[string]interface{}** | The conditions to break on | [optional] 
+**Events** | Pointer to **[]string** | The resource events to break on. Empty means break before the resource is reconciled. | [optional] 
 **Id** | **string** | The ID or key of the resource to break on | 
 
 ## Methods
@@ -50,6 +51,31 @@ SetConditions sets Conditions field to given value.
 `func (o *WorkflowBreakpoint) HasConditions() bool`
 
 HasConditions returns a boolean if a field has been set.
+
+### GetEvents
+
+`func (o *WorkflowBreakpoint) GetEvents() []string`
+
+GetEvents returns the Events field if non-nil, zero value otherwise.
+
+### GetEventsOk
+
+`func (o *WorkflowBreakpoint) GetEventsOk() (*[]string, bool)`
+
+GetEventsOk returns a tuple with the Events field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEvents
+
+`func (o *WorkflowBreakpoint) SetEvents(v []string)`
+
+SetEvents sets Events field to given value.
+
+### HasEvents
+
+`func (o *WorkflowBreakpoint) HasEvents() bool`
+
+HasEvents returns a boolean if a field has been set.
 
 ### GetId
 

@@ -14,12 +14,13 @@ Method | HTTP request | Description
 [**AccountConfigApiDescribeAccountConfigByGCPProjectID**](AccountConfigApiAPI.md#AccountConfigApiDescribeAccountConfigByGCPProjectID) | **Get** /2022-09-01-00/accountconfig/gcp/{gcpProjectID} | DescribeAccountConfigByGCPProjectID account-config-api
 [**AccountConfigApiDescribeAccountConfigByNebiusTenantID**](AccountConfigApiAPI.md#AccountConfigApiDescribeAccountConfigByNebiusTenantID) | **Get** /2022-09-01-00/accountconfig/nebius/tenant/{nebiusTenantID} | DescribeAccountConfigByNebiusTenantID account-config-api
 [**AccountConfigApiDescribeAccountConfigByOCITenancyID**](AccountConfigApiAPI.md#AccountConfigApiDescribeAccountConfigByOCITenancyID) | **Get** /2022-09-01-00/accountconfig/oci/{ociTenancyID} | DescribeAccountConfigByOCITenancyID account-config-api
-[**AccountConfigApiImportAccountConfigCloudNativeNetwork**](AccountConfigApiAPI.md#AccountConfigApiImportAccountConfigCloudNativeNetwork) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/{cloudNativeNetworkId}/import | ImportAccountConfigCloudNativeNetwork account-config-api
+[**AccountConfigApiImportAccountConfigCloudNativeNetwork**](AccountConfigApiAPI.md#AccountConfigApiImportAccountConfigCloudNativeNetwork) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/import | ImportAccountConfigCloudNativeNetwork account-config-api
+[**AccountConfigApiImportAccountConfigCloudNativeNetworkHostCluster**](AccountConfigApiAPI.md#AccountConfigApiImportAccountConfigCloudNativeNetworkHostCluster) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/host-clusters/{hostClusterName}/import | ImportAccountConfigCloudNativeNetworkHostCluster account-config-api
 [**AccountConfigApiListAccountConfig**](AccountConfigApiAPI.md#AccountConfigApiListAccountConfig) | **Get** /2022-09-01-00/accountconfig/cloudprovider/{cloudProviderName} | ListAccountConfig account-config-api
 [**AccountConfigApiListAccountConfigCloudNativeNetworks**](AccountConfigApiAPI.md#AccountConfigApiListAccountConfigCloudNativeNetworks) | **Get** /2022-09-01-00/accountconfig/{id}/cloud-native-networks | ListAccountConfigCloudNativeNetworks account-config-api
 [**AccountConfigApiListBYOAConfig**](AccountConfigApiAPI.md#AccountConfigApiListBYOAConfig) | **Get** /2022-09-01-00/accountconfig/byoa | ListBYOAConfig account-config-api
 [**AccountConfigApiSyncAccountConfigCloudNativeNetworks**](AccountConfigApiAPI.md#AccountConfigApiSyncAccountConfigCloudNativeNetworks) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/sync | SyncAccountConfigCloudNativeNetworks account-config-api
-[**AccountConfigApiUnimportAccountConfigCloudNativeNetwork**](AccountConfigApiAPI.md#AccountConfigApiUnimportAccountConfigCloudNativeNetwork) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/{cloudNativeNetworkId}/unimport | UnimportAccountConfigCloudNativeNetwork account-config-api
+[**AccountConfigApiUnimportAccountConfigCloudNativeNetwork**](AccountConfigApiAPI.md#AccountConfigApiUnimportAccountConfigCloudNativeNetwork) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/unimport | UnimportAccountConfigCloudNativeNetwork account-config-api
 [**AccountConfigApiUpdateAccountConfig**](AccountConfigApiAPI.md#AccountConfigApiUpdateAccountConfig) | **Put** /2022-09-01-00/accountconfig/{id} | UpdateAccountConfig account-config-api
 [**AccountConfigApiVerifyAccountConfig**](AccountConfigApiAPI.md#AccountConfigApiVerifyAccountConfig) | **Post** /2022-09-01-00/accountconfig/verify/{id} | VerifyAccountConfig account-config-api
 
@@ -108,7 +109,7 @@ import (
 
 func main() {
 	id := "ac-12345678" // string | Account Config ID to operate on
-	bulkImportAccountConfigCloudNativeNetworksRequest2 := *openapiclient.NewBulkImportAccountConfigCloudNativeNetworksRequest2([]openapiclient.AccountConfigCloudNativeNetworkOperation{*openapiclient.NewAccountConfigCloudNativeNetworkOperation("vpc-0abc123def456", true)}) // BulkImportAccountConfigCloudNativeNetworksRequest2 | 
+	bulkImportAccountConfigCloudNativeNetworksRequest2 := *openapiclient.NewBulkImportAccountConfigCloudNativeNetworksRequest2([]openapiclient.AccountConfigCloudNativeNetworkOperation{*openapiclient.NewAccountConfigCloudNativeNetworkOperation("/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/customer-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet", true, "us-east-1")}) // BulkImportAccountConfigCloudNativeNetworksRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -177,7 +178,7 @@ import (
 )
 
 func main() {
-	createAccountConfigRequest2 := *openapiclient.NewCreateAccountConfigRequest2("Repudiandae blanditiis quia inventore dolores iusto deserunt.", "An AWS account hosting multiple dev environments", "Dev AWS account") // CreateAccountConfigRequest2 | 
+	createAccountConfigRequest2 := *openapiclient.NewCreateAccountConfigRequest2("Eius quas quia tempora cupiditate.", "An AWS account hosting multiple dev environments", "Dev AWS account") // CreateAccountConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -698,7 +699,7 @@ Name | Type | Description  | Notes
 
 ## AccountConfigApiImportAccountConfigCloudNativeNetwork
 
-> ListAccountConfigCloudNativeNetworksResult AccountConfigApiImportAccountConfigCloudNativeNetwork(ctx, id, cloudNativeNetworkId).Execute()
+> ListAccountConfigCloudNativeNetworksResult AccountConfigApiImportAccountConfigCloudNativeNetwork(ctx, id, region, cloudNativeNetworkId).Execute()
 
 ImportAccountConfigCloudNativeNetwork account-config-api
 
@@ -718,11 +719,12 @@ import (
 
 func main() {
 	id := "ac-12345678" // string | Account Config ID to operate on
-	cloudNativeNetworkId := "vpc-0abc123def456" // string | The cloud provider network ID (e.g. AWS VPC ID) to import for deployments
+	region := "us-east-1" // string | The deployment region whose validated subnetworks should be imported
+	cloudNativeNetworkId := "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/customer-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet" // string | The provider-native network ID to import for deployments
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountConfigApiAPI.AccountConfigApiImportAccountConfigCloudNativeNetwork(context.Background(), id, cloudNativeNetworkId).Execute()
+	resp, r, err := apiClient.AccountConfigApiAPI.AccountConfigApiImportAccountConfigCloudNativeNetwork(context.Background(), id, region, cloudNativeNetworkId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountConfigApiAPI.AccountConfigApiImportAccountConfigCloudNativeNetwork``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -739,7 +741,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **id** | **string** | Account Config ID to operate on | 
-**cloudNativeNetworkId** | **string** | The cloud provider network ID (e.g. AWS VPC ID) to import for deployments | 
+**region** | **string** | The deployment region whose validated subnetworks should be imported | 
+**cloudNativeNetworkId** | **string** | The provider-native network ID to import for deployments | 
 
 ### Other Parameters
 
@@ -751,9 +754,89 @@ Name | Type | Description  | Notes
 
 
 
+
 ### Return type
 
 [**ListAccountConfigCloudNativeNetworksResult**](ListAccountConfigCloudNativeNetworksResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AccountConfigApiImportAccountConfigCloudNativeNetworkHostCluster
+
+> ImportAccountConfigCloudNativeNetworkHostClusterResult AccountConfigApiImportAccountConfigCloudNativeNetworkHostCluster(ctx, id, region, cloudNativeNetworkId, hostClusterName).Execute()
+
+ImportAccountConfigCloudNativeNetworkHostCluster account-config-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	id := "ac-12345678" // string | Account Config ID to operate on
+	region := "us-east-1" // string | The deployment region where the host cluster resides
+	cloudNativeNetworkId := "vpc-0abc123def456" // string | The cloud provider network ID (e.g. AWS VPC ID) that contains the host cluster to import
+	hostClusterName := "existing-eks-cluster" // string | The cloud provider host cluster name to import from this cloud native network
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountConfigApiAPI.AccountConfigApiImportAccountConfigCloudNativeNetworkHostCluster(context.Background(), id, region, cloudNativeNetworkId, hostClusterName).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountConfigApiAPI.AccountConfigApiImportAccountConfigCloudNativeNetworkHostCluster``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AccountConfigApiImportAccountConfigCloudNativeNetworkHostCluster`: ImportAccountConfigCloudNativeNetworkHostClusterResult
+	fmt.Fprintf(os.Stdout, "Response from `AccountConfigApiAPI.AccountConfigApiImportAccountConfigCloudNativeNetworkHostCluster`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Account Config ID to operate on | 
+**region** | **string** | The deployment region where the host cluster resides | 
+**cloudNativeNetworkId** | **string** | The cloud provider network ID (e.g. AWS VPC ID) that contains the host cluster to import | 
+**hostClusterName** | **string** | The cloud provider host cluster name to import from this cloud native network | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAccountConfigApiImportAccountConfigCloudNativeNetworkHostClusterRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+
+### Return type
+
+[**ImportAccountConfigCloudNativeNetworkHostClusterResult**](ImportAccountConfigCloudNativeNetworkHostClusterResult.md)
 
 ### Authorization
 
@@ -1045,7 +1128,7 @@ Name | Type | Description  | Notes
 
 ## AccountConfigApiUnimportAccountConfigCloudNativeNetwork
 
-> ListAccountConfigCloudNativeNetworksResult AccountConfigApiUnimportAccountConfigCloudNativeNetwork(ctx, id, cloudNativeNetworkId).Execute()
+> ListAccountConfigCloudNativeNetworksResult AccountConfigApiUnimportAccountConfigCloudNativeNetwork(ctx, id, region, cloudNativeNetworkId).Execute()
 
 UnimportAccountConfigCloudNativeNetwork account-config-api
 
@@ -1065,11 +1148,12 @@ import (
 
 func main() {
 	id := "ac-12345678" // string | Account Config ID to operate on
-	cloudNativeNetworkId := "vpc-0abc123def456" // string | The cloud provider network ID (e.g. AWS VPC ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
+	region := "us-east-1" // string | The deployment region whose cloud native network row should be unimported
+	cloudNativeNetworkId := "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/customer-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet" // string | The provider-native network ID to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountConfigApiAPI.AccountConfigApiUnimportAccountConfigCloudNativeNetwork(context.Background(), id, cloudNativeNetworkId).Execute()
+	resp, r, err := apiClient.AccountConfigApiAPI.AccountConfigApiUnimportAccountConfigCloudNativeNetwork(context.Background(), id, region, cloudNativeNetworkId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountConfigApiAPI.AccountConfigApiUnimportAccountConfigCloudNativeNetwork``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1086,7 +1170,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **id** | **string** | Account Config ID to operate on | 
-**cloudNativeNetworkId** | **string** | The cloud provider network ID (e.g. AWS VPC ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster. | 
+**region** | **string** | The deployment region whose cloud native network row should be unimported | 
+**cloudNativeNetworkId** | **string** | The provider-native network ID to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster. | 
 
 ### Other Parameters
 
@@ -1095,6 +1180,7 @@ Other parameters are passed through a pointer to a apiAccountConfigApiUnimportAc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
 
 
 
