@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DependsOn** | Pointer to **[]string** | The names of other amenities that this amenity depends on. Amenities must be present in the list of amenities and will be installed prior to this amenity. This setting is used to control installation order. | [optional] 
 **Description** | Pointer to **string** | A description of the amenity. | [optional] 
+**Disable** | Pointer to **string** | An optional expression that is evaluated at runtime to determine whether this amenity should be disabled. | [optional] 
 **IsManaged** | Pointer to **bool** | Whether the amenity is managed by the system. | [optional] 
 **Name** | Pointer to **string** | The name of the amenity. | [optional] 
 **Properties** | Pointer to **map[string]interface{}** | The properties of the amenity. | [optional] 
@@ -79,6 +80,31 @@ SetDescription sets Description field to given value.
 `func (o *Amenity) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
+
+### GetDisable
+
+`func (o *Amenity) GetDisable() string`
+
+GetDisable returns the Disable field if non-nil, zero value otherwise.
+
+### GetDisableOk
+
+`func (o *Amenity) GetDisableOk() (*string, bool)`
+
+GetDisableOk returns a tuple with the Disable field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisable
+
+`func (o *Amenity) SetDisable(v string)`
+
+SetDisable sets Disable field to given value.
+
+### HasDisable
+
+`func (o *Amenity) HasDisable() bool`
+
+HasDisable returns a boolean if a field has been set.
 
 ### GetIsManaged
 

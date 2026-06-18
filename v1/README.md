@@ -161,6 +161,7 @@ Class | Method | HTTP request | Description
 *CustomWorkflowApiAPI* | [**CustomWorkflowApiUpdateCustomWorkflow**](docs/CustomWorkflowApiAPI.md#customworkflowapiupdatecustomworkflow) | **Patch** /2022-09-01-00/service/{serviceId}/custom-workflow/{id} | UpdateCustomWorkflow custom-workflow-api
 *DemoApiAPI* | [**DemoApiDemo**](docs/DemoApiAPI.md#demoapidemo) | **Post** /2022-09-01-00/demo | Demo demo-api
 *DeploymentArtifactApiAPI* | [**DeploymentArtifactApiDescribeDeploymentArtifact**](docs/DeploymentArtifactApiAPI.md#deploymentartifactapidescribedeploymentartifact) | **Get** /2022-09-01-00/deployment-artifact/{id} | DescribeDeploymentArtifact deployment-artifact-api
+*DeploymentArtifactApiAPI* | [**DeploymentArtifactApiDownloadDeploymentArtifact**](docs/DeploymentArtifactApiAPI.md#deploymentartifactapidownloaddeploymentartifact) | **Get** /2022-09-01-00/deployment-artifact/{id}/download | DownloadDeploymentArtifact deployment-artifact-api
 *DeploymentArtifactApiAPI* | [**DeploymentArtifactApiUploadDeploymentArtifact**](docs/DeploymentArtifactApiAPI.md#deploymentartifactapiuploaddeploymentartifact) | **Post** /2022-09-01-00/deployment-artifact | UploadDeploymentArtifact deployment-artifact-api
 *DeploymentConfigApiAPI* | [**DeploymentConfigApiCreateDeploymentConfig**](docs/DeploymentConfigApiAPI.md#deploymentconfigapicreatedeploymentconfig) | **Post** /2022-09-01-00/deployment-config | CreateDeploymentConfig deployment-config-api
 *DeploymentConfigApiAPI* | [**DeploymentConfigApiDeleteDeploymentConfig**](docs/DeploymentConfigApiAPI.md#deploymentconfigapideletedeploymentconfig) | **Delete** /2022-09-01-00/deployment-config/{id} | DeleteDeploymentConfig deployment-config-api
@@ -244,6 +245,7 @@ Class | Method | HTTP request | Description
 *ProductTierApiAPI* | [**ProductTierApiDescribeProductTier**](docs/ProductTierApiAPI.md#producttierapidescribeproducttier) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{id} | DescribeProductTier product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiDescribeProductTierWorkspaceArtifacts**](docs/ProductTierApiAPI.md#producttierapidescribeproducttierworkspaceartifacts) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{id}/workspace-artifacts/{workspaceArtifactId} | DescribeProductTierWorkspaceArtifacts product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiDisableProductTierFeature**](docs/ProductTierApiAPI.md#producttierapidisableproducttierfeature) | **Delete** /2022-09-01-00/service/{serviceId}/product-tier/{id}/feature | DisableProductTierFeature product-tier-api
+*ProductTierApiAPI* | [**ProductTierApiDownloadProductTierWorkspaceArtifacts**](docs/ProductTierApiAPI.md#producttierapidownloadproducttierworkspaceartifacts) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{id}/workspace-artifacts/download | DownloadProductTierWorkspaceArtifacts product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiEnableProductTierFeature**](docs/ProductTierApiAPI.md#producttierapienableproducttierfeature) | **Put** /2022-09-01-00/service/{serviceId}/product-tier/{id}/feature | EnableProductTierFeature product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiGetProductTierWorkspaceArtifactsDownloadURL**](docs/ProductTierApiAPI.md#producttierapigetproducttierworkspaceartifactsdownloadurl) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{id}/workspace-artifacts/download-url | GetProductTierWorkspaceArtifactsDownloadURL product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiListProductTier**](docs/ProductTierApiAPI.md#producttierapilistproducttier) | **Get** /2022-09-01-00/service/{serviceId}/model/{serviceModelId}/product-tier | ListProductTier product-tier-api
@@ -791,6 +793,7 @@ Class | Method | HTTP request | Description
  - [DisableServiceModelFeatureRequest2](docs/DisableServiceModelFeatureRequest2.md)
  - [DisableTenantBillingRequest](docs/DisableTenantBillingRequest.md)
  - [DiscardPendingChangesRequest](docs/DiscardPendingChangesRequest.md)
+ - [DownloadDeploymentArtifactResult](docs/DownloadDeploymentArtifactResult.md)
  - [EFSFileSystemConfiguration](docs/EFSFileSystemConfiguration.md)
  - [EnableBillingProviderRequest](docs/EnableBillingProviderRequest.md)
  - [EnableBillingProviderRequest2](docs/EnableBillingProviderRequest2.md)
@@ -1253,6 +1256,7 @@ Class | Method | HTTP request | Description
  - [VerifyIdentityProviderResult](docs/VerifyIdentityProviderResult.md)
  - [WarmPoolConfiguration](docs/WarmPoolConfiguration.md)
  - [WorkflowFailure](docs/WorkflowFailure.md)
+ - [WorkspaceArtifactsDownloadResult](docs/WorkspaceArtifactsDownloadResult.md)
  - [WorkspaceArtifactsDownloadURLResult](docs/WorkspaceArtifactsDownloadURLResult.md)
  - [WorkspaceArtifactsResult](docs/WorkspaceArtifactsResult.md)
 

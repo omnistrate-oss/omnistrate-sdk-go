@@ -17,6 +17,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"os"
 )
 
 
@@ -103,6 +104,20 @@ type ProductTierApiAPI interface {
 
 	// ProductTierApiDisableProductTierFeatureExecute executes the request
 	ProductTierApiDisableProductTierFeatureExecute(r ApiProductTierApiDisableProductTierFeatureRequest) (*http.Response, error)
+
+	/*
+	ProductTierApiDownloadProductTierWorkspaceArtifacts DownloadProductTierWorkspaceArtifacts product-tier-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId Service ID
+	@param id Product tier ID
+	@return ApiProductTierApiDownloadProductTierWorkspaceArtifactsRequest
+	*/
+	ProductTierApiDownloadProductTierWorkspaceArtifacts(ctx context.Context, serviceId string, id string) ApiProductTierApiDownloadProductTierWorkspaceArtifactsRequest
+
+	// ProductTierApiDownloadProductTierWorkspaceArtifactsExecute executes the request
+	//  @return *os.File
+	ProductTierApiDownloadProductTierWorkspaceArtifactsExecute(r ApiProductTierApiDownloadProductTierWorkspaceArtifactsRequest) (*os.File, *http.Response, error)
 
 	/*
 	ProductTierApiEnableProductTierFeature EnableProductTierFeature product-tier-api
@@ -1225,6 +1240,196 @@ func (a *ProductTierApiAPIService) ProductTierApiDisableProductTierFeatureExecut
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+type ApiProductTierApiDownloadProductTierWorkspaceArtifactsRequest struct {
+	ctx context.Context
+	ApiService ProductTierApiAPI
+	serviceId string
+	id string
+	workspaceArtifactId *string
+	version *string
+}
+
+// The workspace artifact archive ID to download. If omitted, the latest prepared workspace artifact archive is used.
+func (r ApiProductTierApiDownloadProductTierWorkspaceArtifactsRequest) WorkspaceArtifactId(workspaceArtifactId string) ApiProductTierApiDownloadProductTierWorkspaceArtifactsRequest {
+	r.workspaceArtifactId = &workspaceArtifactId
+	return r
+}
+
+// The product tier version to use. If omitted, the latest product tier workspace artifacts are used.
+func (r ApiProductTierApiDownloadProductTierWorkspaceArtifactsRequest) Version(version string) ApiProductTierApiDownloadProductTierWorkspaceArtifactsRequest {
+	r.version = &version
+	return r
+}
+
+func (r ApiProductTierApiDownloadProductTierWorkspaceArtifactsRequest) Execute() (*os.File, *http.Response, error) {
+	return r.ApiService.ProductTierApiDownloadProductTierWorkspaceArtifactsExecute(r)
+}
+
+/*
+ProductTierApiDownloadProductTierWorkspaceArtifacts DownloadProductTierWorkspaceArtifacts product-tier-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serviceId Service ID
+ @param id Product tier ID
+ @return ApiProductTierApiDownloadProductTierWorkspaceArtifactsRequest
+*/
+func (a *ProductTierApiAPIService) ProductTierApiDownloadProductTierWorkspaceArtifacts(ctx context.Context, serviceId string, id string) ApiProductTierApiDownloadProductTierWorkspaceArtifactsRequest {
+	return ApiProductTierApiDownloadProductTierWorkspaceArtifactsRequest{
+		ApiService: a,
+		ctx: ctx,
+		serviceId: serviceId,
+		id: id,
+	}
+}
+
+// Execute executes the request
+//  @return *os.File
+func (a *ProductTierApiAPIService) ProductTierApiDownloadProductTierWorkspaceArtifactsExecute(r ApiProductTierApiDownloadProductTierWorkspaceArtifactsRequest) (*os.File, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *os.File
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductTierApiAPIService.ProductTierApiDownloadProductTierWorkspaceArtifacts")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/service/{serviceId}/product-tier/{id}/workspace-artifacts/download"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.workspaceArtifactId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "workspaceArtifactId", r.workspaceArtifactId, "form", "")
+	}
+	if r.version != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "version", r.version, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiProductTierApiEnableProductTierFeatureRequest struct {

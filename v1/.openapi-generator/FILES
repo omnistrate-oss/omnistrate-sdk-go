@@ -436,6 +436,7 @@ docs/DisableServiceModelFeatureRequest.md
 docs/DisableServiceModelFeatureRequest2.md
 docs/DisableTenantBillingRequest.md
 docs/DiscardPendingChangesRequest.md
+docs/DownloadDeploymentArtifactResult.md
 docs/EFSFileSystemConfiguration.md
 docs/EnableBillingProviderRequest.md
 docs/EnableBillingProviderRequest2.md
@@ -939,6 +940,7 @@ docs/VerifyIdentityProviderResult.md
 docs/VunitApiAPI.md
 docs/WarmPoolConfiguration.md
 docs/WorkflowFailure.md
+docs/WorkspaceArtifactsDownloadResult.md
 docs/WorkspaceArtifactsDownloadURLResult.md
 docs/WorkspaceArtifactsResult.md
 git_push.sh
@@ -1294,6 +1296,7 @@ model_disable_service_model_feature_request.go
 model_disable_service_model_feature_request2.go
 model_disable_tenant_billing_request.go
 model_discard_pending_changes_request.go
+model_download_deployment_artifact_result.go
 model_efs_file_system_configuration.go
 model_enable_billing_provider_request.go
 model_enable_billing_provider_request2.go
@@ -1756,6 +1759,7 @@ model_verify_identity_provider_request.go
 model_verify_identity_provider_result.go
 model_warm_pool_configuration.go
 model_workflow_failure.go
+model_workspace_artifacts_download_result.go
 model_workspace_artifacts_download_url_result.go
 model_workspace_artifacts_result.go
 response.go

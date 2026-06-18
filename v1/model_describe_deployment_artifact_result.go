@@ -27,7 +27,7 @@ type DescribeDeploymentArtifactResult struct {
 	Id *string `json:"id,omitempty"`
 	// The last failed reason of the deployment artifact
 	LastFailedReason *string `json:"lastFailedReason,omitempty"`
-	// The presigned download url of the deployment artifact
+	// The download URL of the deployment artifact
 	PresignedDownloadUrl *string `json:"presignedDownloadUrl,omitempty"`
 	// The status of an operation
 	Status *string `json:"status,omitempty"`
