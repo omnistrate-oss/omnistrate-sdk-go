@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Hash** | Pointer to **string** | The hash of the deployment artifact | [optional] 
 **Id** | Pointer to **string** | ID of a Deployment Artifact | [optional] 
 **LastFailedReason** | Pointer to **string** | The last failed reason of the deployment artifact | [optional] 
-**PresignedDownloadUrl** | Pointer to **string** | The presigned download url of the deployment artifact | [optional] 
+**PresignedDownloadUrl** | Pointer to **string** | The download URL of the deployment artifact | [optional] 
 **Status** | Pointer to **string** | The status of an operation | [optional] 
 
 ## Methods

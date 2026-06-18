@@ -32,6 +32,8 @@ type DescribeCustomWorkflowResult struct {
 	IsSystemWorkflow bool `json:"isSystemWorkflow"`
 	// The display name of the workflow
 	Name string `json:"name"`
+	// The output parameters returned after a workflow execution completes, keyed by parameter name.
+	OutputParameters *map[string]string `json:"outputParameters,omitempty"`
 	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// The user context scopes that can invoke this workflow
@@ -212,6 +214,29 @@ func (o *DescribeCustomWorkflowResult) SetName(v string) {
 	o.Name = v
 }
 
+// GetOutputParameters returns the OutputParameters field value if set, zero value otherwise.
+func (o *DescribeCustomWorkflowResult) GetOutputParameters() map[string]string {
+	if o == nil || IsNil(o.OutputParameters) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.OutputParameters
+}
+
+// GetOutputParametersOk returns a tuple with the OutputParameters field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeCustomWorkflowResult) GetOutputParametersOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.OutputParameters) {
+		return nil, false
+	}
+	return o.OutputParameters, true
+}
+
+// SetOutputParameters gets a reference to the given map[string]string and assigns it to the OutputParameters field.
+func (o *DescribeCustomWorkflowResult) SetOutputParameters(v map[string]string) {
+	o.OutputParameters = &v
+}
+
 // GetProductTierId returns the ProductTierId field value
 func (o *DescribeCustomWorkflowResult) GetProductTierId() string {
 	if o == nil {
@@ -355,6 +380,9 @@ func (o DescribeCustomWorkflowResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["isSystemWorkflow"] = o.IsSystemWorkflow
 	toSerialize["name"] = o.Name
+	if !IsNil(o.OutputParameters) {
+		toSerialize["outputParameters"] = o.OutputParameters
+	}
 	toSerialize["productTierId"] = o.ProductTierId
 	if !IsNil(o.Scope) {
 		toSerialize["scope"] = o.Scope
@@ -419,6 +447,7 @@ func (o *DescribeCustomWorkflowResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "isSystemWorkflow")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "outputParameters")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "scope")
 		delete(additionalProperties, "serviceId")

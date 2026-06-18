@@ -9464,6 +9464,7 @@ paths:
                 - istio-base
                 - prometheus
                 Description: Ensures high availability across multiple zones.
+                Disable: $sys.deploymentCell.isImported
                 IsManaged: true
                 Name: Prometheus
                 Properties:
@@ -9473,6 +9474,7 @@ paths:
                 - istio-base
                 - prometheus
                 Description: Ensures high availability across multiple zones.
+                Disable: $sys.deploymentCell.isImported
                 IsManaged: true
                 Name: Prometheus
                 Properties:
@@ -9482,6 +9484,7 @@ paths:
                 - istio-base
                 - prometheus
                 Description: Ensures high availability across multiple zones.
+                Disable: $sys.deploymentCell.isImported
                 IsManaged: true
                 Name: Prometheus
                 Properties:
@@ -33483,6 +33486,7 @@ components:
         - istio-base
         - prometheus
         Description: Ensures high availability across multiple zones.
+        Disable: $sys.deploymentCell.isImported
         IsManaged: true
         Name: Prometheus
         Properties:
@@ -33503,6 +33507,11 @@ components:
         Description:
           description: A description of the amenity.
           example: Ensures high availability across multiple zones.
+          type: string
+        Disable:
+          description: An optional expression that is evaluated at runtime to determine
+            whether this amenity should be disabled.
+          example: $sys.deploymentCell.isImported
           type: string
         IsManaged:
           description: Whether the amenity is managed by the system.
@@ -40289,6 +40298,7 @@ components:
           - istio-base
           - prometheus
           Description: Ensures high availability across multiple zones.
+          Disable: $sys.deploymentCell.isImported
           IsManaged: true
           Name: Prometheus
           Properties:
@@ -40298,6 +40308,7 @@ components:
           - istio-base
           - prometheus
           Description: Ensures high availability across multiple zones.
+          Disable: $sys.deploymentCell.isImported
           IsManaged: true
           Name: Prometheus
           Properties:
@@ -40311,6 +40322,7 @@ components:
             - istio-base
             - prometheus
             Description: Ensures high availability across multiple zones.
+            Disable: $sys.deploymentCell.isImported
             IsManaged: true
             Name: Prometheus
             Properties:
@@ -40320,6 +40332,7 @@ components:
             - istio-base
             - prometheus
             Description: Ensures high availability across multiple zones.
+            Disable: $sys.deploymentCell.isImported
             IsManaged: true
             Name: Prometheus
             Properties:
@@ -40329,6 +40342,7 @@ components:
             - istio-base
             - prometheus
             Description: Ensures high availability across multiple zones.
+            Disable: $sys.deploymentCell.isImported
             IsManaged: true
             Name: Prometheus
             Properties:
@@ -40347,6 +40361,7 @@ components:
               - istio-base
               - prometheus
               Description: Ensures high availability across multiple zones.
+              Disable: $sys.deploymentCell.isImported
               IsManaged: true
               Name: Prometheus
               Properties:
@@ -40356,6 +40371,7 @@ components:
               - istio-base
               - prometheus
               Description: Ensures high availability across multiple zones.
+              Disable: $sys.deploymentCell.isImported
               IsManaged: true
               Name: Prometheus
               Properties:
@@ -40365,6 +40381,7 @@ components:
               - istio-base
               - prometheus
               Description: Ensures high availability across multiple zones.
+              Disable: $sys.deploymentCell.isImported
               IsManaged: true
               Name: Prometheus
               Properties:
@@ -40382,6 +40399,7 @@ components:
                 - istio-base
                 - prometheus
                 Description: Ensures high availability across multiple zones.
+                Disable: $sys.deploymentCell.isImported
                 IsManaged: true
                 Name: Prometheus
                 Properties:
@@ -40392,6 +40410,7 @@ components:
                 - istio-base
                 - prometheus
                 Description: Ensures high availability across multiple zones.
+                Disable: $sys.deploymentCell.isImported
                 IsManaged: true
                 Name: Prometheus
                 Properties:
@@ -40402,6 +40421,7 @@ components:
                 - istio-base
                 - prometheus
                 Description: Ensures high availability across multiple zones.
+                Disable: $sys.deploymentCell.isImported
                 IsManaged: true
                 Name: Prometheus
                 Properties:
@@ -45553,6 +45573,8 @@ components:
         createdAt: 2023-01-10T00:00:00Z
         email: abc@gmail.com
         enabled: true
+        featureFlags:
+          CONSUMPTION_SUBSCRIPTION_ADMIN_RBAC: true
         id: user-abcd1234
         lastModifiedAt: 2023-01-20T00:00:00Z
         name: John Dae
@@ -45561,7 +45583,7 @@ components:
         orgDisablePasswordLogin: true
         orgFavIconURL: Porro magni exercitationem molestiae similique asperiores voluptatem.
         orgId: org-aKQ8G13QeR
-        orgLogoURL: Rerum velit.
+        orgLogoURL: Molestiae dolorum veritatis et delectus rerum velit.
         orgName: ACME
         orgPrivacyPolicy: Eos esse perferendis consequatur et perspiciatis perferendis.
         orgSupportEmail: support@example.com
@@ -45575,7 +45597,7 @@ components:
           $ref: "#/components/schemas/Address"
         attributes:
           additionalProperties:
-            example: Et ea omnis molestiae dolorum veritatis et.
+            example: Eos autem est labore et ea.
             type: string
           description: Additional attributes of the user.
           example:
@@ -45594,6 +45616,14 @@ components:
           description: Is the user enabled.
           example: true
           type: boolean
+        featureFlags:
+          additionalProperties:
+            example: true
+            type: boolean
+          description: Runtime feature flags keyed by feature name
+          example:
+            CONSUMPTION_SUBSCRIPTION_ADMIN_RBAC: true
+          type: object
         id:
           description: The User ID
           example: user-abcd1234
@@ -45608,7 +45638,7 @@ components:
           type: string
         orgCookiePolicy:
           description: The cookie policy for the org that this user owns
-          example: Amet eos autem.
+          example: Enim ut deleniti nisi itaque.
           type: string
         orgDescription:
           description: The description of the org that this user owns
@@ -45617,11 +45647,11 @@ components:
         orgDisablePasswordLogin:
           description: Whether password login is disabled for the org that this user
             owns
-          example: true
+          example: false
           type: boolean
         orgFavIconURL:
           description: The favicon of the org that this user owns
-          example: Similique veniam dolore distinctio quis.
+          example: Vel et similique.
           type: string
         orgId:
           description: The ID of the org that this user owns
@@ -45629,7 +45659,7 @@ components:
           type: string
         orgLogoURL:
           description: The logo of the org that this user owns
-          example: Eos quam ut cumque rerum vel.
+          example: Quam ut cumque.
           type: string
         orgName:
           description: The org name that this user owns
@@ -45637,7 +45667,7 @@ components:
           type: string
         orgPrivacyPolicy:
           description: The privacy policy for the org that this user owns
-          example: Enim ut deleniti nisi itaque.
+          example: Officia provident corrupti assumenda consectetur.
           type: string
         orgSupportEmail:
           description: The support email of the org that this user owns
@@ -45645,7 +45675,7 @@ components:
           type: string
         orgTermsOfUse:
           description: The terms of use for the org that this user owns
-          example: Officia provident corrupti assumenda consectetur.
+          example: Dolore distinctio quis.
           type: string
         orgURL:
           description: The url of the org that this user owns
@@ -46717,6 +46747,14 @@ components:
       - serviceModelKey
       - serviceProviderId
       - token
+      type: object
+    FeatureFlags:
+      additionalProperties:
+        example: true
+        type: boolean
+      description: Runtime feature flags keyed by feature name
+      example:
+        CONSUMPTION_SUBSCRIPTION_ADMIN_RBAC: true
       type: object
     FleetAccountConfigCloudNativeNetworkHostClusterResult:
       description: A cloud provider host cluster discovered in a cloud native network
@@ -105527,6 +105565,7 @@ components:
           - istio-base
           - prometheus
           Description: Ensures high availability across multiple zones.
+          Disable: $sys.deploymentCell.isImported
           IsManaged: true
           Name: Prometheus
           Properties:
@@ -105536,6 +105575,7 @@ components:
           - istio-base
           - prometheus
           Description: Ensures high availability across multiple zones.
+          Disable: $sys.deploymentCell.isImported
           IsManaged: true
           Name: Prometheus
           Properties:
@@ -105545,6 +105585,7 @@ components:
           - istio-base
           - prometheus
           Description: Ensures high availability across multiple zones.
+          Disable: $sys.deploymentCell.isImported
           IsManaged: true
           Name: Prometheus
           Properties:
@@ -105554,6 +105595,7 @@ components:
           - istio-base
           - prometheus
           Description: Ensures high availability across multiple zones.
+          Disable: $sys.deploymentCell.isImported
           IsManaged: true
           Name: Prometheus
           Properties:
@@ -105573,6 +105615,7 @@ components:
             - istio-base
             - prometheus
             Description: Ensures high availability across multiple zones.
+            Disable: $sys.deploymentCell.isImported
             IsManaged: true
             Name: Prometheus
             Properties:
@@ -105582,6 +105625,7 @@ components:
             - istio-base
             - prometheus
             Description: Ensures high availability across multiple zones.
+            Disable: $sys.deploymentCell.isImported
             IsManaged: true
             Name: Prometheus
             Properties:
@@ -105610,6 +105654,7 @@ components:
           - istio-base
           - prometheus
           Description: Ensures high availability across multiple zones.
+          Disable: $sys.deploymentCell.isImported
           IsManaged: true
           Name: Prometheus
           Properties:
@@ -105619,6 +105664,7 @@ components:
           - istio-base
           - prometheus
           Description: Ensures high availability across multiple zones.
+          Disable: $sys.deploymentCell.isImported
           IsManaged: true
           Name: Prometheus
           Properties:
@@ -105628,6 +105674,7 @@ components:
           - istio-base
           - prometheus
           Description: Ensures high availability across multiple zones.
+          Disable: $sys.deploymentCell.isImported
           IsManaged: true
           Name: Prometheus
           Properties:
@@ -105637,6 +105684,7 @@ components:
           - istio-base
           - prometheus
           Description: Ensures high availability across multiple zones.
+          Disable: $sys.deploymentCell.isImported
           IsManaged: true
           Name: Prometheus
           Properties:
@@ -105651,6 +105699,7 @@ components:
             - istio-base
             - prometheus
             Description: Ensures high availability across multiple zones.
+            Disable: $sys.deploymentCell.isImported
             IsManaged: true
             Name: Prometheus
             Properties:
@@ -105660,6 +105709,7 @@ components:
             - istio-base
             - prometheus
             Description: Ensures high availability across multiple zones.
+            Disable: $sys.deploymentCell.isImported
             IsManaged: true
             Name: Prometheus
             Properties:
@@ -105669,6 +105719,7 @@ components:
             - istio-base
             - prometheus
             Description: Ensures high availability across multiple zones.
+            Disable: $sys.deploymentCell.isImported
             IsManaged: true
             Name: Prometheus
             Properties:
@@ -105678,6 +105729,7 @@ components:
             - istio-base
             - prometheus
             Description: Ensures high availability across multiple zones.
+            Disable: $sys.deploymentCell.isImported
             IsManaged: true
             Name: Prometheus
             Properties:
