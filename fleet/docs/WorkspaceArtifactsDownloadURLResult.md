@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PresignedDownloadUrl** | **string** | The presigned download URL for the prepared workspace artifact archive | 
+**PresignedDownloadUrl** | **string** | The download URL for the prepared workspace artifact archive | 
 
 ## Methods
 

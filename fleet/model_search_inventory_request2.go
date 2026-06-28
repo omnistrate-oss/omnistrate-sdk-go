@@ -20,6 +20,7 @@ var _ MappedNullable = &SearchInventoryRequest2{}
 
 // SearchInventoryRequest2 struct for SearchInventoryRequest2
 type SearchInventoryRequest2 struct {
+	Filters *SearchInventoryFilters `json:"filters,omitempty"`
 	// The search query. Supports prefixed searches such as 'service:<value>', 'user:<value>', 'subscription:<value>', 'deploymentcell:<value>', 'serviceplan:<value>', 'resource:<value>', 'serverlessproxy:<value>', 'resourceinstance:<value>', 'snapshot:<value>', 'notification:<value>', 'workflow:<value>', 'upgradepath:<value>', 'all:<value>'. Without a prefix, performs a text search across resource instances, notifications, and workflows.
 	Query string `json:"query"`
 	AdditionalProperties map[string]interface{}
@@ -43,6 +44,38 @@ func NewSearchInventoryRequest2(query string) *SearchInventoryRequest2 {
 func NewSearchInventoryRequest2WithDefaults() *SearchInventoryRequest2 {
 	this := SearchInventoryRequest2{}
 	return &this
+}
+
+// GetFilters returns the Filters field value if set, zero value otherwise.
+func (o *SearchInventoryRequest2) GetFilters() SearchInventoryFilters {
+	if o == nil || IsNil(o.Filters) {
+		var ret SearchInventoryFilters
+		return ret
+	}
+	return *o.Filters
+}
+
+// GetFiltersOk returns a tuple with the Filters field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SearchInventoryRequest2) GetFiltersOk() (*SearchInventoryFilters, bool) {
+	if o == nil || IsNil(o.Filters) {
+		return nil, false
+	}
+	return o.Filters, true
+}
+
+// HasFilters returns a boolean if a field has been set.
+func (o *SearchInventoryRequest2) HasFilters() bool {
+	if o != nil && !IsNil(o.Filters) {
+		return true
+	}
+
+	return false
+}
+
+// SetFilters gets a reference to the given SearchInventoryFilters and assigns it to the Filters field.
+func (o *SearchInventoryRequest2) SetFilters(v SearchInventoryFilters) {
+	o.Filters = &v
 }
 
 // GetQuery returns the Query field value
@@ -79,6 +112,9 @@ func (o SearchInventoryRequest2) MarshalJSON() ([]byte, error) {
 
 func (o SearchInventoryRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Filters) {
+		toSerialize["filters"] = o.Filters
+	}
 	toSerialize["query"] = o.Query
 
 	for key, value := range o.AdditionalProperties {
@@ -123,6 +159,7 @@ func (o *SearchInventoryRequest2) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "filters")
 		delete(additionalProperties, "query")
 		o.AdditionalProperties = additionalProperties
 	}

@@ -33,6 +33,8 @@ type FleetDescribeInstanceSnapshotResult struct {
 	EnvironmentName *string `json:"environmentName,omitempty"`
 	// The environment type
 	EnvironmentType *string `json:"environmentType,omitempty"`
+	// The managed resource type of the instance whose snapshot was taken
+	InstanceResourceType *string `json:"instanceResourceType,omitempty"`
 	// Custom output parameters
 	OutputParams []OutputParameter `json:"outputParams,omitempty"`
 	// ID of a Product Tier
@@ -315,6 +317,38 @@ func (o *FleetDescribeInstanceSnapshotResult) HasEnvironmentType() bool {
 // SetEnvironmentType gets a reference to the given string and assigns it to the EnvironmentType field.
 func (o *FleetDescribeInstanceSnapshotResult) SetEnvironmentType(v string) {
 	o.EnvironmentType = &v
+}
+
+// GetInstanceResourceType returns the InstanceResourceType field value if set, zero value otherwise.
+func (o *FleetDescribeInstanceSnapshotResult) GetInstanceResourceType() string {
+	if o == nil || IsNil(o.InstanceResourceType) {
+		var ret string
+		return ret
+	}
+	return *o.InstanceResourceType
+}
+
+// GetInstanceResourceTypeOk returns a tuple with the InstanceResourceType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeInstanceSnapshotResult) GetInstanceResourceTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.InstanceResourceType) {
+		return nil, false
+	}
+	return o.InstanceResourceType, true
+}
+
+// HasInstanceResourceType returns a boolean if a field has been set.
+func (o *FleetDescribeInstanceSnapshotResult) HasInstanceResourceType() bool {
+	if o != nil && !IsNil(o.InstanceResourceType) {
+		return true
+	}
+
+	return false
+}
+
+// SetInstanceResourceType gets a reference to the given string and assigns it to the InstanceResourceType field.
+func (o *FleetDescribeInstanceSnapshotResult) SetInstanceResourceType(v string) {
+	o.InstanceResourceType = &v
 }
 
 // GetOutputParams returns the OutputParams field value if set, zero value otherwise.
@@ -956,6 +990,9 @@ func (o FleetDescribeInstanceSnapshotResult) ToMap() (map[string]interface{}, er
 	if !IsNil(o.EnvironmentType) {
 		toSerialize["environmentType"] = o.EnvironmentType
 	}
+	if !IsNil(o.InstanceResourceType) {
+		toSerialize["instanceResourceType"] = o.InstanceResourceType
+	}
 	if !IsNil(o.OutputParams) {
 		toSerialize["outputParams"] = o.OutputParams
 	}
@@ -1042,6 +1079,7 @@ func (o *FleetDescribeInstanceSnapshotResult) UnmarshalJSON(data []byte) (err er
 		delete(additionalProperties, "environmentId")
 		delete(additionalProperties, "environmentName")
 		delete(additionalProperties, "environmentType")
+		delete(additionalProperties, "instanceResourceType")
 		delete(additionalProperties, "outputParams")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "productTierName")

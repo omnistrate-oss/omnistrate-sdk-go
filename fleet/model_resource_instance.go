@@ -70,6 +70,10 @@ type ResourceInstance struct {
 	ProductTierType string `json:"productTierType"`
 	// The proxy type of instance
 	ProxyType *string `json:"proxyType,omitempty"`
+	// ID of a resource
+	ResourceId *string `json:"resourceId,omitempty"`
+	// The primary resource name for the instance.
+	ResourceName *string `json:"resourceName,omitempty"`
 	// Associated internal/external resources deployed for the instance, the corresponding versions deployed.
 	ResourceVersionSummaries []ResourceVersionSummary `json:"resourceVersionSummaries"`
 	// The service environment name
@@ -882,6 +886,70 @@ func (o *ResourceInstance) SetProxyType(v string) {
 	o.ProxyType = &v
 }
 
+// GetResourceId returns the ResourceId field value if set, zero value otherwise.
+func (o *ResourceInstance) GetResourceId() string {
+	if o == nil || IsNil(o.ResourceId) {
+		var ret string
+		return ret
+	}
+	return *o.ResourceId
+}
+
+// GetResourceIdOk returns a tuple with the ResourceId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceInstance) GetResourceIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ResourceId) {
+		return nil, false
+	}
+	return o.ResourceId, true
+}
+
+// HasResourceId returns a boolean if a field has been set.
+func (o *ResourceInstance) HasResourceId() bool {
+	if o != nil && !IsNil(o.ResourceId) {
+		return true
+	}
+
+	return false
+}
+
+// SetResourceId gets a reference to the given string and assigns it to the ResourceId field.
+func (o *ResourceInstance) SetResourceId(v string) {
+	o.ResourceId = &v
+}
+
+// GetResourceName returns the ResourceName field value if set, zero value otherwise.
+func (o *ResourceInstance) GetResourceName() string {
+	if o == nil || IsNil(o.ResourceName) {
+		var ret string
+		return ret
+	}
+	return *o.ResourceName
+}
+
+// GetResourceNameOk returns a tuple with the ResourceName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceInstance) GetResourceNameOk() (*string, bool) {
+	if o == nil || IsNil(o.ResourceName) {
+		return nil, false
+	}
+	return o.ResourceName, true
+}
+
+// HasResourceName returns a boolean if a field has been set.
+func (o *ResourceInstance) HasResourceName() bool {
+	if o != nil && !IsNil(o.ResourceName) {
+		return true
+	}
+
+	return false
+}
+
+// SetResourceName gets a reference to the given string and assigns it to the ResourceName field.
+func (o *ResourceInstance) SetResourceName(v string) {
+	o.ResourceName = &v
+}
+
 // GetResourceVersionSummaries returns the ResourceVersionSummaries field value
 func (o *ResourceInstance) GetResourceVersionSummaries() []ResourceVersionSummary {
 	if o == nil {
@@ -1346,6 +1414,12 @@ func (o ResourceInstance) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ProxyType) {
 		toSerialize["proxyType"] = o.ProxyType
 	}
+	if !IsNil(o.ResourceId) {
+		toSerialize["resourceId"] = o.ResourceId
+	}
+	if !IsNil(o.ResourceName) {
+		toSerialize["resourceName"] = o.ResourceName
+	}
 	toSerialize["resourceVersionSummaries"] = o.ResourceVersionSummaries
 	toSerialize["serviceEnvName"] = o.ServiceEnvName
 	toSerialize["serviceId"] = o.ServiceId
@@ -1461,6 +1535,8 @@ func (o *ResourceInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "productTierName")
 		delete(additionalProperties, "productTierType")
 		delete(additionalProperties, "proxyType")
+		delete(additionalProperties, "resourceId")
+		delete(additionalProperties, "resourceName")
 		delete(additionalProperties, "resourceVersionSummaries")
 		delete(additionalProperties, "serviceEnvName")
 		delete(additionalProperties, "serviceId")

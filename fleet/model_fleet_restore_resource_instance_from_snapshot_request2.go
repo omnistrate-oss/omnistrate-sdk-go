@@ -29,6 +29,8 @@ type FleetRestoreResourceInstanceFromSnapshotRequest2 struct {
 	ProductTierVersionOverride *string `json:"productTierVersionOverride,omitempty"`
 	// If true, restore to the same instance ID as the previously deleted source instance. This preserves the original instance ID and endpoint.
 	RestoreToSourceInstance *bool `json:"restoreToSourceInstance,omitempty"`
+	// The target subscription ID. If omitted, restores to the snapshot's original subscription. Cross-subscription restore is only supported for service provider hosted deployments on the same service, product tier, and host cluster.
+	SubscriptionId *string `json:"subscriptionId,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -212,6 +214,38 @@ func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) SetRestoreToSourceIns
 	o.RestoreToSourceInstance = &v
 }
 
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) GetSubscriptionId() string {
+	if o == nil || IsNil(o.SubscriptionId) {
+		var ret string
+		return ret
+	}
+	return *o.SubscriptionId
+}
+
+// GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) GetSubscriptionIdOk() (*string, bool) {
+	if o == nil || IsNil(o.SubscriptionId) {
+		return nil, false
+	}
+	return o.SubscriptionId, true
+}
+
+// HasSubscriptionId returns a boolean if a field has been set.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) HasSubscriptionId() bool {
+	if o != nil && !IsNil(o.SubscriptionId) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) SetSubscriptionId(v string) {
+	o.SubscriptionId = &v
+}
+
 func (o FleetRestoreResourceInstanceFromSnapshotRequest2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -236,6 +270,9 @@ func (o FleetRestoreResourceInstanceFromSnapshotRequest2) ToMap() (map[string]in
 	}
 	if !IsNil(o.RestoreToSourceInstance) {
 		toSerialize["restoreToSourceInstance"] = o.RestoreToSourceInstance
+	}
+	if !IsNil(o.SubscriptionId) {
+		toSerialize["subscriptionId"] = o.SubscriptionId
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -264,6 +301,7 @@ func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) UnmarshalJSON(data []
 		delete(additionalProperties, "network_type")
 		delete(additionalProperties, "productTierVersionOverride")
 		delete(additionalProperties, "restoreToSourceInstance")
+		delete(additionalProperties, "subscriptionId")
 		o.AdditionalProperties = additionalProperties
 	}
 
