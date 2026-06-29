@@ -688,10 +688,13 @@ docs/ResourceHealthSummary.md
 docs/ResourceInstance.md
 docs/ResourceInstanceCustomWorkflowRequest.md
 docs/ResourceInstanceCustomWorkflowResult.md
+docs/ResourceInstanceFilterGroup.md
 docs/ResourceInstanceMetadata.md
 docs/ResourceInstanceProvisionerSetupKitRequest.md
+docs/ResourceInstanceSearchFilters.md
 docs/ResourceInstanceSearchRecord.md
 docs/ResourceInstanceSupportedOperation.md
+docs/ResourceInstanceTagFilter.md
 docs/ResourceNetworkTopologyResult.md
 docs/ResourceOneOffPatchConfigurationOverride.md
 docs/ResourceSearchRecord.md
@@ -711,6 +714,7 @@ docs/SaaSPortalEmailConfig.md
 docs/SaaSPortalImageConfig.md
 docs/SchemaRequest.md
 docs/ScrutinizeOnboardingDeploymentArtifactRequest.md
+docs/SearchInventoryFilters.md
 docs/SearchInventoryRequest.md
 docs/SearchInventoryRequest2.md
 docs/SearchInventoryResult.md
@@ -803,6 +807,7 @@ docs/WorkflowBreakpointWithStatus.md
 docs/WorkflowEvent.md
 docs/WorkflowFailure.md
 docs/WorkflowSearchRecord.md
+docs/WorkspaceArtifactsDownloadResult.md
 docs/WorkspaceArtifactsDownloadURLResult.md
 docs/WorkspaceArtifactsResult.md
 git_push.sh
@@ -1461,10 +1466,13 @@ model_resource_health_summary.go
 model_resource_instance.go
 model_resource_instance_custom_workflow_request.go
 model_resource_instance_custom_workflow_result.go
+model_resource_instance_filter_group.go
 model_resource_instance_metadata.go
 model_resource_instance_provisioner_setup_kit_request.go
+model_resource_instance_search_filters.go
 model_resource_instance_search_record.go
 model_resource_instance_supported_operation.go
+model_resource_instance_tag_filter.go
 model_resource_network_topology_result.go
 model_resource_one_off_patch_configuration_override.go
 model_resource_search_record.go
@@ -1484,6 +1492,7 @@ model_saa_s_portal_email_config.go
 model_saa_s_portal_image_config.go
 model_schema_request.go
 model_scrutinize_onboarding_deployment_artifact_request.go
+model_search_inventory_filters.go
 model_search_inventory_request.go
 model_search_inventory_request2.go
 model_search_inventory_result.go
@@ -1574,6 +1583,7 @@ model_workflow_breakpoint_with_status.go
 model_workflow_event.go
 model_workflow_failure.go
 model_workflow_search_record.go
+model_workspace_artifacts_download_result.go
 model_workspace_artifacts_download_url_result.go
 model_workspace_artifacts_result.go
 response.go

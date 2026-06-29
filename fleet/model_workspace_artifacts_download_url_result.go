@@ -20,7 +20,7 @@ var _ MappedNullable = &WorkspaceArtifactsDownloadURLResult{}
 
 // WorkspaceArtifactsDownloadURLResult struct for WorkspaceArtifactsDownloadURLResult
 type WorkspaceArtifactsDownloadURLResult struct {
-	// The presigned download URL for the prepared workspace artifact archive
+	// The download URL for the prepared workspace artifact archive
 	PresignedDownloadUrl string `json:"presignedDownloadUrl"`
 	AdditionalProperties map[string]interface{}
 }

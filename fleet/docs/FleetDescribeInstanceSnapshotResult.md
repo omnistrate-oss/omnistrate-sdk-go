@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **EnvironmentId** | Pointer to **string** | ID of a Service Environment | [optional] 
 **EnvironmentName** | Pointer to **string** | The environment name | [optional] 
 **EnvironmentType** | Pointer to **string** | The environment type | [optional] 
+**InstanceResourceType** | Pointer to **string** | The managed resource type of the instance whose snapshot was taken | [optional] 
 **OutputParams** | Pointer to [**[]OutputParameter**](OutputParameter.md) | Custom output parameters | [optional] 
 **ProductTierId** | Pointer to **string** | ID of a Product Tier | [optional] 
 **ProductTierName** | Pointer to **string** | The product tier name | [optional] 
@@ -224,6 +225,31 @@ SetEnvironmentType sets EnvironmentType field to given value.
 `func (o *FleetDescribeInstanceSnapshotResult) HasEnvironmentType() bool`
 
 HasEnvironmentType returns a boolean if a field has been set.
+
+### GetInstanceResourceType
+
+`func (o *FleetDescribeInstanceSnapshotResult) GetInstanceResourceType() string`
+
+GetInstanceResourceType returns the InstanceResourceType field if non-nil, zero value otherwise.
+
+### GetInstanceResourceTypeOk
+
+`func (o *FleetDescribeInstanceSnapshotResult) GetInstanceResourceTypeOk() (*string, bool)`
+
+GetInstanceResourceTypeOk returns a tuple with the InstanceResourceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstanceResourceType
+
+`func (o *FleetDescribeInstanceSnapshotResult) SetInstanceResourceType(v string)`
+
+SetInstanceResourceType sets InstanceResourceType field to given value.
+
+### HasInstanceResourceType
+
+`func (o *FleetDescribeInstanceSnapshotResult) HasInstanceResourceType() bool`
+
+HasInstanceResourceType returns a boolean if a field has been set.
 
 ### GetOutputParams
 

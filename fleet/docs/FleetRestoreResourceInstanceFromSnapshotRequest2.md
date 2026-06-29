@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **NetworkType** | Pointer to **string** | The network type | [optional] 
 **ProductTierVersionOverride** | Pointer to **string** | The product tier version | [optional] 
 **RestoreToSourceInstance** | Pointer to **bool** | If true, restore to the same instance ID as the previously deleted source instance. This preserves the original instance ID and endpoint. | [optional] 
+**SubscriptionId** | Pointer to **string** | The target subscription ID. If omitted, restores to the snapshot&#39;s original subscription. Cross-subscription restore is only supported for service provider hosted deployments on the same service, product tier, and host cluster. | [optional] 
 
 ## Methods
 
@@ -163,6 +164,31 @@ SetRestoreToSourceInstance sets RestoreToSourceInstance field to given value.
 `func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) HasRestoreToSourceInstance() bool`
 
 HasRestoreToSourceInstance returns a boolean if a field has been set.
+
+### GetSubscriptionId
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) GetSubscriptionId() string`
+
+GetSubscriptionId returns the SubscriptionId field if non-nil, zero value otherwise.
+
+### GetSubscriptionIdOk
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) GetSubscriptionIdOk() (*string, bool)`
+
+GetSubscriptionIdOk returns a tuple with the SubscriptionId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscriptionId
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) SetSubscriptionId(v string)`
+
+SetSubscriptionId sets SubscriptionId field to given value.
+
+### HasSubscriptionId
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest2) HasSubscriptionId() bool`
+
+HasSubscriptionId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
