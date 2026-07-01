@@ -115,6 +115,22 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test InventoryApiAPIService InventoryApiChangeUpgradePathTargetVersion", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var productTierId string
+		var upgradePathId string
+
+		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiChangeUpgradePathTargetVersion(context.Background(), serviceId, productTierId, upgradePathId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test InventoryApiAPIService InventoryApiCopyResourceInstanceSnapshot", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

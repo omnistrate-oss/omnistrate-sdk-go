@@ -5271,6 +5271,7 @@ paths:
           content:
             application/json:
               example:
+                accountConfigID: Id quia.
                 artifactPath: artifacts/path/to/
                 hash: 3a7bd3e2360a3d4855f3c8d2f8f6e6c1
                 id: Assumenda ad eveniet tempora ducimus deserunt.
@@ -5651,7 +5652,7 @@ paths:
             application/json:
               example:
                 description: A production deployment config
-                id: Aut ea sit.
+                id: Sequi vero nostrum.
                 infraRollConfiguration:
                   infraRolloutStrategy: APPLY_IMMEDIATELY
                   maximumNumberOfResourceInstancesPerBatch: 1
@@ -19554,7 +19555,7 @@ paths:
                         minimumNodesInPool: 1
                 cpuArchitecture: X86_64|ARM64
                 description: my compute config description
-                id: Distinctio et.
+                id: Quia temporibus est distinctio sequi qui temporibus.
                 infraConfigIDs:
                 - ic-12345678
                 - ic-abcdefgh
@@ -35296,7 +35297,7 @@ paths:
             application/json:
               example:
                 description: my-storage-config-description
-                id: Laborum natus.
+                id: Voluptate et quo minima laborum natus.
                 infraConfigIDs:
                 - ic-12345678
                 - ic-abcdefgh
@@ -43362,7 +43363,7 @@ components:
         - region-12345678
         - region-abcd1234
         - region-3c3c3c3c
-        token: j70
+        token: 0t
       properties:
         description:
           description: A brief description of the deployment config
@@ -43381,12 +43382,12 @@ components:
           - region-3c3c3c3c
           items:
             description: ID of a Region
-            example: Amet eos aut quis est velit et.
+            example: Est expedita.
             type: string
           type: array
         token:
           description: JWT token used to perform authorization
-          example: s
+          example: lb
           minLength: 1
           type: string
       required:
@@ -52120,6 +52121,7 @@ components:
       type: object
     DescribeDeploymentArtifactResult:
       example:
+        accountConfigID: ac-1234567890
         artifactPath: artifacts/path/to/
         hash: 3a7bd3e2360a3d4855f3c8d2f8f6e6c1
         id: da-12345678
@@ -52127,6 +52129,10 @@ components:
         presignedDownloadUrl: https://api.omnistrate.cloud/2022-09-01-00/deployment-artifact/da-12345678/download
         status: UPLOADING
       properties:
+        accountConfigID:
+          description: ID of an Account Config
+          example: Excepturi autem amet eos aut.
+          type: string
         artifactPath:
           description: The path to the deployment artifact
           example: artifacts/path/to/
@@ -52155,7 +52161,7 @@ components:
     DescribeDeploymentConfigRequest:
       example:
         id: default
-        token: "24"
+        token: kz
       properties:
         id:
           description: The deployment configuration ID
@@ -52163,7 +52169,7 @@ components:
           type: string
         token:
           description: JWT token used to perform authorization
-          example: z0z
+          example: r
           minLength: 1
           type: string
       required:
@@ -52190,7 +52196,7 @@ components:
           type: string
         id:
           description: ID of a Deployment Config
-          example: Quo eum eveniet excepturi.
+          example: Fuga aut repellendus nam assumenda quo eum.
           type: string
         infraRollConfiguration:
           $ref: "#/components/schemas/InfraRollConfiguration"
@@ -52205,7 +52211,7 @@ components:
           - region-3c3c3c3c
           items:
             description: ID of a Region
-            example: Eius dolor laborum quo.
+            example: Excepturi vitae eius dolor laborum quo.
             type: string
           type: array
       required:
@@ -83434,7 +83440,7 @@ components:
         - region-12345678
         - region-abcd1234
         - region-3c3c3c3c
-        token: m
+        token: "949"
       properties:
         description:
           description: A brief description of the deployment config
@@ -83442,7 +83448,7 @@ components:
           type: string
         id:
           description: ID of a Deployment Config
-          example: Et repellendus beatae consequuntur et et incidunt.
+          example: Dolor et repellendus.
           type: string
         infraRollConfiguration:
           $ref: "#/components/schemas/InfraRollConfiguration"
@@ -83457,12 +83463,12 @@ components:
           - region-3c3c3c3c
           items:
             description: ID of a Region
-            example: Et voluptates consequatur omnis aliquam quas.
+            example: Consequuntur et et incidunt facere et.
             type: string
           type: array
         token:
           description: JWT token used to perform authorization
-          example: 36q
+          example: "6"
           minLength: 1
           type: string
       required:
