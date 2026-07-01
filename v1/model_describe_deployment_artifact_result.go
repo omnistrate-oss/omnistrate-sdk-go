@@ -19,6 +19,8 @@ var _ MappedNullable = &DescribeDeploymentArtifactResult{}
 
 // DescribeDeploymentArtifactResult struct for DescribeDeploymentArtifactResult
 type DescribeDeploymentArtifactResult struct {
+	// ID of an Account Config
+	AccountConfigID *string `json:"accountConfigID,omitempty"`
 	// The path to the deployment artifact
 	ArtifactPath *string `json:"artifactPath,omitempty"`
 	// The hash of the deployment artifact
@@ -51,6 +53,29 @@ func NewDescribeDeploymentArtifactResult() *DescribeDeploymentArtifactResult {
 func NewDescribeDeploymentArtifactResultWithDefaults() *DescribeDeploymentArtifactResult {
 	this := DescribeDeploymentArtifactResult{}
 	return &this
+}
+
+// GetAccountConfigID returns the AccountConfigID field value if set, zero value otherwise.
+func (o *DescribeDeploymentArtifactResult) GetAccountConfigID() string {
+	if o == nil || IsNil(o.AccountConfigID) {
+		var ret string
+		return ret
+	}
+	return *o.AccountConfigID
+}
+
+// GetAccountConfigIDOk returns a tuple with the AccountConfigID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeDeploymentArtifactResult) GetAccountConfigIDOk() (*string, bool) {
+	if o == nil || IsNil(o.AccountConfigID) {
+		return nil, false
+	}
+	return o.AccountConfigID, true
+}
+
+// SetAccountConfigID gets a reference to the given string and assigns it to the AccountConfigID field.
+func (o *DescribeDeploymentArtifactResult) SetAccountConfigID(v string) {
+	o.AccountConfigID = &v
 }
 
 // GetArtifactPath returns the ArtifactPath field value if set, zero value otherwise.
@@ -201,6 +226,9 @@ func (o DescribeDeploymentArtifactResult) MarshalJSON() ([]byte, error) {
 
 func (o DescribeDeploymentArtifactResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AccountConfigID) {
+		toSerialize["accountConfigID"] = o.AccountConfigID
+	}
 	if !IsNil(o.ArtifactPath) {
 		toSerialize["artifactPath"] = o.ArtifactPath
 	}
@@ -241,6 +269,7 @@ func (o *DescribeDeploymentArtifactResult) UnmarshalJSON(data []byte) (err error
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "accountConfigID")
 		delete(additionalProperties, "artifactPath")
 		delete(additionalProperties, "hash")
 		delete(additionalProperties, "id")

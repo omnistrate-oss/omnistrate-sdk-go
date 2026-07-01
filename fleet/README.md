@@ -124,6 +124,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiApproveSubscriptionRequest**](docs/InventoryApiAPI.md#inventoryapiapprovesubscriptionrequest) | **Put** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | ApproveSubscriptionRequest inventory-api
 *InventoryApiAPI* | [**InventoryApiBulkImportAccountConfigCloudNativeNetworks**](docs/InventoryApiAPI.md#inventoryapibulkimportaccountconfigcloudnativenetworks) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/import | BulkImportAccountConfigCloudNativeNetworks inventory-api
 *InventoryApiAPI* | [**InventoryApiCancelUpgradePath**](docs/InventoryApiAPI.md#inventoryapicancelupgradepath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/cancel | CancelUpgradePath inventory-api
+*InventoryApiAPI* | [**InventoryApiChangeUpgradePathTargetVersion**](docs/InventoryApiAPI.md#inventoryapichangeupgradepathtargetversion) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/target-version | ChangeUpgradePathTargetVersion inventory-api
 *InventoryApiAPI* | [**InventoryApiCopyResourceInstanceSnapshot**](docs/InventoryApiAPI.md#inventoryapicopyresourceinstancesnapshot) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/copy-snapshot | CopyResourceInstanceSnapshot inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateConsumptionUser**](docs/InventoryApiAPI.md#inventoryapicreateconsumptionuser) | **Post** /2022-09-01-00/fleet/user | CreateConsumptionUser inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateProxyResourceInstance**](docs/InventoryApiAPI.md#inventoryapicreateproxyresourceinstance) | **Post** /2022-09-01-00/fleet/proxy-resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{sourceResourceKey} | CreateProxyResourceInstance inventory-api
@@ -272,6 +273,8 @@ Class | Method | HTTP request | Description
  - [ChangePlanRequest](docs/ChangePlanRequest.md)
  - [ChangeSet](docs/ChangeSet.md)
  - [ChangeSummary](docs/ChangeSummary.md)
+ - [ChangeUpgradePathTargetVersionRequest](docs/ChangeUpgradePathTargetVersionRequest.md)
+ - [ChangeUpgradePathTargetVersionRequest2](docs/ChangeUpgradePathTargetVersionRequest2.md)
  - [ChangeUserRoleRequest](docs/ChangeUserRoleRequest.md)
  - [Channel](docs/Channel.md)
  - [ChannelEventHistoryRequest](docs/ChannelEventHistoryRequest.md)

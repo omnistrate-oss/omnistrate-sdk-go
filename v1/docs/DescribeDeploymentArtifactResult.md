@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AccountConfigID** | Pointer to **string** | ID of an Account Config | [optional] 
 **ArtifactPath** | Pointer to **string** | The path to the deployment artifact | [optional] 
 **Hash** | Pointer to **string** | The hash of the deployment artifact | [optional] 
 **Id** | Pointer to **string** | ID of a Deployment Artifact | [optional] 
@@ -29,6 +30,31 @@ will change when the set of required properties is changed
 NewDescribeDeploymentArtifactResultWithDefaults instantiates a new DescribeDeploymentArtifactResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAccountConfigID
+
+`func (o *DescribeDeploymentArtifactResult) GetAccountConfigID() string`
+
+GetAccountConfigID returns the AccountConfigID field if non-nil, zero value otherwise.
+
+### GetAccountConfigIDOk
+
+`func (o *DescribeDeploymentArtifactResult) GetAccountConfigIDOk() (*string, bool)`
+
+GetAccountConfigIDOk returns a tuple with the AccountConfigID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccountConfigID
+
+`func (o *DescribeDeploymentArtifactResult) SetAccountConfigID(v string)`
+
+SetAccountConfigID sets AccountConfigID field to given value.
+
+### HasAccountConfigID
+
+`func (o *DescribeDeploymentArtifactResult) HasAccountConfigID() bool`
+
+HasAccountConfigID returns a boolean if a field has been set.
 
 ### GetArtifactPath
 
