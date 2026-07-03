@@ -248,7 +248,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "sc-12345678" // string | The storage config ID
-	productTierVersion := "Cumque accusamus provident at consequuntur qui qui." // string | Product tier version of the storage config to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Eum expedita eius officia." // string | Product tier version of the storage config to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Ad a officiis est nobis debitis eos." // string | ProductTierId of the storage config to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
