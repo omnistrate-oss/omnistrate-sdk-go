@@ -601,6 +601,11 @@ docs/LoginWithIdentityProviderResult.md
 docs/LogoutRequest.md
 docs/ManageUpgradePathLifecycleRequest.md
 docs/ManageUpgradePathLifecycleRequest2.md
+docs/ManagedWorkloadIdentity.md
+docs/ManagedWorkloadIdentityBinding.md
+docs/ManagedWorkloadIdentityPermissions.md
+docs/ManagedWorkloadIdentityRole.md
+docs/ManagedWorkloadIdentityServiceAccount.md
 docs/ManualOverride.md
 docs/ModifyServiceProviderOrganizationRequest.md
 docs/ModifyServicesOrchestrationRequest.md
@@ -1384,6 +1389,11 @@ model_login_with_identity_provider_result.go
 model_logout_request.go
 model_manage_upgrade_path_lifecycle_request.go
 model_manage_upgrade_path_lifecycle_request2.go
+model_managed_workload_identity.go
+model_managed_workload_identity_binding.go
+model_managed_workload_identity_permissions.go
+model_managed_workload_identity_role.go
+model_managed_workload_identity_service_account.go
 model_manual_override.go
 model_modify_service_provider_organization_request.go
 model_modify_services_orchestration_request.go

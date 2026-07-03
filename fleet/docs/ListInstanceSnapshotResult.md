@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **CompleteTime** | Pointer to **string** | The snapshot time | [optional] 
 **CreatedTime** | Pointer to **string** | The snapshot creation time | [optional] 
 **Encrypted** | Pointer to **bool** | Whether the snapshot is encrypted | [optional] 
+**InstanceResourceType** | Pointer to **string** | The managed resource type of the instance whose snapshot was taken | [optional] 
 **ProductTierId** | Pointer to **string** | ID of a Product Tier | [optional] 
 **ProductTierName** | Pointer to **string** | The product tier name | [optional] 
 **ProductTierVersion** | Pointer to **string** | The product tier version | [optional] 
@@ -145,6 +146,31 @@ SetEncrypted sets Encrypted field to given value.
 `func (o *ListInstanceSnapshotResult) HasEncrypted() bool`
 
 HasEncrypted returns a boolean if a field has been set.
+
+### GetInstanceResourceType
+
+`func (o *ListInstanceSnapshotResult) GetInstanceResourceType() string`
+
+GetInstanceResourceType returns the InstanceResourceType field if non-nil, zero value otherwise.
+
+### GetInstanceResourceTypeOk
+
+`func (o *ListInstanceSnapshotResult) GetInstanceResourceTypeOk() (*string, bool)`
+
+GetInstanceResourceTypeOk returns a tuple with the InstanceResourceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstanceResourceType
+
+`func (o *ListInstanceSnapshotResult) SetInstanceResourceType(v string)`
+
+SetInstanceResourceType sets InstanceResourceType field to given value.
+
+### HasInstanceResourceType
+
+`func (o *ListInstanceSnapshotResult) HasInstanceResourceType() bool`
+
+HasInstanceResourceType returns a boolean if a field has been set.
 
 ### GetProductTierId
 

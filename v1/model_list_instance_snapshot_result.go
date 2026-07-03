@@ -27,6 +27,8 @@ type ListInstanceSnapshotResult struct {
 	CreatedTime *string `json:"createdTime,omitempty"`
 	// Whether the snapshot is encrypted
 	Encrypted *bool `json:"encrypted,omitempty"`
+	// The managed resource type of the instance whose snapshot was taken
+	InstanceResourceType *string `json:"instanceResourceType,omitempty"`
 	// ID of a Product Tier
 	ProductTierId *string `json:"productTierId,omitempty"`
 	// The product tier name
@@ -175,6 +177,29 @@ func (o *ListInstanceSnapshotResult) GetEncryptedOk() (*bool, bool) {
 // SetEncrypted gets a reference to the given bool and assigns it to the Encrypted field.
 func (o *ListInstanceSnapshotResult) SetEncrypted(v bool) {
 	o.Encrypted = &v
+}
+
+// GetInstanceResourceType returns the InstanceResourceType field value if set, zero value otherwise.
+func (o *ListInstanceSnapshotResult) GetInstanceResourceType() string {
+	if o == nil || IsNil(o.InstanceResourceType) {
+		var ret string
+		return ret
+	}
+	return *o.InstanceResourceType
+}
+
+// GetInstanceResourceTypeOk returns a tuple with the InstanceResourceType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListInstanceSnapshotResult) GetInstanceResourceTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.InstanceResourceType) {
+		return nil, false
+	}
+	return o.InstanceResourceType, true
+}
+
+// SetInstanceResourceType gets a reference to the given string and assigns it to the InstanceResourceType field.
+func (o *ListInstanceSnapshotResult) SetInstanceResourceType(v string) {
+	o.InstanceResourceType = &v
 }
 
 // GetProductTierId returns the ProductTierId field value if set, zero value otherwise.
@@ -613,6 +638,9 @@ func (o ListInstanceSnapshotResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Encrypted) {
 		toSerialize["encrypted"] = o.Encrypted
 	}
+	if !IsNil(o.InstanceResourceType) {
+		toSerialize["instanceResourceType"] = o.InstanceResourceType
+	}
 	if !IsNil(o.ProductTierId) {
 		toSerialize["productTierId"] = o.ProductTierId
 	}
@@ -693,6 +721,7 @@ func (o *ListInstanceSnapshotResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "completeTime")
 		delete(additionalProperties, "createdTime")
 		delete(additionalProperties, "encrypted")
+		delete(additionalProperties, "instanceResourceType")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "productTierName")
 		delete(additionalProperties, "productTierVersion")
