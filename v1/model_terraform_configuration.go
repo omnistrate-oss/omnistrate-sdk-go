@@ -22,6 +22,8 @@ var _ MappedNullable = &TerraformConfiguration{}
 type TerraformConfiguration struct {
 	// The local path to the terraform artifacts
 	ArtifactsLocalPath *string `json:"artifactsLocalPath,omitempty"`
+	// The OpenTofu CLI configuration file content in base64 format for the Terraform configuration. Applied via TF_CLI_CONFIG_FILE when executing tofu.
+	CliConfigFileOverride *string `json:"cliConfigFileOverride,omitempty"`
 	GitConfiguration *GitConfiguration `json:"gitConfiguration,omitempty"`
 	// The Nebius private key PEM for terraform execution. This may be provided inline or as a $secret reference.
 	PrivateKeyPEM *string `json:"privateKeyPEM,omitempty"`
@@ -85,6 +87,29 @@ func (o *TerraformConfiguration) GetArtifactsLocalPathOk() (*string, bool) {
 // SetArtifactsLocalPath gets a reference to the given string and assigns it to the ArtifactsLocalPath field.
 func (o *TerraformConfiguration) SetArtifactsLocalPath(v string) {
 	o.ArtifactsLocalPath = &v
+}
+
+// GetCliConfigFileOverride returns the CliConfigFileOverride field value if set, zero value otherwise.
+func (o *TerraformConfiguration) GetCliConfigFileOverride() string {
+	if o == nil || IsNil(o.CliConfigFileOverride) {
+		var ret string
+		return ret
+	}
+	return *o.CliConfigFileOverride
+}
+
+// GetCliConfigFileOverrideOk returns a tuple with the CliConfigFileOverride field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TerraformConfiguration) GetCliConfigFileOverrideOk() (*string, bool) {
+	if o == nil || IsNil(o.CliConfigFileOverride) {
+		return nil, false
+	}
+	return o.CliConfigFileOverride, true
+}
+
+// SetCliConfigFileOverride gets a reference to the given string and assigns it to the CliConfigFileOverride field.
+func (o *TerraformConfiguration) SetCliConfigFileOverride(v string) {
+	o.CliConfigFileOverride = &v
 }
 
 // GetGitConfiguration returns the GitConfiguration field value if set, zero value otherwise.
@@ -331,6 +356,9 @@ func (o TerraformConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ArtifactsLocalPath) {
 		toSerialize["artifactsLocalPath"] = o.ArtifactsLocalPath
 	}
+	if !IsNil(o.CliConfigFileOverride) {
+		toSerialize["cliConfigFileOverride"] = o.CliConfigFileOverride
+	}
 	if !IsNil(o.GitConfiguration) {
 		toSerialize["gitConfiguration"] = o.GitConfiguration
 	}
@@ -403,6 +431,7 @@ func (o *TerraformConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "artifactsLocalPath")
+		delete(additionalProperties, "cliConfigFileOverride")
 		delete(additionalProperties, "gitConfiguration")
 		delete(additionalProperties, "privateKeyPEM")
 		delete(additionalProperties, "privateModuleGitAccessTokens")

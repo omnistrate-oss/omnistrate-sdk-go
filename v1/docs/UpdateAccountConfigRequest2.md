@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | Full replacement set of custom tags for the account configuration | [optional] 
 **Description** | Pointer to **string** | The updated description for the account | [optional] 
 **Name** | Pointer to **string** | The updated name of the account | [optional] 
 **NebiusBindings** | Pointer to [**[]NebiusAccountBindingInput**](NebiusAccountBindingInput.md) | Full replacement set of Nebius project/service-account bindings for an existing tenant-scoped Nebius account configuration | [optional] 
@@ -26,6 +27,31 @@ will change when the set of required properties is changed
 NewUpdateAccountConfigRequest2WithDefaults instantiates a new UpdateAccountConfigRequest2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCustomTags
+
+`func (o *UpdateAccountConfigRequest2) GetCustomTags() []CustomTag`
+
+GetCustomTags returns the CustomTags field if non-nil, zero value otherwise.
+
+### GetCustomTagsOk
+
+`func (o *UpdateAccountConfigRequest2) GetCustomTagsOk() (*[]CustomTag, bool)`
+
+GetCustomTagsOk returns a tuple with the CustomTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomTags
+
+`func (o *UpdateAccountConfigRequest2) SetCustomTags(v []CustomTag)`
+
+SetCustomTags sets CustomTags field to given value.
+
+### HasCustomTags
+
+`func (o *UpdateAccountConfigRequest2) HasCustomTags() bool`
+
+HasCustomTags returns a boolean if a field has been set.
 
 ### GetDescription
 

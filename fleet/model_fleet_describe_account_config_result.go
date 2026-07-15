@@ -50,6 +50,8 @@ type FleetDescribeAccountConfigResult struct {
 	CloudNativeNetworks []FleetAccountConfigCloudNativeNetworkResult `json:"cloudNativeNetworks,omitempty"`
 	// ID of an CloudProvider
 	CloudProviderId string `json:"cloudProviderId"`
+	// The custom tags for the account configuration
+	CustomTags []CustomTag `json:"customTags,omitempty"`
 	// The description for the account
 	Description string `json:"description"`
 	// The GCP bootstrap shell command
@@ -586,6 +588,38 @@ func (o *FleetDescribeAccountConfigResult) GetCloudProviderIdOk() (*string, bool
 // SetCloudProviderId sets field value
 func (o *FleetDescribeAccountConfigResult) SetCloudProviderId(v string) {
 	o.CloudProviderId = v
+}
+
+// GetCustomTags returns the CustomTags field value if set, zero value otherwise.
+func (o *FleetDescribeAccountConfigResult) GetCustomTags() []CustomTag {
+	if o == nil || IsNil(o.CustomTags) {
+		var ret []CustomTag
+		return ret
+	}
+	return o.CustomTags
+}
+
+// GetCustomTagsOk returns a tuple with the CustomTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeAccountConfigResult) GetCustomTagsOk() ([]CustomTag, bool) {
+	if o == nil || IsNil(o.CustomTags) {
+		return nil, false
+	}
+	return o.CustomTags, true
+}
+
+// HasCustomTags returns a boolean if a field has been set.
+func (o *FleetDescribeAccountConfigResult) HasCustomTags() bool {
+	if o != nil && !IsNil(o.CustomTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomTags gets a reference to the given []CustomTag and assigns it to the CustomTags field.
+func (o *FleetDescribeAccountConfigResult) SetCustomTags(v []CustomTag) {
+	o.CustomTags = v
 }
 
 // GetDescription returns the Description field value
@@ -1209,6 +1243,9 @@ func (o FleetDescribeAccountConfigResult) ToMap() (map[string]interface{}, error
 		toSerialize["cloudNativeNetworks"] = o.CloudNativeNetworks
 	}
 	toSerialize["cloudProviderId"] = o.CloudProviderId
+	if !IsNil(o.CustomTags) {
+		toSerialize["customTags"] = o.CustomTags
+	}
 	toSerialize["description"] = o.Description
 	if !IsNil(o.GcpBootstrapShellCommand) {
 		toSerialize["gcpBootstrapShellCommand"] = o.GcpBootstrapShellCommand
@@ -1319,6 +1356,7 @@ func (o *FleetDescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error
 		delete(additionalProperties, "byocOnPremUninstallCommand")
 		delete(additionalProperties, "cloudNativeNetworks")
 		delete(additionalProperties, "cloudProviderId")
+		delete(additionalProperties, "customTags")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "gcpBootstrapShellCommand")
 		delete(additionalProperties, "gcpDisconnectShellCommand")

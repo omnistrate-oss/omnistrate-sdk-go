@@ -20,6 +20,8 @@ var _ MappedNullable = &UpdateAccountConfigResourceInstanceRequest2{}
 
 // UpdateAccountConfigResourceInstanceRequest2 struct for UpdateAccountConfigResourceInstanceRequest2
 type UpdateAccountConfigResourceInstanceRequest2 struct {
+	// Full replacement set of custom tags for the backing account configuration
+	CustomTags []CustomTag `json:"customTags,omitempty"`
 	// Full replacement set of Nebius bindings for this account config instance
 	NebiusBindings []UpdateAccountConfigNebiusBindingInput `json:"nebiusBindings,omitempty"`
 	// The service ID
@@ -50,6 +52,29 @@ func NewUpdateAccountConfigResourceInstanceRequest2(serviceId string, subscripti
 func NewUpdateAccountConfigResourceInstanceRequest2WithDefaults() *UpdateAccountConfigResourceInstanceRequest2 {
 	this := UpdateAccountConfigResourceInstanceRequest2{}
 	return &this
+}
+
+// GetCustomTags returns the CustomTags field value if set, zero value otherwise.
+func (o *UpdateAccountConfigResourceInstanceRequest2) GetCustomTags() []CustomTag {
+	if o == nil || IsNil(o.CustomTags) {
+		var ret []CustomTag
+		return ret
+	}
+	return o.CustomTags
+}
+
+// GetCustomTagsOk returns a tuple with the CustomTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateAccountConfigResourceInstanceRequest2) GetCustomTagsOk() ([]CustomTag, bool) {
+	if o == nil || IsNil(o.CustomTags) {
+		return nil, false
+	}
+	return o.CustomTags, true
+}
+
+// SetCustomTags gets a reference to the given []CustomTag and assigns it to the CustomTags field.
+func (o *UpdateAccountConfigResourceInstanceRequest2) SetCustomTags(v []CustomTag) {
+	o.CustomTags = v
 }
 
 // GetNebiusBindings returns the NebiusBindings field value if set, zero value otherwise.
@@ -156,6 +181,9 @@ func (o UpdateAccountConfigResourceInstanceRequest2) MarshalJSON() ([]byte, erro
 
 func (o UpdateAccountConfigResourceInstanceRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CustomTags) {
+		toSerialize["customTags"] = o.CustomTags
+	}
 	if !IsNil(o.NebiusBindings) {
 		toSerialize["nebiusBindings"] = o.NebiusBindings
 	}
@@ -208,6 +236,7 @@ func (o *UpdateAccountConfigResourceInstanceRequest2) UnmarshalJSON(data []byte)
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "customTags")
 		delete(additionalProperties, "nebiusBindings")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "setConnection")

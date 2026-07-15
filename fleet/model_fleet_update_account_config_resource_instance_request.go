@@ -20,6 +20,8 @@ var _ MappedNullable = &FleetUpdateAccountConfigResourceInstanceRequest{}
 
 // FleetUpdateAccountConfigResourceInstanceRequest struct for FleetUpdateAccountConfigResourceInstanceRequest
 type FleetUpdateAccountConfigResourceInstanceRequest struct {
+	// Full replacement set of custom tags for the backing account configuration
+	CustomTags []CustomTag `json:"customTags,omitempty"`
 	// ID of a Resource Instance
 	InstanceId string `json:"instanceId"`
 	// Full replacement set of Nebius bindings for this account config instance
@@ -53,6 +55,38 @@ func NewFleetUpdateAccountConfigResourceInstanceRequest(instanceId string, servi
 func NewFleetUpdateAccountConfigResourceInstanceRequestWithDefaults() *FleetUpdateAccountConfigResourceInstanceRequest {
 	this := FleetUpdateAccountConfigResourceInstanceRequest{}
 	return &this
+}
+
+// GetCustomTags returns the CustomTags field value if set, zero value otherwise.
+func (o *FleetUpdateAccountConfigResourceInstanceRequest) GetCustomTags() []CustomTag {
+	if o == nil || IsNil(o.CustomTags) {
+		var ret []CustomTag
+		return ret
+	}
+	return o.CustomTags
+}
+
+// GetCustomTagsOk returns a tuple with the CustomTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetUpdateAccountConfigResourceInstanceRequest) GetCustomTagsOk() ([]CustomTag, bool) {
+	if o == nil || IsNil(o.CustomTags) {
+		return nil, false
+	}
+	return o.CustomTags, true
+}
+
+// HasCustomTags returns a boolean if a field has been set.
+func (o *FleetUpdateAccountConfigResourceInstanceRequest) HasCustomTags() bool {
+	if o != nil && !IsNil(o.CustomTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomTags gets a reference to the given []CustomTag and assigns it to the CustomTags field.
+func (o *FleetUpdateAccountConfigResourceInstanceRequest) SetCustomTags(v []CustomTag) {
+	o.CustomTags = v
 }
 
 // GetInstanceId returns the InstanceId field value
@@ -201,6 +235,9 @@ func (o FleetUpdateAccountConfigResourceInstanceRequest) MarshalJSON() ([]byte, 
 
 func (o FleetUpdateAccountConfigResourceInstanceRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CustomTags) {
+		toSerialize["customTags"] = o.CustomTags
+	}
 	toSerialize["instanceId"] = o.InstanceId
 	if !IsNil(o.NebiusBindings) {
 		toSerialize["nebiusBindings"] = o.NebiusBindings
@@ -255,6 +292,7 @@ func (o *FleetUpdateAccountConfigResourceInstanceRequest) UnmarshalJSON(data []b
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "customTags")
 		delete(additionalProperties, "instanceId")
 		delete(additionalProperties, "nebiusBindings")
 		delete(additionalProperties, "serviceId")
