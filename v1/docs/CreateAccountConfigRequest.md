@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **AzureTenantID** | Pointer to **string** | The Azure tenant ID | [optional] 
 **ByoaInstanceID** | Pointer to **string** | The BYOA instance ID that this account config is tied to | [optional] 
 **CloudProviderId** | **string** | ID of an CloudProvider | 
+**CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The custom tags for the account configuration | [optional] 
 **Description** | **string** | The description for the account | 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **GcpProjectNumber** | Pointer to **string** | The GCP project number | [optional] 
@@ -237,6 +238,31 @@ and a boolean to check if the value has been set.
 
 SetCloudProviderId sets CloudProviderId field to given value.
 
+
+### GetCustomTags
+
+`func (o *CreateAccountConfigRequest) GetCustomTags() []CustomTag`
+
+GetCustomTags returns the CustomTags field if non-nil, zero value otherwise.
+
+### GetCustomTagsOk
+
+`func (o *CreateAccountConfigRequest) GetCustomTagsOk() (*[]CustomTag, bool)`
+
+GetCustomTagsOk returns a tuple with the CustomTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomTags
+
+`func (o *CreateAccountConfigRequest) SetCustomTags(v []CustomTag)`
+
+SetCustomTags sets CustomTags field to given value.
+
+### HasCustomTags
+
+`func (o *CreateAccountConfigRequest) HasCustomTags() bool`
+
+HasCustomTags returns a boolean if a field has been set.
 
 ### GetDescription
 

@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **AzureTenantID** | Pointer to **string** | The Azure tenant ID | [optional] 
 **ByoaInstanceIDs** | Pointer to **[]string** | The BYOA instance IDs that this account config is tied to | [optional] 
 **CloudProviderId** | **string** | ID of an CloudProvider | 
+**CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The custom tags for the account configuration | [optional] 
 **Description** | **string** | The description for the account | 
 **GcpBootstrapShellCommand** | Pointer to **string** | The GCP bootstrap shell command | [optional] 
 **GcpDisconnectShellCommand** | Pointer to **string** | The GCP disconnect shell command | [optional] 
@@ -322,6 +323,31 @@ and a boolean to check if the value has been set.
 
 SetCloudProviderId sets CloudProviderId field to given value.
 
+
+### GetCustomTags
+
+`func (o *DescribeAccountConfigResult) GetCustomTags() []CustomTag`
+
+GetCustomTags returns the CustomTags field if non-nil, zero value otherwise.
+
+### GetCustomTagsOk
+
+`func (o *DescribeAccountConfigResult) GetCustomTagsOk() (*[]CustomTag, bool)`
+
+GetCustomTagsOk returns a tuple with the CustomTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomTags
+
+`func (o *DescribeAccountConfigResult) SetCustomTags(v []CustomTag)`
+
+SetCustomTags sets CustomTags field to given value.
+
+### HasCustomTags
+
+`func (o *DescribeAccountConfigResult) HasCustomTags() bool`
+
+HasCustomTags returns a boolean if a field has been set.
 
 ### GetDescription
 

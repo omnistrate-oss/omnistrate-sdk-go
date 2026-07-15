@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **ByocOnPremUninstallCommand** | Pointer to **string** | The BYOC on-prem uninstall command | [optional] 
 **CloudNativeNetworks** | Pointer to [**[]FleetAccountConfigCloudNativeNetworkResult**](FleetAccountConfigCloudNativeNetworkResult.md) | Registered CloudNativeNetworks for this account configuration | [optional] 
 **CloudProviderId** | **string** | ID of an CloudProvider | 
+**CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The custom tags for the account configuration | [optional] 
 **Description** | **string** | The description for the account | 
 **GcpBootstrapShellCommand** | Pointer to **string** | The GCP bootstrap shell command | [optional] 
 **GcpDisconnectShellCommand** | Pointer to **string** | The GCP disconnect shell command | [optional] 
@@ -427,6 +428,31 @@ and a boolean to check if the value has been set.
 
 SetCloudProviderId sets CloudProviderId field to given value.
 
+
+### GetCustomTags
+
+`func (o *FleetDescribeAccountConfigResult) GetCustomTags() []CustomTag`
+
+GetCustomTags returns the CustomTags field if non-nil, zero value otherwise.
+
+### GetCustomTagsOk
+
+`func (o *FleetDescribeAccountConfigResult) GetCustomTagsOk() (*[]CustomTag, bool)`
+
+GetCustomTagsOk returns a tuple with the CustomTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomTags
+
+`func (o *FleetDescribeAccountConfigResult) SetCustomTags(v []CustomTag)`
+
+SetCustomTags sets CustomTags field to given value.
+
+### HasCustomTags
+
+`func (o *FleetDescribeAccountConfigResult) HasCustomTags() bool`
+
+HasCustomTags returns a boolean if a field has been set.
 
 ### GetDescription
 
