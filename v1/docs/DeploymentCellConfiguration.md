@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amenities** | Pointer to [**[]Amenity**](Amenity.md) | The amenities available in the deployment cell. | [optional] 
+**WorkloadIdentities** | Pointer to [**[]ManagedWorkloadIdentity**](ManagedWorkloadIdentity.md) | The managed workload identities available in the deployment cell. | [optional] 
 
 ## Methods
 
@@ -49,6 +50,31 @@ SetAmenities sets Amenities field to given value.
 `func (o *DeploymentCellConfiguration) HasAmenities() bool`
 
 HasAmenities returns a boolean if a field has been set.
+
+### GetWorkloadIdentities
+
+`func (o *DeploymentCellConfiguration) GetWorkloadIdentities() []ManagedWorkloadIdentity`
+
+GetWorkloadIdentities returns the WorkloadIdentities field if non-nil, zero value otherwise.
+
+### GetWorkloadIdentitiesOk
+
+`func (o *DeploymentCellConfiguration) GetWorkloadIdentitiesOk() (*[]ManagedWorkloadIdentity, bool)`
+
+GetWorkloadIdentitiesOk returns a tuple with the WorkloadIdentities field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkloadIdentities
+
+`func (o *DeploymentCellConfiguration) SetWorkloadIdentities(v []ManagedWorkloadIdentity)`
+
+SetWorkloadIdentities sets WorkloadIdentities field to given value.
+
+### HasWorkloadIdentities
+
+`func (o *DeploymentCellConfiguration) HasWorkloadIdentities() bool`
+
+HasWorkloadIdentities returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -49,8 +49,12 @@ type ServiceWorkflow struct {
 	ParentId *string `json:"parentId,omitempty"`
 	// The plan type of the instance owner organization.
 	PlanType *string `json:"planType,omitempty"`
+	// The service plan ID associated with the workflow, when available.
+	ServicePlanId *string `json:"servicePlanId,omitempty"`
 	// The service plan name for the workflow.
 	ServicePlanName *string `json:"servicePlanName,omitempty"`
+	// The service plan version associated with the workflow execution, when available.
+	ServicePlanVersion *string `json:"servicePlanVersion,omitempty"`
 	// The time the workflow execution started.
 	StartTime string `json:"startTime"`
 	// The status of the workflow execution.
@@ -531,6 +535,38 @@ func (o *ServiceWorkflow) SetPlanType(v string) {
 	o.PlanType = &v
 }
 
+// GetServicePlanId returns the ServicePlanId field value if set, zero value otherwise.
+func (o *ServiceWorkflow) GetServicePlanId() string {
+	if o == nil || IsNil(o.ServicePlanId) {
+		var ret string
+		return ret
+	}
+	return *o.ServicePlanId
+}
+
+// GetServicePlanIdOk returns a tuple with the ServicePlanId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceWorkflow) GetServicePlanIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ServicePlanId) {
+		return nil, false
+	}
+	return o.ServicePlanId, true
+}
+
+// HasServicePlanId returns a boolean if a field has been set.
+func (o *ServiceWorkflow) HasServicePlanId() bool {
+	if o != nil && !IsNil(o.ServicePlanId) {
+		return true
+	}
+
+	return false
+}
+
+// SetServicePlanId gets a reference to the given string and assigns it to the ServicePlanId field.
+func (o *ServiceWorkflow) SetServicePlanId(v string) {
+	o.ServicePlanId = &v
+}
+
 // GetServicePlanName returns the ServicePlanName field value if set, zero value otherwise.
 func (o *ServiceWorkflow) GetServicePlanName() string {
 	if o == nil || IsNil(o.ServicePlanName) {
@@ -561,6 +597,38 @@ func (o *ServiceWorkflow) HasServicePlanName() bool {
 // SetServicePlanName gets a reference to the given string and assigns it to the ServicePlanName field.
 func (o *ServiceWorkflow) SetServicePlanName(v string) {
 	o.ServicePlanName = &v
+}
+
+// GetServicePlanVersion returns the ServicePlanVersion field value if set, zero value otherwise.
+func (o *ServiceWorkflow) GetServicePlanVersion() string {
+	if o == nil || IsNil(o.ServicePlanVersion) {
+		var ret string
+		return ret
+	}
+	return *o.ServicePlanVersion
+}
+
+// GetServicePlanVersionOk returns a tuple with the ServicePlanVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceWorkflow) GetServicePlanVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.ServicePlanVersion) {
+		return nil, false
+	}
+	return o.ServicePlanVersion, true
+}
+
+// HasServicePlanVersion returns a boolean if a field has been set.
+func (o *ServiceWorkflow) HasServicePlanVersion() bool {
+	if o != nil && !IsNil(o.ServicePlanVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetServicePlanVersion gets a reference to the given string and assigns it to the ServicePlanVersion field.
+func (o *ServiceWorkflow) SetServicePlanVersion(v string) {
+	o.ServicePlanVersion = &v
 }
 
 // GetStartTime returns the StartTime field value
@@ -658,8 +726,14 @@ func (o ServiceWorkflow) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PlanType) {
 		toSerialize["planType"] = o.PlanType
 	}
+	if !IsNil(o.ServicePlanId) {
+		toSerialize["servicePlanId"] = o.ServicePlanId
+	}
 	if !IsNil(o.ServicePlanName) {
 		toSerialize["servicePlanName"] = o.ServicePlanName
+	}
+	if !IsNil(o.ServicePlanVersion) {
+		toSerialize["servicePlanVersion"] = o.ServicePlanVersion
 	}
 	toSerialize["startTime"] = o.StartTime
 	toSerialize["status"] = o.Status
@@ -726,7 +800,9 @@ func (o *ServiceWorkflow) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "orgName")
 		delete(additionalProperties, "parentId")
 		delete(additionalProperties, "planType")
+		delete(additionalProperties, "servicePlanId")
 		delete(additionalProperties, "servicePlanName")
+		delete(additionalProperties, "servicePlanVersion")
 		delete(additionalProperties, "startTime")
 		delete(additionalProperties, "status")
 		o.AdditionalProperties = additionalProperties
