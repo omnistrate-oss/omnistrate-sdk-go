@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **ResourceId** | **string** | ID of a resource | 
 **ServiceId** | **string** | ID of a Service | 
 **Token** | **string** | JWT token used to perform authorization | 
+**WaitForCompletionSeconds** | Pointer to **int64** | Block up to N seconds (max 60) and return the completed execution inline. 0/absent &#x3D; async. | [optional] 
 **WorkflowId** | **string** | ID of a Custom Workflow | 
 
 ## Methods
@@ -165,6 +166,31 @@ and a boolean to check if the value has been set.
 
 SetToken sets Token field to given value.
 
+
+### GetWaitForCompletionSeconds
+
+`func (o *FleetResourceInstanceCustomWorkflowRequest) GetWaitForCompletionSeconds() int64`
+
+GetWaitForCompletionSeconds returns the WaitForCompletionSeconds field if non-nil, zero value otherwise.
+
+### GetWaitForCompletionSecondsOk
+
+`func (o *FleetResourceInstanceCustomWorkflowRequest) GetWaitForCompletionSecondsOk() (*int64, bool)`
+
+GetWaitForCompletionSecondsOk returns a tuple with the WaitForCompletionSeconds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWaitForCompletionSeconds
+
+`func (o *FleetResourceInstanceCustomWorkflowRequest) SetWaitForCompletionSeconds(v int64)`
+
+SetWaitForCompletionSeconds sets WaitForCompletionSeconds field to given value.
+
+### HasWaitForCompletionSeconds
+
+`func (o *FleetResourceInstanceCustomWorkflowRequest) HasWaitForCompletionSeconds() bool`
+
+HasWaitForCompletionSeconds returns a boolean if a field has been set.
 
 ### GetWorkflowId
 

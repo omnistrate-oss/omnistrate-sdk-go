@@ -29,6 +29,8 @@ type ResourceNetworkTopologyResult struct {
 	// The ports that the whole cluster exposes
 	ClusterPorts []int64 `json:"clusterPorts,omitempty"`
 	CustomDNSEndpoint *CustomDNSEndpoint `json:"customDNSEndpoint,omitempty"`
+	// Whether this resource deployment is disabled
+	Disabled *bool `json:"disabled,omitempty"`
 	// Whether this resource has associated compute
 	HasCompute bool `json:"hasCompute"`
 	// Whether this resource is a job
@@ -70,6 +72,8 @@ func NewResourceNetworkTopologyResult(allowedIPRanges []string, clusterEndpoint 
 	this := ResourceNetworkTopologyResult{}
 	this.AllowedIPRanges = allowedIPRanges
 	this.ClusterEndpoint = clusterEndpoint
+	var disabled bool = false
+	this.Disabled = &disabled
 	this.HasCompute = hasCompute
 	var isJob bool = false
 	this.IsJob = &isJob
@@ -86,6 +90,8 @@ func NewResourceNetworkTopologyResult(allowedIPRanges []string, clusterEndpoint 
 // but it doesn't guarantee that properties required by API are set
 func NewResourceNetworkTopologyResultWithDefaults() *ResourceNetworkTopologyResult {
 	this := ResourceNetworkTopologyResult{}
+	var disabled bool = false
+	this.Disabled = &disabled
 	var isJob bool = false
 	this.IsJob = &isJob
 	return &this
@@ -206,6 +212,29 @@ func (o *ResourceNetworkTopologyResult) GetCustomDNSEndpointOk() (*CustomDNSEndp
 // SetCustomDNSEndpoint gets a reference to the given CustomDNSEndpoint and assigns it to the CustomDNSEndpoint field.
 func (o *ResourceNetworkTopologyResult) SetCustomDNSEndpoint(v CustomDNSEndpoint) {
 	o.CustomDNSEndpoint = &v
+}
+
+// GetDisabled returns the Disabled field value if set, zero value otherwise.
+func (o *ResourceNetworkTopologyResult) GetDisabled() bool {
+	if o == nil || IsNil(o.Disabled) {
+		var ret bool
+		return ret
+	}
+	return *o.Disabled
+}
+
+// GetDisabledOk returns a tuple with the Disabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceNetworkTopologyResult) GetDisabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.Disabled) {
+		return nil, false
+	}
+	return o.Disabled, true
+}
+
+// SetDisabled gets a reference to the given bool and assigns it to the Disabled field.
+func (o *ResourceNetworkTopologyResult) SetDisabled(v bool) {
+	o.Disabled = &v
 }
 
 // GetHasCompute returns the HasCompute field value
@@ -581,6 +610,9 @@ func (o ResourceNetworkTopologyResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CustomDNSEndpoint) {
 		toSerialize["customDNSEndpoint"] = o.CustomDNSEndpoint
 	}
+	if !IsNil(o.Disabled) {
+		toSerialize["disabled"] = o.Disabled
+	}
 	toSerialize["hasCompute"] = o.HasCompute
 	if !IsNil(o.IsJob) {
 		toSerialize["isJob"] = o.IsJob
@@ -669,6 +701,7 @@ func (o *ResourceNetworkTopologyResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "clusterEndpoint")
 		delete(additionalProperties, "clusterPorts")
 		delete(additionalProperties, "customDNSEndpoint")
+		delete(additionalProperties, "disabled")
 		delete(additionalProperties, "hasCompute")
 		delete(additionalProperties, "isJob")
 		delete(additionalProperties, "jobMetrics")

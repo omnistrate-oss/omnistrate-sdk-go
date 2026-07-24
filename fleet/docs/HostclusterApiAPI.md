@@ -48,7 +48,7 @@ import (
 )
 
 func main() {
-	adoptHostClusterRequest2 := *openapiclient.NewAdoptHostClusterRequest2("aws|azure|gcp|nebius|oci|byoc-onprem|all", "My Adopted Host Cluster", "Et aut aut perspiciatis hic optio dolor.", "us-east-1") // AdoptHostClusterRequest2 | 
+	adoptHostClusterRequest2 := *openapiclient.NewAdoptHostClusterRequest2("aws|azure|gcp|nebius|oci|byoc-onprem|all", "My Adopted Host Cluster", "Assumenda non est reiciendis.", "us-east-1") // AdoptHostClusterRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

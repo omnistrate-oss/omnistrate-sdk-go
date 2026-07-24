@@ -24,6 +24,7 @@ type DebugResourceResult struct {
 	DebugData interface{} `json:"debugData,omitempty"`
 	// ID of a resource
 	ResourceId string `json:"resourceId"`
+	WorkloadDiagnosis *WorkloadDiagnosis `json:"workloadDiagnosis,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -104,6 +105,38 @@ func (o *DebugResourceResult) SetResourceId(v string) {
 	o.ResourceId = v
 }
 
+// GetWorkloadDiagnosis returns the WorkloadDiagnosis field value if set, zero value otherwise.
+func (o *DebugResourceResult) GetWorkloadDiagnosis() WorkloadDiagnosis {
+	if o == nil || IsNil(o.WorkloadDiagnosis) {
+		var ret WorkloadDiagnosis
+		return ret
+	}
+	return *o.WorkloadDiagnosis
+}
+
+// GetWorkloadDiagnosisOk returns a tuple with the WorkloadDiagnosis field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DebugResourceResult) GetWorkloadDiagnosisOk() (*WorkloadDiagnosis, bool) {
+	if o == nil || IsNil(o.WorkloadDiagnosis) {
+		return nil, false
+	}
+	return o.WorkloadDiagnosis, true
+}
+
+// HasWorkloadDiagnosis returns a boolean if a field has been set.
+func (o *DebugResourceResult) HasWorkloadDiagnosis() bool {
+	if o != nil && !IsNil(o.WorkloadDiagnosis) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkloadDiagnosis gets a reference to the given WorkloadDiagnosis and assigns it to the WorkloadDiagnosis field.
+func (o *DebugResourceResult) SetWorkloadDiagnosis(v WorkloadDiagnosis) {
+	o.WorkloadDiagnosis = &v
+}
+
 func (o DebugResourceResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -118,6 +151,9 @@ func (o DebugResourceResult) ToMap() (map[string]interface{}, error) {
 		toSerialize["debugData"] = o.DebugData
 	}
 	toSerialize["resourceId"] = o.ResourceId
+	if !IsNil(o.WorkloadDiagnosis) {
+		toSerialize["workloadDiagnosis"] = o.WorkloadDiagnosis
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -163,6 +199,7 @@ func (o *DebugResourceResult) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "debugData")
 		delete(additionalProperties, "resourceId")
+		delete(additionalProperties, "workloadDiagnosis")
 		o.AdditionalProperties = additionalProperties
 	}
 

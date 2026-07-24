@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Configuration** | Pointer to **map[string]interface{}** | Workflow-specific configuration as a flexible key-value map. For backup workflows: backupRetentionInDays (int), backupPeriodInHours (int), snapshotBeforeDeletion (bool). New properties can be added without API or schema changes. | [optional] 
 **Description** | Pointer to **string** | A brief description of the workflow | [optional] 
 **Name** | Pointer to **string** | The display name of the workflow | [optional] 
+**OutputParameterSpecs** | Pointer to [**[]WorkflowOutputParameterSpec**](WorkflowOutputParameterSpec.md) | Typed declarations of the output parameters this workflow produces. | [optional] 
 **Scope** | Pointer to **[]string** | The user context scopes that can invoke this workflow | [optional] 
 **Spec** | Pointer to **interface{}** | The workflow definition persisted for the service plan | [optional] 
 **Verb** | Pointer to **string** | The workflow verb | [optional] 
@@ -130,6 +131,31 @@ SetName sets Name field to given value.
 `func (o *UpdateCustomWorkflowRequest2) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetOutputParameterSpecs
+
+`func (o *UpdateCustomWorkflowRequest2) GetOutputParameterSpecs() []WorkflowOutputParameterSpec`
+
+GetOutputParameterSpecs returns the OutputParameterSpecs field if non-nil, zero value otherwise.
+
+### GetOutputParameterSpecsOk
+
+`func (o *UpdateCustomWorkflowRequest2) GetOutputParameterSpecsOk() (*[]WorkflowOutputParameterSpec, bool)`
+
+GetOutputParameterSpecsOk returns a tuple with the OutputParameterSpecs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOutputParameterSpecs
+
+`func (o *UpdateCustomWorkflowRequest2) SetOutputParameterSpecs(v []WorkflowOutputParameterSpec)`
+
+SetOutputParameterSpecs sets OutputParameterSpecs field to given value.
+
+### HasOutputParameterSpecs
+
+`func (o *UpdateCustomWorkflowRequest2) HasOutputParameterSpecs() bool`
+
+HasOutputParameterSpecs returns a boolean if a field has been set.
 
 ### GetScope
 

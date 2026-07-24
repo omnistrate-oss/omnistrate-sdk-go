@@ -34,6 +34,8 @@ type ServiceWorkflow struct {
 	AzureSubscriptionID *string `json:"azureSubscriptionID,omitempty"`
 	// Name of the Infra Provider
 	CloudProvider string `json:"cloudProvider"`
+	// A one-line, human-readable summary of why the workflow is currently in its state, populated server-side.
+	CurrentStateSummary *string `json:"currentStateSummary,omitempty"`
 	// The time the workflow execution ended.
 	EndTime *string `json:"endTime,omitempty"`
 	// The GCP project ID
@@ -59,6 +61,8 @@ type ServiceWorkflow struct {
 	StartTime string `json:"startTime"`
 	// The status of the workflow execution.
 	Status string `json:"status"`
+	// The live per-task state of the workflow's authored DAG tasks, when available.
+	Tasks []WorkflowTask `json:"tasks,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -293,6 +297,38 @@ func (o *ServiceWorkflow) GetCloudProviderOk() (*string, bool) {
 // SetCloudProvider sets field value
 func (o *ServiceWorkflow) SetCloudProvider(v string) {
 	o.CloudProvider = v
+}
+
+// GetCurrentStateSummary returns the CurrentStateSummary field value if set, zero value otherwise.
+func (o *ServiceWorkflow) GetCurrentStateSummary() string {
+	if o == nil || IsNil(o.CurrentStateSummary) {
+		var ret string
+		return ret
+	}
+	return *o.CurrentStateSummary
+}
+
+// GetCurrentStateSummaryOk returns a tuple with the CurrentStateSummary field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceWorkflow) GetCurrentStateSummaryOk() (*string, bool) {
+	if o == nil || IsNil(o.CurrentStateSummary) {
+		return nil, false
+	}
+	return o.CurrentStateSummary, true
+}
+
+// HasCurrentStateSummary returns a boolean if a field has been set.
+func (o *ServiceWorkflow) HasCurrentStateSummary() bool {
+	if o != nil && !IsNil(o.CurrentStateSummary) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrentStateSummary gets a reference to the given string and assigns it to the CurrentStateSummary field.
+func (o *ServiceWorkflow) SetCurrentStateSummary(v string) {
+	o.CurrentStateSummary = &v
 }
 
 // GetEndTime returns the EndTime field value if set, zero value otherwise.
@@ -679,6 +715,38 @@ func (o *ServiceWorkflow) SetStatus(v string) {
 	o.Status = v
 }
 
+// GetTasks returns the Tasks field value if set, zero value otherwise.
+func (o *ServiceWorkflow) GetTasks() []WorkflowTask {
+	if o == nil || IsNil(o.Tasks) {
+		var ret []WorkflowTask
+		return ret
+	}
+	return o.Tasks
+}
+
+// GetTasksOk returns a tuple with the Tasks field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceWorkflow) GetTasksOk() ([]WorkflowTask, bool) {
+	if o == nil || IsNil(o.Tasks) {
+		return nil, false
+	}
+	return o.Tasks, true
+}
+
+// HasTasks returns a boolean if a field has been set.
+func (o *ServiceWorkflow) HasTasks() bool {
+	if o != nil && !IsNil(o.Tasks) {
+		return true
+	}
+
+	return false
+}
+
+// SetTasks gets a reference to the given []WorkflowTask and assigns it to the Tasks field.
+func (o *ServiceWorkflow) SetTasks(v []WorkflowTask) {
+	o.Tasks = v
+}
+
 func (o ServiceWorkflow) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -706,6 +774,9 @@ func (o ServiceWorkflow) ToMap() (map[string]interface{}, error) {
 		toSerialize["azureSubscriptionID"] = o.AzureSubscriptionID
 	}
 	toSerialize["cloudProvider"] = o.CloudProvider
+	if !IsNil(o.CurrentStateSummary) {
+		toSerialize["currentStateSummary"] = o.CurrentStateSummary
+	}
 	if !IsNil(o.EndTime) {
 		toSerialize["endTime"] = o.EndTime
 	}
@@ -737,6 +808,9 @@ func (o ServiceWorkflow) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["startTime"] = o.StartTime
 	toSerialize["status"] = o.Status
+	if !IsNil(o.Tasks) {
+		toSerialize["tasks"] = o.Tasks
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -792,6 +866,7 @@ func (o *ServiceWorkflow) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "awsAccountID")
 		delete(additionalProperties, "azureSubscriptionID")
 		delete(additionalProperties, "cloudProvider")
+		delete(additionalProperties, "currentStateSummary")
 		delete(additionalProperties, "endTime")
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "id")
@@ -805,6 +880,7 @@ func (o *ServiceWorkflow) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "servicePlanVersion")
 		delete(additionalProperties, "startTime")
 		delete(additionalProperties, "status")
+		delete(additionalProperties, "tasks")
 		o.AdditionalProperties = additionalProperties
 	}
 

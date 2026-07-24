@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RequestParams** | Pointer to **interface{}** | Input parameters for the custom workflow. System workflow operations do not require user supplied parameters. | [optional] 
 **ResourceId** | **string** | The resource ID. | 
+**WaitForCompletionSeconds** | Pointer to **int64** | Block up to N seconds (max 60) and return the completed execution inline. 0/absent &#x3D; async. | [optional] 
 
 ## Methods
 
@@ -80,6 +81,31 @@ and a boolean to check if the value has been set.
 
 SetResourceId sets ResourceId field to given value.
 
+
+### GetWaitForCompletionSeconds
+
+`func (o *FleetResourceInstanceCustomWorkflowRequest2) GetWaitForCompletionSeconds() int64`
+
+GetWaitForCompletionSeconds returns the WaitForCompletionSeconds field if non-nil, zero value otherwise.
+
+### GetWaitForCompletionSecondsOk
+
+`func (o *FleetResourceInstanceCustomWorkflowRequest2) GetWaitForCompletionSecondsOk() (*int64, bool)`
+
+GetWaitForCompletionSecondsOk returns a tuple with the WaitForCompletionSeconds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWaitForCompletionSeconds
+
+`func (o *FleetResourceInstanceCustomWorkflowRequest2) SetWaitForCompletionSeconds(v int64)`
+
+SetWaitForCompletionSeconds sets WaitForCompletionSeconds field to given value.
+
+### HasWaitForCompletionSeconds
+
+`func (o *FleetResourceInstanceCustomWorkflowRequest2) HasWaitForCompletionSeconds() bool`
+
+HasWaitForCompletionSeconds returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

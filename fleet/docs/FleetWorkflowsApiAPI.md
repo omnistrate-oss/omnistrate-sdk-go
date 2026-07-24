@@ -6,8 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**FleetWorkflowsApiDescribeServiceWorkflow**](FleetWorkflowsApiAPI.md#FleetWorkflowsApiDescribeServiceWorkflow) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows/{id} | DescribeServiceWorkflow fleet-workflows-api
 [**FleetWorkflowsApiDescribeServiceWorkflowSummary**](FleetWorkflowsApiAPI.md#FleetWorkflowsApiDescribeServiceWorkflowSummary) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows-summary | DescribeServiceWorkflowSummary fleet-workflows-api
+[**FleetWorkflowsApiDescribeWorkflowExecution**](FleetWorkflowsApiAPI.md#FleetWorkflowsApiDescribeWorkflowExecution) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/workflow-executions/{executionId} | DescribeWorkflowExecution fleet-workflows-api
 [**FleetWorkflowsApiGetWorkflowEvents**](FleetWorkflowsApiAPI.md#FleetWorkflowsApiGetWorkflowEvents) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows/{id}/events | GetWorkflowEvents fleet-workflows-api
 [**FleetWorkflowsApiListServiceWorkflows**](FleetWorkflowsApiAPI.md#FleetWorkflowsApiListServiceWorkflows) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows | ListServiceWorkflows fleet-workflows-api
+[**FleetWorkflowsApiListWorkflowExecutions**](FleetWorkflowsApiAPI.md#FleetWorkflowsApiListWorkflowExecutions) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/resource-instance/{instanceId}/workflow-executions | ListWorkflowExecutions fleet-workflows-api
 [**FleetWorkflowsApiTerminateServiceWorkflow**](FleetWorkflowsApiAPI.md#FleetWorkflowsApiTerminateServiceWorkflow) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows/{id} | TerminateServiceWorkflow fleet-workflows-api
 [**FleetWorkflowsApiUpdateServiceWorkflow**](FleetWorkflowsApiAPI.md#FleetWorkflowsApiUpdateServiceWorkflow) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows/{id} | UpdateServiceWorkflow fleet-workflows-api
 
@@ -143,6 +145,80 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DescribeServiceWorkflowSummaryResult**](DescribeServiceWorkflowSummaryResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## FleetWorkflowsApiDescribeWorkflowExecution
+
+> DescribeWorkflowExecutionResult FleetWorkflowsApiDescribeWorkflowExecution(ctx, serviceId, environmentId, executionId).Execute()
+
+DescribeWorkflowExecution fleet-workflows-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
+	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
+	executionId := "instance-x-cwt-123-1752700000" // string | The workflow execution ID to describe.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.FleetWorkflowsApiAPI.FleetWorkflowsApiDescribeWorkflowExecution(context.Background(), serviceId, environmentId, executionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `FleetWorkflowsApiAPI.FleetWorkflowsApiDescribeWorkflowExecution``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `FleetWorkflowsApiDescribeWorkflowExecution`: DescribeWorkflowExecutionResult
+	fmt.Fprintf(os.Stdout, "Response from `FleetWorkflowsApiAPI.FleetWorkflowsApiDescribeWorkflowExecution`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | The service ID this workflow belongs to. | 
+**environmentId** | **string** | The service environment ID this workflow belongs to. | 
+**executionId** | **string** | The workflow execution ID to describe. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiFleetWorkflowsApiDescribeWorkflowExecutionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+### Return type
+
+[**DescribeWorkflowExecutionResult**](DescribeWorkflowExecutionResult.md)
 
 ### Authorization
 
@@ -301,6 +377,93 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ListServiceWorkflowsResult**](ListServiceWorkflowsResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## FleetWorkflowsApiListWorkflowExecutions
+
+> ListWorkflowExecutionsResult FleetWorkflowsApiListWorkflowExecutions(ctx, serviceId, environmentId, instanceId).NextPageToken(nextPageToken).PageSize(pageSize).Verb(verb).Status(status).StartDate(startDate).EndDate(endDate).Execute()
+
+ListWorkflowExecutions fleet-workflows-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
+	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
+	instanceId := "instance-12345678" // string | The resource instance ID.
+	nextPageToken := "token" // string |  (optional)
+	pageSize := int64(10) // int64 |  (optional)
+	verb := "PostgresVersion" // string | Filter executions by the provider-defined verb (optional)
+	status := "SUCCEEDED" // string | Filter executions by status (optional)
+	startDate := time.Now() // time.Time | Start date of the executions (optional)
+	endDate := time.Now() // time.Time | End date of the executions (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.FleetWorkflowsApiAPI.FleetWorkflowsApiListWorkflowExecutions(context.Background(), serviceId, environmentId, instanceId).NextPageToken(nextPageToken).PageSize(pageSize).Verb(verb).Status(status).StartDate(startDate).EndDate(endDate).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `FleetWorkflowsApiAPI.FleetWorkflowsApiListWorkflowExecutions``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `FleetWorkflowsApiListWorkflowExecutions`: ListWorkflowExecutionsResult
+	fmt.Fprintf(os.Stdout, "Response from `FleetWorkflowsApiAPI.FleetWorkflowsApiListWorkflowExecutions`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | The service ID this workflow belongs to. | 
+**environmentId** | **string** | The service environment ID this workflow belongs to. | 
+**instanceId** | **string** | The resource instance ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiFleetWorkflowsApiListWorkflowExecutionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **nextPageToken** | **string** |  | 
+ **pageSize** | **int64** |  | 
+ **verb** | **string** | Filter executions by the provider-defined verb | 
+ **status** | **string** | Filter executions by status | 
+ **startDate** | **time.Time** | Start date of the executions | 
+ **endDate** | **time.Time** | End date of the executions | 
+
+### Return type
+
+[**ListWorkflowExecutionsResult**](ListWorkflowExecutionsResult.md)
 
 ### Authorization
 

@@ -49,6 +49,7 @@ Method | HTTP request | Description
 [**InventoryApiGenerateTokenForHostClusterDashboard**](InventoryApiAPI.md#InventoryApiGenerateTokenForHostClusterDashboard) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard inventory-api
 [**InventoryApiImportAccountConfigCloudNativeNetwork**](InventoryApiAPI.md#InventoryApiImportAccountConfigCloudNativeNetwork) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/import | ImportAccountConfigCloudNativeNetwork inventory-api
 [**InventoryApiImportAccountConfigCloudNativeNetworkHostCluster**](InventoryApiAPI.md#InventoryApiImportAccountConfigCloudNativeNetworkHostCluster) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/host-clusters/{hostClusterName}/import | ImportAccountConfigCloudNativeNetworkHostCluster inventory-api
+[**InventoryApiInvokeResourceInstanceWorkflowVerb**](InventoryApiAPI.md#InventoryApiInvokeResourceInstanceWorkflowVerb) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/resource-instance/{instanceId}/workflow/{verb} | InvokeResourceInstanceWorkflowVerb inventory-api
 [**InventoryApiListAccountConfigCloudNativeNetworks**](InventoryApiAPI.md#InventoryApiListAccountConfigCloudNativeNetworks) | **Get** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks | ListAccountConfigCloudNativeNetworks inventory-api
 [**InventoryApiListAccountConfigs**](InventoryApiAPI.md#InventoryApiListAccountConfigs) | **Get** /2022-09-01-00/fleet/account-configs | ListAccountConfigs inventory-api
 [**InventoryApiListActiveOrganizations**](InventoryApiAPI.md#InventoryApiListActiveOrganizations) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/organizations | ListActiveOrganizations inventory-api
@@ -126,7 +127,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	fleetAddCapacityToResourceInstanceRequest2 := *openapiclient.NewFleetAddCapacityToResourceInstanceRequest2(int64(3), "Explicabo sit.") // FleetAddCapacityToResourceInstanceRequest2 | 
+	fleetAddCapacityToResourceInstanceRequest2 := *openapiclient.NewFleetAddCapacityToResourceInstanceRequest2(int64(3), "Eum magni repellendus quis qui quia sit.") // FleetAddCapacityToResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1043,7 +1044,7 @@ import (
 )
 
 func main() {
-	fleetCreateServicesOrchestrationRequest2 := *openapiclient.NewFleetCreateServicesOrchestrationRequest2("Dolorem illo rerum et ipsa praesentium doloribus.") // FleetCreateServicesOrchestrationRequest2 | 
+	fleetCreateServicesOrchestrationRequest2 := *openapiclient.NewFleetCreateServicesOrchestrationRequest2("Id alias eius facere rerum fuga.") // FleetCreateServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1109,7 +1110,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	fleetCreateSubscriptionOnBehalfOfCustomerRequest2 := *openapiclient.NewFleetCreateSubscriptionOnBehalfOfCustomerRequest2("Adipisci beatae modi.", "Aliquam consequatur in repellendus voluptas odit.") // FleetCreateSubscriptionOnBehalfOfCustomerRequest2 | 
+	fleetCreateSubscriptionOnBehalfOfCustomerRequest2 := *openapiclient.NewFleetCreateSubscriptionOnBehalfOfCustomerRequest2("Ea provident occaecati dolorum dolore totam.", "Optio voluptatem mollitia deserunt.") // FleetCreateSubscriptionOnBehalfOfCustomerRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1182,7 +1183,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
-	createUpgradePathRequest2 := *openapiclient.NewCreateUpgradePathRequest2("1.0", "2.0", map[string][]string{"key": []string{"Et eos nemo nisi doloribus."}}) // CreateUpgradePathRequest2 | 
+	createUpgradePathRequest2 := *openapiclient.NewCreateUpgradePathRequest2("1.0", "2.0", map[string][]string{"key": []string{"Magnam molestiae eum et."}}) // CreateUpgradePathRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1480,7 +1481,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	fleetDeleteResourceInstanceRequest2 := *openapiclient.NewFleetDeleteResourceInstanceRequest2("Voluptatem nemo dolorem ex autem nihil ab.") // FleetDeleteResourceInstanceRequest2 | 
+	fleetDeleteResourceInstanceRequest2 := *openapiclient.NewFleetDeleteResourceInstanceRequest2("Quidem dolorem cum hic.") // FleetDeleteResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3442,6 +3443,85 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## InventoryApiInvokeResourceInstanceWorkflowVerb
+
+> ResourceInstanceCustomWorkflowResult InventoryApiInvokeResourceInstanceWorkflowVerb(ctx, serviceId, environmentId, instanceId, verb).FleetInvokeResourceInstanceWorkflowVerbRequest2(fleetInvokeResourceInstanceWorkflowVerbRequest2).Execute()
+
+InvokeResourceInstanceWorkflowVerb inventory-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
+	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
+	instanceId := "instance-12345678" // string | The resource instance ID.
+	verb := "PostgresVersion" // string | The provider-defined verb to invoke. The server resolves the verb to a custom workflow ID against the instance's plan version.
+	fleetInvokeResourceInstanceWorkflowVerbRequest2 := *openapiclient.NewFleetInvokeResourceInstanceWorkflowVerbRequest2("Id voluptas velit dolorem.") // FleetInvokeResourceInstanceWorkflowVerbRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiInvokeResourceInstanceWorkflowVerb(context.Background(), serviceId, environmentId, instanceId, verb).FleetInvokeResourceInstanceWorkflowVerbRequest2(fleetInvokeResourceInstanceWorkflowVerbRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiInvokeResourceInstanceWorkflowVerb``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InventoryApiInvokeResourceInstanceWorkflowVerb`: ResourceInstanceCustomWorkflowResult
+	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiInvokeResourceInstanceWorkflowVerb`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | The service ID this workflow belongs to. | 
+**environmentId** | **string** | The service environment ID this workflow belongs to. | 
+**instanceId** | **string** | The resource instance ID. | 
+**verb** | **string** | The provider-defined verb to invoke. The server resolves the verb to a custom workflow ID against the instance&#39;s plan version. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInventoryApiInvokeResourceInstanceWorkflowVerbRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+ **fleetInvokeResourceInstanceWorkflowVerbRequest2** | [**FleetInvokeResourceInstanceWorkflowVerbRequest2**](FleetInvokeResourceInstanceWorkflowVerbRequest2.md) |  | 
+
+### Return type
+
+[**ResourceInstanceCustomWorkflowResult**](ResourceInstanceCustomWorkflowResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## InventoryApiListAccountConfigCloudNativeNetworks
 
 > FleetListAccountConfigCloudNativeNetworksResult InventoryApiListAccountConfigCloudNativeNetworks(ctx, id).Execute()
@@ -3741,7 +3821,7 @@ import (
 )
 
 func main() {
-	hasInvoice := false // bool | Filter for organizations with invoices (optional)
+	hasInvoice := true // bool | Filter for organizations with invoices (optional)
 	hasInvoiceWithStatus := "draft|open|paid|uncollectible|void" // string | Filter for organizations with invoices with a specific status (optional)
 	hasInvoiceFromDate := time.Now() // time.Time | Filter for organizations with invoices from a specific date (optional)
 	hasInvoiceToDate := time.Now() // time.Time | Filter for organizations with invoices to a specific date (optional)
@@ -3813,8 +3893,8 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	productTierId := "Ab veritatis rerum quam voluptates." // string | The product tier id to filter by (optional)
-	subscriptionId := "Facere autem voluptates aut minus dolores officiis." // string | The subscription id to filter by (optional)
+	productTierId := "Est corporis quia." // string | The product tier id to filter by (optional)
+	subscriptionId := "Quia et quaerat dolor facere." // string | The subscription id to filter by (optional)
 	snapshotType := "AutomatedSnapshot|ManualSnapshot" // string | The type of snapshot to filter by. Valid values are: 'ManualSnapshot' and 'AutomatedSnapshot' (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -4264,7 +4344,7 @@ func main() {
 	instanceId := "instance-12345678" // string | The resource instance ID.
 	startTime := "2023-01-10T00:00:00Z" // string | Filter events that occurred after this time (optional)
 	endTime := "2023-01-10T00:00:00Z" // string | Filter events that occurred before this time (optional)
-	excludeWorkflowFailures := true // bool | Whether to exclude workflow failure details from the response. (optional)
+	excludeWorkflowFailures := false // bool | Whether to exclude workflow failure details from the response. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -4575,11 +4655,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	productTierVersion := "Ut labore." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
-	productTierId := "Ab veritatis rerum quam voluptates." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
-	subscriptionId := "Facere autem voluptates aut minus dolores officiis." // string | Subscription id of the instance to describe. (optional)
+	productTierVersion := "Possimus aspernatur ipsa." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierId := "Est corporis quia." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
+	subscriptionId := "Quia et quaerat dolor facere." // string | Subscription id of the instance to describe. (optional)
 	filter := "onlyCloudAccounts" // string | Filter to apply to the list of instances. (optional)
-	excludeDetail := true // bool | Whether to exclude detailed information about the resource instances. (optional) (default to false)
+	excludeDetail := false // bool | Whether to exclude detailed information about the resource instances. (optional) (default to false)
 	excludeNetworkTopology := false // bool | Whether to exclude network topology details from the response. (optional)
 	excludeHAStatus := false // bool | Whether to exclude high availability and autoscaling status from the response. (optional)
 	excludeIntegrations := false // bool | Whether to exclude integration statuses from the response. (optional)
@@ -5268,7 +5348,7 @@ import (
 
 func main() {
 	id := "so-12345678" // string | The ID of the services orchestration
-	fleetModifyServicesOrchestrationRequest2 := *openapiclient.NewFleetModifyServicesOrchestrationRequest2("Architecto sint.") // FleetModifyServicesOrchestrationRequest2 | 
+	fleetModifyServicesOrchestrationRequest2 := *openapiclient.NewFleetModifyServicesOrchestrationRequest2("Exercitationem dignissimos tenetur et deleniti aut.") // FleetModifyServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -5338,7 +5418,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	oneOffPatchResourceInstanceRequest2 := *openapiclient.NewOneOffPatchResourceInstanceRequest2("Soluta est voluptatem voluptas est vel adipisci.") // OneOffPatchResourceInstanceRequest2 | 
+	oneOffPatchResourceInstanceRequest2 := *openapiclient.NewOneOffPatchResourceInstanceRequest2("Sit consequatur est facere est.") // OneOffPatchResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -5414,7 +5494,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	fleetRemoveCapacityFromResourceInstanceRequest2 := *openapiclient.NewFleetRemoveCapacityFromResourceInstanceRequest2(int64(3), "Velit et.") // FleetRemoveCapacityFromResourceInstanceRequest2 | 
+	fleetRemoveCapacityFromResourceInstanceRequest2 := *openapiclient.NewFleetRemoveCapacityFromResourceInstanceRequest2(int64(3), "Repellendus et necessitatibus ipsum.") // FleetRemoveCapacityFromResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -5630,7 +5710,7 @@ func main() {
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
 	workflowId := "cwt-12345678" // string | The custom workflow ID from the instance's supportedOperations list.
-	fleetResourceInstanceCustomWorkflowRequest2 := *openapiclient.NewFleetResourceInstanceCustomWorkflowRequest2("Vitae adipisci.") // FleetResourceInstanceCustomWorkflowRequest2 | 
+	fleetResourceInstanceCustomWorkflowRequest2 := *openapiclient.NewFleetResourceInstanceCustomWorkflowRequest2("Impedit praesentium.") // FleetResourceInstanceCustomWorkflowRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -5708,7 +5788,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	fleetRestartResourceInstanceRequest2 := *openapiclient.NewFleetRestartResourceInstanceRequest2("Ullam corrupti.") // FleetRestartResourceInstanceRequest2 | 
+	fleetRestartResourceInstanceRequest2 := *openapiclient.NewFleetRestartResourceInstanceRequest2("Est veniam aliquid.") // FleetRestartResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -6143,7 +6223,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	fleetStartResourceInstanceRequest2 := *openapiclient.NewFleetStartResourceInstanceRequest2("Dicta aliquid qui alias aut dolores itaque.") // FleetStartResourceInstanceRequest2 | 
+	fleetStartResourceInstanceRequest2 := *openapiclient.NewFleetStartResourceInstanceRequest2("At sequi vero eveniet qui.") // FleetStartResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -6217,7 +6297,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	fleetStopResourceInstanceRequest2 := *openapiclient.NewFleetStopResourceInstanceRequest2("Facilis vero.") // FleetStopResourceInstanceRequest2 | 
+	fleetStopResourceInstanceRequest2 := *openapiclient.NewFleetStopResourceInstanceRequest2("Laudantium ratione.") // FleetStopResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -6928,7 +7008,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	fleetUpdateResourceInstanceRequest2 := *openapiclient.NewFleetUpdateResourceInstanceRequest2("Officia minus qui aut.") // FleetUpdateResourceInstanceRequest2 | 
+	fleetUpdateResourceInstanceRequest2 := *openapiclient.NewFleetUpdateResourceInstanceRequest2("Velit voluptatem unde.") // FleetUpdateResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -7223,7 +7303,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	fleetUpdateSubscriptionsRequest2 := *openapiclient.NewFleetUpdateSubscriptionsRequest2([]string{"Officiis sit tempore aut eos dolorum vitae."}) // FleetUpdateSubscriptionsRequest2 | 
+	fleetUpdateSubscriptionsRequest2 := *openapiclient.NewFleetUpdateSubscriptionsRequest2([]string{"Et sunt cumque magnam."}) // FleetUpdateSubscriptionsRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

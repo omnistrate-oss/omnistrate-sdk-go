@@ -945,6 +945,7 @@ docs/VerifyIdentityProviderResult.md
 docs/VunitApiAPI.md
 docs/WarmPoolConfiguration.md
 docs/WorkflowFailure.md
+docs/WorkflowOutputParameterSpec.md
 docs/WorkspaceArtifactsDownloadResult.md
 docs/WorkspaceArtifactsDownloadURLResult.md
 docs/WorkspaceArtifactsResult.md
@@ -1769,6 +1770,7 @@ model_verify_identity_provider_request.go
 model_verify_identity_provider_result.go
 model_warm_pool_configuration.go
 model_workflow_failure.go
+model_workflow_output_parameter_spec.go
 model_workspace_artifacts_download_result.go
 model_workspace_artifacts_download_url_result.go
 model_workspace_artifacts_result.go

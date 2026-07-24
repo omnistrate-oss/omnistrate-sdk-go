@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Configuration** | Pointer to **map[string]interface{}** | Workflow-specific configuration as a flexible key-value map. For backup workflows: backupRetentionInDays (int), backupPeriodInHours (int), snapshotBeforeDeletion (bool). New properties can be added without API or schema changes. | [optional] 
 **Description** | Pointer to **string** | A brief description of the workflow | [optional] 
 **Name** | **string** | The display name of the workflow | 
+**OutputParameterSpecs** | Pointer to [**[]WorkflowOutputParameterSpec**](WorkflowOutputParameterSpec.md) | Typed declarations of the output parameters this workflow produces. | [optional] 
 **Scope** | Pointer to **[]string** | The user context scopes that can invoke this workflow | [optional] 
 **Spec** | **interface{}** | The workflow definition persisted for the service plan | 
 **Verb** | **string** | The workflow verb | 
@@ -125,6 +126,31 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetOutputParameterSpecs
+
+`func (o *CreateCustomWorkflowRequest2) GetOutputParameterSpecs() []WorkflowOutputParameterSpec`
+
+GetOutputParameterSpecs returns the OutputParameterSpecs field if non-nil, zero value otherwise.
+
+### GetOutputParameterSpecsOk
+
+`func (o *CreateCustomWorkflowRequest2) GetOutputParameterSpecsOk() (*[]WorkflowOutputParameterSpec, bool)`
+
+GetOutputParameterSpecsOk returns a tuple with the OutputParameterSpecs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOutputParameterSpecs
+
+`func (o *CreateCustomWorkflowRequest2) SetOutputParameterSpecs(v []WorkflowOutputParameterSpec)`
+
+SetOutputParameterSpecs sets OutputParameterSpecs field to given value.
+
+### HasOutputParameterSpecs
+
+`func (o *CreateCustomWorkflowRequest2) HasOutputParameterSpecs() bool`
+
+HasOutputParameterSpecs returns a boolean if a field has been set.
 
 ### GetScope
 

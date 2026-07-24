@@ -28,6 +28,8 @@ type CreateCustomWorkflowRequest struct {
 	Description *string `json:"description,omitempty"`
 	// The display name of the workflow
 	Name string `json:"name"`
+	// Typed declarations of the output parameters this workflow produces.
+	OutputParameterSpecs []WorkflowOutputParameterSpec `json:"outputParameterSpecs,omitempty"`
 	// ID of a Product Tier
 	ProductTierId string `json:"productTierId"`
 	// The user context scopes that can invoke this workflow
@@ -159,6 +161,29 @@ func (o *CreateCustomWorkflowRequest) GetNameOk() (*string, bool) {
 // SetName sets field value
 func (o *CreateCustomWorkflowRequest) SetName(v string) {
 	o.Name = v
+}
+
+// GetOutputParameterSpecs returns the OutputParameterSpecs field value if set, zero value otherwise.
+func (o *CreateCustomWorkflowRequest) GetOutputParameterSpecs() []WorkflowOutputParameterSpec {
+	if o == nil || IsNil(o.OutputParameterSpecs) {
+		var ret []WorkflowOutputParameterSpec
+		return ret
+	}
+	return o.OutputParameterSpecs
+}
+
+// GetOutputParameterSpecsOk returns a tuple with the OutputParameterSpecs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateCustomWorkflowRequest) GetOutputParameterSpecsOk() ([]WorkflowOutputParameterSpec, bool) {
+	if o == nil || IsNil(o.OutputParameterSpecs) {
+		return nil, false
+	}
+	return o.OutputParameterSpecs, true
+}
+
+// SetOutputParameterSpecs gets a reference to the given []WorkflowOutputParameterSpec and assigns it to the OutputParameterSpecs field.
+func (o *CreateCustomWorkflowRequest) SetOutputParameterSpecs(v []WorkflowOutputParameterSpec) {
+	o.OutputParameterSpecs = v
 }
 
 // GetProductTierId returns the ProductTierId field value
@@ -326,6 +351,9 @@ func (o CreateCustomWorkflowRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["description"] = o.Description
 	}
 	toSerialize["name"] = o.Name
+	if !IsNil(o.OutputParameterSpecs) {
+		toSerialize["outputParameterSpecs"] = o.OutputParameterSpecs
+	}
 	toSerialize["productTierId"] = o.ProductTierId
 	if !IsNil(o.Scope) {
 		toSerialize["scope"] = o.Scope
@@ -388,6 +416,7 @@ func (o *CreateCustomWorkflowRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "configuration")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "outputParameterSpecs")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "scope")
 		delete(additionalProperties, "serviceId")

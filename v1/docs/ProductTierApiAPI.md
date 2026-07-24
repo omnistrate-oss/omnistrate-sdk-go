@@ -40,7 +40,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | Service ID
 	sourceId := "pt-12345678" // string | The source product tier ID
-	copyProductTierRequest2 := *openapiclient.NewCopyProductTierRequest2("A premium product tier", "Premium", "Ad vero totam.") // CopyProductTierRequest2 | 
+	copyProductTierRequest2 := *openapiclient.NewCopyProductTierRequest2("A premium product tier", "Premium", "Blanditiis dolore iste a sit nobis libero.") // CopyProductTierRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -112,7 +112,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | Service ID
-	createProductTierRequest2 := *openapiclient.NewCreateProductTierRequest2("A premium product tier", "Premium", "A premium plan", "Sit inventore.", "OMNISTRATE_DEDICATED_TENANCY|OMNISTRATE_MULTI_TENANCY|CUSTOM_TENANCY") // CreateProductTierRequest2 | 
+	createProductTierRequest2 := *openapiclient.NewCreateProductTierRequest2("A premium product tier", "Premium", "A premium plan", "Eligendi beatae incidunt voluptas ab vel.", "OMNISTRATE_DEDICATED_TENANCY|OMNISTRATE_MULTI_TENANCY|CUSTOM_TENANCY") // CreateProductTierRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

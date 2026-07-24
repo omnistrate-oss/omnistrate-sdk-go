@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Events** | [**[]WorkflowEvent**](WorkflowEvent.md) | List of events for the step | 
-**StepName** | **string** | The name of the workflow step | 
+**StepName** | **string** | The name of the workflow step. This is an open string: in addition to the built-in deployment steps (Bootstrap, Compute, Network, Storage, Deployment, Monitoring), authored DAG task names (e.g. applykafka) are valid values for custom and operator workflows. | 
 
 ## Methods
 
