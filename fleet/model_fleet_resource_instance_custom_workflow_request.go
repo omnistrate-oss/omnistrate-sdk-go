@@ -32,6 +32,8 @@ type FleetResourceInstanceCustomWorkflowRequest struct {
 	ServiceId string `json:"serviceId"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
+	// Block up to N seconds (max 60) and return the completed execution inline. 0/absent = async.
+	WaitForCompletionSeconds *int64 `json:"waitForCompletionSeconds,omitempty"`
 	// ID of a Custom Workflow
 	WorkflowId string `json:"workflowId"`
 	AdditionalProperties map[string]interface{}
@@ -215,6 +217,38 @@ func (o *FleetResourceInstanceCustomWorkflowRequest) SetToken(v string) {
 	o.Token = v
 }
 
+// GetWaitForCompletionSeconds returns the WaitForCompletionSeconds field value if set, zero value otherwise.
+func (o *FleetResourceInstanceCustomWorkflowRequest) GetWaitForCompletionSeconds() int64 {
+	if o == nil || IsNil(o.WaitForCompletionSeconds) {
+		var ret int64
+		return ret
+	}
+	return *o.WaitForCompletionSeconds
+}
+
+// GetWaitForCompletionSecondsOk returns a tuple with the WaitForCompletionSeconds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetResourceInstanceCustomWorkflowRequest) GetWaitForCompletionSecondsOk() (*int64, bool) {
+	if o == nil || IsNil(o.WaitForCompletionSeconds) {
+		return nil, false
+	}
+	return o.WaitForCompletionSeconds, true
+}
+
+// HasWaitForCompletionSeconds returns a boolean if a field has been set.
+func (o *FleetResourceInstanceCustomWorkflowRequest) HasWaitForCompletionSeconds() bool {
+	if o != nil && !IsNil(o.WaitForCompletionSeconds) {
+		return true
+	}
+
+	return false
+}
+
+// SetWaitForCompletionSeconds gets a reference to the given int64 and assigns it to the WaitForCompletionSeconds field.
+func (o *FleetResourceInstanceCustomWorkflowRequest) SetWaitForCompletionSeconds(v int64) {
+	o.WaitForCompletionSeconds = &v
+}
+
 // GetWorkflowId returns the WorkflowId field value
 func (o *FleetResourceInstanceCustomWorkflowRequest) GetWorkflowId() string {
 	if o == nil {
@@ -257,6 +291,9 @@ func (o FleetResourceInstanceCustomWorkflowRequest) ToMap() (map[string]interfac
 	toSerialize["resourceId"] = o.ResourceId
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["token"] = o.Token
+	if !IsNil(o.WaitForCompletionSeconds) {
+		toSerialize["waitForCompletionSeconds"] = o.WaitForCompletionSeconds
+	}
 	toSerialize["workflowId"] = o.WorkflowId
 
 	for key, value := range o.AdditionalProperties {
@@ -312,6 +349,7 @@ func (o *FleetResourceInstanceCustomWorkflowRequest) UnmarshalJSON(data []byte) 
 		delete(additionalProperties, "resourceId")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "token")
+		delete(additionalProperties, "waitForCompletionSeconds")
 		delete(additionalProperties, "workflowId")
 		o.AdditionalProperties = additionalProperties
 	}

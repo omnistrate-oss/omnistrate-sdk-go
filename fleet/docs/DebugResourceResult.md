@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DebugData** | Pointer to **interface{}** | Individual debug data for the resource | [optional] 
 **ResourceId** | **string** | ID of a resource | 
+**WorkloadDiagnosis** | Pointer to [**WorkloadDiagnosis**](WorkloadDiagnosis.md) |  | [optional] 
 
 ## Methods
 
@@ -80,6 +81,31 @@ and a boolean to check if the value has been set.
 
 SetResourceId sets ResourceId field to given value.
 
+
+### GetWorkloadDiagnosis
+
+`func (o *DebugResourceResult) GetWorkloadDiagnosis() WorkloadDiagnosis`
+
+GetWorkloadDiagnosis returns the WorkloadDiagnosis field if non-nil, zero value otherwise.
+
+### GetWorkloadDiagnosisOk
+
+`func (o *DebugResourceResult) GetWorkloadDiagnosisOk() (*WorkloadDiagnosis, bool)`
+
+GetWorkloadDiagnosisOk returns a tuple with the WorkloadDiagnosis field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkloadDiagnosis
+
+`func (o *DebugResourceResult) SetWorkloadDiagnosis(v WorkloadDiagnosis)`
+
+SetWorkloadDiagnosis sets WorkloadDiagnosis field to given value.
+
+### HasWorkloadDiagnosis
+
+`func (o *DebugResourceResult) HasWorkloadDiagnosis() bool`
+
+HasWorkloadDiagnosis returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

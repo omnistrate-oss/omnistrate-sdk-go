@@ -28,6 +28,8 @@ type CreateCustomWorkflowRequest2 struct {
 	Description *string `json:"description,omitempty"`
 	// The display name of the workflow
 	Name string `json:"name"`
+	// Typed declarations of the output parameters this workflow produces.
+	OutputParameterSpecs []WorkflowOutputParameterSpec `json:"outputParameterSpecs,omitempty"`
 	// The user context scopes that can invoke this workflow
 	Scope []string `json:"scope,omitempty"`
 	// The workflow definition persisted for the service plan
@@ -152,6 +154,29 @@ func (o *CreateCustomWorkflowRequest2) SetName(v string) {
 	o.Name = v
 }
 
+// GetOutputParameterSpecs returns the OutputParameterSpecs field value if set, zero value otherwise.
+func (o *CreateCustomWorkflowRequest2) GetOutputParameterSpecs() []WorkflowOutputParameterSpec {
+	if o == nil || IsNil(o.OutputParameterSpecs) {
+		var ret []WorkflowOutputParameterSpec
+		return ret
+	}
+	return o.OutputParameterSpecs
+}
+
+// GetOutputParameterSpecsOk returns a tuple with the OutputParameterSpecs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateCustomWorkflowRequest2) GetOutputParameterSpecsOk() ([]WorkflowOutputParameterSpec, bool) {
+	if o == nil || IsNil(o.OutputParameterSpecs) {
+		return nil, false
+	}
+	return o.OutputParameterSpecs, true
+}
+
+// SetOutputParameterSpecs gets a reference to the given []WorkflowOutputParameterSpec and assigns it to the OutputParameterSpecs field.
+func (o *CreateCustomWorkflowRequest2) SetOutputParameterSpecs(v []WorkflowOutputParameterSpec) {
+	o.OutputParameterSpecs = v
+}
+
 // GetScope returns the Scope field value if set, zero value otherwise.
 func (o *CreateCustomWorkflowRequest2) GetScope() []string {
 	if o == nil || IsNil(o.Scope) {
@@ -245,6 +270,9 @@ func (o CreateCustomWorkflowRequest2) ToMap() (map[string]interface{}, error) {
 		toSerialize["description"] = o.Description
 	}
 	toSerialize["name"] = o.Name
+	if !IsNil(o.OutputParameterSpecs) {
+		toSerialize["outputParameterSpecs"] = o.OutputParameterSpecs
+	}
 	if !IsNil(o.Scope) {
 		toSerialize["scope"] = o.Scope
 	}
@@ -301,6 +329,7 @@ func (o *CreateCustomWorkflowRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "configuration")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "outputParameterSpecs")
 		delete(additionalProperties, "scope")
 		delete(additionalProperties, "spec")
 		delete(additionalProperties, "verb")

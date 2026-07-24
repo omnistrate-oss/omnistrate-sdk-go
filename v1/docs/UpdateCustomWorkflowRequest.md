@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** | A brief description of the workflow | [optional] 
 **Id** | **string** | ID of a Custom Workflow | 
 **Name** | Pointer to **string** | The display name of the workflow | [optional] 
+**OutputParameterSpecs** | Pointer to [**[]WorkflowOutputParameterSpec**](WorkflowOutputParameterSpec.md) | Typed declarations of the output parameters this workflow produces. | [optional] 
 **Scope** | Pointer to **[]string** | The user context scopes that can invoke this workflow | [optional] 
 **ServiceId** | **string** | ID of a Service | 
 **Spec** | Pointer to **interface{}** | The workflow definition stored with the service plan. This is persisted as JSON and mirrors the workflow spec model in commons. | [optional] 
@@ -153,6 +154,31 @@ SetName sets Name field to given value.
 `func (o *UpdateCustomWorkflowRequest) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetOutputParameterSpecs
+
+`func (o *UpdateCustomWorkflowRequest) GetOutputParameterSpecs() []WorkflowOutputParameterSpec`
+
+GetOutputParameterSpecs returns the OutputParameterSpecs field if non-nil, zero value otherwise.
+
+### GetOutputParameterSpecsOk
+
+`func (o *UpdateCustomWorkflowRequest) GetOutputParameterSpecsOk() (*[]WorkflowOutputParameterSpec, bool)`
+
+GetOutputParameterSpecsOk returns a tuple with the OutputParameterSpecs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOutputParameterSpecs
+
+`func (o *UpdateCustomWorkflowRequest) SetOutputParameterSpecs(v []WorkflowOutputParameterSpec)`
+
+SetOutputParameterSpecs sets OutputParameterSpecs field to given value.
+
+### HasOutputParameterSpecs
+
+`func (o *UpdateCustomWorkflowRequest) HasOutputParameterSpecs() bool`
+
+HasOutputParameterSpecs returns a boolean if a field has been set.
 
 ### GetScope
 

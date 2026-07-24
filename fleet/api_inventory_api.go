@@ -688,6 +688,22 @@ type InventoryApiAPI interface {
 	InventoryApiImportAccountConfigCloudNativeNetworkHostClusterExecute(r ApiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest) (*FleetImportAccountConfigCloudNativeNetworkHostClusterResult, *http.Response, error)
 
 	/*
+	InventoryApiInvokeResourceInstanceWorkflowVerb InvokeResourceInstanceWorkflowVerb inventory-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@param verb The provider-defined verb to invoke. The server resolves the verb to a custom workflow ID against the instance's plan version.
+	@return ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest
+	*/
+	InventoryApiInvokeResourceInstanceWorkflowVerb(ctx context.Context, serviceId string, environmentId string, instanceId string, verb string) ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest
+
+	// InventoryApiInvokeResourceInstanceWorkflowVerbExecute executes the request
+	//  @return ResourceInstanceCustomWorkflowResult
+	InventoryApiInvokeResourceInstanceWorkflowVerbExecute(r ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest) (*ResourceInstanceCustomWorkflowResult, *http.Response, error)
+
+	/*
 	InventoryApiListAccountConfigCloudNativeNetworks ListAccountConfigCloudNativeNetworks inventory-api
 
 	List all registered CloudNativeNetworks for an account configuration
@@ -9301,6 +9317,195 @@ func (a *InventoryApiAPIService) InventoryApiImportAccountConfigCloudNativeNetwo
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest struct {
+	ctx context.Context
+	ApiService InventoryApiAPI
+	serviceId string
+	environmentId string
+	instanceId string
+	verb string
+	fleetInvokeResourceInstanceWorkflowVerbRequest2 *FleetInvokeResourceInstanceWorkflowVerbRequest2
+}
+
+func (r ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest) FleetInvokeResourceInstanceWorkflowVerbRequest2(fleetInvokeResourceInstanceWorkflowVerbRequest2 FleetInvokeResourceInstanceWorkflowVerbRequest2) ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest {
+	r.fleetInvokeResourceInstanceWorkflowVerbRequest2 = &fleetInvokeResourceInstanceWorkflowVerbRequest2
+	return r
+}
+
+func (r ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest) Execute() (*ResourceInstanceCustomWorkflowResult, *http.Response, error) {
+	return r.ApiService.InventoryApiInvokeResourceInstanceWorkflowVerbExecute(r)
+}
+
+/*
+InventoryApiInvokeResourceInstanceWorkflowVerb InvokeResourceInstanceWorkflowVerb inventory-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serviceId The service ID this workflow belongs to.
+ @param environmentId The service environment ID this workflow belongs to.
+ @param instanceId The resource instance ID.
+ @param verb The provider-defined verb to invoke. The server resolves the verb to a custom workflow ID against the instance's plan version.
+ @return ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest
+*/
+func (a *InventoryApiAPIService) InventoryApiInvokeResourceInstanceWorkflowVerb(ctx context.Context, serviceId string, environmentId string, instanceId string, verb string) ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest {
+	return ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest{
+		ApiService: a,
+		ctx: ctx,
+		serviceId: serviceId,
+		environmentId: environmentId,
+		instanceId: instanceId,
+		verb: verb,
+	}
+}
+
+// Execute executes the request
+//  @return ResourceInstanceCustomWorkflowResult
+func (a *InventoryApiAPIService) InventoryApiInvokeResourceInstanceWorkflowVerbExecute(r ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest) (*ResourceInstanceCustomWorkflowResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ResourceInstanceCustomWorkflowResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiInvokeResourceInstanceWorkflowVerb")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/resource-instance/{instanceId}/workflow/{verb}"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentId"+"}", url.PathEscape(parameterValueToString(r.environmentId, "environmentId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"verb"+"}", url.PathEscape(parameterValueToString(r.verb, "verb")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.fleetInvokeResourceInstanceWorkflowVerbRequest2 == nil {
+		return localVarReturnValue, nil, reportError("fleetInvokeResourceInstanceWorkflowVerbRequest2 is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.fleetInvokeResourceInstanceWorkflowVerbRequest2
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

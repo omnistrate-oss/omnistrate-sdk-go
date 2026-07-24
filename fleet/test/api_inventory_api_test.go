@@ -723,6 +723,23 @@ func Test_fleet_InventoryApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test InventoryApiAPIService InventoryApiInvokeResourceInstanceWorkflowVerb", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var environmentId string
+		var instanceId string
+		var verb string
+
+		resp, httpRes, err := apiClient.InventoryApiAPI.InventoryApiInvokeResourceInstanceWorkflowVerb(context.Background(), serviceId, environmentId, instanceId, verb).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test InventoryApiAPIService InventoryApiListAccountConfigCloudNativeNetworks", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

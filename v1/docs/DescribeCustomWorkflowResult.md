@@ -10,7 +10,8 @@ Name | Type | Description | Notes
 **Id** | **string** | ID of a Custom Workflow | 
 **IsSystemWorkflow** | **bool** | Whether this workflow was defined from a reserved systemWorkflows entry. | 
 **Name** | **string** | The display name of the workflow | 
-**OutputParameters** | Pointer to **map[string]string** | The output parameters returned after a workflow execution completes, keyed by parameter name. | [optional] 
+**OutputParameterSpecs** | Pointer to [**[]WorkflowOutputParameterSpec**](WorkflowOutputParameterSpec.md) | Typed declarations of the output parameters this workflow produces. | [optional] 
+**OutputParameters** | Pointer to **map[string]string** | DEPRECATED: use outputParameterSpecs. The output parameters returned after a workflow execution completes, keyed by parameter name. | [optional] 
 **ProductTierId** | **string** | ID of a Product Tier | 
 **Scope** | Pointer to **[]string** | The user context scopes that can invoke this workflow | [optional] 
 **ServiceId** | **string** | ID of a Service | 
@@ -170,6 +171,31 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetOutputParameterSpecs
+
+`func (o *DescribeCustomWorkflowResult) GetOutputParameterSpecs() []WorkflowOutputParameterSpec`
+
+GetOutputParameterSpecs returns the OutputParameterSpecs field if non-nil, zero value otherwise.
+
+### GetOutputParameterSpecsOk
+
+`func (o *DescribeCustomWorkflowResult) GetOutputParameterSpecsOk() (*[]WorkflowOutputParameterSpec, bool)`
+
+GetOutputParameterSpecsOk returns a tuple with the OutputParameterSpecs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOutputParameterSpecs
+
+`func (o *DescribeCustomWorkflowResult) SetOutputParameterSpecs(v []WorkflowOutputParameterSpec)`
+
+SetOutputParameterSpecs sets OutputParameterSpecs field to given value.
+
+### HasOutputParameterSpecs
+
+`func (o *DescribeCustomWorkflowResult) HasOutputParameterSpecs() bool`
+
+HasOutputParameterSpecs returns a boolean if a field has been set.
 
 ### GetOutputParameters
 

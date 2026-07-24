@@ -1261,6 +1261,7 @@ Class | Method | HTTP request | Description
  - [VerifyIdentityProviderResult](docs/VerifyIdentityProviderResult.md)
  - [WarmPoolConfiguration](docs/WarmPoolConfiguration.md)
  - [WorkflowFailure](docs/WorkflowFailure.md)
+ - [WorkflowOutputParameterSpec](docs/WorkflowOutputParameterSpec.md)
  - [WorkspaceArtifactsDownloadResult](docs/WorkspaceArtifactsDownloadResult.md)
  - [WorkspaceArtifactsDownloadURLResult](docs/WorkspaceArtifactsDownloadURLResult.md)
  - [WorkspaceArtifactsResult](docs/WorkspaceArtifactsResult.md)

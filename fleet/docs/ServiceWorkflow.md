@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **AwsAccountID** | Pointer to **string** | The AWS account ID | [optional] 
 **AzureSubscriptionID** | Pointer to **string** | The Azure subscription ID | [optional] 
 **CloudProvider** | **string** | Name of the Infra Provider | 
+**CurrentStateSummary** | Pointer to **string** | A one-line, human-readable summary of why the workflow is currently in its state, populated server-side. | [optional] 
 **EndTime** | Pointer to **string** | The time the workflow execution ended. | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **Id** | **string** | ID of the ServiceWorkflow | 
@@ -24,6 +25,7 @@ Name | Type | Description | Notes
 **ServicePlanVersion** | Pointer to **string** | The service plan version associated with the workflow execution, when available. | [optional] 
 **StartTime** | **string** | The time the workflow execution started. | 
 **Status** | **string** | The status of the workflow execution. | 
+**Tasks** | Pointer to [**[]WorkflowTask**](WorkflowTask.md) | The live per-task state of the workflow&#39;s authored DAG tasks, when available. | [optional] 
 
 ## Methods
 
@@ -208,6 +210,31 @@ and a boolean to check if the value has been set.
 
 SetCloudProvider sets CloudProvider field to given value.
 
+
+### GetCurrentStateSummary
+
+`func (o *ServiceWorkflow) GetCurrentStateSummary() string`
+
+GetCurrentStateSummary returns the CurrentStateSummary field if non-nil, zero value otherwise.
+
+### GetCurrentStateSummaryOk
+
+`func (o *ServiceWorkflow) GetCurrentStateSummaryOk() (*string, bool)`
+
+GetCurrentStateSummaryOk returns a tuple with the CurrentStateSummary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrentStateSummary
+
+`func (o *ServiceWorkflow) SetCurrentStateSummary(v string)`
+
+SetCurrentStateSummary sets CurrentStateSummary field to given value.
+
+### HasCurrentStateSummary
+
+`func (o *ServiceWorkflow) HasCurrentStateSummary() bool`
+
+HasCurrentStateSummary returns a boolean if a field has been set.
 
 ### GetEndTime
 
@@ -513,6 +540,31 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
+
+### GetTasks
+
+`func (o *ServiceWorkflow) GetTasks() []WorkflowTask`
+
+GetTasks returns the Tasks field if non-nil, zero value otherwise.
+
+### GetTasksOk
+
+`func (o *ServiceWorkflow) GetTasksOk() (*[]WorkflowTask, bool)`
+
+GetTasksOk returns a tuple with the Tasks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTasks
+
+`func (o *ServiceWorkflow) SetTasks(v []WorkflowTask)`
+
+SetTasks sets Tasks field to given value.
+
+### HasTasks
+
+`func (o *ServiceWorkflow) HasTasks() bool`
+
+HasTasks returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

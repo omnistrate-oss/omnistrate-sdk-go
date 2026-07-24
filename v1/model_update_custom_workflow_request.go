@@ -30,6 +30,8 @@ type UpdateCustomWorkflowRequest struct {
 	Id string `json:"id"`
 	// The display name of the workflow
 	Name *string `json:"name,omitempty"`
+	// Typed declarations of the output parameters this workflow produces.
+	OutputParameterSpecs []WorkflowOutputParameterSpec `json:"outputParameterSpecs,omitempty"`
 	// The user context scopes that can invoke this workflow
 	Scope []string `json:"scope,omitempty"`
 	// ID of a Service
@@ -181,6 +183,29 @@ func (o *UpdateCustomWorkflowRequest) SetName(v string) {
 	o.Name = &v
 }
 
+// GetOutputParameterSpecs returns the OutputParameterSpecs field value if set, zero value otherwise.
+func (o *UpdateCustomWorkflowRequest) GetOutputParameterSpecs() []WorkflowOutputParameterSpec {
+	if o == nil || IsNil(o.OutputParameterSpecs) {
+		var ret []WorkflowOutputParameterSpec
+		return ret
+	}
+	return o.OutputParameterSpecs
+}
+
+// GetOutputParameterSpecsOk returns a tuple with the OutputParameterSpecs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateCustomWorkflowRequest) GetOutputParameterSpecsOk() ([]WorkflowOutputParameterSpec, bool) {
+	if o == nil || IsNil(o.OutputParameterSpecs) {
+		return nil, false
+	}
+	return o.OutputParameterSpecs, true
+}
+
+// SetOutputParameterSpecs gets a reference to the given []WorkflowOutputParameterSpec and assigns it to the OutputParameterSpecs field.
+func (o *UpdateCustomWorkflowRequest) SetOutputParameterSpecs(v []WorkflowOutputParameterSpec) {
+	o.OutputParameterSpecs = v
+}
+
 // GetScope returns the Scope field value if set, zero value otherwise.
 func (o *UpdateCustomWorkflowRequest) GetScope() []string {
 	if o == nil || IsNil(o.Scope) {
@@ -322,6 +347,9 @@ func (o UpdateCustomWorkflowRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
+	if !IsNil(o.OutputParameterSpecs) {
+		toSerialize["outputParameterSpecs"] = o.OutputParameterSpecs
+	}
 	if !IsNil(o.Scope) {
 		toSerialize["scope"] = o.Scope
 	}
@@ -383,6 +411,7 @@ func (o *UpdateCustomWorkflowRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "outputParameterSpecs")
 		delete(additionalProperties, "scope")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "spec")
