@@ -80,6 +80,22 @@ func Test_v1_ProductTierApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ProductTierApiAPIService ProductTierApiDescribeProductTierWorkspaceArtifacts", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var id string
+		var workspaceArtifactId string
+
+		resp, httpRes, err := apiClient.ProductTierApiAPI.ProductTierApiDescribeProductTierWorkspaceArtifacts(context.Background(), serviceId, id, workspaceArtifactId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ProductTierApiAPIService ProductTierApiDisableProductTierFeature", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -90,6 +106,21 @@ func Test_v1_ProductTierApiAPIService(t *testing.T) {
 		httpRes, err := apiClient.ProductTierApiAPI.ProductTierApiDisableProductTierFeature(context.Background(), serviceId, id).Execute()
 
 		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProductTierApiAPIService ProductTierApiDownloadProductTierWorkspaceArtifacts", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var id string
+
+		resp, httpRes, err := apiClient.ProductTierApiAPI.ProductTierApiDownloadProductTierWorkspaceArtifacts(context.Background(), serviceId, id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -108,6 +139,21 @@ func Test_v1_ProductTierApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ProductTierApiAPIService ProductTierApiGetProductTierWorkspaceArtifactsDownloadURL", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var id string
+
+		resp, httpRes, err := apiClient.ProductTierApiAPI.ProductTierApiGetProductTierWorkspaceArtifactsDownloadURL(context.Background(), serviceId, id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ProductTierApiAPIService ProductTierApiListProductTier", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -116,6 +162,21 @@ func Test_v1_ProductTierApiAPIService(t *testing.T) {
 		var serviceModelId string
 
 		resp, httpRes, err := apiClient.ProductTierApiAPI.ProductTierApiListProductTier(context.Background(), serviceId, serviceModelId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProductTierApiAPIService ProductTierApiPrepareProductTierWorkspaceArtifacts", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var id string
+
+		resp, httpRes, err := apiClient.ProductTierApiAPI.ProductTierApiPrepareProductTierWorkspaceArtifacts(context.Background(), serviceId, id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

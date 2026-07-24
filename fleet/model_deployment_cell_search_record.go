@@ -22,8 +22,8 @@ var _ MappedNullable = &DeploymentCellSearchRecord{}
 type DeploymentCellSearchRecord struct {
 	// Name of the Infra Provider
 	CloudProvider string `json:"cloudProvider"`
-	// The custom tags associated with resource instances in the deployment cell.
-	CustomTags []CustomTag `json:"customTags,omitempty"`
+	// The deployment instances tags associated with resource instances in the deployment cell.
+	DeploymentInstancesTags []CustomTag `json:"deploymentInstancesTags,omitempty"`
 	// The deployment cell description.
 	Description string `json:"description"`
 	// The deployment cell ID.
@@ -80,36 +80,36 @@ func (o *DeploymentCellSearchRecord) SetCloudProvider(v string) {
 	o.CloudProvider = v
 }
 
-// GetCustomTags returns the CustomTags field value if set, zero value otherwise.
-func (o *DeploymentCellSearchRecord) GetCustomTags() []CustomTag {
-	if o == nil || IsNil(o.CustomTags) {
+// GetDeploymentInstancesTags returns the DeploymentInstancesTags field value if set, zero value otherwise.
+func (o *DeploymentCellSearchRecord) GetDeploymentInstancesTags() []CustomTag {
+	if o == nil || IsNil(o.DeploymentInstancesTags) {
 		var ret []CustomTag
 		return ret
 	}
-	return o.CustomTags
+	return o.DeploymentInstancesTags
 }
 
-// GetCustomTagsOk returns a tuple with the CustomTags field value if set, nil otherwise
+// GetDeploymentInstancesTagsOk returns a tuple with the DeploymentInstancesTags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DeploymentCellSearchRecord) GetCustomTagsOk() ([]CustomTag, bool) {
-	if o == nil || IsNil(o.CustomTags) {
+func (o *DeploymentCellSearchRecord) GetDeploymentInstancesTagsOk() ([]CustomTag, bool) {
+	if o == nil || IsNil(o.DeploymentInstancesTags) {
 		return nil, false
 	}
-	return o.CustomTags, true
+	return o.DeploymentInstancesTags, true
 }
 
-// HasCustomTags returns a boolean if a field has been set.
-func (o *DeploymentCellSearchRecord) HasCustomTags() bool {
-	if o != nil && !IsNil(o.CustomTags) {
+// HasDeploymentInstancesTags returns a boolean if a field has been set.
+func (o *DeploymentCellSearchRecord) HasDeploymentInstancesTags() bool {
+	if o != nil && !IsNil(o.DeploymentInstancesTags) {
 		return true
 	}
 
 	return false
 }
 
-// SetCustomTags gets a reference to the given []CustomTag and assigns it to the CustomTags field.
-func (o *DeploymentCellSearchRecord) SetCustomTags(v []CustomTag) {
-	o.CustomTags = v
+// SetDeploymentInstancesTags gets a reference to the given []CustomTag and assigns it to the DeploymentInstancesTags field.
+func (o *DeploymentCellSearchRecord) SetDeploymentInstancesTags(v []CustomTag) {
+	o.DeploymentInstancesTags = v
 }
 
 // GetDescription returns the Description field value
@@ -195,8 +195,8 @@ func (o DeploymentCellSearchRecord) MarshalJSON() ([]byte, error) {
 func (o DeploymentCellSearchRecord) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["cloudProvider"] = o.CloudProvider
-	if !IsNil(o.CustomTags) {
-		toSerialize["customTags"] = o.CustomTags
+	if !IsNil(o.DeploymentInstancesTags) {
+		toSerialize["deploymentInstancesTags"] = o.DeploymentInstancesTags
 	}
 	toSerialize["description"] = o.Description
 	toSerialize["id"] = o.Id
@@ -248,7 +248,7 @@ func (o *DeploymentCellSearchRecord) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "cloudProvider")
-		delete(additionalProperties, "customTags")
+		delete(additionalProperties, "deploymentInstancesTags")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "regionCode")

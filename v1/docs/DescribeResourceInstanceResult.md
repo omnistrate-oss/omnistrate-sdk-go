@@ -46,6 +46,7 @@ Name | Type | Description | Notes
 **SubscriptionId** | Pointer to **string** | Subscription ID | [optional] 
 **SubscriptionLicense** | Pointer to [**SubscriptionLicense**](SubscriptionLicense.md) |  | [optional] 
 **SubscriptionStatus** | Pointer to **string** | Subscription Status | [optional] 
+**SupportedOperations** | Pointer to [**[]ResourceInstanceSupportedOperation**](ResourceInstanceSupportedOperation.md) | Operations supported by this resource instance, including legacy operations, system workflows, and provider-defined custom workflows. | [optional] 
 **TierVersion** | Pointer to **string** | The tier version of the resource instance. | [optional] 
 
 ## Methods
@@ -1136,6 +1137,31 @@ SetSubscriptionStatus sets SubscriptionStatus field to given value.
 `func (o *DescribeResourceInstanceResult) HasSubscriptionStatus() bool`
 
 HasSubscriptionStatus returns a boolean if a field has been set.
+
+### GetSupportedOperations
+
+`func (o *DescribeResourceInstanceResult) GetSupportedOperations() []ResourceInstanceSupportedOperation`
+
+GetSupportedOperations returns the SupportedOperations field if non-nil, zero value otherwise.
+
+### GetSupportedOperationsOk
+
+`func (o *DescribeResourceInstanceResult) GetSupportedOperationsOk() (*[]ResourceInstanceSupportedOperation, bool)`
+
+GetSupportedOperationsOk returns a tuple with the SupportedOperations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportedOperations
+
+`func (o *DescribeResourceInstanceResult) SetSupportedOperations(v []ResourceInstanceSupportedOperation)`
+
+SetSupportedOperations sets SupportedOperations field to given value.
+
+### HasSupportedOperations
+
+`func (o *DescribeResourceInstanceResult) HasSupportedOperations() bool`
+
+HasSupportedOperations returns a boolean if a field has been set.
 
 ### GetTierVersion
 

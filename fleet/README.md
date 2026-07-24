@@ -93,8 +93,10 @@ Class | Method | HTTP request | Description
 *FleetCustomNetworkApiAPI* | [**FleetCustomNetworkApiUpdateCustomNetwork**](docs/FleetCustomNetworkApiAPI.md#fleetcustomnetworkapiupdatecustomnetwork) | **Patch** /2022-09-01-00/fleet/custom-network/{id} | UpdateCustomNetwork fleet-custom-network-api
 *FleetWorkflowsApiAPI* | [**FleetWorkflowsApiDescribeServiceWorkflow**](docs/FleetWorkflowsApiAPI.md#fleetworkflowsapidescribeserviceworkflow) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows/{id} | DescribeServiceWorkflow fleet-workflows-api
 *FleetWorkflowsApiAPI* | [**FleetWorkflowsApiDescribeServiceWorkflowSummary**](docs/FleetWorkflowsApiAPI.md#fleetworkflowsapidescribeserviceworkflowsummary) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows-summary | DescribeServiceWorkflowSummary fleet-workflows-api
+*FleetWorkflowsApiAPI* | [**FleetWorkflowsApiDescribeWorkflowExecution**](docs/FleetWorkflowsApiAPI.md#fleetworkflowsapidescribeworkflowexecution) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/workflow-executions/{executionId} | DescribeWorkflowExecution fleet-workflows-api
 *FleetWorkflowsApiAPI* | [**FleetWorkflowsApiGetWorkflowEvents**](docs/FleetWorkflowsApiAPI.md#fleetworkflowsapigetworkflowevents) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows/{id}/events | GetWorkflowEvents fleet-workflows-api
 *FleetWorkflowsApiAPI* | [**FleetWorkflowsApiListServiceWorkflows**](docs/FleetWorkflowsApiAPI.md#fleetworkflowsapilistserviceworkflows) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows | ListServiceWorkflows fleet-workflows-api
+*FleetWorkflowsApiAPI* | [**FleetWorkflowsApiListWorkflowExecutions**](docs/FleetWorkflowsApiAPI.md#fleetworkflowsapilistworkflowexecutions) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/resource-instance/{instanceId}/workflow-executions | ListWorkflowExecutions fleet-workflows-api
 *FleetWorkflowsApiAPI* | [**FleetWorkflowsApiTerminateServiceWorkflow**](docs/FleetWorkflowsApiAPI.md#fleetworkflowsapiterminateserviceworkflow) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows/{id} | TerminateServiceWorkflow fleet-workflows-api
 *FleetWorkflowsApiAPI* | [**FleetWorkflowsApiUpdateServiceWorkflow**](docs/FleetWorkflowsApiAPI.md#fleetworkflowsapiupdateserviceworkflow) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows/{id} | UpdateServiceWorkflow fleet-workflows-api
 *HelmPackageApiAPI* | [**HelmPackageApiListHelmPackageInstallations**](docs/HelmPackageApiAPI.md#helmpackageapilisthelmpackageinstallations) | **Get** /2022-09-01-00/fleet/helm-package-installations | ListHelmPackageInstallations helm-package-api
@@ -124,6 +126,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiApproveSubscriptionRequest**](docs/InventoryApiAPI.md#inventoryapiapprovesubscriptionrequest) | **Put** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | ApproveSubscriptionRequest inventory-api
 *InventoryApiAPI* | [**InventoryApiBulkImportAccountConfigCloudNativeNetworks**](docs/InventoryApiAPI.md#inventoryapibulkimportaccountconfigcloudnativenetworks) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/import | BulkImportAccountConfigCloudNativeNetworks inventory-api
 *InventoryApiAPI* | [**InventoryApiCancelUpgradePath**](docs/InventoryApiAPI.md#inventoryapicancelupgradepath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/cancel | CancelUpgradePath inventory-api
+*InventoryApiAPI* | [**InventoryApiChangeUpgradePathTargetVersion**](docs/InventoryApiAPI.md#inventoryapichangeupgradepathtargetversion) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/target-version | ChangeUpgradePathTargetVersion inventory-api
 *InventoryApiAPI* | [**InventoryApiCopyResourceInstanceSnapshot**](docs/InventoryApiAPI.md#inventoryapicopyresourceinstancesnapshot) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/copy-snapshot | CopyResourceInstanceSnapshot inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateConsumptionUser**](docs/InventoryApiAPI.md#inventoryapicreateconsumptionuser) | **Post** /2022-09-01-00/fleet/user | CreateConsumptionUser inventory-api
 *InventoryApiAPI* | [**InventoryApiCreateProxyResourceInstance**](docs/InventoryApiAPI.md#inventoryapicreateproxyresourceinstance) | **Post** /2022-09-01-00/fleet/proxy-resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{sourceResourceKey} | CreateProxyResourceInstance inventory-api
@@ -160,7 +163,9 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiDescribeUser**](docs/InventoryApiAPI.md#inventoryapidescribeuser) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/user/{userId} | DescribeUser inventory-api
 *InventoryApiAPI* | [**InventoryApiFailoverResourceInstance**](docs/InventoryApiAPI.md#inventoryapifailoverresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/failover | FailoverResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiGenerateTokenForHostClusterDashboard**](docs/InventoryApiAPI.md#inventoryapigeneratetokenforhostclusterdashboard) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard inventory-api
-*InventoryApiAPI* | [**InventoryApiImportAccountConfigCloudNativeNetwork**](docs/InventoryApiAPI.md#inventoryapiimportaccountconfigcloudnativenetwork) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{cloudNativeNetworkId}/import | ImportAccountConfigCloudNativeNetwork inventory-api
+*InventoryApiAPI* | [**InventoryApiImportAccountConfigCloudNativeNetwork**](docs/InventoryApiAPI.md#inventoryapiimportaccountconfigcloudnativenetwork) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/import | ImportAccountConfigCloudNativeNetwork inventory-api
+*InventoryApiAPI* | [**InventoryApiImportAccountConfigCloudNativeNetworkHostCluster**](docs/InventoryApiAPI.md#inventoryapiimportaccountconfigcloudnativenetworkhostcluster) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/host-clusters/{hostClusterName}/import | ImportAccountConfigCloudNativeNetworkHostCluster inventory-api
+*InventoryApiAPI* | [**InventoryApiInvokeResourceInstanceWorkflowVerb**](docs/InventoryApiAPI.md#inventoryapiinvokeresourceinstanceworkflowverb) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/resource-instance/{instanceId}/workflow/{verb} | InvokeResourceInstanceWorkflowVerb inventory-api
 *InventoryApiAPI* | [**InventoryApiListAccountConfigCloudNativeNetworks**](docs/InventoryApiAPI.md#inventoryapilistaccountconfigcloudnativenetworks) | **Get** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks | ListAccountConfigCloudNativeNetworks inventory-api
 *InventoryApiAPI* | [**InventoryApiListAccountConfigs**](docs/InventoryApiAPI.md#inventoryapilistaccountconfigs) | **Get** /2022-09-01-00/fleet/account-configs | ListAccountConfigs inventory-api
 *InventoryApiAPI* | [**InventoryApiListActiveOrganizations**](docs/InventoryApiAPI.md#inventoryapilistactiveorganizations) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/organizations | ListActiveOrganizations inventory-api
@@ -190,6 +195,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiRemoveCapacityFromResourceInstance**](docs/InventoryApiAPI.md#inventoryapiremovecapacityfromresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/remove-capacity | RemoveCapacityFromResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiRemoveCustomDNSFromResourceInstance**](docs/InventoryApiAPI.md#inventoryapiremovecustomdnsfromresourceinstance) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/{resourceKey}/instance/{instanceId}/custom-dns | RemoveCustomDNSFromResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiResendVerificationEmail**](docs/InventoryApiAPI.md#inventoryapiresendverificationemail) | **Post** /2022-09-01-00/fleet/user/{userId}/verification-email | ResendVerificationEmail inventory-api
+*InventoryApiAPI* | [**InventoryApiResourceInstanceCustomWorkflow**](docs/InventoryApiAPI.md#inventoryapiresourceinstancecustomworkflow) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/custom-workflow/{workflowId}/execute | ResourceInstanceCustomWorkflow inventory-api
 *InventoryApiAPI* | [**InventoryApiRestartResourceInstance**](docs/InventoryApiAPI.md#inventoryapirestartresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/restart | RestartResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiRestoreResourceInstance**](docs/InventoryApiAPI.md#inventoryapirestoreresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/restore | RestoreResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiRestoreResourceInstanceFromSnapshot**](docs/InventoryApiAPI.md#inventoryapirestoreresourceinstancefromsnapshot) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/snapshot/{snapshotId}/restore | RestoreResourceInstanceFromSnapshot inventory-api
@@ -203,7 +209,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiSyncAccountConfigCloudNativeNetworks**](docs/InventoryApiAPI.md#inventoryapisyncaccountconfigcloudnativenetworks) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/sync | SyncAccountConfigCloudNativeNetworks inventory-api
 *InventoryApiAPI* | [**InventoryApiTerminateSubscription**](docs/InventoryApiAPI.md#inventoryapiterminatesubscription) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/{id} | TerminateSubscription inventory-api
 *InventoryApiAPI* | [**InventoryApiTriggerAutomaticResourceInstanceSnapshotCreation**](docs/InventoryApiAPI.md#inventoryapitriggerautomaticresourceinstancesnapshotcreation) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/autosnapshot | TriggerAutomaticResourceInstanceSnapshotCreation inventory-api
-*InventoryApiAPI* | [**InventoryApiUnimportAccountConfigCloudNativeNetwork**](docs/InventoryApiAPI.md#inventoryapiunimportaccountconfigcloudnativenetwork) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{cloudNativeNetworkId}/unimport | UnimportAccountConfigCloudNativeNetwork inventory-api
+*InventoryApiAPI* | [**InventoryApiUnimportAccountConfigCloudNativeNetwork**](docs/InventoryApiAPI.md#inventoryapiunimportaccountconfigcloudnativenetwork) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/unimport | UnimportAccountConfigCloudNativeNetwork inventory-api
 *InventoryApiAPI* | [**InventoryApiUnsuspendUser**](docs/InventoryApiAPI.md#inventoryapiunsuspenduser) | **Put** /2022-09-01-00/fleet/user/{userId}/unsuspend | UnsuspendUser inventory-api
 *InventoryApiAPI* | [**InventoryApiUpdateAccountConfigResourceInstance**](docs/InventoryApiAPI.md#inventoryapiupdateaccountconfigresourceinstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/account-config-instance/{instanceId} | UpdateAccountConfigResourceInstance inventory-api
 *InventoryApiAPI* | [**InventoryApiUpdateConsumptionUser**](docs/InventoryApiAPI.md#inventoryapiupdateconsumptionuser) | **Patch** /2022-09-01-00/fleet/user/{userId} | UpdateConsumptionUser inventory-api
@@ -213,6 +219,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiUpdateSubscription**](docs/InventoryApiAPI.md#inventoryapiupdatesubscription) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/{id} | UpdateSubscription inventory-api
 *InventoryApiAPI* | [**InventoryApiUpdateSubscriptions**](docs/InventoryApiAPI.md#inventoryapiupdatesubscriptions) | **Patch** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscriptions | UpdateSubscriptions inventory-api
 *InvoiceApiAPI* | [**InvoiceApiApproveInvoice**](docs/InvoiceApiAPI.md#invoiceapiapproveinvoice) | **Post** /2022-09-01-00/fleet/invoice/{id}/approve | ApproveInvoice invoice-api
+*InvoiceApiAPI* | [**InvoiceApiCreateInvoice**](docs/InvoiceApiAPI.md#invoiceapicreateinvoice) | **Post** /2022-09-01-00/fleet/invoice | CreateInvoice invoice-api
 *InvoiceApiAPI* | [**InvoiceApiDeleteInvoice**](docs/InvoiceApiAPI.md#invoiceapideleteinvoice) | **Delete** /2022-09-01-00/fleet/invoice/{id} | DeleteInvoice invoice-api
 *InvoiceApiAPI* | [**InvoiceApiDescribeInvoice**](docs/InvoiceApiAPI.md#invoiceapidescribeinvoice) | **Get** /2022-09-01-00/fleet/invoices/{id} | DescribeInvoice invoice-api
 *InvoiceApiAPI* | [**InvoiceApiListInvoices**](docs/InvoiceApiAPI.md#invoiceapilistinvoices) | **Get** /2022-09-01-00/fleet/invoices | ListInvoices invoice-api
@@ -269,6 +276,8 @@ Class | Method | HTTP request | Description
  - [ChangePlanRequest](docs/ChangePlanRequest.md)
  - [ChangeSet](docs/ChangeSet.md)
  - [ChangeSummary](docs/ChangeSummary.md)
+ - [ChangeUpgradePathTargetVersionRequest](docs/ChangeUpgradePathTargetVersionRequest.md)
+ - [ChangeUpgradePathTargetVersionRequest2](docs/ChangeUpgradePathTargetVersionRequest2.md)
  - [ChangeUserRoleRequest](docs/ChangeUserRoleRequest.md)
  - [Channel](docs/Channel.md)
  - [ChannelEventHistoryRequest](docs/ChannelEventHistoryRequest.md)
@@ -335,9 +344,11 @@ Class | Method | HTTP request | Description
  - [CustomerSignupRequest](docs/CustomerSignupRequest.md)
  - [DebugHostClusterRequest](docs/DebugHostClusterRequest.md)
  - [DebugHostClusterResult](docs/DebugHostClusterResult.md)
+ - [DebugPodProblem](docs/DebugPodProblem.md)
  - [DebugResourceInstanceRequest](docs/DebugResourceInstanceRequest.md)
  - [DebugResourceInstanceResult](docs/DebugResourceInstanceResult.md)
  - [DebugResourceResult](docs/DebugResourceResult.md)
+ - [DebugWarningEvent](docs/DebugWarningEvent.md)
  - [DeleteAPIKeyRequest](docs/DeleteAPIKeyRequest.md)
  - [DeleteAccountConfigRequest](docs/DeleteAccountConfigRequest.md)
  - [DeleteCustomerOnboardingRequest](docs/DeleteCustomerOnboardingRequest.md)
@@ -360,6 +371,9 @@ Class | Method | HTTP request | Description
  - [DeleteUserRequest](docs/DeleteUserRequest.md)
  - [DemoRequest](docs/DemoRequest.md)
  - [DenySubscriptionRequestRequest](docs/DenySubscriptionRequestRequest.md)
+ - [DeploymentCellAmenityArtifactSummary](docs/DeploymentCellAmenityArtifactSummary.md)
+ - [DeploymentCellAmenityDebugStatus](docs/DeploymentCellAmenityDebugStatus.md)
+ - [DeploymentCellAmenityTemplateDebugInfo](docs/DeploymentCellAmenityTemplateDebugInfo.md)
  - [DeploymentCellConfiguration](docs/DeploymentCellConfiguration.md)
  - [DeploymentCellConfigurations](docs/DeploymentCellConfigurations.md)
  - [DeploymentCellEventsPerWorkflowStep](docs/DeploymentCellEventsPerWorkflowStep.md)
@@ -411,6 +425,7 @@ Class | Method | HTTP request | Description
  - [DescribePlanResult](docs/DescribePlanResult.md)
  - [DescribeProductTierRequest](docs/DescribeProductTierRequest.md)
  - [DescribeProductTierResult](docs/DescribeProductTierResult.md)
+ - [DescribeProductTierWorkspaceArtifactsRequest](docs/DescribeProductTierWorkspaceArtifactsRequest.md)
  - [DescribeRegionCostRequest](docs/DescribeRegionCostRequest.md)
  - [DescribeRegionCostResult](docs/DescribeRegionCostResult.md)
  - [DescribeRegionRequest](docs/DescribeRegionRequest.md)
@@ -454,6 +469,8 @@ Class | Method | HTTP request | Description
  - [DescribeUsersBySubscriptionResult](docs/DescribeUsersBySubscriptionResult.md)
  - [DescribeVUnitRequest](docs/DescribeVUnitRequest.md)
  - [DescribeVUnitResult](docs/DescribeVUnitResult.md)
+ - [DescribeWorkflowExecutionRequest](docs/DescribeWorkflowExecutionRequest.md)
+ - [DescribeWorkflowExecutionResult](docs/DescribeWorkflowExecutionResult.md)
  - [DetailedNodeHealthResult](docs/DetailedNodeHealthResult.md)
  - [DisableBillingProviderRequest](docs/DisableBillingProviderRequest.md)
  - [DisableProductTierFeatureRequest](docs/DisableProductTierFeatureRequest.md)
@@ -479,6 +496,7 @@ Class | Method | HTTP request | Description
  - [ExpressionEvaluatorRequest](docs/ExpressionEvaluatorRequest.md)
  - [ExpressionEvaluatorResult](docs/ExpressionEvaluatorResult.md)
  - [FailoverResourceInstanceRequest](docs/FailoverResourceInstanceRequest.md)
+ - [FleetAccountConfigCloudNativeNetworkHostClusterResult](docs/FleetAccountConfigCloudNativeNetworkHostClusterResult.md)
  - [FleetAccountConfigCloudNativeNetworkOperation](docs/FleetAccountConfigCloudNativeNetworkOperation.md)
  - [FleetAccountConfigCloudNativeNetworkResult](docs/FleetAccountConfigCloudNativeNetworkResult.md)
  - [FleetAddCapacityToResourceInstanceRequest](docs/FleetAddCapacityToResourceInstanceRequest.md)
@@ -503,6 +521,8 @@ Class | Method | HTTP request | Description
  - [FleetCreateInstanceSnapshotRequest](docs/FleetCreateInstanceSnapshotRequest.md)
  - [FleetCreateInstanceSnapshotRequest2](docs/FleetCreateInstanceSnapshotRequest2.md)
  - [FleetCreateInstanceSnapshotResult](docs/FleetCreateInstanceSnapshotResult.md)
+ - [FleetCreateInvoiceRequest](docs/FleetCreateInvoiceRequest.md)
+ - [FleetCreateInvoiceRequest2](docs/FleetCreateInvoiceRequest2.md)
  - [FleetCreateResourceInstanceRequest](docs/FleetCreateResourceInstanceRequest.md)
  - [FleetCreateResourceInstanceRequest2](docs/FleetCreateResourceInstanceRequest2.md)
  - [FleetCreateResourceInstanceResult](docs/FleetCreateResourceInstanceResult.md)
@@ -550,8 +570,12 @@ Class | Method | HTTP request | Description
  - [FleetGetCurrentUsageRequest](docs/FleetGetCurrentUsageRequest.md)
  - [FleetGetUsagePerDayRequest](docs/FleetGetUsagePerDayRequest.md)
  - [FleetGetUsageResult](docs/FleetGetUsageResult.md)
+ - [FleetImportAccountConfigCloudNativeNetworkHostClusterRequest](docs/FleetImportAccountConfigCloudNativeNetworkHostClusterRequest.md)
+ - [FleetImportAccountConfigCloudNativeNetworkHostClusterResult](docs/FleetImportAccountConfigCloudNativeNetworkHostClusterResult.md)
  - [FleetImportAccountConfigCloudNativeNetworkRequest](docs/FleetImportAccountConfigCloudNativeNetworkRequest.md)
  - [FleetInvoice](docs/FleetInvoice.md)
+ - [FleetInvokeResourceInstanceWorkflowVerbRequest](docs/FleetInvokeResourceInstanceWorkflowVerbRequest.md)
+ - [FleetInvokeResourceInstanceWorkflowVerbRequest2](docs/FleetInvokeResourceInstanceWorkflowVerbRequest2.md)
  - [FleetListAccountConfigCloudNativeNetworksResult](docs/FleetListAccountConfigCloudNativeNetworksResult.md)
  - [FleetListAccountConfigsRequest](docs/FleetListAccountConfigsRequest.md)
  - [FleetListAccountConfigsRequest2](docs/FleetListAccountConfigsRequest2.md)
@@ -587,6 +611,8 @@ Class | Method | HTTP request | Description
  - [FleetRemoveCustomDNSFromResourceInstanceRequest](docs/FleetRemoveCustomDNSFromResourceInstanceRequest.md)
  - [FleetResendInvoiceRequest](docs/FleetResendInvoiceRequest.md)
  - [FleetResendVerificationEmailRequest](docs/FleetResendVerificationEmailRequest.md)
+ - [FleetResourceInstanceCustomWorkflowRequest](docs/FleetResourceInstanceCustomWorkflowRequest.md)
+ - [FleetResourceInstanceCustomWorkflowRequest2](docs/FleetResourceInstanceCustomWorkflowRequest2.md)
  - [FleetRestartResourceInstanceRequest](docs/FleetRestartResourceInstanceRequest.md)
  - [FleetRestartResourceInstanceRequest2](docs/FleetRestartResourceInstanceRequest2.md)
  - [FleetRestoreResourceInstanceFromSnapshotRequest](docs/FleetRestoreResourceInstanceFromSnapshotRequest.md)
@@ -646,6 +672,7 @@ Class | Method | HTTP request | Description
  - [GetDeploymentCellWorkflowEventsResult](docs/GetDeploymentCellWorkflowEventsResult.md)
  - [GetEventCategoryTypeMapRequest](docs/GetEventCategoryTypeMapRequest.md)
  - [GetEventCategoryTypeMapResult](docs/GetEventCategoryTypeMapResult.md)
+ - [GetProductTierWorkspaceArtifactsDownloadURLRequest](docs/GetProductTierWorkspaceArtifactsDownloadURLRequest.md)
  - [GetRegionByCodeRequest](docs/GetRegionByCodeRequest.md)
  - [GetSecretRequest](docs/GetSecretRequest.md)
  - [GetSecretResult](docs/GetSecretResult.md)
@@ -790,11 +817,18 @@ Class | Method | HTTP request | Description
  - [ListUpgradePathsResult](docs/ListUpgradePathsResult.md)
  - [ListVUnitsRequest](docs/ListVUnitsRequest.md)
  - [ListVUnitsResult](docs/ListVUnitsResult.md)
+ - [ListWorkflowExecutionsRequest](docs/ListWorkflowExecutionsRequest.md)
+ - [ListWorkflowExecutionsResult](docs/ListWorkflowExecutionsResult.md)
  - [LoginWithIdentityProviderRequest](docs/LoginWithIdentityProviderRequest.md)
  - [LoginWithIdentityProviderResult](docs/LoginWithIdentityProviderResult.md)
  - [LogoutRequest](docs/LogoutRequest.md)
  - [ManageUpgradePathLifecycleRequest](docs/ManageUpgradePathLifecycleRequest.md)
  - [ManageUpgradePathLifecycleRequest2](docs/ManageUpgradePathLifecycleRequest2.md)
+ - [ManagedWorkloadIdentity](docs/ManagedWorkloadIdentity.md)
+ - [ManagedWorkloadIdentityBinding](docs/ManagedWorkloadIdentityBinding.md)
+ - [ManagedWorkloadIdentityPermissions](docs/ManagedWorkloadIdentityPermissions.md)
+ - [ManagedWorkloadIdentityRole](docs/ManagedWorkloadIdentityRole.md)
+ - [ManagedWorkloadIdentityServiceAccount](docs/ManagedWorkloadIdentityServiceAccount.md)
  - [ManualOverride](docs/ManualOverride.md)
  - [ModifyServiceProviderOrganizationRequest](docs/ModifyServiceProviderOrganizationRequest.md)
  - [ModifyServicesOrchestrationRequest](docs/ModifyServicesOrchestrationRequest.md)
@@ -825,6 +859,8 @@ Class | Method | HTTP request | Description
  - [OnboardingStage](docs/OnboardingStage.md)
  - [OnboardingTerraformConfiguration](docs/OnboardingTerraformConfiguration.md)
  - [OnboardingTerraformConfigurations](docs/OnboardingTerraformConfigurations.md)
+ - [OnboardingTerraformExecutionPolicy](docs/OnboardingTerraformExecutionPolicy.md)
+ - [OnboardingTerraformExecutionRole](docs/OnboardingTerraformExecutionRole.md)
  - [OnboardingTerraformOutput](docs/OnboardingTerraformOutput.md)
  - [OneOffPatchResourceInstanceRequest](docs/OneOffPatchResourceInstanceRequest.md)
  - [OneOffPatchResourceInstanceRequest2](docs/OneOffPatchResourceInstanceRequest2.md)
@@ -840,6 +876,8 @@ Class | Method | HTTP request | Description
  - [PerRegionCost](docs/PerRegionCost.md)
  - [PerUserCost](docs/PerUserCost.md)
  - [PodEvent](docs/PodEvent.md)
+ - [PodProblem](docs/PodProblem.md)
+ - [PrepareProductTierWorkspaceArtifactsRequest](docs/PrepareProductTierWorkspaceArtifactsRequest.md)
  - [PrepareServiceFromServicePlanSpecRequest](docs/PrepareServiceFromServicePlanSpecRequest.md)
  - [PrepareServiceFromServicePlanSpecResult](docs/PrepareServiceFromServicePlanSpecResult.md)
  - [ProductTierDeploymentConfiguration](docs/ProductTierDeploymentConfiguration.md)
@@ -876,10 +914,15 @@ Class | Method | HTTP request | Description
  - [ResourceEntity](docs/ResourceEntity.md)
  - [ResourceHealthSummary](docs/ResourceHealthSummary.md)
  - [ResourceInstance](docs/ResourceInstance.md)
+ - [ResourceInstanceCustomWorkflowRequest](docs/ResourceInstanceCustomWorkflowRequest.md)
+ - [ResourceInstanceCustomWorkflowResult](docs/ResourceInstanceCustomWorkflowResult.md)
+ - [ResourceInstanceFilterGroup](docs/ResourceInstanceFilterGroup.md)
  - [ResourceInstanceMetadata](docs/ResourceInstanceMetadata.md)
  - [ResourceInstanceProvisionerSetupKitRequest](docs/ResourceInstanceProvisionerSetupKitRequest.md)
+ - [ResourceInstanceSearchFilters](docs/ResourceInstanceSearchFilters.md)
  - [ResourceInstanceSearchRecord](docs/ResourceInstanceSearchRecord.md)
  - [ResourceInstanceSupportedOperation](docs/ResourceInstanceSupportedOperation.md)
+ - [ResourceInstanceTagFilter](docs/ResourceInstanceTagFilter.md)
  - [ResourceNetworkTopologyResult](docs/ResourceNetworkTopologyResult.md)
  - [ResourceOneOffPatchConfigurationOverride](docs/ResourceOneOffPatchConfigurationOverride.md)
  - [ResourceSearchRecord](docs/ResourceSearchRecord.md)
@@ -899,6 +942,7 @@ Class | Method | HTTP request | Description
  - [SaaSPortalImageConfig](docs/SaaSPortalImageConfig.md)
  - [SchemaRequest](docs/SchemaRequest.md)
  - [ScrutinizeOnboardingDeploymentArtifactRequest](docs/ScrutinizeOnboardingDeploymentArtifactRequest.md)
+ - [SearchInventoryFilters](docs/SearchInventoryFilters.md)
  - [SearchInventoryRequest](docs/SearchInventoryRequest.md)
  - [SearchInventoryRequest2](docs/SearchInventoryRequest2.md)
  - [SearchInventoryResult](docs/SearchInventoryResult.md)
@@ -941,6 +985,7 @@ Class | Method | HTTP request | Description
  - [SubscriptionPricing](docs/SubscriptionPricing.md)
  - [SubscriptionSearchRecord](docs/SubscriptionSearchRecord.md)
  - [SubscriptionUsers](docs/SubscriptionUsers.md)
+ - [TaskAttemptError](docs/TaskAttemptError.md)
  - [TerminateDeploymentCellWorkflowRequest](docs/TerminateDeploymentCellWorkflowRequest.md)
  - [TerminateServiceWorkflowRequest](docs/TerminateServiceWorkflowRequest.md)
  - [TerraformDeploymentConfiguration](docs/TerraformDeploymentConfiguration.md)
@@ -983,12 +1028,23 @@ Class | Method | HTTP request | Description
  - [ValuesFile](docs/ValuesFile.md)
  - [VerifyIdentityProviderRequest](docs/VerifyIdentityProviderRequest.md)
  - [VerifyIdentityProviderResult](docs/VerifyIdentityProviderResult.md)
+ - [WarningEvent](docs/WarningEvent.md)
  - [WebhookConfiguration](docs/WebhookConfiguration.md)
  - [WorkflowBreakpoint](docs/WorkflowBreakpoint.md)
  - [WorkflowBreakpointWithStatus](docs/WorkflowBreakpointWithStatus.md)
  - [WorkflowEvent](docs/WorkflowEvent.md)
+ - [WorkflowExecution](docs/WorkflowExecution.md)
  - [WorkflowFailure](docs/WorkflowFailure.md)
  - [WorkflowSearchRecord](docs/WorkflowSearchRecord.md)
+ - [WorkflowTask](docs/WorkflowTask.md)
+ - [WorkflowTaskHelmDetail](docs/WorkflowTaskHelmDetail.md)
+ - [WorkflowTaskInfraDetail](docs/WorkflowTaskInfraDetail.md)
+ - [WorkflowTaskTerraformDetail](docs/WorkflowTaskTerraformDetail.md)
+ - [WorkflowTaskWorkloadDetail](docs/WorkflowTaskWorkloadDetail.md)
+ - [WorkloadDiagnosis](docs/WorkloadDiagnosis.md)
+ - [WorkspaceArtifactsDownloadResult](docs/WorkspaceArtifactsDownloadResult.md)
+ - [WorkspaceArtifactsDownloadURLResult](docs/WorkspaceArtifactsDownloadURLResult.md)
+ - [WorkspaceArtifactsResult](docs/WorkspaceArtifactsResult.md)
 
 
 ## Documentation For Authorization

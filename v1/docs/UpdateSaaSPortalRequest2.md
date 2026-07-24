@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ApiKeyValue** | Pointer to **string** | The API key value for the SaaS portal | [optional] 
 **CustomDomain** | Pointer to **string** | The custom domain for the SaaS portal | [optional] 
 **DisablePasswordLogin** | Pointer to **bool** | Whether to disable password login for the SaaS portal | [optional] 
 **EmailConfig** | Pointer to [**SaaSPortalEmailConfig**](SaaSPortalEmailConfig.md) |  | [optional] 
@@ -28,6 +29,31 @@ will change when the set of required properties is changed
 NewUpdateSaaSPortalRequest2WithDefaults instantiates a new UpdateSaaSPortalRequest2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetApiKeyValue
+
+`func (o *UpdateSaaSPortalRequest2) GetApiKeyValue() string`
+
+GetApiKeyValue returns the ApiKeyValue field if non-nil, zero value otherwise.
+
+### GetApiKeyValueOk
+
+`func (o *UpdateSaaSPortalRequest2) GetApiKeyValueOk() (*string, bool)`
+
+GetApiKeyValueOk returns a tuple with the ApiKeyValue field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApiKeyValue
+
+`func (o *UpdateSaaSPortalRequest2) SetApiKeyValue(v string)`
+
+SetApiKeyValue sets ApiKeyValue field to given value.
+
+### HasApiKeyValue
+
+`func (o *UpdateSaaSPortalRequest2) HasApiKeyValue() bool`
+
+HasApiKeyValue returns a boolean if a field has been set.
 
 ### GetCustomDomain
 

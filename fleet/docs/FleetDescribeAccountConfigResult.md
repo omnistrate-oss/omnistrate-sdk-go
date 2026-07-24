@@ -15,8 +15,11 @@ Name | Type | Description | Notes
 **AzureSubscriptionID** | Pointer to **string** | The Azure subscription ID | [optional] 
 **AzureTenantID** | Pointer to **string** | The Azure tenant ID | [optional] 
 **ByoaInstanceIDs** | Pointer to **[]string** | The BYOA instance IDs that this account config is tied to | [optional] 
+**ByocOnPremInstallCommand** | Pointer to **string** | The BYOC on-prem install command | [optional] 
+**ByocOnPremUninstallCommand** | Pointer to **string** | The BYOC on-prem uninstall command | [optional] 
 **CloudNativeNetworks** | Pointer to [**[]FleetAccountConfigCloudNativeNetworkResult**](FleetAccountConfigCloudNativeNetworkResult.md) | Registered CloudNativeNetworks for this account configuration | [optional] 
 **CloudProviderId** | **string** | ID of an CloudProvider | 
+**CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The custom tags for the account configuration | [optional] 
 **Description** | **string** | The description for the account | 
 **GcpBootstrapShellCommand** | Pointer to **string** | The GCP bootstrap shell command | [optional] 
 **GcpDisconnectShellCommand** | Pointer to **string** | The GCP disconnect shell command | [optional] 
@@ -331,6 +334,56 @@ SetByoaInstanceIDs sets ByoaInstanceIDs field to given value.
 
 HasByoaInstanceIDs returns a boolean if a field has been set.
 
+### GetByocOnPremInstallCommand
+
+`func (o *FleetDescribeAccountConfigResult) GetByocOnPremInstallCommand() string`
+
+GetByocOnPremInstallCommand returns the ByocOnPremInstallCommand field if non-nil, zero value otherwise.
+
+### GetByocOnPremInstallCommandOk
+
+`func (o *FleetDescribeAccountConfigResult) GetByocOnPremInstallCommandOk() (*string, bool)`
+
+GetByocOnPremInstallCommandOk returns a tuple with the ByocOnPremInstallCommand field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetByocOnPremInstallCommand
+
+`func (o *FleetDescribeAccountConfigResult) SetByocOnPremInstallCommand(v string)`
+
+SetByocOnPremInstallCommand sets ByocOnPremInstallCommand field to given value.
+
+### HasByocOnPremInstallCommand
+
+`func (o *FleetDescribeAccountConfigResult) HasByocOnPremInstallCommand() bool`
+
+HasByocOnPremInstallCommand returns a boolean if a field has been set.
+
+### GetByocOnPremUninstallCommand
+
+`func (o *FleetDescribeAccountConfigResult) GetByocOnPremUninstallCommand() string`
+
+GetByocOnPremUninstallCommand returns the ByocOnPremUninstallCommand field if non-nil, zero value otherwise.
+
+### GetByocOnPremUninstallCommandOk
+
+`func (o *FleetDescribeAccountConfigResult) GetByocOnPremUninstallCommandOk() (*string, bool)`
+
+GetByocOnPremUninstallCommandOk returns a tuple with the ByocOnPremUninstallCommand field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetByocOnPremUninstallCommand
+
+`func (o *FleetDescribeAccountConfigResult) SetByocOnPremUninstallCommand(v string)`
+
+SetByocOnPremUninstallCommand sets ByocOnPremUninstallCommand field to given value.
+
+### HasByocOnPremUninstallCommand
+
+`func (o *FleetDescribeAccountConfigResult) HasByocOnPremUninstallCommand() bool`
+
+HasByocOnPremUninstallCommand returns a boolean if a field has been set.
+
 ### GetCloudNativeNetworks
 
 `func (o *FleetDescribeAccountConfigResult) GetCloudNativeNetworks() []FleetAccountConfigCloudNativeNetworkResult`
@@ -375,6 +428,31 @@ and a boolean to check if the value has been set.
 
 SetCloudProviderId sets CloudProviderId field to given value.
 
+
+### GetCustomTags
+
+`func (o *FleetDescribeAccountConfigResult) GetCustomTags() []CustomTag`
+
+GetCustomTags returns the CustomTags field if non-nil, zero value otherwise.
+
+### GetCustomTagsOk
+
+`func (o *FleetDescribeAccountConfigResult) GetCustomTagsOk() (*[]CustomTag, bool)`
+
+GetCustomTagsOk returns a tuple with the CustomTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomTags
+
+`func (o *FleetDescribeAccountConfigResult) SetCustomTags(v []CustomTag)`
+
+SetCustomTags sets CustomTags field to given value.
+
+### HasCustomTags
+
+`func (o *FleetDescribeAccountConfigResult) HasCustomTags() bool`
+
+HasCustomTags returns a boolean if a field has been set.
 
 ### GetDescription
 

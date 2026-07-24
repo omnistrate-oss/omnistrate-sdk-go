@@ -26,6 +26,8 @@ type DeploymentCellWorkflow struct {
 	AzureSubscriptionID *string `json:"azureSubscriptionID,omitempty"`
 	// Name of the Infra Provider
 	CloudProvider string `json:"cloudProvider"`
+	// A one-line, human-readable summary of why the workflow is currently in its state, populated server-side.
+	CurrentStateSummary *string `json:"currentStateSummary,omitempty"`
 	// The deployment cell's id for the workflow execution.
 	DeploymentCellId *string `json:"deploymentCellId,omitempty"`
 	// End time of the Deployment Cell Workflow in RFC3339 format
@@ -44,6 +46,8 @@ type DeploymentCellWorkflow struct {
 	StartTime string `json:"startTime"`
 	// Status of the Deployment Cell Workflow
 	Status string `json:"status"`
+	// The live per-task state of the workflow's authored DAG tasks, when available.
+	Tasks []WorkflowTask `json:"tasks,omitempty"`
 	// ID of the Deployment Cell Workflow
 	WorkflowID string `json:"workflowID"`
 	// The type of workflow execution.
@@ -163,6 +167,38 @@ func (o *DeploymentCellWorkflow) GetCloudProviderOk() (*string, bool) {
 // SetCloudProvider sets field value
 func (o *DeploymentCellWorkflow) SetCloudProvider(v string) {
 	o.CloudProvider = v
+}
+
+// GetCurrentStateSummary returns the CurrentStateSummary field value if set, zero value otherwise.
+func (o *DeploymentCellWorkflow) GetCurrentStateSummary() string {
+	if o == nil || IsNil(o.CurrentStateSummary) {
+		var ret string
+		return ret
+	}
+	return *o.CurrentStateSummary
+}
+
+// GetCurrentStateSummaryOk returns a tuple with the CurrentStateSummary field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellWorkflow) GetCurrentStateSummaryOk() (*string, bool) {
+	if o == nil || IsNil(o.CurrentStateSummary) {
+		return nil, false
+	}
+	return o.CurrentStateSummary, true
+}
+
+// HasCurrentStateSummary returns a boolean if a field has been set.
+func (o *DeploymentCellWorkflow) HasCurrentStateSummary() bool {
+	if o != nil && !IsNil(o.CurrentStateSummary) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrentStateSummary gets a reference to the given string and assigns it to the CurrentStateSummary field.
+func (o *DeploymentCellWorkflow) SetCurrentStateSummary(v string) {
+	o.CurrentStateSummary = &v
 }
 
 // GetDeploymentCellId returns the DeploymentCellId field value if set, zero value otherwise.
@@ -421,6 +457,38 @@ func (o *DeploymentCellWorkflow) SetStatus(v string) {
 	o.Status = v
 }
 
+// GetTasks returns the Tasks field value if set, zero value otherwise.
+func (o *DeploymentCellWorkflow) GetTasks() []WorkflowTask {
+	if o == nil || IsNil(o.Tasks) {
+		var ret []WorkflowTask
+		return ret
+	}
+	return o.Tasks
+}
+
+// GetTasksOk returns a tuple with the Tasks field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellWorkflow) GetTasksOk() ([]WorkflowTask, bool) {
+	if o == nil || IsNil(o.Tasks) {
+		return nil, false
+	}
+	return o.Tasks, true
+}
+
+// HasTasks returns a boolean if a field has been set.
+func (o *DeploymentCellWorkflow) HasTasks() bool {
+	if o != nil && !IsNil(o.Tasks) {
+		return true
+	}
+
+	return false
+}
+
+// SetTasks gets a reference to the given []WorkflowTask and assigns it to the Tasks field.
+func (o *DeploymentCellWorkflow) SetTasks(v []WorkflowTask) {
+	o.Tasks = v
+}
+
 // GetWorkflowID returns the WorkflowID field value
 func (o *DeploymentCellWorkflow) GetWorkflowID() string {
 	if o == nil {
@@ -486,6 +554,9 @@ func (o DeploymentCellWorkflow) ToMap() (map[string]interface{}, error) {
 		toSerialize["azureSubscriptionID"] = o.AzureSubscriptionID
 	}
 	toSerialize["cloudProvider"] = o.CloudProvider
+	if !IsNil(o.CurrentStateSummary) {
+		toSerialize["currentStateSummary"] = o.CurrentStateSummary
+	}
 	if !IsNil(o.DeploymentCellId) {
 		toSerialize["deploymentCellId"] = o.DeploymentCellId
 	}
@@ -505,6 +576,9 @@ func (o DeploymentCellWorkflow) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["startTime"] = o.StartTime
 	toSerialize["status"] = o.Status
+	if !IsNil(o.Tasks) {
+		toSerialize["tasks"] = o.Tasks
+	}
 	toSerialize["workflowID"] = o.WorkflowID
 	toSerialize["workflowType"] = o.WorkflowType
 
@@ -559,6 +633,7 @@ func (o *DeploymentCellWorkflow) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "awsAccountID")
 		delete(additionalProperties, "azureSubscriptionID")
 		delete(additionalProperties, "cloudProvider")
+		delete(additionalProperties, "currentStateSummary")
 		delete(additionalProperties, "deploymentCellId")
 		delete(additionalProperties, "endTime")
 		delete(additionalProperties, "gcpProjectID")
@@ -568,6 +643,7 @@ func (o *DeploymentCellWorkflow) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "parentId")
 		delete(additionalProperties, "startTime")
 		delete(additionalProperties, "status")
+		delete(additionalProperties, "tasks")
 		delete(additionalProperties, "workflowID")
 		delete(additionalProperties, "workflowType")
 		o.AdditionalProperties = additionalProperties

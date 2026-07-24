@@ -6,7 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CustomerVariables** | Pointer to [**[]OnboardingCustomerVariable**](OnboardingCustomerVariable.md) | Customer-provided variables. | [optional] 
 **Resources** | Pointer to [**[]OnboardingResource**](OnboardingResource.md) | The resources in this onboarding. | [optional] 
-**WorkplacePath** | Pointer to **string** | The workplace path for the resource. | [optional] 
+**TerraformPermissionConfigured** | Pointer to **map[string]bool** | Tracks whether the customer configured Terraform permissions per cloud provider. | [optional] 
+**WorkplacePath** | Pointer to **string** | Deprecated. The workplace path for the resource. | [optional] 
 
 ## Methods
 
@@ -76,6 +77,31 @@ SetResources sets Resources field to given value.
 `func (o *OnboardingResourceConfig) HasResources() bool`
 
 HasResources returns a boolean if a field has been set.
+
+### GetTerraformPermissionConfigured
+
+`func (o *OnboardingResourceConfig) GetTerraformPermissionConfigured() map[string]bool`
+
+GetTerraformPermissionConfigured returns the TerraformPermissionConfigured field if non-nil, zero value otherwise.
+
+### GetTerraformPermissionConfiguredOk
+
+`func (o *OnboardingResourceConfig) GetTerraformPermissionConfiguredOk() (*map[string]bool, bool)`
+
+GetTerraformPermissionConfiguredOk returns a tuple with the TerraformPermissionConfigured field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTerraformPermissionConfigured
+
+`func (o *OnboardingResourceConfig) SetTerraformPermissionConfigured(v map[string]bool)`
+
+SetTerraformPermissionConfigured sets TerraformPermissionConfigured field to given value.
+
+### HasTerraformPermissionConfigured
+
+`func (o *OnboardingResourceConfig) HasTerraformPermissionConfigured() bool`
+
+HasTerraformPermissionConfigured returns a boolean if a field has been set.
 
 ### GetWorkplacePath
 

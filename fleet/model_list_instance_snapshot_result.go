@@ -27,6 +27,8 @@ type ListInstanceSnapshotResult struct {
 	CreatedTime *string `json:"createdTime,omitempty"`
 	// Whether the snapshot is encrypted
 	Encrypted *bool `json:"encrypted,omitempty"`
+	// The managed resource type of the instance whose snapshot was taken
+	InstanceResourceType *string `json:"instanceResourceType,omitempty"`
 	// ID of a Product Tier
 	ProductTierId *string `json:"productTierId,omitempty"`
 	// The product tier name
@@ -45,6 +47,8 @@ type ListInstanceSnapshotResult struct {
 	ServiceName *string `json:"serviceName,omitempty"`
 	// ID of a Resource Instance Snapshot
 	SnapshotId *string `json:"snapshotId,omitempty"`
+	// Additional metadata stored for the snapshot
+	SnapshotMetadata map[string]interface{} `json:"snapshotMetadata,omitempty"`
 	// The snapshot type
 	SnapshotType *string `json:"snapshotType,omitempty"`
 	// ID of a Resource Instance
@@ -209,6 +213,38 @@ func (o *ListInstanceSnapshotResult) HasEncrypted() bool {
 // SetEncrypted gets a reference to the given bool and assigns it to the Encrypted field.
 func (o *ListInstanceSnapshotResult) SetEncrypted(v bool) {
 	o.Encrypted = &v
+}
+
+// GetInstanceResourceType returns the InstanceResourceType field value if set, zero value otherwise.
+func (o *ListInstanceSnapshotResult) GetInstanceResourceType() string {
+	if o == nil || IsNil(o.InstanceResourceType) {
+		var ret string
+		return ret
+	}
+	return *o.InstanceResourceType
+}
+
+// GetInstanceResourceTypeOk returns a tuple with the InstanceResourceType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListInstanceSnapshotResult) GetInstanceResourceTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.InstanceResourceType) {
+		return nil, false
+	}
+	return o.InstanceResourceType, true
+}
+
+// HasInstanceResourceType returns a boolean if a field has been set.
+func (o *ListInstanceSnapshotResult) HasInstanceResourceType() bool {
+	if o != nil && !IsNil(o.InstanceResourceType) {
+		return true
+	}
+
+	return false
+}
+
+// SetInstanceResourceType gets a reference to the given string and assigns it to the InstanceResourceType field.
+func (o *ListInstanceSnapshotResult) SetInstanceResourceType(v string) {
+	o.InstanceResourceType = &v
 }
 
 // GetProductTierId returns the ProductTierId field value if set, zero value otherwise.
@@ -499,6 +535,38 @@ func (o *ListInstanceSnapshotResult) SetSnapshotId(v string) {
 	o.SnapshotId = &v
 }
 
+// GetSnapshotMetadata returns the SnapshotMetadata field value if set, zero value otherwise.
+func (o *ListInstanceSnapshotResult) GetSnapshotMetadata() map[string]interface{} {
+	if o == nil || IsNil(o.SnapshotMetadata) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.SnapshotMetadata
+}
+
+// GetSnapshotMetadataOk returns a tuple with the SnapshotMetadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListInstanceSnapshotResult) GetSnapshotMetadataOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.SnapshotMetadata) {
+		return map[string]interface{}{}, false
+	}
+	return o.SnapshotMetadata, true
+}
+
+// HasSnapshotMetadata returns a boolean if a field has been set.
+func (o *ListInstanceSnapshotResult) HasSnapshotMetadata() bool {
+	if o != nil && !IsNil(o.SnapshotMetadata) {
+		return true
+	}
+
+	return false
+}
+
+// SetSnapshotMetadata gets a reference to the given map[string]interface{} and assigns it to the SnapshotMetadata field.
+func (o *ListInstanceSnapshotResult) SetSnapshotMetadata(v map[string]interface{}) {
+	o.SnapshotMetadata = v
+}
+
 // GetSnapshotType returns the SnapshotType field value if set, zero value otherwise.
 func (o *ListInstanceSnapshotResult) GetSnapshotType() string {
 	if o == nil || IsNil(o.SnapshotType) {
@@ -777,6 +845,9 @@ func (o ListInstanceSnapshotResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Encrypted) {
 		toSerialize["encrypted"] = o.Encrypted
 	}
+	if !IsNil(o.InstanceResourceType) {
+		toSerialize["instanceResourceType"] = o.InstanceResourceType
+	}
 	if !IsNil(o.ProductTierId) {
 		toSerialize["productTierId"] = o.ProductTierId
 	}
@@ -803,6 +874,9 @@ func (o ListInstanceSnapshotResult) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.SnapshotId) {
 		toSerialize["snapshotId"] = o.SnapshotId
+	}
+	if !IsNil(o.SnapshotMetadata) {
+		toSerialize["snapshotMetadata"] = o.SnapshotMetadata
 	}
 	if !IsNil(o.SnapshotType) {
 		toSerialize["snapshotType"] = o.SnapshotType
@@ -854,6 +928,7 @@ func (o *ListInstanceSnapshotResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "completeTime")
 		delete(additionalProperties, "createdTime")
 		delete(additionalProperties, "encrypted")
+		delete(additionalProperties, "instanceResourceType")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "productTierName")
 		delete(additionalProperties, "productTierVersion")
@@ -863,6 +938,7 @@ func (o *ListInstanceSnapshotResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "serviceName")
 		delete(additionalProperties, "snapshotId")
+		delete(additionalProperties, "snapshotMetadata")
 		delete(additionalProperties, "snapshotType")
 		delete(additionalProperties, "sourceInstanceId")
 		delete(additionalProperties, "status")

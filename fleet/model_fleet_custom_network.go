@@ -26,8 +26,12 @@ type FleetCustomNetwork struct {
 	CloudProviderName string `json:"cloudProviderName"`
 	// The region of the cloud provider that the instance is running in.
 	CloudProviderRegion string `json:"cloudProviderRegion"`
+	// The custom network creation time
+	CreatedAt *string `json:"created_at,omitempty"`
 	// ID of a custom network
 	Id string `json:"id"`
+	// The custom network update time
+	LastModifiedAt *string `json:"last_modified_at,omitempty"`
 	// User friendly network name to help distinguish networks with same CIDRs
 	Name *string `json:"name,omitempty"`
 	// Type of the network definition
@@ -147,6 +151,38 @@ func (o *FleetCustomNetwork) SetCloudProviderRegion(v string) {
 	o.CloudProviderRegion = v
 }
 
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
+func (o *FleetCustomNetwork) GetCreatedAt() string {
+	if o == nil || IsNil(o.CreatedAt) {
+		var ret string
+		return ret
+	}
+	return *o.CreatedAt
+}
+
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCustomNetwork) GetCreatedAtOk() (*string, bool) {
+	if o == nil || IsNil(o.CreatedAt) {
+		return nil, false
+	}
+	return o.CreatedAt, true
+}
+
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *FleetCustomNetwork) HasCreatedAt() bool {
+	if o != nil && !IsNil(o.CreatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
+func (o *FleetCustomNetwork) SetCreatedAt(v string) {
+	o.CreatedAt = &v
+}
+
 // GetId returns the Id field value
 func (o *FleetCustomNetwork) GetId() string {
 	if o == nil {
@@ -169,6 +205,38 @@ func (o *FleetCustomNetwork) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *FleetCustomNetwork) SetId(v string) {
 	o.Id = v
+}
+
+// GetLastModifiedAt returns the LastModifiedAt field value if set, zero value otherwise.
+func (o *FleetCustomNetwork) GetLastModifiedAt() string {
+	if o == nil || IsNil(o.LastModifiedAt) {
+		var ret string
+		return ret
+	}
+	return *o.LastModifiedAt
+}
+
+// GetLastModifiedAtOk returns a tuple with the LastModifiedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCustomNetwork) GetLastModifiedAtOk() (*string, bool) {
+	if o == nil || IsNil(o.LastModifiedAt) {
+		return nil, false
+	}
+	return o.LastModifiedAt, true
+}
+
+// HasLastModifiedAt returns a boolean if a field has been set.
+func (o *FleetCustomNetwork) HasLastModifiedAt() bool {
+	if o != nil && !IsNil(o.LastModifiedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastModifiedAt gets a reference to the given string and assigns it to the LastModifiedAt field.
+func (o *FleetCustomNetwork) SetLastModifiedAt(v string) {
+	o.LastModifiedAt = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -456,7 +524,13 @@ func (o FleetCustomNetwork) ToMap() (map[string]interface{}, error) {
 	toSerialize["cidr"] = o.Cidr
 	toSerialize["cloudProviderName"] = o.CloudProviderName
 	toSerialize["cloudProviderRegion"] = o.CloudProviderRegion
+	if !IsNil(o.CreatedAt) {
+		toSerialize["created_at"] = o.CreatedAt
+	}
 	toSerialize["id"] = o.Id
+	if !IsNil(o.LastModifiedAt) {
+		toSerialize["last_modified_at"] = o.LastModifiedAt
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
@@ -531,7 +605,9 @@ func (o *FleetCustomNetwork) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "cidr")
 		delete(additionalProperties, "cloudProviderName")
 		delete(additionalProperties, "cloudProviderRegion")
+		delete(additionalProperties, "created_at")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "last_modified_at")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "networkDefinitionType")
 		delete(additionalProperties, "networkFeaturesConfiguration")

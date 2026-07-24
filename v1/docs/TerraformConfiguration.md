@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ArtifactsLocalPath** | Pointer to **string** | The local path to the terraform artifacts | [optional] 
+**CliConfigFileOverride** | Pointer to **string** | The OpenTofu CLI configuration file content in base64 format for the Terraform configuration. Applied via TF_CLI_CONFIG_FILE when executing tofu. | [optional] 
 **GitConfiguration** | Pointer to [**GitConfiguration**](GitConfiguration.md) |  | [optional] 
 **PrivateKeyPEM** | Pointer to **string** | The Nebius private key PEM for terraform execution. This may be provided inline or as a $secret reference. | [optional] 
 **PrivateModuleGitAccessTokens** | Pointer to **map[string]string** | The git access tokens for private modules | [optional] 
@@ -59,6 +60,31 @@ SetArtifactsLocalPath sets ArtifactsLocalPath field to given value.
 `func (o *TerraformConfiguration) HasArtifactsLocalPath() bool`
 
 HasArtifactsLocalPath returns a boolean if a field has been set.
+
+### GetCliConfigFileOverride
+
+`func (o *TerraformConfiguration) GetCliConfigFileOverride() string`
+
+GetCliConfigFileOverride returns the CliConfigFileOverride field if non-nil, zero value otherwise.
+
+### GetCliConfigFileOverrideOk
+
+`func (o *TerraformConfiguration) GetCliConfigFileOverrideOk() (*string, bool)`
+
+GetCliConfigFileOverrideOk returns a tuple with the CliConfigFileOverride field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCliConfigFileOverride
+
+`func (o *TerraformConfiguration) SetCliConfigFileOverride(v string)`
+
+SetCliConfigFileOverride sets CliConfigFileOverride field to given value.
+
+### HasCliConfigFileOverride
+
+`func (o *TerraformConfiguration) HasCliConfigFileOverride() bool`
+
+HasCliConfigFileOverride returns a boolean if a field has been set.
 
 ### GetGitConfiguration
 

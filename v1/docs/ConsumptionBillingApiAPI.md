@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## ConsumptionBillingApiDescribeConsumptionBillingDetails
 
-> DescribeConsumptionBillingDetailsResult ConsumptionBillingApiDescribeConsumptionBillingDetails(ctx).ReturnUrl(returnUrl).Execute()
+> DescribeConsumptionBillingDetailsResult ConsumptionBillingApiDescribeConsumptionBillingDetails(ctx).ReturnUrl(returnUrl).SupportsCustomPaymentPortal(supportsCustomPaymentPortal).Execute()
 
 DescribeConsumptionBillingDetails consumption-billing-api
 
@@ -29,10 +29,11 @@ import (
 
 func main() {
 	returnUrl := "https://mysaasportal.com" // string | Return Url used to configure payment methods links (optional)
+	supportsCustomPaymentPortal := true // bool | Whether the caller supports inline custom payment method management (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ConsumptionBillingApiAPI.ConsumptionBillingApiDescribeConsumptionBillingDetails(context.Background()).ReturnUrl(returnUrl).Execute()
+	resp, r, err := apiClient.ConsumptionBillingApiAPI.ConsumptionBillingApiDescribeConsumptionBillingDetails(context.Background()).ReturnUrl(returnUrl).SupportsCustomPaymentPortal(supportsCustomPaymentPortal).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConsumptionBillingApiAPI.ConsumptionBillingApiDescribeConsumptionBillingDetails``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -54,6 +55,7 @@ Other parameters are passed through a pointer to a apiConsumptionBillingApiDescr
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **returnUrl** | **string** | Return Url used to configure payment methods links | 
+ **supportsCustomPaymentPortal** | **bool** | Whether the caller supports inline custom payment method management | 
 
 ### Return type
 

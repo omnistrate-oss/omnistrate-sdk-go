@@ -30,6 +30,8 @@ Name | Type | Description | Notes
 **ProductTierName** | **string** | The product tier name | 
 **ProductTierType** | **string** | The product tier type | 
 **ProxyType** | Pointer to **string** | The proxy type of instance | [optional] 
+**ResourceId** | Pointer to **string** | ID of a resource | [optional] 
+**ResourceName** | Pointer to **string** | The primary resource name for the instance. | [optional] 
 **ResourceVersionSummaries** | [**[]ResourceVersionSummary**](ResourceVersionSummary.md) | Associated internal/external resources deployed for the instance, the corresponding versions deployed. | 
 **ServiceEnvName** | **string** | The service environment name | 
 **ServiceId** | **string** | ID of a Service | 
@@ -670,6 +672,56 @@ SetProxyType sets ProxyType field to given value.
 `func (o *ResourceInstance) HasProxyType() bool`
 
 HasProxyType returns a boolean if a field has been set.
+
+### GetResourceId
+
+`func (o *ResourceInstance) GetResourceId() string`
+
+GetResourceId returns the ResourceId field if non-nil, zero value otherwise.
+
+### GetResourceIdOk
+
+`func (o *ResourceInstance) GetResourceIdOk() (*string, bool)`
+
+GetResourceIdOk returns a tuple with the ResourceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceId
+
+`func (o *ResourceInstance) SetResourceId(v string)`
+
+SetResourceId sets ResourceId field to given value.
+
+### HasResourceId
+
+`func (o *ResourceInstance) HasResourceId() bool`
+
+HasResourceId returns a boolean if a field has been set.
+
+### GetResourceName
+
+`func (o *ResourceInstance) GetResourceName() string`
+
+GetResourceName returns the ResourceName field if non-nil, zero value otherwise.
+
+### GetResourceNameOk
+
+`func (o *ResourceInstance) GetResourceNameOk() (*string, bool)`
+
+GetResourceNameOk returns a tuple with the ResourceName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceName
+
+`func (o *ResourceInstance) SetResourceName(v string)`
+
+SetResourceName sets ResourceName field to given value.
+
+### HasResourceName
+
+`func (o *ResourceInstance) HasResourceName() bool`
+
+HasResourceName returns a boolean if a field has been set.
 
 ### GetResourceVersionSummaries
 

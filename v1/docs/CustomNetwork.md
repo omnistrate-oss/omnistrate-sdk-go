@@ -7,7 +7,9 @@ Name | Type | Description | Notes
 **Cidr** | Pointer to **string** | CIDR block for the network | [optional] [default to "10.0.0.0/16"]
 **CloudProviderName** | **string** | Name of the Infra Provider | 
 **CloudProviderRegion** | **string** | The region of the cloud provider that the instance is running in. | 
+**CreatedAt** | Pointer to **string** | The custom network creation time | [optional] 
 **Id** | **string** | ID of a custom network | 
+**LastModifiedAt** | Pointer to **string** | The custom network update time | [optional] 
 **Name** | Pointer to **string** | User friendly network name to help distinguish networks with same CIDRs | [optional] 
 **NetworkDefinitionType** | Pointer to **string** | Type of the network definition | [optional] 
 **NetworkFeaturesConfiguration** | Pointer to [**NetworkFeaturesConfiguration**](NetworkFeaturesConfiguration.md) |  | [optional] 
@@ -100,6 +102,31 @@ and a boolean to check if the value has been set.
 SetCloudProviderRegion sets CloudProviderRegion field to given value.
 
 
+### GetCreatedAt
+
+`func (o *CustomNetwork) GetCreatedAt() string`
+
+GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
+
+### GetCreatedAtOk
+
+`func (o *CustomNetwork) GetCreatedAtOk() (*string, bool)`
+
+GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedAt
+
+`func (o *CustomNetwork) SetCreatedAt(v string)`
+
+SetCreatedAt sets CreatedAt field to given value.
+
+### HasCreatedAt
+
+`func (o *CustomNetwork) HasCreatedAt() bool`
+
+HasCreatedAt returns a boolean if a field has been set.
+
 ### GetId
 
 `func (o *CustomNetwork) GetId() string`
@@ -119,6 +146,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetLastModifiedAt
+
+`func (o *CustomNetwork) GetLastModifiedAt() string`
+
+GetLastModifiedAt returns the LastModifiedAt field if non-nil, zero value otherwise.
+
+### GetLastModifiedAtOk
+
+`func (o *CustomNetwork) GetLastModifiedAtOk() (*string, bool)`
+
+GetLastModifiedAtOk returns a tuple with the LastModifiedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastModifiedAt
+
+`func (o *CustomNetwork) SetLastModifiedAt(v string)`
+
+SetLastModifiedAt sets LastModifiedAt field to given value.
+
+### HasLastModifiedAt
+
+`func (o *CustomNetwork) HasLastModifiedAt() bool`
+
+HasLastModifiedAt returns a boolean if a field has been set.
 
 ### GetName
 

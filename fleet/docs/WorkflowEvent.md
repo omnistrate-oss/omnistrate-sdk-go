@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ErrorCode** | Pointer to **string** | Stable error code from the workflow error taxonomy, present on failure events. | [optional] 
 **EventTime** | **string** | Time of the event | 
 **EventType** | **string** | The type of the workflow event | 
 **Message** | **string** | Details of the event | 
@@ -26,6 +27,31 @@ will change when the set of required properties is changed
 NewWorkflowEventWithDefaults instantiates a new WorkflowEvent object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetErrorCode
+
+`func (o *WorkflowEvent) GetErrorCode() string`
+
+GetErrorCode returns the ErrorCode field if non-nil, zero value otherwise.
+
+### GetErrorCodeOk
+
+`func (o *WorkflowEvent) GetErrorCodeOk() (*string, bool)`
+
+GetErrorCodeOk returns a tuple with the ErrorCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetErrorCode
+
+`func (o *WorkflowEvent) SetErrorCode(v string)`
+
+SetErrorCode sets ErrorCode field to given value.
+
+### HasErrorCode
+
+`func (o *WorkflowEvent) HasErrorCode() bool`
+
+HasErrorCode returns a boolean if a field has been set.
 
 ### GetEventTime
 

@@ -29,6 +29,8 @@ type DescribeUserResult struct {
 	Email *string `json:"email,omitempty"`
 	// Is the user enabled.
 	Enabled *bool `json:"enabled,omitempty"`
+	// Runtime feature flags keyed by feature name
+	FeatureFlags *map[string]bool `json:"featureFlags,omitempty"`
 	// The User ID
 	Id string `json:"id"`
 	// The user update time
@@ -244,6 +246,38 @@ func (o *DescribeUserResult) HasEnabled() bool {
 // SetEnabled gets a reference to the given bool and assigns it to the Enabled field.
 func (o *DescribeUserResult) SetEnabled(v bool) {
 	o.Enabled = &v
+}
+
+// GetFeatureFlags returns the FeatureFlags field value if set, zero value otherwise.
+func (o *DescribeUserResult) GetFeatureFlags() map[string]bool {
+	if o == nil || IsNil(o.FeatureFlags) {
+		var ret map[string]bool
+		return ret
+	}
+	return *o.FeatureFlags
+}
+
+// GetFeatureFlagsOk returns a tuple with the FeatureFlags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeUserResult) GetFeatureFlagsOk() (*map[string]bool, bool) {
+	if o == nil || IsNil(o.FeatureFlags) {
+		return nil, false
+	}
+	return o.FeatureFlags, true
+}
+
+// HasFeatureFlags returns a boolean if a field has been set.
+func (o *DescribeUserResult) HasFeatureFlags() bool {
+	if o != nil && !IsNil(o.FeatureFlags) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeatureFlags gets a reference to the given map[string]bool and assigns it to the FeatureFlags field.
+func (o *DescribeUserResult) SetFeatureFlags(v map[string]bool) {
+	o.FeatureFlags = &v
 }
 
 // GetId returns the Id field value
@@ -807,6 +841,9 @@ func (o DescribeUserResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Enabled) {
 		toSerialize["enabled"] = o.Enabled
 	}
+	if !IsNil(o.FeatureFlags) {
+		toSerialize["featureFlags"] = o.FeatureFlags
+	}
 	toSerialize["id"] = o.Id
 	if !IsNil(o.LastModifiedAt) {
 		toSerialize["lastModifiedAt"] = o.LastModifiedAt
@@ -904,6 +941,7 @@ func (o *DescribeUserResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "email")
 		delete(additionalProperties, "enabled")
+		delete(additionalProperties, "featureFlags")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "lastModifiedAt")
 		delete(additionalProperties, "name")

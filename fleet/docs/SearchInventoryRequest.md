@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Filters** | Pointer to [**SearchInventoryFilters**](SearchInventoryFilters.md) |  | [optional] 
 **Query** | **string** | The search query. Supports prefixed searches such as &#39;service:&lt;value&gt;&#39;, &#39;user:&lt;value&gt;&#39;, &#39;subscription:&lt;value&gt;&#39;, &#39;deploymentcell:&lt;value&gt;&#39;, &#39;serviceplan:&lt;value&gt;&#39;, &#39;resource:&lt;value&gt;&#39;, &#39;serverlessproxy:&lt;value&gt;&#39;, &#39;resourceinstance:&lt;value&gt;&#39;, &#39;snapshot:&lt;value&gt;&#39;, &#39;notification:&lt;value&gt;&#39;, &#39;workflow:&lt;value&gt;&#39;, &#39;upgradepath:&lt;value&gt;&#39;, &#39;all:&lt;value&gt;&#39;. Without a prefix, performs a text search across resource instances, notifications, and workflows. | 
 **Token** | **string** | JWT token used to perform authorization | 
 
@@ -25,6 +26,31 @@ will change when the set of required properties is changed
 NewSearchInventoryRequestWithDefaults instantiates a new SearchInventoryRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetFilters
+
+`func (o *SearchInventoryRequest) GetFilters() SearchInventoryFilters`
+
+GetFilters returns the Filters field if non-nil, zero value otherwise.
+
+### GetFiltersOk
+
+`func (o *SearchInventoryRequest) GetFiltersOk() (*SearchInventoryFilters, bool)`
+
+GetFiltersOk returns a tuple with the Filters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFilters
+
+`func (o *SearchInventoryRequest) SetFilters(v SearchInventoryFilters)`
+
+SetFilters sets Filters field to given value.
+
+### HasFilters
+
+`func (o *SearchInventoryRequest) HasFilters() bool`
+
+HasFilters returns a boolean if a field has been set.
 
 ### GetQuery
 

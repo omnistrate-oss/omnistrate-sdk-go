@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Assets** | Pointer to [**ServiceAssets**](ServiceAssets.md) |  | [optional] 
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this service offering is available on | [optional] 
 **AzureRegions** | Pointer to **[]string** | The Azure regions that this service offering is available on | [optional] 
+**ByocOnpremRegions** | Pointer to **[]string** | The BYOC on-prem regions that this service offering is available on | [optional] 
 **CloudProviders** | Pointer to **[]string** | List of supported cloud providers for this product tier. | [optional] 
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this service offering is available on | [optional] 
 **MaxNumberOfInstances** | Pointer to **int64** | Maximum number of instances | [optional] 
@@ -182,6 +183,31 @@ SetAzureRegions sets AzureRegions field to given value.
 `func (o *ServiceOffering) HasAzureRegions() bool`
 
 HasAzureRegions returns a boolean if a field has been set.
+
+### GetByocOnpremRegions
+
+`func (o *ServiceOffering) GetByocOnpremRegions() []string`
+
+GetByocOnpremRegions returns the ByocOnpremRegions field if non-nil, zero value otherwise.
+
+### GetByocOnpremRegionsOk
+
+`func (o *ServiceOffering) GetByocOnpremRegionsOk() (*[]string, bool)`
+
+GetByocOnpremRegionsOk returns a tuple with the ByocOnpremRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetByocOnpremRegions
+
+`func (o *ServiceOffering) SetByocOnpremRegions(v []string)`
+
+SetByocOnpremRegions sets ByocOnpremRegions field to given value.
+
+### HasByocOnpremRegions
+
+`func (o *ServiceOffering) HasByocOnpremRegions() bool`
+
+HasByocOnpremRegions returns a boolean if a field has been set.
 
 ### GetCloudProviders
 

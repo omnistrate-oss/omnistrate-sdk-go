@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudProvider** | **string** | Name of the Infra Provider | 
-**CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The custom tags associated with resource instances in the deployment cell. | [optional] 
+**DeploymentInstancesTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The deployment instances tags associated with resource instances in the deployment cell. | [optional] 
 **Description** | **string** | The deployment cell description. | 
 **Id** | **string** | The deployment cell ID. | 
 **RegionCode** | **string** | The region code of the deployment cell. | 
@@ -49,30 +49,30 @@ and a boolean to check if the value has been set.
 SetCloudProvider sets CloudProvider field to given value.
 
 
-### GetCustomTags
+### GetDeploymentInstancesTags
 
-`func (o *DeploymentCellSearchRecord) GetCustomTags() []CustomTag`
+`func (o *DeploymentCellSearchRecord) GetDeploymentInstancesTags() []CustomTag`
 
-GetCustomTags returns the CustomTags field if non-nil, zero value otherwise.
+GetDeploymentInstancesTags returns the DeploymentInstancesTags field if non-nil, zero value otherwise.
 
-### GetCustomTagsOk
+### GetDeploymentInstancesTagsOk
 
-`func (o *DeploymentCellSearchRecord) GetCustomTagsOk() (*[]CustomTag, bool)`
+`func (o *DeploymentCellSearchRecord) GetDeploymentInstancesTagsOk() (*[]CustomTag, bool)`
 
-GetCustomTagsOk returns a tuple with the CustomTags field if it's non-nil, zero value otherwise
+GetDeploymentInstancesTagsOk returns a tuple with the DeploymentInstancesTags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCustomTags
+### SetDeploymentInstancesTags
 
-`func (o *DeploymentCellSearchRecord) SetCustomTags(v []CustomTag)`
+`func (o *DeploymentCellSearchRecord) SetDeploymentInstancesTags(v []CustomTag)`
 
-SetCustomTags sets CustomTags field to given value.
+SetDeploymentInstancesTags sets DeploymentInstancesTags field to given value.
 
-### HasCustomTags
+### HasDeploymentInstancesTags
 
-`func (o *DeploymentCellSearchRecord) HasCustomTags() bool`
+`func (o *DeploymentCellSearchRecord) HasDeploymentInstancesTags() bool`
 
-HasCustomTags returns a boolean if a field has been set.
+HasDeploymentInstancesTags returns a boolean if a field has been set.
 
 ### GetDescription
 

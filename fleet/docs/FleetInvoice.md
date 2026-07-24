@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **BillIssuedToUserEmail** | Pointer to **string** | Email of the user that this invoice is issued to | [optional] 
 **BillIssuedToUserID** | Pointer to **string** | ID of the user that this invoice is issued to | [optional] 
 **BillIssuedToUserName** | Pointer to **string** | Name of the user that this invoice is issued to | [optional] 
+**BillingPeriodEnd** | Pointer to **string** | End of the billing period in ISO 8601 format | [optional] 
+**BillingPeriodStart** | Pointer to **string** | Start of the billing period in ISO 8601 format | [optional] 
 **Currency** | Pointer to **string** | Currency of the invoice | [optional] 
 **CustomerId** | Pointer to **string** | ID of an Org | [optional] 
 **CustomerName** | Pointer to **string** | Organization name of the customer | [optional] 
@@ -114,6 +116,56 @@ SetBillIssuedToUserName sets BillIssuedToUserName field to given value.
 `func (o *FleetInvoice) HasBillIssuedToUserName() bool`
 
 HasBillIssuedToUserName returns a boolean if a field has been set.
+
+### GetBillingPeriodEnd
+
+`func (o *FleetInvoice) GetBillingPeriodEnd() string`
+
+GetBillingPeriodEnd returns the BillingPeriodEnd field if non-nil, zero value otherwise.
+
+### GetBillingPeriodEndOk
+
+`func (o *FleetInvoice) GetBillingPeriodEndOk() (*string, bool)`
+
+GetBillingPeriodEndOk returns a tuple with the BillingPeriodEnd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBillingPeriodEnd
+
+`func (o *FleetInvoice) SetBillingPeriodEnd(v string)`
+
+SetBillingPeriodEnd sets BillingPeriodEnd field to given value.
+
+### HasBillingPeriodEnd
+
+`func (o *FleetInvoice) HasBillingPeriodEnd() bool`
+
+HasBillingPeriodEnd returns a boolean if a field has been set.
+
+### GetBillingPeriodStart
+
+`func (o *FleetInvoice) GetBillingPeriodStart() string`
+
+GetBillingPeriodStart returns the BillingPeriodStart field if non-nil, zero value otherwise.
+
+### GetBillingPeriodStartOk
+
+`func (o *FleetInvoice) GetBillingPeriodStartOk() (*string, bool)`
+
+GetBillingPeriodStartOk returns a tuple with the BillingPeriodStart field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBillingPeriodStart
+
+`func (o *FleetInvoice) SetBillingPeriodStart(v string)`
+
+SetBillingPeriodStart sets BillingPeriodStart field to given value.
+
+### HasBillingPeriodStart
+
+`func (o *FleetInvoice) HasBillingPeriodStart() bool`
+
+HasBillingPeriodStart returns a boolean if a field has been set.
 
 ### GetCurrency
 

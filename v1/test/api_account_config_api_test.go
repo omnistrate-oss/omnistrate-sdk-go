@@ -162,9 +162,27 @@ func Test_v1_AccountConfigApiAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		var id string
+		var region string
 		var cloudNativeNetworkId string
 
-		resp, httpRes, err := apiClient.AccountConfigApiAPI.AccountConfigApiImportAccountConfigCloudNativeNetwork(context.Background(), id, cloudNativeNetworkId).Execute()
+		resp, httpRes, err := apiClient.AccountConfigApiAPI.AccountConfigApiImportAccountConfigCloudNativeNetwork(context.Background(), id, region, cloudNativeNetworkId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AccountConfigApiAPIService AccountConfigApiImportAccountConfigCloudNativeNetworkHostCluster", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+		var region string
+		var cloudNativeNetworkId string
+		var hostClusterName string
+
+		resp, httpRes, err := apiClient.AccountConfigApiAPI.AccountConfigApiImportAccountConfigCloudNativeNetworkHostCluster(context.Background(), id, region, cloudNativeNetworkId, hostClusterName).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -231,9 +249,10 @@ func Test_v1_AccountConfigApiAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		var id string
+		var region string
 		var cloudNativeNetworkId string
 
-		resp, httpRes, err := apiClient.AccountConfigApiAPI.AccountConfigApiUnimportAccountConfigCloudNativeNetwork(context.Background(), id, cloudNativeNetworkId).Execute()
+		resp, httpRes, err := apiClient.AccountConfigApiAPI.AccountConfigApiUnimportAccountConfigCloudNativeNetwork(context.Background(), id, region, cloudNativeNetworkId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

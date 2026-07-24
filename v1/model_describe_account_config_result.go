@@ -42,6 +42,8 @@ type DescribeAccountConfigResult struct {
 	ByoaInstanceIDs []string `json:"byoaInstanceIDs,omitempty"`
 	// ID of an CloudProvider
 	CloudProviderId string `json:"cloudProviderId"`
+	// The custom tags for the account configuration
+	CustomTags []CustomTag `json:"customTags,omitempty"`
 	// The description for the account
 	Description string `json:"description"`
 	// The GCP bootstrap shell command
@@ -358,6 +360,29 @@ func (o *DescribeAccountConfigResult) GetCloudProviderIdOk() (*string, bool) {
 // SetCloudProviderId sets field value
 func (o *DescribeAccountConfigResult) SetCloudProviderId(v string) {
 	o.CloudProviderId = v
+}
+
+// GetCustomTags returns the CustomTags field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetCustomTags() []CustomTag {
+	if o == nil || IsNil(o.CustomTags) {
+		var ret []CustomTag
+		return ret
+	}
+	return o.CustomTags
+}
+
+// GetCustomTagsOk returns a tuple with the CustomTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetCustomTagsOk() ([]CustomTag, bool) {
+	if o == nil || IsNil(o.CustomTags) {
+		return nil, false
+	}
+	return o.CustomTags, true
+}
+
+// SetCustomTags gets a reference to the given []CustomTag and assigns it to the CustomTags field.
+func (o *DescribeAccountConfigResult) SetCustomTags(v []CustomTag) {
+	o.CustomTags = v
 }
 
 // GetDescription returns the Description field value
@@ -820,6 +845,9 @@ func (o DescribeAccountConfigResult) ToMap() (map[string]interface{}, error) {
 		toSerialize["byoaInstanceIDs"] = o.ByoaInstanceIDs
 	}
 	toSerialize["cloudProviderId"] = o.CloudProviderId
+	if !IsNil(o.CustomTags) {
+		toSerialize["customTags"] = o.CustomTags
+	}
 	toSerialize["description"] = o.Description
 	if !IsNil(o.GcpBootstrapShellCommand) {
 		toSerialize["gcpBootstrapShellCommand"] = o.GcpBootstrapShellCommand
@@ -923,6 +951,7 @@ func (o *DescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "azureTenantID")
 		delete(additionalProperties, "byoaInstanceIDs")
 		delete(additionalProperties, "cloudProviderId")
+		delete(additionalProperties, "customTags")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "gcpBootstrapShellCommand")
 		delete(additionalProperties, "gcpDisconnectShellCommand")

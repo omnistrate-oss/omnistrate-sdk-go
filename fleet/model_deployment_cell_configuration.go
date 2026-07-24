@@ -21,6 +21,8 @@ var _ MappedNullable = &DeploymentCellConfiguration{}
 type DeploymentCellConfiguration struct {
 	// The amenities available in the deployment cell.
 	Amenities []Amenity `json:"Amenities,omitempty"`
+	// The managed workload identities available in the deployment cell.
+	WorkloadIdentities []ManagedWorkloadIdentity `json:"WorkloadIdentities,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -75,6 +77,38 @@ func (o *DeploymentCellConfiguration) SetAmenities(v []Amenity) {
 	o.Amenities = v
 }
 
+// GetWorkloadIdentities returns the WorkloadIdentities field value if set, zero value otherwise.
+func (o *DeploymentCellConfiguration) GetWorkloadIdentities() []ManagedWorkloadIdentity {
+	if o == nil || IsNil(o.WorkloadIdentities) {
+		var ret []ManagedWorkloadIdentity
+		return ret
+	}
+	return o.WorkloadIdentities
+}
+
+// GetWorkloadIdentitiesOk returns a tuple with the WorkloadIdentities field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellConfiguration) GetWorkloadIdentitiesOk() ([]ManagedWorkloadIdentity, bool) {
+	if o == nil || IsNil(o.WorkloadIdentities) {
+		return nil, false
+	}
+	return o.WorkloadIdentities, true
+}
+
+// HasWorkloadIdentities returns a boolean if a field has been set.
+func (o *DeploymentCellConfiguration) HasWorkloadIdentities() bool {
+	if o != nil && !IsNil(o.WorkloadIdentities) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkloadIdentities gets a reference to the given []ManagedWorkloadIdentity and assigns it to the WorkloadIdentities field.
+func (o *DeploymentCellConfiguration) SetWorkloadIdentities(v []ManagedWorkloadIdentity) {
+	o.WorkloadIdentities = v
+}
+
 func (o DeploymentCellConfiguration) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -87,6 +121,9 @@ func (o DeploymentCellConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Amenities) {
 		toSerialize["Amenities"] = o.Amenities
+	}
+	if !IsNil(o.WorkloadIdentities) {
+		toSerialize["WorkloadIdentities"] = o.WorkloadIdentities
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -111,6 +148,7 @@ func (o *DeploymentCellConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "Amenities")
+		delete(additionalProperties, "WorkloadIdentities")
 		o.AdditionalProperties = additionalProperties
 	}
 

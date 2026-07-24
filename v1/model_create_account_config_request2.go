@@ -36,6 +36,8 @@ type CreateAccountConfigRequest2 struct {
 	ByoaInstanceID *string `json:"byoaInstanceID,omitempty"`
 	// Cloud Provider ID to operate on
 	CloudProviderId string `json:"cloudProviderId"`
+	// The custom tags for the account configuration
+	CustomTags []CustomTag `json:"customTags,omitempty"`
 	// The description for the account
 	Description string `json:"description"`
 	// The GCP project ID
@@ -264,6 +266,29 @@ func (o *CreateAccountConfigRequest2) GetCloudProviderIdOk() (*string, bool) {
 // SetCloudProviderId sets field value
 func (o *CreateAccountConfigRequest2) SetCloudProviderId(v string) {
 	o.CloudProviderId = v
+}
+
+// GetCustomTags returns the CustomTags field value if set, zero value otherwise.
+func (o *CreateAccountConfigRequest2) GetCustomTags() []CustomTag {
+	if o == nil || IsNil(o.CustomTags) {
+		var ret []CustomTag
+		return ret
+	}
+	return o.CustomTags
+}
+
+// GetCustomTagsOk returns a tuple with the CustomTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateAccountConfigRequest2) GetCustomTagsOk() ([]CustomTag, bool) {
+	if o == nil || IsNil(o.CustomTags) {
+		return nil, false
+	}
+	return o.CustomTags, true
+}
+
+// SetCustomTags gets a reference to the given []CustomTag and assigns it to the CustomTags field.
+func (o *CreateAccountConfigRequest2) SetCustomTags(v []CustomTag) {
+	o.CustomTags = v
 }
 
 // GetDescription returns the Description field value
@@ -530,6 +555,9 @@ func (o CreateAccountConfigRequest2) ToMap() (map[string]interface{}, error) {
 		toSerialize["byoaInstanceID"] = o.ByoaInstanceID
 	}
 	toSerialize["cloudProviderId"] = o.CloudProviderId
+	if !IsNil(o.CustomTags) {
+		toSerialize["customTags"] = o.CustomTags
+	}
 	toSerialize["description"] = o.Description
 	if !IsNil(o.GcpProjectID) {
 		toSerialize["gcpProjectID"] = o.GcpProjectID
@@ -609,6 +637,7 @@ func (o *CreateAccountConfigRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "azureTenantID")
 		delete(additionalProperties, "byoaInstanceID")
 		delete(additionalProperties, "cloudProviderId")
+		delete(additionalProperties, "customTags")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "gcpProjectNumber")

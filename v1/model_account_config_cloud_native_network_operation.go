@@ -20,10 +20,12 @@ var _ MappedNullable = &AccountConfigCloudNativeNetworkOperation{}
 
 // AccountConfigCloudNativeNetworkOperation struct for AccountConfigCloudNativeNetworkOperation
 type AccountConfigCloudNativeNetworkOperation struct {
-	// The cloud provider network ID (e.g. AWS VPC ID)
+	// The provider-native network ID
 	CloudNativeNetworkId string `json:"cloudNativeNetworkId"`
 	// True to import (mark imported for deployments), false to unimport. Unimport is rejected if the network is in use by a host cluster.
 	Import bool `json:"import"`
+	// The deployment region for this operation
+	Region string `json:"region"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -33,10 +35,11 @@ type _AccountConfigCloudNativeNetworkOperation AccountConfigCloudNativeNetworkOp
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAccountConfigCloudNativeNetworkOperation(cloudNativeNetworkId string, import_ bool) *AccountConfigCloudNativeNetworkOperation {
+func NewAccountConfigCloudNativeNetworkOperation(cloudNativeNetworkId string, import_ bool, region string) *AccountConfigCloudNativeNetworkOperation {
 	this := AccountConfigCloudNativeNetworkOperation{}
 	this.CloudNativeNetworkId = cloudNativeNetworkId
 	this.Import = import_
+	this.Region = region
 	return &this
 }
 
@@ -96,6 +99,30 @@ func (o *AccountConfigCloudNativeNetworkOperation) SetImport(v bool) {
 	o.Import = v
 }
 
+// GetRegion returns the Region field value
+func (o *AccountConfigCloudNativeNetworkOperation) GetRegion() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Region
+}
+
+// GetRegionOk returns a tuple with the Region field value
+// and a boolean to check if the value has been set.
+func (o *AccountConfigCloudNativeNetworkOperation) GetRegionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Region, true
+}
+
+// SetRegion sets field value
+func (o *AccountConfigCloudNativeNetworkOperation) SetRegion(v string) {
+	o.Region = v
+}
+
 func (o AccountConfigCloudNativeNetworkOperation) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -108,6 +135,7 @@ func (o AccountConfigCloudNativeNetworkOperation) ToMap() (map[string]interface{
 	toSerialize := map[string]interface{}{}
 	toSerialize["cloudNativeNetworkId"] = o.CloudNativeNetworkId
 	toSerialize["import"] = o.Import
+	toSerialize["region"] = o.Region
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -123,6 +151,7 @@ func (o *AccountConfigCloudNativeNetworkOperation) UnmarshalJSON(data []byte) (e
 	requiredProperties := []string{
 		"cloudNativeNetworkId",
 		"import",
+		"region",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -154,6 +183,7 @@ func (o *AccountConfigCloudNativeNetworkOperation) UnmarshalJSON(data []byte) (e
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "cloudNativeNetworkId")
 		delete(additionalProperties, "import")
+		delete(additionalProperties, "region")
 		o.AdditionalProperties = additionalProperties
 	}
 

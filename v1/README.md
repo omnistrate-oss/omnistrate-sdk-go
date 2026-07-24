@@ -87,12 +87,13 @@ Class | Method | HTTP request | Description
 *AccountConfigApiAPI* | [**AccountConfigApiDescribeAccountConfigByGCPProjectID**](docs/AccountConfigApiAPI.md#accountconfigapidescribeaccountconfigbygcpprojectid) | **Get** /2022-09-01-00/accountconfig/gcp/{gcpProjectID} | DescribeAccountConfigByGCPProjectID account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiDescribeAccountConfigByNebiusTenantID**](docs/AccountConfigApiAPI.md#accountconfigapidescribeaccountconfigbynebiustenantid) | **Get** /2022-09-01-00/accountconfig/nebius/tenant/{nebiusTenantID} | DescribeAccountConfigByNebiusTenantID account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiDescribeAccountConfigByOCITenancyID**](docs/AccountConfigApiAPI.md#accountconfigapidescribeaccountconfigbyocitenancyid) | **Get** /2022-09-01-00/accountconfig/oci/{ociTenancyID} | DescribeAccountConfigByOCITenancyID account-config-api
-*AccountConfigApiAPI* | [**AccountConfigApiImportAccountConfigCloudNativeNetwork**](docs/AccountConfigApiAPI.md#accountconfigapiimportaccountconfigcloudnativenetwork) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/{cloudNativeNetworkId}/import | ImportAccountConfigCloudNativeNetwork account-config-api
+*AccountConfigApiAPI* | [**AccountConfigApiImportAccountConfigCloudNativeNetwork**](docs/AccountConfigApiAPI.md#accountconfigapiimportaccountconfigcloudnativenetwork) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/import | ImportAccountConfigCloudNativeNetwork account-config-api
+*AccountConfigApiAPI* | [**AccountConfigApiImportAccountConfigCloudNativeNetworkHostCluster**](docs/AccountConfigApiAPI.md#accountconfigapiimportaccountconfigcloudnativenetworkhostcluster) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/host-clusters/{hostClusterName}/import | ImportAccountConfigCloudNativeNetworkHostCluster account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiListAccountConfig**](docs/AccountConfigApiAPI.md#accountconfigapilistaccountconfig) | **Get** /2022-09-01-00/accountconfig/cloudprovider/{cloudProviderName} | ListAccountConfig account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiListAccountConfigCloudNativeNetworks**](docs/AccountConfigApiAPI.md#accountconfigapilistaccountconfigcloudnativenetworks) | **Get** /2022-09-01-00/accountconfig/{id}/cloud-native-networks | ListAccountConfigCloudNativeNetworks account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiListBYOAConfig**](docs/AccountConfigApiAPI.md#accountconfigapilistbyoaconfig) | **Get** /2022-09-01-00/accountconfig/byoa | ListBYOAConfig account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiSyncAccountConfigCloudNativeNetworks**](docs/AccountConfigApiAPI.md#accountconfigapisyncaccountconfigcloudnativenetworks) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/sync | SyncAccountConfigCloudNativeNetworks account-config-api
-*AccountConfigApiAPI* | [**AccountConfigApiUnimportAccountConfigCloudNativeNetwork**](docs/AccountConfigApiAPI.md#accountconfigapiunimportaccountconfigcloudnativenetwork) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/{cloudNativeNetworkId}/unimport | UnimportAccountConfigCloudNativeNetwork account-config-api
+*AccountConfigApiAPI* | [**AccountConfigApiUnimportAccountConfigCloudNativeNetwork**](docs/AccountConfigApiAPI.md#accountconfigapiunimportaccountconfigcloudnativenetwork) | **Post** /2022-09-01-00/accountconfig/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/unimport | UnimportAccountConfigCloudNativeNetwork account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiUpdateAccountConfig**](docs/AccountConfigApiAPI.md#accountconfigapiupdateaccountconfig) | **Put** /2022-09-01-00/accountconfig/{id} | UpdateAccountConfig account-config-api
 *AccountConfigApiAPI* | [**AccountConfigApiVerifyAccountConfig**](docs/AccountConfigApiAPI.md#accountconfigapiverifyaccountconfig) | **Post** /2022-09-01-00/accountconfig/verify/{id} | VerifyAccountConfig account-config-api
 *ApiKeyApiAPI* | [**ApiKeyApiCreateAPIKey**](docs/ApiKeyApiAPI.md#apikeyapicreateapikey) | **Post** /2022-09-01-00/api-key | CreateAPIKey api-key-api
@@ -128,6 +129,11 @@ Class | Method | HTTP request | Description
 *ConsumptionBillingApiAPI* | [**ConsumptionBillingApiDescribeConsumptionBillingDetails**](docs/ConsumptionBillingApiAPI.md#consumptionbillingapidescribeconsumptionbillingdetails) | **Get** /2022-09-01-00/resource-instance/billing-details | DescribeConsumptionBillingDetails consumption-billing-api
 *ConsumptionBillingApiAPI* | [**ConsumptionBillingApiDescribeConsumptionBillingStatus**](docs/ConsumptionBillingApiAPI.md#consumptionbillingapidescribeconsumptionbillingstatus) | **Get** /2022-09-01-00/resource-instance/billing-status | DescribeConsumptionBillingStatus consumption-billing-api
 *ConsumptionInvoiceApiAPI* | [**ConsumptionInvoiceApiListConsumptionInvoices**](docs/ConsumptionInvoiceApiAPI.md#consumptioninvoiceapilistconsumptioninvoices) | **Get** /2022-09-01-00/resource-instance/invoice | ListConsumptionInvoices consumption-invoice-api
+*ConsumptionPaymentMethodApiAPI* | [**ConsumptionPaymentMethodApiCreateConsumptionSetupIntent**](docs/ConsumptionPaymentMethodApiAPI.md#consumptionpaymentmethodapicreateconsumptionsetupintent) | **Post** /2022-09-01-00/resource-instance/billing/stripe/payment-methods/setup-intent | CreateConsumptionSetupIntent consumption-payment-method-api
+*ConsumptionPaymentMethodApiAPI* | [**ConsumptionPaymentMethodApiGetConsumptionStripeConfig**](docs/ConsumptionPaymentMethodApiAPI.md#consumptionpaymentmethodapigetconsumptionstripeconfig) | **Get** /2022-09-01-00/resource-instance/billing/stripe/config | GetConsumptionStripeConfig consumption-payment-method-api
+*ConsumptionPaymentMethodApiAPI* | [**ConsumptionPaymentMethodApiListConsumptionPaymentMethods**](docs/ConsumptionPaymentMethodApiAPI.md#consumptionpaymentmethodapilistconsumptionpaymentmethods) | **Get** /2022-09-01-00/resource-instance/billing/stripe/payment-methods | ListConsumptionPaymentMethods consumption-payment-method-api
+*ConsumptionPaymentMethodApiAPI* | [**ConsumptionPaymentMethodApiRemoveConsumptionPaymentMethod**](docs/ConsumptionPaymentMethodApiAPI.md#consumptionpaymentmethodapiremoveconsumptionpaymentmethod) | **Delete** /2022-09-01-00/resource-instance/billing/stripe/payment-methods/{id} | RemoveConsumptionPaymentMethod consumption-payment-method-api
+*ConsumptionPaymentMethodApiAPI* | [**ConsumptionPaymentMethodApiSetDefaultConsumptionPaymentMethod**](docs/ConsumptionPaymentMethodApiAPI.md#consumptionpaymentmethodapisetdefaultconsumptionpaymentmethod) | **Post** /2022-09-01-00/resource-instance/billing/stripe/payment-methods/{id}/default | SetDefaultConsumptionPaymentMethod consumption-payment-method-api
 *ConsumptionUsageApiAPI* | [**ConsumptionUsageApiGetConsumptionUsagePerDay**](docs/ConsumptionUsageApiAPI.md#consumptionusageapigetconsumptionusageperday) | **Get** /2022-09-01-00/resource-instance/usage-per-day | GetConsumptionUsagePerDay consumption-usage-api
 *ConsumptionUsageApiAPI* | [**ConsumptionUsageApiGetCurrentConsumptionUsage**](docs/ConsumptionUsageApiAPI.md#consumptionusageapigetcurrentconsumptionusage) | **Get** /2022-09-01-00/resource-instance/usage | GetCurrentConsumptionUsage consumption-usage-api
 *ConsumptionUserApiAPI* | [**ConsumptionUserApiDescribeUserBillingDetails**](docs/ConsumptionUserApiAPI.md#consumptionuserapidescribeuserbillingdetails) | **Get** /2022-09-01-00/resource-instance/user/{id}/billing-details | DescribeUserBillingDetails consumption-user-api
@@ -155,6 +161,7 @@ Class | Method | HTTP request | Description
 *CustomWorkflowApiAPI* | [**CustomWorkflowApiUpdateCustomWorkflow**](docs/CustomWorkflowApiAPI.md#customworkflowapiupdatecustomworkflow) | **Patch** /2022-09-01-00/service/{serviceId}/custom-workflow/{id} | UpdateCustomWorkflow custom-workflow-api
 *DemoApiAPI* | [**DemoApiDemo**](docs/DemoApiAPI.md#demoapidemo) | **Post** /2022-09-01-00/demo | Demo demo-api
 *DeploymentArtifactApiAPI* | [**DeploymentArtifactApiDescribeDeploymentArtifact**](docs/DeploymentArtifactApiAPI.md#deploymentartifactapidescribedeploymentartifact) | **Get** /2022-09-01-00/deployment-artifact/{id} | DescribeDeploymentArtifact deployment-artifact-api
+*DeploymentArtifactApiAPI* | [**DeploymentArtifactApiDownloadDeploymentArtifact**](docs/DeploymentArtifactApiAPI.md#deploymentartifactapidownloaddeploymentartifact) | **Get** /2022-09-01-00/deployment-artifact/{id}/download | DownloadDeploymentArtifact deployment-artifact-api
 *DeploymentArtifactApiAPI* | [**DeploymentArtifactApiUploadDeploymentArtifact**](docs/DeploymentArtifactApiAPI.md#deploymentartifactapiuploaddeploymentartifact) | **Post** /2022-09-01-00/deployment-artifact | UploadDeploymentArtifact deployment-artifact-api
 *DeploymentConfigApiAPI* | [**DeploymentConfigApiCreateDeploymentConfig**](docs/DeploymentConfigApiAPI.md#deploymentconfigapicreatedeploymentconfig) | **Post** /2022-09-01-00/deployment-config | CreateDeploymentConfig deployment-config-api
 *DeploymentConfigApiAPI* | [**DeploymentConfigApiDeleteDeploymentConfig**](docs/DeploymentConfigApiAPI.md#deploymentconfigapideletedeploymentconfig) | **Delete** /2022-09-01-00/deployment-config/{id} | DeleteDeploymentConfig deployment-config-api
@@ -236,9 +243,13 @@ Class | Method | HTTP request | Description
 *ProductTierApiAPI* | [**ProductTierApiCreateProductTier**](docs/ProductTierApiAPI.md#producttierapicreateproducttier) | **Post** /2022-09-01-00/service/{serviceId}/product-tier | CreateProductTier product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiDeleteProductTier**](docs/ProductTierApiAPI.md#producttierapideleteproducttier) | **Delete** /2022-09-01-00/service/{serviceId}/product-tier/{id} | DeleteProductTier product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiDescribeProductTier**](docs/ProductTierApiAPI.md#producttierapidescribeproducttier) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{id} | DescribeProductTier product-tier-api
+*ProductTierApiAPI* | [**ProductTierApiDescribeProductTierWorkspaceArtifacts**](docs/ProductTierApiAPI.md#producttierapidescribeproducttierworkspaceartifacts) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{id}/workspace-artifacts/{workspaceArtifactId} | DescribeProductTierWorkspaceArtifacts product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiDisableProductTierFeature**](docs/ProductTierApiAPI.md#producttierapidisableproducttierfeature) | **Delete** /2022-09-01-00/service/{serviceId}/product-tier/{id}/feature | DisableProductTierFeature product-tier-api
+*ProductTierApiAPI* | [**ProductTierApiDownloadProductTierWorkspaceArtifacts**](docs/ProductTierApiAPI.md#producttierapidownloadproducttierworkspaceartifacts) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{id}/workspace-artifacts/download | DownloadProductTierWorkspaceArtifacts product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiEnableProductTierFeature**](docs/ProductTierApiAPI.md#producttierapienableproducttierfeature) | **Put** /2022-09-01-00/service/{serviceId}/product-tier/{id}/feature | EnableProductTierFeature product-tier-api
+*ProductTierApiAPI* | [**ProductTierApiGetProductTierWorkspaceArtifactsDownloadURL**](docs/ProductTierApiAPI.md#producttierapigetproducttierworkspaceartifactsdownloadurl) | **Get** /2022-09-01-00/service/{serviceId}/product-tier/{id}/workspace-artifacts/download-url | GetProductTierWorkspaceArtifactsDownloadURL product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiListProductTier**](docs/ProductTierApiAPI.md#producttierapilistproducttier) | **Get** /2022-09-01-00/service/{serviceId}/model/{serviceModelId}/product-tier | ListProductTier product-tier-api
+*ProductTierApiAPI* | [**ProductTierApiPrepareProductTierWorkspaceArtifacts**](docs/ProductTierApiAPI.md#producttierapiprepareproducttierworkspaceartifacts) | **Post** /2022-09-01-00/service/{serviceId}/product-tier/{id}/workspace-artifacts/prepare | PrepareProductTierWorkspaceArtifacts product-tier-api
 *ProductTierApiAPI* | [**ProductTierApiUpdateProductTier**](docs/ProductTierApiAPI.md#producttierapiupdateproducttier) | **Patch** /2022-09-01-00/service/{serviceId}/product-tier/{id} | UpdateProductTier product-tier-api
 *RegionApiAPI* | [**RegionApiDescribeRegion**](docs/RegionApiAPI.md#regionapidescriberegion) | **Get** /2022-09-01-00/region/{id} | DescribeRegion region-api
 *RegionApiAPI* | [**RegionApiGetRegionByCode**](docs/RegionApiAPI.md#regionapigetregionbycode) | **Get** /2022-09-01-00/region/code/{code}/cloud-provider/{cloudProviderName} | GetRegionByCode region-api
@@ -283,6 +294,7 @@ Class | Method | HTTP request | Description
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiListResourceInstances**](docs/ResourceInstanceApiAPI.md#resourceinstanceapilistresourceinstances) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey} | ListResourceInstances resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiRemoveCapacityFromResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapiremovecapacityfromresourceinstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/remove-capacity | RemoveCapacityFromResourceInstance resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiRemoveCustomDNSFromResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapiremovecustomdnsfromresourceinstance) | **Delete** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/custom-dns | RemoveCustomDNSFromResourceInstance resource-instance-api
+*ResourceInstanceApiAPI* | [**ResourceInstanceApiResourceInstanceCustomWorkflow**](docs/ResourceInstanceApiAPI.md#resourceinstanceapiresourceinstancecustomworkflow) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/custom-workflow/{workflowId}/execute | ResourceInstanceCustomWorkflow resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiResourceInstanceProvisionerSetupKit**](docs/ResourceInstanceApiAPI.md#resourceinstanceapiresourceinstanceprovisionersetupkit) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/setup-kit | ResourceInstanceProvisionerSetupKit resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiRestartResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapirestartresourceinstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/restart | RestartResourceInstance resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiRestoreResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapirestoreresourceinstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/restore | RestoreResourceInstance resource-instance-api
@@ -433,6 +445,7 @@ Class | Method | HTTP request | Description
  - [APIKeyMetadata](docs/APIKeyMetadata.md)
  - [AWSPrivateLinkConfiguration](docs/AWSPrivateLinkConfiguration.md)
  - [AcceleratorConfiguration](docs/AcceleratorConfiguration.md)
+ - [AccountConfigCloudNativeNetworkHostClusterResult](docs/AccountConfigCloudNativeNetworkHostClusterResult.md)
  - [AccountConfigCloudNativeNetworkOperation](docs/AccountConfigCloudNativeNetworkOperation.md)
  - [AccountConfigCloudNativeNetworkResult](docs/AccountConfigCloudNativeNetworkResult.md)
  - [AccountConfigIdentityIDRequest](docs/AccountConfigIdentityIDRequest.md)
@@ -519,6 +532,7 @@ Class | Method | HTTP request | Description
  - [CreateAccountConfigRequest2](docs/CreateAccountConfigRequest2.md)
  - [CreateComputeConfigRequest](docs/CreateComputeConfigRequest.md)
  - [CreateComputeConfigRequest2](docs/CreateComputeConfigRequest2.md)
+ - [CreateConsumptionSetupIntentRequest](docs/CreateConsumptionSetupIntentRequest.md)
  - [CreateCustomDomainRequest](docs/CreateCustomDomainRequest.md)
  - [CreateCustomDomainRequest2](docs/CreateCustomDomainRequest2.md)
  - [CreateCustomNetworkRequest](docs/CreateCustomNetworkRequest.md)
@@ -565,6 +579,7 @@ Class | Method | HTTP request | Description
  - [CreateServicesOrchestrationRequest](docs/CreateServicesOrchestrationRequest.md)
  - [CreateServicesOrchestrationRequest2](docs/CreateServicesOrchestrationRequest2.md)
  - [CreateServicesOrchestrationResponseBody](docs/CreateServicesOrchestrationResponseBody.md)
+ - [CreateSetupIntentResult](docs/CreateSetupIntentResult.md)
  - [CreateStorageConfigRequest](docs/CreateStorageConfigRequest.md)
  - [CreateStorageConfigRequest2](docs/CreateStorageConfigRequest2.md)
  - [CreateStorageVolumeConfigRequest](docs/CreateStorageVolumeConfigRequest.md)
@@ -718,6 +733,7 @@ Class | Method | HTTP request | Description
  - [DescribePlanResult](docs/DescribePlanResult.md)
  - [DescribeProductTierRequest](docs/DescribeProductTierRequest.md)
  - [DescribeProductTierResult](docs/DescribeProductTierResult.md)
+ - [DescribeProductTierWorkspaceArtifactsRequest](docs/DescribeProductTierWorkspaceArtifactsRequest.md)
  - [DescribeRegionRequest](docs/DescribeRegionRequest.md)
  - [DescribeRegionResult](docs/DescribeRegionResult.md)
  - [DescribeResourceInstanceRequest](docs/DescribeResourceInstanceRequest.md)
@@ -777,6 +793,7 @@ Class | Method | HTTP request | Description
  - [DisableServiceModelFeatureRequest2](docs/DisableServiceModelFeatureRequest2.md)
  - [DisableTenantBillingRequest](docs/DisableTenantBillingRequest.md)
  - [DiscardPendingChangesRequest](docs/DiscardPendingChangesRequest.md)
+ - [DownloadDeploymentArtifactResult](docs/DownloadDeploymentArtifactResult.md)
  - [EFSFileSystemConfiguration](docs/EFSFileSystemConfiguration.md)
  - [EnableBillingProviderRequest](docs/EnableBillingProviderRequest.md)
  - [EnableBillingProviderRequest2](docs/EnableBillingProviderRequest2.md)
@@ -810,11 +827,13 @@ Class | Method | HTTP request | Description
  - [GenericCommandValueProviderConfig](docs/GenericCommandValueProviderConfig.md)
  - [GetAvailabilityZoneByCodeRequest](docs/GetAvailabilityZoneByCodeRequest.md)
  - [GetCloudProviderByNameRequest](docs/GetCloudProviderByNameRequest.md)
+ - [GetConsumptionStripeConfigRequest](docs/GetConsumptionStripeConfigRequest.md)
  - [GetConsumptionUsageRequest](docs/GetConsumptionUsageRequest.md)
  - [GetConsumptionUsageResult](docs/GetConsumptionUsageResult.md)
  - [GetCurrentConsumptionUsageRequest](docs/GetCurrentConsumptionUsageRequest.md)
  - [GetCurrentUsageRequest](docs/GetCurrentUsageRequest.md)
  - [GetFileRequest](docs/GetFileRequest.md)
+ - [GetProductTierWorkspaceArtifactsDownloadURLRequest](docs/GetProductTierWorkspaceArtifactsDownloadURLRequest.md)
  - [GetRegionByCodeRequest](docs/GetRegionByCodeRequest.md)
  - [GetSecretRequest](docs/GetSecretRequest.md)
  - [GetSecretResult](docs/GetSecretResult.md)
@@ -832,6 +851,8 @@ Class | Method | HTTP request | Description
  - [HelmPackage](docs/HelmPackage.md)
  - [HelmRuntimeConfiguration](docs/HelmRuntimeConfiguration.md)
  - [ImageConfigChangeSummary](docs/ImageConfigChangeSummary.md)
+ - [ImportAccountConfigCloudNativeNetworkHostClusterRequest](docs/ImportAccountConfigCloudNativeNetworkHostClusterRequest.md)
+ - [ImportAccountConfigCloudNativeNetworkHostClusterResult](docs/ImportAccountConfigCloudNativeNetworkHostClusterResult.md)
  - [ImportAccountConfigCloudNativeNetworkRequest](docs/ImportAccountConfigCloudNativeNetworkRequest.md)
  - [InfraConfigChangeSummary](docs/InfraConfigChangeSummary.md)
  - [InfraRollConfiguration](docs/InfraRollConfiguration.md)
@@ -846,6 +867,7 @@ Class | Method | HTTP request | Description
  - [InviteUserRequest2](docs/InviteUserRequest2.md)
  - [Invoice](docs/Invoice.md)
  - [JobConfig](docs/JobConfig.md)
+ - [JobConfigResult](docs/JobConfigResult.md)
  - [JobMetric](docs/JobMetric.md)
  - [KubectlValueProviderConfig](docs/KubectlValueProviderConfig.md)
  - [KubernetesDashboardEndpoint](docs/KubernetesDashboardEndpoint.md)
@@ -886,6 +908,7 @@ Class | Method | HTTP request | Description
  - [ListComputeConfigsResult](docs/ListComputeConfigsResult.md)
  - [ListComputeInstanceTypesRequest](docs/ListComputeInstanceTypesRequest.md)
  - [ListComputeInstanceTypesResult](docs/ListComputeInstanceTypesResult.md)
+ - [ListConsumptionPaymentMethodsRequest](docs/ListConsumptionPaymentMethodsRequest.md)
  - [ListCustomDomainRequest](docs/ListCustomDomainRequest.md)
  - [ListCustomDomainResult](docs/ListCustomDomainResult.md)
  - [ListCustomNetworksRequest](docs/ListCustomNetworksRequest.md)
@@ -925,6 +948,7 @@ Class | Method | HTTP request | Description
  - [ListNetworkConfigsResult](docs/ListNetworkConfigsResult.md)
  - [ListOutputParametersRequest](docs/ListOutputParametersRequest.md)
  - [ListOutputParametersResult](docs/ListOutputParametersResult.md)
+ - [ListPaymentMethodsResult](docs/ListPaymentMethodsResult.md)
  - [ListPipelinesRequest](docs/ListPipelinesRequest.md)
  - [ListPipelinesResult](docs/ListPipelinesResult.md)
  - [ListProductTiersRequest](docs/ListProductTiersRequest.md)
@@ -981,6 +1005,11 @@ Class | Method | HTTP request | Description
  - [LoginWithIdentityProviderRequest](docs/LoginWithIdentityProviderRequest.md)
  - [LoginWithIdentityProviderResult](docs/LoginWithIdentityProviderResult.md)
  - [LogoutRequest](docs/LogoutRequest.md)
+ - [ManagedWorkloadIdentity](docs/ManagedWorkloadIdentity.md)
+ - [ManagedWorkloadIdentityBinding](docs/ManagedWorkloadIdentityBinding.md)
+ - [ManagedWorkloadIdentityPermissions](docs/ManagedWorkloadIdentityPermissions.md)
+ - [ManagedWorkloadIdentityRole](docs/ManagedWorkloadIdentityRole.md)
+ - [ManagedWorkloadIdentityServiceAccount](docs/ManagedWorkloadIdentityServiceAccount.md)
  - [ModifyServiceProviderOrganizationRequest](docs/ModifyServiceProviderOrganizationRequest.md)
  - [ModifyServiceProviderOrganizationRequest2](docs/ModifyServiceProviderOrganizationRequest2.md)
  - [ModifyServicesOrchestrationRequest](docs/ModifyServicesOrchestrationRequest.md)
@@ -1004,7 +1033,9 @@ Class | Method | HTTP request | Description
  - [OrgUsers](docs/OrgUsers.md)
  - [OutputParameter](docs/OutputParameter.md)
  - [OutputParameterEntity](docs/OutputParameterEntity.md)
+ - [PaymentMethod](docs/PaymentMethod.md)
  - [PortsRange](docs/PortsRange.md)
+ - [PrepareProductTierWorkspaceArtifactsRequest](docs/PrepareProductTierWorkspaceArtifactsRequest.md)
  - [PrepareServiceFromServicePlanSpecRequest](docs/PrepareServiceFromServicePlanSpecRequest.md)
  - [PrepareServiceFromServicePlanSpecRequest2](docs/PrepareServiceFromServicePlanSpecRequest2.md)
  - [PrepareServiceFromServicePlanSpecResult](docs/PrepareServiceFromServicePlanSpecResult.md)
@@ -1045,6 +1076,7 @@ Class | Method | HTTP request | Description
  - [RemoveCapacityFromResourceInstanceRequest2](docs/RemoveCapacityFromResourceInstanceRequest2.md)
  - [RemoveComputeInstanceTypeRequest](docs/RemoveComputeInstanceTypeRequest.md)
  - [RemoveComputeInstanceTypeRequest2](docs/RemoveComputeInstanceTypeRequest2.md)
+ - [RemoveConsumptionPaymentMethodRequest](docs/RemoveConsumptionPaymentMethodRequest.md)
  - [RemoveCustomDNSToResourceInstanceRequest](docs/RemoveCustomDNSToResourceInstanceRequest.md)
  - [RemoveFileRequest](docs/RemoveFileRequest.md)
  - [RemoveResourceDependencyRequest](docs/RemoveResourceDependencyRequest.md)
@@ -1060,8 +1092,12 @@ Class | Method | HTTP request | Description
  - [ResourceDependency](docs/ResourceDependency.md)
  - [ResourceEntity](docs/ResourceEntity.md)
  - [ResourceHealthSummary](docs/ResourceHealthSummary.md)
+ - [ResourceInstanceCustomWorkflowRequest](docs/ResourceInstanceCustomWorkflowRequest.md)
+ - [ResourceInstanceCustomWorkflowRequest2](docs/ResourceInstanceCustomWorkflowRequest2.md)
+ - [ResourceInstanceCustomWorkflowResult](docs/ResourceInstanceCustomWorkflowResult.md)
  - [ResourceInstanceMetadata](docs/ResourceInstanceMetadata.md)
  - [ResourceInstanceProvisionerSetupKitRequest](docs/ResourceInstanceProvisionerSetupKitRequest.md)
+ - [ResourceInstanceSupportedOperation](docs/ResourceInstanceSupportedOperation.md)
  - [ResourceNetworkTopologyResult](docs/ResourceNetworkTopologyResult.md)
  - [ResourceSpec](docs/ResourceSpec.md)
  - [ResourceSpecLimits](docs/ResourceSpecLimits.md)
@@ -1109,6 +1145,7 @@ Class | Method | HTTP request | Description
  - [ServiceProviderEvent](docs/ServiceProviderEvent.md)
  - [ServiceProviderEventSummary](docs/ServiceProviderEventSummary.md)
  - [SetActiveAccountConfigRequest](docs/SetActiveAccountConfigRequest.md)
+ - [SetDefaultConsumptionPaymentMethodRequest](docs/SetDefaultConsumptionPaymentMethodRequest.md)
  - [SetEnvironmentVariablesRequest](docs/SetEnvironmentVariablesRequest.md)
  - [SetEnvironmentVariablesRequest2](docs/SetEnvironmentVariablesRequest2.md)
  - [SetSecretRequest](docs/SetSecretRequest.md)
@@ -1120,6 +1157,7 @@ Class | Method | HTTP request | Description
  - [StopResourceInstanceRequest](docs/StopResourceInstanceRequest.md)
  - [StripeAuthorizeURLRequest](docs/StripeAuthorizeURLRequest.md)
  - [StripeAuthorizeURLResult](docs/StripeAuthorizeURLResult.md)
+ - [StripeConfigResult](docs/StripeConfigResult.md)
  - [SubnetDetail](docs/SubnetDetail.md)
  - [SubscriptionLicense](docs/SubscriptionLicense.md)
  - [SubscriptionUsers](docs/SubscriptionUsers.md)
@@ -1223,6 +1261,9 @@ Class | Method | HTTP request | Description
  - [VerifyIdentityProviderResult](docs/VerifyIdentityProviderResult.md)
  - [WarmPoolConfiguration](docs/WarmPoolConfiguration.md)
  - [WorkflowFailure](docs/WorkflowFailure.md)
+ - [WorkspaceArtifactsDownloadResult](docs/WorkspaceArtifactsDownloadResult.md)
+ - [WorkspaceArtifactsDownloadURLResult](docs/WorkspaceArtifactsDownloadURLResult.md)
+ - [WorkspaceArtifactsResult](docs/WorkspaceArtifactsResult.md)
 
 
 ## Documentation For Authorization

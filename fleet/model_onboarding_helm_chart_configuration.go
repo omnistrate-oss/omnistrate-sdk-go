@@ -12,7 +12,6 @@ package fleet
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the OnboardingHelmChartConfiguration type satisfies the MappedNullable interface at compile time
@@ -24,16 +23,16 @@ type OnboardingHelmChartConfiguration struct {
 	ArtifactsLocalPath *string `json:"artifactsLocalPath,omitempty"`
 	// The tag to auto-discover and update in the Helm chart values.
 	AutoDiscoverImagesTag *string `json:"autoDiscoverImagesTag,omitempty"`
-	// The chart name of the Helm package.
-	ChartName string `json:"chartName"`
+	// The chart name of the Helm package. Required unless artifactsLocalPath is provided.
+	ChartName *string `json:"chartName,omitempty"`
 	// The chart repository name.
 	ChartRepoName *string `json:"chartRepoName,omitempty"`
 	// The chart repository URL.
 	ChartRepoUrl *string `json:"chartRepoUrl,omitempty"`
 	// The values of the Helm package (mutually exclusive with layeredChartValues).
 	ChartValues map[string]interface{} `json:"chartValues,omitempty"`
-	// The chart version of the Helm package.
-	ChartVersion string `json:"chartVersion"`
+	// The chart version of the Helm package. Required unless artifactsLocalPath is provided.
+	ChartVersion *string `json:"chartVersion,omitempty"`
 	// The default namespace to deploy into.
 	DefaultNamespace *string `json:"defaultNamespace,omitempty"`
 	// Endpoints from the Helm deployment to expose.
@@ -56,10 +55,8 @@ type _OnboardingHelmChartConfiguration OnboardingHelmChartConfiguration
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOnboardingHelmChartConfiguration(chartName string, chartVersion string) *OnboardingHelmChartConfiguration {
+func NewOnboardingHelmChartConfiguration() *OnboardingHelmChartConfiguration {
 	this := OnboardingHelmChartConfiguration{}
-	this.ChartName = chartName
-	this.ChartVersion = chartVersion
 	return &this
 }
 
@@ -135,28 +132,36 @@ func (o *OnboardingHelmChartConfiguration) SetAutoDiscoverImagesTag(v string) {
 	o.AutoDiscoverImagesTag = &v
 }
 
-// GetChartName returns the ChartName field value
+// GetChartName returns the ChartName field value if set, zero value otherwise.
 func (o *OnboardingHelmChartConfiguration) GetChartName() string {
-	if o == nil {
+	if o == nil || IsNil(o.ChartName) {
 		var ret string
 		return ret
 	}
-
-	return o.ChartName
+	return *o.ChartName
 }
 
-// GetChartNameOk returns a tuple with the ChartName field value
+// GetChartNameOk returns a tuple with the ChartName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OnboardingHelmChartConfiguration) GetChartNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ChartName) {
 		return nil, false
 	}
-	return &o.ChartName, true
+	return o.ChartName, true
 }
 
-// SetChartName sets field value
+// HasChartName returns a boolean if a field has been set.
+func (o *OnboardingHelmChartConfiguration) HasChartName() bool {
+	if o != nil && !IsNil(o.ChartName) {
+		return true
+	}
+
+	return false
+}
+
+// SetChartName gets a reference to the given string and assigns it to the ChartName field.
 func (o *OnboardingHelmChartConfiguration) SetChartName(v string) {
-	o.ChartName = v
+	o.ChartName = &v
 }
 
 // GetChartRepoName returns the ChartRepoName field value if set, zero value otherwise.
@@ -255,28 +260,36 @@ func (o *OnboardingHelmChartConfiguration) SetChartValues(v map[string]interface
 	o.ChartValues = v
 }
 
-// GetChartVersion returns the ChartVersion field value
+// GetChartVersion returns the ChartVersion field value if set, zero value otherwise.
 func (o *OnboardingHelmChartConfiguration) GetChartVersion() string {
-	if o == nil {
+	if o == nil || IsNil(o.ChartVersion) {
 		var ret string
 		return ret
 	}
-
-	return o.ChartVersion
+	return *o.ChartVersion
 }
 
-// GetChartVersionOk returns a tuple with the ChartVersion field value
+// GetChartVersionOk returns a tuple with the ChartVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OnboardingHelmChartConfiguration) GetChartVersionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ChartVersion) {
 		return nil, false
 	}
-	return &o.ChartVersion, true
+	return o.ChartVersion, true
 }
 
-// SetChartVersion sets field value
+// HasChartVersion returns a boolean if a field has been set.
+func (o *OnboardingHelmChartConfiguration) HasChartVersion() bool {
+	if o != nil && !IsNil(o.ChartVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetChartVersion gets a reference to the given string and assigns it to the ChartVersion field.
 func (o *OnboardingHelmChartConfiguration) SetChartVersion(v string) {
-	o.ChartVersion = v
+	o.ChartVersion = &v
 }
 
 // GetDefaultNamespace returns the DefaultNamespace field value if set, zero value otherwise.
@@ -519,7 +532,9 @@ func (o OnboardingHelmChartConfiguration) ToMap() (map[string]interface{}, error
 	if !IsNil(o.AutoDiscoverImagesTag) {
 		toSerialize["autoDiscoverImagesTag"] = o.AutoDiscoverImagesTag
 	}
-	toSerialize["chartName"] = o.ChartName
+	if !IsNil(o.ChartName) {
+		toSerialize["chartName"] = o.ChartName
+	}
 	if !IsNil(o.ChartRepoName) {
 		toSerialize["chartRepoName"] = o.ChartRepoName
 	}
@@ -529,7 +544,9 @@ func (o OnboardingHelmChartConfiguration) ToMap() (map[string]interface{}, error
 	if !IsNil(o.ChartValues) {
 		toSerialize["chartValues"] = o.ChartValues
 	}
-	toSerialize["chartVersion"] = o.ChartVersion
+	if !IsNil(o.ChartVersion) {
+		toSerialize["chartVersion"] = o.ChartVersion
+	}
 	if !IsNil(o.DefaultNamespace) {
 		toSerialize["defaultNamespace"] = o.DefaultNamespace
 	}
@@ -560,28 +577,6 @@ func (o OnboardingHelmChartConfiguration) ToMap() (map[string]interface{}, error
 }
 
 func (o *OnboardingHelmChartConfiguration) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"chartName",
-		"chartVersion",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varOnboardingHelmChartConfiguration := _OnboardingHelmChartConfiguration{}
 
 	err = json.Unmarshal(data, &varOnboardingHelmChartConfiguration)

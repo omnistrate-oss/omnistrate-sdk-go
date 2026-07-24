@@ -30,6 +30,8 @@ type CopyProductTierRequest2 struct {
 	AzureRegions []string `json:"azureRegions,omitempty"`
 	// Optional billing product ID for tax purposes
 	BillingProductID *string `json:"billingProductID,omitempty"`
+	// The BYOC on-prem regions that this product tier is available on
+	ByocOnpremRegions []string `json:"byocOnpremRegions,omitempty"`
 	// A brief description of the product tier
 	Description string `json:"description"`
 	// Documentation
@@ -204,6 +206,29 @@ func (o *CopyProductTierRequest2) GetBillingProductIDOk() (*string, bool) {
 // SetBillingProductID gets a reference to the given string and assigns it to the BillingProductID field.
 func (o *CopyProductTierRequest2) SetBillingProductID(v string) {
 	o.BillingProductID = &v
+}
+
+// GetByocOnpremRegions returns the ByocOnpremRegions field value if set, zero value otherwise.
+func (o *CopyProductTierRequest2) GetByocOnpremRegions() []string {
+	if o == nil || IsNil(o.ByocOnpremRegions) {
+		var ret []string
+		return ret
+	}
+	return o.ByocOnpremRegions
+}
+
+// GetByocOnpremRegionsOk returns a tuple with the ByocOnpremRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CopyProductTierRequest2) GetByocOnpremRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ByocOnpremRegions) {
+		return nil, false
+	}
+	return o.ByocOnpremRegions, true
+}
+
+// SetByocOnpremRegions gets a reference to the given []string and assigns it to the ByocOnpremRegions field.
+func (o *CopyProductTierRequest2) SetByocOnpremRegions(v []string) {
+	o.ByocOnpremRegions = v
 }
 
 // GetDescription returns the Description field value
@@ -649,6 +674,9 @@ func (o CopyProductTierRequest2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.BillingProductID) {
 		toSerialize["billingProductID"] = o.BillingProductID
 	}
+	if !IsNil(o.ByocOnpremRegions) {
+		toSerialize["byocOnpremRegions"] = o.ByocOnpremRegions
+	}
 	toSerialize["description"] = o.Description
 	if !IsNil(o.Documentation) {
 		toSerialize["documentation"] = o.Documentation
@@ -747,6 +775,7 @@ func (o *CopyProductTierRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "awsRegions")
 		delete(additionalProperties, "azureRegions")
 		delete(additionalProperties, "billingProductID")
+		delete(additionalProperties, "byocOnpremRegions")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "documentation")
 		delete(additionalProperties, "enableDeletionProtection")

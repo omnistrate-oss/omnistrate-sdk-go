@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | Full replacement set of custom tags for the backing account configuration | [optional] 
 **InstanceId** | **string** | ID of a Resource Instance | 
 **NebiusBindings** | Pointer to [**[]FleetUpdateAccountConfigNebiusBindingInput**](FleetUpdateAccountConfigNebiusBindingInput.md) | Full replacement set of Nebius bindings for this account config instance | [optional] 
 **ServiceId** | **string** | ID of a Service | 
@@ -28,6 +29,31 @@ will change when the set of required properties is changed
 NewFleetUpdateAccountConfigResourceInstanceRequestWithDefaults instantiates a new FleetUpdateAccountConfigResourceInstanceRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCustomTags
+
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest) GetCustomTags() []CustomTag`
+
+GetCustomTags returns the CustomTags field if non-nil, zero value otherwise.
+
+### GetCustomTagsOk
+
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest) GetCustomTagsOk() (*[]CustomTag, bool)`
+
+GetCustomTagsOk returns a tuple with the CustomTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomTags
+
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest) SetCustomTags(v []CustomTag)`
+
+SetCustomTags sets CustomTags field to given value.
+
+### HasCustomTags
+
+`func (o *FleetUpdateAccountConfigResourceInstanceRequest) HasCustomTags() bool`
+
+HasCustomTags returns a boolean if a field has been set.
 
 ### GetInstanceId
 

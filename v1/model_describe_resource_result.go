@@ -55,7 +55,7 @@ type DescribeResourceResult struct {
 	Internal bool `json:"internal"`
 	// Whether this resource is deprecated or not
 	IsDeprecated bool `json:"isDeprecated"`
-	JobConfig *JobConfig `json:"jobConfig,omitempty"`
+	JobConfig *JobConfigResult `json:"jobConfig,omitempty"`
 	// The key of the resource
 	Key string `json:"key"`
 	KustomizeConfiguration *KustomizeConfiguration `json:"kustomizeConfiguration,omitempty"`
@@ -622,9 +622,9 @@ func (o *DescribeResourceResult) SetIsDeprecated(v bool) {
 }
 
 // GetJobConfig returns the JobConfig field value if set, zero value otherwise.
-func (o *DescribeResourceResult) GetJobConfig() JobConfig {
+func (o *DescribeResourceResult) GetJobConfig() JobConfigResult {
 	if o == nil || IsNil(o.JobConfig) {
-		var ret JobConfig
+		var ret JobConfigResult
 		return ret
 	}
 	return *o.JobConfig
@@ -632,15 +632,15 @@ func (o *DescribeResourceResult) GetJobConfig() JobConfig {
 
 // GetJobConfigOk returns a tuple with the JobConfig field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DescribeResourceResult) GetJobConfigOk() (*JobConfig, bool) {
+func (o *DescribeResourceResult) GetJobConfigOk() (*JobConfigResult, bool) {
 	if o == nil || IsNil(o.JobConfig) {
 		return nil, false
 	}
 	return o.JobConfig, true
 }
 
-// SetJobConfig gets a reference to the given JobConfig and assigns it to the JobConfig field.
-func (o *DescribeResourceResult) SetJobConfig(v JobConfig) {
+// SetJobConfig gets a reference to the given JobConfigResult and assigns it to the JobConfig field.
+func (o *DescribeResourceResult) SetJobConfig(v JobConfigResult) {
 	o.JobConfig = &v
 }
 

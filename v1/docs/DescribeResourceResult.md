@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **InfraConfigId** | Pointer to **string** | ID of an Infra Config | [optional] 
 **Internal** | **bool** | Whether this resource is internal or not | [default to false]
 **IsDeprecated** | **bool** | Whether this resource is deprecated or not | [default to false]
-**JobConfig** | Pointer to [**JobConfig**](JobConfig.md) |  | [optional] 
+**JobConfig** | Pointer to [**JobConfigResult**](JobConfigResult.md) |  | [optional] 
 **Key** | **string** | The key of the resource | 
 **KustomizeConfiguration** | Pointer to [**KustomizeConfiguration**](KustomizeConfiguration.md) |  | [optional] 
 **L4LoadBalancerConfiguration** | Pointer to [**L4LoadBalancerConfiguration**](L4LoadBalancerConfiguration.md) |  | [optional] 
@@ -591,20 +591,20 @@ SetIsDeprecated sets IsDeprecated field to given value.
 
 ### GetJobConfig
 
-`func (o *DescribeResourceResult) GetJobConfig() JobConfig`
+`func (o *DescribeResourceResult) GetJobConfig() JobConfigResult`
 
 GetJobConfig returns the JobConfig field if non-nil, zero value otherwise.
 
 ### GetJobConfigOk
 
-`func (o *DescribeResourceResult) GetJobConfigOk() (*JobConfig, bool)`
+`func (o *DescribeResourceResult) GetJobConfigOk() (*JobConfigResult, bool)`
 
 GetJobConfigOk returns a tuple with the JobConfig field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetJobConfig
 
-`func (o *DescribeResourceResult) SetJobConfig(v JobConfig)`
+`func (o *DescribeResourceResult) SetJobConfig(v JobConfigResult)`
 
 SetJobConfig sets JobConfig field to given value.
 

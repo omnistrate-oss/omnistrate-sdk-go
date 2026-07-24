@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Error** | Pointer to **string** | The error message if the event represents a failure | [optional] 
+**ErrorCode** | Pointer to **string** | Stable error code from the workflow error taxonomy, present on failure events | [optional] 
 **EventTime** | **string** | The time the event occurred in RFC3339 format | 
 **EventType** | **string** | The type of the workflow event | 
 **Message** | **string** | The event message | 
@@ -52,6 +53,31 @@ SetError sets Error field to given value.
 `func (o *DeploymentCellWorkflowEvent) HasError() bool`
 
 HasError returns a boolean if a field has been set.
+
+### GetErrorCode
+
+`func (o *DeploymentCellWorkflowEvent) GetErrorCode() string`
+
+GetErrorCode returns the ErrorCode field if non-nil, zero value otherwise.
+
+### GetErrorCodeOk
+
+`func (o *DeploymentCellWorkflowEvent) GetErrorCodeOk() (*string, bool)`
+
+GetErrorCodeOk returns a tuple with the ErrorCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetErrorCode
+
+`func (o *DeploymentCellWorkflowEvent) SetErrorCode(v string)`
+
+SetErrorCode sets ErrorCode field to given value.
+
+### HasErrorCode
+
+`func (o *DeploymentCellWorkflowEvent) HasErrorCode() bool`
+
+HasErrorCode returns a boolean if a field has been set.
 
 ### GetEventTime
 

@@ -24,6 +24,8 @@ type PromoteServiceEnvironmentRequest struct {
 	Id string `json:"id"`
 	// ID of a Product Tier
 	ProductTierId *string `json:"productTierId,omitempty"`
+	// The product tier version to use for the promotion
+	ProductTierVersion *string `json:"productTierVersion,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// JWT token used to perform authorization
@@ -100,6 +102,29 @@ func (o *PromoteServiceEnvironmentRequest) SetProductTierId(v string) {
 	o.ProductTierId = &v
 }
 
+// GetProductTierVersion returns the ProductTierVersion field value if set, zero value otherwise.
+func (o *PromoteServiceEnvironmentRequest) GetProductTierVersion() string {
+	if o == nil || IsNil(o.ProductTierVersion) {
+		var ret string
+		return ret
+	}
+	return *o.ProductTierVersion
+}
+
+// GetProductTierVersionOk returns a tuple with the ProductTierVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PromoteServiceEnvironmentRequest) GetProductTierVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.ProductTierVersion) {
+		return nil, false
+	}
+	return o.ProductTierVersion, true
+}
+
+// SetProductTierVersion gets a reference to the given string and assigns it to the ProductTierVersion field.
+func (o *PromoteServiceEnvironmentRequest) SetProductTierVersion(v string) {
+	o.ProductTierVersion = &v
+}
+
 // GetServiceId returns the ServiceId field value
 func (o *PromoteServiceEnvironmentRequest) GetServiceId() string {
 	if o == nil {
@@ -162,6 +187,9 @@ func (o PromoteServiceEnvironmentRequest) ToMap() (map[string]interface{}, error
 	if !IsNil(o.ProductTierId) {
 		toSerialize["productTierId"] = o.ProductTierId
 	}
+	if !IsNil(o.ProductTierVersion) {
+		toSerialize["productTierVersion"] = o.ProductTierVersion
+	}
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["token"] = o.Token
 
@@ -211,6 +239,7 @@ func (o *PromoteServiceEnvironmentRequest) UnmarshalJSON(data []byte) (err error
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "productTierId")
+		delete(additionalProperties, "productTierVersion")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties

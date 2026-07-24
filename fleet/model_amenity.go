@@ -23,6 +23,8 @@ type Amenity struct {
 	DependsOn []string `json:"DependsOn,omitempty"`
 	// A description of the amenity.
 	Description *string `json:"Description,omitempty"`
+	// An optional expression that is evaluated at runtime to determine whether this amenity should be disabled.
+	Disable *string `json:"Disable,omitempty"`
 	// Whether the amenity is managed by the system.
 	IsManaged *bool `json:"IsManaged,omitempty"`
 	// The name of the amenity.
@@ -115,6 +117,38 @@ func (o *Amenity) HasDescription() bool {
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *Amenity) SetDescription(v string) {
 	o.Description = &v
+}
+
+// GetDisable returns the Disable field value if set, zero value otherwise.
+func (o *Amenity) GetDisable() string {
+	if o == nil || IsNil(o.Disable) {
+		var ret string
+		return ret
+	}
+	return *o.Disable
+}
+
+// GetDisableOk returns a tuple with the Disable field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Amenity) GetDisableOk() (*string, bool) {
+	if o == nil || IsNil(o.Disable) {
+		return nil, false
+	}
+	return o.Disable, true
+}
+
+// HasDisable returns a boolean if a field has been set.
+func (o *Amenity) HasDisable() bool {
+	if o != nil && !IsNil(o.Disable) {
+		return true
+	}
+
+	return false
+}
+
+// SetDisable gets a reference to the given string and assigns it to the Disable field.
+func (o *Amenity) SetDisable(v string) {
+	o.Disable = &v
 }
 
 // GetIsManaged returns the IsManaged field value if set, zero value otherwise.
@@ -261,6 +295,9 @@ func (o Amenity) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Description) {
 		toSerialize["Description"] = o.Description
 	}
+	if !IsNil(o.Disable) {
+		toSerialize["Disable"] = o.Disable
+	}
 	if !IsNil(o.IsManaged) {
 		toSerialize["IsManaged"] = o.IsManaged
 	}
@@ -297,6 +334,7 @@ func (o *Amenity) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "DependsOn")
 		delete(additionalProperties, "Description")
+		delete(additionalProperties, "Disable")
 		delete(additionalProperties, "IsManaged")
 		delete(additionalProperties, "Name")
 		delete(additionalProperties, "Properties")

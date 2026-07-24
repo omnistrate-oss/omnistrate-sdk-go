@@ -36,6 +36,8 @@ type FleetRestoreResourceInstanceFromSnapshotRequest struct {
 	ServiceId string `json:"serviceId"`
 	// ID of a Resource Instance Snapshot
 	SnapshotId string `json:"snapshotId"`
+	// ID of a Subscription
+	SubscriptionId *string `json:"subscriptionId,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -297,6 +299,38 @@ func (o *FleetRestoreResourceInstanceFromSnapshotRequest) SetSnapshotId(v string
 	o.SnapshotId = v
 }
 
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest) GetSubscriptionId() string {
+	if o == nil || IsNil(o.SubscriptionId) {
+		var ret string
+		return ret
+	}
+	return *o.SubscriptionId
+}
+
+// GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest) GetSubscriptionIdOk() (*string, bool) {
+	if o == nil || IsNil(o.SubscriptionId) {
+		return nil, false
+	}
+	return o.SubscriptionId, true
+}
+
+// HasSubscriptionId returns a boolean if a field has been set.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest) HasSubscriptionId() bool {
+	if o != nil && !IsNil(o.SubscriptionId) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+func (o *FleetRestoreResourceInstanceFromSnapshotRequest) SetSubscriptionId(v string) {
+	o.SubscriptionId = &v
+}
+
 // GetToken returns the Token field value
 func (o *FleetRestoreResourceInstanceFromSnapshotRequest) GetToken() string {
 	if o == nil {
@@ -349,6 +383,9 @@ func (o FleetRestoreResourceInstanceFromSnapshotRequest) ToMap() (map[string]int
 	}
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["snapshotId"] = o.SnapshotId
+	if !IsNil(o.SubscriptionId) {
+		toSerialize["subscriptionId"] = o.SubscriptionId
+	}
 	toSerialize["token"] = o.Token
 
 	for key, value := range o.AdditionalProperties {
@@ -404,6 +441,7 @@ func (o *FleetRestoreResourceInstanceFromSnapshotRequest) UnmarshalJSON(data []b
 		delete(additionalProperties, "restoreToSourceInstance")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "snapshotId")
+		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

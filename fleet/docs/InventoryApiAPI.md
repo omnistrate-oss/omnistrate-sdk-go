@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**InventoryApiApproveSubscriptionRequest**](InventoryApiAPI.md#InventoryApiApproveSubscriptionRequest) | **Put** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/request/{id} | ApproveSubscriptionRequest inventory-api
 [**InventoryApiBulkImportAccountConfigCloudNativeNetworks**](InventoryApiAPI.md#InventoryApiBulkImportAccountConfigCloudNativeNetworks) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/import | BulkImportAccountConfigCloudNativeNetworks inventory-api
 [**InventoryApiCancelUpgradePath**](InventoryApiAPI.md#InventoryApiCancelUpgradePath) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/cancel | CancelUpgradePath inventory-api
+[**InventoryApiChangeUpgradePathTargetVersion**](InventoryApiAPI.md#InventoryApiChangeUpgradePathTargetVersion) | **Post** /2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/target-version | ChangeUpgradePathTargetVersion inventory-api
 [**InventoryApiCopyResourceInstanceSnapshot**](InventoryApiAPI.md#InventoryApiCopyResourceInstanceSnapshot) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/copy-snapshot | CopyResourceInstanceSnapshot inventory-api
 [**InventoryApiCreateConsumptionUser**](InventoryApiAPI.md#InventoryApiCreateConsumptionUser) | **Post** /2022-09-01-00/fleet/user | CreateConsumptionUser inventory-api
 [**InventoryApiCreateProxyResourceInstance**](InventoryApiAPI.md#InventoryApiCreateProxyResourceInstance) | **Post** /2022-09-01-00/fleet/proxy-resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{sourceResourceKey} | CreateProxyResourceInstance inventory-api
@@ -46,7 +47,9 @@ Method | HTTP request | Description
 [**InventoryApiDescribeUser**](InventoryApiAPI.md#InventoryApiDescribeUser) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/user/{userId} | DescribeUser inventory-api
 [**InventoryApiFailoverResourceInstance**](InventoryApiAPI.md#InventoryApiFailoverResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/failover | FailoverResourceInstance inventory-api
 [**InventoryApiGenerateTokenForHostClusterDashboard**](InventoryApiAPI.md#InventoryApiGenerateTokenForHostClusterDashboard) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/host-cluster/{id}/dashboard/token | GenerateTokenForHostClusterDashboard inventory-api
-[**InventoryApiImportAccountConfigCloudNativeNetwork**](InventoryApiAPI.md#InventoryApiImportAccountConfigCloudNativeNetwork) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{cloudNativeNetworkId}/import | ImportAccountConfigCloudNativeNetwork inventory-api
+[**InventoryApiImportAccountConfigCloudNativeNetwork**](InventoryApiAPI.md#InventoryApiImportAccountConfigCloudNativeNetwork) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/import | ImportAccountConfigCloudNativeNetwork inventory-api
+[**InventoryApiImportAccountConfigCloudNativeNetworkHostCluster**](InventoryApiAPI.md#InventoryApiImportAccountConfigCloudNativeNetworkHostCluster) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/host-clusters/{hostClusterName}/import | ImportAccountConfigCloudNativeNetworkHostCluster inventory-api
+[**InventoryApiInvokeResourceInstanceWorkflowVerb**](InventoryApiAPI.md#InventoryApiInvokeResourceInstanceWorkflowVerb) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/resource-instance/{instanceId}/workflow/{verb} | InvokeResourceInstanceWorkflowVerb inventory-api
 [**InventoryApiListAccountConfigCloudNativeNetworks**](InventoryApiAPI.md#InventoryApiListAccountConfigCloudNativeNetworks) | **Get** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks | ListAccountConfigCloudNativeNetworks inventory-api
 [**InventoryApiListAccountConfigs**](InventoryApiAPI.md#InventoryApiListAccountConfigs) | **Get** /2022-09-01-00/fleet/account-configs | ListAccountConfigs inventory-api
 [**InventoryApiListActiveOrganizations**](InventoryApiAPI.md#InventoryApiListActiveOrganizations) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/organizations | ListActiveOrganizations inventory-api
@@ -76,6 +79,7 @@ Method | HTTP request | Description
 [**InventoryApiRemoveCapacityFromResourceInstance**](InventoryApiAPI.md#InventoryApiRemoveCapacityFromResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/remove-capacity | RemoveCapacityFromResourceInstance inventory-api
 [**InventoryApiRemoveCustomDNSFromResourceInstance**](InventoryApiAPI.md#InventoryApiRemoveCustomDNSFromResourceInstance) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/{resourceKey}/instance/{instanceId}/custom-dns | RemoveCustomDNSFromResourceInstance inventory-api
 [**InventoryApiResendVerificationEmail**](InventoryApiAPI.md#InventoryApiResendVerificationEmail) | **Post** /2022-09-01-00/fleet/user/{userId}/verification-email | ResendVerificationEmail inventory-api
+[**InventoryApiResourceInstanceCustomWorkflow**](InventoryApiAPI.md#InventoryApiResourceInstanceCustomWorkflow) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/custom-workflow/{workflowId}/execute | ResourceInstanceCustomWorkflow inventory-api
 [**InventoryApiRestartResourceInstance**](InventoryApiAPI.md#InventoryApiRestartResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/restart | RestartResourceInstance inventory-api
 [**InventoryApiRestoreResourceInstance**](InventoryApiAPI.md#InventoryApiRestoreResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/restore | RestoreResourceInstance inventory-api
 [**InventoryApiRestoreResourceInstanceFromSnapshot**](InventoryApiAPI.md#InventoryApiRestoreResourceInstanceFromSnapshot) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/snapshot/{snapshotId}/restore | RestoreResourceInstanceFromSnapshot inventory-api
@@ -89,7 +93,7 @@ Method | HTTP request | Description
 [**InventoryApiSyncAccountConfigCloudNativeNetworks**](InventoryApiAPI.md#InventoryApiSyncAccountConfigCloudNativeNetworks) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/sync | SyncAccountConfigCloudNativeNetworks inventory-api
 [**InventoryApiTerminateSubscription**](InventoryApiAPI.md#InventoryApiTerminateSubscription) | **Delete** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/subscription/{id} | TerminateSubscription inventory-api
 [**InventoryApiTriggerAutomaticResourceInstanceSnapshotCreation**](InventoryApiAPI.md#InventoryApiTriggerAutomaticResourceInstanceSnapshotCreation) | **Post** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/autosnapshot | TriggerAutomaticResourceInstanceSnapshotCreation inventory-api
-[**InventoryApiUnimportAccountConfigCloudNativeNetwork**](InventoryApiAPI.md#InventoryApiUnimportAccountConfigCloudNativeNetwork) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{cloudNativeNetworkId}/unimport | UnimportAccountConfigCloudNativeNetwork inventory-api
+[**InventoryApiUnimportAccountConfigCloudNativeNetwork**](InventoryApiAPI.md#InventoryApiUnimportAccountConfigCloudNativeNetwork) | **Post** /2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/unimport | UnimportAccountConfigCloudNativeNetwork inventory-api
 [**InventoryApiUnsuspendUser**](InventoryApiAPI.md#InventoryApiUnsuspendUser) | **Put** /2022-09-01-00/fleet/user/{userId}/unsuspend | UnsuspendUser inventory-api
 [**InventoryApiUpdateAccountConfigResourceInstance**](InventoryApiAPI.md#InventoryApiUpdateAccountConfigResourceInstance) | **Post** /2022-09-01-00/fleet/service/{serviceId}/account-config-instance/{instanceId} | UpdateAccountConfigResourceInstance inventory-api
 [**InventoryApiUpdateConsumptionUser**](InventoryApiAPI.md#InventoryApiUpdateConsumptionUser) | **Patch** /2022-09-01-00/fleet/user/{userId} | UpdateConsumptionUser inventory-api
@@ -123,7 +127,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	fleetAddCapacityToResourceInstanceRequest2 := *openapiclient.NewFleetAddCapacityToResourceInstanceRequest2(int64(3), "Dolor dolor eveniet laudantium quod.") // FleetAddCapacityToResourceInstanceRequest2 | 
+	fleetAddCapacityToResourceInstanceRequest2 := *openapiclient.NewFleetAddCapacityToResourceInstanceRequest2(int64(3), "Eum magni repellendus quis qui quia sit.") // FleetAddCapacityToResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -429,7 +433,7 @@ import (
 
 func main() {
 	id := "ac-12345678" // string | Account Config ID to operate on
-	fleetBulkImportAccountConfigCloudNativeNetworksRequest2 := *openapiclient.NewFleetBulkImportAccountConfigCloudNativeNetworksRequest2([]openapiclient.FleetAccountConfigCloudNativeNetworkOperation{*openapiclient.NewFleetAccountConfigCloudNativeNetworkOperation("vpc-0abc123def456", true)}) // FleetBulkImportAccountConfigCloudNativeNetworksRequest2 | 
+	fleetBulkImportAccountConfigCloudNativeNetworksRequest2 := *openapiclient.NewFleetBulkImportAccountConfigCloudNativeNetworksRequest2([]openapiclient.FleetAccountConfigCloudNativeNetworkOperation{*openapiclient.NewFleetAccountConfigCloudNativeNetworkOperation("/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/customer-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet", true, "us-east-1")}) // FleetBulkImportAccountConfigCloudNativeNetworksRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -546,6 +550,82 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InventoryApiChangeUpgradePathTargetVersion
+
+> UpgradePath InventoryApiChangeUpgradePathTargetVersion(ctx, serviceId, productTierId, upgradePathId).ChangeUpgradePathTargetVersionRequest2(changeUpgradePathTargetVersionRequest2).Execute()
+
+ChangeUpgradePathTargetVersion inventory-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
+	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
+	upgradePathId := "up-12345678" // string | The upgrade path ID
+	changeUpgradePathTargetVersionRequest2 := *openapiclient.NewChangeUpgradePathTargetVersionRequest2("2.0") // ChangeUpgradePathTargetVersionRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiChangeUpgradePathTargetVersion(context.Background(), serviceId, productTierId, upgradePathId).ChangeUpgradePathTargetVersionRequest2(changeUpgradePathTargetVersionRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiChangeUpgradePathTargetVersion``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InventoryApiChangeUpgradePathTargetVersion`: UpgradePath
+	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiChangeUpgradePathTargetVersion`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | The service ID this workflow belongs to. | 
+**productTierId** | **string** | The product tier ID that this upgrade path belongs to | 
+**upgradePathId** | **string** | The upgrade path ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInventoryApiChangeUpgradePathTargetVersionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **changeUpgradePathTargetVersionRequest2** | [**ChangeUpgradePathTargetVersionRequest2**](ChangeUpgradePathTargetVersionRequest2.md) |  | 
+
+### Return type
+
+[**UpgradePath**](UpgradePath.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -964,7 +1044,7 @@ import (
 )
 
 func main() {
-	fleetCreateServicesOrchestrationRequest2 := *openapiclient.NewFleetCreateServicesOrchestrationRequest2("Nulla velit natus perspiciatis velit.") // FleetCreateServicesOrchestrationRequest2 | 
+	fleetCreateServicesOrchestrationRequest2 := *openapiclient.NewFleetCreateServicesOrchestrationRequest2("Id alias eius facere rerum fuga.") // FleetCreateServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1030,7 +1110,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	fleetCreateSubscriptionOnBehalfOfCustomerRequest2 := *openapiclient.NewFleetCreateSubscriptionOnBehalfOfCustomerRequest2("Itaque dolorum illum eaque quas nisi.", "Nisi adipisci laudantium tempore rerum tempore.") // FleetCreateSubscriptionOnBehalfOfCustomerRequest2 | 
+	fleetCreateSubscriptionOnBehalfOfCustomerRequest2 := *openapiclient.NewFleetCreateSubscriptionOnBehalfOfCustomerRequest2("Ea provident occaecati dolorum dolore totam.", "Optio voluptatem mollitia deserunt.") // FleetCreateSubscriptionOnBehalfOfCustomerRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1103,7 +1183,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	productTierId := "pt-12345678" // string | The product tier ID that this upgrade path belongs to
-	createUpgradePathRequest2 := *openapiclient.NewCreateUpgradePathRequest2("1.0", "2.0", map[string][]string{"key": []string{"Dolorum odio repudiandae."}}) // CreateUpgradePathRequest2 | 
+	createUpgradePathRequest2 := *openapiclient.NewCreateUpgradePathRequest2("1.0", "2.0", map[string][]string{"key": []string{"Magnam molestiae eum et."}}) // CreateUpgradePathRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1401,7 +1481,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	fleetDeleteResourceInstanceRequest2 := *openapiclient.NewFleetDeleteResourceInstanceRequest2("Aliquam repudiandae placeat quidem aut.") // FleetDeleteResourceInstanceRequest2 | 
+	fleetDeleteResourceInstanceRequest2 := *openapiclient.NewFleetDeleteResourceInstanceRequest2("Quidem dolorem cum hic.") // FleetDeleteResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3210,7 +3290,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiImportAccountConfigCloudNativeNetwork
 
-> FleetListAccountConfigCloudNativeNetworksResult InventoryApiImportAccountConfigCloudNativeNetwork(ctx, id, cloudNativeNetworkId).Execute()
+> FleetListAccountConfigCloudNativeNetworksResult InventoryApiImportAccountConfigCloudNativeNetwork(ctx, id, region, cloudNativeNetworkId).Execute()
 
 ImportAccountConfigCloudNativeNetwork inventory-api
 
@@ -3230,11 +3310,12 @@ import (
 
 func main() {
 	id := "ac-12345678" // string | Account Config ID to operate on
-	cloudNativeNetworkId := "vpc-0abc123def456" // string | The cloud provider network ID (e.g. AWS VPC ID) to import for deployments
+	region := "us-east-1" // string | The deployment region whose validated subnetworks should be imported
+	cloudNativeNetworkId := "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/customer-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet" // string | The provider-native network ID to import for deployments
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiImportAccountConfigCloudNativeNetwork(context.Background(), id, cloudNativeNetworkId).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiImportAccountConfigCloudNativeNetwork(context.Background(), id, region, cloudNativeNetworkId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiImportAccountConfigCloudNativeNetwork``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3251,7 +3332,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **id** | **string** | Account Config ID to operate on | 
-**cloudNativeNetworkId** | **string** | The cloud provider network ID (e.g. AWS VPC ID) to import for deployments | 
+**region** | **string** | The deployment region whose validated subnetworks should be imported | 
+**cloudNativeNetworkId** | **string** | The provider-native network ID to import for deployments | 
 
 ### Other Parameters
 
@@ -3260,6 +3342,7 @@ Other parameters are passed through a pointer to a apiInventoryApiImportAccountC
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
 
 
 
@@ -3274,6 +3357,164 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InventoryApiImportAccountConfigCloudNativeNetworkHostCluster
+
+> FleetImportAccountConfigCloudNativeNetworkHostClusterResult InventoryApiImportAccountConfigCloudNativeNetworkHostCluster(ctx, id, region, cloudNativeNetworkId, hostClusterName).Execute()
+
+ImportAccountConfigCloudNativeNetworkHostCluster inventory-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	id := "ac-12345678" // string | Account Config ID to operate on
+	region := "us-east-1" // string | The deployment region where the host cluster resides
+	cloudNativeNetworkId := "vpc-0abc123def456" // string | The cloud provider network ID (e.g. AWS VPC ID) that contains the host cluster to import
+	hostClusterName := "existing-eks-cluster" // string | The cloud provider host cluster name to import from this cloud native network
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiImportAccountConfigCloudNativeNetworkHostCluster(context.Background(), id, region, cloudNativeNetworkId, hostClusterName).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiImportAccountConfigCloudNativeNetworkHostCluster``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InventoryApiImportAccountConfigCloudNativeNetworkHostCluster`: FleetImportAccountConfigCloudNativeNetworkHostClusterResult
+	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiImportAccountConfigCloudNativeNetworkHostCluster`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Account Config ID to operate on | 
+**region** | **string** | The deployment region where the host cluster resides | 
+**cloudNativeNetworkId** | **string** | The cloud provider network ID (e.g. AWS VPC ID) that contains the host cluster to import | 
+**hostClusterName** | **string** | The cloud provider host cluster name to import from this cloud native network | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+
+### Return type
+
+[**FleetImportAccountConfigCloudNativeNetworkHostClusterResult**](FleetImportAccountConfigCloudNativeNetworkHostClusterResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InventoryApiInvokeResourceInstanceWorkflowVerb
+
+> ResourceInstanceCustomWorkflowResult InventoryApiInvokeResourceInstanceWorkflowVerb(ctx, serviceId, environmentId, instanceId, verb).FleetInvokeResourceInstanceWorkflowVerbRequest2(fleetInvokeResourceInstanceWorkflowVerbRequest2).Execute()
+
+InvokeResourceInstanceWorkflowVerb inventory-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
+	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
+	instanceId := "instance-12345678" // string | The resource instance ID.
+	verb := "PostgresVersion" // string | The provider-defined verb to invoke. The server resolves the verb to a custom workflow ID against the instance's plan version.
+	fleetInvokeResourceInstanceWorkflowVerbRequest2 := *openapiclient.NewFleetInvokeResourceInstanceWorkflowVerbRequest2("Id voluptas velit dolorem.") // FleetInvokeResourceInstanceWorkflowVerbRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiInvokeResourceInstanceWorkflowVerb(context.Background(), serviceId, environmentId, instanceId, verb).FleetInvokeResourceInstanceWorkflowVerbRequest2(fleetInvokeResourceInstanceWorkflowVerbRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiInvokeResourceInstanceWorkflowVerb``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InventoryApiInvokeResourceInstanceWorkflowVerb`: ResourceInstanceCustomWorkflowResult
+	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiInvokeResourceInstanceWorkflowVerb`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | The service ID this workflow belongs to. | 
+**environmentId** | **string** | The service environment ID this workflow belongs to. | 
+**instanceId** | **string** | The resource instance ID. | 
+**verb** | **string** | The provider-defined verb to invoke. The server resolves the verb to a custom workflow ID against the instance&#39;s plan version. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInventoryApiInvokeResourceInstanceWorkflowVerbRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+ **fleetInvokeResourceInstanceWorkflowVerbRequest2** | [**FleetInvokeResourceInstanceWorkflowVerbRequest2**](FleetInvokeResourceInstanceWorkflowVerbRequest2.md) |  | 
+
+### Return type
+
+[**ResourceInstanceCustomWorkflowResult**](ResourceInstanceCustomWorkflowResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -3652,8 +3893,8 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	productTierId := "Ab veritatis rerum quam voluptates." // string | The product tier id to filter by (optional)
-	subscriptionId := "Facere autem voluptates aut minus dolores officiis." // string | The subscription id to filter by (optional)
+	productTierId := "Est corporis quia." // string | The product tier id to filter by (optional)
+	subscriptionId := "Quia et quaerat dolor facere." // string | The subscription id to filter by (optional)
 	snapshotType := "AutomatedSnapshot|ManualSnapshot" // string | The type of snapshot to filter by. Valid values are: 'ManualSnapshot' and 'AutomatedSnapshot' (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -4103,7 +4344,7 @@ func main() {
 	instanceId := "instance-12345678" // string | The resource instance ID.
 	startTime := "2023-01-10T00:00:00Z" // string | Filter events that occurred after this time (optional)
 	endTime := "2023-01-10T00:00:00Z" // string | Filter events that occurred before this time (optional)
-	excludeWorkflowFailures := true // bool | Whether to exclude workflow failure details from the response. (optional)
+	excludeWorkflowFailures := false // bool | Whether to exclude workflow failure details from the response. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -4414,11 +4655,11 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	productTierVersion := "Temporibus aliquid voluptas velit tenetur amet sit." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
-	productTierId := "Ab veritatis rerum quam voluptates." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
-	subscriptionId := "Facere autem voluptates aut minus dolores officiis." // string | Subscription id of the instance to describe. (optional)
+	productTierVersion := "Possimus aspernatur ipsa." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierId := "Est corporis quia." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
+	subscriptionId := "Quia et quaerat dolor facere." // string | Subscription id of the instance to describe. (optional)
 	filter := "onlyCloudAccounts" // string | Filter to apply to the list of instances. (optional)
-	excludeDetail := true // bool | Whether to exclude detailed information about the resource instances. (optional) (default to false)
+	excludeDetail := false // bool | Whether to exclude detailed information about the resource instances. (optional) (default to false)
 	excludeNetworkTopology := false // bool | Whether to exclude network topology details from the response. (optional)
 	excludeHAStatus := false // bool | Whether to exclude high availability and autoscaling status from the response. (optional)
 	excludeIntegrations := false // bool | Whether to exclude integration statuses from the response. (optional)
@@ -5107,7 +5348,7 @@ import (
 
 func main() {
 	id := "so-12345678" // string | The ID of the services orchestration
-	fleetModifyServicesOrchestrationRequest2 := *openapiclient.NewFleetModifyServicesOrchestrationRequest2("Suscipit quisquam.") // FleetModifyServicesOrchestrationRequest2 | 
+	fleetModifyServicesOrchestrationRequest2 := *openapiclient.NewFleetModifyServicesOrchestrationRequest2("Exercitationem dignissimos tenetur et deleniti aut.") // FleetModifyServicesOrchestrationRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -5177,7 +5418,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	oneOffPatchResourceInstanceRequest2 := *openapiclient.NewOneOffPatchResourceInstanceRequest2("Voluptatem et dolorem quo veniam.") // OneOffPatchResourceInstanceRequest2 | 
+	oneOffPatchResourceInstanceRequest2 := *openapiclient.NewOneOffPatchResourceInstanceRequest2("Sit consequatur est facere est.") // OneOffPatchResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -5253,7 +5494,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	fleetRemoveCapacityFromResourceInstanceRequest2 := *openapiclient.NewFleetRemoveCapacityFromResourceInstanceRequest2(int64(3), "Odio accusantium minus architecto et quo.") // FleetRemoveCapacityFromResourceInstanceRequest2 | 
+	fleetRemoveCapacityFromResourceInstanceRequest2 := *openapiclient.NewFleetRemoveCapacityFromResourceInstanceRequest2(int64(3), "Repellendus et necessitatibus ipsum.") // FleetRemoveCapacityFromResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -5446,6 +5687,85 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## InventoryApiResourceInstanceCustomWorkflow
+
+> ResourceInstanceCustomWorkflowResult InventoryApiResourceInstanceCustomWorkflow(ctx, serviceId, environmentId, instanceId, workflowId).FleetResourceInstanceCustomWorkflowRequest2(fleetResourceInstanceCustomWorkflowRequest2).Execute()
+
+ResourceInstanceCustomWorkflow inventory-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
+	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
+	instanceId := "instance-12345678" // string | The resource instance ID.
+	workflowId := "cwt-12345678" // string | The custom workflow ID from the instance's supportedOperations list.
+	fleetResourceInstanceCustomWorkflowRequest2 := *openapiclient.NewFleetResourceInstanceCustomWorkflowRequest2("Impedit praesentium.") // FleetResourceInstanceCustomWorkflowRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiResourceInstanceCustomWorkflow(context.Background(), serviceId, environmentId, instanceId, workflowId).FleetResourceInstanceCustomWorkflowRequest2(fleetResourceInstanceCustomWorkflowRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiResourceInstanceCustomWorkflow``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InventoryApiResourceInstanceCustomWorkflow`: ResourceInstanceCustomWorkflowResult
+	fmt.Fprintf(os.Stdout, "Response from `InventoryApiAPI.InventoryApiResourceInstanceCustomWorkflow`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | The service ID this workflow belongs to. | 
+**environmentId** | **string** | The service environment ID this workflow belongs to. | 
+**instanceId** | **string** | The resource instance ID. | 
+**workflowId** | **string** | The custom workflow ID from the instance&#39;s supportedOperations list. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInventoryApiResourceInstanceCustomWorkflowRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+ **fleetResourceInstanceCustomWorkflowRequest2** | [**FleetResourceInstanceCustomWorkflowRequest2**](FleetResourceInstanceCustomWorkflowRequest2.md) |  | 
+
+### Return type
+
+[**ResourceInstanceCustomWorkflowResult**](ResourceInstanceCustomWorkflowResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## InventoryApiRestartResourceInstance
 
 > InventoryApiRestartResourceInstance(ctx, serviceId, environmentId, instanceId).FleetRestartResourceInstanceRequest2(fleetRestartResourceInstanceRequest2).Execute()
@@ -5468,7 +5788,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	fleetRestartResourceInstanceRequest2 := *openapiclient.NewFleetRestartResourceInstanceRequest2("Repellat velit.") // FleetRestartResourceInstanceRequest2 | 
+	fleetRestartResourceInstanceRequest2 := *openapiclient.NewFleetRestartResourceInstanceRequest2("Est veniam aliquid.") // FleetRestartResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -5903,7 +6223,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	fleetStartResourceInstanceRequest2 := *openapiclient.NewFleetStartResourceInstanceRequest2("Quam deleniti numquam sit aut.") // FleetStartResourceInstanceRequest2 | 
+	fleetStartResourceInstanceRequest2 := *openapiclient.NewFleetStartResourceInstanceRequest2("At sequi vero eveniet qui.") // FleetStartResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -5977,7 +6297,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	fleetStopResourceInstanceRequest2 := *openapiclient.NewFleetStopResourceInstanceRequest2("Vel vel quidem et temporibus.") // FleetStopResourceInstanceRequest2 | 
+	fleetStopResourceInstanceRequest2 := *openapiclient.NewFleetStopResourceInstanceRequest2("Laudantium ratione.") // FleetStopResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -6387,7 +6707,7 @@ Name | Type | Description  | Notes
 
 ## InventoryApiUnimportAccountConfigCloudNativeNetwork
 
-> FleetListAccountConfigCloudNativeNetworksResult InventoryApiUnimportAccountConfigCloudNativeNetwork(ctx, id, cloudNativeNetworkId).Execute()
+> FleetListAccountConfigCloudNativeNetworksResult InventoryApiUnimportAccountConfigCloudNativeNetwork(ctx, id, region, cloudNativeNetworkId).Execute()
 
 UnimportAccountConfigCloudNativeNetwork inventory-api
 
@@ -6407,11 +6727,12 @@ import (
 
 func main() {
 	id := "ac-12345678" // string | Account Config ID to operate on
-	cloudNativeNetworkId := "vpc-0abc123def456" // string | The cloud provider network ID (e.g. AWS VPC ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
+	region := "us-east-1" // string | The deployment region whose cloud native network row should be unimported
+	cloudNativeNetworkId := "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/customer-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet" // string | The provider-native network ID to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InventoryApiAPI.InventoryApiUnimportAccountConfigCloudNativeNetwork(context.Background(), id, cloudNativeNetworkId).Execute()
+	resp, r, err := apiClient.InventoryApiAPI.InventoryApiUnimportAccountConfigCloudNativeNetwork(context.Background(), id, region, cloudNativeNetworkId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InventoryApiAPI.InventoryApiUnimportAccountConfigCloudNativeNetwork``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6428,7 +6749,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **id** | **string** | Account Config ID to operate on | 
-**cloudNativeNetworkId** | **string** | The cloud provider network ID (e.g. AWS VPC ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster. | 
+**region** | **string** | The deployment region whose cloud native network row should be unimported | 
+**cloudNativeNetworkId** | **string** | The provider-native network ID to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster. | 
 
 ### Other Parameters
 
@@ -6437,6 +6759,7 @@ Other parameters are passed through a pointer to a apiInventoryApiUnimportAccoun
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
 
 
 
@@ -6685,7 +7008,7 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
 	instanceId := "instance-12345678" // string | The resource instance ID.
-	fleetUpdateResourceInstanceRequest2 := *openapiclient.NewFleetUpdateResourceInstanceRequest2("Eos quia officiis molestiae dignissimos modi.") // FleetUpdateResourceInstanceRequest2 | 
+	fleetUpdateResourceInstanceRequest2 := *openapiclient.NewFleetUpdateResourceInstanceRequest2("Velit voluptatem unde.") // FleetUpdateResourceInstanceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -6980,7 +7303,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
 	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
-	fleetUpdateSubscriptionsRequest2 := *openapiclient.NewFleetUpdateSubscriptionsRequest2([]string{"Ut et illum incidunt placeat."}) // FleetUpdateSubscriptionsRequest2 | 
+	fleetUpdateSubscriptionsRequest2 := *openapiclient.NewFleetUpdateSubscriptionsRequest2([]string{"Et sunt cumque magnam."}) // FleetUpdateSubscriptionsRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

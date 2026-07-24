@@ -25,6 +25,10 @@ type FleetInvoice struct {
 	BillIssuedToUserID *string `json:"billIssuedToUserID,omitempty"`
 	// Name of the user that this invoice is issued to
 	BillIssuedToUserName *string `json:"billIssuedToUserName,omitempty"`
+	// End of the billing period in ISO 8601 format
+	BillingPeriodEnd *string `json:"billingPeriodEnd,omitempty"`
+	// Start of the billing period in ISO 8601 format
+	BillingPeriodStart *string `json:"billingPeriodStart,omitempty"`
 	// Currency of the invoice
 	Currency *string `json:"currency,omitempty"`
 	// ID of an Org
@@ -167,6 +171,70 @@ func (o *FleetInvoice) HasBillIssuedToUserName() bool {
 // SetBillIssuedToUserName gets a reference to the given string and assigns it to the BillIssuedToUserName field.
 func (o *FleetInvoice) SetBillIssuedToUserName(v string) {
 	o.BillIssuedToUserName = &v
+}
+
+// GetBillingPeriodEnd returns the BillingPeriodEnd field value if set, zero value otherwise.
+func (o *FleetInvoice) GetBillingPeriodEnd() string {
+	if o == nil || IsNil(o.BillingPeriodEnd) {
+		var ret string
+		return ret
+	}
+	return *o.BillingPeriodEnd
+}
+
+// GetBillingPeriodEndOk returns a tuple with the BillingPeriodEnd field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetInvoice) GetBillingPeriodEndOk() (*string, bool) {
+	if o == nil || IsNil(o.BillingPeriodEnd) {
+		return nil, false
+	}
+	return o.BillingPeriodEnd, true
+}
+
+// HasBillingPeriodEnd returns a boolean if a field has been set.
+func (o *FleetInvoice) HasBillingPeriodEnd() bool {
+	if o != nil && !IsNil(o.BillingPeriodEnd) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingPeriodEnd gets a reference to the given string and assigns it to the BillingPeriodEnd field.
+func (o *FleetInvoice) SetBillingPeriodEnd(v string) {
+	o.BillingPeriodEnd = &v
+}
+
+// GetBillingPeriodStart returns the BillingPeriodStart field value if set, zero value otherwise.
+func (o *FleetInvoice) GetBillingPeriodStart() string {
+	if o == nil || IsNil(o.BillingPeriodStart) {
+		var ret string
+		return ret
+	}
+	return *o.BillingPeriodStart
+}
+
+// GetBillingPeriodStartOk returns a tuple with the BillingPeriodStart field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetInvoice) GetBillingPeriodStartOk() (*string, bool) {
+	if o == nil || IsNil(o.BillingPeriodStart) {
+		return nil, false
+	}
+	return o.BillingPeriodStart, true
+}
+
+// HasBillingPeriodStart returns a boolean if a field has been set.
+func (o *FleetInvoice) HasBillingPeriodStart() bool {
+	if o != nil && !IsNil(o.BillingPeriodStart) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingPeriodStart gets a reference to the given string and assigns it to the BillingPeriodStart field.
+func (o *FleetInvoice) SetBillingPeriodStart(v string) {
+	o.BillingPeriodStart = &v
 }
 
 // GetCurrency returns the Currency field value if set, zero value otherwise.
@@ -604,6 +672,12 @@ func (o FleetInvoice) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.BillIssuedToUserName) {
 		toSerialize["billIssuedToUserName"] = o.BillIssuedToUserName
 	}
+	if !IsNil(o.BillingPeriodEnd) {
+		toSerialize["billingPeriodEnd"] = o.BillingPeriodEnd
+	}
+	if !IsNil(o.BillingPeriodStart) {
+		toSerialize["billingPeriodStart"] = o.BillingPeriodStart
+	}
 	if !IsNil(o.Currency) {
 		toSerialize["currency"] = o.Currency
 	}
@@ -668,6 +742,8 @@ func (o *FleetInvoice) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "billIssuedToUserEmail")
 		delete(additionalProperties, "billIssuedToUserID")
 		delete(additionalProperties, "billIssuedToUserName")
+		delete(additionalProperties, "billingPeriodEnd")
+		delete(additionalProperties, "billingPeriodStart")
 		delete(additionalProperties, "currency")
 		delete(additionalProperties, "customerId")
 		delete(additionalProperties, "customerName")

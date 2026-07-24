@@ -19,8 +19,13 @@ var _ MappedNullable = &DebugHostClusterResult{}
 
 // DebugHostClusterResult struct for DebugHostClusterResult
 type DebugHostClusterResult struct {
+	// Compressed amenity artifact summaries available for debugging
+	AmenityArtifacts []DeploymentCellAmenityArtifactSummary `json:"amenityArtifacts,omitempty"`
+	// Amenity desired-state statuses for this deployment cell
+	AmenityStatuses []DeploymentCellAmenityDebugStatus `json:"amenityStatuses,omitempty"`
 	// Custom Helm execution logs for the host cluster, keyed by namespace
 	CustomHelmExecutionLogsBase64 *map[string]string `json:"customHelmExecutionLogsBase64,omitempty"`
+	Template *DeploymentCellAmenityTemplateDebugInfo `json:"template,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -41,6 +46,70 @@ func NewDebugHostClusterResult() *DebugHostClusterResult {
 func NewDebugHostClusterResultWithDefaults() *DebugHostClusterResult {
 	this := DebugHostClusterResult{}
 	return &this
+}
+
+// GetAmenityArtifacts returns the AmenityArtifacts field value if set, zero value otherwise.
+func (o *DebugHostClusterResult) GetAmenityArtifacts() []DeploymentCellAmenityArtifactSummary {
+	if o == nil || IsNil(o.AmenityArtifacts) {
+		var ret []DeploymentCellAmenityArtifactSummary
+		return ret
+	}
+	return o.AmenityArtifacts
+}
+
+// GetAmenityArtifactsOk returns a tuple with the AmenityArtifacts field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DebugHostClusterResult) GetAmenityArtifactsOk() ([]DeploymentCellAmenityArtifactSummary, bool) {
+	if o == nil || IsNil(o.AmenityArtifacts) {
+		return nil, false
+	}
+	return o.AmenityArtifacts, true
+}
+
+// HasAmenityArtifacts returns a boolean if a field has been set.
+func (o *DebugHostClusterResult) HasAmenityArtifacts() bool {
+	if o != nil && !IsNil(o.AmenityArtifacts) {
+		return true
+	}
+
+	return false
+}
+
+// SetAmenityArtifacts gets a reference to the given []DeploymentCellAmenityArtifactSummary and assigns it to the AmenityArtifacts field.
+func (o *DebugHostClusterResult) SetAmenityArtifacts(v []DeploymentCellAmenityArtifactSummary) {
+	o.AmenityArtifacts = v
+}
+
+// GetAmenityStatuses returns the AmenityStatuses field value if set, zero value otherwise.
+func (o *DebugHostClusterResult) GetAmenityStatuses() []DeploymentCellAmenityDebugStatus {
+	if o == nil || IsNil(o.AmenityStatuses) {
+		var ret []DeploymentCellAmenityDebugStatus
+		return ret
+	}
+	return o.AmenityStatuses
+}
+
+// GetAmenityStatusesOk returns a tuple with the AmenityStatuses field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DebugHostClusterResult) GetAmenityStatusesOk() ([]DeploymentCellAmenityDebugStatus, bool) {
+	if o == nil || IsNil(o.AmenityStatuses) {
+		return nil, false
+	}
+	return o.AmenityStatuses, true
+}
+
+// HasAmenityStatuses returns a boolean if a field has been set.
+func (o *DebugHostClusterResult) HasAmenityStatuses() bool {
+	if o != nil && !IsNil(o.AmenityStatuses) {
+		return true
+	}
+
+	return false
+}
+
+// SetAmenityStatuses gets a reference to the given []DeploymentCellAmenityDebugStatus and assigns it to the AmenityStatuses field.
+func (o *DebugHostClusterResult) SetAmenityStatuses(v []DeploymentCellAmenityDebugStatus) {
+	o.AmenityStatuses = v
 }
 
 // GetCustomHelmExecutionLogsBase64 returns the CustomHelmExecutionLogsBase64 field value if set, zero value otherwise.
@@ -75,6 +144,38 @@ func (o *DebugHostClusterResult) SetCustomHelmExecutionLogsBase64(v map[string]s
 	o.CustomHelmExecutionLogsBase64 = &v
 }
 
+// GetTemplate returns the Template field value if set, zero value otherwise.
+func (o *DebugHostClusterResult) GetTemplate() DeploymentCellAmenityTemplateDebugInfo {
+	if o == nil || IsNil(o.Template) {
+		var ret DeploymentCellAmenityTemplateDebugInfo
+		return ret
+	}
+	return *o.Template
+}
+
+// GetTemplateOk returns a tuple with the Template field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DebugHostClusterResult) GetTemplateOk() (*DeploymentCellAmenityTemplateDebugInfo, bool) {
+	if o == nil || IsNil(o.Template) {
+		return nil, false
+	}
+	return o.Template, true
+}
+
+// HasTemplate returns a boolean if a field has been set.
+func (o *DebugHostClusterResult) HasTemplate() bool {
+	if o != nil && !IsNil(o.Template) {
+		return true
+	}
+
+	return false
+}
+
+// SetTemplate gets a reference to the given DeploymentCellAmenityTemplateDebugInfo and assigns it to the Template field.
+func (o *DebugHostClusterResult) SetTemplate(v DeploymentCellAmenityTemplateDebugInfo) {
+	o.Template = &v
+}
+
 func (o DebugHostClusterResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -85,8 +186,17 @@ func (o DebugHostClusterResult) MarshalJSON() ([]byte, error) {
 
 func (o DebugHostClusterResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AmenityArtifacts) {
+		toSerialize["amenityArtifacts"] = o.AmenityArtifacts
+	}
+	if !IsNil(o.AmenityStatuses) {
+		toSerialize["amenityStatuses"] = o.AmenityStatuses
+	}
 	if !IsNil(o.CustomHelmExecutionLogsBase64) {
 		toSerialize["customHelmExecutionLogsBase64"] = o.CustomHelmExecutionLogsBase64
+	}
+	if !IsNil(o.Template) {
+		toSerialize["template"] = o.Template
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -110,7 +220,10 @@ func (o *DebugHostClusterResult) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "amenityArtifacts")
+		delete(additionalProperties, "amenityStatuses")
 		delete(additionalProperties, "customHelmExecutionLogsBase64")
+		delete(additionalProperties, "template")
 		o.AdditionalProperties = additionalProperties
 	}
 

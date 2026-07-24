@@ -19,6 +19,8 @@ var _ MappedNullable = &UpdateAccountConfigRequest2{}
 
 // UpdateAccountConfigRequest2 struct for UpdateAccountConfigRequest2
 type UpdateAccountConfigRequest2 struct {
+	// Full replacement set of custom tags for the account configuration
+	CustomTags []CustomTag `json:"customTags,omitempty"`
 	// The updated description for the account
 	Description *string `json:"description,omitempty"`
 	// The updated name of the account
@@ -45,6 +47,29 @@ func NewUpdateAccountConfigRequest2() *UpdateAccountConfigRequest2 {
 func NewUpdateAccountConfigRequest2WithDefaults() *UpdateAccountConfigRequest2 {
 	this := UpdateAccountConfigRequest2{}
 	return &this
+}
+
+// GetCustomTags returns the CustomTags field value if set, zero value otherwise.
+func (o *UpdateAccountConfigRequest2) GetCustomTags() []CustomTag {
+	if o == nil || IsNil(o.CustomTags) {
+		var ret []CustomTag
+		return ret
+	}
+	return o.CustomTags
+}
+
+// GetCustomTagsOk returns a tuple with the CustomTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateAccountConfigRequest2) GetCustomTagsOk() ([]CustomTag, bool) {
+	if o == nil || IsNil(o.CustomTags) {
+		return nil, false
+	}
+	return o.CustomTags, true
+}
+
+// SetCustomTags gets a reference to the given []CustomTag and assigns it to the CustomTags field.
+func (o *UpdateAccountConfigRequest2) SetCustomTags(v []CustomTag) {
+	o.CustomTags = v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -126,6 +151,9 @@ func (o UpdateAccountConfigRequest2) MarshalJSON() ([]byte, error) {
 
 func (o UpdateAccountConfigRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CustomTags) {
+		toSerialize["customTags"] = o.CustomTags
+	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
@@ -157,6 +185,7 @@ func (o *UpdateAccountConfigRequest2) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "customTags")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "nebiusBindings")

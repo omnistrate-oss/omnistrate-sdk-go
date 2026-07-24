@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **AwsAccountID** | Pointer to **string** | The AWS account ID | [optional] 
 **AzureSubscriptionID** | Pointer to **string** | The Azure subscription ID | [optional] 
 **CloudProvider** | **string** | Name of the Infra Provider | 
+**CurrentStateSummary** | Pointer to **string** | A one-line, human-readable summary of why the workflow is currently in its state, populated server-side. | [optional] 
 **DeploymentCellId** | Pointer to **string** | The deployment cell&#39;s id for the workflow execution. | [optional] 
 **EndTime** | Pointer to **string** | End time of the Deployment Cell Workflow in RFC3339 format | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
@@ -16,6 +17,7 @@ Name | Type | Description | Notes
 **ParentId** | Pointer to **string** | The parent workflow&#39;s id for the execution. | [optional] 
 **StartTime** | **string** | Start time of the Deployment Cell Workflow in RFC3339 format | 
 **Status** | **string** | Status of the Deployment Cell Workflow | 
+**Tasks** | Pointer to [**[]WorkflowTask**](WorkflowTask.md) | The live per-task state of the workflow&#39;s authored DAG tasks, when available. | [optional] 
 **WorkflowID** | **string** | ID of the Deployment Cell Workflow | 
 **WorkflowType** | **string** | The type of workflow execution. | 
 
@@ -107,6 +109,31 @@ and a boolean to check if the value has been set.
 
 SetCloudProvider sets CloudProvider field to given value.
 
+
+### GetCurrentStateSummary
+
+`func (o *DeploymentCellWorkflow) GetCurrentStateSummary() string`
+
+GetCurrentStateSummary returns the CurrentStateSummary field if non-nil, zero value otherwise.
+
+### GetCurrentStateSummaryOk
+
+`func (o *DeploymentCellWorkflow) GetCurrentStateSummaryOk() (*string, bool)`
+
+GetCurrentStateSummaryOk returns a tuple with the CurrentStateSummary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrentStateSummary
+
+`func (o *DeploymentCellWorkflow) SetCurrentStateSummary(v string)`
+
+SetCurrentStateSummary sets CurrentStateSummary field to given value.
+
+### HasCurrentStateSummary
+
+`func (o *DeploymentCellWorkflow) HasCurrentStateSummary() bool`
+
+HasCurrentStateSummary returns a boolean if a field has been set.
 
 ### GetDeploymentCellId
 
@@ -312,6 +339,31 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
+
+### GetTasks
+
+`func (o *DeploymentCellWorkflow) GetTasks() []WorkflowTask`
+
+GetTasks returns the Tasks field if non-nil, zero value otherwise.
+
+### GetTasksOk
+
+`func (o *DeploymentCellWorkflow) GetTasksOk() (*[]WorkflowTask, bool)`
+
+GetTasksOk returns a tuple with the Tasks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTasks
+
+`func (o *DeploymentCellWorkflow) SetTasks(v []WorkflowTask)`
+
+SetTasks sets Tasks field to given value.
+
+### HasTasks
+
+`func (o *DeploymentCellWorkflow) HasTasks() bool`
+
+HasTasks returns a boolean if a field has been set.
 
 ### GetWorkflowID
 

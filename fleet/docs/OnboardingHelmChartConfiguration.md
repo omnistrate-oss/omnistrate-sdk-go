@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ArtifactsLocalPath** | Pointer to **string** | The local path where the helm chart artifacts are stored. | [optional] 
 **AutoDiscoverImagesTag** | Pointer to **string** | The tag to auto-discover and update in the Helm chart values. | [optional] 
-**ChartName** | **string** | The chart name of the Helm package. | 
+**ChartName** | Pointer to **string** | The chart name of the Helm package. Required unless artifactsLocalPath is provided. | [optional] 
 **ChartRepoName** | Pointer to **string** | The chart repository name. | [optional] 
 **ChartRepoUrl** | Pointer to **string** | The chart repository URL. | [optional] 
 **ChartValues** | Pointer to **map[string]interface{}** | The values of the Helm package (mutually exclusive with layeredChartValues). | [optional] 
-**ChartVersion** | **string** | The chart version of the Helm package. | 
+**ChartVersion** | Pointer to **string** | The chart version of the Helm package. Required unless artifactsLocalPath is provided. | [optional] 
 **DefaultNamespace** | Pointer to **string** | The default namespace to deploy into. | [optional] 
 **EndpointConfiguration** | Pointer to [**map[string]OnboardingEndpoint**](OnboardingEndpoint.md) | Endpoints from the Helm deployment to expose. | [optional] 
 **LayeredChartValues** | Pointer to [**[]ChartValuesRef**](ChartValuesRef.md) | Layered chart values configuration (mutually exclusive with chartValues). | [optional] 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewOnboardingHelmChartConfiguration
 
-`func NewOnboardingHelmChartConfiguration(chartName string, chartVersion string, ) *OnboardingHelmChartConfiguration`
+`func NewOnboardingHelmChartConfiguration() *OnboardingHelmChartConfiguration`
 
 NewOnboardingHelmChartConfiguration instantiates a new OnboardingHelmChartConfiguration object
 This constructor will assign default values to properties that have it defined,
@@ -107,6 +107,11 @@ and a boolean to check if the value has been set.
 
 SetChartName sets ChartName field to given value.
 
+### HasChartName
+
+`func (o *OnboardingHelmChartConfiguration) HasChartName() bool`
+
+HasChartName returns a boolean if a field has been set.
 
 ### GetChartRepoName
 
@@ -202,6 +207,11 @@ and a boolean to check if the value has been set.
 
 SetChartVersion sets ChartVersion field to given value.
 
+### HasChartVersion
+
+`func (o *OnboardingHelmChartConfiguration) HasChartVersion() bool`
+
+HasChartVersion returns a boolean if a field has been set.
 
 ### GetDefaultNamespace
 

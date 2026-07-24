@@ -6,8 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountConfigId** | **string** | ID of an Account Config | 
 **Cidr** | Pointer to **string** | The primary CIDR block | [optional] 
-**CloudNativeNetworkId** | **string** | The cloud provider network ID (e.g. AWS VPC ID) | 
+**CloudNativeNetworkId** | **string** | The provider-native network ID (for example, AWS VPC ID, GCP VPC name, or Azure VNet resource ID) | 
 **CreatedAt** | **time.Time** | When this cloud native network was registered | 
+**HostClusters** | Pointer to [**[]AccountConfigCloudNativeNetworkHostClusterResult**](AccountConfigCloudNativeNetworkHostClusterResult.md) | Host clusters discovered within this cloud native network | [optional] 
 **Id** | **string** | Internal cloud native network registration ID | 
 **Imported** | Pointer to **bool** | Whether this network has been imported for deployments via the import API. Independent of validation status. | [optional] 
 **InUse** | Pointer to **bool** | Whether this network is currently referenced by at least one host cluster. Unimport is rejected while true. | [optional] 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 **Status** | **string** | The validation status of a cloud native network registered under an account configuration | 
 **StatusMessage** | Pointer to **string** | Detailed status message | [optional] 
 **SupportsPrivateDeployment** | Pointer to **bool** | Whether this network supports private deployments (has private subnets with egress) | [optional] 
-**SupportsPublicDeployment** | Pointer to **bool** | Whether this network supports public deployments (has public subnets with IGW) | [optional] 
+**SupportsPublicDeployment** | Pointer to **bool** | Whether this network supports public deployments | [optional] 
 **UpdatedAt** | **time.Time** | When this cloud native network was last updated | 
 
 ## Methods
@@ -124,6 +125,31 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
+
+### GetHostClusters
+
+`func (o *AccountConfigCloudNativeNetworkResult) GetHostClusters() []AccountConfigCloudNativeNetworkHostClusterResult`
+
+GetHostClusters returns the HostClusters field if non-nil, zero value otherwise.
+
+### GetHostClustersOk
+
+`func (o *AccountConfigCloudNativeNetworkResult) GetHostClustersOk() (*[]AccountConfigCloudNativeNetworkHostClusterResult, bool)`
+
+GetHostClustersOk returns a tuple with the HostClusters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHostClusters
+
+`func (o *AccountConfigCloudNativeNetworkResult) SetHostClusters(v []AccountConfigCloudNativeNetworkHostClusterResult)`
+
+SetHostClusters sets HostClusters field to given value.
+
+### HasHostClusters
+
+`func (o *AccountConfigCloudNativeNetworkResult) HasHostClusters() bool`
+
+HasHostClusters returns a boolean if a field has been set.
 
 ### GetId
 

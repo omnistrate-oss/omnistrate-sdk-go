@@ -12,6 +12,7 @@ api_compose_gen_api.go
 api_compute_config_api.go
 api_consumption_billing_api.go
 api_consumption_invoice_api.go
+api_consumption_payment_method_api.go
 api_consumption_usage_api.go
 api_consumption_user_api.go
 api_contactus_api.go
@@ -69,6 +70,7 @@ docs/APIKeyMetadata.md
 docs/AWSPrivateLinkConfiguration.md
 docs/AcceleratorConfiguration.md
 docs/AccountConfigApiAPI.md
+docs/AccountConfigCloudNativeNetworkHostClusterResult.md
 docs/AccountConfigCloudNativeNetworkOperation.md
 docs/AccountConfigCloudNativeNetworkResult.md
 docs/AccountConfigIdentityIDRequest.md
@@ -140,6 +142,7 @@ docs/ComputeConfigApiAPI.md
 docs/ComputeInstanceTypeConfigOverride.md
 docs/ConsumptionBillingApiAPI.md
 docs/ConsumptionInvoiceApiAPI.md
+docs/ConsumptionPaymentMethodApiAPI.md
 docs/ConsumptionServiceAuthRequest.md
 docs/ConsumptionServiceAuthResult.md
 docs/ConsumptionUsageApiAPI.md
@@ -166,6 +169,7 @@ docs/CreateAccountConfigRequest.md
 docs/CreateAccountConfigRequest2.md
 docs/CreateComputeConfigRequest.md
 docs/CreateComputeConfigRequest2.md
+docs/CreateConsumptionSetupIntentRequest.md
 docs/CreateCustomDomainRequest.md
 docs/CreateCustomDomainRequest2.md
 docs/CreateCustomNetworkRequest.md
@@ -212,6 +216,7 @@ docs/CreateServiceRequest2.md
 docs/CreateServicesOrchestrationRequest.md
 docs/CreateServicesOrchestrationRequest2.md
 docs/CreateServicesOrchestrationResponseBody.md
+docs/CreateSetupIntentResult.md
 docs/CreateStorageConfigRequest.md
 docs/CreateStorageConfigRequest2.md
 docs/CreateStorageVolumeConfigRequest.md
@@ -371,6 +376,7 @@ docs/DescribePlanRequest.md
 docs/DescribePlanResult.md
 docs/DescribeProductTierRequest.md
 docs/DescribeProductTierResult.md
+docs/DescribeProductTierWorkspaceArtifactsRequest.md
 docs/DescribeRegionRequest.md
 docs/DescribeRegionResult.md
 docs/DescribeResourceInstanceRequest.md
@@ -430,6 +436,7 @@ docs/DisableServiceModelFeatureRequest.md
 docs/DisableServiceModelFeatureRequest2.md
 docs/DisableTenantBillingRequest.md
 docs/DiscardPendingChangesRequest.md
+docs/DownloadDeploymentArtifactResult.md
 docs/EFSFileSystemConfiguration.md
 docs/EnableBillingProviderRequest.md
 docs/EnableBillingProviderRequest2.md
@@ -464,11 +471,13 @@ docs/GenerateTokenForDeploymentCellDashboardResult.md
 docs/GenericCommandValueProviderConfig.md
 docs/GetAvailabilityZoneByCodeRequest.md
 docs/GetCloudProviderByNameRequest.md
+docs/GetConsumptionStripeConfigRequest.md
 docs/GetConsumptionUsageRequest.md
 docs/GetConsumptionUsageResult.md
 docs/GetCurrentConsumptionUsageRequest.md
 docs/GetCurrentUsageRequest.md
 docs/GetFileRequest.md
+docs/GetProductTierWorkspaceArtifactsDownloadURLRequest.md
 docs/GetRegionByCodeRequest.md
 docs/GetSecretRequest.md
 docs/GetSecretResult.md
@@ -491,6 +500,8 @@ docs/IdentityProviderApiAPI.md
 docs/ImageConfigApiAPI.md
 docs/ImageConfigChangeSummary.md
 docs/ImageRegistryApiAPI.md
+docs/ImportAccountConfigCloudNativeNetworkHostClusterRequest.md
+docs/ImportAccountConfigCloudNativeNetworkHostClusterResult.md
 docs/ImportAccountConfigCloudNativeNetworkRequest.md
 docs/InfraConfigApiAPI.md
 docs/InfraConfigChangeSummary.md
@@ -509,6 +520,7 @@ docs/InviteUserRequest2.md
 docs/Invoice.md
 docs/InvoiceApiAPI.md
 docs/JobConfig.md
+docs/JobConfigResult.md
 docs/JobMetric.md
 docs/KubectlValueProviderConfig.md
 docs/KubernetesDashboardEndpoint.md
@@ -550,6 +562,7 @@ docs/ListComputeConfigsRequest.md
 docs/ListComputeConfigsResult.md
 docs/ListComputeInstanceTypesRequest.md
 docs/ListComputeInstanceTypesResult.md
+docs/ListConsumptionPaymentMethodsRequest.md
 docs/ListCustomDomainRequest.md
 docs/ListCustomDomainResult.md
 docs/ListCustomNetworksRequest.md
@@ -589,6 +602,7 @@ docs/ListNetworkConfigsRequest.md
 docs/ListNetworkConfigsResult.md
 docs/ListOutputParametersRequest.md
 docs/ListOutputParametersResult.md
+docs/ListPaymentMethodsResult.md
 docs/ListPipelinesRequest.md
 docs/ListPipelinesResult.md
 docs/ListProductTiersRequest.md
@@ -645,6 +659,11 @@ docs/LocalNvmeSsdBlockConfig.md
 docs/LoginWithIdentityProviderRequest.md
 docs/LoginWithIdentityProviderResult.md
 docs/LogoutRequest.md
+docs/ManagedWorkloadIdentity.md
+docs/ManagedWorkloadIdentityBinding.md
+docs/ManagedWorkloadIdentityPermissions.md
+docs/ManagedWorkloadIdentityRole.md
+docs/ManagedWorkloadIdentityServiceAccount.md
 docs/ModifyServiceProviderOrganizationRequest.md
 docs/ModifyServiceProviderOrganizationRequest2.md
 docs/ModifyServicesOrchestrationRequest.md
@@ -670,8 +689,10 @@ docs/OrgUsers.md
 docs/OutputParameter.md
 docs/OutputParameterApiAPI.md
 docs/OutputParameterEntity.md
+docs/PaymentMethod.md
 docs/PlanApiAPI.md
 docs/PortsRange.md
+docs/PrepareProductTierWorkspaceArtifactsRequest.md
 docs/PrepareServiceFromServicePlanSpecRequest.md
 docs/PrepareServiceFromServicePlanSpecRequest2.md
 docs/PrepareServiceFromServicePlanSpecResult.md
@@ -714,6 +735,7 @@ docs/RemoveCapacityFromResourceInstanceRequest.md
 docs/RemoveCapacityFromResourceInstanceRequest2.md
 docs/RemoveComputeInstanceTypeRequest.md
 docs/RemoveComputeInstanceTypeRequest2.md
+docs/RemoveConsumptionPaymentMethodRequest.md
 docs/RemoveCustomDNSToResourceInstanceRequest.md
 docs/RemoveFileRequest.md
 docs/RemoveResourceDependencyRequest.md
@@ -731,8 +753,12 @@ docs/ResourceDependency.md
 docs/ResourceEntity.md
 docs/ResourceHealthSummary.md
 docs/ResourceInstanceApiAPI.md
+docs/ResourceInstanceCustomWorkflowRequest.md
+docs/ResourceInstanceCustomWorkflowRequest2.md
+docs/ResourceInstanceCustomWorkflowResult.md
 docs/ResourceInstanceMetadata.md
 docs/ResourceInstanceProvisionerSetupKitRequest.md
+docs/ResourceInstanceSupportedOperation.md
 docs/ResourceNetworkTopologyResult.md
 docs/ResourceSpec.md
 docs/ResourceSpecLimits.md
@@ -790,6 +816,7 @@ docs/ServiceProviderEvent.md
 docs/ServiceProviderEventSummary.md
 docs/ServicesOrchestrationApiAPI.md
 docs/SetActiveAccountConfigRequest.md
+docs/SetDefaultConsumptionPaymentMethodRequest.md
 docs/SetEnvironmentVariablesRequest.md
 docs/SetEnvironmentVariablesRequest2.md
 docs/SetSecretRequest.md
@@ -806,6 +833,7 @@ docs/StorageConfigApiAPI.md
 docs/StorageVolumeConfigApiAPI.md
 docs/StripeAuthorizeURLRequest.md
 docs/StripeAuthorizeURLResult.md
+docs/StripeConfigResult.md
 docs/StripeConnectApiAPI.md
 docs/SubnetDetail.md
 docs/SubscriptionApiAPI.md
@@ -917,8 +945,12 @@ docs/VerifyIdentityProviderResult.md
 docs/VunitApiAPI.md
 docs/WarmPoolConfiguration.md
 docs/WorkflowFailure.md
+docs/WorkspaceArtifactsDownloadResult.md
+docs/WorkspaceArtifactsDownloadURLResult.md
+docs/WorkspaceArtifactsResult.md
 git_push.sh
 model_accelerator_configuration.go
+model_account_config_cloud_native_network_host_cluster_result.go
 model_account_config_cloud_native_network_operation.go
 model_account_config_cloud_native_network_result.go
 model_account_config_identity_id_request.go
@@ -1008,6 +1040,7 @@ model_create_api_key_request2.go
 model_create_api_key_result.go
 model_create_compute_config_request.go
 model_create_compute_config_request2.go
+model_create_consumption_setup_intent_request.go
 model_create_custom_domain_request.go
 model_create_custom_domain_request2.go
 model_create_custom_network_request.go
@@ -1054,6 +1087,7 @@ model_create_service_request2.go
 model_create_services_orchestration_request.go
 model_create_services_orchestration_request2.go
 model_create_services_orchestration_response_body.go
+model_create_setup_intent_result.go
 model_create_storage_config_request.go
 model_create_storage_config_request2.go
 model_create_storage_volume_config_request.go
@@ -1207,6 +1241,7 @@ model_describe_plan_request.go
 model_describe_plan_result.go
 model_describe_product_tier_request.go
 model_describe_product_tier_result.go
+model_describe_product_tier_workspace_artifacts_request.go
 model_describe_region_request.go
 model_describe_region_result.go
 model_describe_resource_instance_request.go
@@ -1266,6 +1301,7 @@ model_disable_service_model_feature_request.go
 model_disable_service_model_feature_request2.go
 model_disable_tenant_billing_request.go
 model_discard_pending_changes_request.go
+model_download_deployment_artifact_result.go
 model_efs_file_system_configuration.go
 model_enable_billing_provider_request.go
 model_enable_billing_provider_request2.go
@@ -1299,11 +1335,13 @@ model_generate_token_for_deployment_cell_dashboard_result.go
 model_generic_command_value_provider_config.go
 model_get_availability_zone_by_code_request.go
 model_get_cloud_provider_by_name_request.go
+model_get_consumption_stripe_config_request.go
 model_get_consumption_usage_request.go
 model_get_consumption_usage_result.go
 model_get_current_consumption_usage_request.go
 model_get_current_usage_request.go
 model_get_file_request.go
+model_get_product_tier_workspace_artifacts_download_url_request.go
 model_get_region_by_code_request.go
 model_get_secret_request.go
 model_get_secret_result.go
@@ -1321,6 +1359,8 @@ model_helm_chart_configuration.go
 model_helm_package.go
 model_helm_runtime_configuration.go
 model_image_config_change_summary.go
+model_import_account_config_cloud_native_network_host_cluster_request.go
+model_import_account_config_cloud_native_network_host_cluster_result.go
 model_import_account_config_cloud_native_network_request.go
 model_infra_config_change_summary.go
 model_infra_roll_configuration.go
@@ -1335,6 +1375,7 @@ model_invite_user_request.go
 model_invite_user_request2.go
 model_invoice.go
 model_job_config.go
+model_job_config_result.go
 model_job_metric.go
 model_kubectl_value_provider_config.go
 model_kubernetes_dashboard_endpoint.go
@@ -1375,6 +1416,7 @@ model_list_compute_configs_request.go
 model_list_compute_configs_result.go
 model_list_compute_instance_types_request.go
 model_list_compute_instance_types_result.go
+model_list_consumption_payment_methods_request.go
 model_list_custom_domain_request.go
 model_list_custom_domain_result.go
 model_list_custom_networks_request.go
@@ -1414,6 +1456,7 @@ model_list_network_configs_request.go
 model_list_network_configs_result.go
 model_list_output_parameters_request.go
 model_list_output_parameters_result.go
+model_list_payment_methods_result.go
 model_list_pipelines_request.go
 model_list_pipelines_result.go
 model_list_product_tiers_request.go
@@ -1470,6 +1513,11 @@ model_local_nvme_ssd_block_config.go
 model_login_with_identity_provider_request.go
 model_login_with_identity_provider_result.go
 model_logout_request.go
+model_managed_workload_identity.go
+model_managed_workload_identity_binding.go
+model_managed_workload_identity_permissions.go
+model_managed_workload_identity_role.go
+model_managed_workload_identity_service_account.go
 model_modify_service_provider_organization_request.go
 model_modify_service_provider_organization_request2.go
 model_modify_services_orchestration_request.go
@@ -1493,7 +1541,9 @@ model_operator_helm_chart_dependency.go
 model_org_users.go
 model_output_parameter.go
 model_output_parameter_entity.go
+model_payment_method.go
 model_ports_range.go
+model_prepare_product_tier_workspace_artifacts_request.go
 model_prepare_service_from_service_plan_spec_request.go
 model_prepare_service_from_service_plan_spec_request2.go
 model_prepare_service_from_service_plan_spec_result.go
@@ -1534,6 +1584,7 @@ model_remove_capacity_from_resource_instance_request.go
 model_remove_capacity_from_resource_instance_request2.go
 model_remove_compute_instance_type_request.go
 model_remove_compute_instance_type_request2.go
+model_remove_consumption_payment_method_request.go
 model_remove_custom_dnsto_resource_instance_request.go
 model_remove_file_request.go
 model_remove_resource_dependency_request.go
@@ -1549,8 +1600,12 @@ model_resource_capability.go
 model_resource_dependency.go
 model_resource_entity.go
 model_resource_health_summary.go
+model_resource_instance_custom_workflow_request.go
+model_resource_instance_custom_workflow_request2.go
+model_resource_instance_custom_workflow_result.go
 model_resource_instance_metadata.go
 model_resource_instance_provisioner_setup_kit_request.go
+model_resource_instance_supported_operation.go
 model_resource_network_topology_result.go
 model_resource_spec.go
 model_resource_spec_limits.go
@@ -1598,6 +1653,7 @@ model_service_plan.go
 model_service_provider_event.go
 model_service_provider_event_summary.go
 model_set_active_account_config_request.go
+model_set_default_consumption_payment_method_request.go
 model_set_environment_variables_request.go
 model_set_environment_variables_request2.go
 model_set_secret_request.go
@@ -1609,6 +1665,7 @@ model_start_resource_instance_request.go
 model_stop_resource_instance_request.go
 model_stripe_authorize_url_request.go
 model_stripe_authorize_url_result.go
+model_stripe_config_result.go
 model_subnet_detail.go
 model_subscription_license.go
 model_subscription_users.go
@@ -1712,6 +1769,9 @@ model_verify_identity_provider_request.go
 model_verify_identity_provider_result.go
 model_warm_pool_configuration.go
 model_workflow_failure.go
+model_workspace_artifacts_download_result.go
+model_workspace_artifacts_download_url_result.go
+model_workspace_artifacts_result.go
 response.go
 test/api_account_config_api_test.go
 test/api_api_key_api_test.go
@@ -1722,6 +1782,7 @@ test/api_compose_gen_api_test.go
 test/api_compute_config_api_test.go
 test/api_consumption_billing_api_test.go
 test/api_consumption_invoice_api_test.go
+test/api_consumption_payment_method_api_test.go
 test/api_consumption_usage_api_test.go
 test/api_consumption_user_api_test.go
 test/api_contactus_api_test.go

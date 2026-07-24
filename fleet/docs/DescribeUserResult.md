@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **CreatedAt** | Pointer to **string** | The user creation time | [optional] 
 **Email** | Pointer to **string** | The email of the user | [optional] 
 **Enabled** | Pointer to **bool** | Is the user enabled. | [optional] 
+**FeatureFlags** | Pointer to **map[string]bool** | Runtime feature flags keyed by feature name | [optional] 
 **Id** | **string** | The User ID | 
 **LastModifiedAt** | Pointer to **string** | The user update time | [optional] 
 **Name** | Pointer to **string** | The name of the user | [optional] 
@@ -170,6 +171,31 @@ SetEnabled sets Enabled field to given value.
 `func (o *DescribeUserResult) HasEnabled() bool`
 
 HasEnabled returns a boolean if a field has been set.
+
+### GetFeatureFlags
+
+`func (o *DescribeUserResult) GetFeatureFlags() map[string]bool`
+
+GetFeatureFlags returns the FeatureFlags field if non-nil, zero value otherwise.
+
+### GetFeatureFlagsOk
+
+`func (o *DescribeUserResult) GetFeatureFlagsOk() (*map[string]bool, bool)`
+
+GetFeatureFlagsOk returns a tuple with the FeatureFlags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFeatureFlags
+
+`func (o *DescribeUserResult) SetFeatureFlags(v map[string]bool)`
+
+SetFeatureFlags sets FeatureFlags field to given value.
+
+### HasFeatureFlags
+
+`func (o *DescribeUserResult) HasFeatureFlags() bool`
+
+HasFeatureFlags returns a boolean if a field has been set.
 
 ### GetId
 

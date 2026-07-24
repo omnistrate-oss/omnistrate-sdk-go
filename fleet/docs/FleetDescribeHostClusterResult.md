@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **CloudProvider** | **string** | Name of the Infra Provider | 
 **CreatedAt** | Pointer to **string** | The timestamp when the host cluster was created | [optional] 
 **DashboardEndpoint** | Pointer to **string** | The endpoint to access the dashboard | [optional] 
+**DeploymentInstancesTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The deployment instances tags associated with resource instances in the host cluster. | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **Id** | **string** | ID of a Host Cluster | 
 **IsBYOCOnPrem** | Pointer to **bool** | Whether the host cluster is a BYOC on-prem dataplane (customer-managed Kubernetes cluster connected via the dataplane agent). | [optional] 
@@ -157,6 +158,31 @@ SetDashboardEndpoint sets DashboardEndpoint field to given value.
 `func (o *FleetDescribeHostClusterResult) HasDashboardEndpoint() bool`
 
 HasDashboardEndpoint returns a boolean if a field has been set.
+
+### GetDeploymentInstancesTags
+
+`func (o *FleetDescribeHostClusterResult) GetDeploymentInstancesTags() []CustomTag`
+
+GetDeploymentInstancesTags returns the DeploymentInstancesTags field if non-nil, zero value otherwise.
+
+### GetDeploymentInstancesTagsOk
+
+`func (o *FleetDescribeHostClusterResult) GetDeploymentInstancesTagsOk() (*[]CustomTag, bool)`
+
+GetDeploymentInstancesTagsOk returns a tuple with the DeploymentInstancesTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeploymentInstancesTags
+
+`func (o *FleetDescribeHostClusterResult) SetDeploymentInstancesTags(v []CustomTag)`
+
+SetDeploymentInstancesTags sets DeploymentInstancesTags field to given value.
+
+### HasDeploymentInstancesTags
+
+`func (o *FleetDescribeHostClusterResult) HasDeploymentInstancesTags() bool`
+
+HasDeploymentInstancesTags returns a boolean if a field has been set.
 
 ### GetGcpProjectID
 

@@ -42,10 +42,16 @@ type FleetDescribeAccountConfigResult struct {
 	AzureTenantID *string `json:"azureTenantID,omitempty"`
 	// The BYOA instance IDs that this account config is tied to
 	ByoaInstanceIDs []string `json:"byoaInstanceIDs,omitempty"`
+	// The BYOC on-prem install command
+	ByocOnPremInstallCommand *string `json:"byocOnPremInstallCommand,omitempty"`
+	// The BYOC on-prem uninstall command
+	ByocOnPremUninstallCommand *string `json:"byocOnPremUninstallCommand,omitempty"`
 	// Registered CloudNativeNetworks for this account configuration
 	CloudNativeNetworks []FleetAccountConfigCloudNativeNetworkResult `json:"cloudNativeNetworks,omitempty"`
 	// ID of an CloudProvider
 	CloudProviderId string `json:"cloudProviderId"`
+	// The custom tags for the account configuration
+	CustomTags []CustomTag `json:"customTags,omitempty"`
 	// The description for the account
 	Description string `json:"description"`
 	// The GCP bootstrap shell command
@@ -464,6 +470,70 @@ func (o *FleetDescribeAccountConfigResult) SetByoaInstanceIDs(v []string) {
 	o.ByoaInstanceIDs = v
 }
 
+// GetByocOnPremInstallCommand returns the ByocOnPremInstallCommand field value if set, zero value otherwise.
+func (o *FleetDescribeAccountConfigResult) GetByocOnPremInstallCommand() string {
+	if o == nil || IsNil(o.ByocOnPremInstallCommand) {
+		var ret string
+		return ret
+	}
+	return *o.ByocOnPremInstallCommand
+}
+
+// GetByocOnPremInstallCommandOk returns a tuple with the ByocOnPremInstallCommand field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeAccountConfigResult) GetByocOnPremInstallCommandOk() (*string, bool) {
+	if o == nil || IsNil(o.ByocOnPremInstallCommand) {
+		return nil, false
+	}
+	return o.ByocOnPremInstallCommand, true
+}
+
+// HasByocOnPremInstallCommand returns a boolean if a field has been set.
+func (o *FleetDescribeAccountConfigResult) HasByocOnPremInstallCommand() bool {
+	if o != nil && !IsNil(o.ByocOnPremInstallCommand) {
+		return true
+	}
+
+	return false
+}
+
+// SetByocOnPremInstallCommand gets a reference to the given string and assigns it to the ByocOnPremInstallCommand field.
+func (o *FleetDescribeAccountConfigResult) SetByocOnPremInstallCommand(v string) {
+	o.ByocOnPremInstallCommand = &v
+}
+
+// GetByocOnPremUninstallCommand returns the ByocOnPremUninstallCommand field value if set, zero value otherwise.
+func (o *FleetDescribeAccountConfigResult) GetByocOnPremUninstallCommand() string {
+	if o == nil || IsNil(o.ByocOnPremUninstallCommand) {
+		var ret string
+		return ret
+	}
+	return *o.ByocOnPremUninstallCommand
+}
+
+// GetByocOnPremUninstallCommandOk returns a tuple with the ByocOnPremUninstallCommand field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeAccountConfigResult) GetByocOnPremUninstallCommandOk() (*string, bool) {
+	if o == nil || IsNil(o.ByocOnPremUninstallCommand) {
+		return nil, false
+	}
+	return o.ByocOnPremUninstallCommand, true
+}
+
+// HasByocOnPremUninstallCommand returns a boolean if a field has been set.
+func (o *FleetDescribeAccountConfigResult) HasByocOnPremUninstallCommand() bool {
+	if o != nil && !IsNil(o.ByocOnPremUninstallCommand) {
+		return true
+	}
+
+	return false
+}
+
+// SetByocOnPremUninstallCommand gets a reference to the given string and assigns it to the ByocOnPremUninstallCommand field.
+func (o *FleetDescribeAccountConfigResult) SetByocOnPremUninstallCommand(v string) {
+	o.ByocOnPremUninstallCommand = &v
+}
+
 // GetCloudNativeNetworks returns the CloudNativeNetworks field value if set, zero value otherwise.
 func (o *FleetDescribeAccountConfigResult) GetCloudNativeNetworks() []FleetAccountConfigCloudNativeNetworkResult {
 	if o == nil || IsNil(o.CloudNativeNetworks) {
@@ -518,6 +588,38 @@ func (o *FleetDescribeAccountConfigResult) GetCloudProviderIdOk() (*string, bool
 // SetCloudProviderId sets field value
 func (o *FleetDescribeAccountConfigResult) SetCloudProviderId(v string) {
 	o.CloudProviderId = v
+}
+
+// GetCustomTags returns the CustomTags field value if set, zero value otherwise.
+func (o *FleetDescribeAccountConfigResult) GetCustomTags() []CustomTag {
+	if o == nil || IsNil(o.CustomTags) {
+		var ret []CustomTag
+		return ret
+	}
+	return o.CustomTags
+}
+
+// GetCustomTagsOk returns a tuple with the CustomTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeAccountConfigResult) GetCustomTagsOk() ([]CustomTag, bool) {
+	if o == nil || IsNil(o.CustomTags) {
+		return nil, false
+	}
+	return o.CustomTags, true
+}
+
+// HasCustomTags returns a boolean if a field has been set.
+func (o *FleetDescribeAccountConfigResult) HasCustomTags() bool {
+	if o != nil && !IsNil(o.CustomTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomTags gets a reference to the given []CustomTag and assigns it to the CustomTags field.
+func (o *FleetDescribeAccountConfigResult) SetCustomTags(v []CustomTag) {
+	o.CustomTags = v
 }
 
 // GetDescription returns the Description field value
@@ -1131,10 +1233,19 @@ func (o FleetDescribeAccountConfigResult) ToMap() (map[string]interface{}, error
 	if !IsNil(o.ByoaInstanceIDs) {
 		toSerialize["byoaInstanceIDs"] = o.ByoaInstanceIDs
 	}
+	if !IsNil(o.ByocOnPremInstallCommand) {
+		toSerialize["byocOnPremInstallCommand"] = o.ByocOnPremInstallCommand
+	}
+	if !IsNil(o.ByocOnPremUninstallCommand) {
+		toSerialize["byocOnPremUninstallCommand"] = o.ByocOnPremUninstallCommand
+	}
 	if !IsNil(o.CloudNativeNetworks) {
 		toSerialize["cloudNativeNetworks"] = o.CloudNativeNetworks
 	}
 	toSerialize["cloudProviderId"] = o.CloudProviderId
+	if !IsNil(o.CustomTags) {
+		toSerialize["customTags"] = o.CustomTags
+	}
 	toSerialize["description"] = o.Description
 	if !IsNil(o.GcpBootstrapShellCommand) {
 		toSerialize["gcpBootstrapShellCommand"] = o.GcpBootstrapShellCommand
@@ -1241,8 +1352,11 @@ func (o *FleetDescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error
 		delete(additionalProperties, "azureSubscriptionID")
 		delete(additionalProperties, "azureTenantID")
 		delete(additionalProperties, "byoaInstanceIDs")
+		delete(additionalProperties, "byocOnPremInstallCommand")
+		delete(additionalProperties, "byocOnPremUninstallCommand")
 		delete(additionalProperties, "cloudNativeNetworks")
 		delete(additionalProperties, "cloudProviderId")
+		delete(additionalProperties, "customTags")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "gcpBootstrapShellCommand")
 		delete(additionalProperties, "gcpDisconnectShellCommand")

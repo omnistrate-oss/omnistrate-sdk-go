@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **ApiVersion** | **string** | The external version of the API | 
 **AwsRegions** | Pointer to **[]string** | The AWS regions that this service plan is available on | [optional] 
 **AzureRegions** | Pointer to **[]string** | The Azure regions that this service plan is available on | [optional] 
+**ByocOnpremRegions** | Pointer to **[]string** | The BYOC on-prem regions that this service plan is available on | [optional] 
 **DeploymentConfigId** | **string** | ID of a Deployment Config | 
 **GcpRegions** | Pointer to **[]string** | The GCP regions that this service plan is available on | [optional] 
 **HasPendingChanges** | Pointer to **bool** | Whether there are any pending changes for the product tier configuration | [optional] 
@@ -197,6 +198,31 @@ SetAzureRegions sets AzureRegions field to given value.
 `func (o *GetServicePlanResult) HasAzureRegions() bool`
 
 HasAzureRegions returns a boolean if a field has been set.
+
+### GetByocOnpremRegions
+
+`func (o *GetServicePlanResult) GetByocOnpremRegions() []string`
+
+GetByocOnpremRegions returns the ByocOnpremRegions field if non-nil, zero value otherwise.
+
+### GetByocOnpremRegionsOk
+
+`func (o *GetServicePlanResult) GetByocOnpremRegionsOk() (*[]string, bool)`
+
+GetByocOnpremRegionsOk returns a tuple with the ByocOnpremRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetByocOnpremRegions
+
+`func (o *GetServicePlanResult) SetByocOnpremRegions(v []string)`
+
+SetByocOnpremRegions sets ByocOnpremRegions field to given value.
+
+### HasByocOnpremRegions
+
+`func (o *GetServicePlanResult) HasByocOnpremRegions() bool`
+
+HasByocOnpremRegions returns a boolean if a field has been set.
 
 ### GetDeploymentConfigId
 

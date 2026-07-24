@@ -22,6 +22,8 @@ var _ MappedNullable = &WorkflowBreakpoint{}
 type WorkflowBreakpoint struct {
 	// The conditions to break on
 	Conditions map[string]interface{} `json:"conditions,omitempty"`
+	// The resource events to break on. Empty means break before the resource is reconciled.
+	Events []string `json:"events,omitempty"`
 	// The ID or key of the resource to break on
 	Id string `json:"id"`
 	AdditionalProperties map[string]interface{}
@@ -79,6 +81,38 @@ func (o *WorkflowBreakpoint) SetConditions(v map[string]interface{}) {
 	o.Conditions = v
 }
 
+// GetEvents returns the Events field value if set, zero value otherwise.
+func (o *WorkflowBreakpoint) GetEvents() []string {
+	if o == nil || IsNil(o.Events) {
+		var ret []string
+		return ret
+	}
+	return o.Events
+}
+
+// GetEventsOk returns a tuple with the Events field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowBreakpoint) GetEventsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Events) {
+		return nil, false
+	}
+	return o.Events, true
+}
+
+// HasEvents returns a boolean if a field has been set.
+func (o *WorkflowBreakpoint) HasEvents() bool {
+	if o != nil && !IsNil(o.Events) {
+		return true
+	}
+
+	return false
+}
+
+// SetEvents gets a reference to the given []string and assigns it to the Events field.
+func (o *WorkflowBreakpoint) SetEvents(v []string) {
+	o.Events = v
+}
+
 // GetId returns the Id field value
 func (o *WorkflowBreakpoint) GetId() string {
 	if o == nil {
@@ -115,6 +149,9 @@ func (o WorkflowBreakpoint) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Conditions) {
 		toSerialize["conditions"] = o.Conditions
+	}
+	if !IsNil(o.Events) {
+		toSerialize["events"] = o.Events
 	}
 	toSerialize["id"] = o.Id
 
@@ -161,6 +198,7 @@ func (o *WorkflowBreakpoint) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "conditions")
+		delete(additionalProperties, "events")
 		delete(additionalProperties, "id")
 		o.AdditionalProperties = additionalProperties
 	}

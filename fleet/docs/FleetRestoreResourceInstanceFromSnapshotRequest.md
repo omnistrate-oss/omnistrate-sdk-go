@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **RestoreToSourceInstance** | Pointer to **bool** | If true, restore to the same instance ID as the previously deleted source instance. This preserves the original instance ID and endpoint. | [optional] 
 **ServiceId** | **string** | ID of a Service | 
 **SnapshotId** | **string** | ID of a Resource Instance Snapshot | 
+**SubscriptionId** | Pointer to **string** | ID of a Subscription | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
@@ -227,6 +228,31 @@ and a boolean to check if the value has been set.
 
 SetSnapshotId sets SnapshotId field to given value.
 
+
+### GetSubscriptionId
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest) GetSubscriptionId() string`
+
+GetSubscriptionId returns the SubscriptionId field if non-nil, zero value otherwise.
+
+### GetSubscriptionIdOk
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest) GetSubscriptionIdOk() (*string, bool)`
+
+GetSubscriptionIdOk returns a tuple with the SubscriptionId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscriptionId
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest) SetSubscriptionId(v string)`
+
+SetSubscriptionId sets SubscriptionId field to given value.
+
+### HasSubscriptionId
+
+`func (o *FleetRestoreResourceInstanceFromSnapshotRequest) HasSubscriptionId() bool`
+
+HasSubscriptionId returns a boolean if a field has been set.
 
 ### GetToken
 

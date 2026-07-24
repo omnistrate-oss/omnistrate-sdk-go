@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Id** | **string** | ID of a Custom Workflow | 
 **IsSystemWorkflow** | **bool** | Whether this workflow was defined from a reserved systemWorkflows entry. | 
 **Name** | **string** | The display name of the workflow | 
+**OutputParameters** | Pointer to **map[string]string** | The output parameters returned after a workflow execution completes, keyed by parameter name. | [optional] 
 **ProductTierId** | **string** | ID of a Product Tier | 
 **Scope** | Pointer to **[]string** | The user context scopes that can invoke this workflow | [optional] 
 **ServiceId** | **string** | ID of a Service | 
@@ -169,6 +170,31 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetOutputParameters
+
+`func (o *DescribeCustomWorkflowResult) GetOutputParameters() map[string]string`
+
+GetOutputParameters returns the OutputParameters field if non-nil, zero value otherwise.
+
+### GetOutputParametersOk
+
+`func (o *DescribeCustomWorkflowResult) GetOutputParametersOk() (*map[string]string, bool)`
+
+GetOutputParametersOk returns a tuple with the OutputParameters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOutputParameters
+
+`func (o *DescribeCustomWorkflowResult) SetOutputParameters(v map[string]string)`
+
+SetOutputParameters sets OutputParameters field to given value.
+
+### HasOutputParameters
+
+`func (o *DescribeCustomWorkflowResult) HasOutputParameters() bool`
+
+HasOutputParameters returns a boolean if a field has been set.
 
 ### GetProductTierId
 

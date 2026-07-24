@@ -25,10 +25,12 @@ type FleetAccountConfigCloudNativeNetworkResult struct {
 	AccountConfigId string `json:"accountConfigId"`
 	// The primary CIDR block
 	Cidr *string `json:"cidr,omitempty"`
-	// The cloud provider network ID (e.g. AWS VPC ID)
+	// The provider-native network ID (for example, AWS VPC ID, GCP VPC name, or Azure VNet resource ID)
 	CloudNativeNetworkId string `json:"cloudNativeNetworkId"`
 	// When this cloud native network was registered
 	CreatedAt time.Time `json:"createdAt"`
+	// Host clusters discovered within this cloud native network
+	HostClusters []FleetAccountConfigCloudNativeNetworkHostClusterResult `json:"hostClusters,omitempty"`
 	// Internal cloud native network registration ID
 	Id string `json:"id"`
 	// Whether this network has been imported for deployments via the import API. Independent of validation status.
@@ -49,7 +51,7 @@ type FleetAccountConfigCloudNativeNetworkResult struct {
 	StatusMessage *string `json:"statusMessage,omitempty"`
 	// Whether this network supports private deployments (has private subnets with egress)
 	SupportsPrivateDeployment *bool `json:"supportsPrivateDeployment,omitempty"`
-	// Whether this network supports public deployments (has public subnets with IGW)
+	// Whether this network supports public deployments
 	SupportsPublicDeployment *bool `json:"supportsPublicDeployment,omitempty"`
 	// When this cloud native network was last updated
 	UpdatedAt time.Time `json:"updatedAt"`
@@ -184,6 +186,38 @@ func (o *FleetAccountConfigCloudNativeNetworkResult) GetCreatedAtOk() (*time.Tim
 // SetCreatedAt sets field value
 func (o *FleetAccountConfigCloudNativeNetworkResult) SetCreatedAt(v time.Time) {
 	o.CreatedAt = v
+}
+
+// GetHostClusters returns the HostClusters field value if set, zero value otherwise.
+func (o *FleetAccountConfigCloudNativeNetworkResult) GetHostClusters() []FleetAccountConfigCloudNativeNetworkHostClusterResult {
+	if o == nil || IsNil(o.HostClusters) {
+		var ret []FleetAccountConfigCloudNativeNetworkHostClusterResult
+		return ret
+	}
+	return o.HostClusters
+}
+
+// GetHostClustersOk returns a tuple with the HostClusters field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAccountConfigCloudNativeNetworkResult) GetHostClustersOk() ([]FleetAccountConfigCloudNativeNetworkHostClusterResult, bool) {
+	if o == nil || IsNil(o.HostClusters) {
+		return nil, false
+	}
+	return o.HostClusters, true
+}
+
+// HasHostClusters returns a boolean if a field has been set.
+func (o *FleetAccountConfigCloudNativeNetworkResult) HasHostClusters() bool {
+	if o != nil && !IsNil(o.HostClusters) {
+		return true
+	}
+
+	return false
+}
+
+// SetHostClusters gets a reference to the given []FleetAccountConfigCloudNativeNetworkHostClusterResult and assigns it to the HostClusters field.
+func (o *FleetAccountConfigCloudNativeNetworkResult) SetHostClusters(v []FleetAccountConfigCloudNativeNetworkHostClusterResult) {
+	o.HostClusters = v
 }
 
 // GetId returns the Id field value
@@ -554,6 +588,9 @@ func (o FleetAccountConfigCloudNativeNetworkResult) ToMap() (map[string]interfac
 	}
 	toSerialize["cloudNativeNetworkId"] = o.CloudNativeNetworkId
 	toSerialize["createdAt"] = o.CreatedAt
+	if !IsNil(o.HostClusters) {
+		toSerialize["hostClusters"] = o.HostClusters
+	}
 	toSerialize["id"] = o.Id
 	if !IsNil(o.Imported) {
 		toSerialize["imported"] = o.Imported
@@ -635,6 +672,7 @@ func (o *FleetAccountConfigCloudNativeNetworkResult) UnmarshalJSON(data []byte) 
 		delete(additionalProperties, "cidr")
 		delete(additionalProperties, "cloudNativeNetworkId")
 		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "hostClusters")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "imported")
 		delete(additionalProperties, "inUse")

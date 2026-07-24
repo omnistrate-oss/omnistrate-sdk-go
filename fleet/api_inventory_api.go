@@ -113,6 +113,21 @@ type InventoryApiAPI interface {
 	InventoryApiCancelUpgradePathExecute(r ApiInventoryApiCancelUpgradePathRequest) (*UpgradePath, *http.Response, error)
 
 	/*
+	InventoryApiChangeUpgradePathTargetVersion ChangeUpgradePathTargetVersion inventory-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param productTierId The product tier ID that this upgrade path belongs to
+	@param upgradePathId The upgrade path ID
+	@return ApiInventoryApiChangeUpgradePathTargetVersionRequest
+	*/
+	InventoryApiChangeUpgradePathTargetVersion(ctx context.Context, serviceId string, productTierId string, upgradePathId string) ApiInventoryApiChangeUpgradePathTargetVersionRequest
+
+	// InventoryApiChangeUpgradePathTargetVersionExecute executes the request
+	//  @return UpgradePath
+	InventoryApiChangeUpgradePathTargetVersionExecute(r ApiInventoryApiChangeUpgradePathTargetVersionRequest) (*UpgradePath, *http.Response, error)
+
+	/*
 	InventoryApiCopyResourceInstanceSnapshot CopyResourceInstanceSnapshot inventory-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -644,14 +659,49 @@ type InventoryApiAPI interface {
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param id Account Config ID to operate on
-	@param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) to import for deployments
+	@param region The deployment region whose validated subnetworks should be imported
+	@param cloudNativeNetworkId The provider-native network ID to import for deployments
 	@return ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest
 	*/
-	InventoryApiImportAccountConfigCloudNativeNetwork(ctx context.Context, id string, cloudNativeNetworkId string) ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest
+	InventoryApiImportAccountConfigCloudNativeNetwork(ctx context.Context, id string, region string, cloudNativeNetworkId string) ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest
 
 	// InventoryApiImportAccountConfigCloudNativeNetworkExecute executes the request
 	//  @return FleetListAccountConfigCloudNativeNetworksResult
 	InventoryApiImportAccountConfigCloudNativeNetworkExecute(r ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest) (*FleetListAccountConfigCloudNativeNetworksResult, *http.Response, error)
+
+	/*
+	InventoryApiImportAccountConfigCloudNativeNetworkHostCluster ImportAccountConfigCloudNativeNetworkHostCluster inventory-api
+
+	Import a discovered host cluster from an imported cloud native network
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id Account Config ID to operate on
+	@param region The deployment region where the host cluster resides
+	@param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) that contains the host cluster to import
+	@param hostClusterName The cloud provider host cluster name to import from this cloud native network
+	@return ApiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest
+	*/
+	InventoryApiImportAccountConfigCloudNativeNetworkHostCluster(ctx context.Context, id string, region string, cloudNativeNetworkId string, hostClusterName string) ApiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest
+
+	// InventoryApiImportAccountConfigCloudNativeNetworkHostClusterExecute executes the request
+	//  @return FleetImportAccountConfigCloudNativeNetworkHostClusterResult
+	InventoryApiImportAccountConfigCloudNativeNetworkHostClusterExecute(r ApiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest) (*FleetImportAccountConfigCloudNativeNetworkHostClusterResult, *http.Response, error)
+
+	/*
+	InventoryApiInvokeResourceInstanceWorkflowVerb InvokeResourceInstanceWorkflowVerb inventory-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@param verb The provider-defined verb to invoke. The server resolves the verb to a custom workflow ID against the instance's plan version.
+	@return ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest
+	*/
+	InventoryApiInvokeResourceInstanceWorkflowVerb(ctx context.Context, serviceId string, environmentId string, instanceId string, verb string) ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest
+
+	// InventoryApiInvokeResourceInstanceWorkflowVerbExecute executes the request
+	//  @return ResourceInstanceCustomWorkflowResult
+	InventoryApiInvokeResourceInstanceWorkflowVerbExecute(r ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest) (*ResourceInstanceCustomWorkflowResult, *http.Response, error)
 
 	/*
 	InventoryApiListAccountConfigCloudNativeNetworks ListAccountConfigCloudNativeNetworks inventory-api
@@ -1060,6 +1110,22 @@ type InventoryApiAPI interface {
 	InventoryApiResendVerificationEmailExecute(r ApiInventoryApiResendVerificationEmailRequest) (*http.Response, error)
 
 	/*
+	InventoryApiResourceInstanceCustomWorkflow ResourceInstanceCustomWorkflow inventory-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param instanceId The resource instance ID.
+	@param workflowId The custom workflow ID from the instance's supportedOperations list.
+	@return ApiInventoryApiResourceInstanceCustomWorkflowRequest
+	*/
+	InventoryApiResourceInstanceCustomWorkflow(ctx context.Context, serviceId string, environmentId string, instanceId string, workflowId string) ApiInventoryApiResourceInstanceCustomWorkflowRequest
+
+	// InventoryApiResourceInstanceCustomWorkflowExecute executes the request
+	//  @return ResourceInstanceCustomWorkflowResult
+	InventoryApiResourceInstanceCustomWorkflowExecute(r ApiInventoryApiResourceInstanceCustomWorkflowRequest) (*ResourceInstanceCustomWorkflowResult, *http.Response, error)
+
+	/*
 	InventoryApiRestartResourceInstance RestartResourceInstance inventory-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1248,10 +1314,11 @@ type InventoryApiAPI interface {
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param id Account Config ID to operate on
-	@param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
+	@param region The deployment region whose cloud native network row should be unimported
+	@param cloudNativeNetworkId The provider-native network ID to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
 	@return ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest
 	*/
-	InventoryApiUnimportAccountConfigCloudNativeNetwork(ctx context.Context, id string, cloudNativeNetworkId string) ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest
+	InventoryApiUnimportAccountConfigCloudNativeNetwork(ctx context.Context, id string, region string, cloudNativeNetworkId string) ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest
 
 	// InventoryApiUnimportAccountConfigCloudNativeNetworkExecute executes the request
 	//  @return FleetListAccountConfigCloudNativeNetworksResult
@@ -2331,6 +2398,191 @@ func (a *InventoryApiAPIService) InventoryApiCancelUpgradePathExecute(r ApiInven
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiInventoryApiChangeUpgradePathTargetVersionRequest struct {
+	ctx context.Context
+	ApiService InventoryApiAPI
+	serviceId string
+	productTierId string
+	upgradePathId string
+	changeUpgradePathTargetVersionRequest2 *ChangeUpgradePathTargetVersionRequest2
+}
+
+func (r ApiInventoryApiChangeUpgradePathTargetVersionRequest) ChangeUpgradePathTargetVersionRequest2(changeUpgradePathTargetVersionRequest2 ChangeUpgradePathTargetVersionRequest2) ApiInventoryApiChangeUpgradePathTargetVersionRequest {
+	r.changeUpgradePathTargetVersionRequest2 = &changeUpgradePathTargetVersionRequest2
+	return r
+}
+
+func (r ApiInventoryApiChangeUpgradePathTargetVersionRequest) Execute() (*UpgradePath, *http.Response, error) {
+	return r.ApiService.InventoryApiChangeUpgradePathTargetVersionExecute(r)
+}
+
+/*
+InventoryApiChangeUpgradePathTargetVersion ChangeUpgradePathTargetVersion inventory-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serviceId The service ID this workflow belongs to.
+ @param productTierId The product tier ID that this upgrade path belongs to
+ @param upgradePathId The upgrade path ID
+ @return ApiInventoryApiChangeUpgradePathTargetVersionRequest
+*/
+func (a *InventoryApiAPIService) InventoryApiChangeUpgradePathTargetVersion(ctx context.Context, serviceId string, productTierId string, upgradePathId string) ApiInventoryApiChangeUpgradePathTargetVersionRequest {
+	return ApiInventoryApiChangeUpgradePathTargetVersionRequest{
+		ApiService: a,
+		ctx: ctx,
+		serviceId: serviceId,
+		productTierId: productTierId,
+		upgradePathId: upgradePathId,
+	}
+}
+
+// Execute executes the request
+//  @return UpgradePath
+func (a *InventoryApiAPIService) InventoryApiChangeUpgradePathTargetVersionExecute(r ApiInventoryApiChangeUpgradePathTargetVersionRequest) (*UpgradePath, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UpgradePath
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiChangeUpgradePathTargetVersion")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/service/{serviceId}/productTier/{productTierId}/upgrade-path/{upgradePathId}/target-version"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"productTierId"+"}", url.PathEscape(parameterValueToString(r.productTierId, "productTierId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"upgradePathId"+"}", url.PathEscape(parameterValueToString(r.upgradePathId, "upgradePathId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.changeUpgradePathTargetVersionRequest2 == nil {
+		return localVarReturnValue, nil, reportError("changeUpgradePathTargetVersionRequest2 is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.changeUpgradePathTargetVersionRequest2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -8770,6 +9022,7 @@ type ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest struct {
 	ctx context.Context
 	ApiService InventoryApiAPI
 	id string
+	region string
 	cloudNativeNetworkId string
 }
 
@@ -8784,14 +9037,16 @@ Import an available cloud native network for deployments (sets status to READY)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Account Config ID to operate on
- @param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) to import for deployments
+ @param region The deployment region whose validated subnetworks should be imported
+ @param cloudNativeNetworkId The provider-native network ID to import for deployments
  @return ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest
 */
-func (a *InventoryApiAPIService) InventoryApiImportAccountConfigCloudNativeNetwork(ctx context.Context, id string, cloudNativeNetworkId string) ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest {
+func (a *InventoryApiAPIService) InventoryApiImportAccountConfigCloudNativeNetwork(ctx context.Context, id string, region string, cloudNativeNetworkId string) ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest {
 	return ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
+		region: region,
 		cloudNativeNetworkId: cloudNativeNetworkId,
 	}
 }
@@ -8811,8 +9066,9 @@ func (a *InventoryApiAPIService) InventoryApiImportAccountConfigCloudNativeNetwo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{cloudNativeNetworkId}/import"
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/import"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"region"+"}", url.PathEscape(parameterValueToString(r.region, "region")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"cloudNativeNetworkId"+"}", url.PathEscape(parameterValueToString(r.cloudNativeNetworkId, "cloudNativeNetworkId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -8892,6 +9148,364 @@ func (a *InventoryApiAPIService) InventoryApiImportAccountConfigCloudNativeNetwo
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest struct {
+	ctx context.Context
+	ApiService InventoryApiAPI
+	id string
+	region string
+	cloudNativeNetworkId string
+	hostClusterName string
+}
+
+func (r ApiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest) Execute() (*FleetImportAccountConfigCloudNativeNetworkHostClusterResult, *http.Response, error) {
+	return r.ApiService.InventoryApiImportAccountConfigCloudNativeNetworkHostClusterExecute(r)
+}
+
+/*
+InventoryApiImportAccountConfigCloudNativeNetworkHostCluster ImportAccountConfigCloudNativeNetworkHostCluster inventory-api
+
+Import a discovered host cluster from an imported cloud native network
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id Account Config ID to operate on
+ @param region The deployment region where the host cluster resides
+ @param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) that contains the host cluster to import
+ @param hostClusterName The cloud provider host cluster name to import from this cloud native network
+ @return ApiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest
+*/
+func (a *InventoryApiAPIService) InventoryApiImportAccountConfigCloudNativeNetworkHostCluster(ctx context.Context, id string, region string, cloudNativeNetworkId string, hostClusterName string) ApiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest {
+	return ApiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+		region: region,
+		cloudNativeNetworkId: cloudNativeNetworkId,
+		hostClusterName: hostClusterName,
+	}
+}
+
+// Execute executes the request
+//  @return FleetImportAccountConfigCloudNativeNetworkHostClusterResult
+func (a *InventoryApiAPIService) InventoryApiImportAccountConfigCloudNativeNetworkHostClusterExecute(r ApiInventoryApiImportAccountConfigCloudNativeNetworkHostClusterRequest) (*FleetImportAccountConfigCloudNativeNetworkHostClusterResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *FleetImportAccountConfigCloudNativeNetworkHostClusterResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiImportAccountConfigCloudNativeNetworkHostCluster")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/host-clusters/{hostClusterName}/import"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"region"+"}", url.PathEscape(parameterValueToString(r.region, "region")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"cloudNativeNetworkId"+"}", url.PathEscape(parameterValueToString(r.cloudNativeNetworkId, "cloudNativeNetworkId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"hostClusterName"+"}", url.PathEscape(parameterValueToString(r.hostClusterName, "hostClusterName")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest struct {
+	ctx context.Context
+	ApiService InventoryApiAPI
+	serviceId string
+	environmentId string
+	instanceId string
+	verb string
+	fleetInvokeResourceInstanceWorkflowVerbRequest2 *FleetInvokeResourceInstanceWorkflowVerbRequest2
+}
+
+func (r ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest) FleetInvokeResourceInstanceWorkflowVerbRequest2(fleetInvokeResourceInstanceWorkflowVerbRequest2 FleetInvokeResourceInstanceWorkflowVerbRequest2) ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest {
+	r.fleetInvokeResourceInstanceWorkflowVerbRequest2 = &fleetInvokeResourceInstanceWorkflowVerbRequest2
+	return r
+}
+
+func (r ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest) Execute() (*ResourceInstanceCustomWorkflowResult, *http.Response, error) {
+	return r.ApiService.InventoryApiInvokeResourceInstanceWorkflowVerbExecute(r)
+}
+
+/*
+InventoryApiInvokeResourceInstanceWorkflowVerb InvokeResourceInstanceWorkflowVerb inventory-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serviceId The service ID this workflow belongs to.
+ @param environmentId The service environment ID this workflow belongs to.
+ @param instanceId The resource instance ID.
+ @param verb The provider-defined verb to invoke. The server resolves the verb to a custom workflow ID against the instance's plan version.
+ @return ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest
+*/
+func (a *InventoryApiAPIService) InventoryApiInvokeResourceInstanceWorkflowVerb(ctx context.Context, serviceId string, environmentId string, instanceId string, verb string) ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest {
+	return ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest{
+		ApiService: a,
+		ctx: ctx,
+		serviceId: serviceId,
+		environmentId: environmentId,
+		instanceId: instanceId,
+		verb: verb,
+	}
+}
+
+// Execute executes the request
+//  @return ResourceInstanceCustomWorkflowResult
+func (a *InventoryApiAPIService) InventoryApiInvokeResourceInstanceWorkflowVerbExecute(r ApiInventoryApiInvokeResourceInstanceWorkflowVerbRequest) (*ResourceInstanceCustomWorkflowResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ResourceInstanceCustomWorkflowResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiInvokeResourceInstanceWorkflowVerb")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/resource-instance/{instanceId}/workflow/{verb}"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentId"+"}", url.PathEscape(parameterValueToString(r.environmentId, "environmentId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"verb"+"}", url.PathEscape(parameterValueToString(r.verb, "verb")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.fleetInvokeResourceInstanceWorkflowVerbRequest2 == nil {
+		return localVarReturnValue, nil, reportError("fleetInvokeResourceInstanceWorkflowVerbRequest2 is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.fleetInvokeResourceInstanceWorkflowVerbRequest2
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -14420,6 +15034,195 @@ func (a *InventoryApiAPIService) InventoryApiResendVerificationEmailExecute(r Ap
 	return localVarHTTPResponse, nil
 }
 
+type ApiInventoryApiResourceInstanceCustomWorkflowRequest struct {
+	ctx context.Context
+	ApiService InventoryApiAPI
+	serviceId string
+	environmentId string
+	instanceId string
+	workflowId string
+	fleetResourceInstanceCustomWorkflowRequest2 *FleetResourceInstanceCustomWorkflowRequest2
+}
+
+func (r ApiInventoryApiResourceInstanceCustomWorkflowRequest) FleetResourceInstanceCustomWorkflowRequest2(fleetResourceInstanceCustomWorkflowRequest2 FleetResourceInstanceCustomWorkflowRequest2) ApiInventoryApiResourceInstanceCustomWorkflowRequest {
+	r.fleetResourceInstanceCustomWorkflowRequest2 = &fleetResourceInstanceCustomWorkflowRequest2
+	return r
+}
+
+func (r ApiInventoryApiResourceInstanceCustomWorkflowRequest) Execute() (*ResourceInstanceCustomWorkflowResult, *http.Response, error) {
+	return r.ApiService.InventoryApiResourceInstanceCustomWorkflowExecute(r)
+}
+
+/*
+InventoryApiResourceInstanceCustomWorkflow ResourceInstanceCustomWorkflow inventory-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serviceId The service ID this workflow belongs to.
+ @param environmentId The service environment ID this workflow belongs to.
+ @param instanceId The resource instance ID.
+ @param workflowId The custom workflow ID from the instance's supportedOperations list.
+ @return ApiInventoryApiResourceInstanceCustomWorkflowRequest
+*/
+func (a *InventoryApiAPIService) InventoryApiResourceInstanceCustomWorkflow(ctx context.Context, serviceId string, environmentId string, instanceId string, workflowId string) ApiInventoryApiResourceInstanceCustomWorkflowRequest {
+	return ApiInventoryApiResourceInstanceCustomWorkflowRequest{
+		ApiService: a,
+		ctx: ctx,
+		serviceId: serviceId,
+		environmentId: environmentId,
+		instanceId: instanceId,
+		workflowId: workflowId,
+	}
+}
+
+// Execute executes the request
+//  @return ResourceInstanceCustomWorkflowResult
+func (a *InventoryApiAPIService) InventoryApiResourceInstanceCustomWorkflowExecute(r ApiInventoryApiResourceInstanceCustomWorkflowRequest) (*ResourceInstanceCustomWorkflowResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ResourceInstanceCustomWorkflowResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryApiAPIService.InventoryApiResourceInstanceCustomWorkflow")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/custom-workflow/{workflowId}/execute"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentId"+"}", url.PathEscape(parameterValueToString(r.environmentId, "environmentId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"workflowId"+"}", url.PathEscape(parameterValueToString(r.workflowId, "workflowId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.fleetResourceInstanceCustomWorkflowRequest2 == nil {
+		return localVarReturnValue, nil, reportError("fleetResourceInstanceCustomWorkflowRequest2 is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.fleetResourceInstanceCustomWorkflowRequest2
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiInventoryApiRestartResourceInstanceRequest struct {
 	ctx context.Context
 	ApiService InventoryApiAPI
@@ -16645,6 +17448,7 @@ type ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest struct {
 	ctx context.Context
 	ApiService InventoryApiAPI
 	id string
+	region string
 	cloudNativeNetworkId string
 }
 
@@ -16659,14 +17463,16 @@ Unimport a cloud native network, reverting it from READY to AVAILABLE
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Account Config ID to operate on
- @param cloudNativeNetworkId The cloud provider network ID (e.g. AWS VPC ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
+ @param region The deployment region whose cloud native network row should be unimported
+ @param cloudNativeNetworkId The provider-native network ID to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
  @return ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest
 */
-func (a *InventoryApiAPIService) InventoryApiUnimportAccountConfigCloudNativeNetwork(ctx context.Context, id string, cloudNativeNetworkId string) ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest {
+func (a *InventoryApiAPIService) InventoryApiUnimportAccountConfigCloudNativeNetwork(ctx context.Context, id string, region string, cloudNativeNetworkId string) ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest {
 	return ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
+		region: region,
 		cloudNativeNetworkId: cloudNativeNetworkId,
 	}
 }
@@ -16686,8 +17492,9 @@ func (a *InventoryApiAPIService) InventoryApiUnimportAccountConfigCloudNativeNet
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{cloudNativeNetworkId}/unimport"
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/account-config/{id}/cloud-native-networks/{region}/{cloudNativeNetworkId}/unimport"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"region"+"}", url.PathEscape(parameterValueToString(r.region, "region")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"cloudNativeNetworkId"+"}", url.PathEscape(parameterValueToString(r.cloudNativeNetworkId, "cloudNativeNetworkId")), -1)
 
 	localVarHeaderParams := make(map[string]string)

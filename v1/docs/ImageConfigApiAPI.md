@@ -175,8 +175,8 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID
 	id := "imgc-12345678" // string | The image configuration ID
-	productTierVersion := "Recusandae vel voluptatum accusantium necessitatibus repellat iste." // string | Product tier version of the image config to describe. If not specified, the latest version is described. (optional)
-	productTierId := "Qui consequatur a voluptatem." // string | ProductTierId of the image config to describe. Needs to specified in combination with the product tier version (optional)
+	productTierVersion := "Error in ut in vel sint non." // string | Product tier version of the image config to describe. If not specified, the latest version is described. (optional)
+	productTierId := "Ad a officiis est nobis debitis eos." // string | ProductTierId of the image config to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

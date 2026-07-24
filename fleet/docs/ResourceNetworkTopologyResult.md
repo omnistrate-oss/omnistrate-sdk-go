@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **ClusterEndpoint** | **string** | The primary cluster endpoint that load-balances across replicas of this resource | 
 **ClusterPorts** | Pointer to **[]int64** | The ports that the whole cluster exposes | [optional] 
 **CustomDNSEndpoint** | Pointer to [**CustomDNSEndpoint**](CustomDNSEndpoint.md) |  | [optional] 
+**Disabled** | Pointer to **bool** | Whether this resource deployment is disabled | [optional] [default to false]
 **HasCompute** | **bool** | Whether this resource has associated compute | 
 **IsJob** | Pointer to **bool** | Whether this resource is a job | [optional] [default to false]
 **JobMetrics** | Pointer to [**[]JobMetric**](JobMetric.md) | The job metrics for this resource (if it&#39;s a job) | [optional] 
@@ -158,6 +159,31 @@ SetCustomDNSEndpoint sets CustomDNSEndpoint field to given value.
 `func (o *ResourceNetworkTopologyResult) HasCustomDNSEndpoint() bool`
 
 HasCustomDNSEndpoint returns a boolean if a field has been set.
+
+### GetDisabled
+
+`func (o *ResourceNetworkTopologyResult) GetDisabled() bool`
+
+GetDisabled returns the Disabled field if non-nil, zero value otherwise.
+
+### GetDisabledOk
+
+`func (o *ResourceNetworkTopologyResult) GetDisabledOk() (*bool, bool)`
+
+GetDisabledOk returns a tuple with the Disabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisabled
+
+`func (o *ResourceNetworkTopologyResult) SetDisabled(v bool)`
+
+SetDisabled sets Disabled field to given value.
+
+### HasDisabled
+
+`func (o *ResourceNetworkTopologyResult) HasDisabled() bool`
+
+HasDisabled returns a boolean if a field has been set.
 
 ### GetHasCompute
 

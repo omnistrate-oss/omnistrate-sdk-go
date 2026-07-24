@@ -30,6 +30,8 @@ type FleetDescribeHostClusterResult struct {
 	CreatedAt *string `json:"createdAt,omitempty"`
 	// The endpoint to access the dashboard
 	DashboardEndpoint *string `json:"dashboardEndpoint,omitempty"`
+	// The deployment instances tags associated with resource instances in the host cluster.
+	DeploymentInstancesTags []CustomTag `json:"deploymentInstancesTags,omitempty"`
 	// The GCP project ID
 	GcpProjectID *string `json:"gcpProjectID,omitempty"`
 	// ID of a Host Cluster
@@ -224,6 +226,38 @@ func (o *FleetDescribeHostClusterResult) HasDashboardEndpoint() bool {
 // SetDashboardEndpoint gets a reference to the given string and assigns it to the DashboardEndpoint field.
 func (o *FleetDescribeHostClusterResult) SetDashboardEndpoint(v string) {
 	o.DashboardEndpoint = &v
+}
+
+// GetDeploymentInstancesTags returns the DeploymentInstancesTags field value if set, zero value otherwise.
+func (o *FleetDescribeHostClusterResult) GetDeploymentInstancesTags() []CustomTag {
+	if o == nil || IsNil(o.DeploymentInstancesTags) {
+		var ret []CustomTag
+		return ret
+	}
+	return o.DeploymentInstancesTags
+}
+
+// GetDeploymentInstancesTagsOk returns a tuple with the DeploymentInstancesTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeHostClusterResult) GetDeploymentInstancesTagsOk() ([]CustomTag, bool) {
+	if o == nil || IsNil(o.DeploymentInstancesTags) {
+		return nil, false
+	}
+	return o.DeploymentInstancesTags, true
+}
+
+// HasDeploymentInstancesTags returns a boolean if a field has been set.
+func (o *FleetDescribeHostClusterResult) HasDeploymentInstancesTags() bool {
+	if o != nil && !IsNil(o.DeploymentInstancesTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeploymentInstancesTags gets a reference to the given []CustomTag and assigns it to the DeploymentInstancesTags field.
+func (o *FleetDescribeHostClusterResult) SetDeploymentInstancesTags(v []CustomTag) {
+	o.DeploymentInstancesTags = v
 }
 
 // GetGcpProjectID returns the GcpProjectID field value if set, zero value otherwise.
@@ -505,6 +539,9 @@ func (o FleetDescribeHostClusterResult) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.DashboardEndpoint) {
 		toSerialize["dashboardEndpoint"] = o.DashboardEndpoint
 	}
+	if !IsNil(o.DeploymentInstancesTags) {
+		toSerialize["deploymentInstancesTags"] = o.DeploymentInstancesTags
+	}
 	if !IsNil(o.GcpProjectID) {
 		toSerialize["gcpProjectID"] = o.GcpProjectID
 	}
@@ -576,6 +613,7 @@ func (o *FleetDescribeHostClusterResult) UnmarshalJSON(data []byte) (err error) 
 		delete(additionalProperties, "cloudProvider")
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "dashboardEndpoint")
+		delete(additionalProperties, "deploymentInstancesTags")
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "isBYOCOnPrem")

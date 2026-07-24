@@ -19,6 +19,8 @@ var _ MappedNullable = &UpdateSaaSPortalRequest2{}
 
 // UpdateSaaSPortalRequest2 struct for UpdateSaaSPortalRequest2
 type UpdateSaaSPortalRequest2 struct {
+	// The API key value for the SaaS portal
+	ApiKeyValue *string `json:"apiKeyValue,omitempty"`
 	// The custom domain for the SaaS portal
 	CustomDomain *string `json:"customDomain,omitempty"`
 	// Whether to disable password login for the SaaS portal
@@ -47,6 +49,29 @@ func NewUpdateSaaSPortalRequest2() *UpdateSaaSPortalRequest2 {
 func NewUpdateSaaSPortalRequest2WithDefaults() *UpdateSaaSPortalRequest2 {
 	this := UpdateSaaSPortalRequest2{}
 	return &this
+}
+
+// GetApiKeyValue returns the ApiKeyValue field value if set, zero value otherwise.
+func (o *UpdateSaaSPortalRequest2) GetApiKeyValue() string {
+	if o == nil || IsNil(o.ApiKeyValue) {
+		var ret string
+		return ret
+	}
+	return *o.ApiKeyValue
+}
+
+// GetApiKeyValueOk returns a tuple with the ApiKeyValue field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateSaaSPortalRequest2) GetApiKeyValueOk() (*string, bool) {
+	if o == nil || IsNil(o.ApiKeyValue) {
+		return nil, false
+	}
+	return o.ApiKeyValue, true
+}
+
+// SetApiKeyValue gets a reference to the given string and assigns it to the ApiKeyValue field.
+func (o *UpdateSaaSPortalRequest2) SetApiKeyValue(v string) {
+	o.ApiKeyValue = &v
 }
 
 // GetCustomDomain returns the CustomDomain field value if set, zero value otherwise.
@@ -174,6 +199,9 @@ func (o UpdateSaaSPortalRequest2) MarshalJSON() ([]byte, error) {
 
 func (o UpdateSaaSPortalRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ApiKeyValue) {
+		toSerialize["apiKeyValue"] = o.ApiKeyValue
+	}
 	if !IsNil(o.CustomDomain) {
 		toSerialize["customDomain"] = o.CustomDomain
 	}
@@ -211,6 +239,7 @@ func (o *UpdateSaaSPortalRequest2) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "apiKeyValue")
 		delete(additionalProperties, "customDomain")
 		delete(additionalProperties, "disablePasswordLogin")
 		delete(additionalProperties, "emailConfig")

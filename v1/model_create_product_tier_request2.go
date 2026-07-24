@@ -32,6 +32,8 @@ type CreateProductTierRequest2 struct {
 	BillingProductID *string `json:"billingProductID,omitempty"`
 	// List of billing providers to be used for the product tier
 	BillingProviders []string `json:"billingProviders,omitempty"`
+	// The BYOC on-prem regions that this product tier is available on
+	ByocOnpremRegions []string `json:"byocOnpremRegions,omitempty"`
 	// The default billing provider to be used for the product tier
 	DefaultBillingProvider *string `json:"defaultBillingProvider,omitempty"`
 	DeploymentConfiguration *ProductTierDeploymentConfiguration `json:"deploymentConfiguration,omitempty"`
@@ -236,6 +238,29 @@ func (o *CreateProductTierRequest2) GetBillingProvidersOk() ([]string, bool) {
 // SetBillingProviders gets a reference to the given []string and assigns it to the BillingProviders field.
 func (o *CreateProductTierRequest2) SetBillingProviders(v []string) {
 	o.BillingProviders = v
+}
+
+// GetByocOnpremRegions returns the ByocOnpremRegions field value if set, zero value otherwise.
+func (o *CreateProductTierRequest2) GetByocOnpremRegions() []string {
+	if o == nil || IsNil(o.ByocOnpremRegions) {
+		var ret []string
+		return ret
+	}
+	return o.ByocOnpremRegions
+}
+
+// GetByocOnpremRegionsOk returns a tuple with the ByocOnpremRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateProductTierRequest2) GetByocOnpremRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ByocOnpremRegions) {
+		return nil, false
+	}
+	return o.ByocOnpremRegions, true
+}
+
+// SetByocOnpremRegions gets a reference to the given []string and assigns it to the ByocOnpremRegions field.
+func (o *CreateProductTierRequest2) SetByocOnpremRegions(v []string) {
+	o.ByocOnpremRegions = v
 }
 
 // GetDefaultBillingProvider returns the DefaultBillingProvider field value if set, zero value otherwise.
@@ -755,6 +780,9 @@ func (o CreateProductTierRequest2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.BillingProviders) {
 		toSerialize["billingProviders"] = o.BillingProviders
 	}
+	if !IsNil(o.ByocOnpremRegions) {
+		toSerialize["byocOnpremRegions"] = o.ByocOnpremRegions
+	}
 	if !IsNil(o.DefaultBillingProvider) {
 		toSerialize["defaultBillingProvider"] = o.DefaultBillingProvider
 	}
@@ -861,6 +889,7 @@ func (o *CreateProductTierRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "azureRegions")
 		delete(additionalProperties, "billingProductID")
 		delete(additionalProperties, "billingProviders")
+		delete(additionalProperties, "byocOnpremRegions")
 		delete(additionalProperties, "defaultBillingProvider")
 		delete(additionalProperties, "deploymentConfiguration")
 		delete(additionalProperties, "description")

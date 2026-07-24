@@ -19,7 +19,7 @@ var _ MappedNullable = &FleetSyncAccountConfigCloudNativeNetworksRequest2{}
 
 // FleetSyncAccountConfigCloudNativeNetworksRequest2 struct for FleetSyncAccountConfigCloudNativeNetworksRequest2
 type FleetSyncAccountConfigCloudNativeNetworksRequest2 struct {
-	// Optional list of (region, cloudNativeNetworkId) targets to sync. Each target is {region (required), cloudNativeNetworkId (optional)}: with the network ID set, only that VPC is re-validated; with the network ID omitted, every VPC in the region is enumerated. If the entire list is empty, the sync sweeps every region the account is enabled in (derived from the service plan).
+	// Optional list of (region, cloudNativeNetworkId) targets to sync. Each target is {region (required), cloudNativeNetworkId (optional)}: with the network ID set, only that network is re-validated; with the network ID omitted, every supported network in the region is enumerated. If the entire list is empty, the sync sweeps every region the account is enabled in (derived from the service plan).
 	CloudNativeNetworks []FleetSyncAccountConfigCloudNativeNetworkTarget `json:"cloudNativeNetworks,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

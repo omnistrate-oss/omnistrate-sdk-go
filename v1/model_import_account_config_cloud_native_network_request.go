@@ -20,10 +20,12 @@ var _ MappedNullable = &ImportAccountConfigCloudNativeNetworkRequest{}
 
 // ImportAccountConfigCloudNativeNetworkRequest struct for ImportAccountConfigCloudNativeNetworkRequest
 type ImportAccountConfigCloudNativeNetworkRequest struct {
-	// The cloud provider network ID (e.g. AWS VPC ID) to import for deployments
+	// The provider-native network ID to import for deployments
 	CloudNativeNetworkId string `json:"cloudNativeNetworkId"`
 	// ID of an Account Config
 	Id string `json:"id"`
+	// The deployment region whose validated subnetworks should be imported
+	Region string `json:"region"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -35,10 +37,11 @@ type _ImportAccountConfigCloudNativeNetworkRequest ImportAccountConfigCloudNativ
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewImportAccountConfigCloudNativeNetworkRequest(cloudNativeNetworkId string, id string, token string) *ImportAccountConfigCloudNativeNetworkRequest {
+func NewImportAccountConfigCloudNativeNetworkRequest(cloudNativeNetworkId string, id string, region string, token string) *ImportAccountConfigCloudNativeNetworkRequest {
 	this := ImportAccountConfigCloudNativeNetworkRequest{}
 	this.CloudNativeNetworkId = cloudNativeNetworkId
 	this.Id = id
+	this.Region = region
 	this.Token = token
 	return &this
 }
@@ -99,6 +102,30 @@ func (o *ImportAccountConfigCloudNativeNetworkRequest) SetId(v string) {
 	o.Id = v
 }
 
+// GetRegion returns the Region field value
+func (o *ImportAccountConfigCloudNativeNetworkRequest) GetRegion() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Region
+}
+
+// GetRegionOk returns a tuple with the Region field value
+// and a boolean to check if the value has been set.
+func (o *ImportAccountConfigCloudNativeNetworkRequest) GetRegionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Region, true
+}
+
+// SetRegion sets field value
+func (o *ImportAccountConfigCloudNativeNetworkRequest) SetRegion(v string) {
+	o.Region = v
+}
+
 // GetToken returns the Token field value
 func (o *ImportAccountConfigCloudNativeNetworkRequest) GetToken() string {
 	if o == nil {
@@ -135,6 +162,7 @@ func (o ImportAccountConfigCloudNativeNetworkRequest) ToMap() (map[string]interf
 	toSerialize := map[string]interface{}{}
 	toSerialize["cloudNativeNetworkId"] = o.CloudNativeNetworkId
 	toSerialize["id"] = o.Id
+	toSerialize["region"] = o.Region
 	toSerialize["token"] = o.Token
 
 	for key, value := range o.AdditionalProperties {
@@ -151,6 +179,7 @@ func (o *ImportAccountConfigCloudNativeNetworkRequest) UnmarshalJSON(data []byte
 	requiredProperties := []string{
 		"cloudNativeNetworkId",
 		"id",
+		"region",
 		"token",
 	}
 
@@ -183,6 +212,7 @@ func (o *ImportAccountConfigCloudNativeNetworkRequest) UnmarshalJSON(data []byte
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "cloudNativeNetworkId")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "region")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

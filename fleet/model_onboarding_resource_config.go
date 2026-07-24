@@ -23,7 +23,9 @@ type OnboardingResourceConfig struct {
 	CustomerVariables []OnboardingCustomerVariable `json:"customerVariables,omitempty"`
 	// The resources in this onboarding.
 	Resources []OnboardingResource `json:"resources,omitempty"`
-	// The workplace path for the resource.
+	// Tracks whether the customer configured Terraform permissions per cloud provider.
+	TerraformPermissionConfigured *map[string]bool `json:"terraformPermissionConfigured,omitempty"`
+	// Deprecated. The workplace path for the resource.
 	WorkplacePath *string `json:"workplacePath,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -111,6 +113,38 @@ func (o *OnboardingResourceConfig) SetResources(v []OnboardingResource) {
 	o.Resources = v
 }
 
+// GetTerraformPermissionConfigured returns the TerraformPermissionConfigured field value if set, zero value otherwise.
+func (o *OnboardingResourceConfig) GetTerraformPermissionConfigured() map[string]bool {
+	if o == nil || IsNil(o.TerraformPermissionConfigured) {
+		var ret map[string]bool
+		return ret
+	}
+	return *o.TerraformPermissionConfigured
+}
+
+// GetTerraformPermissionConfiguredOk returns a tuple with the TerraformPermissionConfigured field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OnboardingResourceConfig) GetTerraformPermissionConfiguredOk() (*map[string]bool, bool) {
+	if o == nil || IsNil(o.TerraformPermissionConfigured) {
+		return nil, false
+	}
+	return o.TerraformPermissionConfigured, true
+}
+
+// HasTerraformPermissionConfigured returns a boolean if a field has been set.
+func (o *OnboardingResourceConfig) HasTerraformPermissionConfigured() bool {
+	if o != nil && !IsNil(o.TerraformPermissionConfigured) {
+		return true
+	}
+
+	return false
+}
+
+// SetTerraformPermissionConfigured gets a reference to the given map[string]bool and assigns it to the TerraformPermissionConfigured field.
+func (o *OnboardingResourceConfig) SetTerraformPermissionConfigured(v map[string]bool) {
+	o.TerraformPermissionConfigured = &v
+}
+
 // GetWorkplacePath returns the WorkplacePath field value if set, zero value otherwise.
 func (o *OnboardingResourceConfig) GetWorkplacePath() string {
 	if o == nil || IsNil(o.WorkplacePath) {
@@ -159,6 +193,9 @@ func (o OnboardingResourceConfig) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Resources) {
 		toSerialize["resources"] = o.Resources
 	}
+	if !IsNil(o.TerraformPermissionConfigured) {
+		toSerialize["terraformPermissionConfigured"] = o.TerraformPermissionConfigured
+	}
 	if !IsNil(o.WorkplacePath) {
 		toSerialize["workplacePath"] = o.WorkplacePath
 	}
@@ -186,6 +223,7 @@ func (o *OnboardingResourceConfig) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "customerVariables")
 		delete(additionalProperties, "resources")
+		delete(additionalProperties, "terraformPermissionConfigured")
 		delete(additionalProperties, "workplacePath")
 		o.AdditionalProperties = additionalProperties
 	}

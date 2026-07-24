@@ -22,6 +22,8 @@ var _ MappedNullable = &DeploymentCellWorkflowEvent{}
 type DeploymentCellWorkflowEvent struct {
 	// The error message if the event represents a failure
 	Error *string `json:"error,omitempty"`
+	// Stable error code from the workflow error taxonomy, present on failure events
+	ErrorCode *string `json:"errorCode,omitempty"`
 	// The time the event occurred in RFC3339 format
 	EventTime string `json:"eventTime"`
 	// The type of the workflow event
@@ -83,6 +85,38 @@ func (o *DeploymentCellWorkflowEvent) HasError() bool {
 // SetError gets a reference to the given string and assigns it to the Error field.
 func (o *DeploymentCellWorkflowEvent) SetError(v string) {
 	o.Error = &v
+}
+
+// GetErrorCode returns the ErrorCode field value if set, zero value otherwise.
+func (o *DeploymentCellWorkflowEvent) GetErrorCode() string {
+	if o == nil || IsNil(o.ErrorCode) {
+		var ret string
+		return ret
+	}
+	return *o.ErrorCode
+}
+
+// GetErrorCodeOk returns a tuple with the ErrorCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellWorkflowEvent) GetErrorCodeOk() (*string, bool) {
+	if o == nil || IsNil(o.ErrorCode) {
+		return nil, false
+	}
+	return o.ErrorCode, true
+}
+
+// HasErrorCode returns a boolean if a field has been set.
+func (o *DeploymentCellWorkflowEvent) HasErrorCode() bool {
+	if o != nil && !IsNil(o.ErrorCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetErrorCode gets a reference to the given string and assigns it to the ErrorCode field.
+func (o *DeploymentCellWorkflowEvent) SetErrorCode(v string) {
+	o.ErrorCode = &v
 }
 
 // GetEventTime returns the EventTime field value
@@ -170,6 +204,9 @@ func (o DeploymentCellWorkflowEvent) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Error) {
 		toSerialize["error"] = o.Error
 	}
+	if !IsNil(o.ErrorCode) {
+		toSerialize["errorCode"] = o.ErrorCode
+	}
 	toSerialize["eventTime"] = o.EventTime
 	toSerialize["eventType"] = o.EventType
 	toSerialize["message"] = o.Message
@@ -219,6 +256,7 @@ func (o *DeploymentCellWorkflowEvent) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "error")
+		delete(additionalProperties, "errorCode")
 		delete(additionalProperties, "eventTime")
 		delete(additionalProperties, "eventType")
 		delete(additionalProperties, "message")

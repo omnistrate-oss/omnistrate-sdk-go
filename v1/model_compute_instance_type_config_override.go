@@ -28,6 +28,8 @@ type ComputeInstanceTypeConfigOverride struct {
 	// Labels for the compute instance type config
 	Labels *map[string]string `json:"labels,omitempty"`
 	LocalNvmeSsdBlockConfig *LocalNvmeSsdBlockConfig `json:"localNvmeSsdBlockConfig,omitempty"`
+	// MIG profile to apply to this compute instance type config for providers that support per-node-pool GPU partitioning
+	MigProfile *string `json:"migProfile,omitempty"`
 	// Operating system family for AWS instance type override (supported only for AWS)
 	OsFamily *string `json:"osFamily,omitempty"`
 	// First-class platform selector for cloud providers that require more than a single instance type string (for example Nebius)
@@ -38,6 +40,8 @@ type ComputeInstanceTypeConfigOverride struct {
 	RootVolumeSizeGiAPIParam *string `json:"rootVolumeSizeGiAPIParam,omitempty"`
 	// Taints for the compute instance type config
 	Taints []TaintConfiguration `json:"taints,omitempty"`
+	// Number of time-sliced GPU replicas to expose from each physical GPU for providers that support per-node-pool GPU time slicing
+	TimeSlicingReplicas *int64 `json:"timeSlicingReplicas,omitempty"`
 	WarmPoolConfiguration *WarmPoolConfiguration `json:"warmPoolConfiguration,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -199,6 +203,29 @@ func (o *ComputeInstanceTypeConfigOverride) SetLocalNvmeSsdBlockConfig(v LocalNv
 	o.LocalNvmeSsdBlockConfig = &v
 }
 
+// GetMigProfile returns the MigProfile field value if set, zero value otherwise.
+func (o *ComputeInstanceTypeConfigOverride) GetMigProfile() string {
+	if o == nil || IsNil(o.MigProfile) {
+		var ret string
+		return ret
+	}
+	return *o.MigProfile
+}
+
+// GetMigProfileOk returns a tuple with the MigProfile field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeInstanceTypeConfigOverride) GetMigProfileOk() (*string, bool) {
+	if o == nil || IsNil(o.MigProfile) {
+		return nil, false
+	}
+	return o.MigProfile, true
+}
+
+// SetMigProfile gets a reference to the given string and assigns it to the MigProfile field.
+func (o *ComputeInstanceTypeConfigOverride) SetMigProfile(v string) {
+	o.MigProfile = &v
+}
+
 // GetOsFamily returns the OsFamily field value if set, zero value otherwise.
 func (o *ComputeInstanceTypeConfigOverride) GetOsFamily() string {
 	if o == nil || IsNil(o.OsFamily) {
@@ -314,6 +341,29 @@ func (o *ComputeInstanceTypeConfigOverride) SetTaints(v []TaintConfiguration) {
 	o.Taints = v
 }
 
+// GetTimeSlicingReplicas returns the TimeSlicingReplicas field value if set, zero value otherwise.
+func (o *ComputeInstanceTypeConfigOverride) GetTimeSlicingReplicas() int64 {
+	if o == nil || IsNil(o.TimeSlicingReplicas) {
+		var ret int64
+		return ret
+	}
+	return *o.TimeSlicingReplicas
+}
+
+// GetTimeSlicingReplicasOk returns a tuple with the TimeSlicingReplicas field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeInstanceTypeConfigOverride) GetTimeSlicingReplicasOk() (*int64, bool) {
+	if o == nil || IsNil(o.TimeSlicingReplicas) {
+		return nil, false
+	}
+	return o.TimeSlicingReplicas, true
+}
+
+// SetTimeSlicingReplicas gets a reference to the given int64 and assigns it to the TimeSlicingReplicas field.
+func (o *ComputeInstanceTypeConfigOverride) SetTimeSlicingReplicas(v int64) {
+	o.TimeSlicingReplicas = &v
+}
+
 // GetWarmPoolConfiguration returns the WarmPoolConfiguration field value if set, zero value otherwise.
 func (o *ComputeInstanceTypeConfigOverride) GetWarmPoolConfiguration() WarmPoolConfiguration {
 	if o == nil || IsNil(o.WarmPoolConfiguration) {
@@ -365,6 +415,9 @@ func (o ComputeInstanceTypeConfigOverride) ToMap() (map[string]interface{}, erro
 	if !IsNil(o.LocalNvmeSsdBlockConfig) {
 		toSerialize["localNvmeSsdBlockConfig"] = o.LocalNvmeSsdBlockConfig
 	}
+	if !IsNil(o.MigProfile) {
+		toSerialize["migProfile"] = o.MigProfile
+	}
 	if !IsNil(o.OsFamily) {
 		toSerialize["osFamily"] = o.OsFamily
 	}
@@ -379,6 +432,9 @@ func (o ComputeInstanceTypeConfigOverride) ToMap() (map[string]interface{}, erro
 	}
 	if !IsNil(o.Taints) {
 		toSerialize["taints"] = o.Taints
+	}
+	if !IsNil(o.TimeSlicingReplicas) {
+		toSerialize["timeSlicingReplicas"] = o.TimeSlicingReplicas
 	}
 	if !IsNil(o.WarmPoolConfiguration) {
 		toSerialize["warmPoolConfiguration"] = o.WarmPoolConfiguration
@@ -411,11 +467,13 @@ func (o *ComputeInstanceTypeConfigOverride) UnmarshalJSON(data []byte) (err erro
 		delete(additionalProperties, "instanceLifeCycleType")
 		delete(additionalProperties, "labels")
 		delete(additionalProperties, "localNvmeSsdBlockConfig")
+		delete(additionalProperties, "migProfile")
 		delete(additionalProperties, "osFamily")
 		delete(additionalProperties, "platform")
 		delete(additionalProperties, "rootVolumeSizeGi")
 		delete(additionalProperties, "rootVolumeSizeGiAPIParam")
 		delete(additionalProperties, "taints")
+		delete(additionalProperties, "timeSlicingReplicas")
 		delete(additionalProperties, "warmPoolConfiguration")
 		o.AdditionalProperties = additionalProperties
 	}
