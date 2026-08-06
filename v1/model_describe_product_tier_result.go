@@ -45,6 +45,8 @@ type DescribeProductTierResult struct {
 	DeploymentConfiguration *ProductTierDeploymentConfiguration `json:"deploymentConfiguration,omitempty"`
 	// A brief description of the product tier
 	Description string `json:"description"`
+	// Whether Stripe invoice generation is disabled for this product tier
+	DisableInvoiceGeneration *bool `json:"disableInvoiceGeneration,omitempty"`
 	// Documentation
 	Documentation string `json:"documentation"`
 	// Enable deletion protection for the product tier
@@ -424,6 +426,29 @@ func (o *DescribeProductTierResult) GetDescriptionOk() (*string, bool) {
 // SetDescription sets field value
 func (o *DescribeProductTierResult) SetDescription(v string) {
 	o.Description = v
+}
+
+// GetDisableInvoiceGeneration returns the DisableInvoiceGeneration field value if set, zero value otherwise.
+func (o *DescribeProductTierResult) GetDisableInvoiceGeneration() bool {
+	if o == nil || IsNil(o.DisableInvoiceGeneration) {
+		var ret bool
+		return ret
+	}
+	return *o.DisableInvoiceGeneration
+}
+
+// GetDisableInvoiceGenerationOk returns a tuple with the DisableInvoiceGeneration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeProductTierResult) GetDisableInvoiceGenerationOk() (*bool, bool) {
+	if o == nil || IsNil(o.DisableInvoiceGeneration) {
+		return nil, false
+	}
+	return o.DisableInvoiceGeneration, true
+}
+
+// SetDisableInvoiceGeneration gets a reference to the given bool and assigns it to the DisableInvoiceGeneration field.
+func (o *DescribeProductTierResult) SetDisableInvoiceGeneration(v bool) {
+	o.DisableInvoiceGeneration = &v
 }
 
 // GetDocumentation returns the Documentation field value
@@ -1016,6 +1041,9 @@ func (o DescribeProductTierResult) ToMap() (map[string]interface{}, error) {
 		toSerialize["deploymentConfiguration"] = o.DeploymentConfiguration
 	}
 	toSerialize["description"] = o.Description
+	if !IsNil(o.DisableInvoiceGeneration) {
+		toSerialize["disableInvoiceGeneration"] = o.DisableInvoiceGeneration
+	}
 	toSerialize["documentation"] = o.Documentation
 	toSerialize["enableDeletionProtection"] = o.EnableDeletionProtection
 	if !IsNil(o.EnabledFeatures) {
@@ -1131,6 +1159,7 @@ func (o *DescribeProductTierResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "deploymentArtifactIDs")
 		delete(additionalProperties, "deploymentConfiguration")
 		delete(additionalProperties, "description")
+		delete(additionalProperties, "disableInvoiceGeneration")
 		delete(additionalProperties, "documentation")
 		delete(additionalProperties, "enableDeletionProtection")
 		delete(additionalProperties, "enabledFeatures")

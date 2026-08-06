@@ -4,7 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AgentInfrastructureMutationStatus** | Pointer to **string** | AWS infrastructure mutation access status reported by the dataplane agent. Possible values: ENABLED, BLOCKED, UNKNOWN | [optional] 
+**AgentInfrastructureMutationStatusReason** | Pointer to **string** | Human-readable reason for the AWS infrastructure mutation access status | [optional] 
 **FailedEntities** | Pointer to [**[]EntityHealth**](EntityHealth.md) | List of entities that have failed health checks | [optional] 
+**K8sDebugAccessStatus** | Pointer to **string** | Kubernetes debug access status reported by the dataplane agent. Possible values: ENABLED, BLOCKED, UNKNOWN | [optional] 
+**K8sDebugAccessStatusReason** | Pointer to **string** | Human-readable reason for the Kubernetes debug access status | [optional] 
 **KubernetesControlPlaneVersion** | **string** | Version of the Kubernetes control plane running in the host cluster | 
 **OverallStatus** | **string** | The heath status of a resource | 
 **StatusMessage** | Pointer to **string** | Detailed message about the health status of the host cluster | [optional] 
@@ -34,6 +38,56 @@ NewHostClusterHealthStatusWithDefaults instantiates a new HostClusterHealthStatu
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetAgentInfrastructureMutationStatus
+
+`func (o *HostClusterHealthStatus) GetAgentInfrastructureMutationStatus() string`
+
+GetAgentInfrastructureMutationStatus returns the AgentInfrastructureMutationStatus field if non-nil, zero value otherwise.
+
+### GetAgentInfrastructureMutationStatusOk
+
+`func (o *HostClusterHealthStatus) GetAgentInfrastructureMutationStatusOk() (*string, bool)`
+
+GetAgentInfrastructureMutationStatusOk returns a tuple with the AgentInfrastructureMutationStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAgentInfrastructureMutationStatus
+
+`func (o *HostClusterHealthStatus) SetAgentInfrastructureMutationStatus(v string)`
+
+SetAgentInfrastructureMutationStatus sets AgentInfrastructureMutationStatus field to given value.
+
+### HasAgentInfrastructureMutationStatus
+
+`func (o *HostClusterHealthStatus) HasAgentInfrastructureMutationStatus() bool`
+
+HasAgentInfrastructureMutationStatus returns a boolean if a field has been set.
+
+### GetAgentInfrastructureMutationStatusReason
+
+`func (o *HostClusterHealthStatus) GetAgentInfrastructureMutationStatusReason() string`
+
+GetAgentInfrastructureMutationStatusReason returns the AgentInfrastructureMutationStatusReason field if non-nil, zero value otherwise.
+
+### GetAgentInfrastructureMutationStatusReasonOk
+
+`func (o *HostClusterHealthStatus) GetAgentInfrastructureMutationStatusReasonOk() (*string, bool)`
+
+GetAgentInfrastructureMutationStatusReasonOk returns a tuple with the AgentInfrastructureMutationStatusReason field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAgentInfrastructureMutationStatusReason
+
+`func (o *HostClusterHealthStatus) SetAgentInfrastructureMutationStatusReason(v string)`
+
+SetAgentInfrastructureMutationStatusReason sets AgentInfrastructureMutationStatusReason field to given value.
+
+### HasAgentInfrastructureMutationStatusReason
+
+`func (o *HostClusterHealthStatus) HasAgentInfrastructureMutationStatusReason() bool`
+
+HasAgentInfrastructureMutationStatusReason returns a boolean if a field has been set.
+
 ### GetFailedEntities
 
 `func (o *HostClusterHealthStatus) GetFailedEntities() []EntityHealth`
@@ -58,6 +112,56 @@ SetFailedEntities sets FailedEntities field to given value.
 `func (o *HostClusterHealthStatus) HasFailedEntities() bool`
 
 HasFailedEntities returns a boolean if a field has been set.
+
+### GetK8sDebugAccessStatus
+
+`func (o *HostClusterHealthStatus) GetK8sDebugAccessStatus() string`
+
+GetK8sDebugAccessStatus returns the K8sDebugAccessStatus field if non-nil, zero value otherwise.
+
+### GetK8sDebugAccessStatusOk
+
+`func (o *HostClusterHealthStatus) GetK8sDebugAccessStatusOk() (*string, bool)`
+
+GetK8sDebugAccessStatusOk returns a tuple with the K8sDebugAccessStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetK8sDebugAccessStatus
+
+`func (o *HostClusterHealthStatus) SetK8sDebugAccessStatus(v string)`
+
+SetK8sDebugAccessStatus sets K8sDebugAccessStatus field to given value.
+
+### HasK8sDebugAccessStatus
+
+`func (o *HostClusterHealthStatus) HasK8sDebugAccessStatus() bool`
+
+HasK8sDebugAccessStatus returns a boolean if a field has been set.
+
+### GetK8sDebugAccessStatusReason
+
+`func (o *HostClusterHealthStatus) GetK8sDebugAccessStatusReason() string`
+
+GetK8sDebugAccessStatusReason returns the K8sDebugAccessStatusReason field if non-nil, zero value otherwise.
+
+### GetK8sDebugAccessStatusReasonOk
+
+`func (o *HostClusterHealthStatus) GetK8sDebugAccessStatusReasonOk() (*string, bool)`
+
+GetK8sDebugAccessStatusReasonOk returns a tuple with the K8sDebugAccessStatusReason field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetK8sDebugAccessStatusReason
+
+`func (o *HostClusterHealthStatus) SetK8sDebugAccessStatusReason(v string)`
+
+SetK8sDebugAccessStatusReason sets K8sDebugAccessStatusReason field to given value.
+
+### HasK8sDebugAccessStatusReason
+
+`func (o *HostClusterHealthStatus) HasK8sDebugAccessStatusReason() bool`
+
+HasK8sDebugAccessStatusReason returns a boolean if a field has been set.
 
 ### GetKubernetesControlPlaneVersion
 

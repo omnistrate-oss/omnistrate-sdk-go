@@ -22,12 +22,18 @@ var _ MappedNullable = &OnboardingResourceInputVariable{}
 type OnboardingResourceInputVariable struct {
 	// The default value.
 	DefaultValue *string `json:"defaultValue,omitempty"`
+	// The typed initial value inferred from the artifact default, when one exists.
+	InitialValue interface{} `json:"initialValue,omitempty"`
 	// The variable key.
 	Key string `json:"key"`
+	// Whether the input variable must be supplied because the artifact has no default value.
+	Required *bool `json:"required,omitempty"`
 	// Source input variable name for cross-resource references.
 	SourceInputVariableName *string `json:"sourceInputVariableName,omitempty"`
 	// Source resource name for cross-resource references.
 	SourceResourceName *string `json:"sourceResourceName,omitempty"`
+	// Normalized input variable type inferred from the onboarding artifact.
+	Type *string `json:"type,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -83,6 +89,39 @@ func (o *OnboardingResourceInputVariable) SetDefaultValue(v string) {
 	o.DefaultValue = &v
 }
 
+// GetInitialValue returns the InitialValue field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *OnboardingResourceInputVariable) GetInitialValue() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.InitialValue
+}
+
+// GetInitialValueOk returns a tuple with the InitialValue field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *OnboardingResourceInputVariable) GetInitialValueOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.InitialValue) {
+		return nil, false
+	}
+	return &o.InitialValue, true
+}
+
+// HasInitialValue returns a boolean if a field has been set.
+func (o *OnboardingResourceInputVariable) HasInitialValue() bool {
+	if o != nil && !IsNil(o.InitialValue) {
+		return true
+	}
+
+	return false
+}
+
+// SetInitialValue gets a reference to the given interface{} and assigns it to the InitialValue field.
+func (o *OnboardingResourceInputVariable) SetInitialValue(v interface{}) {
+	o.InitialValue = v
+}
+
 // GetKey returns the Key field value
 func (o *OnboardingResourceInputVariable) GetKey() string {
 	if o == nil {
@@ -105,6 +144,38 @@ func (o *OnboardingResourceInputVariable) GetKeyOk() (*string, bool) {
 // SetKey sets field value
 func (o *OnboardingResourceInputVariable) SetKey(v string) {
 	o.Key = v
+}
+
+// GetRequired returns the Required field value if set, zero value otherwise.
+func (o *OnboardingResourceInputVariable) GetRequired() bool {
+	if o == nil || IsNil(o.Required) {
+		var ret bool
+		return ret
+	}
+	return *o.Required
+}
+
+// GetRequiredOk returns a tuple with the Required field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OnboardingResourceInputVariable) GetRequiredOk() (*bool, bool) {
+	if o == nil || IsNil(o.Required) {
+		return nil, false
+	}
+	return o.Required, true
+}
+
+// HasRequired returns a boolean if a field has been set.
+func (o *OnboardingResourceInputVariable) HasRequired() bool {
+	if o != nil && !IsNil(o.Required) {
+		return true
+	}
+
+	return false
+}
+
+// SetRequired gets a reference to the given bool and assigns it to the Required field.
+func (o *OnboardingResourceInputVariable) SetRequired(v bool) {
+	o.Required = &v
 }
 
 // GetSourceInputVariableName returns the SourceInputVariableName field value if set, zero value otherwise.
@@ -171,6 +242,38 @@ func (o *OnboardingResourceInputVariable) SetSourceResourceName(v string) {
 	o.SourceResourceName = &v
 }
 
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *OnboardingResourceInputVariable) GetType() string {
+	if o == nil || IsNil(o.Type) {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OnboardingResourceInputVariable) GetTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.Type) {
+		return nil, false
+	}
+	return o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *OnboardingResourceInputVariable) HasType() bool {
+	if o != nil && !IsNil(o.Type) {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *OnboardingResourceInputVariable) SetType(v string) {
+	o.Type = &v
+}
+
 func (o OnboardingResourceInputVariable) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -184,12 +287,21 @@ func (o OnboardingResourceInputVariable) ToMap() (map[string]interface{}, error)
 	if !IsNil(o.DefaultValue) {
 		toSerialize["defaultValue"] = o.DefaultValue
 	}
+	if o.InitialValue != nil {
+		toSerialize["initialValue"] = o.InitialValue
+	}
 	toSerialize["key"] = o.Key
+	if !IsNil(o.Required) {
+		toSerialize["required"] = o.Required
+	}
 	if !IsNil(o.SourceInputVariableName) {
 		toSerialize["sourceInputVariableName"] = o.SourceInputVariableName
 	}
 	if !IsNil(o.SourceResourceName) {
 		toSerialize["sourceResourceName"] = o.SourceResourceName
+	}
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -235,9 +347,12 @@ func (o *OnboardingResourceInputVariable) UnmarshalJSON(data []byte) (err error)
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "defaultValue")
+		delete(additionalProperties, "initialValue")
 		delete(additionalProperties, "key")
+		delete(additionalProperties, "required")
 		delete(additionalProperties, "sourceInputVariableName")
 		delete(additionalProperties, "sourceResourceName")
+		delete(additionalProperties, "type")
 		o.AdditionalProperties = additionalProperties
 	}
 

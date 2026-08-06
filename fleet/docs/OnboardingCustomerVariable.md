@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DefaultValue** | Pointer to **string** | The default value. | [optional] 
+**DefaultValue** | Pointer to **interface{}** | The typed default value. | [optional] 
 **Key** | **string** | The variable key. | 
+**Type** | Pointer to **string** | Normalized customer variable type used by generated API parameters. | [optional] 
 
 ## Methods
 
@@ -28,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDefaultValue
 
-`func (o *OnboardingCustomerVariable) GetDefaultValue() string`
+`func (o *OnboardingCustomerVariable) GetDefaultValue() interface{}`
 
 GetDefaultValue returns the DefaultValue field if non-nil, zero value otherwise.
 
 ### GetDefaultValueOk
 
-`func (o *OnboardingCustomerVariable) GetDefaultValueOk() (*string, bool)`
+`func (o *OnboardingCustomerVariable) GetDefaultValueOk() (*interface{}, bool)`
 
 GetDefaultValueOk returns a tuple with the DefaultValue field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultValue
 
-`func (o *OnboardingCustomerVariable) SetDefaultValue(v string)`
+`func (o *OnboardingCustomerVariable) SetDefaultValue(v interface{})`
 
 SetDefaultValue sets DefaultValue field to given value.
 
@@ -51,6 +52,16 @@ SetDefaultValue sets DefaultValue field to given value.
 
 HasDefaultValue returns a boolean if a field has been set.
 
+### SetDefaultValueNil
+
+`func (o *OnboardingCustomerVariable) SetDefaultValueNil(b bool)`
+
+ SetDefaultValueNil sets the value for DefaultValue to be an explicit nil
+
+### UnsetDefaultValue
+`func (o *OnboardingCustomerVariable) UnsetDefaultValue()`
+
+UnsetDefaultValue ensures that no value is present for DefaultValue, not even an explicit nil
 ### GetKey
 
 `func (o *OnboardingCustomerVariable) GetKey() string`
@@ -70,6 +81,31 @@ and a boolean to check if the value has been set.
 
 SetKey sets Key field to given value.
 
+
+### GetType
+
+`func (o *OnboardingCustomerVariable) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *OnboardingCustomerVariable) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *OnboardingCustomerVariable) SetType(v string)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *OnboardingCustomerVariable) HasType() bool`
+
+HasType returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
