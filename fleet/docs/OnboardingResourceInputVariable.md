@@ -5,9 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DefaultValue** | Pointer to **string** | The default value. | [optional] 
+**InitialValue** | Pointer to **interface{}** | The typed initial value inferred from the artifact default, when one exists. | [optional] 
 **Key** | **string** | The variable key. | 
+**Required** | Pointer to **bool** | Whether the input variable must be supplied because the artifact has no default value. | [optional] 
 **SourceInputVariableName** | Pointer to **string** | Source input variable name for cross-resource references. | [optional] 
 **SourceResourceName** | Pointer to **string** | Source resource name for cross-resource references. | [optional] 
+**Type** | Pointer to **string** | Normalized input variable type inferred from the onboarding artifact. | [optional] 
 
 ## Methods
 
@@ -53,6 +56,41 @@ SetDefaultValue sets DefaultValue field to given value.
 
 HasDefaultValue returns a boolean if a field has been set.
 
+### GetInitialValue
+
+`func (o *OnboardingResourceInputVariable) GetInitialValue() interface{}`
+
+GetInitialValue returns the InitialValue field if non-nil, zero value otherwise.
+
+### GetInitialValueOk
+
+`func (o *OnboardingResourceInputVariable) GetInitialValueOk() (*interface{}, bool)`
+
+GetInitialValueOk returns a tuple with the InitialValue field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInitialValue
+
+`func (o *OnboardingResourceInputVariable) SetInitialValue(v interface{})`
+
+SetInitialValue sets InitialValue field to given value.
+
+### HasInitialValue
+
+`func (o *OnboardingResourceInputVariable) HasInitialValue() bool`
+
+HasInitialValue returns a boolean if a field has been set.
+
+### SetInitialValueNil
+
+`func (o *OnboardingResourceInputVariable) SetInitialValueNil(b bool)`
+
+ SetInitialValueNil sets the value for InitialValue to be an explicit nil
+
+### UnsetInitialValue
+`func (o *OnboardingResourceInputVariable) UnsetInitialValue()`
+
+UnsetInitialValue ensures that no value is present for InitialValue, not even an explicit nil
 ### GetKey
 
 `func (o *OnboardingResourceInputVariable) GetKey() string`
@@ -72,6 +110,31 @@ and a boolean to check if the value has been set.
 
 SetKey sets Key field to given value.
 
+
+### GetRequired
+
+`func (o *OnboardingResourceInputVariable) GetRequired() bool`
+
+GetRequired returns the Required field if non-nil, zero value otherwise.
+
+### GetRequiredOk
+
+`func (o *OnboardingResourceInputVariable) GetRequiredOk() (*bool, bool)`
+
+GetRequiredOk returns a tuple with the Required field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequired
+
+`func (o *OnboardingResourceInputVariable) SetRequired(v bool)`
+
+SetRequired sets Required field to given value.
+
+### HasRequired
+
+`func (o *OnboardingResourceInputVariable) HasRequired() bool`
+
+HasRequired returns a boolean if a field has been set.
 
 ### GetSourceInputVariableName
 
@@ -122,6 +185,31 @@ SetSourceResourceName sets SourceResourceName field to given value.
 `func (o *OnboardingResourceInputVariable) HasSourceResourceName() bool`
 
 HasSourceResourceName returns a boolean if a field has been set.
+
+### GetType
+
+`func (o *OnboardingResourceInputVariable) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *OnboardingResourceInputVariable) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *OnboardingResourceInputVariable) SetType(v string)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *OnboardingResourceInputVariable) HasType() bool`
+
+HasType returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

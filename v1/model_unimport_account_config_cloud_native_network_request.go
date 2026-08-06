@@ -20,7 +20,7 @@ var _ MappedNullable = &UnimportAccountConfigCloudNativeNetworkRequest{}
 
 // UnimportAccountConfigCloudNativeNetworkRequest struct for UnimportAccountConfigCloudNativeNetworkRequest
 type UnimportAccountConfigCloudNativeNetworkRequest struct {
-	// The provider-native network ID to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
+	// The provider-native network ID (for example, AWS VPC ID, GCP VPC name, or Azure VNet resource ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
 	CloudNativeNetworkId string `json:"cloudNativeNetworkId"`
 	// ID of an Account Config
 	Id string `json:"id"`

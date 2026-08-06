@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudNativeNetworkId** | **string** | The provider-native network ID to import for deployments | 
+**CloudNativeNetworkId** | **string** | The provider-native network ID (for example, AWS VPC ID, GCP VPC name, or Azure VNet resource ID) to import for deployments | 
 **Id** | **string** | ID of an Account Config | 
 **Region** | **string** | The deployment region whose validated subnetworks should be imported | 
 **Token** | **string** | JWT token used to perform authorization | 

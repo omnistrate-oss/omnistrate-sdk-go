@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **DefaultBillingProvider** | Pointer to **string** | The default billing provider to be used for the product tier | [optional] 
 **DeploymentConfiguration** | Pointer to [**ProductTierDeploymentConfiguration**](ProductTierDeploymentConfiguration.md) |  | [optional] 
 **Description** | Pointer to **string** | A brief description of the product tier | [optional] 
+**DisableInvoiceGeneration** | Pointer to **bool** | Whether Stripe invoice generation is disabled for this product tier | [optional] 
 **Documentation** | Pointer to **string** | Documentation | [optional] 
 **EnableDeletionProtection** | Pointer to **bool** | Enable deletion protection for the product tier | [optional] 
 **ExportUsageMetering** | Pointer to **bool** | Export usage metering data | [optional] 
@@ -300,6 +301,31 @@ SetDescription sets Description field to given value.
 `func (o *UpdateProductTierRequest2) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
+
+### GetDisableInvoiceGeneration
+
+`func (o *UpdateProductTierRequest2) GetDisableInvoiceGeneration() bool`
+
+GetDisableInvoiceGeneration returns the DisableInvoiceGeneration field if non-nil, zero value otherwise.
+
+### GetDisableInvoiceGenerationOk
+
+`func (o *UpdateProductTierRequest2) GetDisableInvoiceGenerationOk() (*bool, bool)`
+
+GetDisableInvoiceGenerationOk returns a tuple with the DisableInvoiceGeneration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisableInvoiceGeneration
+
+`func (o *UpdateProductTierRequest2) SetDisableInvoiceGeneration(v bool)`
+
+SetDisableInvoiceGeneration sets DisableInvoiceGeneration field to given value.
+
+### HasDisableInvoiceGeneration
+
+`func (o *UpdateProductTierRequest2) HasDisableInvoiceGeneration() bool`
+
+HasDisableInvoiceGeneration returns a boolean if a field has been set.
 
 ### GetDocumentation
 

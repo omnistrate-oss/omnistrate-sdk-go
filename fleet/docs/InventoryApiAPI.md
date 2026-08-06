@@ -3311,7 +3311,7 @@ import (
 func main() {
 	id := "ac-12345678" // string | Account Config ID to operate on
 	region := "us-east-1" // string | The deployment region whose validated subnetworks should be imported
-	cloudNativeNetworkId := "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/customer-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet" // string | The provider-native network ID to import for deployments
+	cloudNativeNetworkId := "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/customer-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet" // string | The provider-native network ID (for example, AWS VPC ID, GCP VPC name, or Azure VNet resource ID) to import for deployments
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3333,7 +3333,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **id** | **string** | Account Config ID to operate on | 
 **region** | **string** | The deployment region whose validated subnetworks should be imported | 
-**cloudNativeNetworkId** | **string** | The provider-native network ID to import for deployments | 
+**cloudNativeNetworkId** | **string** | The provider-native network ID (for example, AWS VPC ID, GCP VPC name, or Azure VNet resource ID) to import for deployments | 
 
 ### Other Parameters
 
@@ -6728,7 +6728,7 @@ import (
 func main() {
 	id := "ac-12345678" // string | Account Config ID to operate on
 	region := "us-east-1" // string | The deployment region whose cloud native network row should be unimported
-	cloudNativeNetworkId := "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/customer-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet" // string | The provider-native network ID to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
+	cloudNativeNetworkId := "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/customer-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet" // string | The provider-native network ID (for example, AWS VPC ID, GCP VPC name, or Azure VNet resource ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -6750,7 +6750,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **id** | **string** | Account Config ID to operate on | 
 **region** | **string** | The deployment region whose cloud native network row should be unimported | 
-**cloudNativeNetworkId** | **string** | The provider-native network ID to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster. | 
+**cloudNativeNetworkId** | **string** | The provider-native network ID (for example, AWS VPC ID, GCP VPC name, or Azure VNet resource ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster. | 
 
 ### Other Parameters
 

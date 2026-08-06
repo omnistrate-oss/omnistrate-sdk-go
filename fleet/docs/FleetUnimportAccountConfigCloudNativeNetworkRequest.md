@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudNativeNetworkId** | **string** | The provider-native network ID to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster. | 
+**CloudNativeNetworkId** | **string** | The provider-native network ID (for example, AWS VPC ID, GCP VPC name, or Azure VNet resource ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster. | 
 **Id** | **string** | ID of an Account Config | 
 **Region** | **string** | The deployment region whose cloud native network row should be unimported | 
 **Token** | **string** | JWT token used to perform authorization | 

@@ -910,14 +910,16 @@ paths:
           example: us-east-1
           type: string
         style: simple
-      - description: The provider-native network ID to import for deployments
+      - description: "The provider-native network ID (for example, AWS VPC ID, GCP\
+          \ VPC name, or Azure VNet resource ID) to import for deployments"
         example: /subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/customer-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet
         explode: false
         in: path
         name: cloudNativeNetworkId
         required: true
         schema:
-          description: The provider-native network ID to import for deployments
+          description: "The provider-native network ID (for example, AWS VPC ID, GCP\
+            \ VPC name, or Azure VNet resource ID) to import for deployments"
           example: /subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/customer-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet
           type: string
         style: simple
@@ -1208,16 +1210,18 @@ paths:
           example: us-east-1
           type: string
         style: simple
-      - description: The provider-native network ID to unimport. Rejected with HTTP
-          400 if the network is currently in use by a host cluster.
+      - description: "The provider-native network ID (for example, AWS VPC ID, GCP\
+          \ VPC name, or Azure VNet resource ID) to unimport. Rejected with HTTP 400\
+          \ if the network is currently in use by a host cluster."
         example: /subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/customer-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet
         explode: false
         in: path
         name: cloudNativeNetworkId
         required: true
         schema:
-          description: The provider-native network ID to unimport. Rejected with HTTP
-            400 if the network is currently in use by a host cluster.
+          description: "The provider-native network ID (for example, AWS VPC ID, GCP\
+            \ VPC name, or Azure VNet resource ID) to unimport. Rejected with HTTP\
+            \ 400 if the network is currently in use by a host cluster."
           example: /subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/customer-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet
           type: string
         style: simple
@@ -25985,6 +25989,7 @@ paths:
                 requirements:
                   minimumK8sVersion: 1.23.1
               description: A premium product tier
+              disableInvoiceGeneration: false
               documentation: Any documentation
               enableDeletionProtection: false
               exportUsageMetering: true
@@ -26234,6 +26239,7 @@ paths:
                   requirements:
                     minimumK8sVersion: 1.23.1
                 description: A premium product tier
+                disableInvoiceGeneration: false
                 documentation: Any documentation
                 enableDeletionProtection: false
                 enabledFeatures:
@@ -26391,6 +26397,7 @@ paths:
                 requirements:
                   minimumK8sVersion: 1.23.1
               description: A premium product tier
+              disableInvoiceGeneration: false
               documentation: Any documentation
               enableDeletionProtection: false
               exportUsageMetering: true
@@ -39414,7 +39421,8 @@ components:
         region: us-east-1
       properties:
         cloudNativeNetworkId:
-          description: The provider-native network ID
+          description: "The provider-native network ID (for example, AWS VPC ID, GCP\
+            \ VPC name, or Azure VNet resource ID)"
           example: /subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/customer-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet
           type: string
         import:
@@ -45305,6 +45313,7 @@ components:
           requirements:
             minimumK8sVersion: 1.23.1
         description: A premium product tier
+        disableInvoiceGeneration: false
         documentation: Any documentation
         enableDeletionProtection: false
         exportUsageMetering: true
@@ -45411,6 +45420,11 @@ components:
           description: A brief description of the product tier
           example: A premium product tier
           type: string
+        disableInvoiceGeneration:
+          description: Whether Stripe invoice generation is disabled for this product
+            tier
+          example: false
+          type: boolean
         documentation:
           description: Documentation
           example: Any documentation
@@ -45569,6 +45583,7 @@ components:
           requirements:
             minimumK8sVersion: 1.23.1
         description: A premium product tier
+        disableInvoiceGeneration: false
         documentation: Any documentation
         enableDeletionProtection: false
         exportUsageMetering: true
@@ -45672,6 +45687,11 @@ components:
           description: A brief description of the product tier
           example: A premium product tier
           type: string
+        disableInvoiceGeneration:
+          description: Whether Stripe invoice generation is disabled for this product
+            tier
+          example: false
+          type: boolean
         documentation:
           description: Documentation
           example: Any documentation
@@ -54332,6 +54352,7 @@ components:
           requirements:
             minimumK8sVersion: 1.23.1
         description: A premium product tier
+        disableInvoiceGeneration: false
         documentation: Any documentation
         enableDeletionProtection: false
         enabledFeatures:
@@ -54483,6 +54504,11 @@ components:
           description: A brief description of the product tier
           example: A premium product tier
           type: string
+        disableInvoiceGeneration:
+          description: Whether Stripe invoice generation is disabled for this product
+            tier
+          example: false
+          type: boolean
         documentation:
           description: Documentation
           example: Any documentation
@@ -61302,7 +61328,8 @@ components:
         token: 9ot
       properties:
         cloudNativeNetworkId:
-          description: The provider-native network ID to import for deployments
+          description: "The provider-native network ID (for example, AWS VPC ID, GCP\
+            \ VPC name, or Azure VNet resource ID) to import for deployments"
           example: /subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/customer-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet
           type: string
         id:
@@ -82467,8 +82494,9 @@ components:
         token: "2"
       properties:
         cloudNativeNetworkId:
-          description: The provider-native network ID to unimport. Rejected with HTTP
-            400 if the network is currently in use by a host cluster.
+          description: "The provider-native network ID (for example, AWS VPC ID, GCP\
+            \ VPC name, or Azure VNet resource ID) to unimport. Rejected with HTTP\
+            \ 400 if the network is currently in use by a host cluster."
           example: /subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/customer-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet
           type: string
         id:
@@ -84857,6 +84885,7 @@ components:
           requirements:
             minimumK8sVersion: 1.23.1
         description: A premium product tier
+        disableInvoiceGeneration: false
         documentation: Any documentation
         enableDeletionProtection: false
         exportUsageMetering: true
@@ -84963,6 +84992,11 @@ components:
           description: A brief description of the product tier
           example: A premium product tier
           type: string
+        disableInvoiceGeneration:
+          description: Whether Stripe invoice generation is disabled for this product
+            tier
+          example: false
+          type: boolean
         documentation:
           description: Documentation
           example: Any documentation
@@ -85118,6 +85152,7 @@ components:
           requirements:
             minimumK8sVersion: 1.23.1
         description: A premium product tier
+        disableInvoiceGeneration: false
         documentation: Any documentation
         enableDeletionProtection: false
         exportUsageMetering: true
@@ -85220,6 +85255,11 @@ components:
           description: A brief description of the product tier
           example: A premium product tier
           type: string
+        disableInvoiceGeneration:
+          description: Whether Stripe invoice generation is disabled for this product
+            tier
+          example: false
+          type: boolean
         documentation:
           description: Documentation
           example: Any documentation
