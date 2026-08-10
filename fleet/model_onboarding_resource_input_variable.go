@@ -20,8 +20,8 @@ var _ MappedNullable = &OnboardingResourceInputVariable{}
 
 // OnboardingResourceInputVariable An input variable for a cloud-native resource.
 type OnboardingResourceInputVariable struct {
-	// The default value.
-	DefaultValue *string `json:"defaultValue,omitempty"`
+	// The typed override value, when one is provided.
+	DefaultValue interface{} `json:"defaultValue,omitempty"`
 	// The typed initial value inferred from the artifact default, when one exists.
 	InitialValue interface{} `json:"initialValue,omitempty"`
 	// The variable key.
@@ -57,22 +57,23 @@ func NewOnboardingResourceInputVariableWithDefaults() *OnboardingResourceInputVa
 	return &this
 }
 
-// GetDefaultValue returns the DefaultValue field value if set, zero value otherwise.
-func (o *OnboardingResourceInputVariable) GetDefaultValue() string {
-	if o == nil || IsNil(o.DefaultValue) {
-		var ret string
+// GetDefaultValue returns the DefaultValue field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *OnboardingResourceInputVariable) GetDefaultValue() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.DefaultValue
+	return o.DefaultValue
 }
 
 // GetDefaultValueOk returns a tuple with the DefaultValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OnboardingResourceInputVariable) GetDefaultValueOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *OnboardingResourceInputVariable) GetDefaultValueOk() (*interface{}, bool) {
 	if o == nil || IsNil(o.DefaultValue) {
 		return nil, false
 	}
-	return o.DefaultValue, true
+	return &o.DefaultValue, true
 }
 
 // HasDefaultValue returns a boolean if a field has been set.
@@ -84,9 +85,9 @@ func (o *OnboardingResourceInputVariable) HasDefaultValue() bool {
 	return false
 }
 
-// SetDefaultValue gets a reference to the given string and assigns it to the DefaultValue field.
-func (o *OnboardingResourceInputVariable) SetDefaultValue(v string) {
-	o.DefaultValue = &v
+// SetDefaultValue gets a reference to the given interface{} and assigns it to the DefaultValue field.
+func (o *OnboardingResourceInputVariable) SetDefaultValue(v interface{}) {
+	o.DefaultValue = v
 }
 
 // GetInitialValue returns the InitialValue field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -284,7 +285,7 @@ func (o OnboardingResourceInputVariable) MarshalJSON() ([]byte, error) {
 
 func (o OnboardingResourceInputVariable) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.DefaultValue) {
+	if o.DefaultValue != nil {
 		toSerialize["defaultValue"] = o.DefaultValue
 	}
 	if o.InitialValue != nil {

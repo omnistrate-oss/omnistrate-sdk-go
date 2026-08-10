@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DefaultValue** | Pointer to **string** | The default value. | [optional] 
+**DefaultValue** | Pointer to **interface{}** | The typed override value, when one is provided. | [optional] 
 **InitialValue** | Pointer to **interface{}** | The typed initial value inferred from the artifact default, when one exists. | [optional] 
 **Key** | **string** | The variable key. | 
 **Required** | Pointer to **bool** | Whether the input variable must be supplied because the artifact has no default value. | [optional] 
@@ -33,20 +33,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDefaultValue
 
-`func (o *OnboardingResourceInputVariable) GetDefaultValue() string`
+`func (o *OnboardingResourceInputVariable) GetDefaultValue() interface{}`
 
 GetDefaultValue returns the DefaultValue field if non-nil, zero value otherwise.
 
 ### GetDefaultValueOk
 
-`func (o *OnboardingResourceInputVariable) GetDefaultValueOk() (*string, bool)`
+`func (o *OnboardingResourceInputVariable) GetDefaultValueOk() (*interface{}, bool)`
 
 GetDefaultValueOk returns a tuple with the DefaultValue field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultValue
 
-`func (o *OnboardingResourceInputVariable) SetDefaultValue(v string)`
+`func (o *OnboardingResourceInputVariable) SetDefaultValue(v interface{})`
 
 SetDefaultValue sets DefaultValue field to given value.
 
@@ -56,6 +56,16 @@ SetDefaultValue sets DefaultValue field to given value.
 
 HasDefaultValue returns a boolean if a field has been set.
 
+### SetDefaultValueNil
+
+`func (o *OnboardingResourceInputVariable) SetDefaultValueNil(b bool)`
+
+ SetDefaultValueNil sets the value for DefaultValue to be an explicit nil
+
+### UnsetDefaultValue
+`func (o *OnboardingResourceInputVariable) UnsetDefaultValue()`
+
+UnsetDefaultValue ensures that no value is present for DefaultValue, not even an explicit nil
 ### GetInitialValue
 
 `func (o *OnboardingResourceInputVariable) GetInitialValue() interface{}`
