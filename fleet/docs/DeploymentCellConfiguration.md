@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amenities** | Pointer to [**[]Amenity**](Amenity.md) | The amenities available in the deployment cell. | [optional] 
+**ManagedReleaseVersion** | Pointer to **string** | Optional immutable managed artifact bundle version for this environment and cloud provider. On update, omit it to leave the selection unchanged or send an empty string to clear the pin; an unpinned template uses the most recently completed READY bundle sync. | [optional] 
 **WorkloadIdentities** | Pointer to [**[]ManagedWorkloadIdentity**](ManagedWorkloadIdentity.md) | The managed workload identities available in the deployment cell. | [optional] 
 
 ## Methods
@@ -50,6 +51,31 @@ SetAmenities sets Amenities field to given value.
 `func (o *DeploymentCellConfiguration) HasAmenities() bool`
 
 HasAmenities returns a boolean if a field has been set.
+
+### GetManagedReleaseVersion
+
+`func (o *DeploymentCellConfiguration) GetManagedReleaseVersion() string`
+
+GetManagedReleaseVersion returns the ManagedReleaseVersion field if non-nil, zero value otherwise.
+
+### GetManagedReleaseVersionOk
+
+`func (o *DeploymentCellConfiguration) GetManagedReleaseVersionOk() (*string, bool)`
+
+GetManagedReleaseVersionOk returns a tuple with the ManagedReleaseVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManagedReleaseVersion
+
+`func (o *DeploymentCellConfiguration) SetManagedReleaseVersion(v string)`
+
+SetManagedReleaseVersion sets ManagedReleaseVersion field to given value.
+
+### HasManagedReleaseVersion
+
+`func (o *DeploymentCellConfiguration) HasManagedReleaseVersion() bool`
+
+HasManagedReleaseVersion returns a boolean if a field has been set.
 
 ### GetWorkloadIdentities
 

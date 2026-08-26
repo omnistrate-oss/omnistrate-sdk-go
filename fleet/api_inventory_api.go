@@ -660,7 +660,7 @@ type InventoryApiAPI interface {
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param id Account Config ID to operate on
 	@param region The deployment region whose validated subnetworks should be imported
-	@param cloudNativeNetworkId The provider-native network ID to import for deployments
+	@param cloudNativeNetworkId The provider-native network ID (for example, AWS VPC ID, GCP VPC name, or Azure VNet resource ID) to import for deployments
 	@return ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest
 	*/
 	InventoryApiImportAccountConfigCloudNativeNetwork(ctx context.Context, id string, region string, cloudNativeNetworkId string) ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest
@@ -1315,7 +1315,7 @@ type InventoryApiAPI interface {
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param id Account Config ID to operate on
 	@param region The deployment region whose cloud native network row should be unimported
-	@param cloudNativeNetworkId The provider-native network ID to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
+	@param cloudNativeNetworkId The provider-native network ID (for example, AWS VPC ID, GCP VPC name, or Azure VNet resource ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
 	@return ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest
 	*/
 	InventoryApiUnimportAccountConfigCloudNativeNetwork(ctx context.Context, id string, region string, cloudNativeNetworkId string) ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest
@@ -3255,10 +3255,17 @@ type ApiInventoryApiCreateResourceInstanceRequest struct {
 	productTierKey string
 	resourceKey string
 	fleetCreateResourceInstanceRequest2 *FleetCreateResourceInstanceRequest2
+	idempotencyKey *string
 }
 
 func (r ApiInventoryApiCreateResourceInstanceRequest) FleetCreateResourceInstanceRequest2(fleetCreateResourceInstanceRequest2 FleetCreateResourceInstanceRequest2) ApiInventoryApiCreateResourceInstanceRequest {
 	r.fleetCreateResourceInstanceRequest2 = &fleetCreateResourceInstanceRequest2
+	return r
+}
+
+// Makes this create safe to retry. Sending the same key with the same request returns the instance the first call created instead of creating a second one; sending it with a different request is rejected with 409. Keys are scoped to the calling user and expire 24 hours after first use
+func (r ApiInventoryApiCreateResourceInstanceRequest) IdempotencyKey(idempotencyKey string) ApiInventoryApiCreateResourceInstanceRequest {
+	r.idempotencyKey = &idempotencyKey
 	return r
 }
 
@@ -3340,6 +3347,9 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceExecute(r Api
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.idempotencyKey != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Idempotency-Key", r.idempotencyKey, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.fleetCreateResourceInstanceRequest2
@@ -9038,7 +9048,7 @@ Import an available cloud native network for deployments (sets status to READY)
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Account Config ID to operate on
  @param region The deployment region whose validated subnetworks should be imported
- @param cloudNativeNetworkId The provider-native network ID to import for deployments
+ @param cloudNativeNetworkId The provider-native network ID (for example, AWS VPC ID, GCP VPC name, or Azure VNet resource ID) to import for deployments
  @return ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest
 */
 func (a *InventoryApiAPIService) InventoryApiImportAccountConfigCloudNativeNetwork(ctx context.Context, id string, region string, cloudNativeNetworkId string) ApiInventoryApiImportAccountConfigCloudNativeNetworkRequest {
@@ -17464,7 +17474,7 @@ Unimport a cloud native network, reverting it from READY to AVAILABLE
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Account Config ID to operate on
  @param region The deployment region whose cloud native network row should be unimported
- @param cloudNativeNetworkId The provider-native network ID to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
+ @param cloudNativeNetworkId The provider-native network ID (for example, AWS VPC ID, GCP VPC name, or Azure VNet resource ID) to unimport. Rejected with HTTP 400 if the network is currently in use by a host cluster.
  @return ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest
 */
 func (a *InventoryApiAPIService) InventoryApiUnimportAccountConfigCloudNativeNetwork(ctx context.Context, id string, region string, cloudNativeNetworkId string) ApiInventoryApiUnimportAccountConfigCloudNativeNetworkRequest {

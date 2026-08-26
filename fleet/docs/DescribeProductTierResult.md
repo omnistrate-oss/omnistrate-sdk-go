@@ -13,10 +13,12 @@ Name | Type | Description | Notes
 **BillingProviders** | Pointer to **[]string** | List of billing providers to be used for the product tier | [optional] 
 **ByocOnpremRegions** | Pointer to **[]string** | The BYOC on-prem regions that this product tier is available on | [optional] 
 **CloudProvidersConfigReadiness** | Pointer to **map[string]map[string]string** | The readiness of the cloud providers configurations | [optional] 
+**CustomMetering** | Pointer to [**CustomMeteringConfiguration**](CustomMeteringConfiguration.md) |  | [optional] 
 **DefaultBillingProvider** | Pointer to **string** | The billing provider type | [optional] 
 **DeploymentArtifactIDs** | Pointer to **[]string** | List of deployment artifact IDs associated with this product tier | [optional] 
 **DeploymentConfiguration** | Pointer to [**ProductTierDeploymentConfiguration**](ProductTierDeploymentConfiguration.md) |  | [optional] 
 **Description** | **string** | A brief description of the product tier | 
+**DisableInvoiceGeneration** | Pointer to **bool** | Whether Stripe invoice generation is disabled for this product tier | [optional] 
 **Documentation** | **string** | Documentation | 
 **EnableDeletionProtection** | **bool** | Enable deletion protection for the product tier | 
 **EnabledFeatures** | Pointer to [**[]ProductTierFeatureDetail**](ProductTierFeatureDetail.md) | The features that are enabled for this product tier, including scope details and configuration | [optional] 
@@ -285,6 +287,31 @@ SetCloudProvidersConfigReadiness sets CloudProvidersConfigReadiness field to giv
 
 HasCloudProvidersConfigReadiness returns a boolean if a field has been set.
 
+### GetCustomMetering
+
+`func (o *DescribeProductTierResult) GetCustomMetering() CustomMeteringConfiguration`
+
+GetCustomMetering returns the CustomMetering field if non-nil, zero value otherwise.
+
+### GetCustomMeteringOk
+
+`func (o *DescribeProductTierResult) GetCustomMeteringOk() (*CustomMeteringConfiguration, bool)`
+
+GetCustomMeteringOk returns a tuple with the CustomMetering field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomMetering
+
+`func (o *DescribeProductTierResult) SetCustomMetering(v CustomMeteringConfiguration)`
+
+SetCustomMetering sets CustomMetering field to given value.
+
+### HasCustomMetering
+
+`func (o *DescribeProductTierResult) HasCustomMetering() bool`
+
+HasCustomMetering returns a boolean if a field has been set.
+
 ### GetDefaultBillingProvider
 
 `func (o *DescribeProductTierResult) GetDefaultBillingProvider() string`
@@ -379,6 +406,31 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
+
+### GetDisableInvoiceGeneration
+
+`func (o *DescribeProductTierResult) GetDisableInvoiceGeneration() bool`
+
+GetDisableInvoiceGeneration returns the DisableInvoiceGeneration field if non-nil, zero value otherwise.
+
+### GetDisableInvoiceGenerationOk
+
+`func (o *DescribeProductTierResult) GetDisableInvoiceGenerationOk() (*bool, bool)`
+
+GetDisableInvoiceGenerationOk returns a tuple with the DisableInvoiceGeneration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisableInvoiceGeneration
+
+`func (o *DescribeProductTierResult) SetDisableInvoiceGeneration(v bool)`
+
+SetDisableInvoiceGeneration sets DisableInvoiceGeneration field to given value.
+
+### HasDisableInvoiceGeneration
+
+`func (o *DescribeProductTierResult) HasDisableInvoiceGeneration() bool`
+
+HasDisableInvoiceGeneration returns a boolean if a field has been set.
 
 ### GetDocumentation
 

@@ -227,6 +227,11 @@ Class | Method | HTTP request | Description
 *LimitApiAPI* | [**LimitApiDescribeLimit**](docs/LimitApiAPI.md#limitapidescribelimit) | **Get** /2022-09-01-00/limit/family/{family}/key/{key} | DescribeLimit limit-api
 *LimitApiAPI* | [**LimitApiListLimit**](docs/LimitApiAPI.md#limitapilistlimit) | **Get** /2022-09-01-00/limit | ListLimit limit-api
 *LimitApiAPI* | [**LimitApiUpdateLimit**](docs/LimitApiAPI.md#limitapiupdatelimit) | **Patch** /2022-09-01-00/limit/family/{family}/key/{key} | UpdateLimit limit-api
+*ManagedReleaseApiAPI* | [**ManagedReleaseApiDescribeManagedReleaseRevision**](docs/ManagedReleaseApiAPI.md#managedreleaseapidescribemanagedreleaserevision) | **Get** /2022-09-01-00/internal/v1/managed-release-revisions/{bundleVersion} | DescribeManagedReleaseRevision managed-release-api
+*ManagedReleaseApiAPI* | [**ManagedReleaseApiDescribeManagedReleaseSync**](docs/ManagedReleaseApiAPI.md#managedreleaseapidescribemanagedreleasesync) | **Get** /2022-09-01-00/internal/v1/organizations/{organizationId}/provisioner-targets/{provisionerTargetId}/managed-release-syncs/{bundleRevisionId} | DescribeManagedReleaseSync managed-release-api
+*ManagedReleaseApiAPI* | [**ManagedReleaseApiListManagedReleaseRevisions**](docs/ManagedReleaseApiAPI.md#managedreleaseapilistmanagedreleaserevisions) | **Get** /2022-09-01-00/internal/v1/managed-release-revisions | ListManagedReleaseRevisions managed-release-api
+*ManagedReleaseApiAPI* | [**ManagedReleaseApiListManagedReleaseSyncs**](docs/ManagedReleaseApiAPI.md#managedreleaseapilistmanagedreleasesyncs) | **Get** /2022-09-01-00/internal/v1/organizations/{organizationId}/provisioner-targets/{provisionerTargetId}/managed-release-syncs | ListManagedReleaseSyncs managed-release-api
+*ManagedReleaseApiAPI* | [**ManagedReleaseApiPublishManagedRelease**](docs/ManagedReleaseApiAPI.md#managedreleaseapipublishmanagedrelease) | **Post** /2022-09-01-00/internal/v1/managed-release-revisions:publish-managed-release | PublishManagedRelease managed-release-api
 *NetworkConfigApiAPI* | [**NetworkConfigApiCreateNetworkConfig**](docs/NetworkConfigApiAPI.md#networkconfigapicreatenetworkconfig) | **Post** /2022-09-01-00/service/{serviceId}/network-config | CreateNetworkConfig network-config-api
 *NetworkConfigApiAPI* | [**NetworkConfigApiDeleteNetworkConfig**](docs/NetworkConfigApiAPI.md#networkconfigapideletenetworkconfig) | **Delete** /2022-09-01-00/service/{serviceId}/network-config/{id} | DeleteNetworkConfig network-config-api
 *NetworkConfigApiAPI* | [**NetworkConfigApiDescribeNetworkConfig**](docs/NetworkConfigApiAPI.md#networkconfigapidescribenetworkconfig) | **Get** /2022-09-01-00/service/{serviceId}/network-config/{id} | DescribeNetworkConfig network-config-api
@@ -374,6 +379,7 @@ Class | Method | HTTP request | Description
 *SignupApiAPI* | [**SignupApiSignup**](docs/SignupApiAPI.md#signupapisignup) | **Post** /2022-09-01-00/signup | Signup signup-api
 *SignupApiAPI* | [**SignupApiValidateToken**](docs/SignupApiAPI.md#signupapivalidatetoken) | **Post** /2022-09-01-00/validate-token | ValidateToken signup-api
 *SpOrganizationApiAPI* | [**SpOrganizationApiDescribeServiceProviderOrganization**](docs/SpOrganizationApiAPI.md#sporganizationapidescribeserviceproviderorganization) | **Get** /2022-09-01-00/sp-organization | DescribeServiceProviderOrganization sp-organization-api
+*SpOrganizationApiAPI* | [**SpOrganizationApiGetCustomMetricsEndpoint**](docs/SpOrganizationApiAPI.md#sporganizationapigetcustommetricsendpoint) | **Get** /2022-09-01-00/custom-metrics/endpoint | GetCustomMetricsEndpoint sp-organization-api
 *SpOrganizationApiAPI* | [**SpOrganizationApiModifyServiceProviderOrganization**](docs/SpOrganizationApiAPI.md#sporganizationapimodifyserviceproviderorganization) | **Patch** /2022-09-01-00/sp-organization | ModifyServiceProviderOrganization sp-organization-api
 *StorageConfigApiAPI* | [**StorageConfigApiAddStorageVolumeConfig**](docs/StorageConfigApiAPI.md#storageconfigapiaddstoragevolumeconfig) | **Put** /2022-09-01-00/service/{serviceId}/storage-config/{id}/volume/{storageVolumeConfigId} | AddStorageVolumeConfig storage-config-api
 *StorageConfigApiAPI* | [**StorageConfigApiCreateStorageConfig**](docs/StorageConfigApiAPI.md#storageconfigapicreatestorageconfig) | **Post** /2022-09-01-00/service/{serviceId}/storage-config | CreateStorageConfig storage-config-api
@@ -597,6 +603,9 @@ Class | Method | HTTP request | Description
  - [CustomDomainIdentityIDRequest](docs/CustomDomainIdentityIDRequest.md)
  - [CustomDomainIdentityIDResult](docs/CustomDomainIdentityIDResult.md)
  - [CustomImageCommandsAndArgs](docs/CustomImageCommandsAndArgs.md)
+ - [CustomMeteringConfiguration](docs/CustomMeteringConfiguration.md)
+ - [CustomMeteringMetric](docs/CustomMeteringMetric.md)
+ - [CustomMetricsEndpoint](docs/CustomMetricsEndpoint.md)
  - [CustomNetwork](docs/CustomNetwork.md)
  - [CustomNetworkInstance](docs/CustomNetworkInstance.md)
  - [CustomNetworkResourceDetail](docs/CustomNetworkResourceDetail.md)
@@ -719,6 +728,8 @@ Class | Method | HTTP request | Description
  - [DescribeInvoiceRequest](docs/DescribeInvoiceRequest.md)
  - [DescribeLimitRequest](docs/DescribeLimitRequest.md)
  - [DescribeLimitResult](docs/DescribeLimitResult.md)
+ - [DescribeManagedReleaseRevisionRequest](docs/DescribeManagedReleaseRevisionRequest.md)
+ - [DescribeManagedReleaseSyncRequest](docs/DescribeManagedReleaseSyncRequest.md)
  - [DescribeNetworkConfigRequest](docs/DescribeNetworkConfigRequest.md)
  - [DescribeNetworkConfigResult](docs/DescribeNetworkConfigResult.md)
  - [DescribeNetworkRequest](docs/DescribeNetworkRequest.md)
@@ -832,6 +843,7 @@ Class | Method | HTTP request | Description
  - [GetConsumptionUsageResult](docs/GetConsumptionUsageResult.md)
  - [GetCurrentConsumptionUsageRequest](docs/GetCurrentConsumptionUsageRequest.md)
  - [GetCurrentUsageRequest](docs/GetCurrentUsageRequest.md)
+ - [GetCustomMetricsEndpointRequest](docs/GetCustomMetricsEndpointRequest.md)
  - [GetFileRequest](docs/GetFileRequest.md)
  - [GetProductTierWorkspaceArtifactsDownloadURLRequest](docs/GetProductTierWorkspaceArtifactsDownloadURLRequest.md)
  - [GetRegionByCodeRequest](docs/GetRegionByCodeRequest.md)
@@ -944,6 +956,11 @@ Class | Method | HTTP request | Description
  - [ListLimitRequest](docs/ListLimitRequest.md)
  - [ListLimitRequest2](docs/ListLimitRequest2.md)
  - [ListLimitResult](docs/ListLimitResult.md)
+ - [ListManagedReleaseRevisionsRequest](docs/ListManagedReleaseRevisionsRequest.md)
+ - [ListManagedReleaseRevisionsResult](docs/ListManagedReleaseRevisionsResult.md)
+ - [ListManagedReleaseRevisionsResult2](docs/ListManagedReleaseRevisionsResult2.md)
+ - [ListManagedReleaseSyncsRequest](docs/ListManagedReleaseSyncsRequest.md)
+ - [ListManagedReleaseSyncsResult](docs/ListManagedReleaseSyncsResult.md)
  - [ListNetworkConfigsRequest](docs/ListNetworkConfigsRequest.md)
  - [ListNetworkConfigsResult](docs/ListNetworkConfigsResult.md)
  - [ListOutputParametersRequest](docs/ListOutputParametersRequest.md)
@@ -1005,6 +1022,16 @@ Class | Method | HTTP request | Description
  - [LoginWithIdentityProviderRequest](docs/LoginWithIdentityProviderRequest.md)
  - [LoginWithIdentityProviderResult](docs/LoginWithIdentityProviderResult.md)
  - [LogoutRequest](docs/LogoutRequest.md)
+ - [ManagedReleaseArtifact](docs/ManagedReleaseArtifact.md)
+ - [ManagedReleaseArtifact2](docs/ManagedReleaseArtifact2.md)
+ - [ManagedReleaseArtifact3](docs/ManagedReleaseArtifact3.md)
+ - [ManagedReleaseArtifact4](docs/ManagedReleaseArtifact4.md)
+ - [ManagedReleaseComponentRevision](docs/ManagedReleaseComponentRevision.md)
+ - [ManagedReleaseRevision](docs/ManagedReleaseRevision.md)
+ - [ManagedReleaseRevision2](docs/ManagedReleaseRevision2.md)
+ - [ManagedReleaseRevision3](docs/ManagedReleaseRevision3.md)
+ - [ManagedReleaseSync](docs/ManagedReleaseSync.md)
+ - [ManagedReleaseSyncArtifactResult](docs/ManagedReleaseSyncArtifactResult.md)
  - [ManagedWorkloadIdentity](docs/ManagedWorkloadIdentity.md)
  - [ManagedWorkloadIdentityBinding](docs/ManagedWorkloadIdentityBinding.md)
  - [ManagedWorkloadIdentityPermissions](docs/ManagedWorkloadIdentityPermissions.md)
@@ -1051,6 +1078,9 @@ Class | Method | HTTP request | Description
  - [PromoteTierVersionSetRequest](docs/PromoteTierVersionSetRequest.md)
  - [ProxyEndpoint](docs/ProxyEndpoint.md)
  - [PublicNetworkingConfiguration](docs/PublicNetworkingConfiguration.md)
+ - [PublishManagedReleaseRequest](docs/PublishManagedReleaseRequest.md)
+ - [PublishManagedReleaseRequest2](docs/PublishManagedReleaseRequest2.md)
+ - [PublishManagedReleaseResult](docs/PublishManagedReleaseResult.md)
  - [RecentDeploymentFailureStatus](docs/RecentDeploymentFailureStatus.md)
  - [RefreshTokenRequest](docs/RefreshTokenRequest.md)
  - [RefreshTokenResult](docs/RefreshTokenResult.md)

@@ -1094,6 +1094,7 @@ type ApiResourceInstanceApiCreateResourceInstanceRequest struct {
 	resourceKey string
 	createResourceInstanceRequest2 *CreateResourceInstanceRequest2
 	subscriptionId *string
+	idempotencyKey *string
 }
 
 func (r ApiResourceInstanceApiCreateResourceInstanceRequest) CreateResourceInstanceRequest2(createResourceInstanceRequest2 CreateResourceInstanceRequest2) ApiResourceInstanceApiCreateResourceInstanceRequest {
@@ -1104,6 +1105,12 @@ func (r ApiResourceInstanceApiCreateResourceInstanceRequest) CreateResourceInsta
 // Subscription Id
 func (r ApiResourceInstanceApiCreateResourceInstanceRequest) SubscriptionId(subscriptionId string) ApiResourceInstanceApiCreateResourceInstanceRequest {
 	r.subscriptionId = &subscriptionId
+	return r
+}
+
+// Makes this create safe to retry. Sending the same key with the same request returns the instance the first call created instead of creating a second one; sending it with a different request is rejected with 409. Keys are scoped to the calling user and expire 24 hours after first use
+func (r ApiResourceInstanceApiCreateResourceInstanceRequest) IdempotencyKey(idempotencyKey string) ApiResourceInstanceApiCreateResourceInstanceRequest {
+	r.idempotencyKey = &idempotencyKey
 	return r
 }
 
@@ -1188,6 +1195,9 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiCreateResourceInstanc
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.idempotencyKey != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Idempotency-Key", r.idempotencyKey, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.createResourceInstanceRequest2

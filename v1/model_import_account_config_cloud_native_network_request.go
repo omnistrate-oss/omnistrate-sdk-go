@@ -20,7 +20,7 @@ var _ MappedNullable = &ImportAccountConfigCloudNativeNetworkRequest{}
 
 // ImportAccountConfigCloudNativeNetworkRequest struct for ImportAccountConfigCloudNativeNetworkRequest
 type ImportAccountConfigCloudNativeNetworkRequest struct {
-	// The provider-native network ID to import for deployments
+	// The provider-native network ID (for example, AWS VPC ID, GCP VPC name, or Azure VNet resource ID) to import for deployments
 	CloudNativeNetworkId string `json:"cloudNativeNetworkId"`
 	// ID of an Account Config
 	Id string `json:"id"`
