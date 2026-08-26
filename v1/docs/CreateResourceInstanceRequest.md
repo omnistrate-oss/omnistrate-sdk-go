@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **CustomNetworkId** | Pointer to **string** | Custom network for resource | [optional] 
 **CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The custom tags for the resource instance | [optional] 
 **ExternalBillingId** | Pointer to **string** | This externalBillingId is deprecated and will be removed in the future | [optional] 
+**IdempotencyKey** | Pointer to **string** | Makes this create safe to retry. Sending the same key with the same request returns the instance the first call created instead of creating a second one; sending it with a different request is rejected with 409. Keys are scoped to the calling user and expire 24 hours after first use | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
 **OnpremPlatform** | Pointer to **string** | OnPrem platform | [optional] 
 **ProductTierKey** | **string** | The product tier name | 
@@ -141,6 +142,31 @@ SetExternalBillingId sets ExternalBillingId field to given value.
 `func (o *CreateResourceInstanceRequest) HasExternalBillingId() bool`
 
 HasExternalBillingId returns a boolean if a field has been set.
+
+### GetIdempotencyKey
+
+`func (o *CreateResourceInstanceRequest) GetIdempotencyKey() string`
+
+GetIdempotencyKey returns the IdempotencyKey field if non-nil, zero value otherwise.
+
+### GetIdempotencyKeyOk
+
+`func (o *CreateResourceInstanceRequest) GetIdempotencyKeyOk() (*string, bool)`
+
+GetIdempotencyKeyOk returns a tuple with the IdempotencyKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIdempotencyKey
+
+`func (o *CreateResourceInstanceRequest) SetIdempotencyKey(v string)`
+
+SetIdempotencyKey sets IdempotencyKey field to given value.
+
+### HasIdempotencyKey
+
+`func (o *CreateResourceInstanceRequest) HasIdempotencyKey() bool`
+
+HasIdempotencyKey returns a boolean if a field has been set.
 
 ### GetNetworkType
 
