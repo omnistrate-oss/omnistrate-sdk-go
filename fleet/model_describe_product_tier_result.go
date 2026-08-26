@@ -38,6 +38,7 @@ type DescribeProductTierResult struct {
 	ByocOnpremRegions []string `json:"byocOnpremRegions,omitempty"`
 	// The readiness of the cloud providers configurations
 	CloudProvidersConfigReadiness *map[string]map[string]string `json:"cloudProvidersConfigReadiness,omitempty"`
+	CustomMetering *CustomMeteringConfiguration `json:"customMetering,omitempty"`
 	// The billing provider type
 	DefaultBillingProvider *string `json:"defaultBillingProvider,omitempty"`
 	// List of deployment artifact IDs associated with this product tier
@@ -414,6 +415,38 @@ func (o *DescribeProductTierResult) HasCloudProvidersConfigReadiness() bool {
 // SetCloudProvidersConfigReadiness gets a reference to the given map[string]map[string]string and assigns it to the CloudProvidersConfigReadiness field.
 func (o *DescribeProductTierResult) SetCloudProvidersConfigReadiness(v map[string]map[string]string) {
 	o.CloudProvidersConfigReadiness = &v
+}
+
+// GetCustomMetering returns the CustomMetering field value if set, zero value otherwise.
+func (o *DescribeProductTierResult) GetCustomMetering() CustomMeteringConfiguration {
+	if o == nil || IsNil(o.CustomMetering) {
+		var ret CustomMeteringConfiguration
+		return ret
+	}
+	return *o.CustomMetering
+}
+
+// GetCustomMeteringOk returns a tuple with the CustomMetering field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeProductTierResult) GetCustomMeteringOk() (*CustomMeteringConfiguration, bool) {
+	if o == nil || IsNil(o.CustomMetering) {
+		return nil, false
+	}
+	return o.CustomMetering, true
+}
+
+// HasCustomMetering returns a boolean if a field has been set.
+func (o *DescribeProductTierResult) HasCustomMetering() bool {
+	if o != nil && !IsNil(o.CustomMetering) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomMetering gets a reference to the given CustomMeteringConfiguration and assigns it to the CustomMetering field.
+func (o *DescribeProductTierResult) SetCustomMetering(v CustomMeteringConfiguration) {
+	o.CustomMetering = &v
 }
 
 // GetDefaultBillingProvider returns the DefaultBillingProvider field value if set, zero value otherwise.
@@ -1247,6 +1280,9 @@ func (o DescribeProductTierResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CloudProvidersConfigReadiness) {
 		toSerialize["cloudProvidersConfigReadiness"] = o.CloudProvidersConfigReadiness
 	}
+	if !IsNil(o.CustomMetering) {
+		toSerialize["customMetering"] = o.CustomMetering
+	}
 	if !IsNil(o.DefaultBillingProvider) {
 		toSerialize["defaultBillingProvider"] = o.DefaultBillingProvider
 	}
@@ -1371,6 +1407,7 @@ func (o *DescribeProductTierResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "billingProviders")
 		delete(additionalProperties, "byocOnpremRegions")
 		delete(additionalProperties, "cloudProvidersConfigReadiness")
+		delete(additionalProperties, "customMetering")
 		delete(additionalProperties, "defaultBillingProvider")
 		delete(additionalProperties, "deploymentArtifactIDs")
 		delete(additionalProperties, "deploymentConfiguration")

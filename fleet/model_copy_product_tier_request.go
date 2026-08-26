@@ -32,6 +32,7 @@ type CopyProductTierRequest struct {
 	BillingProductID *string `json:"billingProductID,omitempty"`
 	// The BYOC on-prem regions that this product tier is available on
 	ByocOnpremRegions []string `json:"byocOnpremRegions,omitempty"`
+	CustomMetering *CustomMeteringConfiguration `json:"customMetering,omitempty"`
 	// A brief description of the product tier
 	Description string `json:"description"`
 	// Documentation
@@ -292,6 +293,38 @@ func (o *CopyProductTierRequest) HasByocOnpremRegions() bool {
 // SetByocOnpremRegions gets a reference to the given []string and assigns it to the ByocOnpremRegions field.
 func (o *CopyProductTierRequest) SetByocOnpremRegions(v []string) {
 	o.ByocOnpremRegions = v
+}
+
+// GetCustomMetering returns the CustomMetering field value if set, zero value otherwise.
+func (o *CopyProductTierRequest) GetCustomMetering() CustomMeteringConfiguration {
+	if o == nil || IsNil(o.CustomMetering) {
+		var ret CustomMeteringConfiguration
+		return ret
+	}
+	return *o.CustomMetering
+}
+
+// GetCustomMeteringOk returns a tuple with the CustomMetering field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CopyProductTierRequest) GetCustomMeteringOk() (*CustomMeteringConfiguration, bool) {
+	if o == nil || IsNil(o.CustomMetering) {
+		return nil, false
+	}
+	return o.CustomMetering, true
+}
+
+// HasCustomMetering returns a boolean if a field has been set.
+func (o *CopyProductTierRequest) HasCustomMetering() bool {
+	if o != nil && !IsNil(o.CustomMetering) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomMetering gets a reference to the given CustomMeteringConfiguration and assigns it to the CustomMetering field.
+func (o *CopyProductTierRequest) SetCustomMetering(v CustomMeteringConfiguration) {
+	o.CustomMetering = &v
 }
 
 // GetDescription returns the Description field value
@@ -947,6 +980,9 @@ func (o CopyProductTierRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ByocOnpremRegions) {
 		toSerialize["byocOnpremRegions"] = o.ByocOnpremRegions
 	}
+	if !IsNil(o.CustomMetering) {
+		toSerialize["customMetering"] = o.CustomMetering
+	}
 	toSerialize["description"] = o.Description
 	if !IsNil(o.Documentation) {
 		toSerialize["documentation"] = o.Documentation
@@ -1052,6 +1088,7 @@ func (o *CopyProductTierRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "azureRegions")
 		delete(additionalProperties, "billingProductID")
 		delete(additionalProperties, "byocOnpremRegions")
+		delete(additionalProperties, "customMetering")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "documentation")
 		delete(additionalProperties, "enableDeletionProtection")

@@ -34,6 +34,7 @@ type CreateProductTierRequest2 struct {
 	BillingProviders []string `json:"billingProviders,omitempty"`
 	// The BYOC on-prem regions that this product tier is available on
 	ByocOnpremRegions []string `json:"byocOnpremRegions,omitempty"`
+	CustomMetering *CustomMeteringConfiguration `json:"customMetering,omitempty"`
 	// The default billing provider to be used for the product tier
 	DefaultBillingProvider *string `json:"defaultBillingProvider,omitempty"`
 	DeploymentConfiguration *ProductTierDeploymentConfiguration `json:"deploymentConfiguration,omitempty"`
@@ -263,6 +264,29 @@ func (o *CreateProductTierRequest2) GetByocOnpremRegionsOk() ([]string, bool) {
 // SetByocOnpremRegions gets a reference to the given []string and assigns it to the ByocOnpremRegions field.
 func (o *CreateProductTierRequest2) SetByocOnpremRegions(v []string) {
 	o.ByocOnpremRegions = v
+}
+
+// GetCustomMetering returns the CustomMetering field value if set, zero value otherwise.
+func (o *CreateProductTierRequest2) GetCustomMetering() CustomMeteringConfiguration {
+	if o == nil || IsNil(o.CustomMetering) {
+		var ret CustomMeteringConfiguration
+		return ret
+	}
+	return *o.CustomMetering
+}
+
+// GetCustomMeteringOk returns a tuple with the CustomMetering field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateProductTierRequest2) GetCustomMeteringOk() (*CustomMeteringConfiguration, bool) {
+	if o == nil || IsNil(o.CustomMetering) {
+		return nil, false
+	}
+	return o.CustomMetering, true
+}
+
+// SetCustomMetering gets a reference to the given CustomMeteringConfiguration and assigns it to the CustomMetering field.
+func (o *CreateProductTierRequest2) SetCustomMetering(v CustomMeteringConfiguration) {
+	o.CustomMetering = &v
 }
 
 // GetDefaultBillingProvider returns the DefaultBillingProvider field value if set, zero value otherwise.
@@ -808,6 +832,9 @@ func (o CreateProductTierRequest2) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ByocOnpremRegions) {
 		toSerialize["byocOnpremRegions"] = o.ByocOnpremRegions
 	}
+	if !IsNil(o.CustomMetering) {
+		toSerialize["customMetering"] = o.CustomMetering
+	}
 	if !IsNil(o.DefaultBillingProvider) {
 		toSerialize["defaultBillingProvider"] = o.DefaultBillingProvider
 	}
@@ -918,6 +945,7 @@ func (o *CreateProductTierRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "billingProductID")
 		delete(additionalProperties, "billingProviders")
 		delete(additionalProperties, "byocOnpremRegions")
+		delete(additionalProperties, "customMetering")
 		delete(additionalProperties, "defaultBillingProvider")
 		delete(additionalProperties, "deploymentConfiguration")
 		delete(additionalProperties, "description")

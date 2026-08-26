@@ -28,6 +28,8 @@ type FleetCreateResourceInstanceRequest struct {
 	CustomTags []CustomTag `json:"customTags,omitempty"`
 	// The external payer id to record which customer should pay for this resource instance. This will override the subscription level external payer id if set.
 	ExternalPayerId *string `json:"externalPayerId,omitempty"`
+	// Makes this create safe to retry. Sending the same key with the same request returns the instance the first call created instead of creating a second one; sending it with a different request is rejected with 409. Keys are scoped to the calling user and expire 24 hours after first use
+	IdempotencyKey *string `json:"idempotencyKey,omitempty"`
 	// The ID of a previously deleted instance to restore. When provided, the instance will be re-provisioned with the same ID.
 	InstanceId *string `json:"instanceId,omitempty"`
 	// The network type
@@ -216,6 +218,38 @@ func (o *FleetCreateResourceInstanceRequest) HasExternalPayerId() bool {
 // SetExternalPayerId gets a reference to the given string and assigns it to the ExternalPayerId field.
 func (o *FleetCreateResourceInstanceRequest) SetExternalPayerId(v string) {
 	o.ExternalPayerId = &v
+}
+
+// GetIdempotencyKey returns the IdempotencyKey field value if set, zero value otherwise.
+func (o *FleetCreateResourceInstanceRequest) GetIdempotencyKey() string {
+	if o == nil || IsNil(o.IdempotencyKey) {
+		var ret string
+		return ret
+	}
+	return *o.IdempotencyKey
+}
+
+// GetIdempotencyKeyOk returns a tuple with the IdempotencyKey field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetCreateResourceInstanceRequest) GetIdempotencyKeyOk() (*string, bool) {
+	if o == nil || IsNil(o.IdempotencyKey) {
+		return nil, false
+	}
+	return o.IdempotencyKey, true
+}
+
+// HasIdempotencyKey returns a boolean if a field has been set.
+func (o *FleetCreateResourceInstanceRequest) HasIdempotencyKey() bool {
+	if o != nil && !IsNil(o.IdempotencyKey) {
+		return true
+	}
+
+	return false
+}
+
+// SetIdempotencyKey gets a reference to the given string and assigns it to the IdempotencyKey field.
+func (o *FleetCreateResourceInstanceRequest) SetIdempotencyKey(v string) {
+	o.IdempotencyKey = &v
 }
 
 // GetInstanceId returns the InstanceId field value if set, zero value otherwise.
@@ -689,6 +723,9 @@ func (o FleetCreateResourceInstanceRequest) ToMap() (map[string]interface{}, err
 	if !IsNil(o.ExternalPayerId) {
 		toSerialize["externalPayerId"] = o.ExternalPayerId
 	}
+	if !IsNil(o.IdempotencyKey) {
+		toSerialize["idempotencyKey"] = o.IdempotencyKey
+	}
 	if !IsNil(o.InstanceId) {
 		toSerialize["instanceId"] = o.InstanceId
 	}
@@ -775,6 +812,7 @@ func (o *FleetCreateResourceInstanceRequest) UnmarshalJSON(data []byte) (err err
 		delete(additionalProperties, "custom_network_id")
 		delete(additionalProperties, "customTags")
 		delete(additionalProperties, "externalPayerId")
+		delete(additionalProperties, "idempotencyKey")
 		delete(additionalProperties, "instanceId")
 		delete(additionalProperties, "network_type")
 		delete(additionalProperties, "onprem_platform")

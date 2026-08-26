@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **BillingProviders** | Pointer to **[]string** | List of billing providers to be used for the product tier | [optional] 
 **ByocOnpremRegions** | Pointer to **[]string** | The BYOC on-prem regions that this product tier is available on | [optional] 
 **CloudProvidersConfigReadiness** | Pointer to **map[string]map[string]string** | The readiness of the cloud providers configurations | [optional] 
+**CustomMetering** | Pointer to [**CustomMeteringConfiguration**](CustomMeteringConfiguration.md) |  | [optional] 
 **DefaultBillingProvider** | Pointer to **string** | The billing provider type | [optional] 
 **DeploymentArtifactIDs** | Pointer to **[]string** | List of deployment artifact IDs associated with this product tier | [optional] 
 **DeploymentConfiguration** | Pointer to [**ProductTierDeploymentConfiguration**](ProductTierDeploymentConfiguration.md) |  | [optional] 
@@ -285,6 +286,31 @@ SetCloudProvidersConfigReadiness sets CloudProvidersConfigReadiness field to giv
 `func (o *DescribeProductTierResult) HasCloudProvidersConfigReadiness() bool`
 
 HasCloudProvidersConfigReadiness returns a boolean if a field has been set.
+
+### GetCustomMetering
+
+`func (o *DescribeProductTierResult) GetCustomMetering() CustomMeteringConfiguration`
+
+GetCustomMetering returns the CustomMetering field if non-nil, zero value otherwise.
+
+### GetCustomMeteringOk
+
+`func (o *DescribeProductTierResult) GetCustomMeteringOk() (*CustomMeteringConfiguration, bool)`
+
+GetCustomMeteringOk returns a tuple with the CustomMetering field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomMetering
+
+`func (o *DescribeProductTierResult) SetCustomMetering(v CustomMeteringConfiguration)`
+
+SetCustomMetering sets CustomMetering field to given value.
+
+### HasCustomMetering
+
+`func (o *DescribeProductTierResult) HasCustomMetering() bool`
+
+HasCustomMetering returns a boolean if a field has been set.
 
 ### GetDefaultBillingProvider
 

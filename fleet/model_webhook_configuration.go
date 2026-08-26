@@ -22,10 +22,24 @@ var _ MappedNullable = &WebhookConfiguration{}
 type WebhookConfiguration struct {
 	// Additional parameters to include in the notification body
 	AdditionalBodyParameters map[string]interface{} `json:"additionalBodyParameters,omitempty"`
+	// How long a single attempt may take before it counts as failed and the backoff applies. Defaults to 10. This is a per-attempt limit and is unrelated to the total budget; a receiver that answers slowly burns attempts rather than extending them
+	DeliveryTimeoutSeconds *int64 `json:"deliveryTimeoutSeconds,omitempty"`
 	// HTTP headers to include in the notification
 	Headers *map[string]string `json:"headers,omitempty"`
+	// Read only, and always X-Omnistrate-Event-Id. The header carrying the deduplication token for this channel's deliveries. The value is stable across retries AND across an operator redelivering the same event, so recording processed ids makes a repeat delivery a no-op. Reported so a receiver knows the token exists rather than having to discover it from a delivery
+	IdempotencyHeader *string `json:"idempotencyHeader,omitempty"`
+	// How many attempts the budget is spread across, including the first. Defaults to 7, which covers a day with backoff. More attempts inside the same budget means a shorter gap between each, which helps a receiver that flaps and does nothing for one that is simply down
+	MaxDeliveryAttempts *int64 `json:"maxDeliveryAttempts,omitempty"`
+	// Total budget for delivering one event, across all attempts, in seconds. Retries use exponential backoff within it. Defaults to 86400, a full day, and 86400 is also the ceiling: past a day an event is usually stale enough that reporting the channel as broken is more useful than delivering it. Set it lower for a channel where a late notification is worse than none
+	MaxDeliveryDurationSeconds *int64 `json:"maxDeliveryDurationSeconds,omitempty"`
 	// HTTP method to use for the notification
 	Method string `json:"method"`
+	// Write only, and never returned by any read. The HMAC-SHA256 secret deliveries to this webhook are signed with, and the only place a signing secret is set: there is no channel-level equivalent. You supply it; Omnistrate does not generate one. Omit it and this channel's deliveries are unsigned. On update, a new value rotates the secret and both the previous and the new one are accepted for an overlap window, so a receiver is not cut off mid-rotation; omit it to leave the secret unchanged. Reads report signingSecretSet instead
+	SigningSecret *string `json:"signingSecret,omitempty"`
+	// Read only. Identifies WHICH secret is active, so a rotation can be confirmed without revealing anything. An identifier is not a credential
+	SigningSecretId *string `json:"signingSecretId,omitempty"`
+	// Read only. Whether a signing secret is configured, which is the whole of what a read says about it. False means deliveries to this webhook are unsigned
+	SigningSecretSet *bool `json:"signingSecretSet,omitempty"`
 	// URL to send notifications to
 	Url string `json:"url"`
 	AdditionalProperties map[string]interface{}
@@ -84,6 +98,38 @@ func (o *WebhookConfiguration) SetAdditionalBodyParameters(v map[string]interfac
 	o.AdditionalBodyParameters = v
 }
 
+// GetDeliveryTimeoutSeconds returns the DeliveryTimeoutSeconds field value if set, zero value otherwise.
+func (o *WebhookConfiguration) GetDeliveryTimeoutSeconds() int64 {
+	if o == nil || IsNil(o.DeliveryTimeoutSeconds) {
+		var ret int64
+		return ret
+	}
+	return *o.DeliveryTimeoutSeconds
+}
+
+// GetDeliveryTimeoutSecondsOk returns a tuple with the DeliveryTimeoutSeconds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookConfiguration) GetDeliveryTimeoutSecondsOk() (*int64, bool) {
+	if o == nil || IsNil(o.DeliveryTimeoutSeconds) {
+		return nil, false
+	}
+	return o.DeliveryTimeoutSeconds, true
+}
+
+// HasDeliveryTimeoutSeconds returns a boolean if a field has been set.
+func (o *WebhookConfiguration) HasDeliveryTimeoutSeconds() bool {
+	if o != nil && !IsNil(o.DeliveryTimeoutSeconds) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeliveryTimeoutSeconds gets a reference to the given int64 and assigns it to the DeliveryTimeoutSeconds field.
+func (o *WebhookConfiguration) SetDeliveryTimeoutSeconds(v int64) {
+	o.DeliveryTimeoutSeconds = &v
+}
+
 // GetHeaders returns the Headers field value if set, zero value otherwise.
 func (o *WebhookConfiguration) GetHeaders() map[string]string {
 	if o == nil || IsNil(o.Headers) {
@@ -116,6 +162,102 @@ func (o *WebhookConfiguration) SetHeaders(v map[string]string) {
 	o.Headers = &v
 }
 
+// GetIdempotencyHeader returns the IdempotencyHeader field value if set, zero value otherwise.
+func (o *WebhookConfiguration) GetIdempotencyHeader() string {
+	if o == nil || IsNil(o.IdempotencyHeader) {
+		var ret string
+		return ret
+	}
+	return *o.IdempotencyHeader
+}
+
+// GetIdempotencyHeaderOk returns a tuple with the IdempotencyHeader field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookConfiguration) GetIdempotencyHeaderOk() (*string, bool) {
+	if o == nil || IsNil(o.IdempotencyHeader) {
+		return nil, false
+	}
+	return o.IdempotencyHeader, true
+}
+
+// HasIdempotencyHeader returns a boolean if a field has been set.
+func (o *WebhookConfiguration) HasIdempotencyHeader() bool {
+	if o != nil && !IsNil(o.IdempotencyHeader) {
+		return true
+	}
+
+	return false
+}
+
+// SetIdempotencyHeader gets a reference to the given string and assigns it to the IdempotencyHeader field.
+func (o *WebhookConfiguration) SetIdempotencyHeader(v string) {
+	o.IdempotencyHeader = &v
+}
+
+// GetMaxDeliveryAttempts returns the MaxDeliveryAttempts field value if set, zero value otherwise.
+func (o *WebhookConfiguration) GetMaxDeliveryAttempts() int64 {
+	if o == nil || IsNil(o.MaxDeliveryAttempts) {
+		var ret int64
+		return ret
+	}
+	return *o.MaxDeliveryAttempts
+}
+
+// GetMaxDeliveryAttemptsOk returns a tuple with the MaxDeliveryAttempts field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookConfiguration) GetMaxDeliveryAttemptsOk() (*int64, bool) {
+	if o == nil || IsNil(o.MaxDeliveryAttempts) {
+		return nil, false
+	}
+	return o.MaxDeliveryAttempts, true
+}
+
+// HasMaxDeliveryAttempts returns a boolean if a field has been set.
+func (o *WebhookConfiguration) HasMaxDeliveryAttempts() bool {
+	if o != nil && !IsNil(o.MaxDeliveryAttempts) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxDeliveryAttempts gets a reference to the given int64 and assigns it to the MaxDeliveryAttempts field.
+func (o *WebhookConfiguration) SetMaxDeliveryAttempts(v int64) {
+	o.MaxDeliveryAttempts = &v
+}
+
+// GetMaxDeliveryDurationSeconds returns the MaxDeliveryDurationSeconds field value if set, zero value otherwise.
+func (o *WebhookConfiguration) GetMaxDeliveryDurationSeconds() int64 {
+	if o == nil || IsNil(o.MaxDeliveryDurationSeconds) {
+		var ret int64
+		return ret
+	}
+	return *o.MaxDeliveryDurationSeconds
+}
+
+// GetMaxDeliveryDurationSecondsOk returns a tuple with the MaxDeliveryDurationSeconds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookConfiguration) GetMaxDeliveryDurationSecondsOk() (*int64, bool) {
+	if o == nil || IsNil(o.MaxDeliveryDurationSeconds) {
+		return nil, false
+	}
+	return o.MaxDeliveryDurationSeconds, true
+}
+
+// HasMaxDeliveryDurationSeconds returns a boolean if a field has been set.
+func (o *WebhookConfiguration) HasMaxDeliveryDurationSeconds() bool {
+	if o != nil && !IsNil(o.MaxDeliveryDurationSeconds) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxDeliveryDurationSeconds gets a reference to the given int64 and assigns it to the MaxDeliveryDurationSeconds field.
+func (o *WebhookConfiguration) SetMaxDeliveryDurationSeconds(v int64) {
+	o.MaxDeliveryDurationSeconds = &v
+}
+
 // GetMethod returns the Method field value
 func (o *WebhookConfiguration) GetMethod() string {
 	if o == nil {
@@ -138,6 +280,102 @@ func (o *WebhookConfiguration) GetMethodOk() (*string, bool) {
 // SetMethod sets field value
 func (o *WebhookConfiguration) SetMethod(v string) {
 	o.Method = v
+}
+
+// GetSigningSecret returns the SigningSecret field value if set, zero value otherwise.
+func (o *WebhookConfiguration) GetSigningSecret() string {
+	if o == nil || IsNil(o.SigningSecret) {
+		var ret string
+		return ret
+	}
+	return *o.SigningSecret
+}
+
+// GetSigningSecretOk returns a tuple with the SigningSecret field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookConfiguration) GetSigningSecretOk() (*string, bool) {
+	if o == nil || IsNil(o.SigningSecret) {
+		return nil, false
+	}
+	return o.SigningSecret, true
+}
+
+// HasSigningSecret returns a boolean if a field has been set.
+func (o *WebhookConfiguration) HasSigningSecret() bool {
+	if o != nil && !IsNil(o.SigningSecret) {
+		return true
+	}
+
+	return false
+}
+
+// SetSigningSecret gets a reference to the given string and assigns it to the SigningSecret field.
+func (o *WebhookConfiguration) SetSigningSecret(v string) {
+	o.SigningSecret = &v
+}
+
+// GetSigningSecretId returns the SigningSecretId field value if set, zero value otherwise.
+func (o *WebhookConfiguration) GetSigningSecretId() string {
+	if o == nil || IsNil(o.SigningSecretId) {
+		var ret string
+		return ret
+	}
+	return *o.SigningSecretId
+}
+
+// GetSigningSecretIdOk returns a tuple with the SigningSecretId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookConfiguration) GetSigningSecretIdOk() (*string, bool) {
+	if o == nil || IsNil(o.SigningSecretId) {
+		return nil, false
+	}
+	return o.SigningSecretId, true
+}
+
+// HasSigningSecretId returns a boolean if a field has been set.
+func (o *WebhookConfiguration) HasSigningSecretId() bool {
+	if o != nil && !IsNil(o.SigningSecretId) {
+		return true
+	}
+
+	return false
+}
+
+// SetSigningSecretId gets a reference to the given string and assigns it to the SigningSecretId field.
+func (o *WebhookConfiguration) SetSigningSecretId(v string) {
+	o.SigningSecretId = &v
+}
+
+// GetSigningSecretSet returns the SigningSecretSet field value if set, zero value otherwise.
+func (o *WebhookConfiguration) GetSigningSecretSet() bool {
+	if o == nil || IsNil(o.SigningSecretSet) {
+		var ret bool
+		return ret
+	}
+	return *o.SigningSecretSet
+}
+
+// GetSigningSecretSetOk returns a tuple with the SigningSecretSet field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookConfiguration) GetSigningSecretSetOk() (*bool, bool) {
+	if o == nil || IsNil(o.SigningSecretSet) {
+		return nil, false
+	}
+	return o.SigningSecretSet, true
+}
+
+// HasSigningSecretSet returns a boolean if a field has been set.
+func (o *WebhookConfiguration) HasSigningSecretSet() bool {
+	if o != nil && !IsNil(o.SigningSecretSet) {
+		return true
+	}
+
+	return false
+}
+
+// SetSigningSecretSet gets a reference to the given bool and assigns it to the SigningSecretSet field.
+func (o *WebhookConfiguration) SetSigningSecretSet(v bool) {
+	o.SigningSecretSet = &v
 }
 
 // GetUrl returns the Url field value
@@ -177,10 +415,31 @@ func (o WebhookConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AdditionalBodyParameters) {
 		toSerialize["additionalBodyParameters"] = o.AdditionalBodyParameters
 	}
+	if !IsNil(o.DeliveryTimeoutSeconds) {
+		toSerialize["deliveryTimeoutSeconds"] = o.DeliveryTimeoutSeconds
+	}
 	if !IsNil(o.Headers) {
 		toSerialize["headers"] = o.Headers
 	}
+	if !IsNil(o.IdempotencyHeader) {
+		toSerialize["idempotencyHeader"] = o.IdempotencyHeader
+	}
+	if !IsNil(o.MaxDeliveryAttempts) {
+		toSerialize["maxDeliveryAttempts"] = o.MaxDeliveryAttempts
+	}
+	if !IsNil(o.MaxDeliveryDurationSeconds) {
+		toSerialize["maxDeliveryDurationSeconds"] = o.MaxDeliveryDurationSeconds
+	}
 	toSerialize["method"] = o.Method
+	if !IsNil(o.SigningSecret) {
+		toSerialize["signingSecret"] = o.SigningSecret
+	}
+	if !IsNil(o.SigningSecretId) {
+		toSerialize["signingSecretId"] = o.SigningSecretId
+	}
+	if !IsNil(o.SigningSecretSet) {
+		toSerialize["signingSecretSet"] = o.SigningSecretSet
+	}
 	toSerialize["url"] = o.Url
 
 	for key, value := range o.AdditionalProperties {
@@ -227,8 +486,15 @@ func (o *WebhookConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "additionalBodyParameters")
+		delete(additionalProperties, "deliveryTimeoutSeconds")
 		delete(additionalProperties, "headers")
+		delete(additionalProperties, "idempotencyHeader")
+		delete(additionalProperties, "maxDeliveryAttempts")
+		delete(additionalProperties, "maxDeliveryDurationSeconds")
 		delete(additionalProperties, "method")
+		delete(additionalProperties, "signingSecret")
+		delete(additionalProperties, "signingSecretId")
+		delete(additionalProperties, "signingSecretSet")
 		delete(additionalProperties, "url")
 		o.AdditionalProperties = additionalProperties
 	}

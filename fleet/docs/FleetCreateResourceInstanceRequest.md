@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **CustomNetworkId** | Pointer to **string** | Custom network for resource | [optional] 
 **CustomTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The custom tags for the resource instance. | [optional] 
 **ExternalPayerId** | Pointer to **string** | The external payer id to record which customer should pay for this resource instance. This will override the subscription level external payer id if set. | [optional] 
+**IdempotencyKey** | Pointer to **string** | Makes this create safe to retry. Sending the same key with the same request returns the instance the first call created instead of creating a second one; sending it with a different request is rejected with 409. Keys are scoped to the calling user and expire 24 hours after first use | [optional] 
 **InstanceId** | Pointer to **string** | The ID of a previously deleted instance to restore. When provided, the instance will be re-provisioned with the same ID. | [optional] 
 **NetworkType** | Pointer to **string** | The network type | [optional] 
 **OnpremPlatform** | Pointer to **string** | OnPrem platform | [optional] 
@@ -143,6 +144,31 @@ SetExternalPayerId sets ExternalPayerId field to given value.
 `func (o *FleetCreateResourceInstanceRequest) HasExternalPayerId() bool`
 
 HasExternalPayerId returns a boolean if a field has been set.
+
+### GetIdempotencyKey
+
+`func (o *FleetCreateResourceInstanceRequest) GetIdempotencyKey() string`
+
+GetIdempotencyKey returns the IdempotencyKey field if non-nil, zero value otherwise.
+
+### GetIdempotencyKeyOk
+
+`func (o *FleetCreateResourceInstanceRequest) GetIdempotencyKeyOk() (*string, bool)`
+
+GetIdempotencyKeyOk returns a tuple with the IdempotencyKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIdempotencyKey
+
+`func (o *FleetCreateResourceInstanceRequest) SetIdempotencyKey(v string)`
+
+SetIdempotencyKey sets IdempotencyKey field to given value.
+
+### HasIdempotencyKey
+
+`func (o *FleetCreateResourceInstanceRequest) HasIdempotencyKey() bool`
+
+HasIdempotencyKey returns a boolean if a field has been set.
 
 ### GetInstanceId
 
