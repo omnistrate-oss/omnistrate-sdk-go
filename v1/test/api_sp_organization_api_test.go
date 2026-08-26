@@ -34,6 +34,18 @@ func Test_v1_SpOrganizationApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test SpOrganizationApiAPIService SpOrganizationApiGetCustomMetricsEndpoint", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SpOrganizationApiAPI.SpOrganizationApiGetCustomMetricsEndpoint(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test SpOrganizationApiAPIService SpOrganizationApiModifyServiceProviderOrganization", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

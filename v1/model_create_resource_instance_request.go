@@ -28,6 +28,8 @@ type CreateResourceInstanceRequest struct {
 	CustomTags []CustomTag `json:"customTags,omitempty"`
 	// This externalBillingId is deprecated and will be removed in the future
 	ExternalBillingId *string `json:"externalBillingId,omitempty"`
+	// Makes this create safe to retry. Sending the same key with the same request returns the instance the first call created instead of creating a second one; sending it with a different request is rejected with 409. Keys are scoped to the calling user and expire 24 hours after first use
+	IdempotencyKey *string `json:"idempotencyKey,omitempty"`
 	// The network type
 	NetworkType *string `json:"network_type,omitempty"`
 	// OnPrem platform
@@ -176,6 +178,29 @@ func (o *CreateResourceInstanceRequest) GetExternalBillingIdOk() (*string, bool)
 // SetExternalBillingId gets a reference to the given string and assigns it to the ExternalBillingId field.
 func (o *CreateResourceInstanceRequest) SetExternalBillingId(v string) {
 	o.ExternalBillingId = &v
+}
+
+// GetIdempotencyKey returns the IdempotencyKey field value if set, zero value otherwise.
+func (o *CreateResourceInstanceRequest) GetIdempotencyKey() string {
+	if o == nil || IsNil(o.IdempotencyKey) {
+		var ret string
+		return ret
+	}
+	return *o.IdempotencyKey
+}
+
+// GetIdempotencyKeyOk returns a tuple with the IdempotencyKey field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateResourceInstanceRequest) GetIdempotencyKeyOk() (*string, bool) {
+	if o == nil || IsNil(o.IdempotencyKey) {
+		return nil, false
+	}
+	return o.IdempotencyKey, true
+}
+
+// SetIdempotencyKey gets a reference to the given string and assigns it to the IdempotencyKey field.
+func (o *CreateResourceInstanceRequest) SetIdempotencyKey(v string) {
+	o.IdempotencyKey = &v
 }
 
 // GetNetworkType returns the NetworkType field value if set, zero value otherwise.
@@ -531,6 +556,9 @@ func (o CreateResourceInstanceRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ExternalBillingId) {
 		toSerialize["externalBillingId"] = o.ExternalBillingId
 	}
+	if !IsNil(o.IdempotencyKey) {
+		toSerialize["idempotencyKey"] = o.IdempotencyKey
+	}
 	if !IsNil(o.NetworkType) {
 		toSerialize["network_type"] = o.NetworkType
 	}
@@ -611,6 +639,7 @@ func (o *CreateResourceInstanceRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "custom_network_id")
 		delete(additionalProperties, "customTags")
 		delete(additionalProperties, "externalBillingId")
+		delete(additionalProperties, "idempotencyKey")
 		delete(additionalProperties, "network_type")
 		delete(additionalProperties, "onprem_platform")
 		delete(additionalProperties, "productTierKey")

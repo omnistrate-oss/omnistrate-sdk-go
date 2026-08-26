@@ -40,7 +40,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this model belongs to
 	id := "sm-12345678" // string | The service model ID
-	addAccountConfigToServiceModelRequest2 := *openapiclient.NewAddAccountConfigToServiceModelRequest2("Rerum tempora id et sunt.") // AddAccountConfigToServiceModelRequest2 | 
+	addAccountConfigToServiceModelRequest2 := *openapiclient.NewAddAccountConfigToServiceModelRequest2("Maxime perspiciatis aut.") // AddAccountConfigToServiceModelRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -185,7 +185,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The service this model is for
-	createServiceModelRequest2 := *openapiclient.NewCreateServiceModelRequest2("A MySQL Hosted SaaS specializing in multi-writer clusters for high availability", "OMNISTRATE_HOSTED|CUSTOMER_HOSTED|BYOA", "MySQL multi-writer service hosted model", "Corrupti et velit aut qui aut.") // CreateServiceModelRequest2 | 
+	createServiceModelRequest2 := *openapiclient.NewCreateServiceModelRequest2("A MySQL Hosted SaaS specializing in multi-writer clusters for high availability", "OMNISTRATE_HOSTED|CUSTOMER_HOSTED|BYOA", "MySQL multi-writer service hosted model", "Minus sit et sit et asperiores fuga.") // CreateServiceModelRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -680,7 +680,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The service ID this model belongs to
 	id := "sm-12345678" // string | The service model ID
-	removeAccountConfigFromServiceModelRequest2 := *openapiclient.NewRemoveAccountConfigFromServiceModelRequest2("Ab ut repellat.") // RemoveAccountConfigFromServiceModelRequest2 | 
+	removeAccountConfigFromServiceModelRequest2 := *openapiclient.NewRemoveAccountConfigFromServiceModelRequest2("Sunt nam unde vel vel.") // RemoveAccountConfigFromServiceModelRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

@@ -20,10 +20,12 @@ var _ MappedNullable = &OnboardingCustomerVariable{}
 
 // OnboardingCustomerVariable A customer-provided variable for cloud-native onboarding.
 type OnboardingCustomerVariable struct {
-	// The default value.
-	DefaultValue *string `json:"defaultValue,omitempty"`
+	// The typed default value.
+	DefaultValue interface{} `json:"defaultValue,omitempty"`
 	// The variable key.
 	Key string `json:"key"`
+	// Normalized customer variable type used by generated API parameters.
+	Type *string `json:"type,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -47,22 +49,23 @@ func NewOnboardingCustomerVariableWithDefaults() *OnboardingCustomerVariable {
 	return &this
 }
 
-// GetDefaultValue returns the DefaultValue field value if set, zero value otherwise.
-func (o *OnboardingCustomerVariable) GetDefaultValue() string {
-	if o == nil || IsNil(o.DefaultValue) {
-		var ret string
+// GetDefaultValue returns the DefaultValue field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *OnboardingCustomerVariable) GetDefaultValue() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.DefaultValue
+	return o.DefaultValue
 }
 
 // GetDefaultValueOk returns a tuple with the DefaultValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OnboardingCustomerVariable) GetDefaultValueOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *OnboardingCustomerVariable) GetDefaultValueOk() (*interface{}, bool) {
 	if o == nil || IsNil(o.DefaultValue) {
 		return nil, false
 	}
-	return o.DefaultValue, true
+	return &o.DefaultValue, true
 }
 
 // HasDefaultValue returns a boolean if a field has been set.
@@ -74,9 +77,9 @@ func (o *OnboardingCustomerVariable) HasDefaultValue() bool {
 	return false
 }
 
-// SetDefaultValue gets a reference to the given string and assigns it to the DefaultValue field.
-func (o *OnboardingCustomerVariable) SetDefaultValue(v string) {
-	o.DefaultValue = &v
+// SetDefaultValue gets a reference to the given interface{} and assigns it to the DefaultValue field.
+func (o *OnboardingCustomerVariable) SetDefaultValue(v interface{}) {
+	o.DefaultValue = v
 }
 
 // GetKey returns the Key field value
@@ -103,6 +106,38 @@ func (o *OnboardingCustomerVariable) SetKey(v string) {
 	o.Key = v
 }
 
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *OnboardingCustomerVariable) GetType() string {
+	if o == nil || IsNil(o.Type) {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OnboardingCustomerVariable) GetTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.Type) {
+		return nil, false
+	}
+	return o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *OnboardingCustomerVariable) HasType() bool {
+	if o != nil && !IsNil(o.Type) {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *OnboardingCustomerVariable) SetType(v string) {
+	o.Type = &v
+}
+
 func (o OnboardingCustomerVariable) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -113,10 +148,13 @@ func (o OnboardingCustomerVariable) MarshalJSON() ([]byte, error) {
 
 func (o OnboardingCustomerVariable) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.DefaultValue) {
+	if o.DefaultValue != nil {
 		toSerialize["defaultValue"] = o.DefaultValue
 	}
 	toSerialize["key"] = o.Key
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -162,6 +200,7 @@ func (o *OnboardingCustomerVariable) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "defaultValue")
 		delete(additionalProperties, "key")
+		delete(additionalProperties, "type")
 		o.AdditionalProperties = additionalProperties
 	}
 

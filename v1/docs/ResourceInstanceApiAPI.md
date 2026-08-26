@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 
 ## ResourceInstanceApiCreateResourceInstance
 
-> CreateServicesOrchestrationResponseBody ResourceInstanceApiCreateResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey).CreateResourceInstanceRequest2(createResourceInstanceRequest2).SubscriptionId(subscriptionId).Execute()
+> CreateServicesOrchestrationResponseBody ResourceInstanceApiCreateResourceInstance(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey).CreateResourceInstanceRequest2(createResourceInstanceRequest2).SubscriptionId(subscriptionId).IdempotencyKey(idempotencyKey).Execute()
 
 CreateResourceInstance resource-instance-api
 
@@ -334,10 +334,11 @@ func main() {
 	resourceKey := "mysql" // string | The resource key
 	createResourceInstanceRequest2 := *openapiclient.NewCreateResourceInstanceRequest2() // CreateResourceInstanceRequest2 | 
 	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
+	idempotencyKey := "6a7b1c2d-3e4f-5061-7283-94a5b6c7d8e9" // string | Makes this create safe to retry. Sending the same key with the same request returns the instance the first call created instead of creating a second one; sending it with a different request is rejected with 409. Keys are scoped to the calling user and expire 24 hours after first use (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiCreateResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey).CreateResourceInstanceRequest2(createResourceInstanceRequest2).SubscriptionId(subscriptionId).Execute()
+	resp, r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiCreateResourceInstance(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey).CreateResourceInstanceRequest2(createResourceInstanceRequest2).SubscriptionId(subscriptionId).IdempotencyKey(idempotencyKey).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiCreateResourceInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -377,6 +378,7 @@ Name | Type | Description  | Notes
 
  **createResourceInstanceRequest2** | [**CreateResourceInstanceRequest2**](CreateResourceInstanceRequest2.md) |  | 
  **subscriptionId** | **string** | Subscription Id | 
+ **idempotencyKey** | **string** | Makes this create safe to retry. Sending the same key with the same request returns the instance the first call created instead of creating a second one; sending it with a different request is rejected with 409. Keys are scoped to the calling user and expire 24 hours after first use | 
 
 ### Return type
 
@@ -424,7 +426,7 @@ func main() {
 	resourceKey := "mysql" // string | The resource key
 	id := "instance-abcd1234" // string | The instance ID
 	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
-	skipFinalSnapshot := false // bool | Skip taking final snapshot before deletion. If false (default), a final snapshot will be taken before deletion if snapshot-before-deletion is enabled on the plan. (optional) (default to false)
+	skipFinalSnapshot := true // bool | Skip taking final snapshot before deletion. If false (default), a final snapshot will be taken before deletion if snapshot-before-deletion is enabled on the plan. (optional) (default to false)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2061,7 +2063,7 @@ import (
 
 func main() {
 	id := "instance-abcd1234" // string | The instance ID
-	upgradeResourceInstanceVersionRequest2 := *openapiclient.NewUpgradeResourceInstanceVersionRequest2("premium", "mysql", "v1", "dev", "service-orchestration", "hosted", "Saepe assumenda.") // UpgradeResourceInstanceVersionRequest2 | 
+	upgradeResourceInstanceVersionRequest2 := *openapiclient.NewUpgradeResourceInstanceVersionRequest2("premium", "mysql", "v1", "dev", "service-orchestration", "hosted", "Illum quia in quia aut quibusdam inventore.") // UpgradeResourceInstanceVersionRequest2 | 
 	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
 
 	configuration := openapiclient.NewConfiguration()

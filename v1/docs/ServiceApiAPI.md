@@ -36,7 +36,7 @@ import (
 )
 
 func main() {
-	buildServiceFromComposeSpecRequest2 := *openapiclient.NewBuildServiceFromComposeSpecRequest2("Ratione qui quo consequatur animi hic nesciunt.", "MySQL multi-writer service") // BuildServiceFromComposeSpecRequest2 | 
+	buildServiceFromComposeSpecRequest2 := *openapiclient.NewBuildServiceFromComposeSpecRequest2("Quod cum sed exercitationem et ut earum.", "MySQL multi-writer service") // BuildServiceFromComposeSpecRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -100,7 +100,7 @@ import (
 )
 
 func main() {
-	buildServiceFromServicePlanSpecRequest2 := *openapiclient.NewBuildServiceFromServicePlanSpecRequest2("Facere aut.", "MySQL multi-writer service") // BuildServiceFromServicePlanSpecRequest2 | 
+	buildServiceFromServicePlanSpecRequest2 := *openapiclient.NewBuildServiceFromServicePlanSpecRequest2("Fugiat aut maxime consequatur.", "MySQL multi-writer service") // BuildServiceFromServicePlanSpecRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -228,7 +228,7 @@ import (
 )
 
 func main() {
-	createServiceFromComposeSpecRequest2 := *openapiclient.NewCreateServiceFromComposeSpecRequest2("A MySQL SaaS specializing in multi-writer clusters for high availability", "Similique impedit repellat quas.", "text/plain", "mysql.yaml", "MySQL multi-writer service") // CreateServiceFromComposeSpecRequest2 | 
+	createServiceFromComposeSpecRequest2 := *openapiclient.NewCreateServiceFromComposeSpecRequest2("A MySQL SaaS specializing in multi-writer clusters for high availability", "Rem repellendus ea eaque.", "text/plain", "mysql.yaml", "MySQL multi-writer service") // CreateServiceFromComposeSpecRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -485,7 +485,7 @@ import (
 )
 
 func main() {
-	prepareServiceFromServicePlanSpecRequest2 := *openapiclient.NewPrepareServiceFromServicePlanSpecRequest2("dev", "PROD|PRIVATE|CANARY|STAGING|QA|DEV|GLOBAL", "Est consectetur enim tenetur suscipit quis.", "MySQL multi-writer service") // PrepareServiceFromServicePlanSpecRequest2 | 
+	prepareServiceFromServicePlanSpecRequest2 := *openapiclient.NewPrepareServiceFromServicePlanSpecRequest2("dev", "PROD|PRIVATE|CANARY|STAGING|QA|DEV|GLOBAL", "Tempora et aut animi recusandae minus.", "MySQL multi-writer service") // PrepareServiceFromServicePlanSpecRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
