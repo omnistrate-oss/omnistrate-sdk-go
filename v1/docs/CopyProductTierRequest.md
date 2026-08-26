@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **AzureRegions** | Pointer to **[]string** | The Azure regions that this product tier is available on | [optional] 
 **BillingProductID** | Pointer to **string** | Optional billing product ID for tax purposes | [optional] 
 **ByocOnpremRegions** | Pointer to **[]string** | The BYOC on-prem regions that this product tier is available on | [optional] 
+**CustomMetering** | Pointer to [**CustomMeteringConfiguration**](CustomMeteringConfiguration.md) |  | [optional] 
 **Description** | **string** | A brief description of the product tier | 
 **Documentation** | Pointer to **string** | Documentation | [optional] 
 **EnableDeletionProtection** | Pointer to **bool** | Enable deletion protection for the product tier | [optional] 
@@ -200,6 +201,31 @@ SetByocOnpremRegions sets ByocOnpremRegions field to given value.
 `func (o *CopyProductTierRequest) HasByocOnpremRegions() bool`
 
 HasByocOnpremRegions returns a boolean if a field has been set.
+
+### GetCustomMetering
+
+`func (o *CopyProductTierRequest) GetCustomMetering() CustomMeteringConfiguration`
+
+GetCustomMetering returns the CustomMetering field if non-nil, zero value otherwise.
+
+### GetCustomMeteringOk
+
+`func (o *CopyProductTierRequest) GetCustomMeteringOk() (*CustomMeteringConfiguration, bool)`
+
+GetCustomMeteringOk returns a tuple with the CustomMetering field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomMetering
+
+`func (o *CopyProductTierRequest) SetCustomMetering(v CustomMeteringConfiguration)`
+
+SetCustomMetering sets CustomMetering field to given value.
+
+### HasCustomMetering
+
+`func (o *CopyProductTierRequest) HasCustomMetering() bool`
+
+HasCustomMetering returns a boolean if a field has been set.
 
 ### GetDescription
 

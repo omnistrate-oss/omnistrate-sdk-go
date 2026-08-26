@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **BillingProductID** | Pointer to **string** | Optional billing product ID for tax purposes | [optional] 
 **BillingProviders** | Pointer to **[]string** | List of billing providers to be used for the product tier | [optional] 
 **ByocOnpremRegions** | Pointer to **[]string** | The BYOC on-prem regions that this product tier is available on | [optional] 
+**CustomMetering** | Pointer to [**CustomMeteringConfiguration**](CustomMeteringConfiguration.md) |  | [optional] 
 **DefaultBillingProvider** | Pointer to **string** | The default billing provider to be used for the product tier | [optional] 
 **DeploymentConfiguration** | Pointer to [**ProductTierDeploymentConfiguration**](ProductTierDeploymentConfiguration.md) |  | [optional] 
 **Description** | Pointer to **string** | A brief description of the product tier | [optional] 
@@ -226,6 +227,31 @@ SetByocOnpremRegions sets ByocOnpremRegions field to given value.
 `func (o *UpdateProductTierRequest2) HasByocOnpremRegions() bool`
 
 HasByocOnpremRegions returns a boolean if a field has been set.
+
+### GetCustomMetering
+
+`func (o *UpdateProductTierRequest2) GetCustomMetering() CustomMeteringConfiguration`
+
+GetCustomMetering returns the CustomMetering field if non-nil, zero value otherwise.
+
+### GetCustomMeteringOk
+
+`func (o *UpdateProductTierRequest2) GetCustomMeteringOk() (*CustomMeteringConfiguration, bool)`
+
+GetCustomMeteringOk returns a tuple with the CustomMetering field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomMetering
+
+`func (o *UpdateProductTierRequest2) SetCustomMetering(v CustomMeteringConfiguration)`
+
+SetCustomMetering sets CustomMetering field to given value.
+
+### HasCustomMetering
+
+`func (o *UpdateProductTierRequest2) HasCustomMetering() bool`
+
+HasCustomMetering returns a boolean if a field has been set.
 
 ### GetDefaultBillingProvider
 

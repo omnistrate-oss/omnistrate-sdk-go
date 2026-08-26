@@ -3255,10 +3255,17 @@ type ApiInventoryApiCreateResourceInstanceRequest struct {
 	productTierKey string
 	resourceKey string
 	fleetCreateResourceInstanceRequest2 *FleetCreateResourceInstanceRequest2
+	idempotencyKey *string
 }
 
 func (r ApiInventoryApiCreateResourceInstanceRequest) FleetCreateResourceInstanceRequest2(fleetCreateResourceInstanceRequest2 FleetCreateResourceInstanceRequest2) ApiInventoryApiCreateResourceInstanceRequest {
 	r.fleetCreateResourceInstanceRequest2 = &fleetCreateResourceInstanceRequest2
+	return r
+}
+
+// Makes this create safe to retry. Sending the same key with the same request returns the instance the first call created instead of creating a second one; sending it with a different request is rejected with 409. Keys are scoped to the calling user and expire 24 hours after first use
+func (r ApiInventoryApiCreateResourceInstanceRequest) IdempotencyKey(idempotencyKey string) ApiInventoryApiCreateResourceInstanceRequest {
+	r.idempotencyKey = &idempotencyKey
 	return r
 }
 
@@ -3340,6 +3347,9 @@ func (a *InventoryApiAPIService) InventoryApiCreateResourceInstanceExecute(r Api
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.idempotencyKey != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Idempotency-Key", r.idempotencyKey, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.fleetCreateResourceInstanceRequest2
