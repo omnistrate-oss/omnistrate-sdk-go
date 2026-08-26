@@ -20,6 +20,12 @@ var _ MappedNullable = &DeploymentCellWorkflowEvent{}
 
 // DeploymentCellWorkflowEvent struct for DeploymentCellWorkflowEvent
 type DeploymentCellWorkflowEvent struct {
+	// The action the task performed, e.g. apply|patch|delete|get (CRD), install|upgrade (helm).
+	Action *string `json:"action,omitempty"`
+	// Consecutive attempts observed for this task, when the event corresponds to a retrying task.
+	AttemptCount *int64 `json:"attemptCount,omitempty"`
+	// A concise human-readable summary derived from the error code, when present.
+	DisplayMessage *string `json:"displayMessage,omitempty"`
 	// The error message if the event represents a failure
 	Error *string `json:"error,omitempty"`
 	// Stable error code from the workflow error taxonomy, present on failure events
@@ -28,8 +34,22 @@ type DeploymentCellWorkflowEvent struct {
 	EventTime string `json:"eventTime"`
 	// The type of the workflow event
 	EventType string `json:"eventType"`
+	// When this error signature was first observed for the current task attempt, RFC3339.
+	FirstSeenAt *string `json:"firstSeenAt,omitempty"`
+	// The success condition gating task completion, when present.
+	GateExpression *string `json:"gateExpression,omitempty"`
+	// The last observed value of the gate expression.
+	GateLastObserved *string `json:"gateLastObserved,omitempty"`
+	InfraDetail *WorkflowTaskInfraDetail `json:"infraDetail,omitempty"`
 	// The event message
 	Message string `json:"message"`
+	// The time of the next scheduled retry, RFC3339, when the task is awaiting retry.
+	NextRetryAt *string `json:"nextRetryAt,omitempty"`
+	// operatorCRD|genericCRD|helm|terraform|workload|cloudInfra|job|infraStack, when the event corresponds to a task.
+	ResourceType *string `json:"resourceType,omitempty"`
+	// Live task lifecycle state for step/task events: Pending|Applying|AwaitingCondition|DriftMismatch|Failed|Succeeded.
+	State *string `json:"state,omitempty"`
+	WorkloadDetail *WorkflowTaskWorkloadDetail `json:"workloadDetail,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -53,6 +73,102 @@ func NewDeploymentCellWorkflowEvent(eventTime string, eventType string, message 
 func NewDeploymentCellWorkflowEventWithDefaults() *DeploymentCellWorkflowEvent {
 	this := DeploymentCellWorkflowEvent{}
 	return &this
+}
+
+// GetAction returns the Action field value if set, zero value otherwise.
+func (o *DeploymentCellWorkflowEvent) GetAction() string {
+	if o == nil || IsNil(o.Action) {
+		var ret string
+		return ret
+	}
+	return *o.Action
+}
+
+// GetActionOk returns a tuple with the Action field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellWorkflowEvent) GetActionOk() (*string, bool) {
+	if o == nil || IsNil(o.Action) {
+		return nil, false
+	}
+	return o.Action, true
+}
+
+// HasAction returns a boolean if a field has been set.
+func (o *DeploymentCellWorkflowEvent) HasAction() bool {
+	if o != nil && !IsNil(o.Action) {
+		return true
+	}
+
+	return false
+}
+
+// SetAction gets a reference to the given string and assigns it to the Action field.
+func (o *DeploymentCellWorkflowEvent) SetAction(v string) {
+	o.Action = &v
+}
+
+// GetAttemptCount returns the AttemptCount field value if set, zero value otherwise.
+func (o *DeploymentCellWorkflowEvent) GetAttemptCount() int64 {
+	if o == nil || IsNil(o.AttemptCount) {
+		var ret int64
+		return ret
+	}
+	return *o.AttemptCount
+}
+
+// GetAttemptCountOk returns a tuple with the AttemptCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellWorkflowEvent) GetAttemptCountOk() (*int64, bool) {
+	if o == nil || IsNil(o.AttemptCount) {
+		return nil, false
+	}
+	return o.AttemptCount, true
+}
+
+// HasAttemptCount returns a boolean if a field has been set.
+func (o *DeploymentCellWorkflowEvent) HasAttemptCount() bool {
+	if o != nil && !IsNil(o.AttemptCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttemptCount gets a reference to the given int64 and assigns it to the AttemptCount field.
+func (o *DeploymentCellWorkflowEvent) SetAttemptCount(v int64) {
+	o.AttemptCount = &v
+}
+
+// GetDisplayMessage returns the DisplayMessage field value if set, zero value otherwise.
+func (o *DeploymentCellWorkflowEvent) GetDisplayMessage() string {
+	if o == nil || IsNil(o.DisplayMessage) {
+		var ret string
+		return ret
+	}
+	return *o.DisplayMessage
+}
+
+// GetDisplayMessageOk returns a tuple with the DisplayMessage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellWorkflowEvent) GetDisplayMessageOk() (*string, bool) {
+	if o == nil || IsNil(o.DisplayMessage) {
+		return nil, false
+	}
+	return o.DisplayMessage, true
+}
+
+// HasDisplayMessage returns a boolean if a field has been set.
+func (o *DeploymentCellWorkflowEvent) HasDisplayMessage() bool {
+	if o != nil && !IsNil(o.DisplayMessage) {
+		return true
+	}
+
+	return false
+}
+
+// SetDisplayMessage gets a reference to the given string and assigns it to the DisplayMessage field.
+func (o *DeploymentCellWorkflowEvent) SetDisplayMessage(v string) {
+	o.DisplayMessage = &v
 }
 
 // GetError returns the Error field value if set, zero value otherwise.
@@ -167,6 +283,134 @@ func (o *DeploymentCellWorkflowEvent) SetEventType(v string) {
 	o.EventType = v
 }
 
+// GetFirstSeenAt returns the FirstSeenAt field value if set, zero value otherwise.
+func (o *DeploymentCellWorkflowEvent) GetFirstSeenAt() string {
+	if o == nil || IsNil(o.FirstSeenAt) {
+		var ret string
+		return ret
+	}
+	return *o.FirstSeenAt
+}
+
+// GetFirstSeenAtOk returns a tuple with the FirstSeenAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellWorkflowEvent) GetFirstSeenAtOk() (*string, bool) {
+	if o == nil || IsNil(o.FirstSeenAt) {
+		return nil, false
+	}
+	return o.FirstSeenAt, true
+}
+
+// HasFirstSeenAt returns a boolean if a field has been set.
+func (o *DeploymentCellWorkflowEvent) HasFirstSeenAt() bool {
+	if o != nil && !IsNil(o.FirstSeenAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetFirstSeenAt gets a reference to the given string and assigns it to the FirstSeenAt field.
+func (o *DeploymentCellWorkflowEvent) SetFirstSeenAt(v string) {
+	o.FirstSeenAt = &v
+}
+
+// GetGateExpression returns the GateExpression field value if set, zero value otherwise.
+func (o *DeploymentCellWorkflowEvent) GetGateExpression() string {
+	if o == nil || IsNil(o.GateExpression) {
+		var ret string
+		return ret
+	}
+	return *o.GateExpression
+}
+
+// GetGateExpressionOk returns a tuple with the GateExpression field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellWorkflowEvent) GetGateExpressionOk() (*string, bool) {
+	if o == nil || IsNil(o.GateExpression) {
+		return nil, false
+	}
+	return o.GateExpression, true
+}
+
+// HasGateExpression returns a boolean if a field has been set.
+func (o *DeploymentCellWorkflowEvent) HasGateExpression() bool {
+	if o != nil && !IsNil(o.GateExpression) {
+		return true
+	}
+
+	return false
+}
+
+// SetGateExpression gets a reference to the given string and assigns it to the GateExpression field.
+func (o *DeploymentCellWorkflowEvent) SetGateExpression(v string) {
+	o.GateExpression = &v
+}
+
+// GetGateLastObserved returns the GateLastObserved field value if set, zero value otherwise.
+func (o *DeploymentCellWorkflowEvent) GetGateLastObserved() string {
+	if o == nil || IsNil(o.GateLastObserved) {
+		var ret string
+		return ret
+	}
+	return *o.GateLastObserved
+}
+
+// GetGateLastObservedOk returns a tuple with the GateLastObserved field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellWorkflowEvent) GetGateLastObservedOk() (*string, bool) {
+	if o == nil || IsNil(o.GateLastObserved) {
+		return nil, false
+	}
+	return o.GateLastObserved, true
+}
+
+// HasGateLastObserved returns a boolean if a field has been set.
+func (o *DeploymentCellWorkflowEvent) HasGateLastObserved() bool {
+	if o != nil && !IsNil(o.GateLastObserved) {
+		return true
+	}
+
+	return false
+}
+
+// SetGateLastObserved gets a reference to the given string and assigns it to the GateLastObserved field.
+func (o *DeploymentCellWorkflowEvent) SetGateLastObserved(v string) {
+	o.GateLastObserved = &v
+}
+
+// GetInfraDetail returns the InfraDetail field value if set, zero value otherwise.
+func (o *DeploymentCellWorkflowEvent) GetInfraDetail() WorkflowTaskInfraDetail {
+	if o == nil || IsNil(o.InfraDetail) {
+		var ret WorkflowTaskInfraDetail
+		return ret
+	}
+	return *o.InfraDetail
+}
+
+// GetInfraDetailOk returns a tuple with the InfraDetail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellWorkflowEvent) GetInfraDetailOk() (*WorkflowTaskInfraDetail, bool) {
+	if o == nil || IsNil(o.InfraDetail) {
+		return nil, false
+	}
+	return o.InfraDetail, true
+}
+
+// HasInfraDetail returns a boolean if a field has been set.
+func (o *DeploymentCellWorkflowEvent) HasInfraDetail() bool {
+	if o != nil && !IsNil(o.InfraDetail) {
+		return true
+	}
+
+	return false
+}
+
+// SetInfraDetail gets a reference to the given WorkflowTaskInfraDetail and assigns it to the InfraDetail field.
+func (o *DeploymentCellWorkflowEvent) SetInfraDetail(v WorkflowTaskInfraDetail) {
+	o.InfraDetail = &v
+}
+
 // GetMessage returns the Message field value
 func (o *DeploymentCellWorkflowEvent) GetMessage() string {
 	if o == nil {
@@ -191,6 +435,134 @@ func (o *DeploymentCellWorkflowEvent) SetMessage(v string) {
 	o.Message = v
 }
 
+// GetNextRetryAt returns the NextRetryAt field value if set, zero value otherwise.
+func (o *DeploymentCellWorkflowEvent) GetNextRetryAt() string {
+	if o == nil || IsNil(o.NextRetryAt) {
+		var ret string
+		return ret
+	}
+	return *o.NextRetryAt
+}
+
+// GetNextRetryAtOk returns a tuple with the NextRetryAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellWorkflowEvent) GetNextRetryAtOk() (*string, bool) {
+	if o == nil || IsNil(o.NextRetryAt) {
+		return nil, false
+	}
+	return o.NextRetryAt, true
+}
+
+// HasNextRetryAt returns a boolean if a field has been set.
+func (o *DeploymentCellWorkflowEvent) HasNextRetryAt() bool {
+	if o != nil && !IsNil(o.NextRetryAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetNextRetryAt gets a reference to the given string and assigns it to the NextRetryAt field.
+func (o *DeploymentCellWorkflowEvent) SetNextRetryAt(v string) {
+	o.NextRetryAt = &v
+}
+
+// GetResourceType returns the ResourceType field value if set, zero value otherwise.
+func (o *DeploymentCellWorkflowEvent) GetResourceType() string {
+	if o == nil || IsNil(o.ResourceType) {
+		var ret string
+		return ret
+	}
+	return *o.ResourceType
+}
+
+// GetResourceTypeOk returns a tuple with the ResourceType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellWorkflowEvent) GetResourceTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.ResourceType) {
+		return nil, false
+	}
+	return o.ResourceType, true
+}
+
+// HasResourceType returns a boolean if a field has been set.
+func (o *DeploymentCellWorkflowEvent) HasResourceType() bool {
+	if o != nil && !IsNil(o.ResourceType) {
+		return true
+	}
+
+	return false
+}
+
+// SetResourceType gets a reference to the given string and assigns it to the ResourceType field.
+func (o *DeploymentCellWorkflowEvent) SetResourceType(v string) {
+	o.ResourceType = &v
+}
+
+// GetState returns the State field value if set, zero value otherwise.
+func (o *DeploymentCellWorkflowEvent) GetState() string {
+	if o == nil || IsNil(o.State) {
+		var ret string
+		return ret
+	}
+	return *o.State
+}
+
+// GetStateOk returns a tuple with the State field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellWorkflowEvent) GetStateOk() (*string, bool) {
+	if o == nil || IsNil(o.State) {
+		return nil, false
+	}
+	return o.State, true
+}
+
+// HasState returns a boolean if a field has been set.
+func (o *DeploymentCellWorkflowEvent) HasState() bool {
+	if o != nil && !IsNil(o.State) {
+		return true
+	}
+
+	return false
+}
+
+// SetState gets a reference to the given string and assigns it to the State field.
+func (o *DeploymentCellWorkflowEvent) SetState(v string) {
+	o.State = &v
+}
+
+// GetWorkloadDetail returns the WorkloadDetail field value if set, zero value otherwise.
+func (o *DeploymentCellWorkflowEvent) GetWorkloadDetail() WorkflowTaskWorkloadDetail {
+	if o == nil || IsNil(o.WorkloadDetail) {
+		var ret WorkflowTaskWorkloadDetail
+		return ret
+	}
+	return *o.WorkloadDetail
+}
+
+// GetWorkloadDetailOk returns a tuple with the WorkloadDetail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellWorkflowEvent) GetWorkloadDetailOk() (*WorkflowTaskWorkloadDetail, bool) {
+	if o == nil || IsNil(o.WorkloadDetail) {
+		return nil, false
+	}
+	return o.WorkloadDetail, true
+}
+
+// HasWorkloadDetail returns a boolean if a field has been set.
+func (o *DeploymentCellWorkflowEvent) HasWorkloadDetail() bool {
+	if o != nil && !IsNil(o.WorkloadDetail) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkloadDetail gets a reference to the given WorkflowTaskWorkloadDetail and assigns it to the WorkloadDetail field.
+func (o *DeploymentCellWorkflowEvent) SetWorkloadDetail(v WorkflowTaskWorkloadDetail) {
+	o.WorkloadDetail = &v
+}
+
 func (o DeploymentCellWorkflowEvent) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -201,6 +573,15 @@ func (o DeploymentCellWorkflowEvent) MarshalJSON() ([]byte, error) {
 
 func (o DeploymentCellWorkflowEvent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Action) {
+		toSerialize["action"] = o.Action
+	}
+	if !IsNil(o.AttemptCount) {
+		toSerialize["attemptCount"] = o.AttemptCount
+	}
+	if !IsNil(o.DisplayMessage) {
+		toSerialize["displayMessage"] = o.DisplayMessage
+	}
 	if !IsNil(o.Error) {
 		toSerialize["error"] = o.Error
 	}
@@ -209,7 +590,31 @@ func (o DeploymentCellWorkflowEvent) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["eventTime"] = o.EventTime
 	toSerialize["eventType"] = o.EventType
+	if !IsNil(o.FirstSeenAt) {
+		toSerialize["firstSeenAt"] = o.FirstSeenAt
+	}
+	if !IsNil(o.GateExpression) {
+		toSerialize["gateExpression"] = o.GateExpression
+	}
+	if !IsNil(o.GateLastObserved) {
+		toSerialize["gateLastObserved"] = o.GateLastObserved
+	}
+	if !IsNil(o.InfraDetail) {
+		toSerialize["infraDetail"] = o.InfraDetail
+	}
 	toSerialize["message"] = o.Message
+	if !IsNil(o.NextRetryAt) {
+		toSerialize["nextRetryAt"] = o.NextRetryAt
+	}
+	if !IsNil(o.ResourceType) {
+		toSerialize["resourceType"] = o.ResourceType
+	}
+	if !IsNil(o.State) {
+		toSerialize["state"] = o.State
+	}
+	if !IsNil(o.WorkloadDetail) {
+		toSerialize["workloadDetail"] = o.WorkloadDetail
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -255,11 +660,22 @@ func (o *DeploymentCellWorkflowEvent) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "action")
+		delete(additionalProperties, "attemptCount")
+		delete(additionalProperties, "displayMessage")
 		delete(additionalProperties, "error")
 		delete(additionalProperties, "errorCode")
 		delete(additionalProperties, "eventTime")
 		delete(additionalProperties, "eventType")
+		delete(additionalProperties, "firstSeenAt")
+		delete(additionalProperties, "gateExpression")
+		delete(additionalProperties, "gateLastObserved")
+		delete(additionalProperties, "infraDetail")
 		delete(additionalProperties, "message")
+		delete(additionalProperties, "nextRetryAt")
+		delete(additionalProperties, "resourceType")
+		delete(additionalProperties, "state")
+		delete(additionalProperties, "workloadDetail")
 		o.AdditionalProperties = additionalProperties
 	}
 

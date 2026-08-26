@@ -20,8 +20,16 @@ var _ MappedNullable = &HostClusterHealthStatus{}
 
 // HostClusterHealthStatus Health status of the host cluster
 type HostClusterHealthStatus struct {
+	// AWS infrastructure mutation access status reported by the dataplane agent. Possible values: ENABLED, BLOCKED, UNKNOWN
+	AgentInfrastructureMutationStatus *string `json:"agentInfrastructureMutationStatus,omitempty"`
+	// Human-readable reason for the AWS infrastructure mutation access status
+	AgentInfrastructureMutationStatusReason *string `json:"agentInfrastructureMutationStatusReason,omitempty"`
 	// List of entities that have failed health checks
 	FailedEntities []EntityHealth `json:"failedEntities,omitempty"`
+	// Kubernetes debug access status reported by the dataplane agent. Possible values: ENABLED, BLOCKED, UNKNOWN
+	K8sDebugAccessStatus *string `json:"k8sDebugAccessStatus,omitempty"`
+	// Human-readable reason for the Kubernetes debug access status
+	K8sDebugAccessStatusReason *string `json:"k8sDebugAccessStatusReason,omitempty"`
 	// Version of the Kubernetes control plane running in the host cluster
 	KubernetesControlPlaneVersion string `json:"kubernetesControlPlaneVersion"`
 	// The heath status of a resource
@@ -70,6 +78,70 @@ func NewHostClusterHealthStatusWithDefaults() *HostClusterHealthStatus {
 	return &this
 }
 
+// GetAgentInfrastructureMutationStatus returns the AgentInfrastructureMutationStatus field value if set, zero value otherwise.
+func (o *HostClusterHealthStatus) GetAgentInfrastructureMutationStatus() string {
+	if o == nil || IsNil(o.AgentInfrastructureMutationStatus) {
+		var ret string
+		return ret
+	}
+	return *o.AgentInfrastructureMutationStatus
+}
+
+// GetAgentInfrastructureMutationStatusOk returns a tuple with the AgentInfrastructureMutationStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostClusterHealthStatus) GetAgentInfrastructureMutationStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.AgentInfrastructureMutationStatus) {
+		return nil, false
+	}
+	return o.AgentInfrastructureMutationStatus, true
+}
+
+// HasAgentInfrastructureMutationStatus returns a boolean if a field has been set.
+func (o *HostClusterHealthStatus) HasAgentInfrastructureMutationStatus() bool {
+	if o != nil && !IsNil(o.AgentInfrastructureMutationStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetAgentInfrastructureMutationStatus gets a reference to the given string and assigns it to the AgentInfrastructureMutationStatus field.
+func (o *HostClusterHealthStatus) SetAgentInfrastructureMutationStatus(v string) {
+	o.AgentInfrastructureMutationStatus = &v
+}
+
+// GetAgentInfrastructureMutationStatusReason returns the AgentInfrastructureMutationStatusReason field value if set, zero value otherwise.
+func (o *HostClusterHealthStatus) GetAgentInfrastructureMutationStatusReason() string {
+	if o == nil || IsNil(o.AgentInfrastructureMutationStatusReason) {
+		var ret string
+		return ret
+	}
+	return *o.AgentInfrastructureMutationStatusReason
+}
+
+// GetAgentInfrastructureMutationStatusReasonOk returns a tuple with the AgentInfrastructureMutationStatusReason field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostClusterHealthStatus) GetAgentInfrastructureMutationStatusReasonOk() (*string, bool) {
+	if o == nil || IsNil(o.AgentInfrastructureMutationStatusReason) {
+		return nil, false
+	}
+	return o.AgentInfrastructureMutationStatusReason, true
+}
+
+// HasAgentInfrastructureMutationStatusReason returns a boolean if a field has been set.
+func (o *HostClusterHealthStatus) HasAgentInfrastructureMutationStatusReason() bool {
+	if o != nil && !IsNil(o.AgentInfrastructureMutationStatusReason) {
+		return true
+	}
+
+	return false
+}
+
+// SetAgentInfrastructureMutationStatusReason gets a reference to the given string and assigns it to the AgentInfrastructureMutationStatusReason field.
+func (o *HostClusterHealthStatus) SetAgentInfrastructureMutationStatusReason(v string) {
+	o.AgentInfrastructureMutationStatusReason = &v
+}
+
 // GetFailedEntities returns the FailedEntities field value if set, zero value otherwise.
 func (o *HostClusterHealthStatus) GetFailedEntities() []EntityHealth {
 	if o == nil || IsNil(o.FailedEntities) {
@@ -100,6 +172,70 @@ func (o *HostClusterHealthStatus) HasFailedEntities() bool {
 // SetFailedEntities gets a reference to the given []EntityHealth and assigns it to the FailedEntities field.
 func (o *HostClusterHealthStatus) SetFailedEntities(v []EntityHealth) {
 	o.FailedEntities = v
+}
+
+// GetK8sDebugAccessStatus returns the K8sDebugAccessStatus field value if set, zero value otherwise.
+func (o *HostClusterHealthStatus) GetK8sDebugAccessStatus() string {
+	if o == nil || IsNil(o.K8sDebugAccessStatus) {
+		var ret string
+		return ret
+	}
+	return *o.K8sDebugAccessStatus
+}
+
+// GetK8sDebugAccessStatusOk returns a tuple with the K8sDebugAccessStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostClusterHealthStatus) GetK8sDebugAccessStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.K8sDebugAccessStatus) {
+		return nil, false
+	}
+	return o.K8sDebugAccessStatus, true
+}
+
+// HasK8sDebugAccessStatus returns a boolean if a field has been set.
+func (o *HostClusterHealthStatus) HasK8sDebugAccessStatus() bool {
+	if o != nil && !IsNil(o.K8sDebugAccessStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetK8sDebugAccessStatus gets a reference to the given string and assigns it to the K8sDebugAccessStatus field.
+func (o *HostClusterHealthStatus) SetK8sDebugAccessStatus(v string) {
+	o.K8sDebugAccessStatus = &v
+}
+
+// GetK8sDebugAccessStatusReason returns the K8sDebugAccessStatusReason field value if set, zero value otherwise.
+func (o *HostClusterHealthStatus) GetK8sDebugAccessStatusReason() string {
+	if o == nil || IsNil(o.K8sDebugAccessStatusReason) {
+		var ret string
+		return ret
+	}
+	return *o.K8sDebugAccessStatusReason
+}
+
+// GetK8sDebugAccessStatusReasonOk returns a tuple with the K8sDebugAccessStatusReason field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostClusterHealthStatus) GetK8sDebugAccessStatusReasonOk() (*string, bool) {
+	if o == nil || IsNil(o.K8sDebugAccessStatusReason) {
+		return nil, false
+	}
+	return o.K8sDebugAccessStatusReason, true
+}
+
+// HasK8sDebugAccessStatusReason returns a boolean if a field has been set.
+func (o *HostClusterHealthStatus) HasK8sDebugAccessStatusReason() bool {
+	if o != nil && !IsNil(o.K8sDebugAccessStatusReason) {
+		return true
+	}
+
+	return false
+}
+
+// SetK8sDebugAccessStatusReason gets a reference to the given string and assigns it to the K8sDebugAccessStatusReason field.
+func (o *HostClusterHealthStatus) SetK8sDebugAccessStatusReason(v string) {
+	o.K8sDebugAccessStatusReason = &v
 }
 
 // GetKubernetesControlPlaneVersion returns the KubernetesControlPlaneVersion field value
@@ -336,8 +472,20 @@ func (o HostClusterHealthStatus) MarshalJSON() ([]byte, error) {
 
 func (o HostClusterHealthStatus) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AgentInfrastructureMutationStatus) {
+		toSerialize["agentInfrastructureMutationStatus"] = o.AgentInfrastructureMutationStatus
+	}
+	if !IsNil(o.AgentInfrastructureMutationStatusReason) {
+		toSerialize["agentInfrastructureMutationStatusReason"] = o.AgentInfrastructureMutationStatusReason
+	}
 	if !IsNil(o.FailedEntities) {
 		toSerialize["failedEntities"] = o.FailedEntities
+	}
+	if !IsNil(o.K8sDebugAccessStatus) {
+		toSerialize["k8sDebugAccessStatus"] = o.K8sDebugAccessStatus
+	}
+	if !IsNil(o.K8sDebugAccessStatusReason) {
+		toSerialize["k8sDebugAccessStatusReason"] = o.K8sDebugAccessStatusReason
 	}
 	toSerialize["kubernetesControlPlaneVersion"] = o.KubernetesControlPlaneVersion
 	toSerialize["overallStatus"] = o.OverallStatus
@@ -400,7 +548,11 @@ func (o *HostClusterHealthStatus) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "agentInfrastructureMutationStatus")
+		delete(additionalProperties, "agentInfrastructureMutationStatusReason")
 		delete(additionalProperties, "failedEntities")
+		delete(additionalProperties, "k8sDebugAccessStatus")
+		delete(additionalProperties, "k8sDebugAccessStatusReason")
 		delete(additionalProperties, "kubernetesControlPlaneVersion")
 		delete(additionalProperties, "overallStatus")
 		delete(additionalProperties, "statusMessage")

@@ -34,11 +34,14 @@ type UpdateProductTierRequest struct {
 	BillingProviders []string `json:"billingProviders,omitempty"`
 	// The BYOC on-prem regions that this product tier is available on
 	ByocOnpremRegions []string `json:"byocOnpremRegions,omitempty"`
+	CustomMetering *CustomMeteringConfiguration `json:"customMetering,omitempty"`
 	// The billing provider type
 	DefaultBillingProvider *string `json:"defaultBillingProvider,omitempty"`
 	DeploymentConfiguration *ProductTierDeploymentConfiguration `json:"deploymentConfiguration,omitempty"`
 	// A brief description of the product tier
 	Description *string `json:"description,omitempty"`
+	// Whether Stripe invoice generation is disabled for this product tier
+	DisableInvoiceGeneration *bool `json:"disableInvoiceGeneration,omitempty"`
 	// Documentation
 	Documentation *string `json:"documentation,omitempty"`
 	// Enable deletion protection for the product tier
@@ -328,6 +331,38 @@ func (o *UpdateProductTierRequest) SetByocOnpremRegions(v []string) {
 	o.ByocOnpremRegions = v
 }
 
+// GetCustomMetering returns the CustomMetering field value if set, zero value otherwise.
+func (o *UpdateProductTierRequest) GetCustomMetering() CustomMeteringConfiguration {
+	if o == nil || IsNil(o.CustomMetering) {
+		var ret CustomMeteringConfiguration
+		return ret
+	}
+	return *o.CustomMetering
+}
+
+// GetCustomMeteringOk returns a tuple with the CustomMetering field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateProductTierRequest) GetCustomMeteringOk() (*CustomMeteringConfiguration, bool) {
+	if o == nil || IsNil(o.CustomMetering) {
+		return nil, false
+	}
+	return o.CustomMetering, true
+}
+
+// HasCustomMetering returns a boolean if a field has been set.
+func (o *UpdateProductTierRequest) HasCustomMetering() bool {
+	if o != nil && !IsNil(o.CustomMetering) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomMetering gets a reference to the given CustomMeteringConfiguration and assigns it to the CustomMetering field.
+func (o *UpdateProductTierRequest) SetCustomMetering(v CustomMeteringConfiguration) {
+	o.CustomMetering = &v
+}
+
 // GetDefaultBillingProvider returns the DefaultBillingProvider field value if set, zero value otherwise.
 func (o *UpdateProductTierRequest) GetDefaultBillingProvider() string {
 	if o == nil || IsNil(o.DefaultBillingProvider) {
@@ -422,6 +457,38 @@ func (o *UpdateProductTierRequest) HasDescription() bool {
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *UpdateProductTierRequest) SetDescription(v string) {
 	o.Description = &v
+}
+
+// GetDisableInvoiceGeneration returns the DisableInvoiceGeneration field value if set, zero value otherwise.
+func (o *UpdateProductTierRequest) GetDisableInvoiceGeneration() bool {
+	if o == nil || IsNil(o.DisableInvoiceGeneration) {
+		var ret bool
+		return ret
+	}
+	return *o.DisableInvoiceGeneration
+}
+
+// GetDisableInvoiceGenerationOk returns a tuple with the DisableInvoiceGeneration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateProductTierRequest) GetDisableInvoiceGenerationOk() (*bool, bool) {
+	if o == nil || IsNil(o.DisableInvoiceGeneration) {
+		return nil, false
+	}
+	return o.DisableInvoiceGeneration, true
+}
+
+// HasDisableInvoiceGeneration returns a boolean if a field has been set.
+func (o *UpdateProductTierRequest) HasDisableInvoiceGeneration() bool {
+	if o != nil && !IsNil(o.DisableInvoiceGeneration) {
+		return true
+	}
+
+	return false
+}
+
+// SetDisableInvoiceGeneration gets a reference to the given bool and assigns it to the DisableInvoiceGeneration field.
+func (o *UpdateProductTierRequest) SetDisableInvoiceGeneration(v bool) {
+	o.DisableInvoiceGeneration = &v
 }
 
 // GetDocumentation returns the Documentation field value if set, zero value otherwise.
@@ -1072,6 +1139,9 @@ func (o UpdateProductTierRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ByocOnpremRegions) {
 		toSerialize["byocOnpremRegions"] = o.ByocOnpremRegions
 	}
+	if !IsNil(o.CustomMetering) {
+		toSerialize["customMetering"] = o.CustomMetering
+	}
 	if !IsNil(o.DefaultBillingProvider) {
 		toSerialize["defaultBillingProvider"] = o.DefaultBillingProvider
 	}
@@ -1080,6 +1150,9 @@ func (o UpdateProductTierRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.DisableInvoiceGeneration) {
+		toSerialize["disableInvoiceGeneration"] = o.DisableInvoiceGeneration
 	}
 	if !IsNil(o.Documentation) {
 		toSerialize["documentation"] = o.Documentation
@@ -1187,9 +1260,11 @@ func (o *UpdateProductTierRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "billingProductID")
 		delete(additionalProperties, "billingProviders")
 		delete(additionalProperties, "byocOnpremRegions")
+		delete(additionalProperties, "customMetering")
 		delete(additionalProperties, "defaultBillingProvider")
 		delete(additionalProperties, "deploymentConfiguration")
 		delete(additionalProperties, "description")
+		delete(additionalProperties, "disableInvoiceGeneration")
 		delete(additionalProperties, "documentation")
 		delete(additionalProperties, "enableDeletionProtection")
 		delete(additionalProperties, "exportUsageMetering")

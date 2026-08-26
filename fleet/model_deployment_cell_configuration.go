@@ -21,6 +21,8 @@ var _ MappedNullable = &DeploymentCellConfiguration{}
 type DeploymentCellConfiguration struct {
 	// The amenities available in the deployment cell.
 	Amenities []Amenity `json:"Amenities,omitempty"`
+	// Optional immutable managed artifact bundle version for this environment and cloud provider. On update, omit it to leave the selection unchanged or send an empty string to clear the pin; an unpinned template uses the most recently completed READY bundle sync.
+	ManagedReleaseVersion *string `json:"ManagedReleaseVersion,omitempty"`
 	// The managed workload identities available in the deployment cell.
 	WorkloadIdentities []ManagedWorkloadIdentity `json:"WorkloadIdentities,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -77,6 +79,38 @@ func (o *DeploymentCellConfiguration) SetAmenities(v []Amenity) {
 	o.Amenities = v
 }
 
+// GetManagedReleaseVersion returns the ManagedReleaseVersion field value if set, zero value otherwise.
+func (o *DeploymentCellConfiguration) GetManagedReleaseVersion() string {
+	if o == nil || IsNil(o.ManagedReleaseVersion) {
+		var ret string
+		return ret
+	}
+	return *o.ManagedReleaseVersion
+}
+
+// GetManagedReleaseVersionOk returns a tuple with the ManagedReleaseVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellConfiguration) GetManagedReleaseVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.ManagedReleaseVersion) {
+		return nil, false
+	}
+	return o.ManagedReleaseVersion, true
+}
+
+// HasManagedReleaseVersion returns a boolean if a field has been set.
+func (o *DeploymentCellConfiguration) HasManagedReleaseVersion() bool {
+	if o != nil && !IsNil(o.ManagedReleaseVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetManagedReleaseVersion gets a reference to the given string and assigns it to the ManagedReleaseVersion field.
+func (o *DeploymentCellConfiguration) SetManagedReleaseVersion(v string) {
+	o.ManagedReleaseVersion = &v
+}
+
 // GetWorkloadIdentities returns the WorkloadIdentities field value if set, zero value otherwise.
 func (o *DeploymentCellConfiguration) GetWorkloadIdentities() []ManagedWorkloadIdentity {
 	if o == nil || IsNil(o.WorkloadIdentities) {
@@ -122,6 +156,9 @@ func (o DeploymentCellConfiguration) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Amenities) {
 		toSerialize["Amenities"] = o.Amenities
 	}
+	if !IsNil(o.ManagedReleaseVersion) {
+		toSerialize["ManagedReleaseVersion"] = o.ManagedReleaseVersion
+	}
 	if !IsNil(o.WorkloadIdentities) {
 		toSerialize["WorkloadIdentities"] = o.WorkloadIdentities
 	}
@@ -148,6 +185,7 @@ func (o *DeploymentCellConfiguration) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "Amenities")
+		delete(additionalProperties, "ManagedReleaseVersion")
 		delete(additionalProperties, "WorkloadIdentities")
 		o.AdditionalProperties = additionalProperties
 	}
