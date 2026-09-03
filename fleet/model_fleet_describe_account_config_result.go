@@ -68,6 +68,8 @@ type FleetDescribeAccountConfigResult struct {
 	GcpServiceAccountEmail *string `json:"gcpServiceAccountEmail,omitempty"`
 	// ID of an Account Config
 	Id string `json:"id"`
+	// The apply statuses of managed workload identities on this cloud account
+	ManagedWorkloadIdentityStatuses []ManagedWorkloadIdentityStatus `json:"managedWorkloadIdentityStatuses,omitempty"`
 	// The name of the account
 	Name string `json:"name"`
 	// The safe Nebius bindings configured for this account
@@ -862,6 +864,38 @@ func (o *FleetDescribeAccountConfigResult) SetId(v string) {
 	o.Id = v
 }
 
+// GetManagedWorkloadIdentityStatuses returns the ManagedWorkloadIdentityStatuses field value if set, zero value otherwise.
+func (o *FleetDescribeAccountConfigResult) GetManagedWorkloadIdentityStatuses() []ManagedWorkloadIdentityStatus {
+	if o == nil || IsNil(o.ManagedWorkloadIdentityStatuses) {
+		var ret []ManagedWorkloadIdentityStatus
+		return ret
+	}
+	return o.ManagedWorkloadIdentityStatuses
+}
+
+// GetManagedWorkloadIdentityStatusesOk returns a tuple with the ManagedWorkloadIdentityStatuses field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeAccountConfigResult) GetManagedWorkloadIdentityStatusesOk() ([]ManagedWorkloadIdentityStatus, bool) {
+	if o == nil || IsNil(o.ManagedWorkloadIdentityStatuses) {
+		return nil, false
+	}
+	return o.ManagedWorkloadIdentityStatuses, true
+}
+
+// HasManagedWorkloadIdentityStatuses returns a boolean if a field has been set.
+func (o *FleetDescribeAccountConfigResult) HasManagedWorkloadIdentityStatuses() bool {
+	if o != nil && !IsNil(o.ManagedWorkloadIdentityStatuses) {
+		return true
+	}
+
+	return false
+}
+
+// SetManagedWorkloadIdentityStatuses gets a reference to the given []ManagedWorkloadIdentityStatus and assigns it to the ManagedWorkloadIdentityStatuses field.
+func (o *FleetDescribeAccountConfigResult) SetManagedWorkloadIdentityStatuses(v []ManagedWorkloadIdentityStatus) {
+	o.ManagedWorkloadIdentityStatuses = v
+}
+
 // GetName returns the Name field value
 func (o *FleetDescribeAccountConfigResult) GetName() string {
 	if o == nil {
@@ -1266,6 +1300,9 @@ func (o FleetDescribeAccountConfigResult) ToMap() (map[string]interface{}, error
 		toSerialize["gcpServiceAccountEmail"] = o.GcpServiceAccountEmail
 	}
 	toSerialize["id"] = o.Id
+	if !IsNil(o.ManagedWorkloadIdentityStatuses) {
+		toSerialize["managedWorkloadIdentityStatuses"] = o.ManagedWorkloadIdentityStatuses
+	}
 	toSerialize["name"] = o.Name
 	if !IsNil(o.NebiusBindings) {
 		toSerialize["nebiusBindings"] = o.NebiusBindings
@@ -1365,6 +1402,7 @@ func (o *FleetDescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error
 		delete(additionalProperties, "gcpProjectNumber")
 		delete(additionalProperties, "gcpServiceAccountEmail")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "managedWorkloadIdentityStatuses")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "nebiusBindings")
 		delete(additionalProperties, "nebiusTenantID")

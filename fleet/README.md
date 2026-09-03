@@ -237,6 +237,8 @@ Class | Method | HTTP request | Description
 *MarketplaceApiAPI* | [**MarketplaceApiListMarketplaceChannels**](docs/MarketplaceApiAPI.md#marketplaceapilistmarketplacechannels) | **Get** /2022-09-01-00/fleet/marketplace/channel | ListMarketplaceChannels marketplace-api
 *MarketplaceApiAPI* | [**MarketplaceApiListMarketplaceContracts**](docs/MarketplaceApiAPI.md#marketplaceapilistmarketplacecontracts) | **Get** /2022-09-01-00/fleet/marketplace/contract | ListMarketplaceContracts marketplace-api
 *MarketplaceApiAPI* | [**MarketplaceApiListMarketplaceDeliveries**](docs/MarketplaceApiAPI.md#marketplaceapilistmarketplacedeliveries) | **Get** /2022-09-01-00/fleet/marketplace/delivery | ListMarketplaceDeliveries marketplace-api
+*MarketplaceApiAPI* | [**MarketplaceApiListSandboxUsageReports**](docs/MarketplaceApiAPI.md#marketplaceapilistsandboxusagereports) | **Get** /2022-09-01-00/fleet/marketplace/sandbox/usage-report | ListSandboxUsageReports marketplace-api
+*MarketplaceApiAPI* | [**MarketplaceApiMarketplaceChannelWebhook**](docs/MarketplaceApiAPI.md#marketplaceapimarketplacechannelwebhook) | **Post** /2022-09-01-00/fleet/marketplace/webhook/{channel}/{serviceProviderOrgId} | MarketplaceChannelWebhook marketplace-api
 *MarketplaceApiAPI* | [**MarketplaceApiMarketplaceLanding**](docs/MarketplaceApiAPI.md#marketplaceapimarketplacelanding) | **Get** /2022-09-01-00/fleet/marketplace/land/{channel}/{serviceProviderOrgId} | MarketplaceLanding marketplace-api
 *MarketplaceApiAPI* | [**MarketplaceApiRedeemHandoff**](docs/MarketplaceApiAPI.md#marketplaceapiredeemhandoff) | **Post** /2022-09-01-00/fleet/marketplace/handoff/redeem | RedeemHandoff marketplace-api
 *MarketplaceApiAPI* | [**MarketplaceApiRedeliverMarketplaceDelivery**](docs/MarketplaceApiAPI.md#marketplaceapiredelivermarketplacedelivery) | **Post** /2022-09-01-00/fleet/marketplace/delivery/{deliveryId}/redeliver | RedeliverMarketplaceDelivery marketplace-api
@@ -845,6 +847,8 @@ Class | Method | HTTP request | Description
  - [ListSaaSPortalCustomDomainsResult](docs/ListSaaSPortalCustomDomainsResult.md)
  - [ListSaaSPortalsRequest](docs/ListSaaSPortalsRequest.md)
  - [ListSaaSPortalsResult](docs/ListSaaSPortalsResult.md)
+ - [ListSandboxUsageReportsRequest](docs/ListSandboxUsageReportsRequest.md)
+ - [ListSandboxUsageReportsResult](docs/ListSandboxUsageReportsResult.md)
  - [ListSecretsRequest](docs/ListSecretsRequest.md)
  - [ListSecretsResult](docs/ListSecretsResult.md)
  - [ListServiceEnvironmentsRequest](docs/ListServiceEnvironmentsRequest.md)
@@ -886,6 +890,7 @@ Class | Method | HTTP request | Description
  - [ManagedWorkloadIdentityPermissions](docs/ManagedWorkloadIdentityPermissions.md)
  - [ManagedWorkloadIdentityRole](docs/ManagedWorkloadIdentityRole.md)
  - [ManagedWorkloadIdentityServiceAccount](docs/ManagedWorkloadIdentityServiceAccount.md)
+ - [ManagedWorkloadIdentityStatus](docs/ManagedWorkloadIdentityStatus.md)
  - [ManualOverride](docs/ManualOverride.md)
  - [MarketplaceBillingBinding](docs/MarketplaceBillingBinding.md)
  - [MarketplaceChannelCapabilities](docs/MarketplaceChannelCapabilities.md)
@@ -893,6 +898,8 @@ Class | Method | HTTP request | Description
  - [MarketplaceChannelFinding](docs/MarketplaceChannelFinding.md)
  - [MarketplaceChannelListing](docs/MarketplaceChannelListing.md)
  - [MarketplaceChannelValidation](docs/MarketplaceChannelValidation.md)
+ - [MarketplaceChannelWebhookRequest](docs/MarketplaceChannelWebhookRequest.md)
+ - [MarketplaceChannelWebhookResult](docs/MarketplaceChannelWebhookResult.md)
  - [MarketplaceContract](docs/MarketplaceContract.md)
  - [MarketplaceContractEvent](docs/MarketplaceContractEvent.md)
  - [MarketplaceDelivery](docs/MarketplaceDelivery.md)
@@ -900,13 +907,16 @@ Class | Method | HTTP request | Description
  - [MarketplaceEventCapabilities](docs/MarketplaceEventCapabilities.md)
  - [MarketplaceEventOrg](docs/MarketplaceEventOrg.md)
  - [MarketplaceEventPlan](docs/MarketplaceEventPlan.md)
+ - [MarketplaceEventReceiver](docs/MarketplaceEventReceiver.md)
  - [MarketplaceEventSubscriptionRequest](docs/MarketplaceEventSubscriptionRequest.md)
  - [MarketplaceFulfillment](docs/MarketplaceFulfillment.md)
  - [MarketplaceFulfillmentStage](docs/MarketplaceFulfillmentStage.md)
+ - [MarketplaceFulfillmentStageOccurrence](docs/MarketplaceFulfillmentStageOccurrence.md)
  - [MarketplaceInteractionStateChange](docs/MarketplaceInteractionStateChange.md)
  - [MarketplaceLandingRequest](docs/MarketplaceLandingRequest.md)
  - [MarketplaceLandingResult](docs/MarketplaceLandingResult.md)
  - [MarketplacePlanMapping](docs/MarketplacePlanMapping.md)
+ - [MarketplaceStageLeg](docs/MarketplaceStageLeg.md)
  - [MarketplaceStageParameter](docs/MarketplaceStageParameter.md)
  - [ModifyServiceProviderOrganizationRequest](docs/ModifyServiceProviderOrganizationRequest.md)
  - [ModifyServicesOrchestrationRequest](docs/ModifyServicesOrchestrationRequest.md)
@@ -1034,6 +1044,7 @@ Class | Method | HTTP request | Description
  - [SandboxCheckoutResult](docs/SandboxCheckoutResult.md)
  - [SandboxDelivery](docs/SandboxDelivery.md)
  - [SandboxRun](docs/SandboxRun.md)
+ - [SandboxUsageReport](docs/SandboxUsageReport.md)
  - [SchemaRequest](docs/SchemaRequest.md)
  - [ScrutinizeOnboardingDeploymentArtifactRequest](docs/ScrutinizeOnboardingDeploymentArtifactRequest.md)
  - [SearchInventoryFilters](docs/SearchInventoryFilters.md)

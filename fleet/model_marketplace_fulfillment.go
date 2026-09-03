@@ -29,11 +29,17 @@ type MarketplaceFulfillment struct {
 	FulfillmentState string `json:"fulfillmentState"`
 	LastRetryAt *time.Time `json:"lastRetryAt,omitempty"`
 	MarketplaceContractId string `json:"marketplaceContractId"`
+	// The plaintext handoff credential, on SIMULATED contracts only, so a rehearsal stalled at AWAITING_ISV can be resumed without arming a new purchase. Absent on every real contract, where the credential is stored only as a hash and exists once in the delivery that carried it
+	RehearsalHandoffToken *string `json:"rehearsalHandoffToken,omitempty" validate:"regexp=^hoff_[0-9A-HJKMNP-TV-Z]{26}$"`
+	// The same credential as the channel's ISV callback URL would have delivered it: the callback with the credential appended as the code parameter. This is the exact address a buyer's browser would have landed on, so following it resumes the rehearsal at the point the arrival reached.\\n\\nAssembled here rather than by the caller because appending it correctly means preserving a query string the ISV already had, and a console building its own would be reproducing that rule in a second place. SIMULATED contracts only, and absent when the channel has no callback URL to append to
+	RehearsalHandoffUrl *string `json:"rehearsalHandoffUrl,omitempty"`
 	// Operator requested retries of the whole fulfillment, distinct from the per-stage retryCount and from Port B delivery attempts
 	RetryCount *int64 `json:"retryCount,omitempty"`
 	// The current Temporal run. Changes on ContinueAsNew, which a long-lived fulfillment does periodically to bound history growth
 	RunId *string `json:"runId,omitempty"`
-	// Every stage, in order, whether or not it has been reached
+	// Every occurrence of every stage, oldest first, including repeats and stages this client may not know about. A contract suspended twice has two CONTRACT_SUSPENDED entries here, each with its own timing and its own legs
+	StageTimeline []MarketplaceFulfillmentStageOccurrence `json:"stageTimeline,omitempty"`
+	// Every stage, in order, whether or not it has been reached. AT MOST ONE ENTRY PER STAGE, carrying the latest occurrence of it. Superseded by stageTimeline, which carries every occurrence: a contract suspended twice appears here once. Kept because a client built against it finds a stage by name and would take the first of several repeats
 	Stages []MarketplaceFulfillmentStage `json:"stages"`
 	// The Omnistrate subscription, once it exists. The confirm waits for the fulfillment run to produce it and returns it, so there is no second call and no webhook to wait for. A repeat confirm returns the same id rather than approving twice
 	SubscriptionId *string `json:"subscriptionId,omitempty"`
@@ -209,6 +215,70 @@ func (o *MarketplaceFulfillment) SetMarketplaceContractId(v string) {
 	o.MarketplaceContractId = v
 }
 
+// GetRehearsalHandoffToken returns the RehearsalHandoffToken field value if set, zero value otherwise.
+func (o *MarketplaceFulfillment) GetRehearsalHandoffToken() string {
+	if o == nil || IsNil(o.RehearsalHandoffToken) {
+		var ret string
+		return ret
+	}
+	return *o.RehearsalHandoffToken
+}
+
+// GetRehearsalHandoffTokenOk returns a tuple with the RehearsalHandoffToken field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MarketplaceFulfillment) GetRehearsalHandoffTokenOk() (*string, bool) {
+	if o == nil || IsNil(o.RehearsalHandoffToken) {
+		return nil, false
+	}
+	return o.RehearsalHandoffToken, true
+}
+
+// HasRehearsalHandoffToken returns a boolean if a field has been set.
+func (o *MarketplaceFulfillment) HasRehearsalHandoffToken() bool {
+	if o != nil && !IsNil(o.RehearsalHandoffToken) {
+		return true
+	}
+
+	return false
+}
+
+// SetRehearsalHandoffToken gets a reference to the given string and assigns it to the RehearsalHandoffToken field.
+func (o *MarketplaceFulfillment) SetRehearsalHandoffToken(v string) {
+	o.RehearsalHandoffToken = &v
+}
+
+// GetRehearsalHandoffUrl returns the RehearsalHandoffUrl field value if set, zero value otherwise.
+func (o *MarketplaceFulfillment) GetRehearsalHandoffUrl() string {
+	if o == nil || IsNil(o.RehearsalHandoffUrl) {
+		var ret string
+		return ret
+	}
+	return *o.RehearsalHandoffUrl
+}
+
+// GetRehearsalHandoffUrlOk returns a tuple with the RehearsalHandoffUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MarketplaceFulfillment) GetRehearsalHandoffUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.RehearsalHandoffUrl) {
+		return nil, false
+	}
+	return o.RehearsalHandoffUrl, true
+}
+
+// HasRehearsalHandoffUrl returns a boolean if a field has been set.
+func (o *MarketplaceFulfillment) HasRehearsalHandoffUrl() bool {
+	if o != nil && !IsNil(o.RehearsalHandoffUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetRehearsalHandoffUrl gets a reference to the given string and assigns it to the RehearsalHandoffUrl field.
+func (o *MarketplaceFulfillment) SetRehearsalHandoffUrl(v string) {
+	o.RehearsalHandoffUrl = &v
+}
+
 // GetRetryCount returns the RetryCount field value if set, zero value otherwise.
 func (o *MarketplaceFulfillment) GetRetryCount() int64 {
 	if o == nil || IsNil(o.RetryCount) {
@@ -271,6 +341,38 @@ func (o *MarketplaceFulfillment) HasRunId() bool {
 // SetRunId gets a reference to the given string and assigns it to the RunId field.
 func (o *MarketplaceFulfillment) SetRunId(v string) {
 	o.RunId = &v
+}
+
+// GetStageTimeline returns the StageTimeline field value if set, zero value otherwise.
+func (o *MarketplaceFulfillment) GetStageTimeline() []MarketplaceFulfillmentStageOccurrence {
+	if o == nil || IsNil(o.StageTimeline) {
+		var ret []MarketplaceFulfillmentStageOccurrence
+		return ret
+	}
+	return o.StageTimeline
+}
+
+// GetStageTimelineOk returns a tuple with the StageTimeline field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MarketplaceFulfillment) GetStageTimelineOk() ([]MarketplaceFulfillmentStageOccurrence, bool) {
+	if o == nil || IsNil(o.StageTimeline) {
+		return nil, false
+	}
+	return o.StageTimeline, true
+}
+
+// HasStageTimeline returns a boolean if a field has been set.
+func (o *MarketplaceFulfillment) HasStageTimeline() bool {
+	if o != nil && !IsNil(o.StageTimeline) {
+		return true
+	}
+
+	return false
+}
+
+// SetStageTimeline gets a reference to the given []MarketplaceFulfillmentStageOccurrence and assigns it to the StageTimeline field.
+func (o *MarketplaceFulfillment) SetStageTimeline(v []MarketplaceFulfillmentStageOccurrence) {
+	o.StageTimeline = v
 }
 
 // GetStages returns the Stages field value
@@ -414,11 +516,20 @@ func (o MarketplaceFulfillment) ToMap() (map[string]interface{}, error) {
 		toSerialize["lastRetryAt"] = o.LastRetryAt
 	}
 	toSerialize["marketplaceContractId"] = o.MarketplaceContractId
+	if !IsNil(o.RehearsalHandoffToken) {
+		toSerialize["rehearsalHandoffToken"] = o.RehearsalHandoffToken
+	}
+	if !IsNil(o.RehearsalHandoffUrl) {
+		toSerialize["rehearsalHandoffUrl"] = o.RehearsalHandoffUrl
+	}
 	if !IsNil(o.RetryCount) {
 		toSerialize["retryCount"] = o.RetryCount
 	}
 	if !IsNil(o.RunId) {
 		toSerialize["runId"] = o.RunId
+	}
+	if !IsNil(o.StageTimeline) {
+		toSerialize["stageTimeline"] = o.StageTimeline
 	}
 	toSerialize["stages"] = o.Stages
 	if !IsNil(o.SubscriptionId) {
@@ -480,8 +591,11 @@ func (o *MarketplaceFulfillment) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "fulfillmentState")
 		delete(additionalProperties, "lastRetryAt")
 		delete(additionalProperties, "marketplaceContractId")
+		delete(additionalProperties, "rehearsalHandoffToken")
+		delete(additionalProperties, "rehearsalHandoffUrl")
 		delete(additionalProperties, "retryCount")
 		delete(additionalProperties, "runId")
+		delete(additionalProperties, "stageTimeline")
 		delete(additionalProperties, "stages")
 		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "workflowId")

@@ -40,6 +40,10 @@ type MarketplaceChannelConfig struct {
 	DimensionMap *map[string]string `json:"dimensionMap,omitempty"`
 	// Whether contracts on this channel are fulfilled. A config can exist and be disabled, which is the state a partially configured connection sits in
 	Enabled bool `json:"enabled"`
+	// Where each event type is delivered. An event with no entry here is NOT delivered; there is no inheritance and no default. Channels that predate per-event routing have an entry per event carrying whatever their single receiver was, so nothing goes quiet without somebody removing it
+	EventReceivers []MarketplaceEventReceiver `json:"eventReceivers,omitempty"`
+	// How long a handoff credential this channel mints stays redeemable. Omit it for the platform default of seven days.  Separate from isvConfirmTimeoutSeconds on purpose. That one is the SLA, and the default validity is deliberately longer than it, so an ISV who breaches the SLA can still recover on their own rather than needing an operator to reissue. One is how long we wait before raising an alarm; the other is how long the credential works.  Between 3600 (an hour) and 2592000 (thirty days). The floor is because the chain from checkout to your callback is several hops and a browser is free to be slow at any of them, so a shorter credential is one a buyer can be handed already dead. The ceiling is the window in which a cloud marketplace can void a purchase; a credential outliving that keeps working after the thing it selects has stopped being real
+	HandoffTokenValiditySeconds *int64 `json:"handoffTokenValiditySeconds,omitempty"`
 	Id string `json:"id"`
 	// Derived from the channel, never accepted from a request. Every no-real-money affordance is gated on this rather than on the channel name
 	IsSimulated bool `json:"isSimulated"`
@@ -52,7 +56,7 @@ type MarketplaceChannelConfig struct {
 	LastSyncedAt *time.Time `json:"lastSyncedAt,omitempty"`
 	// The channel's listing identifier to the Omnistrate service and plan it is sold as. Mapping a listing here also disables self-serve subscription on that plan, because a marketplace plan a customer can subscribe to directly is a route around the ISV confirm
 	PlanMap *map[string]MarketplacePlanMapping `json:"planMap,omitempty"`
-	// Where SIGNED WEBHOOKS are delivered. A server endpoint that verifies the signature and answers 2xx, which is a different thing from isvCallbackUrl: that one takes a human's browser. Required before the channel can be enabled, because without it the ISV is never told a buyer arrived. Refused if it resolves to a private, loopback, link-local or metadata address
+	// DEPRECATED, and read only. The single receiver every event used to be delivered to, now migrated into an eventReceivers entry per event type. Still returned so a client built before per-event routing keeps working; write eventReceivers instead
 	PortBReceiverUrl *string `json:"portBReceiverUrl,omitempty"`
 	// Which secret is active, so a rotation can be confirmed by watching this change without anything sensitive being displayed. Not the secret and not derived from it
 	PortBSigningSecretId *string `json:"portBSigningSecretId,omitempty"`
@@ -440,6 +444,70 @@ func (o *MarketplaceChannelConfig) GetEnabledOk() (*bool, bool) {
 // SetEnabled sets field value
 func (o *MarketplaceChannelConfig) SetEnabled(v bool) {
 	o.Enabled = v
+}
+
+// GetEventReceivers returns the EventReceivers field value if set, zero value otherwise.
+func (o *MarketplaceChannelConfig) GetEventReceivers() []MarketplaceEventReceiver {
+	if o == nil || IsNil(o.EventReceivers) {
+		var ret []MarketplaceEventReceiver
+		return ret
+	}
+	return o.EventReceivers
+}
+
+// GetEventReceiversOk returns a tuple with the EventReceivers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MarketplaceChannelConfig) GetEventReceiversOk() ([]MarketplaceEventReceiver, bool) {
+	if o == nil || IsNil(o.EventReceivers) {
+		return nil, false
+	}
+	return o.EventReceivers, true
+}
+
+// HasEventReceivers returns a boolean if a field has been set.
+func (o *MarketplaceChannelConfig) HasEventReceivers() bool {
+	if o != nil && !IsNil(o.EventReceivers) {
+		return true
+	}
+
+	return false
+}
+
+// SetEventReceivers gets a reference to the given []MarketplaceEventReceiver and assigns it to the EventReceivers field.
+func (o *MarketplaceChannelConfig) SetEventReceivers(v []MarketplaceEventReceiver) {
+	o.EventReceivers = v
+}
+
+// GetHandoffTokenValiditySeconds returns the HandoffTokenValiditySeconds field value if set, zero value otherwise.
+func (o *MarketplaceChannelConfig) GetHandoffTokenValiditySeconds() int64 {
+	if o == nil || IsNil(o.HandoffTokenValiditySeconds) {
+		var ret int64
+		return ret
+	}
+	return *o.HandoffTokenValiditySeconds
+}
+
+// GetHandoffTokenValiditySecondsOk returns a tuple with the HandoffTokenValiditySeconds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MarketplaceChannelConfig) GetHandoffTokenValiditySecondsOk() (*int64, bool) {
+	if o == nil || IsNil(o.HandoffTokenValiditySeconds) {
+		return nil, false
+	}
+	return o.HandoffTokenValiditySeconds, true
+}
+
+// HasHandoffTokenValiditySeconds returns a boolean if a field has been set.
+func (o *MarketplaceChannelConfig) HasHandoffTokenValiditySeconds() bool {
+	if o != nil && !IsNil(o.HandoffTokenValiditySeconds) {
+		return true
+	}
+
+	return false
+}
+
+// SetHandoffTokenValiditySeconds gets a reference to the given int64 and assigns it to the HandoffTokenValiditySeconds field.
+func (o *MarketplaceChannelConfig) SetHandoffTokenValiditySeconds(v int64) {
+	o.HandoffTokenValiditySeconds = &v
 }
 
 // GetId returns the Id field value
@@ -926,6 +994,12 @@ func (o MarketplaceChannelConfig) ToMap() (map[string]interface{}, error) {
 		toSerialize["dimensionMap"] = o.DimensionMap
 	}
 	toSerialize["enabled"] = o.Enabled
+	if !IsNil(o.EventReceivers) {
+		toSerialize["eventReceivers"] = o.EventReceivers
+	}
+	if !IsNil(o.HandoffTokenValiditySeconds) {
+		toSerialize["handoffTokenValiditySeconds"] = o.HandoffTokenValiditySeconds
+	}
 	toSerialize["id"] = o.Id
 	toSerialize["isSimulated"] = o.IsSimulated
 	if !IsNil(o.IsvCallbackUrl) {
@@ -1026,6 +1100,8 @@ func (o *MarketplaceChannelConfig) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "defaultServiceId")
 		delete(additionalProperties, "dimensionMap")
 		delete(additionalProperties, "enabled")
+		delete(additionalProperties, "eventReceivers")
+		delete(additionalProperties, "handoffTokenValiditySeconds")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "isSimulated")
 		delete(additionalProperties, "isvCallbackUrl")
