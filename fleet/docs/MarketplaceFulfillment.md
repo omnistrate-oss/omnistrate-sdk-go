@@ -9,9 +9,12 @@ Name | Type | Description | Notes
 **FulfillmentState** | **string** | What Omnistrate decided. Deployments and metering are allowed if and only if this is READY, plus exactly one final metering window during DEPROVISIONING | 
 **LastRetryAt** | Pointer to **time.Time** |  | [optional] 
 **MarketplaceContractId** | **string** |  | 
+**RehearsalHandoffToken** | Pointer to **string** | The plaintext handoff credential, on SIMULATED contracts only, so a rehearsal stalled at AWAITING_ISV can be resumed without arming a new purchase. Absent on every real contract, where the credential is stored only as a hash and exists once in the delivery that carried it | [optional] 
+**RehearsalHandoffUrl** | Pointer to **string** | The same credential as the channel&#39;s ISV callback URL would have delivered it: the callback with the credential appended as the code parameter. This is the exact address a buyer&#39;s browser would have landed on, so following it resumes the rehearsal at the point the arrival reached.\\n\\nAssembled here rather than by the caller because appending it correctly means preserving a query string the ISV already had, and a console building its own would be reproducing that rule in a second place. SIMULATED contracts only, and absent when the channel has no callback URL to append to | [optional] 
 **RetryCount** | Pointer to **int64** | Operator requested retries of the whole fulfillment, distinct from the per-stage retryCount and from Port B delivery attempts | [optional] 
 **RunId** | Pointer to **string** | The current Temporal run. Changes on ContinueAsNew, which a long-lived fulfillment does periodically to bound history growth | [optional] 
-**Stages** | [**[]MarketplaceFulfillmentStage**](MarketplaceFulfillmentStage.md) | Every stage, in order, whether or not it has been reached | 
+**StageTimeline** | Pointer to [**[]MarketplaceFulfillmentStageOccurrence**](MarketplaceFulfillmentStageOccurrence.md) | Every occurrence of every stage, oldest first, including repeats and stages this client may not know about. A contract suspended twice has two CONTRACT_SUSPENDED entries here, each with its own timing and its own legs | [optional] 
+**Stages** | [**[]MarketplaceFulfillmentStage**](MarketplaceFulfillmentStage.md) | Every stage, in order, whether or not it has been reached. AT MOST ONE ENTRY PER STAGE, carrying the latest occurrence of it. Superseded by stageTimeline, which carries every occurrence: a contract suspended twice appears here once. Kept because a client built against it finds a stage by name and would take the first of several repeats | 
 **SubscriptionId** | Pointer to **string** | The Omnistrate subscription, once it exists. The confirm waits for the fulfillment run to produce it and returns it, so there is no second call and no webhook to wait for. A repeat confirm returns the same id rather than approving twice | [optional] 
 **WorkflowId** | Pointer to **string** | The Temporal workflow id, so an operator can open the same run in the Temporal UI rather than reasoning from this summary | [optional] 
 **WorkflowStatus** | Pointer to **string** |  | [optional] 
@@ -150,6 +153,56 @@ and a boolean to check if the value has been set.
 SetMarketplaceContractId sets MarketplaceContractId field to given value.
 
 
+### GetRehearsalHandoffToken
+
+`func (o *MarketplaceFulfillment) GetRehearsalHandoffToken() string`
+
+GetRehearsalHandoffToken returns the RehearsalHandoffToken field if non-nil, zero value otherwise.
+
+### GetRehearsalHandoffTokenOk
+
+`func (o *MarketplaceFulfillment) GetRehearsalHandoffTokenOk() (*string, bool)`
+
+GetRehearsalHandoffTokenOk returns a tuple with the RehearsalHandoffToken field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRehearsalHandoffToken
+
+`func (o *MarketplaceFulfillment) SetRehearsalHandoffToken(v string)`
+
+SetRehearsalHandoffToken sets RehearsalHandoffToken field to given value.
+
+### HasRehearsalHandoffToken
+
+`func (o *MarketplaceFulfillment) HasRehearsalHandoffToken() bool`
+
+HasRehearsalHandoffToken returns a boolean if a field has been set.
+
+### GetRehearsalHandoffUrl
+
+`func (o *MarketplaceFulfillment) GetRehearsalHandoffUrl() string`
+
+GetRehearsalHandoffUrl returns the RehearsalHandoffUrl field if non-nil, zero value otherwise.
+
+### GetRehearsalHandoffUrlOk
+
+`func (o *MarketplaceFulfillment) GetRehearsalHandoffUrlOk() (*string, bool)`
+
+GetRehearsalHandoffUrlOk returns a tuple with the RehearsalHandoffUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRehearsalHandoffUrl
+
+`func (o *MarketplaceFulfillment) SetRehearsalHandoffUrl(v string)`
+
+SetRehearsalHandoffUrl sets RehearsalHandoffUrl field to given value.
+
+### HasRehearsalHandoffUrl
+
+`func (o *MarketplaceFulfillment) HasRehearsalHandoffUrl() bool`
+
+HasRehearsalHandoffUrl returns a boolean if a field has been set.
+
 ### GetRetryCount
 
 `func (o *MarketplaceFulfillment) GetRetryCount() int64`
@@ -199,6 +252,31 @@ SetRunId sets RunId field to given value.
 `func (o *MarketplaceFulfillment) HasRunId() bool`
 
 HasRunId returns a boolean if a field has been set.
+
+### GetStageTimeline
+
+`func (o *MarketplaceFulfillment) GetStageTimeline() []MarketplaceFulfillmentStageOccurrence`
+
+GetStageTimeline returns the StageTimeline field if non-nil, zero value otherwise.
+
+### GetStageTimelineOk
+
+`func (o *MarketplaceFulfillment) GetStageTimelineOk() (*[]MarketplaceFulfillmentStageOccurrence, bool)`
+
+GetStageTimelineOk returns a tuple with the StageTimeline field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStageTimeline
+
+`func (o *MarketplaceFulfillment) SetStageTimeline(v []MarketplaceFulfillmentStageOccurrence)`
+
+SetStageTimeline sets StageTimeline field to given value.
+
+### HasStageTimeline
+
+`func (o *MarketplaceFulfillment) HasStageTimeline() bool`
+
+HasStageTimeline returns a boolean if a field has been set.
 
 ### GetStages
 

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **ContractRef** | Pointer to **string** | The channel&#39;s own reference for the contract, which is the identifier a buyer quotes and an operator recognises. Omitted from a contract-scoped list, where every row has the same one | [optional] 
 **DeliveryId** | **string** |  | 
 **DestinationUrl** | Pointer to **string** | Outbound only. Where this was sent, which is not necessarily where the channel is configured to send now | [optional] 
-**Direction** | **string** | OUTBOUND is a webhook Omnistrate sent to the ISV&#39;s receiver. INBOUND is a call the ISV made to the marketplace API | 
+**Direction** | **string** | Who called whom. OUTBOUND is a webhook Omnistrate sent to the ISV&#39;s receiver and INBOUND is a call the ISV made to the marketplace API, both relative to the ISV. CHANNEL_INBOUND is the marketplace calling Omnistrate, and CHANNEL_OUTBOUND is Omnistrate calling the marketplace | 
 **Endpoint** | Pointer to **string** | Inbound only. Which API the ISV called | [optional] 
 **EventId** | Pointer to **string** | Outbound only. The value a conforming receiver deduplicates on, so a retry carries the same one | [optional] 
 **EventType** | Pointer to **string** | The type of a marketplace fulfillment event delivered to an ISV receiver | [optional] 

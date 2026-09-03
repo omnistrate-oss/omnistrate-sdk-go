@@ -16,6 +16,8 @@ Method | HTTP request | Description
 [**MarketplaceApiListMarketplaceChannels**](MarketplaceApiAPI.md#MarketplaceApiListMarketplaceChannels) | **Get** /2022-09-01-00/fleet/marketplace/channel | ListMarketplaceChannels marketplace-api
 [**MarketplaceApiListMarketplaceContracts**](MarketplaceApiAPI.md#MarketplaceApiListMarketplaceContracts) | **Get** /2022-09-01-00/fleet/marketplace/contract | ListMarketplaceContracts marketplace-api
 [**MarketplaceApiListMarketplaceDeliveries**](MarketplaceApiAPI.md#MarketplaceApiListMarketplaceDeliveries) | **Get** /2022-09-01-00/fleet/marketplace/delivery | ListMarketplaceDeliveries marketplace-api
+[**MarketplaceApiListSandboxUsageReports**](MarketplaceApiAPI.md#MarketplaceApiListSandboxUsageReports) | **Get** /2022-09-01-00/fleet/marketplace/sandbox/usage-report | ListSandboxUsageReports marketplace-api
+[**MarketplaceApiMarketplaceChannelWebhook**](MarketplaceApiAPI.md#MarketplaceApiMarketplaceChannelWebhook) | **Post** /2022-09-01-00/fleet/marketplace/webhook/{channel}/{serviceProviderOrgId} | MarketplaceChannelWebhook marketplace-api
 [**MarketplaceApiMarketplaceLanding**](MarketplaceApiAPI.md#MarketplaceApiMarketplaceLanding) | **Get** /2022-09-01-00/fleet/marketplace/land/{channel}/{serviceProviderOrgId} | MarketplaceLanding marketplace-api
 [**MarketplaceApiRedeemHandoff**](MarketplaceApiAPI.md#MarketplaceApiRedeemHandoff) | **Post** /2022-09-01-00/fleet/marketplace/handoff/redeem | RedeemHandoff marketplace-api
 [**MarketplaceApiRedeliverMarketplaceDelivery**](MarketplaceApiAPI.md#MarketplaceApiRedeliverMarketplaceDelivery) | **Post** /2022-09-01-00/fleet/marketplace/delivery/{deliveryId}/redeliver | RedeliverMarketplaceDelivery marketplace-api
@@ -323,7 +325,7 @@ import (
 func main() {
 	id := "mkc-4t8w2qbnz1lp" // string | The Omnistrate contract identifier
 	channel := "SUGER|SANDBOX" // string | With externalRef, resolves a contract from the marketplace identifier alone, which is what an ISV has to hand when the buyer contacts them (optional)
-	externalRef := "Veniam suscipit provident cumque." // string |  (optional)
+	externalRef := "Quisquam molestiae eum." // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -787,8 +789,8 @@ import (
 
 func main() {
 	channel := "SUGER|SANDBOX" // string | Filter to one channel (optional)
-	marketplaceContractId := "Laborum est impedit temporibus." // string | Filter to one contract, which is how a contract detail view scopes its own trail (optional)
-	direction := "OUTBOUND|INBOUND" // string |  (optional)
+	marketplaceContractId := "Voluptatum nostrum id." // string | Filter to one contract, which is how a contract detail view scopes its own trail (optional)
+	direction := "OUTBOUND|INBOUND|CHANNEL_INBOUND|CHANNEL_OUTBOUND" // string |  (optional)
 	status := "PENDING|DELIVERED|FAILED|BLOCKED" // string |  (optional)
 	eventType := "contract.discovered|entitlement.updated|contract.suspended|contract.cancelled|fulfillment.failed" // string |  (optional)
 	failuresOnly := false // bool | A shortcut for the only filter combination anybody types twice (optional)
@@ -843,6 +845,150 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## MarketplaceApiListSandboxUsageReports
+
+> ListSandboxUsageReportsResult MarketplaceApiListSandboxUsageReports(ctx).MarketplaceContractId(marketplaceContractId).Status(status).WindowStartFrom(windowStartFrom).WindowStartTo(windowStartTo).Execute()
+
+ListSandboxUsageReports marketplace-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	marketplaceContractId := "mkc-4t8w2qbnz1lp" // string | Filter to one simulated sandbox contract (optional)
+	status := "PENDING|ACCEPTED|ACCEPTED_BY_DEDUPE|REJECTED_TERMINAL|UNMAPPED" // string |  (optional)
+	windowStartFrom := time.Now() // time.Time | Only usage windows starting at or after this RFC3339 instant (optional)
+	windowStartTo := time.Now() // time.Time | Only usage windows starting at or before this RFC3339 instant (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MarketplaceApiAPI.MarketplaceApiListSandboxUsageReports(context.Background()).MarketplaceContractId(marketplaceContractId).Status(status).WindowStartFrom(windowStartFrom).WindowStartTo(windowStartTo).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketplaceApiAPI.MarketplaceApiListSandboxUsageReports``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MarketplaceApiListSandboxUsageReports`: ListSandboxUsageReportsResult
+	fmt.Fprintf(os.Stdout, "Response from `MarketplaceApiAPI.MarketplaceApiListSandboxUsageReports`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMarketplaceApiListSandboxUsageReportsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **marketplaceContractId** | **string** | Filter to one simulated sandbox contract | 
+ **status** | **string** |  | 
+ **windowStartFrom** | **time.Time** | Only usage windows starting at or after this RFC3339 instant | 
+ **windowStartTo** | **time.Time** | Only usage windows starting at or before this RFC3339 instant | 
+
+### Return type
+
+[**ListSandboxUsageReportsResult**](ListSandboxUsageReportsResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## MarketplaceApiMarketplaceChannelWebhook
+
+> MarketplaceChannelWebhookResult MarketplaceApiMarketplaceChannelWebhook(ctx, channel, serviceProviderOrgId).XSugerSignature256(xSugerSignature256).Execute()
+
+MarketplaceChannelWebhook marketplace-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	channel := "SUGER|SANDBOX" // string | Which channel is delivering. In the path rather than the body, because the body is attacker controlled until the signature verifies and the route must be resolvable before then
+	serviceProviderOrgId := "org-4t8w2qbnz1lp" // string | The ISV whose route this is. Also in the path, and compared against the organization the body claims: a delivery that is genuine for one ISV must not be accepted when replayed at another's route
+	xSugerSignature256 := "sha256=6f1a2c4b0e9d8a7f5c3b1e0d9a8f7e6d5c4b3a2918070605040302010fedcba9" // string | The X-Suger-Signature-256 header: sha256= followed by the lowercase hex HMAC of the raw body (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MarketplaceApiAPI.MarketplaceApiMarketplaceChannelWebhook(context.Background(), channel, serviceProviderOrgId).XSugerSignature256(xSugerSignature256).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketplaceApiAPI.MarketplaceApiMarketplaceChannelWebhook``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MarketplaceApiMarketplaceChannelWebhook`: MarketplaceChannelWebhookResult
+	fmt.Fprintf(os.Stdout, "Response from `MarketplaceApiAPI.MarketplaceApiMarketplaceChannelWebhook`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**channel** | **string** | Which channel is delivering. In the path rather than the body, because the body is attacker controlled until the signature verifies and the route must be resolvable before then | 
+**serviceProviderOrgId** | **string** | The ISV whose route this is. Also in the path, and compared against the organization the body claims: a delivery that is genuine for one ISV must not be accepted when replayed at another&#39;s route | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMarketplaceApiMarketplaceChannelWebhookRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **xSugerSignature256** | **string** | The X-Suger-Signature-256 header: sha256&#x3D; followed by the lowercase hex HMAC of the raw body | 
+
+### Return type
+
+[**MarketplaceChannelWebhookResult**](MarketplaceChannelWebhookResult.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## MarketplaceApiMarketplaceLanding
 
 > MarketplaceApiMarketplaceLanding(ctx, channel, serviceProviderOrgId).SugerEntitlementId(sugerEntitlementId).Partner(partner).OfferType(offerType).Execute()
@@ -866,7 +1012,7 @@ func main() {
 	serviceProviderOrgId := "org-8Hn2Kq4Vd1" // string | Which ISV organization's listing was purchased. A SELECTOR for whose stored channel credentials perform the server-side readback, not a credential: it grants nothing, and substituting another organization's id resolves the token against an account where it does not exist
 	sugerEntitlementId := "ent_01J9Q7VZ3K8MTRQ2X4W6H0N5PD" // string | Suger's entitlement identifier, appended by Suger's signup redirect. A pointer to be read back, never believed (optional)
 	partner := "aws|azure|gcp" // string | Which cloud the purchase originated on, as Suger reports it. Recorded for audit; the authoritative value comes from the readback (optional)
-	offerType := "Aut quaerat omnis in totam voluptatem." // string | Suger's offer type for the purchase. Recorded for audit only (optional)
+	offerType := "Nihil debitis." // string | Suger's offer type for the purchase. Recorded for audit only (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1001,7 +1147,7 @@ import (
 )
 
 func main() {
-	deliveryId := "Saepe nobis aperiam sint." // string | Which delivery to send again. Must be an outbound one: there is nothing to redeliver about a call the ISV made. The redelivery carries the SAME eventId, so a receiver that already processed this event correctly treats it as a duplicate and does nothing
+	deliveryId := "Assumenda quae est qui." // string | Which delivery to send again. Must be an outbound one: there is nothing to redeliver about a call the ISV made. The redelivery carries the SAME eventId, so a receiver that already processed this event correctly treats it as a duplicate and does nothing
 	redeliverMarketplaceDeliveryRequest2 := *openapiclient.NewRedeliverMarketplaceDeliveryRequest2() // RedeliverMarketplaceDeliveryRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
@@ -1330,7 +1476,7 @@ import (
 )
 
 func main() {
-	simulateContractEventRequest2 := *openapiclient.NewSimulateContractEventRequest2("purchase|plan_change|quantity_change|suspend|reinstate|cancel|release_usage_gate|stall_handoff") // SimulateContractEventRequest2 | 
+	simulateContractEventRequest2 := *openapiclient.NewSimulateContractEventRequest2("purchase|plan_change|quantity_change|suspend|reinstate|pending_cancel|cancel|release_usage_gate|stall_handoff") // SimulateContractEventRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
