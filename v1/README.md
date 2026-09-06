@@ -331,6 +331,7 @@ Class | Method | HTTP request | Description
 *ServiceApiAPI* | [**ServiceApiPrepareServiceFromServicePlanSpec**](docs/ServiceApiAPI.md#serviceapiprepareservicefromserviceplanspec) | **Put** /2022-09-01-00/service/serviceplanspec/prepare | PrepareServiceFromServicePlanSpec service-api
 *ServiceApiAPI* | [**ServiceApiServiceHealth**](docs/ServiceApiAPI.md#serviceapiservicehealth) | **Get** /2022-09-01-00/service/{id}/health | ServiceHealth service-api
 *ServiceApiAPI* | [**ServiceApiUpdateService**](docs/ServiceApiAPI.md#serviceapiupdateservice) | **Patch** /2022-09-01-00/service/{id} | UpdateService service-api
+*ServiceApiAPI* | [**ServiceApiValidateServiceSpec**](docs/ServiceApiAPI.md#serviceapivalidateservicespec) | **Post** /2022-09-01-00/service/spec/validate | ValidateServiceSpec service-api
 *ServiceApiApiAPI* | [**ServiceApiApiCreateServiceAPI**](docs/ServiceApiApiAPI.md#serviceapiapicreateserviceapi) | **Post** /2022-09-01-00/service/{serviceId}/service-api | CreateServiceAPI service-api-api
 *ServiceApiApiAPI* | [**ServiceApiApiDeleteServiceAPI**](docs/ServiceApiApiAPI.md#serviceapiapideleteserviceapi) | **Delete** /2022-09-01-00/service/{serviceId}/service-api/{id} | DeleteServiceAPI service-api-api
 *ServiceApiApiAPI* | [**ServiceApiApiDeprecateServiceAPI**](docs/ServiceApiApiAPI.md#serviceapiapideprecateserviceapi) | **Post** /2022-09-01-00/service/{serviceId}/service-api/{id}/deprecate | DeprecateServiceAPI service-api-api
@@ -480,6 +481,7 @@ Class | Method | HTTP request | Description
  - [AgentMonitoringConfiguration](docs/AgentMonitoringConfiguration.md)
  - [AgentVectorStoreConfiguration](docs/AgentVectorStoreConfiguration.md)
  - [Amenity](docs/Amenity.md)
+ - [ArtifactRequirement](docs/ArtifactRequirement.md)
  - [ArtifactUploadingTask](docs/ArtifactUploadingTask.md)
  - [AutoScalingMetricSpec](docs/AutoScalingMetricSpec.md)
  - [AutoscalingPolicy](docs/AutoscalingPolicy.md)
@@ -1283,7 +1285,17 @@ Class | Method | HTTP request | Description
  - [UploadDeploymentArtifactRequest2](docs/UploadDeploymentArtifactRequest2.md)
  - [UsagePerDimension](docs/UsagePerDimension.md)
  - [VUnitHealthReport](docs/VUnitHealthReport.md)
+ - [ValidateServiceSpecRequest](docs/ValidateServiceSpecRequest.md)
+ - [ValidateServiceSpecRequest2](docs/ValidateServiceSpecRequest2.md)
+ - [ValidateServiceSpecResult](docs/ValidateServiceSpecResult.md)
  - [ValidateTokenRequest](docs/ValidateTokenRequest.md)
+ - [ValidatedArtifact](docs/ValidatedArtifact.md)
+ - [ValidationArtifactInput](docs/ValidationArtifactInput.md)
+ - [ValidationArtifactUse](docs/ValidationArtifactUse.md)
+ - [ValidationCheck](docs/ValidationCheck.md)
+ - [ValidationDiagnostic](docs/ValidationDiagnostic.md)
+ - [ValidationExistingTarget](docs/ValidationExistingTarget.md)
+ - [ValidationLimits](docs/ValidationLimits.md)
  - [ValuesFile](docs/ValuesFile.md)
  - [VerifyAccountConfigRequest](docs/VerifyAccountConfigRequest.md)
  - [VerifyCustomDomainRequest](docs/VerifyCustomDomainRequest.md)

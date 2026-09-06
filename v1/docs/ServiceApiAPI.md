@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**ServiceApiPrepareServiceFromServicePlanSpec**](ServiceApiAPI.md#ServiceApiPrepareServiceFromServicePlanSpec) | **Put** /2022-09-01-00/service/serviceplanspec/prepare | PrepareServiceFromServicePlanSpec service-api
 [**ServiceApiServiceHealth**](ServiceApiAPI.md#ServiceApiServiceHealth) | **Get** /2022-09-01-00/service/{id}/health | ServiceHealth service-api
 [**ServiceApiUpdateService**](ServiceApiAPI.md#ServiceApiUpdateService) | **Patch** /2022-09-01-00/service/{id} | UpdateService service-api
+[**ServiceApiValidateServiceSpec**](ServiceApiAPI.md#ServiceApiValidateServiceSpec) | **Post** /2022-09-01-00/service/spec/validate | ValidateServiceSpec service-api
 
 
 
@@ -22,6 +23,8 @@ Method | HTTP request | Description
 > BuildServiceFromComposeSpecResult ServiceApiBuildServiceFromComposeSpec(ctx).BuildServiceFromComposeSpecRequest2(buildServiceFromComposeSpecRequest2).Execute()
 
 BuildServiceFromComposeSpec service-api
+
+
 
 ### Example
 
@@ -36,7 +39,7 @@ import (
 )
 
 func main() {
-	buildServiceFromComposeSpecRequest2 := *openapiclient.NewBuildServiceFromComposeSpecRequest2("Quod cum sed exercitationem et ut earum.", "MySQL multi-writer service") // BuildServiceFromComposeSpecRequest2 | 
+	buildServiceFromComposeSpecRequest2 := *openapiclient.NewBuildServiceFromComposeSpecRequest2("Molestiae atque.", "MySQL multi-writer service") // BuildServiceFromComposeSpecRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -87,6 +90,8 @@ Name | Type | Description  | Notes
 
 BuildServiceFromServicePlanSpec service-api
 
+
+
 ### Example
 
 ```go
@@ -100,7 +105,7 @@ import (
 )
 
 func main() {
-	buildServiceFromServicePlanSpecRequest2 := *openapiclient.NewBuildServiceFromServicePlanSpecRequest2("Fugiat aut maxime consequatur.", "MySQL multi-writer service") // BuildServiceFromServicePlanSpecRequest2 | 
+	buildServiceFromServicePlanSpecRequest2 := *openapiclient.NewBuildServiceFromServicePlanSpecRequest2("Id vitae neque reiciendis.", "MySQL multi-writer service") // BuildServiceFromServicePlanSpecRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -228,7 +233,7 @@ import (
 )
 
 func main() {
-	createServiceFromComposeSpecRequest2 := *openapiclient.NewCreateServiceFromComposeSpecRequest2("A MySQL SaaS specializing in multi-writer clusters for high availability", "Rem repellendus ea eaque.", "text/plain", "mysql.yaml", "MySQL multi-writer service") // CreateServiceFromComposeSpecRequest2 | 
+	createServiceFromComposeSpecRequest2 := *openapiclient.NewCreateServiceFromComposeSpecRequest2("A MySQL SaaS specializing in multi-writer clusters for high availability", "Recusandae et autem.", "text/plain", "mysql.yaml", "MySQL multi-writer service") // CreateServiceFromComposeSpecRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -485,7 +490,7 @@ import (
 )
 
 func main() {
-	prepareServiceFromServicePlanSpecRequest2 := *openapiclient.NewPrepareServiceFromServicePlanSpecRequest2("dev", "PROD|PRIVATE|CANARY|STAGING|QA|DEV|GLOBAL", "Tempora et aut animi recusandae minus.", "MySQL multi-writer service") // PrepareServiceFromServicePlanSpecRequest2 | 
+	prepareServiceFromServicePlanSpecRequest2 := *openapiclient.NewPrepareServiceFromServicePlanSpecRequest2("dev", "PROD|PRIVATE|CANARY|STAGING|QA|DEV|GLOBAL", "Aut eum.", "MySQL multi-writer service") // PrepareServiceFromServicePlanSpecRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -660,6 +665,72 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ServiceApiValidateServiceSpec
+
+> ValidateServiceSpecResult ServiceApiValidateServiceSpec(ctx).ValidateServiceSpecRequest2(validateServiceSpecRequest2).Execute()
+
+ValidateServiceSpec service-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	validateServiceSpecRequest2 := *openapiclient.NewValidateServiceSpecRequest2("Quo mollitia perspiciatis quos sapiente.", "MySQL multi-writer service", "service-plan") // ValidateServiceSpecRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ServiceApiAPI.ServiceApiValidateServiceSpec(context.Background()).ValidateServiceSpecRequest2(validateServiceSpecRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ServiceApiAPI.ServiceApiValidateServiceSpec``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ServiceApiValidateServiceSpec`: ValidateServiceSpecResult
+	fmt.Fprintf(os.Stdout, "Response from `ServiceApiAPI.ServiceApiValidateServiceSpec`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiServiceApiValidateServiceSpecRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **validateServiceSpecRequest2** | [**ValidateServiceSpecRequest2**](ValidateServiceSpecRequest2.md) |  | 
+
+### Return type
+
+[**ValidateServiceSpecResult**](ValidateServiceSpecResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

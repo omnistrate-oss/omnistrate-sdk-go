@@ -31,7 +31,7 @@ import (
 )
 
 func main() {
-	bundleVersion := "e6" // string | 
+	bundleVersion := "va" // string | 
 	includeArtifacts := false // bool |  (optional) (default to true)
 
 	configuration := openapiclient.NewConfiguration()
@@ -101,10 +101,10 @@ import (
 )
 
 func main() {
-	organizationId := "k4" // string | 
-	provisionerTargetId := "u" // string | 
-	bundleRevisionId := "oabr-vA" // string | 
-	includeArtifactResults := false // bool |  (optional) (default to true)
+	organizationId := "4l" // string | 
+	provisionerTargetId := "4mj" // string | 
+	bundleRevisionId := "oabr-DW" // string | 
+	includeArtifactResults := true // bool |  (optional) (default to true)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -179,7 +179,7 @@ import (
 func main() {
 	status := "AVAILABLE" // string |  (optional)
 	releaseComponent := "bootstrap-service" // string |  (optional)
-	limit := int64(61) // int64 |  (optional) (default to 20)
+	limit := int64(63) // int64 |  (optional) (default to 20)
 	includeArtifacts := false // bool |  (optional) (default to false)
 
 	configuration := openapiclient.NewConfiguration()
@@ -247,10 +247,10 @@ import (
 )
 
 func main() {
-	organizationId := "sea" // string | 
-	provisionerTargetId := "wy6" // string | 
+	organizationId := "td" // string | 
+	provisionerTargetId := "e" // string | 
 	status := "AVAILABLE" // string |  (optional)
-	includeArtifactResults := true // bool |  (optional) (default to false)
+	includeArtifactResults := false // bool |  (optional) (default to false)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -322,7 +322,7 @@ import (
 )
 
 func main() {
-	publishManagedReleaseRequest2 := *openapiclient.NewPublishManagedReleaseRequest2([]openapiclient.ManagedReleaseArtifact2{*openapiclient.NewManagedReleaseArtifact2("container-image/dataplane-agent", []string{"bootstrap"}, "bootstrap-service", "2au", "p8x", "container-image")}, "bootstrap-service", "g4", "v6", "was") // PublishManagedReleaseRequest2 | 
+	publishManagedReleaseRequest2 := *openapiclient.NewPublishManagedReleaseRequest2([]openapiclient.ManagedReleaseArtifact2{*openapiclient.NewManagedReleaseArtifact2("container-image/dataplane-agent", []string{"bootstrap"}, "bootstrap-service", "f", "8", "container-image")}, "bootstrap-service", "wr", "qfb", "rn3") // PublishManagedReleaseRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

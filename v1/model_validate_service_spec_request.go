@@ -15,63 +15,92 @@ import (
 	"fmt"
 )
 
-// checks if the BuildServiceFromComposeSpecRequest2 type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &BuildServiceFromComposeSpecRequest2{}
+// checks if the ValidateServiceSpecRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ValidateServiceSpecRequest{}
 
-// BuildServiceFromComposeSpecRequest2 struct for BuildServiceFromComposeSpecRequest2
-type BuildServiceFromComposeSpecRequest2 struct {
-	// Configs for the service. Key is the compose spec name of the config and value is base64 encoded config content
+// ValidateServiceSpecRequest A read-only validation request. The authenticated caller's organization and user identity are taken from the request credentials; they are never carried as request fields.
+type ValidateServiceSpecRequest struct {
+	// Local artifact content for this request. Omit on a discovery request to learn which local content the specification requires; the response then reports the missing content through requiredArtifacts and an INCOMPLETE status. Supplying an unknown, unreferenced, duplicate or internally inconsistent artifact is a bad request.
+	Artifacts []ValidationArtifactInput `json:"artifacts,omitempty"`
+	// Configs for the service. Key is the compose spec name of the config and value is base64 encoded config content. Rejected when nonempty for the service-plan spec type.
 	Configs *map[string]string `json:"configs,omitempty"`
-	// A brief description of the service
+	// Proposed description of the service. Used only as candidate metadata; the current service is never updated.
 	Description *string `json:"description,omitempty"`
-	// The dryrun flag is deprecated for validation use; send ValidateServiceSpec to /service/spec/validate instead. When dryrun is true, the build request is answered by a read-only compatibility adapter: nothing is created, updated, released, deprecated, promoted, published or discarded, no import workflow is started, and existing pending changes are left untouched. The adapter can only answer in this legacy result shape, so its reporting is narrower than the validation endpoint's. A candidate that validates cleanly and already exists returns this result populated with the real service, service environment and product tier IDs, the read-only list of resources present in the plan but absent from the spec, and isNewServicePlanVersionCreated=false. A specification with validation errors returns 400 with bounded, redacted diagnostics. A specification that could not be fully validated returns 400 with a message beginning DRY_RUN_VALIDATION_INCOMPLETE and directs the caller to the validation endpoint. A candidate whose service, environment or product tier does not exist yet cannot be expressed in this result shape and returns 400 with a message beginning DRY_RUN_USE_VALIDATION_ENDPOINT; it is never created in order to produce identifiers, and no empty or fabricated identifier is returned. This request envelope carries no local artifact bytes, so a specification that needs local Terraform, Helm, Kustomize or operator content is reported as incomplete rather than validated against previously uploaded artifacts; supply that content through the artifacts field of ValidateServiceSpec. Explicit repository-backed sources are still read through audited read-only readers.
-	Dryrun *bool `json:"dryrun,omitempty"`
-	// The environment to build the service in
+	// The environment the candidate targets. Resolved with the same default as the corresponding real build caller when omitted; clients that resolve it themselves send it explicitly.
 	Environment *string `json:"environment,omitempty"`
-	// The type of the environment
+	// The type of service environment
 	EnvironmentType *string `json:"environmentType,omitempty"`
-	// Base64 encoded Compose Spec YAML in docker compose format
+	// Base64 encoded specification YAML, using the same encoding convention as the build endpoints. These are the exact prepared bytes that are validated.
 	FileContent string `json:"fileContent"`
-	// Force create a new service plan version when the service is released
+	// Proposed intent to force a new service plan version. Describes the candidate only; it never bypasses validation and no version is created.
 	ForceCreateNewServicePlanVersion *bool `json:"forceCreateNewServicePlanVersion,omitempty"`
-	// Name of the Service
+	// Name of the Service. Validated with the same name rules a real build applies.
 	Name string `json:"name"`
-	// Release the service after building
+	// Proposed release intent. Describes the candidate only; nothing is released. Supported release-readiness checks run regardless of this value.
 	Release *bool `json:"release,omitempty"`
-	// Release the service as preferred
+	// Proposed intent to release as preferred. Describes the candidate only; no version is released or marked preferred.
 	ReleaseAsPreferred *bool `json:"releaseAsPreferred,omitempty"`
-	// Release version name
+	// Proposed release version name. Describes the candidate only; no release name is written.
 	ReleaseVersionName *string `json:"releaseVersionName,omitempty"`
-	// Secrets for the service. Key is the compose spec name of the secret and value is base64 encoded secret content
+	// Secrets for the service. Key is the compose spec name of the secret and value is base64 encoded secret content. Rejected when nonempty for the service-plan spec type. Never logged, echoed back or persisted.
 	Secrets *map[string]string `json:"secrets,omitempty"`
-	// The logo for the service
+	// Proposed logo for the service. Used only as candidate metadata; the current service is never updated.
 	ServiceLogoURL *string `json:"serviceLogoURL,omitempty"`
+	// The format of the submitted specification. The caller always states the format explicitly; the server never infers it by attempting to parse one format and recovering from the error.
+	SpecType string `json:"specType"`
+	// JWT token used to perform authorization
+	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
 }
 
-type _BuildServiceFromComposeSpecRequest2 BuildServiceFromComposeSpecRequest2
+type _ValidateServiceSpecRequest ValidateServiceSpecRequest
 
-// NewBuildServiceFromComposeSpecRequest2 instantiates a new BuildServiceFromComposeSpecRequest2 object
+// NewValidateServiceSpecRequest instantiates a new ValidateServiceSpecRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBuildServiceFromComposeSpecRequest2(fileContent string, name string) *BuildServiceFromComposeSpecRequest2 {
-	this := BuildServiceFromComposeSpecRequest2{}
+func NewValidateServiceSpecRequest(fileContent string, name string, specType string, token string) *ValidateServiceSpecRequest {
+	this := ValidateServiceSpecRequest{}
 	this.FileContent = fileContent
 	this.Name = name
+	this.SpecType = specType
+	this.Token = token
 	return &this
 }
 
-// NewBuildServiceFromComposeSpecRequest2WithDefaults instantiates a new BuildServiceFromComposeSpecRequest2 object
+// NewValidateServiceSpecRequestWithDefaults instantiates a new ValidateServiceSpecRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewBuildServiceFromComposeSpecRequest2WithDefaults() *BuildServiceFromComposeSpecRequest2 {
-	this := BuildServiceFromComposeSpecRequest2{}
+func NewValidateServiceSpecRequestWithDefaults() *ValidateServiceSpecRequest {
+	this := ValidateServiceSpecRequest{}
 	return &this
+}
+
+// GetArtifacts returns the Artifacts field value if set, zero value otherwise.
+func (o *ValidateServiceSpecRequest) GetArtifacts() []ValidationArtifactInput {
+	if o == nil || IsNil(o.Artifacts) {
+		var ret []ValidationArtifactInput
+		return ret
+	}
+	return o.Artifacts
+}
+
+// GetArtifactsOk returns a tuple with the Artifacts field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ValidateServiceSpecRequest) GetArtifactsOk() ([]ValidationArtifactInput, bool) {
+	if o == nil || IsNil(o.Artifacts) {
+		return nil, false
+	}
+	return o.Artifacts, true
+}
+
+// SetArtifacts gets a reference to the given []ValidationArtifactInput and assigns it to the Artifacts field.
+func (o *ValidateServiceSpecRequest) SetArtifacts(v []ValidationArtifactInput) {
+	o.Artifacts = v
 }
 
 // GetConfigs returns the Configs field value if set, zero value otherwise.
-func (o *BuildServiceFromComposeSpecRequest2) GetConfigs() map[string]string {
+func (o *ValidateServiceSpecRequest) GetConfigs() map[string]string {
 	if o == nil || IsNil(o.Configs) {
 		var ret map[string]string
 		return ret
@@ -81,7 +110,7 @@ func (o *BuildServiceFromComposeSpecRequest2) GetConfigs() map[string]string {
 
 // GetConfigsOk returns a tuple with the Configs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BuildServiceFromComposeSpecRequest2) GetConfigsOk() (*map[string]string, bool) {
+func (o *ValidateServiceSpecRequest) GetConfigsOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.Configs) {
 		return nil, false
 	}
@@ -89,12 +118,12 @@ func (o *BuildServiceFromComposeSpecRequest2) GetConfigsOk() (*map[string]string
 }
 
 // SetConfigs gets a reference to the given map[string]string and assigns it to the Configs field.
-func (o *BuildServiceFromComposeSpecRequest2) SetConfigs(v map[string]string) {
+func (o *ValidateServiceSpecRequest) SetConfigs(v map[string]string) {
 	o.Configs = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
-func (o *BuildServiceFromComposeSpecRequest2) GetDescription() string {
+func (o *ValidateServiceSpecRequest) GetDescription() string {
 	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
@@ -104,7 +133,7 @@ func (o *BuildServiceFromComposeSpecRequest2) GetDescription() string {
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BuildServiceFromComposeSpecRequest2) GetDescriptionOk() (*string, bool) {
+func (o *ValidateServiceSpecRequest) GetDescriptionOk() (*string, bool) {
 	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
@@ -112,35 +141,12 @@ func (o *BuildServiceFromComposeSpecRequest2) GetDescriptionOk() (*string, bool)
 }
 
 // SetDescription gets a reference to the given string and assigns it to the Description field.
-func (o *BuildServiceFromComposeSpecRequest2) SetDescription(v string) {
+func (o *ValidateServiceSpecRequest) SetDescription(v string) {
 	o.Description = &v
 }
 
-// GetDryrun returns the Dryrun field value if set, zero value otherwise.
-func (o *BuildServiceFromComposeSpecRequest2) GetDryrun() bool {
-	if o == nil || IsNil(o.Dryrun) {
-		var ret bool
-		return ret
-	}
-	return *o.Dryrun
-}
-
-// GetDryrunOk returns a tuple with the Dryrun field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *BuildServiceFromComposeSpecRequest2) GetDryrunOk() (*bool, bool) {
-	if o == nil || IsNil(o.Dryrun) {
-		return nil, false
-	}
-	return o.Dryrun, true
-}
-
-// SetDryrun gets a reference to the given bool and assigns it to the Dryrun field.
-func (o *BuildServiceFromComposeSpecRequest2) SetDryrun(v bool) {
-	o.Dryrun = &v
-}
-
 // GetEnvironment returns the Environment field value if set, zero value otherwise.
-func (o *BuildServiceFromComposeSpecRequest2) GetEnvironment() string {
+func (o *ValidateServiceSpecRequest) GetEnvironment() string {
 	if o == nil || IsNil(o.Environment) {
 		var ret string
 		return ret
@@ -150,7 +156,7 @@ func (o *BuildServiceFromComposeSpecRequest2) GetEnvironment() string {
 
 // GetEnvironmentOk returns a tuple with the Environment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BuildServiceFromComposeSpecRequest2) GetEnvironmentOk() (*string, bool) {
+func (o *ValidateServiceSpecRequest) GetEnvironmentOk() (*string, bool) {
 	if o == nil || IsNil(o.Environment) {
 		return nil, false
 	}
@@ -158,12 +164,12 @@ func (o *BuildServiceFromComposeSpecRequest2) GetEnvironmentOk() (*string, bool)
 }
 
 // SetEnvironment gets a reference to the given string and assigns it to the Environment field.
-func (o *BuildServiceFromComposeSpecRequest2) SetEnvironment(v string) {
+func (o *ValidateServiceSpecRequest) SetEnvironment(v string) {
 	o.Environment = &v
 }
 
 // GetEnvironmentType returns the EnvironmentType field value if set, zero value otherwise.
-func (o *BuildServiceFromComposeSpecRequest2) GetEnvironmentType() string {
+func (o *ValidateServiceSpecRequest) GetEnvironmentType() string {
 	if o == nil || IsNil(o.EnvironmentType) {
 		var ret string
 		return ret
@@ -173,7 +179,7 @@ func (o *BuildServiceFromComposeSpecRequest2) GetEnvironmentType() string {
 
 // GetEnvironmentTypeOk returns a tuple with the EnvironmentType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BuildServiceFromComposeSpecRequest2) GetEnvironmentTypeOk() (*string, bool) {
+func (o *ValidateServiceSpecRequest) GetEnvironmentTypeOk() (*string, bool) {
 	if o == nil || IsNil(o.EnvironmentType) {
 		return nil, false
 	}
@@ -181,12 +187,12 @@ func (o *BuildServiceFromComposeSpecRequest2) GetEnvironmentTypeOk() (*string, b
 }
 
 // SetEnvironmentType gets a reference to the given string and assigns it to the EnvironmentType field.
-func (o *BuildServiceFromComposeSpecRequest2) SetEnvironmentType(v string) {
+func (o *ValidateServiceSpecRequest) SetEnvironmentType(v string) {
 	o.EnvironmentType = &v
 }
 
 // GetFileContent returns the FileContent field value
-func (o *BuildServiceFromComposeSpecRequest2) GetFileContent() string {
+func (o *ValidateServiceSpecRequest) GetFileContent() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -197,7 +203,7 @@ func (o *BuildServiceFromComposeSpecRequest2) GetFileContent() string {
 
 // GetFileContentOk returns a tuple with the FileContent field value
 // and a boolean to check if the value has been set.
-func (o *BuildServiceFromComposeSpecRequest2) GetFileContentOk() (*string, bool) {
+func (o *ValidateServiceSpecRequest) GetFileContentOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -205,12 +211,12 @@ func (o *BuildServiceFromComposeSpecRequest2) GetFileContentOk() (*string, bool)
 }
 
 // SetFileContent sets field value
-func (o *BuildServiceFromComposeSpecRequest2) SetFileContent(v string) {
+func (o *ValidateServiceSpecRequest) SetFileContent(v string) {
 	o.FileContent = v
 }
 
 // GetForceCreateNewServicePlanVersion returns the ForceCreateNewServicePlanVersion field value if set, zero value otherwise.
-func (o *BuildServiceFromComposeSpecRequest2) GetForceCreateNewServicePlanVersion() bool {
+func (o *ValidateServiceSpecRequest) GetForceCreateNewServicePlanVersion() bool {
 	if o == nil || IsNil(o.ForceCreateNewServicePlanVersion) {
 		var ret bool
 		return ret
@@ -220,7 +226,7 @@ func (o *BuildServiceFromComposeSpecRequest2) GetForceCreateNewServicePlanVersio
 
 // GetForceCreateNewServicePlanVersionOk returns a tuple with the ForceCreateNewServicePlanVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BuildServiceFromComposeSpecRequest2) GetForceCreateNewServicePlanVersionOk() (*bool, bool) {
+func (o *ValidateServiceSpecRequest) GetForceCreateNewServicePlanVersionOk() (*bool, bool) {
 	if o == nil || IsNil(o.ForceCreateNewServicePlanVersion) {
 		return nil, false
 	}
@@ -228,12 +234,12 @@ func (o *BuildServiceFromComposeSpecRequest2) GetForceCreateNewServicePlanVersio
 }
 
 // SetForceCreateNewServicePlanVersion gets a reference to the given bool and assigns it to the ForceCreateNewServicePlanVersion field.
-func (o *BuildServiceFromComposeSpecRequest2) SetForceCreateNewServicePlanVersion(v bool) {
+func (o *ValidateServiceSpecRequest) SetForceCreateNewServicePlanVersion(v bool) {
 	o.ForceCreateNewServicePlanVersion = &v
 }
 
 // GetName returns the Name field value
-func (o *BuildServiceFromComposeSpecRequest2) GetName() string {
+func (o *ValidateServiceSpecRequest) GetName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -244,7 +250,7 @@ func (o *BuildServiceFromComposeSpecRequest2) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-func (o *BuildServiceFromComposeSpecRequest2) GetNameOk() (*string, bool) {
+func (o *ValidateServiceSpecRequest) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -252,12 +258,12 @@ func (o *BuildServiceFromComposeSpecRequest2) GetNameOk() (*string, bool) {
 }
 
 // SetName sets field value
-func (o *BuildServiceFromComposeSpecRequest2) SetName(v string) {
+func (o *ValidateServiceSpecRequest) SetName(v string) {
 	o.Name = v
 }
 
 // GetRelease returns the Release field value if set, zero value otherwise.
-func (o *BuildServiceFromComposeSpecRequest2) GetRelease() bool {
+func (o *ValidateServiceSpecRequest) GetRelease() bool {
 	if o == nil || IsNil(o.Release) {
 		var ret bool
 		return ret
@@ -267,7 +273,7 @@ func (o *BuildServiceFromComposeSpecRequest2) GetRelease() bool {
 
 // GetReleaseOk returns a tuple with the Release field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BuildServiceFromComposeSpecRequest2) GetReleaseOk() (*bool, bool) {
+func (o *ValidateServiceSpecRequest) GetReleaseOk() (*bool, bool) {
 	if o == nil || IsNil(o.Release) {
 		return nil, false
 	}
@@ -275,12 +281,12 @@ func (o *BuildServiceFromComposeSpecRequest2) GetReleaseOk() (*bool, bool) {
 }
 
 // SetRelease gets a reference to the given bool and assigns it to the Release field.
-func (o *BuildServiceFromComposeSpecRequest2) SetRelease(v bool) {
+func (o *ValidateServiceSpecRequest) SetRelease(v bool) {
 	o.Release = &v
 }
 
 // GetReleaseAsPreferred returns the ReleaseAsPreferred field value if set, zero value otherwise.
-func (o *BuildServiceFromComposeSpecRequest2) GetReleaseAsPreferred() bool {
+func (o *ValidateServiceSpecRequest) GetReleaseAsPreferred() bool {
 	if o == nil || IsNil(o.ReleaseAsPreferred) {
 		var ret bool
 		return ret
@@ -290,7 +296,7 @@ func (o *BuildServiceFromComposeSpecRequest2) GetReleaseAsPreferred() bool {
 
 // GetReleaseAsPreferredOk returns a tuple with the ReleaseAsPreferred field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BuildServiceFromComposeSpecRequest2) GetReleaseAsPreferredOk() (*bool, bool) {
+func (o *ValidateServiceSpecRequest) GetReleaseAsPreferredOk() (*bool, bool) {
 	if o == nil || IsNil(o.ReleaseAsPreferred) {
 		return nil, false
 	}
@@ -298,12 +304,12 @@ func (o *BuildServiceFromComposeSpecRequest2) GetReleaseAsPreferredOk() (*bool, 
 }
 
 // SetReleaseAsPreferred gets a reference to the given bool and assigns it to the ReleaseAsPreferred field.
-func (o *BuildServiceFromComposeSpecRequest2) SetReleaseAsPreferred(v bool) {
+func (o *ValidateServiceSpecRequest) SetReleaseAsPreferred(v bool) {
 	o.ReleaseAsPreferred = &v
 }
 
 // GetReleaseVersionName returns the ReleaseVersionName field value if set, zero value otherwise.
-func (o *BuildServiceFromComposeSpecRequest2) GetReleaseVersionName() string {
+func (o *ValidateServiceSpecRequest) GetReleaseVersionName() string {
 	if o == nil || IsNil(o.ReleaseVersionName) {
 		var ret string
 		return ret
@@ -313,7 +319,7 @@ func (o *BuildServiceFromComposeSpecRequest2) GetReleaseVersionName() string {
 
 // GetReleaseVersionNameOk returns a tuple with the ReleaseVersionName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BuildServiceFromComposeSpecRequest2) GetReleaseVersionNameOk() (*string, bool) {
+func (o *ValidateServiceSpecRequest) GetReleaseVersionNameOk() (*string, bool) {
 	if o == nil || IsNil(o.ReleaseVersionName) {
 		return nil, false
 	}
@@ -321,12 +327,12 @@ func (o *BuildServiceFromComposeSpecRequest2) GetReleaseVersionNameOk() (*string
 }
 
 // SetReleaseVersionName gets a reference to the given string and assigns it to the ReleaseVersionName field.
-func (o *BuildServiceFromComposeSpecRequest2) SetReleaseVersionName(v string) {
+func (o *ValidateServiceSpecRequest) SetReleaseVersionName(v string) {
 	o.ReleaseVersionName = &v
 }
 
 // GetSecrets returns the Secrets field value if set, zero value otherwise.
-func (o *BuildServiceFromComposeSpecRequest2) GetSecrets() map[string]string {
+func (o *ValidateServiceSpecRequest) GetSecrets() map[string]string {
 	if o == nil || IsNil(o.Secrets) {
 		var ret map[string]string
 		return ret
@@ -336,7 +342,7 @@ func (o *BuildServiceFromComposeSpecRequest2) GetSecrets() map[string]string {
 
 // GetSecretsOk returns a tuple with the Secrets field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BuildServiceFromComposeSpecRequest2) GetSecretsOk() (*map[string]string, bool) {
+func (o *ValidateServiceSpecRequest) GetSecretsOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.Secrets) {
 		return nil, false
 	}
@@ -344,12 +350,12 @@ func (o *BuildServiceFromComposeSpecRequest2) GetSecretsOk() (*map[string]string
 }
 
 // SetSecrets gets a reference to the given map[string]string and assigns it to the Secrets field.
-func (o *BuildServiceFromComposeSpecRequest2) SetSecrets(v map[string]string) {
+func (o *ValidateServiceSpecRequest) SetSecrets(v map[string]string) {
 	o.Secrets = &v
 }
 
 // GetServiceLogoURL returns the ServiceLogoURL field value if set, zero value otherwise.
-func (o *BuildServiceFromComposeSpecRequest2) GetServiceLogoURL() string {
+func (o *ValidateServiceSpecRequest) GetServiceLogoURL() string {
 	if o == nil || IsNil(o.ServiceLogoURL) {
 		var ret string
 		return ret
@@ -359,7 +365,7 @@ func (o *BuildServiceFromComposeSpecRequest2) GetServiceLogoURL() string {
 
 // GetServiceLogoURLOk returns a tuple with the ServiceLogoURL field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BuildServiceFromComposeSpecRequest2) GetServiceLogoURLOk() (*string, bool) {
+func (o *ValidateServiceSpecRequest) GetServiceLogoURLOk() (*string, bool) {
 	if o == nil || IsNil(o.ServiceLogoURL) {
 		return nil, false
 	}
@@ -367,11 +373,59 @@ func (o *BuildServiceFromComposeSpecRequest2) GetServiceLogoURLOk() (*string, bo
 }
 
 // SetServiceLogoURL gets a reference to the given string and assigns it to the ServiceLogoURL field.
-func (o *BuildServiceFromComposeSpecRequest2) SetServiceLogoURL(v string) {
+func (o *ValidateServiceSpecRequest) SetServiceLogoURL(v string) {
 	o.ServiceLogoURL = &v
 }
 
-func (o BuildServiceFromComposeSpecRequest2) MarshalJSON() ([]byte, error) {
+// GetSpecType returns the SpecType field value
+func (o *ValidateServiceSpecRequest) GetSpecType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SpecType
+}
+
+// GetSpecTypeOk returns a tuple with the SpecType field value
+// and a boolean to check if the value has been set.
+func (o *ValidateServiceSpecRequest) GetSpecTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SpecType, true
+}
+
+// SetSpecType sets field value
+func (o *ValidateServiceSpecRequest) SetSpecType(v string) {
+	o.SpecType = v
+}
+
+// GetToken returns the Token field value
+func (o *ValidateServiceSpecRequest) GetToken() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Token
+}
+
+// GetTokenOk returns a tuple with the Token field value
+// and a boolean to check if the value has been set.
+func (o *ValidateServiceSpecRequest) GetTokenOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Token, true
+}
+
+// SetToken sets field value
+func (o *ValidateServiceSpecRequest) SetToken(v string) {
+	o.Token = v
+}
+
+func (o ValidateServiceSpecRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -379,16 +433,16 @@ func (o BuildServiceFromComposeSpecRequest2) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o BuildServiceFromComposeSpecRequest2) ToMap() (map[string]interface{}, error) {
+func (o ValidateServiceSpecRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Artifacts) {
+		toSerialize["artifacts"] = o.Artifacts
+	}
 	if !IsNil(o.Configs) {
 		toSerialize["configs"] = o.Configs
 	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
-	}
-	if !IsNil(o.Dryrun) {
-		toSerialize["dryrun"] = o.Dryrun
 	}
 	if !IsNil(o.Environment) {
 		toSerialize["environment"] = o.Environment
@@ -416,6 +470,8 @@ func (o BuildServiceFromComposeSpecRequest2) ToMap() (map[string]interface{}, er
 	if !IsNil(o.ServiceLogoURL) {
 		toSerialize["serviceLogoURL"] = o.ServiceLogoURL
 	}
+	toSerialize["specType"] = o.SpecType
+	toSerialize["token"] = o.Token
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -424,13 +480,15 @@ func (o BuildServiceFromComposeSpecRequest2) ToMap() (map[string]interface{}, er
 	return toSerialize, nil
 }
 
-func (o *BuildServiceFromComposeSpecRequest2) UnmarshalJSON(data []byte) (err error) {
+func (o *ValidateServiceSpecRequest) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"fileContent",
 		"name",
+		"specType",
+		"token",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -447,22 +505,22 @@ func (o *BuildServiceFromComposeSpecRequest2) UnmarshalJSON(data []byte) (err er
 		}
 	}
 
-	varBuildServiceFromComposeSpecRequest2 := _BuildServiceFromComposeSpecRequest2{}
+	varValidateServiceSpecRequest := _ValidateServiceSpecRequest{}
 
-	err = json.Unmarshal(data, &varBuildServiceFromComposeSpecRequest2)
+	err = json.Unmarshal(data, &varValidateServiceSpecRequest)
 
 	if err != nil {
 		return err
 	}
 
-	*o = BuildServiceFromComposeSpecRequest2(varBuildServiceFromComposeSpecRequest2)
+	*o = ValidateServiceSpecRequest(varValidateServiceSpecRequest)
 
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "artifacts")
 		delete(additionalProperties, "configs")
 		delete(additionalProperties, "description")
-		delete(additionalProperties, "dryrun")
 		delete(additionalProperties, "environment")
 		delete(additionalProperties, "environmentType")
 		delete(additionalProperties, "fileContent")
@@ -473,44 +531,46 @@ func (o *BuildServiceFromComposeSpecRequest2) UnmarshalJSON(data []byte) (err er
 		delete(additionalProperties, "releaseVersionName")
 		delete(additionalProperties, "secrets")
 		delete(additionalProperties, "serviceLogoURL")
+		delete(additionalProperties, "specType")
+		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}
 
 	return err
 }
 
-type NullableBuildServiceFromComposeSpecRequest2 struct {
-	value *BuildServiceFromComposeSpecRequest2
+type NullableValidateServiceSpecRequest struct {
+	value *ValidateServiceSpecRequest
 	isSet bool
 }
 
-func (v NullableBuildServiceFromComposeSpecRequest2) Get() *BuildServiceFromComposeSpecRequest2 {
+func (v NullableValidateServiceSpecRequest) Get() *ValidateServiceSpecRequest {
 	return v.value
 }
 
-func (v *NullableBuildServiceFromComposeSpecRequest2) Set(val *BuildServiceFromComposeSpecRequest2) {
+func (v *NullableValidateServiceSpecRequest) Set(val *ValidateServiceSpecRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableBuildServiceFromComposeSpecRequest2) IsSet() bool {
+func (v NullableValidateServiceSpecRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableBuildServiceFromComposeSpecRequest2) Unset() {
+func (v *NullableValidateServiceSpecRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableBuildServiceFromComposeSpecRequest2(val *BuildServiceFromComposeSpecRequest2) *NullableBuildServiceFromComposeSpecRequest2 {
-	return &NullableBuildServiceFromComposeSpecRequest2{value: val, isSet: true}
+func NewNullableValidateServiceSpecRequest(val *ValidateServiceSpecRequest) *NullableValidateServiceSpecRequest {
+	return &NullableValidateServiceSpecRequest{value: val, isSet: true}
 }
 
-func (v NullableBuildServiceFromComposeSpecRequest2) MarshalJSON() ([]byte, error) {
+func (v NullableValidateServiceSpecRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableBuildServiceFromComposeSpecRequest2) UnmarshalJSON(src []byte) error {
+func (v *NullableValidateServiceSpecRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -25,6 +25,8 @@ type ServiceApiAPI interface {
 	/*
 	ServiceApiBuildServiceFromComposeSpec BuildServiceFromComposeSpec service-api
 
+	Build a service from a docker compose specification. The dryrun flag is deprecated for validation use; send ValidateServiceSpec to /service/spec/validate instead. When dryrun is true, the build request is answered by a read-only compatibility adapter: nothing is created, updated, released, deprecated, promoted, published or discarded, no import workflow is started, and existing pending changes are left untouched. The adapter can only answer in this legacy result shape, so its reporting is narrower than the validation endpoint's. A candidate that validates cleanly and already exists returns this result populated with the real service, service environment and product tier IDs, the read-only list of resources present in the plan but absent from the spec, and isNewServicePlanVersionCreated=false. A specification with validation errors returns 400 with bounded, redacted diagnostics. A specification that could not be fully validated returns 400 with a message beginning DRY_RUN_VALIDATION_INCOMPLETE and directs the caller to the validation endpoint. A candidate whose service, environment or product tier does not exist yet cannot be expressed in this result shape and returns 400 with a message beginning DRY_RUN_USE_VALIDATION_ENDPOINT; it is never created in order to produce identifiers, and no empty or fabricated identifier is returned. This request envelope carries no local artifact bytes, so a specification that needs local Terraform, Helm, Kustomize or operator content is reported as incomplete rather than validated against previously uploaded artifacts; supply that content through the artifacts field of ValidateServiceSpec. Explicit repository-backed sources are still read through audited read-only readers.
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiServiceApiBuildServiceFromComposeSpecRequest
 	*/
@@ -36,6 +38,8 @@ type ServiceApiAPI interface {
 
 	/*
 	ServiceApiBuildServiceFromServicePlanSpec BuildServiceFromServicePlanSpec service-api
+
+	Build a service from a service plan specification. The dryrun flag is deprecated for validation use; send ValidateServiceSpec to /service/spec/validate instead. When dryrun is true, the build request is answered by a read-only compatibility adapter: nothing is created, updated, released, deprecated, promoted, published or discarded, no import workflow is started, and existing pending changes are left untouched. The adapter can only answer in this legacy result shape, so its reporting is narrower than the validation endpoint's. A candidate that validates cleanly and already exists returns this result populated with the real service, service environment and product tier IDs, the read-only list of resources present in the plan but absent from the spec, and isNewServicePlanVersionCreated=false. A specification with validation errors returns 400 with bounded, redacted diagnostics. A specification that could not be fully validated returns 400 with a message beginning DRY_RUN_VALIDATION_INCOMPLETE and directs the caller to the validation endpoint. A candidate whose service, environment or product tier does not exist yet cannot be expressed in this result shape and returns 400 with a message beginning DRY_RUN_USE_VALIDATION_ENDPOINT; it is never created in order to produce identifiers, and no empty or fabricated identifier is returned. This request envelope carries no local artifact bytes, so a specification that needs local Terraform, Helm, Kustomize or operator content is reported as incomplete rather than validated against previously uploaded artifacts; supply that content through the artifacts field of ValidateServiceSpec. Explicit repository-backed sources are still read through audited read-only readers.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiServiceApiBuildServiceFromServicePlanSpecRequest
@@ -143,6 +147,20 @@ type ServiceApiAPI interface {
 
 	// ServiceApiUpdateServiceExecute executes the request
 	ServiceApiUpdateServiceExecute(r ApiServiceApiUpdateServiceRequest) (*http.Response, error)
+
+	/*
+	ServiceApiValidateServiceSpec ValidateServiceSpec service-api
+
+	Validate a service specification without applying it. The submitted specification is parsed, assembled into an in-memory candidate configuration and checked with the same build-time validators a real build uses, against a read-only snapshot of existing state. No configuration is created, updated, deleted, released, deprecated, promoted, published or discarded, no account is onboarded, no workflow is started and no validation job is persisted; existing pending changes are left untouched. The caller's organization and user identity come from the request credentials, so there are no tenant identity fields in the request, and there is no flag that turns this endpoint into a build. A specification that is invalid, or that could not be fully validated, is still a successfully processed request and is returned with HTTP 200 and a status of INVALID or INCOMPLETE. Local Terraform, Helm, Kustomize and operator content is validated from the exact bytes supplied in the request: send the request without artifacts to discover which content is required, then send the same input again with those archives attached. Both requests are independently read-only; the first response is not a session and grants the second no authorization. A successful result means every applicable, currently supported build-time check completed, not that a later deployment will succeed.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiServiceApiValidateServiceSpecRequest
+	*/
+	ServiceApiValidateServiceSpec(ctx context.Context) ApiServiceApiValidateServiceSpecRequest
+
+	// ServiceApiValidateServiceSpecExecute executes the request
+	//  @return ValidateServiceSpecResult
+	ServiceApiValidateServiceSpecExecute(r ApiServiceApiValidateServiceSpecRequest) (*ValidateServiceSpecResult, *http.Response, error)
 }
 
 // ServiceApiAPIService ServiceApiAPI service
@@ -165,6 +183,8 @@ func (r ApiServiceApiBuildServiceFromComposeSpecRequest) Execute() (*BuildServic
 
 /*
 ServiceApiBuildServiceFromComposeSpec BuildServiceFromComposeSpec service-api
+
+Build a service from a docker compose specification. The dryrun flag is deprecated for validation use; send ValidateServiceSpec to /service/spec/validate instead. When dryrun is true, the build request is answered by a read-only compatibility adapter: nothing is created, updated, released, deprecated, promoted, published or discarded, no import workflow is started, and existing pending changes are left untouched. The adapter can only answer in this legacy result shape, so its reporting is narrower than the validation endpoint's. A candidate that validates cleanly and already exists returns this result populated with the real service, service environment and product tier IDs, the read-only list of resources present in the plan but absent from the spec, and isNewServicePlanVersionCreated=false. A specification with validation errors returns 400 with bounded, redacted diagnostics. A specification that could not be fully validated returns 400 with a message beginning DRY_RUN_VALIDATION_INCOMPLETE and directs the caller to the validation endpoint. A candidate whose service, environment or product tier does not exist yet cannot be expressed in this result shape and returns 400 with a message beginning DRY_RUN_USE_VALIDATION_ENDPOINT; it is never created in order to produce identifiers, and no empty or fabricated identifier is returned. This request envelope carries no local artifact bytes, so a specification that needs local Terraform, Helm, Kustomize or operator content is reported as incomplete rather than validated against previously uploaded artifacts; supply that content through the artifacts field of ValidateServiceSpec. Explicit repository-backed sources are still read through audited read-only readers.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiServiceApiBuildServiceFromComposeSpecRequest
@@ -338,6 +358,8 @@ func (r ApiServiceApiBuildServiceFromServicePlanSpecRequest) Execute() (*BuildSe
 
 /*
 ServiceApiBuildServiceFromServicePlanSpec BuildServiceFromServicePlanSpec service-api
+
+Build a service from a service plan specification. The dryrun flag is deprecated for validation use; send ValidateServiceSpec to /service/spec/validate instead. When dryrun is true, the build request is answered by a read-only compatibility adapter: nothing is created, updated, released, deprecated, promoted, published or discarded, no import workflow is started, and existing pending changes are left untouched. The adapter can only answer in this legacy result shape, so its reporting is narrower than the validation endpoint's. A candidate that validates cleanly and already exists returns this result populated with the real service, service environment and product tier IDs, the read-only list of resources present in the plan but absent from the spec, and isNewServicePlanVersionCreated=false. A specification with validation errors returns 400 with bounded, redacted diagnostics. A specification that could not be fully validated returns 400 with a message beginning DRY_RUN_VALIDATION_INCOMPLETE and directs the caller to the validation endpoint. A candidate whose service, environment or product tier does not exist yet cannot be expressed in this result shape and returns 400 with a message beginning DRY_RUN_USE_VALIDATION_ENDPOINT; it is never created in order to produce identifiers, and no empty or fabricated identifier is returned. This request envelope carries no local artifact bytes, so a specification that needs local Terraform, Helm, Kustomize or operator content is reported as incomplete rather than validated against previously uploaded artifacts; supply that content through the artifacts field of ValidateServiceSpec. Explicit repository-backed sources are still read through audited read-only readers.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiServiceApiBuildServiceFromServicePlanSpecRequest
@@ -1826,4 +1848,212 @@ func (a *ServiceApiAPIService) ServiceApiUpdateServiceExecute(r ApiServiceApiUpd
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+type ApiServiceApiValidateServiceSpecRequest struct {
+	ctx context.Context
+	ApiService ServiceApiAPI
+	validateServiceSpecRequest2 *ValidateServiceSpecRequest2
+}
+
+func (r ApiServiceApiValidateServiceSpecRequest) ValidateServiceSpecRequest2(validateServiceSpecRequest2 ValidateServiceSpecRequest2) ApiServiceApiValidateServiceSpecRequest {
+	r.validateServiceSpecRequest2 = &validateServiceSpecRequest2
+	return r
+}
+
+func (r ApiServiceApiValidateServiceSpecRequest) Execute() (*ValidateServiceSpecResult, *http.Response, error) {
+	return r.ApiService.ServiceApiValidateServiceSpecExecute(r)
+}
+
+/*
+ServiceApiValidateServiceSpec ValidateServiceSpec service-api
+
+Validate a service specification without applying it. The submitted specification is parsed, assembled into an in-memory candidate configuration and checked with the same build-time validators a real build uses, against a read-only snapshot of existing state. No configuration is created, updated, deleted, released, deprecated, promoted, published or discarded, no account is onboarded, no workflow is started and no validation job is persisted; existing pending changes are left untouched. The caller's organization and user identity come from the request credentials, so there are no tenant identity fields in the request, and there is no flag that turns this endpoint into a build. A specification that is invalid, or that could not be fully validated, is still a successfully processed request and is returned with HTTP 200 and a status of INVALID or INCOMPLETE. Local Terraform, Helm, Kustomize and operator content is validated from the exact bytes supplied in the request: send the request without artifacts to discover which content is required, then send the same input again with those archives attached. Both requests are independently read-only; the first response is not a session and grants the second no authorization. A successful result means every applicable, currently supported build-time check completed, not that a later deployment will succeed.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiServiceApiValidateServiceSpecRequest
+*/
+func (a *ServiceApiAPIService) ServiceApiValidateServiceSpec(ctx context.Context) ApiServiceApiValidateServiceSpecRequest {
+	return ApiServiceApiValidateServiceSpecRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ValidateServiceSpecResult
+func (a *ServiceApiAPIService) ServiceApiValidateServiceSpecExecute(r ApiServiceApiValidateServiceSpecRequest) (*ValidateServiceSpecResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ValidateServiceSpecResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceApiAPIService.ServiceApiValidateServiceSpec")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/service/spec/validate"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.validateServiceSpecRequest2 == nil {
+		return localVarReturnValue, nil, reportError("validateServiceSpecRequest2 is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.validateServiceSpecRequest2
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 413 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 504 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
