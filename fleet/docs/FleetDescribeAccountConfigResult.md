@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **GcpProjectNumber** | Pointer to **string** | The GCP project number | [optional] 
 **GcpServiceAccountEmail** | Pointer to **string** | The GCP service account email | [optional] 
 **Id** | **string** | ID of an Account Config | 
+**ManagedWorkloadIdentityStatuses** | Pointer to [**[]ManagedWorkloadIdentityStatus**](ManagedWorkloadIdentityStatus.md) | The apply statuses of managed workload identities on this cloud account | [optional] 
 **Name** | **string** | The name of the account | 
 **NebiusBindings** | Pointer to [**[]FleetNebiusAccountBindingResult**](FleetNebiusAccountBindingResult.md) | The safe Nebius bindings configured for this account | [optional] 
 **NebiusTenantID** | Pointer to **string** | The Nebius tenant ID | [optional] 
@@ -643,6 +644,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetManagedWorkloadIdentityStatuses
+
+`func (o *FleetDescribeAccountConfigResult) GetManagedWorkloadIdentityStatuses() []ManagedWorkloadIdentityStatus`
+
+GetManagedWorkloadIdentityStatuses returns the ManagedWorkloadIdentityStatuses field if non-nil, zero value otherwise.
+
+### GetManagedWorkloadIdentityStatusesOk
+
+`func (o *FleetDescribeAccountConfigResult) GetManagedWorkloadIdentityStatusesOk() (*[]ManagedWorkloadIdentityStatus, bool)`
+
+GetManagedWorkloadIdentityStatusesOk returns a tuple with the ManagedWorkloadIdentityStatuses field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManagedWorkloadIdentityStatuses
+
+`func (o *FleetDescribeAccountConfigResult) SetManagedWorkloadIdentityStatuses(v []ManagedWorkloadIdentityStatus)`
+
+SetManagedWorkloadIdentityStatuses sets ManagedWorkloadIdentityStatuses field to given value.
+
+### HasManagedWorkloadIdentityStatuses
+
+`func (o *FleetDescribeAccountConfigResult) HasManagedWorkloadIdentityStatuses() bool`
+
+HasManagedWorkloadIdentityStatuses returns a boolean if a field has been set.
 
 ### GetName
 

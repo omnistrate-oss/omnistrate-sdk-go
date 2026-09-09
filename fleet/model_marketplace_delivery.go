@@ -36,7 +36,7 @@ type MarketplaceDelivery struct {
 	DeliveryId string `json:"deliveryId"`
 	// Outbound only. Where this was sent, which is not necessarily where the channel is configured to send now
 	DestinationUrl *string `json:"destinationUrl,omitempty"`
-	// OUTBOUND is a webhook Omnistrate sent to the ISV's receiver. INBOUND is a call the ISV made to the marketplace API
+	// Who called whom. OUTBOUND is a webhook Omnistrate sent to the ISV's receiver and INBOUND is a call the ISV made to the marketplace API, both relative to the ISV. CHANNEL_INBOUND is the marketplace calling Omnistrate, and CHANNEL_OUTBOUND is Omnistrate calling the marketplace
 	Direction string `json:"direction"`
 	// Inbound only. Which API the ISV called
 	Endpoint *string `json:"endpoint,omitempty"`

@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **DefaultServiceId** | Pointer to **string** |  | [optional] 
 **DimensionMap** | Pointer to **map[string]string** |  | [optional] 
 **Enabled** | Pointer to **bool** |  | [optional] 
+**EventReceivers** | Pointer to [**[]MarketplaceEventReceiver**](MarketplaceEventReceiver.md) | Replaces the stored routing when present. Omit it to leave the routing untouched, which is the same rule credentials follow above and for the same reason: an ISV changing one unrelated field must not silently stop their own deliveries | [optional] 
+**HandoffTokenValiditySeconds** | Pointer to **int64** | How long a handoff credential this channel mints stays redeemable. Omit it for the platform default of seven days.  Separate from isvConfirmTimeoutSeconds on purpose. That one is the SLA, and the default validity is deliberately longer than it, so an ISV who breaches the SLA can still recover on their own rather than needing an operator to reissue. One is how long we wait before raising an alarm; the other is how long the credential works.  Between 3600 (an hour) and 2592000 (thirty days). The floor is because the chain from checkout to your callback is several hops and a browser is free to be slow at any of them, so a shorter credential is one a buyer can be handed already dead. The ceiling is the window in which a cloud marketplace can void a purchase; a credential outliving that keeps working after the thing it selects has stopped being real | [optional] 
 **IsvCallbackUrl** | Pointer to **string** |  | [optional] 
 **IsvConfirmTimeoutSeconds** | Pointer to **int64** |  | [optional] 
 **PlanMap** | Pointer to [**map[string]MarketplacePlanMapping**](MarketplacePlanMapping.md) |  | [optional] 
@@ -237,6 +239,56 @@ SetEnabled sets Enabled field to given value.
 `func (o *UpdateMarketplaceChannelRequest2) HasEnabled() bool`
 
 HasEnabled returns a boolean if a field has been set.
+
+### GetEventReceivers
+
+`func (o *UpdateMarketplaceChannelRequest2) GetEventReceivers() []MarketplaceEventReceiver`
+
+GetEventReceivers returns the EventReceivers field if non-nil, zero value otherwise.
+
+### GetEventReceiversOk
+
+`func (o *UpdateMarketplaceChannelRequest2) GetEventReceiversOk() (*[]MarketplaceEventReceiver, bool)`
+
+GetEventReceiversOk returns a tuple with the EventReceivers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEventReceivers
+
+`func (o *UpdateMarketplaceChannelRequest2) SetEventReceivers(v []MarketplaceEventReceiver)`
+
+SetEventReceivers sets EventReceivers field to given value.
+
+### HasEventReceivers
+
+`func (o *UpdateMarketplaceChannelRequest2) HasEventReceivers() bool`
+
+HasEventReceivers returns a boolean if a field has been set.
+
+### GetHandoffTokenValiditySeconds
+
+`func (o *UpdateMarketplaceChannelRequest2) GetHandoffTokenValiditySeconds() int64`
+
+GetHandoffTokenValiditySeconds returns the HandoffTokenValiditySeconds field if non-nil, zero value otherwise.
+
+### GetHandoffTokenValiditySecondsOk
+
+`func (o *UpdateMarketplaceChannelRequest2) GetHandoffTokenValiditySecondsOk() (*int64, bool)`
+
+GetHandoffTokenValiditySecondsOk returns a tuple with the HandoffTokenValiditySeconds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHandoffTokenValiditySeconds
+
+`func (o *UpdateMarketplaceChannelRequest2) SetHandoffTokenValiditySeconds(v int64)`
+
+SetHandoffTokenValiditySeconds sets HandoffTokenValiditySeconds field to given value.
+
+### HasHandoffTokenValiditySeconds
+
+`func (o *UpdateMarketplaceChannelRequest2) HasHandoffTokenValiditySeconds() bool`
+
+HasHandoffTokenValiditySeconds returns a boolean if a field has been set.
 
 ### GetIsvCallbackUrl
 

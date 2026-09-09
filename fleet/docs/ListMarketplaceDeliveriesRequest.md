@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Channel** | Pointer to **string** | Which marketplace channel a contract came from. SUGER reaches AWS, Azure and GCP buyers through one listing. SANDBOX is the simulated channel, and is a real member of this set rather than a test mode | [optional] 
-**Direction** | Pointer to **string** | OUTBOUND is a webhook Omnistrate sent to the ISV&#39;s receiver. INBOUND is a call the ISV made to the marketplace API | [optional] 
+**Direction** | Pointer to **string** | Who called whom. OUTBOUND is a webhook Omnistrate sent to the ISV&#39;s receiver and INBOUND is a call the ISV made to the marketplace API, both relative to the ISV. CHANNEL_INBOUND is the marketplace calling Omnistrate, and CHANNEL_OUTBOUND is Omnistrate calling the marketplace | [optional] 
 **EventType** | Pointer to **string** | The type of a marketplace fulfillment event delivered to an ISV receiver | [optional] 
 **FailuresOnly** | Pointer to **bool** | A shortcut for the only filter combination anybody types twice | [optional] 
 **MarketplaceContractId** | Pointer to **string** | Filter to one contract, which is how a contract detail view scopes its own trail | [optional] 

@@ -23,7 +23,7 @@ var _ MappedNullable = &ListMarketplaceDeliveriesRequest{}
 type ListMarketplaceDeliveriesRequest struct {
 	// Which marketplace channel a contract came from. SUGER reaches AWS, Azure and GCP buyers through one listing. SANDBOX is the simulated channel, and is a real member of this set rather than a test mode
 	Channel *string `json:"channel,omitempty"`
-	// OUTBOUND is a webhook Omnistrate sent to the ISV's receiver. INBOUND is a call the ISV made to the marketplace API
+	// Who called whom. OUTBOUND is a webhook Omnistrate sent to the ISV's receiver and INBOUND is a call the ISV made to the marketplace API, both relative to the ISV. CHANNEL_INBOUND is the marketplace calling Omnistrate, and CHANNEL_OUTBOUND is Omnistrate calling the marketplace
 	Direction *string `json:"direction,omitempty"`
 	// The type of a marketplace fulfillment event delivered to an ISV receiver
 	EventType *string `json:"eventType,omitempty"`
