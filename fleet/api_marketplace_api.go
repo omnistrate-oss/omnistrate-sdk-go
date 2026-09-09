@@ -174,6 +174,32 @@ type MarketplaceApiAPI interface {
 	MarketplaceApiListMarketplaceDeliveriesExecute(r ApiMarketplaceApiListMarketplaceDeliveriesRequest) (*ListMarketplaceDeliveriesResult, *http.Response, error)
 
 	/*
+	MarketplaceApiListSandboxUsageReports ListSandboxUsageReports marketplace-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiMarketplaceApiListSandboxUsageReportsRequest
+	*/
+	MarketplaceApiListSandboxUsageReports(ctx context.Context) ApiMarketplaceApiListSandboxUsageReportsRequest
+
+	// MarketplaceApiListSandboxUsageReportsExecute executes the request
+	//  @return ListSandboxUsageReportsResult
+	MarketplaceApiListSandboxUsageReportsExecute(r ApiMarketplaceApiListSandboxUsageReportsRequest) (*ListSandboxUsageReportsResult, *http.Response, error)
+
+	/*
+	MarketplaceApiMarketplaceChannelWebhook MarketplaceChannelWebhook marketplace-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param channel Which channel is delivering. In the path rather than the body, because the body is attacker controlled until the signature verifies and the route must be resolvable before then
+	@param serviceProviderOrgId The ISV whose route this is. Also in the path, and compared against the organization the body claims: a delivery that is genuine for one ISV must not be accepted when replayed at another's route
+	@return ApiMarketplaceApiMarketplaceChannelWebhookRequest
+	*/
+	MarketplaceApiMarketplaceChannelWebhook(ctx context.Context, channel string, serviceProviderOrgId string) ApiMarketplaceApiMarketplaceChannelWebhookRequest
+
+	// MarketplaceApiMarketplaceChannelWebhookExecute executes the request
+	//  @return MarketplaceChannelWebhookResult
+	MarketplaceApiMarketplaceChannelWebhookExecute(r ApiMarketplaceApiMarketplaceChannelWebhookRequest) (*MarketplaceChannelWebhookResult, *http.Response, error)
+
+	/*
 	MarketplaceApiMarketplaceLanding MarketplaceLanding marketplace-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2266,6 +2292,354 @@ func (a *MarketplaceApiAPIService) MarketplaceApiListMarketplaceDeliveriesExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiMarketplaceApiListSandboxUsageReportsRequest struct {
+	ctx context.Context
+	ApiService MarketplaceApiAPI
+	marketplaceContractId *string
+	status *string
+	windowStartFrom *time.Time
+	windowStartTo *time.Time
+}
+
+// Filter to one simulated sandbox contract
+func (r ApiMarketplaceApiListSandboxUsageReportsRequest) MarketplaceContractId(marketplaceContractId string) ApiMarketplaceApiListSandboxUsageReportsRequest {
+	r.marketplaceContractId = &marketplaceContractId
+	return r
+}
+
+func (r ApiMarketplaceApiListSandboxUsageReportsRequest) Status(status string) ApiMarketplaceApiListSandboxUsageReportsRequest {
+	r.status = &status
+	return r
+}
+
+// Only usage windows starting at or after this RFC3339 instant
+func (r ApiMarketplaceApiListSandboxUsageReportsRequest) WindowStartFrom(windowStartFrom time.Time) ApiMarketplaceApiListSandboxUsageReportsRequest {
+	r.windowStartFrom = &windowStartFrom
+	return r
+}
+
+// Only usage windows starting at or before this RFC3339 instant
+func (r ApiMarketplaceApiListSandboxUsageReportsRequest) WindowStartTo(windowStartTo time.Time) ApiMarketplaceApiListSandboxUsageReportsRequest {
+	r.windowStartTo = &windowStartTo
+	return r
+}
+
+func (r ApiMarketplaceApiListSandboxUsageReportsRequest) Execute() (*ListSandboxUsageReportsResult, *http.Response, error) {
+	return r.ApiService.MarketplaceApiListSandboxUsageReportsExecute(r)
+}
+
+/*
+MarketplaceApiListSandboxUsageReports ListSandboxUsageReports marketplace-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiMarketplaceApiListSandboxUsageReportsRequest
+*/
+func (a *MarketplaceApiAPIService) MarketplaceApiListSandboxUsageReports(ctx context.Context) ApiMarketplaceApiListSandboxUsageReportsRequest {
+	return ApiMarketplaceApiListSandboxUsageReportsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ListSandboxUsageReportsResult
+func (a *MarketplaceApiAPIService) MarketplaceApiListSandboxUsageReportsExecute(r ApiMarketplaceApiListSandboxUsageReportsRequest) (*ListSandboxUsageReportsResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListSandboxUsageReportsResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketplaceApiAPIService.MarketplaceApiListSandboxUsageReports")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/marketplace/sandbox/usage-report"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.marketplaceContractId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "marketplaceContractId", r.marketplaceContractId, "form", "")
+	}
+	if r.status != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "status", r.status, "form", "")
+	}
+	if r.windowStartFrom != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "windowStartFrom", r.windowStartFrom, "form", "")
+	}
+	if r.windowStartTo != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "windowStartTo", r.windowStartTo, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiMarketplaceApiMarketplaceChannelWebhookRequest struct {
+	ctx context.Context
+	ApiService MarketplaceApiAPI
+	channel string
+	serviceProviderOrgId string
+	xSugerSignature256 *string
+}
+
+// The X-Suger-Signature-256 header: sha256&#x3D; followed by the lowercase hex HMAC of the raw body
+func (r ApiMarketplaceApiMarketplaceChannelWebhookRequest) XSugerSignature256(xSugerSignature256 string) ApiMarketplaceApiMarketplaceChannelWebhookRequest {
+	r.xSugerSignature256 = &xSugerSignature256
+	return r
+}
+
+func (r ApiMarketplaceApiMarketplaceChannelWebhookRequest) Execute() (*MarketplaceChannelWebhookResult, *http.Response, error) {
+	return r.ApiService.MarketplaceApiMarketplaceChannelWebhookExecute(r)
+}
+
+/*
+MarketplaceApiMarketplaceChannelWebhook MarketplaceChannelWebhook marketplace-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param channel Which channel is delivering. In the path rather than the body, because the body is attacker controlled until the signature verifies and the route must be resolvable before then
+ @param serviceProviderOrgId The ISV whose route this is. Also in the path, and compared against the organization the body claims: a delivery that is genuine for one ISV must not be accepted when replayed at another's route
+ @return ApiMarketplaceApiMarketplaceChannelWebhookRequest
+*/
+func (a *MarketplaceApiAPIService) MarketplaceApiMarketplaceChannelWebhook(ctx context.Context, channel string, serviceProviderOrgId string) ApiMarketplaceApiMarketplaceChannelWebhookRequest {
+	return ApiMarketplaceApiMarketplaceChannelWebhookRequest{
+		ApiService: a,
+		ctx: ctx,
+		channel: channel,
+		serviceProviderOrgId: serviceProviderOrgId,
+	}
+}
+
+// Execute executes the request
+//  @return MarketplaceChannelWebhookResult
+func (a *MarketplaceApiAPIService) MarketplaceApiMarketplaceChannelWebhookExecute(r ApiMarketplaceApiMarketplaceChannelWebhookRequest) (*MarketplaceChannelWebhookResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *MarketplaceChannelWebhookResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketplaceApiAPIService.MarketplaceApiMarketplaceChannelWebhook")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/marketplace/webhook/{channel}/{serviceProviderOrgId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"channel"+"}", url.PathEscape(parameterValueToString(r.channel, "channel")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceProviderOrgId"+"}", url.PathEscape(parameterValueToString(r.serviceProviderOrgId, "serviceProviderOrgId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xSugerSignature256 != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-Suger-Signature-256", r.xSugerSignature256, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

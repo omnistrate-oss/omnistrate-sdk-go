@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **DefaultServiceId** | Pointer to **string** |  | [optional] 
 **DimensionMap** | Pointer to **map[string]string** | Omnistrate metering dimension to the channel&#39;s billable dimension key | [optional] 
 **Enabled** | **bool** | Whether contracts on this channel are fulfilled. A config can exist and be disabled, which is the state a partially configured connection sits in | 
+**EventReceivers** | Pointer to [**[]MarketplaceEventReceiver**](MarketplaceEventReceiver.md) | Where each event type is delivered. An event with no entry here is NOT delivered; there is no inheritance and no default. Channels that predate per-event routing have an entry per event carrying whatever their single receiver was, so nothing goes quiet without somebody removing it | [optional] 
+**HandoffTokenValiditySeconds** | Pointer to **int64** | How long a handoff credential this channel mints stays redeemable. Omit it for the platform default of seven days.  Separate from isvConfirmTimeoutSeconds on purpose. That one is the SLA, and the default validity is deliberately longer than it, so an ISV who breaches the SLA can still recover on their own rather than needing an operator to reissue. One is how long we wait before raising an alarm; the other is how long the credential works.  Between 3600 (an hour) and 2592000 (thirty days). The floor is because the chain from checkout to your callback is several hops and a browser is free to be slow at any of them, so a shorter credential is one a buyer can be handed already dead. The ceiling is the window in which a cloud marketplace can void a purchase; a credential outliving that keeps working after the thing it selects has stopped being real | [optional] 
 **Id** | **string** |  | 
 **IsSimulated** | **bool** | Derived from the channel, never accepted from a request. Every no-real-money affordance is gated on this rather than on the channel name | 
 **IsvCallbackUrl** | Pointer to **string** | Where the buyer&#39;s BROWSER is sent after onboarding, with one appended query parameter. Not the webhook receiver: see portBReceiverUrl. Required before the channel can be enabled, because without it there is nowhere to send them | [optional] 
@@ -23,7 +25,7 @@ Name | Type | Description | Notes
 **LandingUrl** | **string** | Where the buyer arrives from the marketplace. Generated per organization and channel and never editable, because it is the address the marketplace was told about | 
 **LastSyncedAt** | Pointer to **time.Time** |  | [optional] 
 **PlanMap** | Pointer to [**map[string]MarketplacePlanMapping**](MarketplacePlanMapping.md) | The channel&#39;s listing identifier to the Omnistrate service and plan it is sold as. Mapping a listing here also disables self-serve subscription on that plan, because a marketplace plan a customer can subscribe to directly is a route around the ISV confirm | [optional] 
-**PortBReceiverUrl** | Pointer to **string** | Where SIGNED WEBHOOKS are delivered. A server endpoint that verifies the signature and answers 2xx, which is a different thing from isvCallbackUrl: that one takes a human&#39;s browser. Required before the channel can be enabled, because without it the ISV is never told a buyer arrived. Refused if it resolves to a private, loopback, link-local or metadata address | [optional] 
+**PortBReceiverUrl** | Pointer to **string** | DEPRECATED, and read only. The single receiver every event used to be delivered to, now migrated into an eventReceivers entry per event type. Still returned so a client built before per-event routing keeps working; write eventReceivers instead | [optional] 
 **PortBSigningSecretId** | Pointer to **string** | Which secret is active, so a rotation can be confirmed by watching this change without anything sensitive being displayed. Not the secret and not derived from it | [optional] 
 **PortBSigningSecretSet** | Pointer to **bool** | Whether a signing secret is configured. Deliveries are unsigned without one, and a conforming receiver rejects every unsigned delivery, so this is the field that explains a channel whose webhooks are all being refused | [optional] 
 **SimulatedContractCount** | Pointer to **int64** |  | [optional] 
@@ -325,6 +327,56 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
+
+### GetEventReceivers
+
+`func (o *MarketplaceChannelConfig) GetEventReceivers() []MarketplaceEventReceiver`
+
+GetEventReceivers returns the EventReceivers field if non-nil, zero value otherwise.
+
+### GetEventReceiversOk
+
+`func (o *MarketplaceChannelConfig) GetEventReceiversOk() (*[]MarketplaceEventReceiver, bool)`
+
+GetEventReceiversOk returns a tuple with the EventReceivers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEventReceivers
+
+`func (o *MarketplaceChannelConfig) SetEventReceivers(v []MarketplaceEventReceiver)`
+
+SetEventReceivers sets EventReceivers field to given value.
+
+### HasEventReceivers
+
+`func (o *MarketplaceChannelConfig) HasEventReceivers() bool`
+
+HasEventReceivers returns a boolean if a field has been set.
+
+### GetHandoffTokenValiditySeconds
+
+`func (o *MarketplaceChannelConfig) GetHandoffTokenValiditySeconds() int64`
+
+GetHandoffTokenValiditySeconds returns the HandoffTokenValiditySeconds field if non-nil, zero value otherwise.
+
+### GetHandoffTokenValiditySecondsOk
+
+`func (o *MarketplaceChannelConfig) GetHandoffTokenValiditySecondsOk() (*int64, bool)`
+
+GetHandoffTokenValiditySecondsOk returns a tuple with the HandoffTokenValiditySeconds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHandoffTokenValiditySeconds
+
+`func (o *MarketplaceChannelConfig) SetHandoffTokenValiditySeconds(v int64)`
+
+SetHandoffTokenValiditySeconds sets HandoffTokenValiditySeconds field to given value.
+
+### HasHandoffTokenValiditySeconds
+
+`func (o *MarketplaceChannelConfig) HasHandoffTokenValiditySeconds() bool`
+
+HasHandoffTokenValiditySeconds returns a boolean if a field has been set.
 
 ### GetId
 

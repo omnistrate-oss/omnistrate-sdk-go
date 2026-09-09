@@ -28,6 +28,10 @@ type UpdateMarketplaceChannelRequest2 struct {
 	DefaultServiceId *string `json:"defaultServiceId,omitempty"`
 	DimensionMap *map[string]string `json:"dimensionMap,omitempty"`
 	Enabled *bool `json:"enabled,omitempty"`
+	// Replaces the stored routing when present. Omit it to leave the routing untouched, which is the same rule credentials follow above and for the same reason: an ISV changing one unrelated field must not silently stop their own deliveries
+	EventReceivers []MarketplaceEventReceiver `json:"eventReceivers,omitempty"`
+	// How long a handoff credential this channel mints stays redeemable. Omit it for the platform default of seven days.  Separate from isvConfirmTimeoutSeconds on purpose. That one is the SLA, and the default validity is deliberately longer than it, so an ISV who breaches the SLA can still recover on their own rather than needing an operator to reissue. One is how long we wait before raising an alarm; the other is how long the credential works.  Between 3600 (an hour) and 2592000 (thirty days). The floor is because the chain from checkout to your callback is several hops and a browser is free to be slow at any of them, so a shorter credential is one a buyer can be handed already dead. The ceiling is the window in which a cloud marketplace can void a purchase; a credential outliving that keeps working after the thing it selects has stopped being real
+	HandoffTokenValiditySeconds *int64 `json:"handoffTokenValiditySeconds,omitempty"`
 	IsvCallbackUrl *string `json:"isvCallbackUrl,omitempty"`
 	IsvConfirmTimeoutSeconds *int64 `json:"isvConfirmTimeoutSeconds,omitempty"`
 	PlanMap *map[string]MarketplacePlanMapping `json:"planMap,omitempty"`
@@ -313,6 +317,70 @@ func (o *UpdateMarketplaceChannelRequest2) SetEnabled(v bool) {
 	o.Enabled = &v
 }
 
+// GetEventReceivers returns the EventReceivers field value if set, zero value otherwise.
+func (o *UpdateMarketplaceChannelRequest2) GetEventReceivers() []MarketplaceEventReceiver {
+	if o == nil || IsNil(o.EventReceivers) {
+		var ret []MarketplaceEventReceiver
+		return ret
+	}
+	return o.EventReceivers
+}
+
+// GetEventReceiversOk returns a tuple with the EventReceivers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateMarketplaceChannelRequest2) GetEventReceiversOk() ([]MarketplaceEventReceiver, bool) {
+	if o == nil || IsNil(o.EventReceivers) {
+		return nil, false
+	}
+	return o.EventReceivers, true
+}
+
+// HasEventReceivers returns a boolean if a field has been set.
+func (o *UpdateMarketplaceChannelRequest2) HasEventReceivers() bool {
+	if o != nil && !IsNil(o.EventReceivers) {
+		return true
+	}
+
+	return false
+}
+
+// SetEventReceivers gets a reference to the given []MarketplaceEventReceiver and assigns it to the EventReceivers field.
+func (o *UpdateMarketplaceChannelRequest2) SetEventReceivers(v []MarketplaceEventReceiver) {
+	o.EventReceivers = v
+}
+
+// GetHandoffTokenValiditySeconds returns the HandoffTokenValiditySeconds field value if set, zero value otherwise.
+func (o *UpdateMarketplaceChannelRequest2) GetHandoffTokenValiditySeconds() int64 {
+	if o == nil || IsNil(o.HandoffTokenValiditySeconds) {
+		var ret int64
+		return ret
+	}
+	return *o.HandoffTokenValiditySeconds
+}
+
+// GetHandoffTokenValiditySecondsOk returns a tuple with the HandoffTokenValiditySeconds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateMarketplaceChannelRequest2) GetHandoffTokenValiditySecondsOk() (*int64, bool) {
+	if o == nil || IsNil(o.HandoffTokenValiditySeconds) {
+		return nil, false
+	}
+	return o.HandoffTokenValiditySeconds, true
+}
+
+// HasHandoffTokenValiditySeconds returns a boolean if a field has been set.
+func (o *UpdateMarketplaceChannelRequest2) HasHandoffTokenValiditySeconds() bool {
+	if o != nil && !IsNil(o.HandoffTokenValiditySeconds) {
+		return true
+	}
+
+	return false
+}
+
+// SetHandoffTokenValiditySeconds gets a reference to the given int64 and assigns it to the HandoffTokenValiditySeconds field.
+func (o *UpdateMarketplaceChannelRequest2) SetHandoffTokenValiditySeconds(v int64) {
+	o.HandoffTokenValiditySeconds = &v
+}
+
 // GetIsvCallbackUrl returns the IsvCallbackUrl field value if set, zero value otherwise.
 func (o *UpdateMarketplaceChannelRequest2) GetIsvCallbackUrl() string {
 	if o == nil || IsNil(o.IsvCallbackUrl) {
@@ -539,6 +607,12 @@ func (o UpdateMarketplaceChannelRequest2) ToMap() (map[string]interface{}, error
 	if !IsNil(o.Enabled) {
 		toSerialize["enabled"] = o.Enabled
 	}
+	if !IsNil(o.EventReceivers) {
+		toSerialize["eventReceivers"] = o.EventReceivers
+	}
+	if !IsNil(o.HandoffTokenValiditySeconds) {
+		toSerialize["handoffTokenValiditySeconds"] = o.HandoffTokenValiditySeconds
+	}
 	if !IsNil(o.IsvCallbackUrl) {
 		toSerialize["isvCallbackUrl"] = o.IsvCallbackUrl
 	}
@@ -587,6 +661,8 @@ func (o *UpdateMarketplaceChannelRequest2) UnmarshalJSON(data []byte) (err error
 		delete(additionalProperties, "defaultServiceId")
 		delete(additionalProperties, "dimensionMap")
 		delete(additionalProperties, "enabled")
+		delete(additionalProperties, "eventReceivers")
+		delete(additionalProperties, "handoffTokenValiditySeconds")
 		delete(additionalProperties, "isvCallbackUrl")
 		delete(additionalProperties, "isvConfirmTimeoutSeconds")
 		delete(additionalProperties, "planMap")

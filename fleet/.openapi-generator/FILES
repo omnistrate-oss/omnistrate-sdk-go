@@ -608,6 +608,8 @@ docs/ListSaaSPortalCustomDomainsRequest.md
 docs/ListSaaSPortalCustomDomainsResult.md
 docs/ListSaaSPortalsRequest.md
 docs/ListSaaSPortalsResult.md
+docs/ListSandboxUsageReportsRequest.md
+docs/ListSandboxUsageReportsResult.md
 docs/ListSecretsRequest.md
 docs/ListSecretsResult.md
 docs/ListServiceEnvironmentsRequest.md
@@ -649,6 +651,7 @@ docs/ManagedWorkloadIdentityBinding.md
 docs/ManagedWorkloadIdentityPermissions.md
 docs/ManagedWorkloadIdentityRole.md
 docs/ManagedWorkloadIdentityServiceAccount.md
+docs/ManagedWorkloadIdentityStatus.md
 docs/ManualOverride.md
 docs/MarketplaceApiAPI.md
 docs/MarketplaceBillingBinding.md
@@ -657,6 +660,8 @@ docs/MarketplaceChannelConfig.md
 docs/MarketplaceChannelFinding.md
 docs/MarketplaceChannelListing.md
 docs/MarketplaceChannelValidation.md
+docs/MarketplaceChannelWebhookRequest.md
+docs/MarketplaceChannelWebhookResult.md
 docs/MarketplaceContract.md
 docs/MarketplaceContractEvent.md
 docs/MarketplaceDelivery.md
@@ -664,13 +669,16 @@ docs/MarketplaceEvent.md
 docs/MarketplaceEventCapabilities.md
 docs/MarketplaceEventOrg.md
 docs/MarketplaceEventPlan.md
+docs/MarketplaceEventReceiver.md
 docs/MarketplaceEventSubscriptionRequest.md
 docs/MarketplaceFulfillment.md
 docs/MarketplaceFulfillmentStage.md
+docs/MarketplaceFulfillmentStageOccurrence.md
 docs/MarketplaceInteractionStateChange.md
 docs/MarketplaceLandingRequest.md
 docs/MarketplaceLandingResult.md
 docs/MarketplacePlanMapping.md
+docs/MarketplaceStageLeg.md
 docs/MarketplaceStageParameter.md
 docs/ModifyServiceProviderOrganizationRequest.md
 docs/ModifyServicesOrchestrationRequest.md
@@ -801,6 +809,7 @@ docs/SandboxCheckoutRequest.md
 docs/SandboxCheckoutResult.md
 docs/SandboxDelivery.md
 docs/SandboxRun.md
+docs/SandboxUsageReport.md
 docs/SchemaRequest.md
 docs/ScrutinizeOnboardingDeploymentArtifactRequest.md
 docs/SearchInventoryFilters.md
@@ -1496,6 +1505,8 @@ model_list_saa_s_portal_custom_domains_request.go
 model_list_saa_s_portal_custom_domains_result.go
 model_list_saa_s_portals_request.go
 model_list_saa_s_portals_result.go
+model_list_sandbox_usage_reports_request.go
+model_list_sandbox_usage_reports_result.go
 model_list_secrets_request.go
 model_list_secrets_result.go
 model_list_service_environments_request.go
@@ -1537,6 +1548,7 @@ model_managed_workload_identity_binding.go
 model_managed_workload_identity_permissions.go
 model_managed_workload_identity_role.go
 model_managed_workload_identity_service_account.go
+model_managed_workload_identity_status.go
 model_manual_override.go
 model_marketplace_billing_binding.go
 model_marketplace_channel_capabilities.go
@@ -1544,6 +1556,8 @@ model_marketplace_channel_config.go
 model_marketplace_channel_finding.go
 model_marketplace_channel_listing.go
 model_marketplace_channel_validation.go
+model_marketplace_channel_webhook_request.go
+model_marketplace_channel_webhook_result.go
 model_marketplace_contract.go
 model_marketplace_contract_event.go
 model_marketplace_delivery.go
@@ -1551,13 +1565,16 @@ model_marketplace_event.go
 model_marketplace_event_capabilities.go
 model_marketplace_event_org.go
 model_marketplace_event_plan.go
+model_marketplace_event_receiver.go
 model_marketplace_event_subscription_request.go
 model_marketplace_fulfillment.go
 model_marketplace_fulfillment_stage.go
+model_marketplace_fulfillment_stage_occurrence.go
 model_marketplace_interaction_state_change.go
 model_marketplace_landing_request.go
 model_marketplace_landing_result.go
 model_marketplace_plan_mapping.go
+model_marketplace_stage_leg.go
 model_marketplace_stage_parameter.go
 model_modify_service_provider_organization_request.go
 model_modify_services_orchestration_request.go
@@ -1685,6 +1702,7 @@ model_sandbox_checkout_request.go
 model_sandbox_checkout_result.go
 model_sandbox_delivery.go
 model_sandbox_run.go
+model_sandbox_usage_report.go
 model_schema_request.go
 model_scrutinize_onboarding_deployment_artifact_request.go
 model_search_inventory_filters.go
