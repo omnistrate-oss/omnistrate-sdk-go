@@ -24,8 +24,11 @@ type WorkflowTask struct {
 	Action *string `json:"action,omitempty"`
 	// The number of attempts made for this task.
 	AttemptCount *int64 `json:"attemptCount,omitempty"`
+	CheckpointSummary *DeploymentCheckpointSummary `json:"checkpointSummary,omitempty"`
 	// The time the task ended, in RFC3339 format.
 	EndTime *string `json:"endTime,omitempty"`
+	// The custom workflow execution that ran the task, when the task belongs to a resource's system workflow. Use it with DescribeWorkflowTaskObjects to read the objects the task touched.
+	ExecutionId *string `json:"executionId,omitempty"`
 	// The success condition gating task completion, when present.
 	GateExpression *string `json:"gateExpression,omitempty"`
 	// The last observed value of the gate expression.
@@ -133,6 +136,38 @@ func (o *WorkflowTask) SetAttemptCount(v int64) {
 	o.AttemptCount = &v
 }
 
+// GetCheckpointSummary returns the CheckpointSummary field value if set, zero value otherwise.
+func (o *WorkflowTask) GetCheckpointSummary() DeploymentCheckpointSummary {
+	if o == nil || IsNil(o.CheckpointSummary) {
+		var ret DeploymentCheckpointSummary
+		return ret
+	}
+	return *o.CheckpointSummary
+}
+
+// GetCheckpointSummaryOk returns a tuple with the CheckpointSummary field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowTask) GetCheckpointSummaryOk() (*DeploymentCheckpointSummary, bool) {
+	if o == nil || IsNil(o.CheckpointSummary) {
+		return nil, false
+	}
+	return o.CheckpointSummary, true
+}
+
+// HasCheckpointSummary returns a boolean if a field has been set.
+func (o *WorkflowTask) HasCheckpointSummary() bool {
+	if o != nil && !IsNil(o.CheckpointSummary) {
+		return true
+	}
+
+	return false
+}
+
+// SetCheckpointSummary gets a reference to the given DeploymentCheckpointSummary and assigns it to the CheckpointSummary field.
+func (o *WorkflowTask) SetCheckpointSummary(v DeploymentCheckpointSummary) {
+	o.CheckpointSummary = &v
+}
+
 // GetEndTime returns the EndTime field value if set, zero value otherwise.
 func (o *WorkflowTask) GetEndTime() string {
 	if o == nil || IsNil(o.EndTime) {
@@ -163,6 +198,38 @@ func (o *WorkflowTask) HasEndTime() bool {
 // SetEndTime gets a reference to the given string and assigns it to the EndTime field.
 func (o *WorkflowTask) SetEndTime(v string) {
 	o.EndTime = &v
+}
+
+// GetExecutionId returns the ExecutionId field value if set, zero value otherwise.
+func (o *WorkflowTask) GetExecutionId() string {
+	if o == nil || IsNil(o.ExecutionId) {
+		var ret string
+		return ret
+	}
+	return *o.ExecutionId
+}
+
+// GetExecutionIdOk returns a tuple with the ExecutionId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowTask) GetExecutionIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ExecutionId) {
+		return nil, false
+	}
+	return o.ExecutionId, true
+}
+
+// HasExecutionId returns a boolean if a field has been set.
+func (o *WorkflowTask) HasExecutionId() bool {
+	if o != nil && !IsNil(o.ExecutionId) {
+		return true
+	}
+
+	return false
+}
+
+// SetExecutionId gets a reference to the given string and assigns it to the ExecutionId field.
+func (o *WorkflowTask) SetExecutionId(v string) {
+	o.ExecutionId = &v
 }
 
 // GetGateExpression returns the GateExpression field value if set, zero value otherwise.
@@ -549,8 +616,14 @@ func (o WorkflowTask) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AttemptCount) {
 		toSerialize["attemptCount"] = o.AttemptCount
 	}
+	if !IsNil(o.CheckpointSummary) {
+		toSerialize["checkpointSummary"] = o.CheckpointSummary
+	}
 	if !IsNil(o.EndTime) {
 		toSerialize["endTime"] = o.EndTime
+	}
+	if !IsNil(o.ExecutionId) {
+		toSerialize["executionId"] = o.ExecutionId
 	}
 	if !IsNil(o.GateExpression) {
 		toSerialize["gateExpression"] = o.GateExpression
@@ -630,7 +703,9 @@ func (o *WorkflowTask) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "action")
 		delete(additionalProperties, "attemptCount")
+		delete(additionalProperties, "checkpointSummary")
 		delete(additionalProperties, "endTime")
+		delete(additionalProperties, "executionId")
 		delete(additionalProperties, "gateExpression")
 		delete(additionalProperties, "gateLastObserved")
 		delete(additionalProperties, "helmDetail")

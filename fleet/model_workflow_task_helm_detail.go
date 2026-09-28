@@ -19,8 +19,18 @@ var _ MappedNullable = &WorkflowTaskHelmDetail{}
 
 // WorkflowTaskHelmDetail struct for WorkflowTaskHelmDetail
 type WorkflowTaskHelmDetail struct {
+	// The Helm hook currently executing, when one is. Complements failedHook, which describes a hook that already failed.
+	ActiveHook *string `json:"activeHook,omitempty"`
 	// The Helm hook that failed, when applicable.
 	FailedHook *string `json:"failedHook,omitempty"`
+	// The time the release was first deployed, in RFC3339 format, as recorded on the release. Observed evidence for the preparation checkpoint; absent when not recorded.
+	FirstDeployedAt *string `json:"firstDeployedAt,omitempty"`
+	// The execution phase of activeHook as recorded on the release: Unknown|Running|Succeeded|Failed. A hook that reads Running with a hookStartedAt well in the past and a terminal release status indicates the process died before recording the hook's terminal phase; it is not evidence that the hook is still executing.
+	HookPhase *string `json:"hookPhase,omitempty"`
+	// The recorded start time of activeHook, in RFC3339 format. Absent when the release carries no start evidence for the hook; an absent time is never replaced by the current poll time or by an epoch value.
+	HookStartedAt *string `json:"hookStartedAt,omitempty"`
+	// The time the release was last deployed, in RFC3339 format, as recorded on the release. Absent when not recorded.
+	LastDeployedAt *string `json:"lastDeployedAt,omitempty"`
 	// The resources from the release that are still pending.
 	PendingResources []string `json:"pendingResources,omitempty"`
 	// The Helm release phase.
@@ -49,6 +59,38 @@ func NewWorkflowTaskHelmDetail() *WorkflowTaskHelmDetail {
 func NewWorkflowTaskHelmDetailWithDefaults() *WorkflowTaskHelmDetail {
 	this := WorkflowTaskHelmDetail{}
 	return &this
+}
+
+// GetActiveHook returns the ActiveHook field value if set, zero value otherwise.
+func (o *WorkflowTaskHelmDetail) GetActiveHook() string {
+	if o == nil || IsNil(o.ActiveHook) {
+		var ret string
+		return ret
+	}
+	return *o.ActiveHook
+}
+
+// GetActiveHookOk returns a tuple with the ActiveHook field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowTaskHelmDetail) GetActiveHookOk() (*string, bool) {
+	if o == nil || IsNil(o.ActiveHook) {
+		return nil, false
+	}
+	return o.ActiveHook, true
+}
+
+// HasActiveHook returns a boolean if a field has been set.
+func (o *WorkflowTaskHelmDetail) HasActiveHook() bool {
+	if o != nil && !IsNil(o.ActiveHook) {
+		return true
+	}
+
+	return false
+}
+
+// SetActiveHook gets a reference to the given string and assigns it to the ActiveHook field.
+func (o *WorkflowTaskHelmDetail) SetActiveHook(v string) {
+	o.ActiveHook = &v
 }
 
 // GetFailedHook returns the FailedHook field value if set, zero value otherwise.
@@ -81,6 +123,134 @@ func (o *WorkflowTaskHelmDetail) HasFailedHook() bool {
 // SetFailedHook gets a reference to the given string and assigns it to the FailedHook field.
 func (o *WorkflowTaskHelmDetail) SetFailedHook(v string) {
 	o.FailedHook = &v
+}
+
+// GetFirstDeployedAt returns the FirstDeployedAt field value if set, zero value otherwise.
+func (o *WorkflowTaskHelmDetail) GetFirstDeployedAt() string {
+	if o == nil || IsNil(o.FirstDeployedAt) {
+		var ret string
+		return ret
+	}
+	return *o.FirstDeployedAt
+}
+
+// GetFirstDeployedAtOk returns a tuple with the FirstDeployedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowTaskHelmDetail) GetFirstDeployedAtOk() (*string, bool) {
+	if o == nil || IsNil(o.FirstDeployedAt) {
+		return nil, false
+	}
+	return o.FirstDeployedAt, true
+}
+
+// HasFirstDeployedAt returns a boolean if a field has been set.
+func (o *WorkflowTaskHelmDetail) HasFirstDeployedAt() bool {
+	if o != nil && !IsNil(o.FirstDeployedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetFirstDeployedAt gets a reference to the given string and assigns it to the FirstDeployedAt field.
+func (o *WorkflowTaskHelmDetail) SetFirstDeployedAt(v string) {
+	o.FirstDeployedAt = &v
+}
+
+// GetHookPhase returns the HookPhase field value if set, zero value otherwise.
+func (o *WorkflowTaskHelmDetail) GetHookPhase() string {
+	if o == nil || IsNil(o.HookPhase) {
+		var ret string
+		return ret
+	}
+	return *o.HookPhase
+}
+
+// GetHookPhaseOk returns a tuple with the HookPhase field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowTaskHelmDetail) GetHookPhaseOk() (*string, bool) {
+	if o == nil || IsNil(o.HookPhase) {
+		return nil, false
+	}
+	return o.HookPhase, true
+}
+
+// HasHookPhase returns a boolean if a field has been set.
+func (o *WorkflowTaskHelmDetail) HasHookPhase() bool {
+	if o != nil && !IsNil(o.HookPhase) {
+		return true
+	}
+
+	return false
+}
+
+// SetHookPhase gets a reference to the given string and assigns it to the HookPhase field.
+func (o *WorkflowTaskHelmDetail) SetHookPhase(v string) {
+	o.HookPhase = &v
+}
+
+// GetHookStartedAt returns the HookStartedAt field value if set, zero value otherwise.
+func (o *WorkflowTaskHelmDetail) GetHookStartedAt() string {
+	if o == nil || IsNil(o.HookStartedAt) {
+		var ret string
+		return ret
+	}
+	return *o.HookStartedAt
+}
+
+// GetHookStartedAtOk returns a tuple with the HookStartedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowTaskHelmDetail) GetHookStartedAtOk() (*string, bool) {
+	if o == nil || IsNil(o.HookStartedAt) {
+		return nil, false
+	}
+	return o.HookStartedAt, true
+}
+
+// HasHookStartedAt returns a boolean if a field has been set.
+func (o *WorkflowTaskHelmDetail) HasHookStartedAt() bool {
+	if o != nil && !IsNil(o.HookStartedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetHookStartedAt gets a reference to the given string and assigns it to the HookStartedAt field.
+func (o *WorkflowTaskHelmDetail) SetHookStartedAt(v string) {
+	o.HookStartedAt = &v
+}
+
+// GetLastDeployedAt returns the LastDeployedAt field value if set, zero value otherwise.
+func (o *WorkflowTaskHelmDetail) GetLastDeployedAt() string {
+	if o == nil || IsNil(o.LastDeployedAt) {
+		var ret string
+		return ret
+	}
+	return *o.LastDeployedAt
+}
+
+// GetLastDeployedAtOk returns a tuple with the LastDeployedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowTaskHelmDetail) GetLastDeployedAtOk() (*string, bool) {
+	if o == nil || IsNil(o.LastDeployedAt) {
+		return nil, false
+	}
+	return o.LastDeployedAt, true
+}
+
+// HasLastDeployedAt returns a boolean if a field has been set.
+func (o *WorkflowTaskHelmDetail) HasLastDeployedAt() bool {
+	if o != nil && !IsNil(o.LastDeployedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastDeployedAt gets a reference to the given string and assigns it to the LastDeployedAt field.
+func (o *WorkflowTaskHelmDetail) SetLastDeployedAt(v string) {
+	o.LastDeployedAt = &v
 }
 
 // GetPendingResources returns the PendingResources field value if set, zero value otherwise.
@@ -221,8 +391,23 @@ func (o WorkflowTaskHelmDetail) MarshalJSON() ([]byte, error) {
 
 func (o WorkflowTaskHelmDetail) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ActiveHook) {
+		toSerialize["activeHook"] = o.ActiveHook
+	}
 	if !IsNil(o.FailedHook) {
 		toSerialize["failedHook"] = o.FailedHook
+	}
+	if !IsNil(o.FirstDeployedAt) {
+		toSerialize["firstDeployedAt"] = o.FirstDeployedAt
+	}
+	if !IsNil(o.HookPhase) {
+		toSerialize["hookPhase"] = o.HookPhase
+	}
+	if !IsNil(o.HookStartedAt) {
+		toSerialize["hookStartedAt"] = o.HookStartedAt
+	}
+	if !IsNil(o.LastDeployedAt) {
+		toSerialize["lastDeployedAt"] = o.LastDeployedAt
 	}
 	if !IsNil(o.PendingResources) {
 		toSerialize["pendingResources"] = o.PendingResources
@@ -258,7 +443,12 @@ func (o *WorkflowTaskHelmDetail) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "activeHook")
 		delete(additionalProperties, "failedHook")
+		delete(additionalProperties, "firstDeployedAt")
+		delete(additionalProperties, "hookPhase")
+		delete(additionalProperties, "hookStartedAt")
+		delete(additionalProperties, "lastDeployedAt")
 		delete(additionalProperties, "pendingResources")
 		delete(additionalProperties, "phase")
 		delete(additionalProperties, "release")

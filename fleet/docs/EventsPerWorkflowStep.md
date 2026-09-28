@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CheckpointSummary** | Pointer to [**DeploymentCheckpointSummary**](DeploymentCheckpointSummary.md) |  | [optional] 
 **Events** | [**[]WorkflowEvent**](WorkflowEvent.md) | List of events for the step | 
 **StepName** | **string** | The name of the workflow step. This is an open string: in addition to the built-in deployment steps (Bootstrap, Compute, Network, Storage, Deployment, Monitoring), authored DAG task names (e.g. applykafka) are valid values for custom and operator workflows. | 
 
@@ -25,6 +26,31 @@ will change when the set of required properties is changed
 NewEventsPerWorkflowStepWithDefaults instantiates a new EventsPerWorkflowStep object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCheckpointSummary
+
+`func (o *EventsPerWorkflowStep) GetCheckpointSummary() DeploymentCheckpointSummary`
+
+GetCheckpointSummary returns the CheckpointSummary field if non-nil, zero value otherwise.
+
+### GetCheckpointSummaryOk
+
+`func (o *EventsPerWorkflowStep) GetCheckpointSummaryOk() (*DeploymentCheckpointSummary, bool)`
+
+GetCheckpointSummaryOk returns a tuple with the CheckpointSummary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCheckpointSummary
+
+`func (o *EventsPerWorkflowStep) SetCheckpointSummary(v DeploymentCheckpointSummary)`
+
+SetCheckpointSummary sets CheckpointSummary field to given value.
+
+### HasCheckpointSummary
+
+`func (o *EventsPerWorkflowStep) HasCheckpointSummary() bool`
+
+HasCheckpointSummary returns a boolean if a field has been set.
 
 ### GetEvents
 

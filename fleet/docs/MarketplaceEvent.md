@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **DetectedBy** | Pointer to **string** | How the change was noticed. RECONCILIATION means a periodic readback found it rather than the channel announcing it, which is normal on channels that collapse or drop events | [optional] 
 **EventId** | **string** | Unique per event and STABLE ACROSS RETRIES. Deduplicate on it: the same event will arrive more than once, and that is normal rather than an incident. A redelivery requested from the console also reuses this id, deliberately, so it exercises your idempotency rather than bypassing it | 
 **EventType** | **string** | The type of a marketplace fulfillment event delivered to an ISV receiver | 
+**ExternalBuyerId** | Pointer to **string** | The marketplace-native buyer identifier used for billing | [optional] 
+**ExternalProductId** | Pointer to **string** | The marketplace-native product identifier used for billing | [optional] 
 **ExternalRef** | Pointer to **string** | The channel&#39;s own identifier for the contract, unique per channel | [optional] 
 **FailureReason** | Pointer to **string** | Present on fulfillment.failed. Names what failed in words. A contract stuck past the handoff SLA also carries the orphaned condition here, which does not change fulfillmentState | [optional] 
 **FulfillmentState** | Pointer to **string** | What Omnistrate decided. This is the one that governs: the buyer may deploy and is metered if and only if it is READY. A contract can be ACTIVE on the marketplace while fulfillment is still AWAITING_ISV, which means the buyer is paying and cannot yet be served | [optional] 
@@ -227,6 +229,56 @@ and a boolean to check if the value has been set.
 
 SetEventType sets EventType field to given value.
 
+
+### GetExternalBuyerId
+
+`func (o *MarketplaceEvent) GetExternalBuyerId() string`
+
+GetExternalBuyerId returns the ExternalBuyerId field if non-nil, zero value otherwise.
+
+### GetExternalBuyerIdOk
+
+`func (o *MarketplaceEvent) GetExternalBuyerIdOk() (*string, bool)`
+
+GetExternalBuyerIdOk returns a tuple with the ExternalBuyerId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalBuyerId
+
+`func (o *MarketplaceEvent) SetExternalBuyerId(v string)`
+
+SetExternalBuyerId sets ExternalBuyerId field to given value.
+
+### HasExternalBuyerId
+
+`func (o *MarketplaceEvent) HasExternalBuyerId() bool`
+
+HasExternalBuyerId returns a boolean if a field has been set.
+
+### GetExternalProductId
+
+`func (o *MarketplaceEvent) GetExternalProductId() string`
+
+GetExternalProductId returns the ExternalProductId field if non-nil, zero value otherwise.
+
+### GetExternalProductIdOk
+
+`func (o *MarketplaceEvent) GetExternalProductIdOk() (*string, bool)`
+
+GetExternalProductIdOk returns a tuple with the ExternalProductId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalProductId
+
+`func (o *MarketplaceEvent) SetExternalProductId(v string)`
+
+SetExternalProductId sets ExternalProductId field to given value.
+
+### HasExternalProductId
+
+`func (o *MarketplaceEvent) HasExternalProductId() bool`
+
+HasExternalProductId returns a boolean if a field has been set.
 
 ### GetExternalRef
 

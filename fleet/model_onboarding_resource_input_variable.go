@@ -26,6 +26,8 @@ type OnboardingResourceInputVariable struct {
 	InitialValue interface{} `json:"initialValue,omitempty"`
 	// The variable key.
 	Key string `json:"key"`
+	// The name of the onboarding secret used as the input variable value.
+	OmnistrateSecret *string `json:"omnistrateSecret,omitempty"`
 	// Whether the input variable must be supplied because the artifact has no default value.
 	Required *bool `json:"required,omitempty"`
 	// Source input variable name for cross-resource references.
@@ -145,6 +147,38 @@ func (o *OnboardingResourceInputVariable) GetKeyOk() (*string, bool) {
 // SetKey sets field value
 func (o *OnboardingResourceInputVariable) SetKey(v string) {
 	o.Key = v
+}
+
+// GetOmnistrateSecret returns the OmnistrateSecret field value if set, zero value otherwise.
+func (o *OnboardingResourceInputVariable) GetOmnistrateSecret() string {
+	if o == nil || IsNil(o.OmnistrateSecret) {
+		var ret string
+		return ret
+	}
+	return *o.OmnistrateSecret
+}
+
+// GetOmnistrateSecretOk returns a tuple with the OmnistrateSecret field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OnboardingResourceInputVariable) GetOmnistrateSecretOk() (*string, bool) {
+	if o == nil || IsNil(o.OmnistrateSecret) {
+		return nil, false
+	}
+	return o.OmnistrateSecret, true
+}
+
+// HasOmnistrateSecret returns a boolean if a field has been set.
+func (o *OnboardingResourceInputVariable) HasOmnistrateSecret() bool {
+	if o != nil && !IsNil(o.OmnistrateSecret) {
+		return true
+	}
+
+	return false
+}
+
+// SetOmnistrateSecret gets a reference to the given string and assigns it to the OmnistrateSecret field.
+func (o *OnboardingResourceInputVariable) SetOmnistrateSecret(v string) {
+	o.OmnistrateSecret = &v
 }
 
 // GetRequired returns the Required field value if set, zero value otherwise.
@@ -292,6 +326,9 @@ func (o OnboardingResourceInputVariable) ToMap() (map[string]interface{}, error)
 		toSerialize["initialValue"] = o.InitialValue
 	}
 	toSerialize["key"] = o.Key
+	if !IsNil(o.OmnistrateSecret) {
+		toSerialize["omnistrateSecret"] = o.OmnistrateSecret
+	}
 	if !IsNil(o.Required) {
 		toSerialize["required"] = o.Required
 	}
@@ -350,6 +387,7 @@ func (o *OnboardingResourceInputVariable) UnmarshalJSON(data []byte) (err error)
 		delete(additionalProperties, "defaultValue")
 		delete(additionalProperties, "initialValue")
 		delete(additionalProperties, "key")
+		delete(additionalProperties, "omnistrateSecret")
 		delete(additionalProperties, "required")
 		delete(additionalProperties, "sourceInputVariableName")
 		delete(additionalProperties, "sourceResourceName")

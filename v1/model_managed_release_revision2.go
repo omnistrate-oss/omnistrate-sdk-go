@@ -24,7 +24,7 @@ type ManagedReleaseRevision2 struct {
 	ArtifactCount int64 `json:"artifactCount"`
 	Artifacts []ManagedReleaseArtifact3 `json:"artifacts,omitempty"`
 	BundleRevisionId string `json:"bundleRevisionId" validate:"regexp=^oabr-[a-zA-Z0-9-]+$"`
-	BundleVersion string `json:"bundleVersion"`
+	BundleVersion string `json:"bundleVersion" validate:"regexp=^r[0-9]{7,}$"`
 	ComponentRevisions []ManagedReleaseComponentRevision `json:"componentRevisions"`
 	ContentHash *string `json:"contentHash,omitempty" validate:"regexp=^sha256:[a-fA-F0-9]{64}$"`
 	CreatedAt *time.Time `json:"createdAt,omitempty"`

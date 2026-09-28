@@ -21,11 +21,11 @@ var _ MappedNullable = &ConnectMarketplaceChannelRequest{}
 // ConnectMarketplaceChannelRequest struct for ConnectMarketplaceChannelRequest
 type ConnectMarketplaceChannelRequest struct {
 	AutoConfirmIsv *bool `json:"autoConfirmIsv,omitempty"`
-	// Only for a channel whose billing credential differs from its contract-read credential. Omitted when sharesCredentials is true
+	// Only for a channel whose billing credential differs from its contract-read credential. Omitted when sharesCredentials is true. Merged by key like credentials above, and independently of it
 	BillingCredentials *map[string]string `json:"billingCredentials,omitempty"`
 	// Which marketplace channel a contract came from. SUGER reaches AWS, Azure and GCP buyers through one listing. SANDBOX is the simulated channel, and is a real member of this set rather than a test mode
 	Channel string `json:"channel"`
-	// The channel's own credential fields. Write only: encrypted on arrival and never returned by any read
+	// The channel's own credential fields. Write only: encrypted on arrival and never returned by any read.  MERGED BY KEY rather than replacing the stored set. A key you send replaces that one credential, a key you omit keeps the stored one, and a key sent empty removes that one. Send only what changed.  It replaced wholesale until a request carrying one key was found to delete every other key. Adding a webhook signing secret to a working Suger connection broke it, and the fix was to retype an OAuth client secret the marketplace displays exactly once, so the recovery was to mint a new OAuth app. The same rule applies here and on the PATCH, because this route is an upsert and re-connecting is how an ISV edits: a handler cannot tell a create from an edit, so it must not behave differently on them
 	Credentials *map[string]string `json:"credentials,omitempty"`
 	DefaultProductTierId *string `json:"defaultProductTierId,omitempty"`
 	DefaultServiceEnvironmentId *string `json:"defaultServiceEnvironmentId,omitempty"`

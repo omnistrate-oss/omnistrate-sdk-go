@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**MarketplaceApiListMarketplaceContracts**](MarketplaceApiAPI.md#MarketplaceApiListMarketplaceContracts) | **Get** /2022-09-01-00/fleet/marketplace/contract | ListMarketplaceContracts marketplace-api
 [**MarketplaceApiListMarketplaceDeliveries**](MarketplaceApiAPI.md#MarketplaceApiListMarketplaceDeliveries) | **Get** /2022-09-01-00/fleet/marketplace/delivery | ListMarketplaceDeliveries marketplace-api
 [**MarketplaceApiListSandboxUsageReports**](MarketplaceApiAPI.md#MarketplaceApiListSandboxUsageReports) | **Get** /2022-09-01-00/fleet/marketplace/sandbox/usage-report | ListSandboxUsageReports marketplace-api
+[**MarketplaceApiListSubscriptionUsageReportingAttempts**](MarketplaceApiAPI.md#MarketplaceApiListSubscriptionUsageReportingAttempts) | **Get** /2022-09-01-00/fleet/subscription/{subscriptionId}/usage-reporting/attempts | ListSubscriptionUsageReportingAttempts marketplace-api
 [**MarketplaceApiMarketplaceChannelWebhook**](MarketplaceApiAPI.md#MarketplaceApiMarketplaceChannelWebhook) | **Post** /2022-09-01-00/fleet/marketplace/webhook/{channel}/{serviceProviderOrgId} | MarketplaceChannelWebhook marketplace-api
 [**MarketplaceApiMarketplaceLanding**](MarketplaceApiAPI.md#MarketplaceApiMarketplaceLanding) | **Get** /2022-09-01-00/fleet/marketplace/land/{channel}/{serviceProviderOrgId} | MarketplaceLanding marketplace-api
 [**MarketplaceApiRedeemHandoff**](MarketplaceApiAPI.md#MarketplaceApiRedeemHandoff) | **Post** /2022-09-01-00/fleet/marketplace/handoff/redeem | RedeemHandoff marketplace-api
@@ -325,7 +326,7 @@ import (
 func main() {
 	id := "mkc-4t8w2qbnz1lp" // string | The Omnistrate contract identifier
 	channel := "SUGER|SANDBOX" // string | With externalRef, resolves a contract from the marketplace identifier alone, which is what an ISV has to hand when the buyer contacts them (optional)
-	externalRef := "Quisquam molestiae eum." // string |  (optional)
+	externalRef := "Et aut aut est et minus." // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -789,7 +790,7 @@ import (
 
 func main() {
 	channel := "SUGER|SANDBOX" // string | Filter to one channel (optional)
-	marketplaceContractId := "Voluptatum nostrum id." // string | Filter to one contract, which is how a contract detail view scopes its own trail (optional)
+	marketplaceContractId := "Eos sit qui recusandae pariatur." // string | Filter to one contract, which is how a contract detail view scopes its own trail (optional)
 	direction := "OUTBOUND|INBOUND|CHANNEL_INBOUND|CHANNEL_OUTBOUND" // string |  (optional)
 	status := "PENDING|DELIVERED|FAILED|BLOCKED" // string |  (optional)
 	eventType := "contract.discovered|entitlement.updated|contract.suspended|contract.cancelled|fulfillment.failed" // string |  (optional)
@@ -916,6 +917,91 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## MarketplaceApiListSubscriptionUsageReportingAttempts
+
+> ListSubscriptionUsageReportingAttemptsResult MarketplaceApiListSubscriptionUsageReportingAttempts(ctx, subscriptionId).UsageReportRecordId(usageReportRecordId).BillingChannel(billingChannel).Status(status).Dimension(dimension).FailuresOnly(failuresOnly).AttemptedAtFrom(attemptedAtFrom).AttemptedAtTo(attemptedAtTo).Limit(limit).Execute()
+
+ListSubscriptionUsageReportingAttempts marketplace-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	subscriptionId := "sub-1g0j3q4k5" // string | The Omnistrate subscription identifier
+	usageReportRecordId := "Magni velit ad maxime corrupti." // string | Filter to one usage report idempotency key (optional)
+	billingChannel := "Fugiat debitis ut et et." // string | Filter to one downstream billing channel (optional)
+	status := "PENDING|ACCEPTED|ACCEPTED_BY_DEDUPE|REJECTED_TERMINAL|UNMAPPED" // string |  (optional)
+	dimension := "Quia et." // string |  (optional)
+	failuresOnly := false // bool |  (optional)
+	attemptedAtFrom := time.Now() // time.Time | Only attempts at or after this RFC3339 instant. Defaults to seven days ago (optional)
+	attemptedAtTo := time.Now() // time.Time | Only attempts at or before this RFC3339 instant. Defaults to now (optional)
+	limit := int64(100) // int64 | Maximum attempts returned (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MarketplaceApiAPI.MarketplaceApiListSubscriptionUsageReportingAttempts(context.Background(), subscriptionId).UsageReportRecordId(usageReportRecordId).BillingChannel(billingChannel).Status(status).Dimension(dimension).FailuresOnly(failuresOnly).AttemptedAtFrom(attemptedAtFrom).AttemptedAtTo(attemptedAtTo).Limit(limit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketplaceApiAPI.MarketplaceApiListSubscriptionUsageReportingAttempts``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MarketplaceApiListSubscriptionUsageReportingAttempts`: ListSubscriptionUsageReportingAttemptsResult
+	fmt.Fprintf(os.Stdout, "Response from `MarketplaceApiAPI.MarketplaceApiListSubscriptionUsageReportingAttempts`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**subscriptionId** | **string** | The Omnistrate subscription identifier | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **usageReportRecordId** | **string** | Filter to one usage report idempotency key | 
+ **billingChannel** | **string** | Filter to one downstream billing channel | 
+ **status** | **string** |  | 
+ **dimension** | **string** |  | 
+ **failuresOnly** | **bool** |  | 
+ **attemptedAtFrom** | **time.Time** | Only attempts at or after this RFC3339 instant. Defaults to seven days ago | 
+ **attemptedAtTo** | **time.Time** | Only attempts at or before this RFC3339 instant. Defaults to now | 
+ **limit** | **int64** | Maximum attempts returned | 
+
+### Return type
+
+[**ListSubscriptionUsageReportingAttemptsResult**](ListSubscriptionUsageReportingAttemptsResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## MarketplaceApiMarketplaceChannelWebhook
 
 > MarketplaceChannelWebhookResult MarketplaceApiMarketplaceChannelWebhook(ctx, channel, serviceProviderOrgId).XSugerSignature256(xSugerSignature256).Execute()
@@ -1012,7 +1098,7 @@ func main() {
 	serviceProviderOrgId := "org-8Hn2Kq4Vd1" // string | Which ISV organization's listing was purchased. A SELECTOR for whose stored channel credentials perform the server-side readback, not a credential: it grants nothing, and substituting another organization's id resolves the token against an account where it does not exist
 	sugerEntitlementId := "ent_01J9Q7VZ3K8MTRQ2X4W6H0N5PD" // string | Suger's entitlement identifier, appended by Suger's signup redirect. A pointer to be read back, never believed (optional)
 	partner := "aws|azure|gcp" // string | Which cloud the purchase originated on, as Suger reports it. Recorded for audit; the authoritative value comes from the readback (optional)
-	offerType := "Nihil debitis." // string | Suger's offer type for the purchase. Recorded for audit only (optional)
+	offerType := "Ex et." // string | Suger's offer type for the purchase. Recorded for audit only (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1147,7 +1233,7 @@ import (
 )
 
 func main() {
-	deliveryId := "Assumenda quae est qui." // string | Which delivery to send again. Must be an outbound one: there is nothing to redeliver about a call the ISV made. The redelivery carries the SAME eventId, so a receiver that already processed this event correctly treats it as a duplicate and does nothing
+	deliveryId := "Autem quidem." // string | Which delivery to send again. Must be an outbound one: there is nothing to redeliver about a call the ISV made. The redelivery carries the SAME eventId, so a receiver that already processed this event correctly treats it as a duplicate and does nothing
 	redeliverMarketplaceDeliveryRequest2 := *openapiclient.NewRedeliverMarketplaceDeliveryRequest2() // RedeliverMarketplaceDeliveryRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()

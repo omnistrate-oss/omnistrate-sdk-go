@@ -21,6 +21,8 @@ var _ MappedNullable = &WorkflowTaskTerraformDetail{}
 type WorkflowTaskTerraformDetail struct {
 	// The Terraform resource address that failed, when applicable.
 	FailedAddress *string `json:"failedAddress,omitempty"`
+	// The explicit Terraform CLI action this detail describes: init|plan|apply|output|destroy. Consumers must not infer the action from phase or from resource state: without this field a destroy is indistinguishable from an apply, and destroy progress must be suppressed rather than rendered when it is absent.
+	Operation *string `json:"operation,omitempty"`
 	// The Terraform phase, e.g. plan, apply.
 	Phase *string `json:"phase,omitempty"`
 	// The number of resources to add in the current plan.
@@ -29,6 +31,8 @@ type WorkflowTaskTerraformDetail struct {
 	PlanChange *int64 `json:"planChange,omitempty"`
 	// The number of resources to destroy in the current plan.
 	PlanDestroy *int64 `json:"planDestroy,omitempty"`
+	// True when no plan was observed for this operation, so planAdd, planChange and planDestroy are unknown rather than zero. Consumers must render an indeterminate plan summary and must not treat the absent counts as 'nothing to do'.
+	PlanSummaryUnknown *bool `json:"planSummaryUnknown,omitempty"`
 	// Whether the Terraform state is currently locked.
 	StateLocked *bool `json:"stateLocked,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -83,6 +87,38 @@ func (o *WorkflowTaskTerraformDetail) HasFailedAddress() bool {
 // SetFailedAddress gets a reference to the given string and assigns it to the FailedAddress field.
 func (o *WorkflowTaskTerraformDetail) SetFailedAddress(v string) {
 	o.FailedAddress = &v
+}
+
+// GetOperation returns the Operation field value if set, zero value otherwise.
+func (o *WorkflowTaskTerraformDetail) GetOperation() string {
+	if o == nil || IsNil(o.Operation) {
+		var ret string
+		return ret
+	}
+	return *o.Operation
+}
+
+// GetOperationOk returns a tuple with the Operation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowTaskTerraformDetail) GetOperationOk() (*string, bool) {
+	if o == nil || IsNil(o.Operation) {
+		return nil, false
+	}
+	return o.Operation, true
+}
+
+// HasOperation returns a boolean if a field has been set.
+func (o *WorkflowTaskTerraformDetail) HasOperation() bool {
+	if o != nil && !IsNil(o.Operation) {
+		return true
+	}
+
+	return false
+}
+
+// SetOperation gets a reference to the given string and assigns it to the Operation field.
+func (o *WorkflowTaskTerraformDetail) SetOperation(v string) {
+	o.Operation = &v
 }
 
 // GetPhase returns the Phase field value if set, zero value otherwise.
@@ -213,6 +249,38 @@ func (o *WorkflowTaskTerraformDetail) SetPlanDestroy(v int64) {
 	o.PlanDestroy = &v
 }
 
+// GetPlanSummaryUnknown returns the PlanSummaryUnknown field value if set, zero value otherwise.
+func (o *WorkflowTaskTerraformDetail) GetPlanSummaryUnknown() bool {
+	if o == nil || IsNil(o.PlanSummaryUnknown) {
+		var ret bool
+		return ret
+	}
+	return *o.PlanSummaryUnknown
+}
+
+// GetPlanSummaryUnknownOk returns a tuple with the PlanSummaryUnknown field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowTaskTerraformDetail) GetPlanSummaryUnknownOk() (*bool, bool) {
+	if o == nil || IsNil(o.PlanSummaryUnknown) {
+		return nil, false
+	}
+	return o.PlanSummaryUnknown, true
+}
+
+// HasPlanSummaryUnknown returns a boolean if a field has been set.
+func (o *WorkflowTaskTerraformDetail) HasPlanSummaryUnknown() bool {
+	if o != nil && !IsNil(o.PlanSummaryUnknown) {
+		return true
+	}
+
+	return false
+}
+
+// SetPlanSummaryUnknown gets a reference to the given bool and assigns it to the PlanSummaryUnknown field.
+func (o *WorkflowTaskTerraformDetail) SetPlanSummaryUnknown(v bool) {
+	o.PlanSummaryUnknown = &v
+}
+
 // GetStateLocked returns the StateLocked field value if set, zero value otherwise.
 func (o *WorkflowTaskTerraformDetail) GetStateLocked() bool {
 	if o == nil || IsNil(o.StateLocked) {
@@ -258,6 +326,9 @@ func (o WorkflowTaskTerraformDetail) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.FailedAddress) {
 		toSerialize["failedAddress"] = o.FailedAddress
 	}
+	if !IsNil(o.Operation) {
+		toSerialize["operation"] = o.Operation
+	}
 	if !IsNil(o.Phase) {
 		toSerialize["phase"] = o.Phase
 	}
@@ -269,6 +340,9 @@ func (o WorkflowTaskTerraformDetail) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.PlanDestroy) {
 		toSerialize["planDestroy"] = o.PlanDestroy
+	}
+	if !IsNil(o.PlanSummaryUnknown) {
+		toSerialize["planSummaryUnknown"] = o.PlanSummaryUnknown
 	}
 	if !IsNil(o.StateLocked) {
 		toSerialize["stateLocked"] = o.StateLocked
@@ -296,10 +370,12 @@ func (o *WorkflowTaskTerraformDetail) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "failedAddress")
+		delete(additionalProperties, "operation")
 		delete(additionalProperties, "phase")
 		delete(additionalProperties, "planAdd")
 		delete(additionalProperties, "planChange")
 		delete(additionalProperties, "planDestroy")
+		delete(additionalProperties, "planSummaryUnknown")
 		delete(additionalProperties, "stateLocked")
 		o.AdditionalProperties = additionalProperties
 	}

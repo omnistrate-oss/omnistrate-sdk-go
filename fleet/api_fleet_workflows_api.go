@@ -68,6 +68,24 @@ type FleetWorkflowsApiAPI interface {
 	FleetWorkflowsApiDescribeWorkflowExecutionExecute(r ApiFleetWorkflowsApiDescribeWorkflowExecutionRequest) (*DescribeWorkflowExecutionResult, *http.Response, error)
 
 	/*
+	FleetWorkflowsApiDescribeWorkflowTaskObjects DescribeWorkflowTaskObjects fleet-workflows-api
+
+	Describe the objects a system workflow task applied, patched, deleted or read: the manifest as rendered and redacted when the task ran, and each object's live state now. Nothing live is stored.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceId The service ID this workflow belongs to.
+	@param environmentId The service environment ID this workflow belongs to.
+	@param executionId The workflow execution that ran the task.
+	@param taskName The workflow task whose objects to describe.
+	@return ApiFleetWorkflowsApiDescribeWorkflowTaskObjectsRequest
+	*/
+	FleetWorkflowsApiDescribeWorkflowTaskObjects(ctx context.Context, serviceId string, environmentId string, executionId string, taskName string) ApiFleetWorkflowsApiDescribeWorkflowTaskObjectsRequest
+
+	// FleetWorkflowsApiDescribeWorkflowTaskObjectsExecute executes the request
+	//  @return DescribeWorkflowTaskObjectsResult
+	FleetWorkflowsApiDescribeWorkflowTaskObjectsExecute(r ApiFleetWorkflowsApiDescribeWorkflowTaskObjectsRequest) (*DescribeWorkflowTaskObjectsResult, *http.Response, error)
+
+	/*
 	FleetWorkflowsApiGetWorkflowEvents GetWorkflowEvents fleet-workflows-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -544,6 +562,206 @@ func (a *FleetWorkflowsApiAPIService) FleetWorkflowsApiDescribeWorkflowExecution
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiFleetWorkflowsApiDescribeWorkflowTaskObjectsRequest struct {
+	ctx context.Context
+	ApiService FleetWorkflowsApiAPI
+	serviceId string
+	environmentId string
+	executionId string
+	taskName string
+	live *bool
+}
+
+// Read each object&#39;s live state from the cluster. When false, only what was recorded when the task ran is returned.
+func (r ApiFleetWorkflowsApiDescribeWorkflowTaskObjectsRequest) Live(live bool) ApiFleetWorkflowsApiDescribeWorkflowTaskObjectsRequest {
+	r.live = &live
+	return r
+}
+
+func (r ApiFleetWorkflowsApiDescribeWorkflowTaskObjectsRequest) Execute() (*DescribeWorkflowTaskObjectsResult, *http.Response, error) {
+	return r.ApiService.FleetWorkflowsApiDescribeWorkflowTaskObjectsExecute(r)
+}
+
+/*
+FleetWorkflowsApiDescribeWorkflowTaskObjects DescribeWorkflowTaskObjects fleet-workflows-api
+
+Describe the objects a system workflow task applied, patched, deleted or read: the manifest as rendered and redacted when the task ran, and each object's live state now. Nothing live is stored.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serviceId The service ID this workflow belongs to.
+ @param environmentId The service environment ID this workflow belongs to.
+ @param executionId The workflow execution that ran the task.
+ @param taskName The workflow task whose objects to describe.
+ @return ApiFleetWorkflowsApiDescribeWorkflowTaskObjectsRequest
+*/
+func (a *FleetWorkflowsApiAPIService) FleetWorkflowsApiDescribeWorkflowTaskObjects(ctx context.Context, serviceId string, environmentId string, executionId string, taskName string) ApiFleetWorkflowsApiDescribeWorkflowTaskObjectsRequest {
+	return ApiFleetWorkflowsApiDescribeWorkflowTaskObjectsRequest{
+		ApiService: a,
+		ctx: ctx,
+		serviceId: serviceId,
+		environmentId: environmentId,
+		executionId: executionId,
+		taskName: taskName,
+	}
+}
+
+// Execute executes the request
+//  @return DescribeWorkflowTaskObjectsResult
+func (a *FleetWorkflowsApiAPIService) FleetWorkflowsApiDescribeWorkflowTaskObjectsExecute(r ApiFleetWorkflowsApiDescribeWorkflowTaskObjectsRequest) (*DescribeWorkflowTaskObjectsResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DescribeWorkflowTaskObjectsResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FleetWorkflowsApiAPIService.FleetWorkflowsApiDescribeWorkflowTaskObjects")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/workflow-executions/{executionId}/tasks/{taskName}/objects"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceId"+"}", url.PathEscape(parameterValueToString(r.serviceId, "serviceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentId"+"}", url.PathEscape(parameterValueToString(r.environmentId, "environmentId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"executionId"+"}", url.PathEscape(parameterValueToString(r.executionId, "executionId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"taskName"+"}", url.PathEscape(parameterValueToString(r.taskName, "taskName")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if strlen(r.taskName) < 1 {
+		return localVarReturnValue, nil, reportError("taskName must have at least 1 elements")
+	}
+	if strlen(r.taskName) > 253 {
+		return localVarReturnValue, nil, reportError("taskName must have less than 253 elements")
+	}
+
+	if r.live != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "live", r.live, "form", "")
+	} else {
+		var defaultValue bool = true
+		parameterAddToHeaderOrQuery(localVarQueryParams, "live", defaultValue, "form", "")
+		r.live = &defaultValue
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

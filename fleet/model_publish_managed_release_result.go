@@ -21,7 +21,7 @@ var _ MappedNullable = &PublishManagedReleaseResult{}
 // PublishManagedReleaseResult struct for PublishManagedReleaseResult
 type PublishManagedReleaseResult struct {
 	BundleRevisionId string `json:"bundleRevisionId" validate:"regexp=^oabr-[a-zA-Z0-9-]+$"`
-	BundleVersion string `json:"bundleVersion"`
+	BundleVersion string `json:"bundleVersion" validate:"regexp=^r[0-9]{7,}$"`
 	Created bool `json:"created"`
 	ReadyTargetCount int64 `json:"readyTargetCount"`
 	ReleaseSequence int64 `json:"releaseSequence"`

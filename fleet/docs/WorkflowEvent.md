@@ -6,18 +6,22 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | Pointer to **string** | The action the task performed, e.g. apply|patch|delete|get (CRD), install|upgrade (helm). | [optional] 
 **AttemptCount** | Pointer to **int64** | Consecutive attempts observed for this task, when the event corresponds to a retrying task. | [optional] 
+**Checkpoint** | Pointer to [**DeploymentCheckpoint**](DeploymentCheckpoint.md) |  | [optional] 
 **DisplayMessage** | Pointer to **string** | A concise human-readable summary derived from the error code, when present. | [optional] 
 **ErrorCode** | Pointer to **string** | Stable error code from the workflow error taxonomy, present on failure events. | [optional] 
 **EventTime** | **string** | Time of the event | 
 **EventType** | **string** | The type of the workflow event | 
+**ExecutionId** | Pointer to **string** | The custom workflow execution that ran the task, when the event corresponds to a task of a resource&#39;s system workflow. Use it with DescribeWorkflowTaskObjects to read the objects the task touched. Absent for executions that ran before it was recorded. | [optional] 
 **FirstSeenAt** | Pointer to **string** | When this error signature was first observed for the current task attempt, RFC3339. | [optional] 
 **GateExpression** | Pointer to **string** | The success condition gating task completion, when present. | [optional] 
 **GateLastObserved** | Pointer to **string** | The last observed value of the gate expression. | [optional] 
+**HelmDetail** | Pointer to [**WorkflowTaskHelmDetail**](WorkflowTaskHelmDetail.md) |  | [optional] 
 **InfraDetail** | Pointer to [**WorkflowTaskInfraDetail**](WorkflowTaskInfraDetail.md) |  | [optional] 
 **Message** | **string** | Details of the event | 
 **NextRetryAt** | Pointer to **string** | The time of the next scheduled retry, RFC3339, when the task is awaiting retry. | [optional] 
 **ResourceType** | Pointer to **string** | operatorCRD|genericCRD|helm|terraform|workload|cloudInfra|job|infraStack, when the event corresponds to a task. | [optional] 
 **State** | Pointer to **string** | Live task lifecycle state for step/task events: Pending|Applying|AwaitingCondition|DriftMismatch|Failed|Succeeded. | [optional] 
+**TerraformDetail** | Pointer to [**WorkflowTaskTerraformDetail**](WorkflowTaskTerraformDetail.md) |  | [optional] 
 **WorkloadDetail** | Pointer to [**WorkflowTaskWorkloadDetail**](WorkflowTaskWorkloadDetail.md) |  | [optional] 
 
 ## Methods
@@ -88,6 +92,31 @@ SetAttemptCount sets AttemptCount field to given value.
 `func (o *WorkflowEvent) HasAttemptCount() bool`
 
 HasAttemptCount returns a boolean if a field has been set.
+
+### GetCheckpoint
+
+`func (o *WorkflowEvent) GetCheckpoint() DeploymentCheckpoint`
+
+GetCheckpoint returns the Checkpoint field if non-nil, zero value otherwise.
+
+### GetCheckpointOk
+
+`func (o *WorkflowEvent) GetCheckpointOk() (*DeploymentCheckpoint, bool)`
+
+GetCheckpointOk returns a tuple with the Checkpoint field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCheckpoint
+
+`func (o *WorkflowEvent) SetCheckpoint(v DeploymentCheckpoint)`
+
+SetCheckpoint sets Checkpoint field to given value.
+
+### HasCheckpoint
+
+`func (o *WorkflowEvent) HasCheckpoint() bool`
+
+HasCheckpoint returns a boolean if a field has been set.
 
 ### GetDisplayMessage
 
@@ -179,6 +208,31 @@ and a boolean to check if the value has been set.
 SetEventType sets EventType field to given value.
 
 
+### GetExecutionId
+
+`func (o *WorkflowEvent) GetExecutionId() string`
+
+GetExecutionId returns the ExecutionId field if non-nil, zero value otherwise.
+
+### GetExecutionIdOk
+
+`func (o *WorkflowEvent) GetExecutionIdOk() (*string, bool)`
+
+GetExecutionIdOk returns a tuple with the ExecutionId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExecutionId
+
+`func (o *WorkflowEvent) SetExecutionId(v string)`
+
+SetExecutionId sets ExecutionId field to given value.
+
+### HasExecutionId
+
+`func (o *WorkflowEvent) HasExecutionId() bool`
+
+HasExecutionId returns a boolean if a field has been set.
+
 ### GetFirstSeenAt
 
 `func (o *WorkflowEvent) GetFirstSeenAt() string`
@@ -253,6 +307,31 @@ SetGateLastObserved sets GateLastObserved field to given value.
 `func (o *WorkflowEvent) HasGateLastObserved() bool`
 
 HasGateLastObserved returns a boolean if a field has been set.
+
+### GetHelmDetail
+
+`func (o *WorkflowEvent) GetHelmDetail() WorkflowTaskHelmDetail`
+
+GetHelmDetail returns the HelmDetail field if non-nil, zero value otherwise.
+
+### GetHelmDetailOk
+
+`func (o *WorkflowEvent) GetHelmDetailOk() (*WorkflowTaskHelmDetail, bool)`
+
+GetHelmDetailOk returns a tuple with the HelmDetail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHelmDetail
+
+`func (o *WorkflowEvent) SetHelmDetail(v WorkflowTaskHelmDetail)`
+
+SetHelmDetail sets HelmDetail field to given value.
+
+### HasHelmDetail
+
+`func (o *WorkflowEvent) HasHelmDetail() bool`
+
+HasHelmDetail returns a boolean if a field has been set.
 
 ### GetInfraDetail
 
@@ -373,6 +452,31 @@ SetState sets State field to given value.
 `func (o *WorkflowEvent) HasState() bool`
 
 HasState returns a boolean if a field has been set.
+
+### GetTerraformDetail
+
+`func (o *WorkflowEvent) GetTerraformDetail() WorkflowTaskTerraformDetail`
+
+GetTerraformDetail returns the TerraformDetail field if non-nil, zero value otherwise.
+
+### GetTerraformDetailOk
+
+`func (o *WorkflowEvent) GetTerraformDetailOk() (*WorkflowTaskTerraformDetail, bool)`
+
+GetTerraformDetailOk returns a tuple with the TerraformDetail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTerraformDetail
+
+`func (o *WorkflowEvent) SetTerraformDetail(v WorkflowTaskTerraformDetail)`
+
+SetTerraformDetail sets TerraformDetail field to given value.
+
+### HasTerraformDetail
+
+`func (o *WorkflowEvent) HasTerraformDetail() bool`
+
+HasTerraformDetail returns a boolean if a field has been set.
 
 ### GetWorkloadDetail
 

@@ -6,7 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | Pointer to **string** | The action performed by the task, e.g. apply|patch|delete|get (CRD), install|upgrade (helm). | [optional] 
 **AttemptCount** | Pointer to **int64** | The number of attempts made for this task. | [optional] 
+**CheckpointSummary** | Pointer to [**DeploymentCheckpointSummary**](DeploymentCheckpointSummary.md) |  | [optional] 
 **EndTime** | Pointer to **string** | The time the task ended, in RFC3339 format. | [optional] 
+**ExecutionId** | Pointer to **string** | The custom workflow execution that ran the task, when the task belongs to a resource&#39;s system workflow. Use it with DescribeWorkflowTaskObjects to read the objects the task touched. | [optional] 
 **GateExpression** | Pointer to **string** | The success condition gating task completion, when present. | [optional] 
 **GateLastObserved** | Pointer to **string** | The last observed value of the gate expression. | [optional] 
 **HelmDetail** | Pointer to [**WorkflowTaskHelmDetail**](WorkflowTaskHelmDetail.md) |  | [optional] 
@@ -89,6 +91,31 @@ SetAttemptCount sets AttemptCount field to given value.
 
 HasAttemptCount returns a boolean if a field has been set.
 
+### GetCheckpointSummary
+
+`func (o *WorkflowTask) GetCheckpointSummary() DeploymentCheckpointSummary`
+
+GetCheckpointSummary returns the CheckpointSummary field if non-nil, zero value otherwise.
+
+### GetCheckpointSummaryOk
+
+`func (o *WorkflowTask) GetCheckpointSummaryOk() (*DeploymentCheckpointSummary, bool)`
+
+GetCheckpointSummaryOk returns a tuple with the CheckpointSummary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCheckpointSummary
+
+`func (o *WorkflowTask) SetCheckpointSummary(v DeploymentCheckpointSummary)`
+
+SetCheckpointSummary sets CheckpointSummary field to given value.
+
+### HasCheckpointSummary
+
+`func (o *WorkflowTask) HasCheckpointSummary() bool`
+
+HasCheckpointSummary returns a boolean if a field has been set.
+
 ### GetEndTime
 
 `func (o *WorkflowTask) GetEndTime() string`
@@ -113,6 +140,31 @@ SetEndTime sets EndTime field to given value.
 `func (o *WorkflowTask) HasEndTime() bool`
 
 HasEndTime returns a boolean if a field has been set.
+
+### GetExecutionId
+
+`func (o *WorkflowTask) GetExecutionId() string`
+
+GetExecutionId returns the ExecutionId field if non-nil, zero value otherwise.
+
+### GetExecutionIdOk
+
+`func (o *WorkflowTask) GetExecutionIdOk() (*string, bool)`
+
+GetExecutionIdOk returns a tuple with the ExecutionId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExecutionId
+
+`func (o *WorkflowTask) SetExecutionId(v string)`
+
+SetExecutionId sets ExecutionId field to given value.
+
+### HasExecutionId
+
+`func (o *WorkflowTask) HasExecutionId() bool`
+
+HasExecutionId returns a boolean if a field has been set.
 
 ### GetGateExpression
 

@@ -20,7 +20,7 @@ var _ MappedNullable = &DescribeManagedReleaseRevisionRequest{}
 
 // DescribeManagedReleaseRevisionRequest struct for DescribeManagedReleaseRevisionRequest
 type DescribeManagedReleaseRevisionRequest struct {
-	BundleVersion string `json:"bundleVersion"`
+	BundleVersion string `json:"bundleVersion" validate:"regexp=^r[0-9]{7,}$"`
 	IncludeArtifacts *bool `json:"includeArtifacts,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountConfigIdentityId** | **string** | ID of an Org | 
 **AllowCreatesWhenPaymentNotConfigured** | Pointer to **bool** | Whether to allow creating instances when payment is not configured. | [optional] 
+**AllowedDeploymentLocations** | Pointer to [**[]SubscriptionAllowedDeploymentLocation**](SubscriptionAllowedDeploymentLocation.md) | The subscription-level deployment location restriction. Omitted or empty means the subscription inherits the product tier deployment locations. | [optional] 
 **CloudProviderNames** | **[]string** | List of cloud provider names | 
 **CreatedAt** | **string** | The time that this subscription was created | 
 **DefaultSubscription** | **bool** | Whether this is the default subscription for the user | 
@@ -90,6 +91,31 @@ SetAllowCreatesWhenPaymentNotConfigured sets AllowCreatesWhenPaymentNotConfigure
 `func (o *DescribeSubscriptionResult) HasAllowCreatesWhenPaymentNotConfigured() bool`
 
 HasAllowCreatesWhenPaymentNotConfigured returns a boolean if a field has been set.
+
+### GetAllowedDeploymentLocations
+
+`func (o *DescribeSubscriptionResult) GetAllowedDeploymentLocations() []SubscriptionAllowedDeploymentLocation`
+
+GetAllowedDeploymentLocations returns the AllowedDeploymentLocations field if non-nil, zero value otherwise.
+
+### GetAllowedDeploymentLocationsOk
+
+`func (o *DescribeSubscriptionResult) GetAllowedDeploymentLocationsOk() (*[]SubscriptionAllowedDeploymentLocation, bool)`
+
+GetAllowedDeploymentLocationsOk returns a tuple with the AllowedDeploymentLocations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowedDeploymentLocations
+
+`func (o *DescribeSubscriptionResult) SetAllowedDeploymentLocations(v []SubscriptionAllowedDeploymentLocation)`
+
+SetAllowedDeploymentLocations sets AllowedDeploymentLocations field to given value.
+
+### HasAllowedDeploymentLocations
+
+`func (o *DescribeSubscriptionResult) HasAllowedDeploymentLocations() bool`
+
+HasAllowedDeploymentLocations returns a boolean if a field has been set.
 
 ### GetCloudProviderNames
 

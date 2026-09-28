@@ -69,6 +69,23 @@ func Test_fleet_FleetWorkflowsApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test FleetWorkflowsApiAPIService FleetWorkflowsApiDescribeWorkflowTaskObjects", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceId string
+		var environmentId string
+		var executionId string
+		var taskName string
+
+		resp, httpRes, err := apiClient.FleetWorkflowsApiAPI.FleetWorkflowsApiDescribeWorkflowTaskObjects(context.Background(), serviceId, environmentId, executionId, taskName).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test FleetWorkflowsApiAPIService FleetWorkflowsApiGetWorkflowEvents", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

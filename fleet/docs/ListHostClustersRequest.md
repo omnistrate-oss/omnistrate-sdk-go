@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountConfigId** | Pointer to **string** | ID of an Account Config | [optional] 
 **CustomerEmail** | Pointer to **string** | Email of the customer to filter host clusters by (optional) | [optional] 
-**IncludeProvisionerClusters** | Pointer to **bool** | Include provisioner clusters in the response | [optional] 
+**IncludeProvisionerClusters** | Pointer to **bool** | Explicitly include provisioner clusters in the response. Provisioner clusters may also be included automatically based on organization feature access. | [optional] 
 **RegionId** | Pointer to **string** | ID of a Region | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 

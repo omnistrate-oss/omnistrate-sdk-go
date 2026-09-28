@@ -227,6 +227,12 @@ Class | Method | HTTP request | Description
 *LimitApiAPI* | [**LimitApiDescribeLimit**](docs/LimitApiAPI.md#limitapidescribelimit) | **Get** /2022-09-01-00/limit/family/{family}/key/{key} | DescribeLimit limit-api
 *LimitApiAPI* | [**LimitApiListLimit**](docs/LimitApiAPI.md#limitapilistlimit) | **Get** /2022-09-01-00/limit | ListLimit limit-api
 *LimitApiAPI* | [**LimitApiUpdateLimit**](docs/LimitApiAPI.md#limitapiupdatelimit) | **Patch** /2022-09-01-00/limit/family/{family}/key/{key} | UpdateLimit limit-api
+*ManagedArtifactApiAPI* | [**ManagedArtifactApiDescribeManagedArtifactRelease**](docs/ManagedArtifactApiAPI.md#managedartifactapidescribemanagedartifactrelease) | **Get** /2022-09-01-00/managed-artifact/releases/{bundleVersion} | DescribeManagedArtifactRelease managed-artifact-api
+*ManagedArtifactApiAPI* | [**ManagedArtifactApiDescribeManagedArtifactReleasePolicy**](docs/ManagedArtifactApiAPI.md#managedartifactapidescribemanagedartifactreleasepolicy) | **Get** /2022-09-01-00/managed-artifact/release-policy/{environmentType}/{cloudProvider} | DescribeManagedArtifactReleasePolicy managed-artifact-api
+*ManagedArtifactApiAPI* | [**ManagedArtifactApiDescribeManagedArtifactSync**](docs/ManagedArtifactApiAPI.md#managedartifactapidescribemanagedartifactsync) | **Get** /2022-09-01-00/managed-artifact/syncs/{id} | DescribeManagedArtifactSync managed-artifact-api
+*ManagedArtifactApiAPI* | [**ManagedArtifactApiListManagedArtifactReleases**](docs/ManagedArtifactApiAPI.md#managedartifactapilistmanagedartifactreleases) | **Get** /2022-09-01-00/managed-artifact/releases | ListManagedArtifactReleases managed-artifact-api
+*ManagedArtifactApiAPI* | [**ManagedArtifactApiListManagedArtifactSyncs**](docs/ManagedArtifactApiAPI.md#managedartifactapilistmanagedartifactsyncs) | **Get** /2022-09-01-00/managed-artifact/syncs | ListManagedArtifactSyncs managed-artifact-api
+*ManagedArtifactApiAPI* | [**ManagedArtifactApiUpdateManagedArtifactReleasePolicy**](docs/ManagedArtifactApiAPI.md#managedartifactapiupdatemanagedartifactreleasepolicy) | **Put** /2022-09-01-00/managed-artifact/release-policy/{environmentType}/{cloudProvider} | UpdateManagedArtifactReleasePolicy managed-artifact-api
 *ManagedReleaseApiAPI* | [**ManagedReleaseApiDescribeManagedReleaseRevision**](docs/ManagedReleaseApiAPI.md#managedreleaseapidescribemanagedreleaserevision) | **Get** /2022-09-01-00/internal/v1/managed-release-revisions/{bundleVersion} | DescribeManagedReleaseRevision managed-release-api
 *ManagedReleaseApiAPI* | [**ManagedReleaseApiDescribeManagedReleaseSync**](docs/ManagedReleaseApiAPI.md#managedreleaseapidescribemanagedreleasesync) | **Get** /2022-09-01-00/internal/v1/organizations/{organizationId}/provisioner-targets/{provisionerTargetId}/managed-release-syncs/{bundleRevisionId} | DescribeManagedReleaseSync managed-release-api
 *ManagedReleaseApiAPI* | [**ManagedReleaseApiListManagedReleaseRevisions**](docs/ManagedReleaseApiAPI.md#managedreleaseapilistmanagedreleaserevisions) | **Get** /2022-09-01-00/internal/v1/managed-release-revisions | ListManagedReleaseRevisions managed-release-api
@@ -380,6 +386,7 @@ Class | Method | HTTP request | Description
 *SignupApiAPI* | [**SignupApiValidateToken**](docs/SignupApiAPI.md#signupapivalidatetoken) | **Post** /2022-09-01-00/validate-token | ValidateToken signup-api
 *SpOrganizationApiAPI* | [**SpOrganizationApiDescribeServiceProviderOrganization**](docs/SpOrganizationApiAPI.md#sporganizationapidescribeserviceproviderorganization) | **Get** /2022-09-01-00/sp-organization | DescribeServiceProviderOrganization sp-organization-api
 *SpOrganizationApiAPI* | [**SpOrganizationApiGetCustomMetricsEndpoint**](docs/SpOrganizationApiAPI.md#sporganizationapigetcustommetricsendpoint) | **Get** /2022-09-01-00/custom-metrics/endpoint | GetCustomMetricsEndpoint sp-organization-api
+*SpOrganizationApiAPI* | [**SpOrganizationApiGetServiceProviderConfigurationForEnvironment**](docs/SpOrganizationApiAPI.md#sporganizationapigetserviceproviderconfigurationforenvironment) | **Get** /2022-09-01-00/sp-organization/environment/{environmentType}/configuration | GetServiceProviderConfigurationForEnvironment sp-organization-api
 *SpOrganizationApiAPI* | [**SpOrganizationApiModifyServiceProviderOrganization**](docs/SpOrganizationApiAPI.md#sporganizationapimodifyserviceproviderorganization) | **Patch** /2022-09-01-00/sp-organization | ModifyServiceProviderOrganization sp-organization-api
 *StorageConfigApiAPI* | [**StorageConfigApiAddStorageVolumeConfig**](docs/StorageConfigApiAPI.md#storageconfigapiaddstoragevolumeconfig) | **Put** /2022-09-01-00/service/{serviceId}/storage-config/{id}/volume/{storageVolumeConfigId} | AddStorageVolumeConfig storage-config-api
 *StorageConfigApiAPI* | [**StorageConfigApiCreateStorageConfig**](docs/StorageConfigApiAPI.md#storageconfigapicreatestorageconfig) | **Post** /2022-09-01-00/service/{serviceId}/storage-config | CreateStorageConfig storage-config-api
@@ -456,6 +463,7 @@ Class | Method | HTTP request | Description
  - [AccountConfigCloudNativeNetworkResult](docs/AccountConfigCloudNativeNetworkResult.md)
  - [AccountConfigIdentityIDRequest](docs/AccountConfigIdentityIDRequest.md)
  - [AccountConfigIdentityIDResult](docs/AccountConfigIdentityIDResult.md)
+ - [AccountConfigSummary](docs/AccountConfigSummary.md)
  - [AcknowledgeEventRequest](docs/AcknowledgeEventRequest.md)
  - [ActionHook](docs/ActionHook.md)
  - [AddAccountConfigToServiceModelRequest](docs/AddAccountConfigToServiceModelRequest.md)
@@ -728,6 +736,9 @@ Class | Method | HTTP request | Description
  - [DescribeInvoiceRequest](docs/DescribeInvoiceRequest.md)
  - [DescribeLimitRequest](docs/DescribeLimitRequest.md)
  - [DescribeLimitResult](docs/DescribeLimitResult.md)
+ - [DescribeManagedArtifactReleasePolicyRequest](docs/DescribeManagedArtifactReleasePolicyRequest.md)
+ - [DescribeManagedArtifactReleaseRequest](docs/DescribeManagedArtifactReleaseRequest.md)
+ - [DescribeManagedArtifactSyncRequest](docs/DescribeManagedArtifactSyncRequest.md)
  - [DescribeManagedReleaseRevisionRequest](docs/DescribeManagedReleaseRevisionRequest.md)
  - [DescribeManagedReleaseSyncRequest](docs/DescribeManagedReleaseSyncRequest.md)
  - [DescribeNetworkConfigRequest](docs/DescribeNetworkConfigRequest.md)
@@ -851,6 +862,8 @@ Class | Method | HTTP request | Description
  - [GetSecretResult](docs/GetSecretResult.md)
  - [GetServicePlanRequest](docs/GetServicePlanRequest.md)
  - [GetServicePlanResult](docs/GetServicePlanResult.md)
+ - [GetServiceProviderConfigurationForEnvironmentRequest](docs/GetServiceProviderConfigurationForEnvironmentRequest.md)
+ - [GetServiceProviderConfigurationForEnvironmentResult](docs/GetServiceProviderConfigurationForEnvironmentResult.md)
  - [GetTenantBillingStatusRequest](docs/GetTenantBillingStatusRequest.md)
  - [GetTenantBillingStatusResult](docs/GetTenantBillingStatusResult.md)
  - [GetTierVersionSetSpecRequest](docs/GetTierVersionSetSpecRequest.md)
@@ -956,6 +969,10 @@ Class | Method | HTTP request | Description
  - [ListLimitRequest](docs/ListLimitRequest.md)
  - [ListLimitRequest2](docs/ListLimitRequest2.md)
  - [ListLimitResult](docs/ListLimitResult.md)
+ - [ListManagedArtifactReleasesRequest](docs/ListManagedArtifactReleasesRequest.md)
+ - [ListManagedArtifactReleasesResult](docs/ListManagedArtifactReleasesResult.md)
+ - [ListManagedArtifactSyncsRequest](docs/ListManagedArtifactSyncsRequest.md)
+ - [ListManagedArtifactSyncsResult](docs/ListManagedArtifactSyncsResult.md)
  - [ListManagedReleaseRevisionsRequest](docs/ListManagedReleaseRevisionsRequest.md)
  - [ListManagedReleaseRevisionsResult](docs/ListManagedReleaseRevisionsResult.md)
  - [ListManagedReleaseRevisionsResult2](docs/ListManagedReleaseRevisionsResult2.md)
@@ -1022,6 +1039,13 @@ Class | Method | HTTP request | Description
  - [LoginWithIdentityProviderRequest](docs/LoginWithIdentityProviderRequest.md)
  - [LoginWithIdentityProviderResult](docs/LoginWithIdentityProviderResult.md)
  - [LogoutRequest](docs/LogoutRequest.md)
+ - [ManagedArtifactRelease](docs/ManagedArtifactRelease.md)
+ - [ManagedArtifactReleaseArtifact](docs/ManagedArtifactReleaseArtifact.md)
+ - [ManagedArtifactReleasePolicy](docs/ManagedArtifactReleasePolicy.md)
+ - [ManagedArtifactSync](docs/ManagedArtifactSync.md)
+ - [ManagedArtifactSyncArtifact](docs/ManagedArtifactSyncArtifact.md)
+ - [ManagedArtifactTarget](docs/ManagedArtifactTarget.md)
+ - [ManagedArtifactTargetStatusSummary](docs/ManagedArtifactTargetStatusSummary.md)
  - [ManagedReleaseArtifact](docs/ManagedReleaseArtifact.md)
  - [ManagedReleaseArtifact2](docs/ManagedReleaseArtifact2.md)
  - [ManagedReleaseArtifact3](docs/ManagedReleaseArtifact3.md)
@@ -1172,6 +1196,7 @@ Class | Method | HTTP request | Description
  - [ServiceModelFeatureDetail](docs/ServiceModelFeatureDetail.md)
  - [ServiceOffering](docs/ServiceOffering.md)
  - [ServicePlan](docs/ServicePlan.md)
+ - [ServiceProviderEnvironmentConfiguration](docs/ServiceProviderEnvironmentConfiguration.md)
  - [ServiceProviderEvent](docs/ServiceProviderEvent.md)
  - [ServiceProviderEventSummary](docs/ServiceProviderEventSummary.md)
  - [SetActiveAccountConfigRequest](docs/SetActiveAccountConfigRequest.md)
@@ -1189,6 +1214,7 @@ Class | Method | HTTP request | Description
  - [StripeAuthorizeURLResult](docs/StripeAuthorizeURLResult.md)
  - [StripeConfigResult](docs/StripeConfigResult.md)
  - [SubnetDetail](docs/SubnetDetail.md)
+ - [SubscriptionAllowedDeploymentLocation](docs/SubscriptionAllowedDeploymentLocation.md)
  - [SubscriptionLicense](docs/SubscriptionLicense.md)
  - [SubscriptionUsers](docs/SubscriptionUsers.md)
  - [SyncAccountConfigCloudNativeNetworkTarget](docs/SyncAccountConfigCloudNativeNetworkTarget.md)
@@ -1237,6 +1263,8 @@ Class | Method | HTTP request | Description
  - [UpdateInstanceStorageVolumeConfigRequest2](docs/UpdateInstanceStorageVolumeConfigRequest2.md)
  - [UpdateLimitRequest](docs/UpdateLimitRequest.md)
  - [UpdateLimitRequest2](docs/UpdateLimitRequest2.md)
+ - [UpdateManagedArtifactReleasePolicyRequest](docs/UpdateManagedArtifactReleasePolicyRequest.md)
+ - [UpdateManagedArtifactReleasePolicyRequest2](docs/UpdateManagedArtifactReleasePolicyRequest2.md)
  - [UpdateNetworkConfigRequest](docs/UpdateNetworkConfigRequest.md)
  - [UpdateNetworkConfigRequest2](docs/UpdateNetworkConfigRequest2.md)
  - [UpdateOutputParameterRequest](docs/UpdateOutputParameterRequest.md)

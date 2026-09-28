@@ -48,7 +48,7 @@ import (
 )
 
 func main() {
-	adoptHostClusterRequest2 := *openapiclient.NewAdoptHostClusterRequest2("aws|azure|gcp|nebius|oci|byoc-onprem|all", "My Adopted Host Cluster", "Qui rerum accusamus est molestiae.", "us-east-1") // AdoptHostClusterRequest2 | 
+	adoptHostClusterRequest2 := *openapiclient.NewAdoptHostClusterRequest2("aws|azure|gcp|nebius|oci|byoc-onprem|all", "My Adopted Host Cluster", "Nihil quas est dolores velit at illo.", "us-east-1") // AdoptHostClusterRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1042,7 +1042,7 @@ import (
 func main() {
 	accountConfigId := "ac-12345678" // string | The account config ID of the host cluster (optional)
 	regionId := "region-12345678" // string | The region ID of the host cluster (optional)
-	includeProvisionerClusters := true // bool | Whether to include provisioner clusters in the response (optional)
+	includeProvisionerClusters := true // bool | Whether to include provisioner clusters in the response; defaults to false (optional)
 	customerEmail := "admin@example.com" // string | The email of the customer to filter host clusters by (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -1070,7 +1070,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **accountConfigId** | **string** | The account config ID of the host cluster | 
  **regionId** | **string** | The region ID of the host cluster | 
- **includeProvisionerClusters** | **bool** | Whether to include provisioner clusters in the response | 
+ **includeProvisionerClusters** | **bool** | Whether to include provisioner clusters in the response; defaults to false | 
  **customerEmail** | **string** | The email of the customer to filter host clusters by | 
 
 ### Return type

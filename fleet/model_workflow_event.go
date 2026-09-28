@@ -24,6 +24,7 @@ type WorkflowEvent struct {
 	Action *string `json:"action,omitempty"`
 	// Consecutive attempts observed for this task, when the event corresponds to a retrying task.
 	AttemptCount *int64 `json:"attemptCount,omitempty"`
+	Checkpoint *DeploymentCheckpoint `json:"checkpoint,omitempty"`
 	// A concise human-readable summary derived from the error code, when present.
 	DisplayMessage *string `json:"displayMessage,omitempty"`
 	// Stable error code from the workflow error taxonomy, present on failure events.
@@ -32,12 +33,15 @@ type WorkflowEvent struct {
 	EventTime string `json:"eventTime"`
 	// The type of the workflow event
 	EventType string `json:"eventType"`
+	// The custom workflow execution that ran the task, when the event corresponds to a task of a resource's system workflow. Use it with DescribeWorkflowTaskObjects to read the objects the task touched. Absent for executions that ran before it was recorded.
+	ExecutionId *string `json:"executionId,omitempty"`
 	// When this error signature was first observed for the current task attempt, RFC3339.
 	FirstSeenAt *string `json:"firstSeenAt,omitempty"`
 	// The success condition gating task completion, when present.
 	GateExpression *string `json:"gateExpression,omitempty"`
 	// The last observed value of the gate expression.
 	GateLastObserved *string `json:"gateLastObserved,omitempty"`
+	HelmDetail *WorkflowTaskHelmDetail `json:"helmDetail,omitempty"`
 	InfraDetail *WorkflowTaskInfraDetail `json:"infraDetail,omitempty"`
 	// Details of the event
 	Message string `json:"message"`
@@ -47,6 +51,7 @@ type WorkflowEvent struct {
 	ResourceType *string `json:"resourceType,omitempty"`
 	// Live task lifecycle state for step/task events: Pending|Applying|AwaitingCondition|DriftMismatch|Failed|Succeeded.
 	State *string `json:"state,omitempty"`
+	TerraformDetail *WorkflowTaskTerraformDetail `json:"terraformDetail,omitempty"`
 	WorkloadDetail *WorkflowTaskWorkloadDetail `json:"workloadDetail,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -135,6 +140,38 @@ func (o *WorkflowEvent) HasAttemptCount() bool {
 // SetAttemptCount gets a reference to the given int64 and assigns it to the AttemptCount field.
 func (o *WorkflowEvent) SetAttemptCount(v int64) {
 	o.AttemptCount = &v
+}
+
+// GetCheckpoint returns the Checkpoint field value if set, zero value otherwise.
+func (o *WorkflowEvent) GetCheckpoint() DeploymentCheckpoint {
+	if o == nil || IsNil(o.Checkpoint) {
+		var ret DeploymentCheckpoint
+		return ret
+	}
+	return *o.Checkpoint
+}
+
+// GetCheckpointOk returns a tuple with the Checkpoint field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowEvent) GetCheckpointOk() (*DeploymentCheckpoint, bool) {
+	if o == nil || IsNil(o.Checkpoint) {
+		return nil, false
+	}
+	return o.Checkpoint, true
+}
+
+// HasCheckpoint returns a boolean if a field has been set.
+func (o *WorkflowEvent) HasCheckpoint() bool {
+	if o != nil && !IsNil(o.Checkpoint) {
+		return true
+	}
+
+	return false
+}
+
+// SetCheckpoint gets a reference to the given DeploymentCheckpoint and assigns it to the Checkpoint field.
+func (o *WorkflowEvent) SetCheckpoint(v DeploymentCheckpoint) {
+	o.Checkpoint = &v
 }
 
 // GetDisplayMessage returns the DisplayMessage field value if set, zero value otherwise.
@@ -249,6 +286,38 @@ func (o *WorkflowEvent) SetEventType(v string) {
 	o.EventType = v
 }
 
+// GetExecutionId returns the ExecutionId field value if set, zero value otherwise.
+func (o *WorkflowEvent) GetExecutionId() string {
+	if o == nil || IsNil(o.ExecutionId) {
+		var ret string
+		return ret
+	}
+	return *o.ExecutionId
+}
+
+// GetExecutionIdOk returns a tuple with the ExecutionId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowEvent) GetExecutionIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ExecutionId) {
+		return nil, false
+	}
+	return o.ExecutionId, true
+}
+
+// HasExecutionId returns a boolean if a field has been set.
+func (o *WorkflowEvent) HasExecutionId() bool {
+	if o != nil && !IsNil(o.ExecutionId) {
+		return true
+	}
+
+	return false
+}
+
+// SetExecutionId gets a reference to the given string and assigns it to the ExecutionId field.
+func (o *WorkflowEvent) SetExecutionId(v string) {
+	o.ExecutionId = &v
+}
+
 // GetFirstSeenAt returns the FirstSeenAt field value if set, zero value otherwise.
 func (o *WorkflowEvent) GetFirstSeenAt() string {
 	if o == nil || IsNil(o.FirstSeenAt) {
@@ -343,6 +412,38 @@ func (o *WorkflowEvent) HasGateLastObserved() bool {
 // SetGateLastObserved gets a reference to the given string and assigns it to the GateLastObserved field.
 func (o *WorkflowEvent) SetGateLastObserved(v string) {
 	o.GateLastObserved = &v
+}
+
+// GetHelmDetail returns the HelmDetail field value if set, zero value otherwise.
+func (o *WorkflowEvent) GetHelmDetail() WorkflowTaskHelmDetail {
+	if o == nil || IsNil(o.HelmDetail) {
+		var ret WorkflowTaskHelmDetail
+		return ret
+	}
+	return *o.HelmDetail
+}
+
+// GetHelmDetailOk returns a tuple with the HelmDetail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowEvent) GetHelmDetailOk() (*WorkflowTaskHelmDetail, bool) {
+	if o == nil || IsNil(o.HelmDetail) {
+		return nil, false
+	}
+	return o.HelmDetail, true
+}
+
+// HasHelmDetail returns a boolean if a field has been set.
+func (o *WorkflowEvent) HasHelmDetail() bool {
+	if o != nil && !IsNil(o.HelmDetail) {
+		return true
+	}
+
+	return false
+}
+
+// SetHelmDetail gets a reference to the given WorkflowTaskHelmDetail and assigns it to the HelmDetail field.
+func (o *WorkflowEvent) SetHelmDetail(v WorkflowTaskHelmDetail) {
+	o.HelmDetail = &v
 }
 
 // GetInfraDetail returns the InfraDetail field value if set, zero value otherwise.
@@ -497,6 +598,38 @@ func (o *WorkflowEvent) SetState(v string) {
 	o.State = &v
 }
 
+// GetTerraformDetail returns the TerraformDetail field value if set, zero value otherwise.
+func (o *WorkflowEvent) GetTerraformDetail() WorkflowTaskTerraformDetail {
+	if o == nil || IsNil(o.TerraformDetail) {
+		var ret WorkflowTaskTerraformDetail
+		return ret
+	}
+	return *o.TerraformDetail
+}
+
+// GetTerraformDetailOk returns a tuple with the TerraformDetail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowEvent) GetTerraformDetailOk() (*WorkflowTaskTerraformDetail, bool) {
+	if o == nil || IsNil(o.TerraformDetail) {
+		return nil, false
+	}
+	return o.TerraformDetail, true
+}
+
+// HasTerraformDetail returns a boolean if a field has been set.
+func (o *WorkflowEvent) HasTerraformDetail() bool {
+	if o != nil && !IsNil(o.TerraformDetail) {
+		return true
+	}
+
+	return false
+}
+
+// SetTerraformDetail gets a reference to the given WorkflowTaskTerraformDetail and assigns it to the TerraformDetail field.
+func (o *WorkflowEvent) SetTerraformDetail(v WorkflowTaskTerraformDetail) {
+	o.TerraformDetail = &v
+}
+
 // GetWorkloadDetail returns the WorkloadDetail field value if set, zero value otherwise.
 func (o *WorkflowEvent) GetWorkloadDetail() WorkflowTaskWorkloadDetail {
 	if o == nil || IsNil(o.WorkloadDetail) {
@@ -545,6 +678,9 @@ func (o WorkflowEvent) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AttemptCount) {
 		toSerialize["attemptCount"] = o.AttemptCount
 	}
+	if !IsNil(o.Checkpoint) {
+		toSerialize["checkpoint"] = o.Checkpoint
+	}
 	if !IsNil(o.DisplayMessage) {
 		toSerialize["displayMessage"] = o.DisplayMessage
 	}
@@ -553,6 +689,9 @@ func (o WorkflowEvent) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["eventTime"] = o.EventTime
 	toSerialize["eventType"] = o.EventType
+	if !IsNil(o.ExecutionId) {
+		toSerialize["executionId"] = o.ExecutionId
+	}
 	if !IsNil(o.FirstSeenAt) {
 		toSerialize["firstSeenAt"] = o.FirstSeenAt
 	}
@@ -561,6 +700,9 @@ func (o WorkflowEvent) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.GateLastObserved) {
 		toSerialize["gateLastObserved"] = o.GateLastObserved
+	}
+	if !IsNil(o.HelmDetail) {
+		toSerialize["helmDetail"] = o.HelmDetail
 	}
 	if !IsNil(o.InfraDetail) {
 		toSerialize["infraDetail"] = o.InfraDetail
@@ -574,6 +716,9 @@ func (o WorkflowEvent) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.State) {
 		toSerialize["state"] = o.State
+	}
+	if !IsNil(o.TerraformDetail) {
+		toSerialize["terraformDetail"] = o.TerraformDetail
 	}
 	if !IsNil(o.WorkloadDetail) {
 		toSerialize["workloadDetail"] = o.WorkloadDetail
@@ -625,18 +770,22 @@ func (o *WorkflowEvent) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "action")
 		delete(additionalProperties, "attemptCount")
+		delete(additionalProperties, "checkpoint")
 		delete(additionalProperties, "displayMessage")
 		delete(additionalProperties, "errorCode")
 		delete(additionalProperties, "eventTime")
 		delete(additionalProperties, "eventType")
+		delete(additionalProperties, "executionId")
 		delete(additionalProperties, "firstSeenAt")
 		delete(additionalProperties, "gateExpression")
 		delete(additionalProperties, "gateLastObserved")
+		delete(additionalProperties, "helmDetail")
 		delete(additionalProperties, "infraDetail")
 		delete(additionalProperties, "message")
 		delete(additionalProperties, "nextRetryAt")
 		delete(additionalProperties, "resourceType")
 		delete(additionalProperties, "state")
+		delete(additionalProperties, "terraformDetail")
 		delete(additionalProperties, "workloadDetail")
 		o.AdditionalProperties = additionalProperties
 	}

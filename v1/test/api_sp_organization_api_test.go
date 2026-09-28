@@ -46,6 +46,20 @@ func Test_v1_SpOrganizationApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test SpOrganizationApiAPIService SpOrganizationApiGetServiceProviderConfigurationForEnvironment", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var environmentType string
+
+		resp, httpRes, err := apiClient.SpOrganizationApiAPI.SpOrganizationApiGetServiceProviderConfigurationForEnvironment(context.Background(), environmentType).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test SpOrganizationApiAPIService SpOrganizationApiModifyServiceProviderOrganization", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

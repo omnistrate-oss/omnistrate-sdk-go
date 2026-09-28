@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DebugData** | Pointer to **interface{}** | Individual debug data for the resource | [optional] 
+**DeploymentProgress** | Pointer to [**DeploymentProgressDiagnosis**](DeploymentProgressDiagnosis.md) |  | [optional] 
 **ResourceId** | **string** | ID of a resource | 
 **WorkloadDiagnosis** | Pointer to [**WorkloadDiagnosis**](WorkloadDiagnosis.md) |  | [optional] 
 
@@ -62,6 +63,31 @@ HasDebugData returns a boolean if a field has been set.
 `func (o *DebugResourceResult) UnsetDebugData()`
 
 UnsetDebugData ensures that no value is present for DebugData, not even an explicit nil
+### GetDeploymentProgress
+
+`func (o *DebugResourceResult) GetDeploymentProgress() DeploymentProgressDiagnosis`
+
+GetDeploymentProgress returns the DeploymentProgress field if non-nil, zero value otherwise.
+
+### GetDeploymentProgressOk
+
+`func (o *DebugResourceResult) GetDeploymentProgressOk() (*DeploymentProgressDiagnosis, bool)`
+
+GetDeploymentProgressOk returns a tuple with the DeploymentProgress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeploymentProgress
+
+`func (o *DebugResourceResult) SetDeploymentProgress(v DeploymentProgressDiagnosis)`
+
+SetDeploymentProgress sets DeploymentProgress field to given value.
+
+### HasDeploymentProgress
+
+`func (o *DebugResourceResult) HasDeploymentProgress() bool`
+
+HasDeploymentProgress returns a boolean if a field has been set.
+
 ### GetResourceId
 
 `func (o *DebugResourceResult) GetResourceId() string`

@@ -22,6 +22,7 @@ var _ MappedNullable = &DebugResourceResult{}
 type DebugResourceResult struct {
 	// Individual debug data for the resource
 	DebugData interface{} `json:"debugData,omitempty"`
+	DeploymentProgress *DeploymentProgressDiagnosis `json:"deploymentProgress,omitempty"`
 	// ID of a resource
 	ResourceId string `json:"resourceId"`
 	WorkloadDiagnosis *WorkloadDiagnosis `json:"workloadDiagnosis,omitempty"`
@@ -79,6 +80,38 @@ func (o *DebugResourceResult) HasDebugData() bool {
 // SetDebugData gets a reference to the given interface{} and assigns it to the DebugData field.
 func (o *DebugResourceResult) SetDebugData(v interface{}) {
 	o.DebugData = v
+}
+
+// GetDeploymentProgress returns the DeploymentProgress field value if set, zero value otherwise.
+func (o *DebugResourceResult) GetDeploymentProgress() DeploymentProgressDiagnosis {
+	if o == nil || IsNil(o.DeploymentProgress) {
+		var ret DeploymentProgressDiagnosis
+		return ret
+	}
+	return *o.DeploymentProgress
+}
+
+// GetDeploymentProgressOk returns a tuple with the DeploymentProgress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DebugResourceResult) GetDeploymentProgressOk() (*DeploymentProgressDiagnosis, bool) {
+	if o == nil || IsNil(o.DeploymentProgress) {
+		return nil, false
+	}
+	return o.DeploymentProgress, true
+}
+
+// HasDeploymentProgress returns a boolean if a field has been set.
+func (o *DebugResourceResult) HasDeploymentProgress() bool {
+	if o != nil && !IsNil(o.DeploymentProgress) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeploymentProgress gets a reference to the given DeploymentProgressDiagnosis and assigns it to the DeploymentProgress field.
+func (o *DebugResourceResult) SetDeploymentProgress(v DeploymentProgressDiagnosis) {
+	o.DeploymentProgress = &v
 }
 
 // GetResourceId returns the ResourceId field value
@@ -150,6 +183,9 @@ func (o DebugResourceResult) ToMap() (map[string]interface{}, error) {
 	if o.DebugData != nil {
 		toSerialize["debugData"] = o.DebugData
 	}
+	if !IsNil(o.DeploymentProgress) {
+		toSerialize["deploymentProgress"] = o.DeploymentProgress
+	}
 	toSerialize["resourceId"] = o.ResourceId
 	if !IsNil(o.WorkloadDiagnosis) {
 		toSerialize["workloadDiagnosis"] = o.WorkloadDiagnosis
@@ -198,6 +234,7 @@ func (o *DebugResourceResult) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "debugData")
+		delete(additionalProperties, "deploymentProgress")
 		delete(additionalProperties, "resourceId")
 		delete(additionalProperties, "workloadDiagnosis")
 		o.AdditionalProperties = additionalProperties

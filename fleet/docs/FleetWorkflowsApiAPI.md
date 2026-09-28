@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**FleetWorkflowsApiDescribeServiceWorkflow**](FleetWorkflowsApiAPI.md#FleetWorkflowsApiDescribeServiceWorkflow) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows/{id} | DescribeServiceWorkflow fleet-workflows-api
 [**FleetWorkflowsApiDescribeServiceWorkflowSummary**](FleetWorkflowsApiAPI.md#FleetWorkflowsApiDescribeServiceWorkflowSummary) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows-summary | DescribeServiceWorkflowSummary fleet-workflows-api
 [**FleetWorkflowsApiDescribeWorkflowExecution**](FleetWorkflowsApiAPI.md#FleetWorkflowsApiDescribeWorkflowExecution) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/workflow-executions/{executionId} | DescribeWorkflowExecution fleet-workflows-api
+[**FleetWorkflowsApiDescribeWorkflowTaskObjects**](FleetWorkflowsApiAPI.md#FleetWorkflowsApiDescribeWorkflowTaskObjects) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/workflow-executions/{executionId}/tasks/{taskName}/objects | DescribeWorkflowTaskObjects fleet-workflows-api
 [**FleetWorkflowsApiGetWorkflowEvents**](FleetWorkflowsApiAPI.md#FleetWorkflowsApiGetWorkflowEvents) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows/{id}/events | GetWorkflowEvents fleet-workflows-api
 [**FleetWorkflowsApiListServiceWorkflows**](FleetWorkflowsApiAPI.md#FleetWorkflowsApiListServiceWorkflows) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/service-workflows | ListServiceWorkflows fleet-workflows-api
 [**FleetWorkflowsApiListWorkflowExecutions**](FleetWorkflowsApiAPI.md#FleetWorkflowsApiListWorkflowExecutions) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/resource-instance/{instanceId}/workflow-executions | ListWorkflowExecutions fleet-workflows-api
@@ -219,6 +220,87 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DescribeWorkflowExecutionResult**](DescribeWorkflowExecutionResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## FleetWorkflowsApiDescribeWorkflowTaskObjects
+
+> DescribeWorkflowTaskObjectsResult FleetWorkflowsApiDescribeWorkflowTaskObjects(ctx, serviceId, environmentId, executionId, taskName).Live(live).Execute()
+
+DescribeWorkflowTaskObjects fleet-workflows-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	serviceId := "s-12345678" // string | The service ID this workflow belongs to.
+	environmentId := "se-12345678" // string | The service environment ID this workflow belongs to.
+	executionId := "instance-x-cwt-123-1752700000" // string | The workflow execution that ran the task.
+	taskName := "create-cluster" // string | The workflow task whose objects to describe.
+	live := true // bool | Read each object's live state from the cluster. When false, only what was recorded when the task ran is returned. (optional) (default to true)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.FleetWorkflowsApiAPI.FleetWorkflowsApiDescribeWorkflowTaskObjects(context.Background(), serviceId, environmentId, executionId, taskName).Live(live).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `FleetWorkflowsApiAPI.FleetWorkflowsApiDescribeWorkflowTaskObjects``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `FleetWorkflowsApiDescribeWorkflowTaskObjects`: DescribeWorkflowTaskObjectsResult
+	fmt.Fprintf(os.Stdout, "Response from `FleetWorkflowsApiAPI.FleetWorkflowsApiDescribeWorkflowTaskObjects`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceId** | **string** | The service ID this workflow belongs to. | 
+**environmentId** | **string** | The service environment ID this workflow belongs to. | 
+**executionId** | **string** | The workflow execution that ran the task. | 
+**taskName** | **string** | The workflow task whose objects to describe. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiFleetWorkflowsApiDescribeWorkflowTaskObjectsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+ **live** | **bool** | Read each object&#39;s live state from the cluster. When false, only what was recorded when the task ran is returned. | [default to true]
+
+### Return type
+
+[**DescribeWorkflowTaskObjectsResult**](DescribeWorkflowTaskObjectsResult.md)
 
 ### Authorization
 

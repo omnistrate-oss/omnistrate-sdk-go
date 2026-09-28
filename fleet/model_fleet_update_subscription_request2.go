@@ -21,6 +21,8 @@ var _ MappedNullable = &FleetUpdateSubscriptionRequest2{}
 type FleetUpdateSubscriptionRequest2 struct {
 	// Whether to allow creating instances when payment is not configured.
 	AllowCreatesWhenPaymentNotConfigured *bool `json:"allowCreatesWhenPaymentNotConfigured,omitempty"`
+	// The subscription-level deployment location restriction. Omit to leave unchanged. Set to an empty array to inherit the product tier deployment locations.
+	AllowedDeploymentLocations []SubscriptionAllowedDeploymentLocation `json:"allowedDeploymentLocations,omitempty"`
 	// The billing provider for this subscription
 	BillingProvider *string `json:"billingProvider,omitempty"`
 	// Whether to use a custom price for this subscription
@@ -85,6 +87,38 @@ func (o *FleetUpdateSubscriptionRequest2) HasAllowCreatesWhenPaymentNotConfigure
 // SetAllowCreatesWhenPaymentNotConfigured gets a reference to the given bool and assigns it to the AllowCreatesWhenPaymentNotConfigured field.
 func (o *FleetUpdateSubscriptionRequest2) SetAllowCreatesWhenPaymentNotConfigured(v bool) {
 	o.AllowCreatesWhenPaymentNotConfigured = &v
+}
+
+// GetAllowedDeploymentLocations returns the AllowedDeploymentLocations field value if set, zero value otherwise.
+func (o *FleetUpdateSubscriptionRequest2) GetAllowedDeploymentLocations() []SubscriptionAllowedDeploymentLocation {
+	if o == nil || IsNil(o.AllowedDeploymentLocations) {
+		var ret []SubscriptionAllowedDeploymentLocation
+		return ret
+	}
+	return o.AllowedDeploymentLocations
+}
+
+// GetAllowedDeploymentLocationsOk returns a tuple with the AllowedDeploymentLocations field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetUpdateSubscriptionRequest2) GetAllowedDeploymentLocationsOk() ([]SubscriptionAllowedDeploymentLocation, bool) {
+	if o == nil || IsNil(o.AllowedDeploymentLocations) {
+		return nil, false
+	}
+	return o.AllowedDeploymentLocations, true
+}
+
+// HasAllowedDeploymentLocations returns a boolean if a field has been set.
+func (o *FleetUpdateSubscriptionRequest2) HasAllowedDeploymentLocations() bool {
+	if o != nil && !IsNil(o.AllowedDeploymentLocations) {
+		return true
+	}
+
+	return false
+}
+
+// SetAllowedDeploymentLocations gets a reference to the given []SubscriptionAllowedDeploymentLocation and assigns it to the AllowedDeploymentLocations field.
+func (o *FleetUpdateSubscriptionRequest2) SetAllowedDeploymentLocations(v []SubscriptionAllowedDeploymentLocation) {
+	o.AllowedDeploymentLocations = v
 }
 
 // GetBillingProvider returns the BillingProvider field value if set, zero value otherwise.
@@ -292,6 +326,9 @@ func (o FleetUpdateSubscriptionRequest2) ToMap() (map[string]interface{}, error)
 	if !IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
 		toSerialize["allowCreatesWhenPaymentNotConfigured"] = o.AllowCreatesWhenPaymentNotConfigured
 	}
+	if !IsNil(o.AllowedDeploymentLocations) {
+		toSerialize["allowedDeploymentLocations"] = o.AllowedDeploymentLocations
+	}
 	if !IsNil(o.BillingProvider) {
 		toSerialize["billingProvider"] = o.BillingProvider
 	}
@@ -333,6 +370,7 @@ func (o *FleetUpdateSubscriptionRequest2) UnmarshalJSON(data []byte) (err error)
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "allowCreatesWhenPaymentNotConfigured")
+		delete(additionalProperties, "allowedDeploymentLocations")
 		delete(additionalProperties, "billingProvider")
 		delete(additionalProperties, "customPrice")
 		delete(additionalProperties, "customPricePerUnit")

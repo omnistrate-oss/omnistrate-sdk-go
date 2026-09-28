@@ -22,6 +22,8 @@ var _ MappedNullable = &CustomMeteringMetric{}
 type CustomMeteringMetric struct {
 	// Aggregation function applied to a custom metering metric
 	AggregationFunction string `json:"aggregationFunction"`
+	// Display name for the custom metric
+	DisplayName *string `json:"displayName,omitempty"`
 	// Case-sensitive custom metric name
 	Name string `json:"name"`
 	AdditionalProperties map[string]interface{}
@@ -72,6 +74,38 @@ func (o *CustomMeteringMetric) SetAggregationFunction(v string) {
 	o.AggregationFunction = v
 }
 
+// GetDisplayName returns the DisplayName field value if set, zero value otherwise.
+func (o *CustomMeteringMetric) GetDisplayName() string {
+	if o == nil || IsNil(o.DisplayName) {
+		var ret string
+		return ret
+	}
+	return *o.DisplayName
+}
+
+// GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomMeteringMetric) GetDisplayNameOk() (*string, bool) {
+	if o == nil || IsNil(o.DisplayName) {
+		return nil, false
+	}
+	return o.DisplayName, true
+}
+
+// HasDisplayName returns a boolean if a field has been set.
+func (o *CustomMeteringMetric) HasDisplayName() bool {
+	if o != nil && !IsNil(o.DisplayName) {
+		return true
+	}
+
+	return false
+}
+
+// SetDisplayName gets a reference to the given string and assigns it to the DisplayName field.
+func (o *CustomMeteringMetric) SetDisplayName(v string) {
+	o.DisplayName = &v
+}
+
 // GetName returns the Name field value
 func (o *CustomMeteringMetric) GetName() string {
 	if o == nil {
@@ -107,6 +141,9 @@ func (o CustomMeteringMetric) MarshalJSON() ([]byte, error) {
 func (o CustomMeteringMetric) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["aggregationFunction"] = o.AggregationFunction
+	if !IsNil(o.DisplayName) {
+		toSerialize["displayName"] = o.DisplayName
+	}
 	toSerialize["name"] = o.Name
 
 	for key, value := range o.AdditionalProperties {
@@ -153,6 +190,7 @@ func (o *CustomMeteringMetric) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "aggregationFunction")
+		delete(additionalProperties, "displayName")
 		delete(additionalProperties, "name")
 		o.AdditionalProperties = additionalProperties
 	}

@@ -36,6 +36,10 @@ type MarketplaceEvent struct {
 	EventId string `json:"eventId"`
 	// The type of a marketplace fulfillment event delivered to an ISV receiver
 	EventType string `json:"eventType"`
+	// The marketplace-native buyer identifier used for billing
+	ExternalBuyerId *string `json:"externalBuyerId,omitempty"`
+	// The marketplace-native product identifier used for billing
+	ExternalProductId *string `json:"externalProductId,omitempty"`
 	// The channel's own identifier for the contract, unique per channel
 	ExternalRef *string `json:"externalRef,omitempty"`
 	// Present on fulfillment.failed. Names what failed in words. A contract stuck past the handoff SLA also carries the orphaned condition here, which does not change fulfillmentState
@@ -312,6 +316,70 @@ func (o *MarketplaceEvent) GetEventTypeOk() (*string, bool) {
 // SetEventType sets field value
 func (o *MarketplaceEvent) SetEventType(v string) {
 	o.EventType = v
+}
+
+// GetExternalBuyerId returns the ExternalBuyerId field value if set, zero value otherwise.
+func (o *MarketplaceEvent) GetExternalBuyerId() string {
+	if o == nil || IsNil(o.ExternalBuyerId) {
+		var ret string
+		return ret
+	}
+	return *o.ExternalBuyerId
+}
+
+// GetExternalBuyerIdOk returns a tuple with the ExternalBuyerId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MarketplaceEvent) GetExternalBuyerIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ExternalBuyerId) {
+		return nil, false
+	}
+	return o.ExternalBuyerId, true
+}
+
+// HasExternalBuyerId returns a boolean if a field has been set.
+func (o *MarketplaceEvent) HasExternalBuyerId() bool {
+	if o != nil && !IsNil(o.ExternalBuyerId) {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalBuyerId gets a reference to the given string and assigns it to the ExternalBuyerId field.
+func (o *MarketplaceEvent) SetExternalBuyerId(v string) {
+	o.ExternalBuyerId = &v
+}
+
+// GetExternalProductId returns the ExternalProductId field value if set, zero value otherwise.
+func (o *MarketplaceEvent) GetExternalProductId() string {
+	if o == nil || IsNil(o.ExternalProductId) {
+		var ret string
+		return ret
+	}
+	return *o.ExternalProductId
+}
+
+// GetExternalProductIdOk returns a tuple with the ExternalProductId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MarketplaceEvent) GetExternalProductIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ExternalProductId) {
+		return nil, false
+	}
+	return o.ExternalProductId, true
+}
+
+// HasExternalProductId returns a boolean if a field has been set.
+func (o *MarketplaceEvent) HasExternalProductId() bool {
+	if o != nil && !IsNil(o.ExternalProductId) {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalProductId gets a reference to the given string and assigns it to the ExternalProductId field.
+func (o *MarketplaceEvent) SetExternalProductId(v string) {
+	o.ExternalProductId = &v
 }
 
 // GetExternalRef returns the ExternalRef field value if set, zero value otherwise.
@@ -678,6 +746,12 @@ func (o MarketplaceEvent) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["eventId"] = o.EventId
 	toSerialize["eventType"] = o.EventType
+	if !IsNil(o.ExternalBuyerId) {
+		toSerialize["externalBuyerId"] = o.ExternalBuyerId
+	}
+	if !IsNil(o.ExternalProductId) {
+		toSerialize["externalProductId"] = o.ExternalProductId
+	}
 	if !IsNil(o.ExternalRef) {
 		toSerialize["externalRef"] = o.ExternalRef
 	}
@@ -762,6 +836,8 @@ func (o *MarketplaceEvent) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "detectedBy")
 		delete(additionalProperties, "eventId")
 		delete(additionalProperties, "eventType")
+		delete(additionalProperties, "externalBuyerId")
+		delete(additionalProperties, "externalProductId")
 		delete(additionalProperties, "externalRef")
 		delete(additionalProperties, "failureReason")
 		delete(additionalProperties, "fulfillmentState")

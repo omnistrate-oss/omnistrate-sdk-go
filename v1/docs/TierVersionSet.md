@@ -6,8 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AutoApproveSubscription** | Pointer to **bool** | Auto approve subscription or not | [optional] 
 **BaseVersion** | **string** | The base version of the version set. | 
+**CreateBackupSystemWorkflowDisabled** | Pointer to **bool** | Indicates whether the BACKUP system workflow is disabled for this product-tier version after persistent failures. | [optional] 
+**CreateBackupSystemWorkflowDisabledAt** | Pointer to **time.Time** | The timestamp when the BACKUP system workflow was disabled for this product-tier version. | [optional] 
 **CreatedAt** | **string** | The timestamp when the version set was created. | 
 **CreatedBy** | Pointer to **string** | The name of the user who created the version set. | [optional] 
+**DeleteBackupSystemWorkflowDisabled** | Pointer to **bool** | Indicates whether the DELETE_BACKUP system workflow is disabled for this product-tier version after persistent failures. | [optional] 
+**DeleteBackupSystemWorkflowDisabledAt** | Pointer to **time.Time** | The timestamp when the DELETE_BACKUP system workflow was disabled for this product-tier version. | [optional] 
 **DeploymentArtifactsVersionedMetadata** | Pointer to [**[]DeploymentArtifactVersionedMetadata**](DeploymentArtifactVersionedMetadata.md) | List of deployment artifact metadata for each version of the deployment artifacts associated with this tier version set. | [optional] 
 **Description** | Pointer to **string** | A brief description of the product-tier version set. | [optional] 
 **EnabledFeatures** | [**[]ProductTierFeatureDetail**](ProductTierFeatureDetail.md) | The features that are enabled for this product tier, including scope details and configuration | 
@@ -92,6 +96,56 @@ and a boolean to check if the value has been set.
 SetBaseVersion sets BaseVersion field to given value.
 
 
+### GetCreateBackupSystemWorkflowDisabled
+
+`func (o *TierVersionSet) GetCreateBackupSystemWorkflowDisabled() bool`
+
+GetCreateBackupSystemWorkflowDisabled returns the CreateBackupSystemWorkflowDisabled field if non-nil, zero value otherwise.
+
+### GetCreateBackupSystemWorkflowDisabledOk
+
+`func (o *TierVersionSet) GetCreateBackupSystemWorkflowDisabledOk() (*bool, bool)`
+
+GetCreateBackupSystemWorkflowDisabledOk returns a tuple with the CreateBackupSystemWorkflowDisabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreateBackupSystemWorkflowDisabled
+
+`func (o *TierVersionSet) SetCreateBackupSystemWorkflowDisabled(v bool)`
+
+SetCreateBackupSystemWorkflowDisabled sets CreateBackupSystemWorkflowDisabled field to given value.
+
+### HasCreateBackupSystemWorkflowDisabled
+
+`func (o *TierVersionSet) HasCreateBackupSystemWorkflowDisabled() bool`
+
+HasCreateBackupSystemWorkflowDisabled returns a boolean if a field has been set.
+
+### GetCreateBackupSystemWorkflowDisabledAt
+
+`func (o *TierVersionSet) GetCreateBackupSystemWorkflowDisabledAt() time.Time`
+
+GetCreateBackupSystemWorkflowDisabledAt returns the CreateBackupSystemWorkflowDisabledAt field if non-nil, zero value otherwise.
+
+### GetCreateBackupSystemWorkflowDisabledAtOk
+
+`func (o *TierVersionSet) GetCreateBackupSystemWorkflowDisabledAtOk() (*time.Time, bool)`
+
+GetCreateBackupSystemWorkflowDisabledAtOk returns a tuple with the CreateBackupSystemWorkflowDisabledAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreateBackupSystemWorkflowDisabledAt
+
+`func (o *TierVersionSet) SetCreateBackupSystemWorkflowDisabledAt(v time.Time)`
+
+SetCreateBackupSystemWorkflowDisabledAt sets CreateBackupSystemWorkflowDisabledAt field to given value.
+
+### HasCreateBackupSystemWorkflowDisabledAt
+
+`func (o *TierVersionSet) HasCreateBackupSystemWorkflowDisabledAt() bool`
+
+HasCreateBackupSystemWorkflowDisabledAt returns a boolean if a field has been set.
+
 ### GetCreatedAt
 
 `func (o *TierVersionSet) GetCreatedAt() string`
@@ -136,6 +190,56 @@ SetCreatedBy sets CreatedBy field to given value.
 `func (o *TierVersionSet) HasCreatedBy() bool`
 
 HasCreatedBy returns a boolean if a field has been set.
+
+### GetDeleteBackupSystemWorkflowDisabled
+
+`func (o *TierVersionSet) GetDeleteBackupSystemWorkflowDisabled() bool`
+
+GetDeleteBackupSystemWorkflowDisabled returns the DeleteBackupSystemWorkflowDisabled field if non-nil, zero value otherwise.
+
+### GetDeleteBackupSystemWorkflowDisabledOk
+
+`func (o *TierVersionSet) GetDeleteBackupSystemWorkflowDisabledOk() (*bool, bool)`
+
+GetDeleteBackupSystemWorkflowDisabledOk returns a tuple with the DeleteBackupSystemWorkflowDisabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeleteBackupSystemWorkflowDisabled
+
+`func (o *TierVersionSet) SetDeleteBackupSystemWorkflowDisabled(v bool)`
+
+SetDeleteBackupSystemWorkflowDisabled sets DeleteBackupSystemWorkflowDisabled field to given value.
+
+### HasDeleteBackupSystemWorkflowDisabled
+
+`func (o *TierVersionSet) HasDeleteBackupSystemWorkflowDisabled() bool`
+
+HasDeleteBackupSystemWorkflowDisabled returns a boolean if a field has been set.
+
+### GetDeleteBackupSystemWorkflowDisabledAt
+
+`func (o *TierVersionSet) GetDeleteBackupSystemWorkflowDisabledAt() time.Time`
+
+GetDeleteBackupSystemWorkflowDisabledAt returns the DeleteBackupSystemWorkflowDisabledAt field if non-nil, zero value otherwise.
+
+### GetDeleteBackupSystemWorkflowDisabledAtOk
+
+`func (o *TierVersionSet) GetDeleteBackupSystemWorkflowDisabledAtOk() (*time.Time, bool)`
+
+GetDeleteBackupSystemWorkflowDisabledAtOk returns a tuple with the DeleteBackupSystemWorkflowDisabledAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeleteBackupSystemWorkflowDisabledAt
+
+`func (o *TierVersionSet) SetDeleteBackupSystemWorkflowDisabledAt(v time.Time)`
+
+SetDeleteBackupSystemWorkflowDisabledAt sets DeleteBackupSystemWorkflowDisabledAt field to given value.
+
+### HasDeleteBackupSystemWorkflowDisabledAt
+
+`func (o *TierVersionSet) HasDeleteBackupSystemWorkflowDisabledAt() bool`
+
+HasDeleteBackupSystemWorkflowDisabledAt returns a boolean if a field has been set.
 
 ### GetDeploymentArtifactsVersionedMetadata
 

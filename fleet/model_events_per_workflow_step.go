@@ -20,6 +20,7 @@ var _ MappedNullable = &EventsPerWorkflowStep{}
 
 // EventsPerWorkflowStep struct for EventsPerWorkflowStep
 type EventsPerWorkflowStep struct {
+	CheckpointSummary *DeploymentCheckpointSummary `json:"checkpointSummary,omitempty"`
 	// List of events for the step
 	Events []WorkflowEvent `json:"events"`
 	// The name of the workflow step. This is an open string: in addition to the built-in deployment steps (Bootstrap, Compute, Network, Storage, Deployment, Monitoring), authored DAG task names (e.g. applykafka) are valid values for custom and operator workflows.
@@ -46,6 +47,38 @@ func NewEventsPerWorkflowStep(events []WorkflowEvent, stepName string) *EventsPe
 func NewEventsPerWorkflowStepWithDefaults() *EventsPerWorkflowStep {
 	this := EventsPerWorkflowStep{}
 	return &this
+}
+
+// GetCheckpointSummary returns the CheckpointSummary field value if set, zero value otherwise.
+func (o *EventsPerWorkflowStep) GetCheckpointSummary() DeploymentCheckpointSummary {
+	if o == nil || IsNil(o.CheckpointSummary) {
+		var ret DeploymentCheckpointSummary
+		return ret
+	}
+	return *o.CheckpointSummary
+}
+
+// GetCheckpointSummaryOk returns a tuple with the CheckpointSummary field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EventsPerWorkflowStep) GetCheckpointSummaryOk() (*DeploymentCheckpointSummary, bool) {
+	if o == nil || IsNil(o.CheckpointSummary) {
+		return nil, false
+	}
+	return o.CheckpointSummary, true
+}
+
+// HasCheckpointSummary returns a boolean if a field has been set.
+func (o *EventsPerWorkflowStep) HasCheckpointSummary() bool {
+	if o != nil && !IsNil(o.CheckpointSummary) {
+		return true
+	}
+
+	return false
+}
+
+// SetCheckpointSummary gets a reference to the given DeploymentCheckpointSummary and assigns it to the CheckpointSummary field.
+func (o *EventsPerWorkflowStep) SetCheckpointSummary(v DeploymentCheckpointSummary) {
+	o.CheckpointSummary = &v
 }
 
 // GetEvents returns the Events field value
@@ -106,6 +139,9 @@ func (o EventsPerWorkflowStep) MarshalJSON() ([]byte, error) {
 
 func (o EventsPerWorkflowStep) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CheckpointSummary) {
+		toSerialize["checkpointSummary"] = o.CheckpointSummary
+	}
 	toSerialize["events"] = o.Events
 	toSerialize["stepName"] = o.StepName
 
@@ -152,6 +188,7 @@ func (o *EventsPerWorkflowStep) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "checkpointSummary")
 		delete(additionalProperties, "events")
 		delete(additionalProperties, "stepName")
 		o.AdditionalProperties = additionalProperties

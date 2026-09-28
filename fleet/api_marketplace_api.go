@@ -186,6 +186,19 @@ type MarketplaceApiAPI interface {
 	MarketplaceApiListSandboxUsageReportsExecute(r ApiMarketplaceApiListSandboxUsageReportsRequest) (*ListSandboxUsageReportsResult, *http.Response, error)
 
 	/*
+	MarketplaceApiListSubscriptionUsageReportingAttempts ListSubscriptionUsageReportingAttempts marketplace-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param subscriptionId The Omnistrate subscription identifier
+	@return ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest
+	*/
+	MarketplaceApiListSubscriptionUsageReportingAttempts(ctx context.Context, subscriptionId string) ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest
+
+	// MarketplaceApiListSubscriptionUsageReportingAttemptsExecute executes the request
+	//  @return ListSubscriptionUsageReportingAttemptsResult
+	MarketplaceApiListSubscriptionUsageReportingAttemptsExecute(r ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest) (*ListSubscriptionUsageReportingAttemptsResult, *http.Response, error)
+
+	/*
 	MarketplaceApiMarketplaceChannelWebhook MarketplaceChannelWebhook marketplace-api
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2419,6 +2432,238 @@ func (a *MarketplaceApiAPIService) MarketplaceApiListSandboxUsageReportsExecute(
 	}
 	if r.windowStartTo != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "windowStartTo", r.windowStartTo, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest struct {
+	ctx context.Context
+	ApiService MarketplaceApiAPI
+	subscriptionId string
+	usageReportRecordId *string
+	billingChannel *string
+	status *string
+	dimension *string
+	failuresOnly *bool
+	attemptedAtFrom *time.Time
+	attemptedAtTo *time.Time
+	limit *int64
+}
+
+// Filter to one usage report idempotency key
+func (r ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest) UsageReportRecordId(usageReportRecordId string) ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest {
+	r.usageReportRecordId = &usageReportRecordId
+	return r
+}
+
+// Filter to one downstream billing channel
+func (r ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest) BillingChannel(billingChannel string) ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest {
+	r.billingChannel = &billingChannel
+	return r
+}
+
+func (r ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest) Status(status string) ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest {
+	r.status = &status
+	return r
+}
+
+func (r ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest) Dimension(dimension string) ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest {
+	r.dimension = &dimension
+	return r
+}
+
+func (r ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest) FailuresOnly(failuresOnly bool) ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest {
+	r.failuresOnly = &failuresOnly
+	return r
+}
+
+// Only attempts at or after this RFC3339 instant. Defaults to seven days ago
+func (r ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest) AttemptedAtFrom(attemptedAtFrom time.Time) ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest {
+	r.attemptedAtFrom = &attemptedAtFrom
+	return r
+}
+
+// Only attempts at or before this RFC3339 instant. Defaults to now
+func (r ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest) AttemptedAtTo(attemptedAtTo time.Time) ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest {
+	r.attemptedAtTo = &attemptedAtTo
+	return r
+}
+
+// Maximum attempts returned
+func (r ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest) Limit(limit int64) ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest {
+	r.limit = &limit
+	return r
+}
+
+func (r ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest) Execute() (*ListSubscriptionUsageReportingAttemptsResult, *http.Response, error) {
+	return r.ApiService.MarketplaceApiListSubscriptionUsageReportingAttemptsExecute(r)
+}
+
+/*
+MarketplaceApiListSubscriptionUsageReportingAttempts ListSubscriptionUsageReportingAttempts marketplace-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param subscriptionId The Omnistrate subscription identifier
+ @return ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest
+*/
+func (a *MarketplaceApiAPIService) MarketplaceApiListSubscriptionUsageReportingAttempts(ctx context.Context, subscriptionId string) ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest {
+	return ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest{
+		ApiService: a,
+		ctx: ctx,
+		subscriptionId: subscriptionId,
+	}
+}
+
+// Execute executes the request
+//  @return ListSubscriptionUsageReportingAttemptsResult
+func (a *MarketplaceApiAPIService) MarketplaceApiListSubscriptionUsageReportingAttemptsExecute(r ApiMarketplaceApiListSubscriptionUsageReportingAttemptsRequest) (*ListSubscriptionUsageReportingAttemptsResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListSubscriptionUsageReportingAttemptsResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketplaceApiAPIService.MarketplaceApiListSubscriptionUsageReportingAttempts")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/fleet/subscription/{subscriptionId}/usage-reporting/attempts"
+	localVarPath = strings.Replace(localVarPath, "{"+"subscriptionId"+"}", url.PathEscape(parameterValueToString(r.subscriptionId, "subscriptionId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.usageReportRecordId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "usageReportRecordId", r.usageReportRecordId, "form", "")
+	}
+	if r.billingChannel != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "billingChannel", r.billingChannel, "form", "")
+	}
+	if r.status != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "status", r.status, "form", "")
+	}
+	if r.dimension != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "dimension", r.dimension, "form", "")
+	}
+	if r.failuresOnly != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "failuresOnly", r.failuresOnly, "form", "")
+	}
+	if r.attemptedAtFrom != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "attemptedAtFrom", r.attemptedAtFrom, "form", "")
+	}
+	if r.attemptedAtTo != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "attemptedAtTo", r.attemptedAtTo, "form", "")
+	}
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

@@ -24,7 +24,7 @@ type ManagedWorkloadIdentityStatus struct {
 	CloudIdentifier *string `json:"cloudIdentifier,omitempty"`
 	// The managed workload identity name
 	Name string `json:"name"`
-	// The current status of this managed workload identity
+	// The status of a managed workload identity on an account configuration
 	Status string `json:"status"`
 	AdditionalProperties map[string]interface{}
 }

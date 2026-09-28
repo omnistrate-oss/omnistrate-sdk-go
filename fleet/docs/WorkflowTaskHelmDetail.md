@@ -4,7 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ActiveHook** | Pointer to **string** | The Helm hook currently executing, when one is. Complements failedHook, which describes a hook that already failed. | [optional] 
 **FailedHook** | Pointer to **string** | The Helm hook that failed, when applicable. | [optional] 
+**FirstDeployedAt** | Pointer to **string** | The time the release was first deployed, in RFC3339 format, as recorded on the release. Observed evidence for the preparation checkpoint; absent when not recorded. | [optional] 
+**HookPhase** | Pointer to **string** | The execution phase of activeHook as recorded on the release: Unknown|Running|Succeeded|Failed. A hook that reads Running with a hookStartedAt well in the past and a terminal release status indicates the process died before recording the hook&#39;s terminal phase; it is not evidence that the hook is still executing. | [optional] 
+**HookStartedAt** | Pointer to **string** | The recorded start time of activeHook, in RFC3339 format. Absent when the release carries no start evidence for the hook; an absent time is never replaced by the current poll time or by an epoch value. | [optional] 
+**LastDeployedAt** | Pointer to **string** | The time the release was last deployed, in RFC3339 format, as recorded on the release. Absent when not recorded. | [optional] 
 **PendingResources** | Pointer to **[]string** | The resources from the release that are still pending. | [optional] 
 **Phase** | Pointer to **string** | The Helm release phase. | [optional] 
 **Release** | Pointer to **string** | The Helm release name. | [optional] 
@@ -28,6 +33,31 @@ will change when the set of required properties is changed
 NewWorkflowTaskHelmDetailWithDefaults instantiates a new WorkflowTaskHelmDetail object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetActiveHook
+
+`func (o *WorkflowTaskHelmDetail) GetActiveHook() string`
+
+GetActiveHook returns the ActiveHook field if non-nil, zero value otherwise.
+
+### GetActiveHookOk
+
+`func (o *WorkflowTaskHelmDetail) GetActiveHookOk() (*string, bool)`
+
+GetActiveHookOk returns a tuple with the ActiveHook field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActiveHook
+
+`func (o *WorkflowTaskHelmDetail) SetActiveHook(v string)`
+
+SetActiveHook sets ActiveHook field to given value.
+
+### HasActiveHook
+
+`func (o *WorkflowTaskHelmDetail) HasActiveHook() bool`
+
+HasActiveHook returns a boolean if a field has been set.
 
 ### GetFailedHook
 
@@ -53,6 +83,106 @@ SetFailedHook sets FailedHook field to given value.
 `func (o *WorkflowTaskHelmDetail) HasFailedHook() bool`
 
 HasFailedHook returns a boolean if a field has been set.
+
+### GetFirstDeployedAt
+
+`func (o *WorkflowTaskHelmDetail) GetFirstDeployedAt() string`
+
+GetFirstDeployedAt returns the FirstDeployedAt field if non-nil, zero value otherwise.
+
+### GetFirstDeployedAtOk
+
+`func (o *WorkflowTaskHelmDetail) GetFirstDeployedAtOk() (*string, bool)`
+
+GetFirstDeployedAtOk returns a tuple with the FirstDeployedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFirstDeployedAt
+
+`func (o *WorkflowTaskHelmDetail) SetFirstDeployedAt(v string)`
+
+SetFirstDeployedAt sets FirstDeployedAt field to given value.
+
+### HasFirstDeployedAt
+
+`func (o *WorkflowTaskHelmDetail) HasFirstDeployedAt() bool`
+
+HasFirstDeployedAt returns a boolean if a field has been set.
+
+### GetHookPhase
+
+`func (o *WorkflowTaskHelmDetail) GetHookPhase() string`
+
+GetHookPhase returns the HookPhase field if non-nil, zero value otherwise.
+
+### GetHookPhaseOk
+
+`func (o *WorkflowTaskHelmDetail) GetHookPhaseOk() (*string, bool)`
+
+GetHookPhaseOk returns a tuple with the HookPhase field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHookPhase
+
+`func (o *WorkflowTaskHelmDetail) SetHookPhase(v string)`
+
+SetHookPhase sets HookPhase field to given value.
+
+### HasHookPhase
+
+`func (o *WorkflowTaskHelmDetail) HasHookPhase() bool`
+
+HasHookPhase returns a boolean if a field has been set.
+
+### GetHookStartedAt
+
+`func (o *WorkflowTaskHelmDetail) GetHookStartedAt() string`
+
+GetHookStartedAt returns the HookStartedAt field if non-nil, zero value otherwise.
+
+### GetHookStartedAtOk
+
+`func (o *WorkflowTaskHelmDetail) GetHookStartedAtOk() (*string, bool)`
+
+GetHookStartedAtOk returns a tuple with the HookStartedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHookStartedAt
+
+`func (o *WorkflowTaskHelmDetail) SetHookStartedAt(v string)`
+
+SetHookStartedAt sets HookStartedAt field to given value.
+
+### HasHookStartedAt
+
+`func (o *WorkflowTaskHelmDetail) HasHookStartedAt() bool`
+
+HasHookStartedAt returns a boolean if a field has been set.
+
+### GetLastDeployedAt
+
+`func (o *WorkflowTaskHelmDetail) GetLastDeployedAt() string`
+
+GetLastDeployedAt returns the LastDeployedAt field if non-nil, zero value otherwise.
+
+### GetLastDeployedAtOk
+
+`func (o *WorkflowTaskHelmDetail) GetLastDeployedAtOk() (*string, bool)`
+
+GetLastDeployedAtOk returns a tuple with the LastDeployedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastDeployedAt
+
+`func (o *WorkflowTaskHelmDetail) SetLastDeployedAt(v string)`
+
+SetLastDeployedAt sets LastDeployedAt field to given value.
+
+### HasLastDeployedAt
+
+`func (o *WorkflowTaskHelmDetail) HasLastDeployedAt() bool`
+
+HasLastDeployedAt returns a boolean if a field has been set.
 
 ### GetPendingResources
 
