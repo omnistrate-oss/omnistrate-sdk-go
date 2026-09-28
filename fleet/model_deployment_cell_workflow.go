@@ -36,6 +36,7 @@ type DeploymentCellWorkflow struct {
 	GcpProjectID *string `json:"gcpProjectID,omitempty"`
 	// ID of the Host Cluster
 	HostClusterID string `json:"hostClusterID"`
+	ManagedArtifactSync *ManagedArtifactSyncWorkflowDetail `json:"managedArtifactSync,omitempty"`
 	// The Tenancy OCID for Oracle Cloud Infrastructure
 	OciTenancyID *string `json:"ociTenancyID,omitempty"`
 	// The name of the deployment cell owner organization.
@@ -321,6 +322,38 @@ func (o *DeploymentCellWorkflow) SetHostClusterID(v string) {
 	o.HostClusterID = v
 }
 
+// GetManagedArtifactSync returns the ManagedArtifactSync field value if set, zero value otherwise.
+func (o *DeploymentCellWorkflow) GetManagedArtifactSync() ManagedArtifactSyncWorkflowDetail {
+	if o == nil || IsNil(o.ManagedArtifactSync) {
+		var ret ManagedArtifactSyncWorkflowDetail
+		return ret
+	}
+	return *o.ManagedArtifactSync
+}
+
+// GetManagedArtifactSyncOk returns a tuple with the ManagedArtifactSync field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellWorkflow) GetManagedArtifactSyncOk() (*ManagedArtifactSyncWorkflowDetail, bool) {
+	if o == nil || IsNil(o.ManagedArtifactSync) {
+		return nil, false
+	}
+	return o.ManagedArtifactSync, true
+}
+
+// HasManagedArtifactSync returns a boolean if a field has been set.
+func (o *DeploymentCellWorkflow) HasManagedArtifactSync() bool {
+	if o != nil && !IsNil(o.ManagedArtifactSync) {
+		return true
+	}
+
+	return false
+}
+
+// SetManagedArtifactSync gets a reference to the given ManagedArtifactSyncWorkflowDetail and assigns it to the ManagedArtifactSync field.
+func (o *DeploymentCellWorkflow) SetManagedArtifactSync(v ManagedArtifactSyncWorkflowDetail) {
+	o.ManagedArtifactSync = &v
+}
+
 // GetOciTenancyID returns the OciTenancyID field value if set, zero value otherwise.
 func (o *DeploymentCellWorkflow) GetOciTenancyID() string {
 	if o == nil || IsNil(o.OciTenancyID) {
@@ -567,6 +600,9 @@ func (o DeploymentCellWorkflow) ToMap() (map[string]interface{}, error) {
 		toSerialize["gcpProjectID"] = o.GcpProjectID
 	}
 	toSerialize["hostClusterID"] = o.HostClusterID
+	if !IsNil(o.ManagedArtifactSync) {
+		toSerialize["managedArtifactSync"] = o.ManagedArtifactSync
+	}
 	if !IsNil(o.OciTenancyID) {
 		toSerialize["ociTenancyID"] = o.OciTenancyID
 	}
@@ -638,6 +674,7 @@ func (o *DeploymentCellWorkflow) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "endTime")
 		delete(additionalProperties, "gcpProjectID")
 		delete(additionalProperties, "hostClusterID")
+		delete(additionalProperties, "managedArtifactSync")
 		delete(additionalProperties, "ociTenancyID")
 		delete(additionalProperties, "orgName")
 		delete(additionalProperties, "parentId")

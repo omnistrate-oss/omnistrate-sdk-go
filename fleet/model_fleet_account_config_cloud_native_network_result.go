@@ -29,6 +29,8 @@ type FleetAccountConfigCloudNativeNetworkResult struct {
 	CloudNativeNetworkId string `json:"cloudNativeNetworkId"`
 	// When this cloud native network was registered
 	CreatedAt time.Time `json:"createdAt"`
+	// Whether the cloud network itself was created by Omnistrate. Independent of whether it is imported for deployments.
+	CreatedByOmnistrate *bool `json:"createdByOmnistrate,omitempty"`
 	// Host clusters discovered within this cloud native network
 	HostClusters []FleetAccountConfigCloudNativeNetworkHostClusterResult `json:"hostClusters,omitempty"`
 	// Internal cloud native network registration ID
@@ -186,6 +188,38 @@ func (o *FleetAccountConfigCloudNativeNetworkResult) GetCreatedAtOk() (*time.Tim
 // SetCreatedAt sets field value
 func (o *FleetAccountConfigCloudNativeNetworkResult) SetCreatedAt(v time.Time) {
 	o.CreatedAt = v
+}
+
+// GetCreatedByOmnistrate returns the CreatedByOmnistrate field value if set, zero value otherwise.
+func (o *FleetAccountConfigCloudNativeNetworkResult) GetCreatedByOmnistrate() bool {
+	if o == nil || IsNil(o.CreatedByOmnistrate) {
+		var ret bool
+		return ret
+	}
+	return *o.CreatedByOmnistrate
+}
+
+// GetCreatedByOmnistrateOk returns a tuple with the CreatedByOmnistrate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAccountConfigCloudNativeNetworkResult) GetCreatedByOmnistrateOk() (*bool, bool) {
+	if o == nil || IsNil(o.CreatedByOmnistrate) {
+		return nil, false
+	}
+	return o.CreatedByOmnistrate, true
+}
+
+// HasCreatedByOmnistrate returns a boolean if a field has been set.
+func (o *FleetAccountConfigCloudNativeNetworkResult) HasCreatedByOmnistrate() bool {
+	if o != nil && !IsNil(o.CreatedByOmnistrate) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedByOmnistrate gets a reference to the given bool and assigns it to the CreatedByOmnistrate field.
+func (o *FleetAccountConfigCloudNativeNetworkResult) SetCreatedByOmnistrate(v bool) {
+	o.CreatedByOmnistrate = &v
 }
 
 // GetHostClusters returns the HostClusters field value if set, zero value otherwise.
@@ -588,6 +622,9 @@ func (o FleetAccountConfigCloudNativeNetworkResult) ToMap() (map[string]interfac
 	}
 	toSerialize["cloudNativeNetworkId"] = o.CloudNativeNetworkId
 	toSerialize["createdAt"] = o.CreatedAt
+	if !IsNil(o.CreatedByOmnistrate) {
+		toSerialize["createdByOmnistrate"] = o.CreatedByOmnistrate
+	}
 	if !IsNil(o.HostClusters) {
 		toSerialize["hostClusters"] = o.HostClusters
 	}
@@ -672,6 +709,7 @@ func (o *FleetAccountConfigCloudNativeNetworkResult) UnmarshalJSON(data []byte) 
 		delete(additionalProperties, "cidr")
 		delete(additionalProperties, "cloudNativeNetworkId")
 		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "createdByOmnistrate")
 		delete(additionalProperties, "hostClusters")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "imported")

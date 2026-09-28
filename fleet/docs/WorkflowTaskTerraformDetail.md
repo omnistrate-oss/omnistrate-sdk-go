@@ -5,10 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FailedAddress** | Pointer to **string** | The Terraform resource address that failed, when applicable. | [optional] 
+**Operation** | Pointer to **string** | The explicit Terraform CLI action this detail describes: init|plan|apply|output|destroy. Consumers must not infer the action from phase or from resource state: without this field a destroy is indistinguishable from an apply, and destroy progress must be suppressed rather than rendered when it is absent. | [optional] 
 **Phase** | Pointer to **string** | The Terraform phase, e.g. plan, apply. | [optional] 
 **PlanAdd** | Pointer to **int64** | The number of resources to add in the current plan. | [optional] 
 **PlanChange** | Pointer to **int64** | The number of resources to change in the current plan. | [optional] 
 **PlanDestroy** | Pointer to **int64** | The number of resources to destroy in the current plan. | [optional] 
+**PlanSummaryUnknown** | Pointer to **bool** | True when no plan was observed for this operation, so planAdd, planChange and planDestroy are unknown rather than zero. Consumers must render an indeterminate plan summary and must not treat the absent counts as &#39;nothing to do&#39;. | [optional] 
 **StateLocked** | Pointer to **bool** | Whether the Terraform state is currently locked. | [optional] 
 
 ## Methods
@@ -54,6 +56,31 @@ SetFailedAddress sets FailedAddress field to given value.
 `func (o *WorkflowTaskTerraformDetail) HasFailedAddress() bool`
 
 HasFailedAddress returns a boolean if a field has been set.
+
+### GetOperation
+
+`func (o *WorkflowTaskTerraformDetail) GetOperation() string`
+
+GetOperation returns the Operation field if non-nil, zero value otherwise.
+
+### GetOperationOk
+
+`func (o *WorkflowTaskTerraformDetail) GetOperationOk() (*string, bool)`
+
+GetOperationOk returns a tuple with the Operation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperation
+
+`func (o *WorkflowTaskTerraformDetail) SetOperation(v string)`
+
+SetOperation sets Operation field to given value.
+
+### HasOperation
+
+`func (o *WorkflowTaskTerraformDetail) HasOperation() bool`
+
+HasOperation returns a boolean if a field has been set.
 
 ### GetPhase
 
@@ -154,6 +181,31 @@ SetPlanDestroy sets PlanDestroy field to given value.
 `func (o *WorkflowTaskTerraformDetail) HasPlanDestroy() bool`
 
 HasPlanDestroy returns a boolean if a field has been set.
+
+### GetPlanSummaryUnknown
+
+`func (o *WorkflowTaskTerraformDetail) GetPlanSummaryUnknown() bool`
+
+GetPlanSummaryUnknown returns the PlanSummaryUnknown field if non-nil, zero value otherwise.
+
+### GetPlanSummaryUnknownOk
+
+`func (o *WorkflowTaskTerraformDetail) GetPlanSummaryUnknownOk() (*bool, bool)`
+
+GetPlanSummaryUnknownOk returns a tuple with the PlanSummaryUnknown field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPlanSummaryUnknown
+
+`func (o *WorkflowTaskTerraformDetail) SetPlanSummaryUnknown(v bool)`
+
+SetPlanSummaryUnknown sets PlanSummaryUnknown field to given value.
+
+### HasPlanSummaryUnknown
+
+`func (o *WorkflowTaskTerraformDetail) HasPlanSummaryUnknown() bool`
+
+HasPlanSummaryUnknown returns a boolean if a field has been set.
 
 ### GetStateLocked
 

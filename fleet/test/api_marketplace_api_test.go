@@ -191,6 +191,20 @@ func Test_fleet_MarketplaceApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test MarketplaceApiAPIService MarketplaceApiListSubscriptionUsageReportingAttempts", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var subscriptionId string
+
+		resp, httpRes, err := apiClient.MarketplaceApiAPI.MarketplaceApiListSubscriptionUsageReportingAttempts(context.Background(), subscriptionId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test MarketplaceApiAPIService MarketplaceApiMarketplaceChannelWebhook", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

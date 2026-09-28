@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Channel** | **string** | Which marketplace channel a contract came from. SUGER reaches AWS, Azure and GCP buyers through one listing. SANDBOX is the simulated channel, and is a real member of this set rather than a test mode | 
 **ContractCount** | Pointer to **int64** | Real contracts. Simulated ones are counted separately and are excluded from every revenue rollup | [optional] 
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
+**CredentialFieldsSet** | Pointer to **[]string** | Which credential fields have a stored value, by KEY NAME and never by value. A form editing a channel cannot otherwise tell a box it may leave blank from one it has to fill, because credentials are write only and every box renders empty. Sorted, so two reads can be compared. The keys are readable for exactly this reason: an operator can see that a clientSecret is configured while nothing can decrypt it | [optional] 
 **CredentialsSet** | **bool** | Whether a credential is stored, without saying what it is. The only thing a read is entitled to know about a secret | 
 **DefaultProductTierId** | Pointer to **string** | Where a purchase lands when the channel reports a plan that planMap does not name | [optional] 
 **DefaultServiceEnvironmentId** | Pointer to **string** |  | [optional] 
@@ -187,6 +188,31 @@ SetCreatedAt sets CreatedAt field to given value.
 `func (o *MarketplaceChannelConfig) HasCreatedAt() bool`
 
 HasCreatedAt returns a boolean if a field has been set.
+
+### GetCredentialFieldsSet
+
+`func (o *MarketplaceChannelConfig) GetCredentialFieldsSet() []string`
+
+GetCredentialFieldsSet returns the CredentialFieldsSet field if non-nil, zero value otherwise.
+
+### GetCredentialFieldsSetOk
+
+`func (o *MarketplaceChannelConfig) GetCredentialFieldsSetOk() (*[]string, bool)`
+
+GetCredentialFieldsSetOk returns a tuple with the CredentialFieldsSet field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCredentialFieldsSet
+
+`func (o *MarketplaceChannelConfig) SetCredentialFieldsSet(v []string)`
+
+SetCredentialFieldsSet sets CredentialFieldsSet field to given value.
+
+### HasCredentialFieldsSet
+
+`func (o *MarketplaceChannelConfig) HasCredentialFieldsSet() bool`
+
+HasCredentialFieldsSet returns a boolean if a field has been set.
 
 ### GetCredentialsSet
 

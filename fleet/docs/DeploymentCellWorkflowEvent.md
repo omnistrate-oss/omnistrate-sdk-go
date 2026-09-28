@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | Pointer to **string** | The action the task performed, e.g. apply|patch|delete|get (CRD), install|upgrade (helm). | [optional] 
 **AttemptCount** | Pointer to **int64** | Consecutive attempts observed for this task, when the event corresponds to a retrying task. | [optional] 
+**Checkpoint** | Pointer to [**DeploymentCheckpoint**](DeploymentCheckpoint.md) |  | [optional] 
 **DisplayMessage** | Pointer to **string** | A concise human-readable summary derived from the error code, when present. | [optional] 
 **Error** | Pointer to **string** | The error message if the event represents a failure | [optional] 
 **ErrorCode** | Pointer to **string** | Stable error code from the workflow error taxonomy, present on failure events | [optional] 
@@ -14,11 +15,14 @@ Name | Type | Description | Notes
 **FirstSeenAt** | Pointer to **string** | When this error signature was first observed for the current task attempt, RFC3339. | [optional] 
 **GateExpression** | Pointer to **string** | The success condition gating task completion, when present. | [optional] 
 **GateLastObserved** | Pointer to **string** | The last observed value of the gate expression. | [optional] 
+**HelmDetail** | Pointer to [**WorkflowTaskHelmDetail**](WorkflowTaskHelmDetail.md) |  | [optional] 
 **InfraDetail** | Pointer to [**WorkflowTaskInfraDetail**](WorkflowTaskInfraDetail.md) |  | [optional] 
+**ManagedArtifactSyncDetail** | Pointer to [**DeploymentCellManagedArtifactSyncEventDetail**](DeploymentCellManagedArtifactSyncEventDetail.md) |  | [optional] 
 **Message** | **string** | The event message | 
 **NextRetryAt** | Pointer to **string** | The time of the next scheduled retry, RFC3339, when the task is awaiting retry. | [optional] 
 **ResourceType** | Pointer to **string** | operatorCRD|genericCRD|helm|terraform|workload|cloudInfra|job|infraStack, when the event corresponds to a task. | [optional] 
 **State** | Pointer to **string** | Live task lifecycle state for step/task events: Pending|Applying|AwaitingCondition|DriftMismatch|Failed|Succeeded. | [optional] 
+**TerraformDetail** | Pointer to [**WorkflowTaskTerraformDetail**](WorkflowTaskTerraformDetail.md) |  | [optional] 
 **WorkloadDetail** | Pointer to [**WorkflowTaskWorkloadDetail**](WorkflowTaskWorkloadDetail.md) |  | [optional] 
 
 ## Methods
@@ -89,6 +93,31 @@ SetAttemptCount sets AttemptCount field to given value.
 `func (o *DeploymentCellWorkflowEvent) HasAttemptCount() bool`
 
 HasAttemptCount returns a boolean if a field has been set.
+
+### GetCheckpoint
+
+`func (o *DeploymentCellWorkflowEvent) GetCheckpoint() DeploymentCheckpoint`
+
+GetCheckpoint returns the Checkpoint field if non-nil, zero value otherwise.
+
+### GetCheckpointOk
+
+`func (o *DeploymentCellWorkflowEvent) GetCheckpointOk() (*DeploymentCheckpoint, bool)`
+
+GetCheckpointOk returns a tuple with the Checkpoint field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCheckpoint
+
+`func (o *DeploymentCellWorkflowEvent) SetCheckpoint(v DeploymentCheckpoint)`
+
+SetCheckpoint sets Checkpoint field to given value.
+
+### HasCheckpoint
+
+`func (o *DeploymentCellWorkflowEvent) HasCheckpoint() bool`
+
+HasCheckpoint returns a boolean if a field has been set.
 
 ### GetDisplayMessage
 
@@ -280,6 +309,31 @@ SetGateLastObserved sets GateLastObserved field to given value.
 
 HasGateLastObserved returns a boolean if a field has been set.
 
+### GetHelmDetail
+
+`func (o *DeploymentCellWorkflowEvent) GetHelmDetail() WorkflowTaskHelmDetail`
+
+GetHelmDetail returns the HelmDetail field if non-nil, zero value otherwise.
+
+### GetHelmDetailOk
+
+`func (o *DeploymentCellWorkflowEvent) GetHelmDetailOk() (*WorkflowTaskHelmDetail, bool)`
+
+GetHelmDetailOk returns a tuple with the HelmDetail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHelmDetail
+
+`func (o *DeploymentCellWorkflowEvent) SetHelmDetail(v WorkflowTaskHelmDetail)`
+
+SetHelmDetail sets HelmDetail field to given value.
+
+### HasHelmDetail
+
+`func (o *DeploymentCellWorkflowEvent) HasHelmDetail() bool`
+
+HasHelmDetail returns a boolean if a field has been set.
+
 ### GetInfraDetail
 
 `func (o *DeploymentCellWorkflowEvent) GetInfraDetail() WorkflowTaskInfraDetail`
@@ -304,6 +358,31 @@ SetInfraDetail sets InfraDetail field to given value.
 `func (o *DeploymentCellWorkflowEvent) HasInfraDetail() bool`
 
 HasInfraDetail returns a boolean if a field has been set.
+
+### GetManagedArtifactSyncDetail
+
+`func (o *DeploymentCellWorkflowEvent) GetManagedArtifactSyncDetail() DeploymentCellManagedArtifactSyncEventDetail`
+
+GetManagedArtifactSyncDetail returns the ManagedArtifactSyncDetail field if non-nil, zero value otherwise.
+
+### GetManagedArtifactSyncDetailOk
+
+`func (o *DeploymentCellWorkflowEvent) GetManagedArtifactSyncDetailOk() (*DeploymentCellManagedArtifactSyncEventDetail, bool)`
+
+GetManagedArtifactSyncDetailOk returns a tuple with the ManagedArtifactSyncDetail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManagedArtifactSyncDetail
+
+`func (o *DeploymentCellWorkflowEvent) SetManagedArtifactSyncDetail(v DeploymentCellManagedArtifactSyncEventDetail)`
+
+SetManagedArtifactSyncDetail sets ManagedArtifactSyncDetail field to given value.
+
+### HasManagedArtifactSyncDetail
+
+`func (o *DeploymentCellWorkflowEvent) HasManagedArtifactSyncDetail() bool`
+
+HasManagedArtifactSyncDetail returns a boolean if a field has been set.
 
 ### GetMessage
 
@@ -399,6 +478,31 @@ SetState sets State field to given value.
 `func (o *DeploymentCellWorkflowEvent) HasState() bool`
 
 HasState returns a boolean if a field has been set.
+
+### GetTerraformDetail
+
+`func (o *DeploymentCellWorkflowEvent) GetTerraformDetail() WorkflowTaskTerraformDetail`
+
+GetTerraformDetail returns the TerraformDetail field if non-nil, zero value otherwise.
+
+### GetTerraformDetailOk
+
+`func (o *DeploymentCellWorkflowEvent) GetTerraformDetailOk() (*WorkflowTaskTerraformDetail, bool)`
+
+GetTerraformDetailOk returns a tuple with the TerraformDetail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTerraformDetail
+
+`func (o *DeploymentCellWorkflowEvent) SetTerraformDetail(v WorkflowTaskTerraformDetail)`
+
+SetTerraformDetail sets TerraformDetail field to given value.
+
+### HasTerraformDetail
+
+`func (o *DeploymentCellWorkflowEvent) HasTerraformDetail() bool`
+
+HasTerraformDetail returns a boolean if a field has been set.
 
 ### GetWorkloadDetail
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudIdentifier** | Pointer to **string** | The cloud-specific identifier created for this identity (Azure client ID, GCP service account email, or OCI policy OCID) | [optional] 
 **Name** | **string** | The managed workload identity name | 
-**Status** | **string** | The current status of this managed workload identity | 
+**Status** | **string** | The status of a managed workload identity on an account configuration | 
 
 ## Methods
 

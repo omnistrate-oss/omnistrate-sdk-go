@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **ConfiguringCertificateManagementStepStatus** | **string** | Status of the Configuring Certificate Management step | 
 **ConfiguringRoute53HostedZoneStepStatus** | **string** | Status of the Configuring Route53 Hosted Zone step | 
 **InfrastructureStepStatus** | **string** | Status of the Infrastructure step | 
+**ManagedArtifactSyncStepStatus** | Pointer to **string** | Status of the Managed Artifact Sync step, when this is a managed artifact sync workflow | [optional] 
 **Status** | **string** | Status of the Deployment Cell | 
 
 ## Methods
@@ -129,6 +130,31 @@ and a boolean to check if the value has been set.
 
 SetInfrastructureStepStatus sets InfrastructureStepStatus field to given value.
 
+
+### GetManagedArtifactSyncStepStatus
+
+`func (o *DeploymentCellStatus) GetManagedArtifactSyncStepStatus() string`
+
+GetManagedArtifactSyncStepStatus returns the ManagedArtifactSyncStepStatus field if non-nil, zero value otherwise.
+
+### GetManagedArtifactSyncStepStatusOk
+
+`func (o *DeploymentCellStatus) GetManagedArtifactSyncStepStatusOk() (*string, bool)`
+
+GetManagedArtifactSyncStepStatusOk returns a tuple with the ManagedArtifactSyncStepStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManagedArtifactSyncStepStatus
+
+`func (o *DeploymentCellStatus) SetManagedArtifactSyncStepStatus(v string)`
+
+SetManagedArtifactSyncStepStatus sets ManagedArtifactSyncStepStatus field to given value.
+
+### HasManagedArtifactSyncStepStatus
+
+`func (o *DeploymentCellStatus) HasManagedArtifactSyncStepStatus() bool`
+
+HasManagedArtifactSyncStepStatus returns a boolean if a field has been set.
 
 ### GetStatus
 

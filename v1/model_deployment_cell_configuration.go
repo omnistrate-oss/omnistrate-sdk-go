@@ -21,8 +21,8 @@ var _ MappedNullable = &DeploymentCellConfiguration{}
 type DeploymentCellConfiguration struct {
 	// The amenities available in the deployment cell.
 	Amenities []Amenity `json:"Amenities,omitempty"`
-	// Optional immutable managed artifact bundle version for this environment and cloud provider. On update, omit it to leave the selection unchanged or send an empty string to clear the pin; an unpinned template uses the most recently completed READY bundle sync.
-	ManagedReleaseVersion *string `json:"ManagedReleaseVersion,omitempty"`
+	// Optional immutable managed artifact bundle version for this environment and cloud provider. On update, omit it to leave the selection unchanged or send an empty string to clear the pin; an unpinned template uses the READY bundle with the greatest release sequence.
+	ManagedReleaseVersion *string `json:"ManagedReleaseVersion,omitempty" validate:"regexp=^$|^r[0-9]{7,}$"`
 	// The managed workload identities available in the deployment cell.
 	WorkloadIdentities []ManagedWorkloadIdentity `json:"WorkloadIdentities,omitempty"`
 	AdditionalProperties map[string]interface{}

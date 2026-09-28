@@ -12,6 +12,7 @@ package v1
 
 import (
 	"encoding/json"
+	"time"
 	"fmt"
 )
 
@@ -24,10 +25,18 @@ type TierVersionSet struct {
 	AutoApproveSubscription *bool `json:"autoApproveSubscription,omitempty"`
 	// The base version of the version set.
 	BaseVersion string `json:"baseVersion"`
+	// Indicates whether the BACKUP system workflow is disabled for this product-tier version after persistent failures.
+	CreateBackupSystemWorkflowDisabled *bool `json:"createBackupSystemWorkflowDisabled,omitempty"`
+	// The timestamp when the BACKUP system workflow was disabled for this product-tier version.
+	CreateBackupSystemWorkflowDisabledAt *time.Time `json:"createBackupSystemWorkflowDisabledAt,omitempty"`
 	// The timestamp when the version set was created.
 	CreatedAt string `json:"createdAt"`
 	// The name of the user who created the version set.
 	CreatedBy *string `json:"createdBy,omitempty"`
+	// Indicates whether the DELETE_BACKUP system workflow is disabled for this product-tier version after persistent failures.
+	DeleteBackupSystemWorkflowDisabled *bool `json:"deleteBackupSystemWorkflowDisabled,omitempty"`
+	// The timestamp when the DELETE_BACKUP system workflow was disabled for this product-tier version.
+	DeleteBackupSystemWorkflowDisabledAt *time.Time `json:"deleteBackupSystemWorkflowDisabledAt,omitempty"`
 	// List of deployment artifact metadata for each version of the deployment artifacts associated with this tier version set.
 	DeploymentArtifactsVersionedMetadata []DeploymentArtifactVersionedMetadata `json:"deploymentArtifactsVersionedMetadata,omitempty"`
 	// A brief description of the product-tier version set.
@@ -147,6 +156,52 @@ func (o *TierVersionSet) SetBaseVersion(v string) {
 	o.BaseVersion = v
 }
 
+// GetCreateBackupSystemWorkflowDisabled returns the CreateBackupSystemWorkflowDisabled field value if set, zero value otherwise.
+func (o *TierVersionSet) GetCreateBackupSystemWorkflowDisabled() bool {
+	if o == nil || IsNil(o.CreateBackupSystemWorkflowDisabled) {
+		var ret bool
+		return ret
+	}
+	return *o.CreateBackupSystemWorkflowDisabled
+}
+
+// GetCreateBackupSystemWorkflowDisabledOk returns a tuple with the CreateBackupSystemWorkflowDisabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TierVersionSet) GetCreateBackupSystemWorkflowDisabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.CreateBackupSystemWorkflowDisabled) {
+		return nil, false
+	}
+	return o.CreateBackupSystemWorkflowDisabled, true
+}
+
+// SetCreateBackupSystemWorkflowDisabled gets a reference to the given bool and assigns it to the CreateBackupSystemWorkflowDisabled field.
+func (o *TierVersionSet) SetCreateBackupSystemWorkflowDisabled(v bool) {
+	o.CreateBackupSystemWorkflowDisabled = &v
+}
+
+// GetCreateBackupSystemWorkflowDisabledAt returns the CreateBackupSystemWorkflowDisabledAt field value if set, zero value otherwise.
+func (o *TierVersionSet) GetCreateBackupSystemWorkflowDisabledAt() time.Time {
+	if o == nil || IsNil(o.CreateBackupSystemWorkflowDisabledAt) {
+		var ret time.Time
+		return ret
+	}
+	return *o.CreateBackupSystemWorkflowDisabledAt
+}
+
+// GetCreateBackupSystemWorkflowDisabledAtOk returns a tuple with the CreateBackupSystemWorkflowDisabledAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TierVersionSet) GetCreateBackupSystemWorkflowDisabledAtOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.CreateBackupSystemWorkflowDisabledAt) {
+		return nil, false
+	}
+	return o.CreateBackupSystemWorkflowDisabledAt, true
+}
+
+// SetCreateBackupSystemWorkflowDisabledAt gets a reference to the given time.Time and assigns it to the CreateBackupSystemWorkflowDisabledAt field.
+func (o *TierVersionSet) SetCreateBackupSystemWorkflowDisabledAt(v time.Time) {
+	o.CreateBackupSystemWorkflowDisabledAt = &v
+}
+
 // GetCreatedAt returns the CreatedAt field value
 func (o *TierVersionSet) GetCreatedAt() string {
 	if o == nil {
@@ -192,6 +247,52 @@ func (o *TierVersionSet) GetCreatedByOk() (*string, bool) {
 // SetCreatedBy gets a reference to the given string and assigns it to the CreatedBy field.
 func (o *TierVersionSet) SetCreatedBy(v string) {
 	o.CreatedBy = &v
+}
+
+// GetDeleteBackupSystemWorkflowDisabled returns the DeleteBackupSystemWorkflowDisabled field value if set, zero value otherwise.
+func (o *TierVersionSet) GetDeleteBackupSystemWorkflowDisabled() bool {
+	if o == nil || IsNil(o.DeleteBackupSystemWorkflowDisabled) {
+		var ret bool
+		return ret
+	}
+	return *o.DeleteBackupSystemWorkflowDisabled
+}
+
+// GetDeleteBackupSystemWorkflowDisabledOk returns a tuple with the DeleteBackupSystemWorkflowDisabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TierVersionSet) GetDeleteBackupSystemWorkflowDisabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.DeleteBackupSystemWorkflowDisabled) {
+		return nil, false
+	}
+	return o.DeleteBackupSystemWorkflowDisabled, true
+}
+
+// SetDeleteBackupSystemWorkflowDisabled gets a reference to the given bool and assigns it to the DeleteBackupSystemWorkflowDisabled field.
+func (o *TierVersionSet) SetDeleteBackupSystemWorkflowDisabled(v bool) {
+	o.DeleteBackupSystemWorkflowDisabled = &v
+}
+
+// GetDeleteBackupSystemWorkflowDisabledAt returns the DeleteBackupSystemWorkflowDisabledAt field value if set, zero value otherwise.
+func (o *TierVersionSet) GetDeleteBackupSystemWorkflowDisabledAt() time.Time {
+	if o == nil || IsNil(o.DeleteBackupSystemWorkflowDisabledAt) {
+		var ret time.Time
+		return ret
+	}
+	return *o.DeleteBackupSystemWorkflowDisabledAt
+}
+
+// GetDeleteBackupSystemWorkflowDisabledAtOk returns a tuple with the DeleteBackupSystemWorkflowDisabledAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TierVersionSet) GetDeleteBackupSystemWorkflowDisabledAtOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.DeleteBackupSystemWorkflowDisabledAt) {
+		return nil, false
+	}
+	return o.DeleteBackupSystemWorkflowDisabledAt, true
+}
+
+// SetDeleteBackupSystemWorkflowDisabledAt gets a reference to the given time.Time and assigns it to the DeleteBackupSystemWorkflowDisabledAt field.
+func (o *TierVersionSet) SetDeleteBackupSystemWorkflowDisabledAt(v time.Time) {
+	o.DeleteBackupSystemWorkflowDisabledAt = &v
 }
 
 // GetDeploymentArtifactsVersionedMetadata returns the DeploymentArtifactsVersionedMetadata field value if set, zero value otherwise.
@@ -655,9 +756,21 @@ func (o TierVersionSet) ToMap() (map[string]interface{}, error) {
 		toSerialize["autoApproveSubscription"] = o.AutoApproveSubscription
 	}
 	toSerialize["baseVersion"] = o.BaseVersion
+	if !IsNil(o.CreateBackupSystemWorkflowDisabled) {
+		toSerialize["createBackupSystemWorkflowDisabled"] = o.CreateBackupSystemWorkflowDisabled
+	}
+	if !IsNil(o.CreateBackupSystemWorkflowDisabledAt) {
+		toSerialize["createBackupSystemWorkflowDisabledAt"] = o.CreateBackupSystemWorkflowDisabledAt
+	}
 	toSerialize["createdAt"] = o.CreatedAt
 	if !IsNil(o.CreatedBy) {
 		toSerialize["createdBy"] = o.CreatedBy
+	}
+	if !IsNil(o.DeleteBackupSystemWorkflowDisabled) {
+		toSerialize["deleteBackupSystemWorkflowDisabled"] = o.DeleteBackupSystemWorkflowDisabled
+	}
+	if !IsNil(o.DeleteBackupSystemWorkflowDisabledAt) {
+		toSerialize["deleteBackupSystemWorkflowDisabledAt"] = o.DeleteBackupSystemWorkflowDisabledAt
 	}
 	if !IsNil(o.DeploymentArtifactsVersionedMetadata) {
 		toSerialize["deploymentArtifactsVersionedMetadata"] = o.DeploymentArtifactsVersionedMetadata
@@ -752,8 +865,12 @@ func (o *TierVersionSet) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "autoApproveSubscription")
 		delete(additionalProperties, "baseVersion")
+		delete(additionalProperties, "createBackupSystemWorkflowDisabled")
+		delete(additionalProperties, "createBackupSystemWorkflowDisabledAt")
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "createdBy")
+		delete(additionalProperties, "deleteBackupSystemWorkflowDisabled")
+		delete(additionalProperties, "deleteBackupSystemWorkflowDisabledAt")
 		delete(additionalProperties, "deploymentArtifactsVersionedMetadata")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "enabledFeatures")

@@ -107,7 +107,7 @@ func main() {
 	instanceID := "instance-12345678" // string | The instance ID to list events for (optional)
 	startDate := time.Now() // time.Time | Start date of the events (optional)
 	endDate := time.Now() // time.Time | End date of the events (optional)
-	productTierID := "Est corporis quia." // string |  (optional)
+	productTierID := "Earum quia." // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

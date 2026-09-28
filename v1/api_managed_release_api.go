@@ -144,12 +144,6 @@ func (a *ManagedReleaseApiAPIService) ManagedReleaseApiDescribeManagedReleaseRev
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if strlen(r.bundleVersion) < 1 {
-		return localVarReturnValue, nil, reportError("bundleVersion must have at least 1 elements")
-	}
-	if strlen(r.bundleVersion) > 256 {
-		return localVarReturnValue, nil, reportError("bundleVersion must have less than 256 elements")
-	}
 
 	if r.includeArtifacts != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includeArtifacts", r.includeArtifacts, "form", "")

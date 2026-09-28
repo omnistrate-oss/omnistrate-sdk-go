@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **EndTime** | Pointer to **string** | End time of the Deployment Cell Workflow in RFC3339 format | [optional] 
 **GcpProjectID** | Pointer to **string** | The GCP project ID | [optional] 
 **HostClusterID** | **string** | ID of the Host Cluster | 
+**ManagedArtifactSync** | Pointer to [**ManagedArtifactSyncWorkflowDetail**](ManagedArtifactSyncWorkflowDetail.md) |  | [optional] 
 **OciTenancyID** | Pointer to **string** | The Tenancy OCID for Oracle Cloud Infrastructure | [optional] 
 **OrgName** | **string** | The name of the deployment cell owner organization. | 
 **ParentId** | Pointer to **string** | The parent workflow&#39;s id for the execution. | [optional] 
@@ -229,6 +230,31 @@ and a boolean to check if the value has been set.
 
 SetHostClusterID sets HostClusterID field to given value.
 
+
+### GetManagedArtifactSync
+
+`func (o *DeploymentCellWorkflow) GetManagedArtifactSync() ManagedArtifactSyncWorkflowDetail`
+
+GetManagedArtifactSync returns the ManagedArtifactSync field if non-nil, zero value otherwise.
+
+### GetManagedArtifactSyncOk
+
+`func (o *DeploymentCellWorkflow) GetManagedArtifactSyncOk() (*ManagedArtifactSyncWorkflowDetail, bool)`
+
+GetManagedArtifactSyncOk returns a tuple with the ManagedArtifactSync field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManagedArtifactSync
+
+`func (o *DeploymentCellWorkflow) SetManagedArtifactSync(v ManagedArtifactSyncWorkflowDetail)`
+
+SetManagedArtifactSync sets ManagedArtifactSync field to given value.
+
+### HasManagedArtifactSync
+
+`func (o *DeploymentCellWorkflow) HasManagedArtifactSync() bool`
+
+HasManagedArtifactSync returns a boolean if a field has been set.
 
 ### GetOciTenancyID
 

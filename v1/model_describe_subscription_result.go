@@ -24,6 +24,8 @@ type DescribeSubscriptionResult struct {
 	AccountConfigIdentityId string `json:"accountConfigIdentityId"`
 	// Whether to allow creating instances when payment is not configured.
 	AllowCreatesWhenPaymentNotConfigured *bool `json:"allowCreatesWhenPaymentNotConfigured,omitempty"`
+	// The subscription-level deployment location restriction. Omitted or empty means the subscription inherits the product tier deployment locations.
+	AllowedDeploymentLocations []SubscriptionAllowedDeploymentLocation `json:"allowedDeploymentLocations,omitempty"`
 	// List of cloud provider names
 	CloudProviderNames []string `json:"cloudProviderNames"`
 	// The time that this subscription was created
@@ -147,6 +149,29 @@ func (o *DescribeSubscriptionResult) GetAllowCreatesWhenPaymentNotConfiguredOk()
 // SetAllowCreatesWhenPaymentNotConfigured gets a reference to the given bool and assigns it to the AllowCreatesWhenPaymentNotConfigured field.
 func (o *DescribeSubscriptionResult) SetAllowCreatesWhenPaymentNotConfigured(v bool) {
 	o.AllowCreatesWhenPaymentNotConfigured = &v
+}
+
+// GetAllowedDeploymentLocations returns the AllowedDeploymentLocations field value if set, zero value otherwise.
+func (o *DescribeSubscriptionResult) GetAllowedDeploymentLocations() []SubscriptionAllowedDeploymentLocation {
+	if o == nil || IsNil(o.AllowedDeploymentLocations) {
+		var ret []SubscriptionAllowedDeploymentLocation
+		return ret
+	}
+	return o.AllowedDeploymentLocations
+}
+
+// GetAllowedDeploymentLocationsOk returns a tuple with the AllowedDeploymentLocations field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeSubscriptionResult) GetAllowedDeploymentLocationsOk() ([]SubscriptionAllowedDeploymentLocation, bool) {
+	if o == nil || IsNil(o.AllowedDeploymentLocations) {
+		return nil, false
+	}
+	return o.AllowedDeploymentLocations, true
+}
+
+// SetAllowedDeploymentLocations gets a reference to the given []SubscriptionAllowedDeploymentLocation and assigns it to the AllowedDeploymentLocations field.
+func (o *DescribeSubscriptionResult) SetAllowedDeploymentLocations(v []SubscriptionAllowedDeploymentLocation) {
+	o.AllowedDeploymentLocations = v
 }
 
 // GetCloudProviderNames returns the CloudProviderNames field value
@@ -638,6 +663,9 @@ func (o DescribeSubscriptionResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AllowCreatesWhenPaymentNotConfigured) {
 		toSerialize["allowCreatesWhenPaymentNotConfigured"] = o.AllowCreatesWhenPaymentNotConfigured
 	}
+	if !IsNil(o.AllowedDeploymentLocations) {
+		toSerialize["allowedDeploymentLocations"] = o.AllowedDeploymentLocations
+	}
 	toSerialize["cloudProviderNames"] = o.CloudProviderNames
 	toSerialize["createdAt"] = o.CreatedAt
 	toSerialize["defaultSubscription"] = o.DefaultSubscription
@@ -728,6 +756,7 @@ func (o *DescribeSubscriptionResult) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "accountConfigIdentityId")
 		delete(additionalProperties, "allowCreatesWhenPaymentNotConfigured")
+		delete(additionalProperties, "allowedDeploymentLocations")
 		delete(additionalProperties, "cloudProviderNames")
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "defaultSubscription")

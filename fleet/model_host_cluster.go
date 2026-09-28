@@ -70,6 +70,8 @@ type HostCluster struct {
 	PendingAmenities []Amenity `json:"pendingAmenities,omitempty"`
 	// Whether the host cluster is provisioned with PrivateLink network topology. For BYOA deployment cells, this is derived from the BYOA instance input parameters at creation time and is immutable thereafter; dataplane host cluster reuse is scoped to a single PrivateLink topology.
 	PrivateLinkEnabled *bool `json:"privateLinkEnabled,omitempty"`
+	// ID of a Host Cluster
+	ProvisionerHostClusterId *string `json:"provisionerHostClusterId,omitempty"`
 	// The actual region name of the host cluster
 	Region string `json:"region"`
 	// ID of a Region
@@ -913,6 +915,38 @@ func (o *HostCluster) SetPrivateLinkEnabled(v bool) {
 	o.PrivateLinkEnabled = &v
 }
 
+// GetProvisionerHostClusterId returns the ProvisionerHostClusterId field value if set, zero value otherwise.
+func (o *HostCluster) GetProvisionerHostClusterId() string {
+	if o == nil || IsNil(o.ProvisionerHostClusterId) {
+		var ret string
+		return ret
+	}
+	return *o.ProvisionerHostClusterId
+}
+
+// GetProvisionerHostClusterIdOk returns a tuple with the ProvisionerHostClusterId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetProvisionerHostClusterIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ProvisionerHostClusterId) {
+		return nil, false
+	}
+	return o.ProvisionerHostClusterId, true
+}
+
+// HasProvisionerHostClusterId returns a boolean if a field has been set.
+func (o *HostCluster) HasProvisionerHostClusterId() bool {
+	if o != nil && !IsNil(o.ProvisionerHostClusterId) {
+		return true
+	}
+
+	return false
+}
+
+// SetProvisionerHostClusterId gets a reference to the given string and assigns it to the ProvisionerHostClusterId field.
+func (o *HostCluster) SetProvisionerHostClusterId(v string) {
+	o.ProvisionerHostClusterId = &v
+}
+
 // GetRegion returns the Region field value
 func (o *HostCluster) GetRegion() string {
 	if o == nil {
@@ -1116,6 +1150,9 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PrivateLinkEnabled) {
 		toSerialize["privateLinkEnabled"] = o.PrivateLinkEnabled
 	}
+	if !IsNil(o.ProvisionerHostClusterId) {
+		toSerialize["provisionerHostClusterId"] = o.ProvisionerHostClusterId
+	}
 	toSerialize["region"] = o.Region
 	toSerialize["regionId"] = o.RegionId
 	if !IsNil(o.Role) {
@@ -1204,6 +1241,7 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "modelType")
 		delete(additionalProperties, "pendingAmenities")
 		delete(additionalProperties, "privateLinkEnabled")
+		delete(additionalProperties, "provisionerHostClusterId")
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "regionId")
 		delete(additionalProperties, "role")

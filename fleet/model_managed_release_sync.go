@@ -24,7 +24,7 @@ type ManagedReleaseSync struct {
 	ArtifactResultCount int64 `json:"artifactResultCount"`
 	ArtifactResults []ManagedReleaseSyncArtifactResult `json:"artifactResults,omitempty"`
 	BundleRevisionId string `json:"bundleRevisionId" validate:"regexp=^oabr-[a-zA-Z0-9-]+$"`
-	BundleVersion string `json:"bundleVersion"`
+	BundleVersion string `json:"bundleVersion" validate:"regexp=^r[0-9]{7,}$"`
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
 	DestinationRegistry *string `json:"destinationRegistry,omitempty"`
 	LastError *string `json:"lastError,omitempty"`

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AggregationFunction** | **string** | Aggregation function applied to a custom metering metric | 
+**DisplayName** | Pointer to **string** | Display name for the custom metric | [optional] 
 **Name** | **string** | Case-sensitive custom metric name | 
 
 ## Methods
@@ -45,6 +46,31 @@ and a boolean to check if the value has been set.
 
 SetAggregationFunction sets AggregationFunction field to given value.
 
+
+### GetDisplayName
+
+`func (o *CustomMeteringMetric) GetDisplayName() string`
+
+GetDisplayName returns the DisplayName field if non-nil, zero value otherwise.
+
+### GetDisplayNameOk
+
+`func (o *CustomMeteringMetric) GetDisplayNameOk() (*string, bool)`
+
+GetDisplayNameOk returns a tuple with the DisplayName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayName
+
+`func (o *CustomMeteringMetric) SetDisplayName(v string)`
+
+SetDisplayName sets DisplayName field to given value.
+
+### HasDisplayName
+
+`func (o *CustomMeteringMetric) HasDisplayName() bool`
+
+HasDisplayName returns a boolean if a field has been set.
 
 ### GetName
 

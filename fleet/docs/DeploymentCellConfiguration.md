@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amenities** | Pointer to [**[]Amenity**](Amenity.md) | The amenities available in the deployment cell. | [optional] 
-**ManagedReleaseVersion** | Pointer to **string** | Optional immutable managed artifact bundle version for this environment and cloud provider. On update, omit it to leave the selection unchanged or send an empty string to clear the pin; an unpinned template uses the most recently completed READY bundle sync. | [optional] 
+**ManagedReleaseVersion** | Pointer to **string** | Optional immutable managed artifact bundle version for this environment and cloud provider. On update, omit it to leave the selection unchanged or send an empty string to clear the pin; an unpinned template uses the READY bundle with the greatest release sequence. | [optional] 
 **WorkloadIdentities** | Pointer to [**[]ManagedWorkloadIdentity**](ManagedWorkloadIdentity.md) | The managed workload identities available in the deployment cell. | [optional] 
 
 ## Methods

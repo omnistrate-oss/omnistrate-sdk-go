@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **BackingChecksum** | Pointer to **string** |  | [optional] 
 **BackingDigest** | Pointer to **string** |  | [optional] 
 **BackingRef** | Pointer to **string** |  | [optional] 
+**BackingReferences** | Pointer to **[]string** |  | [optional] 
 **CompletedAt** | Pointer to **time.Time** |  | [optional] 
 **Error** | Pointer to **string** |  | [optional] 
-**GatewayRef** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -126,6 +126,31 @@ SetBackingRef sets BackingRef field to given value.
 
 HasBackingRef returns a boolean if a field has been set.
 
+### GetBackingReferences
+
+`func (o *ManagedReleaseSyncArtifactResult) GetBackingReferences() []string`
+
+GetBackingReferences returns the BackingReferences field if non-nil, zero value otherwise.
+
+### GetBackingReferencesOk
+
+`func (o *ManagedReleaseSyncArtifactResult) GetBackingReferencesOk() (*[]string, bool)`
+
+GetBackingReferencesOk returns a tuple with the BackingReferences field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBackingReferences
+
+`func (o *ManagedReleaseSyncArtifactResult) SetBackingReferences(v []string)`
+
+SetBackingReferences sets BackingReferences field to given value.
+
+### HasBackingReferences
+
+`func (o *ManagedReleaseSyncArtifactResult) HasBackingReferences() bool`
+
+HasBackingReferences returns a boolean if a field has been set.
+
 ### GetCompletedAt
 
 `func (o *ManagedReleaseSyncArtifactResult) GetCompletedAt() time.Time`
@@ -175,31 +200,6 @@ SetError sets Error field to given value.
 `func (o *ManagedReleaseSyncArtifactResult) HasError() bool`
 
 HasError returns a boolean if a field has been set.
-
-### GetGatewayRef
-
-`func (o *ManagedReleaseSyncArtifactResult) GetGatewayRef() string`
-
-GetGatewayRef returns the GatewayRef field if non-nil, zero value otherwise.
-
-### GetGatewayRefOk
-
-`func (o *ManagedReleaseSyncArtifactResult) GetGatewayRefOk() (*string, bool)`
-
-GetGatewayRefOk returns a tuple with the GatewayRef field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetGatewayRef
-
-`func (o *ManagedReleaseSyncArtifactResult) SetGatewayRef(v string)`
-
-SetGatewayRef sets GatewayRef field to given value.
-
-### HasGatewayRef
-
-`func (o *ManagedReleaseSyncArtifactResult) HasGatewayRef() bool`
-
-HasGatewayRef returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

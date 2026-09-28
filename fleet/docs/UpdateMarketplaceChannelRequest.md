@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AutoConfirmIsv** | Pointer to **bool** |  | [optional] 
-**BillingCredentials** | Pointer to **map[string]string** |  | [optional] 
+**BillingCredentials** | Pointer to **map[string]string** | Merged by key like credentials above, and independently of it | [optional] 
 **Channel** | **string** | Which marketplace channel a contract came from. SUGER reaches AWS, Azure and GCP buyers through one listing. SANDBOX is the simulated channel, and is a real member of this set rather than a test mode | 
-**Credentials** | Pointer to **map[string]string** | Replaces the stored credential when present. Omit it to leave the credential untouched, which is what makes it safe to change one unrelated field | [optional] 
+**Credentials** | Pointer to **map[string]string** | Merged into the stored credential BY KEY. A key you send replaces that one credential, a key you omit keeps the stored one, and a key sent empty removes that one. Omit the whole map to leave every credential untouched, which is what makes it safe to change one unrelated field.  Per key rather than per map, because the map was the one field on this PATCH that did not merge: sending the single credential you meant to rotate deleted the rest, and several of them are values a marketplace shows only at creation | [optional] 
 **DefaultProductTierId** | Pointer to **string** |  | [optional] 
 **DefaultServiceEnvironmentId** | Pointer to **string** |  | [optional] 
 **DefaultServiceId** | Pointer to **string** |  | [optional] 

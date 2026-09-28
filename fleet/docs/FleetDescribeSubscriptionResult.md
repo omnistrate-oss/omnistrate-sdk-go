@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AllowCreatesWhenPaymentNotConfigured** | Pointer to **bool** | Whether to allow creating instances when payment is not configured. | [optional] 
+**AllowedDeploymentLocations** | Pointer to [**[]SubscriptionAllowedDeploymentLocation**](SubscriptionAllowedDeploymentLocation.md) | The subscription-level deployment location restriction. Omitted or empty means the subscription inherits the product tier deployment locations. | [optional] 
 **BillingProvider** | Pointer to **string** | The billing provider type | [optional] 
 **CreatedAt** | **string** | The time that this subscription was created | 
 **CurrentActivePricePerUnit** | Pointer to **map[string]interface{}** | The active pricing for the subscription at the time of the request. | [optional] 
@@ -76,6 +77,31 @@ SetAllowCreatesWhenPaymentNotConfigured sets AllowCreatesWhenPaymentNotConfigure
 `func (o *FleetDescribeSubscriptionResult) HasAllowCreatesWhenPaymentNotConfigured() bool`
 
 HasAllowCreatesWhenPaymentNotConfigured returns a boolean if a field has been set.
+
+### GetAllowedDeploymentLocations
+
+`func (o *FleetDescribeSubscriptionResult) GetAllowedDeploymentLocations() []SubscriptionAllowedDeploymentLocation`
+
+GetAllowedDeploymentLocations returns the AllowedDeploymentLocations field if non-nil, zero value otherwise.
+
+### GetAllowedDeploymentLocationsOk
+
+`func (o *FleetDescribeSubscriptionResult) GetAllowedDeploymentLocationsOk() (*[]SubscriptionAllowedDeploymentLocation, bool)`
+
+GetAllowedDeploymentLocationsOk returns a tuple with the AllowedDeploymentLocations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowedDeploymentLocations
+
+`func (o *FleetDescribeSubscriptionResult) SetAllowedDeploymentLocations(v []SubscriptionAllowedDeploymentLocation)`
+
+SetAllowedDeploymentLocations sets AllowedDeploymentLocations field to given value.
+
+### HasAllowedDeploymentLocations
+
+`func (o *FleetDescribeSubscriptionResult) HasAllowedDeploymentLocations() bool`
+
+HasAllowedDeploymentLocations returns a boolean if a field has been set.
 
 ### GetBillingProvider
 

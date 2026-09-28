@@ -30,6 +30,8 @@ type MarketplaceChannelConfig struct {
 	// Real contracts. Simulated ones are counted separately and are excluded from every revenue rollup
 	ContractCount *int64 `json:"contractCount,omitempty"`
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
+	// Which credential fields have a stored value, by KEY NAME and never by value. A form editing a channel cannot otherwise tell a box it may leave blank from one it has to fill, because credentials are write only and every box renders empty. Sorted, so two reads can be compared. The keys are readable for exactly this reason: an operator can see that a clientSecret is configured while nothing can decrypt it
+	CredentialFieldsSet []string `json:"credentialFieldsSet,omitempty"`
 	// Whether a credential is stored, without saying what it is. The only thing a read is entitled to know about a secret
 	CredentialsSet bool `json:"credentialsSet"`
 	// Where a purchase lands when the channel reports a plan that planMap does not name
@@ -268,6 +270,38 @@ func (o *MarketplaceChannelConfig) HasCreatedAt() bool {
 // SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
 func (o *MarketplaceChannelConfig) SetCreatedAt(v time.Time) {
 	o.CreatedAt = &v
+}
+
+// GetCredentialFieldsSet returns the CredentialFieldsSet field value if set, zero value otherwise.
+func (o *MarketplaceChannelConfig) GetCredentialFieldsSet() []string {
+	if o == nil || IsNil(o.CredentialFieldsSet) {
+		var ret []string
+		return ret
+	}
+	return o.CredentialFieldsSet
+}
+
+// GetCredentialFieldsSetOk returns a tuple with the CredentialFieldsSet field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MarketplaceChannelConfig) GetCredentialFieldsSetOk() ([]string, bool) {
+	if o == nil || IsNil(o.CredentialFieldsSet) {
+		return nil, false
+	}
+	return o.CredentialFieldsSet, true
+}
+
+// HasCredentialFieldsSet returns a boolean if a field has been set.
+func (o *MarketplaceChannelConfig) HasCredentialFieldsSet() bool {
+	if o != nil && !IsNil(o.CredentialFieldsSet) {
+		return true
+	}
+
+	return false
+}
+
+// SetCredentialFieldsSet gets a reference to the given []string and assigns it to the CredentialFieldsSet field.
+func (o *MarketplaceChannelConfig) SetCredentialFieldsSet(v []string) {
+	o.CredentialFieldsSet = v
 }
 
 // GetCredentialsSet returns the CredentialsSet field value
@@ -980,6 +1014,9 @@ func (o MarketplaceChannelConfig) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CreatedAt) {
 		toSerialize["createdAt"] = o.CreatedAt
 	}
+	if !IsNil(o.CredentialFieldsSet) {
+		toSerialize["credentialFieldsSet"] = o.CredentialFieldsSet
+	}
 	toSerialize["credentialsSet"] = o.CredentialsSet
 	if !IsNil(o.DefaultProductTierId) {
 		toSerialize["defaultProductTierId"] = o.DefaultProductTierId
@@ -1094,6 +1131,7 @@ func (o *MarketplaceChannelConfig) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "channel")
 		delete(additionalProperties, "contractCount")
 		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "credentialFieldsSet")
 		delete(additionalProperties, "credentialsSet")
 		delete(additionalProperties, "defaultProductTierId")
 		delete(additionalProperties, "defaultServiceEnvironmentId")

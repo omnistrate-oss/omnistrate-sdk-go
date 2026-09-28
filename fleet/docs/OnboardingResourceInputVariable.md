@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **DefaultValue** | Pointer to **interface{}** | The typed override value, when one is provided. | [optional] 
 **InitialValue** | Pointer to **interface{}** | The typed initial value inferred from the artifact default, when one exists. | [optional] 
 **Key** | **string** | The variable key. | 
+**OmnistrateSecret** | Pointer to **string** | The name of the onboarding secret used as the input variable value. | [optional] 
 **Required** | Pointer to **bool** | Whether the input variable must be supplied because the artifact has no default value. | [optional] 
 **SourceInputVariableName** | Pointer to **string** | Source input variable name for cross-resource references. | [optional] 
 **SourceResourceName** | Pointer to **string** | Source resource name for cross-resource references. | [optional] 
@@ -120,6 +121,31 @@ and a boolean to check if the value has been set.
 
 SetKey sets Key field to given value.
 
+
+### GetOmnistrateSecret
+
+`func (o *OnboardingResourceInputVariable) GetOmnistrateSecret() string`
+
+GetOmnistrateSecret returns the OmnistrateSecret field if non-nil, zero value otherwise.
+
+### GetOmnistrateSecretOk
+
+`func (o *OnboardingResourceInputVariable) GetOmnistrateSecretOk() (*string, bool)`
+
+GetOmnistrateSecretOk returns a tuple with the OmnistrateSecret field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOmnistrateSecret
+
+`func (o *OnboardingResourceInputVariable) SetOmnistrateSecret(v string)`
+
+SetOmnistrateSecret sets OmnistrateSecret field to given value.
+
+### HasOmnistrateSecret
+
+`func (o *OnboardingResourceInputVariable) HasOmnistrateSecret() bool`
+
+HasOmnistrateSecret returns a boolean if a field has been set.
 
 ### GetRequired
 

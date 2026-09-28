@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**SpOrganizationApiDescribeServiceProviderOrganization**](SpOrganizationApiAPI.md#SpOrganizationApiDescribeServiceProviderOrganization) | **Get** /2022-09-01-00/sp-organization | DescribeServiceProviderOrganization sp-organization-api
 [**SpOrganizationApiGetCustomMetricsEndpoint**](SpOrganizationApiAPI.md#SpOrganizationApiGetCustomMetricsEndpoint) | **Get** /2022-09-01-00/custom-metrics/endpoint | GetCustomMetricsEndpoint sp-organization-api
+[**SpOrganizationApiGetServiceProviderConfigurationForEnvironment**](SpOrganizationApiAPI.md#SpOrganizationApiGetServiceProviderConfigurationForEnvironment) | **Get** /2022-09-01-00/sp-organization/environment/{environmentType}/configuration | GetServiceProviderConfigurationForEnvironment sp-organization-api
 [**SpOrganizationApiModifyServiceProviderOrganization**](SpOrganizationApiAPI.md#SpOrganizationApiModifyServiceProviderOrganization) | **Patch** /2022-09-01-00/sp-organization | ModifyServiceProviderOrganization sp-organization-api
 
 
@@ -120,6 +121,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CustomMetricsEndpoint**](CustomMetricsEndpoint.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SpOrganizationApiGetServiceProviderConfigurationForEnvironment
+
+> GetServiceProviderConfigurationForEnvironmentResult SpOrganizationApiGetServiceProviderConfigurationForEnvironment(ctx, environmentType).Execute()
+
+GetServiceProviderConfigurationForEnvironment sp-organization-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	environmentType := "PROD" // string | The type of the environment whose service provider configuration should be returned
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SpOrganizationApiAPI.SpOrganizationApiGetServiceProviderConfigurationForEnvironment(context.Background(), environmentType).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SpOrganizationApiAPI.SpOrganizationApiGetServiceProviderConfigurationForEnvironment``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SpOrganizationApiGetServiceProviderConfigurationForEnvironment`: GetServiceProviderConfigurationForEnvironmentResult
+	fmt.Fprintf(os.Stdout, "Response from `SpOrganizationApiAPI.SpOrganizationApiGetServiceProviderConfigurationForEnvironment`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**environmentType** | **string** | The type of the environment whose service provider configuration should be returned | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSpOrganizationApiGetServiceProviderConfigurationForEnvironmentRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**GetServiceProviderConfigurationForEnvironmentResult**](GetServiceProviderConfigurationForEnvironmentResult.md)
 
 ### Authorization
 

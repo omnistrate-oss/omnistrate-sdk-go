@@ -24,7 +24,7 @@ type ListHostClustersRequest struct {
 	AccountConfigId *string `json:"accountConfigId,omitempty"`
 	// Email of the customer to filter host clusters by (optional)
 	CustomerEmail *string `json:"customerEmail,omitempty"`
-	// Include provisioner clusters in the response
+	// Explicitly include provisioner clusters in the response. Provisioner clusters may also be included automatically based on organization feature access.
 	IncludeProvisionerClusters *bool `json:"includeProvisionerClusters,omitempty"`
 	// ID of a Region
 	RegionId *string `json:"regionId,omitempty"`

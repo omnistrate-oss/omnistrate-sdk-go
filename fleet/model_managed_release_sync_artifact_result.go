@@ -25,9 +25,9 @@ type ManagedReleaseSyncArtifactResult struct {
 	BackingChecksum *string `json:"backingChecksum,omitempty" validate:"regexp=^sha256:[a-fA-F0-9]{64}$"`
 	BackingDigest *string `json:"backingDigest,omitempty" validate:"regexp=^sha256:[a-fA-F0-9]{64}$"`
 	BackingRef *string `json:"backingRef,omitempty"`
+	BackingReferences []string `json:"backingReferences,omitempty"`
 	CompletedAt *time.Time `json:"completedAt,omitempty"`
 	Error *string `json:"error,omitempty"`
-	GatewayRef *string `json:"gatewayRef,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -171,6 +171,38 @@ func (o *ManagedReleaseSyncArtifactResult) SetBackingRef(v string) {
 	o.BackingRef = &v
 }
 
+// GetBackingReferences returns the BackingReferences field value if set, zero value otherwise.
+func (o *ManagedReleaseSyncArtifactResult) GetBackingReferences() []string {
+	if o == nil || IsNil(o.BackingReferences) {
+		var ret []string
+		return ret
+	}
+	return o.BackingReferences
+}
+
+// GetBackingReferencesOk returns a tuple with the BackingReferences field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ManagedReleaseSyncArtifactResult) GetBackingReferencesOk() ([]string, bool) {
+	if o == nil || IsNil(o.BackingReferences) {
+		return nil, false
+	}
+	return o.BackingReferences, true
+}
+
+// HasBackingReferences returns a boolean if a field has been set.
+func (o *ManagedReleaseSyncArtifactResult) HasBackingReferences() bool {
+	if o != nil && !IsNil(o.BackingReferences) {
+		return true
+	}
+
+	return false
+}
+
+// SetBackingReferences gets a reference to the given []string and assigns it to the BackingReferences field.
+func (o *ManagedReleaseSyncArtifactResult) SetBackingReferences(v []string) {
+	o.BackingReferences = v
+}
+
 // GetCompletedAt returns the CompletedAt field value if set, zero value otherwise.
 func (o *ManagedReleaseSyncArtifactResult) GetCompletedAt() time.Time {
 	if o == nil || IsNil(o.CompletedAt) {
@@ -235,38 +267,6 @@ func (o *ManagedReleaseSyncArtifactResult) SetError(v string) {
 	o.Error = &v
 }
 
-// GetGatewayRef returns the GatewayRef field value if set, zero value otherwise.
-func (o *ManagedReleaseSyncArtifactResult) GetGatewayRef() string {
-	if o == nil || IsNil(o.GatewayRef) {
-		var ret string
-		return ret
-	}
-	return *o.GatewayRef
-}
-
-// GetGatewayRefOk returns a tuple with the GatewayRef field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ManagedReleaseSyncArtifactResult) GetGatewayRefOk() (*string, bool) {
-	if o == nil || IsNil(o.GatewayRef) {
-		return nil, false
-	}
-	return o.GatewayRef, true
-}
-
-// HasGatewayRef returns a boolean if a field has been set.
-func (o *ManagedReleaseSyncArtifactResult) HasGatewayRef() bool {
-	if o != nil && !IsNil(o.GatewayRef) {
-		return true
-	}
-
-	return false
-}
-
-// SetGatewayRef gets a reference to the given string and assigns it to the GatewayRef field.
-func (o *ManagedReleaseSyncArtifactResult) SetGatewayRef(v string) {
-	o.GatewayRef = &v
-}
-
 func (o ManagedReleaseSyncArtifactResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -287,14 +287,14 @@ func (o ManagedReleaseSyncArtifactResult) ToMap() (map[string]interface{}, error
 	if !IsNil(o.BackingRef) {
 		toSerialize["backingRef"] = o.BackingRef
 	}
+	if !IsNil(o.BackingReferences) {
+		toSerialize["backingReferences"] = o.BackingReferences
+	}
 	if !IsNil(o.CompletedAt) {
 		toSerialize["completedAt"] = o.CompletedAt
 	}
 	if !IsNil(o.Error) {
 		toSerialize["error"] = o.Error
-	}
-	if !IsNil(o.GatewayRef) {
-		toSerialize["gatewayRef"] = o.GatewayRef
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -343,9 +343,9 @@ func (o *ManagedReleaseSyncArtifactResult) UnmarshalJSON(data []byte) (err error
 		delete(additionalProperties, "backingChecksum")
 		delete(additionalProperties, "backingDigest")
 		delete(additionalProperties, "backingRef")
+		delete(additionalProperties, "backingReferences")
 		delete(additionalProperties, "completedAt")
 		delete(additionalProperties, "error")
-		delete(additionalProperties, "gatewayRef")
 		o.AdditionalProperties = additionalProperties
 	}
 

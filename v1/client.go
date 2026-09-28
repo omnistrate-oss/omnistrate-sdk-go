@@ -109,6 +109,8 @@ type APIClient struct {
 
 	LimitApiAPI LimitApiAPI
 
+	ManagedArtifactApiAPI ManagedArtifactApiAPI
+
 	ManagedReleaseApiAPI ManagedReleaseApiAPI
 
 	NetworkConfigApiAPI NetworkConfigApiAPI
@@ -218,6 +220,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.InstanceSnapshotApiAPI = (*InstanceSnapshotApiAPIService)(&c.common)
 	c.InvoiceApiAPI = (*InvoiceApiAPIService)(&c.common)
 	c.LimitApiAPI = (*LimitApiAPIService)(&c.common)
+	c.ManagedArtifactApiAPI = (*ManagedArtifactApiAPIService)(&c.common)
 	c.ManagedReleaseApiAPI = (*ManagedReleaseApiAPIService)(&c.common)
 	c.NetworkConfigApiAPI = (*NetworkConfigApiAPIService)(&c.common)
 	c.OutputParameterApiAPI = (*OutputParameterApiAPIService)(&c.common)

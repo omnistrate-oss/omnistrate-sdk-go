@@ -2732,7 +2732,7 @@ func (r ApiHostclusterApiListHostClustersRequest) RegionId(regionId string) ApiH
 	return r
 }
 
-// Whether to include provisioner clusters in the response
+// Whether to include provisioner clusters in the response; defaults to false
 func (r ApiHostclusterApiListHostClustersRequest) IncludeProvisionerClusters(includeProvisionerClusters bool) ApiHostclusterApiListHostClustersRequest {
 	r.includeProvisionerClusters = &includeProvisionerClusters
 	return r

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Cidr** | Pointer to **string** | The primary CIDR block | [optional] 
 **CloudNativeNetworkId** | **string** | The provider-native network ID (for example, AWS VPC ID, GCP VPC name, or Azure VNet resource ID) | 
 **CreatedAt** | **time.Time** | When this cloud native network was registered | 
+**CreatedByOmnistrate** | Pointer to **bool** | Whether the cloud network itself was created by Omnistrate. Independent of whether it is imported for deployments. | [optional] 
 **HostClusters** | Pointer to [**[]AccountConfigCloudNativeNetworkHostClusterResult**](AccountConfigCloudNativeNetworkHostClusterResult.md) | Host clusters discovered within this cloud native network | [optional] 
 **Id** | **string** | Internal cloud native network registration ID | 
 **Imported** | Pointer to **bool** | Whether this network has been imported for deployments via the import API. Independent of validation status. | [optional] 
@@ -125,6 +126,31 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
+
+### GetCreatedByOmnistrate
+
+`func (o *AccountConfigCloudNativeNetworkResult) GetCreatedByOmnistrate() bool`
+
+GetCreatedByOmnistrate returns the CreatedByOmnistrate field if non-nil, zero value otherwise.
+
+### GetCreatedByOmnistrateOk
+
+`func (o *AccountConfigCloudNativeNetworkResult) GetCreatedByOmnistrateOk() (*bool, bool)`
+
+GetCreatedByOmnistrateOk returns a tuple with the CreatedByOmnistrate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedByOmnistrate
+
+`func (o *AccountConfigCloudNativeNetworkResult) SetCreatedByOmnistrate(v bool)`
+
+SetCreatedByOmnistrate sets CreatedByOmnistrate field to given value.
+
+### HasCreatedByOmnistrate
+
+`func (o *AccountConfigCloudNativeNetworkResult) HasCreatedByOmnistrate() bool`
+
+HasCreatedByOmnistrate returns a boolean if a field has been set.
 
 ### GetHostClusters
 

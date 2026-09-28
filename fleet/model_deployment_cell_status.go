@@ -30,6 +30,8 @@ type DeploymentCellStatus struct {
 	ConfiguringRoute53HostedZoneStepStatus string `json:"configuringRoute53HostedZoneStepStatus"`
 	// Status of the Infrastructure step
 	InfrastructureStepStatus string `json:"infrastructureStepStatus"`
+	// Status of the Managed Artifact Sync step, when this is a managed artifact sync workflow
+	ManagedArtifactSyncStepStatus *string `json:"managedArtifactSyncStepStatus,omitempty"`
 	// Status of the Deployment Cell
 	Status string `json:"status"`
 	AdditionalProperties map[string]interface{}
@@ -180,6 +182,38 @@ func (o *DeploymentCellStatus) SetInfrastructureStepStatus(v string) {
 	o.InfrastructureStepStatus = v
 }
 
+// GetManagedArtifactSyncStepStatus returns the ManagedArtifactSyncStepStatus field value if set, zero value otherwise.
+func (o *DeploymentCellStatus) GetManagedArtifactSyncStepStatus() string {
+	if o == nil || IsNil(o.ManagedArtifactSyncStepStatus) {
+		var ret string
+		return ret
+	}
+	return *o.ManagedArtifactSyncStepStatus
+}
+
+// GetManagedArtifactSyncStepStatusOk returns a tuple with the ManagedArtifactSyncStepStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeploymentCellStatus) GetManagedArtifactSyncStepStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.ManagedArtifactSyncStepStatus) {
+		return nil, false
+	}
+	return o.ManagedArtifactSyncStepStatus, true
+}
+
+// HasManagedArtifactSyncStepStatus returns a boolean if a field has been set.
+func (o *DeploymentCellStatus) HasManagedArtifactSyncStepStatus() bool {
+	if o != nil && !IsNil(o.ManagedArtifactSyncStepStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetManagedArtifactSyncStepStatus gets a reference to the given string and assigns it to the ManagedArtifactSyncStepStatus field.
+func (o *DeploymentCellStatus) SetManagedArtifactSyncStepStatus(v string) {
+	o.ManagedArtifactSyncStepStatus = &v
+}
+
 // GetStatus returns the Status field value
 func (o *DeploymentCellStatus) GetStatus() string {
 	if o == nil {
@@ -219,6 +253,9 @@ func (o DeploymentCellStatus) ToMap() (map[string]interface{}, error) {
 	toSerialize["configuringCertificateManagementStepStatus"] = o.ConfiguringCertificateManagementStepStatus
 	toSerialize["configuringRoute53HostedZoneStepStatus"] = o.ConfiguringRoute53HostedZoneStepStatus
 	toSerialize["infrastructureStepStatus"] = o.InfrastructureStepStatus
+	if !IsNil(o.ManagedArtifactSyncStepStatus) {
+		toSerialize["managedArtifactSyncStepStatus"] = o.ManagedArtifactSyncStepStatus
+	}
 	toSerialize["status"] = o.Status
 
 	for key, value := range o.AdditionalProperties {
@@ -273,6 +310,7 @@ func (o *DeploymentCellStatus) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "configuringCertificateManagementStepStatus")
 		delete(additionalProperties, "configuringRoute53HostedZoneStepStatus")
 		delete(additionalProperties, "infrastructureStepStatus")
+		delete(additionalProperties, "managedArtifactSyncStepStatus")
 		delete(additionalProperties, "status")
 		o.AdditionalProperties = additionalProperties
 	}
