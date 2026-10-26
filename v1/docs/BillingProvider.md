@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** | A custom name for the billing provider. Only present when the billing provider is BRING_YOUR_OWN | [optional] 
 **Status** | **string** | The status of the billing provider | 
 **StripeCustomerID** | Pointer to **string** | The Stripe Customer ID associated with the billing provider. Only present when the billing provider is STRIPE | [optional] 
-**Type** | **string** | The billing provider type | 
+**Type** | **string** | The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace | 
 
 ## Methods
 

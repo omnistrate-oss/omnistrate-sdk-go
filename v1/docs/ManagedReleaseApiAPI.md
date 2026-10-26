@@ -101,9 +101,9 @@ import (
 )
 
 func main() {
-	organizationId := "nzk" // string | 
-	provisionerTargetId := "a2" // string | 
-	bundleRevisionId := "oabr-F-" // string | 
+	organizationId := "mcj" // string | 
+	provisionerTargetId := "e4" // string | 
+	bundleRevisionId := "oabr-8J" // string | 
 	includeArtifactResults := true // bool |  (optional) (default to true)
 
 	configuration := openapiclient.NewConfiguration()
@@ -179,7 +179,7 @@ import (
 func main() {
 	status := "AVAILABLE" // string |  (optional)
 	releaseComponent := "bootstrap-service" // string |  (optional)
-	limit := int64(94) // int64 |  (optional) (default to 20)
+	limit := int64(47) // int64 |  (optional) (default to 20)
 	includeArtifacts := true // bool |  (optional) (default to false)
 
 	configuration := openapiclient.NewConfiguration()
@@ -247,10 +247,10 @@ import (
 )
 
 func main() {
-	organizationId := "ezd" // string | 
-	provisionerTargetId := "t" // string | 
+	organizationId := "ke6" // string | 
+	provisionerTargetId := "hp" // string | 
 	status := "AVAILABLE" // string |  (optional)
-	includeArtifactResults := false // bool |  (optional) (default to false)
+	includeArtifactResults := true // bool |  (optional) (default to false)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -322,7 +322,7 @@ import (
 )
 
 func main() {
-	publishManagedReleaseRequest2 := *openapiclient.NewPublishManagedReleaseRequest2([]openapiclient.ManagedReleaseArtifact2{*openapiclient.NewManagedReleaseArtifact2("container-image/dataplane-agent", []string{"bootstrap"}, "bootstrap-service", "j", "mbw", "container-image")}, "bootstrap-service", "9", "a", "hjp") // PublishManagedReleaseRequest2 | 
+	publishManagedReleaseRequest2 := *openapiclient.NewPublishManagedReleaseRequest2([]openapiclient.ManagedReleaseArtifact2{*openapiclient.NewManagedReleaseArtifact2("container-image/dataplane-agent", []string{"bootstrap"}, "bootstrap-service", "s", "4", "container-image")}, "bootstrap-service", "6a8", "uhw", "wmb") // PublishManagedReleaseRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

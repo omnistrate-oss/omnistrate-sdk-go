@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Id** | **string** | ID of an Account Config | 
 **Name** | Pointer to **string** | The updated name of the account | [optional] 
 **NebiusBindings** | Pointer to [**[]NebiusAccountBindingInput**](NebiusAccountBindingInput.md) | Full replacement set of Nebius project/service-account bindings for an existing tenant-scoped Nebius account configuration | [optional] 
+**Settings** | Pointer to [**AccountConfigSettings**](AccountConfigSettings.md) |  | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
@@ -149,6 +150,31 @@ SetNebiusBindings sets NebiusBindings field to given value.
 `func (o *UpdateAccountConfigRequest) HasNebiusBindings() bool`
 
 HasNebiusBindings returns a boolean if a field has been set.
+
+### GetSettings
+
+`func (o *UpdateAccountConfigRequest) GetSettings() AccountConfigSettings`
+
+GetSettings returns the Settings field if non-nil, zero value otherwise.
+
+### GetSettingsOk
+
+`func (o *UpdateAccountConfigRequest) GetSettingsOk() (*AccountConfigSettings, bool)`
+
+GetSettingsOk returns a tuple with the Settings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSettings
+
+`func (o *UpdateAccountConfigRequest) SetSettings(v AccountConfigSettings)`
+
+SetSettings sets Settings field to given value.
+
+### HasSettings
+
+`func (o *UpdateAccountConfigRequest) HasSettings() bool`
+
+HasSettings returns a boolean if a field has been set.
 
 ### GetToken
 

@@ -72,6 +72,7 @@ type ApiServiceOfferingApiDescribeServiceOfferingRequest struct {
 	serviceId string
 	visibility *string
 	environmentType *string
+	productTierId *string
 }
 
 // The visibility of service offering
@@ -83,6 +84,12 @@ func (r ApiServiceOfferingApiDescribeServiceOfferingRequest) Visibility(visibili
 // The environment type to filter by
 func (r ApiServiceOfferingApiDescribeServiceOfferingRequest) EnvironmentType(environmentType string) ApiServiceOfferingApiDescribeServiceOfferingRequest {
 	r.environmentType = &environmentType
+	return r
+}
+
+// The product tier ID to filter by
+func (r ApiServiceOfferingApiDescribeServiceOfferingRequest) ProductTierId(productTierId string) ApiServiceOfferingApiDescribeServiceOfferingRequest {
+	r.productTierId = &productTierId
 	return r
 }
 
@@ -132,6 +139,9 @@ func (a *ServiceOfferingApiAPIService) ServiceOfferingApiDescribeServiceOffering
 	}
 	if r.environmentType != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "environmentType", r.environmentType, "form", "")
+	}
+	if r.productTierId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "productTierId", r.productTierId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

@@ -9,20 +9,22 @@ Name | Type | Description | Notes
 **BundleVersion** | **string** |  | 
 **CompletedArtifactCount** | **int64** | Number of managed charts and images copied successfully. | 
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
+**Destination** | Pointer to [**ManagedArtifactDestination**](ManagedArtifactDestination.md) |  | [optional] 
 **FailedArtifactCount** | **int64** | Number of managed charts and images that failed to copy. | 
 **FailureCategory** | Pointer to **string** | Sanitized category for a managed artifact synchronization failure. | [optional] 
 **FailureMessage** | Pointer to **string** | Sanitized operator-facing failure summary. | [optional] 
 **Id** | **string** |  | 
 **LastTransitionTime** | Pointer to **time.Time** |  | [optional] 
-**Status** | **string** | Lifecycle status for one provisioner-target synchronization. | 
-**Target** | [**ManagedArtifactTarget**](ManagedArtifactTarget.md) |  | 
+**RegistryType** | Pointer to **string** | Registry destination kind. Known values are PRIVATE_ECR for provisioner-target syncs and PUBLIC_ECR for account-scoped public publications. Clients must tolerate additional values; the service validates supported request kinds. | [optional] 
+**Status** | **string** | Lifecycle status for one private provisioner-target sync or public account publication. Known values are PENDING, IN_PROGRESS, READY, FAILED and SKIPPED. Clients must tolerate additional values; the service validates supported status filters. | 
+**Target** | Pointer to [**ManagedArtifactTarget**](ManagedArtifactTarget.md) |  | [optional] 
 **UpdatedAt** | Pointer to **time.Time** |  | [optional] 
 
 ## Methods
 
 ### NewManagedArtifactSync
 
-`func NewManagedArtifactSync(artifactCount int64, bundleVersion string, completedArtifactCount int64, failedArtifactCount int64, id string, status string, target ManagedArtifactTarget, ) *ManagedArtifactSync`
+`func NewManagedArtifactSync(artifactCount int64, bundleVersion string, completedArtifactCount int64, failedArtifactCount int64, id string, status string, ) *ManagedArtifactSync`
 
 NewManagedArtifactSync instantiates a new ManagedArtifactSync object
 This constructor will assign default values to properties that have it defined,
@@ -147,6 +149,31 @@ SetCreatedAt sets CreatedAt field to given value.
 
 HasCreatedAt returns a boolean if a field has been set.
 
+### GetDestination
+
+`func (o *ManagedArtifactSync) GetDestination() ManagedArtifactDestination`
+
+GetDestination returns the Destination field if non-nil, zero value otherwise.
+
+### GetDestinationOk
+
+`func (o *ManagedArtifactSync) GetDestinationOk() (*ManagedArtifactDestination, bool)`
+
+GetDestinationOk returns a tuple with the Destination field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDestination
+
+`func (o *ManagedArtifactSync) SetDestination(v ManagedArtifactDestination)`
+
+SetDestination sets Destination field to given value.
+
+### HasDestination
+
+`func (o *ManagedArtifactSync) HasDestination() bool`
+
+HasDestination returns a boolean if a field has been set.
+
 ### GetFailedArtifactCount
 
 `func (o *ManagedArtifactSync) GetFailedArtifactCount() int64`
@@ -262,6 +289,31 @@ SetLastTransitionTime sets LastTransitionTime field to given value.
 
 HasLastTransitionTime returns a boolean if a field has been set.
 
+### GetRegistryType
+
+`func (o *ManagedArtifactSync) GetRegistryType() string`
+
+GetRegistryType returns the RegistryType field if non-nil, zero value otherwise.
+
+### GetRegistryTypeOk
+
+`func (o *ManagedArtifactSync) GetRegistryTypeOk() (*string, bool)`
+
+GetRegistryTypeOk returns a tuple with the RegistryType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegistryType
+
+`func (o *ManagedArtifactSync) SetRegistryType(v string)`
+
+SetRegistryType sets RegistryType field to given value.
+
+### HasRegistryType
+
+`func (o *ManagedArtifactSync) HasRegistryType() bool`
+
+HasRegistryType returns a boolean if a field has been set.
+
 ### GetStatus
 
 `func (o *ManagedArtifactSync) GetStatus() string`
@@ -301,6 +353,11 @@ and a boolean to check if the value has been set.
 
 SetTarget sets Target field to given value.
 
+### HasTarget
+
+`func (o *ManagedArtifactSync) HasTarget() bool`
+
+HasTarget returns a boolean if a field has been set.
 
 ### GetUpdatedAt
 

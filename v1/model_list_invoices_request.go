@@ -20,7 +20,7 @@ var _ MappedNullable = &ListInvoicesRequest{}
 
 // ListInvoicesRequest struct for ListInvoicesRequest
 type ListInvoicesRequest struct {
-	// The billing provider type
+	// The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace
 	BillingProvider *string `json:"billingProvider,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`

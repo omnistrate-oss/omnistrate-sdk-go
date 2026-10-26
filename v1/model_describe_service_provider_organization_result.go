@@ -22,10 +22,14 @@ type DescribeServiceProviderOrganizationResult struct {
 	DefaultDeploymentCellConfigurations *DeploymentCellConfigurations `json:"DefaultDeploymentCellConfigurations,omitempty"`
 	// The default deployment cell configurations for the organization per environment.
 	DeploymentCellConfigurationsPerEnv *map[string]DeploymentCellConfigurations `json:"DeploymentCellConfigurationsPerEnv,omitempty"`
+	// Configured AWS APN tag override, omitted when unset.
+	AwsAPNTagValue *string `json:"awsAPNTagValue,omitempty"`
 	// ID of an Org
 	Id *string `json:"id,omitempty"`
 	// Whether per-environment clusters are enabled for the organization
 	IsPerEnvClusterEnabled *bool `json:"isPerEnvClusterEnabled,omitempty"`
+	// Stored just-in-time access settings per environment, excluding GLOBAL, including compatibility AUTO defaults seeded during provider sign-in. Omission remains compatible AUTO access; backend provenance distinguishes seeded defaults from explicit configuration. Viewing or backfilling defaults does not enable manual approval, request accounting, expiry cleanup, or session cutoff.
+	JustInTimeAccessConfigurations *map[string]JustInTimeAccessConfiguration `json:"justInTimeAccessConfigurations,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -94,6 +98,29 @@ func (o *DescribeServiceProviderOrganizationResult) SetDeploymentCellConfigurati
 	o.DeploymentCellConfigurationsPerEnv = &v
 }
 
+// GetAwsAPNTagValue returns the AwsAPNTagValue field value if set, zero value otherwise.
+func (o *DescribeServiceProviderOrganizationResult) GetAwsAPNTagValue() string {
+	if o == nil || IsNil(o.AwsAPNTagValue) {
+		var ret string
+		return ret
+	}
+	return *o.AwsAPNTagValue
+}
+
+// GetAwsAPNTagValueOk returns a tuple with the AwsAPNTagValue field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeServiceProviderOrganizationResult) GetAwsAPNTagValueOk() (*string, bool) {
+	if o == nil || IsNil(o.AwsAPNTagValue) {
+		return nil, false
+	}
+	return o.AwsAPNTagValue, true
+}
+
+// SetAwsAPNTagValue gets a reference to the given string and assigns it to the AwsAPNTagValue field.
+func (o *DescribeServiceProviderOrganizationResult) SetAwsAPNTagValue(v string) {
+	o.AwsAPNTagValue = &v
+}
+
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *DescribeServiceProviderOrganizationResult) GetId() string {
 	if o == nil || IsNil(o.Id) {
@@ -140,6 +167,29 @@ func (o *DescribeServiceProviderOrganizationResult) SetIsPerEnvClusterEnabled(v 
 	o.IsPerEnvClusterEnabled = &v
 }
 
+// GetJustInTimeAccessConfigurations returns the JustInTimeAccessConfigurations field value if set, zero value otherwise.
+func (o *DescribeServiceProviderOrganizationResult) GetJustInTimeAccessConfigurations() map[string]JustInTimeAccessConfiguration {
+	if o == nil || IsNil(o.JustInTimeAccessConfigurations) {
+		var ret map[string]JustInTimeAccessConfiguration
+		return ret
+	}
+	return *o.JustInTimeAccessConfigurations
+}
+
+// GetJustInTimeAccessConfigurationsOk returns a tuple with the JustInTimeAccessConfigurations field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeServiceProviderOrganizationResult) GetJustInTimeAccessConfigurationsOk() (*map[string]JustInTimeAccessConfiguration, bool) {
+	if o == nil || IsNil(o.JustInTimeAccessConfigurations) {
+		return nil, false
+	}
+	return o.JustInTimeAccessConfigurations, true
+}
+
+// SetJustInTimeAccessConfigurations gets a reference to the given map[string]JustInTimeAccessConfiguration and assigns it to the JustInTimeAccessConfigurations field.
+func (o *DescribeServiceProviderOrganizationResult) SetJustInTimeAccessConfigurations(v map[string]JustInTimeAccessConfiguration) {
+	o.JustInTimeAccessConfigurations = &v
+}
+
 func (o DescribeServiceProviderOrganizationResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -156,11 +206,17 @@ func (o DescribeServiceProviderOrganizationResult) ToMap() (map[string]interface
 	if !IsNil(o.DeploymentCellConfigurationsPerEnv) {
 		toSerialize["DeploymentCellConfigurationsPerEnv"] = o.DeploymentCellConfigurationsPerEnv
 	}
+	if !IsNil(o.AwsAPNTagValue) {
+		toSerialize["awsAPNTagValue"] = o.AwsAPNTagValue
+	}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
 	if !IsNil(o.IsPerEnvClusterEnabled) {
 		toSerialize["isPerEnvClusterEnabled"] = o.IsPerEnvClusterEnabled
+	}
+	if !IsNil(o.JustInTimeAccessConfigurations) {
+		toSerialize["justInTimeAccessConfigurations"] = o.JustInTimeAccessConfigurations
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -186,8 +242,10 @@ func (o *DescribeServiceProviderOrganizationResult) UnmarshalJSON(data []byte) (
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "DefaultDeploymentCellConfigurations")
 		delete(additionalProperties, "DeploymentCellConfigurationsPerEnv")
+		delete(additionalProperties, "awsAPNTagValue")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "isPerEnvClusterEnabled")
+		delete(additionalProperties, "justInTimeAccessConfigurations")
 		o.AdditionalProperties = additionalProperties
 	}
 

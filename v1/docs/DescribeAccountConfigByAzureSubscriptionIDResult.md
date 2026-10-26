@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Description** | **string** | The description for the account | 
 **Id** | **string** | ID of an Account Config | 
 **Name** | **string** | The name of the account | 
-**Status** | **string** | The status of the account configuration | 
+**Status** | **string** | The status of the account configuration. BYOA settings updates remain PENDING_UPDATE until verification finishes, including while waiting for the customer to apply account setup changes. Successful verification sets READY for connected accounts or DISCONNECTED after access is revoked. | 
 **StatusMessage** | **string** | The status message of the account | 
 
 ## Methods

@@ -26,8 +26,8 @@ type ManagedArtifactReleaseArtifact struct {
 	Name *string `json:"name,omitempty"`
 	Platforms []string `json:"platforms,omitempty"`
 	RelativePath string `json:"relativePath" validate:"regexp=^[a-zA-Z0-9._\\/-]+$"`
-	SourceChecksum *string `json:"sourceChecksum,omitempty" validate:"regexp=^sha256:[a-fA-F0-9]{64}$"`
-	SourceDigest *string `json:"sourceDigest,omitempty" validate:"regexp=^sha256:[a-fA-F0-9]{64}$"`
+	SourceChecksum *string `json:"sourceChecksum,omitempty" validate:"regexp=^sha256:[a-f0-9]{64}$"`
+	SourceDigest *string `json:"sourceDigest,omitempty" validate:"regexp=^sha256:[a-f0-9]{64}$"`
 	// Canonical source reference for the artifact.
 	SourceRef string `json:"sourceRef"`
 	Type string `json:"type"`

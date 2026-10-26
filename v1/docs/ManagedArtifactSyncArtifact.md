@@ -7,8 +7,12 @@ Name | Type | Description | Notes
 **AmenityName** | **string** | Canonical Base Amenity name associated with this artifact. Clients must use this field instead of parsing artifactKey. | 
 **ArtifactKey** | **string** |  | 
 **CompletedAt** | Pointer to **time.Time** |  | [optional] 
+**DestinationDigest** | Pointer to **string** |  | [optional] 
+**DestinationRef** | Pointer to **string** | Materialized destination artifact reference without credentials. | [optional] 
 **FailureCategory** | Pointer to **string** | Sanitized category for a managed artifact synchronization failure. | [optional] 
 **FailureMessage** | Pointer to **string** | Sanitized operator-facing failure summary. | [optional] 
+**SourceDigest** | Pointer to **string** |  | [optional] 
+**SourceRef** | Pointer to **string** | Canonical source artifact reference without credentials or signed query parameters. | [optional] 
 **Status** | **string** | Public synchronization status for one artifact in a managed release. | 
 **Version** | **string** | Artifact version from the linked release revision, derived by the backend from its canonical source reference. | 
 
@@ -96,6 +100,56 @@ SetCompletedAt sets CompletedAt field to given value.
 
 HasCompletedAt returns a boolean if a field has been set.
 
+### GetDestinationDigest
+
+`func (o *ManagedArtifactSyncArtifact) GetDestinationDigest() string`
+
+GetDestinationDigest returns the DestinationDigest field if non-nil, zero value otherwise.
+
+### GetDestinationDigestOk
+
+`func (o *ManagedArtifactSyncArtifact) GetDestinationDigestOk() (*string, bool)`
+
+GetDestinationDigestOk returns a tuple with the DestinationDigest field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDestinationDigest
+
+`func (o *ManagedArtifactSyncArtifact) SetDestinationDigest(v string)`
+
+SetDestinationDigest sets DestinationDigest field to given value.
+
+### HasDestinationDigest
+
+`func (o *ManagedArtifactSyncArtifact) HasDestinationDigest() bool`
+
+HasDestinationDigest returns a boolean if a field has been set.
+
+### GetDestinationRef
+
+`func (o *ManagedArtifactSyncArtifact) GetDestinationRef() string`
+
+GetDestinationRef returns the DestinationRef field if non-nil, zero value otherwise.
+
+### GetDestinationRefOk
+
+`func (o *ManagedArtifactSyncArtifact) GetDestinationRefOk() (*string, bool)`
+
+GetDestinationRefOk returns a tuple with the DestinationRef field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDestinationRef
+
+`func (o *ManagedArtifactSyncArtifact) SetDestinationRef(v string)`
+
+SetDestinationRef sets DestinationRef field to given value.
+
+### HasDestinationRef
+
+`func (o *ManagedArtifactSyncArtifact) HasDestinationRef() bool`
+
+HasDestinationRef returns a boolean if a field has been set.
+
 ### GetFailureCategory
 
 `func (o *ManagedArtifactSyncArtifact) GetFailureCategory() string`
@@ -145,6 +199,56 @@ SetFailureMessage sets FailureMessage field to given value.
 `func (o *ManagedArtifactSyncArtifact) HasFailureMessage() bool`
 
 HasFailureMessage returns a boolean if a field has been set.
+
+### GetSourceDigest
+
+`func (o *ManagedArtifactSyncArtifact) GetSourceDigest() string`
+
+GetSourceDigest returns the SourceDigest field if non-nil, zero value otherwise.
+
+### GetSourceDigestOk
+
+`func (o *ManagedArtifactSyncArtifact) GetSourceDigestOk() (*string, bool)`
+
+GetSourceDigestOk returns a tuple with the SourceDigest field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceDigest
+
+`func (o *ManagedArtifactSyncArtifact) SetSourceDigest(v string)`
+
+SetSourceDigest sets SourceDigest field to given value.
+
+### HasSourceDigest
+
+`func (o *ManagedArtifactSyncArtifact) HasSourceDigest() bool`
+
+HasSourceDigest returns a boolean if a field has been set.
+
+### GetSourceRef
+
+`func (o *ManagedArtifactSyncArtifact) GetSourceRef() string`
+
+GetSourceRef returns the SourceRef field if non-nil, zero value otherwise.
+
+### GetSourceRefOk
+
+`func (o *ManagedArtifactSyncArtifact) GetSourceRefOk() (*string, bool)`
+
+GetSourceRefOk returns a tuple with the SourceRef field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceRef
+
+`func (o *ManagedArtifactSyncArtifact) SetSourceRef(v string)`
+
+SetSourceRef sets SourceRef field to given value.
+
+### HasSourceRef
+
+`func (o *ManagedArtifactSyncArtifact) HasSourceRef() bool`
+
+HasSourceRef returns a boolean if a field has been set.
 
 ### GetStatus
 

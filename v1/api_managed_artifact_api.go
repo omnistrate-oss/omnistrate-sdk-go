@@ -86,7 +86,7 @@ type ManagedArtifactApiAPI interface {
 	/*
 	ManagedArtifactApiListManagedArtifactSyncs ListManagedArtifactSyncs managed-artifact-api
 
-	List managed artifact synchronization records for the authenticated organization's provisioner targets.
+	List private managed artifact syncs or public ECR publications for the authenticated organization.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiManagedArtifactApiListManagedArtifactSyncsRequest
@@ -786,6 +786,8 @@ func (a *ManagedArtifactApiAPIService) ManagedArtifactApiListManagedArtifactRele
 type ApiManagedArtifactApiListManagedArtifactSyncsRequest struct {
 	ctx context.Context
 	ApiService ManagedArtifactApiAPI
+	registryType *string
+	destinationAccountId *string
 	bundleVersion *string
 	status *string
 	targetId *string
@@ -793,6 +795,18 @@ type ApiManagedArtifactApiListManagedArtifactSyncsRequest struct {
 	updatedBefore *time.Time
 	limit *int64
 	nextPageToken *string
+}
+
+// Registry kind to list; omitted selects PRIVATE_ECR for existing clients.
+func (r ApiManagedArtifactApiListManagedArtifactSyncsRequest) RegistryType(registryType string) ApiManagedArtifactApiListManagedArtifactSyncsRequest {
+	r.registryType = &registryType
+	return r
+}
+
+// Optional destination AWS account filter for PRIVATE_ECR or PUBLIC_ECR; not an execution host-cluster ID. Combined with targetId, both filters must match.
+func (r ApiManagedArtifactApiListManagedArtifactSyncsRequest) DestinationAccountId(destinationAccountId string) ApiManagedArtifactApiListManagedArtifactSyncsRequest {
+	r.destinationAccountId = &destinationAccountId
+	return r
 }
 
 func (r ApiManagedArtifactApiListManagedArtifactSyncsRequest) BundleVersion(bundleVersion string) ApiManagedArtifactApiListManagedArtifactSyncsRequest {
@@ -838,7 +852,7 @@ func (r ApiManagedArtifactApiListManagedArtifactSyncsRequest) Execute() (*ListMa
 /*
 ManagedArtifactApiListManagedArtifactSyncs ListManagedArtifactSyncs managed-artifact-api
 
-List managed artifact synchronization records for the authenticated organization's provisioner targets.
+List private managed artifact syncs or public ECR publications for the authenticated organization.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiManagedArtifactApiListManagedArtifactSyncsRequest
@@ -871,6 +885,12 @@ func (a *ManagedArtifactApiAPIService) ManagedArtifactApiListManagedArtifactSync
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.registryType != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "registryType", r.registryType, "form", "")
+	}
+	if r.destinationAccountId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "destinationAccountId", r.destinationAccountId, "form", "")
+	}
 	if r.bundleVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "bundleVersion", r.bundleVersion, "form", "")
 	}

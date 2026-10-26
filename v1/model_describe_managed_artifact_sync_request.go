@@ -20,7 +20,7 @@ var _ MappedNullable = &DescribeManagedArtifactSyncRequest{}
 
 // DescribeManagedArtifactSyncRequest struct for DescribeManagedArtifactSyncRequest
 type DescribeManagedArtifactSyncRequest struct {
-	Id string `json:"id" validate:"regexp=^spabs-[a-zA-Z0-9-]+$"`
+	Id string `json:"id" validate:"regexp=^(spabs|sppap)-[a-zA-Z0-9-]+$"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}

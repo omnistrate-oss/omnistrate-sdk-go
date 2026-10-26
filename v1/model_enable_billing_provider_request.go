@@ -22,7 +22,7 @@ var _ MappedNullable = &EnableBillingProviderRequest{}
 type EnableBillingProviderRequest struct {
 	// The URL to the balance due page
 	BalanceDueLink *string `json:"balanceDueLink,omitempty"`
-	// The billing provider type
+	// The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace
 	BillingProviderType string `json:"billingProviderType"`
 	// The URL of the logo for the billing provider. Only present when the billing provider is BRING_YOUR_OWN
 	LogoURL *string `json:"logoURL,omitempty"`

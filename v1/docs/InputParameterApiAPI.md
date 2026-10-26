@@ -32,7 +32,7 @@ import (
 
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service that this output parameter belongs to
-	createInputParameterRequest2 := *openapiclient.NewCreateInputParameterRequest2("Nesciunt doloremque vel debitis ullam tenetur.", "ste", false, "m5w", false, "Est aut aliquid labore temporibus expedita quas.", "Boolean|Float64|String|Resource|Secret|Password") // CreateInputParameterRequest2 | 
+	createInputParameterRequest2 := *openapiclient.NewCreateInputParameterRequest2("Qui voluptatibus facilis.", "9", false, "zf", false, "Mollitia cupiditate incidunt nihil sunt.", "Boolean|Float64|String|Resource|Secret|Password") // CreateInputParameterRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -172,7 +172,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service that this output parameter belongs to
 	id := "var-12345678" // string | ID of the input parameter
-	productTierVersion := "Aut pariatur fugiat et quo." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Dolor qui magni voluptatum minima voluptate." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Ad a officiis est nobis debitis eos." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -247,7 +247,7 @@ import (
 func main() {
 	serviceId := "s-12345678" // string | The ID of the service that this output parameter belongs to
 	resourceId := "r-12345678" // string | The ID of the resource that this input parameter belongs to
-	productTierVersion := "Mollitia qui ipsam." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
+	productTierVersion := "Et et itaque." // string | Product tier version of the instance to describe. If not specified, the latest version is described. (optional)
 	productTierId := "Ad a officiis est nobis debitis eos." // string | Product tier id of the instance to describe. Needs to specified in combination with the product tier version (optional)
 
 	configuration := openapiclient.NewConfiguration()

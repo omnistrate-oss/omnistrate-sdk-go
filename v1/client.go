@@ -55,6 +55,8 @@ type APIClient struct {
 
 	AuditEventsApiAPI AuditEventsApiAPI
 
+	AuthSessionApiAPI AuthSessionApiAPI
+
 	AvailabilityZoneApiAPI AvailabilityZoneApiAPI
 
 	CloudProviderApiAPI CloudProviderApiAPI
@@ -193,6 +195,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.AccountConfigApiAPI = (*AccountConfigApiAPIService)(&c.common)
 	c.ApiKeyApiAPI = (*ApiKeyApiAPIService)(&c.common)
 	c.AuditEventsApiAPI = (*AuditEventsApiAPIService)(&c.common)
+	c.AuthSessionApiAPI = (*AuthSessionApiAPIService)(&c.common)
 	c.AvailabilityZoneApiAPI = (*AvailabilityZoneApiAPIService)(&c.common)
 	c.CloudProviderApiAPI = (*CloudProviderApiAPIService)(&c.common)
 	c.ComposeGenApiAPI = (*ComposeGenApiAPIService)(&c.common)

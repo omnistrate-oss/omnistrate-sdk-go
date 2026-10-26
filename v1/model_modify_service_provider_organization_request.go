@@ -22,6 +22,10 @@ var _ MappedNullable = &ModifyServiceProviderOrganizationRequest{}
 type ModifyServiceProviderOrganizationRequest struct {
 	// The default deployment cell configurations for the organization per environment.
 	DeploymentCellConfigurations *map[string]DeploymentCellConfigurations `json:"DeploymentCellConfigurations,omitempty"`
+	// AWS APN tag override for this provider organization. Omit to leave unchanged or send an empty string to restore the default. Root and admin users only.
+	AwsAPNTagValue *string `json:"awsAPNTagValue,omitempty"`
+	// Root-only just-in-time access configuration patch for one environment of the authenticated service provider organization per call. GLOBAL is not supported by the backend for these settings. Omit the field or a nested property to preserve stored settings and sibling templates. Provider sign-in may seed missing AUTO defaults without enabling manual approval or request accounting. Explicit AUTO-to-MANUAL changes require backend cutoff/readiness; ordinary reads or unrelated updates do not interrupt access.
+	JustInTimeAccessConfigurations *map[string]JustInTimeAccessConfiguration `json:"justInTimeAccessConfigurations,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -70,6 +74,52 @@ func (o *ModifyServiceProviderOrganizationRequest) SetDeploymentCellConfiguratio
 	o.DeploymentCellConfigurations = &v
 }
 
+// GetAwsAPNTagValue returns the AwsAPNTagValue field value if set, zero value otherwise.
+func (o *ModifyServiceProviderOrganizationRequest) GetAwsAPNTagValue() string {
+	if o == nil || IsNil(o.AwsAPNTagValue) {
+		var ret string
+		return ret
+	}
+	return *o.AwsAPNTagValue
+}
+
+// GetAwsAPNTagValueOk returns a tuple with the AwsAPNTagValue field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModifyServiceProviderOrganizationRequest) GetAwsAPNTagValueOk() (*string, bool) {
+	if o == nil || IsNil(o.AwsAPNTagValue) {
+		return nil, false
+	}
+	return o.AwsAPNTagValue, true
+}
+
+// SetAwsAPNTagValue gets a reference to the given string and assigns it to the AwsAPNTagValue field.
+func (o *ModifyServiceProviderOrganizationRequest) SetAwsAPNTagValue(v string) {
+	o.AwsAPNTagValue = &v
+}
+
+// GetJustInTimeAccessConfigurations returns the JustInTimeAccessConfigurations field value if set, zero value otherwise.
+func (o *ModifyServiceProviderOrganizationRequest) GetJustInTimeAccessConfigurations() map[string]JustInTimeAccessConfiguration {
+	if o == nil || IsNil(o.JustInTimeAccessConfigurations) {
+		var ret map[string]JustInTimeAccessConfiguration
+		return ret
+	}
+	return *o.JustInTimeAccessConfigurations
+}
+
+// GetJustInTimeAccessConfigurationsOk returns a tuple with the JustInTimeAccessConfigurations field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModifyServiceProviderOrganizationRequest) GetJustInTimeAccessConfigurationsOk() (*map[string]JustInTimeAccessConfiguration, bool) {
+	if o == nil || IsNil(o.JustInTimeAccessConfigurations) {
+		return nil, false
+	}
+	return o.JustInTimeAccessConfigurations, true
+}
+
+// SetJustInTimeAccessConfigurations gets a reference to the given map[string]JustInTimeAccessConfiguration and assigns it to the JustInTimeAccessConfigurations field.
+func (o *ModifyServiceProviderOrganizationRequest) SetJustInTimeAccessConfigurations(v map[string]JustInTimeAccessConfiguration) {
+	o.JustInTimeAccessConfigurations = &v
+}
+
 // GetToken returns the Token field value
 func (o *ModifyServiceProviderOrganizationRequest) GetToken() string {
 	if o == nil {
@@ -106,6 +156,12 @@ func (o ModifyServiceProviderOrganizationRequest) ToMap() (map[string]interface{
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.DeploymentCellConfigurations) {
 		toSerialize["DeploymentCellConfigurations"] = o.DeploymentCellConfigurations
+	}
+	if !IsNil(o.AwsAPNTagValue) {
+		toSerialize["awsAPNTagValue"] = o.AwsAPNTagValue
+	}
+	if !IsNil(o.JustInTimeAccessConfigurations) {
+		toSerialize["justInTimeAccessConfigurations"] = o.JustInTimeAccessConfigurations
 	}
 	toSerialize["token"] = o.Token
 
@@ -152,6 +208,8 @@ func (o *ModifyServiceProviderOrganizationRequest) UnmarshalJSON(data []byte) (e
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "DeploymentCellConfigurations")
+		delete(additionalProperties, "awsAPNTagValue")
+		delete(additionalProperties, "justInTimeAccessConfigurations")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

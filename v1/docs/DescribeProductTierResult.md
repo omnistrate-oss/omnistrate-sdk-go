@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **ByocOnpremRegions** | Pointer to **[]string** | The BYOC on-prem regions that this product tier is available on | [optional] 
 **CloudProvidersConfigReadiness** | Pointer to **map[string]map[string]string** | The readiness of the cloud providers configurations | [optional] 
 **CustomMetering** | Pointer to [**CustomMeteringConfiguration**](CustomMeteringConfiguration.md) |  | [optional] 
-**DefaultBillingProvider** | Pointer to **string** | The billing provider type | [optional] 
+**DefaultBillingProvider** | Pointer to **string** | The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace | [optional] 
 **DeploymentArtifactIDs** | Pointer to **[]string** | List of deployment artifact IDs associated with this product tier | [optional] 
 **DeploymentConfiguration** | Pointer to [**ProductTierDeploymentConfiguration**](ProductTierDeploymentConfiguration.md) |  | [optional] 
 **Description** | **string** | A brief description of the product tier | 

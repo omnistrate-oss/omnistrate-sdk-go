@@ -34,7 +34,7 @@ type DescribeAccountConfigByNebiusTenantIDResult struct {
 	NebiusBindings []NebiusAccountBindingResult `json:"nebiusBindings,omitempty"`
 	// The Nebius tenant ID for the tenant-scoped Nebius account configuration
 	NebiusTenantID string `json:"nebiusTenantID"`
-	// The status of the account configuration
+	// The status of the account configuration. BYOA settings updates remain PENDING_UPDATE until verification finishes, including while waiting for the customer to apply account setup changes. Successful verification sets READY for connected accounts or DISCONNECTED after access is revoked.
 	Status string `json:"status"`
 	// The status message of the account
 	StatusMessage string `json:"statusMessage"`

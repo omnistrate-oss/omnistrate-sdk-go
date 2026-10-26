@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **PaymentConfigurable** | Pointer to **bool** | Whether the payment channel payment information can be configured. | [optional] 
 **PaymentConfigured** | Pointer to **bool** | Whether the customer has configured their payment information. | [optional] 
 **PaymentInfoPortalURL** | Pointer to **string** | The URL from the billing provide to redirect users to so they can enter their payment information.  Only present when first adding payment information | [optional] 
-**Type** | **string** | The billing provider type | 
+**Type** | **string** | The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace | 
 
 ## Methods
 

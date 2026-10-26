@@ -17,6 +17,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"time"
 )
 
 
@@ -137,6 +138,26 @@ type ResourceInstanceApiAPI interface {
 	// ResourceInstanceApiDescribeResourceInstanceExecute executes the request
 	//  @return DescribeResourceInstanceResult
 	ResourceInstanceApiDescribeResourceInstanceExecute(r ApiResourceInstanceApiDescribeResourceInstanceRequest) (*DescribeResourceInstanceResult, *http.Response, error)
+
+	/*
+	ResourceInstanceApiDescribeResourceInstanceHealthHistory DescribeResourceInstanceHealthHistory resource-instance-api
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceProviderId The service provider ID
+	@param serviceKey The service name
+	@param serviceAPIVersion The service API version
+	@param serviceEnvironmentKey The service environment name
+	@param serviceModelKey The service model name
+	@param productTierKey The product tier name
+	@param resourceKey The resource key
+	@param id The instance ID
+	@return ApiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest
+	*/
+	ResourceInstanceApiDescribeResourceInstanceHealthHistory(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest
+
+	// ResourceInstanceApiDescribeResourceInstanceHealthHistoryExecute executes the request
+	//  @return InstanceHealthHistoryResult
+	ResourceInstanceApiDescribeResourceInstanceHealthHistoryExecute(r ApiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest) (*InstanceHealthHistoryResult, *http.Response, error)
 
 	/*
 	ResourceInstanceApiFailoverResourceInstance FailoverResourceInstance resource-instance-api
@@ -1593,6 +1614,255 @@ func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDescribeResourceInsta
 
 	if r.subscriptionId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "subscriptionId", r.subscriptionId, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.goa.error"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest struct {
+	ctx context.Context
+	ApiService ResourceInstanceApiAPI
+	startTime *time.Time
+	endTime *time.Time
+	serviceProviderId string
+	serviceKey string
+	serviceAPIVersion string
+	serviceEnvironmentKey string
+	serviceModelKey string
+	productTierKey string
+	resourceKey string
+	id string
+	subscriptionId *string
+	limit *int64
+	nextPageToken *string
+}
+
+// Inclusive start of the requested period, in RFC3339 format
+func (r ApiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest) StartTime(startTime time.Time) ApiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest {
+	r.startTime = &startTime
+	return r
+}
+
+// Exclusive end of the requested period, in RFC3339 format
+func (r ApiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest) EndTime(endTime time.Time) ApiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest {
+	r.endTime = &endTime
+	return r
+}
+
+// Subscription Id
+func (r ApiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest) SubscriptionId(subscriptionId string) ApiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest {
+	r.subscriptionId = &subscriptionId
+	return r
+}
+
+// Maximum number of changes to return in one page
+func (r ApiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest) Limit(limit int64) ApiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest {
+	r.limit = &limit
+	return r
+}
+
+// Continuation token bound to the provider, instance, and requested period
+func (r ApiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest) NextPageToken(nextPageToken string) ApiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest {
+	r.nextPageToken = &nextPageToken
+	return r
+}
+
+func (r ApiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest) Execute() (*InstanceHealthHistoryResult, *http.Response, error) {
+	return r.ApiService.ResourceInstanceApiDescribeResourceInstanceHealthHistoryExecute(r)
+}
+
+/*
+ResourceInstanceApiDescribeResourceInstanceHealthHistory DescribeResourceInstanceHealthHistory resource-instance-api
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param serviceProviderId The service provider ID
+ @param serviceKey The service name
+ @param serviceAPIVersion The service API version
+ @param serviceEnvironmentKey The service environment name
+ @param serviceModelKey The service model name
+ @param productTierKey The product tier name
+ @param resourceKey The resource key
+ @param id The instance ID
+ @return ApiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest
+*/
+func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDescribeResourceInstanceHealthHistory(ctx context.Context, serviceProviderId string, serviceKey string, serviceAPIVersion string, serviceEnvironmentKey string, serviceModelKey string, productTierKey string, resourceKey string, id string) ApiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest {
+	return ApiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest{
+		ApiService: a,
+		ctx: ctx,
+		serviceProviderId: serviceProviderId,
+		serviceKey: serviceKey,
+		serviceAPIVersion: serviceAPIVersion,
+		serviceEnvironmentKey: serviceEnvironmentKey,
+		serviceModelKey: serviceModelKey,
+		productTierKey: productTierKey,
+		resourceKey: resourceKey,
+		id: id,
+	}
+}
+
+// Execute executes the request
+//  @return InstanceHealthHistoryResult
+func (a *ResourceInstanceApiAPIService) ResourceInstanceApiDescribeResourceInstanceHealthHistoryExecute(r ApiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest) (*InstanceHealthHistoryResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *InstanceHealthHistoryResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ResourceInstanceApiAPIService.ResourceInstanceApiDescribeResourceInstanceHealthHistory")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/health-history"
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceProviderId"+"}", url.PathEscape(parameterValueToString(r.serviceProviderId, "serviceProviderId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceKey"+"}", url.PathEscape(parameterValueToString(r.serviceKey, "serviceKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceAPIVersion"+"}", url.PathEscape(parameterValueToString(r.serviceAPIVersion, "serviceAPIVersion")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceEnvironmentKey"+"}", url.PathEscape(parameterValueToString(r.serviceEnvironmentKey, "serviceEnvironmentKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"serviceModelKey"+"}", url.PathEscape(parameterValueToString(r.serviceModelKey, "serviceModelKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"productTierKey"+"}", url.PathEscape(parameterValueToString(r.productTierKey, "productTierKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"resourceKey"+"}", url.PathEscape(parameterValueToString(r.resourceKey, "resourceKey")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.startTime == nil {
+		return localVarReturnValue, nil, reportError("startTime is required and must be specified")
+	}
+	if r.endTime == nil {
+		return localVarReturnValue, nil, reportError("endTime is required and must be specified")
+	}
+
+	if r.subscriptionId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "subscriptionId", r.subscriptionId, "form", "")
+	}
+	parameterAddToHeaderOrQuery(localVarQueryParams, "startTime", r.startTime, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "endTime", r.endTime, "form", "")
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+	} else {
+		var defaultValue int64 = 100
+		r.limit = &defaultValue
+	}
+	if r.nextPageToken != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "nextPageToken", r.nextPageToken, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

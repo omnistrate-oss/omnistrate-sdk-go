@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**ResourceInstanceApiCreateResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiCreateResourceInstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey} | CreateResourceInstance resource-instance-api
 [**ResourceInstanceApiDeleteResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiDeleteResourceInstance) | **Delete** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id} | DeleteResourceInstance resource-instance-api
 [**ResourceInstanceApiDescribeResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiDescribeResourceInstance) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id} | DescribeResourceInstance resource-instance-api
+[**ResourceInstanceApiDescribeResourceInstanceHealthHistory**](ResourceInstanceApiAPI.md#ResourceInstanceApiDescribeResourceInstanceHealthHistory) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/health-history | DescribeResourceInstanceHealthHistory resource-instance-api
 [**ResourceInstanceApiFailoverResourceInstance**](ResourceInstanceApiAPI.md#ResourceInstanceApiFailoverResourceInstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/failover | FailoverResourceInstance resource-instance-api
 [**ResourceInstanceApiGenerateTokenForDeploymentCellDashboard**](ResourceInstanceApiAPI.md#ResourceInstanceApiGenerateTokenForDeploymentCellDashboard) | **Post** /2022-09-01-00/resource-instance/{id}/deployment-cell-dashboard/token | GenerateTokenForDeploymentCellDashboard resource-instance-api
 [**ResourceInstanceApiListAllResourceInstances**](ResourceInstanceApiAPI.md#ResourceInstanceApiListAllResourceInstances) | **Get** /2022-09-01-00/resource-instance | ListAllResourceInstances resource-instance-api
@@ -565,6 +566,106 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DescribeResourceInstanceResult**](DescribeResourceInstanceResult.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ResourceInstanceApiDescribeResourceInstanceHealthHistory
+
+> InstanceHealthHistoryResult ResourceInstanceApiDescribeResourceInstanceHealthHistory(ctx, serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).StartTime(startTime).EndTime(endTime).SubscriptionId(subscriptionId).Limit(limit).NextPageToken(nextPageToken).Execute()
+
+DescribeResourceInstanceHealthHistory resource-instance-api
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/v1"
+)
+
+func main() {
+	startTime := time.Now() // time.Time | Inclusive start of the requested period, in RFC3339 format
+	endTime := time.Now() // time.Time | Exclusive end of the requested period, in RFC3339 format
+	serviceProviderId := "omnistrate" // string | The service provider ID
+	serviceKey := "service-orchestration" // string | The service name
+	serviceAPIVersion := "v1" // string | The service API version
+	serviceEnvironmentKey := "dev" // string | The service environment name
+	serviceModelKey := "hosted" // string | The service model name
+	productTierKey := "premium" // string | The product tier name
+	resourceKey := "mysql" // string | The resource key
+	id := "instance-abcd1234" // string | The instance ID
+	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
+	limit := int64(304) // int64 | Maximum number of changes to return in one page (optional) (default to 100)
+	nextPageToken := "nq9" // string | Continuation token bound to the provider, instance, and requested period (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ResourceInstanceApiAPI.ResourceInstanceApiDescribeResourceInstanceHealthHistory(context.Background(), serviceProviderId, serviceKey, serviceAPIVersion, serviceEnvironmentKey, serviceModelKey, productTierKey, resourceKey, id).StartTime(startTime).EndTime(endTime).SubscriptionId(subscriptionId).Limit(limit).NextPageToken(nextPageToken).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ResourceInstanceApiAPI.ResourceInstanceApiDescribeResourceInstanceHealthHistory``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ResourceInstanceApiDescribeResourceInstanceHealthHistory`: InstanceHealthHistoryResult
+	fmt.Fprintf(os.Stdout, "Response from `ResourceInstanceApiAPI.ResourceInstanceApiDescribeResourceInstanceHealthHistory`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceProviderId** | **string** | The service provider ID | 
+**serviceKey** | **string** | The service name | 
+**serviceAPIVersion** | **string** | The service API version | 
+**serviceEnvironmentKey** | **string** | The service environment name | 
+**serviceModelKey** | **string** | The service model name | 
+**productTierKey** | **string** | The product tier name | 
+**resourceKey** | **string** | The resource key | 
+**id** | **string** | The instance ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiResourceInstanceApiDescribeResourceInstanceHealthHistoryRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startTime** | **time.Time** | Inclusive start of the requested period, in RFC3339 format | 
+ **endTime** | **time.Time** | Exclusive end of the requested period, in RFC3339 format | 
+
+
+
+
+
+
+
+
+ **subscriptionId** | **string** | Subscription Id | 
+ **limit** | **int64** | Maximum number of changes to return in one page | [default to 100]
+ **nextPageToken** | **string** | Continuation token bound to the provider, instance, and requested period | 
+
+### Return type
+
+[**InstanceHealthHistoryResult**](InstanceHealthHistoryResult.md)
 
 ### Authorization
 
@@ -2063,7 +2164,7 @@ import (
 
 func main() {
 	id := "instance-abcd1234" // string | The instance ID
-	upgradeResourceInstanceVersionRequest2 := *openapiclient.NewUpgradeResourceInstanceVersionRequest2("premium", "mysql", "v1", "dev", "service-orchestration", "hosted", "Adipisci et omnis.") // UpgradeResourceInstanceVersionRequest2 | 
+	upgradeResourceInstanceVersionRequest2 := *openapiclient.NewUpgradeResourceInstanceVersionRequest2("premium", "mysql", "v1", "dev", "service-orchestration", "hosted", "Enim atque molestiae earum explicabo ducimus dolorum.") // UpgradeResourceInstanceVersionRequest2 | 
 	subscriptionId := "sub-abcd1234" // string | Subscription Id (optional)
 
 	configuration := openapiclient.NewConfiguration()

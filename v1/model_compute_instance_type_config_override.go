@@ -42,7 +42,11 @@ type ComputeInstanceTypeConfigOverride struct {
 	Taints []TaintConfiguration `json:"taints,omitempty"`
 	// Number of time-sliced GPU replicas to expose from each physical GPU for providers that support per-node-pool GPU time slicing
 	TimeSlicingReplicas *int64 `json:"timeSlicingReplicas,omitempty"`
+	// Input parameter reference for the number of time-sliced GPU replicas per physical GPU. Mutually exclusive with timeSlicingReplicas. The resolved value must be an unsigned integer greater than or equal to 2.
+	TimeSlicingReplicasAPIParam *string `json:"timeSlicingReplicasAPIParam,omitempty"`
 	WarmPoolConfiguration *WarmPoolConfiguration `json:"warmPoolConfiguration,omitempty"`
+	// Per-instance-type policy for node-pool creation within the Resource's selected availability zones. Known values: strict and bestEffort. strict requires this instance type to be available in every selected Resource zone and creates pools in every selected zone. bestEffort creates pools only in selected Resource zones where this instance type is available, permitting a single zone. If this instance type is unavailable in every selected zone, bestEffort creates no pools for it; another instance type must provide pools in those zones. Applies to multi-zone and single-zone configurations, including customer-provided zones. This policy does not change Resource placement or fall back to a different zone. An omitted policy means strict. An omitted response value also means strict.
+	ZonePlacementPolicy *string `json:"zonePlacementPolicy,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -364,6 +368,29 @@ func (o *ComputeInstanceTypeConfigOverride) SetTimeSlicingReplicas(v int64) {
 	o.TimeSlicingReplicas = &v
 }
 
+// GetTimeSlicingReplicasAPIParam returns the TimeSlicingReplicasAPIParam field value if set, zero value otherwise.
+func (o *ComputeInstanceTypeConfigOverride) GetTimeSlicingReplicasAPIParam() string {
+	if o == nil || IsNil(o.TimeSlicingReplicasAPIParam) {
+		var ret string
+		return ret
+	}
+	return *o.TimeSlicingReplicasAPIParam
+}
+
+// GetTimeSlicingReplicasAPIParamOk returns a tuple with the TimeSlicingReplicasAPIParam field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeInstanceTypeConfigOverride) GetTimeSlicingReplicasAPIParamOk() (*string, bool) {
+	if o == nil || IsNil(o.TimeSlicingReplicasAPIParam) {
+		return nil, false
+	}
+	return o.TimeSlicingReplicasAPIParam, true
+}
+
+// SetTimeSlicingReplicasAPIParam gets a reference to the given string and assigns it to the TimeSlicingReplicasAPIParam field.
+func (o *ComputeInstanceTypeConfigOverride) SetTimeSlicingReplicasAPIParam(v string) {
+	o.TimeSlicingReplicasAPIParam = &v
+}
+
 // GetWarmPoolConfiguration returns the WarmPoolConfiguration field value if set, zero value otherwise.
 func (o *ComputeInstanceTypeConfigOverride) GetWarmPoolConfiguration() WarmPoolConfiguration {
 	if o == nil || IsNil(o.WarmPoolConfiguration) {
@@ -385,6 +412,29 @@ func (o *ComputeInstanceTypeConfigOverride) GetWarmPoolConfigurationOk() (*WarmP
 // SetWarmPoolConfiguration gets a reference to the given WarmPoolConfiguration and assigns it to the WarmPoolConfiguration field.
 func (o *ComputeInstanceTypeConfigOverride) SetWarmPoolConfiguration(v WarmPoolConfiguration) {
 	o.WarmPoolConfiguration = &v
+}
+
+// GetZonePlacementPolicy returns the ZonePlacementPolicy field value if set, zero value otherwise.
+func (o *ComputeInstanceTypeConfigOverride) GetZonePlacementPolicy() string {
+	if o == nil || IsNil(o.ZonePlacementPolicy) {
+		var ret string
+		return ret
+	}
+	return *o.ZonePlacementPolicy
+}
+
+// GetZonePlacementPolicyOk returns a tuple with the ZonePlacementPolicy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeInstanceTypeConfigOverride) GetZonePlacementPolicyOk() (*string, bool) {
+	if o == nil || IsNil(o.ZonePlacementPolicy) {
+		return nil, false
+	}
+	return o.ZonePlacementPolicy, true
+}
+
+// SetZonePlacementPolicy gets a reference to the given string and assigns it to the ZonePlacementPolicy field.
+func (o *ComputeInstanceTypeConfigOverride) SetZonePlacementPolicy(v string) {
+	o.ZonePlacementPolicy = &v
 }
 
 func (o ComputeInstanceTypeConfigOverride) MarshalJSON() ([]byte, error) {
@@ -436,8 +486,14 @@ func (o ComputeInstanceTypeConfigOverride) ToMap() (map[string]interface{}, erro
 	if !IsNil(o.TimeSlicingReplicas) {
 		toSerialize["timeSlicingReplicas"] = o.TimeSlicingReplicas
 	}
+	if !IsNil(o.TimeSlicingReplicasAPIParam) {
+		toSerialize["timeSlicingReplicasAPIParam"] = o.TimeSlicingReplicasAPIParam
+	}
 	if !IsNil(o.WarmPoolConfiguration) {
 		toSerialize["warmPoolConfiguration"] = o.WarmPoolConfiguration
+	}
+	if !IsNil(o.ZonePlacementPolicy) {
+		toSerialize["zonePlacementPolicy"] = o.ZonePlacementPolicy
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -474,7 +530,9 @@ func (o *ComputeInstanceTypeConfigOverride) UnmarshalJSON(data []byte) (err erro
 		delete(additionalProperties, "rootVolumeSizeGiAPIParam")
 		delete(additionalProperties, "taints")
 		delete(additionalProperties, "timeSlicingReplicas")
+		delete(additionalProperties, "timeSlicingReplicasAPIParam")
 		delete(additionalProperties, "warmPoolConfiguration")
+		delete(additionalProperties, "zonePlacementPolicy")
 		o.AdditionalProperties = additionalProperties
 	}
 

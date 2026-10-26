@@ -20,6 +20,7 @@ var _ MappedNullable = &DescribeAccountConfigResult{}
 
 // DescribeAccountConfigResult Account configuration including the role required to access
 type DescribeAccountConfigResult struct {
+	AppliedSettings *AccountConfigSettings `json:"appliedSettings,omitempty"`
 	// The AWS account ID
 	AwsAccountID *string `json:"awsAccountID,omitempty"`
 	// The security role ARN or service account ARN that grants access to operate the infra
@@ -28,6 +29,8 @@ type DescribeAccountConfigResult struct {
 	AwsCloudFormationNoLBTemplateURL *string `json:"awsCloudFormationNoLBTemplateURL,omitempty"`
 	// The URL to the CloudFormation template
 	AwsCloudFormationTemplateURL *string `json:"awsCloudFormationTemplateURL,omitempty"`
+	// The AWS console URL for updating the existing account setup stack using saved requested settings. Uses the verified stack identity and its actual region. Omitted when the stack identity is unknown or the account does not support this flow.
+	AwsCloudFormationUpdateURL *string `json:"awsCloudFormationUpdateURL,omitempty"`
 	// The Azure bootstrap shell command
 	AzureBootstrapShellCommand *string `json:"azureBootstrapShellCommand,omitempty"`
 	// The Azure disconnect shell command
@@ -76,7 +79,8 @@ type DescribeAccountConfigResult struct {
 	OciOffboardShellCommand *string `json:"ociOffboardShellCommand,omitempty"`
 	// The Tenancy OCID for Oracle Cloud Infrastructure
 	OciTenancyID *string `json:"ociTenancyID,omitempty"`
-	// The status of the account configuration
+	RequestedSettings *AccountConfigSettings `json:"requestedSettings,omitempty"`
+	// The status of the account configuration. BYOA settings updates remain PENDING_UPDATE until verification finishes, including while waiting for the customer to apply account setup changes. Successful verification sets READY for connected accounts or DISCONNECTED after access is revoked.
 	Status string `json:"status"`
 	// The status message of the account
 	StatusMessage string `json:"statusMessage"`
@@ -106,6 +110,29 @@ func NewDescribeAccountConfigResult(cloudProviderId string, description string, 
 func NewDescribeAccountConfigResultWithDefaults() *DescribeAccountConfigResult {
 	this := DescribeAccountConfigResult{}
 	return &this
+}
+
+// GetAppliedSettings returns the AppliedSettings field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetAppliedSettings() AccountConfigSettings {
+	if o == nil || IsNil(o.AppliedSettings) {
+		var ret AccountConfigSettings
+		return ret
+	}
+	return *o.AppliedSettings
+}
+
+// GetAppliedSettingsOk returns a tuple with the AppliedSettings field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetAppliedSettingsOk() (*AccountConfigSettings, bool) {
+	if o == nil || IsNil(o.AppliedSettings) {
+		return nil, false
+	}
+	return o.AppliedSettings, true
+}
+
+// SetAppliedSettings gets a reference to the given AccountConfigSettings and assigns it to the AppliedSettings field.
+func (o *DescribeAccountConfigResult) SetAppliedSettings(v AccountConfigSettings) {
+	o.AppliedSettings = &v
 }
 
 // GetAwsAccountID returns the AwsAccountID field value if set, zero value otherwise.
@@ -198,6 +225,29 @@ func (o *DescribeAccountConfigResult) GetAwsCloudFormationTemplateURLOk() (*stri
 // SetAwsCloudFormationTemplateURL gets a reference to the given string and assigns it to the AwsCloudFormationTemplateURL field.
 func (o *DescribeAccountConfigResult) SetAwsCloudFormationTemplateURL(v string) {
 	o.AwsCloudFormationTemplateURL = &v
+}
+
+// GetAwsCloudFormationUpdateURL returns the AwsCloudFormationUpdateURL field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetAwsCloudFormationUpdateURL() string {
+	if o == nil || IsNil(o.AwsCloudFormationUpdateURL) {
+		var ret string
+		return ret
+	}
+	return *o.AwsCloudFormationUpdateURL
+}
+
+// GetAwsCloudFormationUpdateURLOk returns a tuple with the AwsCloudFormationUpdateURL field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetAwsCloudFormationUpdateURLOk() (*string, bool) {
+	if o == nil || IsNil(o.AwsCloudFormationUpdateURL) {
+		return nil, false
+	}
+	return o.AwsCloudFormationUpdateURL, true
+}
+
+// SetAwsCloudFormationUpdateURL gets a reference to the given string and assigns it to the AwsCloudFormationUpdateURL field.
+func (o *DescribeAccountConfigResult) SetAwsCloudFormationUpdateURL(v string) {
+	o.AwsCloudFormationUpdateURL = &v
 }
 
 // GetAzureBootstrapShellCommand returns the AzureBootstrapShellCommand field value if set, zero value otherwise.
@@ -756,6 +806,29 @@ func (o *DescribeAccountConfigResult) SetOciTenancyID(v string) {
 	o.OciTenancyID = &v
 }
 
+// GetRequestedSettings returns the RequestedSettings field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetRequestedSettings() AccountConfigSettings {
+	if o == nil || IsNil(o.RequestedSettings) {
+		var ret AccountConfigSettings
+		return ret
+	}
+	return *o.RequestedSettings
+}
+
+// GetRequestedSettingsOk returns a tuple with the RequestedSettings field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetRequestedSettingsOk() (*AccountConfigSettings, bool) {
+	if o == nil || IsNil(o.RequestedSettings) {
+		return nil, false
+	}
+	return o.RequestedSettings, true
+}
+
+// SetRequestedSettings gets a reference to the given AccountConfigSettings and assigns it to the RequestedSettings field.
+func (o *DescribeAccountConfigResult) SetRequestedSettings(v AccountConfigSettings) {
+	o.RequestedSettings = &v
+}
+
 // GetStatus returns the Status field value
 func (o *DescribeAccountConfigResult) GetStatus() string {
 	if o == nil {
@@ -814,6 +887,9 @@ func (o DescribeAccountConfigResult) MarshalJSON() ([]byte, error) {
 
 func (o DescribeAccountConfigResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AppliedSettings) {
+		toSerialize["appliedSettings"] = o.AppliedSettings
+	}
 	if !IsNil(o.AwsAccountID) {
 		toSerialize["awsAccountID"] = o.AwsAccountID
 	}
@@ -825,6 +901,9 @@ func (o DescribeAccountConfigResult) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.AwsCloudFormationTemplateURL) {
 		toSerialize["awsCloudFormationTemplateURL"] = o.AwsCloudFormationTemplateURL
+	}
+	if !IsNil(o.AwsCloudFormationUpdateURL) {
+		toSerialize["awsCloudFormationUpdateURL"] = o.AwsCloudFormationUpdateURL
 	}
 	if !IsNil(o.AzureBootstrapShellCommand) {
 		toSerialize["azureBootstrapShellCommand"] = o.AzureBootstrapShellCommand
@@ -890,6 +969,9 @@ func (o DescribeAccountConfigResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.OciTenancyID) {
 		toSerialize["ociTenancyID"] = o.OciTenancyID
 	}
+	if !IsNil(o.RequestedSettings) {
+		toSerialize["requestedSettings"] = o.RequestedSettings
+	}
 	toSerialize["status"] = o.Status
 	toSerialize["statusMessage"] = o.StatusMessage
 
@@ -940,10 +1022,12 @@ func (o *DescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "appliedSettings")
 		delete(additionalProperties, "awsAccountID")
 		delete(additionalProperties, "awsBootstrapRoleARN")
 		delete(additionalProperties, "awsCloudFormationNoLBTemplateURL")
 		delete(additionalProperties, "awsCloudFormationTemplateURL")
+		delete(additionalProperties, "awsCloudFormationUpdateURL")
 		delete(additionalProperties, "azureBootstrapShellCommand")
 		delete(additionalProperties, "azureDisconnectShellCommand")
 		delete(additionalProperties, "azureOffboardShellCommand")
@@ -968,6 +1052,7 @@ func (o *DescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "ociDomainID")
 		delete(additionalProperties, "ociOffboardShellCommand")
 		delete(additionalProperties, "ociTenancyID")
+		delete(additionalProperties, "requestedSettings")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "statusMessage")
 		o.AdditionalProperties = additionalProperties

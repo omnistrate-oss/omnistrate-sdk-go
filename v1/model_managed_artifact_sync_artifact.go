@@ -25,10 +25,16 @@ type ManagedArtifactSyncArtifact struct {
 	AmenityName string `json:"amenityName"`
 	ArtifactKey string `json:"artifactKey"`
 	CompletedAt *time.Time `json:"completedAt,omitempty"`
+	DestinationDigest *string `json:"destinationDigest,omitempty" validate:"regexp=^sha256:[a-f0-9]{64}$"`
+	// Materialized destination artifact reference without credentials.
+	DestinationRef *string `json:"destinationRef,omitempty"`
 	// Sanitized category for a managed artifact synchronization failure.
 	FailureCategory *string `json:"failureCategory,omitempty"`
 	// Sanitized operator-facing failure summary.
 	FailureMessage *string `json:"failureMessage,omitempty"`
+	SourceDigest *string `json:"sourceDigest,omitempty" validate:"regexp=^sha256:[a-f0-9]{64}$"`
+	// Canonical source artifact reference without credentials or signed query parameters.
+	SourceRef *string `json:"sourceRef,omitempty"`
 	// Public synchronization status for one artifact in a managed release.
 	Status string `json:"status"`
 	// Artifact version from the linked release revision, derived by the backend from its canonical source reference.
@@ -130,6 +136,52 @@ func (o *ManagedArtifactSyncArtifact) SetCompletedAt(v time.Time) {
 	o.CompletedAt = &v
 }
 
+// GetDestinationDigest returns the DestinationDigest field value if set, zero value otherwise.
+func (o *ManagedArtifactSyncArtifact) GetDestinationDigest() string {
+	if o == nil || IsNil(o.DestinationDigest) {
+		var ret string
+		return ret
+	}
+	return *o.DestinationDigest
+}
+
+// GetDestinationDigestOk returns a tuple with the DestinationDigest field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ManagedArtifactSyncArtifact) GetDestinationDigestOk() (*string, bool) {
+	if o == nil || IsNil(o.DestinationDigest) {
+		return nil, false
+	}
+	return o.DestinationDigest, true
+}
+
+// SetDestinationDigest gets a reference to the given string and assigns it to the DestinationDigest field.
+func (o *ManagedArtifactSyncArtifact) SetDestinationDigest(v string) {
+	o.DestinationDigest = &v
+}
+
+// GetDestinationRef returns the DestinationRef field value if set, zero value otherwise.
+func (o *ManagedArtifactSyncArtifact) GetDestinationRef() string {
+	if o == nil || IsNil(o.DestinationRef) {
+		var ret string
+		return ret
+	}
+	return *o.DestinationRef
+}
+
+// GetDestinationRefOk returns a tuple with the DestinationRef field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ManagedArtifactSyncArtifact) GetDestinationRefOk() (*string, bool) {
+	if o == nil || IsNil(o.DestinationRef) {
+		return nil, false
+	}
+	return o.DestinationRef, true
+}
+
+// SetDestinationRef gets a reference to the given string and assigns it to the DestinationRef field.
+func (o *ManagedArtifactSyncArtifact) SetDestinationRef(v string) {
+	o.DestinationRef = &v
+}
+
 // GetFailureCategory returns the FailureCategory field value if set, zero value otherwise.
 func (o *ManagedArtifactSyncArtifact) GetFailureCategory() string {
 	if o == nil || IsNil(o.FailureCategory) {
@@ -174,6 +226,52 @@ func (o *ManagedArtifactSyncArtifact) GetFailureMessageOk() (*string, bool) {
 // SetFailureMessage gets a reference to the given string and assigns it to the FailureMessage field.
 func (o *ManagedArtifactSyncArtifact) SetFailureMessage(v string) {
 	o.FailureMessage = &v
+}
+
+// GetSourceDigest returns the SourceDigest field value if set, zero value otherwise.
+func (o *ManagedArtifactSyncArtifact) GetSourceDigest() string {
+	if o == nil || IsNil(o.SourceDigest) {
+		var ret string
+		return ret
+	}
+	return *o.SourceDigest
+}
+
+// GetSourceDigestOk returns a tuple with the SourceDigest field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ManagedArtifactSyncArtifact) GetSourceDigestOk() (*string, bool) {
+	if o == nil || IsNil(o.SourceDigest) {
+		return nil, false
+	}
+	return o.SourceDigest, true
+}
+
+// SetSourceDigest gets a reference to the given string and assigns it to the SourceDigest field.
+func (o *ManagedArtifactSyncArtifact) SetSourceDigest(v string) {
+	o.SourceDigest = &v
+}
+
+// GetSourceRef returns the SourceRef field value if set, zero value otherwise.
+func (o *ManagedArtifactSyncArtifact) GetSourceRef() string {
+	if o == nil || IsNil(o.SourceRef) {
+		var ret string
+		return ret
+	}
+	return *o.SourceRef
+}
+
+// GetSourceRefOk returns a tuple with the SourceRef field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ManagedArtifactSyncArtifact) GetSourceRefOk() (*string, bool) {
+	if o == nil || IsNil(o.SourceRef) {
+		return nil, false
+	}
+	return o.SourceRef, true
+}
+
+// SetSourceRef gets a reference to the given string and assigns it to the SourceRef field.
+func (o *ManagedArtifactSyncArtifact) SetSourceRef(v string) {
+	o.SourceRef = &v
 }
 
 // GetStatus returns the Status field value
@@ -239,11 +337,23 @@ func (o ManagedArtifactSyncArtifact) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CompletedAt) {
 		toSerialize["completedAt"] = o.CompletedAt
 	}
+	if !IsNil(o.DestinationDigest) {
+		toSerialize["destinationDigest"] = o.DestinationDigest
+	}
+	if !IsNil(o.DestinationRef) {
+		toSerialize["destinationRef"] = o.DestinationRef
+	}
 	if !IsNil(o.FailureCategory) {
 		toSerialize["failureCategory"] = o.FailureCategory
 	}
 	if !IsNil(o.FailureMessage) {
 		toSerialize["failureMessage"] = o.FailureMessage
+	}
+	if !IsNil(o.SourceDigest) {
+		toSerialize["sourceDigest"] = o.SourceDigest
+	}
+	if !IsNil(o.SourceRef) {
+		toSerialize["sourceRef"] = o.SourceRef
 	}
 	toSerialize["status"] = o.Status
 	toSerialize["version"] = o.Version
@@ -296,8 +406,12 @@ func (o *ManagedArtifactSyncArtifact) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "amenityName")
 		delete(additionalProperties, "artifactKey")
 		delete(additionalProperties, "completedAt")
+		delete(additionalProperties, "destinationDigest")
+		delete(additionalProperties, "destinationRef")
 		delete(additionalProperties, "failureCategory")
 		delete(additionalProperties, "failureMessage")
+		delete(additionalProperties, "sourceDigest")
+		delete(additionalProperties, "sourceRef")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "version")
 		o.AdditionalProperties = additionalProperties

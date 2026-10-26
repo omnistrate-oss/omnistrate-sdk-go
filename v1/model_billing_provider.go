@@ -32,7 +32,7 @@ type BillingProvider struct {
 	Status string `json:"status"`
 	// The Stripe Customer ID associated with the billing provider. Only present when the billing provider is STRIPE
 	StripeCustomerID *string `json:"stripeCustomerID,omitempty"`
-	// The billing provider type
+	// The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace
 	Type string `json:"type"`
 	AdditionalProperties map[string]interface{}
 }

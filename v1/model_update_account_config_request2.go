@@ -27,6 +27,7 @@ type UpdateAccountConfigRequest2 struct {
 	Name *string `json:"name,omitempty"`
 	// Full replacement set of Nebius project/service-account bindings for an existing tenant-scoped Nebius account configuration
 	NebiusBindings []NebiusAccountBindingInput `json:"nebiusBindings,omitempty"`
+	Settings *AccountConfigSettings `json:"settings,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -141,6 +142,29 @@ func (o *UpdateAccountConfigRequest2) SetNebiusBindings(v []NebiusAccountBinding
 	o.NebiusBindings = v
 }
 
+// GetSettings returns the Settings field value if set, zero value otherwise.
+func (o *UpdateAccountConfigRequest2) GetSettings() AccountConfigSettings {
+	if o == nil || IsNil(o.Settings) {
+		var ret AccountConfigSettings
+		return ret
+	}
+	return *o.Settings
+}
+
+// GetSettingsOk returns a tuple with the Settings field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateAccountConfigRequest2) GetSettingsOk() (*AccountConfigSettings, bool) {
+	if o == nil || IsNil(o.Settings) {
+		return nil, false
+	}
+	return o.Settings, true
+}
+
+// SetSettings gets a reference to the given AccountConfigSettings and assigns it to the Settings field.
+func (o *UpdateAccountConfigRequest2) SetSettings(v AccountConfigSettings) {
+	o.Settings = &v
+}
+
 func (o UpdateAccountConfigRequest2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -162,6 +186,9 @@ func (o UpdateAccountConfigRequest2) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.NebiusBindings) {
 		toSerialize["nebiusBindings"] = o.NebiusBindings
+	}
+	if !IsNil(o.Settings) {
+		toSerialize["settings"] = o.Settings
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -189,6 +216,7 @@ func (o *UpdateAccountConfigRequest2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "nebiusBindings")
+		delete(additionalProperties, "settings")
 		o.AdditionalProperties = additionalProperties
 	}
 
