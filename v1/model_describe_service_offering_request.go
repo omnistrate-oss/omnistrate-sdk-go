@@ -22,6 +22,8 @@ var _ MappedNullable = &DescribeServiceOfferingRequest{}
 type DescribeServiceOfferingRequest struct {
 	// The type of service environment
 	EnvironmentType *string `json:"environmentType,omitempty"`
+	// ID of a Product Tier
+	ProductTierId *string `json:"productTierId,omitempty"`
 	// ID of a Service
 	ServiceId string `json:"serviceId"`
 	// JWT token used to perform authorization
@@ -73,6 +75,29 @@ func (o *DescribeServiceOfferingRequest) GetEnvironmentTypeOk() (*string, bool) 
 // SetEnvironmentType gets a reference to the given string and assigns it to the EnvironmentType field.
 func (o *DescribeServiceOfferingRequest) SetEnvironmentType(v string) {
 	o.EnvironmentType = &v
+}
+
+// GetProductTierId returns the ProductTierId field value if set, zero value otherwise.
+func (o *DescribeServiceOfferingRequest) GetProductTierId() string {
+	if o == nil || IsNil(o.ProductTierId) {
+		var ret string
+		return ret
+	}
+	return *o.ProductTierId
+}
+
+// GetProductTierIdOk returns a tuple with the ProductTierId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeServiceOfferingRequest) GetProductTierIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ProductTierId) {
+		return nil, false
+	}
+	return o.ProductTierId, true
+}
+
+// SetProductTierId gets a reference to the given string and assigns it to the ProductTierId field.
+func (o *DescribeServiceOfferingRequest) SetProductTierId(v string) {
+	o.ProductTierId = &v
 }
 
 // GetServiceId returns the ServiceId field value
@@ -159,6 +184,9 @@ func (o DescribeServiceOfferingRequest) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.EnvironmentType) {
 		toSerialize["environmentType"] = o.EnvironmentType
 	}
+	if !IsNil(o.ProductTierId) {
+		toSerialize["productTierId"] = o.ProductTierId
+	}
 	toSerialize["serviceId"] = o.ServiceId
 	toSerialize["token"] = o.Token
 	if !IsNil(o.Visibility) {
@@ -209,6 +237,7 @@ func (o *DescribeServiceOfferingRequest) UnmarshalJSON(data []byte) (err error) 
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "environmentType")
+		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "token")
 		delete(additionalProperties, "visibility")

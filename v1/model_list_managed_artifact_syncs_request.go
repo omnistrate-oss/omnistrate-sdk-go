@@ -22,10 +22,14 @@ var _ MappedNullable = &ListManagedArtifactSyncsRequest{}
 // ListManagedArtifactSyncsRequest struct for ListManagedArtifactSyncsRequest
 type ListManagedArtifactSyncsRequest struct {
 	BundleVersion *string `json:"bundleVersion,omitempty" validate:"regexp=^r[0-9]{7,}$"`
+	// Optional destination AWS account filter for PRIVATE_ECR or PUBLIC_ECR; not an execution host-cluster ID. Combined with targetId, both filters must match.
+	DestinationAccountId *string `json:"destinationAccountId,omitempty" validate:"regexp=^[0-9]{12}$"`
 	Limit *int64 `json:"limit,omitempty"`
 	// Opaque token returned by the previous list response.
 	NextPageToken *string `json:"nextPageToken,omitempty"`
-	// Lifecycle status for one provisioner-target synchronization.
+	// Registry destination kind. Known values are PRIVATE_ECR for provisioner-target syncs and PUBLIC_ECR for account-scoped public publications. Clients must tolerate additional values; the service validates supported request kinds.
+	RegistryType *string `json:"registryType,omitempty"`
+	// Lifecycle status for one private provisioner-target sync or public account publication. Known values are PENDING, IN_PROGRESS, READY, FAILED and SKIPPED. Clients must tolerate additional values; the service validates supported status filters.
 	Status *string `json:"status,omitempty"`
 	TargetId *string `json:"targetId,omitempty"`
 	// JWT token used to perform authorization
@@ -82,6 +86,29 @@ func (o *ListManagedArtifactSyncsRequest) SetBundleVersion(v string) {
 	o.BundleVersion = &v
 }
 
+// GetDestinationAccountId returns the DestinationAccountId field value if set, zero value otherwise.
+func (o *ListManagedArtifactSyncsRequest) GetDestinationAccountId() string {
+	if o == nil || IsNil(o.DestinationAccountId) {
+		var ret string
+		return ret
+	}
+	return *o.DestinationAccountId
+}
+
+// GetDestinationAccountIdOk returns a tuple with the DestinationAccountId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListManagedArtifactSyncsRequest) GetDestinationAccountIdOk() (*string, bool) {
+	if o == nil || IsNil(o.DestinationAccountId) {
+		return nil, false
+	}
+	return o.DestinationAccountId, true
+}
+
+// SetDestinationAccountId gets a reference to the given string and assigns it to the DestinationAccountId field.
+func (o *ListManagedArtifactSyncsRequest) SetDestinationAccountId(v string) {
+	o.DestinationAccountId = &v
+}
+
 // GetLimit returns the Limit field value if set, zero value otherwise.
 func (o *ListManagedArtifactSyncsRequest) GetLimit() int64 {
 	if o == nil || IsNil(o.Limit) {
@@ -126,6 +153,29 @@ func (o *ListManagedArtifactSyncsRequest) GetNextPageTokenOk() (*string, bool) {
 // SetNextPageToken gets a reference to the given string and assigns it to the NextPageToken field.
 func (o *ListManagedArtifactSyncsRequest) SetNextPageToken(v string) {
 	o.NextPageToken = &v
+}
+
+// GetRegistryType returns the RegistryType field value if set, zero value otherwise.
+func (o *ListManagedArtifactSyncsRequest) GetRegistryType() string {
+	if o == nil || IsNil(o.RegistryType) {
+		var ret string
+		return ret
+	}
+	return *o.RegistryType
+}
+
+// GetRegistryTypeOk returns a tuple with the RegistryType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListManagedArtifactSyncsRequest) GetRegistryTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.RegistryType) {
+		return nil, false
+	}
+	return o.RegistryType, true
+}
+
+// SetRegistryType gets a reference to the given string and assigns it to the RegistryType field.
+func (o *ListManagedArtifactSyncsRequest) SetRegistryType(v string) {
+	o.RegistryType = &v
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
@@ -257,11 +307,17 @@ func (o ListManagedArtifactSyncsRequest) ToMap() (map[string]interface{}, error)
 	if !IsNil(o.BundleVersion) {
 		toSerialize["bundleVersion"] = o.BundleVersion
 	}
+	if !IsNil(o.DestinationAccountId) {
+		toSerialize["destinationAccountId"] = o.DestinationAccountId
+	}
 	if !IsNil(o.Limit) {
 		toSerialize["limit"] = o.Limit
 	}
 	if !IsNil(o.NextPageToken) {
 		toSerialize["nextPageToken"] = o.NextPageToken
+	}
+	if !IsNil(o.RegistryType) {
+		toSerialize["registryType"] = o.RegistryType
 	}
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
@@ -320,8 +376,10 @@ func (o *ListManagedArtifactSyncsRequest) UnmarshalJSON(data []byte) (err error)
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "bundleVersion")
+		delete(additionalProperties, "destinationAccountId")
 		delete(additionalProperties, "limit")
 		delete(additionalProperties, "nextPageToken")
+		delete(additionalProperties, "registryType")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "targetId")
 		delete(additionalProperties, "token")

@@ -19,7 +19,7 @@ import (
 // checks if the ManagedArtifactSync type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ManagedArtifactSync{}
 
-// ManagedArtifactSync Tenant-safe synchronization health for managed artifacts in one provisioner target.
+// ManagedArtifactSync Tenant-safe private synchronization or account-scoped public publication health.
 type ManagedArtifactSync struct {
 	// Number of managed charts and images included in this public sync view.
 	ArtifactCount int64 `json:"artifactCount"`
@@ -28,17 +28,20 @@ type ManagedArtifactSync struct {
 	// Number of managed charts and images copied successfully.
 	CompletedArtifactCount int64 `json:"completedArtifactCount"`
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
+	Destination *ManagedArtifactDestination `json:"destination,omitempty"`
 	// Number of managed charts and images that failed to copy.
 	FailedArtifactCount int64 `json:"failedArtifactCount"`
 	// Sanitized category for a managed artifact synchronization failure.
 	FailureCategory *string `json:"failureCategory,omitempty"`
 	// Sanitized operator-facing failure summary.
 	FailureMessage *string `json:"failureMessage,omitempty"`
-	Id string `json:"id" validate:"regexp=^spabs-[a-zA-Z0-9-]+$"`
+	Id string `json:"id" validate:"regexp=^(spabs|sppap)-[a-zA-Z0-9-]+$"`
 	LastTransitionTime *time.Time `json:"lastTransitionTime,omitempty"`
-	// Lifecycle status for one provisioner-target synchronization.
+	// Registry destination kind. Known values are PRIVATE_ECR for provisioner-target syncs and PUBLIC_ECR for account-scoped public publications. Clients must tolerate additional values; the service validates supported request kinds.
+	RegistryType *string `json:"registryType,omitempty"`
+	// Lifecycle status for one private provisioner-target sync or public account publication. Known values are PENDING, IN_PROGRESS, READY, FAILED and SKIPPED. Clients must tolerate additional values; the service validates supported status filters.
 	Status string `json:"status"`
-	Target ManagedArtifactTarget `json:"target"`
+	Target *ManagedArtifactTarget `json:"target,omitempty"`
 	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -49,7 +52,7 @@ type _ManagedArtifactSync ManagedArtifactSync
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewManagedArtifactSync(artifactCount int64, bundleVersion string, completedArtifactCount int64, failedArtifactCount int64, id string, status string, target ManagedArtifactTarget) *ManagedArtifactSync {
+func NewManagedArtifactSync(artifactCount int64, bundleVersion string, completedArtifactCount int64, failedArtifactCount int64, id string, status string) *ManagedArtifactSync {
 	this := ManagedArtifactSync{}
 	this.ArtifactCount = artifactCount
 	this.BundleVersion = bundleVersion
@@ -57,7 +60,6 @@ func NewManagedArtifactSync(artifactCount int64, bundleVersion string, completed
 	this.FailedArtifactCount = failedArtifactCount
 	this.Id = id
 	this.Status = status
-	this.Target = target
 	return &this
 }
 
@@ -187,6 +189,29 @@ func (o *ManagedArtifactSync) SetCreatedAt(v time.Time) {
 	o.CreatedAt = &v
 }
 
+// GetDestination returns the Destination field value if set, zero value otherwise.
+func (o *ManagedArtifactSync) GetDestination() ManagedArtifactDestination {
+	if o == nil || IsNil(o.Destination) {
+		var ret ManagedArtifactDestination
+		return ret
+	}
+	return *o.Destination
+}
+
+// GetDestinationOk returns a tuple with the Destination field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ManagedArtifactSync) GetDestinationOk() (*ManagedArtifactDestination, bool) {
+	if o == nil || IsNil(o.Destination) {
+		return nil, false
+	}
+	return o.Destination, true
+}
+
+// SetDestination gets a reference to the given ManagedArtifactDestination and assigns it to the Destination field.
+func (o *ManagedArtifactSync) SetDestination(v ManagedArtifactDestination) {
+	o.Destination = &v
+}
+
 // GetFailedArtifactCount returns the FailedArtifactCount field value
 func (o *ManagedArtifactSync) GetFailedArtifactCount() int64 {
 	if o == nil {
@@ -304,6 +329,29 @@ func (o *ManagedArtifactSync) SetLastTransitionTime(v time.Time) {
 	o.LastTransitionTime = &v
 }
 
+// GetRegistryType returns the RegistryType field value if set, zero value otherwise.
+func (o *ManagedArtifactSync) GetRegistryType() string {
+	if o == nil || IsNil(o.RegistryType) {
+		var ret string
+		return ret
+	}
+	return *o.RegistryType
+}
+
+// GetRegistryTypeOk returns a tuple with the RegistryType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ManagedArtifactSync) GetRegistryTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.RegistryType) {
+		return nil, false
+	}
+	return o.RegistryType, true
+}
+
+// SetRegistryType gets a reference to the given string and assigns it to the RegistryType field.
+func (o *ManagedArtifactSync) SetRegistryType(v string) {
+	o.RegistryType = &v
+}
+
 // GetStatus returns the Status field value
 func (o *ManagedArtifactSync) GetStatus() string {
 	if o == nil {
@@ -328,28 +376,27 @@ func (o *ManagedArtifactSync) SetStatus(v string) {
 	o.Status = v
 }
 
-// GetTarget returns the Target field value
+// GetTarget returns the Target field value if set, zero value otherwise.
 func (o *ManagedArtifactSync) GetTarget() ManagedArtifactTarget {
-	if o == nil {
+	if o == nil || IsNil(o.Target) {
 		var ret ManagedArtifactTarget
 		return ret
 	}
-
-	return o.Target
+	return *o.Target
 }
 
-// GetTargetOk returns a tuple with the Target field value
+// GetTargetOk returns a tuple with the Target field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ManagedArtifactSync) GetTargetOk() (*ManagedArtifactTarget, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Target) {
 		return nil, false
 	}
-	return &o.Target, true
+	return o.Target, true
 }
 
-// SetTarget sets field value
+// SetTarget gets a reference to the given ManagedArtifactTarget and assigns it to the Target field.
 func (o *ManagedArtifactSync) SetTarget(v ManagedArtifactTarget) {
-	o.Target = v
+	o.Target = &v
 }
 
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
@@ -394,6 +441,9 @@ func (o ManagedArtifactSync) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CreatedAt) {
 		toSerialize["createdAt"] = o.CreatedAt
 	}
+	if !IsNil(o.Destination) {
+		toSerialize["destination"] = o.Destination
+	}
 	toSerialize["failedArtifactCount"] = o.FailedArtifactCount
 	if !IsNil(o.FailureCategory) {
 		toSerialize["failureCategory"] = o.FailureCategory
@@ -405,8 +455,13 @@ func (o ManagedArtifactSync) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.LastTransitionTime) {
 		toSerialize["lastTransitionTime"] = o.LastTransitionTime
 	}
+	if !IsNil(o.RegistryType) {
+		toSerialize["registryType"] = o.RegistryType
+	}
 	toSerialize["status"] = o.Status
-	toSerialize["target"] = o.Target
+	if !IsNil(o.Target) {
+		toSerialize["target"] = o.Target
+	}
 	if !IsNil(o.UpdatedAt) {
 		toSerialize["updatedAt"] = o.UpdatedAt
 	}
@@ -429,7 +484,6 @@ func (o *ManagedArtifactSync) UnmarshalJSON(data []byte) (err error) {
 		"failedArtifactCount",
 		"id",
 		"status",
-		"target",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -464,11 +518,13 @@ func (o *ManagedArtifactSync) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "bundleVersion")
 		delete(additionalProperties, "completedArtifactCount")
 		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "destination")
 		delete(additionalProperties, "failedArtifactCount")
 		delete(additionalProperties, "failureCategory")
 		delete(additionalProperties, "failureMessage")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "lastTransitionTime")
+		delete(additionalProperties, "registryType")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "target")
 		delete(additionalProperties, "updatedAt")

@@ -109,6 +109,7 @@ Class | Method | HTTP request | Description
 *AuditEventsApiAPI* | [**AuditEventsApiListAllAuditEvents**](docs/AuditEventsApiAPI.md#auditeventsapilistallauditevents) | **Get** /2022-09-01-00/resource-instance/audit-events | ListAllAuditEvents audit-events-api
 *AuditEventsApiAPI* | [**AuditEventsApiListAuditEventsForInstance**](docs/AuditEventsApiAPI.md#auditeventsapilistauditeventsforinstance) | **Get** /2022-09-01-00/resource-instance/{instanceId}/audit-events | ListAuditEventsForInstance audit-events-api
 *AuditEventsApiAPI* | [**AuditEventsApiListAuditEventsForServicePlan**](docs/AuditEventsApiAPI.md#auditeventsapilistauditeventsforserviceplan) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/audit-events | ListAuditEventsForServicePlan audit-events-api
+*AuthSessionApiAPI* | [**AuthSessionApiDescribeAuthSession**](docs/AuthSessionApiAPI.md#authsessionapidescribeauthsession) | **Get** /2022-09-01-00/auth/session | DescribeAuthSession auth-session-api
 *AvailabilityZoneApiAPI* | [**AvailabilityZoneApiDescribeAvailabilityZone**](docs/AvailabilityZoneApiAPI.md#availabilityzoneapidescribeavailabilityzone) | **Get** /2022-09-01-00/availability-zone/{id} | DescribeAvailabilityZone availability-zone-api
 *AvailabilityZoneApiAPI* | [**AvailabilityZoneApiGetAvailabilityZoneByCode**](docs/AvailabilityZoneApiAPI.md#availabilityzoneapigetavailabilityzonebycode) | **Get** /2022-09-01-00/availability-zone/code/{code}/cloud-provider/{cloudProviderName} | GetAvailabilityZoneByCode availability-zone-api
 *AvailabilityZoneApiAPI* | [**AvailabilityZoneApiListAvailabilityZone**](docs/AvailabilityZoneApiAPI.md#availabilityzoneapilistavailabilityzone) | **Get** /2022-09-01-00/availability-zone/cloud-provider/{cloudProviderName} | ListAvailabilityZone availability-zone-api
@@ -298,6 +299,7 @@ Class | Method | HTTP request | Description
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiCreateResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapicreateresourceinstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey} | CreateResourceInstance resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiDeleteResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapideleteresourceinstance) | **Delete** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id} | DeleteResourceInstance resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiDescribeResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapidescriberesourceinstance) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id} | DescribeResourceInstance resource-instance-api
+*ResourceInstanceApiAPI* | [**ResourceInstanceApiDescribeResourceInstanceHealthHistory**](docs/ResourceInstanceApiAPI.md#resourceinstanceapidescriberesourceinstancehealthhistory) | **Get** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/health-history | DescribeResourceInstanceHealthHistory resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiFailoverResourceInstance**](docs/ResourceInstanceApiAPI.md#resourceinstanceapifailoverresourceinstance) | **Post** /2022-09-01-00/resource-instance/{serviceProviderId}/{serviceKey}/{serviceAPIVersion}/{serviceEnvironmentKey}/{serviceModelKey}/{productTierKey}/{resourceKey}/{id}/failover | FailoverResourceInstance resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiGenerateTokenForDeploymentCellDashboard**](docs/ResourceInstanceApiAPI.md#resourceinstanceapigeneratetokenfordeploymentcelldashboard) | **Post** /2022-09-01-00/resource-instance/{id}/deployment-cell-dashboard/token | GenerateTokenForDeploymentCellDashboard resource-instance-api
 *ResourceInstanceApiAPI* | [**ResourceInstanceApiListAllResourceInstances**](docs/ResourceInstanceApiAPI.md#resourceinstanceapilistallresourceinstances) | **Get** /2022-09-01-00/resource-instance | ListAllResourceInstances resource-instance-api
@@ -463,7 +465,9 @@ Class | Method | HTTP request | Description
  - [AccountConfigCloudNativeNetworkResult](docs/AccountConfigCloudNativeNetworkResult.md)
  - [AccountConfigIdentityIDRequest](docs/AccountConfigIdentityIDRequest.md)
  - [AccountConfigIdentityIDResult](docs/AccountConfigIdentityIDResult.md)
+ - [AccountConfigSettings](docs/AccountConfigSettings.md)
  - [AccountConfigSummary](docs/AccountConfigSummary.md)
+ - [AccountGovernanceControls](docs/AccountGovernanceControls.md)
  - [AcknowledgeEventRequest](docs/AcknowledgeEventRequest.md)
  - [ActionHook](docs/ActionHook.md)
  - [AddAccountConfigToServiceModelRequest](docs/AddAccountConfigToServiceModelRequest.md)
@@ -489,6 +493,7 @@ Class | Method | HTTP request | Description
  - [AgentVectorStoreConfiguration](docs/AgentVectorStoreConfiguration.md)
  - [Amenity](docs/Amenity.md)
  - [ArtifactUploadingTask](docs/ArtifactUploadingTask.md)
+ - [AuthSessionResult](docs/AuthSessionResult.md)
  - [AutoScalingMetricSpec](docs/AutoScalingMetricSpec.md)
  - [AutoscalingPolicy](docs/AutoscalingPolicy.md)
  - [AzureFileShareConfiguration](docs/AzureFileShareConfiguration.md)
@@ -698,6 +703,7 @@ Class | Method | HTTP request | Description
  - [DescribeAccountConfigResult](docs/DescribeAccountConfigResult.md)
  - [DescribeAuditEventRequest](docs/DescribeAuditEventRequest.md)
  - [DescribeAuditEventResult](docs/DescribeAuditEventResult.md)
+ - [DescribeAuthSessionRequest](docs/DescribeAuthSessionRequest.md)
  - [DescribeAvailabilityZoneRequest](docs/DescribeAvailabilityZoneRequest.md)
  - [DescribeAvailabilityZoneResult](docs/DescribeAvailabilityZoneResult.md)
  - [DescribeCloudProviderRequest](docs/DescribeCloudProviderRequest.md)
@@ -758,6 +764,7 @@ Class | Method | HTTP request | Description
  - [DescribeProductTierWorkspaceArtifactsRequest](docs/DescribeProductTierWorkspaceArtifactsRequest.md)
  - [DescribeRegionRequest](docs/DescribeRegionRequest.md)
  - [DescribeRegionResult](docs/DescribeRegionResult.md)
+ - [DescribeResourceInstanceHealthHistoryRequest](docs/DescribeResourceInstanceHealthHistoryRequest.md)
  - [DescribeResourceInstanceRequest](docs/DescribeResourceInstanceRequest.md)
  - [DescribeResourceInstanceResult](docs/DescribeResourceInstanceResult.md)
  - [DescribeResourceMetricsConfigRequest](docs/DescribeResourceMetricsConfigRequest.md)
@@ -883,6 +890,8 @@ Class | Method | HTTP request | Description
  - [InfraRollConfiguration](docs/InfraRollConfiguration.md)
  - [InputParameterEntity](docs/InputParameterEntity.md)
  - [InputParameterScope](docs/InputParameterScope.md)
+ - [InstanceHealthHistoryEntry](docs/InstanceHealthHistoryEntry.md)
+ - [InstanceHealthHistoryResult](docs/InstanceHealthHistoryResult.md)
  - [InstanceHealthSummary](docs/InstanceHealthSummary.md)
  - [InstanceSnapshot](docs/InstanceSnapshot.md)
  - [IntegrationsHealth](docs/IntegrationsHealth.md)
@@ -894,6 +903,8 @@ Class | Method | HTTP request | Description
  - [JobConfig](docs/JobConfig.md)
  - [JobConfigResult](docs/JobConfigResult.md)
  - [JobMetric](docs/JobMetric.md)
+ - [JustInTimeAccessApproverUser](docs/JustInTimeAccessApproverUser.md)
+ - [JustInTimeAccessConfiguration](docs/JustInTimeAccessConfiguration.md)
  - [KubectlValueProviderConfig](docs/KubectlValueProviderConfig.md)
  - [KubernetesDashboardEndpoint](docs/KubernetesDashboardEndpoint.md)
  - [KustomizeConfiguration](docs/KustomizeConfiguration.md)
@@ -1039,6 +1050,7 @@ Class | Method | HTTP request | Description
  - [LoginWithIdentityProviderRequest](docs/LoginWithIdentityProviderRequest.md)
  - [LoginWithIdentityProviderResult](docs/LoginWithIdentityProviderResult.md)
  - [LogoutRequest](docs/LogoutRequest.md)
+ - [ManagedArtifactDestination](docs/ManagedArtifactDestination.md)
  - [ManagedArtifactRelease](docs/ManagedArtifactRelease.md)
  - [ManagedArtifactReleaseArtifact](docs/ManagedArtifactReleaseArtifact.md)
  - [ManagedArtifactReleasePolicy](docs/ManagedArtifactReleasePolicy.md)

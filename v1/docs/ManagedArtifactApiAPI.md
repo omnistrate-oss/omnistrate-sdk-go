@@ -177,7 +177,7 @@ import (
 )
 
 func main() {
-	id := "spabs-M" // string | 
+	id := "sppap-9" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -248,11 +248,11 @@ import (
 )
 
 func main() {
-	bundleVersion := "r12258919" // string |  (optional)
+	bundleVersion := "r7272713" // string |  (optional)
 	releasedAfter := time.Now() // time.Time |  (optional)
 	releasedBefore := time.Now() // time.Time |  (optional)
-	limit := int64(65) // int64 |  (optional) (default to 20)
-	nextPageToken := "qa5" // string | Opaque token returned by the previous list response. (optional)
+	limit := int64(27) // int64 |  (optional) (default to 20)
+	nextPageToken := "glh" // string | Opaque token returned by the previous list response. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ## ManagedArtifactApiListManagedArtifactSyncs
 
-> ListManagedArtifactSyncsResult ManagedArtifactApiListManagedArtifactSyncs(ctx).BundleVersion(bundleVersion).Status(status).TargetId(targetId).UpdatedAfter(updatedAfter).UpdatedBefore(updatedBefore).Limit(limit).NextPageToken(nextPageToken).Execute()
+> ListManagedArtifactSyncsResult ManagedArtifactApiListManagedArtifactSyncs(ctx).RegistryType(registryType).DestinationAccountId(destinationAccountId).BundleVersion(bundleVersion).Status(status).TargetId(targetId).UpdatedAfter(updatedAfter).UpdatedBefore(updatedBefore).Limit(limit).NextPageToken(nextPageToken).Execute()
 
 ListManagedArtifactSyncs managed-artifact-api
 
@@ -323,17 +323,19 @@ import (
 )
 
 func main() {
-	bundleVersion := "r1467398" // string |  (optional)
-	status := "READY" // string |  (optional)
-	targetId := "q" // string |  (optional)
+	registryType := "PRIVATE_ECR|PUBLIC_ECR" // string | Registry kind to list; omitted selects PRIVATE_ECR for existing clients. (optional)
+	destinationAccountId := "265030318314" // string | Optional destination AWS account filter for PRIVATE_ECR or PUBLIC_ECR; not an execution host-cluster ID. Combined with targetId, both filters must match. (optional)
+	bundleVersion := "r6146499" // string |  (optional)
+	status := "PENDING|IN_PROGRESS|READY|FAILED|SKIPPED" // string |  (optional)
+	targetId := "3" // string |  (optional)
 	updatedAfter := time.Now() // time.Time |  (optional)
 	updatedBefore := time.Now() // time.Time |  (optional)
-	limit := int64(56) // int64 |  (optional) (default to 20)
-	nextPageToken := "blt" // string | Opaque token returned by the previous list response. (optional)
+	limit := int64(90) // int64 |  (optional) (default to 20)
+	nextPageToken := "e60" // string | Opaque token returned by the previous list response. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ManagedArtifactApiAPI.ManagedArtifactApiListManagedArtifactSyncs(context.Background()).BundleVersion(bundleVersion).Status(status).TargetId(targetId).UpdatedAfter(updatedAfter).UpdatedBefore(updatedBefore).Limit(limit).NextPageToken(nextPageToken).Execute()
+	resp, r, err := apiClient.ManagedArtifactApiAPI.ManagedArtifactApiListManagedArtifactSyncs(context.Background()).RegistryType(registryType).DestinationAccountId(destinationAccountId).BundleVersion(bundleVersion).Status(status).TargetId(targetId).UpdatedAfter(updatedAfter).UpdatedBefore(updatedBefore).Limit(limit).NextPageToken(nextPageToken).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedArtifactApiAPI.ManagedArtifactApiListManagedArtifactSyncs``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -354,6 +356,8 @@ Other parameters are passed through a pointer to a apiManagedArtifactApiListMana
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **registryType** | **string** | Registry kind to list; omitted selects PRIVATE_ECR for existing clients. | 
+ **destinationAccountId** | **string** | Optional destination AWS account filter for PRIVATE_ECR or PUBLIC_ECR; not an execution host-cluster ID. Combined with targetId, both filters must match. | 
  **bundleVersion** | **string** |  | 
  **status** | **string** |  | 
  **targetId** | **string** |  | 

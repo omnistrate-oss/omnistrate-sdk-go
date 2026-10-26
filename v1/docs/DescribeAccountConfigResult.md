@@ -4,10 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AppliedSettings** | Pointer to [**AccountConfigSettings**](AccountConfigSettings.md) |  | [optional] 
 **AwsAccountID** | Pointer to **string** | The AWS account ID | [optional] 
 **AwsBootstrapRoleARN** | Pointer to **string** | The security role ARN or service account ARN that grants access to operate the infra | [optional] 
 **AwsCloudFormationNoLBTemplateURL** | Pointer to **string** | The URL to the CloudFormation template (no LoadBalancer policy version) | [optional] 
 **AwsCloudFormationTemplateURL** | Pointer to **string** | The URL to the CloudFormation template | [optional] 
+**AwsCloudFormationUpdateURL** | Pointer to **string** | The AWS console URL for updating the existing account setup stack using saved requested settings. Uses the verified stack identity and its actual region. Omitted when the stack identity is unknown or the account does not support this flow. | [optional] 
 **AzureBootstrapShellCommand** | Pointer to **string** | The Azure bootstrap shell command | [optional] 
 **AzureDisconnectShellCommand** | Pointer to **string** | The Azure disconnect shell command | [optional] 
 **AzureOffboardShellCommand** | Pointer to **string** | The Azure offboard shell command | [optional] 
@@ -32,7 +34,8 @@ Name | Type | Description | Notes
 **OciDomainID** | Pointer to **string** | The Domain OCID for Oracle Cloud Infrastructure | [optional] 
 **OciOffboardShellCommand** | Pointer to **string** | The OCI offboard shell command | [optional] 
 **OciTenancyID** | Pointer to **string** | The Tenancy OCID for Oracle Cloud Infrastructure | [optional] 
-**Status** | **string** | The status of the account configuration | 
+**RequestedSettings** | Pointer to [**AccountConfigSettings**](AccountConfigSettings.md) |  | [optional] 
+**Status** | **string** | The status of the account configuration. BYOA settings updates remain PENDING_UPDATE until verification finishes, including while waiting for the customer to apply account setup changes. Successful verification sets READY for connected accounts or DISCONNECTED after access is revoked. | 
 **StatusMessage** | **string** | The status message of the account | 
 
 ## Methods
@@ -53,6 +56,31 @@ will change when the set of required properties is changed
 NewDescribeAccountConfigResultWithDefaults instantiates a new DescribeAccountConfigResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAppliedSettings
+
+`func (o *DescribeAccountConfigResult) GetAppliedSettings() AccountConfigSettings`
+
+GetAppliedSettings returns the AppliedSettings field if non-nil, zero value otherwise.
+
+### GetAppliedSettingsOk
+
+`func (o *DescribeAccountConfigResult) GetAppliedSettingsOk() (*AccountConfigSettings, bool)`
+
+GetAppliedSettingsOk returns a tuple with the AppliedSettings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAppliedSettings
+
+`func (o *DescribeAccountConfigResult) SetAppliedSettings(v AccountConfigSettings)`
+
+SetAppliedSettings sets AppliedSettings field to given value.
+
+### HasAppliedSettings
+
+`func (o *DescribeAccountConfigResult) HasAppliedSettings() bool`
+
+HasAppliedSettings returns a boolean if a field has been set.
 
 ### GetAwsAccountID
 
@@ -153,6 +181,31 @@ SetAwsCloudFormationTemplateURL sets AwsCloudFormationTemplateURL field to given
 `func (o *DescribeAccountConfigResult) HasAwsCloudFormationTemplateURL() bool`
 
 HasAwsCloudFormationTemplateURL returns a boolean if a field has been set.
+
+### GetAwsCloudFormationUpdateURL
+
+`func (o *DescribeAccountConfigResult) GetAwsCloudFormationUpdateURL() string`
+
+GetAwsCloudFormationUpdateURL returns the AwsCloudFormationUpdateURL field if non-nil, zero value otherwise.
+
+### GetAwsCloudFormationUpdateURLOk
+
+`func (o *DescribeAccountConfigResult) GetAwsCloudFormationUpdateURLOk() (*string, bool)`
+
+GetAwsCloudFormationUpdateURLOk returns a tuple with the AwsCloudFormationUpdateURL field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAwsCloudFormationUpdateURL
+
+`func (o *DescribeAccountConfigResult) SetAwsCloudFormationUpdateURL(v string)`
+
+SetAwsCloudFormationUpdateURL sets AwsCloudFormationUpdateURL field to given value.
+
+### HasAwsCloudFormationUpdateURL
+
+`func (o *DescribeAccountConfigResult) HasAwsCloudFormationUpdateURL() bool`
+
+HasAwsCloudFormationUpdateURL returns a boolean if a field has been set.
 
 ### GetAzureBootstrapShellCommand
 
@@ -733,6 +786,31 @@ SetOciTenancyID sets OciTenancyID field to given value.
 `func (o *DescribeAccountConfigResult) HasOciTenancyID() bool`
 
 HasOciTenancyID returns a boolean if a field has been set.
+
+### GetRequestedSettings
+
+`func (o *DescribeAccountConfigResult) GetRequestedSettings() AccountConfigSettings`
+
+GetRequestedSettings returns the RequestedSettings field if non-nil, zero value otherwise.
+
+### GetRequestedSettingsOk
+
+`func (o *DescribeAccountConfigResult) GetRequestedSettingsOk() (*AccountConfigSettings, bool)`
+
+GetRequestedSettingsOk returns a tuple with the RequestedSettings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequestedSettings
+
+`func (o *DescribeAccountConfigResult) SetRequestedSettings(v AccountConfigSettings)`
+
+SetRequestedSettings sets RequestedSettings field to given value.
+
+### HasRequestedSettings
+
+`func (o *DescribeAccountConfigResult) HasRequestedSettings() bool`
+
+HasRequestedSettings returns a boolean if a field has been set.
 
 ### GetStatus
 

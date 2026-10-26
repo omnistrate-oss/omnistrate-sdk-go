@@ -18,7 +18,7 @@ import (
 // checks if the UpdateAccountConfigRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &UpdateAccountConfigRequest{}
 
-// UpdateAccountConfigRequest Update an existing account configuration
+// UpdateAccountConfigRequest Update an existing account configuration. Authorized service provider and end-customer Root/Admin users may update settings for the entire account and its related entities.
 type UpdateAccountConfigRequest struct {
 	// Full replacement set of custom tags for the account configuration
 	CustomTags []CustomTag `json:"customTags,omitempty"`
@@ -30,6 +30,7 @@ type UpdateAccountConfigRequest struct {
 	Name *string `json:"name,omitempty"`
 	// Full replacement set of Nebius project/service-account bindings for an existing tenant-scoped Nebius account configuration
 	NebiusBindings []NebiusAccountBindingInput `json:"nebiusBindings,omitempty"`
+	Settings *AccountConfigSettings `json:"settings,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -172,6 +173,29 @@ func (o *UpdateAccountConfigRequest) SetNebiusBindings(v []NebiusAccountBindingI
 	o.NebiusBindings = v
 }
 
+// GetSettings returns the Settings field value if set, zero value otherwise.
+func (o *UpdateAccountConfigRequest) GetSettings() AccountConfigSettings {
+	if o == nil || IsNil(o.Settings) {
+		var ret AccountConfigSettings
+		return ret
+	}
+	return *o.Settings
+}
+
+// GetSettingsOk returns a tuple with the Settings field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateAccountConfigRequest) GetSettingsOk() (*AccountConfigSettings, bool) {
+	if o == nil || IsNil(o.Settings) {
+		return nil, false
+	}
+	return o.Settings, true
+}
+
+// SetSettings gets a reference to the given AccountConfigSettings and assigns it to the Settings field.
+func (o *UpdateAccountConfigRequest) SetSettings(v AccountConfigSettings) {
+	o.Settings = &v
+}
+
 // GetToken returns the Token field value
 func (o *UpdateAccountConfigRequest) GetToken() string {
 	if o == nil {
@@ -218,6 +242,9 @@ func (o UpdateAccountConfigRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.NebiusBindings) {
 		toSerialize["nebiusBindings"] = o.NebiusBindings
+	}
+	if !IsNil(o.Settings) {
+		toSerialize["settings"] = o.Settings
 	}
 	toSerialize["token"] = o.Token
 
@@ -269,6 +296,7 @@ func (o *UpdateAccountConfigRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "nebiusBindings")
+		delete(additionalProperties, "settings")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

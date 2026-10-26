@@ -4,16 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AppliedSettings** | Pointer to [**AccountConfigSettings**](AccountConfigSettings.md) |  | [optional] 
 **AwsAccountID** | **string** | The AWS account ID | 
 **AwsBootstrapRoleARN** | **string** | The security role ARN or service account ARN that grants access to operate the infra | 
 **AwsCloudFormationNoLBTemplateURL** | Pointer to **string** | The URL to the CloudFormation template (no LoadBalancer policy version) | [optional] 
 **AwsCloudFormationTemplateURL** | Pointer to **string** | The URL to the CloudFormation template | [optional] 
+**AwsCloudFormationUpdateURL** | Pointer to **string** | The AWS console URL for updating the existing account setup stack using saved requested settings. Uses the verified stack identity and its actual region. Omitted when the stack identity is unknown or the account does not support this flow. | [optional] 
 **ByoaInstanceIDs** | Pointer to **[]string** | The BYOA instance IDs that this account config is tied to | [optional] 
 **CloudProviderId** | **string** | ID of an CloudProvider | 
 **Description** | **string** | The description for the account | 
 **Id** | **string** | ID of an Account Config | 
 **Name** | **string** | The name of the account | 
-**Status** | **string** | The status of the account configuration | 
+**RequestedSettings** | Pointer to [**AccountConfigSettings**](AccountConfigSettings.md) |  | [optional] 
+**Status** | **string** | The status of the account configuration. BYOA settings updates remain PENDING_UPDATE until verification finishes, including while waiting for the customer to apply account setup changes. Successful verification sets READY for connected accounts or DISCONNECTED after access is revoked. | 
 **StatusMessage** | **string** | The status message of the account | 
 
 ## Methods
@@ -34,6 +37,31 @@ will change when the set of required properties is changed
 NewDescribeAccountConfigByAWSAccountIDResultWithDefaults instantiates a new DescribeAccountConfigByAWSAccountIDResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAppliedSettings
+
+`func (o *DescribeAccountConfigByAWSAccountIDResult) GetAppliedSettings() AccountConfigSettings`
+
+GetAppliedSettings returns the AppliedSettings field if non-nil, zero value otherwise.
+
+### GetAppliedSettingsOk
+
+`func (o *DescribeAccountConfigByAWSAccountIDResult) GetAppliedSettingsOk() (*AccountConfigSettings, bool)`
+
+GetAppliedSettingsOk returns a tuple with the AppliedSettings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAppliedSettings
+
+`func (o *DescribeAccountConfigByAWSAccountIDResult) SetAppliedSettings(v AccountConfigSettings)`
+
+SetAppliedSettings sets AppliedSettings field to given value.
+
+### HasAppliedSettings
+
+`func (o *DescribeAccountConfigByAWSAccountIDResult) HasAppliedSettings() bool`
+
+HasAppliedSettings returns a boolean if a field has been set.
 
 ### GetAwsAccountID
 
@@ -124,6 +152,31 @@ SetAwsCloudFormationTemplateURL sets AwsCloudFormationTemplateURL field to given
 `func (o *DescribeAccountConfigByAWSAccountIDResult) HasAwsCloudFormationTemplateURL() bool`
 
 HasAwsCloudFormationTemplateURL returns a boolean if a field has been set.
+
+### GetAwsCloudFormationUpdateURL
+
+`func (o *DescribeAccountConfigByAWSAccountIDResult) GetAwsCloudFormationUpdateURL() string`
+
+GetAwsCloudFormationUpdateURL returns the AwsCloudFormationUpdateURL field if non-nil, zero value otherwise.
+
+### GetAwsCloudFormationUpdateURLOk
+
+`func (o *DescribeAccountConfigByAWSAccountIDResult) GetAwsCloudFormationUpdateURLOk() (*string, bool)`
+
+GetAwsCloudFormationUpdateURLOk returns a tuple with the AwsCloudFormationUpdateURL field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAwsCloudFormationUpdateURL
+
+`func (o *DescribeAccountConfigByAWSAccountIDResult) SetAwsCloudFormationUpdateURL(v string)`
+
+SetAwsCloudFormationUpdateURL sets AwsCloudFormationUpdateURL field to given value.
+
+### HasAwsCloudFormationUpdateURL
+
+`func (o *DescribeAccountConfigByAWSAccountIDResult) HasAwsCloudFormationUpdateURL() bool`
+
+HasAwsCloudFormationUpdateURL returns a boolean if a field has been set.
 
 ### GetByoaInstanceIDs
 
@@ -229,6 +282,31 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetRequestedSettings
+
+`func (o *DescribeAccountConfigByAWSAccountIDResult) GetRequestedSettings() AccountConfigSettings`
+
+GetRequestedSettings returns the RequestedSettings field if non-nil, zero value otherwise.
+
+### GetRequestedSettingsOk
+
+`func (o *DescribeAccountConfigByAWSAccountIDResult) GetRequestedSettingsOk() (*AccountConfigSettings, bool)`
+
+GetRequestedSettingsOk returns a tuple with the RequestedSettings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequestedSettings
+
+`func (o *DescribeAccountConfigByAWSAccountIDResult) SetRequestedSettings(v AccountConfigSettings)`
+
+SetRequestedSettings sets RequestedSettings field to given value.
+
+### HasRequestedSettings
+
+`func (o *DescribeAccountConfigByAWSAccountIDResult) HasRequestedSettings() bool`
+
+HasRequestedSettings returns a boolean if a field has been set.
 
 ### GetStatus
 

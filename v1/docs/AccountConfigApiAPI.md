@@ -178,7 +178,7 @@ import (
 )
 
 func main() {
-	createAccountConfigRequest2 := *openapiclient.NewCreateAccountConfigRequest2("Cupiditate voluptatem labore odio sapiente et.", "An AWS account hosting multiple dev environments", "Dev AWS account") // CreateAccountConfigRequest2 | 
+	createAccountConfigRequest2 := *openapiclient.NewCreateAccountConfigRequest2("Necessitatibus eius sunt asperiores iusto eos.", "An AWS account hosting multiple dev environments", "Dev AWS account") // CreateAccountConfigRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -294,6 +294,8 @@ Name | Type | Description  | Notes
 > DescribeAccountConfigResult AccountConfigApiDescribeAccountConfig(ctx, id).Execute()
 
 DescribeAccountConfig account-config-api
+
+
 
 ### Example
 
@@ -1207,6 +1209,8 @@ Name | Type | Description  | Notes
 > string AccountConfigApiUpdateAccountConfig(ctx, id).UpdateAccountConfigRequest2(updateAccountConfigRequest2).Execute()
 
 UpdateAccountConfig account-config-api
+
+
 
 ### Example
 

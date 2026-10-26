@@ -78,6 +78,8 @@ type AccountConfigApiAPI interface {
 	/*
 	AccountConfigApiDescribeAccountConfig DescribeAccountConfig account-config-api
 
+	Describe an account accessible to the service provider or end customer, including requested settings, verified or last-observed applied configuration, and the existing AWS account setup stack update URL when available.
+
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param id Account Config ID to operate on
 	@return ApiAccountConfigApiDescribeAccountConfigRequest
@@ -262,6 +264,8 @@ type AccountConfigApiAPI interface {
 
 	/*
 	AccountConfigApiUpdateAccountConfig UpdateAccountConfig account-config-api
+
+	Update account metadata or BYOA Private settings as an authorized service provider or end-customer Root/Admin user. Settings changes apply account-wide and are verified asynchronously after the customer updates account setup.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param id Account Config ID to operate on
@@ -906,6 +910,8 @@ func (r ApiAccountConfigApiDescribeAccountConfigRequest) Execute() (*DescribeAcc
 
 /*
 AccountConfigApiDescribeAccountConfig DescribeAccountConfig account-config-api
+
+Describe an account accessible to the service provider or end customer, including requested settings, verified or last-observed applied configuration, and the existing AWS account setup stack update URL when available.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Account Config ID to operate on
@@ -3049,6 +3055,8 @@ func (r ApiAccountConfigApiUpdateAccountConfigRequest) Execute() (string, *http.
 
 /*
 AccountConfigApiUpdateAccountConfig UpdateAccountConfig account-config-api
+
+Update account metadata or BYOA Private settings as an authorized service provider or end-customer Root/Admin user. Settings changes apply account-wide and are verified asynchronously after the customer updates account setup.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Account Config ID to operate on

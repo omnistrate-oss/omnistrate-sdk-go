@@ -6,8 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DefaultDeploymentCellConfigurations** | Pointer to [**DeploymentCellConfigurations**](DeploymentCellConfigurations.md) |  | [optional] 
 **DeploymentCellConfigurationsPerEnv** | Pointer to [**map[string]DeploymentCellConfigurations**](DeploymentCellConfigurations.md) | The default deployment cell configurations for the organization per environment. | [optional] 
+**AwsAPNTagValue** | Pointer to **string** | Configured AWS APN tag override, omitted when unset. | [optional] 
 **Id** | Pointer to **string** | ID of an Org | [optional] 
 **IsPerEnvClusterEnabled** | Pointer to **bool** | Whether per-environment clusters are enabled for the organization | [optional] 
+**JustInTimeAccessConfigurations** | Pointer to [**map[string]JustInTimeAccessConfiguration**](JustInTimeAccessConfiguration.md) | Stored just-in-time access settings per environment, excluding GLOBAL, including compatibility AUTO defaults seeded during provider sign-in. Omission remains compatible AUTO access; backend provenance distinguishes seeded defaults from explicit configuration. Viewing or backfilling defaults does not enable manual approval, request accounting, expiry cleanup, or session cutoff. | [optional] 
 
 ## Methods
 
@@ -78,6 +80,31 @@ SetDeploymentCellConfigurationsPerEnv sets DeploymentCellConfigurationsPerEnv fi
 
 HasDeploymentCellConfigurationsPerEnv returns a boolean if a field has been set.
 
+### GetAwsAPNTagValue
+
+`func (o *DescribeServiceProviderOrganizationResult) GetAwsAPNTagValue() string`
+
+GetAwsAPNTagValue returns the AwsAPNTagValue field if non-nil, zero value otherwise.
+
+### GetAwsAPNTagValueOk
+
+`func (o *DescribeServiceProviderOrganizationResult) GetAwsAPNTagValueOk() (*string, bool)`
+
+GetAwsAPNTagValueOk returns a tuple with the AwsAPNTagValue field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAwsAPNTagValue
+
+`func (o *DescribeServiceProviderOrganizationResult) SetAwsAPNTagValue(v string)`
+
+SetAwsAPNTagValue sets AwsAPNTagValue field to given value.
+
+### HasAwsAPNTagValue
+
+`func (o *DescribeServiceProviderOrganizationResult) HasAwsAPNTagValue() bool`
+
+HasAwsAPNTagValue returns a boolean if a field has been set.
+
 ### GetId
 
 `func (o *DescribeServiceProviderOrganizationResult) GetId() string`
@@ -127,6 +154,31 @@ SetIsPerEnvClusterEnabled sets IsPerEnvClusterEnabled field to given value.
 `func (o *DescribeServiceProviderOrganizationResult) HasIsPerEnvClusterEnabled() bool`
 
 HasIsPerEnvClusterEnabled returns a boolean if a field has been set.
+
+### GetJustInTimeAccessConfigurations
+
+`func (o *DescribeServiceProviderOrganizationResult) GetJustInTimeAccessConfigurations() map[string]JustInTimeAccessConfiguration`
+
+GetJustInTimeAccessConfigurations returns the JustInTimeAccessConfigurations field if non-nil, zero value otherwise.
+
+### GetJustInTimeAccessConfigurationsOk
+
+`func (o *DescribeServiceProviderOrganizationResult) GetJustInTimeAccessConfigurationsOk() (*map[string]JustInTimeAccessConfiguration, bool)`
+
+GetJustInTimeAccessConfigurationsOk returns a tuple with the JustInTimeAccessConfigurations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetJustInTimeAccessConfigurations
+
+`func (o *DescribeServiceProviderOrganizationResult) SetJustInTimeAccessConfigurations(v map[string]JustInTimeAccessConfiguration)`
+
+SetJustInTimeAccessConfigurations sets JustInTimeAccessConfigurations field to given value.
+
+### HasJustInTimeAccessConfigurations
+
+`func (o *DescribeServiceProviderOrganizationResult) HasJustInTimeAccessConfigurations() bool`
+
+HasJustInTimeAccessConfigurations returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

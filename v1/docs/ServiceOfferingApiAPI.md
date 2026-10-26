@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## ServiceOfferingApiDescribeServiceOffering
 
-> DescribeServiceOfferingResult ServiceOfferingApiDescribeServiceOffering(ctx, serviceId).Visibility(visibility).EnvironmentType(environmentType).Execute()
+> DescribeServiceOfferingResult ServiceOfferingApiDescribeServiceOffering(ctx, serviceId).Visibility(visibility).EnvironmentType(environmentType).ProductTierId(productTierId).Execute()
 
 DescribeServiceOffering service-offering-api
 
@@ -32,10 +32,11 @@ func main() {
 	serviceId := "s-12345678" // string | The service ID
 	visibility := "PRIVATE" // string | The visibility of service offering (optional)
 	environmentType := "DEV" // string | The environment type to filter by (optional)
+	productTierId := "pt-12345678" // string | The product tier ID to filter by (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServiceOfferingApiAPI.ServiceOfferingApiDescribeServiceOffering(context.Background(), serviceId).Visibility(visibility).EnvironmentType(environmentType).Execute()
+	resp, r, err := apiClient.ServiceOfferingApiAPI.ServiceOfferingApiDescribeServiceOffering(context.Background(), serviceId).Visibility(visibility).EnvironmentType(environmentType).ProductTierId(productTierId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ServiceOfferingApiAPI.ServiceOfferingApiDescribeServiceOffering``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -63,6 +64,7 @@ Name | Type | Description  | Notes
 
  **visibility** | **string** | The visibility of service offering | 
  **environmentType** | **string** | The environment type to filter by | 
+ **productTierId** | **string** | The product tier ID to filter by | 
 
 ### Return type
 

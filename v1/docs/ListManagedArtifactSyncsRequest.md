@@ -5,9 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BundleVersion** | Pointer to **string** |  | [optional] 
+**DestinationAccountId** | Pointer to **string** | Optional destination AWS account filter for PRIVATE_ECR or PUBLIC_ECR; not an execution host-cluster ID. Combined with targetId, both filters must match. | [optional] 
 **Limit** | Pointer to **int64** |  | [optional] [default to 20]
 **NextPageToken** | Pointer to **string** | Opaque token returned by the previous list response. | [optional] 
-**Status** | Pointer to **string** | Lifecycle status for one provisioner-target synchronization. | [optional] 
+**RegistryType** | Pointer to **string** | Registry destination kind. Known values are PRIVATE_ECR for provisioner-target syncs and PUBLIC_ECR for account-scoped public publications. Clients must tolerate additional values; the service validates supported request kinds. | [optional] 
+**Status** | Pointer to **string** | Lifecycle status for one private provisioner-target sync or public account publication. Known values are PENDING, IN_PROGRESS, READY, FAILED and SKIPPED. Clients must tolerate additional values; the service validates supported status filters. | [optional] 
 **TargetId** | Pointer to **string** |  | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 **UpdatedAfter** | Pointer to **time.Time** |  | [optional] 
@@ -56,6 +58,31 @@ SetBundleVersion sets BundleVersion field to given value.
 `func (o *ListManagedArtifactSyncsRequest) HasBundleVersion() bool`
 
 HasBundleVersion returns a boolean if a field has been set.
+
+### GetDestinationAccountId
+
+`func (o *ListManagedArtifactSyncsRequest) GetDestinationAccountId() string`
+
+GetDestinationAccountId returns the DestinationAccountId field if non-nil, zero value otherwise.
+
+### GetDestinationAccountIdOk
+
+`func (o *ListManagedArtifactSyncsRequest) GetDestinationAccountIdOk() (*string, bool)`
+
+GetDestinationAccountIdOk returns a tuple with the DestinationAccountId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDestinationAccountId
+
+`func (o *ListManagedArtifactSyncsRequest) SetDestinationAccountId(v string)`
+
+SetDestinationAccountId sets DestinationAccountId field to given value.
+
+### HasDestinationAccountId
+
+`func (o *ListManagedArtifactSyncsRequest) HasDestinationAccountId() bool`
+
+HasDestinationAccountId returns a boolean if a field has been set.
 
 ### GetLimit
 
@@ -106,6 +133,31 @@ SetNextPageToken sets NextPageToken field to given value.
 `func (o *ListManagedArtifactSyncsRequest) HasNextPageToken() bool`
 
 HasNextPageToken returns a boolean if a field has been set.
+
+### GetRegistryType
+
+`func (o *ListManagedArtifactSyncsRequest) GetRegistryType() string`
+
+GetRegistryType returns the RegistryType field if non-nil, zero value otherwise.
+
+### GetRegistryTypeOk
+
+`func (o *ListManagedArtifactSyncsRequest) GetRegistryTypeOk() (*string, bool)`
+
+GetRegistryTypeOk returns a tuple with the RegistryType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegistryType
+
+`func (o *ListManagedArtifactSyncsRequest) SetRegistryType(v string)`
+
+SetRegistryType sets RegistryType field to given value.
+
+### HasRegistryType
+
+`func (o *ListManagedArtifactSyncsRequest) HasRegistryType() bool`
+
+HasRegistryType returns a boolean if a field has been set.
 
 ### GetStatus
 

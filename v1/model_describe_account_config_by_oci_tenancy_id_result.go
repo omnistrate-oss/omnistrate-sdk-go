@@ -34,7 +34,7 @@ type DescribeAccountConfigByOCITenancyIDResult struct {
 	OciDomainID string `json:"ociDomainID"`
 	// The Tenancy OCID for Oracle Cloud Infrastructure
 	OciTenancyID string `json:"ociTenancyID"`
-	// The status of the account configuration
+	// The status of the account configuration. BYOA settings updates remain PENDING_UPDATE until verification finishes, including while waiting for the customer to apply account setup changes. Successful verification sets READY for connected accounts or DISCONNECTED after access is revoked.
 	Status string `json:"status"`
 	// The status message of the account
 	StatusMessage string `json:"statusMessage"`

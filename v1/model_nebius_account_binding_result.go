@@ -43,7 +43,7 @@ type NebiusAccountBindingResult struct {
 	ServiceAccountID string `json:"serviceAccountID"`
 	// Whether the live Nebius auth public key belongs to the configured Nebius service account for this binding
 	ServiceAccountKeyValidated *bool `json:"serviceAccountKeyValidated,omitempty"`
-	// The status of the account configuration
+	// The status of the account configuration. BYOA settings updates remain PENDING_UPDATE until verification finishes, including while waiting for the customer to apply account setup changes. Successful verification sets READY for connected accounts or DISCONNECTED after access is revoked.
 	Status *string `json:"status,omitempty"`
 	// The status message of this binding
 	StatusMessage *string `json:"statusMessage,omitempty"`

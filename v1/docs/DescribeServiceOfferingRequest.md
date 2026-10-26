@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
+**ProductTierId** | Pointer to **string** | ID of a Product Tier | [optional] 
 **ServiceId** | **string** | ID of a Service | 
 **Token** | **string** | JWT token used to perform authorization | 
 **Visibility** | Pointer to **string** | This parameter is used to configure the visibility of the service control-plane APIs | [optional] 
@@ -52,6 +53,31 @@ SetEnvironmentType sets EnvironmentType field to given value.
 `func (o *DescribeServiceOfferingRequest) HasEnvironmentType() bool`
 
 HasEnvironmentType returns a boolean if a field has been set.
+
+### GetProductTierId
+
+`func (o *DescribeServiceOfferingRequest) GetProductTierId() string`
+
+GetProductTierId returns the ProductTierId field if non-nil, zero value otherwise.
+
+### GetProductTierIdOk
+
+`func (o *DescribeServiceOfferingRequest) GetProductTierIdOk() (*string, bool)`
+
+GetProductTierIdOk returns a tuple with the ProductTierId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductTierId
+
+`func (o *DescribeServiceOfferingRequest) SetProductTierId(v string)`
+
+SetProductTierId sets ProductTierId field to given value.
+
+### HasProductTierId
+
+`func (o *DescribeServiceOfferingRequest) HasProductTierId() bool`
+
+HasProductTierId returns a boolean if a field has been set.
 
 ### GetServiceId
 

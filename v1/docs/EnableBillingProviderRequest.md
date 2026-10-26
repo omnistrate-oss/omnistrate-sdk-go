@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BalanceDueLink** | Pointer to **string** | The URL to the balance due page | [optional] 
-**BillingProviderType** | **string** | The billing provider type | 
+**BillingProviderType** | **string** | The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace | 
 **LogoURL** | Pointer to **string** | The URL of the logo for the billing provider. Only present when the billing provider is BRING_YOUR_OWN | [optional] 
 **Name** | Pointer to **string** | A custom name for the billing provider. Only present when the billing provider is BRING_YOUR_OWN | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 

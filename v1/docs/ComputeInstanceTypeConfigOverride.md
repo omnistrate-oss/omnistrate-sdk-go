@@ -17,7 +17,9 @@ Name | Type | Description | Notes
 **RootVolumeSizeGiAPIParam** | Pointer to **string** | Size of the root volume in Gi as a string | [optional] 
 **Taints** | Pointer to [**[]TaintConfiguration**](TaintConfiguration.md) | Taints for the compute instance type config | [optional] 
 **TimeSlicingReplicas** | Pointer to **int64** | Number of time-sliced GPU replicas to expose from each physical GPU for providers that support per-node-pool GPU time slicing | [optional] 
+**TimeSlicingReplicasAPIParam** | Pointer to **string** | Input parameter reference for the number of time-sliced GPU replicas per physical GPU. Mutually exclusive with timeSlicingReplicas. The resolved value must be an unsigned integer greater than or equal to 2. | [optional] 
 **WarmPoolConfiguration** | Pointer to [**WarmPoolConfiguration**](WarmPoolConfiguration.md) |  | [optional] 
+**ZonePlacementPolicy** | Pointer to **string** | Per-instance-type policy for node-pool creation within the Resource&#39;s selected availability zones. Known values: strict and bestEffort. strict requires this instance type to be available in every selected Resource zone and creates pools in every selected zone. bestEffort creates pools only in selected Resource zones where this instance type is available, permitting a single zone. If this instance type is unavailable in every selected zone, bestEffort creates no pools for it; another instance type must provide pools in those zones. Applies to multi-zone and single-zone configurations, including customer-provided zones. This policy does not change Resource placement or fall back to a different zone. An omitted policy means strict. An omitted response value also means strict. | [optional] 
 
 ## Methods
 
@@ -363,6 +365,31 @@ SetTimeSlicingReplicas sets TimeSlicingReplicas field to given value.
 
 HasTimeSlicingReplicas returns a boolean if a field has been set.
 
+### GetTimeSlicingReplicasAPIParam
+
+`func (o *ComputeInstanceTypeConfigOverride) GetTimeSlicingReplicasAPIParam() string`
+
+GetTimeSlicingReplicasAPIParam returns the TimeSlicingReplicasAPIParam field if non-nil, zero value otherwise.
+
+### GetTimeSlicingReplicasAPIParamOk
+
+`func (o *ComputeInstanceTypeConfigOverride) GetTimeSlicingReplicasAPIParamOk() (*string, bool)`
+
+GetTimeSlicingReplicasAPIParamOk returns a tuple with the TimeSlicingReplicasAPIParam field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimeSlicingReplicasAPIParam
+
+`func (o *ComputeInstanceTypeConfigOverride) SetTimeSlicingReplicasAPIParam(v string)`
+
+SetTimeSlicingReplicasAPIParam sets TimeSlicingReplicasAPIParam field to given value.
+
+### HasTimeSlicingReplicasAPIParam
+
+`func (o *ComputeInstanceTypeConfigOverride) HasTimeSlicingReplicasAPIParam() bool`
+
+HasTimeSlicingReplicasAPIParam returns a boolean if a field has been set.
+
 ### GetWarmPoolConfiguration
 
 `func (o *ComputeInstanceTypeConfigOverride) GetWarmPoolConfiguration() WarmPoolConfiguration`
@@ -387,6 +414,31 @@ SetWarmPoolConfiguration sets WarmPoolConfiguration field to given value.
 `func (o *ComputeInstanceTypeConfigOverride) HasWarmPoolConfiguration() bool`
 
 HasWarmPoolConfiguration returns a boolean if a field has been set.
+
+### GetZonePlacementPolicy
+
+`func (o *ComputeInstanceTypeConfigOverride) GetZonePlacementPolicy() string`
+
+GetZonePlacementPolicy returns the ZonePlacementPolicy field if non-nil, zero value otherwise.
+
+### GetZonePlacementPolicyOk
+
+`func (o *ComputeInstanceTypeConfigOverride) GetZonePlacementPolicyOk() (*string, bool)`
+
+GetZonePlacementPolicyOk returns a tuple with the ZonePlacementPolicy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetZonePlacementPolicy
+
+`func (o *ComputeInstanceTypeConfigOverride) SetZonePlacementPolicy(v string)`
+
+SetZonePlacementPolicy sets ZonePlacementPolicy field to given value.
+
+### HasZonePlacementPolicy
+
+`func (o *ComputeInstanceTypeConfigOverride) HasZonePlacementPolicy() bool`
+
+HasZonePlacementPolicy returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
