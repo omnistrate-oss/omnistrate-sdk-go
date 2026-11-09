@@ -87138,6 +87138,7 @@ components:
           Type: HelmChart
         cloudProvider: aws
         createdAt: 2021-01-01T00:00:00Z
+        currentManagedArtifactVersion: r0000020
         currentNumberOfDeployments: 2
         currentNumberOfSnapshots: 5
         customNetworkDetail:
@@ -87264,6 +87265,13 @@ components:
         createdAt:
           description: The timestamp when the host cluster was created
           example: 2021-01-01T00:00:00Z
+          type: string
+        currentManagedArtifactVersion:
+          description: The managed artifact bundle version currently serving the deployment
+            cell. Pending or failed updates continue reporting the previously applied
+            version; the public-reference permission fallback reports its resolved
+            version.
+          example: r0000020
           type: string
         currentNumberOfDeployments:
           description: The current number of deployments on the host cluster

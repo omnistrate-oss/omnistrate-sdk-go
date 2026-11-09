@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Amenities** | Pointer to [**[]Amenity**](Amenity.md) | The amenities available in the host cluster | [optional] 
 **CloudProvider** | **string** | Name of the Infra Provider | 
 **CreatedAt** | Pointer to **string** | The timestamp when the host cluster was created | [optional] 
+**CurrentManagedArtifactVersion** | Pointer to **string** | The managed artifact bundle version currently serving the deployment cell. Pending or failed updates continue reporting the previously applied version; the public-reference permission fallback reports its resolved version. | [optional]
 **CurrentNumberOfDeployments** | **int64** | The current number of deployments on the host cluster | 
 **CurrentNumberOfSnapshots** | Pointer to **int64** | The current number of snapshots on the host cluster | [optional] 
 **CustomNetworkDetail** | Pointer to [**CustomNetworkFleetDetail**](CustomNetworkFleetDetail.md) |  | [optional] 
@@ -191,6 +192,31 @@ SetCreatedAt sets CreatedAt field to given value.
 `func (o *HostCluster) HasCreatedAt() bool`
 
 HasCreatedAt returns a boolean if a field has been set.
+
+### GetCurrentManagedArtifactVersion
+
+`func (o *HostCluster) GetCurrentManagedArtifactVersion() string`
+
+GetCurrentManagedArtifactVersion returns the CurrentManagedArtifactVersion field if non-nil, zero value otherwise.
+
+### GetCurrentManagedArtifactVersionOk
+
+`func (o *HostCluster) GetCurrentManagedArtifactVersionOk() (*string, bool)`
+
+GetCurrentManagedArtifactVersionOk returns a tuple with the CurrentManagedArtifactVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrentManagedArtifactVersion
+
+`func (o *HostCluster) SetCurrentManagedArtifactVersion(v string)`
+
+SetCurrentManagedArtifactVersion sets CurrentManagedArtifactVersion field to given value.
+
+### HasCurrentManagedArtifactVersion
+
+`func (o *HostCluster) HasCurrentManagedArtifactVersion() bool`
+
+HasCurrentManagedArtifactVersion returns a boolean if a field has been set.
 
 ### GetCurrentNumberOfDeployments
 

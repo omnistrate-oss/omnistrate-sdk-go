@@ -32,6 +32,8 @@ type HostCluster struct {
 	CloudProvider string `json:"cloudProvider"`
 	// The timestamp when the host cluster was created
 	CreatedAt *string `json:"createdAt,omitempty"`
+	// The managed artifact bundle version currently serving the deployment cell. Pending or failed updates continue reporting the previously applied version; the public-reference permission fallback reports its resolved version.
+	CurrentManagedArtifactVersion *string `json:"currentManagedArtifactVersion,omitempty"`
 	// The current number of deployments on the host cluster
 	CurrentNumberOfDeployments int64 `json:"currentNumberOfDeployments"`
 	// The current number of snapshots on the host cluster
@@ -281,6 +283,38 @@ func (o *HostCluster) HasCreatedAt() bool {
 // SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
 func (o *HostCluster) SetCreatedAt(v string) {
 	o.CreatedAt = &v
+}
+
+// GetCurrentManagedArtifactVersion returns the CurrentManagedArtifactVersion field value if set, zero value otherwise.
+func (o *HostCluster) GetCurrentManagedArtifactVersion() string {
+	if o == nil || IsNil(o.CurrentManagedArtifactVersion) {
+		var ret string
+		return ret
+	}
+	return *o.CurrentManagedArtifactVersion
+}
+
+// GetCurrentManagedArtifactVersionOk returns a tuple with the CurrentManagedArtifactVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetCurrentManagedArtifactVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.CurrentManagedArtifactVersion) {
+		return nil, false
+	}
+	return o.CurrentManagedArtifactVersion, true
+}
+
+// HasCurrentManagedArtifactVersion returns a boolean if a field has been set.
+func (o *HostCluster) HasCurrentManagedArtifactVersion() bool {
+	if o != nil && !IsNil(o.CurrentManagedArtifactVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrentManagedArtifactVersion gets a reference to the given string and assigns it to the CurrentManagedArtifactVersion field.
+func (o *HostCluster) SetCurrentManagedArtifactVersion(v string) {
+	o.CurrentManagedArtifactVersion = &v
 }
 
 // GetCurrentNumberOfDeployments returns the CurrentNumberOfDeployments field value
@@ -1097,6 +1131,9 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CreatedAt) {
 		toSerialize["createdAt"] = o.CreatedAt
 	}
+	if !IsNil(o.CurrentManagedArtifactVersion) {
+		toSerialize["currentManagedArtifactVersion"] = o.CurrentManagedArtifactVersion
+	}
 	toSerialize["currentNumberOfDeployments"] = o.CurrentNumberOfDeployments
 	if !IsNil(o.CurrentNumberOfSnapshots) {
 		toSerialize["currentNumberOfSnapshots"] = o.CurrentNumberOfSnapshots
@@ -1220,6 +1257,7 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "amenities")
 		delete(additionalProperties, "cloudProvider")
 		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "currentManagedArtifactVersion")
 		delete(additionalProperties, "currentNumberOfDeployments")
 		delete(additionalProperties, "currentNumberOfSnapshots")
 		delete(additionalProperties, "customNetworkDetail")
