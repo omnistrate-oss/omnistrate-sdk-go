@@ -46,6 +46,8 @@ type HostCluster struct {
 	// The deployment instances tags associated with resource instances in the host cluster.
 	DeploymentInstancesTags []CustomTag `json:"deploymentInstancesTags,omitempty"`
 	Description string `json:"description"`
+	// The effective managed artifact bundle version selected by the deployment cell template spec.
+	EffectiveManagedArtifactVersion *string `json:"effectiveManagedArtifactVersion,omitempty"`
 	// Whether the host cluster has pending changes
 	HasPendingChanges *bool `json:"hasPendingChanges,omitempty"`
 	HealthStatus *HostClusterHealthStatus `json:"healthStatus,omitempty"`
@@ -523,6 +525,38 @@ func (o *HostCluster) GetDescriptionOk() (*string, bool) {
 // SetDescription sets field value
 func (o *HostCluster) SetDescription(v string) {
 	o.Description = v
+}
+
+// GetEffectiveManagedArtifactVersion returns the EffectiveManagedArtifactVersion field value if set, zero value otherwise.
+func (o *HostCluster) GetEffectiveManagedArtifactVersion() string {
+	if o == nil || IsNil(o.EffectiveManagedArtifactVersion) {
+		var ret string
+		return ret
+	}
+	return *o.EffectiveManagedArtifactVersion
+}
+
+// GetEffectiveManagedArtifactVersionOk returns a tuple with the EffectiveManagedArtifactVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetEffectiveManagedArtifactVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.EffectiveManagedArtifactVersion) {
+		return nil, false
+	}
+	return o.EffectiveManagedArtifactVersion, true
+}
+
+// HasEffectiveManagedArtifactVersion returns a boolean if a field has been set.
+func (o *HostCluster) HasEffectiveManagedArtifactVersion() bool {
+	if o != nil && !IsNil(o.EffectiveManagedArtifactVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetEffectiveManagedArtifactVersion gets a reference to the given string and assigns it to the EffectiveManagedArtifactVersion field.
+func (o *HostCluster) SetEffectiveManagedArtifactVersion(v string) {
+	o.EffectiveManagedArtifactVersion = &v
 }
 
 // GetHasPendingChanges returns the HasPendingChanges field value if set, zero value otherwise.
@@ -1151,6 +1185,9 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 		toSerialize["deploymentInstancesTags"] = o.DeploymentInstancesTags
 	}
 	toSerialize["description"] = o.Description
+	if !IsNil(o.EffectiveManagedArtifactVersion) {
+		toSerialize["effectiveManagedArtifactVersion"] = o.EffectiveManagedArtifactVersion
+	}
 	if !IsNil(o.HasPendingChanges) {
 		toSerialize["hasPendingChanges"] = o.HasPendingChanges
 	}
@@ -1265,6 +1302,7 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "customerOrganizationName")
 		delete(additionalProperties, "deploymentInstancesTags")
 		delete(additionalProperties, "description")
+		delete(additionalProperties, "effectiveManagedArtifactVersion")
 		delete(additionalProperties, "hasPendingChanges")
 		delete(additionalProperties, "healthStatus")
 		delete(additionalProperties, "helmPackages")

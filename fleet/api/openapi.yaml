@@ -87154,6 +87154,7 @@ components:
         - key: customKey2
           value: customValue2
         description: My Host Cluster
+        effectiveManagedArtifactVersion: r0000020
         hasPendingChanges: true
         healthStatus:
           failedEntities:
@@ -87309,6 +87310,11 @@ components:
         description:
           example: My Host Cluster
           minLength: 1
+          type: string
+        effectiveManagedArtifactVersion:
+          description: The effective managed artifact bundle version selected by the
+            deployment cell template spec.
+          example: r0000020
           type: string
         hasPendingChanges:
           description: Whether the host cluster has pending changes
