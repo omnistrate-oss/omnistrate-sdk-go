@@ -4,12 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AccountOnboardingDetails** | Pointer to [**AccountOnboardingDetails**](AccountOnboardingDetails.md) |  | [optional] 
 **AppliedSettings** | Pointer to [**AccountConfigSettings**](AccountConfigSettings.md) |  | [optional] 
 **AwsAccountID** | Pointer to **string** | The AWS account ID | [optional] 
 **AwsBootstrapRoleARN** | Pointer to **string** | The security role ARN or service account ARN that grants access to operate the infra | [optional] 
+**AwsBootstrapShellCommand** | Pointer to **string** | The AWS bootstrap shell command | [optional] 
 **AwsCloudFormationNoLBTemplateURL** | Pointer to **string** | The URL to the CloudFormation template (no LoadBalancer policy version) | [optional] 
 **AwsCloudFormationTemplateURL** | Pointer to **string** | The URL to the CloudFormation template | [optional] 
-**AwsCloudFormationUpdateURL** | Pointer to **string** | The AWS console URL for updating the existing account setup stack using saved requested settings. Uses the verified stack identity and its actual region. Omitted when the stack identity is unknown or the account does not support this flow. | [optional] 
 **AzureBootstrapShellCommand** | Pointer to **string** | The Azure bootstrap shell command | [optional] 
 **AzureDisconnectShellCommand** | Pointer to **string** | The Azure disconnect shell command | [optional] 
 **AzureOffboardShellCommand** | Pointer to **string** | The Azure offboard shell command | [optional] 
@@ -56,6 +57,31 @@ will change when the set of required properties is changed
 NewDescribeAccountConfigResultWithDefaults instantiates a new DescribeAccountConfigResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAccountOnboardingDetails
+
+`func (o *DescribeAccountConfigResult) GetAccountOnboardingDetails() AccountOnboardingDetails`
+
+GetAccountOnboardingDetails returns the AccountOnboardingDetails field if non-nil, zero value otherwise.
+
+### GetAccountOnboardingDetailsOk
+
+`func (o *DescribeAccountConfigResult) GetAccountOnboardingDetailsOk() (*AccountOnboardingDetails, bool)`
+
+GetAccountOnboardingDetailsOk returns a tuple with the AccountOnboardingDetails field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccountOnboardingDetails
+
+`func (o *DescribeAccountConfigResult) SetAccountOnboardingDetails(v AccountOnboardingDetails)`
+
+SetAccountOnboardingDetails sets AccountOnboardingDetails field to given value.
+
+### HasAccountOnboardingDetails
+
+`func (o *DescribeAccountConfigResult) HasAccountOnboardingDetails() bool`
+
+HasAccountOnboardingDetails returns a boolean if a field has been set.
 
 ### GetAppliedSettings
 
@@ -132,6 +158,31 @@ SetAwsBootstrapRoleARN sets AwsBootstrapRoleARN field to given value.
 
 HasAwsBootstrapRoleARN returns a boolean if a field has been set.
 
+### GetAwsBootstrapShellCommand
+
+`func (o *DescribeAccountConfigResult) GetAwsBootstrapShellCommand() string`
+
+GetAwsBootstrapShellCommand returns the AwsBootstrapShellCommand field if non-nil, zero value otherwise.
+
+### GetAwsBootstrapShellCommandOk
+
+`func (o *DescribeAccountConfigResult) GetAwsBootstrapShellCommandOk() (*string, bool)`
+
+GetAwsBootstrapShellCommandOk returns a tuple with the AwsBootstrapShellCommand field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAwsBootstrapShellCommand
+
+`func (o *DescribeAccountConfigResult) SetAwsBootstrapShellCommand(v string)`
+
+SetAwsBootstrapShellCommand sets AwsBootstrapShellCommand field to given value.
+
+### HasAwsBootstrapShellCommand
+
+`func (o *DescribeAccountConfigResult) HasAwsBootstrapShellCommand() bool`
+
+HasAwsBootstrapShellCommand returns a boolean if a field has been set.
+
 ### GetAwsCloudFormationNoLBTemplateURL
 
 `func (o *DescribeAccountConfigResult) GetAwsCloudFormationNoLBTemplateURL() string`
@@ -181,31 +232,6 @@ SetAwsCloudFormationTemplateURL sets AwsCloudFormationTemplateURL field to given
 `func (o *DescribeAccountConfigResult) HasAwsCloudFormationTemplateURL() bool`
 
 HasAwsCloudFormationTemplateURL returns a boolean if a field has been set.
-
-### GetAwsCloudFormationUpdateURL
-
-`func (o *DescribeAccountConfigResult) GetAwsCloudFormationUpdateURL() string`
-
-GetAwsCloudFormationUpdateURL returns the AwsCloudFormationUpdateURL field if non-nil, zero value otherwise.
-
-### GetAwsCloudFormationUpdateURLOk
-
-`func (o *DescribeAccountConfigResult) GetAwsCloudFormationUpdateURLOk() (*string, bool)`
-
-GetAwsCloudFormationUpdateURLOk returns a tuple with the AwsCloudFormationUpdateURL field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAwsCloudFormationUpdateURL
-
-`func (o *DescribeAccountConfigResult) SetAwsCloudFormationUpdateURL(v string)`
-
-SetAwsCloudFormationUpdateURL sets AwsCloudFormationUpdateURL field to given value.
-
-### HasAwsCloudFormationUpdateURL
-
-`func (o *DescribeAccountConfigResult) HasAwsCloudFormationUpdateURL() bool`
-
-HasAwsCloudFormationUpdateURL returns a boolean if a field has been set.
 
 ### GetAzureBootstrapShellCommand
 

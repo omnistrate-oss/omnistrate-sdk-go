@@ -24,6 +24,8 @@ type ConfirmMarketplaceFulfillmentRequest struct {
 	ExternalReference *string `json:"externalReference,omitempty"`
 	// The Omnistrate contract identifier, as carried by marketplaceContractId on the contract.discovered event and returned by the handoff redeem
 	Id string `json:"id" validate:"regexp=^(?P<entitytype>mkc)-(?P<entityid>[a-zA-Z0-9][a-zA-Z0-9]*)$"`
+	// The existing customer organization in which to create a dedicated subscription. Optional; omitting it creates the subscription in the contract's buyer organization. Existing subscriptions and their instances are not automatically associated
+	OrgId *string `json:"orgId,omitempty"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`
 	AdditionalProperties map[string]interface{}
@@ -106,6 +108,38 @@ func (o *ConfirmMarketplaceFulfillmentRequest) SetId(v string) {
 	o.Id = v
 }
 
+// GetOrgId returns the OrgId field value if set, zero value otherwise.
+func (o *ConfirmMarketplaceFulfillmentRequest) GetOrgId() string {
+	if o == nil || IsNil(o.OrgId) {
+		var ret string
+		return ret
+	}
+	return *o.OrgId
+}
+
+// GetOrgIdOk returns a tuple with the OrgId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConfirmMarketplaceFulfillmentRequest) GetOrgIdOk() (*string, bool) {
+	if o == nil || IsNil(o.OrgId) {
+		return nil, false
+	}
+	return o.OrgId, true
+}
+
+// HasOrgId returns a boolean if a field has been set.
+func (o *ConfirmMarketplaceFulfillmentRequest) HasOrgId() bool {
+	if o != nil && !IsNil(o.OrgId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgId gets a reference to the given string and assigns it to the OrgId field.
+func (o *ConfirmMarketplaceFulfillmentRequest) SetOrgId(v string) {
+	o.OrgId = &v
+}
+
 // GetToken returns the Token field value
 func (o *ConfirmMarketplaceFulfillmentRequest) GetToken() string {
 	if o == nil {
@@ -144,6 +178,9 @@ func (o ConfirmMarketplaceFulfillmentRequest) ToMap() (map[string]interface{}, e
 		toSerialize["externalReference"] = o.ExternalReference
 	}
 	toSerialize["id"] = o.Id
+	if !IsNil(o.OrgId) {
+		toSerialize["orgId"] = o.OrgId
+	}
 	toSerialize["token"] = o.Token
 
 	for key, value := range o.AdditionalProperties {
@@ -191,6 +228,7 @@ func (o *ConfirmMarketplaceFulfillmentRequest) UnmarshalJSON(data []byte) (err e
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "externalReference")
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "orgId")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

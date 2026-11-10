@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DeploymentCellConfigurations** | Pointer to [**map[string]DeploymentCellConfigurations**](DeploymentCellConfigurations.md) | The default deployment cell configurations for the organization per environment. | [optional] 
+**AwsAPNTagValue** | Pointer to **string** | AWS APN tag override for this provider organization. Omit to leave unchanged or send an empty string to restore the default. Root and admin users only. | [optional] 
+**JustInTimeAccessConfigurations** | Pointer to [**map[string]JustInTimeAccessConfiguration**](JustInTimeAccessConfiguration.md) | Root-only just-in-time access configuration patch for one environment of the authenticated service provider organization per call. GLOBAL is not supported by the backend for these settings. Omit the field or a nested property to preserve stored settings and sibling templates. Provider sign-in may seed missing AUTO defaults without enabling manual approval or request accounting. Explicit AUTO-to-MANUAL changes require backend cutoff/readiness; ordinary reads or unrelated updates do not interrupt access. | [optional] 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods
@@ -50,6 +52,56 @@ SetDeploymentCellConfigurations sets DeploymentCellConfigurations field to given
 `func (o *ModifyServiceProviderOrganizationRequest) HasDeploymentCellConfigurations() bool`
 
 HasDeploymentCellConfigurations returns a boolean if a field has been set.
+
+### GetAwsAPNTagValue
+
+`func (o *ModifyServiceProviderOrganizationRequest) GetAwsAPNTagValue() string`
+
+GetAwsAPNTagValue returns the AwsAPNTagValue field if non-nil, zero value otherwise.
+
+### GetAwsAPNTagValueOk
+
+`func (o *ModifyServiceProviderOrganizationRequest) GetAwsAPNTagValueOk() (*string, bool)`
+
+GetAwsAPNTagValueOk returns a tuple with the AwsAPNTagValue field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAwsAPNTagValue
+
+`func (o *ModifyServiceProviderOrganizationRequest) SetAwsAPNTagValue(v string)`
+
+SetAwsAPNTagValue sets AwsAPNTagValue field to given value.
+
+### HasAwsAPNTagValue
+
+`func (o *ModifyServiceProviderOrganizationRequest) HasAwsAPNTagValue() bool`
+
+HasAwsAPNTagValue returns a boolean if a field has been set.
+
+### GetJustInTimeAccessConfigurations
+
+`func (o *ModifyServiceProviderOrganizationRequest) GetJustInTimeAccessConfigurations() map[string]JustInTimeAccessConfiguration`
+
+GetJustInTimeAccessConfigurations returns the JustInTimeAccessConfigurations field if non-nil, zero value otherwise.
+
+### GetJustInTimeAccessConfigurationsOk
+
+`func (o *ModifyServiceProviderOrganizationRequest) GetJustInTimeAccessConfigurationsOk() (*map[string]JustInTimeAccessConfiguration, bool)`
+
+GetJustInTimeAccessConfigurationsOk returns a tuple with the JustInTimeAccessConfigurations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetJustInTimeAccessConfigurations
+
+`func (o *ModifyServiceProviderOrganizationRequest) SetJustInTimeAccessConfigurations(v map[string]JustInTimeAccessConfiguration)`
+
+SetJustInTimeAccessConfigurations sets JustInTimeAccessConfigurations field to given value.
+
+### HasJustInTimeAccessConfigurations
+
+`func (o *ModifyServiceProviderOrganizationRequest) HasJustInTimeAccessConfigurations() bool`
+
+HasJustInTimeAccessConfigurations returns a boolean if a field has been set.
 
 ### GetToken
 

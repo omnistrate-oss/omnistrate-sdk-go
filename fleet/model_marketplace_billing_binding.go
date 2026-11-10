@@ -22,8 +22,10 @@ var _ MappedNullable = &MarketplaceBillingBinding{}
 type MarketplaceBillingBinding struct {
 	// False everywhere today. Exists so a channel that genuinely permits a choice can say so, rather than every consumer assuming none ever will
 	Overridable bool `json:"overridable"`
-	// The billing provider that collects. Every marketplace channel reports MARKETPLACE today
+	// Deprecated: use providers for supported concrete billing providers. Every marketplace channel reports MARKETPLACE; it does not identify one cloud marketplace
 	Provider string `json:"provider"`
+	// The cloud marketplace billing providers supported by this channel. Each listing and contract identifies one provider
+	Providers []string `json:"providers,omitempty"`
 	// Which marketplace channel a contract came from. SUGER reaches AWS, Azure and GCP buyers through one listing. SANDBOX is the simulated channel, and is a real member of this set rather than a test mode
 	Settlement string `json:"settlement"`
 	// True when the credential that reads contracts is also the credential that reports usage
@@ -102,6 +104,38 @@ func (o *MarketplaceBillingBinding) SetProvider(v string) {
 	o.Provider = v
 }
 
+// GetProviders returns the Providers field value if set, zero value otherwise.
+func (o *MarketplaceBillingBinding) GetProviders() []string {
+	if o == nil || IsNil(o.Providers) {
+		var ret []string
+		return ret
+	}
+	return o.Providers
+}
+
+// GetProvidersOk returns a tuple with the Providers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MarketplaceBillingBinding) GetProvidersOk() ([]string, bool) {
+	if o == nil || IsNil(o.Providers) {
+		return nil, false
+	}
+	return o.Providers, true
+}
+
+// HasProviders returns a boolean if a field has been set.
+func (o *MarketplaceBillingBinding) HasProviders() bool {
+	if o != nil && !IsNil(o.Providers) {
+		return true
+	}
+
+	return false
+}
+
+// SetProviders gets a reference to the given []string and assigns it to the Providers field.
+func (o *MarketplaceBillingBinding) SetProviders(v []string) {
+	o.Providers = v
+}
+
 // GetSettlement returns the Settlement field value
 func (o *MarketplaceBillingBinding) GetSettlement() string {
 	if o == nil {
@@ -162,6 +196,9 @@ func (o MarketplaceBillingBinding) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["overridable"] = o.Overridable
 	toSerialize["provider"] = o.Provider
+	if !IsNil(o.Providers) {
+		toSerialize["providers"] = o.Providers
+	}
 	toSerialize["settlement"] = o.Settlement
 	toSerialize["sharesCredentials"] = o.SharesCredentials
 
@@ -212,6 +249,7 @@ func (o *MarketplaceBillingBinding) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "overridable")
 		delete(additionalProperties, "provider")
+		delete(additionalProperties, "providers")
 		delete(additionalProperties, "settlement")
 		delete(additionalProperties, "sharesCredentials")
 		o.AdditionalProperties = additionalProperties

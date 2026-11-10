@@ -28,8 +28,12 @@ type ComputeInstanceTypeConfigOverride struct {
 	// Labels for the compute instance type config
 	Labels *map[string]string `json:"labels,omitempty"`
 	LocalNvmeSsdBlockConfig *LocalNvmeSsdBlockConfig `json:"localNvmeSsdBlockConfig,omitempty"`
+	// Maximum number of nodes in the node pool. Supported for AWS, GCP, and Azure. Must be greater than minNumberOfNodes, at most 450, and cannot be combined with warmPoolConfiguration.
+	MaxNumberOfNodes *int64 `json:"maxNumberOfNodes,omitempty"`
 	// MIG profile to apply to this compute instance type config for providers that support per-node-pool GPU partitioning
 	MigProfile *string `json:"migProfile,omitempty"`
+	// Minimum number of nodes in the node pool. Supported for AWS, GCP, and Azure. Must be less than maxNumberOfNodes and cannot be combined with warmPoolConfiguration.
+	MinNumberOfNodes *int64 `json:"minNumberOfNodes,omitempty"`
 	// Operating system family for AWS instance type override (supported only for AWS)
 	OsFamily *string `json:"osFamily,omitempty"`
 	// First-class platform selector for cloud providers that require more than a single instance type string (for example Nebius)
@@ -207,6 +211,29 @@ func (o *ComputeInstanceTypeConfigOverride) SetLocalNvmeSsdBlockConfig(v LocalNv
 	o.LocalNvmeSsdBlockConfig = &v
 }
 
+// GetMaxNumberOfNodes returns the MaxNumberOfNodes field value if set, zero value otherwise.
+func (o *ComputeInstanceTypeConfigOverride) GetMaxNumberOfNodes() int64 {
+	if o == nil || IsNil(o.MaxNumberOfNodes) {
+		var ret int64
+		return ret
+	}
+	return *o.MaxNumberOfNodes
+}
+
+// GetMaxNumberOfNodesOk returns a tuple with the MaxNumberOfNodes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeInstanceTypeConfigOverride) GetMaxNumberOfNodesOk() (*int64, bool) {
+	if o == nil || IsNil(o.MaxNumberOfNodes) {
+		return nil, false
+	}
+	return o.MaxNumberOfNodes, true
+}
+
+// SetMaxNumberOfNodes gets a reference to the given int64 and assigns it to the MaxNumberOfNodes field.
+func (o *ComputeInstanceTypeConfigOverride) SetMaxNumberOfNodes(v int64) {
+	o.MaxNumberOfNodes = &v
+}
+
 // GetMigProfile returns the MigProfile field value if set, zero value otherwise.
 func (o *ComputeInstanceTypeConfigOverride) GetMigProfile() string {
 	if o == nil || IsNil(o.MigProfile) {
@@ -228,6 +255,29 @@ func (o *ComputeInstanceTypeConfigOverride) GetMigProfileOk() (*string, bool) {
 // SetMigProfile gets a reference to the given string and assigns it to the MigProfile field.
 func (o *ComputeInstanceTypeConfigOverride) SetMigProfile(v string) {
 	o.MigProfile = &v
+}
+
+// GetMinNumberOfNodes returns the MinNumberOfNodes field value if set, zero value otherwise.
+func (o *ComputeInstanceTypeConfigOverride) GetMinNumberOfNodes() int64 {
+	if o == nil || IsNil(o.MinNumberOfNodes) {
+		var ret int64
+		return ret
+	}
+	return *o.MinNumberOfNodes
+}
+
+// GetMinNumberOfNodesOk returns a tuple with the MinNumberOfNodes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeInstanceTypeConfigOverride) GetMinNumberOfNodesOk() (*int64, bool) {
+	if o == nil || IsNil(o.MinNumberOfNodes) {
+		return nil, false
+	}
+	return o.MinNumberOfNodes, true
+}
+
+// SetMinNumberOfNodes gets a reference to the given int64 and assigns it to the MinNumberOfNodes field.
+func (o *ComputeInstanceTypeConfigOverride) SetMinNumberOfNodes(v int64) {
+	o.MinNumberOfNodes = &v
 }
 
 // GetOsFamily returns the OsFamily field value if set, zero value otherwise.
@@ -465,8 +515,14 @@ func (o ComputeInstanceTypeConfigOverride) ToMap() (map[string]interface{}, erro
 	if !IsNil(o.LocalNvmeSsdBlockConfig) {
 		toSerialize["localNvmeSsdBlockConfig"] = o.LocalNvmeSsdBlockConfig
 	}
+	if !IsNil(o.MaxNumberOfNodes) {
+		toSerialize["maxNumberOfNodes"] = o.MaxNumberOfNodes
+	}
 	if !IsNil(o.MigProfile) {
 		toSerialize["migProfile"] = o.MigProfile
+	}
+	if !IsNil(o.MinNumberOfNodes) {
+		toSerialize["minNumberOfNodes"] = o.MinNumberOfNodes
 	}
 	if !IsNil(o.OsFamily) {
 		toSerialize["osFamily"] = o.OsFamily
@@ -523,7 +579,9 @@ func (o *ComputeInstanceTypeConfigOverride) UnmarshalJSON(data []byte) (err erro
 		delete(additionalProperties, "instanceLifeCycleType")
 		delete(additionalProperties, "labels")
 		delete(additionalProperties, "localNvmeSsdBlockConfig")
+		delete(additionalProperties, "maxNumberOfNodes")
 		delete(additionalProperties, "migProfile")
+		delete(additionalProperties, "minNumberOfNodes")
 		delete(additionalProperties, "osFamily")
 		delete(additionalProperties, "platform")
 		delete(additionalProperties, "rootVolumeSizeGi")

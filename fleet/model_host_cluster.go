@@ -32,6 +32,8 @@ type HostCluster struct {
 	CloudProvider string `json:"cloudProvider"`
 	// The timestamp when the host cluster was created
 	CreatedAt *string `json:"createdAt,omitempty"`
+	// The managed artifact bundle version currently serving the deployment cell. Pending or failed updates continue reporting the previously applied version; the public-reference permission fallback reports its resolved version.
+	CurrentManagedArtifactVersion *string `json:"currentManagedArtifactVersion,omitempty"`
 	// The current number of deployments on the host cluster
 	CurrentNumberOfDeployments int64 `json:"currentNumberOfDeployments"`
 	// The current number of snapshots on the host cluster
@@ -44,6 +46,8 @@ type HostCluster struct {
 	// The deployment instances tags associated with resource instances in the host cluster.
 	DeploymentInstancesTags []CustomTag `json:"deploymentInstancesTags,omitempty"`
 	Description string `json:"description"`
+	// The effective managed artifact bundle version selected by the deployment cell template spec.
+	EffectiveManagedArtifactVersion *string `json:"effectiveManagedArtifactVersion,omitempty"`
 	// Whether the host cluster has pending changes
 	HasPendingChanges *bool `json:"hasPendingChanges,omitempty"`
 	HealthStatus *HostClusterHealthStatus `json:"healthStatus,omitempty"`
@@ -283,6 +287,38 @@ func (o *HostCluster) SetCreatedAt(v string) {
 	o.CreatedAt = &v
 }
 
+// GetCurrentManagedArtifactVersion returns the CurrentManagedArtifactVersion field value if set, zero value otherwise.
+func (o *HostCluster) GetCurrentManagedArtifactVersion() string {
+	if o == nil || IsNil(o.CurrentManagedArtifactVersion) {
+		var ret string
+		return ret
+	}
+	return *o.CurrentManagedArtifactVersion
+}
+
+// GetCurrentManagedArtifactVersionOk returns a tuple with the CurrentManagedArtifactVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetCurrentManagedArtifactVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.CurrentManagedArtifactVersion) {
+		return nil, false
+	}
+	return o.CurrentManagedArtifactVersion, true
+}
+
+// HasCurrentManagedArtifactVersion returns a boolean if a field has been set.
+func (o *HostCluster) HasCurrentManagedArtifactVersion() bool {
+	if o != nil && !IsNil(o.CurrentManagedArtifactVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrentManagedArtifactVersion gets a reference to the given string and assigns it to the CurrentManagedArtifactVersion field.
+func (o *HostCluster) SetCurrentManagedArtifactVersion(v string) {
+	o.CurrentManagedArtifactVersion = &v
+}
+
 // GetCurrentNumberOfDeployments returns the CurrentNumberOfDeployments field value
 func (o *HostCluster) GetCurrentNumberOfDeployments() int64 {
 	if o == nil {
@@ -489,6 +525,38 @@ func (o *HostCluster) GetDescriptionOk() (*string, bool) {
 // SetDescription sets field value
 func (o *HostCluster) SetDescription(v string) {
 	o.Description = v
+}
+
+// GetEffectiveManagedArtifactVersion returns the EffectiveManagedArtifactVersion field value if set, zero value otherwise.
+func (o *HostCluster) GetEffectiveManagedArtifactVersion() string {
+	if o == nil || IsNil(o.EffectiveManagedArtifactVersion) {
+		var ret string
+		return ret
+	}
+	return *o.EffectiveManagedArtifactVersion
+}
+
+// GetEffectiveManagedArtifactVersionOk returns a tuple with the EffectiveManagedArtifactVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HostCluster) GetEffectiveManagedArtifactVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.EffectiveManagedArtifactVersion) {
+		return nil, false
+	}
+	return o.EffectiveManagedArtifactVersion, true
+}
+
+// HasEffectiveManagedArtifactVersion returns a boolean if a field has been set.
+func (o *HostCluster) HasEffectiveManagedArtifactVersion() bool {
+	if o != nil && !IsNil(o.EffectiveManagedArtifactVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetEffectiveManagedArtifactVersion gets a reference to the given string and assigns it to the EffectiveManagedArtifactVersion field.
+func (o *HostCluster) SetEffectiveManagedArtifactVersion(v string) {
+	o.EffectiveManagedArtifactVersion = &v
 }
 
 // GetHasPendingChanges returns the HasPendingChanges field value if set, zero value otherwise.
@@ -1097,6 +1165,9 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CreatedAt) {
 		toSerialize["createdAt"] = o.CreatedAt
 	}
+	if !IsNil(o.CurrentManagedArtifactVersion) {
+		toSerialize["currentManagedArtifactVersion"] = o.CurrentManagedArtifactVersion
+	}
 	toSerialize["currentNumberOfDeployments"] = o.CurrentNumberOfDeployments
 	if !IsNil(o.CurrentNumberOfSnapshots) {
 		toSerialize["currentNumberOfSnapshots"] = o.CurrentNumberOfSnapshots
@@ -1114,6 +1185,9 @@ func (o HostCluster) ToMap() (map[string]interface{}, error) {
 		toSerialize["deploymentInstancesTags"] = o.DeploymentInstancesTags
 	}
 	toSerialize["description"] = o.Description
+	if !IsNil(o.EffectiveManagedArtifactVersion) {
+		toSerialize["effectiveManagedArtifactVersion"] = o.EffectiveManagedArtifactVersion
+	}
 	if !IsNil(o.HasPendingChanges) {
 		toSerialize["hasPendingChanges"] = o.HasPendingChanges
 	}
@@ -1220,6 +1294,7 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "amenities")
 		delete(additionalProperties, "cloudProvider")
 		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "currentManagedArtifactVersion")
 		delete(additionalProperties, "currentNumberOfDeployments")
 		delete(additionalProperties, "currentNumberOfSnapshots")
 		delete(additionalProperties, "customNetworkDetail")
@@ -1227,6 +1302,7 @@ func (o *HostCluster) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "customerOrganizationName")
 		delete(additionalProperties, "deploymentInstancesTags")
 		delete(additionalProperties, "description")
+		delete(additionalProperties, "effectiveManagedArtifactVersion")
 		delete(additionalProperties, "hasPendingChanges")
 		delete(additionalProperties, "healthStatus")
 		delete(additionalProperties, "helmPackages")

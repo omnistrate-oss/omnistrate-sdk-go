@@ -20,6 +20,8 @@ var _ MappedNullable = &MarketplacePlanMapping{}
 
 // MarketplacePlanMapping The Omnistrate service and plan a marketplace listing is sold as
 type MarketplacePlanMapping struct {
+	// The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace
+	BillingProvider *string `json:"billingProvider,omitempty"`
 	ProductTierId string `json:"productTierId"`
 	ServiceId string `json:"serviceId"`
 	AdditionalProperties map[string]interface{}
@@ -44,6 +46,38 @@ func NewMarketplacePlanMapping(productTierId string, serviceId string) *Marketpl
 func NewMarketplacePlanMappingWithDefaults() *MarketplacePlanMapping {
 	this := MarketplacePlanMapping{}
 	return &this
+}
+
+// GetBillingProvider returns the BillingProvider field value if set, zero value otherwise.
+func (o *MarketplacePlanMapping) GetBillingProvider() string {
+	if o == nil || IsNil(o.BillingProvider) {
+		var ret string
+		return ret
+	}
+	return *o.BillingProvider
+}
+
+// GetBillingProviderOk returns a tuple with the BillingProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MarketplacePlanMapping) GetBillingProviderOk() (*string, bool) {
+	if o == nil || IsNil(o.BillingProvider) {
+		return nil, false
+	}
+	return o.BillingProvider, true
+}
+
+// HasBillingProvider returns a boolean if a field has been set.
+func (o *MarketplacePlanMapping) HasBillingProvider() bool {
+	if o != nil && !IsNil(o.BillingProvider) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingProvider gets a reference to the given string and assigns it to the BillingProvider field.
+func (o *MarketplacePlanMapping) SetBillingProvider(v string) {
+	o.BillingProvider = &v
 }
 
 // GetProductTierId returns the ProductTierId field value
@@ -104,6 +138,9 @@ func (o MarketplacePlanMapping) MarshalJSON() ([]byte, error) {
 
 func (o MarketplacePlanMapping) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.BillingProvider) {
+		toSerialize["billingProvider"] = o.BillingProvider
+	}
 	toSerialize["productTierId"] = o.ProductTierId
 	toSerialize["serviceId"] = o.ServiceId
 
@@ -150,6 +187,7 @@ func (o *MarketplacePlanMapping) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "billingProvider")
 		delete(additionalProperties, "productTierId")
 		delete(additionalProperties, "serviceId")
 		o.AdditionalProperties = additionalProperties

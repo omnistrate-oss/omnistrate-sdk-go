@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**BillingProvider** | Pointer to **string** | The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace | [optional] 
 **BuyerRef** | Pointer to **string** | The simulated buyer. Defaults to a value derived from the run, and supplying the same one twice is how an ISV rehearses a returning buyer accumulating a second contract against one organization | [optional] 
 **Control** | **string** | Which lifecycle event to simulate. Each drives the real fulfillment path | 
 **MarketplaceContractId** | Pointer to **string** | Which simulated contract to act on. Omitted for purchase, which is the control that creates one. Required for every other control, because there is otherwise no way to say which of several rehearsals is meant | [optional] 
@@ -29,6 +30,31 @@ will change when the set of required properties is changed
 NewSimulateContractEventRequestWithDefaults instantiates a new SimulateContractEventRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetBillingProvider
+
+`func (o *SimulateContractEventRequest) GetBillingProvider() string`
+
+GetBillingProvider returns the BillingProvider field if non-nil, zero value otherwise.
+
+### GetBillingProviderOk
+
+`func (o *SimulateContractEventRequest) GetBillingProviderOk() (*string, bool)`
+
+GetBillingProviderOk returns a tuple with the BillingProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBillingProvider
+
+`func (o *SimulateContractEventRequest) SetBillingProvider(v string)`
+
+SetBillingProvider sets BillingProvider field to given value.
+
+### HasBillingProvider
+
+`func (o *SimulateContractEventRequest) HasBillingProvider() bool`
+
+HasBillingProvider returns a boolean if a field has been set.
 
 ### GetBuyerRef
 

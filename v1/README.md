@@ -458,6 +458,7 @@ Class | Method | HTTP request | Description
 
  - [APIEntity](docs/APIEntity.md)
  - [APIKeyMetadata](docs/APIKeyMetadata.md)
+ - [AWSAccountOnboardingDetails](docs/AWSAccountOnboardingDetails.md)
  - [AWSPrivateLinkConfiguration](docs/AWSPrivateLinkConfiguration.md)
  - [AcceleratorConfiguration](docs/AcceleratorConfiguration.md)
  - [AccountConfigCloudNativeNetworkHostClusterResult](docs/AccountConfigCloudNativeNetworkHostClusterResult.md)
@@ -468,6 +469,7 @@ Class | Method | HTTP request | Description
  - [AccountConfigSettings](docs/AccountConfigSettings.md)
  - [AccountConfigSummary](docs/AccountConfigSummary.md)
  - [AccountGovernanceControls](docs/AccountGovernanceControls.md)
+ - [AccountOnboardingDetails](docs/AccountOnboardingDetails.md)
  - [AcknowledgeEventRequest](docs/AcknowledgeEventRequest.md)
  - [ActionHook](docs/ActionHook.md)
  - [AddAccountConfigToServiceModelRequest](docs/AddAccountConfigToServiceModelRequest.md)

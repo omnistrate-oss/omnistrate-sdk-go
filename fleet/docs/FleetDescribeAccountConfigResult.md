@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AwsAccountID** | Pointer to **string** | The AWS account ID | [optional] 
 **AwsBootstrapRoleARN** | Pointer to **string** | The security role ARN or service account ARN that grants access to operate the infra | [optional] 
+**AwsBootstrapShellCommand** | Pointer to **string** | The AWS bootstrap shell command | [optional] 
 **AwsCloudFormationNoLBTemplateURL** | Pointer to **string** | The URL to the CloudFormation template (no LoadBalancer policy version) | [optional] 
 **AwsCloudFormationTemplateURL** | Pointer to **string** | The URL to the CloudFormation template | [optional] 
 **AzureBootstrapShellCommand** | Pointer to **string** | The Azure bootstrap shell command | [optional] 
@@ -38,7 +39,7 @@ Name | Type | Description | Notes
 **OciDomainID** | Pointer to **string** | The Domain OCID for Oracle Cloud Infrastructure | [optional] 
 **OciOffboardShellCommand** | Pointer to **string** | The OCI offboard shell command | [optional] 
 **OciTenancyID** | Pointer to **string** | The Tenancy OCID for Oracle Cloud Infrastructure | [optional] 
-**Status** | **string** | The status of the account configuration | 
+**Status** | **string** | The status of the account configuration. BYOA settings updates remain PENDING_UPDATE until verification finishes, including while waiting for the customer to apply account setup changes. Successful verification sets READY for connected accounts or DISCONNECTED after access is revoked. | 
 **StatusMessage** | **string** | The status message of the account | 
 
 ## Methods
@@ -109,6 +110,31 @@ SetAwsBootstrapRoleARN sets AwsBootstrapRoleARN field to given value.
 `func (o *FleetDescribeAccountConfigResult) HasAwsBootstrapRoleARN() bool`
 
 HasAwsBootstrapRoleARN returns a boolean if a field has been set.
+
+### GetAwsBootstrapShellCommand
+
+`func (o *FleetDescribeAccountConfigResult) GetAwsBootstrapShellCommand() string`
+
+GetAwsBootstrapShellCommand returns the AwsBootstrapShellCommand field if non-nil, zero value otherwise.
+
+### GetAwsBootstrapShellCommandOk
+
+`func (o *FleetDescribeAccountConfigResult) GetAwsBootstrapShellCommandOk() (*string, bool)`
+
+GetAwsBootstrapShellCommandOk returns a tuple with the AwsBootstrapShellCommand field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAwsBootstrapShellCommand
+
+`func (o *FleetDescribeAccountConfigResult) SetAwsBootstrapShellCommand(v string)`
+
+SetAwsBootstrapShellCommand sets AwsBootstrapShellCommand field to given value.
+
+### HasAwsBootstrapShellCommand
+
+`func (o *FleetDescribeAccountConfigResult) HasAwsBootstrapShellCommand() bool`
+
+HasAwsBootstrapShellCommand returns a boolean if a field has been set.
 
 ### GetAwsCloudFormationNoLBTemplateURL
 

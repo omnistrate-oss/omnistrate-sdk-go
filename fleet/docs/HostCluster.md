@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Amenities** | Pointer to [**[]Amenity**](Amenity.md) | The amenities available in the host cluster | [optional] 
 **CloudProvider** | **string** | Name of the Infra Provider | 
 **CreatedAt** | Pointer to **string** | The timestamp when the host cluster was created | [optional] 
+**CurrentManagedArtifactVersion** | Pointer to **string** | The managed artifact bundle version currently serving the deployment cell. Pending or failed updates continue reporting the previously applied version; the public-reference permission fallback reports its resolved version. | [optional] 
 **CurrentNumberOfDeployments** | **int64** | The current number of deployments on the host cluster | 
 **CurrentNumberOfSnapshots** | Pointer to **int64** | The current number of snapshots on the host cluster | [optional] 
 **CustomNetworkDetail** | Pointer to [**CustomNetworkFleetDetail**](CustomNetworkFleetDetail.md) |  | [optional] 
@@ -17,6 +18,7 @@ Name | Type | Description | Notes
 **CustomerOrganizationName** | Pointer to **string** | Name of the customer organization that owns the host cluster in case this is a BYOC / Adopted host cluster | [optional] 
 **DeploymentInstancesTags** | Pointer to [**[]CustomTag**](CustomTag.md) | The deployment instances tags associated with resource instances in the host cluster. | [optional] 
 **Description** | **string** |  | 
+**EffectiveManagedArtifactVersion** | Pointer to **string** | The effective managed artifact bundle version selected by the deployment cell template spec. | [optional] 
 **HasPendingChanges** | Pointer to **bool** | Whether the host cluster has pending changes | [optional] 
 **HealthStatus** | Pointer to [**HostClusterHealthStatus**](HostClusterHealthStatus.md) |  | [optional] 
 **HelmPackages** | Pointer to [**[]HelmPackage**](HelmPackage.md) | Helm packages installed on the host cluster | [optional] 
@@ -192,6 +194,31 @@ SetCreatedAt sets CreatedAt field to given value.
 
 HasCreatedAt returns a boolean if a field has been set.
 
+### GetCurrentManagedArtifactVersion
+
+`func (o *HostCluster) GetCurrentManagedArtifactVersion() string`
+
+GetCurrentManagedArtifactVersion returns the CurrentManagedArtifactVersion field if non-nil, zero value otherwise.
+
+### GetCurrentManagedArtifactVersionOk
+
+`func (o *HostCluster) GetCurrentManagedArtifactVersionOk() (*string, bool)`
+
+GetCurrentManagedArtifactVersionOk returns a tuple with the CurrentManagedArtifactVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrentManagedArtifactVersion
+
+`func (o *HostCluster) SetCurrentManagedArtifactVersion(v string)`
+
+SetCurrentManagedArtifactVersion sets CurrentManagedArtifactVersion field to given value.
+
+### HasCurrentManagedArtifactVersion
+
+`func (o *HostCluster) HasCurrentManagedArtifactVersion() bool`
+
+HasCurrentManagedArtifactVersion returns a boolean if a field has been set.
+
 ### GetCurrentNumberOfDeployments
 
 `func (o *HostCluster) GetCurrentNumberOfDeployments() int64`
@@ -356,6 +383,31 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
+
+### GetEffectiveManagedArtifactVersion
+
+`func (o *HostCluster) GetEffectiveManagedArtifactVersion() string`
+
+GetEffectiveManagedArtifactVersion returns the EffectiveManagedArtifactVersion field if non-nil, zero value otherwise.
+
+### GetEffectiveManagedArtifactVersionOk
+
+`func (o *HostCluster) GetEffectiveManagedArtifactVersionOk() (*string, bool)`
+
+GetEffectiveManagedArtifactVersionOk returns a tuple with the EffectiveManagedArtifactVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEffectiveManagedArtifactVersion
+
+`func (o *HostCluster) SetEffectiveManagedArtifactVersion(v string)`
+
+SetEffectiveManagedArtifactVersion sets EffectiveManagedArtifactVersion field to given value.
+
+### HasEffectiveManagedArtifactVersion
+
+`func (o *HostCluster) HasEffectiveManagedArtifactVersion() bool`
+
+HasEffectiveManagedArtifactVersion returns a boolean if a field has been set.
 
 ### GetHasPendingChanges
 

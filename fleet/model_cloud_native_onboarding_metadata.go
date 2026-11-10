@@ -19,6 +19,8 @@ var _ MappedNullable = &CloudNativeOnboardingMetadata{}
 
 // CloudNativeOnboardingMetadata Metadata for CLOUD_NATIVE onboarding type.
 type CloudNativeOnboardingMetadata struct {
+	// Additional onboarding information as a JSON object with arbitrary JSON values. Optional in requests and responses. Missing, null, or empty objects may be omitted from responses. Arrays and scalar values are supported inside object properties, but not as the top-level value.
+	AdditionalInfo map[string]interface{} `json:"additionalInfo,omitempty"`
 	// The cloud-native YAML content.
 	CloudNativeYAML *string `json:"cloudNativeYAML,omitempty"`
 	DeploymentConfig *OnboardingDeploymentConfig `json:"deploymentConfig,omitempty"`
@@ -48,6 +50,38 @@ func NewCloudNativeOnboardingMetadata() *CloudNativeOnboardingMetadata {
 func NewCloudNativeOnboardingMetadataWithDefaults() *CloudNativeOnboardingMetadata {
 	this := CloudNativeOnboardingMetadata{}
 	return &this
+}
+
+// GetAdditionalInfo returns the AdditionalInfo field value if set, zero value otherwise.
+func (o *CloudNativeOnboardingMetadata) GetAdditionalInfo() map[string]interface{} {
+	if o == nil || IsNil(o.AdditionalInfo) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.AdditionalInfo
+}
+
+// GetAdditionalInfoOk returns a tuple with the AdditionalInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudNativeOnboardingMetadata) GetAdditionalInfoOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.AdditionalInfo) {
+		return map[string]interface{}{}, false
+	}
+	return o.AdditionalInfo, true
+}
+
+// HasAdditionalInfo returns a boolean if a field has been set.
+func (o *CloudNativeOnboardingMetadata) HasAdditionalInfo() bool {
+	if o != nil && !IsNil(o.AdditionalInfo) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdditionalInfo gets a reference to the given map[string]interface{} and assigns it to the AdditionalInfo field.
+func (o *CloudNativeOnboardingMetadata) SetAdditionalInfo(v map[string]interface{}) {
+	o.AdditionalInfo = v
 }
 
 // GetCloudNativeYAML returns the CloudNativeYAML field value if set, zero value otherwise.
@@ -252,6 +286,9 @@ func (o CloudNativeOnboardingMetadata) MarshalJSON() ([]byte, error) {
 
 func (o CloudNativeOnboardingMetadata) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AdditionalInfo) {
+		toSerialize["additionalInfo"] = o.AdditionalInfo
+	}
 	if !IsNil(o.CloudNativeYAML) {
 		toSerialize["cloudNativeYAML"] = o.CloudNativeYAML
 	}
@@ -292,6 +329,7 @@ func (o *CloudNativeOnboardingMetadata) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "additionalInfo")
 		delete(additionalProperties, "cloudNativeYAML")
 		delete(additionalProperties, "deploymentConfig")
 		delete(additionalProperties, "environmentVariables")

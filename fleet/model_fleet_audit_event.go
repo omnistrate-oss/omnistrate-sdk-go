@@ -20,6 +20,7 @@ var _ MappedNullable = &FleetAuditEvent{}
 
 // FleetAuditEvent struct for FleetAuditEvent
 type FleetAuditEvent struct {
+	AccessRequest *JITAccessRequestAuditDetails `json:"accessRequest,omitempty"`
 	// The authentication method used by the caller for the request that produced the event. One of PASSWORD or API_KEY. Empty for events not originated by an authenticated user (e.g. internal sweeper actions).
 	AuthMethod *string `json:"authMethod,omitempty"`
 	// The billing provider on the instance's subscription. Empty when no subscription is linked.
@@ -32,8 +33,12 @@ type FleetAuditEvent struct {
 	EnvironmentId string `json:"environmentId"`
 	// The type of service environment
 	EnvironmentType *string `json:"environmentType,omitempty"`
+	// The event category. Currently populated only for JIT access lifecycle events.
+	EventCategory *string `json:"eventCategory,omitempty"`
 	// The event source
 	EventSource *string `json:"eventSource,omitempty"`
+	// The event type. Currently populated only for JIT access lifecycle events.
+	EventType *string `json:"eventType,omitempty"`
 	// The raw external payer ID on the instance's subscription.
 	ExternalPayerId *string `json:"externalPayerId,omitempty"`
 	// ID of a Event
@@ -70,6 +75,8 @@ type FleetAuditEvent struct {
 	Time string `json:"time"`
 	// The User-Agent string of the client that caused the event
 	UserAgent *string `json:"userAgent,omitempty"`
+	// The actor email captured for a JIT access lifecycle event. Omitted for other audit events and system actors.
+	UserEmail *string `json:"userEmail,omitempty"`
 	// ID of a User
 	UserId *string `json:"userId,omitempty"`
 	// The user name of the user that caused the event
@@ -109,6 +116,38 @@ func NewFleetAuditEvent(environmentId string, id string, instanceId string, mess
 func NewFleetAuditEventWithDefaults() *FleetAuditEvent {
 	this := FleetAuditEvent{}
 	return &this
+}
+
+// GetAccessRequest returns the AccessRequest field value if set, zero value otherwise.
+func (o *FleetAuditEvent) GetAccessRequest() JITAccessRequestAuditDetails {
+	if o == nil || IsNil(o.AccessRequest) {
+		var ret JITAccessRequestAuditDetails
+		return ret
+	}
+	return *o.AccessRequest
+}
+
+// GetAccessRequestOk returns a tuple with the AccessRequest field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAuditEvent) GetAccessRequestOk() (*JITAccessRequestAuditDetails, bool) {
+	if o == nil || IsNil(o.AccessRequest) {
+		return nil, false
+	}
+	return o.AccessRequest, true
+}
+
+// HasAccessRequest returns a boolean if a field has been set.
+func (o *FleetAuditEvent) HasAccessRequest() bool {
+	if o != nil && !IsNil(o.AccessRequest) {
+		return true
+	}
+
+	return false
+}
+
+// SetAccessRequest gets a reference to the given JITAccessRequestAuditDetails and assigns it to the AccessRequest field.
+func (o *FleetAuditEvent) SetAccessRequest(v JITAccessRequestAuditDetails) {
+	o.AccessRequest = &v
 }
 
 // GetAuthMethod returns the AuthMethod field value if set, zero value otherwise.
@@ -295,6 +334,38 @@ func (o *FleetAuditEvent) SetEnvironmentType(v string) {
 	o.EnvironmentType = &v
 }
 
+// GetEventCategory returns the EventCategory field value if set, zero value otherwise.
+func (o *FleetAuditEvent) GetEventCategory() string {
+	if o == nil || IsNil(o.EventCategory) {
+		var ret string
+		return ret
+	}
+	return *o.EventCategory
+}
+
+// GetEventCategoryOk returns a tuple with the EventCategory field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAuditEvent) GetEventCategoryOk() (*string, bool) {
+	if o == nil || IsNil(o.EventCategory) {
+		return nil, false
+	}
+	return o.EventCategory, true
+}
+
+// HasEventCategory returns a boolean if a field has been set.
+func (o *FleetAuditEvent) HasEventCategory() bool {
+	if o != nil && !IsNil(o.EventCategory) {
+		return true
+	}
+
+	return false
+}
+
+// SetEventCategory gets a reference to the given string and assigns it to the EventCategory field.
+func (o *FleetAuditEvent) SetEventCategory(v string) {
+	o.EventCategory = &v
+}
+
 // GetEventSource returns the EventSource field value if set, zero value otherwise.
 func (o *FleetAuditEvent) GetEventSource() string {
 	if o == nil || IsNil(o.EventSource) {
@@ -325,6 +396,38 @@ func (o *FleetAuditEvent) HasEventSource() bool {
 // SetEventSource gets a reference to the given string and assigns it to the EventSource field.
 func (o *FleetAuditEvent) SetEventSource(v string) {
 	o.EventSource = &v
+}
+
+// GetEventType returns the EventType field value if set, zero value otherwise.
+func (o *FleetAuditEvent) GetEventType() string {
+	if o == nil || IsNil(o.EventType) {
+		var ret string
+		return ret
+	}
+	return *o.EventType
+}
+
+// GetEventTypeOk returns a tuple with the EventType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAuditEvent) GetEventTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.EventType) {
+		return nil, false
+	}
+	return o.EventType, true
+}
+
+// HasEventType returns a boolean if a field has been set.
+func (o *FleetAuditEvent) HasEventType() bool {
+	if o != nil && !IsNil(o.EventType) {
+		return true
+	}
+
+	return false
+}
+
+// SetEventType gets a reference to the given string and assigns it to the EventType field.
+func (o *FleetAuditEvent) SetEventType(v string) {
+	o.EventType = &v
 }
 
 // GetExternalPayerId returns the ExternalPayerId field value if set, zero value otherwise.
@@ -823,6 +926,38 @@ func (o *FleetAuditEvent) SetUserAgent(v string) {
 	o.UserAgent = &v
 }
 
+// GetUserEmail returns the UserEmail field value if set, zero value otherwise.
+func (o *FleetAuditEvent) GetUserEmail() string {
+	if o == nil || IsNil(o.UserEmail) {
+		var ret string
+		return ret
+	}
+	return *o.UserEmail
+}
+
+// GetUserEmailOk returns a tuple with the UserEmail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetAuditEvent) GetUserEmailOk() (*string, bool) {
+	if o == nil || IsNil(o.UserEmail) {
+		return nil, false
+	}
+	return o.UserEmail, true
+}
+
+// HasUserEmail returns a boolean if a field has been set.
+func (o *FleetAuditEvent) HasUserEmail() bool {
+	if o != nil && !IsNil(o.UserEmail) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserEmail gets a reference to the given string and assigns it to the UserEmail field.
+func (o *FleetAuditEvent) SetUserEmail(v string) {
+	o.UserEmail = &v
+}
+
 // GetUserId returns the UserId field value if set, zero value otherwise.
 func (o *FleetAuditEvent) GetUserId() string {
 	if o == nil || IsNil(o.UserId) {
@@ -961,6 +1096,9 @@ func (o FleetAuditEvent) MarshalJSON() ([]byte, error) {
 
 func (o FleetAuditEvent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AccessRequest) {
+		toSerialize["accessRequest"] = o.AccessRequest
+	}
 	if !IsNil(o.AuthMethod) {
 		toSerialize["authMethod"] = o.AuthMethod
 	}
@@ -977,8 +1115,14 @@ func (o FleetAuditEvent) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EnvironmentType) {
 		toSerialize["environmentType"] = o.EnvironmentType
 	}
+	if !IsNil(o.EventCategory) {
+		toSerialize["eventCategory"] = o.EventCategory
+	}
 	if !IsNil(o.EventSource) {
 		toSerialize["eventSource"] = o.EventSource
+	}
+	if !IsNil(o.EventType) {
+		toSerialize["eventType"] = o.EventType
 	}
 	if !IsNil(o.ExternalPayerId) {
 		toSerialize["externalPayerId"] = o.ExternalPayerId
@@ -1013,6 +1157,9 @@ func (o FleetAuditEvent) ToMap() (map[string]interface{}, error) {
 	toSerialize["time"] = o.Time
 	if !IsNil(o.UserAgent) {
 		toSerialize["userAgent"] = o.UserAgent
+	}
+	if !IsNil(o.UserEmail) {
+		toSerialize["userEmail"] = o.UserEmail
 	}
 	if !IsNil(o.UserId) {
 		toSerialize["userId"] = o.UserId
@@ -1079,13 +1226,16 @@ func (o *FleetAuditEvent) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "accessRequest")
 		delete(additionalProperties, "authMethod")
 		delete(additionalProperties, "billingProvider")
 		delete(additionalProperties, "cloudProvider")
 		delete(additionalProperties, "cloudProviderAccountId")
 		delete(additionalProperties, "environmentId")
 		delete(additionalProperties, "environmentType")
+		delete(additionalProperties, "eventCategory")
 		delete(additionalProperties, "eventSource")
+		delete(additionalProperties, "eventType")
 		delete(additionalProperties, "externalPayerId")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "instanceId")
@@ -1104,6 +1254,7 @@ func (o *FleetAuditEvent) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "sessionId")
 		delete(additionalProperties, "time")
 		delete(additionalProperties, "userAgent")
+		delete(additionalProperties, "userEmail")
 		delete(additionalProperties, "userId")
 		delete(additionalProperties, "userName")
 		delete(additionalProperties, "workflowFailures")

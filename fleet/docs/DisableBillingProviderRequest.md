@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BillingProviderType** | **string** | The billing provider type | 
+**BillingProviderType** | **string** | The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace | 
 **Token** | **string** | JWT token used to perform authorization | 
 
 ## Methods

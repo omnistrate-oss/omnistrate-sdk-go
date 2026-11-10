@@ -29,6 +29,12 @@ type MarketplaceFulfillment struct {
 	FulfillmentState string `json:"fulfillmentState"`
 	LastRetryAt *time.Time `json:"lastRetryAt,omitempty"`
 	MarketplaceContractId string `json:"marketplaceContractId"`
+	// The recorded metering activation boundary in RFC3339 format. Present only when meteringState is ACTIVE and the boundary has been reached; omitted while PENDING
+	MeteringEffectiveAt *time.Time `json:"meteringEffectiveAt,omitempty"`
+	// Metering cutover readiness for the associated subscription. PENDING means the association is committed but metering activation is not yet recorded or its effective boundary has not been reached. ACTIVE requires both a recorded activation and a reached effective boundary; an open channel gate alone is insufficient. Absent before association. Report delivery remains asynchronous, and fulfillment suspension or cancellation controls usage eligibility independently of metering cutover
+	MeteringState *string `json:"meteringState,omitempty"`
+	// The organization owning the associated Omnistrate subscription. Absent before association
+	OrgId *string `json:"orgId,omitempty"`
 	// The plaintext handoff credential, on SIMULATED contracts only, so a rehearsal stalled at AWAITING_ISV can be resumed without arming a new purchase. Absent on every real contract, where the credential is stored only as a hash and exists once in the delivery that carried it
 	RehearsalHandoffToken *string `json:"rehearsalHandoffToken,omitempty" validate:"regexp=^hoff_[0-9A-HJKMNP-TV-Z]{26}$"`
 	// The same credential as the channel's ISV callback URL would have delivered it: the callback with the credential appended as the code parameter. This is the exact address a buyer's browser would have landed on, so following it resumes the rehearsal at the point the arrival reached.\\n\\nAssembled here rather than by the caller because appending it correctly means preserving a query string the ISV already had, and a console building its own would be reproducing that rule in a second place. SIMULATED contracts only, and absent when the channel has no callback URL to append to
@@ -41,7 +47,7 @@ type MarketplaceFulfillment struct {
 	StageTimeline []MarketplaceFulfillmentStageOccurrence `json:"stageTimeline,omitempty"`
 	// Every stage, in order, whether or not it has been reached. AT MOST ONE ENTRY PER STAGE, carrying the latest occurrence of it. Superseded by stageTimeline, which carries every occurrence: a contract suspended twice appears here once. Kept because a client built against it finds a stage by name and would take the first of several repeats
 	Stages []MarketplaceFulfillmentStage `json:"stages"`
-	// The Omnistrate subscription, once it exists. The confirm waits for the fulfillment run to produce it and returns it, so there is no second call and no webhook to wait for. A repeat confirm returns the same id rather than approving twice
+	// The associated Omnistrate subscription, once it exists. Confirm waits for subscription creation to complete and returns it, so there is no second call and no webhook to wait for. Repeat confirm returns the same id rather than approving twice. Reassign transfers ownership of this subscription without changing its id or deployments
 	SubscriptionId *string `json:"subscriptionId,omitempty"`
 	// The Temporal workflow id, so an operator can open the same run in the Temporal UI rather than reasoning from this summary
 	WorkflowId *string `json:"workflowId,omitempty"`
@@ -213,6 +219,102 @@ func (o *MarketplaceFulfillment) GetMarketplaceContractIdOk() (*string, bool) {
 // SetMarketplaceContractId sets field value
 func (o *MarketplaceFulfillment) SetMarketplaceContractId(v string) {
 	o.MarketplaceContractId = v
+}
+
+// GetMeteringEffectiveAt returns the MeteringEffectiveAt field value if set, zero value otherwise.
+func (o *MarketplaceFulfillment) GetMeteringEffectiveAt() time.Time {
+	if o == nil || IsNil(o.MeteringEffectiveAt) {
+		var ret time.Time
+		return ret
+	}
+	return *o.MeteringEffectiveAt
+}
+
+// GetMeteringEffectiveAtOk returns a tuple with the MeteringEffectiveAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MarketplaceFulfillment) GetMeteringEffectiveAtOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.MeteringEffectiveAt) {
+		return nil, false
+	}
+	return o.MeteringEffectiveAt, true
+}
+
+// HasMeteringEffectiveAt returns a boolean if a field has been set.
+func (o *MarketplaceFulfillment) HasMeteringEffectiveAt() bool {
+	if o != nil && !IsNil(o.MeteringEffectiveAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetMeteringEffectiveAt gets a reference to the given time.Time and assigns it to the MeteringEffectiveAt field.
+func (o *MarketplaceFulfillment) SetMeteringEffectiveAt(v time.Time) {
+	o.MeteringEffectiveAt = &v
+}
+
+// GetMeteringState returns the MeteringState field value if set, zero value otherwise.
+func (o *MarketplaceFulfillment) GetMeteringState() string {
+	if o == nil || IsNil(o.MeteringState) {
+		var ret string
+		return ret
+	}
+	return *o.MeteringState
+}
+
+// GetMeteringStateOk returns a tuple with the MeteringState field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MarketplaceFulfillment) GetMeteringStateOk() (*string, bool) {
+	if o == nil || IsNil(o.MeteringState) {
+		return nil, false
+	}
+	return o.MeteringState, true
+}
+
+// HasMeteringState returns a boolean if a field has been set.
+func (o *MarketplaceFulfillment) HasMeteringState() bool {
+	if o != nil && !IsNil(o.MeteringState) {
+		return true
+	}
+
+	return false
+}
+
+// SetMeteringState gets a reference to the given string and assigns it to the MeteringState field.
+func (o *MarketplaceFulfillment) SetMeteringState(v string) {
+	o.MeteringState = &v
+}
+
+// GetOrgId returns the OrgId field value if set, zero value otherwise.
+func (o *MarketplaceFulfillment) GetOrgId() string {
+	if o == nil || IsNil(o.OrgId) {
+		var ret string
+		return ret
+	}
+	return *o.OrgId
+}
+
+// GetOrgIdOk returns a tuple with the OrgId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MarketplaceFulfillment) GetOrgIdOk() (*string, bool) {
+	if o == nil || IsNil(o.OrgId) {
+		return nil, false
+	}
+	return o.OrgId, true
+}
+
+// HasOrgId returns a boolean if a field has been set.
+func (o *MarketplaceFulfillment) HasOrgId() bool {
+	if o != nil && !IsNil(o.OrgId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgId gets a reference to the given string and assigns it to the OrgId field.
+func (o *MarketplaceFulfillment) SetOrgId(v string) {
+	o.OrgId = &v
 }
 
 // GetRehearsalHandoffToken returns the RehearsalHandoffToken field value if set, zero value otherwise.
@@ -516,6 +618,15 @@ func (o MarketplaceFulfillment) ToMap() (map[string]interface{}, error) {
 		toSerialize["lastRetryAt"] = o.LastRetryAt
 	}
 	toSerialize["marketplaceContractId"] = o.MarketplaceContractId
+	if !IsNil(o.MeteringEffectiveAt) {
+		toSerialize["meteringEffectiveAt"] = o.MeteringEffectiveAt
+	}
+	if !IsNil(o.MeteringState) {
+		toSerialize["meteringState"] = o.MeteringState
+	}
+	if !IsNil(o.OrgId) {
+		toSerialize["orgId"] = o.OrgId
+	}
 	if !IsNil(o.RehearsalHandoffToken) {
 		toSerialize["rehearsalHandoffToken"] = o.RehearsalHandoffToken
 	}
@@ -591,6 +702,9 @@ func (o *MarketplaceFulfillment) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "fulfillmentState")
 		delete(additionalProperties, "lastRetryAt")
 		delete(additionalProperties, "marketplaceContractId")
+		delete(additionalProperties, "meteringEffectiveAt")
+		delete(additionalProperties, "meteringState")
+		delete(additionalProperties, "orgId")
 		delete(additionalProperties, "rehearsalHandoffToken")
 		delete(additionalProperties, "rehearsalHandoffUrl")
 		delete(additionalProperties, "retryCount")

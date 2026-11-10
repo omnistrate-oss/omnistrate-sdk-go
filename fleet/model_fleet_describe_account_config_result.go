@@ -24,6 +24,8 @@ type FleetDescribeAccountConfigResult struct {
 	AwsAccountID *string `json:"awsAccountID,omitempty"`
 	// The security role ARN or service account ARN that grants access to operate the infra
 	AwsBootstrapRoleARN *string `json:"awsBootstrapRoleARN,omitempty"`
+	// The AWS bootstrap shell command
+	AwsBootstrapShellCommand *string `json:"awsBootstrapShellCommand,omitempty"`
 	// The URL to the CloudFormation template (no LoadBalancer policy version)
 	AwsCloudFormationNoLBTemplateURL *string `json:"awsCloudFormationNoLBTemplateURL,omitempty"`
 	// The URL to the CloudFormation template
@@ -88,7 +90,7 @@ type FleetDescribeAccountConfigResult struct {
 	OciOffboardShellCommand *string `json:"ociOffboardShellCommand,omitempty"`
 	// The Tenancy OCID for Oracle Cloud Infrastructure
 	OciTenancyID *string `json:"ociTenancyID,omitempty"`
-	// The status of the account configuration
+	// The status of the account configuration. BYOA settings updates remain PENDING_UPDATE until verification finishes, including while waiting for the customer to apply account setup changes. Successful verification sets READY for connected accounts or DISCONNECTED after access is revoked.
 	Status string `json:"status"`
 	// The status message of the account
 	StatusMessage string `json:"statusMessage"`
@@ -182,6 +184,38 @@ func (o *FleetDescribeAccountConfigResult) HasAwsBootstrapRoleARN() bool {
 // SetAwsBootstrapRoleARN gets a reference to the given string and assigns it to the AwsBootstrapRoleARN field.
 func (o *FleetDescribeAccountConfigResult) SetAwsBootstrapRoleARN(v string) {
 	o.AwsBootstrapRoleARN = &v
+}
+
+// GetAwsBootstrapShellCommand returns the AwsBootstrapShellCommand field value if set, zero value otherwise.
+func (o *FleetDescribeAccountConfigResult) GetAwsBootstrapShellCommand() string {
+	if o == nil || IsNil(o.AwsBootstrapShellCommand) {
+		var ret string
+		return ret
+	}
+	return *o.AwsBootstrapShellCommand
+}
+
+// GetAwsBootstrapShellCommandOk returns a tuple with the AwsBootstrapShellCommand field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FleetDescribeAccountConfigResult) GetAwsBootstrapShellCommandOk() (*string, bool) {
+	if o == nil || IsNil(o.AwsBootstrapShellCommand) {
+		return nil, false
+	}
+	return o.AwsBootstrapShellCommand, true
+}
+
+// HasAwsBootstrapShellCommand returns a boolean if a field has been set.
+func (o *FleetDescribeAccountConfigResult) HasAwsBootstrapShellCommand() bool {
+	if o != nil && !IsNil(o.AwsBootstrapShellCommand) {
+		return true
+	}
+
+	return false
+}
+
+// SetAwsBootstrapShellCommand gets a reference to the given string and assigns it to the AwsBootstrapShellCommand field.
+func (o *FleetDescribeAccountConfigResult) SetAwsBootstrapShellCommand(v string) {
+	o.AwsBootstrapShellCommand = &v
 }
 
 // GetAwsCloudFormationNoLBTemplateURL returns the AwsCloudFormationNoLBTemplateURL field value if set, zero value otherwise.
@@ -1240,6 +1274,9 @@ func (o FleetDescribeAccountConfigResult) ToMap() (map[string]interface{}, error
 	if !IsNil(o.AwsBootstrapRoleARN) {
 		toSerialize["awsBootstrapRoleARN"] = o.AwsBootstrapRoleARN
 	}
+	if !IsNil(o.AwsBootstrapShellCommand) {
+		toSerialize["awsBootstrapShellCommand"] = o.AwsBootstrapShellCommand
+	}
 	if !IsNil(o.AwsCloudFormationNoLBTemplateURL) {
 		toSerialize["awsCloudFormationNoLBTemplateURL"] = o.AwsCloudFormationNoLBTemplateURL
 	}
@@ -1380,6 +1417,7 @@ func (o *FleetDescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "awsAccountID")
 		delete(additionalProperties, "awsBootstrapRoleARN")
+		delete(additionalProperties, "awsBootstrapShellCommand")
 		delete(additionalProperties, "awsCloudFormationNoLBTemplateURL")
 		delete(additionalProperties, "awsCloudFormationTemplateURL")
 		delete(additionalProperties, "azureBootstrapShellCommand")

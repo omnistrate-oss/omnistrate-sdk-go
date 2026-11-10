@@ -35,7 +35,7 @@ type CreateProductTierRequest struct {
 	// The BYOC on-prem regions that this product tier is available on
 	ByocOnpremRegions []string `json:"byocOnpremRegions,omitempty"`
 	CustomMetering *CustomMeteringConfiguration `json:"customMetering,omitempty"`
-	// The billing provider type
+	// The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace
 	DefaultBillingProvider *string `json:"defaultBillingProvider,omitempty"`
 	DeploymentConfiguration *ProductTierDeploymentConfiguration `json:"deploymentConfiguration,omitempty"`
 	// A brief description of the product tier

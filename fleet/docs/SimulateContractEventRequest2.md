@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**BillingProvider** | Pointer to **string** | Required for purchase: AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE, matching the selected sandbox listing mapping. Other lifecycle controls retain the contract&#39;s billing provider | [optional] 
 **BuyerRef** | Pointer to **string** | The simulated buyer. Defaults to a value derived from the run, and supplying the same one twice is how an ISV rehearses a returning buyer accumulating a second contract against one organization | [optional] 
 **Control** | **string** |  | 
 **MarketplaceContractId** | Pointer to **string** | Which simulated contract to act on. Omitted for purchase, which is the control that creates one. Required for every other control, because there is otherwise no way to say which of several rehearsals is meant | [optional] 
@@ -28,6 +29,31 @@ will change when the set of required properties is changed
 NewSimulateContractEventRequest2WithDefaults instantiates a new SimulateContractEventRequest2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetBillingProvider
+
+`func (o *SimulateContractEventRequest2) GetBillingProvider() string`
+
+GetBillingProvider returns the BillingProvider field if non-nil, zero value otherwise.
+
+### GetBillingProviderOk
+
+`func (o *SimulateContractEventRequest2) GetBillingProviderOk() (*string, bool)`
+
+GetBillingProviderOk returns a tuple with the BillingProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBillingProvider
+
+`func (o *SimulateContractEventRequest2) SetBillingProvider(v string)`
+
+SetBillingProvider sets BillingProvider field to given value.
+
+### HasBillingProvider
+
+`func (o *SimulateContractEventRequest2) HasBillingProvider() bool`
+
+HasBillingProvider returns a boolean if a field has been set.
 
 ### GetBuyerRef
 

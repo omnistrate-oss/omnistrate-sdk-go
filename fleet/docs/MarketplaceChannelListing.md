@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**BillingProvider** | Pointer to **string** | The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **MappedProductTierId** | Pointer to **string** |  | [optional] 
 **MappedServiceId** | Pointer to **string** |  | [optional] 
@@ -30,6 +31,31 @@ will change when the set of required properties is changed
 NewMarketplaceChannelListingWithDefaults instantiates a new MarketplaceChannelListing object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetBillingProvider
+
+`func (o *MarketplaceChannelListing) GetBillingProvider() string`
+
+GetBillingProvider returns the BillingProvider field if non-nil, zero value otherwise.
+
+### GetBillingProviderOk
+
+`func (o *MarketplaceChannelListing) GetBillingProviderOk() (*string, bool)`
+
+GetBillingProviderOk returns a tuple with the BillingProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBillingProvider
+
+`func (o *MarketplaceChannelListing) SetBillingProvider(v string)`
+
+SetBillingProvider sets BillingProvider field to given value.
+
+### HasBillingProvider
+
+`func (o *MarketplaceChannelListing) HasBillingProvider() bool`
+
+HasBillingProvider returns a boolean if a field has been set.
 
 ### GetDescription
 

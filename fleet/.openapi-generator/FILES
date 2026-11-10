@@ -3,6 +3,7 @@
 .travis.yml
 README.md
 api/openapi.yaml
+api_access_requests_api.go
 api_audit_events_api.go
 api_cost_api.go
 api_customer_onboardings_api.go
@@ -23,8 +24,12 @@ client.go
 configuration.go
 docs/APIEntity.md
 docs/APIKeyMetadata.md
+docs/AccessRequest.md
+docs/AccessRequestsApiAPI.md
 docs/AccessSideUser.md
+docs/AccountConfigSettings.md
 docs/AccountConfigSummary.md
+docs/AccountGovernanceControls.md
 docs/AcknowledgeEventRequest.md
 docs/AddAccountConfigToServiceModelRequest.md
 docs/AddCapacityToResourceInstanceRequest.md
@@ -37,10 +42,17 @@ docs/AdoptResourceInstanceRequest.md
 docs/AdoptResourceInstanceRequest2.md
 docs/Amenity.md
 docs/ApplyPendingChangesToHostClusterRequest.md
+docs/ApproveAccessRequestRequest.md
+docs/ApproveAccessRequestRequest2.md
 docs/ApproveSubscriptionRequestRequest.md
 docs/ArtifactUploadingTask.md
 docs/AuditEventsApiAPI.md
+docs/AuthSessionResult.md
 docs/BackupStatus.md
+docs/BatchRevokeAccessRequestResult.md
+docs/BatchRevokeAccessRequestsRequest.md
+docs/BatchRevokeAccessRequestsRequest2.md
+docs/BatchRevokeAccessRequestsResult.md
 docs/BillingProvider.md
 docs/BuildServiceFromComposeSpecRequest.md
 docs/BuildServiceFromComposeSpecResult.md
@@ -89,6 +101,8 @@ docs/CostDataPerDate.md
 docs/CountWithRecent.md
 docs/CreateAPIKeyRequest.md
 docs/CreateAPIKeyResult.md
+docs/CreateAccessRequestRequest.md
+docs/CreateAccessRequestRequest2.md
 docs/CreateConsumptionSetupIntentRequest.md
 docs/CreateCustomerOnboardingRequest.md
 docs/CreateCustomerOnboardingRequest2.md
@@ -161,6 +175,7 @@ docs/DeleteServicesOrchestrationRequest.md
 docs/DeleteSubscriptionRequest.md
 docs/DeleteUserRequest.md
 docs/DemoRequest.md
+docs/DenyAccessRequestRequest.md
 docs/DenyMarketplaceFulfillmentRequest.md
 docs/DenyMarketplaceFulfillmentRequest2.md
 docs/DenySubscriptionRequestRequest.md
@@ -184,7 +199,9 @@ docs/DeploymentCheckpointSummary.md
 docs/DeploymentProgressDiagnosis.md
 docs/DescribeAPIKeyRequest.md
 docs/DescribeAPIKeyResult.md
+docs/DescribeAccessRequestRequest.md
 docs/DescribeAccountConfigRequest.md
+docs/DescribeAuthSessionRequest.md
 docs/DescribeAvailabilityZoneRequest.md
 docs/DescribeAvailabilityZoneResult.md
 docs/DescribeCloudProviderCostRequest.md
@@ -238,6 +255,7 @@ docs/DescribeRegionCostRequest.md
 docs/DescribeRegionCostResult.md
 docs/DescribeRegionRequest.md
 docs/DescribeRegionResult.md
+docs/DescribeResourceInstanceHealthHistoryRequest.md
 docs/DescribeResourceInstanceInstaller.md
 docs/DescribeResourceInstanceInstallerResult.md
 docs/DescribeResourceInstanceRequest.md
@@ -368,6 +386,7 @@ docs/FleetDescribeInstanceSnapshotRequest.md
 docs/FleetDescribeInstanceSnapshotResult.md
 docs/FleetDescribeInvoiceRequest.md
 docs/FleetDescribeOrgUser.md
+docs/FleetDescribeResourceInstanceHealthHistoryRequest.md
 docs/FleetDescribeServicesOrchestrationRequest.md
 docs/FleetDescribeServicesOrchestrationResult.md
 docs/FleetDescribeSubscriptionRequest.md
@@ -552,6 +571,8 @@ docs/InfrastructureVolume.md
 docs/InputParameterEntity.md
 docs/InputParameterScope.md
 docs/InstanceFailureDetail.md
+docs/InstanceHealthHistoryEntry.md
+docs/InstanceHealthHistoryResult.md
 docs/InstanceHealthSummary.md
 docs/InstanceInfrastructure.md
 docs/InstanceSnapshot.md
@@ -572,7 +593,11 @@ docs/InviteConsumptionUserRequest.md
 docs/InviteUserRequest.md
 docs/Invoice.md
 docs/InvoiceApiAPI.md
+docs/JITAccessEventRequester.md
+docs/JITAccessRequestAuditDetails.md
 docs/JobMetric.md
+docs/JustInTimeAccessApproverUser.md
+docs/JustInTimeAccessConfiguration.md
 docs/KubeConfigHostClusterRequest.md
 docs/KubeConfigHostClusterResult.md
 docs/KubectlValueProviderConfig.md
@@ -582,6 +607,8 @@ docs/Limits.md
 docs/List.md
 docs/ListAPIKeysRequest.md
 docs/ListAPIKeysResult.md
+docs/ListAccessRequestsRequest.md
+docs/ListAccessRequestsResult.md
 docs/ListAccountConfigsResult.md
 docs/ListActiveOrganizationsRequest.md
 docs/ListAllInstanceSnapshotsRequest.md
@@ -702,6 +729,7 @@ docs/LoginWithIdentityProviderResult.md
 docs/LogoutRequest.md
 docs/ManageUpgradePathLifecycleRequest.md
 docs/ManageUpgradePathLifecycleRequest2.md
+docs/ManagedArtifactDestination.md
 docs/ManagedArtifactRelease.md
 docs/ManagedArtifactReleaseArtifact.md
 docs/ManagedArtifactReleasePolicy.md
@@ -811,6 +839,8 @@ docs/ProxyEndpoint.md
 docs/ProxyInstanceSearchRecord.md
 docs/PublishManagedReleaseRequest.md
 docs/PublishManagedReleaseResult.md
+docs/ReassignMarketplaceFulfillmentRequest.md
+docs/ReassignMarketplaceFulfillmentRequest2.md
 docs/ReceiveWebhookRequest.md
 docs/RecentDeploymentFailureStatus.md
 docs/RedeemHandoffRequest.md
@@ -865,6 +895,7 @@ docs/RetryMarketplaceFulfillmentRequest.md
 docs/RetryMarketplaceFulfillmentRequest2.md
 docs/RevokeAPIKeyRequest.md
 docs/RevokeAPIKeyResult.md
+docs/RevokeAccessRequestRequest.md
 docs/RevokeConsumptionUserRoleRequest.md
 docs/RevokeTokenRequest.md
 docs/RevokeUserRoleRequest.md
@@ -1003,8 +1034,11 @@ docs/WorkspaceArtifactsDownloadResult.md
 docs/WorkspaceArtifactsDownloadURLResult.md
 docs/WorkspaceArtifactsResult.md
 git_push.sh
+model_access_request.go
 model_access_side_user.go
+model_account_config_settings.go
 model_account_config_summary.go
+model_account_governance_controls.go
 model_acknowledge_event_request.go
 model_add_account_config_to_service_model_request.go
 model_add_capacity_to_resource_instance_request.go
@@ -1019,9 +1053,16 @@ model_amenity.go
 model_api_entity.go
 model_api_key_metadata.go
 model_apply_pending_changes_to_host_cluster_request.go
+model_approve_access_request_request.go
+model_approve_access_request_request2.go
 model_approve_subscription_request_request.go
 model_artifact_uploading_task.go
+model_auth_session_result.go
 model_backup_status.go
+model_batch_revoke_access_request_result.go
+model_batch_revoke_access_requests_request.go
+model_batch_revoke_access_requests_request2.go
+model_batch_revoke_access_requests_result.go
 model_billing_provider.go
 model_build_service_from_compose_spec_request.go
 model_build_service_from_compose_spec_result.go
@@ -1067,6 +1108,8 @@ model_copy_resource_instance_snapshot_request.go
 model_copy_service_model_request.go
 model_cost_data_per_date.go
 model_count_with_recent.go
+model_create_access_request_request.go
+model_create_access_request_request2.go
 model_create_api_key_request.go
 model_create_api_key_result.go
 model_create_consumption_setup_intent_request.go
@@ -1140,6 +1183,7 @@ model_delete_services_orchestration_request.go
 model_delete_subscription_request.go
 model_delete_user_request.go
 model_demo_request.go
+model_deny_access_request_request.go
 model_deny_marketplace_fulfillment_request.go
 model_deny_marketplace_fulfillment_request2.go
 model_deny_subscription_request_request.go
@@ -1161,9 +1205,11 @@ model_deployment_checkpoint.go
 model_deployment_checkpoint_child.go
 model_deployment_checkpoint_summary.go
 model_deployment_progress_diagnosis.go
+model_describe_access_request_request.go
 model_describe_account_config_request.go
 model_describe_api_key_request.go
 model_describe_api_key_result.go
+model_describe_auth_session_request.go
 model_describe_availability_zone_request.go
 model_describe_availability_zone_result.go
 model_describe_cloud_provider_cost_request.go
@@ -1217,6 +1263,7 @@ model_describe_region_cost_request.go
 model_describe_region_cost_result.go
 model_describe_region_request.go
 model_describe_region_result.go
+model_describe_resource_instance_health_history_request.go
 model_describe_resource_instance_installer.go
 model_describe_resource_instance_installer_result.go
 model_describe_resource_instance_request.go
@@ -1345,6 +1392,7 @@ model_fleet_describe_instance_snapshot_request.go
 model_fleet_describe_instance_snapshot_result.go
 model_fleet_describe_invoice_request.go
 model_fleet_describe_org_user.go
+model_fleet_describe_resource_instance_health_history_request.go
 model_fleet_describe_services_orchestration_request.go
 model_fleet_describe_services_orchestration_result.go
 model_fleet_describe_subscription_request.go
@@ -1526,6 +1574,8 @@ model_infrastructure_volume.go
 model_input_parameter_entity.go
 model_input_parameter_scope.go
 model_instance_failure_detail.go
+model_instance_health_history_entry.go
+model_instance_health_history_result.go
 model_instance_health_summary.go
 model_instance_infrastructure.go
 model_instance_snapshot.go
@@ -1544,7 +1594,11 @@ model_inventory_list_service_offerings_result.go
 model_invite_consumption_user_request.go
 model_invite_user_request.go
 model_invoice.go
+model_jit_access_event_requester.go
+model_jit_access_request_audit_details.go
 model_job_metric.go
+model_just_in_time_access_approver_user.go
+model_just_in_time_access_configuration.go
 model_kube_config_host_cluster_request.go
 model_kube_config_host_cluster_result.go
 model_kubectl_value_provider_config.go
@@ -1552,6 +1606,8 @@ model_kubernetes_dashboard_endpoint.go
 model_kustomize_deployment_configuration.go
 model_limits.go
 model_list.go
+model_list_access_requests_request.go
+model_list_access_requests_result.go
 model_list_account_configs_result.go
 model_list_active_organizations_request.go
 model_list_all_instance_snapshots_request.go
@@ -1674,6 +1730,7 @@ model_login_with_identity_provider_result.go
 model_logout_request.go
 model_manage_upgrade_path_lifecycle_request.go
 model_manage_upgrade_path_lifecycle_request2.go
+model_managed_artifact_destination.go
 model_managed_artifact_release.go
 model_managed_artifact_release_artifact.go
 model_managed_artifact_release_policy.go
@@ -1780,6 +1837,8 @@ model_proxy_endpoint.go
 model_proxy_instance_search_record.go
 model_publish_managed_release_request.go
 model_publish_managed_release_result.go
+model_reassign_marketplace_fulfillment_request.go
+model_reassign_marketplace_fulfillment_request2.go
 model_receive_webhook_request.go
 model_recent_deployment_failure_status.go
 model_redeem_handoff_request.go
@@ -1831,6 +1890,7 @@ model_restore_resource_instance_from_snapshot_request.go
 model_restore_resource_instance_request.go
 model_retry_marketplace_fulfillment_request.go
 model_retry_marketplace_fulfillment_request2.go
+model_revoke_access_request_request.go
 model_revoke_api_key_request.go
 model_revoke_api_key_result.go
 model_revoke_consumption_user_role_request.go
@@ -1969,6 +2029,7 @@ model_workspace_artifacts_download_result.go
 model_workspace_artifacts_download_url_result.go
 model_workspace_artifacts_result.go
 response.go
+test/api_access_requests_api_test.go
 test/api_audit_events_api_test.go
 test/api_cost_api_test.go
 test/api_customer_onboardings_api_test.go

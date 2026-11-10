@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AttentionSince** | Pointer to **time.Time** | Set while the contract is billable and fulfillment has not reached READY. How long it has been set is what the handoff SLA is measured against | [optional] 
+**BillingProvider** | Pointer to **string** | The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace | [optional] 
 **BuyerName** | Pointer to **string** |  | [optional] 
 **BuyerRef** | Pointer to **string** |  | [optional] 
 **Channel** | **string** | Which marketplace channel a contract came from. SUGER reaches AWS, Azure and GCP buyers through one listing. SANDBOX is the simulated channel, and is a real member of this set rather than a test mode | 
@@ -72,6 +73,31 @@ SetAttentionSince sets AttentionSince field to given value.
 `func (o *MarketplaceContract) HasAttentionSince() bool`
 
 HasAttentionSince returns a boolean if a field has been set.
+
+### GetBillingProvider
+
+`func (o *MarketplaceContract) GetBillingProvider() string`
+
+GetBillingProvider returns the BillingProvider field if non-nil, zero value otherwise.
+
+### GetBillingProviderOk
+
+`func (o *MarketplaceContract) GetBillingProviderOk() (*string, bool)`
+
+GetBillingProviderOk returns a tuple with the BillingProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBillingProvider
+
+`func (o *MarketplaceContract) SetBillingProvider(v string)`
+
+SetBillingProvider sets BillingProvider field to given value.
+
+### HasBillingProvider
+
+`func (o *MarketplaceContract) HasBillingProvider() bool`
+
+HasBillingProvider returns a boolean if a field has been set.
 
 ### GetBuyerName
 

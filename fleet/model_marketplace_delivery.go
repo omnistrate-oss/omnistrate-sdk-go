@@ -63,7 +63,7 @@ type MarketplaceDelivery struct {
 	StateChange *MarketplaceInteractionStateChange `json:"stateChange,omitempty"`
 	// PENDING has not been answered yet. DELIVERED was accepted. FAILED exhausted its retries. BLOCKED was never sent, because the receiver address was refused
 	Status string `json:"status"`
-	// Set once a delivery or a call has produced a subscription, so a row can be followed to the tenant it created
+	// Set once a delivery or a call has created or adopted a subscription, so a row can be followed to its associated tenant
 	SubscriptionId *string `json:"subscriptionId,omitempty"`
 	// Outbound only. Why we stopped before the budget ran out, for example a receiver that rejected the request itself. Absent on a delivery that simply exhausted its attempts
 	TerminalReason *string `json:"terminalReason,omitempty"`

@@ -20,17 +20,18 @@ var _ MappedNullable = &DescribeAccountConfigResult{}
 
 // DescribeAccountConfigResult Account configuration including the role required to access
 type DescribeAccountConfigResult struct {
+	AccountOnboardingDetails *AccountOnboardingDetails `json:"accountOnboardingDetails,omitempty"`
 	AppliedSettings *AccountConfigSettings `json:"appliedSettings,omitempty"`
 	// The AWS account ID
 	AwsAccountID *string `json:"awsAccountID,omitempty"`
 	// The security role ARN or service account ARN that grants access to operate the infra
 	AwsBootstrapRoleARN *string `json:"awsBootstrapRoleARN,omitempty"`
+	// The AWS bootstrap shell command
+	AwsBootstrapShellCommand *string `json:"awsBootstrapShellCommand,omitempty"`
 	// The URL to the CloudFormation template (no LoadBalancer policy version)
 	AwsCloudFormationNoLBTemplateURL *string `json:"awsCloudFormationNoLBTemplateURL,omitempty"`
 	// The URL to the CloudFormation template
 	AwsCloudFormationTemplateURL *string `json:"awsCloudFormationTemplateURL,omitempty"`
-	// The AWS console URL for updating the existing account setup stack using saved requested settings. Uses the verified stack identity and its actual region. Omitted when the stack identity is unknown or the account does not support this flow.
-	AwsCloudFormationUpdateURL *string `json:"awsCloudFormationUpdateURL,omitempty"`
 	// The Azure bootstrap shell command
 	AzureBootstrapShellCommand *string `json:"azureBootstrapShellCommand,omitempty"`
 	// The Azure disconnect shell command
@@ -112,6 +113,29 @@ func NewDescribeAccountConfigResultWithDefaults() *DescribeAccountConfigResult {
 	return &this
 }
 
+// GetAccountOnboardingDetails returns the AccountOnboardingDetails field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetAccountOnboardingDetails() AccountOnboardingDetails {
+	if o == nil || IsNil(o.AccountOnboardingDetails) {
+		var ret AccountOnboardingDetails
+		return ret
+	}
+	return *o.AccountOnboardingDetails
+}
+
+// GetAccountOnboardingDetailsOk returns a tuple with the AccountOnboardingDetails field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetAccountOnboardingDetailsOk() (*AccountOnboardingDetails, bool) {
+	if o == nil || IsNil(o.AccountOnboardingDetails) {
+		return nil, false
+	}
+	return o.AccountOnboardingDetails, true
+}
+
+// SetAccountOnboardingDetails gets a reference to the given AccountOnboardingDetails and assigns it to the AccountOnboardingDetails field.
+func (o *DescribeAccountConfigResult) SetAccountOnboardingDetails(v AccountOnboardingDetails) {
+	o.AccountOnboardingDetails = &v
+}
+
 // GetAppliedSettings returns the AppliedSettings field value if set, zero value otherwise.
 func (o *DescribeAccountConfigResult) GetAppliedSettings() AccountConfigSettings {
 	if o == nil || IsNil(o.AppliedSettings) {
@@ -181,6 +205,29 @@ func (o *DescribeAccountConfigResult) SetAwsBootstrapRoleARN(v string) {
 	o.AwsBootstrapRoleARN = &v
 }
 
+// GetAwsBootstrapShellCommand returns the AwsBootstrapShellCommand field value if set, zero value otherwise.
+func (o *DescribeAccountConfigResult) GetAwsBootstrapShellCommand() string {
+	if o == nil || IsNil(o.AwsBootstrapShellCommand) {
+		var ret string
+		return ret
+	}
+	return *o.AwsBootstrapShellCommand
+}
+
+// GetAwsBootstrapShellCommandOk returns a tuple with the AwsBootstrapShellCommand field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigResult) GetAwsBootstrapShellCommandOk() (*string, bool) {
+	if o == nil || IsNil(o.AwsBootstrapShellCommand) {
+		return nil, false
+	}
+	return o.AwsBootstrapShellCommand, true
+}
+
+// SetAwsBootstrapShellCommand gets a reference to the given string and assigns it to the AwsBootstrapShellCommand field.
+func (o *DescribeAccountConfigResult) SetAwsBootstrapShellCommand(v string) {
+	o.AwsBootstrapShellCommand = &v
+}
+
 // GetAwsCloudFormationNoLBTemplateURL returns the AwsCloudFormationNoLBTemplateURL field value if set, zero value otherwise.
 func (o *DescribeAccountConfigResult) GetAwsCloudFormationNoLBTemplateURL() string {
 	if o == nil || IsNil(o.AwsCloudFormationNoLBTemplateURL) {
@@ -225,29 +272,6 @@ func (o *DescribeAccountConfigResult) GetAwsCloudFormationTemplateURLOk() (*stri
 // SetAwsCloudFormationTemplateURL gets a reference to the given string and assigns it to the AwsCloudFormationTemplateURL field.
 func (o *DescribeAccountConfigResult) SetAwsCloudFormationTemplateURL(v string) {
 	o.AwsCloudFormationTemplateURL = &v
-}
-
-// GetAwsCloudFormationUpdateURL returns the AwsCloudFormationUpdateURL field value if set, zero value otherwise.
-func (o *DescribeAccountConfigResult) GetAwsCloudFormationUpdateURL() string {
-	if o == nil || IsNil(o.AwsCloudFormationUpdateURL) {
-		var ret string
-		return ret
-	}
-	return *o.AwsCloudFormationUpdateURL
-}
-
-// GetAwsCloudFormationUpdateURLOk returns a tuple with the AwsCloudFormationUpdateURL field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DescribeAccountConfigResult) GetAwsCloudFormationUpdateURLOk() (*string, bool) {
-	if o == nil || IsNil(o.AwsCloudFormationUpdateURL) {
-		return nil, false
-	}
-	return o.AwsCloudFormationUpdateURL, true
-}
-
-// SetAwsCloudFormationUpdateURL gets a reference to the given string and assigns it to the AwsCloudFormationUpdateURL field.
-func (o *DescribeAccountConfigResult) SetAwsCloudFormationUpdateURL(v string) {
-	o.AwsCloudFormationUpdateURL = &v
 }
 
 // GetAzureBootstrapShellCommand returns the AzureBootstrapShellCommand field value if set, zero value otherwise.
@@ -887,6 +911,9 @@ func (o DescribeAccountConfigResult) MarshalJSON() ([]byte, error) {
 
 func (o DescribeAccountConfigResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AccountOnboardingDetails) {
+		toSerialize["accountOnboardingDetails"] = o.AccountOnboardingDetails
+	}
 	if !IsNil(o.AppliedSettings) {
 		toSerialize["appliedSettings"] = o.AppliedSettings
 	}
@@ -896,14 +923,14 @@ func (o DescribeAccountConfigResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AwsBootstrapRoleARN) {
 		toSerialize["awsBootstrapRoleARN"] = o.AwsBootstrapRoleARN
 	}
+	if !IsNil(o.AwsBootstrapShellCommand) {
+		toSerialize["awsBootstrapShellCommand"] = o.AwsBootstrapShellCommand
+	}
 	if !IsNil(o.AwsCloudFormationNoLBTemplateURL) {
 		toSerialize["awsCloudFormationNoLBTemplateURL"] = o.AwsCloudFormationNoLBTemplateURL
 	}
 	if !IsNil(o.AwsCloudFormationTemplateURL) {
 		toSerialize["awsCloudFormationTemplateURL"] = o.AwsCloudFormationTemplateURL
-	}
-	if !IsNil(o.AwsCloudFormationUpdateURL) {
-		toSerialize["awsCloudFormationUpdateURL"] = o.AwsCloudFormationUpdateURL
 	}
 	if !IsNil(o.AzureBootstrapShellCommand) {
 		toSerialize["azureBootstrapShellCommand"] = o.AzureBootstrapShellCommand
@@ -1022,12 +1049,13 @@ func (o *DescribeAccountConfigResult) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "accountOnboardingDetails")
 		delete(additionalProperties, "appliedSettings")
 		delete(additionalProperties, "awsAccountID")
 		delete(additionalProperties, "awsBootstrapRoleARN")
+		delete(additionalProperties, "awsBootstrapShellCommand")
 		delete(additionalProperties, "awsCloudFormationNoLBTemplateURL")
 		delete(additionalProperties, "awsCloudFormationTemplateURL")
-		delete(additionalProperties, "awsCloudFormationUpdateURL")
 		delete(additionalProperties, "azureBootstrapShellCommand")
 		delete(additionalProperties, "azureDisconnectShellCommand")
 		delete(additionalProperties, "azureOffboardShellCommand")

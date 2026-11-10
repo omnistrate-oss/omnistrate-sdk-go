@@ -20,6 +20,8 @@ var _ MappedNullable = &MarketplaceChannelListing{}
 
 // MarketplaceChannelListing struct for MarketplaceChannelListing
 type MarketplaceChannelListing struct {
+	// The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace
+	BillingProvider *string `json:"billingProvider,omitempty"`
 	Description *string `json:"description,omitempty"`
 	MappedProductTierId *string `json:"mappedProductTierId,omitempty"`
 	MappedServiceId *string `json:"mappedServiceId,omitempty"`
@@ -53,6 +55,38 @@ func NewMarketplaceChannelListing(name string, planRef string) *MarketplaceChann
 func NewMarketplaceChannelListingWithDefaults() *MarketplaceChannelListing {
 	this := MarketplaceChannelListing{}
 	return &this
+}
+
+// GetBillingProvider returns the BillingProvider field value if set, zero value otherwise.
+func (o *MarketplaceChannelListing) GetBillingProvider() string {
+	if o == nil || IsNil(o.BillingProvider) {
+		var ret string
+		return ret
+	}
+	return *o.BillingProvider
+}
+
+// GetBillingProviderOk returns a tuple with the BillingProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MarketplaceChannelListing) GetBillingProviderOk() (*string, bool) {
+	if o == nil || IsNil(o.BillingProvider) {
+		return nil, false
+	}
+	return o.BillingProvider, true
+}
+
+// HasBillingProvider returns a boolean if a field has been set.
+func (o *MarketplaceChannelListing) HasBillingProvider() bool {
+	if o != nil && !IsNil(o.BillingProvider) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingProvider gets a reference to the given string and assigns it to the BillingProvider field.
+func (o *MarketplaceChannelListing) SetBillingProvider(v string) {
+	o.BillingProvider = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -273,6 +307,9 @@ func (o MarketplaceChannelListing) MarshalJSON() ([]byte, error) {
 
 func (o MarketplaceChannelListing) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.BillingProvider) {
+		toSerialize["billingProvider"] = o.BillingProvider
+	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
@@ -334,6 +371,7 @@ func (o *MarketplaceChannelListing) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "billingProvider")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "mappedProductTierId")
 		delete(additionalProperties, "mappedServiceId")

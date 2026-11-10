@@ -38,6 +38,8 @@ type MarketplaceEvent struct {
 	EventType string `json:"eventType"`
 	// The marketplace-native buyer identifier used for billing
 	ExternalBuyerId *string `json:"externalBuyerId,omitempty"`
+	// The external identifier from rawContract.externalID, when supplied by the channel
+	ExternalId *string `json:"externalId,omitempty"`
 	// The marketplace-native product identifier used for billing
 	ExternalProductId *string `json:"externalProductId,omitempty"`
 	// The channel's own identifier for the contract, unique per channel
@@ -55,6 +57,8 @@ type MarketplaceEvent struct {
 	// When the event occurred. This is NOT the send instant: retries carry the original occurredAt while X-Omnistrate-Timestamp moves. Use the header for the replay window and this field for ordering by time
 	OccurredAt time.Time `json:"occurredAt"`
 	Org *MarketplaceEventOrg `json:"org,omitempty"`
+	// The underlying marketplace reported by the channel; known values are AWS, AZURE and GCP
+	Partner *string `json:"partner,omitempty"`
 	Plan *MarketplaceEventPlan `json:"plan,omitempty"`
 	// The Omnistrate subscription. Absent before the confirm, because no subscription exists until then; present on every event after it. The confirm response is where an ISV first receives this value
 	SubscriptionId *string `json:"subscriptionId,omitempty"`
@@ -350,6 +354,38 @@ func (o *MarketplaceEvent) SetExternalBuyerId(v string) {
 	o.ExternalBuyerId = &v
 }
 
+// GetExternalId returns the ExternalId field value if set, zero value otherwise.
+func (o *MarketplaceEvent) GetExternalId() string {
+	if o == nil || IsNil(o.ExternalId) {
+		var ret string
+		return ret
+	}
+	return *o.ExternalId
+}
+
+// GetExternalIdOk returns a tuple with the ExternalId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MarketplaceEvent) GetExternalIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ExternalId) {
+		return nil, false
+	}
+	return o.ExternalId, true
+}
+
+// HasExternalId returns a boolean if a field has been set.
+func (o *MarketplaceEvent) HasExternalId() bool {
+	if o != nil && !IsNil(o.ExternalId) {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalId gets a reference to the given string and assigns it to the ExternalId field.
+func (o *MarketplaceEvent) SetExternalId(v string) {
+	o.ExternalId = &v
+}
+
 // GetExternalProductId returns the ExternalProductId field value if set, zero value otherwise.
 func (o *MarketplaceEvent) GetExternalProductId() string {
 	if o == nil || IsNil(o.ExternalProductId) {
@@ -622,6 +658,38 @@ func (o *MarketplaceEvent) SetOrg(v MarketplaceEventOrg) {
 	o.Org = &v
 }
 
+// GetPartner returns the Partner field value if set, zero value otherwise.
+func (o *MarketplaceEvent) GetPartner() string {
+	if o == nil || IsNil(o.Partner) {
+		var ret string
+		return ret
+	}
+	return *o.Partner
+}
+
+// GetPartnerOk returns a tuple with the Partner field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MarketplaceEvent) GetPartnerOk() (*string, bool) {
+	if o == nil || IsNil(o.Partner) {
+		return nil, false
+	}
+	return o.Partner, true
+}
+
+// HasPartner returns a boolean if a field has been set.
+func (o *MarketplaceEvent) HasPartner() bool {
+	if o != nil && !IsNil(o.Partner) {
+		return true
+	}
+
+	return false
+}
+
+// SetPartner gets a reference to the given string and assigns it to the Partner field.
+func (o *MarketplaceEvent) SetPartner(v string) {
+	o.Partner = &v
+}
+
 // GetPlan returns the Plan field value if set, zero value otherwise.
 func (o *MarketplaceEvent) GetPlan() MarketplaceEventPlan {
 	if o == nil || IsNil(o.Plan) {
@@ -749,6 +817,9 @@ func (o MarketplaceEvent) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ExternalBuyerId) {
 		toSerialize["externalBuyerId"] = o.ExternalBuyerId
 	}
+	if !IsNil(o.ExternalId) {
+		toSerialize["externalId"] = o.ExternalId
+	}
 	if !IsNil(o.ExternalProductId) {
 		toSerialize["externalProductId"] = o.ExternalProductId
 	}
@@ -771,6 +842,9 @@ func (o MarketplaceEvent) ToMap() (map[string]interface{}, error) {
 	toSerialize["occurredAt"] = o.OccurredAt
 	if !IsNil(o.Org) {
 		toSerialize["org"] = o.Org
+	}
+	if !IsNil(o.Partner) {
+		toSerialize["partner"] = o.Partner
 	}
 	if !IsNil(o.Plan) {
 		toSerialize["plan"] = o.Plan
@@ -837,6 +911,7 @@ func (o *MarketplaceEvent) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "eventId")
 		delete(additionalProperties, "eventType")
 		delete(additionalProperties, "externalBuyerId")
+		delete(additionalProperties, "externalId")
 		delete(additionalProperties, "externalProductId")
 		delete(additionalProperties, "externalRef")
 		delete(additionalProperties, "failureReason")
@@ -846,6 +921,7 @@ func (o *MarketplaceEvent) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "marketplaceContractId")
 		delete(additionalProperties, "occurredAt")
 		delete(additionalProperties, "org")
+		delete(additionalProperties, "partner")
 		delete(additionalProperties, "plan")
 		delete(additionalProperties, "subscriptionId")
 		delete(additionalProperties, "subscriptionRequest")
