@@ -10,7 +10,9 @@ Name | Type | Description | Notes
 **InstanceLifeCycleType** | Pointer to **string** | The instance life cycle type for this compute instance type config | [optional] 
 **Labels** | Pointer to **map[string]string** | Labels for the compute instance type config | [optional] 
 **LocalNvmeSsdBlockConfig** | Pointer to [**LocalNvmeSsdBlockConfig**](LocalNvmeSsdBlockConfig.md) |  | [optional] 
+**MaxNumberOfNodes** | Pointer to **int64** | Maximum number of nodes in the node pool. Supported for AWS, GCP, and Azure. Must be greater than minNumberOfNodes, at most 450, and cannot be combined with warmPoolConfiguration. | [optional] 
 **MigProfile** | Pointer to **string** | MIG profile to apply to this compute instance type config for providers that support per-node-pool GPU partitioning | [optional] 
+**MinNumberOfNodes** | Pointer to **int64** | Minimum number of nodes in the node pool. Supported for AWS, GCP, and Azure. Must be less than maxNumberOfNodes and cannot be combined with warmPoolConfiguration. | [optional] 
 **OsFamily** | Pointer to **string** | Operating system family for AWS instance type override (supported only for AWS) | [optional] 
 **Platform** | Pointer to **string** | First-class platform selector for cloud providers that require more than a single instance type string (for example Nebius) | [optional] 
 **RootVolumeSizeGi** | Pointer to **int64** | Size of the root volume in Gi | [optional] 
@@ -190,6 +192,31 @@ SetLocalNvmeSsdBlockConfig sets LocalNvmeSsdBlockConfig field to given value.
 
 HasLocalNvmeSsdBlockConfig returns a boolean if a field has been set.
 
+### GetMaxNumberOfNodes
+
+`func (o *ComputeInstanceTypeConfigOverride) GetMaxNumberOfNodes() int64`
+
+GetMaxNumberOfNodes returns the MaxNumberOfNodes field if non-nil, zero value otherwise.
+
+### GetMaxNumberOfNodesOk
+
+`func (o *ComputeInstanceTypeConfigOverride) GetMaxNumberOfNodesOk() (*int64, bool)`
+
+GetMaxNumberOfNodesOk returns a tuple with the MaxNumberOfNodes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxNumberOfNodes
+
+`func (o *ComputeInstanceTypeConfigOverride) SetMaxNumberOfNodes(v int64)`
+
+SetMaxNumberOfNodes sets MaxNumberOfNodes field to given value.
+
+### HasMaxNumberOfNodes
+
+`func (o *ComputeInstanceTypeConfigOverride) HasMaxNumberOfNodes() bool`
+
+HasMaxNumberOfNodes returns a boolean if a field has been set.
+
 ### GetMigProfile
 
 `func (o *ComputeInstanceTypeConfigOverride) GetMigProfile() string`
@@ -214,6 +241,31 @@ SetMigProfile sets MigProfile field to given value.
 `func (o *ComputeInstanceTypeConfigOverride) HasMigProfile() bool`
 
 HasMigProfile returns a boolean if a field has been set.
+
+### GetMinNumberOfNodes
+
+`func (o *ComputeInstanceTypeConfigOverride) GetMinNumberOfNodes() int64`
+
+GetMinNumberOfNodes returns the MinNumberOfNodes field if non-nil, zero value otherwise.
+
+### GetMinNumberOfNodesOk
+
+`func (o *ComputeInstanceTypeConfigOverride) GetMinNumberOfNodesOk() (*int64, bool)`
+
+GetMinNumberOfNodesOk returns a tuple with the MinNumberOfNodes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMinNumberOfNodes
+
+`func (o *ComputeInstanceTypeConfigOverride) SetMinNumberOfNodes(v int64)`
+
+SetMinNumberOfNodes sets MinNumberOfNodes field to given value.
+
+### HasMinNumberOfNodes
+
+`func (o *ComputeInstanceTypeConfigOverride) HasMinNumberOfNodes() bool`
+
+HasMinNumberOfNodes returns a boolean if a field has been set.
 
 ### GetOsFamily
 

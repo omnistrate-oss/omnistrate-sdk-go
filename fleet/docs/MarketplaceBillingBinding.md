@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Overridable** | **bool** | False everywhere today. Exists so a channel that genuinely permits a choice can say so, rather than every consumer assuming none ever will | 
-**Provider** | **string** | The billing provider that collects. Every marketplace channel reports MARKETPLACE today | 
+**Provider** | **string** | Deprecated: use providers for supported concrete billing providers. Every marketplace channel reports MARKETPLACE; it does not identify one cloud marketplace | 
+**Providers** | Pointer to **[]string** | The cloud marketplace billing providers supported by this channel. Each listing and contract identifies one provider | [optional] 
 **Settlement** | **string** | Which marketplace channel a contract came from. SUGER reaches AWS, Azure and GCP buyers through one listing. SANDBOX is the simulated channel, and is a real member of this set rather than a test mode | 
 **SharesCredentials** | **bool** | True when the credential that reads contracts is also the credential that reports usage | 
 
@@ -67,6 +68,31 @@ and a boolean to check if the value has been set.
 
 SetProvider sets Provider field to given value.
 
+
+### GetProviders
+
+`func (o *MarketplaceBillingBinding) GetProviders() []string`
+
+GetProviders returns the Providers field if non-nil, zero value otherwise.
+
+### GetProvidersOk
+
+`func (o *MarketplaceBillingBinding) GetProvidersOk() (*[]string, bool)`
+
+GetProvidersOk returns a tuple with the Providers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProviders
+
+`func (o *MarketplaceBillingBinding) SetProviders(v []string)`
+
+SetProviders sets Providers field to given value.
+
+### HasProviders
+
+`func (o *MarketplaceBillingBinding) HasProviders() bool`
+
+HasProviders returns a boolean if a field has been set.
 
 ### GetSettlement
 

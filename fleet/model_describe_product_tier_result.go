@@ -39,7 +39,7 @@ type DescribeProductTierResult struct {
 	// The readiness of the cloud providers configurations
 	CloudProvidersConfigReadiness *map[string]map[string]string `json:"cloudProvidersConfigReadiness,omitempty"`
 	CustomMetering *CustomMeteringConfiguration `json:"customMetering,omitempty"`
-	// The billing provider type
+	// The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace
 	DefaultBillingProvider *string `json:"defaultBillingProvider,omitempty"`
 	// List of deployment artifact IDs associated with this product tier
 	DeploymentArtifactIDs []string `json:"deploymentArtifactIDs,omitempty"`

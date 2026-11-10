@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **Region** | Pointer to **string** | The Nebius region served by this binding | [optional] 
 **ServiceAccountID** | Pointer to **string** | The Nebius service account ID for this binding | [optional] 
 **ServiceAccountKeyValidated** | Pointer to **bool** | Whether the live Nebius auth public key belongs to the configured Nebius service account for this binding | [optional] 
-**Status** | Pointer to **string** | The status of the account configuration | [optional] 
+**Status** | Pointer to **string** | The status of the account configuration. BYOA settings updates remain PENDING_UPDATE until verification finishes, including while waiting for the customer to apply account setup changes. Successful verification sets READY for connected accounts or DISCONNECTED after access is revoked. | [optional] 
 **StatusMessage** | Pointer to **string** | The status message of this binding | [optional] 
 
 ## Methods

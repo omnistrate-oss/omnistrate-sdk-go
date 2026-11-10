@@ -23,6 +23,8 @@ var _ MappedNullable = &MarketplaceContract{}
 type MarketplaceContract struct {
 	// Set while the contract is billable and fulfillment has not reached READY. How long it has been set is what the handoff SLA is measured against
 	AttentionSince *time.Time `json:"attentionSince,omitempty"`
+	// The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace
+	BillingProvider *string `json:"billingProvider,omitempty"`
 	BuyerName *string `json:"buyerName,omitempty"`
 	BuyerRef *string `json:"buyerRef,omitempty"`
 	// Which marketplace channel a contract came from. SUGER reaches AWS, Azure and GCP buyers through one listing. SANDBOX is the simulated channel, and is a real member of this set rather than a test mode
@@ -118,6 +120,38 @@ func (o *MarketplaceContract) HasAttentionSince() bool {
 // SetAttentionSince gets a reference to the given time.Time and assigns it to the AttentionSince field.
 func (o *MarketplaceContract) SetAttentionSince(v time.Time) {
 	o.AttentionSince = &v
+}
+
+// GetBillingProvider returns the BillingProvider field value if set, zero value otherwise.
+func (o *MarketplaceContract) GetBillingProvider() string {
+	if o == nil || IsNil(o.BillingProvider) {
+		var ret string
+		return ret
+	}
+	return *o.BillingProvider
+}
+
+// GetBillingProviderOk returns a tuple with the BillingProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MarketplaceContract) GetBillingProviderOk() (*string, bool) {
+	if o == nil || IsNil(o.BillingProvider) {
+		return nil, false
+	}
+	return o.BillingProvider, true
+}
+
+// HasBillingProvider returns a boolean if a field has been set.
+func (o *MarketplaceContract) HasBillingProvider() bool {
+	if o != nil && !IsNil(o.BillingProvider) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingProvider gets a reference to the given string and assigns it to the BillingProvider field.
+func (o *MarketplaceContract) SetBillingProvider(v string) {
+	o.BillingProvider = &v
 }
 
 // GetBuyerName returns the BuyerName field value if set, zero value otherwise.
@@ -821,6 +855,9 @@ func (o MarketplaceContract) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AttentionSince) {
 		toSerialize["attentionSince"] = o.AttentionSince
 	}
+	if !IsNil(o.BillingProvider) {
+		toSerialize["billingProvider"] = o.BillingProvider
+	}
 	if !IsNil(o.BuyerName) {
 		toSerialize["buyerName"] = o.BuyerName
 	}
@@ -927,6 +964,7 @@ func (o *MarketplaceContract) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "attentionSince")
+		delete(additionalProperties, "billingProvider")
 		delete(additionalProperties, "buyerName")
 		delete(additionalProperties, "buyerRef")
 		delete(additionalProperties, "channel")

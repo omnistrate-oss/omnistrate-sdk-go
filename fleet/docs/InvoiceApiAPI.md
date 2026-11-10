@@ -99,7 +99,7 @@ import (
 )
 
 func main() {
-	fleetCreateInvoiceRequest2 := *openapiclient.NewFleetCreateInvoiceRequest2("2025-01", "Enim expedita placeat ea.") // FleetCreateInvoiceRequest2 | 
+	fleetCreateInvoiceRequest2 := *openapiclient.NewFleetCreateInvoiceRequest2("2025-01", "Impedit voluptas ratione rerum debitis molestias beatae.") // FleetCreateInvoiceRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

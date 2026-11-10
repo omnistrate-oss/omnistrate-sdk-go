@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AdditionalInfo** | Pointer to **map[string]interface{}** | Additional onboarding information as a JSON object with arbitrary JSON values. Optional in requests and responses. Missing, null, or empty objects may be omitted from responses. Arrays and scalar values are supported inside object properties, but not as the top-level value. | [optional] 
 **CloudNativeYAML** | Pointer to **string** | The cloud-native YAML content. | [optional] 
 **DeploymentConfig** | Pointer to [**OnboardingDeploymentConfig**](OnboardingDeploymentConfig.md) |  | [optional] 
 **EnvironmentVariables** | Pointer to [**[]EnvironmentVariable**](EnvironmentVariable.md) | Environment variables for the service. | [optional] 
@@ -29,6 +30,31 @@ will change when the set of required properties is changed
 NewCloudNativeOnboardingMetadataWithDefaults instantiates a new CloudNativeOnboardingMetadata object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAdditionalInfo
+
+`func (o *CloudNativeOnboardingMetadata) GetAdditionalInfo() map[string]interface{}`
+
+GetAdditionalInfo returns the AdditionalInfo field if non-nil, zero value otherwise.
+
+### GetAdditionalInfoOk
+
+`func (o *CloudNativeOnboardingMetadata) GetAdditionalInfoOk() (*map[string]interface{}, bool)`
+
+GetAdditionalInfoOk returns a tuple with the AdditionalInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdditionalInfo
+
+`func (o *CloudNativeOnboardingMetadata) SetAdditionalInfo(v map[string]interface{})`
+
+SetAdditionalInfo sets AdditionalInfo field to given value.
+
+### HasAdditionalInfo
+
+`func (o *CloudNativeOnboardingMetadata) HasAdditionalInfo() bool`
+
+HasAdditionalInfo returns a boolean if a field has been set.
 
 ### GetCloudNativeYAML
 

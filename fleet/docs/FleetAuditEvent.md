@@ -4,13 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AccessRequest** | Pointer to [**JITAccessRequestAuditDetails**](JITAccessRequestAuditDetails.md) |  | [optional] 
 **AuthMethod** | Pointer to **string** | The authentication method used by the caller for the request that produced the event. One of PASSWORD or API_KEY. Empty for events not originated by an authenticated user (e.g. internal sweeper actions). | [optional] 
 **BillingProvider** | Pointer to **string** | The billing provider on the instance&#39;s subscription. Empty when no subscription is linked. | [optional] 
 **CloudProvider** | Pointer to **string** | The cloud provider name where the instance is deployed. | [optional] 
 **CloudProviderAccountId** | Pointer to **string** | The cloud provider account ID associated with the instance. | [optional] 
 **EnvironmentId** | **string** | ID of a Service Environment | 
 **EnvironmentType** | Pointer to **string** | The type of service environment | [optional] 
+**EventCategory** | Pointer to **string** | The event category. Currently populated only for JIT access lifecycle events. | [optional] 
 **EventSource** | Pointer to **string** | The event source | [optional] 
+**EventType** | Pointer to **string** | The event type. Currently populated only for JIT access lifecycle events. | [optional] 
 **ExternalPayerId** | Pointer to **string** | The raw external payer ID on the instance&#39;s subscription. | [optional] 
 **Id** | **string** | ID of a Event | 
 **InstanceId** | **string** | ID of a Resource Instance | 
@@ -29,6 +32,7 @@ Name | Type | Description | Notes
 **SessionId** | Pointer to **string** | The credential identifier used for the request that produced the event. For password-issued JWTs this is the token&#39;s unique ID (jti); for API-key issued JWTs this is the API key&#39;s persistent ID, allowing all events for that key to be correlated even across token refreshes. | [optional] 
 **Time** | **string** | ID of a Event | 
 **UserAgent** | Pointer to **string** | The User-Agent string of the client that caused the event | [optional] 
+**UserEmail** | Pointer to **string** | The actor email captured for a JIT access lifecycle event. Omitted for other audit events and system actors. | [optional] 
 **UserId** | Pointer to **string** | ID of a User | [optional] 
 **UserName** | Pointer to **string** | The user name of the user that caused the event | [optional] 
 **WorkflowFailures** | Pointer to [**[]WorkflowFailure**](WorkflowFailure.md) | The list of workflow events that indicate failures | [optional] 
@@ -52,6 +56,31 @@ will change when the set of required properties is changed
 NewFleetAuditEventWithDefaults instantiates a new FleetAuditEvent object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAccessRequest
+
+`func (o *FleetAuditEvent) GetAccessRequest() JITAccessRequestAuditDetails`
+
+GetAccessRequest returns the AccessRequest field if non-nil, zero value otherwise.
+
+### GetAccessRequestOk
+
+`func (o *FleetAuditEvent) GetAccessRequestOk() (*JITAccessRequestAuditDetails, bool)`
+
+GetAccessRequestOk returns a tuple with the AccessRequest field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessRequest
+
+`func (o *FleetAuditEvent) SetAccessRequest(v JITAccessRequestAuditDetails)`
+
+SetAccessRequest sets AccessRequest field to given value.
+
+### HasAccessRequest
+
+`func (o *FleetAuditEvent) HasAccessRequest() bool`
+
+HasAccessRequest returns a boolean if a field has been set.
 
 ### GetAuthMethod
 
@@ -198,6 +227,31 @@ SetEnvironmentType sets EnvironmentType field to given value.
 
 HasEnvironmentType returns a boolean if a field has been set.
 
+### GetEventCategory
+
+`func (o *FleetAuditEvent) GetEventCategory() string`
+
+GetEventCategory returns the EventCategory field if non-nil, zero value otherwise.
+
+### GetEventCategoryOk
+
+`func (o *FleetAuditEvent) GetEventCategoryOk() (*string, bool)`
+
+GetEventCategoryOk returns a tuple with the EventCategory field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEventCategory
+
+`func (o *FleetAuditEvent) SetEventCategory(v string)`
+
+SetEventCategory sets EventCategory field to given value.
+
+### HasEventCategory
+
+`func (o *FleetAuditEvent) HasEventCategory() bool`
+
+HasEventCategory returns a boolean if a field has been set.
+
 ### GetEventSource
 
 `func (o *FleetAuditEvent) GetEventSource() string`
@@ -222,6 +276,31 @@ SetEventSource sets EventSource field to given value.
 `func (o *FleetAuditEvent) HasEventSource() bool`
 
 HasEventSource returns a boolean if a field has been set.
+
+### GetEventType
+
+`func (o *FleetAuditEvent) GetEventType() string`
+
+GetEventType returns the EventType field if non-nil, zero value otherwise.
+
+### GetEventTypeOk
+
+`func (o *FleetAuditEvent) GetEventTypeOk() (*string, bool)`
+
+GetEventTypeOk returns a tuple with the EventType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEventType
+
+`func (o *FleetAuditEvent) SetEventType(v string)`
+
+SetEventType sets EventType field to given value.
+
+### HasEventType
+
+`func (o *FleetAuditEvent) HasEventType() bool`
+
+HasEventType returns a boolean if a field has been set.
 
 ### GetExternalPayerId
 
@@ -622,6 +701,31 @@ SetUserAgent sets UserAgent field to given value.
 `func (o *FleetAuditEvent) HasUserAgent() bool`
 
 HasUserAgent returns a boolean if a field has been set.
+
+### GetUserEmail
+
+`func (o *FleetAuditEvent) GetUserEmail() string`
+
+GetUserEmail returns the UserEmail field if non-nil, zero value otherwise.
+
+### GetUserEmailOk
+
+`func (o *FleetAuditEvent) GetUserEmailOk() (*string, bool)`
+
+GetUserEmailOk returns a tuple with the UserEmail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserEmail
+
+`func (o *FleetAuditEvent) SetUserEmail(v string)`
+
+SetUserEmail sets UserEmail field to given value.
+
+### HasUserEmail
+
+`func (o *FleetAuditEvent) HasUserEmail() bool`
+
+HasUserEmail returns a boolean if a field has been set.
 
 ### GetUserId
 

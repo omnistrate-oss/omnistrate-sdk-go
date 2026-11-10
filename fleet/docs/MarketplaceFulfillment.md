@@ -9,13 +9,16 @@ Name | Type | Description | Notes
 **FulfillmentState** | **string** | What Omnistrate decided. Deployments and metering are allowed if and only if this is READY, plus exactly one final metering window during DEPROVISIONING | 
 **LastRetryAt** | Pointer to **time.Time** |  | [optional] 
 **MarketplaceContractId** | **string** |  | 
+**MeteringEffectiveAt** | Pointer to **time.Time** | The recorded metering activation boundary in RFC3339 format. Present only when meteringState is ACTIVE and the boundary has been reached; omitted while PENDING | [optional] 
+**MeteringState** | Pointer to **string** | Metering cutover readiness for the associated subscription. PENDING means the association is committed but metering activation is not yet recorded or its effective boundary has not been reached. ACTIVE requires both a recorded activation and a reached effective boundary; an open channel gate alone is insufficient. Absent before association. Report delivery remains asynchronous, and fulfillment suspension or cancellation controls usage eligibility independently of metering cutover | [optional] 
+**OrgId** | Pointer to **string** | The organization owning the associated Omnistrate subscription. Absent before association | [optional] 
 **RehearsalHandoffToken** | Pointer to **string** | The plaintext handoff credential, on SIMULATED contracts only, so a rehearsal stalled at AWAITING_ISV can be resumed without arming a new purchase. Absent on every real contract, where the credential is stored only as a hash and exists once in the delivery that carried it | [optional] 
 **RehearsalHandoffUrl** | Pointer to **string** | The same credential as the channel&#39;s ISV callback URL would have delivered it: the callback with the credential appended as the code parameter. This is the exact address a buyer&#39;s browser would have landed on, so following it resumes the rehearsal at the point the arrival reached.\\n\\nAssembled here rather than by the caller because appending it correctly means preserving a query string the ISV already had, and a console building its own would be reproducing that rule in a second place. SIMULATED contracts only, and absent when the channel has no callback URL to append to | [optional] 
 **RetryCount** | Pointer to **int64** | Operator requested retries of the whole fulfillment, distinct from the per-stage retryCount and from Port B delivery attempts | [optional] 
 **RunId** | Pointer to **string** | The current Temporal run. Changes on ContinueAsNew, which a long-lived fulfillment does periodically to bound history growth | [optional] 
 **StageTimeline** | Pointer to [**[]MarketplaceFulfillmentStageOccurrence**](MarketplaceFulfillmentStageOccurrence.md) | Every occurrence of every stage, oldest first, including repeats and stages this client may not know about. A contract suspended twice has two CONTRACT_SUSPENDED entries here, each with its own timing and its own legs | [optional] 
 **Stages** | [**[]MarketplaceFulfillmentStage**](MarketplaceFulfillmentStage.md) | Every stage, in order, whether or not it has been reached. AT MOST ONE ENTRY PER STAGE, carrying the latest occurrence of it. Superseded by stageTimeline, which carries every occurrence: a contract suspended twice appears here once. Kept because a client built against it finds a stage by name and would take the first of several repeats | 
-**SubscriptionId** | Pointer to **string** | The Omnistrate subscription, once it exists. The confirm waits for the fulfillment run to produce it and returns it, so there is no second call and no webhook to wait for. A repeat confirm returns the same id rather than approving twice | [optional] 
+**SubscriptionId** | Pointer to **string** | The associated Omnistrate subscription, once it exists. Confirm waits for subscription creation to complete and returns it, so there is no second call and no webhook to wait for. Repeat confirm returns the same id rather than approving twice. Reassign transfers ownership of this subscription without changing its id or deployments | [optional] 
 **WorkflowId** | Pointer to **string** | The Temporal workflow id, so an operator can open the same run in the Temporal UI rather than reasoning from this summary | [optional] 
 **WorkflowStatus** | Pointer to **string** |  | [optional] 
 
@@ -152,6 +155,81 @@ and a boolean to check if the value has been set.
 
 SetMarketplaceContractId sets MarketplaceContractId field to given value.
 
+
+### GetMeteringEffectiveAt
+
+`func (o *MarketplaceFulfillment) GetMeteringEffectiveAt() time.Time`
+
+GetMeteringEffectiveAt returns the MeteringEffectiveAt field if non-nil, zero value otherwise.
+
+### GetMeteringEffectiveAtOk
+
+`func (o *MarketplaceFulfillment) GetMeteringEffectiveAtOk() (*time.Time, bool)`
+
+GetMeteringEffectiveAtOk returns a tuple with the MeteringEffectiveAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMeteringEffectiveAt
+
+`func (o *MarketplaceFulfillment) SetMeteringEffectiveAt(v time.Time)`
+
+SetMeteringEffectiveAt sets MeteringEffectiveAt field to given value.
+
+### HasMeteringEffectiveAt
+
+`func (o *MarketplaceFulfillment) HasMeteringEffectiveAt() bool`
+
+HasMeteringEffectiveAt returns a boolean if a field has been set.
+
+### GetMeteringState
+
+`func (o *MarketplaceFulfillment) GetMeteringState() string`
+
+GetMeteringState returns the MeteringState field if non-nil, zero value otherwise.
+
+### GetMeteringStateOk
+
+`func (o *MarketplaceFulfillment) GetMeteringStateOk() (*string, bool)`
+
+GetMeteringStateOk returns a tuple with the MeteringState field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMeteringState
+
+`func (o *MarketplaceFulfillment) SetMeteringState(v string)`
+
+SetMeteringState sets MeteringState field to given value.
+
+### HasMeteringState
+
+`func (o *MarketplaceFulfillment) HasMeteringState() bool`
+
+HasMeteringState returns a boolean if a field has been set.
+
+### GetOrgId
+
+`func (o *MarketplaceFulfillment) GetOrgId() string`
+
+GetOrgId returns the OrgId field if non-nil, zero value otherwise.
+
+### GetOrgIdOk
+
+`func (o *MarketplaceFulfillment) GetOrgIdOk() (*string, bool)`
+
+GetOrgIdOk returns a tuple with the OrgId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrgId
+
+`func (o *MarketplaceFulfillment) SetOrgId(v string)`
+
+SetOrgId sets OrgId field to given value.
+
+### HasOrgId
+
+`func (o *MarketplaceFulfillment) HasOrgId() bool`
+
+HasOrgId returns a boolean if a field has been set.
 
 ### GetRehearsalHandoffToken
 

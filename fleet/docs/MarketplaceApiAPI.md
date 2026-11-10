@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**MarketplaceApiListSubscriptionUsageReportingAttempts**](MarketplaceApiAPI.md#MarketplaceApiListSubscriptionUsageReportingAttempts) | **Get** /2022-09-01-00/fleet/subscription/{subscriptionId}/usage-reporting/attempts | ListSubscriptionUsageReportingAttempts marketplace-api
 [**MarketplaceApiMarketplaceChannelWebhook**](MarketplaceApiAPI.md#MarketplaceApiMarketplaceChannelWebhook) | **Post** /2022-09-01-00/fleet/marketplace/webhook/{channel}/{serviceProviderOrgId} | MarketplaceChannelWebhook marketplace-api
 [**MarketplaceApiMarketplaceLanding**](MarketplaceApiAPI.md#MarketplaceApiMarketplaceLanding) | **Get** /2022-09-01-00/fleet/marketplace/land/{channel}/{serviceProviderOrgId} | MarketplaceLanding marketplace-api
+[**MarketplaceApiReassignMarketplaceFulfillment**](MarketplaceApiAPI.md#MarketplaceApiReassignMarketplaceFulfillment) | **Post** /2022-09-01-00/fleet/marketplace/contract/{id}/fulfillment/reassign | ReassignMarketplaceFulfillment marketplace-api
 [**MarketplaceApiRedeemHandoff**](MarketplaceApiAPI.md#MarketplaceApiRedeemHandoff) | **Post** /2022-09-01-00/fleet/marketplace/handoff/redeem | RedeemHandoff marketplace-api
 [**MarketplaceApiRedeliverMarketplaceDelivery**](MarketplaceApiAPI.md#MarketplaceApiRedeliverMarketplaceDelivery) | **Post** /2022-09-01-00/fleet/marketplace/delivery/{deliveryId}/redeliver | RedeliverMarketplaceDelivery marketplace-api
 [**MarketplaceApiRetryMarketplaceFulfillment**](MarketplaceApiAPI.md#MarketplaceApiRetryMarketplaceFulfillment) | **Post** /2022-09-01-00/fleet/marketplace/contract/{id}/fulfillment/retry | RetryMarketplaceFulfillment marketplace-api
@@ -326,7 +327,7 @@ import (
 func main() {
 	id := "mkc-4t8w2qbnz1lp" // string | The Omnistrate contract identifier
 	channel := "SUGER|SANDBOX" // string | With externalRef, resolves a contract from the marketplace identifier alone, which is what an ISV has to hand when the buyer contacts them (optional)
-	externalRef := "Et aut aut est et minus." // string |  (optional)
+	externalRef := "Odit et at in." // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -790,11 +791,11 @@ import (
 
 func main() {
 	channel := "SUGER|SANDBOX" // string | Filter to one channel (optional)
-	marketplaceContractId := "Eos sit qui recusandae pariatur." // string | Filter to one contract, which is how a contract detail view scopes its own trail (optional)
+	marketplaceContractId := "Optio cumque aliquid corrupti est." // string | Filter to one contract, which is how a contract detail view scopes its own trail (optional)
 	direction := "OUTBOUND|INBOUND|CHANNEL_INBOUND|CHANNEL_OUTBOUND" // string |  (optional)
 	status := "PENDING|DELIVERED|FAILED|BLOCKED" // string |  (optional)
 	eventType := "contract.discovered|entitlement.updated|contract.suspended|contract.cancelled|fulfillment.failed" // string |  (optional)
-	failuresOnly := false // bool | A shortcut for the only filter combination anybody types twice (optional)
+	failuresOnly := true // bool | A shortcut for the only filter combination anybody types twice (optional)
 	since := time.Now() // time.Time | Deliveries sent or received at or after this instant (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -938,10 +939,10 @@ import (
 
 func main() {
 	subscriptionId := "sub-1g0j3q4k5" // string | The Omnistrate subscription identifier
-	usageReportRecordId := "Magni velit ad maxime corrupti." // string | Filter to one usage report idempotency key (optional)
-	billingChannel := "Fugiat debitis ut et et." // string | Filter to one downstream billing channel (optional)
+	usageReportRecordId := "Sint et architecto minus nemo." // string | Filter to one usage report idempotency key (optional)
+	billingChannel := "Sunt ut quo rerum ex velit exercitationem." // string | Filter to one downstream billing channel (optional)
 	status := "PENDING|ACCEPTED|ACCEPTED_BY_DEDUPE|REJECTED_TERMINAL|UNMAPPED" // string |  (optional)
-	dimension := "Quia et." // string |  (optional)
+	dimension := "Eveniet optio minima eos." // string |  (optional)
 	failuresOnly := false // bool |  (optional)
 	attemptedAtFrom := time.Now() // time.Time | Only attempts at or after this RFC3339 instant. Defaults to seven days ago (optional)
 	attemptedAtTo := time.Now() // time.Time | Only attempts at or before this RFC3339 instant. Defaults to now (optional)
@@ -1098,7 +1099,7 @@ func main() {
 	serviceProviderOrgId := "org-8Hn2Kq4Vd1" // string | Which ISV organization's listing was purchased. A SELECTOR for whose stored channel credentials perform the server-side readback, not a credential: it grants nothing, and substituting another organization's id resolves the token against an account where it does not exist
 	sugerEntitlementId := "ent_01J9Q7VZ3K8MTRQ2X4W6H0N5PD" // string | Suger's entitlement identifier, appended by Suger's signup redirect. A pointer to be read back, never believed (optional)
 	partner := "aws|azure|gcp" // string | Which cloud the purchase originated on, as Suger reports it. Recorded for audit; the authoritative value comes from the readback (optional)
-	offerType := "Ex et." // string | Suger's offer type for the purchase. Recorded for audit only (optional)
+	offerType := "Unde dignissimos laboriosam ut soluta numquam." // string | Suger's offer type for the purchase. Recorded for audit only (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1144,6 +1145,78 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/vnd.goa.error
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## MarketplaceApiReassignMarketplaceFulfillment
+
+> MarketplaceFulfillment MarketplaceApiReassignMarketplaceFulfillment(ctx, id).ReassignMarketplaceFulfillmentRequest2(reassignMarketplaceFulfillmentRequest2).Execute()
+
+ReassignMarketplaceFulfillment marketplace-api
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/omnistrate-oss/omnistrate-sdk-go/fleet"
+)
+
+func main() {
+	id := "mkc-4t8w2qbnz1lp" // string | The confirmed Omnistrate contract identifier
+	reassignMarketplaceFulfillmentRequest2 := *openapiclient.NewReassignMarketplaceFulfillmentRequest2("org-6pd3nz8kva") // ReassignMarketplaceFulfillmentRequest2 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MarketplaceApiAPI.MarketplaceApiReassignMarketplaceFulfillment(context.Background(), id).ReassignMarketplaceFulfillmentRequest2(reassignMarketplaceFulfillmentRequest2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketplaceApiAPI.MarketplaceApiReassignMarketplaceFulfillment``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MarketplaceApiReassignMarketplaceFulfillment`: MarketplaceFulfillment
+	fmt.Fprintf(os.Stdout, "Response from `MarketplaceApiAPI.MarketplaceApiReassignMarketplaceFulfillment`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The confirmed Omnistrate contract identifier | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMarketplaceApiReassignMarketplaceFulfillmentRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **reassignMarketplaceFulfillmentRequest2** | [**ReassignMarketplaceFulfillmentRequest2**](ReassignMarketplaceFulfillmentRequest2.md) |  | 
+
+### Return type
+
+[**MarketplaceFulfillment**](MarketplaceFulfillment.md)
+
+### Authorization
+
+[api_key_header_Authorization](../README.md#api_key_header_Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.goa.error
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -1233,7 +1306,7 @@ import (
 )
 
 func main() {
-	deliveryId := "Autem quidem." // string | Which delivery to send again. Must be an outbound one: there is nothing to redeliver about a call the ISV made. The redelivery carries the SAME eventId, so a receiver that already processed this event correctly treats it as a duplicate and does nothing
+	deliveryId := "Voluptatum vel natus id dolorum ipsa." // string | Which delivery to send again. Must be an outbound one: there is nothing to redeliver about a call the ISV made. The redelivery carries the SAME eventId, so a receiver that already processed this event correctly treats it as a duplicate and does nothing
 	redeliverMarketplaceDeliveryRequest2 := *openapiclient.NewRedeliverMarketplaceDeliveryRequest2() // RedeliverMarketplaceDeliveryRequest2 | 
 
 	configuration := openapiclient.NewConfiguration()

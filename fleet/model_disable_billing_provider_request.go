@@ -20,7 +20,7 @@ var _ MappedNullable = &DisableBillingProviderRequest{}
 
 // DisableBillingProviderRequest struct for DisableBillingProviderRequest
 type DisableBillingProviderRequest struct {
-	// The billing provider type
+	// The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace
 	BillingProviderType string `json:"billingProviderType"`
 	// JWT token used to perform authorization
 	Token string `json:"token"`

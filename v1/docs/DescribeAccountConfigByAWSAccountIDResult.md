@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AccountOnboardingDetails** | Pointer to [**AccountOnboardingDetails**](AccountOnboardingDetails.md) |  | [optional] 
 **AppliedSettings** | Pointer to [**AccountConfigSettings**](AccountConfigSettings.md) |  | [optional] 
 **AwsAccountID** | **string** | The AWS account ID | 
 **AwsBootstrapRoleARN** | **string** | The security role ARN or service account ARN that grants access to operate the infra | 
 **AwsCloudFormationNoLBTemplateURL** | Pointer to **string** | The URL to the CloudFormation template (no LoadBalancer policy version) | [optional] 
 **AwsCloudFormationTemplateURL** | Pointer to **string** | The URL to the CloudFormation template | [optional] 
-**AwsCloudFormationUpdateURL** | Pointer to **string** | The AWS console URL for updating the existing account setup stack using saved requested settings. Uses the verified stack identity and its actual region. Omitted when the stack identity is unknown or the account does not support this flow. | [optional] 
 **ByoaInstanceIDs** | Pointer to **[]string** | The BYOA instance IDs that this account config is tied to | [optional] 
 **CloudProviderId** | **string** | ID of an CloudProvider | 
 **Description** | **string** | The description for the account | 
@@ -37,6 +37,31 @@ will change when the set of required properties is changed
 NewDescribeAccountConfigByAWSAccountIDResultWithDefaults instantiates a new DescribeAccountConfigByAWSAccountIDResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAccountOnboardingDetails
+
+`func (o *DescribeAccountConfigByAWSAccountIDResult) GetAccountOnboardingDetails() AccountOnboardingDetails`
+
+GetAccountOnboardingDetails returns the AccountOnboardingDetails field if non-nil, zero value otherwise.
+
+### GetAccountOnboardingDetailsOk
+
+`func (o *DescribeAccountConfigByAWSAccountIDResult) GetAccountOnboardingDetailsOk() (*AccountOnboardingDetails, bool)`
+
+GetAccountOnboardingDetailsOk returns a tuple with the AccountOnboardingDetails field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccountOnboardingDetails
+
+`func (o *DescribeAccountConfigByAWSAccountIDResult) SetAccountOnboardingDetails(v AccountOnboardingDetails)`
+
+SetAccountOnboardingDetails sets AccountOnboardingDetails field to given value.
+
+### HasAccountOnboardingDetails
+
+`func (o *DescribeAccountConfigByAWSAccountIDResult) HasAccountOnboardingDetails() bool`
+
+HasAccountOnboardingDetails returns a boolean if a field has been set.
 
 ### GetAppliedSettings
 
@@ -152,31 +177,6 @@ SetAwsCloudFormationTemplateURL sets AwsCloudFormationTemplateURL field to given
 `func (o *DescribeAccountConfigByAWSAccountIDResult) HasAwsCloudFormationTemplateURL() bool`
 
 HasAwsCloudFormationTemplateURL returns a boolean if a field has been set.
-
-### GetAwsCloudFormationUpdateURL
-
-`func (o *DescribeAccountConfigByAWSAccountIDResult) GetAwsCloudFormationUpdateURL() string`
-
-GetAwsCloudFormationUpdateURL returns the AwsCloudFormationUpdateURL field if non-nil, zero value otherwise.
-
-### GetAwsCloudFormationUpdateURLOk
-
-`func (o *DescribeAccountConfigByAWSAccountIDResult) GetAwsCloudFormationUpdateURLOk() (*string, bool)`
-
-GetAwsCloudFormationUpdateURLOk returns a tuple with the AwsCloudFormationUpdateURL field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAwsCloudFormationUpdateURL
-
-`func (o *DescribeAccountConfigByAWSAccountIDResult) SetAwsCloudFormationUpdateURL(v string)`
-
-SetAwsCloudFormationUpdateURL sets AwsCloudFormationUpdateURL field to given value.
-
-### HasAwsCloudFormationUpdateURL
-
-`func (o *DescribeAccountConfigByAWSAccountIDResult) HasAwsCloudFormationUpdateURL() bool`
-
-HasAwsCloudFormationUpdateURL returns a boolean if a field has been set.
 
 ### GetByoaInstanceIDs
 

@@ -32,7 +32,7 @@ type CustomerBillingProvider struct {
 	PaymentConfigured *bool `json:"paymentConfigured,omitempty"`
 	// The URL from the billing provide to redirect users to so they can enter their payment information.  Only present when first adding payment information
 	PaymentInfoPortalURL *string `json:"paymentInfoPortalURL,omitempty"`
-	// The billing provider type
+	// The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace
 	Type string `json:"type"`
 	AdditionalProperties map[string]interface{}
 }

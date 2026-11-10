@@ -24,7 +24,7 @@ type FleetDescribeSubscriptionResult struct {
 	AllowCreatesWhenPaymentNotConfigured *bool `json:"allowCreatesWhenPaymentNotConfigured,omitempty"`
 	// The subscription-level deployment location restriction. Omitted or empty means the subscription inherits the product tier deployment locations.
 	AllowedDeploymentLocations []SubscriptionAllowedDeploymentLocation `json:"allowedDeploymentLocations,omitempty"`
-	// The billing provider type
+	// The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace
 	BillingProvider *string `json:"billingProvider,omitempty"`
 	// The time that this subscription was created
 	CreatedAt string `json:"createdAt"`

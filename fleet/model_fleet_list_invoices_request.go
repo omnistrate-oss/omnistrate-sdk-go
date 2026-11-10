@@ -21,7 +21,7 @@ var _ MappedNullable = &FleetListInvoicesRequest{}
 
 // FleetListInvoicesRequest struct for FleetListInvoicesRequest
 type FleetListInvoicesRequest struct {
-	// The billing provider type
+	// The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace
 	BillingProvider *string `json:"billingProvider,omitempty"`
 	// ID of the customer
 	CustomerId *string `json:"customerId,omitempty"`

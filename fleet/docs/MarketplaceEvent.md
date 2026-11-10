@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **EventId** | **string** | Unique per event and STABLE ACROSS RETRIES. Deduplicate on it: the same event will arrive more than once, and that is normal rather than an incident. A redelivery requested from the console also reuses this id, deliberately, so it exercises your idempotency rather than bypassing it | 
 **EventType** | **string** | The type of a marketplace fulfillment event delivered to an ISV receiver | 
 **ExternalBuyerId** | Pointer to **string** | The marketplace-native buyer identifier used for billing | [optional] 
+**ExternalId** | Pointer to **string** | The external identifier from rawContract.externalID, when supplied by the channel | [optional] 
 **ExternalProductId** | Pointer to **string** | The marketplace-native product identifier used for billing | [optional] 
 **ExternalRef** | Pointer to **string** | The channel&#39;s own identifier for the contract, unique per channel | [optional] 
 **FailureReason** | Pointer to **string** | Present on fulfillment.failed. Names what failed in words. A contract stuck past the handoff SLA also carries the orphaned condition here, which does not change fulfillmentState | [optional] 
@@ -22,6 +23,7 @@ Name | Type | Description | Notes
 **MarketplaceContractId** | **string** | The Omnistrate contract identifier, stable for the life of the contract | 
 **OccurredAt** | **time.Time** | When the event occurred. This is NOT the send instant: retries carry the original occurredAt while X-Omnistrate-Timestamp moves. Use the header for the replay window and this field for ordering by time | 
 **Org** | Pointer to [**MarketplaceEventOrg**](MarketplaceEventOrg.md) |  | [optional] 
+**Partner** | Pointer to **string** | The underlying marketplace reported by the channel; known values are AWS, AZURE and GCP | [optional] 
 **Plan** | Pointer to [**MarketplaceEventPlan**](MarketplaceEventPlan.md) |  | [optional] 
 **SubscriptionId** | Pointer to **string** | The Omnistrate subscription. Absent before the confirm, because no subscription exists until then; present on every event after it. The confirm response is where an ISV first receives this value | [optional] 
 **SubscriptionRequest** | Pointer to [**MarketplaceEventSubscriptionRequest**](MarketplaceEventSubscriptionRequest.md) |  | [optional] 
@@ -255,6 +257,31 @@ SetExternalBuyerId sets ExternalBuyerId field to given value.
 
 HasExternalBuyerId returns a boolean if a field has been set.
 
+### GetExternalId
+
+`func (o *MarketplaceEvent) GetExternalId() string`
+
+GetExternalId returns the ExternalId field if non-nil, zero value otherwise.
+
+### GetExternalIdOk
+
+`func (o *MarketplaceEvent) GetExternalIdOk() (*string, bool)`
+
+GetExternalIdOk returns a tuple with the ExternalId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalId
+
+`func (o *MarketplaceEvent) SetExternalId(v string)`
+
+SetExternalId sets ExternalId field to given value.
+
+### HasExternalId
+
+`func (o *MarketplaceEvent) HasExternalId() bool`
+
+HasExternalId returns a boolean if a field has been set.
+
 ### GetExternalProductId
 
 `func (o *MarketplaceEvent) GetExternalProductId() string`
@@ -469,6 +496,31 @@ SetOrg sets Org field to given value.
 `func (o *MarketplaceEvent) HasOrg() bool`
 
 HasOrg returns a boolean if a field has been set.
+
+### GetPartner
+
+`func (o *MarketplaceEvent) GetPartner() string`
+
+GetPartner returns the Partner field if non-nil, zero value otherwise.
+
+### GetPartnerOk
+
+`func (o *MarketplaceEvent) GetPartnerOk() (*string, bool)`
+
+GetPartnerOk returns a tuple with the Partner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPartner
+
+`func (o *MarketplaceEvent) SetPartner(v string)`
+
+SetPartner sets Partner field to given value.
+
+### HasPartner
+
+`func (o *MarketplaceEvent) HasPartner() bool`
+
+HasPartner returns a boolean if a field has been set.
 
 ### GetPlan
 

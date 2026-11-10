@@ -71,6 +71,13 @@ All URIs are relative to *https://api.omnistrate.cloud*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccessRequestsApiAPI* | [**AccessRequestsApiApproveAccessRequest**](docs/AccessRequestsApiAPI.md#accessrequestsapiapproveaccessrequest) | **Post** /2022-09-01-00/fleet/access-requests/{id}/approve | ApproveAccessRequest access-requests-api
+*AccessRequestsApiAPI* | [**AccessRequestsApiBatchRevokeAccessRequests**](docs/AccessRequestsApiAPI.md#accessrequestsapibatchrevokeaccessrequests) | **Post** /2022-09-01-00/fleet/access-requests/batch-revoke | BatchRevokeAccessRequests access-requests-api
+*AccessRequestsApiAPI* | [**AccessRequestsApiCreateAccessRequest**](docs/AccessRequestsApiAPI.md#accessrequestsapicreateaccessrequest) | **Post** /2022-09-01-00/fleet/access-requests | CreateAccessRequest access-requests-api
+*AccessRequestsApiAPI* | [**AccessRequestsApiDenyAccessRequest**](docs/AccessRequestsApiAPI.md#accessrequestsapidenyaccessrequest) | **Post** /2022-09-01-00/fleet/access-requests/{id}/deny | DenyAccessRequest access-requests-api
+*AccessRequestsApiAPI* | [**AccessRequestsApiDescribeAccessRequest**](docs/AccessRequestsApiAPI.md#accessrequestsapidescribeaccessrequest) | **Get** /2022-09-01-00/fleet/access-requests/{id} | DescribeAccessRequest access-requests-api
+*AccessRequestsApiAPI* | [**AccessRequestsApiListAccessRequests**](docs/AccessRequestsApiAPI.md#accessrequestsapilistaccessrequests) | **Get** /2022-09-01-00/fleet/access-requests | ListAccessRequests access-requests-api
+*AccessRequestsApiAPI* | [**AccessRequestsApiRevokeAccessRequest**](docs/AccessRequestsApiAPI.md#accessrequestsapirevokeaccessrequest) | **Post** /2022-09-01-00/fleet/access-requests/{id}/revoke | RevokeAccessRequest access-requests-api
 *AuditEventsApiAPI* | [**AuditEventsApiAuditEvents**](docs/AuditEventsApiAPI.md#auditeventsapiauditevents) | **Get** /2022-09-01-00/fleet/audit-events | AuditEvents audit-events-api
 *CostApiAPI* | [**CostApiDescribeCloudProviderCost**](docs/CostApiAPI.md#costapidescribecloudprovidercost) | **Get** /2022-09-01-00/fleet/cost/cloud-provider | DescribeCloudProviderCost cost-api
 *CostApiAPI* | [**CostApiDescribeDeploymentCellCost**](docs/CostApiAPI.md#costapidescribedeploymentcellcost) | **Get** /2022-09-01-00/fleet/cost/deployment-cell | DescribeDeploymentCellCost cost-api
@@ -153,6 +160,7 @@ Class | Method | HTTP request | Description
 *InventoryApiAPI* | [**InventoryApiDescribeOrganization**](docs/InventoryApiAPI.md#inventoryapidescribeorganization) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/organization/{organizationId} | DescribeOrganization inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeResource**](docs/InventoryApiAPI.md#inventoryapidescriberesource) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/model/{serviceModelId}/productTier/{productTierId}/resource/{resourceId} | DescribeResource inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeResourceInstance**](docs/InventoryApiAPI.md#inventoryapidescriberesourceinstance) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId} | DescribeResourceInstance inventory-api
+*InventoryApiAPI* | [**InventoryApiDescribeResourceInstanceHealthHistory**](docs/InventoryApiAPI.md#inventoryapidescriberesourceinstancehealthhistory) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/health-history | DescribeResourceInstanceHealthHistory inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeResourceInstanceInstaller**](docs/InventoryApiAPI.md#inventoryapidescriberesourceinstanceinstaller) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/installer | DescribeResourceInstanceInstaller inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeResourceInstanceSnapshot**](docs/InventoryApiAPI.md#inventoryapidescriberesourceinstancesnapshot) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/snapshot/{snapshotId} | DescribeResourceInstanceSnapshot inventory-api
 *InventoryApiAPI* | [**InventoryApiDescribeResourceInstanceSnapshotFromTime**](docs/InventoryApiAPI.md#inventoryapidescriberesourceinstancesnapshotfromtime) | **Get** /2022-09-01-00/fleet/service/{serviceId}/environment/{environmentId}/instance/{instanceId}/restore | DescribeResourceInstanceSnapshotFromTime inventory-api
@@ -243,6 +251,7 @@ Class | Method | HTTP request | Description
 *MarketplaceApiAPI* | [**MarketplaceApiListSubscriptionUsageReportingAttempts**](docs/MarketplaceApiAPI.md#marketplaceapilistsubscriptionusagereportingattempts) | **Get** /2022-09-01-00/fleet/subscription/{subscriptionId}/usage-reporting/attempts | ListSubscriptionUsageReportingAttempts marketplace-api
 *MarketplaceApiAPI* | [**MarketplaceApiMarketplaceChannelWebhook**](docs/MarketplaceApiAPI.md#marketplaceapimarketplacechannelwebhook) | **Post** /2022-09-01-00/fleet/marketplace/webhook/{channel}/{serviceProviderOrgId} | MarketplaceChannelWebhook marketplace-api
 *MarketplaceApiAPI* | [**MarketplaceApiMarketplaceLanding**](docs/MarketplaceApiAPI.md#marketplaceapimarketplacelanding) | **Get** /2022-09-01-00/fleet/marketplace/land/{channel}/{serviceProviderOrgId} | MarketplaceLanding marketplace-api
+*MarketplaceApiAPI* | [**MarketplaceApiReassignMarketplaceFulfillment**](docs/MarketplaceApiAPI.md#marketplaceapireassignmarketplacefulfillment) | **Post** /2022-09-01-00/fleet/marketplace/contract/{id}/fulfillment/reassign | ReassignMarketplaceFulfillment marketplace-api
 *MarketplaceApiAPI* | [**MarketplaceApiRedeemHandoff**](docs/MarketplaceApiAPI.md#marketplaceapiredeemhandoff) | **Post** /2022-09-01-00/fleet/marketplace/handoff/redeem | RedeemHandoff marketplace-api
 *MarketplaceApiAPI* | [**MarketplaceApiRedeliverMarketplaceDelivery**](docs/MarketplaceApiAPI.md#marketplaceapiredelivermarketplacedelivery) | **Post** /2022-09-01-00/fleet/marketplace/delivery/{deliveryId}/redeliver | RedeliverMarketplaceDelivery marketplace-api
 *MarketplaceApiAPI* | [**MarketplaceApiRetryMarketplaceFulfillment**](docs/MarketplaceApiAPI.md#marketplaceapiretrymarketplacefulfillment) | **Post** /2022-09-01-00/fleet/marketplace/contract/{id}/fulfillment/retry | RetryMarketplaceFulfillment marketplace-api
@@ -275,8 +284,11 @@ Class | Method | HTTP request | Description
 
  - [APIEntity](docs/APIEntity.md)
  - [APIKeyMetadata](docs/APIKeyMetadata.md)
+ - [AccessRequest](docs/AccessRequest.md)
  - [AccessSideUser](docs/AccessSideUser.md)
+ - [AccountConfigSettings](docs/AccountConfigSettings.md)
  - [AccountConfigSummary](docs/AccountConfigSummary.md)
+ - [AccountGovernanceControls](docs/AccountGovernanceControls.md)
  - [AcknowledgeEventRequest](docs/AcknowledgeEventRequest.md)
  - [AddAccountConfigToServiceModelRequest](docs/AddAccountConfigToServiceModelRequest.md)
  - [AddCapacityToResourceInstanceRequest](docs/AddCapacityToResourceInstanceRequest.md)
@@ -289,9 +301,16 @@ Class | Method | HTTP request | Description
  - [AdoptResourceInstanceRequest2](docs/AdoptResourceInstanceRequest2.md)
  - [Amenity](docs/Amenity.md)
  - [ApplyPendingChangesToHostClusterRequest](docs/ApplyPendingChangesToHostClusterRequest.md)
+ - [ApproveAccessRequestRequest](docs/ApproveAccessRequestRequest.md)
+ - [ApproveAccessRequestRequest2](docs/ApproveAccessRequestRequest2.md)
  - [ApproveSubscriptionRequestRequest](docs/ApproveSubscriptionRequestRequest.md)
  - [ArtifactUploadingTask](docs/ArtifactUploadingTask.md)
+ - [AuthSessionResult](docs/AuthSessionResult.md)
  - [BackupStatus](docs/BackupStatus.md)
+ - [BatchRevokeAccessRequestResult](docs/BatchRevokeAccessRequestResult.md)
+ - [BatchRevokeAccessRequestsRequest](docs/BatchRevokeAccessRequestsRequest.md)
+ - [BatchRevokeAccessRequestsRequest2](docs/BatchRevokeAccessRequestsRequest2.md)
+ - [BatchRevokeAccessRequestsResult](docs/BatchRevokeAccessRequestsResult.md)
  - [BillingProvider](docs/BillingProvider.md)
  - [BuildServiceFromComposeSpecRequest](docs/BuildServiceFromComposeSpecRequest.md)
  - [BuildServiceFromComposeSpecResult](docs/BuildServiceFromComposeSpecResult.md)
@@ -339,6 +358,8 @@ Class | Method | HTTP request | Description
  - [CountWithRecent](docs/CountWithRecent.md)
  - [CreateAPIKeyRequest](docs/CreateAPIKeyRequest.md)
  - [CreateAPIKeyResult](docs/CreateAPIKeyResult.md)
+ - [CreateAccessRequestRequest](docs/CreateAccessRequestRequest.md)
+ - [CreateAccessRequestRequest2](docs/CreateAccessRequestRequest2.md)
  - [CreateConsumptionSetupIntentRequest](docs/CreateConsumptionSetupIntentRequest.md)
  - [CreateCustomerOnboardingRequest](docs/CreateCustomerOnboardingRequest.md)
  - [CreateCustomerOnboardingRequest2](docs/CreateCustomerOnboardingRequest2.md)
@@ -410,6 +431,7 @@ Class | Method | HTTP request | Description
  - [DeleteSubscriptionRequest](docs/DeleteSubscriptionRequest.md)
  - [DeleteUserRequest](docs/DeleteUserRequest.md)
  - [DemoRequest](docs/DemoRequest.md)
+ - [DenyAccessRequestRequest](docs/DenyAccessRequestRequest.md)
  - [DenyMarketplaceFulfillmentRequest](docs/DenyMarketplaceFulfillmentRequest.md)
  - [DenyMarketplaceFulfillmentRequest2](docs/DenyMarketplaceFulfillmentRequest2.md)
  - [DenySubscriptionRequestRequest](docs/DenySubscriptionRequestRequest.md)
@@ -433,7 +455,9 @@ Class | Method | HTTP request | Description
  - [DeploymentProgressDiagnosis](docs/DeploymentProgressDiagnosis.md)
  - [DescribeAPIKeyRequest](docs/DescribeAPIKeyRequest.md)
  - [DescribeAPIKeyResult](docs/DescribeAPIKeyResult.md)
+ - [DescribeAccessRequestRequest](docs/DescribeAccessRequestRequest.md)
  - [DescribeAccountConfigRequest](docs/DescribeAccountConfigRequest.md)
+ - [DescribeAuthSessionRequest](docs/DescribeAuthSessionRequest.md)
  - [DescribeAvailabilityZoneRequest](docs/DescribeAvailabilityZoneRequest.md)
  - [DescribeAvailabilityZoneResult](docs/DescribeAvailabilityZoneResult.md)
  - [DescribeCloudProviderCostRequest](docs/DescribeCloudProviderCostRequest.md)
@@ -487,6 +511,7 @@ Class | Method | HTTP request | Description
  - [DescribeRegionCostResult](docs/DescribeRegionCostResult.md)
  - [DescribeRegionRequest](docs/DescribeRegionRequest.md)
  - [DescribeRegionResult](docs/DescribeRegionResult.md)
+ - [DescribeResourceInstanceHealthHistoryRequest](docs/DescribeResourceInstanceHealthHistoryRequest.md)
  - [DescribeResourceInstanceInstaller](docs/DescribeResourceInstanceInstaller.md)
  - [DescribeResourceInstanceInstallerResult](docs/DescribeResourceInstanceInstallerResult.md)
  - [DescribeResourceInstanceRequest](docs/DescribeResourceInstanceRequest.md)
@@ -615,6 +640,7 @@ Class | Method | HTTP request | Description
  - [FleetDescribeInstanceSnapshotResult](docs/FleetDescribeInstanceSnapshotResult.md)
  - [FleetDescribeInvoiceRequest](docs/FleetDescribeInvoiceRequest.md)
  - [FleetDescribeOrgUser](docs/FleetDescribeOrgUser.md)
+ - [FleetDescribeResourceInstanceHealthHistoryRequest](docs/FleetDescribeResourceInstanceHealthHistoryRequest.md)
  - [FleetDescribeServicesOrchestrationRequest](docs/FleetDescribeServicesOrchestrationRequest.md)
  - [FleetDescribeServicesOrchestrationResult](docs/FleetDescribeServicesOrchestrationResult.md)
  - [FleetDescribeSubscriptionRequest](docs/FleetDescribeSubscriptionRequest.md)
@@ -796,6 +822,8 @@ Class | Method | HTTP request | Description
  - [InputParameterEntity](docs/InputParameterEntity.md)
  - [InputParameterScope](docs/InputParameterScope.md)
  - [InstanceFailureDetail](docs/InstanceFailureDetail.md)
+ - [InstanceHealthHistoryEntry](docs/InstanceHealthHistoryEntry.md)
+ - [InstanceHealthHistoryResult](docs/InstanceHealthHistoryResult.md)
  - [InstanceHealthSummary](docs/InstanceHealthSummary.md)
  - [InstanceInfrastructure](docs/InstanceInfrastructure.md)
  - [InstanceSnapshot](docs/InstanceSnapshot.md)
@@ -814,7 +842,11 @@ Class | Method | HTTP request | Description
  - [InviteConsumptionUserRequest](docs/InviteConsumptionUserRequest.md)
  - [InviteUserRequest](docs/InviteUserRequest.md)
  - [Invoice](docs/Invoice.md)
+ - [JITAccessEventRequester](docs/JITAccessEventRequester.md)
+ - [JITAccessRequestAuditDetails](docs/JITAccessRequestAuditDetails.md)
  - [JobMetric](docs/JobMetric.md)
+ - [JustInTimeAccessApproverUser](docs/JustInTimeAccessApproverUser.md)
+ - [JustInTimeAccessConfiguration](docs/JustInTimeAccessConfiguration.md)
  - [KubeConfigHostClusterRequest](docs/KubeConfigHostClusterRequest.md)
  - [KubeConfigHostClusterResult](docs/KubeConfigHostClusterResult.md)
  - [KubectlValueProviderConfig](docs/KubectlValueProviderConfig.md)
@@ -824,6 +856,8 @@ Class | Method | HTTP request | Description
  - [List](docs/List.md)
  - [ListAPIKeysRequest](docs/ListAPIKeysRequest.md)
  - [ListAPIKeysResult](docs/ListAPIKeysResult.md)
+ - [ListAccessRequestsRequest](docs/ListAccessRequestsRequest.md)
+ - [ListAccessRequestsResult](docs/ListAccessRequestsResult.md)
  - [ListAccountConfigsResult](docs/ListAccountConfigsResult.md)
  - [ListActiveOrganizationsRequest](docs/ListActiveOrganizationsRequest.md)
  - [ListAllInstanceSnapshotsRequest](docs/ListAllInstanceSnapshotsRequest.md)
@@ -944,6 +978,7 @@ Class | Method | HTTP request | Description
  - [LogoutRequest](docs/LogoutRequest.md)
  - [ManageUpgradePathLifecycleRequest](docs/ManageUpgradePathLifecycleRequest.md)
  - [ManageUpgradePathLifecycleRequest2](docs/ManageUpgradePathLifecycleRequest2.md)
+ - [ManagedArtifactDestination](docs/ManagedArtifactDestination.md)
  - [ManagedArtifactRelease](docs/ManagedArtifactRelease.md)
  - [ManagedArtifactReleaseArtifact](docs/ManagedArtifactReleaseArtifact.md)
  - [ManagedArtifactReleasePolicy](docs/ManagedArtifactReleasePolicy.md)
@@ -1050,6 +1085,8 @@ Class | Method | HTTP request | Description
  - [ProxyInstanceSearchRecord](docs/ProxyInstanceSearchRecord.md)
  - [PublishManagedReleaseRequest](docs/PublishManagedReleaseRequest.md)
  - [PublishManagedReleaseResult](docs/PublishManagedReleaseResult.md)
+ - [ReassignMarketplaceFulfillmentRequest](docs/ReassignMarketplaceFulfillmentRequest.md)
+ - [ReassignMarketplaceFulfillmentRequest2](docs/ReassignMarketplaceFulfillmentRequest2.md)
  - [ReceiveWebhookRequest](docs/ReceiveWebhookRequest.md)
  - [RecentDeploymentFailureStatus](docs/RecentDeploymentFailureStatus.md)
  - [RedeemHandoffRequest](docs/RedeemHandoffRequest.md)
@@ -1103,6 +1140,7 @@ Class | Method | HTTP request | Description
  - [RetryMarketplaceFulfillmentRequest2](docs/RetryMarketplaceFulfillmentRequest2.md)
  - [RevokeAPIKeyRequest](docs/RevokeAPIKeyRequest.md)
  - [RevokeAPIKeyResult](docs/RevokeAPIKeyResult.md)
+ - [RevokeAccessRequestRequest](docs/RevokeAccessRequestRequest.md)
  - [RevokeConsumptionUserRoleRequest](docs/RevokeConsumptionUserRoleRequest.md)
  - [RevokeTokenRequest](docs/RevokeTokenRequest.md)
  - [RevokeUserRoleRequest](docs/RevokeUserRoleRequest.md)

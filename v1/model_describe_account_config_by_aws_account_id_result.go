@@ -20,6 +20,7 @@ var _ MappedNullable = &DescribeAccountConfigByAWSAccountIDResult{}
 
 // DescribeAccountConfigByAWSAccountIDResult Account configuration including the role required to access
 type DescribeAccountConfigByAWSAccountIDResult struct {
+	AccountOnboardingDetails *AccountOnboardingDetails `json:"accountOnboardingDetails,omitempty"`
 	AppliedSettings *AccountConfigSettings `json:"appliedSettings,omitempty"`
 	// The AWS account ID
 	AwsAccountID string `json:"awsAccountID"`
@@ -29,8 +30,6 @@ type DescribeAccountConfigByAWSAccountIDResult struct {
 	AwsCloudFormationNoLBTemplateURL *string `json:"awsCloudFormationNoLBTemplateURL,omitempty"`
 	// The URL to the CloudFormation template
 	AwsCloudFormationTemplateURL *string `json:"awsCloudFormationTemplateURL,omitempty"`
-	// The AWS console URL for updating the existing account setup stack using saved requested settings. Uses the verified stack identity and its actual region. Omitted when the stack identity is unknown or the account does not support this flow.
-	AwsCloudFormationUpdateURL *string `json:"awsCloudFormationUpdateURL,omitempty"`
 	// The BYOA instance IDs that this account config is tied to
 	ByoaInstanceIDs []string `json:"byoaInstanceIDs,omitempty"`
 	// ID of an CloudProvider
@@ -74,6 +73,29 @@ func NewDescribeAccountConfigByAWSAccountIDResult(awsAccountID string, awsBootst
 func NewDescribeAccountConfigByAWSAccountIDResultWithDefaults() *DescribeAccountConfigByAWSAccountIDResult {
 	this := DescribeAccountConfigByAWSAccountIDResult{}
 	return &this
+}
+
+// GetAccountOnboardingDetails returns the AccountOnboardingDetails field value if set, zero value otherwise.
+func (o *DescribeAccountConfigByAWSAccountIDResult) GetAccountOnboardingDetails() AccountOnboardingDetails {
+	if o == nil || IsNil(o.AccountOnboardingDetails) {
+		var ret AccountOnboardingDetails
+		return ret
+	}
+	return *o.AccountOnboardingDetails
+}
+
+// GetAccountOnboardingDetailsOk returns a tuple with the AccountOnboardingDetails field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DescribeAccountConfigByAWSAccountIDResult) GetAccountOnboardingDetailsOk() (*AccountOnboardingDetails, bool) {
+	if o == nil || IsNil(o.AccountOnboardingDetails) {
+		return nil, false
+	}
+	return o.AccountOnboardingDetails, true
+}
+
+// SetAccountOnboardingDetails gets a reference to the given AccountOnboardingDetails and assigns it to the AccountOnboardingDetails field.
+func (o *DescribeAccountConfigByAWSAccountIDResult) SetAccountOnboardingDetails(v AccountOnboardingDetails) {
+	o.AccountOnboardingDetails = &v
 }
 
 // GetAppliedSettings returns the AppliedSettings field value if set, zero value otherwise.
@@ -191,29 +213,6 @@ func (o *DescribeAccountConfigByAWSAccountIDResult) GetAwsCloudFormationTemplate
 // SetAwsCloudFormationTemplateURL gets a reference to the given string and assigns it to the AwsCloudFormationTemplateURL field.
 func (o *DescribeAccountConfigByAWSAccountIDResult) SetAwsCloudFormationTemplateURL(v string) {
 	o.AwsCloudFormationTemplateURL = &v
-}
-
-// GetAwsCloudFormationUpdateURL returns the AwsCloudFormationUpdateURL field value if set, zero value otherwise.
-func (o *DescribeAccountConfigByAWSAccountIDResult) GetAwsCloudFormationUpdateURL() string {
-	if o == nil || IsNil(o.AwsCloudFormationUpdateURL) {
-		var ret string
-		return ret
-	}
-	return *o.AwsCloudFormationUpdateURL
-}
-
-// GetAwsCloudFormationUpdateURLOk returns a tuple with the AwsCloudFormationUpdateURL field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DescribeAccountConfigByAWSAccountIDResult) GetAwsCloudFormationUpdateURLOk() (*string, bool) {
-	if o == nil || IsNil(o.AwsCloudFormationUpdateURL) {
-		return nil, false
-	}
-	return o.AwsCloudFormationUpdateURL, true
-}
-
-// SetAwsCloudFormationUpdateURL gets a reference to the given string and assigns it to the AwsCloudFormationUpdateURL field.
-func (o *DescribeAccountConfigByAWSAccountIDResult) SetAwsCloudFormationUpdateURL(v string) {
-	o.AwsCloudFormationUpdateURL = &v
 }
 
 // GetByoaInstanceIDs returns the ByoaInstanceIDs field value if set, zero value otherwise.
@@ -416,6 +415,9 @@ func (o DescribeAccountConfigByAWSAccountIDResult) MarshalJSON() ([]byte, error)
 
 func (o DescribeAccountConfigByAWSAccountIDResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AccountOnboardingDetails) {
+		toSerialize["accountOnboardingDetails"] = o.AccountOnboardingDetails
+	}
 	if !IsNil(o.AppliedSettings) {
 		toSerialize["appliedSettings"] = o.AppliedSettings
 	}
@@ -426,9 +428,6 @@ func (o DescribeAccountConfigByAWSAccountIDResult) ToMap() (map[string]interface
 	}
 	if !IsNil(o.AwsCloudFormationTemplateURL) {
 		toSerialize["awsCloudFormationTemplateURL"] = o.AwsCloudFormationTemplateURL
-	}
-	if !IsNil(o.AwsCloudFormationUpdateURL) {
-		toSerialize["awsCloudFormationUpdateURL"] = o.AwsCloudFormationUpdateURL
 	}
 	if !IsNil(o.ByoaInstanceIDs) {
 		toSerialize["byoaInstanceIDs"] = o.ByoaInstanceIDs
@@ -492,12 +491,12 @@ func (o *DescribeAccountConfigByAWSAccountIDResult) UnmarshalJSON(data []byte) (
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "accountOnboardingDetails")
 		delete(additionalProperties, "appliedSettings")
 		delete(additionalProperties, "awsAccountID")
 		delete(additionalProperties, "awsBootstrapRoleARN")
 		delete(additionalProperties, "awsCloudFormationNoLBTemplateURL")
 		delete(additionalProperties, "awsCloudFormationTemplateURL")
-		delete(additionalProperties, "awsCloudFormationUpdateURL")
 		delete(additionalProperties, "byoaInstanceIDs")
 		delete(additionalProperties, "cloudProviderId")
 		delete(additionalProperties, "description")

@@ -234,6 +234,20 @@ func Test_fleet_MarketplaceApiAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test MarketplaceApiAPIService MarketplaceApiReassignMarketplaceFulfillment", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		resp, httpRes, err := apiClient.MarketplaceApiAPI.MarketplaceApiReassignMarketplaceFulfillment(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test MarketplaceApiAPIService MarketplaceApiRedeemHandoff", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

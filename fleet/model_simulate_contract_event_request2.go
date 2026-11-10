@@ -20,6 +20,8 @@ var _ MappedNullable = &SimulateContractEventRequest2{}
 
 // SimulateContractEventRequest2 struct for SimulateContractEventRequest2
 type SimulateContractEventRequest2 struct {
+	// Required for purchase: AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE, matching the selected sandbox listing mapping. Other lifecycle controls retain the contract's billing provider
+	BillingProvider *string `json:"billingProvider,omitempty"`
 	// The simulated buyer. Defaults to a value derived from the run, and supplying the same one twice is how an ISV rehearses a returning buyer accumulating a second contract against one organization
 	BuyerRef *string `json:"buyerRef,omitempty"`
 	Control string `json:"control"`
@@ -50,6 +52,38 @@ func NewSimulateContractEventRequest2(control string) *SimulateContractEventRequ
 func NewSimulateContractEventRequest2WithDefaults() *SimulateContractEventRequest2 {
 	this := SimulateContractEventRequest2{}
 	return &this
+}
+
+// GetBillingProvider returns the BillingProvider field value if set, zero value otherwise.
+func (o *SimulateContractEventRequest2) GetBillingProvider() string {
+	if o == nil || IsNil(o.BillingProvider) {
+		var ret string
+		return ret
+	}
+	return *o.BillingProvider
+}
+
+// GetBillingProviderOk returns a tuple with the BillingProvider field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SimulateContractEventRequest2) GetBillingProviderOk() (*string, bool) {
+	if o == nil || IsNil(o.BillingProvider) {
+		return nil, false
+	}
+	return o.BillingProvider, true
+}
+
+// HasBillingProvider returns a boolean if a field has been set.
+func (o *SimulateContractEventRequest2) HasBillingProvider() bool {
+	if o != nil && !IsNil(o.BillingProvider) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingProvider gets a reference to the given string and assigns it to the BillingProvider field.
+func (o *SimulateContractEventRequest2) SetBillingProvider(v string) {
+	o.BillingProvider = &v
 }
 
 // GetBuyerRef returns the BuyerRef field value if set, zero value otherwise.
@@ -214,6 +248,9 @@ func (o SimulateContractEventRequest2) MarshalJSON() ([]byte, error) {
 
 func (o SimulateContractEventRequest2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.BillingProvider) {
+		toSerialize["billingProvider"] = o.BillingProvider
+	}
 	if !IsNil(o.BuyerRef) {
 		toSerialize["buyerRef"] = o.BuyerRef
 	}
@@ -270,6 +307,7 @@ func (o *SimulateContractEventRequest2) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "billingProvider")
 		delete(additionalProperties, "buyerRef")
 		delete(additionalProperties, "control")
 		delete(additionalProperties, "marketplaceContractId")

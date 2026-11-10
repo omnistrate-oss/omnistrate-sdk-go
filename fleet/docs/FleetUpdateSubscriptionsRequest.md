@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AllowCreatesWhenPaymentNotConfigured** | Pointer to **bool** | Whether to allow creating instances when payment is not configured. | [optional] 
 **AllowedDeploymentLocations** | Pointer to [**[]SubscriptionAllowedDeploymentLocation**](SubscriptionAllowedDeploymentLocation.md) | The subscription-level deployment location restriction. Omit to leave unchanged. Set to an empty array to inherit the product tier deployment locations. | [optional] 
-**BillingProvider** | Pointer to **string** | The billing provider type | [optional] 
+**BillingProvider** | Pointer to **string** | The billing provider type: STRIPE, BRING_YOUR_OWN, AWS_MARKETPLACE, GCP_MARKETPLACE or AZURE_MARKETPLACE. Deprecated: MARKETPLACE is retained for legacy channel billing bindings and does not identify one cloud marketplace | [optional] 
 **CustomPrice** | Pointer to **bool** | Whether to use a custom price for this subscription | [optional] 
 **CustomPricePerUnit** | Pointer to **map[string]interface{}** | If customPrice is true, provide the price per unit for the subscription here. | [optional] 
 **EnvironmentId** | **string** | ID of a Service Environment | 
